@@ -1,0 +1,223 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: yellow;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+nav {
+    background-color: #333;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    box-shadow: 0 4px 0px #000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+}
+
+nav a:hover {
+    background-color: #555;
+    text-decoration: underline;
+}
+
+nav a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+header {
+    text-align: center;
+    margin: 20px 0;
+}
+
+h1 {
+    color: #333;
+    border-bottom: 2px solid #000;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.main-container {
+    display: flex;
+    gap: 20px;
+    flex: 1;
+    padding: 0 20px 20px 20px;
+}
+
+.instructions-panel {
+    flex: 1;
+    background-color: #fff;
+    padding: 15px;
+    border: 3px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px #000;
+}
+
+.playground-container {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.editor-area, .console-area {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+textarea {
+    height: 250px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+    padding: 10px;
+    border: 3px solid #000;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #000;
+}
+
+#console {
+    height: 200px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #fff;
+    color: #000;
+    padding: 10px;
+    border: 3px solid #000;
+    border-radius: 10px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 3px solid #000;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: transform 0.1s, box-shadow 0.1s;
+    box-shadow: 4px 4px 0px #000;
+}
+
+button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px #000;
+}
+
+.btn-run { background-color: #4CAF50; color: white; }
+.btn-clear { background-color: #f44336; color: white; }
+.btn-example { background-color: #2196F3; color: white; }
+
+.log-entry {
+    margin-bottom: 8px;
+    padding: 5px;
+    border-bottom: 1px dashed #ccc;
+}
+
+.error-entry {
+    color: #d32f2f;
+    background-color: #ffebee;
+    border-left: 5px solid #d32f2f;
+    padding-left: 10px;
+}
+
+.info-entry {
+    color: #666;
+    font-style: italic;
+}
+
+code {
+    background-color: #eee;
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+pre {
+    background-color: #f8f8f8;
+    padding: 10px;
+    border: 1px solid #ddd;
+    overflow-x: auto;
+}
+
+/* Exercises Page Specific Styles */
+.exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.exercise-card {
+    background-color: white;
+    border: 3px solid #000;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 5px 5px 0px #000;
+}
+
+.exercise-card h3 {
+    margin-top: 0;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+.exercise-card p {
+    color: #555;
+}
+
+.btn-practice {
+    background-color: #FFC107;
+    color: #000;
+    font-size: 14px;
+    padding: 8px 16px;
+    margin-top: 10px;
+}
+
+.example-code {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+}
+
+.example-code h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.example-code pre {
+    margin: 0;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    overflow-x: auto;
+}

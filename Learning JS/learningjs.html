@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning JavaScript - Complete Guide</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .learning-section {
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 5px solid #2196F3;
+            background-color: #f9f9f9;
+        }
+        .learning-section h2 {
+            color: #1976D2;
+            margin-top: 0;
+        }
+        .code-block {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+        }
+        .concept-box {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #1976D2;
+        }
+        .concept-box strong {
+            color: #1976D2;
+        }
+        .try-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px 10px 0;
+        }
+        .try-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningjs.html" class="active">Learning JS</a>
+    </nav>
+
+    <header>
+        <h1>Learn JavaScript - Complete Tutorial</h1>
+        <p>Master JavaScript fundamentals with clear examples and explanations</p>
+    </header>
+
+    <div class="main-container">
+        <div class="instructions-panel">
+            <h2>Learning Path</h2>
+            <ol>
+                <li><strong>Variables & Data Types</strong> - Store and manage data</li>
+                <li><strong>Math Operations</strong> - Perform calculations</li>
+                <li><strong>String Manipulation</strong> - Work with text</li>
+                <li><strong>Conditional Logic</strong> - Make decisions in code</li>
+                <li><strong>Arrays</strong> - Store multiple values</li>
+                <li><strong>Loops</strong> - Repeat code efficiently</li>
+                <li><strong>Functions</strong> - Organize reusable code</li>
+                <li><strong>Objects</strong> - Group related data</li>
+                <li><strong>DOM & Events</strong> - Interact with web pages</li>
+            </ol>
+        </div>
+
+        <div style="flex: 1; padding: 20px;">
+            <!-- Section 1: Variables & Data Types -->
+            <div class="learning-section">
+                <h2>1. Variables & Data Types</h2>
+                <p>Variables are containers for storing data values. JavaScript has several data types:</p>
+                
+                <div class="concept-box">
+                    <strong>What is a Variable?</strong> A variable is a named container that holds a value. You can declare variables using <code>let</code>, <code>const</code>, or <code>var</code>.
+                </div>
+
+                <div class="code-block">
+                    <code>// Declaring variables
+let name = "John";          // String
+let age = 25;               // Number
+let isStudent = true;        // Boolean
+const city = "New York";    // Constant (cannot be changed)
+
+console.log(name);          // Output: John
+console.log(age);           // Output: 25
+console.log(isStudent);     // Output: true</code>
+                </div>
+
+                <div class="concept-box">
+                    <strong>Data Types:</strong>
+                    <ul>
+                        <li><strong>String:</strong> Text data (enclosed in quotes)</li>
+                        <li><strong>Number:</strong> Integers and decimals</li>
+                        <li><strong>Boolean:</strong> true or false</li>
+                        <li><strong>Undefined:</strong> Variable declared but not assigned</li>
+                        <li><strong>Null:</strong> Intentional absence of value</li>
+                    </ul>
+                </div>
+
+                <button class="try-button" onclick="alert('Try this in the Playground:\nlet name = \"Alex\";\nlet score = 95;\nconsole.log(name + \" scored \" + score);')">Try Example</button>
+            </div>
+
+            <!-- Section 2: Math Operations -->
+            <div class="learning-section">
+                <h2>2. Math Operations</h2>
+                <p>Perform mathematical calculations using arithmetic operators:</p>
+
+                <div class="concept-box">
+                    <strong>Arithmetic Operators:</strong>
+                    <ul>
+                        <li><strong>+</strong> Addition</li>
+                        <li><strong>-</strong> Subtraction</li>
+                        <li><strong>*</strong> Multiplication</li>
+                        <li><strong>/</strong> Division</li>
+                        <li><strong>%</strong> Modulus (remainder)</li>
+                        <li><strong>**</strong> Exponentiation (power)</li>
+                    </ul>
+                </div>
+
+                <div class="code-block">
+                    <code>// Example: Basic Math
+let num1 = 20;
+let num2 = 5;
+
+console.log("Addition:", num1 + num2);        // 25
+console.log("Subtraction:", num1 - num2);    // 15
+console.log("Multiplication:", num1 * num2); // 100
+console.log("Division:", num1 / num2);       // 4
+console.log("Remainder:", num1 % num2);      // 0
+console.log("Power:", num1 ** 2);            // 400</code>
+                </div>
+
+                <div class="concept-box">
+                    <strong>Order of Operations:</strong> JavaScript follows PEMDAS (Parentheses, Exponents, Multiplication, Division, Addition, Subtraction). Use parentheses to control the order!
+                </div>
+
+                <button class="try-button" onclick="alert('Try this in the Playground:\nlet price = 100;\nlet discount = 0.1;\nlet finalPrice = price * (1 - discount);\nconsole.log(\"Final Price: $\" + finalPrice);')">Try Example</button>
+            </div>
+
+            <!-- Section 3: String Manipulation -->
+            <div class="learning-section">
+                <h2>3. String Manipulation</h2>
+                <p>Work with text using string methods and concatenation:</p>
+
+                <div class="concept-box">
+                    <strong>String Concatenation:</strong> Combine strings using the <code>+</code> operator or template literals using backticks.
+                </div>
+
+                <div class="code-block">
+                    <code>// String concatenation and methods
+let firstName = "John";
+let lastName = "Doe";
+let fullName = firstName + " " + lastName;
+
+console.log(fullName);                    // John Doe
+console.log(fullName.toUpperCase());      // JOHN DOE
+console.log(fullName.toLowerCase());      // john doe
+console.log(fullName.length);             // 8
+console.log(fullName.charAt(0));          // J
+console.log(fullName.substring(0, 4));    // John
+
+// Template Literals (modern way)
+let greeting = `Hello, ${firstName}! Welcome back.`;
+console.log(greeting);</code>
+                </div>
+
+                <div class="concept-box">
+                    <strong>Common String Methods:</strong>
+                    <ul>
+                        <li><code>.toUpperCase()</code> - Convert to uppercase</li>
+                        <li><code>.toLowerCase()</code> - Convert to lowercase</li>
+                        <li><code>.length</code> - Get string length</li>
+                        <li><code>.trim()</code> - Remove whitespace</li>
+                        <li><code>.includes()</code> - Check if contains text</li>
+                    </ul>
+                </div>
+
+                <button class="try-button" onclick="alert('Try this in the Playground:\nlet text = \"JavaScript\";\nconsole.log(\"Length: \" + text.length);\nconsole.log(\"First 4 chars: \" + text.substring(0, 4));\nconsole.log(\"Uppercase: \" + text.toUpperCase());')">Try Example</button>
+            </div>
+
+            <!-- Section 4: Conditional Logic -->
+            <div class="learning-section">
+                <h2>4. Conditional Logic</h2>
+                <p>Make decisions in your code using if/else statements:</p>
+
+                <div class="concept-box">
+                    <strong>Conditional Statements:</strong> Use <code>if</code>, <code>else if</code>, and <code>else</code> to execute different code based on conditions.
+                </div>
+
+                <div class="code-block">
+                    <code>// Grade assignment based on score
+let score = 85;
+let grade;
+
+if (score >= 90) {
+    grade = "A";
+} else if (score >= 80) {
+    grade = "B";
+} else if (score >= 70) {
+    grade = "C";
+} else if (score >= 60) {
+    grade = "D";
+} else {
+    grade = "F";
+}
+
+console.log("Score: " + score);
+console.log("Grade: " + grade);  // B
+
+// Comparison operators
+console.log(15 > 10);   // true
+console.log(5 == 5);    // true
+console.log(10 !== 5);  // true (not equal)</code>
+                </div>
+
+                <div class="concept-box">
+                    <strong>Comparison Operators:</strong>
+                    <ul>
+                        <li><code>==</code> Equal to</li>
+                        <li><code>===</code> Strictly equal to (type matters)</li>
+                        <li><code>!=</code> Not equal to</li>
+                        <li><code>></code> Greater than</li>
+                        <li><code><</code> Less than</li>
+                        <li><code>>=</code> Greater or equal</li>
+                    </ul>
+                </div>
+
+                <button class="try-button" onclick="alert('Try this in the Playground:\nlet age = 18;\nif (age >= 18) {\n    console.log(\"You are an adult\");\n} else {\n    console.log(\"You are a minor\");\n}')">Try Example</button>
+            </div>
+
+            <!-- Section 5: Arrays -->
+            <div class="learning-section">
+                <h2>5. Arrays</h2>
+                <p>Store multiple values in a single variable:</p>
+
+                <div class="concept-box">
+                    <strong>What is an Array?</strong> An array is a collection of values stored in a single variable. Each value has an index starting from 0.
+                </div>
+
+                <div class="code-block">
+                    <code>// Creating and accessing arrays
+let fruits = ["Apple", "Banana", "Cherry", "Date"];
+
+console.log(fruits[0]);        // Apple (first element)
+console.log(fruits.length);    // 4
+
+// Array methods
+fruits.push("Elderberry");     // Add to end
+console.log(fruits);           // ["Apple", "Banana", "Cherry", "Date", "Elderberry"]
+
+let first = fruits.shift();    // Remove from start
+console.log(first);            // Apple
+
+fruits.unshift("Apricot");     // Add to start
+console.log(fruits);           // ["Apricot", "Banana", "Cherry", "Date", "Elderberry"]</code>
+                </div>
+
+                <div class="concept-box">
+                    <strong>Common Array Methods:</strong>
+                    <ul>
+                        <li><code>.push()</code> - Add to end</li>
+                        <li><code>.pop()</code> - Remove from end</li>
+                        <li><code>.shift()</code> - Remove from start</li>
+                        <li><code>.unshift()</code> - Add to start</li>
+                        <li><code>.length</code> - Get size</li>
+                        <li><code>.includes()</code> - Check if contains</li>
+                    </ul>
+                </div>
+
+                <button class="try-button" onclick="alert('Try this in the Playground:\nlet colors = [\"red\", \"green\", \"blue\"];\ncolors.push(\"yellow\");\nconsole.log(colors);\nconsole.log(\"Length: \" + colors.length);')">Try Example</button>
+            </div>
+
+            <!-- Section 6: Loops -->
+            <div class="learning-section">
+                <h2>6. Loops</h2>
+                <p>Repeat code multiple times efficiently:</p>
+
+                <div class="concept-box">
+                    <strong>Loop Types:</strong> Use loops to execute code repeatedly. Common types: <code>for</code>, <code>while</code>, and <code>forEach</code>.
+                </div>
+
+                <div class="code-block">
+                    <code>// For loop
+for (let i = 1; i <= 5; i++) {
+    console.log("Count: " + i);
+}
+
+// For loop with array
+let fruits = ["Apple", "Banana", "Cherry"];
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}
+
+// forEach method
+fruits.forEach(function(fruit) {
+    console.log("Fruit: " + fruit);
+});
+
+// While loop
+let x = 1;
+while (x <= 3) {
+    console.log("x = " + x);
+    x++;
+}</code>
+                </div>
+
+                <div class="concept-box">
+                    <strong>For Loop Syntax:</strong> <code>for (initialization; condition; increment) { code }</code>
+                </div>
+
+                <button class="try-button" onclick="alert('Try this in the Playground:\nlet numbers = [10, 20, 30, 40];\nfor (let i = 0; i < numbers.length; i++) {\n    console.log(\"Number: \" + numbers[i]);\n}')">Try Example</button>
+            </div>
+
+            <!-- Section 7: Functions -->
+            <div class="learning-section">
+                <h2>7. Functions</h2>
+                <p>Create reusable blocks of code:</p>
+
+                <div class="concept-box">
+                    <strong>What is a Function?</strong> A function is a reusable block of code that performs a specific task. Functions can take parameters and return values.
+                </div>
+
+                <div class="code-block">
+                    <code>// Simple function
+function greet(name) {
+    return "Hello, " + name + "!";
+}
+
+console.log(greet("Alice"));    // Hello, Alice!
+console.log(greet("Bob"));      // Hello, Bob!
+
+// Function with multiple parameters
+function add(a, b) {
+    return a + b;
+}
+
+let result = add(10, 20);
+console.log("Result: " + result);  // Result: 30
+
+// Function with no parameters
+function getCurrentTime() {
+    return new Date().toLocaleTimeString();
+}
+
+console.log(getCurrentTime());</code>
+                </div>
+
+                <div class="concept-box">
+                    <strong>Function Syntax:</strong> <code>function name(parameters) { return value; }</code>
+                </div>
+
+                <button class="try-button" onclick="alert('Try this in the Playground:\nfunction multiply(x, y) {\n    return x * y;\n}\nconsole.log(\"5 × 6 = \" + multiply(5, 6));\nconsole.log(\"10 × 3 = \" + multiply(10, 3));')">Try Example</button>
+            </div>
+
+            <!-- Section 8: Objects -->
+            <div class="learning-section">
+                <h2>8. Objects</h2>
+                <p>Group related data and functions together:</p>
+
+                <div class="concept-box">
+                    <strong>What is an Object?</strong> An object is a collection of properties (key-value pairs). Properties can be data or functions (methods).
+                </div>
+
+                <div class="code-block">
+                    <code>// Creating an object
+let person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 30,
+    city: "New York",
+    getFullName: function() {
+        return this.firstName + " " + this.lastName;
+    }
+};
+
+// Accessing properties
+console.log(person.firstName);      // John
+console.log(person["age"]);         // 30
+console.log(person.getFullName());  // John Doe
+
+// Modifying properties
+person.age = 31;
+person.email = "john@example.com";  // Add new property
+
+console.log(person);</code>
+                </div>
+
+                <div class="concept-box">
+                    <strong>Accessing Object Properties:</strong> Use dot notation (<code>object.property</code>) or bracket notation (<code>object["property"]</code>).
+                </div>
+
+                <button class="try-button" onclick="alert('Try this in the Playground:\nlet car = {\n    brand: \"Toyota\",\n    color: \"blue\",\n    year: 2022\n};\nconsole.log(\"Car: \" + car.brand);\nconsole.log(\"Color: \" + car.color);\nconsole.log(\"Year: \" + car.year);')">Try Example</button>
+            </div>
+
+            <!-- Section 9: DOM & Events -->
+            <div class="learning-section">
+                <h2>9. DOM & Events</h2>
+                <p>Interact with HTML elements and handle user actions:</p>
+
+                <div class="concept-box">
+                    <strong>What is the DOM?</strong> The DOM (Document Object Model) is the interface to interact with HTML elements in the browser.
+                </div>
+
+                <div class="code-block">
+                    <code>// Select elements
+let element = document.getElementById("myId");
+let elements = document.getElementsByClassName("myClass");
+let heading = document.querySelector("h1");
+
+// Change element properties
+element.textContent = "New text";
+element.style.color = "blue";
+element.style.fontSize = "20px";
+
+// Add/Remove classes
+element.classList.add("active");
+element.classList.remove("inactive");
+
+// Event listeners
+let button = document.querySelector("button");
+button.addEventListener("click", function() {
+    console.log("Button clicked!");
+    element.style.display = "none";
+});</code>
+                </div>
+
+                <div class="concept-box">
+                    <strong>Common DOM Methods:</strong>
+                    <ul>
+                        <li><code>getElementById()</code> - Get by ID</li>
+                        <li><code>getElementsByClassName()</code> - Get by class</li>
+                        <li><code>querySelector()</code> - Get by CSS selector</li>
+                        <li><code>textContent</code> - Get/set text</li>
+                        <li><code>addEventListener()</code> - Add event listener</li>
+                    </ul>
+                </div>
+
+                <button class="try-button" onclick="alert('Try this in the Playground:\nlet p = document.createElement(\"p\");\np.textContent = \"Hello from JavaScript!\";\np.style.color = \"green\";\np.style.fontSize = \"18px\";\ndocument.body.appendChild(p);')">Try Example</button>
+            </div>
+
+            <hr>
+            <div style="background-color: #e8f5e9; padding: 20px; border-radius: 5px; margin-top: 30px;">
+                <h3>Ready to Practice?</h3>
+                <p>Now that you've learned the basics, head to the <strong>Exercises</strong> section to test your knowledge and solve problems!</p>
+                <a href="exercises.html" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Go to Exercises</a>
+                &nbsp;
+                <a href="index.html" style="background-color: #2196F3; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block;">Use Playground</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
