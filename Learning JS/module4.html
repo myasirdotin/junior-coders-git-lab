@@ -3,46 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 4: Learn conditional logic in JavaScript including comparison operators, logical operators, if/else statements, ternary operator, and switch statements.">
     <title>Module 4: Conditional Logic</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
-        .module-header h1 { color: white; border: none; margin: 0; }
-        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
-        .back-link:hover { text-decoration: underline; }
-        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
-        .content-section h2 { color: #667eea; margin-top: 0; }
-        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
-        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
-        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
-        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
-        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
-        .key-point strong { color: #1976D2; }
-        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
-        .tip-box strong { color: #2E7D32; }
-        .warning-box { background: #fff3e0; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #FF9800; }
-        .warning-box strong { color: #E65100; }
-        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
-        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
-        .btn-nav:hover { background: #5568d3; }
-        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
-        .complete-btn:hover { background: #45a049; }
-    </style>
 </head>
 <body>
     <nav>
         <a href="index.html">Playground</a>
         <a href="exercises.html">Exercises</a>
         <a href="learningjs.html" class="active">Learning JS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
     </nav>
 
     <div class="module-container">
         <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
-        
+
         <div class="module-header">
             <h1>Module 4: Conditional Logic</h1>
             <p>⏱ 55 minutes | Week 2</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Use comparison operators (<code>===</code>, <code>!==</code>, <code>&gt;</code>, <code>&lt;</code>)</li>
+                <li>Combine conditions with logical operators (<code>&amp;&amp;</code>, <code>||</code>, <code>!</code>)</li>
+                <li>Write if/else and else if statements</li>
+                <li>Use the ternary operator and switch statements</li>
+            </ul>
         </div>
 
         <div class="content-section">
@@ -52,7 +41,7 @@
 
         <div class="content-section">
             <h2>📖 Reading Material</h2>
-            
+
             <div class="reading-material">
                 <h3>📚 What is Conditional Logic?</h3>
                 <p><strong>Conditional logic</strong> allows your code to make decisions. It executes different blocks of code based on whether a condition is <code>true</code> or <code>false</code>. Think of it like a fork in the road - your program chooses which path to take!</p>
@@ -60,7 +49,7 @@
 
             <h3>4.1 Comparison Operators</h3>
             <p>Comparison operators are used to compare values and return a boolean result:</p>
-            
+
             <div class="code-example">
                 <code>let x = 10;
 let y = 5;
@@ -90,7 +79,7 @@ console.log(y <= 5);    // true</code>
 
             <h3>4.2 Logical Operators</h3>
             <p>Logical operators allow you to combine multiple conditions:</p>
-            
+
             <div class="code-example">
                 <code>let age = 25;
 let hasLicense = true;
@@ -122,7 +111,7 @@ console.log(`Needs a ride: ${needsRide}`); // "Needs a ride: true"</code>
 
             <h3>4.3 if/else Statements</h3>
             <p>The <code>if</code> statement executes code only when a condition is true:</p>
-            
+
             <div class="code-example">
                 <code>// Basic if statement
 let temperature = 30;
@@ -172,7 +161,7 @@ if (hour >= 9 && hour <= 17 && day !== "Saturday" && day !== "Sunday") {
 
             <h3>4.4 Truthy and Falsy Values</h3>
             <p>In JavaScript, values can be "truthy" or "falsy" when evaluated in a boolean context:</p>
-            
+
             <div class="code-example">
                 <code>// Falsy values (evaluate to false)
 // 1. false
@@ -210,7 +199,7 @@ console.log(userName); // "Guest"</code>
 
             <h3>4.5 Ternary Operator</h3>
             <p>The ternary operator is a shorthand for simple if/else statements:</p>
-            
+
             <div class="code-example">
                 <code>// Syntax: condition ? valueIfTrue : valueIfFalse
 
@@ -248,7 +237,7 @@ let message = isLoggedIn ? greetUser() : promptLogin();</code>
 
             <h3>4.6 Switch Statement</h3>
             <p>The <code>switch</code> statement is useful when you have many conditions to check against the same value:</p>
-            
+
             <div class="code-example">
                 <code>let day = "Monday";
 
@@ -292,6 +281,16 @@ console.log(monthName); // "March"</code>
         </div>
 
         <div class="content-section">
+            <h2>Common Mistakes</h2>
+            <ul>
+                <li><strong>Using <code>=</code> (assignment) instead of <code>===</code> (comparison)</strong> - A single equals sign assigns a value; it does not compare. This is one of the most frequent bugs in beginner code.</li>
+                <li><strong>Forgetting <code>break</code> in switch statements (fall-through bug)</strong> - Without <code>break</code>, execution continues into the next case block, which is usually unintended.</li>
+                <li><strong>Using <code>==</code> instead of <code>===</code> (loose equality allows type coercion)</strong> - Loose equality can produce surprising results like <code>"0" == false</code> being <code>true</code>. Always prefer strict equality.</li>
+                <li><strong>Not handling all possible conditions (missing else/default)</strong> - Always include an <code>else</code> or <code>default</code> clause to handle unexpected values gracefully.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
             <h2>Practice</h2>
             <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
             <ol>
@@ -304,6 +303,35 @@ console.log(monthName); // "March"</code>
             </ol>
         </div>
 
+        <div class="content-section">
+            <h2>Check Your Understanding</h2>
+            <form id="quiz-form-4" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: What does === check that == does not?</p>
+                    <label><input type="radio" name="q4-1" value="a"> a) Value only</label>
+                    <label><input type="radio" name="q4-1" value="b"> b) Value and type</label>
+                    <label><input type="radio" name="q4-1" value="c"> c) Type only</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q2: What does <code>true && false</code> evaluate to?</p>
+                    <label><input type="radio" name="q4-2" value="a"> a) true</label>
+                    <label><input type="radio" name="q4-2" value="b"> b) false</label>
+                    <label><input type="radio" name="q4-2" value="c"> c) undefined</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: What keyword prevents fall-through in a switch?</p>
+                    <label><input type="radio" name="q4-3" value="a"> a) stop</label>
+                    <label><input type="radio" name="q4-3" value="b"> b) return</label>
+                    <label><input type="radio" name="q4-3" value="c"> c) break</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="quiz-submit" onclick="checkQuiz(4)">Check Answers</button>
+                <div id="quiz-score-4" class="quiz-score"></div>
+            </form>
+        </div>
+
         <div class="nav-buttons">
             <a href="module3.html" class="btn-nav">← Previous</a>
             <button class="complete-btn" onclick="markComplete(4)">✓ Mark as Complete</button>
@@ -311,18 +339,6 @@ console.log(monthName); // "March"</code>
         </div>
     </div>
 
-    <script>
-        function markComplete(moduleNum) {
-            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
-            if (!completed.includes(moduleNum)) {
-                completed.push(moduleNum);
-                localStorage.setItem('completedModules', JSON.stringify(completed));
-                localStorage.setItem('jsCourseProgress', completed.length);
-                alert('🎉 Module 4 completed! Keep going!');
-            } else {
-                alert('You already completed this module!');
-            }
-        }
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>

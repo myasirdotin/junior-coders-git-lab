@@ -3,46 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 3: Learn JavaScript string manipulation including template literals, string methods like toUpperCase, slice, split, and string immutability.">
     <title>Module 3: String Manipulation</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
-        .module-header h1 { color: white; border: none; margin: 0; }
-        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
-        .back-link:hover { text-decoration: underline; }
-        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
-        .content-section h2 { color: #667eea; margin-top: 0; }
-        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
-        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
-        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
-        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
-        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
-        .key-point strong { color: #1976D2; }
-        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
-        .tip-box strong { color: #2E7D32; }
-        .warning-box { background: #fff3e0; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #FF9800; }
-        .warning-box strong { color: #E65100; }
-        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
-        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
-        .btn-nav:hover { background: #5568d3; }
-        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
-        .complete-btn:hover { background: #45a049; }
-    </style>
 </head>
 <body>
     <nav>
         <a href="index.html">Playground</a>
         <a href="exercises.html">Exercises</a>
         <a href="learningjs.html" class="active">Learning JS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
     </nav>
 
     <div class="module-container">
         <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
-        
+
         <div class="module-header">
             <h1>Module 3: String Manipulation</h1>
             <p>⏱ 50 minutes | Week 2</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Create and manipulate strings</li>
+                <li>Use template literals for string formatting</li>
+                <li>Apply essential string methods (toUpperCase, slice, split, etc.)</li>
+                <li>Understand that strings are immutable</li>
+            </ul>
         </div>
 
         <div class="content-section">
@@ -52,7 +41,7 @@
 
         <div class="content-section">
             <h2>📖 Reading Material</h2>
-            
+
             <div class="reading-material">
                 <h3>📚 What are Strings?</h3>
                 <p>A <strong>string</strong> is a sequence of characters used to represent text. In JavaScript, strings are wrapped in quotes - either single (<code>'</code>), double (<code>"</code>), or backticks (<code>`</code>).</p>
@@ -60,7 +49,7 @@
 
             <h3>3.1 String Concatenation</h3>
             <p>Concatenation means joining two or more strings together:</p>
-            
+
             <div class="code-example">
                 <code>// Using the + operator
 let firstName = "John";
@@ -84,7 +73,7 @@ console.log(message); // "I am 25 years old"</code>
 
             <h3>3.2 Template Literals</h3>
             <p>Template literals (introduced in ES6) provide an easier way to work with strings using backticks (<code>`</code>) and embedded expressions:</p>
-            
+
             <div class="code-example">
                 <code>// Basic template literal
 let name = "Alice";
@@ -114,7 +103,7 @@ console.log(`Hello, ${getName()}!`); // "Hello, Bob!"</code>
 
             <h3>3.3 String Methods</h3>
             <p>JavaScript provides many built-in methods to manipulate strings:</p>
-            
+
             <div class="code-example">
                 <code>let text = "  Hello, JavaScript World!  ";
 
@@ -157,7 +146,7 @@ console.log(fruits.split(",")); // ["apple", "banana", "cherry"]</code>
 
             <h3>3.4 Accessing Characters</h3>
             <p>You can access individual characters in a string using bracket notation:</p>
-            
+
             <div class="code-example">
                 <code>let word = "Hello";
 
@@ -176,6 +165,16 @@ console.log(word.charCodeAt(0)); // 72 (ASCII code for 'H')</code>
         </div>
 
         <div class="content-section">
+            <h2>Common Mistakes</h2>
+            <ul>
+                <li><strong>Forgetting that <code>"5" + 3</code> equals <code>"53"</code> not <code>8</code></strong> - The <code>+</code> operator concatenates when one operand is a string. Use <code>Number()</code> to convert first.</li>
+                <li><strong>Thinking string methods modify the original string (they don't - strings are immutable)</strong> - Methods like <code>toUpperCase()</code> and <code>slice()</code> return a new string; the original is unchanged.</li>
+                <li><strong>Mixing up <code>slice()</code> and <code>splice()</code></strong> - <code>splice()</code> is for arrays, not strings. Use <code>slice()</code> for extracting parts of a string.</li>
+                <li><strong>Not using <code>trim()</code> when processing user input</strong> - Users often accidentally add extra spaces. Always <code>trim()</code> input before comparing or storing it.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
             <h2>Practice</h2>
             <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
             <ol>
@@ -187,6 +186,35 @@ console.log(word.charCodeAt(0)); // 72 (ASCII code for 'H')</code>
             </ol>
         </div>
 
+        <div class="content-section">
+            <h2>Check Your Understanding</h2>
+            <form id="quiz-form-3" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: What does <code>'Hello' + ' ' + 'World'</code> return?</p>
+                    <label><input type="radio" name="q3-1" value="a"> a) HelloWorld</label>
+                    <label><input type="radio" name="q3-1" value="b"> b) Hello World</label>
+                    <label><input type="radio" name="q3-1" value="c"> c) Error</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: What does <code>'JavaScript'.slice(0, 4)</code> return?</p>
+                    <label><input type="radio" name="q3-2" value="a"> a) Java</label>
+                    <label><input type="radio" name="q3-2" value="b"> b) JavaS</label>
+                    <label><input type="radio" name="q3-2" value="c"> c) Scri</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: Which creates a multi-line string?</p>
+                    <label><input type="radio" name="q3-3" value="a"> a) Single quotes</label>
+                    <label><input type="radio" name="q3-3" value="b"> b) Double quotes</label>
+                    <label><input type="radio" name="q3-3" value="c"> c) Backticks (template literals)</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="quiz-submit" onclick="checkQuiz(3)">Check Answers</button>
+                <div id="quiz-score-3" class="quiz-score"></div>
+            </form>
+        </div>
+
         <div class="nav-buttons">
             <a href="module2.html" class="btn-nav">← Previous</a>
             <button class="complete-btn" onclick="markComplete(3)">✓ Mark as Complete</button>
@@ -194,18 +222,6 @@ console.log(word.charCodeAt(0)); // 72 (ASCII code for 'H')</code>
         </div>
     </div>
 
-    <script>
-        function markComplete(moduleNum) {
-            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
-            if (!completed.includes(moduleNum)) {
-                completed.push(moduleNum);
-                localStorage.setItem('completedModules', JSON.stringify(completed));
-                localStorage.setItem('jsCourseProgress', completed.length);
-                alert('🎉 Module 3 completed! Keep going!');
-            } else {
-                alert('You already completed this module!');
-            }
-        }
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>

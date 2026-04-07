@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JavaScript glossary of essential terms and definitions for beginners. Quick reference for variables, functions, arrays, objects, and more.">
+    <title>JavaScript Glossary - Learning JS</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningjs.html">Learning JS</a>
+        <a href="glossary.html" class="active">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <div class="glossary-container">
+        <div class="glossary-header">
+            <h1>JavaScript Glossary</h1>
+            <p>Quick reference for essential JavaScript terms</p>
+        </div>
+
+        <input type="text" id="glossary-search" class="glossary-search" placeholder="Search terms..." oninput="filterGlossary()" aria-label="Search glossary terms">
+
+        <!-- A -->
+        <div class="glossary-letter">A</div>
+
+        <dl class="glossary-term">
+            <dt>Argument</dt>
+            <dd>The actual value passed to a function when it is called. Example: in <code>greet("Alice")</code>, <code>"Alice"</code> is the argument.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Array</dt>
+            <dd>An ordered collection of values stored in a single variable. Created with square brackets: <code>let fruits = ["apple", "banana"]</code>. Each item has a numeric index starting from 0.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Arrow Function</dt>
+            <dd>A shorter syntax for writing functions using <code>=></code>. Example: <code>const add = (a, b) => a + b</code>. Arrow functions don't have their own <code>this</code> binding.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Assignment Operator</dt>
+            <dd>The <code>=</code> operator that assigns a value to a variable. Example: <code>let x = 10</code>. Not to be confused with <code>===</code> (equality comparison).</dd>
+        </dl>
+
+        <!-- B -->
+        <div class="glossary-letter">B</div>
+
+        <dl class="glossary-term">
+            <dt>Boolean</dt>
+            <dd>A data type with only two possible values: <code>true</code> or <code>false</code>. Used in conditional logic and comparisons.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Break</dt>
+            <dd>A statement that exits a loop or switch statement immediately. Example: <code>if (found) break;</code></dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Block Scope</dt>
+            <dd>Variables declared with <code>let</code> or <code>const</code> inside curly braces <code>{}</code> are only accessible within that block.</dd>
+        </dl>
+
+        <!-- C -->
+        <div class="glossary-letter">C</div>
+
+        <dl class="glossary-term">
+            <dt>Callback Function</dt>
+            <dd>A function passed as an argument to another function, to be called later. Example: <code>array.forEach(item => console.log(item))</code>.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Closure</dt>
+            <dd>A function that retains access to variables from its outer (enclosing) scope, even after the outer function has returned. Used for data privacy and factory patterns.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Concatenation</dt>
+            <dd>Joining two or more strings together using the <code>+</code> operator or template literals. Example: <code>"Hello" + " " + "World"</code>.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Conditional</dt>
+            <dd>A statement that executes different code based on whether a condition is true or false. Includes <code>if</code>, <code>else if</code>, <code>else</code>, and <code>switch</code>.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Console</dt>
+            <dd>A built-in object for logging output. <code>console.log()</code> prints values, <code>console.error()</code> prints errors, <code>console.warn()</code> prints warnings.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>const</dt>
+            <dd>A keyword for declaring variables that cannot be reassigned. The value itself can still be mutated if it's an object or array. Example: <code>const PI = 3.14159</code>.</dd>
+        </dl>
+
+        <!-- D -->
+        <div class="glossary-letter">D</div>
+
+        <dl class="glossary-term">
+            <dt>Data Type</dt>
+            <dd>The classification of data. JavaScript has primitive types: <code>string</code>, <code>number</code>, <code>boolean</code>, <code>undefined</code>, <code>null</code>, <code>symbol</code>, <code>bigint</code>, and the <code>object</code> type.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Destructuring</dt>
+            <dd>A syntax for extracting values from arrays or properties from objects into variables. Example: <code>const { name, age } = person</code>.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>DOM (Document Object Model)</dt>
+            <dd>A programming interface for HTML documents. It represents the page as a tree of objects that JavaScript can read and manipulate to change content, structure, and styling dynamically.</dd>
+        </dl>
+
+        <!-- E -->
+        <div class="glossary-letter">E</div>
+
+        <dl class="glossary-term">
+            <dt>Event</dt>
+            <dd>An action that occurs in the browser, such as a click, keypress, or page load. JavaScript can listen for events using <code>addEventListener()</code>.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Event Delegation</dt>
+            <dd>A pattern where you add a single event listener to a parent element instead of multiple listeners on child elements. Works because events "bubble up" through the DOM.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Event Listener</dt>
+            <dd>A function that waits for a specific event to occur on an element. Added with <code>element.addEventListener("click", handler)</code>.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Expression</dt>
+            <dd>Any piece of code that produces a value. Examples: <code>5 + 3</code>, <code>"hello".toUpperCase()</code>, <code>x > 10</code>.</dd>
+        </dl>
+
+        <!-- F -->
+        <div class="glossary-letter">F</div>
+
+        <dl class="glossary-term">
+            <dt>Falsy</dt>
+            <dd>Values that evaluate to <code>false</code> in a boolean context: <code>false</code>, <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, and <code>NaN</code>. Everything else is "truthy".</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>forEach()</dt>
+            <dd>An array method that executes a callback function for each element. Example: <code>arr.forEach(item => console.log(item))</code>. Cannot use <code>break</code> inside it.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Function</dt>
+            <dd>A reusable block of code that performs a specific task. Declared with <code>function name() {}</code> or as an arrow function <code>const name = () => {}</code>.</dd>
+        </dl>
+
+        <!-- H -->
+        <div class="glossary-letter">H</div>
+
+        <dl class="glossary-term">
+            <dt>Higher-Order Function</dt>
+            <dd>A function that takes another function as an argument or returns a function. Examples: <code>map()</code>, <code>filter()</code>, <code>reduce()</code>.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Hoisting</dt>
+            <dd>JavaScript's behavior of moving function declarations (but not expressions) to the top of their scope before execution. This allows calling a function before it's defined in the code.</dd>
+        </dl>
+
+        <!-- I -->
+        <div class="glossary-letter">I</div>
+
+        <dl class="glossary-term">
+            <dt>Immutable</dt>
+            <dd>Cannot be changed after creation. Strings in JavaScript are immutable - string methods return new strings rather than modifying the original.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Index</dt>
+            <dd>The numeric position of an element in an array or character in a string. Starts at 0. Example: in <code>["a","b","c"]</code>, <code>"b"</code> is at index 1.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Iteration</dt>
+            <dd>The process of repeating a set of instructions. Each pass through a loop is one iteration.</dd>
+        </dl>
+
+        <!-- J -->
+        <div class="glossary-letter">J</div>
+
+        <dl class="glossary-term">
+            <dt>JSON (JavaScript Object Notation)</dt>
+            <dd>A text format for storing and exchanging data. Looks like JavaScript objects but uses double quotes for keys. Parsed with <code>JSON.parse()</code>, created with <code>JSON.stringify()</code>.</dd>
+        </dl>
+
+        <!-- L -->
+        <div class="glossary-letter">L</div>
+
+        <dl class="glossary-term">
+            <dt>let</dt>
+            <dd>A keyword for declaring variables that can be reassigned. Block-scoped. Preferred over <code>var</code>. Example: <code>let count = 0; count++;</code></dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>localStorage</dt>
+            <dd>A Web API that stores key-value pairs in the browser with no expiration. Data persists even after the browser is closed. Use <code>setItem()</code> and <code>getItem()</code>.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Loop</dt>
+            <dd>A control structure that repeats a block of code. Types include <code>for</code>, <code>while</code>, <code>do...while</code>, <code>for...of</code>, and <code>for...in</code>.</dd>
+        </dl>
+
+        <!-- M -->
+        <div class="glossary-letter">M</div>
+
+        <dl class="glossary-term">
+            <dt>Method</dt>
+            <dd>A function that belongs to an object. Example: <code>console.log()</code> is a method of the <code>console</code> object. <code>"hello".toUpperCase()</code> is a string method.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Modulus (%)</dt>
+            <dd>An operator that returns the remainder of a division. Example: <code>10 % 3</code> returns <code>1</code>. Commonly used to check if a number is even: <code>n % 2 === 0</code>.</dd>
+        </dl>
+
+        <!-- N -->
+        <div class="glossary-letter">N</div>
+
+        <dl class="glossary-term">
+            <dt>NaN (Not a Number)</dt>
+            <dd>A special value indicating an invalid number result. Example: <code>"hello" * 2</code> returns <code>NaN</code>. Check with <code>isNaN()</code> or <code>Number.isNaN()</code>.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>null</dt>
+            <dd>A value that represents the intentional absence of any value. Different from <code>undefined</code>, which means a variable was declared but not assigned.</dd>
+        </dl>
+
+        <!-- O -->
+        <div class="glossary-letter">O</div>
+
+        <dl class="glossary-term">
+            <dt>Object</dt>
+            <dd>A collection of key-value pairs (properties and methods). Created with curly braces: <code>let obj = { name: "John", age: 30 }</code>.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Operator</dt>
+            <dd>A symbol that performs an operation on values. Includes arithmetic (<code>+</code>, <code>-</code>), comparison (<code>===</code>, <code>></code>), logical (<code>&&</code>, <code>||</code>), and assignment (<code>=</code>).</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Optional Chaining (?.)</dt>
+            <dd>A syntax that safely accesses nested properties without errors if an intermediate value is null/undefined. Example: <code>user?.address?.city</code> returns undefined instead of throwing.</dd>
+        </dl>
+
+        <!-- P -->
+        <div class="glossary-letter">P</div>
+
+        <dl class="glossary-term">
+            <dt>Parameter</dt>
+            <dd>A variable listed in a function's definition. When the function is called, the parameter receives the argument's value. Example: in <code>function greet(name)</code>, <code>name</code> is the parameter.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Property</dt>
+            <dd>A key-value pair in an object. Example: in <code>{name: "John"}</code>, <code>name</code> is the property key and <code>"John"</code> is the value.</dd>
+        </dl>
+
+        <!-- R -->
+        <div class="glossary-letter">R</div>
+
+        <dl class="glossary-term">
+            <dt>Return</dt>
+            <dd>A statement that sends a value back from a function and stops its execution. Example: <code>return a + b;</code>. Functions without return give <code>undefined</code>.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Rest Parameters (...)</dt>
+            <dd>A syntax that collects remaining arguments into an array. Example: <code>function sum(...nums) { return nums.reduce((a,b) => a+b, 0); }</code></dd>
+        </dl>
+
+        <!-- S -->
+        <div class="glossary-letter">S</div>
+
+        <dl class="glossary-term">
+            <dt>Scope</dt>
+            <dd>The area of code where a variable is accessible. JavaScript has global scope, function scope, and block scope (with <code>let</code>/<code>const</code>).</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Spread Operator (...)</dt>
+            <dd>A syntax that expands an iterable (array/object) into individual elements. Example: <code>[...arr1, ...arr2]</code> merges arrays; <code>{...obj1, ...obj2}</code> merges objects.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>String</dt>
+            <dd>A data type representing text. Created with quotes (<code>"hello"</code>, <code>'hello'</code>) or backticks (<code>`hello`</code> for template literals). Strings are immutable.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Strict Equality (===)</dt>
+            <dd>A comparison operator that checks both value and type without type coercion. <code>1 === "1"</code> is <code>false</code>. Always prefer over <code>==</code>.</dd>
+        </dl>
+
+        <!-- T -->
+        <div class="glossary-letter">T</div>
+
+        <dl class="glossary-term">
+            <dt>Template Literal</dt>
+            <dd>A string wrapped in backticks (<code>`</code>) that supports embedded expressions with <code>${}</code> and multi-line text. Example: <code>`Hello, ${name}!`</code></dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Ternary Operator</dt>
+            <dd>A shorthand for if/else that returns a value: <code>condition ? valueIfTrue : valueIfFalse</code>. Example: <code>let status = age >= 18 ? "adult" : "minor"</code>.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>this</dt>
+            <dd>A keyword that refers to the object that is executing the current method. In arrow functions, <code>this</code> is inherited from the enclosing scope.</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>Truthy</dt>
+            <dd>Any value that evaluates to <code>true</code> in a boolean context. All values are truthy except the falsy ones (<code>false</code>, <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, <code>NaN</code>).</dd>
+        </dl>
+        <dl class="glossary-term">
+            <dt>typeof</dt>
+            <dd>An operator that returns a string indicating the type of a value. Example: <code>typeof 42</code> returns <code>"number"</code>, <code>typeof "hi"</code> returns <code>"string"</code>.</dd>
+        </dl>
+
+        <!-- U -->
+        <div class="glossary-letter">U</div>
+
+        <dl class="glossary-term">
+            <dt>undefined</dt>
+            <dd>A value automatically assigned to variables that have been declared but not yet assigned a value. Also the return value of functions without a <code>return</code> statement.</dd>
+        </dl>
+
+        <!-- V -->
+        <div class="glossary-letter">V</div>
+
+        <dl class="glossary-term">
+            <dt>Variable</dt>
+            <dd>A named container for storing data values. Declared with <code>let</code> (reassignable) or <code>const</code> (not reassignable). Avoid <code>var</code> in modern JavaScript.</dd>
+        </dl>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -3,44 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 2: Learn JavaScript math operations including arithmetic operators, the Math object, random numbers, and operator precedence.">
     <title>Module 2: Math Operations</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
-        .module-header h1 { color: white; border: none; margin: 0; }
-        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
-        .back-link:hover { text-decoration: underline; }
-        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
-        .content-section h2 { color: #667eea; margin-top: 0; }
-        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
-        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
-        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
-        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
-        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
-        .key-point strong { color: #1976D2; }
-        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
-        .tip-box strong { color: #2E7D32; }
-        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
-        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
-        .btn-nav:hover { background: #5568d3; }
-        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
-        .complete-btn:hover { background: #45a049; }
-    </style>
 </head>
 <body>
     <nav>
         <a href="index.html">Playground</a>
         <a href="exercises.html">Exercises</a>
         <a href="learningjs.html" class="active">Learning JS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
     </nav>
 
     <div class="module-container">
         <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
-        
+
         <div class="module-header">
             <h1>Module 2: Math Operations</h1>
             <p>⏱ 40 minutes | Week 1</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Perform arithmetic operations (+, -, *, /, %)</li>
+                <li>Use the Math object for advanced calculations</li>
+                <li>Generate random numbers</li>
+                <li>Understand operator precedence (PEMDAS)</li>
+            </ul>
         </div>
 
         <div class="content-section">
@@ -50,7 +41,7 @@
 
         <div class="content-section">
             <h2>📖 Reading Material</h2>
-            
+
             <div class="reading-material">
                 <h3>📚 Arithmetic Operators</h3>
                 <p>JavaScript supports all standard mathematical operations.</p>
@@ -73,7 +64,7 @@ let power = 2 ** 3;      // 8 (exponentiation)</code>
             </div>
 
             <h3>2.1 The Math Object</h3>
-            
+
             <div class="code-example">
                 <code>// Math constants
 console.log(Math.PI);        // 3.14159...
@@ -104,6 +95,16 @@ console.log(randomInt(1, 6));  // Random 1-6</code>
         </div>
 
         <div class="content-section">
+            <h2>Common Mistakes</h2>
+            <ul>
+                <li><strong>Dividing by zero (returns Infinity, not an error)</strong> - JavaScript won't crash, but <code>10 / 0</code> gives <code>Infinity</code>, which can cause unexpected results.</li>
+                <li><strong>Confusing <code>Math.floor()</code> and <code>Math.round()</code></strong> - <code>Math.floor()</code> always rounds down, while <code>Math.round()</code> rounds to the nearest integer.</li>
+                <li><strong>Forgetting that <code>Math.random()</code> never returns exactly 1</strong> - It returns a value from 0 (inclusive) up to but not including 1.</li>
+                <li><strong>Using <code>+</code> with strings and numbers (concatenation vs addition)</strong> - <code>"5" + 3</code> gives <code>"53"</code>, not <code>8</code>. Use <code>Number()</code> or <code>parseInt()</code> to convert strings first.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
             <h2>Practice</h2>
             <p>Try these in the <a href="index.html">Playground</a>:</p>
             <ol>
@@ -114,6 +115,35 @@ console.log(randomInt(1, 6));  // Random 1-6</code>
             </ol>
         </div>
 
+        <div class="content-section">
+            <h2>Check Your Understanding</h2>
+            <form id="quiz-form-2" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: What does 10 % 3 return?</p>
+                    <label><input type="radio" name="q2-1" value="a"> a) 3</label>
+                    <label><input type="radio" name="q2-1" value="b"> b) 1</label>
+                    <label><input type="radio" name="q2-1" value="c"> c) 3.33</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q2: What does Math.floor(4.9) return?</p>
+                    <label><input type="radio" name="q2-2" value="a"> a) 5</label>
+                    <label><input type="radio" name="q2-2" value="b"> b) 4</label>
+                    <label><input type="radio" name="q2-2" value="c"> c) 4.9</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q3: Which generates a random integer from 1 to 10?</p>
+                    <label><input type="radio" name="q2-3" value="a"> a) Math.random() * 10</label>
+                    <label><input type="radio" name="q2-3" value="b"> b) Math.floor(Math.random() * 10) + 1</label>
+                    <label><input type="radio" name="q2-3" value="c"> c) Math.round(Math.random() * 10)</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="quiz-submit" onclick="checkQuiz(2)">Check Answers</button>
+                <div id="quiz-score-2" class="quiz-score"></div>
+            </form>
+        </div>
+
         <div class="nav-buttons">
             <a href="module1.html" class="btn-nav">← Previous</a>
             <button class="complete-btn" onclick="markComplete(2)">✓ Mark as Complete</button>
@@ -121,18 +151,6 @@ console.log(randomInt(1, 6));  // Random 1-6</code>
         </div>
     </div>
 
-    <script>
-        function markComplete(moduleNum) {
-            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
-            if (!completed.includes(moduleNum)) {
-                completed.push(moduleNum);
-                localStorage.setItem('completedModules', JSON.stringify(completed));
-                localStorage.setItem('jsCourseProgress', completed.length);
-                alert('🎉 Module 2 completed! Keep going!');
-            } else {
-                alert('You already completed this module!');
-            }
-        }
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>

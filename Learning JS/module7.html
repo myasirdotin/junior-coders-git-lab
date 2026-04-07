@@ -3,46 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 7: Functions - Learn to declare and call functions, use parameters, arrow functions, scope, closures, and higher-order functions in JavaScript.">
     <title>Module 7: Functions</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
-        .module-header h1 { color: white; border: none; margin: 0; }
-        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
-        .back-link:hover { text-decoration: underline; }
-        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
-        .content-section h2 { color: #667eea; margin-top: 0; }
-        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
-        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
-        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
-        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
-        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
-        .key-point strong { color: #1976D2; }
-        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
-        .tip-box strong { color: #2E7D32; }
-        .warning-box { background: #fff3e0; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #FF9800; }
-        .warning-box strong { color: #E65100; }
-        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
-        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
-        .btn-nav:hover { background: #5568d3; }
-        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
-        .complete-btn:hover { background: #45a049; }
-    </style>
 </head>
 <body>
     <nav>
         <a href="index.html">Playground</a>
         <a href="exercises.html">Exercises</a>
         <a href="learningjs.html" class="active">Learning JS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
     </nav>
 
     <div class="module-container">
         <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
-        
+
         <div class="module-header">
             <h1>Module 7: Functions</h1>
             <p>⏱ 70 minutes | Week 4</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Declare and call functions</li>
+                <li>Use parameters, default values, and return statements</li>
+                <li>Write arrow functions</li>
+                <li>Understand scope and closures</li>
+                <li>Use higher-order functions (map, filter, reduce)</li>
+            </ul>
         </div>
 
         <div class="content-section">
@@ -52,7 +42,7 @@
 
         <div class="content-section">
             <h2>📖 Reading Material</h2>
-            
+
             <div class="reading-material">
                 <h3>📚 What is a Function?</h3>
                 <p>A <strong>function</strong> is a reusable block of code that performs a specific task. Think of it as a mini-program within your program. You can call (execute) a function whenever you need it, without rewriting the same code over and over.</p>
@@ -60,7 +50,7 @@
 
             <h3>7.1 Function Declaration</h3>
             <p>The traditional way to create a function:</p>
-            
+
             <div class="code-example">
                 <code>// Basic function declaration
 function greet() {
@@ -102,7 +92,7 @@ console.log(multiply(3, 7)); // 21</code>
 
             <h3>7.2 Default Parameters</h3>
             <p>You can set default values for parameters:</p>
-            
+
             <div class="code-example">
                 <code>// Default parameter values
 function greet(name = "Guest") {
@@ -134,7 +124,7 @@ console.log(calculateArea(5));   // 78.5398...</code>
 
             <h3>7.3 Arrow Functions</h3>
             <p>A shorter syntax for writing functions (ES6):</p>
-            
+
             <div class="code-example">
                 <code>// Regular function
 function add(a, b) {
@@ -177,7 +167,7 @@ console.log(evens); // [2, 4]</code>
 
             <h3>7.4 Function Expressions</h3>
             <p>Functions can be stored in variables:</p>
-            
+
             <div class="code-example">
                 <code>// Function expression
 const greet = function(name) {
@@ -219,7 +209,7 @@ const sayHi = function() {
 
             <h3>7.5 Scope and Closures</h3>
             <p>Understanding where variables are accessible:</p>
-            
+
             <div class="code-example">
                 <code>// Global scope
 let globalVar = "I'm global!";
@@ -227,7 +217,7 @@ let globalVar = "I'm global!";
 function outer() {
     // Function scope
     let functionVar = "I'm in outer!";
-    
+
     function inner() {
         // Inner function scope
         let innerVar = "I'm in inner!";
@@ -235,7 +225,7 @@ function outer() {
         console.log(functionVar); // Accessible
         console.log(innerVar);    // Accessible
     }
-    
+
     inner();
     console.log(innerVar); // Error! Not accessible here
 }
@@ -254,7 +244,7 @@ console.log(blockVar); // Error! Not accessible outside block
 // Closure - function remembering its lexical scope
 function createCounter() {
     let count = 0;
-    
+
     return function() {
         count++;
         return count;
@@ -274,7 +264,7 @@ console.log(counter()); // 3
 
             <h3>7.6 Higher-Order Functions</h3>
             <p>Functions that take other functions as arguments or return them:</p>
-            
+
             <div class="code-example">
                 <code>// Function that takes a function as argument
 function operateOnArray(arr, operation) {
@@ -330,7 +320,7 @@ console.log(firstEven); // 2</code>
 
             <h3>7.7 The Arguments Object</h3>
             <p>Access all arguments passed to a function:</p>
-            
+
             <div class="code-example">
                 <code>// The arguments object (available in regular functions)
 function sumAll() {
@@ -367,6 +357,16 @@ greet("Hello", "Alice", "Bob", "Charlie");
         </div>
 
         <div class="content-section">
+            <h2>Common Mistakes</h2>
+            <ul>
+                <li><strong>Forgetting to use <code>return</code>:</strong> A function returns <code>undefined</code> by default if there is no <code>return</code> statement.</li>
+                <li><strong>Confusing function declarations with expressions:</strong> Declarations are hoisted, but expressions are not. This means you can call a declared function before its definition, but not an expression.</li>
+                <li><strong>Using arrow functions as object methods:</strong> Arrow functions don't have their own <code>this</code>, so they won't refer to the object when used as methods.</li>
+                <li><strong>Not understanding that parameters are local to the function:</strong> Parameters exist only inside the function scope and do not affect variables with the same name outside.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
             <h2>Practice</h2>
             <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
             <ol>
@@ -379,6 +379,35 @@ greet("Hello", "Alice", "Bob", "Charlie");
             </ol>
         </div>
 
+        <div class="content-section">
+            <h2>Check Your Understanding</h2>
+            <form id="quiz-form-7" class="quiz-section">
+                <div class="quiz-question" data-answer="c">
+                    <p>Q1: What does a function return if there's no return statement?</p>
+                    <label><input type="radio" name="q7-1" value="a"> a) null</label>
+                    <label><input type="radio" name="q7-1" value="b"> b) 0</label>
+                    <label><input type="radio" name="q7-1" value="c"> c) undefined</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: Which is a valid arrow function?</p>
+                    <label><input type="radio" name="q7-2" value="a"> a) const f = x => x * 2</label>
+                    <label><input type="radio" name="q7-2" value="b"> b) const f = x -> x * 2</label>
+                    <label><input type="radio" name="q7-2" value="c"> c) const f = (x) >> x * 2</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q3: What is a closure?</p>
+                    <label><input type="radio" name="q7-3" value="a"> a) A function that closes the browser</label>
+                    <label><input type="radio" name="q7-3" value="b"> b) A function that remembers its outer scope variables</label>
+                    <label><input type="radio" name="q7-3" value="c"> c) A function with no parameters</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="quiz-submit" onclick="checkQuiz(7)">Check Answers</button>
+                <div id="quiz-score-7" class="quiz-score"></div>
+            </form>
+        </div>
+
         <div class="nav-buttons">
             <a href="module6.html" class="btn-nav">← Previous</a>
             <button class="complete-btn" onclick="markComplete(7)">✓ Mark as Complete</button>
@@ -386,18 +415,6 @@ greet("Hello", "Alice", "Bob", "Charlie");
         </div>
     </div>
 
-    <script>
-        function markComplete(moduleNum) {
-            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
-            if (!completed.includes(moduleNum)) {
-                completed.push(moduleNum);
-                localStorage.setItem('completedModules', JSON.stringify(completed));
-                localStorage.setItem('jsCourseProgress', completed.length);
-                alert('🎉 Module 7 completed! Keep going!');
-            } else {
-                alert('You already completed this module!');
-            }
-        }
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>

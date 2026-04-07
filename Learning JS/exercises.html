@@ -3,23 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Practice JavaScript with structured exercises from beginner to advanced. Includes hints and solutions.">
     <title>JavaScript Exercises - Learning JS</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <nav>
         <a href="index.html">Playground</a>
         <a href="exercises.html" class="active">Exercises</a>
         <a href="learningjs.html">Learning JS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
     </nav>
 
     <header>
         <h1>JavaScript Exercises</h1>
-        <p>Practice your JavaScript skills with these structured exercises</p>
+        <p>Practice your JavaScript skills with structured exercises</p>
     </header>
 
     <div class="main-container">
-        <div class="instructions-panel">
+        <aside class="instructions-panel" aria-label="Exercise guide">
             <h2>How to Use</h2>
             <p>Click on any exercise to view the problem and start coding. Use the Playground to test your solutions!</p>
             <h3>Exercise Categories:</h3>
@@ -28,22 +31,46 @@
                 <li><strong>Intermediate:</strong> Arrays, loops, functions, objects</li>
                 <li><strong>Advanced:</strong> DOM manipulation, events, algorithms</li>
             </ul>
-        </div>
+            <hr>
+            <h3>Tips:</h3>
+            <ul>
+                <li>Try solving without hints first</li>
+                <li>Use hints if you're stuck</li>
+                <li>Check the solution only after attempting</li>
+            </ul>
+        </aside>
 
         <div class="exercises-grid">
-            <!-- Beginner Exercises -->
-<div class="exercise-card">
-    <h3>1. Variables and Math</h3>
-    <p>Create variables and perform basic arithmetic operations</p>
-    <div class="example-code">
-        <h4>Example:</h4>
-        <pre><code>let num1 = 15;
+            <!-- Exercise 1 -->
+            <div class="exercise-card">
+                <h3>1. Variables and Math</h3>
+                <p>Create variables and perform basic arithmetic operations</p>
+                <div class="example-code">
+                    <h4>Example:</h4>
+                    <pre><code>let num1 = 15;
 let num2 = 7;
 let sum = num1 + num2;
 console.log("Sum:", sum);</code></pre>
-    </div>
-    <button class="btn-practice" onclick="loadExercise('variables')">Start</button>
-</div>
+                </div>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('variables', 1)">Hint 1</button>
+                    <button class="hint-btn" onclick="toggleHint('variables', 2)">Hint 2</button>
+                    <button class="solution-btn" onclick="toggleSolution('variables')">Solution</button>
+                    <div id="hint-variables-1" class="hint-content">Use <code>let</code> to declare your variables. Remember the operators: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code></div>
+                    <div id="hint-variables-2" class="hint-content">Store each result in its own variable, then use <code>console.log()</code> to display them.</div>
+                    <div id="solution-variables" class="solution-content"><pre><code>let num1 = 15;
+let num2 = 7;
+let sum = num1 + num2;
+let difference = num1 - num2;
+let product = num1 * num2;
+console.log("Sum:", sum);
+console.log("Difference:", difference);
+console.log("Product:", product);</code></pre></div>
+                </div>
+                <button class="btn-practice" onclick="loadExercise('variables')">Start</button>
+            </div>
+
+            <!-- Exercise 2 -->
             <div class="exercise-card">
                 <h3>2. String Manipulation</h3>
                 <p>Work with strings: concatenation, methods, and formatting</p>
@@ -54,9 +81,23 @@ let greeting = "Hello, " + name;
 console.log(greeting);
 console.log(name.toUpperCase());</code></pre>
                 </div>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('strings', 1)">Hint 1</button>
+                    <button class="hint-btn" onclick="toggleHint('strings', 2)">Hint 2</button>
+                    <button class="solution-btn" onclick="toggleSolution('strings')">Solution</button>
+                    <div id="hint-strings-1" class="hint-content">Use template literals with backticks for easier string formatting: <code>`Hello, ${name}!`</code></div>
+                    <div id="hint-strings-2" class="hint-content">String methods: <code>.toUpperCase()</code>, <code>.toLowerCase()</code>, <code>.length</code>, <code>.slice()</code></div>
+                    <div id="solution-strings" class="solution-content"><pre><code>let name = "Your Name";
+let age = 25;
+let greeting = `Hello, my name is ${name} and I am ${age} years old.`;
+console.log(greeting);
+console.log("Uppercase:", name.toUpperCase());
+console.log("Length:", name.length);</code></pre></div>
+                </div>
                 <button class="btn-practice" onclick="loadExercise('strings')">Start</button>
             </div>
 
+            <!-- Exercise 3 -->
             <div class="exercise-card">
                 <h3>3. Conditional Logic</h3>
                 <p>Use if/else statements and comparison operators</p>
@@ -69,10 +110,23 @@ if (age >= 18) {
     console.log("You are a minor");
 }</code></pre>
                 </div>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('conditionals', 1)">Hint</button>
+                    <button class="solution-btn" onclick="toggleSolution('conditionals')">Solution</button>
+                    <div id="hint-conditionals-1" class="hint-content">Chain multiple conditions with <code>else if</code>. Check from highest score to lowest.</div>
+                    <div id="solution-conditionals" class="solution-content"><pre><code>let score = 85;
+let grade;
+if (score >= 90) grade = "A";
+else if (score >= 80) grade = "B";
+else if (score >= 70) grade = "C";
+else if (score >= 60) grade = "D";
+else grade = "F";
+console.log("Score:", score, "Grade:", grade);</code></pre></div>
+                </div>
                 <button class="btn-practice" onclick="loadExercise('conditionals')">Start</button>
             </div>
 
-            <!-- Intermediate Exercises -->
+            <!-- Exercise 4 -->
             <div class="exercise-card">
                 <h3>4. Arrays and Loops</h3>
                 <p>Practice array methods and different types of loops</p>
@@ -84,9 +138,20 @@ for (let i = 0; i < colors.length; i++) {
 }
 colors.push("yellow");</code></pre>
                 </div>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('arrays', 1)">Hint</button>
+                    <button class="solution-btn" onclick="toggleSolution('arrays')">Solution</button>
+                    <div id="hint-arrays-1" class="hint-content">Use <code>.push()</code> to add, <code>.shift()</code> to remove first, <code>.forEach()</code> for iteration.</div>
+                    <div id="solution-arrays" class="solution-content"><pre><code>let fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
+fruits.forEach((fruit, i) => console.log(i + ": " + fruit));
+fruits.push("Fig");
+fruits.shift();
+console.log("Updated:", fruits);</code></pre></div>
+                </div>
                 <button class="btn-practice" onclick="loadExercise('arrays')">Start</button>
             </div>
 
+            <!-- Exercise 5 -->
             <div class="exercise-card">
                 <h3>5. Functions</h3>
                 <p>Create and use functions with parameters and return values</p>
@@ -98,9 +163,23 @@ colors.push("yellow");</code></pre>
 let result = add(5, 3);
 console.log("Result:", result);</code></pre>
                 </div>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('functions', 1)">Hint</button>
+                    <button class="solution-btn" onclick="toggleSolution('functions')">Solution</button>
+                    <div id="hint-functions-1" class="hint-content">Use <code>return</code> to send a value back from a function. Call it with arguments in parentheses.</div>
+                    <div id="solution-functions" class="solution-content"><pre><code>function greet(name) {
+    return "Hello, " + name + "!";
+}
+function calculateTotal(price, qty) {
+    return price * qty;
+}
+console.log(greet("Alice"));
+console.log("Total:", calculateTotal(10, 3));</code></pre></div>
+                </div>
                 <button class="btn-practice" onclick="loadExercise('functions')">Start</button>
             </div>
 
+            <!-- Exercise 6 -->
             <div class="exercise-card">
                 <h3>6. Objects</h3>
                 <p>Work with object properties, methods, and nested structures</p>
@@ -111,13 +190,28 @@ console.log("Result:", result);</code></pre>
     color: "blue",
     speed: 100
 };
-console.log(car.brand);
-console.log(car.color);</code></pre>
+console.log(car.brand);</code></pre>
+                </div>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('objects', 1)">Hint</button>
+                    <button class="solution-btn" onclick="toggleSolution('objects')">Solution</button>
+                    <div id="hint-objects-1" class="hint-content">Add methods using <code>methodName() { ... }</code> syntax. Use <code>this</code> to reference the object inside methods.</div>
+                    <div id="solution-objects" class="solution-content"><pre><code>let person = {
+    name: "John",
+    age: 30,
+    address: { street: "123 Main St", zip: "10001" },
+    getInfo() {
+        return `${this.name}, ${this.age}, ${this.address.street}`;
+    }
+};
+console.log(person.getInfo());
+person.email = "john@example.com";
+console.log("Email:", person.email);</code></pre></div>
                 </div>
                 <button class="btn-practice" onclick="loadExercise('objects')">Start</button>
             </div>
 
-            <!-- Advanced Exercises -->
+            <!-- Exercise 7 -->
             <div class="exercise-card">
                 <h3>7. DOM Manipulation</h3>
                 <p>Learn to interact with HTML elements using JavaScript</p>
@@ -128,9 +222,20 @@ element.textContent = "Hello HTML!";
 element.style.color = "blue";
 document.body.appendChild(element);</code></pre>
                 </div>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('dom', 1)">Hint</button>
+                    <button class="solution-btn" onclick="toggleSolution('dom')">Solution</button>
+                    <div id="hint-dom-1" class="hint-content">Use <code>document.createElement()</code>, set properties, then <code>appendChild()</code> to add to the page.</div>
+                    <div id="solution-dom" class="solution-content"><pre><code>let div = document.createElement("div");
+div.textContent = "Hello from JavaScript!";
+div.style.cssText = "background:#059669;color:white;padding:20px;border-radius:8px;margin:20px;";
+document.body.appendChild(div);
+setTimeout(() => div.remove(), 3000);</code></pre></div>
+                </div>
                 <button class="btn-practice" onclick="loadExercise('dom')">Start</button>
             </div>
 
+            <!-- Exercise 8 -->
             <div class="exercise-card">
                 <h3>8. Events</h3>
                 <p>Handle user interactions and events</p>
@@ -143,9 +248,23 @@ btn.addEventListener("click", function() {
 });
 document.body.appendChild(btn);</code></pre>
                 </div>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('events', 1)">Hint</button>
+                    <button class="solution-btn" onclick="toggleSolution('events')">Solution</button>
+                    <div id="hint-events-1" class="hint-content">Use <code>addEventListener("click", callback)</code>. You can add multiple events to the same element.</div>
+                    <div id="solution-events" class="solution-content"><pre><code>let button = document.createElement("button");
+button.textContent = "Click Me!";
+button.style.cssText = "padding:15px 30px;font-size:16px;cursor:pointer;margin:20px;";
+button.addEventListener("click", () => {
+    button.textContent = "Clicked!";
+    button.style.backgroundColor = "#059669";
+});
+document.body.appendChild(button);</code></pre></div>
+                </div>
                 <button class="btn-practice" onclick="loadExercise('events')">Start</button>
             </div>
 
+            <!-- Exercise 9 -->
             <div class="exercise-card">
                 <h3>9. Algorithms</h3>
                 <p>Solve problems using logic and algorithmic thinking</p>
@@ -157,319 +276,56 @@ document.body.appendChild(btn);</code></pre>
 console.log(isEven(4));
 console.log(isEven(7));</code></pre>
                 </div>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('algorithms', 1)">Hint</button>
+                    <button class="solution-btn" onclick="toggleSolution('algorithms')">Solution</button>
+                    <div id="hint-algorithms-1" class="hint-content">Break each problem into small steps. Use modulus <code>%</code> for even/odd, <code>Math.max()</code> for largest, <code>.split().reverse().join()</code> for reversing strings.</div>
+                    <div id="solution-algorithms" class="solution-content"><pre><code>function isEven(n) { return n % 2 === 0; }
+function findLargest(arr) { return Math.max(...arr); }
+function reverseString(str) { return str.split("").reverse().join(""); }
+function factorial(n) { return n <= 1 ? 1 : n * factorial(n - 1); }
+
+console.log("Is 10 even?", isEven(10));
+console.log("Largest:", findLargest([3, 7, 2, 9, 1]));
+console.log("Reverse 'hello':", reverseString("hello"));
+console.log("5! =", factorial(5));</code></pre></div>
+                </div>
                 <button class="btn-practice" onclick="loadExercise('algorithms')">Start</button>
             </div>
         </div>
     </div>
 
+    <script src="js/script.js"></script>
     <script>
-        // Exercise data
         const exercises = {
-            variables: {
-                title: "Variables and Math",
-                description: "Create variables and perform basic arithmetic operations",
-                instructions: [
-                    "Create two variables: num1 = 15 and num2 = 7",
-                    "Calculate their sum and store it in a variable called 'sum'",
-                    "Calculate their difference and store it in a variable called 'difference'",
-                    "Calculate their product and store it in a variable called 'product'",
-                    "Use console.log() to display all results"
-                ],
-                starterCode: `let num1 = 15;
-let num2 = 7;
-
-// Your code here
-`,
-                solution: `let num1 = 15;
-let num2 = 7;
-
-let sum = num1 + num2;
-let difference = num1 - num2;
-let product = num1 * num2;
-
-console.log("Sum:", sum);
-console.log("Difference:", difference);
-console.log("Product:", product);`
-            },
-            strings: {
-                title: "String Manipulation",
-                description: "Work with strings: concatenation, methods, and formatting",
-                instructions: [
-                    "Create a variable called 'name' with your name",
-                    "Create a variable called 'age' with your age",
-                    "Create a greeting message using string concatenation",
-                    "Use string methods to convert the name to uppercase",
-                    "Use string methods to get the length of the name"
-                ],
-                starterCode: `let name = "Your Name";
-let age = 25;
-
-// Your code here
-`,
-                solution: `let name = "Your Name";
-let age = 25;
-
-let greeting = "Hello, my name is " + name + " and I am " + age + " years old.";
-console.log(greeting);
-
-let upperCaseName = name.toUpperCase();
-console.log("Uppercase name:", upperCaseName);
-
-let nameLength = name.length;
-console.log("Name length:", nameLength);`
-            },
-            conditionals: {
-                title: "Conditional Logic",
-                description: "Use if/else statements and comparison operators",
-                instructions: [
-                    "Create a variable called 'score' with a value between 0 and 100",
-                    "Use if/else statements to determine the grade:",
-                    "90-100: A, 80-89: B, 70-79: C, 60-69: D, below 60: F",
-                    "Display the score and grade using console.log()"
-                ],
-                starterCode: `let score = 85;
-
-// Your code here
-`,
-                solution: `let score = 85;
-
-let grade;
-if (score >= 90) {
-    grade = "A";
-} else if (score >= 80) {
-    grade = "B";
-} else if (score >= 70) {
-    grade = "C";
-} else if (score >= 60) {
-    grade = "D";
-} else {
-    grade = "F";
-}
-
-console.log("Score:", score);
-console.log("Grade:", grade);`
-            },
-            arrays: {
-                title: "Arrays and Loops",
-                description: "Practice array methods and different types of loops",
-                instructions: [
-                    "Create an array of 5 of your favorite fruits",
-                    "Use a for loop to display each fruit with its index",
-                    "Use a forEach loop to display each fruit in uppercase",
-                    "Use array methods to add a new fruit to the end",
-                    "Use array methods to remove the first fruit"
-                ],
-                starterCode: `let fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
-
-// Your code here
-`,
-                solution: `let fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];
-
-console.log("Fruits with index:");
-for (let i = 0; i < fruits.length; i++) {
-    console.log(i + ": " + fruits[i]);
-}
-
-console.log("Fruits in uppercase:");
-fruits.forEach(fruit => {
-    console.log(fruit.toUpperCase());
-});
-
-fruits.push("Fig");
-console.log("After adding Fig:", fruits);
-
-fruits.shift();
-console.log("After removing first fruit:", fruits);`
-            },
-            functions: {
-                title: "Functions",
-                description: "Create and use functions with parameters and return values",
-                instructions: [
-                    "Create a function called 'greet' that takes a name parameter",
-                    "The function should return a greeting message",
-                    "Create a function called 'calculateTotal' that takes price and quantity",
-                    "The function should return the total price (price * quantity)",
-                    "Test both functions with different arguments"
-                ],
-                starterCode: `// Your code here
-`,
-                solution: `function greet(name) {
-    return "Hello, " + name + "!";
-}
-
-function calculateTotal(price, quantity) {
-    return price * quantity;
-}
-
-console.log(greet("Alice"));
-console.log(greet("Bob"));
-
-console.log("Total for 3 items at $10 each:", calculateTotal(10, 3));
-console.log("Total for 5 items at $7.50 each:", calculateTotal(7.50, 5));`
-            },
-            objects: {
-                title: "Objects",
-                description: "Work with object properties, methods, and nested structures",
-                instructions: [
-                    "Create an object called 'person' with properties: name, age, city",
-                    "Add a method called 'getInfo' that returns a formatted string",
-                    "Create a nested object for 'address' with street and zip",
-                    "Use dot notation and bracket notation to access properties",
-                    "Add a new property to the object"
-                ],
-                starterCode: `// Your code here
-`,
-                solution: `let person = {
-    name: "John Doe",
-    age: 30,
-    city: "New York",
-    address: {
-        street: "123 Main St",
-        zip: "10001"
-    },
-    getInfo: function() {
-        return this.name + " is " + this.age + " years old and lives in " + this.city;
-    }
-};
-
-console.log(person.getInfo());
-console.log("Street:", person.address.street);
-console.log("Zip:", person["address"]["zip"]);
-
-person.email = "john@example.com";
-console.log("Email:", person.email);`
-            },
-            dom: {
-                title: "DOM Manipulation",
-                description: "Learn to interact with HTML elements using JavaScript",
-                instructions: [
-                    "Create a new div element and set its text content",
-                    "Add a class name to the div",
-                    "Change the background color of the div",
-                    "Append the div to the body",
-                    "Remove the div from the DOM"
-                ],
-                starterCode: `// Your code here
-`,
-                solution: `// Create a new div element
-let newDiv = document.createElement("div");
-newDiv.textContent = "Hello from JavaScript!";
-newDiv.className = "dynamic-element";
-newDiv.style.backgroundColor = "#4CAF50";
-newDiv.style.color = "white";
-newDiv.style.padding = "20px";
-newDiv.style.margin = "20px";
-newDiv.style.borderRadius = "5px";
-
-// Append to body
-document.body.appendChild(newDiv);
-
-// Remove after 3 seconds
-setTimeout(() => {
-    document.body.removeChild(newDiv);
-}, 3000);`
-            },
-            events: {
-                title: "Events",
-                description: "Handle user interactions and events",
-                instructions: [
-                    "Create a button element",
-                    "Add an event listener for the 'click' event",
-                    "When clicked, change the button text",
-                    "Add another event listener for 'mouseover'",
-                    "When hovered, change the button color"
-                ],
-                starterCode: `// Your code here
-`,
-                solution: `// Create button
-let button = document.createElement("button");
-button.textContent = "Click Me!";
-button.style.padding = "15px 30px";
-button.style.fontSize = "16px";
-button.style.cursor = "pointer";
-button.style.margin = "20px";
-
-// Click event
-button.addEventListener("click", function() {
-    button.textContent = "Clicked!";
-    button.style.backgroundColor = "#4CAF50";
-});
-
-// Mouseover event
-button.addEventListener("mouseover", function() {
-    button.style.backgroundColor = "#2196F3";
-});
-
-// Mouseout event
-button.addEventListener("mouseout", function() {
-    button.style.backgroundColor = "#f44336";
-});
-
-document.body.appendChild(button);`
-            },
-            algorithms: {
-                title: "Algorithms",
-                description: "Solve problems using logic and algorithmic thinking",
-                instructions: [
-                    "Create a function to check if a number is even or odd",
-                    "Create a function to find the largest number in an array",
-                    "Create a function to reverse a string",
-                    "Create a function to calculate factorial of a number",
-                    "Test all functions with different inputs"
-                ],
-                starterCode: `// Your code here
-`,
-                solution: `function isEven(number) {
-    return number % 2 === 0;
-}
-
-function findLargest(arr) {
-    return Math.max(...arr);
-}
-
-function reverseString(str) {
-    return str.split("").reverse().join("");
-}
-
-function factorial(n) {
-    if (n === 0 || n === 1) return 1;
-    return n * factorial(n - 1);
-}
-
-console.log("Is 10 even?", isEven(10));
-console.log("Is 15 even?", isEven(15));
-
-console.log("Largest in [3, 7, 2, 9, 1]:", findLargest([3, 7, 2, 9, 1]));
-
-console.log("Reverse of 'hello':", reverseString("hello"));
-
-console.log("Factorial of 5:", factorial(5));`
-            }
+            variables: { title: "Variables and Math", starterCode: `let num1 = 15;\nlet num2 = 7;\n\n// Calculate sum, difference, product\n// Use console.log() to display results\n` },
+            strings: { title: "String Manipulation", starterCode: `let name = "Your Name";\nlet age = 25;\n\n// Create a greeting using template literals\n// Convert name to uppercase\n// Get the length of the name\n` },
+            conditionals: { title: "Conditional Logic", starterCode: `let score = 85;\n\n// Determine the grade: A (90+), B (80+), C (70+), D (60+), F\n// Display the score and grade\n` },
+            arrays: { title: "Arrays and Loops", starterCode: `let fruits = ["Apple", "Banana", "Cherry", "Date", "Elderberry"];\n\n// Loop through and display each fruit\n// Add a new fruit, remove the first\n` },
+            functions: { title: "Functions", starterCode: `// Create a greet(name) function\n// Create a calculateTotal(price, quantity) function\n// Test both with different arguments\n` },
+            objects: { title: "Objects", starterCode: `// Create a person object with name, age, city\n// Add a getInfo() method\n// Add a nested address object\n` },
+            dom: { title: "DOM Manipulation", starterCode: `// Create a div element\n// Set its text and style\n// Append it to the body\n` },
+            events: { title: "Events", starterCode: `// Create a button element\n// Add click and hover event listeners\n// Append it to the body\n` },
+            algorithms: { title: "Algorithms", starterCode: `// Create isEven(number)\n// Create findLargest(array)\n// Create reverseString(string)\n// Create factorial(number)\n` }
         };
 
         function loadExercise(category) {
             const exercise = exercises[category];
             if (!exercise) return;
-
-            // Open the playground with the exercise
-            window.open("index.html", "_self");
-
-            // Set up the exercise in the playground
-            setTimeout(() => {
-                document.getElementById("code-editor").value = exercise.starterCode;
-                document.getElementById("console").innerHTML = `
-                    <div class="info-entry">--- Exercise: ${exercise.title} ---</div>
-                    <div class="info-entry">Description: ${exercise.description}</div>
-                    <div class="info-entry">Instructions:</div>
-                `;
-                exercise.instructions.forEach((instruction, index) => {
-                    const entry = document.createElement('div');
-                    entry.className = 'log-entry info-entry';
-                    entry.textContent = `${index + 1}. ${instruction}`;
-                    document.getElementById("console").appendChild(entry);
-                });
-            }, 100);
+            localStorage.setItem('pendingExercise', JSON.stringify(exercise));
+            window.location.href = "index.html";
         }
+
+        // Check if returning from exercise load
+        window.addEventListener('DOMContentLoaded', () => {
+            const pending = localStorage.getItem('pendingExercise');
+            if (pending && document.getElementById('code-editor')) {
+                const exercise = JSON.parse(pending);
+                document.getElementById('code-editor').value = exercise.starterCode;
+                document.getElementById('console').innerHTML = `<div class="info-entry">--- Exercise: ${exercise.title} ---</div>`;
+                localStorage.removeItem('pendingExercise');
+            }
+        });
     </script>
 </body>
 </html>

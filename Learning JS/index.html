@@ -3,29 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS Learning Playground with Yasir Sir</title>
+    <meta name="description" content="Interactive JavaScript code playground for beginners. Write, run, and experiment with JavaScript code in real-time.">
+    <meta name="keywords" content="JavaScript, learning, playground, coding, beginner">
+    <title>JS Learning Playground</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <nav>
         <a href="index.html" class="active">Playground</a>
-        <a href="exercises.html">Exercises & Examples</a>
+        <a href="exercises.html">Exercises</a>
         <a href="learningjs.html">Learning JS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
     </nav>
 
     <header>
         <h1>JS Learning Playground</h1>
+        <p>Write, run, and experiment with JavaScript code</p>
     </header>
 
     <div class="main-container">
-        <aside class="instructions-panel">
+        <aside class="instructions-panel" aria-label="Instructions">
             <h2>How to Use</h2>
             <ol>
                 <li><strong>Write Code:</strong> Use the editor on the right.</li>
                 <li><strong>See Result:</strong> Use <code>console.log()</code> to show output.</li>
-                <li><strong>Run:</strong> Click the green <strong>Run Code</strong> button.</li>
-                <li><strong>Errors:</strong> Look for red messages if code doesn't work.</li>
+                <li><strong>Run:</strong> Click <strong>Run Code</strong> or press <kbd>Ctrl+Enter</kbd>.</li>
+                <li><strong>Clear:</strong> Click <strong>Clear All</strong> or press <kbd>Ctrl+L</kbd> in editor.</li>
+                <li><strong>Errors:</strong> Look for red messages in the output.</li>
             </ol>
             <hr>
             <h3>Quick Code:</h3>
@@ -35,19 +41,23 @@ console.log("Welcome, " + name);</pre>
 
         <main class="playground-container">
             <div class="editor-area">
-                <label>Write your JS here:</label>
-                <textarea id="code-editor" spellcheck="false" placeholder="// Start coding..."></textarea>
+                <label for="code-editor">Write your JavaScript here:</label>
+                <textarea id="code-editor" spellcheck="false" placeholder="// Start coding here...
+// Try: console.log('Hello, World!');" aria-label="Code editor"></textarea>
             </div>
 
             <div class="button-group">
-                <button class="btn-example" onclick="loadExample()">Load Example</button>
-                <button class="btn-clear" onclick="clearAll()">Clear All</button>
-                <button class="btn-run" onclick="runCode()">Run Code ▶</button>
+                <button class="btn-example" onclick="loadExample()" aria-label="Load example code">Load Example</button>
+                <button class="btn-clear" onclick="clearAll()" aria-label="Clear editor and console">Clear All</button>
+                <button class="btn-run" onclick="runCode()" aria-label="Run code">Run Code</button>
+            </div>
+            <div class="keyboard-hint">
+                <kbd>Ctrl+Enter</kbd> Run &nbsp;&middot;&nbsp; <kbd>Ctrl+L</kbd> Clear
             </div>
 
             <div class="console-area">
                 <label>Output / Results:</label>
-                <div id="console"></div>
+                <div id="console" role="log" aria-label="Console output" aria-live="polite"></div>
             </div>
         </main>
     </div>
