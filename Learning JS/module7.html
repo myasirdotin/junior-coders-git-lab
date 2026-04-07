@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 7: Functions</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
+        .module-header h1 { color: white; border: none; margin: 0; }
+        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
+        .content-section h2 { color: #667eea; margin-top: 0; }
+        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
+        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
+        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
+        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
+        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
+        .key-point strong { color: #1976D2; }
+        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
+        .tip-box strong { color: #2E7D32; }
+        .warning-box { background: #fff3e0; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #FF9800; }
+        .warning-box strong { color: #E65100; }
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
+        .btn-nav:hover { background: #5568d3; }
+        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
+        .complete-btn:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningjs.html" class="active">Learning JS</a>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
+        
+        <div class="module-header">
+            <h1>Module 7: Functions</h1>
+            <p>⏱ 70 minutes | Week 4</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>Create reusable blocks of code with functions. Learn how to define functions, pass parameters, return values, and understand the different ways to write functions in JavaScript.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+            
+            <div class="reading-material">
+                <h3>📚 What is a Function?</h3>
+                <p>A <strong>function</strong> is a reusable block of code that performs a specific task. Think of it as a mini-program within your program. You can call (execute) a function whenever you need it, without rewriting the same code over and over.</p>
+            </div>
+
+            <h3>7.1 Function Declaration</h3>
+            <p>The traditional way to create a function:</p>
+            
+            <div class="code-example">
+                <code>// Basic function declaration
+function greet() {
+    console.log("Hello, World!");
+}
+
+// Calling the function
+greet(); // "Hello, World!"
+
+// Function with parameters
+function greetUser(name) {
+    console.log(`Hello, ${name}!`);
+}
+
+greetUser("Alice"); // "Hello, Alice!"
+greetUser("Bob");   // "Hello, Bob!"
+
+// Function with multiple parameters
+function addNumbers(a, b) {
+    let sum = a + b;
+    console.log(`${a} + ${b} = ${sum}`);
+}
+
+addNumbers(5, 3); // "5 + 3 = 8"
+
+// Function with return value
+function multiply(a, b) {
+    return a * b;
+}
+
+let result = multiply(4, 5);
+console.log(result); // 20
+console.log(multiply(3, 7)); // 21</code>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Parameter vs Argument:</strong> <strong>Parameters</strong> are the variables listed in the function definition. <strong>Arguments</strong> are the actual values passed when calling the function.
+            </div>
+
+            <h3>7.2 Default Parameters</h3>
+            <p>You can set default values for parameters:</p>
+            
+            <div class="code-example">
+                <code>// Default parameter values
+function greet(name = "Guest") {
+    console.log(`Hello, ${name}!`);
+}
+
+greet();           // "Hello, Guest!"
+greet("Alice");    // "Hello, Alice!"
+
+// Multiple default parameters
+function createProfile(name, age = 18, city = "Unknown") {
+    return { name, age, city };
+}
+
+console.log(createProfile("John"));
+// { name: "John", age: 18, city: "Unknown" }
+
+console.log(createProfile("Jane", 25, "NYC"));
+// { name: "Jane", age: 25, city: "NYC" }
+
+// Default with expressions
+function calculateArea(radius = 1) {
+    return Math.PI * radius * radius;
+}
+
+console.log(calculateArea());    // 3.14159...
+console.log(calculateArea(5));   // 78.5398...</code>
+            </div>
+
+            <h3>7.3 Arrow Functions</h3>
+            <p>A shorter syntax for writing functions (ES6):</p>
+            
+            <div class="code-example">
+                <code>// Regular function
+function add(a, b) {
+    return a + b;
+}
+
+// Arrow function equivalent
+const add = (a, b) => {
+    return a + b;
+};
+
+// Concise body (implicit return)
+const add = (a, b) => a + b;
+
+// Single parameter (parentheses optional)
+const square = x => x * x;
+console.log(square(5)); // 25
+
+// No parameters
+const sayHello = () => console.log("Hello!");
+sayHello(); // "Hello!"
+
+// Returning an object (wrap in parentheses)
+const createUser = (name, age) => ({ name, age });
+console.log(createUser("Alice", 25));
+// { name: "Alice", age: 25 }
+
+// Arrow functions with arrays
+let numbers = [1, 2, 3, 4, 5];
+let doubled = numbers.map(num => num * 2);
+console.log(doubled); // [2, 4, 6, 8, 10]
+
+let evens = numbers.filter(num => num % 2 === 0);
+console.log(evens); // [2, 4]</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ When to use Arrow Functions:</strong> Arrow functions are great for short callbacks and when you want to preserve the <code>this</code> context. However, they don't have their own <code>this</code> binding, so avoid them for object methods!
+            </div>
+
+            <h3>7.4 Function Expressions</h3>
+            <p>Functions can be stored in variables:</p>
+            
+            <div class="code-example">
+                <code>// Function expression
+const greet = function(name) {
+    return `Hello, ${name}!`;
+};
+
+console.log(greet("Alice")); // "Hello, Alice!"
+
+// Anonymous function (no name)
+const anonymous = function() {
+    console.log("I'm anonymous!");
+};
+
+// Named function expression
+const factorial = function fact(n) {
+    if (n <= 1) return 1;
+    return n * fact(n - 1);
+};
+
+console.log(factorial(5)); // 120
+
+// Difference: Function Declaration vs Expression
+// Declaration - hoisted (can call before definition)
+sayHello(); // Works!
+function sayHello() {
+    console.log("Hello!");
+}
+
+// Expression - NOT hoisted (can't call before definition)
+// sayHi(); // Error!
+const sayHi = function() {
+    console.log("Hi!");
+};</code>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Hoisting:</strong> Function declarations are hoisted (moved to top of scope), but function expressions are not. Always define expressions before using them!
+            </div>
+
+            <h3>7.5 Scope and Closures</h3>
+            <p>Understanding where variables are accessible:</p>
+            
+            <div class="code-example">
+                <code>// Global scope
+let globalVar = "I'm global!";
+
+function outer() {
+    // Function scope
+    let functionVar = "I'm in outer!";
+    
+    function inner() {
+        // Inner function scope
+        let innerVar = "I'm in inner!";
+        console.log(globalVar);   // Accessible
+        console.log(functionVar); // Accessible
+        console.log(innerVar);    // Accessible
+    }
+    
+    inner();
+    console.log(innerVar); // Error! Not accessible here
+}
+
+outer();
+console.log(functionVar); // Error! Not accessible here
+
+// Block scope with let and const
+if (true) {
+    let blockVar = "I'm in the block!";
+    const blockConst = "Me too!";
+    console.log(blockVar);  // Accessible
+}
+console.log(blockVar); // Error! Not accessible outside block
+
+// Closure - function remembering its lexical scope
+function createCounter() {
+    let count = 0;
+    
+    return function() {
+        count++;
+        return count;
+    };
+}
+
+const counter = createCounter();
+console.log(counter()); // 1
+console.log(counter()); // 2
+console.log(counter()); // 3
+// 'count' is still accessible due to closure!</code>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Closure:</strong> A closure is when a function "remembers" the variables from its outer scope, even when called outside that scope. This is powerful for creating private variables!
+            </div>
+
+            <h3>7.6 Higher-Order Functions</h3>
+            <p>Functions that take other functions as arguments or return them:</p>
+            
+            <div class="code-example">
+                <code>// Function that takes a function as argument
+function operateOnArray(arr, operation) {
+    let result = [];
+    for (let item of arr) {
+        result.push(operation(item));
+    }
+    return result;
+}
+
+let numbers = [1, 2, 3, 4, 5];
+let doubled = operateOnArray(numbers, n => n * 2);
+let squared = operateOnArray(numbers, n => n * n);
+console.log(doubled); // [2, 4, 6, 8, 10]
+console.log(squared); // [1, 4, 9, 16, 25]
+
+// Function that returns a function
+function createMultiplier(multiplier) {
+    return function(number) {
+        return number * multiplier;
+    };
+}
+
+const double = createMultiplier(2);
+const triple = createMultiplier(3);
+
+console.log(double(5)); // 10
+console.log(triple(5)); // 15
+
+// Built-in higher-order functions
+let words = ["hello", "world", "javascript"];
+
+// map - transform each element
+let uppercased = words.map(word => word.toUpperCase());
+console.log(uppercased); // ["HELLO", "WORLD", "JAVASCRIPT"]
+
+// filter - keep elements that pass test
+let longWords = words.filter(word => word.length > 5);
+console.log(longWords); // ["javascript"]
+
+// reduce - combine all elements into one
+let sum = numbers.reduce((total, num) => total + num, 0);
+console.log(sum); // 15
+
+// find - get first matching element
+let firstEven = numbers.find(num => num % 2 === 0);
+console.log(firstEven); // 2</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ Pro Tip:</strong> Master <code>map</code>, <code>filter</code>, and <code>reduce</code> - these are the most commonly used higher-order functions in JavaScript and will make your code cleaner and more expressive!
+            </div>
+
+            <h3>7.7 The Arguments Object</h3>
+            <p>Access all arguments passed to a function:</p>
+            
+            <div class="code-example">
+                <code>// The arguments object (available in regular functions)
+function sumAll() {
+    let total = 0;
+    for (let arg of arguments) {
+        total += arg;
+    }
+    return total;
+}
+
+console.log(sumAll(1, 2, 3));       // 6
+console.log(sumAll(1, 2, 3, 4, 5)); // 15
+
+// Rest parameters (modern approach)
+function sumAllRest(...numbers) {
+    return numbers.reduce((total, num) => total + num, 0);
+}
+
+console.log(sumAllRest(1, 2, 3));       // 6
+console.log(sumAllRest(1, 2, 3, 4, 5)); // 15
+
+// Rest parameters with other parameters
+function greet(greeting, ...names) {
+    names.forEach(name => {
+        console.log(`${greeting}, ${name}!`);
+    });
+}
+
+greet("Hello", "Alice", "Bob", "Charlie");
+// Hello, Alice!
+// Hello, Bob!
+// Hello, Charlie!</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Write a function that checks if a number is prime</li>
+                <li>Create a function that reverses a string without using built-in methods</li>
+                <li>Write a higher-order function that creates a "greeter" with a custom greeting</li>
+                <li>Use arrow functions and array methods to process a list of objects</li>
+                <li>Create a counter using closures that can increment, decrement, and reset</li>
+                <li>Write a function that uses rest parameters to find the average of any number of arguments</li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module6.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(7)">✓ Mark as Complete</button>
+            <a href="module8.html" class="btn-nav">Next: Objects →</a>
+        </div>
+    </div>
+
+    <script>
+        function markComplete(moduleNum) {
+            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
+            if (!completed.includes(moduleNum)) {
+                completed.push(moduleNum);
+                localStorage.setItem('completedModules', JSON.stringify(completed));
+                localStorage.setItem('jsCourseProgress', completed.length);
+                alert('🎉 Module 7 completed! Keep going!');
+            } else {
+                alert('You already completed this module!');
+            }
+        }
+    </script>
+</body>
+</html>

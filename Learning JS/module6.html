@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 6: Loops</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
+        .module-header h1 { color: white; border: none; margin: 0; }
+        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
+        .content-section h2 { color: #667eea; margin-top: 0; }
+        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
+        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
+        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
+        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
+        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
+        .key-point strong { color: #1976D2; }
+        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
+        .tip-box strong { color: #2E7D32; }
+        .warning-box { background: #fff3e0; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #FF9800; }
+        .warning-box strong { color: #E65100; }
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
+        .btn-nav:hover { background: #5568d3; }
+        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
+        .complete-btn:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningjs.html" class="active">Learning JS</a>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
+        
+        <div class="module-header">
+            <h1>Module 6: Loops</h1>
+            <p>⏱ 60 minutes | Week 3</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>Automate repetitive tasks using loops. Learn how to iterate over arrays and objects, and control loop execution with break and continue statements.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+            
+            <div class="reading-material">
+                <h3>📚 What are Loops?</h3>
+                <p><strong>Loops</strong> allow you to execute a block of code multiple times. Instead of writing the same code over and over, you write it once and let the loop repeat it. This is essential for working with arrays, processing data, and automating repetitive tasks.</p>
+            </div>
+
+            <h3>6.1 The for Loop</h3>
+            <p>The <code>for</code> loop is the most common type of loop in JavaScript:</p>
+            
+            <div class="code-example">
+                <code>// Basic for loop structure
+// for (initialization; condition; increment) { code }
+
+// Count from 1 to 5
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}
+// Output: 1, 2, 3, 4, 5
+
+// Count down from 10 to 1
+for (let i = 10; i >= 1; i--) {
+    console.log(i);
+}
+
+// Loop through an array
+let fruits = ["apple", "banana", "cherry"];
+for (let i = 0; i < fruits.length; i++) {
+    console.log(fruits[i]);
+}
+// Output: apple, banana, cherry
+
+// Loop with step of 2
+for (let i = 0; i < 10; i += 2) {
+    console.log(i); // 0, 2, 4, 6, 8
+}
+
+// Nested loops (multiplication table)
+for (let i = 1; i <= 3; i++) {
+    for (let j = 1; j <= 3; j++) {
+        console.log(`${i} × ${j} = ${i * j}`);
+    }
+}</code>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Loop Anatomy:</strong> A <code>for</code> loop has three parts: <strong>1)</strong> Initialization (runs once at start), <strong>2)</strong> Condition (checked before each iteration), <strong>3)</strong> Increment (runs after each iteration).
+            </div>
+
+            <h3>6.2 The while Loop</h3>
+            <p>The <code>while</code> loop continues as long as a condition is true:</p>
+            
+            <div class="code-example">
+                <code>// Basic while loop
+let count = 0;
+while (count < 5) {
+    console.log(count);
+    count++;
+}
+// Output: 0, 1, 2, 3, 4
+
+// While loop with array
+let colors = ["red", "green", "blue"];
+let index = 0;
+while (index < colors.length) {
+    console.log(colors[index]);
+    index++;
+}
+
+// Real-world example: User input validation
+let password = "";
+while (password.length < 8) {
+    password = prompt("Enter password (min 8 characters):");
+}
+console.log("Password accepted!");
+
+// ⚠️ WARNING: Infinite loop (don't do this!)
+// while (true) {
+//     console.log("This will run forever!");
+// }</code>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Infinite Loops:</strong> Always make sure your while loop condition will eventually become false! An infinite loop will crash your browser.
+            </div>
+
+            <h3>6.3 The do...while Loop</h3>
+            <p>The <code>do...while</code> loop executes at least once, then checks the condition:</p>
+            
+            <div class="code-example">
+                <code>// do...while executes at least once
+let num;
+do {
+    num = Math.floor(Math.random() * 10);
+    console.log(`Rolled: ${num}`);
+} while (num !== 0);
+console.log("Rolled a zero! Stopping.");
+
+// Difference between while and do...while
+let x = 10;
+
+// while - condition checked FIRST
+while (x < 5) {
+    console.log("This won't print"); // Never executes
+}
+
+// do...while - condition checked AFTER
+do {
+    console.log("This prints once"); // Executes once
+} while (x < 5);</code>
+            </div>
+
+            <h3>6.4 The for...of Loop</h3>
+            <p>The <code>for...of</code> loop is perfect for iterating over arrays and other iterable objects:</p>
+            
+            <div class="code-example">
+                <code>let fruits = ["apple", "banana", "cherry"];
+
+// for...of - simple and clean
+for (let fruit of fruits) {
+    console.log(fruit);
+}
+// Output: apple, banana, cherry
+
+// Works with strings too!
+let word = "Hello";
+for (let char of word) {
+    console.log(char);
+}
+// Output: H, e, l, l, o
+
+// With break and continue
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+for (let num of numbers) {
+    if (num === 3) continue; // Skip 3
+    if (num === 7) break;    // Stop at 7
+    console.log(num);
+}
+// Output: 1, 2, 4, 5, 6</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ When to use for...of:</strong> Use <code>for...of</code> when you need to iterate over values. Use a regular <code>for</code> loop when you need the index or more control over iteration.
+            </div>
+
+            <h3>6.5 The forEach Method</h3>
+            <p>The <code>forEach</code> method is a cleaner way to iterate over arrays:</p>
+            
+            <div class="code-example">
+                <code>let fruits = ["apple", "banana", "cherry"];
+
+// Basic forEach
+fruits.forEach(fruit => {
+    console.log(fruit);
+});
+
+// With index
+fruits.forEach((fruit, index) => {
+    console.log(`${index}: ${fruit}`);
+});
+// Output: 0: apple, 1: banana, 2: cherry
+
+// Using a named function
+function logItem(item) {
+    console.log(`Item: ${item}`);
+}
+fruits.forEach(logItem);
+
+// forEach with objects
+let users = [
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 30 },
+    { name: "Charlie", age: 35 }
+];
+
+users.forEach(user => {
+    console.log(`${user.name} is ${user.age} years old`);
+});</code>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 forEach vs for...of:</strong> <code>forEach</code> cannot be stopped with <code>break</code> or <code>continue</code>. Use <code>for...of</code> if you need to break out of the loop early.
+            </div>
+
+            <h3>6.6 break and continue</h3>
+            <p>Control loop execution with <code>break</code> and <code>continue</code>:</p>
+            
+            <div class="code-example">
+                <code>let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+// continue - skip current iteration
+console.log("Even numbers:");
+for (let num of numbers) {
+    if (num % 2 !== 0) continue; // Skip odd numbers
+    console.log(num);
+}
+// Output: 2, 4, 6, 8, 10
+
+// break - exit loop entirely
+console.log("First number > 5:");
+for (let num of numbers) {
+    if (num > 5) {
+        console.log(num);
+        break;
+    }
+}
+// Output: 6
+
+// Combined example
+console.log("Numbers 1-10, skip 3 and 7, stop at 9:");
+for (let num of numbers) {
+    if (num === 3 || num === 7) continue;
+    if (num === 9) break;
+    console.log(num);
+}
+// Output: 1, 2, 4, 5, 6, 8</code>
+            </div>
+
+            <h3>6.7 Looping Over Objects</h3>
+            <p>There are several ways to loop through object properties:</p>
+            
+            <div class="code-example">
+                <code>let person = {
+    name: "John",
+    age: 30,
+    city: "New York",
+    job: "Developer"
+};
+
+// for...in - iterate over property keys
+for (let key in person) {
+    console.log(`${key}: ${person[key]}`);
+}
+// Output: name: John, age: 30, city: New York, job: Developer
+
+// Object.keys() - get array of keys
+let keys = Object.keys(person);
+console.log(keys); // ["name", "age", "city", "job"]
+
+keys.forEach(key => {
+    console.log(`${key}: ${person[key]}`);
+});
+
+// Object.values() - get array of values
+let values = Object.values(person);
+console.log(values); // ["John", 30, "New York", "Developer"]
+
+// Object.entries() - get array of [key, value] pairs
+let entries = Object.entries(person);
+console.log(entries);
+// [["name", "John"], ["age", 30], ["city", "New York"], ["job", "Developer"]]
+
+entries.forEach(([key, value]) => {
+    console.log(`${key}: ${value}`);
+});</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ Pro Tip:</strong> Use <code>Object.entries()</code> with <code>for...of</code> for clean iteration: <code>for (let [key, value] of Object.entries(obj))</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Use a for loop to print numbers 1-100, but print "Fizz" for multiples of 3, "Buzz" for multiples of 5, and "FizzBuzz" for multiples of both</li>
+                <li>Given an array of numbers, use a loop to calculate the sum</li>
+                <li>Use a while loop to find the first power of 2 that exceeds 1000</li>
+                <li>Iterate over an array of objects and print only those that meet a certain condition</li>
+                <li>Create a multiplication table (1-10) using nested loops</li>
+                <li>Use forEach to transform an array of names into uppercase</li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module5.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(6)">✓ Mark as Complete</button>
+            <a href="module7.html" class="btn-nav">Next: Functions →</a>
+        </div>
+    </div>
+
+    <script>
+        function markComplete(moduleNum) {
+            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
+            if (!completed.includes(moduleNum)) {
+                completed.push(moduleNum);
+                localStorage.setItem('completedModules', JSON.stringify(completed));
+                localStorage.setItem('jsCourseProgress', completed.length);
+                alert('🎉 Module 6 completed! Keep going!');
+            } else {
+                alert('You already completed this module!');
+            }
+        }
+    </script>
+</body>
+</html>

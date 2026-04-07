@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: Variables & Data Types</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
+        .module-header h1 { color: white; border: none; margin: 0; }
+        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
+        .content-section h2 { color: #667eea; margin-top: 0; }
+        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
+        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
+        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
+        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
+        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
+        .key-point strong { color: #1976D2; }
+        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
+        .tip-box strong { color: #2E7D32; }
+        .warning-box { background: #fff3e0; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #FF9800; }
+        .warning-box strong { color: #E65100; }
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
+        .btn-nav:hover { background: #5568d3; }
+        .btn-nav.disabled { background: #ccc; pointer-events: none; }
+        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
+        .complete-btn:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningjs.html" class="active">Learning JS</a>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
+        
+        <div class="module-header">
+            <h1>Module 1: Variables & Data Types</h1>
+            <p>⏱ 45 minutes | Week 1</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>Learn how to store and manage data using variables. Understand different data types in JavaScript and how to work with them effectively.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+            
+            <div class="reading-material">
+                <h3>📚 What is a Variable?</h3>
+                <p>A <strong>variable</strong> is like a labeled container that stores a value. Think of it as a box with a name tag - you can put something inside, take it out, or replace it with something else.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Key Point:</strong> Variables in JavaScript are dynamically typed, meaning you don't need to declare what type of data the variable will hold. JavaScript figures it out automatically!
+            </div>
+
+            <h3>1.1 Declaring Variables</h3>
+            <p>JavaScript provides three ways to declare variables:</p>
+            
+            <div class="code-example">
+                <code>// let - can be reassigned
+let name = "Ali";
+name = "Ahmed"; // This is allowed
+
+// const - cannot be reassigned (constant)
+const pi = 3.14159;
+// pi = 3.14; // ERROR! Cannot reassign
+
+// var - old way (avoid using)
+var oldVariable = "deprecated";</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ Best Practice:</strong> Always use <code>const</code> by default. Only use <code>let</code> when you know the value will change. Avoid <code>var</code> entirely!
+            </div>
+
+            <h3>1.2 Data Types</h3>
+            <p>JavaScript has several built-in data types:</p>
+            
+            <div class="code-example">
+                <code>// String - text data
+let greeting = "Hello, World!";
+
+// Number - integers and decimals
+let age = 25;
+let price = 19.99;
+
+// Boolean - true or false
+let isStudent = true;
+let hasLicense = false;
+
+// Undefined - variable declared but not assigned
+let notDefined;
+console.log(notDefined); // undefined
+
+// Null - intentional absence of value
+let emptyValue = null;</code>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Common Mistake:</strong> Don't confuse <code>undefined</code> and <code>null</code>. <code>undefined</code> means "not assigned yet", while <code>null</code> means "intentionally empty".
+            </div>
+
+            <h3>1.3 Checking Data Types</h3>
+            <p>Use the <code>typeof</code> operator to check what type a variable is:</p>
+            
+            <div class="code-example">
+                <code>let name = "Sara";
+console.log(typeof name); // "string"
+
+let age = 20;
+console.log(typeof age); // "number"
+
+let isActive = true;
+console.log(typeof isActive); // "boolean"</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Declare a variable with your name and print it</li>
+                <li>Declare a constant with your birth year</li>
+                <li>Create variables of each data type</li>
+                <li>Use typeof to check each variable's type</li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="learningjs.html" class="btn-nav disabled">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(1)">✓ Mark as Complete</button>
+            <a href="module2.html" class="btn-nav">Next: Math Operations →</a>
+        </div>
+    </div>
+
+    <script>
+        function markComplete(moduleNum) {
+            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
+            if (!completed.includes(moduleNum)) {
+                completed.push(moduleNum);
+                localStorage.setItem('completedModules', JSON.stringify(completed));
+                localStorage.setItem('jsCourseProgress', completed.length);
+                alert('🎉 Module 1 completed! Keep going!');
+            } else {
+                alert('You already completed this module!');
+            }
+        }
+    </script>
+</body>
+</html>

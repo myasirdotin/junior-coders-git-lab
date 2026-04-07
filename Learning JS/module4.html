@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: Conditional Logic</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
+        .module-header h1 { color: white; border: none; margin: 0; }
+        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
+        .content-section h2 { color: #667eea; margin-top: 0; }
+        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
+        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
+        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
+        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
+        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
+        .key-point strong { color: #1976D2; }
+        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
+        .tip-box strong { color: #2E7D32; }
+        .warning-box { background: #fff3e0; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #FF9800; }
+        .warning-box strong { color: #E65100; }
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
+        .btn-nav:hover { background: #5568d3; }
+        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
+        .complete-btn:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningjs.html" class="active">Learning JS</a>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
+        
+        <div class="module-header">
+            <h1>Module 4: Conditional Logic</h1>
+            <p>⏱ 55 minutes | Week 2</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>Make decisions in your code using conditional statements. Learn how to control the flow of your program based on different conditions and logical expressions.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+            
+            <div class="reading-material">
+                <h3>📚 What is Conditional Logic?</h3>
+                <p><strong>Conditional logic</strong> allows your code to make decisions. It executes different blocks of code based on whether a condition is <code>true</code> or <code>false</code>. Think of it like a fork in the road - your program chooses which path to take!</p>
+            </div>
+
+            <h3>4.1 Comparison Operators</h3>
+            <p>Comparison operators are used to compare values and return a boolean result:</p>
+            
+            <div class="code-example">
+                <code>let x = 10;
+let y = 5;
+
+// Equal to
+console.log(x == y);   // false
+console.log(10 == "10"); // true (loose equality - type conversion!)
+
+// Strict equal (no type conversion)
+console.log(x === 10);   // true
+console.log(10 === "10"); // false (different types)
+
+// Not equal
+console.log(x != y);    // true
+console.log(x !== "10"); // true (strict not equal)
+
+// Greater than / Less than
+console.log(x > y);     // true
+console.log(x < y);     // false
+console.log(x >= 10);   // true
+console.log(y <= 5);    // true</code>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Common Mistake:</strong> Always use <code>===</code> (strict equality) instead of <code>==</code> (loose equality). The loose equality performs type coercion which can lead to unexpected results!
+            </div>
+
+            <h3>4.2 Logical Operators</h3>
+            <p>Logical operators allow you to combine multiple conditions:</p>
+            
+            <div class="code-example">
+                <code>let age = 25;
+let hasLicense = true;
+let hasCar = false;
+
+// AND (&&) - both conditions must be true
+console.log(age >= 18 && hasLicense); // true
+console.log(hasLicense && hasCar);    // false
+
+// OR (||) - at least one condition must be true
+console.log(hasCar || hasLicense);    // true
+console.log(age < 18 || hasCar);      // false
+
+// NOT (!) - reverses the boolean value
+console.log(!hasCar);                 // true
+console.log(!(age < 18));             // true
+
+// Real-world example
+let canDrive = age >= 18 && hasLicense;
+console.log(`Can drive: ${canDrive}`); // "Can drive: true"
+
+let needsRide = !hasCar || !hasLicense;
+console.log(`Needs a ride: ${needsRide}`); // "Needs a ride: true"</code>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Short-Circuit Evaluation:</strong> JavaScript stops evaluating as soon as it knows the result. For <code>&&</code>, if the first value is <code>false</code>, it returns that value. For <code>||</code>, if the first value is <code>true</code>, it returns that value!
+            </div>
+
+            <h3>4.3 if/else Statements</h3>
+            <p>The <code>if</code> statement executes code only when a condition is true:</p>
+            
+            <div class="code-example">
+                <code>// Basic if statement
+let temperature = 30;
+
+if (temperature > 25) {
+    console.log("It's hot outside!");
+}
+
+// if/else statement
+let score = 75;
+
+if (score >= 80) {
+    console.log("You passed with distinction!");
+} else {
+    console.log("You passed, but can do better.");
+}
+
+// if/else if/else chain
+let grade = 85;
+
+if (grade >= 90) {
+    console.log("Grade: A");
+} else if (grade >= 80) {
+    console.log("Grade: B");
+} else if (grade >= 70) {
+    console.log("Grade: C");
+} else if (grade >= 60) {
+    console.log("Grade: D");
+} else {
+    console.log("Grade: F - Failed");
+}
+
+// Multiple conditions
+let hour = 14;
+let day = "Monday";
+
+if (hour >= 9 && hour <= 17 && day !== "Saturday" && day !== "Sunday") {
+    console.log("The store is open.");
+} else {
+    console.log("The store is closed.");
+}</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ Best Practice:</strong> Always use curly braces <code>{}</code> even for single-line if statements. It makes your code more readable and prevents bugs when you add more lines later!
+            </div>
+
+            <h3>4.4 Truthy and Falsy Values</h3>
+            <p>In JavaScript, values can be "truthy" or "falsy" when evaluated in a boolean context:</p>
+            
+            <div class="code-example">
+                <code>// Falsy values (evaluate to false)
+// 1. false
+// 2. 0 (zero)
+// 3. "" (empty string)
+// 4. null
+// 5. undefined
+// 6. NaN
+
+// Everything else is truthy!
+
+let name = "";
+if (!name) {
+    console.log("Name is required!"); // This runs
+}
+
+let user = null;
+if (!user) {
+    console.log("User not logged in"); // This runs
+}
+
+let items = [];
+if (items.length) {
+    console.log("Has items");
+} else {
+    console.log("Cart is empty"); // This runs
+}
+
+// Useful pattern: default values
+let input = "";
+let defaultValue = "Guest";
+let userName = input || defaultValue;
+console.log(userName); // "Guest"</code>
+            </div>
+
+            <h3>4.5 Ternary Operator</h3>
+            <p>The ternary operator is a shorthand for simple if/else statements:</p>
+            
+            <div class="code-example">
+                <code>// Syntax: condition ? valueIfTrue : valueIfFalse
+
+let age = 20;
+let status = age >= 18 ? "Adult" : "Minor";
+console.log(status); // "Adult"
+
+// Equivalent to:
+// let status;
+// if (age >= 18) {
+//     status = "Adult";
+// } else {
+//     status = "Minor";
+// }
+
+// More examples
+let price = 100;
+let discount = price > 50 ? 0.1 : 0; // 10% discount if price > 50
+let finalPrice = price * (1 - discount);
+console.log(finalPrice); // 90
+
+// Nested ternary (use sparingly!)
+let score = 85;
+let result = score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : "F";
+console.log(result); // "B"
+
+// With functions
+let isLoggedIn = true;
+let message = isLoggedIn ? greetUser() : promptLogin();</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ When to use Ternary:</strong> Use ternary operators for simple, single-value assignments. For complex logic or multiple statements, stick with if/else for better readability!
+            </div>
+
+            <h3>4.6 Switch Statement</h3>
+            <p>The <code>switch</code> statement is useful when you have many conditions to check against the same value:</p>
+            
+            <div class="code-example">
+                <code>let day = "Monday";
+
+switch (day) {
+    case "Monday":
+        console.log("Start of the work week");
+        break;
+    case "Tuesday":
+    case "Wednesday":
+    case "Thursday":
+        console.log("Midweek day");
+        break;
+    case "Friday":
+        console.log("TGIF! Weekend is near");
+        break;
+    case "Saturday":
+    case "Sunday":
+        console.log("Weekend! Time to relax");
+        break;
+    default:
+        console.log("Invalid day");
+}
+
+// Switch with numbers
+let month = 3;
+let monthName;
+
+switch (month) {
+    case 1: monthName = "January"; break;
+    case 2: monthName = "February"; break;
+    case 3: monthName = "March"; break;
+    // ... more cases
+    default: monthName = "Unknown";
+}
+console.log(monthName); // "March"</code>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Don't forget break!</strong> Without <code>break</code>, execution will "fall through" to the next case. This is sometimes useful (like for grouping cases), but often a bug!
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Write a program that checks if a number is positive, negative, or zero</li>
+                <li>Create a simple login system that checks username and password</li>
+                <li>Build a grade calculator that converts numeric scores to letter grades (A-F)</li>
+                <li>Write a function that determines if a year is a leap year</li>
+                <li>Create a simple menu system using switch statements</li>
+                <li>Use ternary operators to create a greeting based on time of day</li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module3.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(4)">✓ Mark as Complete</button>
+            <a href="module5.html" class="btn-nav">Next: Arrays →</a>
+        </div>
+    </div>
+
+    <script>
+        function markComplete(moduleNum) {
+            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
+            if (!completed.includes(moduleNum)) {
+                completed.push(moduleNum);
+                localStorage.setItem('completedModules', JSON.stringify(completed));
+                localStorage.setItem('jsCourseProgress', completed.length);
+                alert('🎉 Module 4 completed! Keep going!');
+            } else {
+                alert('You already completed this module!');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5: Arrays</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
+        .module-header h1 { color: white; border: none; margin: 0; }
+        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
+        .content-section h2 { color: #667eea; margin-top: 0; }
+        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
+        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
+        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
+        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
+        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
+        .key-point strong { color: #1976D2; }
+        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
+        .tip-box strong { color: #2E7D32; }
+        .warning-box { background: #fff3e0; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #FF9800; }
+        .warning-box strong { color: #E65100; }
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
+        .btn-nav:hover { background: #5568d3; }
+        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
+        .complete-btn:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningjs.html" class="active">Learning JS</a>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
+        
+        <div class="module-header">
+            <h1>Module 5: Arrays</h1>
+            <p>⏱ 60 minutes | Week 3</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>Store and manage collections of data using arrays. Learn how to add, remove, and manipulate array elements, and use powerful array methods to transform your data.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+            
+            <div class="reading-material">
+                <h3>📚 What is an Array?</h3>
+                <p>An <strong>array</strong> is a special variable that can hold multiple values in a single variable. Think of it as a list or collection of items. Each item in an array is called an <strong>element</strong>, and each element has a numeric <strong>index</strong> (position) starting from 0.</p>
+            </div>
+
+            <h3>5.1 Creating Arrays</h3>
+            <p>Arrays are created using square bracket notation:</p>
+            
+            <div class="code-example">
+                <code>// Empty array
+let emptyArray = [];
+
+// Array with values
+let fruits = ["apple", "banana", "cherry"];
+let numbers = [1, 2, 3, 4, 5];
+let mixed = [1, "hello", true, null, { name: "John" }];
+
+// Accessing array elements
+console.log(fruits[0]);     // "apple"
+console.log(fruits[1]);     // "banana"
+console.log(fruits[2]);     // "cherry"
+console.log(fruits.length); // 3
+
+// Accessing last element
+console.log(fruits[fruits.length - 1]); // "cherry"
+
+// Modifying array elements
+fruits[1] = "blueberry";
+console.log(fruits); // ["apple", "blueberry", "cherry"]</code>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Common Mistake:</strong> Array indices start at 0, not 1! The first element is at index 0, and the last element is at index <code>length - 1</code>.
+            </div>
+
+            <h3>5.2 Adding and Removing Elements</h3>
+            <p>JavaScript provides several methods to add and remove elements from arrays:</p>
+            
+            <div class="code-example">
+                <code>let fruits = ["apple", "banana"];
+
+// push() - add to end
+fruits.push("cherry");
+console.log(fruits); // ["apple", "banana", "cherry"]
+
+// pop() - remove from end
+let removed = fruits.pop();
+console.log(removed);  // "cherry"
+console.log(fruits);   // ["apple", "banana"]
+
+// unshift() - add to beginning
+fruits.unshift("orange");
+console.log(fruits); // ["orange", "apple", "banana"]
+
+// shift() - remove from beginning
+let first = fruits.shift();
+console.log(first);  // "orange"
+console.log(fruits); // ["apple", "banana"]
+
+// splice() - add/remove at specific position
+let colors = ["red", "green", "blue"];
+colors.splice(1, 0, "yellow"); // Add at index 1
+console.log(colors); // ["red", "yellow", "green", "blue"]
+
+colors.splice(2, 1); // Remove 1 element at index 2
+console.log(colors); // ["red", "yellow", "blue"]</code>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Memory Tip:</strong> <code>push</code> and <code>pop</code> work at the end of the array. <code>unshift</code> and <code>shift</code> work at the beginning. Think: "unshift" and "shift" both start with "s" for "start"!
+            </div>
+
+            <h3>5.3 Array Methods</h3>
+            <p>JavaScript arrays come with many powerful built-in methods:</p>
+            
+            <div class="code-example">
+                <code>let numbers = [1, 2, 3, 4, 5];
+
+// indexOf() - find position of element
+console.log(numbers.indexOf(3)); // 2
+console.log(numbers.indexOf(10)); // -1 (not found)
+
+// includes() - check if element exists
+console.log(numbers.includes(3)); // true
+console.log(numbers.includes(10)); // false
+
+// slice() - copy portion of array (doesn't modify original)
+let subset = numbers.slice(1, 4);
+console.log(subset); // [2, 3, 4]
+console.log(numbers); // [1, 2, 3, 4, 5] (unchanged)
+
+// concat() - combine arrays
+let arr1 = [1, 2];
+let arr2 = [3, 4];
+let combined = arr1.concat(arr2);
+console.log(combined); // [1, 2, 3, 4]
+
+// join() - convert array to string
+let fruits = ["apple", "banana", "cherry"];
+console.log(fruits.join(", ")); // "apple, banana, cherry"
+console.log(fruits.join(" - ")); // "apple - banana - cherry"
+
+// reverse() - reverse array order
+let nums = [1, 2, 3];
+nums.reverse();
+console.log(nums); // [3, 2, 1]
+
+// sort() - sort array (as strings by default!)
+let letters = ["b", "a", "c"];
+letters.sort();
+console.log(letters); // ["a", "b", "c"]
+
+// For numbers, use compare function
+let unsorted = [10, 5, 20, 1];
+unsorted.sort((a, b) => a - b); // Ascending
+console.log(unsorted); // [1, 5, 10, 20]
+
+unsorted.sort((a, b) => b - a); // Descending
+console.log(unsorted); // [20, 10, 5, 1]</code>
+            </div>
+
+            <h3>5.4 Finding Elements with filter() and find()</h3>
+            <p>Two powerful methods for searching arrays:</p>
+            
+            <div class="code-example">
+                <code>let users = [
+    { name: "Alice", age: 25 },
+    { name: "Bob", age: 30 },
+    { name: "Charlie", age: 25 },
+    { name: "Diana", age: 35 }
+];
+
+// filter() - returns ALL matching elements as new array
+let youngUsers = users.filter(user => user.age === 25);
+console.log(youngUsers);
+// [{ name: "Alice", age: 25 }, { name: "Charlie", age: 25 }]
+
+let over30 = users.filter(user => user.age > 30);
+console.log(over30);
+// [{ name: "Diana", age: 35 }]
+
+// find() - returns FIRST matching element
+let firstYoung = users.find(user => user.age === 25);
+console.log(firstYoung);
+// { name: "Alice", age: 25 }
+
+let notFound = users.find(user => user.age === 100);
+console.log(notFound); // undefined
+
+// findIndex() - returns index of first match
+let index = users.findIndex(user => user.name === "Bob");
+console.log(index); // 1
+
+// some() - check if ANY element matches
+let hasTeenager = users.some(user => user.age < 20);
+console.log(hasTeenager); // false
+
+// every() - check if ALL elements match
+let allAdults = users.every(user => user.age >= 18);
+console.log(allAdults); // true</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ Pro Tip:</strong> Use <code>filter()</code> when you want all matches, <code>find()</code> when you only need the first match. Both methods create new arrays/values without modifying the original!
+            </div>
+
+            <h3>5.5 Multi-dimensional Arrays</h3>
+            <p>Arrays can contain other arrays, creating multi-dimensional structures:</p>
+            
+            <div class="code-example">
+                <code>// 2D array (array of arrays)
+let matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+console.log(matrix[0]);      // [1, 2, 3]
+console.log(matrix[0][1]);   // 2
+console.log(matrix[2][2]);   // 9
+
+// Iterating over 2D array
+for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+        console.log(matrix[i][j]);
+    }
+}
+
+// Array of objects
+let students = [
+    { name: "Alice", grades: [90, 85, 92] },
+    { name: "Bob", grades: [78, 82, 88] }
+];
+
+console.log(students[0].grades[1]); // 85</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Create an array of your favorite foods and print each one</li>
+                <li>Write a function that finds the largest number in an array</li>
+                <li>Use filter() to get all even numbers from an array</li>
+                <li>Given an array of user objects, find all users over 18 years old</li>
+                <li>Reverse an array without using the reverse() method</li>
+                <li>Flatten a 2D array into a 1D array</li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module4.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(5)">✓ Mark as Complete</button>
+            <a href="module6.html" class="btn-nav">Next: Loops →</a>
+        </div>
+    </div>
+
+    <script>
+        function markComplete(moduleNum) {
+            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
+            if (!completed.includes(moduleNum)) {
+                completed.push(moduleNum);
+                localStorage.setItem('completedModules', JSON.stringify(completed));
+                localStorage.setItem('jsCourseProgress', completed.length);
+                alert('🎉 Module 5 completed! Keep going!');
+            } else {
+                alert('You already completed this module!');
+            }
+        }
+    </script>
+</body>
+</html>

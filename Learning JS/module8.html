@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 8: Objects</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
+        .module-header h1 { color: white; border: none; margin: 0; }
+        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
+        .content-section h2 { color: #667eea; margin-top: 0; }
+        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
+        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
+        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
+        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
+        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
+        .key-point strong { color: #1976D2; }
+        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
+        .tip-box strong { color: #2E7D32; }
+        .warning-box { background: #fff3e0; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #FF9800; }
+        .warning-box strong { color: #E65100; }
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
+        .btn-nav:hover { background: #5568d3; }
+        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
+        .complete-btn:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningjs.html" class="active">Learning JS</a>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
+        
+        <div class="module-header">
+            <h1>Module 8: Objects</h1>
+            <p>⏱ 65 minutes | Week 5</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>Organize related data and functions using objects. Learn how to create objects, access and modify properties, use methods, understand the <code>this</code> keyword, and work with JSON data.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+            
+            <div class="reading-material">
+                <h3>📚 What is an Object?</h3>
+                <p>An <strong>object</strong> is a collection of related data and functionality. Think of it as a container that holds properties (data) and methods (functions). Objects are fundamental to JavaScript and are used to represent real-world entities like a person, a car, or a bank account.</p>
+            </div>
+
+            <h3>8.1 Object Literals</h3>
+            <p>The simplest way to create an object:</p>
+            
+            <div class="code-example">
+                <code>// Creating an object literal
+const person = {
+    firstName: "John",
+    lastName: "Doe",
+    age: 30,
+    isEmployed: true,
+    hobbies: ["reading", "coding", "gaming"]
+};
+
+// Accessing properties
+console.log(person.firstName);    // "John"
+console.log(person["lastName"]);  // "Doe"
+
+// Modifying properties
+person.age = 31;
+person["isEmployed"] = false;
+
+// Adding new properties
+person.email = "john@example.com";
+
+// Deleting properties
+delete person.isEmployed;
+
+console.log(person);
+// { firstName: "John", lastName: "Doe", age: 31, hobbies: [...], email: "john@example.com" }
+
+// Nested objects
+const student = {
+    name: "Alice",
+    grade: 10,
+    address: {
+        street: "123 Main St",
+        city: "Springfield",
+        state: "IL",
+        zip: "62701"
+    },
+    getFullAddress() {
+        return `${this.address.street}, ${this.address.city}, ${this.address.state} ${this.address.zip}`;
+    }
+};
+
+console.log(student.address.city);     // "Springfield"
+console.log(student.getFullAddress()); // "123 Main St, Springfield, IL 62701"</code>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Dot vs Bracket Notation:</strong> Use <code>dot notation</code> (<code>obj.property</code>) for known, valid identifier names. Use <code>bracket notation</code> (<code>obj["property"]</code>) when the property name is stored in a variable or contains special characters.
+            </div>
+
+            <h3>8.2 Object Methods</h3>
+            <p>Functions stored as object properties:</p>
+            
+            <div class="code-example">
+                <code>// Object with methods
+const calculator = {
+    result: 0,
+    
+    add(value) {
+        this.result += value;
+        return this;
+    },
+    
+    subtract(value) {
+        this.result -= value;
+        return this;
+    },
+    
+    multiply(value) {
+        this.result *= value;
+        return this;
+    },
+    
+    divide(value) {
+        if (value !== 0) {
+            this.result /= value;
+        }
+        return this;
+    },
+    
+    reset() {
+        this.result = 0;
+        return this;
+    },
+    
+    getResult() {
+        return this.result;
+    }
+};
+
+// Method chaining
+calculator.add(10).multiply(5).subtract(20).divide(3);
+console.log(calculator.getResult()); // 10
+
+// Method that returns object for chaining
+const book = {
+    title: "JavaScript Basics",
+    author: "Jane Doe",
+    pages: 300,
+    isRead: false,
+    
+    markAsRead() {
+        this.isRead = true;
+        return this;
+    },
+    
+    addPages(count) {
+        this.pages += count;
+        return this;
+    },
+    
+    getInfo() {
+        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.isRead ? 'Read' : 'Unread'}`;
+    }
+};
+
+console.log(book.markAsRead().addPages(50).getInfo());
+// "JavaScript Basics by Jane Doe, 350 pages, Read"</code>
+            </div>
+
+            <h3>8.3 The <code>this</code> Keyword</h3>
+            <p>Understanding how <code>this</code> works in objects:</p>
+            
+            <div class="code-example">
+                <code>// 'this' refers to the object calling the method
+const user = {
+    name: "Sarah",
+    age: 25,
+    
+    greet() {
+        console.log(`Hi, I'm ${this.name} and I'm ${this.age} years old.`);
+    },
+    
+    birthday() {
+        this.age++;
+        console.log(`Happy birthday! ${this.name} is now ${this.age}.`);
+    }
+};
+
+user.greet();    // "Hi, I'm Sarah and I'm 25 years old."
+user.birthday(); // "Happy birthday! Sarah is now 26."
+
+// 'this' in nested functions - common pitfall!
+const team = {
+    name: "Developers",
+    members: ["Alice", "Bob", "Charlie"],
+    
+    // Problem: 'this' is lost in regular function callbacks
+    listMembersWrong() {
+        this.members.forEach(function(member) {
+            console.log(`${this.name}: ${member}`); // this is undefined!
+        });
+    },
+    
+    // Solution: Use arrow functions or save 'this' reference
+    listMembersCorrect() {
+        // Option 1: Arrow function
+        this.members.forEach((member) => {
+            console.log(`${this.name}: ${member}`);
+        });
+        
+        // Option 2: Save reference
+        // const self = this;
+        // this.members.forEach(function(member) {
+        //     console.log(`${self.name}: ${member}`);
+        // });
+    }
+};
+
+team.listMembersCorrect();
+// Developers: Alice
+// Developers: Bob
+// Developers: Charlie</code>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ The 'this' Trap:</strong> Inside a regular function callback, <code>this</code> does NOT refer to the outer object. Use arrow functions or save <code>this</code> to a variable (like <code>self</code> or <code>that</code>) to preserve the context.
+            </div>
+
+            <h3>8.4 Object.keys(), Object.values(), Object.entries()</h3>
+            <p>Useful methods for working with objects:</p>
+            
+            <div class="code-example">
+                <code>const car = {
+    brand: "Toyota",
+    model: "Camry",
+    year: 2022,
+    color: "Blue"
+};
+
+// Get all keys (property names)
+console.log(Object.keys(car));
+// ["brand", "model", "year", "color"]
+
+// Get all values
+console.log(Object.values(car));
+// ["Toyota", "Camry", 2022, "Blue"]
+
+// Get all entries (key-value pairs)
+console.log(Object.entries(car));
+// [["brand", "Toyota"], ["model", "Camry"], ["year", 2022], ["color", "Blue"]]
+
+// Iterating over objects
+for (const key of Object.keys(car)) {
+    console.log(`${key}: ${car[key]}`);
+}
+
+for (const [key, value] of Object.entries(car)) {
+    console.log(`${key} = ${value}`);
+}
+
+// Check if property exists
+console.log("brand" in car);      // true
+console.log(car.hasOwnProperty("model")); // true
+console.log("price" in car);      // false
+
+// Object freezing (make immutable)
+const config = { apiUrl: "https://api.example.com" };
+Object.freeze(config);
+config.apiUrl = "https://other.com"; // Won't work in strict mode
+console.log(config.apiUrl); // "https://api.example.com"</code>
+            </div>
+
+            <h3>8.5 JSON (JavaScript Object Notation)</h3>
+            <p>Working with JSON data:</p>
+            
+            <div class="code-example">
+                <code>// JSON string (commonly received from APIs)
+const jsonString = '{"name":"John","age":30,"city":"New York","hobbies":["reading","coding"]}';
+
+// Parse JSON string to JavaScript object
+const person = JSON.parse(jsonString);
+console.log(person.name);    // "John"
+console.log(person.hobbies); // ["reading", "coding"]
+
+// Convert JavaScript object to JSON string
+const user = {
+    name: "Alice",
+    age: 25,
+    address: {
+        street: "123 Main St",
+        city: "Springfield"
+    }
+};
+
+const userJson = JSON.stringify(user);
+console.log(userJson);
+// '{"name":"Alice","age":25,"address":{"street":"123 Main St","city":"Springfield"}}'
+
+// Pretty print JSON (for debugging)
+console.log(JSON.stringify(user, null, 2));
+/*
+{
+  "name": "Alice",
+  "age": 25,
+  "address": {
+    "street": "123 Main St",
+    "city": "Springfield"
+  }
+}
+*/
+
+// Real-world example: Fetching data
+// Simulating API response
+const apiResponse = `{
+    "status": "success",
+    "data": {
+        "users": [
+            {"id": 1, "name": "Alice"},
+            {"id": 2, "name": "Bob"}
+        ]
+    }
+}`;
+
+const response = JSON.parse(apiResponse);
+console.log(response.status); // "success"
+console.log(response.data.users[0].name); // "Alice"
+
+// Storing data in localStorage (must be stringified)
+const settings = { theme: "dark", language: "en", notifications: true };
+localStorage.setItem("userSettings", JSON.stringify(settings));
+
+// Retrieving from localStorage (must be parsed)
+const savedSettings = JSON.parse(localStorage.getItem("userSettings"));
+console.log(savedSettings.theme); // "dark"</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ JSON Tip:</strong> JSON only supports strings, numbers, booleans, null, arrays, and objects. Functions, undefined, and symbols are NOT valid JSON values and will be ignored by <code>JSON.stringify()</code>.
+            </div>
+
+            <h3>8.6 Spread Operator with Objects</h3>
+            <p>Copy and merge objects easily:</p>
+            
+            <div class="code-example">
+                <code>// Spread operator (...) copies properties
+const defaults = { theme: "light", language: "en", notifications: true };
+const userPrefs = { theme: "dark", fontSize: 14 };
+
+// Merge objects (userPrefs overrides defaults)
+const settings = { ...defaults, ...userPrefs };
+console.log(settings);
+// { theme: "dark", language: "en", notifications: true, fontSize: 14 }
+
+// Shallow copy of an object
+const original = { a: 1, b: 2, nested: { c: 3 } };
+const copy = { ...original };
+
+copy.b = 20;
+copy.nested.c = 30;
+
+console.log(original.b);      // 2 (unchanged)
+console.log(original.nested.c); // 30 (changed! shallow copy)
+
+// Adding properties to a new object
+const baseUser = { name: "John", age: 30 };
+const extendedUser = { ...baseUser, email: "john@example.com", role: "admin" };
+console.log(extendedUser);
+// { name: "John", age: 30, email: "john@example.com", role: "admin" }
+
+// Destructuring with rest
+const person = { firstName: "Jane", lastName: "Doe", age: 25, city: "NYC" };
+const { firstName, ...rest } = person;
+console.log(firstName); // "Jane"
+console.log(rest);      // { lastName: "Doe", age: 25, city: "NYC" }</code>
+            </div>
+
+            <h3>8.7 Optional Chaining (?.)</h3>
+            <p>Safely access nested properties:</p>
+            
+            <div class="code-example">
+                <code>const user = {
+    name: "Alice",
+    address: {
+        street: "123 Main St",
+        city: "Springfield"
+    }
+};
+
+// Traditional way (can cause errors)
+// console.log(user.contact.email); // Error if contact is undefined
+
+// Optional chaining (safe)
+console.log(user.address?.city);    // "Springfield"
+console.log(user.contact?.email);   // undefined (no error!)
+
+// With methods
+const api = {
+    data: {
+        fetch() { return "data"; }
+    }
+};
+
+console.log(api.data?.fetch?.());  // "data"
+console.log(api.missing?.fetch?.()); // undefined
+
+// Real-world example
+const response = {
+    status: 200,
+    data: {
+        user: {
+            profile: {
+                name: "Bob"
+            }
+        }
+    }
+};
+
+// Safe access to deeply nested values
+const userName = response?.data?.user?.profile?.name;
+console.log(userName); // "Bob"
+
+const missing = response?.data?.user?.profile?.email;
+console.log(missing); // undefined (no error!)</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Create an object representing a book with properties like title, author, year, and a method to get a formatted description</li>
+                <li>Build a shopping cart object with methods to add items, remove items, and calculate the total price</li>
+                <li>Create a student grade tracker object that stores subjects and grades, with methods to add grades and calculate averages</li>
+                <li>Write a function that takes an object and returns a new object with only specific properties (using destructuring and spread)</li>
+                <li>Create a simple game character object with stats, inventory, and methods for leveling up and using items</li>
+                <li>Practice JSON by creating an object, converting it to JSON, storing it in localStorage, and retrieving it back</li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module7.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(8)">✓ Mark as Complete</button>
+            <a href="module9.html" class="btn-nav">Next: DOM & Events →</a>
+        </div>
+    </div>
+
+    <script>
+        function markComplete(moduleNum) {
+            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
+            if (!completed.includes(moduleNum)) {
+                completed.push(moduleNum);
+                localStorage.setItem('completedModules', JSON.stringify(completed));
+                localStorage.setItem('jsCourseProgress', completed.length);
+                alert('🎉 Module 8 completed! Keep going!');
+            } else {
+                alert('You already completed this module!');
+            }
+        }
+    </script>
+</body>
+</html>

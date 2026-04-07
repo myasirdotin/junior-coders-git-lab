@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: String Manipulation</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
+        .module-header h1 { color: white; border: none; margin: 0; }
+        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
+        .back-link:hover { text-decoration: underline; }
+        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
+        .content-section h2 { color: #667eea; margin-top: 0; }
+        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
+        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
+        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
+        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
+        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
+        .key-point strong { color: #1976D2; }
+        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
+        .tip-box strong { color: #2E7D32; }
+        .warning-box { background: #fff3e0; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #FF9800; }
+        .warning-box strong { color: #E65100; }
+        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
+        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
+        .btn-nav:hover { background: #5568d3; }
+        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
+        .complete-btn:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningjs.html" class="active">Learning JS</a>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
+        
+        <div class="module-header">
+            <h1>Module 3: String Manipulation</h1>
+            <p>⏱ 50 minutes | Week 2</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>Learn to work with text data in JavaScript. Master string concatenation, template literals, and essential string methods to manipulate and format text effectively.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+            
+            <div class="reading-material">
+                <h3>📚 What are Strings?</h3>
+                <p>A <strong>string</strong> is a sequence of characters used to represent text. In JavaScript, strings are wrapped in quotes - either single (<code>'</code>), double (<code>"</code>), or backticks (<code>`</code>).</p>
+            </div>
+
+            <h3>3.1 String Concatenation</h3>
+            <p>Concatenation means joining two or more strings together:</p>
+            
+            <div class="code-example">
+                <code>// Using the + operator
+let firstName = "John";
+let lastName = "Doe";
+let fullName = firstName + " " + lastName;
+console.log(fullName); // "John Doe"
+
+// Using the += operator
+let greeting = "Hello";
+greeting += " World!";
+console.log(greeting); // "Hello World!"
+
+// Concatenating with numbers
+let message = "I am " + 25 + " years old";
+console.log(message); // "I am 25 years old"</code>
+            </div>
+
+            <div class="warning-box">
+                <strong>⚠️ Common Mistake:</strong> When concatenating numbers, JavaScript converts them to strings. <code>"5" + 3</code> equals <code>"53"</code>, not <code>8</code>!
+            </div>
+
+            <h3>3.2 Template Literals</h3>
+            <p>Template literals (introduced in ES6) provide an easier way to work with strings using backticks (<code>`</code>) and embedded expressions:</p>
+            
+            <div class="code-example">
+                <code>// Basic template literal
+let name = "Alice";
+let greeting = `Hello, ${name}!`;
+console.log(greeting); // "Hello, Alice!"
+
+// Multi-line strings (no need for \n!)
+let message = `This is line 1
+This is line 2
+This is line 3`;
+console.log(message);
+
+// Embedding expressions
+let price = 99.99;
+let tax = 8.5;
+let total = `$${price} + $${tax} = $${price + tax}`;
+console.log(total); // "$99.99 + $8.5 = $108.49"
+
+// Calling functions inside template literals
+let getName = () => "Bob";
+console.log(`Hello, ${getName()}!`); // "Hello, Bob!"</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ Best Practice:</strong> Use template literals instead of concatenation for cleaner, more readable code, especially when working with variables or multi-line strings!
+            </div>
+
+            <h3>3.3 String Methods</h3>
+            <p>JavaScript provides many built-in methods to manipulate strings:</p>
+            
+            <div class="code-example">
+                <code>let text = "  Hello, JavaScript World!  ";
+
+// Getting string length
+console.log(text.length); // 28 (includes spaces)
+
+// Changing case
+console.log(text.toUpperCase()); // "  HELLO, JAVASCRIPT WORLD!  "
+console.log(text.toLowerCase()); // "  hello, javascript world!  "
+
+// Trimming whitespace
+console.log(text.trim()); // "Hello, JavaScript World!"
+console.log(text.trimStart()); // "Hello, JavaScript World!  "
+console.log(text.trimEnd());   // "  Hello, JavaScript World!"
+
+// Finding substrings
+let sentence = "The quick brown fox";
+console.log(sentence.indexOf("quick")); // 4
+console.log(sentence.includes("brown")); // true
+console.log(sentence.startsWith("The")); // true
+console.log(sentence.endsWith("fox"));   // true
+
+// Extracting parts of strings
+console.log(sentence.slice(4, 9));  // "quick"
+console.log(sentence.substring(4, 9)); // "quick"
+console.log(sentence.substr(4, 5));    // "quick"
+
+// Replacing content
+console.log(sentence.replace("fox", "dog")); // "The quick brown dog"
+console.log(sentence.replaceAll("o", "0"));  // "The quick br0wn f0x"
+
+// Splitting strings into arrays
+let fruits = "apple,banana,cherry";
+console.log(fruits.split(",")); // ["apple", "banana", "cherry"]</code>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Key Point:</strong> Strings are <strong>immutable</strong> in JavaScript. String methods don't change the original string - they return a new string!
+            </div>
+
+            <h3>3.4 Accessing Characters</h3>
+            <p>You can access individual characters in a string using bracket notation:</p>
+            
+            <div class="code-example">
+                <code>let word = "Hello";
+
+// Using bracket notation
+console.log(word[0]); // "H"
+console.log(word[1]); // "e"
+console.log(word[word.length - 1]); // "o" (last character)
+
+// Using charAt() method
+console.log(word.charAt(0)); // "H"
+console.log(word.charAt(4)); // "o"
+
+// Using charCodeAt() for ASCII values
+console.log(word.charCodeAt(0)); // 72 (ASCII code for 'H')</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Create a greeting using template literals with your name and age</li>
+                <li>Take a sentence and convert it to uppercase, then replace all vowels with "*"</li>
+                <li>Split a comma-separated string into an array and join it back with " | "</li>
+                <li>Extract the domain name from an email address (e.g., "user@gmail.com" → "gmail")</li>
+                <li>Create a multi-line formatted address using template literals</li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module2.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(3)">✓ Mark as Complete</button>
+            <a href="module4.html" class="btn-nav">Next: Conditional Logic →</a>
+        </div>
+    </div>
+
+    <script>
+        function markComplete(moduleNum) {
+            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
+            if (!completed.includes(moduleNum)) {
+                completed.push(moduleNum);
+                localStorage.setItem('completedModules', JSON.stringify(completed));
+                localStorage.setItem('jsCourseProgress', completed.length);
+                alert('🎉 Module 3 completed! Keep going!');
+            } else {
+                alert('You already completed this module!');
+            }
+        }
+    </script>
+</body>
+</html>
