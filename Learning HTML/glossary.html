@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kid-friendly HTML glossary with simple definitions for common tags and web page words.">
+    <title>HTML Glossary for Kids</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learninghtml.html">Learning HTML</a>
+        <a href="glossary.html" class="active">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">Moon</button>
+    </nav>
+
+    <header>
+        <h1>HTML Word Helper</h1>
+        <p>Simple definitions for the HTML words you will see in class.</p>
+    </header>
+
+    <div class="glossary-container">
+        <div class="search-box">
+            <input type="text" id="glossary-search" class="glossary-search" placeholder="Search for a tag or word..." oninput="filterGlossary()" aria-label="Search glossary terms">
+        </div>
+
+        <div class="glossary-content">
+            <div class="glossary-letter">A</div>
+            <dl class="glossary-term">
+                <dt>&lt;a&gt; (Anchor)</dt>
+                <dd>The tag that creates a link you can click.</dd>
+            </dl>
+            <dl class="glossary-term">
+                <dt>alt Attribute</dt>
+                <dd>Words that describe an image so people and screen readers know what it shows.</dd>
+            </dl>
+            <dl class="glossary-term">
+                <dt>Attribute</dt>
+                <dd>Extra details inside an opening tag, like a source, type, or label.</dd>
+            </dl>
+
+            <div class="glossary-letter">B</div>
+            <dl class="glossary-term">
+                <dt>&lt;body&gt;</dt>
+                <dd>The part of the page that people can actually see.</dd>
+            </dl>
+            <dl class="glossary-term">
+                <dt>&lt;br&gt;</dt>
+                <dd>A line break tag. It moves the next text onto a new line.</dd>
+            </dl>
+
+            <div class="glossary-letter">D</div>
+            <dl class="glossary-term">
+                <dt>&lt;div&gt;</dt>
+                <dd>A general box used to group content together.</dd>
+            </dl>
+            <dl class="glossary-term">
+                <dt>&lt;!DOCTYPE html&gt;</dt>
+                <dd>A line at the top of the file that tells the browser to use modern HTML.</dd>
+            </dl>
+
+            <div class="glossary-letter">E</div>
+            <dl class="glossary-term">
+                <dt>Element</dt>
+                <dd>A piece of HTML made from a tag and its content.</dd>
+            </dl>
+
+            <div class="glossary-letter">H</div>
+            <dl class="glossary-term">
+                <dt>&lt;head&gt;</dt>
+                <dd>The hidden setup area of the page, where things like the title go.</dd>
+            </dl>
+            <dl class="glossary-term">
+                <dt>&lt;h1&gt; to &lt;h6&gt;</dt>
+                <dd>Heading tags that create titles from biggest to smallest.</dd>
+            </dl>
+            <dl class="glossary-term">
+                <dt>&lt;html&gt;</dt>
+                <dd>The outer wrapper for the whole HTML page.</dd>
+            </dl>
+
+            <div class="glossary-letter">I</div>
+            <dl class="glossary-term">
+                <dt>&lt;img&gt;</dt>
+                <dd>The tag used to place a picture on a page.</dd>
+            </dl>
+            <dl class="glossary-term">
+                <dt>&lt;input&gt;</dt>
+                <dd>A tag that creates a box, button, or other form control.</dd>
+            </dl>
+
+            <div class="glossary-letter">L</div>
+            <dl class="glossary-term">
+                <dt>&lt;label&gt;</dt>
+                <dd>A helpful name for a form input, such as "Name" or "Email."</dd>
+            </dl>
+            <dl class="glossary-term">
+                <dt>&lt;li&gt;</dt>
+                <dd>One item inside a list.</dd>
+            </dl>
+
+            <div class="glossary-letter">M</div>
+            <dl class="glossary-term">
+                <dt>&lt;main&gt;</dt>
+                <dd>The main content area of a page.</dd>
+            </dl>
+
+            <div class="glossary-letter">N</div>
+            <dl class="glossary-term">
+                <dt>&lt;nav&gt;</dt>
+                <dd>A section that holds navigation links or menus.</dd>
+            </dl>
+
+            <div class="glossary-letter">P</div>
+            <dl class="glossary-term">
+                <dt>&lt;p&gt;</dt>
+                <dd>A paragraph tag for regular text.</dd>
+            </dl>
+
+            <div class="glossary-letter">S</div>
+            <dl class="glossary-term">
+                <dt>Semantic HTML</dt>
+                <dd>Using tags that explain what the content means, like <code>&lt;header&gt;</code> or <code>&lt;main&gt;</code>.</dd>
+            </dl>
+            <dl class="glossary-term">
+                <dt>&lt;section&gt;</dt>
+                <dd>A clear section of a page, usually with its own heading.</dd>
+            </dl>
+            <dl class="glossary-term">
+                <dt>&lt;strong&gt;</dt>
+                <dd>A tag that marks text as very important. It usually looks bold.</dd>
+            </dl>
+
+            <div class="glossary-letter">T</div>
+            <dl class="glossary-term">
+                <dt>&lt;table&gt;</dt>
+                <dd>A tag used to build a table with rows and columns.</dd>
+            </dl>
+            <dl class="glossary-term">
+                <dt>&lt;title&gt;</dt>
+                <dd>The words shown on the browser tab.</dd>
+            </dl>
+
+            <div class="glossary-letter">U</div>
+            <dl class="glossary-term">
+                <dt>&lt;ul&gt;</dt>
+                <dd>A bulleted list.</dd>
+            </dl>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

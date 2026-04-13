@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A kid-friendly HTML learning path with 8 bite-sized modules, playful practice ideas, and a simple coding playground.">
+    <title>Learn HTML | Junior Coders</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learninghtml.html" class="active">Learning HTML</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">Moon</button>
+    </nav>
+
+    <div class="syllabus-container">
+        <div class="syllabus-header">
+            <h1>Learn HTML</h1>
+            <p>A playful path for kids who want to build real web pages.</p>
+        </div>
+
+        <div class="course-info">
+            <div class="info-card">
+                <h3>Total Modules</h3>
+                <p>8</p>
+            </div>
+            <div class="info-card">
+                <h3>Duration</h3>
+                <p>4 Weeks</p>
+            </div>
+            <div class="info-card">
+                <h3>Level</h3>
+                <p>Beginner</p>
+            </div>
+            <div class="info-card">
+                <h3>Prerequisites</h3>
+                <p>None</p>
+            </div>
+        </div>
+
+        <div class="content-section intro-card">
+            <h2>What Kids Will Learn</h2>
+            <p>We start with the building blocks of a web page, then move into links, images, lists, tables, forms, and page structure. Each module is short enough for young learners and easy to try in the playground.</p>
+            <div class="kid-checklist">
+                <span class="topic-tag">Make a title</span>
+                <span class="topic-tag">Add pictures</span>
+                <span class="topic-tag">Write fun lists</span>
+                <span class="topic-tag">Build mini projects</span>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <h2>Your Progress</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="progress-text"><span id="completedModules">0</span> of 8 Modules Completed</p>
+        </div>
+
+        <div class="week-section">
+            <div class="week-header">Week 1: Meet HTML</div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 1: Meet HTML</h2>
+                        <span class="module-badge">30 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Discover what HTML does and how a web page is built from simple parts that work together.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">What is HTML</span>
+                            <span class="topic-tag">&lt;!DOCTYPE html&gt;</span>
+                            <span class="topic-tag">&lt;html&gt;, &lt;head&gt;, &lt;body&gt;</span>
+                            <span class="topic-tag">Tags &amp; elements</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">30 minutes</span>
+                            <a href="module1.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 2: Text &amp; Headings</h2>
+                        <span class="module-badge">35 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Use headings and paragraphs to organize your ideas and make your page easy to read.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">&lt;h1&gt; to &lt;h6&gt;</span>
+                            <span class="topic-tag">&lt;p&gt;</span>
+                            <span class="topic-tag">&lt;strong&gt; &amp; &lt;em&gt;</span>
+                            <span class="topic-tag">&lt;br&gt; &amp; &lt;hr&gt;</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">35 minutes</span>
+                            <a href="module2.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-section">
+            <div class="week-header">Week 2: Add Cool Stuff</div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 3: Links &amp; Images</h2>
+                        <span class="module-badge">40 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Add clickable links and pictures so your page feels alive and interactive.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">&lt;a&gt;</span>
+                            <span class="topic-tag">href</span>
+                            <span class="topic-tag">&lt;img&gt;</span>
+                            <span class="topic-tag">alt text</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">40 minutes</span>
+                            <a href="module3.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 4: Lists</h2>
+                        <span class="module-badge">35 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Build favorite-things lists, step-by-step instructions, and grouped notes.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">&lt;ul&gt; &amp; &lt;ol&gt;</span>
+                            <span class="topic-tag">&lt;li&gt;</span>
+                            <span class="topic-tag">&lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;</span>
+                            <span class="topic-tag">Nested lists</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">35 minutes</span>
+                            <a href="module4.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-section">
+            <div class="week-header">Week 3: Organize Information</div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 5: Tables</h2>
+                        <span class="module-badge">45 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Use rows and columns to organize schedules, scoreboards, and other information.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">&lt;table&gt;</span>
+                            <span class="topic-tag">&lt;tr&gt;, &lt;th&gt;, &lt;td&gt;</span>
+                            <span class="topic-tag">&lt;thead&gt; &amp; &lt;tbody&gt;</span>
+                            <span class="topic-tag">colspan &amp; rowspan</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">45 minutes</span>
+                            <a href="module5.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 6: Forms Part 1</h2>
+                        <span class="module-badge">50 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Create forms that collect names, choices, and messages from visitors.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">&lt;form&gt;</span>
+                            <span class="topic-tag">input types</span>
+                            <span class="topic-tag">labels</span>
+                            <span class="topic-tag">buttons</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">50 minutes</span>
+                            <a href="module6.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="week-section">
+            <div class="week-header">Week 4: Build Smarter Pages</div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 7: Forms Part 2</h2>
+                        <span class="module-badge">45 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Level up forms with dropdowns, longer text boxes, and helpful rules.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">&lt;textarea&gt;</span>
+                            <span class="topic-tag">&lt;select&gt; &amp; &lt;option&gt;</span>
+                            <span class="topic-tag">&lt;fieldset&gt;</span>
+                            <span class="topic-tag">Validation</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">45 minutes</span>
+                            <a href="module7.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 8: Semantic HTML</h2>
+                        <span class="module-badge">40 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Learn special page parts that make your website clearer for people and browsers.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">&lt;header&gt; &amp; &lt;footer&gt;</span>
+                            <span class="topic-tag">&lt;nav&gt; &amp; &lt;main&gt;</span>
+                            <span class="topic-tag">&lt;article&gt; &amp; &lt;section&gt;</span>
+                            <span class="topic-tag">&lt;aside&gt;</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">40 minutes</span>
+                            <a href="module8.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resources-section">
+            <h2>Helpful Next Steps</h2>
+            <div class="resource-grid">
+                <div class="resource-item">
+                    <h4>Try Code</h4>
+                    <a href="index.html">Open Playground</a>
+                </div>
+                <div class="resource-item">
+                    <h4>Mini Missions</h4>
+                    <a href="exercises.html">View Exercises</a>
+                </div>
+                <div class="resource-item">
+                    <h4>Word Helper</h4>
+                    <a href="glossary.html">View Glossary</a>
+                </div>
+                <div class="resource-item">
+                    <h4>Extra Reading</h4>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank" rel="noopener">Visit MDN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedProgress = localStorage.getItem('htmlCourseProgress');
+            const completed = savedProgress ? parseInt(savedProgress, 10) : 0;
+            const percentage = (completed / 8) * 100;
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('completedModules').textContent = completed;
+        });
+    </script>
+</body>
+</html>

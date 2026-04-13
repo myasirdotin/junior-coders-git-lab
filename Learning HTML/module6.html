@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 6: Learn about HTML forms - input fields, labels, buttons, and form structure.">
+    <title>Module 6: Forms Part 1</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learninghtml.html" class="active">Learning HTML</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <div class="module-container">
+        <a href="learninghtml.html" class="back-link">← Back to Syllabus</a>
+
+        <div class="module-header">
+            <h1>Module 6: Forms Part 1</h1>
+            <p>⏱ 50 minutes | Week 3</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Create forms with the <code><form></code> element</li>
+                <li>Use various input types (text, email, password, etc.)</li>
+                <li>Associate labels with inputs using the <code>for</code> attribute</li>
+                <li>Create submit and reset buttons</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+
+            <h3>6.1 Basic Form Structure</h3>
+            <p>Forms are created with the <code><form></code> element:</p>
+
+            <div class="code-example">
+                <code><form action="/submit" method="post">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+  
+  <button type="submit">Submit</button>
+</form></code>
+            </div>
+
+            <h3>6.2 Common Input Types</h3>
+            <div class="code-example">
+                <code><!-- Text input -->
+<input type="text" id="username" name="username">
+
+<!-- Password input (hidden characters) -->
+<input type="password" id="password" name="password">
+
+<!-- Email input (validates email format) -->
+<input type="email" id="email" name="email">
+
+<!-- Number input -->
+<input type="number" id="age" name="age" min="1" max="120">
+
+<!-- Date input -->
+<input type="date" id="birthdate" name="birthdate">
+
+<!-- Checkbox -->
+<input type="checkbox" id="terms" name="terms">
+
+<!-- Radio button -->
+<input type="radio" id="male" name="gender" value="male">
+<input type="radio" id="female" name="gender" value="female"></code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ Best Practice:</strong> Always use <code><label></code> elements with the <code>for</code> attribute matching the input's <code>id</code>. This improves accessibility.
+            </div>
+
+            <h3>6.3 Buttons</h3>
+            <div class="code-example">
+                <code><!-- Submit button -->
+<button type="submit">Send</button>
+
+<!-- Reset button -->
+<button type="reset">Clear</button>
+
+<!-- Regular button -->
+<button type="button">Click Me</button></code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Common Mistakes</h2>
+            <ul>
+                <li><strong>Missing <code>name</code> attributes</strong> - The <code>name</code> attribute is required for form data to be submitted.</li>
+                <li><strong>Not using labels</strong> - Labels are essential for accessibility and usability.</li>
+                <li><strong>Forgetting to set <code>type</code></strong> - Always specify the input type for proper validation and mobile keyboards.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Create a login form with username and password</li>
+                <li>Create a registration form with email and password</li>
+                <li>Create a survey form with radio buttons and checkboxes</li>
+            </ol>
+        </div>
+
+        <div class="content-section">
+            <h2>Check Your Understanding</h2>
+            <form id="quiz-form-6" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Which input type hides the characters as you type?</p>
+                    <label><input type="radio" name="q6-1" value="a"> a) type="hidden"</label>
+                    <label><input type="radio" name="q6-1" value="b"> b) type="password"</label>
+                    <label><input type="radio" name="q6-1" value="c"> c) type="secret"</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: What attribute links a label to an input?</p>
+                    <label><input type="radio" name="q6-2" value="a"> a) for</label>
+                    <label><input type="radio" name="q6-2" value="b"> b) id</label>
+                    <label><input type="radio" name="q6-2" value="c"> c) name</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: Which button type submits form data?</p>
+                    <label><input type="radio" name="q6-3" value="a"> a) type="button"</label>
+                    <label><input type="radio" name="q6-3" value="b"> b) type="send"</label>
+                    <label><input type="radio" name="q6-3" value="c"> c) type="submit"</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="quiz-submit" onclick="checkQuiz(6)">Check Answers</button>
+                <div id="quiz-score-6" class="quiz-score"></div>
+            </form>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module5.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(6)">✓ Mark as Complete</button>
+            <a href="module7.html" class="btn-nav">Next: Forms Part 2 →</a>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

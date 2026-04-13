@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 1 for kids: learn what HTML is, what the main page parts do, and how tags help build a web page.">
+    <meta name="keywords" content="HTML, kids coding, introduction, basics, doctype, tags, web page structure, tutorial">
+    <meta name="author" content="Junior Coders Git Lab">
+    <meta name="theme-color" content="#0891b2">
+    <meta property="og:title" content="Module 1: Meet HTML | Junior Coders">
+    <meta property="og:description" content="Learn what HTML is, how a page is structured, and what basic tags do.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Module 1: Meet HTML | Junior Coders</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%93%9D</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation">
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learninghtml.html" class="active" aria-current="page">Learning HTML</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">Moon</button>
+    </nav>
+
+    <main id="main-content" class="module-container">
+        <a href="learninghtml.html" class="back-link" role="button">Back to Syllabus</a>
+
+        <div class="module-header">
+            <h1>Module 1: Meet HTML</h1>
+            <p>30 minutes | Week 1</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Understand what HTML does on a web page</li>
+                <li>Learn the main parts of a simple HTML document</li>
+                <li>Know what <code>&lt;!DOCTYPE html&gt;</code> is for</li>
+                <li>Spot common tags and what job each one does</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>HTML is the language we use to tell a browser what belongs on a page. It helps us add titles, paragraphs, pictures, buttons, and more in an organized way.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Reading Material</h2>
+
+            <div class="reading-material">
+                <h3>What Is HTML?</h3>
+                <p><strong>HTML</strong> stands for HyperText Markup Language. That sounds big, but the idea is simple: HTML uses labels called tags to help the browser understand what each piece of content is.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>Key Point:</strong> HTML tags are like name labels. They tell the browser, "this is a heading," "this is a paragraph," or "this is an image."
+            </div>
+
+            <h3>1.1 The Skeleton of a Web Page</h3>
+            <p>Most web pages start with the same basic structure:</p>
+
+            <div class="code-example">
+                <code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My First Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;My First Heading&lt;/h1&gt;
+    &lt;p&gt;My first paragraph.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code>
+            </div>
+
+            <div class="tip-box">
+                <strong>Best Practice:</strong> Start with <code>&lt;!DOCTYPE html&gt;</code> so the browser knows to use modern HTML rules.
+            </div>
+
+            <h3>1.2 What Each Part Does</h3>
+            <p><strong>&lt;!DOCTYPE html&gt;</strong> says, "This page uses HTML5."</p>
+            <p><strong>&lt;html&gt;</strong> wraps the whole web page.</p>
+            <p><strong>&lt;head&gt;</strong> holds page information such as the title and links to styles.</p>
+            <p><strong>&lt;title&gt;</strong> chooses the words shown on the browser tab.</p>
+            <p><strong>&lt;body&gt;</strong> contains the part people actually see on the screen.</p>
+
+            <div class="warning-box">
+                <strong>Common Mistake:</strong> Do not put visible page content inside <code>&lt;head&gt;</code>. Headings, paragraphs, and images belong in <code>&lt;body&gt;</code>.
+            </div>
+
+            <h3>1.3 Tags Work in Pairs</h3>
+            <p>Most HTML elements have an opening tag and a closing tag. The content goes in the middle:</p>
+
+            <div class="code-example">
+                <code>&lt;p&gt;This is a paragraph.&lt;/p&gt;
+&lt;h1&gt;This is a heading&lt;/h1&gt;
+
+&lt;!-- Some tags do not need a closing tag --&gt;
+&lt;img src="image.jpg" alt="Description"&gt;
+&lt;br&gt;
+&lt;hr&gt;</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Watch Out For These</h2>
+            <ul>
+                <li><strong>Forgetting to close a tag</strong> - Most tags need an ending tag like <code>&lt;/p&gt;</code>.</li>
+                <li><strong>Mixing up tag order</strong> - Tags should be neatly nested, like putting smaller boxes inside bigger boxes.</li>
+                <li><strong>Leaving out the doctype</strong> - Without <code>&lt;!DOCTYPE html&gt;</code>, your page may not behave the way you expect.</li>
+                <li><strong>Trying to memorize everything</strong> - You do not need to know every tag today. Start small and practice often.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Mini Mission</h2>
+            <p>Try this in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Make a page called "All About Me" or "My Favorite Animal"</li>
+                <li>Add a title inside <code>&lt;title&gt;</code></li>
+                <li>Add one heading and one paragraph inside <code>&lt;body&gt;</code></li>
+                <li>Change the text and see how the preview updates</li>
+            </ol>
+        </div>
+
+        <div class="content-section">
+            <h2>Check Your Understanding</h2>
+            <form id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: What does HTML stand for?</p>
+                    <label><input type="radio" name="q1-1" value="a"> a) Hyper Text Making Language</label>
+                    <label><input type="radio" name="q1-1" value="b"> b) HyperText Markup Language</label>
+                    <label><input type="radio" name="q1-1" value="c"> c) Home Tool Markup Language</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: Which tag contains the visible content of a web page?</p>
+                    <label><input type="radio" name="q1-2" value="a"> a) &lt;body&gt;</label>
+                    <label><input type="radio" name="q1-2" value="b"> b) &lt;head&gt;</label>
+                    <label><input type="radio" name="q1-2" value="c"> c) &lt;html&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: What is the correct HTML element for inserting a line break?</p>
+                    <label><input type="radio" name="q1-3" value="a"> a) &lt;break&gt;</label>
+                    <label><input type="radio" name="q1-3" value="b"> b) &lt;lb&gt;</label>
+                    <label><input type="radio" name="q1-3" value="c"> c) &lt;br&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="quiz-submit" onclick="checkQuiz(1)">Check Answers</button>
+                <div id="quiz-score-1" class="quiz-score"></div>
+            </form>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="learninghtml.html" class="btn-nav disabled">Previous</a>
+            <button class="complete-btn" onclick="markComplete(1)">Mark as Complete</button>
+            <a href="module2.html" class="btn-nav">Next: Text &amp; Headings</a>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

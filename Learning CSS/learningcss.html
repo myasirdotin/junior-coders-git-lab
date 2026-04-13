@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete CSS fundamentals course syllabus. 8 modules covering selectors, box model, flexbox, grid, and more.">
+    <title>CSS Course Syllabus</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningcss.html" class="active">Learning CSS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <div class="syllabus-container">
+        <div class="syllabus-header">
+            <h1>CSS Fundamentals</h1>
+            <p>Complete Course Syllabus & Learning Path</p>
+        </div>
+
+        <div class="course-info">
+            <div class="info-card">
+                <h3>Total Modules</h3>
+                <p>8</p>
+            </div>
+            <div class="info-card">
+                <h3>Duration</h3>
+                <p>4 Weeks</p>
+            </div>
+            <div class="info-card">
+                <h3>Level</h3>
+                <p>Beginner</p>
+            </div>
+            <div class="info-card">
+                <h3>Prerequisites</h3>
+                <p>Basic HTML</p>
+            </div>
+        </div>
+
+        <div class="progress-section">
+            <h2>Your Progress</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="progress-text"><span id="completedModules">0</span> of 8 Modules Completed</p>
+        </div>
+
+        <!-- Week 1 -->
+        <div class="week-section">
+            <div class="week-header">Week 1: CSS Basics</div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 1: Introduction to CSS</h2>
+                        <span class="module-badge">30 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Learn what CSS is and how it styles web pages. Understand the basic syntax and structure.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">What is CSS</span>
+                            <span class="topic-tag">CSS Syntax</span>
+                            <span class="topic-tag">Selectors</span>
+                            <span class="topic-tag">Adding CSS to HTML</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">30 minutes</span>
+                            <a href="module1.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 2: Colors & Text</h2>
+                        <span class="module-badge">35 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Master color properties, text styling, and font customization in CSS.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Color values</span>
+                            <span class="topic-tag">font-family</span>
+                            <span class="topic-tag">font-size</span>
+                            <span class="topic-tag">text-decoration</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">35 minutes</span>
+                            <a href="module2.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Week 2 -->
+        <div class="week-section">
+            <div class="week-header">Week 2: Box Model & Layout</div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 3: The Box Model</h2>
+                        <span class="module-badge">40 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Understand margins, borders, padding, and content areas of elements.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Content area</span>
+                            <span class="topic-tag">Padding</span>
+                            <span class="topic-tag">Border</span>
+                            <span class="topic-tag">Margin</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">40 minutes</span>
+                            <a href="module3.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 4: Display & Positioning</h2>
+                        <span class="module-badge">45 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Control how elements are displayed and positioned on the page.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">display property</span>
+                            <span class="topic-tag">block vs inline</span>
+                            <span class="topic-tag">position property</span>
+                            <span class="topic-tag">z-index</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">45 minutes</span>
+                            <a href="module4.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Week 3 -->
+        <div class="week-section">
+            <div class="week-header">Week 3: Flexbox Layout</div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 5: Introduction to Flexbox</h2>
+                        <span class="module-badge">45 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Learn the fundamentals of Flexbox for one-dimensional layouts.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">flex container</span>
+                            <span class="topic-tag">flex-direction</span>
+                            <span class="topic-tag">justify-content</span>
+                            <span class="topic-tag">align-items</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">45 minutes</span>
+                            <a href="module5.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 6: Advanced Flexbox</h2>
+                        <span class="module-badge">40 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Master advanced Flexbox properties and create complex layouts.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">flex-wrap</span>
+                            <span class="topic-tag">flex-grow</span>
+                            <span class="topic-tag">flex-shrink</span>
+                            <span class="topic-tag">align-self</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">40 minutes</span>
+                            <a href="module6.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Week 4 -->
+        <div class="week-section">
+            <div class="week-header">Week 4: Grid & Responsive Design</div>
+            <div class="modules-grid">
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 7: CSS Grid</h2>
+                        <span class="module-badge">50 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Create two-dimensional layouts with CSS Grid.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">grid container</span>
+                            <span class="topic-tag">grid-template-columns</span>
+                            <span class="topic-tag">grid-template-rows</span>
+                            <span class="topic-tag">grid-area</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">50 minutes</span>
+                            <a href="module7.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>Module 8: Responsive Design</h2>
+                        <span class="module-badge">45 min</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Make your websites look great on all devices with media queries and responsive techniques.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Media queries</span>
+                            <span class="topic-tag">Mobile-first</span>
+                            <span class="topic-tag">Breakpoints</span>
+                            <span class="topic-tag">Viewport</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <span class="duration">45 minutes</span>
+                            <a href="module8.html" class="btn-start">Start Learning</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resources-section">
+            <h2>Additional Resources</h2>
+            <div class="resource-grid">
+                <div class="resource-item">
+                    <h4>Practice Playground</h4>
+                    <a href="index.html">Open Code Editor</a>
+                </div>
+                <div class="resource-item">
+                    <h4>Exercises & Examples</h4>
+                    <a href="exercises.html">View Exercises</a>
+                </div>
+                <div class="resource-item">
+                    <h4>CSS Glossary</h4>
+                    <a href="glossary.html">View Glossary</a>
+                </div>
+                <div class="resource-item">
+                    <h4>MDN Documentation</h4>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank" rel="noopener">Visit MDN</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedProgress = localStorage.getItem('cssCourseProgress');
+            const completed = savedProgress ? parseInt(savedProgress) : 0;
+            const percentage = (completed / 8) * 100;
+            document.getElementById('progressFill').style.width = percentage + '%';
+            document.getElementById('completedModules').textContent = completed;
+        });
+    </script>
+</body>
+</html>

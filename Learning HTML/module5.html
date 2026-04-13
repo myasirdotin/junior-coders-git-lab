@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 5: Learn about HTML tables - creating rows, columns, headers, and merging cells.">
+    <title>Module 5: Tables</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learninghtml.html" class="active">Learning HTML</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <div class="module-container">
+        <a href="learninghtml.html" class="back-link">← Back to Syllabus</a>
+
+        <div class="module-header">
+            <h1>Module 5: Tables</h1>
+            <p>⏱ 45 minutes | Week 3</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Create tables with <code><table></code></li>
+                <li>Define table rows, headers, and data cells</li>
+                <li>Use <code><thead></code> and <code><tbody></code> for structure</li>
+                <li>Merge cells with <code>colspan</code> and <code>rowspan</code></li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+
+            <h3>5.1 Basic Table Structure</h3>
+            <p>Tables are created with the <code><table></code> element:</p>
+
+            <div class="code-example">
+                <code><table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>City</th>
+  </tr>
+  <tr>
+    <td>Alice</td>
+    <td>25</td>
+    <td>New York</td>
+  </tr>
+  <tr>
+    <td>Bob</td>
+    <td>30</td>
+    <td>London</td>
+  </tr>
+</table></code>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Key Point:</strong> <code><th></code> creates header cells (bold and centered by default). <code><td></code> creates data cells.
+            </div>
+
+            <h3>5.2 Table Sections</h3>
+            <p>Use <code><thead></code>, <code><tbody></code>, and <code><tfoot></code> to structure your table:</p>
+
+            <div class="code-example">
+                <code><table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Laptop</td>
+      <td>$999</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Total</td>
+      <td>$999</td>
+    </tr>
+  </tfoot>
+</table></code>
+            </div>
+
+            <h3>5.3 Merging Cells</h3>
+            <div class="code-example">
+                <code><table>
+  <tr>
+    <th colspan="2">Full Name</th>
+  </tr>
+  <tr>
+    <td>John</td>
+    <td>Doe</td>
+  </tr>
+</table></code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Common Mistakes</h2>
+            <ul>
+                <li><strong>Using tables for page layout</strong> - Tables are for tabular data, not layout. Use CSS for layout.</li>
+                <li><strong>Forgetting headers</strong> - Always use <code><th></code> for column headers for accessibility.</li>
+                <li><strong>Inconsistent columns</strong> - Each row should have the same number of columns (unless using colspan/rowspan).</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Create a class schedule table</li>
+                <li>Create a product price comparison table</li>
+                <li>Create a table with merged header cells</li>
+            </ol>
+        </div>
+
+        <div class="content-section">
+            <h2>Check Your Understanding</h2>
+            <form id="quiz-form-5" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: Which tag defines a table row?</p>
+                    <label><input type="radio" name="q5-1" value="a"> a) <tr></label>
+                    <label><input type="radio" name="q5-1" value="b"> b) <td></label>
+                    <label><input type="radio" name="q5-1" value="c"> c) <row></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q2: What does the colspan attribute do?</p>
+                    <label><input type="radio" name="q5-2" value="a"> a) Merges rows</label>
+                    <label><input type="radio" name="q5-2" value="b"> b) Merges columns</label>
+                    <label><input type="radio" name="q5-2" value="c"> c) Adds columns</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: Which tag is used for table header cells?</p>
+                    <label><input type="radio" name="q5-3" value="a"> a) <td></label>
+                    <label><input type="radio" name="q5-3" value="b"> b) <header></label>
+                    <label><input type="radio" name="q5-3" value="c"> c) <th></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="quiz-submit" onclick="checkQuiz(5)">Check Answers</button>
+                <div id="quiz-score-5" class="quiz-score"></div>
+            </form>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module4.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(5)">✓ Mark as Complete</button>
+            <a href="module6.html" class="btn-nav">Next: Forms Part 1 →</a>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

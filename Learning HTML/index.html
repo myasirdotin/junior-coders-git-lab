@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Kid-friendly HTML playground. Write simple HTML, preview it instantly, and build your first web pages step by step.">
+    <meta name="keywords" content="HTML, kids coding, learning, playground, beginner, tutorial, practice">
+    <meta name="author" content="Junior Coders Git Lab">
+    <meta name="theme-color" content="#0891b2">
+    <meta property="og:title" content="HTML Playground for Kids">
+    <meta property="og:description" content="Write simple HTML, preview it instantly, and build your first web pages step by step.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>HTML Playground for Kids | Junior Coders</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%93%9D</text></svg>">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="active" aria-current="page">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learninghtml.html">Learning HTML</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">Moon</button>
+    </nav>
+
+    <header>
+        <h1>HTML Playground</h1>
+        <p>Build your first web page one tag at a time.</p>
+    </header>
+
+    <main id="main-content" class="main-container">
+        <aside class="instructions-panel" aria-label="Instructions">
+            <h2>Your First HTML Mission</h2>
+            <p class="hero-note">HTML tells the browser what belongs on a page, like headings, paragraphs, pictures, and lists.</p>
+            <ol>
+                <li><strong>Type a tag:</strong> Write simple HTML in the editor.</li>
+                <li><strong>Watch it appear:</strong> Your page shows up in the preview box.</li>
+                <li><strong>Try ideas:</strong> Change words, add a heading, or make a list.</li>
+                <li><strong>Start over anytime:</strong> Use <strong>Clear All</strong> for a fresh page.</li>
+            </ol>
+            <hr>
+            <h3>Quick Start Code</h3>
+            <pre>&lt;h1&gt;Hello, coders!&lt;/h1&gt;
+&lt;p&gt;Welcome to my first web page.&lt;/p&gt;</pre>
+            <div class="kid-tip">
+                <strong>Try this:</strong> Change the heading to your name, favorite animal, or dream game title.
+            </div>
+        </aside>
+
+        <section class="playground-container" aria-label="Code playground">
+            <div class="editor-area">
+                <label for="code-editor">Write your HTML here:</label>
+                <textarea id="code-editor" spellcheck="false" placeholder="&lt;h1&gt;My Awesome Page&lt;/h1&gt;&#10;&lt;p&gt;I am learning HTML!&lt;/p&gt;" aria-label="Code editor"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button class="btn-example" onclick="loadExample()" aria-label="Load example code">Load Example</button>
+                <button class="btn-clear" onclick="clearAll()" aria-label="Clear editor and preview">Clear All</button>
+                <button class="btn-run" onclick="renderPreview()" aria-label="Render preview">Render Preview</button>
+            </div>
+            <div class="keyboard-hint">
+                <kbd>Ctrl+Enter</kbd> Render &nbsp;&middot;&nbsp; <kbd>Ctrl+L</kbd> Clear
+            </div>
+
+            <div class="preview-area">
+                <label>Live Preview:</label>
+                <div id="preview" role="region" aria-label="HTML preview" aria-live="polite">
+                    <div class="info-entry">Your web page will appear here. Start typing or load an example.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

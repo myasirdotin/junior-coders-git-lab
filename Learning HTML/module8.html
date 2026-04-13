@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 8: Learn about semantic HTML elements for better structure, accessibility, and SEO.">
+    <title>Module 8: Semantic HTML</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learninghtml.html" class="active">Learning HTML</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <div class="module-container">
+        <a href="learninghtml.html" class="back-link">← Back to Syllabus</a>
+
+        <div class="module-header">
+            <h1>Module 8: Semantic HTML</h1>
+            <p>⏱ 40 minutes | Week 4</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Understand the importance of semantic HTML</li>
+                <li>Use <code><header></code>, <code><nav></code>, <code><main></code>, and <code><footer></code></li>
+                <li>Structure content with <code><article></code>, <code><section></code>, and <code><aside></code></li>
+                <li>Improve accessibility and SEO with semantic markup</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+
+            <div class="reading-material">
+                <h3>📚 What is Semantic HTML?</h3>
+                <p><strong>Semantic HTML</strong> means using HTML elements that clearly describe their meaning and content. Instead of using <code><div></code> for everything, semantic elements like <code><article></code>, <code><nav></code>, and <code><header></code> tell browsers and developers what the content is about.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Key Point:</strong> Semantic HTML improves accessibility (screen readers understand your content better), SEO (search engines can index your content more accurately), and code maintainability.
+            </div>
+
+            <h3>8.1 Page Layout Elements</h3>
+            <div class="code-example">
+                <code><header>
+  <h1>Website Title</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <!-- Main content goes here -->
+</main>
+
+<footer>
+  <p>&copy; 2024 My Website</p>
+</footer></code>
+            </div>
+
+            <h3>8.2 Content Elements</h3>
+            <div class="code-example">
+                <code><article>
+  <h2>Blog Post Title</h2>
+  <p>Article content here...</p>
+</article>
+
+<section>
+  <h2>Chapter 1</h2>
+  <p>Section content here...</p>
+</section>
+
+<aside>
+  <h3>Related Links</h3>
+  <ul>
+    <li><a href="#">Link 1</a></li>
+    <li><a href="#">Link 2</a></li>
+  </ul>
+</aside></code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ Best Practice:</strong> Use <code><main></code> only once per page. It should contain the unique content of that page, not repeated content like headers or sidebars.
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Common Mistakes</h2>
+            <ul>
+                <li><strong>Using <code><div></code> everywhere</strong> - Choose semantic elements that describe your content's purpose.</li>
+                <li><strong>Nesting sections incorrectly</strong> - Don't nest <code><section></code> elements without good reason.</li>
+                <li><strong>Using <code><article></code> for everything</strong> - <code><article></code> is for self-contained content that could be distributed independently.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Create a blog page layout with semantic elements</li>
+                <li>Convert a <code><div></code>-based layout to semantic HTML</li>
+                <li>Create a complete webpage with header, nav, main, aside, and footer</li>
+            </ol>
+        </div>
+
+        <div class="content-section">
+            <h2>Check Your Understanding</h2>
+            <form id="quiz-form-8" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Which element should contain the main content of a page?</p>
+                    <label><input type="radio" name="q8-1" value="a"> a) <div></label>
+                    <label><input type="radio" name="q8-1" value="b"> b) <main></label>
+                    <label><input type="radio" name="q8-1" value="c"> c) <content></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: What is the purpose of <nav>?</p>
+                    <label><input type="radio" name="q8-2" value="a"> a) Navigation links</label>
+                    <label><input type="radio" name="q8-2" value="b"> b) Main content</label>
+                    <label><input type="radio" name="q8-2" value="c"> c) Page footer</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: Which element is best for a blog post?</p>
+                    <label><input type="radio" name="q8-3" value="a"> a) <section></label>
+                    <label><input type="radio" name="q8-3" value="b"> b) <aside></label>
+                    <label><input type="radio" name="q8-3" value="c"> c) <article></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="quiz-submit" onclick="checkQuiz(8)">Check Answers</button>
+                <div id="quiz-score-8" class="quiz-score"></div>
+            </form>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module7.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(8)">✓ Mark as Complete</button>
+            <a href="exercises.html" class="btn-nav">Go to Exercises →</a>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

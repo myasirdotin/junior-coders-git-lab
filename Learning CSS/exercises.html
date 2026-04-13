@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CSS exercises and practice challenges. Test your CSS skills with hands-on coding exercises.">
+    <title>CSS Exercises</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html" class="active">Exercises</a>
+        <a href="learningcss.html">Learning CSS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <header>
+        <h1>CSS Exercises</h1>
+        <p>Practice your CSS skills with hands-on challenges</p>
+    </header>
+
+    <div class="main-container" style="display: block; max-width: 1200px;">
+        <div class="exercises-grid">
+            <div class="exercise-card">
+                <h3>🎨 Color & Background</h3>
+                <p>Create a div with a gradient background and centered text.</p>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('ex1', 1)">💡 Hint 1</button>
+                    <button class="hint-btn" onclick="toggleHint('ex1', 2)">💡 Hint 2</button>
+                    <button class="solution-btn" onclick="toggleSolution('ex1')">📝 Solution</button>
+                    <div id="hint-ex1-1" class="hint-content">Use linear-gradient() for the background.</div>
+                    <div id="hint-ex1-2" class="hint-content">Use flexbox to center the text both vertically and horizontally.</div>
+                    <div id="solution-ex1" class="solution-content">
+                        <pre>.box {
+  background: linear-gradient(135deg, #0891b2, #7c3aed);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}</pre>
+                    </div>
+                </div>
+                <button class="btn-practice" onclick="loadExercise('colorBg')">Practice in Playground</button>
+            </div>
+
+            <div class="exercise-card">
+                <h3>📦 Box Model</h3>
+                <p>Create a card with padding, border, and margin. Add a shadow effect.</p>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('ex2', 1)">💡 Hint 1</button>
+                    <button class="hint-btn" onclick="toggleHint('ex2', 2)">💡 Hint 2</button>
+                    <button class="solution-btn" onclick="toggleSolution('ex2')">📝 Solution</button>
+                    <div id="hint-ex2-1" class="hint-content">Use padding for inner spacing and margin for outer spacing.</div>
+                    <div id="hint-ex2-2" class="hint-content">Use box-shadow property with multiple values for the shadow.</div>
+                    <div id="solution-ex2" class="solution-content">
+                        <pre>.card {
+  padding: 20px;
+  margin: 20px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}</pre>
+                    </div>
+                </div>
+                <button class="btn-practice" onclick="loadExercise('boxModel')">Practice in Playground</button>
+            </div>
+
+            <div class="exercise-card">
+                <h3>📐 Flexbox Layout</h3>
+                <p>Create a navigation bar with logo on left and links on right.</p>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('ex3', 1)">💡 Hint 1</button>
+                    <button class="hint-btn" onclick="toggleHint('ex3', 2)">💡 Hint 2</button>
+                    <button class="solution-btn" onclick="toggleSolution('ex3')">📝 Solution</button>
+                    <div id="hint-ex3-1" class="hint-content">Use display: flex on the container.</div>
+                    <div id="hint-ex3-2" class="hint-content">Use justify-content: space-between to push items apart.</div>
+                    <div id="solution-ex3" class="solution-content">
+                        <pre>.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #1e293b;
+}</pre>
+                    </div>
+                </div>
+                <button class="btn-practice" onclick="loadExercise('flexbox')">Practice in Playground</button>
+            </div>
+
+            <div class="exercise-card">
+                <h3>🔲 CSS Grid</h3>
+                <p>Create a 3x3 grid of squares with different colors.</p>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('ex4', 1)">💡 Hint 1</button>
+                    <button class="hint-btn" onclick="toggleHint('ex4', 2)">💡 Hint 2</button>
+                    <button class="solution-btn" onclick="toggleSolution('ex4')">📝 Solution</button>
+                    <div id="hint-ex4-1" class="hint-content">Use display: grid on the container.</div>
+                    <div id="hint-ex4-2" class="hint-content">Use grid-template-columns: repeat(3, 1fr) for 3 equal columns.</div>
+                    <div id="solution-ex4" class="solution-content">
+                        <pre>.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.item {
+  height: 100px;
+  background: #0891b2;
+}</pre>
+                    </div>
+                </div>
+                <button class="btn-practice" onclick="loadExercise('grid')">Practice in Playground</button>
+            </div>
+
+            <div class="exercise-card">
+                <h3>📱 Responsive Design</h3>
+                <p>Make a container that changes background color on mobile screens.</p>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('ex5', 1)">💡 Hint 1</button>
+                    <button class="hint-btn" onclick="toggleHint('ex5', 2)">💡 Hint 2</button>
+                    <button class="solution-btn" onclick="toggleSolution('ex5')">📝 Solution</button>
+                    <div id="hint-ex5-1" class="hint-content">Use a media query with max-width.</div>
+                    <div id="hint-ex5-2" class="hint-content">Target screens smaller than 768px for mobile.</div>
+                    <div id="solution-ex5" class="solution-content">
+                        <pre>.container {
+  background: blue;
+  padding: 20px;
+}
+@media (max-width: 768px) {
+  .container {
+    background: red;
+  }
+}</pre>
+                    </div>
+                </div>
+                <button class="btn-practice" onclick="loadExercise('responsive')">Practice in Playground</button>
+            </div>
+
+            <div class="exercise-card">
+                <h3>✨ Hover Effects</h3>
+                <p>Create a button that changes color and scales up on hover.</p>
+                <div class="hint-section">
+                    <button class="hint-btn" onclick="toggleHint('ex6', 1)">💡 Hint 1</button>
+                    <button class="hint-btn" onclick="toggleHint('ex6', 2)">💡 Hint 2</button>
+                    <button class="solution-btn" onclick="toggleSolution('ex6')">📝 Solution</button>
+                    <div id="hint-ex6-1" class="hint-content">Use the :hover pseudo-class.</div>
+                    <div id="hint-ex6-2" class="hint-content">Use transform: scale() and transition for smooth animation.</div>
+                    <div id="solution-ex6" class="solution-content">
+                        <pre>.button {
+  padding: 12px 24px;
+  background: #0891b2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+.button:hover {
+  background: #0e7490;
+  transform: scale(1.05);
+}</pre>
+                    </div>
+                </div>
+                <button class="btn-practice" onclick="loadExercise('hover')">Practice in Playground</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script>
+        const exercises = {
+            colorBg: {
+                html: '<div class="box"><p>Centered Text</p></div>',
+                css: '/* Write your CSS here */'
+            },
+            boxModel: {
+                html: '<div class="card"><h3>Card Title</h3><p>Card content goes here.</p></div>',
+                css: '/* Write your CSS here */'
+            },
+            flexbox: {
+                html: '<nav class="navbar">\n  <div class="logo">Logo</div>\n  <ul class="links">\n    <li><a href="#">Home</a></li>\n    <li><a href="#">About</a></li>\n    <li><a href="#">Contact</a></li>\n  </ul>\n</nav>',
+                css: '/* Write your CSS here */'
+            },
+            grid: {
+                html: '<div class="grid">\n  <div class="item">1</div>\n  <div class="item">2</div>\n  <div class="item">3</div>\n  <div class="item">4</div>\n  <div class="item">5</div>\n  <div class="item">6</div>\n  <div class="item">7</div>\n  <div class="item">8</div>\n  <div class="item">9</div>\n</div>',
+                css: '/* Write your CSS here */'
+            },
+            responsive: {
+                html: '<div class="container"><p>Resize the browser to see the color change!</p></div>',
+                css: '/* Write your CSS here */'
+            },
+            hover: {
+                html: '<button class="button">Hover Me!</button>',
+                css: '/* Write your CSS here */'
+            }
+        };
+    </script>
+</body>
+</html>

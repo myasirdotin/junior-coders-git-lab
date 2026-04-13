@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 2: Learn about HTML headings, paragraphs, and text formatting elements.">
+    <title>Module 2: Text & Headings</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learninghtml.html" class="active">Learning HTML</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <div class="module-container">
+        <a href="learninghtml.html" class="back-link">← Back to Syllabus</a>
+
+        <div class="module-header">
+            <h1>Module 2: Text & Headings</h1>
+            <p>⏱ 35 minutes | Week 1</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Use heading tags (<code><h1></code> to <code><h6></code>)</li>
+                <li>Create paragraphs with <code><p></code></li>
+                <li>Apply text formatting with <code><strong></code>, <code><em></code>, and more</li>
+                <li>Use line breaks and horizontal rules</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+
+            <h3>2.1 Headings</h3>
+            <p>HTML provides six levels of headings, from <code><h1></code> (largest) to <code><h6></code> (smallest):</p>
+
+            <div class="code-example">
+                <code><h1>Main Title</h1>
+<h2>Section Heading</h2>
+<h3>Subsection Heading</h3>
+<h4>Minor Heading</h4>
+<h5>Small Heading</h5>
+<h6>Smallest Heading</h6></code>
+            </div>
+
+            <div class="tip-box">
+                <strong>✅ Best Practice:</strong> Use only one <code><h1></code> per page (for the main title). Use <code><h2></code> through <code><h6></code> for subsections in a hierarchical order.
+            </div>
+
+            <h3>2.2 Paragraphs</h3>
+            <p>The <code><p></code> tag defines a paragraph. Browsers automatically add spacing before and after paragraphs.</p>
+
+            <div class="code-example">
+                <code><p>This is my first paragraph. It contains some text.</p>
+<p>This is my second paragraph. It is separated from the first by some space.</p></code>
+            </div>
+
+            <h3>2.3 Text Formatting</h3>
+            <p>HTML provides several tags for formatting text:</p>
+
+            <div class="code-example">
+                <code><p>This is <strong>bold/important</strong> text.</p>
+<p>This is <em>italic/emphasized</em> text.</p>
+<p>This is <mark>highlighted</mark> text.</p>
+<p>This is <del>deleted</del> text.</p>
+<p>This is <ins>inserted</ins> text.</p>
+<p>This is <sub>subscript</sub> text: H<sub>2</sub>O</p>
+<p>This is <sup>superscript</sup> text: E=mc<sup>2</sup></p></code>
+            </div>
+
+            <h3>2.4 Line Breaks and Horizontal Rules</h3>
+            <div class="code-example">
+                <code><p>This is line one.<br>This is line two.</p>
+<hr> <!-- Creates a horizontal line --></code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Common Mistakes</h2>
+            <ul>
+                <li><strong>Skipping heading levels</strong> - Don't go from <code><h1></code> directly to <code><h4></code>. Maintain hierarchy.</li>
+                <li><strong>Using headings for styling</strong> - Don't use <code><h1></code> just to make text big. Use CSS for styling.</li>
+                <li><strong>Using <code><br></code> for spacing</strong> - Use CSS margins/padding instead of multiple <code><br></code> tags.</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Create a page with a main heading and two subsections</li>
+                <li>Add paragraphs with bold and italic text</li>
+                <li>Create a page with highlighted and deleted text</li>
+            </ol>
+        </div>
+
+        <div class="content-section">
+            <h2>Check Your Understanding</h2>
+            <form id="quiz-form-2" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: Which heading tag creates the largest heading?</p>
+                    <label><input type="radio" name="q2-1" value="a"> a) <h1></label>
+                    <label><input type="radio" name="q2-1" value="b"> b) <h6></label>
+                    <label><input type="radio" name="q2-1" value="c"> c) <heading></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q2: Which tag is used for italic/emphasized text?</p>
+                    <label><input type="radio" name="q2-2" value="a"> a) <bold></label>
+                    <label><input type="radio" name="q2-2" value="b"> b) <em></label>
+                    <label><input type="radio" name="q2-2" value="c"> c) <italic></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: What does the <br> tag do?</p>
+                    <label><input type="radio" name="q2-3" value="a"> a) Makes text bold</label>
+                    <label><input type="radio" name="q2-3" value="b"> b) Creates a border</label>
+                    <label><input type="radio" name="q2-3" value="c"> c) Inserts a line break</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="quiz-submit" onclick="checkQuiz(2)">Check Answers</button>
+                <div id="quiz-score-2" class="quiz-score"></div>
+            </form>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module1.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(2)">✓ Mark as Complete</button>
+            <a href="module3.html" class="btn-nav">Next: Links & Images →</a>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fun HTML practice missions for kids. Build mini pages, lists, tables, and forms with simple starter code.">
+    <title>HTML Practice Missions</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html" class="active">Exercises</a>
+        <a href="learninghtml.html">Learning HTML</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">Moon</button>
+    </nav>
+
+    <header>
+        <h1>HTML Practice Missions</h1>
+        <p>Pick a mini project, load the starter code, and build something fun.</p>
+    </header>
+
+    <div class="exercises-container">
+        <div class="exercise-category">
+            <h2>Starter Missions</h2>
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <h3>Mission 1: My First Page</h3>
+                    <p>Create a simple page about yourself, your pet, or your favorite game.</p>
+                    <div class="exercise-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>Add the main page structure</li>
+                            <li>Write a page title</li>
+                            <li>Add one big heading</li>
+                            <li>Write at least one paragraph</li>
+                        </ul>
+                    </div>
+                    <button class="btn-starter" onclick="loadExercise('first-page')">Get Starter Code</button>
+                </div>
+
+                <div class="exercise-card">
+                    <h3>Mission 2: Poster Words</h3>
+                    <p>Make a page that uses headings and styled text like a mini poster.</p>
+                    <div class="exercise-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>Use <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;h3&gt;</code></li>
+                            <li>Make one word bold with <code>&lt;strong&gt;</code></li>
+                            <li>Make one word emphasized with <code>&lt;em&gt;</code></li>
+                            <li>Highlight one word with <code>&lt;mark&gt;</code></li>
+                        </ul>
+                    </div>
+                    <button class="btn-starter" onclick="loadExercise('text-formatting')">Get Starter Code</button>
+                </div>
+
+                <div class="exercise-card">
+                    <h3>Mission 3: Favorite Things</h3>
+                    <p>Create a page with links and pictures that show what you like.</p>
+                    <div class="exercise-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>Add at least 2 links</li>
+                            <li>Add at least 1 image with alt text</li>
+                            <li>Write a short caption under the image</li>
+                        </ul>
+                    </div>
+                    <button class="btn-starter" onclick="loadExercise('links-images')">Get Starter Code</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-category">
+            <h2>Builder Missions</h2>
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <h3>Mission 4: Top 5 List</h3>
+                    <p>Make lists for favorite snacks, games, books, or weekend plans.</p>
+                    <div class="exercise-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>Create one unordered list</li>
+                            <li>Create one ordered list</li>
+                            <li>Add at least 4 items to each list</li>
+                            <li>Try a nested list if you want a challenge</li>
+                        </ul>
+                    </div>
+                    <button class="btn-starter" onclick="loadExercise('lists')">Get Starter Code</button>
+                </div>
+
+                <div class="exercise-card">
+                    <h3>Mission 5: Weekly Schedule</h3>
+                    <p>Build a table for classes, chores, clubs, or game time.</p>
+                    <div class="exercise-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>Add a table with headings</li>
+                            <li>Use at least 3 columns</li>
+                            <li>Use at least 4 rows of information</li>
+                            <li>Add a title above the table</li>
+                        </ul>
+                    </div>
+                    <button class="btn-starter" onclick="loadExercise('tables')">Get Starter Code</button>
+                </div>
+
+                <div class="exercise-card">
+                    <h3>Mission 6: Club Signup</h3>
+                    <p>Create a fun form for a reading club, art club, or coding club.</p>
+                    <div class="exercise-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>Add inputs for name and favorite activity</li>
+                            <li>Add labels for each input</li>
+                            <li>Add a message box</li>
+                            <li>Add a submit button</li>
+                        </ul>
+                    </div>
+                    <button class="btn-starter" onclick="loadExercise('forms')">Get Starter Code</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="exercise-category">
+            <h2>Big Challenge Missions</h2>
+            <div class="exercise-grid">
+                <div class="exercise-card">
+                    <h3>Mission 7: Semantic Page</h3>
+                    <p>Create a complete page with clear sections like a real website.</p>
+                    <div class="exercise-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>Use <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code></li>
+                            <li>Add one section for your main idea</li>
+                            <li>Add one extra section or sidebar</li>
+                            <li>Give each area a heading</li>
+                        </ul>
+                    </div>
+                    <button class="btn-starter" onclick="loadExercise('semantic-page')">Get Starter Code</button>
+                </div>
+
+                <div class="exercise-card">
+                    <h3>Mission 8: Super Fan Page</h3>
+                    <p>Make a full page about a hobby, animal, sport, or favorite character.</p>
+                    <div class="exercise-requirements">
+                        <h4>Requirements:</h4>
+                        <ul>
+                            <li>Use a full semantic structure</li>
+                            <li>Add at least 2 content sections</li>
+                            <li>Add a list, image, or table somewhere on the page</li>
+                            <li>Finish with a footer message</li>
+                        </ul>
+                    </div>
+                    <button class="btn-starter" onclick="loadExercise('blog-layout')">Get Starter Code</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

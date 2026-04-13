@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CSS glossary and reference guide. Find definitions for CSS terms, properties, and concepts.">
+    <title>CSS Glossary</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningcss.html">Learning CSS</a>
+        <a href="glossary.html" class="active">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <header>
+        <h1>CSS Glossary</h1>
+        <p>Your reference guide for CSS terms and concepts</p>
+    </header>
+
+    <div class="glossary-container">
+        <div class="glossary-header">
+            <div class="search-box">
+                <input type="text" id="glossary-search" placeholder="Search terms..." onkeyup="filterGlossary()">
+            </div>
+        </div>
+
+        <div class="glossary-letter">A</div>
+        
+        <div class="glossary-term">
+            <h3>Align-items</h3>
+            <p>A flexbox property that defines how flex items are aligned on the cross axis. Common values: flex-start, flex-end, center, stretch, baseline.</p>
+        </div>
+        
+        <div class="glossary-term">
+            <h3>Ancestor</h3>
+            <p>An element that contains another element. For example, in <div><p></p></div>, the div is an ancestor of the p element.</p>
+        </div>
+
+        <div class="glossary-letter">B</div>
+        
+        <div class="glossary-term">
+            <h3>Block-level element</h3>
+            <p>An element that starts on a new line and takes up the full width available. Examples: div, p, h1-h6, ul, li.</p>
+        </div>
+        
+        <div class="glossary-term">
+            <h3>Box Model</h3>
+            <p>The CSS concept that describes how elements are rendered as rectangular boxes. Consists of content, padding, border, and margin.</p>
+        </div>
+
+        <div class="glossary-letter">C</div>
+        
+        <div class="glossary-term">
+            <h3>Cascade</h3>
+            <p>The algorithm that determines which CSS rules apply when multiple rules could apply to an element. Based on specificity, source order, and importance.</p>
+        </div>
+        
+        <div class="glossary-term">
+            <h3>Child</h3>
+            <p>An element that is directly contained within another element. For example, in <div><p></p></div>, the p is a child of the div.</p>
+        </div>
+        
+        <div class="glossary-term">
+            <h3>Class Selector</h3>
+            <p>A selector that targets elements with a specific class attribute. Written with a dot prefix (e.g., .my-class).</p>
+        </div>
+
+        <div class="glossary-letter">D</div>
+        
+        <div class="glossary-term">
+            <h3>Descendant</h3>
+            <p>An element that is nested within another element, at any level. A child is a direct descendant, but elements can be descendants through multiple levels.</p>
+        </div>
+        
+        <div class="glossary-term">
+            <h3>Display</h3>
+            <p>A property that defines how an element is rendered. Common values: block, inline, inline-block, flex, grid, none.</p>
+        </div>
+
+        <div class="glossary-letter">F</div>
+        
+        <div class="glossary-term">
+            <h3>Flexbox</h3>
+            <p>A one-dimensional layout method for arranging items in rows or columns. Provides efficient space distribution and alignment capabilities.</p>
+        </div>
+        
+        <div class="glossary-term">
+            <h3>Float</h3>
+            <p>A property that positions an element to the left or right of its container, allowing other content to wrap around it.</p>
+        </div>
+
+        <div class="glossary-letter">G</div>
+        
+        <div class="glossary-term">
+            <h3>Grid</h3>
+            <p>A two-dimensional layout system that divides space into rows and columns, making it easy to create complex layouts.</p>
+        </div>
+
+        <div class="glossary-letter">I</div>
+        
+        <div class="glossary-term">
+            <h3>ID Selector</h3>
+            <p>A selector that targets an element with a specific id attribute. Written with a hash prefix (e.g., #my-id). IDs should be unique on a page.</p>
+        </div>
+        
+        <div class="glossary-term">
+            <h3>Inline element</h3>
+            <p>An element that does not start on a new line and only takes up as much width as necessary. Examples: span, a, img, strong, em.</p>
+        </div>
+
+        <div class="glossary-letter">J</div>
+        
+        <div class="glossary-term">
+            <h3>Justify-content</h3>
+            <p>A flexbox property that defines how flex items are distributed along the main axis. Common values: flex-start, flex-end, center, space-between, space-around.</p>
+        </div>
+
+        <div class="glossary-letter">M</div>
+        
+        <div class="glossary-term">
+            <h3>Margin</h3>
+            <p>The space outside an element's border. It creates space between elements and can be set on all four sides independently.</p>
+        </div>
+        
+        <div class="glossary-term">
+            <h3>Media Query</h3>
+            <p>A CSS technique that applies styles based on device characteristics, such as screen width, height, or orientation. Essential for responsive design.</p>
+        </div>
+
+        <div class="glossary-letter">P</div>
+        
+        <div class="glossary-term">
+            <h3>Padding</h3>
+            <p>The space between an element's content and its border. It creates internal spacing within an element.</p>
+        </div>
+        
+        <div class="glossary-term">
+            <h3>Position</h3>
+            <p>A property that specifies how an element is positioned in the document. Values: static, relative, absolute, fixed, sticky.</p>
+        </div>
+        
+        <div class="glossary-term">
+            <h3>Pseudo-class</h3>
+            <p>A selector that targets elements in a specific state. Examples: :hover, :focus, :first-child, :nth-child().</p>
+        </div>
+        
+        <div class="glossary-term">
+            <h3>Pseudo-element</h3>
+            <p>A selector that styles specific parts of an element. Examples: ::before, ::after, ::first-line, ::first-letter.</p>
+        </div>
+
+        <div class="glossary-letter">S</div>
+        
+        <div class="glossary-term">
+            <h3>Selector</h3>
+            <p>A pattern that identifies which HTML elements should be styled. Types include element selectors, class selectors, ID selectors, and attribute selectors.</p>
+        </div>
+        
+        <div class="glossary-term">
+            <h3>Specificity</h3>
+            <p>A measure of which CSS rule has precedence when multiple rules could apply. Calculated based on selector types: IDs > classes > elements.</p>
+        </div>
+
+        <div class="glossary-letter">T</div>
+        
+        <div class="glossary-term">
+            <h3>Transition</h3>
+            <p>A property that defines how a property change should be animated over time. Allows smooth changes between states.</p>
+        </div>
+
+        <div class="glossary-letter">V</div>
+        
+        <div class="glossary-term">
+            <h3>Viewport</h3>
+            <p>The visible area of a web page. In responsive design, the viewport meta tag controls how the page is scaled on different devices.</p>
+        </div>
+
+        <div class="glossary-letter">Z</div>
+        
+        <div class="glossary-term">
+            <h3>Z-index</h3>
+            <p>A property that controls the stacking order of positioned elements. Higher values appear in front of lower values.</p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
