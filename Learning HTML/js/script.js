@@ -32,7 +32,7 @@
         
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
         
-        const logo = `<a href="../index.html" class="nav-logo" style="font-weight:800; font-size:1.2rem; color:white; text-decoration:none;">🚀 Junior Coders</a>`;
+        const logo = `<a href="../index.html" class="nav-logo">🚀 Junior Coders</a>`;
         
         const linksHtml = CONFIG.NAV_ITEMS.map(item => `
             <a href="${item.url}" class="${currentPath === item.url ? 'active' : ''}">${item.name}</a>
@@ -40,13 +40,27 @@
 
         header.innerHTML = `
             ${logo}
+            <button class="mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <div class="nav-links">
                 ${linksHtml}
-                <button class="theme-toggle btn-primary" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Theme</button>
+                <button class="theme-toggle btn-primary">Theme</button>
             </div>
         `;
 
         document.body.prepend(header);
+
+        // Add Toggle Logic
+        const toggle = header.querySelector('.mobile-toggle');
+        const navLinks = header.querySelector('.nav-links');
+        
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            navLinks.classList.toggle('open');
+        });
     }
 
     // --- Toast Engine ---
