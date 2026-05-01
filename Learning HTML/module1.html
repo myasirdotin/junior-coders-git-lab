@@ -1,142 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 1 for kids: learn what HTML is, what the main page parts do, and how tags help build a web page.">
     <title>Module 1: Meet HTML | Junior Coders</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📝</text></svg>">
-    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+    
+    <!-- Design System -->
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="css/lesson.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Unified Navigation -->
-    <nav id="main-nav" role="navigation" aria-label="Main navigation">
-        <a href="index.html">Playground</a>
-        <a href="exercises.html">Exercises</a>
-        <a href="learninghtml.html">Learning HTML</a>
-        <a href="glossary.html">Glossary</a>
-        <a href="quiz.html">Quiz & Games</a>
-        <a href="best-practices.html">Best Practices</a>
-        <a href="tips.html">Tips</a>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">Moon</button>
-    </nav>
 
     <main id="main-content" class="module-container">
-        <a href="learninghtml.html" class="back-link" role="button">Back to Syllabus</a>
+        
+        <header class="module-header">
+            <span class="badge">Week 1</span>
+            <h1>Meet HTML</h1>
+            <p>The secret skeleton of every website.</p>
+        </header>
 
-        <div class="module-header">
-            <h1>Module 1: Meet HTML</h1>
-            <p>30 minutes | Week 1</p>
-        </div>
-
-        <div class="content-section">
+        <section class="content-section">
             <h2>Learning Objectives</h2>
-            <ul>
+            <p>By the end of this module, you will:</p>
+            <ul style="margin-top: 1rem; color: var(--text-secondary);">
                 <li>Understand what HTML does on a web page</li>
-                <li>Learn the main parts of a simple HTML document</li>
-                <li>Know what <code>&lt;!DOCTYPE html&gt;</code> is for</li>
-                <li>Spot common tags and what job each one does</li>
+                <li>Learn the main parts of an HTML document</li>
+                <li>Write your very first tags!</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="content-section">
-            <h2>Reading Material</h2>
-            <div class="reading-material">
-                <h3>What Is HTML?</h3>
-                <p><strong>HTML</strong> stands for HyperText Markup Language. That sounds big, but the idea is simple: HTML uses labels called tags to help the browser understand what each piece of content is.</p>
-            </div>
-
-            <div class="key-point">
-                <strong>Key Point:</strong> HTML tags are like name labels. They tell the browser, "this is a heading," "this is a paragraph," or "this is an image."
-            </div>
-
-            <h3>1.1 The Skeleton of a Web Page</h3>
-            <p>Most web pages start with the same basic structure:</p>
-            <div class="code-example">
-                <code>&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;My First Page&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;My First Heading&lt;/h1&gt;
-    &lt;p&gt;My first paragraph.&lt;/p&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code>
-            </div>
-
-            <div class="tip-box">
-                <strong>Best Practice:</strong> Start with <code>&lt;!DOCTYPE html&gt;</code> so the browser knows to use modern HTML rules.
-            </div>
+        <section class="content-section">
+            <h2>What is HTML?</h2>
+            <p>HTML stands for <strong>HyperText Markup Language</strong>. It's not a "coding" language like the ones used for robots; it's a way to label content so a browser knows what is a heading, a paragraph, or a cat picture!</p>
             
-            <!-- Shortened for brevity, you can paste the rest of your reading material here -->
-        </div>
+            <div class="code-example" style="background: #020617; padding: 1.5rem; border-radius: 0.5rem; margin-top: 1.5rem;">
+                <code style="color: #6366f1; font-family: 'Fira Code', monospace;">
+                    &lt;h1&gt;Welcome to my world!&lt;/h1&gt;<br>
+                    &lt;p&gt;This is a paragraph.&lt;/p&gt;
+                </code>
+            </div>
+        </section>
 
-        <div class="content-section">
-            <h2>Mini Mission</h2>
-            <p>Try it right here! Follow these steps:</p>
-            <ol>
-                <li>Make a page called "All About Me" or "My Favorite Animal"</li>
-                <li>Add a title inside <code>&lt;title&gt;</code></li>
-                <li>Add one heading and one paragraph inside <code>&lt;body&gt;</code></li>
-                <li>Click <strong>Run</strong> and see how the preview updates!</li>
-            </ol>
+        <section class="content-section">
+            <h2>Mini Mission: Your First Tag</h2>
+            <p>Try writing your name inside a heading tag in the editor below!</p>
             
-            <!-- EMBEDDED MINI PLAYGROUND -->
-            <div class="playground-container mini-playground">
+            <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false" placeholder="Write your HTML here..."></textarea>
-                </div>
-                <div class="button-group" style="margin: 10px 0;">
-                    <button class="btn-clear" onclick="clearAll()">Clear All</button>
-                    <button class="btn-run" onclick="renderPreview()">Run Code</button>
+                    <label>Editor</label>
+                    <textarea id="code-editor" spellcheck="false">&lt;h1&gt;Hello World!&lt;/h1&gt;
+&lt;p&gt;I am a Junior Coder.&lt;/p&gt;</textarea>
                 </div>
                 <div class="preview-area">
-                    <label>Live Preview:</label>
-                    <div id="preview" role="region" aria-live="polite">
-                        <div class="info-entry">Your web page will appear here.</div>
-                    </div>
+                    <label>Live Preview</label>
+                    <div id="preview"></div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="content-section">
-            <h2>Check Your Understanding</h2>
-            <form id="quiz-form-1" class="quiz-section">
-                <!-- Removed data-answer attributes for security -->
-                <div class="quiz-question" data-question-id="q1-1">
-                    <p>Q1: What does HTML stand for?</p>
-                    <label><input type="radio" name="q1-1" value="a"> a) Hyper Text Making Language</label>
-                    <label><input type="radio" name="q1-1" value="b"> b) HyperText Markup Language</label>
-                    <label><input type="radio" name="q1-1" value="c"> c) Home Tool Markup Language</label>
+        <section class="content-section">
+            <h2>Check Your Skills</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question">
+                    <p>What does the &lt;h1&gt; tag represent?</p>
+                    <label><input type="radio" name="q1-2" value="a"> A Main Heading</label>
+                    <label><input type="radio" name="q1-2" value="b"> A Secret Code</label>
+                    <label><input type="radio" name="q1-2" value="c"> A Cat Picture</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <div class="quiz-question" data-question-id="q1-2">
-                    <p>Q2: Which tag contains the visible content of a web page?</p>
-                    <label><input type="radio" name="q1-2" value="a"> a) &lt;body&gt;</label>
-                    <label><input type="radio" name="q1-2" value="b"> b) &lt;head&gt;</label>
-                    <label><input type="radio" name="q1-2" value="c"> c) &lt;html&gt;</label>
-                    <div class="quiz-feedback"></div>
-                </div>
-                <div class="quiz-question" data-question-id="q1-3">
-                    <p>Q3: What is the correct HTML element for inserting a line break?</p>
-                    <label><input type="radio" name="q1-3" value="a"> a) &lt;break&gt;</label>
-                    <label><input type="radio" name="q1-3" value="b"> b) &lt;lb&gt;</label>
-                    <label><input type="radio" name="q1-3" value="c"> c) &lt;br&gt;</label>
-                    <div class="quiz-feedback"></div>
-                </div>
-                <button type="button" class="quiz-submit" onclick="checkQuiz(1)">Check Answers</button>
-                <div id="quiz-score-1" class="quiz-score"></div>
-            </form>
-        </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answer</button>
+            </div>
+        </section>
 
-        <div class="nav-buttons">
-            <a href="learninghtml.html" class="btn-nav disabled">Previous</a>
-            <button class="complete-btn" onclick="markComplete(1)">Mark as Complete</button>
-            <a href="module2.html" class="btn-nav">Next: Text &amp; Headings</a>
-        </div>
+        <footer style="text-align: center; margin-top: 4rem; padding-bottom: 4rem;">
+            <a href="module2.html" class="btn-primary" style="text-decoration: none;">Next: Text & Headings →</a>
+        </footer>
     </main>
 
     <script src="js/script.js"></script>
