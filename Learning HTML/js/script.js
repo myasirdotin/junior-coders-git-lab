@@ -136,9 +136,31 @@
         showToast(`You scored ${score}/${total}!`, score === total ? 'success' : 'error');
     }
 
-    // --- Initialization ---
+    window.markComplete = (moduleNum) => {
+        const completed = JSON.parse(safeGetStorage(CONFIG.STORAGE_KEYS.COMPLETED) || '[]');
+        if (!completed.includes(moduleNum)) {
+            completed.push(moduleNum);
+            safeSetStorage(CONFIG.STORAGE_KEYS.COMPLETED, JSON.stringify(completed));
+            showToast(`Module ${moduleNum} completed!`, 'success');
+            updateProgress();
+        }
+    };
+
+    function updateProgress() {
+        const completed = JSON.parse(safeGetStorage(CONFIG.STORAGE_KEYS.COMPLETED) || '[]');
+        const fill = document.getElementById('progressFill');
+        const text = document.getElementById('completedModules');
+        if (fill && text) {
+            const percentage = (completed.length / 8) * 100;
+            fill.style.width = `${percentage}%`;
+            text.textContent = completed.length;
+        }
+    }
+
+    // Initialization
     document.addEventListener('DOMContentLoaded', () => {
         injectNavigation();
+        updateProgress();
         
         const editor = document.getElementById('code-editor');
         if (editor) {
@@ -159,6 +181,22 @@
     // Expose functions to global scope
     window.checkQuiz = checkQuiz;
     window.renderPreview = renderPreview;
+    window.loadExample = () => {
+        const editor = document.getElementById('code-editor');
+        if (editor) {
+            editor.value = `<h1>Welcome to Junior Coders!</h1>
+<p>This is a live preview of your HTML code.</p>
+<hr>
+<h2>Things you can try:</h2>
+<ul>
+  <li>Make text <strong>bold</strong></li>
+  <li>Make text <em>italic</em></li>
+  <li>Add a <mark>highlight</mark></li>
+</ul>`;
+            renderPreview();
+            showToast('Example code loaded!');
+        }
+    };
     window.clearAll = () => {
         const editor = document.getElementById('code-editor');
         if (editor) {
