@@ -21,7 +21,8 @@
     };
 
     const quizAnswers = {
-        1: { 'q1-1': 'b', 'q1-2': 'a', 'q1-3': 'c' }
+        1: { 'q1-1': 'b', 'q1-2': 'a', 'q1-3': 'c' },
+        2: { 'q2-1': 'a', 'q2-2': 'b', 'q2-3': 'c' }
     };
 
     // --- Navigation Injection ---
