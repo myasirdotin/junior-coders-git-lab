@@ -3,329 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Junior Coders - Learn HTML, CSS, and JavaScript with interactive lessons and exercises">
-    <meta name="keywords" content="HTML, CSS, JavaScript, learning, coding, kids, beginners, tutorial">
+    <title>Junior Coders | Master Web Development</title>
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Junior Coders - A premium interactive learning platform for aspiring web developers. Master HTML, CSS, and JavaScript step by step.">
+    <meta name="keywords" content="web development, learning, coding for beginners, HTML, CSS, JavaScript, junior coders">
     <meta name="author" content="Yasir Rasool">
-    <meta name="theme-color" content="#4f46e5">
-    <title>Junior Coders | Learn Web Development</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
-    <style>
-        /* CSS Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        :root {
-            /* Theme Colors */
-            --bg-gradient-start: #4f46e5;
-            --bg-gradient-end: #7c3aed;
-            
-            /* Language Colors */
-            --color-html: #e34f26;
-            --color-html-hover: #c43e1a;
-            --color-css: #264de4;
-            --color-css-hover: #1a35b8;
-            --color-js: #f7df1e;
-            --color-js-hover: #e5c800;
-            
-            /* Text Colors */
-            --text-dark: #1e293b;
-            --text-muted: #64748b;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
-            color: var(--text-dark);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            padding: 2rem 1.5rem;
-            -webkit-font-smoothing: antialiased;
-        }
-        
-        .container {
-            max-width: 1000px; /* Slightly narrower for better reading length */
-            margin: 0 auto;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        /* Header Styles */
-        header {
-            text-align: center;
-            color: white;
-            margin-bottom: 3rem;
-            animation: fadeInDown 0.8s ease-out;
-        }
-        
-        header h1 {
-            font-size: clamp(2.5rem, 8vw, 3.5rem);
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
-        header p {
-            font-size: clamp(1.1rem, 4vw, 1.4rem);
-            opacity: 0.9;
-            font-weight: 500;
-        }
-        
-        /* --- NEW HIERARCHICAL GRID LAYOUT --- */
-        .cards {
-            display: grid;
-            grid-template-columns: 1fr; /* Mobile default: 1 column */
-            gap: 2rem;
-            padding: 0.5rem;
-        }
-        
-        /* Individual Card Base Styles (Mobile First) */
-        .card {
-            background: white;
-            border-radius: 1.2rem;
-            padding: 2.5rem 2rem;
-            text-align: center;
-            text-decoration: none;
-            color: inherit;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            animation: fadeInUp 0.8s ease-out backwards;
-        }
-
-        /* Top accent borders */
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 6px;
-        }
-        .card-html::before { background-color: var(--color-html); }
-        .card-css::before { background-color: var(--color-css); }
-        .card-js::before { background-color: var(--color-js); }
-
-        .card:nth-child(1) { animation-delay: 0.1s; }
-        .card:nth-child(2) { animation-delay: 0.2s; }
-        .card:nth-child(3) { animation-delay: 0.3s; }
-        
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
-        }
-        
-        .card-icon {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            line-height: 1;
-        }
-
-        .card-info {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .card h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-        
-        .card p {
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 2rem;
-            flex-grow: 1;
-        }
-
-        .card-actions {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        /* Button Styles */
-        .card .btn {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: transform 0.2s, background-color 0.2s;
-            margin-bottom: 1rem;
-            width: fit-content;
-        }
-        
-        .card-html .btn { background: var(--color-html); color: white; }
-        .card-html:hover .btn { background: var(--color-html-hover); }
-        
-        .card-css .btn { background: var(--color-css); color: white; }
-        .card-css:hover .btn { background: var(--color-css-hover); }
-        
-        .card-js .btn { background: var(--color-js); color: #000; }
-        .card-js:hover .btn { background: var(--color-js-hover); }
-        
-        /* Tag Styles */
-        .card .tag {
-            display: inline-block;
-            background: #f1f5f9;
-            padding: 0.35rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            color: var(--text-muted);
-        }
-
-        /* --- DESKTOP & TABLET SPECIFIC LAYOUT --- */
-        @media (min-width: 800px) {
-            .cards {
-                grid-template-columns: 1fr 1fr; /* 2 Column Grid */
-            }
-
-            /* Make HTML the "Hero" card spanning full width */
-            .card-html {
-                grid-column: 1 / -1; 
-                flex-direction: row; /* Switch to horizontal layout */
-                text-align: left;
-                align-items: center;
-                padding: 3rem;
-            }
-
-            .card-html .card-icon {
-                font-size: 5.5rem;
-                margin-bottom: 0;
-                margin-right: 2.5rem;
-            }
-
-            .card-html .card-info {
-                margin-right: 2rem;
-            }
-
-            .card-html .card-info p {
-                margin-bottom: 0; /* Remove margin since actions are side-by-side */
-            }
-
-            .card-html .card-actions {
-                min-width: 200px; /* Keep buttons aligned nicely on right */
-            }
-            
-            .card-html .btn {
-                width: 100%;
-                text-align: center;
-            }
-        }
-        
-        /* Footer Styles */
-        footer {
-            text-align: center;
-            color: rgba(255, 255, 255, 0.8);
-            margin-top: 4rem;
-            font-size: 0.95rem;
-            animation: fadeIn 1s ease-out 0.5s backwards;
-        }
-        
-        footer a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: opacity 0.2s;
-        }
-        
-        footer a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
-        }
-        
-        .footer-links {
-            margin-top: 0.75rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    </style>
+    <meta name="theme-color" content="#6366f1">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Junior Coders | Master Web Development">
+    <meta property="og:description" content="Interactive paths to master the web. Built for the next generation of creators.">
+    
+    <!-- Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
 </head>
 <body>
+
     <div class="container">
-        <header>
-            <h1>🚀 Junior Coders</h1>
-            <p>Learn web development step by step</p>
+        <header class="hero">
+            <h1>Junior Coders</h1>
+            <p>Your interactive journey to becoming a full-stack developer starts here. Simple, visual, and effective.</p>
         </header>
-        
+
         <main>
-            <section class="cards">
-                <!-- FEATURED COURSE: HTML -->
-                <a href="Learning HTML/index.html" class="card card-html">
-                    <div class="card-icon">🌐</div>
-                    <div class="card-info">
-                        <h2>Learning HTML</h2>
-                        <p>Learn the building blocks of web pages. Master tags, elements, forms, and semantic HTML before moving forward.</p>
-                    </div>
-                    <div class="card-actions">
-                        <span class="btn">Start Learning</span>
-                        <span class="tag">8 Modules • Interactive</span>
-                    </div>
-                </a>
+            <section class="course-grid" aria-label="Available Learning Paths">
                 
-                <!-- SECONDARY COURSE: CSS -->
-                <a href="Learning CSS/index.html" class="card card-css">
-                    <div class="card-icon">🎨</div>
-                    <div class="card-info">
-                        <h2>Learning CSS</h2>
-                        <p>Style your web pages with beautiful colors, layouts, and animations. Learn modern CSS.</p>
+                <!-- HTML Course -->
+                <a href="Learning HTML/index.html" class="course-card html">
+                    <div class="icon-wrapper" aria-hidden="true">🌐</div>
+                    <div class="card-content">
+                        <h2>HTML5</h2>
+                        <p>Master the structure of the web. Learn semantic tags, accessibility, and modern document architecture.</p>
                     </div>
-                    <div class="card-actions">
-                        <span class="btn">Start Learning</span>
-                        <span class="tag">8 Modules • Interactive</span>
-                    </div>
-                </a>
-                
-                <!-- SECONDARY COURSE: JS -->
-                <a href="Learning JS/index.html" class="card card-js">
-                    <div class="card-icon">⚡</div>
-                    <div class="card-info">
-                        <h2>Learning JavaScript</h2>
-                        <p>Add interactivity to your websites. Learn programming fundamentals with JavaScript.</p>
-                    </div>
-                    <div class="card-actions">
-                        <span class="btn">Start Learning</span>
-                        <span class="tag">9 Modules • Interactive</span>
+                    <div class="card-footer">
+                        <span class="learn-more">Start Path →</span>
+                        <span class="badge">8 Modules</span>
                     </div>
                 </a>
+
+                <!-- CSS Course -->
+                <a href="Learning CSS/index.html" class="course-card css">
+                    <div class="icon-wrapper" aria-hidden="true">🎨</div>
+                    <div class="card-content">
+                        <h2>Modern CSS</h2>
+                        <p>Bring your sites to life with Flexbox, Grid, and beautiful animations. Style like a pro.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="learn-more">Start Path →</span>
+                        <span class="badge">8 Modules</span>
+                    </div>
+                </a>
+
+                <!-- JavaScript Course -->
+                <a href="Learning JS/index.html" class="course-card js">
+                    <div class="icon-wrapper" aria-hidden="true">⚡</div>
+                    <div class="card-content">
+                        <h2>JavaScript</h2>
+                        <p>Add logic and interactivity. Learn DOM manipulation, events, and modern ES6+ features.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="learn-more">Start Path →</span>
+                        <span class="badge">9 Modules</span>
+                    </div>
+                </a>
+
             </section>
         </main>
-        
-        <footer>
-            <p>Created by <strong>Yasir Rasool</strong></p>
-            <div class="footer-links">
-                <a href="Learning HTML/index.html">HTML</a> • 
-                <a href="Learning CSS/index.html">CSS</a> • 
-                <a href="Learning JS/index.html">JavaScript</a>
+
+        <footer class="site-footer">
+            <div class="credits">
+                Created with ❤️ by <strong>Yasir Rasool</strong>
             </div>
+            <nav class="footer-nav" aria-label="Footer Navigation">
+                <a href="Learning HTML/index.html">HTML</a>
+                <a href="Learning CSS/index.html">CSS</a>
+                <a href="Learning JS/index.html">JavaScript</a>
+            </nav>
+            <p>&copy; 2024 Junior Coders platform. All rights reserved.</p>
         </footer>
     </div>
+
 </body>
 </html>
