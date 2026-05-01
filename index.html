@@ -47,7 +47,7 @@
         }
         
         .container {
-            max-width: 1100px;
+            max-width: 1000px; /* Slightly narrower for better reading length */
             margin: 0 auto;
             flex: 1;
             display: flex;
@@ -77,33 +77,32 @@
             font-weight: 500;
         }
         
-        /* Card Layout */
+        /* --- NEW HIERARCHICAL GRID LAYOUT --- */
         .cards {
             display: grid;
-            /* Auto-fit makes the grid responsive without needing media queries */
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr; /* Mobile default: 1 column */
             gap: 2rem;
             padding: 0.5rem;
         }
         
-        /* Individual Card Styles */
+        /* Individual Card Base Styles (Mobile First) */
         .card {
             background: white;
-            border-radius: 1rem;
+            border-radius: 1.2rem;
             padding: 2.5rem 2rem;
             text-align: center;
             text-decoration: none;
             color: inherit;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
             position: relative;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
             animation: fadeInUp 0.8s ease-out backwards;
         }
 
-        /* Top accent borders for each card */
+        /* Top accent borders */
         .card::before {
             content: '';
             position: absolute;
@@ -116,7 +115,6 @@
         .card-css::before { background-color: var(--color-css); }
         .card-js::before { background-color: var(--color-js); }
 
-        /* Animation delays for a cascading effect */
         .card:nth-child(1) { animation-delay: 0.1s; }
         .card:nth-child(2) { animation-delay: 0.2s; }
         .card:nth-child(3) { animation-delay: 0.3s; }
@@ -131,6 +129,12 @@
             margin-bottom: 1rem;
             line-height: 1;
         }
+
+        .card-info {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
         
         .card h2 {
             font-size: 1.5rem;
@@ -142,7 +146,13 @@
             color: var(--text-muted);
             line-height: 1.6;
             margin-bottom: 2rem;
-            flex-grow: 1; /* Pushes the button and tag to the bottom */
+            flex-grow: 1;
+        }
+
+        .card-actions {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         /* Button Styles */
@@ -154,6 +164,7 @@
             font-size: 1rem;
             transition: transform 0.2s, background-color 0.2s;
             margin-bottom: 1rem;
+            width: fit-content;
         }
         
         .card-html .btn { background: var(--color-html); color: white; }
@@ -174,6 +185,45 @@
             font-size: 0.8rem;
             font-weight: 500;
             color: var(--text-muted);
+        }
+
+        /* --- DESKTOP & TABLET SPECIFIC LAYOUT --- */
+        @media (min-width: 800px) {
+            .cards {
+                grid-template-columns: 1fr 1fr; /* 2 Column Grid */
+            }
+
+            /* Make HTML the "Hero" card spanning full width */
+            .card-html {
+                grid-column: 1 / -1; 
+                flex-direction: row; /* Switch to horizontal layout */
+                text-align: left;
+                align-items: center;
+                padding: 3rem;
+            }
+
+            .card-html .card-icon {
+                font-size: 5.5rem;
+                margin-bottom: 0;
+                margin-right: 2.5rem;
+            }
+
+            .card-html .card-info {
+                margin-right: 2rem;
+            }
+
+            .card-html .card-info p {
+                margin-bottom: 0; /* Remove margin since actions are side-by-side */
+            }
+
+            .card-html .card-actions {
+                min-width: 200px; /* Keep buttons aligned nicely on right */
+            }
+            
+            .card-html .btn {
+                width: 100%;
+                text-align: center;
+            }
         }
         
         /* Footer Styles */
@@ -201,7 +251,7 @@
             margin-top: 0.75rem;
         }
 
-        /* Keyframe Animations */
+        /* Animations */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-20px); }
             to { opacity: 1; transform: translateY(0); }
@@ -227,41 +277,41 @@
         
         <main>
             <section class="cards">
-                <!-- HTML Card -->
+                <!-- FEATURED COURSE: HTML -->
                 <a href="Learning HTML/index.html" class="card card-html">
                     <div class="card-icon">🌐</div>
-                    <h2>Learning HTML</h2>
-                    <p>Learn the building blocks of web pages. Master tags, elements, forms, and semantic HTML.</p>
-                    <div>
-                        <span class="btn">Start Learning</span>
+                    <div class="card-info">
+                        <h2>Learning HTML</h2>
+                        <p>Learn the building blocks of web pages. Master tags, elements, forms, and semantic HTML before moving forward.</p>
                     </div>
-                    <div>
+                    <div class="card-actions">
+                        <span class="btn">Start Learning</span>
                         <span class="tag">8 Modules • Interactive</span>
                     </div>
                 </a>
                 
-                <!-- CSS Card -->
+                <!-- SECONDARY COURSE: CSS -->
                 <a href="Learning CSS/index.html" class="card card-css">
                     <div class="card-icon">🎨</div>
-                    <h2>Learning CSS</h2>
-                    <p>Style your web pages with beautiful colors, layouts, and animations. Learn modern CSS.</p>
-                    <div>
-                        <span class="btn">Start Learning</span>
+                    <div class="card-info">
+                        <h2>Learning CSS</h2>
+                        <p>Style your web pages with beautiful colors, layouts, and animations. Learn modern CSS.</p>
                     </div>
-                    <div>
+                    <div class="card-actions">
+                        <span class="btn">Start Learning</span>
                         <span class="tag">8 Modules • Interactive</span>
                     </div>
                 </a>
                 
-                <!-- JavaScript Card -->
+                <!-- SECONDARY COURSE: JS -->
                 <a href="Learning JS/index.html" class="card card-js">
                     <div class="card-icon">⚡</div>
-                    <h2>Learning JavaScript</h2>
-                    <p>Add interactivity to your websites. Learn programming fundamentals with JavaScript.</p>
-                    <div>
-                        <span class="btn">Start Learning</span>
+                    <div class="card-info">
+                        <h2>Learning JavaScript</h2>
+                        <p>Add interactivity to your websites. Learn programming fundamentals with JavaScript.</p>
                     </div>
-                    <div>
+                    <div class="card-actions">
+                        <span class="btn">Start Learning</span>
                         <span class="tag">9 Modules • Interactive</span>
                     </div>
                 </a>
