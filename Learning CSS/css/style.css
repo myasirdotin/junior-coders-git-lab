@@ -119,32 +119,35 @@ a:hover {
    ============================================ */
 nav {
     background-color: var(--bg-nav);
-    padding: 12px 24px;
+    padding: 12px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     box-shadow: var(--shadow-md);
     position: sticky;
     top: 0;
     z-index: 100;
     flex-wrap: wrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 nav a {
     color: var(--text-inverse);
     text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
-    padding: 8px 18px;
+    font-size: 14px;
+    padding: 8px 14px;
     border-radius: var(--radius-full);
-    transition: background-color 0.2s, transform 0.1s;
+    transition: all 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 nav a:hover {
-    background-color: rgba(255,255,255,0.1);
+    background-color: rgba(255,255,255,0.15);
     text-decoration: none;
-    transform: translateY(-1px);
 }
 
 nav a.active {
@@ -1224,20 +1227,22 @@ hr {
     }
 
     nav {
-        padding: 8px 16px;
+        padding: 10px 12px;
+        gap: 4px;
+        justify-content: flex-start;
     }
 
     nav a {
-        font-size: 13px;
-        padding: 6px 12px;
+        font-size: 12px;
+        padding: 6px 10px;
     }
 
     .syllabus-header {
-        padding: 24px;
+        padding: 20px;
     }
 
     .syllabus-header h1 {
-        font-size: 1.8em;
+        font-size: 1.5em;
     }
 
     .modules-grid {
@@ -1249,7 +1254,7 @@ hr {
     }
 
     .content-section {
-        padding: 16px;
+        padding: 12px;
     }
 
     .nav-buttons {

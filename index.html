@@ -7,6 +7,8 @@
     <meta name="keywords" content="HTML, CSS, JavaScript, learning, coding, kids, beginners, tutorial">
     <meta name="author" content="Yasir Rasool">
     <meta name="theme-color" content="#3498db">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <title>Junior Coders | Learn Web Development</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
     <style>
@@ -16,68 +18,232 @@
             box-sizing: border-box;
         }
         
+        :root {
+            --primary: #667eea;
+            --secondary: #764ba2;
+            --card-html: #e34f26;
+            --card-css: #264de4;
+            --card-js: #f7df1e;
+        }
+        
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             padding: 20px;
+            -webkit-font-smoothing: antialiased;
         }
         
         .container {
             max-width: 1200px;
-            width: 100%;
+            margin: 0 auto;
         }
         
         header {
             text-align: center;
             color: white;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         
         header h1 {
-            font-size: 3rem;
+            font-size: clamp(2rem, 8vw, 3rem);
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
         
         header p {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 4vw, 1.3rem);
             opacity: 0.9;
         }
         
         .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 10px;
         }
         
         .card {
             background: white;
             border-radius: 20px;
-            padding: 40px 30px;
+            padding: 30px 20px;
             text-align: center;
             text-decoration: none;
             color: #333;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: transform 0.3s, box-shadow 0.3s;
+            width: 100%;
         }
         
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        .card:active {
+            transform: scale(0.98);
         }
         
         .card-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
         }
         
         .card h2 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+        
+        .card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+        
+        .card .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        .card:nth-child(1) .btn {
+            background: var(--card-html);
+            color: white;
+        }
+        
+        .card:nth-child(2) .btn {
+            background: var(--card-css);
+            color: white;
+        }
+        
+        .card:nth-child(3) .btn {
+            background: var(--card-js);
+            color: #333;
+        }
+        
+        .card .tag {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 12px;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* Tablet and up */
+        @media (min-width: 600px) {
+            .cards {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+            
+            .card:nth-child(1) {
+                grid-column: span 2;
+            }
+        }
+        
+        /* Desktop */
+        @media (min-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+            
+            .card:nth-child(1) {
+                grid-column: span 1;
+            }
+            
+            .card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            }
+            
+            header {
+                margin-bottom: 50px;
+            }
+        }
+        
+        /* Small phones */
+        @media (max-width: 380px) {
+            body {
+                padding: 15px;
+            }
+            
+            .card {
+                padding: 25px 15px;
+            }
+            
+            .card-icon {
+                font-size: 3rem;
+            }
+            
+            .card h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Junior Coders</h1>
+            <p>Learn web development step by step</p>
+        </header>
+        
+        <div class="cards">
+            <a href="Learning HTML/index.html" class="card">
+                <div class="card-icon">🌐</div>
+                <h2>Learning HTML</h2>
+                <p>Learn the building blocks of web pages. Master tags, elements, forms, and semantic HTML.</p>
+                <span class="btn">Start Learning</span>
+                <div class="tag">8 Modules • Interactive</div>
+            </a>
+            
+            <a href="Learning CSS/index.html" class="card">
+                <div class="card-icon">🎨</div>
+                <h2>Learning CSS</h2>
+                <p>Style your web pages with beautiful colors, layouts, and animations. Learn modern CSS.</p>
+                <span class="btn">Start Learning</span>
+                <div class="tag">8 Modules • Interactive</div>
+            </a>
+            
+            <a href="Learning JS/index.html" class="card">
+                <div class="card-icon">⚡</div>
+                <h2>Learning JavaScript</h2>
+                <p>Add interactivity to your websites. Learn programming fundamentals with JavaScript.</p>
+                <span class="btn">Start Learning</span>
+                <div class="tag">9 Modules • Interactive</div>
+            </a>
+        </div>
+        
+        <footer>
+            <p>Created by <strong>Yasir Rasool</strong></p>
+            <p style="margin-top: 10px;">
+                <a href="Learning HTML/index.html">HTML</a> • 
+                <a href="Learning CSS/index.html">CSS</a> • 
+                <a href="Learning JS/index.html">JavaScript</a>
+            </p>
+        </footer>
+    </div>
+</body>
+</html>
             margin-bottom: 15px;
             color: #2c3e50;
         }
