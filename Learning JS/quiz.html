@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz & Games - Test Your Knowledge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        h1 { color: #2c3e50; text-align: center; }
+        .quiz-container { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .question { font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #34495e; }
+        .options { display: flex; flex-direction: column; gap: 10px; }
+        .option { padding: 12px; border: 2px solid #3498db; border-radius: 5px; cursor: pointer; transition: all 0.3s; }
+        .option:hover { background: #ebf5fb; }
+        .option.correct { background: #d4edda; border-color: #28a745; }
+        .option.wrong { background: #f8d7da; border-color: #dc3545; }
+        .score { text-align: center; font-size: 24px; color: #27ae60; margin-top: 20px; }
+        .btn { background: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 5px; }
+        .btn:hover { background: #2980b9; }
+    </style>
+</head>
+<body>
+    <h1>🎮 Quiz & Games - Test Your JavaScript Knowledge</h1>
+    
+    <div class="quiz-container">
+        <h2>📝 JavaScript Quiz</h2>
+        <div id="js-quiz1">
+            <div class="question">1. How do you declare a variable in modern JavaScript?</div>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(this, false)">var x = 5</div>
+                <div class="option" onclick="checkAnswer(this, true)">let x = 5</div>
+                <div class="option" onclick="checkAnswer(this, false)">variable x = 5</div>
+                <div class="option" onclick="checkAnswer(this, false)">int x = 5</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <h2>📝 JavaScript Quiz</h2>
+        <div id="js-quiz2">
+            <div class="question">2. Which method is used to print output to the console?</div>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(this, false)">print()</div>
+                <div class="option" onclick="checkAnswer(this, true)">console.log()</div>
+                <div class="option" onclick="checkAnswer(this, false)">echo()</div>
+                <div class="option" onclick="checkAnswer(this, false)">write()</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <h2>📝 JavaScript Quiz</h2>
+        <div id="js-quiz3">
+            <div class="question">3. How do you write a comment in JavaScript?</div>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(this, false)">&lt;!-- comment --&gt;</div>
+                <div class="option" onclick="checkAnswer(this, false)"># comment</div>
+                <div class="option" onclick="checkAnswer(this, true)">// comment</div>
+                <div class="option" onclick="checkAnswer(this, false)">/* comment */</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <h2>🎯 True or False</h2>
+        <div class="question">4. JavaScript is the same as Java.</div>
+        <button class="btn" onclick="showFeedback(this, false)">True</button>
+        <button class="btn" onclick="showFeedback(this, true)">False</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="quiz-container">
+        <h2>🔢 Fill in the Blank</h2>
+        <div class="question">5. To create a function in JavaScript, use the _____ keyword.</div>
+        <input type="text" id="answer5" placeholder="Type your answer..." style="padding: 10px; font-size: 16px; width: 200px;">
+        <button class="btn" onclick="checkFillBlank()">Check Answer</button>
+    </div>
+
+    <div class="score">
+        Score: <span id="score">0</span> / 5
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="btn">🏠 Back to Home</a>
+    </div>
+
+    <script>
+        let score = 0;
+        
+        function checkAnswer(element, isCorrect) {
+            const parent = element.parentElement;
+            const options = parent.querySelectorAll('.option');
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'wrong');
+                opt.style.pointerEvents = 'none';
+            });
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+                score++;
+            } else {
+                element.classList.add('wrong');
+            }
+            document.getElementById('score').textContent = score;
+        }
+        
+        function showFeedback(btn, isCorrect) {
+            const parent = btn.parentElement;
+            let feedback = parent.querySelector('.feedback');
+            if (isCorrect) {
+                feedback.textContent = "✅ Correct! JavaScript and Java are different languages.";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = "❌ Wrong! JavaScript and Java are completely different.";
+                feedback.style.color = "red";
+            }
+        }
+        
+        function checkFillBlank() {
+            const answer = document.getElementById('answer5').value.toLowerCase().trim();
+            if (answer === 'function') {
+                alert('✅ Correct! Use the function keyword');
+                score++;
+            } else {
+                alert('❌ Wrong! The correct answer is function');
+            }
+            document.getElementById('score').textContent = score;
+        }
+    </script>
+</body>
+</html>

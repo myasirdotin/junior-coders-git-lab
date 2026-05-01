@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Tips & Reminders</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1100px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        h1 { color: #2c3e50; text-align: center; }
+        h2 { color: #34495e; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .tip-section { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .tip-card { background: #e8f4f8; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #3498db; }
+        .tip-card.important { background: #fff3cd; border-left-color: #ffc107; }
+        .tip-card.warning { background: #f8d7da; border-left-color: #dc3545; }
+        .tip-card.success { background: #d4edda; border-left-color: #28a745; }
+        .tip-card.info { background: #e8f4f8; border-left-color: #3498db; }
+        code { background: #2c3e50; color: #ecf0f1; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        ul { line-height: 1.8; }
+        .checklist { background: #f0f0f0; padding: 15px; border-radius: 5px; }
+        .checklist li { margin: 8px 0; }
+        .two-col { display: flex; gap: 20px; }
+        .two-col > div { flex: 1; }
+        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background: #3498db; color: white; }
+        tr:nth-child(even) { background: #f9f9f9; }
+        .emoji-header { font-size: 24px; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h1>💡 HTML Tips & Reminders</h1>
+
+    <div class="tip-section">
+        <h2>📝 Before You Start Coding</h2>
+        <div class="tip-card important">
+            <h3>🔔 Always Plan First</h3>
+            <ul>
+                <li>Sketch your layout on paper before coding</li>
+                <li>List all the features you need to implement</li>
+                <li>Check existing files to understand the structure</li>
+                <li>Decide which tags you'll need (headings, lists, images, etc.)</li>
+            </ul>
+        </div>
+        <div class="tip-card">
+            <h3>📁 File Organization</h3>
+            <ul>
+                <li>Keep HTML, CSS, and JS files separate</li>
+                <li>Use descriptive file names (e.g., <code>contact-form.html</code> not <code>page1.html</code>)</li>
+                <li>Store images in an <code>images/</code> folder</li>
+                <li>Create a <code>css/</code> folder for stylesheets</li>
+                <li>Create a <code>js/</code> folder for JavaScript files</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tip-section">
+        <h2>🏷️ HTML Reminders</h2>
+        <div class="tip-card success">
+            <h3>✅ Do This</h3>
+            <ul>
+                <li>Always close your tags: <code>&lt;html&gt;...&lt;/html&gt;</code></li>
+                <li>Use lowercase tags: <code>&lt;div&gt;</code> not <code>&lt;DIV&gt;</code></li>
+                <li>Add alt text to images for accessibility</li>
+                <li>Use semantic tags: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code></li>
+                <li>Always include DOCTYPE declaration</li>
+                <li>Set lang attribute: <code>&lt;html lang="en"&gt;</code></li>
+                <li>Add meta charset: <code>&lt;meta charset="UTF-8"&gt;</code></li>
+                <li>Add viewport meta for mobile: <code>&lt;meta name="viewport" content="width=device-width"&gt;</code></li>
+            </ul>
+        </div>
+        <div class="tip-card warning">
+            <h3>❌ Avoid This</h3>
+            <ul>
+                <li>Don't skip the DOCTYPE declaration</li>
+                <li>Don't use deprecated tags like <code>&lt;font&gt;</code> or <code>&lt;center&gt;</code></li>
+                <li>Don't forget the <code>lang</code> attribute in the html tag</li>
+                <li>Don't put block elements inside inline elements</li>
+                <li>Don't use uppercase tags</li>
+                <li>Don't forget to close your tags</li>
+                <li>Don't leave alt text empty for important images</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tip-section">
+        <h2>🔗 Links & Navigation</h2>
+        <div class="two-col">
+            <div>
+                <div class="tip-card success">
+                    <h3>✅ Good Links</h3>
+                    <pre>&lt;a href="about.html" 
+   title="Learn about us"&gt;
+    About Us
+&lt;/a&gt;
+
+&lt;a href="https://google.com" 
+   target="_blank" 
+   rel="noopener noreferrer"&gt;
+    Google
+&lt;/a&gt;</pre>
+                </div>
+            </div>
+            <div>
+                <div class="tip-card warning">
+                    <h3>❌ Bad Links</h3>
+                    <pre>&lt;a href="about.html"&gt;Click here&lt;/a&gt;
+
+&lt;a href="page.html" 
+   class="btn"&gt;Click&lt;/a&gt;</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tip-section">
+        <h2>🖼️ Images & Media</h2>
+        <div class="tip-card info">
+            <h3>📋 Image Checklist</h3>
+            <ul>
+                <li>✅ Always add <code>alt</code> attribute for accessibility</li>
+                <li>✅ Specify <code>width</code> and <code>height</code> to prevent layout shift</li>
+                <li>✅ Use appropriate image formats (JPG for photos, PNG for graphics)</li>
+                <li>✅ Use relative paths: <code>images/logo.png</code></li>
+                <li>❌ Don't use absolute paths like <code>C:\images\logo.png</code></li>
+                <li>❌ Don't forget alt text for decorative images (use empty alt)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tip-section">
+        <h2>📋 Forms Best Practices</h2>
+        <div class="tip-card">
+            <pre>&lt;form action="/submit" method="POST"&gt;
+    &lt;label for="name"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" id="name" 
+           name="name" required&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" 
+           name="email" required&gt;
+    
+    &lt;button type="submit"&gt;Submit&lt;/button&gt;
+&lt;/form&gt;</pre>
+            <ul>
+                <li>Always use <code>&lt;label&gt;</code> with <code>for</code> attribute</li>
+                <li>Use appropriate <code>type</code> attributes (email, tel, number)</li>
+                <li>Add <code>required</code> attribute for mandatory fields</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tip-section">
+        <h2>🔍 Debugging Checklist</h2>
+        <div class="checklist">
+            <h3>When Your HTML Doesn't Work:</h3>
+            <ol>
+                <li>Check for typos in tag names and attributes</li>
+                <li>Verify all tags are properly closed</li>
+                <li>Check if CSS file is linked correctly</li>
+                <li>Check if JS file is linked correctly</li>
+                <li>Open browser Developer Tools (F12) for errors</li>
+                <li>Check file paths are correct</li>
+                <li>Verify file names are spelled correctly</li>
+                <li>Validate HTML at <a href="https://validator.w3.org" target="_blank">W3C Validator</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="tip-section">
+        <h2>📚 Quick Reference - All HTML Tags</h2>
+        <table>
+            <tr>
+                <th>Category</th>
+                <th>Tags</th>
+            </tr>
+            <tr>
+                <td><strong>Document</strong></td>
+                <td><code>&lt;html&gt;, &lt;head&gt;, &lt;body&gt;, &lt;title&gt;</code></td>
+            </tr>
+            <tr>
+                <td><strong>Headings</strong></td>
+                <td><code>&lt;h1&gt; to &lt;h6&gt;</code></td>
+            </tr>
+            <tr>
+                <td><strong>Text</strong></td>
+                <td><code>&lt;p&gt;, &lt;span&gt;, &lt;strong&gt;, &lt;em&gt;, &lt;br&gt;</code></td>
+            </tr>
+            <tr>
+                <td><strong>Links</strong></td>
+                <td><code>&lt;a href="url"&gt;</code></td>
+            </tr>
+            <tr>
+                <td><strong>Images</strong></td>
+                <td><code>&lt;img src="url" alt="text"&gt;</code></td>
+            </tr>
+            <tr>
+                <td><strong>Lists</strong></td>
+                <td><code>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;</code></td>
+            </tr>
+            <tr>
+                <td><strong>Layout</strong></td>
+                <td><code>&lt;div&gt;, &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;, &lt;footer&gt;</code></td>
+            </tr>
+            <tr>
+                <td><strong>Forms</strong></td>
+                <td><code>&lt;form&gt;, &lt;input&gt;, &lt;label&gt;, &lt;button&gt;</code></td>
+            </tr>
+            <tr>
+                <td><strong>Tables</strong></td>
+                <td><code>&lt;table&gt;, &lt;tr&gt;, &lt;th&gt;, &lt;td&gt;</code></td>
+            </tr>
+        </table>
+        </div>
+    </div>
+
+    <div class="tip-section">
+        <h2>⌨️ Keyboard Shortcuts</h2>
+        <div class="tip-card">
+            <h3>💻 VS Code Shortcuts</h3>
+            <table style="width: 100%; border-collapse: collapse;">
+                <tr style="background: #3498db; color: white;">
+                    <th style="padding: 10px; text-align: left;">Shortcut</th>
+                    <th style="padding: 10px; text-align: left;">Action</th>
+                </tr>
+                <tr><td style="padding: 10px;"><code>Ctrl + S</code></td><td style="padding: 10px;">Save file</td></tr>
+                <tr style="background: #f0f0f0;"><td style="padding: 10px;"><code>Ctrl + C</code></td><td style="padding: 10px;">Copy</td></tr>
+                <tr><td style="padding: 10px;"><code>Ctrl + V</code></td><td style="padding: 10px;">Paste</td></tr>
+                <tr style="background: #f0f0f0;"><td style="padding: 10px;"><code>Ctrl + Z</code></td><td style="padding: 10px;">Undo</td></tr>
+                <tr><td style="padding: 10px;"><code>Ctrl + Shift + P</code></td><td style="padding: 10px;">Command Palette</td></tr>
+                <tr style="background: #f0f0f0;"><td style="padding: 10px;"><code>Alt + ↑/↓</code></td><td style="padding: 10px;">Move line up/down</td></tr>
+                <tr><td style="padding: 10px;"><code>Ctrl + /</code></td><td style="padding: 10px;">Toggle comment</td></tr>
+                <tr style="background: #f0f0f0;"><td style="padding: 10px;"><code>Ctrl + D</code></td><td style="padding: 10px;">Select next occurrence</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="tip-section">
+        <h2>🎯 Common Mistakes to Avoid</h2>
+        <div class="tip-card warning">
+            <h3>⚠️ Top 10 HTML Mistakes</h3>
+            <ol>
+                <li><strong>Missing DOCTYPE</strong> - Always start with <code>&lt;!DOCTYPE html&gt;</code></li>
+                <li><strong>Forgetting to close tags</strong> - Every tag must be closed</li>
+                <li><strong>Wrong tag nesting</strong> - Close inner tags before outer</li>
+                <li><strong>Missing alt text</strong> - Always describe images</li>
+                <li><strong>Using deprecated tags</strong> - Avoid &lt;font&gt;, &lt;center&gt;, &lt;u&gt;</li>
+                <li><strong>Not using semantic tags</strong> - Use &lt;header&gt;, &lt;nav&gt;, &lt;main&gt;</li>
+                <li><strong>Forgetting quotes</strong> - Always quote attribute values</li>
+                <li><strong>Using inline styles</strong> - Use external CSS instead</li>
+                <li><strong>Not validating code</strong> - Use W3C validator</li>
+                <li><strong>Case sensitivity</strong> - Use lowercase for tags and attributes</li>
+            </ol>
+        </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="btn" style="background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">🏠 Back to Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good vs Bad Coding Practices</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        h1 { color: #2c3e50; text-align: center; }
+        .practice-section { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .good, .bad { padding: 15px; border-radius: 5px; margin: 10px 0; }
+        .good { background: #d4edda; border-left: 5px solid #28a745; }
+        .bad { background: #f8d7da; border-left: 5px solid #dc3545; }
+        .good h3 { color: #28a745; margin-top: 0; }
+        .bad h3 { color: #dc3545; margin-top: 0; }
+        code { background: #2c3e50; color: #ecf0f1; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        .comparison { display: flex; gap: 20px; }
+        .comparison > div { flex: 1; }
+        .tip-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>✅ Good vs ❌ Bad JavaScript Practices</h1>
+
+    <div class="practice-section">
+        <h2>⚙️ Variables Best Practices</h2>
+        
+        <div class="comparison">
+            <div>
+                <div class="good">
+                    <h3>✅ Good Practice</h3>
+                    <pre>// Use const for constants
+const API_URL = 'https://api.example.com';
+
+// Use let for variables
+let userName = 'John';
+
+// Use meaningful names
+const totalPrice = 100;
+let isLoggedIn = true;</pre>
+                    <p>Use const/let with meaningful names.</p>
+                </div>
+            </div>
+            <div>
+                <div class="bad">
+                    <h3>❌ Bad Practice</h3>
+                    <pre>// Using var (function scope)
+var API_URL = 'https://api.example.com';
+
+// Vague names
+let x = 100;
+let flag = true;
+
+// No type indication
+let data = 'John';</pre>
+                    <p>Avoid var and vague variable names.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="practice-section">
+        <h2">🔄 Comparison Best Practices</h2>
+        
+        <div class="comparison">
+            <div>
+                <div class="good">
+                    <h3>✅ Good Practice</h3>
+                    <pre>// Use strict equality
+if (userName === 'John') { }
+
+// Check for null/undefined
+if (value !== null && value !== undefined) { }
+
+// Use optional chaining
+const city = user?.address?.city;</pre>
+                    <p>Use strict equality and safe comparisons.</p>
+                </div>
+            </div>
+            <div>
+                <div class="bad">
+                    <h3>❌ Bad Practice</h3>
+                    <pre>// Using == (type coercion)
+if (userName == 'John') { }
+
+// Loose comparison
+if (value != null) { }
+
+// No null checking
+const city = user.address.city;</pre>
+                    <p>Avoid loose equality and unsafe access.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="practice-section">
+        <h2>📝 Functions Best Practices</h2>
+        
+        <div class="comparison">
+            <div>
+                <div class="good">
+                    <h3>✅ Good Practice</h3>
+                    <pre>// Use arrow functions
+const add = (a, b) => a + b;
+
+// Use default parameters
+function greet(name = 'Guest') {
+    return `Hello, ${name}`;
+}
+
+// Add comments
+// Calculate total price
+function calculateTotal(items) { }</pre>
+                    <p>Use modern syntax and add comments.</p>
+                </div>
+            </div>
+            <div>
+                <div class="bad">
+                    <h3>❌ Bad Practice</h3>
+                    <pre>// No parameters validation
+function greet(name) {
+    return `Hello, ${name}`;
+}
+
+// Anonymous functions everywhere
+arr.map(function(x) { return x * 2; })
+
+// No comments
+function x() { }</pre>
+                    <p>Avoid unclear code without documentation.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="practice-section">
+        <h2>🎯 Error Handling Best Practices</h2>
+        
+        <div class="comparison">
+            <div>
+                <div class="good">
+                    <h3>✅ Good Practice</h3>
+                    <pre>// Use try-catch
+try {
+    const data = JSON.parse(jsonString);
+} catch (error) {
+    console.error('Error:', error);
+}
+
+// Validate inputs
+function divide(a, b) {
+    if (b === 0) {
+        throw new Error('Cannot divide by zero');
+    }
+    return a / b;
+}</pre>
+                    <p>Always handle errors and validate inputs.</p>
+                </div>
+            </div>
+            <div>
+                <div class="bad">
+                    <h3>❌ Bad Practice</h3>
+                    <pre>// No error handling
+const data = JSON.parse(jsonString);
+
+// Ignore errors
+try { } catch (e) { }
+
+// No input validation
+function divide(a, b) {
+    return a / b;
+}</pre>
+                    <p>Avoid code that crashes without warning.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tip-box">
+        <h3>💡 Pro Tips</h3>
+        <ul>
+            <li>Use <code>const</code> by default, <code>let</code> when needed</li>
+            <li>Use template literals for string formatting</li>
+            <li>Use arrow functions for callbacks</li>
+            <li>Use <code>console.log()</code> to debug your code</li>
+            <li>Use meaningful function and variable names</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="btn" style="background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">🏠 Back to Home</a>
+    </div>
+</body>
+</html>

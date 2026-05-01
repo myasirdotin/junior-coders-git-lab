@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good vs Bad Coding Practices</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        h1 { color: #2c3e50; text-align: center; }
+        .practice-section { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .good, .bad { padding: 15px; border-radius: 5px; margin: 10px 0; }
+        .good { background: #d4edda; border-left: 5px solid #28a745; }
+        .bad { background: #f8d7da; border-left: 5px solid #dc3545; }
+        .good h3 { color: #28a745; margin-top: 0; }
+        .bad h3 { color: #dc3545; margin-top: 0; }
+        code { background: #2c3e50; color: #ecf0f1; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        pre { background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px; overflow-x: auto; }
+        .comparison { display: flex; gap: 20px; }
+        .comparison > div { flex: 1; }
+        .tip-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>✅ Good vs ❌ Bad CSS Practices</h1>
+
+    <div class="practice-section">
+        <h2>🎨 Selectors Best Practices</h2>
+        
+        <div class="comparison">
+            <div>
+                <div class="good">
+                    <h3>✅ Good Practice</h3>
+                    <pre>/* Use specific class names */
+.button-primary {
+    background-color: #3498db;
+}
+
+/* Use descendant selectors */
+nav .menu-item {
+    padding: 10px;
+}</pre>
+                    <p>Use specific, meaningful class names.</p>
+                </div>
+            </div>
+            <div>
+                <div class="bad">
+                    <h3>❌ Bad Practice</h3>
+                    <pre>/* Too generic */
+.a { background: blue; }
+
+/* Overly specific */
+html body div.container ul li a {
+    color: red;
+}</pre>
+                    <p>Avoid vague names and overly complex selectors.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="practice-section">
+        <h2>📐 Layout Best Practices</h2>
+        
+        <div class="comparison">
+            <div>
+                <div class="good">
+                    <h3>✅ Good Practice</h3>
+                    <pre>/* Use Flexbox for layout */
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Use CSS variables */
+:root {
+    --primary-color: #3498db;
+}</pre>
+                    <p>Use modern layout methods and CSS variables.</p>
+                </div>
+            </div>
+            <div>
+                <div class="bad">
+                    <h3>❌ Bad Practice</h3>
+                    <pre>/* Using tables for layout */
+table { width: 100%; }
+
+/* Inline styles */
+&lt;div style="float: left"&gt;</pre>
+                    <p>Avoid tables for layout and inline styles.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="practice-section">
+        <h2>📏 Spacing Best Practices</h2>
+        
+        <div class="comparison">
+            <div>
+                <div class="good">
+                    <h3>✅ Good Practice</h3>
+                    <pre>/* Use consistent spacing */
+.card {
+    padding: 20px;
+    margin-bottom: 16px;
+}
+
+/* Use rem for font sizes */
+body {
+    font-size: 1rem;
+}</pre>
+                    <p>Use consistent spacing and relative units.</p>
+                </div>
+            </div>
+            <div>
+                <div class="bad">
+                    <h3>❌ Bad Practice</h3>
+                    <pre>/* Inconsistent spacing */
+.card {
+    padding: 10px;
+    margin: 5px 10px 3px 8px;
+}
+
+/* Using pixels for everything */
+body { font-size: 14px; }</pre>
+                    <p>Avoid inconsistent values and fixed pixels.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="practice-section">
+        <h2>🎭 Responsive Design Best Practices</h2>
+        
+        <div class="comparison">
+            <div>
+                <div class="good">
+                    <h3>✅ Good Practice</h3>
+                    <pre>/* Use media queries */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+}
+
+/* Use relative units */
+width: 50%;
+max-width: 100%;</pre>
+                    <p>Build responsive layouts with media queries.</p>
+                </div>
+            </div>
+            <div>
+                <div class="bad">
+                    <h3>❌ Bad Practice</h3>
+                    <pre>/* Fixed widths */
+.container { width: 960px; }
+
+/* No mobile support */
+@media print { }</pre>
+                    <p>Avoid fixed widths and ignoring mobile.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tip-box">
+        <h3>💡 Pro Tips</h3>
+        <ul>
+            <li>Use CSS variables for consistent theming</li>
+            <li>Use Flexbox and Grid for layouts</li>
+            <li>Keep your CSS organized and commented</li>
+            <li>Test responsive design on multiple devices</li>
+            <li>Use browser DevTools to debug CSS</li>
+        </ul>
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="btn" style="background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">🏠 Back to Home</a>
+    </div>
+</body>
+</html>

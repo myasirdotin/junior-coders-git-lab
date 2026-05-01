@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz & Games - Test Your Knowledge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
+        h1 { color: #2c3e50; text-align: center; }
+        .quiz-container { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .question { font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #34495e; }
+        .options { display: flex; flex-direction: column; gap: 10px; }
+        .option { padding: 12px; border: 2px solid #3498db; border-radius: 5px; cursor: pointer; transition: all 0.3s; }
+        .option:hover { background: #ebf5fb; }
+        .option.correct { background: #d4edda; border-color: #28a745; }
+        .option.wrong { background: #f8d7da; border-color: #dc3545; }
+        .score { text-align: center; font-size: 24px; color: #27ae60; margin-top: 20px; }
+        .btn { background: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 5px; }
+        .btn:hover { background: #2980b9; }
+        .game-section { margin-top: 30px; }
+        .drag-item { background: #3498db; color: white; padding: 10px 15px; border-radius: 5px; cursor: grab; display: inline-block; margin: 5px; }
+        .drop-zone { min-height: 50px; border: 2px dashed #95a5a6; border-radius: 5px; padding: 10px; margin-top: 10px; }
+        .category { background: #ecf0f1; padding: 15px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🎮 Quiz & Games - Test Your Knowledge</h1>
+    
+    <div class="quiz-container">
+        <h2>📝 CSS Quiz</h2>
+        <div id="css-quiz">
+            <div class="question">1. Which property is used to change the background color?</div>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(this, false)">color</div>
+                <div class="option" onclick="checkAnswer(this, false)">bgcolor</div>
+                <div class="option" onclick="checkAnswer(this, true)">background-color</div>
+                <div class="option" onclick="checkAnswer(this, false)">background</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <h2>📝 CSS Quiz</h2>
+        <div id="css-quiz2">
+            <div class="question">2. Which selector has the highest specificity?</div>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(this, false)">element selector</div>
+                <div class="option" onclick="checkAnswer(this, false)">class selector</div>
+                <div class="option" onclick="checkAnswer(this, true)">ID selector</div>
+                <div class="option" onclick="checkAnswer(this, false)">universal selector</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <h2>📝 CSS Quiz</h2>
+        <div id="css-quiz3">
+            <div class="question">3. What does CSS stand for?</div>
+            <div class="options">
+                <div class="option" onclick="checkAnswer(this, false)">Creative Style Sheets</div>
+                <div class="option" onclick="checkAnswer(this, true)">Cascading Style Sheets</div>
+                <div class="option" onclick="checkAnswer(this, false)">Computer Style Sheets</div>
+                <div class="option" onclick="checkAnswer(this, false)">Colorful Style Sheets</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quiz-container game-section">
+        <h2>🧩 Property Match Game</h2>
+        <p>Drag the correct property to its description:</p>
+        <div style="font-family: monospace; background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px;">
+            <p>Changes text color → <span class="drag-item" draggable="true">color</span></p>
+            <p>Adds space outside element → <span class="drag-item" draggable="true">margin</span></p>
+            <p>Adds space inside element → <span class="drag-item" draggable="true">padding</span></p>
+        </div>
+    </div>
+
+    <div class="quiz-container">
+        <h2>🎯 True or False</h2>
+        <div class="question">4. The !important rule always wins.</div>
+        <button class="btn" onclick="showFeedback(this, true)">True</button>
+        <button class="btn" onclick="showFeedback(this, false)">False</button>
+        <p class="feedback"></p>
+    </div>
+
+    <div class="quiz-container">
+        <h2>🔢 Fill in the Blank</h2>
+        <div class="question">5. The property to make text bold is: _____</div>
+        <input type="text" id="answer5" placeholder="Type your answer..." style="padding: 10px; font-size: 16px; width: 200px;">
+        <button class="btn" onclick="checkFillBlank()">Check Answer</button>
+    </div>
+
+    <div class="score">
+        Score: <span id="score">0</span> / 5
+    </div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="index.html" class="btn">🏠 Back to Home</a>
+    </div>
+
+    <script>
+        let score = 0;
+        
+        function checkAnswer(element, isCorrect) {
+            const parent = element.parentElement;
+            const options = parent.querySelectorAll('.option');
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'wrong');
+                opt.style.pointerEvents = 'none';
+            });
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+                score++;
+            } else {
+                element.classList.add('wrong');
+            }
+            document.getElementById('score').textContent = score;
+        }
+        
+        function showFeedback(btn, isCorrect) {
+            const parent = btn.parentElement;
+            let feedback = parent.querySelector('.feedback');
+            if (isCorrect) {
+                feedback.textContent = "✅ Correct! !important has the highest priority.";
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent = "❌ Wrong! !important does always win.";
+                feedback.style.color = "red";
+            }
+        }
+        
+        function checkFillBlank() {
+            const answer = document.getElementById('answer5').value.toLowerCase().trim();
+            if (answer === 'font-weight' || answer === 'font-weight: bold') {
+                alert('✅ Correct! The property is font-weight');
+                score++;
+            } else {
+                alert('❌ Wrong! The correct answer is font-weight');
+            }
+            document.getElementById('score').textContent = score;
+        }
+    </script>
+</body>
+</html>

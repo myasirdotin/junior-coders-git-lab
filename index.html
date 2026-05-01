@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Junior Coders - Learn HTML, CSS, and JavaScript with interactive lessons and exercises">
+    <meta name="keywords" content="HTML, CSS, JavaScript, learning, coding, kids, beginners, tutorial">
+    <meta name="author" content="Yasir Rasool">
+    <meta name="theme-color" content="#3498db">
+    <title>Junior Coders | Learn Web Development</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💻</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        header p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        .card-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .card h2 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        .card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .card .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .card:nth-child(1) .btn {
+            background: #e34f26;
+            color: white;
+        }
+        
+        .card:nth-child(1) .btn:hover {
+            background: #c43e1a;
+        }
+        
+        .card:nth-child(2) .btn {
+            background: #264de4;
+            color: white;
+        }
+        
+        .card:nth-child(2) .btn:hover {
+            background: #1a35b8;
+        }
+        
+        .card:nth-child(3) .btn {
+            background: #f7df1e;
+            color: #333;
+        }
+        
+        .card:nth-child(3) .btn:hover {
+            background: #e5c800;
+        }
+        
+        .card .tag {
+            display: inline-block;
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+            opacity: 0.8;
+        }
+        
+        footer a {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Junior Coders</h1>
+            <p>Learn web development step by step</p>
+        </header>
+        
+        <div class="cards">
+            <a href="Learning HTML/index.html" class="card">
+                <div class="card-icon">🌐</div>
+                <h2>Learning HTML</h2>
+                <p>Learn the building blocks of web pages. Master tags, elements, forms, and semantic HTML.</p>
+                <span class="btn">Start Learning</span>
+                <div class="tag">8 Modules • Interactive</div>
+            </a>
+            
+            <a href="Learning CSS/index.html" class="card">
+                <div class="card-icon">🎨</div>
+                <h2>Learning CSS</h2>
+                <p>Style your web pages with beautiful colors, layouts, and animations. Learn modern CSS.</p>
+                <span class="btn">Start Learning</span>
+                <div class="tag">8 Modules • Interactive</div>
+            </a>
+            
+            <a href="Learning JS/index.html" class="card">
+                <div class="card-icon">⚡</div>
+                <h2>Learning JavaScript</h2>
+                <p>Add interactivity to your websites. Learn programming fundamentals with JavaScript.</p>
+                <span class="btn">Start Learning</span>
+                <div class="tag">9 Modules • Interactive</div>
+            </a>
+        </div>
+        
+        <footer>
+            <p>Created by <strong>Yasir Rasool</strong></p>
+            <p>Access the <a href="Learning HTML/index.html">Learning HTML</a> | <a href="Learning CSS/index.html">Learning CSS</a> | <a href="Learning JS/index.html">Learning JS</a></p>
+        </footer>
+    </div>
+</body>
+</html>
