@@ -3,46 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 5: Arrays</title>
+    <meta name="description" content="Module 5: Learn JavaScript arrays including creating arrays, accessing elements, and array methods like push, pop, filter, and find.">
+    <meta name="keywords" content="JavaScript, arrays, array methods, push, pop, filter, find, beginner, tutorial">
+    <meta name="author" content="Yasir Rasool">
+    <meta name="theme-color" content="#4f46e5">
+    <meta property="og:title" content="Module 5: Arrays | Junior Coders">
+    <meta property="og:description" content="Learn JavaScript arrays including creating arrays, accessing elements, and array methods.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Module 5: Arrays | Junior Coders</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%BB</text></svg>">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
-        .module-header h1 { color: white; border: none; margin: 0; }
-        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
-        .back-link:hover { text-decoration: underline; }
-        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
-        .content-section h2 { color: #667eea; margin-top: 0; }
-        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
-        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
-        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
-        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
-        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
-        .key-point strong { color: #1976D2; }
-        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
-        .tip-box strong { color: #2E7D32; }
-        .warning-box { background: #fff3e0; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #FF9800; }
-        .warning-box strong { color: #E65100; }
-        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
-        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
-        .btn-nav:hover { background: #5568d3; }
-        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
-        .complete-btn:hover { background: #45a049; }
-    </style>
 </head>
 <body>
-    <nav>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation">
         <a href="index.html">Playground</a>
         <a href="exercises.html">Exercises</a>
-        <a href="learningjs.html" class="active">Learning JS</a>
+        <a href="learningjs.html" class="active" aria-current="page">Learning JS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
     </nav>
 
-    <div class="module-container">
-        <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
+    <main id="main-content" class="module-container">
+        <a href="learningjs.html" class="back-link" role="button">← Back to Syllabus</a>
         
         <div class="module-header">
             <h1>Module 5: Arrays</h1>
             <p>⏱ 60 minutes | Week 3</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Create and initialize arrays</li>
+                <li>Access and modify array elements using indices</li>
+                <li>Use array methods: push, pop, shift, unshift, slice, splice</li>
+                <li>Filter and find elements in arrays</li>
+            </ul>
         </div>
 
         <div class="content-section">
@@ -153,7 +152,6 @@ console.log(combined); // [1, 2, 3, 4]
 // join() - convert array to string
 let fruits = ["apple", "banana", "cherry"];
 console.log(fruits.join(", ")); // "apple, banana, cherry"
-console.log(fruits.join(" - ")); // "apple - banana - cherry"
 
 // reverse() - reverse array order
 let nums = [1, 2, 3];
@@ -168,10 +166,7 @@ console.log(letters); // ["a", "b", "c"]
 // For numbers, use compare function
 let unsorted = [10, 5, 20, 1];
 unsorted.sort((a, b) => a - b); // Ascending
-console.log(unsorted); // [1, 5, 10, 20]
-
-unsorted.sort((a, b) => b - a); // Descending
-console.log(unsorted); // [20, 10, 5, 1]</code>
+console.log(unsorted); // [1, 5, 10, 20]</code>
             </div>
 
             <h3>5.4 Finding Elements with filter() and find()</h3>
@@ -190,21 +185,10 @@ let youngUsers = users.filter(user => user.age === 25);
 console.log(youngUsers);
 // [{ name: "Alice", age: 25 }, { name: "Charlie", age: 25 }]
 
-let over30 = users.filter(user => user.age > 30);
-console.log(over30);
-// [{ name: "Diana", age: 35 }]
-
 // find() - returns FIRST matching element
 let firstYoung = users.find(user => user.age === 25);
 console.log(firstYoung);
 // { name: "Alice", age: 25 }
-
-let notFound = users.find(user => user.age === 100);
-console.log(notFound); // undefined
-
-// findIndex() - returns index of first match
-let index = users.findIndex(user => user.name === "Bob");
-console.log(index); // 1
 
 // some() - check if ANY element matches
 let hasTeenager = users.some(user => user.age < 20);
@@ -218,37 +202,16 @@ console.log(allAdults); // true</code>
             <div class="tip-box">
                 <strong>✅ Pro Tip:</strong> Use <code>filter()</code> when you want all matches, <code>find()</code> when you only need the first match. Both methods create new arrays/values without modifying the original!
             </div>
+        </div>
 
-            <h3>5.5 Multi-dimensional Arrays</h3>
-            <p>Arrays can contain other arrays, creating multi-dimensional structures:</p>
-            
-            <div class="code-example">
-                <code>// 2D array (array of arrays)
-let matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-];
-
-console.log(matrix[0]);      // [1, 2, 3]
-console.log(matrix[0][1]);   // 2
-console.log(matrix[2][2]);   // 9
-
-// Iterating over 2D array
-for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-        console.log(matrix[i][j]);
-    }
-}
-
-// Array of objects
-let students = [
-    { name: "Alice", grades: [90, 85, 92] },
-    { name: "Bob", grades: [78, 82, 88] }
-];
-
-console.log(students[0].grades[1]); // 85</code>
-            </div>
+        <div class="content-section">
+            <h2>Common Mistakes</h2>
+            <ul>
+                <li><strong>Forgetting that array indices start at 0</strong> - The first element is at index 0, not 1. Accessing <code>arr[arr.length]</code> returns <code>undefined</code>.</li>
+                <li><strong>Modifying an array while iterating over it</strong> - Adding or removing elements during a <code>for</code> loop can skip elements or cause unexpected behavior.</li>
+                <li><strong>Confusing <code>sort()</code> behavior on numbers</strong> - <code>sort()</code> converts elements to strings by default. Use <code>arr.sort((a, b) => a - b)</code> for numeric sorting.</li>
+                <li><strong>Assuming arrays are copied by value</strong> - Arrays are reference types. <code>let b = a</code> creates a reference, not a copy. Use <code>slice()</code> or spread operator to copy.</li>
+            </ul>
         </div>
 
         <div class="content-section">
@@ -260,8 +223,36 @@ console.log(students[0].grades[1]); // 85</code>
                 <li>Use filter() to get all even numbers from an array</li>
                 <li>Given an array of user objects, find all users over 18 years old</li>
                 <li>Reverse an array without using the reverse() method</li>
-                <li>Flatten a 2D array into a 1D array</li>
             </ol>
+        </div>
+
+        <div class="content-section">
+            <h2>Check Your Understanding</h2>
+            <form id="quiz-form-5" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: What is the index of the last element in an array of length 5?</p>
+                    <label><input type="radio" name="q5-1" value="a"> a) 5</label>
+                    <label><input type="radio" name="q5-1" value="b"> b) 4</label>
+                    <label><input type="radio" name="q5-1" value="c"> c) 6</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: Which method adds an element to the beginning of an array?</p>
+                    <label><input type="radio" name="q5-2" value="a"> a) unshift()</label>
+                    <label><input type="radio" name="q5-2" value="b"> b) push()</label>
+                    <label><input type="radio" name="q5-2" value="c"> c) shift()</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: What does filter() return if no elements match?</p>
+                    <label><input type="radio" name="q5-3" value="a"> a) null</label>
+                    <label><input type="radio" name="q5-3" value="b"> b) undefined</label>
+                    <label><input type="radio" name="q5-3" value="c"> c) Empty array []</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="quiz-submit" onclick="checkQuiz(5)">Check Answers</button>
+                <div id="quiz-score-5" class="quiz-score"></div>
+            </form>
         </div>
 
         <div class="nav-buttons">
@@ -269,20 +260,8 @@ console.log(students[0].grades[1]); // 85</code>
             <button class="complete-btn" onclick="markComplete(5)">✓ Mark as Complete</button>
             <a href="module6.html" class="btn-nav">Next: Loops →</a>
         </div>
-    </div>
+    </main>
 
-    <script>
-        function markComplete(moduleNum) {
-            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
-            if (!completed.includes(moduleNum)) {
-                completed.push(moduleNum);
-                localStorage.setItem('completedModules', JSON.stringify(completed));
-                localStorage.setItem('jsCourseProgress', completed.length);
-                alert('🎉 Module 5 completed! Keep going!');
-            } else {
-                alert('You already completed this module!');
-            }
-        }
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>

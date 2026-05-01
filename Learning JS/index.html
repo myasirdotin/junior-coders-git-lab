@@ -4,11 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Interactive JavaScript code playground for beginners. Write, run, and experiment with JavaScript code in real-time.">
-    <meta name="keywords" content="JavaScript, learning, playground, coding, beginner">
-    <title>JS Learning Playground</title>
+    <meta name="keywords" content="JavaScript, learning, playground, coding, beginner, tutorial, practice">
+    <meta name="author" content="Yasir Rasool">
+    <meta name="theme-color" content="#4f46e5">
+    <meta property="og:title" content="JS Learning Playground | Junior Coders">
+    <meta property="og:description" content="Interactive JavaScript code playground for beginners. Write, run, and experiment with JavaScript code in real-time.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>JS Learning Playground | Junior Coders</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%BB</text></svg>">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <nav>
         <a href="index.html" class="active">Playground</a>
@@ -23,7 +31,7 @@
         <p>Write, run, and experiment with JavaScript code</p>
     </header>
 
-    <div class="main-container">
+    <main id="main-content" class="main-container">
         <aside class="instructions-panel" aria-label="Instructions">
             <h2>How to Use</h2>
             <ol>
@@ -39,7 +47,7 @@
 console.log("Welcome, " + name);</pre>
         </aside>
 
-        <main class="playground-container">
+        <section class="playground-container" aria-label="Code playground">
             <div class="editor-area">
                 <label for="code-editor">Write your JavaScript here:</label>
                 <textarea id="code-editor" spellcheck="false" placeholder="// Start coding here...
@@ -59,8 +67,8 @@ console.log("Welcome, " + name);</pre>
                 <label>Output / Results:</label>
                 <div id="console" role="log" aria-label="Console output" aria-live="polite"></div>
             </div>
-        </main>
-    </div>
+        </section>
+    </main>
 
     <script src="js/script.js"></script>
 </body>

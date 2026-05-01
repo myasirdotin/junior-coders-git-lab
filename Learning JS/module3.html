@@ -3,21 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 3: Learn JavaScript string manipulation including template literals, string methods like toUpperCase, slice, split, and string immutability.">
-    <title>Module 3: String Manipulation</title>
+    <meta name="description" content="Module 3: Learn JavaScript string manipulation including concatenation, template literals, and string methods.">
+    <meta name="keywords" content="JavaScript, strings, template literals, concatenation, string methods, beginner, tutorial">
+    <meta name="author" content="Yasir Rasool">
+    <meta name="theme-color" content="#4f46e5">
+    <meta property="og:title" content="Module 3: String Manipulation | Junior Coders">
+    <meta property="og:description" content="Learn JavaScript string manipulation including concatenation, template literals, and string methods.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Module 3: String Manipulation | Junior Coders</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%BB</text></svg>">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <nav>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <nav role="navigation" aria-label="Main navigation">
         <a href="index.html">Playground</a>
         <a href="exercises.html">Exercises</a>
-        <a href="learningjs.html" class="active">Learning JS</a>
+        <a href="learningjs.html" class="active" aria-current="page">Learning JS</a>
         <a href="glossary.html">Glossary</a>
         <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
     </nav>
 
-    <div class="module-container">
-        <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
+    <main id="main-content" class="module-container">
+        <a href="learningjs.html" class="back-link" role="button">← Back to Syllabus</a>
 
         <div class="module-header">
             <h1>Module 3: String Manipulation</h1>
@@ -220,7 +230,7 @@ console.log(word.charCodeAt(0)); // 72 (ASCII code for 'H')</code>
             <button class="complete-btn" onclick="markComplete(3)">✓ Mark as Complete</button>
             <a href="module4.html" class="btn-nav">Next: Conditional Logic →</a>
         </div>
-    </div>
+    </main>
 
     <script src="js/script.js"></script>
 </body>
