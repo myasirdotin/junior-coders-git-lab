@@ -3,195 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Good vs Bad Coding Practices</title>
+    <title>Best JavaScript Practices 2026 | Good vs Bad</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
-        body { font-family: Arial, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
-        h1 { color: #2c3e50; text-align: center; }
-        .practice-section { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .good, .bad { padding: 15px; border-radius: 5px; margin: 10px 0; }
-        .good { background: #d4edda; border-left: 5px solid #28a745; }
-        .bad { background: #f8d7da; border-left: 5px solid #dc3545; }
-        .good h3 { color: #28a745; margin-top: 0; }
-        .bad h3 { color: #dc3545; margin-top: 0; }
-        code { background: #2c3e50; color: #ecf0f1; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
-        pre { background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px; overflow-x: auto; }
-        .comparison { display: flex; gap: 20px; }
-        .comparison > div { flex: 1; }
-        .tip-box { background: #fff3cd; border-left: 5px solid #ffc107; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        body { 
+            font-family: 'Segoe UI', Arial, sans-serif; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 20px; 
+            background: #f8f9fa; 
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 { 
+            color: #2c3e50; 
+            text-align: center; 
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #5a6c7d;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+        .practice-section { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 12px; 
+            margin: 30px 0; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08); 
+        }
+        .good, .bad { 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin: 15px 0; 
+        }
+        .good { 
+            background: #e8f5e9; 
+            border-left: 6px solid #28a745; 
+        }
+        .bad { 
+            background: #ffebee; 
+            border-left: 6px solid #dc3545; 
+        }
+        .good h3, .bad h3 { 
+            margin-top: 0; 
+            font-size: 1.25rem;
+        }
+        .good h3 { color: #28a745; }
+        .bad h3 { color: #dc3545; }
+        
+        code { 
+            background: #2c3e50; 
+            color: #ecf0f1; 
+            padding: 3px 7px; 
+            border-radius: 4px; 
+            font-family: 'Consolas', monospace; 
+            font-size: 0.95rem;
+        }
+        pre { 
+            background: #2c3e50; 
+            color: #ecf0f1; 
+            padding: 18px; 
+            border-radius: 8px; 
+            overflow-x: auto;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .comparison { 
+            display: flex; 
+            gap: 25px; 
+            flex-wrap: wrap;
+        }
+        .comparison > div { 
+            flex: 1; 
+            min-width: 300px;
+        }
+        .tip-box { 
+            background: #fff3cd; 
+            border-left: 6px solid #ffc107; 
+            padding: 20px; 
+            margin: 25px 0; 
+            border-radius: 8px; 
+        }
+        .nav {
+            background: #2c3e50;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin: -20px -20px 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .nav a:hover {
+            color: #3498db;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            color: #666;
+            border-top: 1px solid #ddd;
+        }
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
-    <h1>✅ Good vs ❌ Bad JavaScript Practices</h1>
+    <nav class="nav">
+        <ul>
+            <li><a href="#variables">Variables</a></li>
+            <li><a href="#comparison">Comparison</a></li>
+            <li><a href="#functions">Functions</a></li>
+            <li><a href="#error">Error Handling</a></li>
+            <li><a href="#arrays">Arrays</a></li>
+            <li><a href="#objects">Objects</a></li>
+            <li><a href="#async">Async Code</a></li>
+            <li><a href="#performance">Performance</a></li>
+        </ul>
+    </nav>
 
-    <div class="practice-section">
-        <h2>⚙️ Variables Best Practices</h2>
+    <h1>✅ Modern JavaScript Best Practices (2026)</h1>
+    <p class="subtitle">Write clean, maintainable, secure, and performant code • Good vs Bad Examples</p>
+
+    <div class="practice-section" id="variables">
+        <div class="section-header">
+            <h2>⚙️ Variables &amp; Declarations</h2>
+        </div>
         
         <div class="comparison">
             <div>
                 <div class="good">
                     <h3>✅ Good Practice</h3>
-                    <pre>// Use const for constants
-const API_URL = 'https://api.example.com';
+                    <pre><code>// Prefer const, use let only when reassigning
+const API_BASE_URL = 'https://api.example.com/v2';
+const MAX_RETRIES = 3;
 
-// Use let for variables
-let userName = 'John';
+let currentUser = null;
+let isProcessing = false;
 
-// Use meaningful names
-const totalPrice = 100;
-let isLoggedIn = true;</pre>
-                    <p>Use const/let with meaningful names.</p>
+// Descriptive names + proper scoping
+const userProfile = {
+    id: 123,
+    name: 'Yasir',
+    preferences: { theme: 'dark' }
+};</code></pre>
+                    <p>Use <code>const</code> by default. Choose meaningful, self-documenting names.</p>
                 </div>
             </div>
             <div>
                 <div class="bad">
                     <h3>❌ Bad Practice</h3>
-                    <pre>// Using var (function scope)
-var API_URL = 'https://api.example.com';
+                    <pre><code>// Global variables + var
+var data;
+var temp = 'something';
 
-// Vague names
-let x = 100;
+// Poor naming
+let x = 42;
 let flag = true;
-
-// No type indication
-let data = 'John';</pre>
-                    <p>Avoid var and vague variable names.</p>
+let userData = [];</code></pre>
+                    <p>Avoid <code>var</code>, global pollution, and vague names.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="practice-section">
-        <h2">🔄 Comparison Best Practices</h2>
+    <div class="practice-section" id="comparison">
+        <div class="section-header">
+            <h2>🔄 Comparisons &amp; Conditionals</h2>
+        </div>
         
         <div class="comparison">
             <div>
                 <div class="good">
                     <h3>✅ Good Practice</h3>
-                    <pre>// Use strict equality
-if (userName === 'John') { }
+                    <pre><code>if (userName === 'Yasir') { ... }
 
-// Check for null/undefined
-if (value !== null && value !== undefined) { }
+// Nullish coalescing & optional chaining
+const username = user?.profile?.name ?? 'Guest';
+const itemsCount = cart?.items?.length || 0;
 
-// Use optional chaining
-const city = user?.address?.city;</pre>
-                    <p>Use strict equality and safe comparisons.</p>
+// Early returns
+if (!user) return;
+if (!isValidEmail(email)) return;</code></pre>
+                    <p>Use strict equality, optional chaining, and nullish coalescing.</p>
                 </div>
             </div>
             <div>
                 <div class="bad">
                     <h3>❌ Bad Practice</h3>
-                    <pre>// Using == (type coercion)
-if (userName == 'John') { }
+                    <pre><code>if (userName == 'Yasir') { ... }   // type coercion
 
-// Loose comparison
-if (value != null) { }
+const username = user.address.city;   // potential crash
 
-// No null checking
-const city = user.address.city;</pre>
-                    <p>Avoid loose equality and unsafe access.</p>
+if (value) { ... }   // truthy/falsy bugs</code></pre>
+                    <p>Avoid loose operators and unsafe property access.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="practice-section">
-        <h2>📝 Functions Best Practices</h2>
+    <div class="practice-section" id="functions">
+        <div class="section-header">
+            <h2>📝 Functions &amp; Modules</h2>
+        </div>
         
         <div class="comparison">
             <div>
                 <div class="good">
                     <h3>✅ Good Practice</h3>
-                    <pre>// Use arrow functions
-const add = (a, b) => a + b;
+                    <pre><code>// Arrow functions + defaults + destructuring
+const calculateTotal = (items = [], taxRate = 0.18) => {
+    const subtotal = items.reduce((sum, item) => sum + item.price, 0);
+    return subtotal * (1 + taxRate);
+};
 
-// Use default parameters
-function greet(name = 'Guest') {
-    return `Hello, ${name}`;
-}
-
-// Add comments
-// Calculate total price
-function calculateTotal(items) { }</pre>
-                    <p>Use modern syntax and add comments.</p>
+// Pure functions when possible
+const formatName = ({ firstName, lastName }) => 
+    `${firstName} ${lastName}`.trim().toUpperCase();</code></pre>
+                    <p>Keep functions small, pure, and well-documented.</p>
                 </div>
             </div>
             <div>
                 <div class="bad">
                     <h3>❌ Bad Practice</h3>
-                    <pre>// No parameters validation
-function greet(name) {
-    return `Hello, ${name}`;
+                    <pre><code>function process(data) {
+    // 200 lines of code
 }
 
-// Anonymous functions everywhere
-arr.map(function(x) { return x * 2; })
-
-// No comments
-function x() { }</pre>
-                    <p>Avoid unclear code without documentation.</p>
+arr.map(function(item) { return item * 2 }); // avoid anonymous</code></pre>
+                    <p>Avoid large functions and magic numbers.</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="practice-section">
-        <h2>🎯 Error Handling Best Practices</h2>
+    <div class="practice-section" id="error">
+        <div class="section-header">
+            <h2>🛡️ Error Handling &amp; Validation</h2>
+        </div>
         
         <div class="comparison">
             <div>
                 <div class="good">
                     <h3>✅ Good Practice</h3>
-                    <pre>// Use try-catch
-try {
+                    <pre><code>try {
     const data = JSON.parse(jsonString);
+    validateUser(data);
 } catch (error) {
-    console.error('Error:', error);
+    console.error('Parsing failed:', error.message);
+    showUserFriendlyError(error);
 }
 
-// Validate inputs
-function divide(a, b) {
-    if (b === 0) {
-        throw new Error('Cannot divide by zero');
+// Custom errors
+class ValidationError extends Error {
+    constructor(message) {
+        super(message);
+        this.name = 'ValidationError';
     }
-    return a / b;
-}</pre>
-                    <p>Always handle errors and validate inputs.</p>
+}</code></pre>
                 </div>
             </div>
             <div>
                 <div class="bad">
                     <h3>❌ Bad Practice</h3>
-                    <pre>// No error handling
-const data = JSON.parse(jsonString);
+                    <pre><code>const data = JSON.parse(jsonString); // crashes app
 
-// Ignore errors
-try { } catch (e) { }
+try { ... } catch(e) {} // silent fail</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
 
-// No input validation
-function divide(a, b) {
-    return a / b;
-}</pre>
-                    <p>Avoid code that crashes without warning.</p>
+    <!-- New Section: Arrays -->
+    <div class="practice-section" id="arrays">
+        <div class="section-header">
+            <h2>📋 Arrays Best Practices</h2>
+        </div>
+        
+        <div class="comparison">
+            <div>
+                <div class="good">
+                    <h3>✅ Good Practice</h3>
+                    <pre><code>const activeUsers = users
+    .filter(u => u.isActive && u.lastLogin > cutoffDate)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10);
+
+// Immutable operations
+const newArray = [...oldArray, newItem];
+const updated = items.map(item => item.id === targetId 
+    ? { ...item, status: 'completed' } 
+    : item);</code></pre>
+                </div>
+            </div>
+            <div>
+                <div class="bad">
+                    <h3>❌ Bad Practice</h3>
+                    <pre><code>for (let i = 0; i < arr.length; i++) { ... } // old style
+
+users.push(newUser); // mutating shared state</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Section: Objects -->
+    <div class="practice-section" id="objects">
+        <div class="section-header">
+            <h2>🗃️ Objects &amp; Data Structures</h2>
+        </div>
+        
+        <div class="comparison">
+            <div>
+                <div class="good">
+                    <h3>✅ Good Practice</h3>
+                    <pre><code>const config = {
+    api: { timeout: 5000, retries: 3 },
+    ui: { theme: 'dark', language: 'en' }
+};
+
+// Destructuring + spread
+const { api, ui } = config;
+const updatedConfig = { ...config, ui: { ...ui, theme: 'light' } };</code></pre>
+                </div>
+            </div>
+            <div>
+                <div class="bad">
+                    <h3>❌ Bad Practice</h3>
+                    <pre><code>const obj = new Object();
+obj['key'] = value;</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Section: Async -->
+    <div class="practice-section" id="async">
+        <div class="section-header">
+            <h2>⚡ Asynchronous Code</h2>
+        </div>
+        
+        <div class="comparison">
+            <div>
+                <div class="good">
+                    <h3>✅ Good Practice</h3>
+                    <pre><code>async function fetchUserData(id) {
+    try {
+        const response = await fetch(`/api/users/${id}`);
+        if (!response.ok) throw new Error('Failed to fetch');
+        
+        return await response.json();
+    } catch (err) {
+        console.error(err);
+        throw err; // let caller handle
+    }
+}
+
+// Promise.all for parallel requests
+const [user, posts] = await Promise.all([
+    fetchUser(id),
+    fetchPosts(id)
+]);</code></pre>
+                </div>
+            </div>
+            <div>
+                <div class="bad">
+                    <h3>❌ Bad Practice</h3>
+                    <pre><code>.then().then().then() // callback hell
+
+async function bad() {
+    const data = await fetchData();
+    // forgot to handle errors
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- New Section: Performance -->
+    <div class="practice-section" id="performance">
+        <div class="section-header">
+            <h2>🚀 Performance &amp; Optimization</h2>
+        </div>
+        
+        <div class="comparison">
+            <div>
+                <div class="good">
+                    <h3>✅ Good Practice</h3>
+                    <pre><code>// Debounce / Throttle heavy operations
+const debouncedSearch = debounce(searchHandler, 300);
+
+// Use Map/Set for lookups
+const userMap = new Map(users.map(u => [u.id, u]));
+
+// Avoid memory leaks - clean event listeners
+useEffect(() => {
+    return () => window.removeEventListener(...);
+}, []);</code></pre>
+                </div>
+            </div>
+            <div>
+                <div class="bad">
+                    <h3>❌ Bad Practice</h3>
+                    <pre><code>for (let i = 0; i < 10000; i++) { ... } // inside render
+
+innerHTML += '&lt;div&gt;...&lt;/div&gt;' // repeated DOM manipulation</code></pre>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="tip-box">
-        <h3>💡 Pro Tips</h3>
+        <h3>💡 Pro Tips for Professional Code</h3>
         <ul>
-            <li>Use <code>const</code> by default, <code>let</code> when needed</li>
-            <li>Use template literals for string formatting</li>
-            <li>Use arrow functions for callbacks</li>
-            <li>Use <code>console.log()</code> to debug your code</li>
-            <li>Use meaningful function and variable names</li>
+            <li><strong>Always</strong> use ESLint + Prettier</li>
+            <li>Write small, focused functions (&lt; 30 lines ideally)</li>
+            <li>Prefer immutability when working with state</li>
+            <li>Use meaningful comments only when code isn't self-explanatory</li>
+            <li>Implement proper TypeScript for large projects</li>
+            <li>Test edge cases and validate all external inputs</li>
+            <li>Keep bundle size small — lazy load when possible</li>
+            <li>Document public APIs and complex business logic</li>
         </ul>
     </div>
 
-    <div style="text-align: center; margin-top: 30px;">
-        <a href="index.html" class="btn" style="background: #3498db; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">🏠 Back to Home</a>
+    <div style="text-align: center; margin: 40px 0;">
+        <a href="index.html" class="btn">🏠 Back to Home</a>
     </div>
+
+    <footer>
+        <p>Modern JavaScript Best Practices Guide • Updated 2026</p>
+        <p>Focus on readability, maintainability, and performance.</p>
+    </footer>
+
+    <script>
+        // Simple smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
