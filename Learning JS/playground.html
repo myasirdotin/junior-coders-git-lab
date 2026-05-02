@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Playground | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="module-container">
+        <header class="module-header">
+            <h1>JS Playground</h1>
+            <p>Master the logic of the web with JavaScript.</p>
+        </header>
+
+        <section class="content-section">
+            <div class="playground-container">
+                <div class="editor-area">
+                    <label>JavaScript Editor</label>
+                    <textarea id="code-editor" spellcheck="false" placeholder="console.log('Hello Junior Coders!');"></textarea>
+                    <button class="btn-primary" onclick="runJS()" style="margin-top: 1rem;">Run Code (Ctrl+Enter)</button>
+                </div>
+                <div class="preview-area">
+                    <label>Console Output</label>
+                    <div id="console"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
+</body>
+</html>

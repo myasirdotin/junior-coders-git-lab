@@ -3,150 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 4: Learn about HTML lists - ordered, unordered, and description lists.">
-    <title>Module 4: Lists</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Module 4: Text Style | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">Playground</a>
-        <a href="exercises.html">Exercises</a>
-        <a href="learninghtml.html" class="active">Learning HTML</a>
-        <a href="glossary.html">Glossary</a>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
-    </nav>
+    <main class="module-container">
+        <header class="module-header" style="background: linear-gradient(135deg, #f59e0b, #fbbf24); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 4</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Text Style!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Make your words pop with bold and italics. ✨</p>
+        </header>
 
-    <div class="module-container">
-        <a href="learninghtml.html" class="back-link">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 4: Lists</h1>
-            <p>⏱ 35 minutes | Week 2</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
+        <section class="content-section">
+            <h2>Special Formatting Tags</h2>
+            <p>Sometimes you want to make a word special. We have tags for that!</p>
             <ul>
-                <li>Create unordered lists with <code><ul></code></li>
-                <li>Create ordered lists with <code><ol></code></li>
-                <li>Create description lists with <code><dl></code></li>
-                <li>Nest lists within each other</li>
+                <li><code>&lt;strong&gt;</code>: Makes text <strong>bold</strong> and tells the computer it is important.</li>
+                <li><code>&lt;em&gt;</code>: Makes text <em>italic</em> and adds emphasis.</li>
+                <li><code>&lt;mark&gt;</code>: <mark>Highlights</mark> your text like a marker!</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <h3>4.1 Unordered Lists</h3>
-            <p>Unordered lists display items with bullet points:</p>
-
-            <div class="code-example">
-                <code><ul>
-  <li>Apples</li>
-  <li>Bananas</li>
-  <li>Oranges</li>
-</ul></code>
-            </div>
-
-            <h3>4.2 Ordered Lists</h3>
-            <p>Ordered lists display items with numbers:</p>
-
-            <div class="code-example">
-                <code><ol>
-  <li>First step</li>
-  <li>Second step</li>
-  <li>Third step</li>
-</ol></code>
-            </div>
-
-            <h3>4.3 Description Lists</h3>
-            <p>Description lists are used for terms and their descriptions:</p>
-
-            <div class="code-example">
-                <code><dl>
-  <dt>HTML</dt>
-  <dd>HyperText Markup Language</dd>
-  <dt>CSS</dt>
-  <dd>Cascading Style Sheets</dd>
-</dl></code>
-            </div>
-
-            <h3>4.4 Nested Lists</h3>
-            <p>Lists can be nested inside each other:</p>
-
-            <div class="code-example">
-                <code><ul>
-  <li>Fruits
-    <ul>
-      <li>Apples</li>
-      <li>Bananas</li>
-    </ul>
-  </li>
-  <li>Vegetables
-    <ul>
-      <li>Carrots</li>
-      <li>Broccoli</li>
-    </ul>
-  </li>
-</ul></code>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Common Mistakes</h2>
-            <ul>
-                <li><strong>Forgetting to close <code><li></code> tags</strong> - Each list item needs proper closing.</li>
-                <li><strong>Using lists for layout</strong> - Lists are for content, not page layout. Use CSS for layout.</li>
-                <li><strong>Incorrect nesting</strong> - Nested lists must be inside an <code><li></code> element.</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
-            <ol>
-                <li>Create a grocery shopping list</li>
-                <li>Create a numbered recipe instructions list</li>
-                <li>Create a nested navigation menu</li>
-            </ol>
-        </div>
-
-        <div class="content-section">
-            <h2>Check Your Understanding</h2>
-            <form id="quiz-form-4" class="quiz-section">
-                <div class="quiz-question" data-answer="b">
-                    <p>Q1: Which tag creates a bulleted list?</p>
-                    <label><input type="radio" name="q4-1" value="a"> a) <ol></label>
-                    <label><input type="radio" name="q4-1" value="b"> b) <ul></label>
-                    <label><input type="radio" name="q4-1" value="c"> c) <list></label>
-                    <div class="quiz-feedback"></div>
+        <section class="content-section">
+            <h2>Mission: Style Your Name</h2>
+            <p>Try using the <code>&lt;strong&gt;</code> and <code>&lt;mark&gt;</code> tags to make your name look cool!</p>
+            <div class="playground-container">
+                <div class="editor-area">
+                    <textarea id="code-editor" spellcheck="false">
+<p>My name is <mark><strong>Junior Coder</strong></mark>!</p>
+<p>I am <em>very</em> excited to learn HTML.</p></textarea>
                 </div>
-                <div class="quiz-question" data-answer="a">
-                    <p>Q2: What does <dl> stand for?</p>
-                    <label><input type="radio" name="q4-2" value="a"> a) Description List</label>
-                    <label><input type="radio" name="q4-2" value="b"> b) Data List</label>
-                    <label><input type="radio" name="q4-2" value="c"> c) Definition List</label>
-                    <div class="quiz-feedback"></div>
+                <div class="preview-area">
+                    <div id="preview"></div>
                 </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid #f59e0b;">
+            <h2>Quick Question!</h2>
+            <div id="quiz-form-4" class="quiz-section">
                 <div class="quiz-question" data-answer="c">
-                    <p>Q3: Where should a nested list be placed?</p>
-                    <label><input type="radio" name="q4-3" value="a"> a) Directly inside the parent list</label>
-                    <label><input type="radio" name="q4-3" value="b"> b) Outside the parent list</label>
-                    <label><input type="radio" name="q4-3" value="c"> c) Inside an <li> element</label>
+                    <p>Which tag makes text look like it was highlighted with a marker?</p>
+                    <label><input type="radio" name="q1" value="a"> &lt;strong&gt;</label>
+                    <label><input type="radio" name="q1" value="b"> &lt;em&gt;</label>
+                    <label><input type="radio" name="q1" value="c"> &lt;mark&gt;</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <button type="button" class="quiz-submit" onclick="checkQuiz(4)">Check Answers</button>
-                <div id="quiz-score-4" class="quiz-score"></div>
-            </form>
-        </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(4)">Check Answer</button>
+            </div>
+        </section>
 
-        <div class="nav-buttons">
-            <a href="module3.html" class="btn-nav">← Previous</a>
-            <button class="complete-btn" onclick="markComplete(4)">✓ Mark as Complete</button>
-            <a href="module5.html" class="btn-nav">Next: Tables →</a>
-        </div>
-    </div>
-
-    <script src="js/script.js"></script>
+        <footer style="text-align: center; margin-top: 4rem;">
+            <button onclick="markComplete(4)" class="btn-primary" style="background: #10b981; margin-bottom: 1rem;">Styled! ✨</button><br>
+            <a href="module5.html" class="btn-primary">Go to Module 5 →</a>
+        </footer>
+    </main>
+    <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
 </body>
 </html>

@@ -3,134 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 3: Learn about HTML links and images. Create hyperlinks and embed images in your web pages.">
-    <title>Module 3: Links & Images</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Module 3: Big Headings | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">Playground</a>
-        <a href="exercises.html">Exercises</a>
-        <a href="learninghtml.html" class="active">Learning HTML</a>
-        <a href="glossary.html">Glossary</a>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
-    </nav>
+    <main class="module-container">
+        <header class="module-header" style="background: linear-gradient(135deg, #10b981, #34d399); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 3</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Big Headings!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Learn how to make titles and stories. 📖</p>
+        </header>
 
-    <div class="module-container">
-        <a href="learninghtml.html" class="back-link">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 3: Links & Images</h1>
-            <p>⏱ 40 minutes | Week 2</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
-            <ul>
-                <li>Create hyperlinks using the <code><a></code> tag</li>
-                <li>Understand absolute vs relative URLs</li>
-                <li>Embed images using the <code><img></code> tag</li>
-                <li>Use the <code>alt</code> attribute for accessibility</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <h3>3.1 Creating Links</h3>
-            <p>The <code><a></code> (anchor) tag creates hyperlinks. The <code>href</code> attribute specifies the destination:</p>
-
-            <div class="code-example">
-                <code><!-- External link -->
-<a href="https://www.google.com">Visit Google</a>
-
-<!-- Internal link (same site) -->
-<a href="about.html">About Us</a>
-
-<!-- Email link -->
-<a href="mailto:email@example.com">Send Email</a>
-
-<!-- Open in new tab -->
-<a href="https://example.com" target="_blank">Open in New Tab</a></code>
+        <section class="content-section">
+            <h2>The Heading Hierarchy</h2>
+            <p>HTML has 6 sizes of headings! <code>&lt;h1&gt;</code> is the biggest, and <code>&lt;h6&gt;</code> is the smallest. It's like a family of titles!</p>
+            <div style="background: white; padding: 2rem; border-radius: 1rem; color: #1e293b; margin: 1.5rem 0;">
+                <h1 style="margin: 0; color: #1e293b; -webkit-text-fill-color: #1e293b;">h1: Big Title</h1>
+                <h2 style="margin: 0; color: #1e293b; -webkit-text-fill-color: #1e293b;">h2: Smaller Title</h2>
+                <h3 style="margin: 0; color: #1e293b; -webkit-text-fill-color: #1e293b;">h3: Even Smaller</h3>
             </div>
+        </section>
 
-            <div class="tip-box">
-                <strong>✅ Best Practice:</strong> Use <code>target="_blank"</code> for external links so users don't leave your site.
-            </div>
+        <section class="content-section">
+            <h2>Paragraphs</h2>
+            <p>For normal text, we use the <code>&lt;p&gt;</code> tag. It stands for "Paragraph". It's perfect for writing your stories or descriptions.</p>
+        </section>
 
-            <h3>3.2 Working with Images</h3>
-            <p>The <code><img></code> tag embeds images. It's a self-closing tag:</p>
-
-            <div class="code-example">
-                <code><img src="photo.jpg" alt="A beautiful sunset">
-
-<!-- With dimensions -->
-<img src="logo.png" alt="Company Logo" width="200" height="100">
-
-<!-- Using a URL -->
-<img src="https://example.com/image.jpg" alt="External image"></code>
-            </div>
-
-            <div class="key-point">
-                <strong>💡 Key Point:</strong> The <code>alt</code> attribute is crucial for accessibility. It provides text for screen readers and displays if the image fails to load.
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Common Mistakes</h2>
-            <ul>
-                <li><strong>Forgetting the <code>alt</code> attribute</strong> - Always include alt text for accessibility.</li>
-                <li><strong>Broken image paths</strong> - Double-check your file paths are correct.</li>
-                <li><strong>Using absolute URLs for internal links</strong> - Use relative paths for pages within your site.</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
-            <ol>
-                <li>Create a link to your favorite website</li>
-                <li>Embed an image with appropriate alt text</li>
-                <li>Create a navigation menu with links</li>
-            </ol>
-        </div>
-
-        <div class="content-section">
-            <h2>Check Your Understanding</h2>
-            <form id="quiz-form-3" class="quiz-section">
-                <div class="quiz-question" data-answer="b">
-                    <p>Q1: Which attribute specifies the URL in an anchor tag?</p>
-                    <label><input type="radio" name="q3-1" value="a"> a) src</label>
-                    <label><input type="radio" name="q3-1" value="b"> b) href</label>
-                    <label><input type="radio" name="q3-1" value="c"> c) link</label>
-                    <div class="quiz-feedback"></div>
+        <section class="content-section">
+            <h2>Mission: Write a Story</h2>
+            <p>Try making a big title for your story and write a short paragraph below it!</p>
+            <div class="playground-container">
+                <div class="editor-area">
+                    <textarea id="code-editor" spellcheck="false">
+<h1>The Amazing Cat</h1>
+<p>Once upon a time, there was a cat who could code in HTML. He was very smart!</p></textarea>
                 </div>
+                <div class="preview-area">
+                    <div id="preview"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid #10b981;">
+            <h2>Pop Quiz!</h2>
+            <div id="quiz-form-3" class="quiz-section">
                 <div class="quiz-question" data-answer="a">
-                    <p>Q2: What is the purpose of the alt attribute in images?</p>
-                    <label><input type="radio" name="q3-2" value="a"> a) Accessibility and fallback text</label>
-                    <label><input type="radio" name="q3-2" value="b"> b) Image styling</label>
-                    <label><input type="radio" name="q3-2" value="c"> c) Image sizing</label>
+                    <p>Which heading tag is the biggest?</p>
+                    <label><input type="radio" name="q1" value="a"> &lt;h1&gt;</label>
+                    <label><input type="radio" name="q1" value="b"> &lt;h6&gt;</label>
+                    <label><input type="radio" name="q1" value="c"> &lt;p&gt;</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <div class="quiz-question" data-answer="c">
-                    <p>Q3: How do you make a link open in a new tab?</p>
-                    <label><input type="radio" name="q3-3" value="a"> a) new-tab="true"</label>
-                    <label><input type="radio" name="q3-3" value="b"> b) target="new"</label>
-                    <label><input type="radio" name="q3-3" value="c"> c) target="_blank"</label>
-                    <div class="quiz-feedback"></div>
-                </div>
-                <button type="button" class="quiz-submit" onclick="checkQuiz(3)">Check Answers</button>
-                <div id="quiz-score-3" class="quiz-score"></div>
-            </form>
-        </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(3)">Check Answer</button>
+            </div>
+        </section>
 
-        <div class="nav-buttons">
-            <a href="module2.html" class="btn-nav">← Previous</a>
-            <button class="complete-btn" onclick="markComplete(3)">✓ Mark as Complete</button>
-            <a href="module4.html" class="btn-nav">Next: Lists →</a>
-        </div>
-    </div>
-
-    <script src="js/script.js"></script>
+        <footer style="text-align: center; margin-top: 4rem;">
+            <button onclick="markComplete(3)" class="btn-primary" style="background: #10b981; margin-bottom: 1rem;">Mastered! 📖</button><br>
+            <a href="module4.html" class="btn-primary">Go to Module 4 →</a>
+        </footer>
+    </main>
+    <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
 </body>
 </html>

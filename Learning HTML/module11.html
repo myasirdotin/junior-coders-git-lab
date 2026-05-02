@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 11: Building Forms | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header" style="background: linear-gradient(135deg, #0ea5e9, #60a5fa); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 11</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Building Forms!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Collect secrets, surveys, and messages from your users. 📝</p>
+        </header>
+
+        <section class="content-section">
+            <h2>The Form Wrapper</h2>
+            <p>A form is like an <strong>envelope</strong>. You put all your inputs inside the <code>&lt;form&gt;</code> tag so they can be sent together!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Inputs & Labels</h2>
+            <p>Every input needs a <strong>Label</strong> so users know what to type. We connect them using the <code>for</code> attribute and the <code>id</code>.</p>
+            <ul>
+                <li><code>&lt;input type="text"&gt;</code>: For names or messages.</li>
+                <li><code>&lt;input type="password"&gt;</code>: For secret codes!</li>
+                <li><code>&lt;button type="submit"&gt;</code>: To send the form.</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Mission: Create a Login</h2>
+            <p>Try building a simple login form with a username and a password!</p>
+            <div class="playground-container">
+                <div class="editor-area">
+                    <textarea id="code-editor" spellcheck="false">
+<form>
+    <label for="user">Username:</label><br>
+    <input type="text" id="user"><br><br>
+
+    <label for="pass">Secret Code:</label><br>
+    <input type="password" id="pass"><br><br>
+
+    <button type="submit">Login Now!</button>
+</form></textarea>
+                </div>
+                <div class="preview-area">
+                    <div id="preview"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid #0ea5e9;">
+            <h2>Quick Quiz!</h2>
+            <div id="quiz-form-11" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Which input type hides the characters you type?</p>
+                    <label><input type="radio" name="q1" value="a"> text</label>
+                    <label><input type="radio" name="q1" value="b"> password</label>
+                    <label><input type="radio" name="q1" value="c"> secret</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(11)">Check Answer</button>
+            </div>
+        </section>
+
+        <footer style="text-align: center; margin-top: 4rem;">
+            <button onclick="markComplete(11)" class="btn-primary" style="background: #10b981; margin-bottom: 1rem;">Form Builder! 📝</button><br>
+            <a href="module12.html" class="btn-primary">Go to Module 12 →</a>
+        </footer>
+    </main>
+    <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
+</body>
+</html>

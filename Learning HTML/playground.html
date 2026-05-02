@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Playground | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="module-container">
+        <header class="module-header">
+            <h1>HTML Playground</h1>
+            <p>Write code, see results, and experiment freely.</p>
+        </header>
+
+        <section class="content-section">
+            <div class="playground-container">
+                <div class="editor-area">
+                    <label>Code Editor</label>
+                    <textarea id="code-editor" spellcheck="false" placeholder="<h1>Hello!</h1>"></textarea>
+                </div>
+                <div class="preview-area">
+                    <label>Live Output</label>
+                    <div id="preview"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
+</body>
+</html>

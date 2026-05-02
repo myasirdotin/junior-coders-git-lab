@@ -3,312 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Complete JavaScript fundamentals course syllabus. 9 modules covering variables, functions, arrays, objects, DOM and more.">
-    <meta name="keywords" content="JavaScript, learning, course, syllabus, beginner, tutorial">
-    <meta name="author" content="Yasir Rasool">
-    <meta name="theme-color" content="#4f46e5">
-    <meta property="og:title" content="JavaScript Course Syllabus | Junior Coders">
-    <meta property="og:description" content="Complete JavaScript fundamentals course with 9 modules. Learn variables, functions, arrays, objects, DOM and more.">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
     <title>JavaScript Course Syllabus | Junior Coders</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%BB</text></svg>">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <nav role="navigation" aria-label="Main navigation">
-        <a href="index.html">Playground</a>
-        <a href="exercises.html">Exercises</a>
-        <a href="learningjs.html" class="active" aria-current="page">Learning JS</a>
-        <a href="glossary.html">Glossary</a>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
-    </nav>
+    <main class="module-container">
+        
+        <header class="module-header">
+            <h1>JS Path</h1>
+            <p>From variables to dynamic web applications.</p>
+        </header>
 
-    <main id="main-content" class="syllabus-container">
-        <div class="syllabus-header">
-            <h1>JavaScript Fundamentals</h1>
-            <p>Complete Course Syllabus &amp; Learning Path</p>
+        <section class="content-section" style="text-align: center;">
+            <h2>Your Journey</h2>
+            <div style="background: var(--bg-glass); height: 12px; border-radius: 6px; margin: 1.5rem 0; overflow: hidden; border: 1px solid var(--border-dim);">
+                <div id="progressFill" style="width: 0%; height: 100%; background: var(--primary); transition: width 0.8s ease;"></div>
+            </div>
+            <p style="color: var(--text-secondary);">You've mastered <span id="completedModules" style="color: var(--text-primary); font-weight: 800;">0</span> out of 9 modules.</p>
+        </section>
+
+        <div style="display: grid; gap: 2rem; margin-top: 3rem;">
+            <h3 style="text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-size: 0.8rem;">Week 1: Fundamentals</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <div class="content-section" style="padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                    <h4 style="font-size: 1.25rem;">Module 1: Variables</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); flex-grow: 1;">Learn how to store and manage data using variables.</p>
+                    <a href="module1.html" class="btn-primary" style="margin-top: 1.5rem;">Start</a>
+                </div>
+
+                <div class="content-section" style="padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                    <h4 style="font-size: 1.25rem;">Module 2: Math</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-secondary); flex-grow: 1;">Master arithmetic operations and mathematical expressions.</p>
+                    <a href="module2.html" class="btn-primary" style="margin-top: 1.5rem;">Start</a>
+                </div>
+            </div>
+            <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">More modules coming soon to your path!</p>
         </div>
 
-        <div class="course-info">
-            <div class="info-card">
-                <h3>Total Modules</h3>
-                <p>9</p>
-            </div>
-            <div class="info-card">
-                <h3>Duration</h3>
-                <p>6 Weeks</p>
-            </div>
-            <div class="info-card">
-                <h3>Level</h3>
-                <p>Beginner</p>
-            </div>
-            <div class="info-card">
-                <h3>Prerequisites</h3>
-                <p>None</p>
-            </div>
-        </div>
-
-        <div class="progress-section">
-            <h2>Your Progress</h2>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            <p class="progress-text"><span id="completedModules">0</span> of 9 Modules Completed</p>
-        </div>
-
-        <!-- Week 1 -->
-        <div class="week-section">
-            <div class="week-header">Week 1: Getting Started</div>
-            <div class="modules-grid">
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>Module 1: Variables &amp; Data Types</h2>
-                        <span class="module-badge">45 min</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Learn how to store and manage data using variables. Understand different data types in JavaScript.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">let &amp; const</span>
-                            <span class="topic-tag">Strings</span>
-                            <span class="topic-tag">Numbers</span>
-                            <span class="topic-tag">Booleans</span>
-                            <span class="topic-tag">typeof</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <span class="duration">45 minutes</span>
-                            <a href="module1.html" class="btn-start">Start Learning</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>Module 2: Math Operations</h2>
-                        <span class="module-badge">40 min</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Master arithmetic operations and mathematical expressions in JavaScript.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Arithmetic</span>
-                            <span class="topic-tag">Modulus</span>
-                            <span class="topic-tag">Math Object</span>
-                            <span class="topic-tag">Random</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <span class="duration">40 minutes</span>
-                            <a href="module2.html" class="btn-start">Start Learning</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Week 2 -->
-        <div class="week-section">
-            <div class="week-header">Week 2: Control Flow</div>
-            <div class="modules-grid">
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>Module 3: String Manipulation</h2>
-                        <span class="module-badge">50 min</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Learn to work with text data. Master string methods and template literals.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Concatenation</span>
-                            <span class="topic-tag">Template Literals</span>
-                            <span class="topic-tag">String Methods</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <span class="duration">50 minutes</span>
-                            <a href="module3.html" class="btn-start">Start Learning</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>Module 4: Conditional Logic</h2>
-                        <span class="module-badge">55 min</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Make decisions in your code using conditional statements.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">if/else</span>
-                            <span class="topic-tag">Comparisons</span>
-                            <span class="topic-tag">Logical Operators</span>
-                            <span class="topic-tag">Ternary</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <span class="duration">55 minutes</span>
-                            <a href="module4.html" class="btn-start">Start Learning</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Week 3 -->
-        <div class="week-section">
-            <div class="week-header">Week 3: Data Structures</div>
-            <div class="modules-grid">
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>Module 5: Arrays</h2>
-                        <span class="module-badge">60 min</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Store and manage collections of data using arrays.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Creating Arrays</span>
-                            <span class="topic-tag">push/pop</span>
-                            <span class="topic-tag">shift/unshift</span>
-                            <span class="topic-tag">filter/find</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <span class="duration">60 minutes</span>
-                            <a href="module5.html" class="btn-start">Start Learning</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>Module 6: Loops</h2>
-                        <span class="module-badge">60 min</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Automate repetitive tasks using loops.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">for loop</span>
-                            <span class="topic-tag">while</span>
-                            <span class="topic-tag">forEach</span>
-                            <span class="topic-tag">break/continue</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <span class="duration">60 minutes</span>
-                            <a href="module6.html" class="btn-start">Start Learning</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Week 4 -->
-        <div class="week-section">
-            <div class="week-header">Week 4: Functions</div>
-            <div class="modules-grid">
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>Module 7: Functions</h2>
-                        <span class="module-badge">70 min</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Create reusable blocks of code with functions.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Declaration</span>
-                            <span class="topic-tag">Parameters</span>
-                            <span class="topic-tag">Return</span>
-                            <span class="topic-tag">Arrow Functions</span>
-                            <span class="topic-tag">Scope</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <span class="duration">70 minutes</span>
-                            <a href="module7.html" class="btn-start">Start Learning</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Week 5 -->
-        <div class="week-section">
-            <div class="week-header">Week 5: Objects</div>
-            <div class="modules-grid">
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>Module 8: Objects</h2>
-                        <span class="module-badge">65 min</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Organize related data and functions using objects.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Object Literals</span>
-                            <span class="topic-tag">Properties</span>
-                            <span class="topic-tag">Methods</span>
-                            <span class="topic-tag">this keyword</span>
-                            <span class="topic-tag">JSON</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <span class="duration">65 minutes</span>
-                            <a href="module8.html" class="btn-start">Start Learning</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Week 6 -->
-        <div class="week-section">
-            <div class="week-header">Week 6: DOM &amp; Events</div>
-            <div class="modules-grid">
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>Module 9: DOM &amp; Events</h2>
-                        <span class="module-badge">80 min</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Interact with web pages using JavaScript.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">querySelector</span>
-                            <span class="topic-tag">Manipulating DOM</span>
-                            <span class="topic-tag">Event Listeners</span>
-                            <span class="topic-tag">Forms</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <span class="duration">80 minutes</span>
-                            <a href="module9.html" class="btn-start">Start Learning</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="resources-section">
-            <h2>Additional Resources</h2>
-            <div class="resource-grid">
-                <div class="resource-item">
-                    <h4>Practice Playground</h4>
-                    <a href="index.html">Open Code Editor</a>
-                </div>
-                <div class="resource-item">
-                    <h4>Exercises &amp; Examples</h4>
-                    <a href="exercises.html">View Exercises</a>
-                </div>
-                <div class="resource-item">
-                    <h4>JavaScript Glossary</h4>
-                    <a href="glossary.html">View Glossary</a>
-                </div>
-                <div class="resource-item">
-                    <h4>MDN Documentation</h4>
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener">Visit MDN</a>
-                </div>
-            </div>
-        </div>
     </main>
 
-    <script src="js/script.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedProgress = localStorage.getItem('jsCourseProgress');
-            const completed = savedProgress ? parseInt(savedProgress) : 0;
-            const percentage = (completed / 9) * 100;
-            document.getElementById('progressFill').style.width = percentage + '%';
-            document.getElementById('completedModules').textContent = completed;
-        });
-    </script>
+    <script src="../js/core.js"></script>
 </body>
 </html>

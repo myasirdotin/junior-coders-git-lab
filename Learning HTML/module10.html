@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 10: Naming Elements | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header" style="background: linear-gradient(135deg, #f59e0b, #facc15); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 10</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Naming Elements!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Learn how to give tags names with Class and ID. 🏷️</p>
+        </header>
+
+        <section class="content-section">
+            <h2>Why give names?</h2>
+            <p>Imagine you have 10 paragraphs, but you only want ONE to be red. How do you tell the computer which one? We use <strong>names</strong>!</p>
+            <ul>
+                <li><strong>Class:</strong> Like a team name. Many elements can have the same class. (e.g., <code>class="team-red"</code>)</li>
+                <li><strong>ID:</strong> Like a social security number or your name. It MUST be unique! (e.g., <code>id="main-title"</code>)</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Mission: Name Your Tags</h2>
+            <p>Try giving a unique ID to the heading and a shared class to the paragraphs!</p>
+            <div class="playground-container">
+                <div class="editor-area">
+                    <textarea id="code-editor" spellcheck="false">
+<h1 id="hero-title">I have a unique name!</h1>
+
+<p class="cool-text">We are in the same team.</p>
+<p class="cool-text">We share the same class.</p></textarea>
+                </div>
+                <div class="preview-area">
+                    <div id="preview"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid #f59e0b;">
+            <h2>Quick Challenge!</h2>
+            <div id="quiz-form-10" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Which attribute should only be used ONCE per page for a specific name?</p>
+                    <label><input type="radio" name="q1" value="a"> id</label>
+                    <label><input type="radio" name="q1" value="b"> class</label>
+                    <label><input type="radio" name="q1" value="c"> name</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(10)">Check Answer</button>
+            </div>
+        </section>
+
+        <footer style="text-align: center; margin-top: 4rem;">
+            <button onclick="markComplete(10)" class="btn-primary" style="background: #10b981; margin-bottom: 1rem;">Named! 🏷️</button><br>
+            <a href="module11.html" class="btn-primary">Go to Module 11 →</a>
+        </footer>
+    </main>
+    <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
+</body>
+</html>

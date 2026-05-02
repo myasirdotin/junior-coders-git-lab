@@ -1,73 +1,145 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn HTML Syllabus | Junior Coders</title>
-    
-    <!-- Typography -->
+    <title>HTML Path | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <!-- Design System -->
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="css/lesson.css">
 </head>
 <body>
 
     <main class="module-container">
         
         <header class="module-header">
-            <span class="badge">Syllabus</span>
-            <h1>HTML Path</h1>
-            <p>From blank page to professional structures.</p>
+            <h1>HTML Adventure</h1>
+            <p>From blank page to professional structures, one step at a time!</p>
         </header>
 
-        <!-- Progress Tracking -->
-        <section class="content-section" style="text-align: center;">
-            <h2>Your Journey</h2>
-            <div style="background: rgba(255,255,255,0.05); height: 12px; border-radius: 6px; margin: 1.5rem 0; overflow: hidden;">
-                <div id="progressFill" style="width: 0%; height: 100%; background: var(--primary); transition: width 0.8s ease;"></div>
+        <section class="content-section" style="text-align: center; background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(244, 63, 94, 0.1));">
+            <h2>Your Journey Progress</h2>
+            <div style="background: var(--bg-glass); height: 20px; border-radius: 10px; margin: 1.5rem 0; overflow: hidden; border: 2px solid var(--border-dim);">
+                <div id="progressFill" style="width: 0%; height: 100%; background: linear-gradient(to right, #6366f1, #f43f5e); transition: width 0.8s ease;"></div>
             </div>
-            <p style="color: var(--text-secondary);">You've mastered <span id="completedModules" style="color: white; font-weight: 800;">0</span> out of 8 modules.</p>
+            <p style="color: var(--text-secondary); font-weight: 600;">You've mastered <span id="completedModules" style="color: var(--primary); font-size: 1.5rem;">0</span> out of 12 modules! 🚀</p>
         </section>
 
-        <!-- Modules Grid -->
-        <div style="display: grid; gap: 2rem; margin-top: 3rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
             
-            <!-- Week 1 -->
-            <h3 style="text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); font-size: 0.8rem;">Week 1: Fundamentals</h3>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-                <!-- Module 1 Card -->
-                <div class="content-section" style="padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                        <h4 style="font-size: 1.25rem;">Module 1: Meet HTML</h4>
-                        <span class="badge" style="font-size: 0.6rem;">30m</span>
-                    </div>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); flex-grow: 1;">Discover the tags that build the skeleton of every website.</p>
-                    <a href="module1.html" class="btn-primary" style="margin-top: 1.5rem; text-decoration: none; text-align: center;">Start</a>
-                </div>
-
-                <!-- Module 2 Card -->
-                <div class="content-section" style="padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1rem;">
-                        <h4 style="font-size: 1.25rem;">Module 2: Text & Headings</h4>
-                        <span class="badge" style="font-size: 0.6rem;">35m</span>
-                    </div>
-                    <p style="font-size: 0.9rem; color: var(--text-secondary); flex-grow: 1;">Organize your content with professional hierarchy and style.</p>
-                    <a href="module2.html" class="btn-primary" style="margin-top: 1.5rem; text-decoration: none; text-align: center;">Start</a>
-                </div>
+            <!-- Module 1 -->
+            <div class="content-section" style="border-left: 8px solid #6366f1; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                <span style="font-weight: 900; color: #6366f1; font-size: 0.8rem; text-transform: uppercase;">Module 1</span>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Introduction</h4>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">What is HTML? Learn the basic skeleton of every website.</p>
+                <a href="module1.html" class="btn-primary" style="margin-top: 1.5rem; background: #6366f1;">Start Adventure</a>
             </div>
 
-            <!-- Future Weeks could be added here in the same pattern -->
-             <p style="text-align: center; color: var(--text-muted); font-size: 0.9rem;">More modules coming soon to your path!</p>
+            <!-- Module 2 -->
+            <div class="content-section" style="border-left: 8px solid #f43f5e; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                <span style="font-weight: 900; color: #f43f5e; font-size: 0.8rem; text-transform: uppercase;">Module 2</span>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Attributes</h4>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Learn how to give tags "superpowers" using attributes.</p>
+                <a href="module2.html" class="btn-primary" style="margin-top: 1.5rem; background: #f43f5e;">Learn Power-ups</a>
+            </div>
+
+            <!-- Module 3 -->
+            <div class="content-section" style="border-left: 8px solid #10b981; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                <span style="font-weight: 900; color: #10b981; font-size: 0.8rem; text-transform: uppercase;">Module 3</span>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Headings</h4>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Organize your stories with big, bold titles and paragraphs.</p>
+                <a href="module3.html" class="btn-primary" style="margin-top: 1.5rem; background: #10b981;">Make Headings</a>
+            </div>
+
+            <!-- Module 4 -->
+            <div class="content-section" style="border-left: 8px solid #f59e0b; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                <span style="font-weight: 900; color: #f59e0b; font-size: 0.8rem; text-transform: uppercase;">Module 4</span>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Formatting</h4>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Make your text <strong>bold</strong>, <em>italic</em>, or highlighted!</p>
+                <a href="module4.html" class="btn-primary" style="margin-top: 1.5rem; background: #f59e0b;">Style Text</a>
+            </div>
+
+            <!-- Module 5 -->
+            <div class="content-section" style="border-left: 8px solid #0ea5e9; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                <span style="font-weight: 900; color: #0ea5e9; font-size: 0.8rem; text-transform: uppercase;">Module 5</span>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Links</h4>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Teleport from one page to another using hyperlinks!</p>
+                <a href="module5.html" class="btn-primary" style="margin-top: 1.5rem; background: #0ea5e9;">Teleport Now</a>
+            </div>
+
+            <!-- Module 6 -->
+            <div class="content-section" style="border-left: 8px solid #8b5cf6; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                <span style="font-weight: 900; color: #8b5cf6; font-size: 0.8rem; text-transform: uppercase;">Module 6</span>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Images</h4>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Bring your site to life with cool pictures and media.</p>
+                <a href="module6.html" class="btn-primary" style="margin-top: 1.5rem; background: #8b5cf6;">Add Pictures</a>
+            </div>
+
+            <!-- Module 7 -->
+            <div class="content-section" style="border-left: 8px solid #ec4899; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                <span style="font-weight: 900; color: #ec4899; font-size: 0.8rem; text-transform: uppercase;">Module 7</span>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Tables</h4>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Organize data like a pro using rows and cells.</p>
+                <a href="module7.html" class="btn-primary" style="margin-top: 1.5rem; background: #ec4899;">Make a Grid</a>
+            </div>
+
+            <!-- Module 8 -->
+            <div class="content-section" style="border-left: 8px solid #6366f1; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                <span style="font-weight: 900; color: #6366f1; font-size: 0.8rem; text-transform: uppercase;">Module 8</span>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Lists</h4>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Bullet points or numbers? Learn how to list things!</p>
+                <a href="module8.html" class="btn-primary" style="margin-top: 1.5rem; background: #6366f1;">Make Lists</a>
+            </div>
+
+            <!-- Module 9 -->
+            <div class="content-section" style="border-left: 8px solid #10b981; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                <span style="font-weight: 900; color: #10b981; font-size: 0.8rem; text-transform: uppercase;">Module 9</span>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Block/Inline</h4>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Understanding how invisible boxes work on your page.</p>
+                <a href="module9.html" class="btn-primary" style="margin-top: 1.5rem; background: #10b981;">See the Boxes</a>
+            </div>
+
+            <!-- Module 10 -->
+            <div class="content-section" style="border-left: 8px solid #f59e0b; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                <span style="font-weight: 900; color: #f59e0b; font-size: 0.8rem; text-transform: uppercase;">Module 10</span>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Class & ID</h4>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Naming elements so you can style them later with CSS!</p>
+                <a href="module10.html" class="btn-primary" style="margin-top: 1.5rem; background: #f59e0b;">Name It!</a>
+            </div>
+
+            <!-- Module 11 -->
+            <div class="content-section" style="border-left: 8px solid #0ea5e9; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                <span style="font-weight: 900; color: #0ea5e9; font-size: 0.8rem; text-transform: uppercase;">Module 11</span>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Forms</h4>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Build logins, surveys, and search bars for your users.</p>
+                <a href="module11.html" class="btn-primary" style="margin-top: 1.5rem; background: #0ea5e9;">Build Forms</a>
+            </div>
+
+            <!-- Module 12 -->
+            <div class="content-section" style="border-left: 8px solid #f43f5e; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
+                <span style="font-weight: 900; color: #f43f5e; font-size: 0.8rem; text-transform: uppercase;">Module 12</span>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Semantics</h4>
+                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Write meaningful code that the whole world can understand.</p>
+                <a href="module12.html" class="btn-primary" style="margin-top: 1.5rem; background: #f43f5e;">Be Smart!</a>
+            </div>
 
         </div>
 
     </main>
 
-    <script src="js/script.js"></script>
+    <script src="../js/core.js"></script>
+    <script>
+        // Update progress specifically for 12 modules
+        document.addEventListener('DOMContentLoaded', () => {
+            const completed = JSON.parse(localStorage.getItem('jc_completed_modules') || '[]');
+            const count = completed.filter(m => typeof m === 'number' && m <= 12).length;
+            const percentage = (count / 12) * 100;
+            const fill = document.getElementById('progressFill');
+            const text = document.getElementById('completedModules');
+            if (fill) fill.style.width = percentage + '%';
+            if (text) text.textContent = count;
+        });
+    </script>
 </body>
 </html>

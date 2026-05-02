@@ -1,105 +1,71 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 2: Text & Headings | Junior Coders</title>
-    
-    <!-- Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
-    
-    <!-- Design System -->
+    <title>Module 2: Power-up Attributes | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="css/lesson.css">
 </head>
 <body>
-
-    <main id="main-content" class="module-container">
-        
-        <header class="module-header">
-            <span class="badge">Week 1</span>
-            <h1>Text & Headings</h1>
-            <p>Giving your words a voice and structure.</p>
+    <main class="module-container">
+        <header class="module-header" style="background: linear-gradient(135deg, #f43f5e, #fb7185); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 2</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Power-up Attributes</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Learn how to give your tags extra information! 💎</p>
         </header>
 
         <section class="content-section">
-            <h2>Learning Objectives</h2>
-            <p>In this module, you will master:</p>
-            <ul style="margin-top: 1rem; color: var(--text-secondary);">
-                <li>Using heading levels correctly (h1 to h6)</li>
-                <li>Creating clean paragraphs with &lt;p&gt;</li>
-                <li>Formatting text with bold, italics, and highlights</li>
-                <li>Using line breaks and dividers</li>
-            </ul>
+            <h2>What are Attributes?</h2>
+            <p>Attributes are like <strong>settings</strong> for your tags. They always live inside the opening tag. For example, if you have a tag for a link, the attribute tells the computer <strong>where</strong> the link goes!</p>
         </section>
 
         <section class="content-section">
-            <h2>The Hierarchy of Headings</h2>
-            <p>Think of headings like a newspaper. The main story is the <strong>h1</strong>, sections are <strong>h2</strong>, and smaller details are <strong>h3</strong>.</p>
-            
-            <div class="code-example" style="background: #020617; padding: 1.5rem; border-radius: 0.5rem; margin-top: 1.5rem;">
-                <code style="color: #6366f1; font-family: 'Fira Code', monospace;">
-                    &lt;h1&gt;The Big Title&lt;/h1&gt;<br>
-                    &lt;h2&gt;A Major Section&lt;/h2&gt;<br>
-                    &lt;h3&gt;A Smaller Subsection&lt;/h3&gt;
-                </code>
+            <h2>How to write them</h2>
+            <p>We write attributes like this: <code>name="value"</code>. Look at this example:</p>
+            <div style="background: #1e293b; padding: 2rem; border-radius: 1rem; text-align: center; margin: 1.5rem 0;">
+                <code style="color: #fb7185; font-size: 1.3rem;">&lt;p class="super-text" lang="en"&gt;Hello!&lt;/p&gt;</code>
             </div>
-            
-            <div class="tip-box" style="margin-top: 1.5rem;">
-                <strong>Pro Tip:</strong> Never skip a level! Don't go from h1 straight to h3. It confuses search engines and screen readers.
-            </div>
+            <p>Here, <code>class</code> and <code>lang</code> are attributes. They help us group things or tell the computer what language we are using.</p>
         </section>
 
         <section class="content-section">
-            <h2>Adding Emphasis</h2>
-            <p>Sometimes you want to make a point. Use these tags to style your text:</p>
-            <ul style="margin-top: 1rem; list-style: none; display: flex; flex-direction: column; gap: 0.5rem;">
-                <li>🔥 <strong>&lt;strong&gt;</strong>: Makes text <strong>bold</strong></li>
-                <li>✨ <em>&lt;em&gt;</em>: Makes text <em>italic</em></li>
-                <li>🖍️ <mark>&lt;mark&gt;</mark>: Highlights text</li>
-            </ul>
-        </section>
-
-        <section class="content-section">
-            <h2>Mini Mission: Style Your Story</h2>
-            <p>Try creating a "News Article" layout below. Use an h1, an h2, and a paragraph with some bold words!</p>
-            
+            <h2>Your Power-up Mission</h2>
+            <p>Try adding an attribute to the tag below! Try setting the <code>lang</code> attribute to "en" for English.</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <label>Editor</label>
-                    <textarea id="code-editor" spellcheck="false">&lt;h1&gt;Local Cat Saves Tree&lt;/h1&gt;
-&lt;h2&gt;A Heroic Tale&lt;/h2&gt;
-&lt;p&gt;Yesterday, a &lt;strong&gt;brave&lt;/strong&gt; cat climbed the tallest tree to rescue a stuck squirrel.&lt;/p&gt;</textarea>
+                    <textarea id="code-editor" spellcheck="false">
+<html lang="en">
+<body>
+    <p>This page is in English!</p>
+</body>
+</html></textarea>
                 </div>
                 <div class="preview-area">
-                    <label>Live Preview</label>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section">
-            <h2>Quick Quiz</h2>
+        <section class="content-section" style="border-top: 5px solid #f43f5e;">
+            <h2>Challenge!</h2>
             <div id="quiz-form-2" class="quiz-section">
-                <div class="quiz-question">
-                    <p>Which tag should you use for the main title of your page?</p>
-                    <label><input type="radio" name="q2-1" value="a"> &lt;h1&gt;</label>
-                    <label><input type="radio" name="q2-1" value="b"> &lt;title&gt;</label>
-                    <label><input type="radio" name="q2-1" value="c"> &lt;big&gt;</label>
+                <div class="quiz-question" data-answer="c">
+                    <p>Where do we always put attributes?</p>
+                    <label><input type="radio" name="q1" value="a"> Inside the closing tag</label>
+                    <label><input type="radio" name="q1" value="b"> After the closing tag</label>
+                    <label><input type="radio" name="q1" value="c"> Inside the opening tag</label>
                     <div class="quiz-feedback"></div>
                 </div>
                 <button type="button" class="btn-primary" onclick="checkQuiz(2)">Check Answer</button>
             </div>
         </section>
 
-        <footer style="display: flex; justify-content: space-between; margin-top: 4rem; padding-bottom: 4rem;">
-            <a href="module1.html" class="btn-primary" style="text-decoration: none; background: #334155;">← Previous</a>
-            <a href="module3.html" class="btn-primary" style="text-decoration: none;">Next: Links & Images →</a>
+        <footer style="text-align: center; margin-top: 4rem;">
+            <button onclick="markComplete(2)" class="btn-primary" style="background: #10b981; margin-bottom: 1rem;">Level Up! 💎</button><br>
+            <a href="module3.html" class="btn-primary">Go to Module 3 →</a>
         </footer>
     </main>
-
-    <script src="js/script.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
 </body>
 </html>

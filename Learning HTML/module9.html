@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 9: Invisible Boxes | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header" style="background: linear-gradient(135deg, #10b981, #34d399); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 9</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Invisible Boxes!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Understanding Block vs. Inline elements. 📦</p>
+        </header>
+
+        <section class="content-section">
+            <h2>The Secret Boxes</h2>
+            <p>Every element in HTML is actually a **box**! There are two main types:</p>
+            <ul>
+                <li><strong>Block Elements:</strong> These take up the whole line. Like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;div&gt;</code>.</li>
+                <li><strong>Inline Elements:</strong> These only take as much space as they need. Like <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>, and <code>&lt;a&gt;</code>.</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>The "Div" Container</h2>
+            <p>The <code>&lt;div&gt;</code> tag is one of the most used tags. It's a big, invisible block box used to group things together!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Mission: Spot the Blocks</h2>
+            <p>Try putting two <code>&lt;span&gt;</code> tags next to each other, and then two <code>&lt;div&gt;</code> tags. See the difference?</p>
+            <div class="playground-container">
+                <div class="editor-area">
+                    <textarea id="code-editor" spellcheck="false">
+<span>Inline 1</span> <span>Inline 2</span>
+
+<div style="background: #6366f1;">Block 1</div>
+<div style="background: #f43f5e;">Block 2</div></textarea>
+                </div>
+                <div class="preview-area">
+                    <div id="preview"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid #10b981;">
+            <h2>Quick Quiz!</h2>
+            <div id="quiz-form-9" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Which type of element takes up the full width of the page?</p>
+                    <label><input type="radio" name="q1" value="a"> Inline</label>
+                    <label><input type="radio" name="q1" value="b"> Block</label>
+                    <label><input type="radio" name="q1" value="c"> Invisible</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(9)">Check Answer</button>
+            </div>
+        </section>
+
+        <footer style="text-align: center; margin-top: 4rem;">
+            <button onclick="markComplete(9)" class="btn-primary" style="background: #10b981; margin-bottom: 1rem;">Boxed! 📦</button><br>
+            <a href="module10.html" class="btn-primary">Go to Module 10 →</a>
+        </footer>
+    </main>
+    <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
+</body>
+</html>

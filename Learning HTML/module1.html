@@ -1,87 +1,77 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 1: Meet HTML | Junior Coders</title>
-    
-    <!-- Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
-    
-    <!-- Design System -->
+    <title>Module 1: Intro to HTML | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="css/lesson.css">
 </head>
 <body>
-
-    <main id="main-content" class="module-container">
-        
-        <header class="module-header">
-            <span class="badge">Week 1</span>
-            <h1>Meet HTML</h1>
-            <p>The secret skeleton of every website.</p>
+    <main class="module-container">
+        <header class="module-header" style="background: linear-gradient(135deg, #6366f1, #818cf8); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 1</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Welcome to HTML!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Learn how to build the skeleton of the internet! 🚀</p>
         </header>
 
         <section class="content-section">
-            <h2>Learning Objectives</h2>
-            <p>By the end of this module, you will:</p>
-            <ul style="margin-top: 1rem; color: var(--text-secondary);">
-                <li>Understand what HTML does on a web page</li>
-                <li>Learn the main parts of an HTML document</li>
-                <li>Write your very first tags!</li>
-            </ul>
+            <h2>What is HTML?</h2>
+            <p>HTML stands for <strong>HyperText Markup Language</strong>. Imagine you are building a house. HTML is the <strong>wood and bricks</strong>. It doesn't have paint yet, but it holds everything together!</p>
         </section>
 
         <section class="content-section">
-            <h2>What is HTML?</h2>
-            <p>HTML stands for <strong>HyperText Markup Language</strong>. It's not a "coding" language like the ones used for robots; it's a way to label content so a browser knows what is a heading, a paragraph, or a cat picture!</p>
-            
-            <div class="code-example" style="background: #020617; padding: 1.5rem; border-radius: 0.5rem; margin-top: 1.5rem;">
-                <code style="color: #6366f1; font-family: 'Fira Code', monospace;">
-                    &lt;h1&gt;Welcome to my world!&lt;/h1&gt;<br>
-                    &lt;p&gt;This is a paragraph.&lt;/p&gt;
-                </code>
+            <h2>The Magic Tags</h2>
+            <p>We use "Tags" to tell the computer what to show. Most tags come in pairs like a sandwich:</p>
+            <div style="background: #1e293b; padding: 2rem; border-radius: 1rem; text-align: center; margin: 1.5rem 0;">
+                <code style="color: #6366f1; font-size: 1.5rem;">&lt;tag&gt;</code>
+                <span style="color: white; margin: 0 1rem;">Hello!</span>
+                <code style="color: #6366f1; font-size: 1.5rem;">&lt;/tag&gt;</code>
             </div>
         </section>
 
         <section class="content-section">
-            <h2>Mini Mission: Your First Tag</h2>
-            <p>Try writing your name inside a heading tag in the editor below!</p>
-            
+            <h2>Your First Mission</h2>
+            <p>Look at the code below. This is the <strong>Boilerplate</strong>—the essential stuff every page needs. Can you change the title inside the <code>&lt;h1&gt;</code> tag?</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <label>Editor</label>
-                    <textarea id="code-editor" spellcheck="false">&lt;h1&gt;Hello World!&lt;/h1&gt;
-&lt;p&gt;I am a Junior Coder.&lt;/p&gt;</textarea>
+                    <textarea id="code-editor" spellcheck="false">
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Cool Page</title>
+</head>
+<body>
+    <h1>Welcome to my website!</h1>
+    <p>I am a Junior Coder now.</p>
+</body>
+</html></textarea>
                 </div>
                 <div class="preview-area">
-                    <label>Live Preview</label>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section">
-            <h2>Check Your Skills</h2>
+        <section class="content-section" style="border-top: 5px solid #6366f1;">
+            <h2>Quick Quiz!</h2>
             <div id="quiz-form-1" class="quiz-section">
-                <div class="quiz-question">
-                    <p>What does the &lt;h1&gt; tag represent?</p>
-                    <label><input type="radio" name="q1-2" value="a"> A Main Heading</label>
-                    <label><input type="radio" name="q1-2" value="b"> A Secret Code</label>
-                    <label><input type="radio" name="q1-2" value="c"> A Cat Picture</label>
+                <div class="quiz-question" data-answer="b">
+                    <p>What tag do we use to show the main content of the page?</p>
+                    <label><input type="radio" name="q1" value="a"> &lt;head&gt;</label>
+                    <label><input type="radio" name="q1" value="b"> &lt;body&gt;</label>
+                    <label><input type="radio" name="q1" value="c"> &lt;skeleton&gt;</label>
                     <div class="quiz-feedback"></div>
                 </div>
                 <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answer</button>
             </div>
         </section>
 
-        <footer style="text-align: center; margin-top: 4rem; padding-bottom: 4rem;">
-            <a href="module2.html" class="btn-primary" style="text-decoration: none;">Next: Text & Headings →</a>
+        <footer style="text-align: center; margin-top: 4rem;">
+            <button onclick="markComplete(1)" class="btn-primary" style="background: #10b981; margin-bottom: 1rem;">I Mastered This! ✅</button><br>
+            <a href="module2.html" class="btn-primary">Go to Module 2 →</a>
         </footer>
     </main>
-
-    <script src="js/script.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
 </body>
 </html>

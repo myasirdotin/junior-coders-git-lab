@@ -3,154 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 7: Advanced HTML forms - textarea, select, fieldset, and form validation.">
-    <title>Module 7: Forms Part 2</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Module 7: Table Grids | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">Playground</a>
-        <a href="exercises.html">Exercises</a>
-        <a href="learninghtml.html" class="active">Learning HTML</a>
-        <a href="glossary.html">Glossary</a>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
-    </nav>
+    <main class="module-container">
+        <header class="module-header" style="background: linear-gradient(135deg, #ec4899, #f472b6); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 7</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Table Grids!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Learn how to organize data into rows and cells. 📊</p>
+        </header>
 
-    <div class="module-container">
-        <a href="learninghtml.html" class="back-link">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 7: Forms Part 2</h1>
-            <p>⏱ 45 minutes | Week 4</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
+        <section class="content-section">
+            <h2>The Table Family</h2>
+            <p>Tables are like a big box full of smaller boxes. We use these tags:</p>
             <ul>
-                <li>Create multi-line text inputs with <code><textarea></code></li>
-                <li>Create dropdown lists with <code><select></code> and <code><option></code></li>
-                <li>Group form elements with <code><fieldset></code> and <code><legend></code></li>
-                <li>Apply basic form validation attributes</li>
+                <li><code>&lt;table&gt;</code>: The big container.</li>
+                <li><code>&lt;tr&gt;</code>: A **Table Row** (Side to side).</li>
+                <li><code>&lt;td&gt;</code>: A **Table Data** cell (Up and down).</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <h3>7.1 Textarea</h3>
-            <p>Use <code><textarea></code> for multi-line text input:</p>
-
-            <div class="code-example">
-                <code><label for="message">Message:</label>
-<textarea id="message" name="message" rows="4" cols="50">
-Enter your message here...
-</textarea></code>
-            </div>
-
-            <h3>7.2 Select Dropdown</h3>
-            <div class="code-example">
-                <code><label for="country">Country:</label>
-<select id="country" name="country">
-  <option value="">Select a country</option>
-  <option value="us">United States</option>
-  <option value="uk">United Kingdom</option>
-  <option value="ca">Canada</option>
-</select>
-
-<!-- Multiple selection -->
-<select id="colors" name="colors" multiple>
-  <option value="red">Red</option>
-  <option value="blue">Blue</option>
-  <option value="green">Green</option>
-</select></code>
-            </div>
-
-            <h3>7.3 Fieldset and Legend</h3>
-            <div class="code-example">
-                <code><fieldset>
-  <legend>Personal Information</legend>
-  <label for="fname">First Name:</label>
-  <input type="text" id="fname" name="fname">
-  
-  <label for="lname">Last Name:</label>
-  <input type="text" id="lname" name="lname">
-</fieldset></code>
-            </div>
-
-            <h3>7.4 Form Validation</h3>
-            <div class="code-example">
-                <code><!-- Required field -->
-<input type="text" id="name" name="name" required>
-
-<!-- Minimum length -->
-<input type="password" id="pwd" name="pwd" minlength="8" required>
-
-<!-- Pattern matching (regex) -->
-<input type="text" id="phone" name="phone" 
-       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
-       placeholder="123-456-7890"></code>
-            </div>
-
-            <div class="tip-box">
-                <strong>✅ Best Practice:</strong> Use HTML5 validation attributes (<code>required</code>, <code>minlength</code>, <code>pattern</code>) for basic validation. Always validate on the server-side as well.
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Common Mistakes</h2>
-            <ul>
-                <li><strong>Forgetting the <code>value</code> attribute in options</strong> - Without it, the displayed text is submitted.</li>
-                <li><strong>Not providing a default empty option</strong> - Always include a "Select..." option for dropdowns.</li>
-                <li><strong>Using <code>placeholder</code> as a label</strong> - Placeholders disappear when typing. Use proper labels.</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
-            <ol>
-                <li>Create a contact form with textarea for messages</li>
-                <li>Create a survey with dropdown selections</li>
-                <li>Create a registration form with validation</li>
-            </ol>
-        </div>
-
-        <div class="content-section">
-            <h2>Check Your Understanding</h2>
-            <form id="quiz-form-7" class="quiz-section">
-                <div class="quiz-question" data-answer="a">
-                    <p>Q1: Which element creates a multi-line text input?</p>
-                    <label><input type="radio" name="q7-1" value="a"> a) <textarea></label>
-                    <label><input type="radio" name="q7-1" value="b"> b) <input type="text"></label>
-                    <label><input type="radio" name="q7-1" value="c"> c) <input type="multiline"></label>
-                    <div class="quiz-feedback"></div>
+        <section class="content-section">
+            <h2>Mission: Build a Schedule</h2>
+            <p>Try making a small table for your school schedule below!</p>
+            <div class="playground-container">
+                <div class="editor-area">
+                    <textarea id="code-editor" spellcheck="false">
+<table border="1">
+    <tr>
+        <th>Subject</th>
+        <th>Time</th>
+    </tr>
+    <tr>
+        <td>Math</td>
+        <td>9:00 AM</td>
+    </tr>
+    <tr>
+        <td>Coding</td>
+        <td>10:30 AM</td>
+    </tr>
+</table></textarea>
                 </div>
+                <div class="preview-area">
+                    <div id="preview"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid #ec4899;">
+            <h2>Quick Question!</h2>
+            <div id="quiz-form-7" class="quiz-section">
                 <div class="quiz-question" data-answer="b">
-                    <p>Q2: What is the purpose of <fieldset>?</p>
-                    <label><input type="radio" name="q7-2" value="a"> a) To submit form data</label>
-                    <label><input type="radio" name="q7-2" value="b"> b) To group related form elements</label>
-                    <label><input type="radio" name="q7-2" value="c"> c) To validate form inputs</label>
+                    <p>Which tag creates a single row in a table?</p>
+                    <label><input type="radio" name="q1" value="a"> &lt;td&gt;</label>
+                    <label><input type="radio" name="q1" value="b"> &lt;tr&gt;</label>
+                    <label><input type="radio" name="q1" value="c"> &lt;table&gt;</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <div class="quiz-question" data-answer="c">
-                    <p>Q3: Which attribute makes a field mandatory?</p>
-                    <label><input type="radio" name="q7-3" value="a"> a) mandatory</label>
-                    <label><input type="radio" name="q7-3" value="b"> b) validate</label>
-                    <label><input type="radio" name="q7-3" value="c"> c) required</label>
-                    <div class="quiz-feedback"></div>
-                </div>
-                <button type="button" class="quiz-submit" onclick="checkQuiz(7)">Check Answers</button>
-                <div id="quiz-score-7" class="quiz-score"></div>
-            </form>
-        </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(7)">Check Answer</button>
+            </div>
+        </section>
 
-        <div class="nav-buttons">
-            <a href="module6.html" class="btn-nav">← Previous</a>
-            <button class="complete-btn" onclick="markComplete(7)">✓ Mark as Complete</button>
-            <a href="module8.html" class="btn-nav">Next: Semantic HTML →</a>
-        </div>
-    </div>
-
-    <script src="js/script.js"></script>
+        <footer style="text-align: center; margin-top: 4rem;">
+            <button onclick="markComplete(7)" class="btn-primary" style="background: #10b981; margin-bottom: 1rem;">Grid Master! 📊</button><br>
+            <a href="module8.html" class="btn-primary">Go to Module 8 →</a>
+        </footer>
+    </main>
+    <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
 </body>
 </html>

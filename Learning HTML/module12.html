@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 12: Smart Semantics | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header" style="background: linear-gradient(135deg, #f43f5e, #8b5cf6); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 12</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Smart Semantics!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Write code that the whole world can understand. 🧠</p>
+        </header>
+
+        <section class="content-section">
+            <h2>What is Semantic HTML?</h2>
+            <p>Semantic HTML means using tags that describe their **meaning**. Instead of just using a generic <code>&lt;div&gt;</code> for everything, we use specific tags!</p>
+            <ul>
+                <li><code>&lt;header&gt;</code>: For the top part of your site.</li>
+                <li><code>&lt;nav&gt;</code>: For your navigation links.</li>
+                <li><code>&lt;main&gt;</code>: For the most important content.</li>
+                <li><code>&lt;footer&gt;</code>: For the bottom part.</li>
+            </ul>
+        </section>
+
+        <section class="content-section">
+            <h2>Why is it smart?</h2>
+            <p>It helps <strong>Google</strong> understand your site better (SEO) and it helps <strong>Screen Readers</strong> describe the page to people who are blind. It's the mark of a pro coder!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Mission: Be a Pro</h2>
+            <p>Try structuring a simple page using only semantic tags!</p>
+            <div class="playground-container">
+                <div class="editor-area">
+                    <textarea id="code-editor" spellcheck="false">
+<header>
+    <h1>The Smart Page</h1>
+</header>
+
+<nav>
+    <a href="#">Home</a> | <a href="#">About</a>
+</nav>
+
+<main>
+    <article>
+        <h2>My First Pro Article</h2>
+        <p>This page uses smart semantics!</p>
+    </article>
+</main>
+
+<footer>
+    <p>© 2026 Junior Coders</p>
+</footer></textarea>
+                </div>
+                <div class="preview-area">
+                    <div id="preview"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid #f43f5e;">
+            <h2>Final Graduation Question!</h2>
+            <div id="quiz-form-12" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Which tag should you use for the main, unique content of your page?</p>
+                    <label><input type="radio" name="q1" value="a"> &lt;div&gt;</label>
+                    <label><input type="radio" name="q1" value="b"> &lt;main&gt;</label>
+                    <label><input type="radio" name="q1" value="c"> &lt;section&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(12)">Check Answer</button>
+            </div>
+        </section>
+
+        <footer style="text-align: center; margin-top: 4rem;">
+            <h2 style="color: #f43f5e;">🎉 CONGRATULATIONS! 🎉</h2>
+            <p>You have finished the HTML Adventure path!</p>
+            <button onclick="markComplete(12)" class="btn-primary" style="background: #10b981; margin-bottom: 1rem;">Graduate! 🎓</button><br>
+            <a href="../index.html" class="btn-primary">Back to Dashboard</a>
+        </footer>
+    </main>
+    <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
+</body>
+</html>

@@ -3,149 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 6: Learn about HTML forms - input fields, labels, buttons, and form structure.">
-    <title>Module 6: Forms Part 1</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Module 6: Cool Pictures | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">Playground</a>
-        <a href="exercises.html">Exercises</a>
-        <a href="learninghtml.html" class="active">Learning HTML</a>
-        <a href="glossary.html">Glossary</a>
-        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
-    </nav>
+    <main class="module-container">
+        <header class="module-header" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 6</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Cool Pictures!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Bring your site to life with images and media. 🖼️</p>
+        </header>
 
-    <div class="module-container">
-        <a href="learninghtml.html" class="back-link">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 6: Forms Part 1</h1>
-            <p>⏱ 50 minutes | Week 3</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
-            <ul>
-                <li>Create forms with the <code><form></code> element</li>
-                <li>Use various input types (text, email, password, etc.)</li>
-                <li>Associate labels with inputs using the <code>for</code> attribute</li>
-                <li>Create submit and reset buttons</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <h3>6.1 Basic Form Structure</h3>
-            <p>Forms are created with the <code><form></code> element:</p>
-
-            <div class="code-example">
-                <code><form action="/submit" method="post">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name">
-  
-  <button type="submit">Submit</button>
-</form></code>
+        <section class="content-section">
+            <h2>Embedding Images</h2>
+            <p>A website without pictures is boring! We use the <code>&lt;img&gt;</code> tag to show images. It doesn't have a closing tag!</p>
+            <div style="background: #1e293b; padding: 2rem; border-radius: 1rem; text-align: center; margin: 1.5rem 0;">
+                <code style="color: #a78bfa; font-size: 1.3rem;">&lt;img src="pic.jpg" alt="Description"&gt;</code>
             </div>
+        </section>
 
-            <h3>6.2 Common Input Types</h3>
-            <div class="code-example">
-                <code><!-- Text input -->
-<input type="text" id="username" name="username">
+        <section class="content-section">
+            <h2>The Alt Text Power</h2>
+            <p>The <code>alt</code> attribute is <strong>super important</strong>. It describes the picture for people who cannot see it (like screen readers). It also shows up if the picture breaks!</p>
+        </section>
 
-<!-- Password input (hidden characters) -->
-<input type="password" id="password" name="password">
-
-<!-- Email input (validates email format) -->
-<input type="email" id="email" name="email">
-
-<!-- Number input -->
-<input type="number" id="age" name="age" min="1" max="120">
-
-<!-- Date input -->
-<input type="date" id="birthdate" name="birthdate">
-
-<!-- Checkbox -->
-<input type="checkbox" id="terms" name="terms">
-
-<!-- Radio button -->
-<input type="radio" id="male" name="gender" value="male">
-<input type="radio" id="female" name="gender" value="female"></code>
-            </div>
-
-            <div class="tip-box">
-                <strong>✅ Best Practice:</strong> Always use <code><label></code> elements with the <code>for</code> attribute matching the input's <code>id</code>. This improves accessibility.
-            </div>
-
-            <h3>6.3 Buttons</h3>
-            <div class="code-example">
-                <code><!-- Submit button -->
-<button type="submit">Send</button>
-
-<!-- Reset button -->
-<button type="reset">Clear</button>
-
-<!-- Regular button -->
-<button type="button">Click Me</button></code>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Common Mistakes</h2>
-            <ul>
-                <li><strong>Missing <code>name</code> attributes</strong> - The <code>name</code> attribute is required for form data to be submitted.</li>
-                <li><strong>Not using labels</strong> - Labels are essential for accessibility and usability.</li>
-                <li><strong>Forgetting to set <code>type</code></strong> - Always specify the input type for proper validation and mobile keyboards.</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
-            <ol>
-                <li>Create a login form with username and password</li>
-                <li>Create a registration form with email and password</li>
-                <li>Create a survey form with radio buttons and checkboxes</li>
-            </ol>
-        </div>
-
-        <div class="content-section">
-            <h2>Check Your Understanding</h2>
-            <form id="quiz-form-6" class="quiz-section">
-                <div class="quiz-question" data-answer="b">
-                    <p>Q1: Which input type hides the characters as you type?</p>
-                    <label><input type="radio" name="q6-1" value="a"> a) type="hidden"</label>
-                    <label><input type="radio" name="q6-1" value="b"> b) type="password"</label>
-                    <label><input type="radio" name="q6-1" value="c"> c) type="secret"</label>
-                    <div class="quiz-feedback"></div>
+        <section class="content-section">
+            <h2>Mission: Add a Photo</h2>
+            <p>Try adding an image and give it a cool description in the <code>alt</code> attribute!</p>
+            <div class="playground-container">
+                <div class="editor-area">
+                    <textarea id="code-editor" spellcheck="false">
+<h2>My Cool Image</h2>
+<img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=300" alt="A laptop with code on the screen">
+<p>Coding is like magic!</p></textarea>
                 </div>
+                <div class="preview-area">
+                    <div id="preview"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid #8b5cf6;">
+            <h2>Quick Quiz!</h2>
+            <div id="quiz-form-6" class="quiz-section">
                 <div class="quiz-question" data-answer="a">
-                    <p>Q2: What attribute links a label to an input?</p>
-                    <label><input type="radio" name="q6-2" value="a"> a) for</label>
-                    <label><input type="radio" name="q6-2" value="b"> b) id</label>
-                    <label><input type="radio" name="q6-2" value="c"> c) name</label>
+                    <p>Which attribute is used to describe an image for accessibility?</p>
+                    <label><input type="radio" name="q1" value="a"> alt</label>
+                    <label><input type="radio" name="q1" value="b"> src</label>
+                    <label><input type="radio" name="q1" value="c"> description</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <div class="quiz-question" data-answer="c">
-                    <p>Q3: Which button type submits form data?</p>
-                    <label><input type="radio" name="q6-3" value="a"> a) type="button"</label>
-                    <label><input type="radio" name="q6-3" value="b"> b) type="send"</label>
-                    <label><input type="radio" name="q6-3" value="c"> c) type="submit"</label>
-                    <div class="quiz-feedback"></div>
-                </div>
-                <button type="button" class="quiz-submit" onclick="checkQuiz(6)">Check Answers</button>
-                <div id="quiz-score-6" class="quiz-score"></div>
-            </form>
-        </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(6)">Check Answer</button>
+            </div>
+        </section>
 
-        <div class="nav-buttons">
-            <a href="module5.html" class="btn-nav">← Previous</a>
-            <button class="complete-btn" onclick="markComplete(6)">✓ Mark as Complete</button>
-            <a href="module7.html" class="btn-nav">Next: Forms Part 2 →</a>
-        </div>
-    </div>
-
-    <script src="js/script.js"></script>
+        <footer style="text-align: center; margin-top: 4rem;">
+            <button onclick="markComplete(6)" class="btn-primary" style="background: #10b981; margin-bottom: 1rem;">Picture Perfect! 🖼️</button><br>
+            <a href="module7.html" class="btn-primary">Go to Module 7 →</a>
+        </footer>
+    </main>
+    <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
 </body>
 </html>
