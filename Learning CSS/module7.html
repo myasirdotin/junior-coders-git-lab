@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 7: Learn how to create two-dimensional layouts using CSS Grid.">
+    <title>Module 7: CSS Grid</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningcss.html" class="active">Learning CSS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningcss.html" class="back-link">← Back to Syllabus</a>
+
+        <div class="module-header">
+            <h1>Module 7: CSS Grid</h1>
+            <p>⏱ 50 minutes | Week 4</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Understand the concept of Grid containers and items</li>
+                <li>Learn how to define rows and columns</li>
+                <li>Master the <code>fr</code> unit and <code>repeat()</code> function</li>
+                <li>Learn how to position items using <code>grid-area</code> and <code>grid-template-areas</code></li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>CSS Grid Layout is the most powerful layout system available in CSS. It is a 2D system, meaning it can handle both columns and rows.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+
+            <div class="reading-material">
+                <h3>📚 The Grid Container</h3>
+                <p>To make an HTML element into a grid container, set its <code>display</code> property to <code>grid</code> or <code>inline-grid</code>.</p>
+
+                <div class="code-example">
+                    <code>.container {
+  display: grid;
+  grid-template-columns: 200px auto 200px;
+}</code>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Key Point:</strong> Unlike Flexbox, which is primarily 1D, Grid is designed for 2D layouts.
+            </div>
+
+            <h3>7.1 The fr Unit</h3>
+            <p>The <code>fr</code> unit allows you to set the size of a track as a fraction of the free space of the grid container.</p>
+
+            <div class="code-example">
+                <code>.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+}</code>
+            </div>
+
+            <h3>7.2 Grid Gap</h3>
+            <p>The <code>gap</code> property (or <code>grid-gap</code>) defines the size of the gutters between grid items.</p>
+
+            <div class="code-example">
+                <code>.container {
+  display: grid;
+  gap: 20px;
+}</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Create a 3x3 grid with equal-sized cells</li>
+                <li>Build a "Holy Grail" layout (header, sidebar, main, aside, footer) using <code>grid-template-areas</code></li>
+                <li>Use <code>grid-column</code> and <code>grid-row</code> to make an item span multiple tracks</li>
+                <li>Experiment with <code>minmax()</code> for responsive column widths</li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module6.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(7)">✓ Mark as Complete</button>
+            <a href="module8.html" class="btn-nav">Next: Responsive Design →</a>
+        </div>
+    </div>
+
+    <script src="../js/core.js"></script>
+</body>
+</html>

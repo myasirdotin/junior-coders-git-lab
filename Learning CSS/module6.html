@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 6: Master advanced Flexbox properties for complex layouts.">
+    <title>Module 6: Advanced Flexbox</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningcss.html" class="active">Learning CSS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningcss.html" class="back-link">← Back to Syllabus</a>
+
+        <div class="module-header">
+            <h1>Module 6: Advanced Flexbox</h1>
+            <p>⏱ 40 minutes | Week 3</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Learn how to handle wrapping with <code>flex-wrap</code></li>
+                <li>Understand the <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code> properties</li>
+                <li>Master the <code>flex</code> shorthand property</li>
+                <li>Learn how to use <code>align-self</code> to align individual items</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>Moving beyond the basics, we'll explore how to control how flex items grow, shrink, and wrap to create more complex and robust layouts.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+
+            <div class="reading-material">
+                <h3>📚 Flex Wrapping</h3>
+                <p>By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap as needed with the <code>flex-wrap</code> property.</p>
+
+                <div class="code-example">
+                    <code>.container {
+  display: flex;
+  flex-wrap: wrap;
+}</code>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Key Point:</strong> The <code>flex</code> shorthand is recommended over individual <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code> properties.
+            </div>
+
+            <h3>6.1 Flex Grow, Shrink & Basis</h3>
+            <p>These properties define how items should grow or shrink to fill the available space.</p>
+
+            <div class="code-example">
+                <code>.item {
+  flex: 1 0 200px; /* grow, shrink, basis */
+}</code>
+            </div>
+
+            <h3>6.2 Align Self</h3>
+            <p>The <code>align-self</code> property allows the default alignment (or the one specified by <code>align-items</code>) to be overridden for individual flex items.</p>
+
+            <div class="code-example">
+                <code>.item-top {
+  align-self: flex-start;
+}</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Create a responsive card grid using <code>flex-wrap</code></li>
+                <li>Build a sidebar/content layout where the content fills the remaining space</li>
+                <li>Use <code>order</code> to change the visual sequence of elements</li>
+                <li>Create a "sticky footer" using Flexbox on the body</li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module5.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(6)">✓ Mark as Complete</button>
+            <a href="module7.html" class="btn-nav">Next: CSS Grid →</a>
+        </div>
+    </div>
+
+    <script src="../js/core.js"></script>
+</body>
+</html>

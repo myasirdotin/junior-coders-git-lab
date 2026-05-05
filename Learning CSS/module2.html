@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 2: Learn about CSS colors, font properties, and text styling.">
+    <title>Module 2: Colors & Text</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningcss.html" class="active">Learning CSS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningcss.html" class="back-link">← Back to Syllabus</a>
+
+        <div class="module-header">
+            <h1>Module 2: Colors & Text</h1>
+            <p>⏱ 35 minutes | Week 1</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Learn different ways to specify colors in CSS</li>
+                <li>Understand font properties and how to use web fonts</li>
+                <li>Learn how to style and align text</li>
+                <li>Master text decoration and transformation</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>Colors and typography are fundamental to web design. In this module, we'll explore how to bring life to your web pages using various color formats and text styling techniques.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+
+            <div class="reading-material">
+                <h3>📚 CSS Colors</h3>
+                <p>Colors can be specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA values.</p>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Key Point:</strong> Using RGBA or HSLA allows you to add transparency (alpha) to your colors, which is great for overlays and complex designs.
+            </div>
+
+            <h3>2.1 Font Properties</h3>
+            <p>The <code>font-family</code> property should hold several font names as a "fallback" system.</p>
+
+            <div class="code-example">
+                <code>p {
+  font-family: "Lucida Console", "Courier New", monospace;
+}</code>
+            </div>
+
+            <h3>2.2 Text Alignment</h3>
+            <p>The <code>text-align</code> property is used to set the horizontal alignment of a text.</p>
+
+            <div class="code-example">
+                <code>h1 {
+  text-align: center;
+}</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Change the color of a heading using a HEX value</li>
+                <li>Apply a Google Font to your page</li>
+                <li>Experiment with different text-align values</li>
+                <li>Add a text-shadow to a large title</li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module1.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(2)">✓ Mark as Complete</button>
+            <a href="module3.html" class="btn-nav">Next: The Box Model →</a>
+        </div>
+    </div>
+
+    <script src="../js/core.js"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 3: Understand the CSS Box Model, including content, padding, borders, and margins.">
+    <title>Module 3: The Box Model</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningcss.html" class="active">Learning CSS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningcss.html" class="back-link">← Back to Syllabus</a>
+
+        <div class="module-header">
+            <h1>Module 3: The Box Model</h1>
+            <p>⏱ 40 minutes | Week 2</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Understand the four parts of the CSS box model</li>
+                <li>Learn how to control padding, borders, and margins</li>
+                <li>Calculate the total width and height of an element</li>
+                <li>Understand the <code>box-sizing</code> property</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+
+            <div class="reading-material">
+                <h3>📚 Components of the Box Model</h3>
+                <ul>
+                    <li><strong>Content</strong> - The content of the box, where text and images appear</li>
+                    <li><strong>Padding</strong> - Clears an area around the content. The padding is transparent</li>
+                    <li><strong>Border</strong> - A border that goes around the padding and content</li>
+                    <li><strong>Margin</strong> - Clears an area outside the border. The margin is transparent</li>
+                </ul>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Key Point:</strong> Total element width = width + left padding + right padding + left border + right border + left margin + right margin.
+            </div>
+
+            <h3>3.1 Box Sizing</h3>
+            <p>The <code>box-sizing: border-box;</code> property includes padding and border in the element's total width and height.</p>
+
+            <div class="code-example">
+                <code>.box {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 20px;
+  border: 5px solid black;
+}</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Create a box with specific padding and a thick border</li>
+                <li>Use negative margins to overlap two elements</li>
+                <li>Compare <code>content-box</code> vs <code>border-box</code></li>
+                <li>Center an element using <code>margin: auto</code></li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module2.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(3)">✓ Mark as Complete</button>
+            <a href="module4.html" class="btn-nav">Next: Display & Positioning →</a>
+        </div>
+    </div>
+
+    <script src="../js/core.js"></script>
+</body>
+</html>

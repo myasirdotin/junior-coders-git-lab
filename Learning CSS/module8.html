@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 8: Learn about media queries and responsive design techniques.">
+    <title>Module 8: Responsive Design</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningcss.html" class="active">Learning CSS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningcss.html" class="back-link">← Back to Syllabus</a>
+
+        <div class="module-header">
+            <h1>Module 8: Responsive Design</h1>
+            <p>⏱ 45 minutes | Week 4</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Understand the concept of responsive web design</li>
+                <li>Learn how to use the viewport meta tag</li>
+                <li>Master media queries for different screen sizes</li>
+                <li>Understand the "mobile-first" approach</li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>Responsive web design makes your web page look good on all devices (desktops, tablets, and phones). It is about using HTML and CSS to automatically resize, hide, shrink, or enlarge a website.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+
+            <div class="reading-material">
+                <h3>📚 The Viewport</h3>
+                <p>The viewport is the user's visible area of a web page. You should include the following <code>&lt;meta&gt;</code> element in all your web pages:</p>
+
+                <div class="code-example">
+                    <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Key Point:</strong> Responsive design is not just about desktop to mobile; it's about any screen size in between.
+            </div>
+
+            <h3>8.1 Media Queries</h3>
+            <p>Media queries allow you to apply different styles for different media types or screen sizes.</p>
+
+            <div class="code-example">
+                <code>@media screen and (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+}</code>
+            </div>
+
+            <h3>8.2 Mobile-First Approach</h3>
+            <p>Mobile-first means designing for the smallest screen first and then adding more complex styles as the screen size increases.</p>
+
+            <div class="code-example">
+                <code>/* Default styles (Mobile) */
+.container { width: 100%; }
+
+/* Tablet and larger */
+@media (min-width: 768px) {
+  .container { width: 750px; }
+}</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Create a simple layout that changes from 1 column on mobile to 3 columns on desktop</li>
+                <li>Hide a specific element only on mobile devices</li>
+                <li>Use relative units like <code>%</code>, <code>em</code>, and <code>rem</code> instead of <code>px</code></li>
+                <li>Build a responsive navigation menu that turns into a "hamburger" menu</li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module7.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(8)">✓ Mark as Complete</button>
+            <a href="quiz.html" class="btn-nav">Next: Final Quiz →</a>
+        </div>
+    </div>
+
+    <script src="../js/core.js"></script>
+</body>
+</html>

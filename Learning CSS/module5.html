@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 5: Learn the basics of Flexbox for creating flexible one-dimensional layouts.">
+    <title>Module 5: Introduction to Flexbox</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <a href="index.html">Playground</a>
+        <a href="exercises.html">Exercises</a>
+        <a href="learningcss.html" class="active">Learning CSS</a>
+        <a href="glossary.html">Glossary</a>
+        <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">🌙</button>
+    </nav>
+
+    <div class="module-container">
+        <a href="learningcss.html" class="back-link">← Back to Syllabus</a>
+
+        <div class="module-header">
+            <h1>Module 5: Introduction to Flexbox</h1>
+            <p>⏱ 45 minutes | Week 3</p>
+        </div>
+
+        <div class="content-section">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Understand the concept of Flexbox containers and items</li>
+                <li>Learn how to create a flex container</li>
+                <li>Master <code>flex-direction</code> and <code>justify-content</code></li>
+                <li>Learn how to align items with <code>align-items</code></li>
+            </ul>
+        </div>
+
+        <div class="content-section">
+            <h2>Overview</h2>
+            <p>Flexbox is a one-dimensional layout method for arranging items in rows or columns. It makes it much easier to design flexible responsive layout structure.</p>
+        </div>
+
+        <div class="content-section">
+            <h2>📖 Reading Material</h2>
+
+            <div class="reading-material">
+                <h3>📚 The Flex Container</h3>
+                <p>To start using Flexbox, you need to first define a flex container.</p>
+
+                <div class="code-example">
+                    <code>.container {
+  display: flex;
+}</code>
+                </div>
+            </div>
+
+            <div class="key-point">
+                <strong>💡 Key Point:</strong> Flexbox deals with alignment in two axes: the main axis (defined by <code>flex-direction</code>) and the cross axis.
+            </div>
+
+            <h3>5.1 Justify Content</h3>
+            <p>The <code>justify-content</code> property is used to align the flex items along the main axis.</p>
+
+            <div class="code-example">
+                <code>.container {
+  display: flex;
+  justify-content: space-between;
+}</code>
+            </div>
+
+            <h3>5.2 Align Items</h3>
+            <p>The <code>align-items</code> property is used to align the flex items along the cross axis.</p>
+
+            <div class="code-example">
+                <code>.container {
+  display: flex;
+  align-items: center;
+}</code>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Practice</h2>
+            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <ol>
+                <li>Center a box both horizontally and vertically using Flexbox</li>
+                <li>Create a simple navigation bar with spaced-out links</li>
+                <li>Build a three-column layout where each column has equal width</li>
+                <li>Experiment with <code>flex-direction: column-reverse</code></li>
+            </ol>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="module4.html" class="btn-nav">← Previous</a>
+            <button class="complete-btn" onclick="markComplete(5)">✓ Mark as Complete</button>
+            <a href="module6.html" class="btn-nav">Next: Advanced Flexbox →</a>
+        </div>
+    </div>
+
+    <script src="../js/core.js"></script>
+</body>
+</html>

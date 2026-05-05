@@ -167,6 +167,35 @@
         document.documentElement.setAttribute('data-theme', next);
         localStorage.setItem(CONFIG.STORAGE_KEYS.THEME, next);
     }
+    window.toggleTheme = toggleTheme;
+
+    // --- Progress Tracking ---
+    window.markComplete = (moduleNum) => {
+        const currentModule = getCurrentModule();
+        if (!currentModule) return;
+
+        const completed = JSON.parse(localStorage.getItem(CONFIG.STORAGE_KEYS.COMPLETED) || '[]');
+        const moduleKey = `${currentModule}_${moduleNum}`;
+        
+        if (!completed.includes(moduleKey)) {
+            completed.push(moduleKey);
+            localStorage.setItem(CONFIG.STORAGE_KEYS.COMPLETED, JSON.stringify(completed));
+            window.showToast(`Module ${moduleNum} completed! 🎉`);
+            
+            // Trigger progress update if on syllabus page
+            const progressFill = document.getElementById('progressFill');
+            const completedText = document.getElementById('completedModules');
+            if (progressFill && completedText) {
+                const total = CONFIG.MODULES[currentModule].filter(m => m.name.includes(':')).length || 8;
+                const currentCompleted = completed.filter(m => m.startsWith(currentModule)).length;
+                const percentage = (currentCompleted / total) * 100;
+                progressFill.style.width = percentage + '%';
+                completedText.textContent = currentCompleted;
+            }
+        } else {
+            window.showToast('Module already completed!');
+        }
+    };
 
     // --- Quiz Logic (Universal) ---
     window.checkQuiz = (moduleNum) => {
