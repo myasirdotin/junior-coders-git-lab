@@ -15,12 +15,16 @@ Learning HTML/
 ├── glossary.html       # HTML terms and definitions
 ├── module1.html        # Introduction to HTML
 ├── module2.html        # Text & Headings
-├── module3.html        # Links & Images
-├── module4.html        # Lists
-├── module5.html        # Tables
-├── module6.html        # Forms Part 1
-├── module7.html        # Forms Part 2
-├── module8.html        # Semantic HTML
+├── module3.html        # Headings & Paragraphs
+├── module4.html        # Formatting
+├── module5.html        # Links
+├── module6.html        # Images
+├── module7.html        # Tables
+├── module8.html        # Lists
+├── module9.html        # Block/Inline
+├── module10.html       # Class & ID
+├── module11.html       # Forms
+├── module12.html       # Semantics
 ├── css/
 │   └── style.css       # Shared styles for all pages
 ├── js/
