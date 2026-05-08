@@ -10,25 +10,25 @@
 <body>
     <main class="module-container">
         <!-- Hero Header -->
-        <header class="module-header" style="background: linear-gradient(135deg, #4f46e5, #818cf8); padding: 4rem; border-radius: 2rem; color: white;">
-            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 1</span>
-            <h1 style="color: white; -webkit-text-fill-color: white;">The Memory Vault!</h1>
-            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">JavaScript is the brain! Let's learn how to remember things using variables. 🧠</p>
+        <header class="module-header path-js">
+            <span class="badge" style="background: white; color: var(--primary);">Level 1</span>
+            <h1>The Memory Vault!</h1>
+            <p>JavaScript is the brain! Let's learn how to remember things using variables. 🧠</p>
         </header>
 
         <!-- Variable Concept -->
         <section class="content-section">
             <h2>The "Labeled Box" Analogy</h2>
             <p>A **Variable** is like a box with a label. You put something inside (data), and give the box a name (label) so you can find it later!</p>
-            <div style="display: flex; justify-content: space-around; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; text-align: center;">
-                <div style="background: var(--bg-glass); border: 3px solid #4f46e5; padding: 2rem; border-radius: 1.5rem; width: 250px;">
-                    <span style="font-size: 3rem;">📦</span>
-                    <h3 style="color: #4f46e5; margin-top: 1rem;">let name = "Ali";</h3>
+            <div class="analogy-grid">
+                <div class="analogy-card active">
+                    <span class="analogy-icon">📦</span>
+                    <h3>let name = "Ali";</h3>
                     <p style="font-size: 0.8rem; margin-top: 0.5rem;">The "let" box can be opened and changed later.</p>
                 </div>
-                <div style="background: var(--bg-glass); border: 3px solid #f43f5e; padding: 2rem; border-radius: 1.5rem; width: 250px;">
-                    <span style="font-size: 3rem;">🔒</span>
-                    <h3 style="color: #f43f5e; margin-top: 1rem;">const age = 12;</h3>
+                <div class="analogy-card active" style="border-color: var(--secondary);">
+                    <span class="analogy-icon">🔒</span>
+                    <h3 style="color: var(--secondary);">const age = 12;</h3>
                     <p style="font-size: 0.8rem; margin-top: 0.5rem;">The "const" vault is locked! It never changes.</p>
                 </div>
             </div>
