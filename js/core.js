@@ -98,6 +98,7 @@
             // Root navigation
             linksHtml = `
                 <a href="${baseUrl}index.html" class="${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">Home</a>
+                <a href="${baseUrl}getting-started.html" class="${currentPath === 'getting-started.html' ? 'active' : ''}">Basics</a>
                 <a href="${baseUrl}Learning%20HTML/learninghtml.html">HTML</a>
                 <a href="${baseUrl}Learning%20CSS/learningcss.html">CSS</a>
                 <a href="${baseUrl}Learning%20JS/learningjs.html">JavaScript</a>
@@ -124,9 +125,13 @@
         bottomNav.className = 'bottom-nav';
         bottomNav.innerHTML = `
             <div class="bottom-nav-container">
-                <a href="${baseUrl}index.html" class="tab-item ${!currentModule ? 'active' : ''}">
+                <a href="${baseUrl}index.html" class="tab-item ${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">
                     <span class="tab-icon">🏠</span>
                     <span>Home</span>
+                </a>
+                <a href="${baseUrl}getting-started.html" class="tab-item ${currentPath === 'getting-started.html' ? 'active' : ''}">
+                    <span class="tab-icon">📖</span>
+                    <span>Basics</span>
                 </a>
                 <a href="${baseUrl}Learning%20HTML/learninghtml.html" class="tab-item ${currentModule === 'Learning HTML' ? 'active' : ''}">
                     <span class="tab-icon">🌐</span>
