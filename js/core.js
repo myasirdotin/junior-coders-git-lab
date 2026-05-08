@@ -73,6 +73,46 @@
         return null;
     };
 
+    // --- Gamification Engine ---
+    const calculateStats = () => {
+        const completed = JSON.parse(localStorage.getItem(CONFIG.STORAGE_KEYS.COMPLETED) || '[]');
+        const xp = completed.length * 100;
+        
+        let rank = 'Recruit';
+        if (xp >= 500) rank = 'Apprentice';
+        if (xp >= 1500) rank = 'Coder';
+        if (xp >= 2500) rank = 'Master';
+
+        return { xp, count: completed.length, rank };
+    };
+
+    const trackVisit = () => {
+        const path = window.location.pathname.split('/').pop();
+        if (path.includes('module')) {
+            localStorage.setItem('jc_last_module', JSON.path || path);
+            localStorage.setItem('jc_last_module_path', window.location.pathname);
+        }
+    };
+
+    const updateDashboard = () => {
+        const stats = calculateStats();
+        const lastPath = localStorage.getItem('jc_last_module_path');
+        
+        const xpEl = document.getElementById('user-xp');
+        const countEl = document.getElementById('user-completed');
+        const rankEl = document.getElementById('user-rank');
+        const continueBtn = document.getElementById('continue-mission');
+
+        if (xpEl) xpEl.textContent = stats.xp;
+        if (countEl) countEl.textContent = stats.count;
+        if (rankEl) rankEl.textContent = stats.rank;
+        
+        if (continueBtn && lastPath) {
+            continueBtn.href = lastPath;
+            continueBtn.style.display = 'inline-flex';
+        }
+    };
+
     // --- Component Injection ---
     function injectNavigation() {
         if (document.getElementById('main-nav')) return;
@@ -295,6 +335,14 @@
         injectNavigation();
         injectModuleNavigator();
         injectFooter();
+        
+        // Track the visit for "Continue Mission"
+        trackVisit();
+        
+        // Update Dashboard if on index page
+        if (document.getElementById('user-xp')) {
+            updateDashboard();
+        }
 
         // Global Event Delegation
         document.body.addEventListener('click', (e) => {

@@ -22,13 +22,36 @@
         </header>
 
         <main>
-            <!-- Start Here Banner -->
-            <section style="margin-bottom: 4rem;">
-                <a href="getting-started.html" class="content-section" style="display: block; text-decoration: none; text-align: center; background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(236, 72, 153, 0.15)); border: 2px dashed var(--primary); padding: 3rem;">
-                    <span class="badge" style="background: var(--primary); color: white; margin-bottom: 1rem; display: inline-block;">New here?</span>
-                    <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">Start Your Journey Here 🚀</h2>
-                    <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">Learn how HTML, CSS, and JS work together before you dive into the modules.</p>
-                </a>
+            <!-- Mission Control Dashboard -->
+            <section class="dashboard-grid">
+                <div class="mission-card">
+                    <span class="rank-badge" id="user-rank">Recruit</span>
+                    <h2 style="color: white; margin-bottom: 0.5rem;">Mission Control</h2>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Your personal progress and active goals.</p>
+                    
+                    <div class="stats-row">
+                        <div class="stat-item">
+                            <span class="stat-label">Total XP</span>
+                            <span class="stat-value" id="user-xp">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Modules</span>
+                            <span class="stat-value" id="user-completed">0</span>
+                        </div>
+                    </div>
+
+                    <a href="getting-started.html" class="continue-btn" id="continue-mission">
+                        🚀 Continue Mission
+                    </a>
+                </div>
+
+                <div class="mission-card" style="background: var(--bg-card); border-style: dashed;">
+                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Daily Goal</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Complete 1 module today to keep your streak alive! 🔥</p>
+                    <div style="margin-top: 1.5rem; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden;">
+                        <div style="width: 30%; height: 100%; background: var(--accent);"></div>
+                    </div>
+                </div>
             </section>
 
             <section class="course-grid" aria-label="Available Learning Paths">
