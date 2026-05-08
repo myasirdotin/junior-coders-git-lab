@@ -36,7 +36,16 @@
                 { name: 'Quiz', url: 'quiz.html' }
             ],
             'Learning JS': [
-                { name: 'Lessons', url: 'learningjs.html' },
+                { name: 'Syllabus', url: 'learningjs.html' },
+                { name: '1: Variables', url: 'module1.html' },
+                { name: '2: Operators', url: 'module2.html' },
+                { name: '3: Conditionals', url: 'module3.html' },
+                { name: '4: Functions', url: 'module4.html' },
+                { name: '5: Arrays', url: 'module5.html' },
+                { name: '6: Loops', url: 'module6.html' },
+                { name: '7: DOM Intro', url: 'module7.html' },
+                { name: '8: Objects', url: 'module8.html' },
+                { name: '9: Events', url: 'module9.html' },
                 { name: 'Playground', url: 'playground.html' },
                 { name: 'Exercises', url: 'exercises.html' },
                 { name: 'Glossary', url: 'glossary.html' },
@@ -73,6 +82,7 @@
         const baseUrl = getBaseUrl();
         const currentModule = getCurrentModule();
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        const fullPath = window.location.pathname;
         
         // Ensure "Junior Coders" logo always points to root index.html
         const logo = `<a href="${baseUrl}index.html" class="nav-logo">🚀 Junior Coders</a>`;
@@ -107,6 +117,31 @@
         `;
 
         document.body.prepend(nav);
+
+        // Inject Bottom Nav for Mobile
+        const bottomNav = document.createElement('div');
+        bottomNav.className = 'bottom-nav';
+        bottomNav.innerHTML = `
+            <div class="bottom-nav-container">
+                <a href="${baseUrl}index.html" class="tab-item ${!currentModule ? 'active' : ''}">
+                    <span class="tab-icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="${baseUrl}Learning HTML/learninghtml.html" class="tab-item ${currentModule === 'Learning HTML' ? 'active' : ''}">
+                    <span class="tab-icon">🌐</span>
+                    <span>HTML</span>
+                </a>
+                <a href="${baseUrl}Learning CSS/learningcss.html" class="tab-item ${currentModule === 'Learning CSS' ? 'active' : ''}">
+                    <span class="tab-icon">🎨</span>
+                    <span>CSS</span>
+                </a>
+                <a href="${baseUrl}Learning JS/learningjs.html" class="tab-item ${currentModule === 'Learning JS' ? 'active' : ''}">
+                    <span class="tab-icon">⚡</span>
+                    <span>JS</span>
+                </a>
+            </div>
+        `;
+        document.body.appendChild(bottomNav);
 
         // Mobile Menu Toggle Logic
         const toggle = document.getElementById('mobile-toggle');

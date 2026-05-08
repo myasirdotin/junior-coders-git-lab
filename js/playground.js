@@ -77,6 +77,23 @@
                     consoleEl.appendChild(err);
                 }
             };
+        },
+
+        checkPendingExercise: function() {
+            const pending = localStorage.getItem('pendingExercise');
+            if (pending) {
+                const exercise = JSON.parse(pending);
+                const editor = document.getElementById('code-editor');
+                const consoleEl = document.getElementById('console');
+                
+                if (editor) {
+                    editor.value = exercise.starterCode;
+                }
+                if (consoleEl) {
+                    consoleEl.innerHTML = `<div class="info-entry">--- Exercise: ${exercise.title} ---</div>`;
+                }
+                localStorage.removeItem('pendingExercise');
+            }
         }
     };
 
@@ -86,6 +103,7 @@
             Playground.initCSS();
         } else if (document.getElementById('console')) {
             Playground.initJS();
+            Playground.checkPendingExercise();
         } else if (document.getElementById('code-editor')) {
             Playground.initHTML();
         }

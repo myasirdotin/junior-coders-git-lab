@@ -2,4 +2,5 @@
  * Junior Coders - Module Bridge
  * This file points to the core engine.
  */
-import '../../js/core.js';
+// Script already included via HTML tag in modules.
+console.log('JS Module Bridge loaded.');

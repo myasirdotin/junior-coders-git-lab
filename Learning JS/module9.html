@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Module 9: DOM & Events</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="../js/core.js"></script>
     <style>
         .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
         .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
@@ -31,11 +32,6 @@
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Playground</a>
-        <a href="exercises.html">Exercises</a>
-        <a href="learningjs.html" class="active">Learning JS</a>
-    </nav>
 
     <div class="module-container">
         <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
@@ -574,7 +570,7 @@ child.addEventListener('click', (e) => {
 
         <div class="content-section">
             <h2>Practice</h2>
-            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
+            <p>Try these exercises in the <a href="playground.html">Playground</a>:</p>
             <ol>
                 <li>Create a to-do list app where you can add, delete, and mark items as complete</li>
                 <li>Build a simple image gallery with next/previous buttons and thumbnail navigation</li>
@@ -591,20 +587,7 @@ child.addEventListener('click', (e) => {
             <button class="complete-btn" onclick="markComplete(9)">✓ Mark as Complete</button>
             <a href="learningjs.html" class="btn-nav">Back to Syllabus →</a>
         </div>
-    </div>
-
-    <script>
-        function markComplete(moduleNum) {
-            let completed = JSON.parse(localStorage.getItem('completedModules') || '[]');
-            if (!completed.includes(moduleNum)) {
-                completed.push(moduleNum);
-                localStorage.setItem('completedModules', JSON.stringify(completed));
-                localStorage.setItem('jsCourseProgress', completed.length);
-                alert('🎉 Module 9 completed! You\'ve finished the entire course! 🎉');
-            } else {
-                alert('You already completed this module!');
-            }
-        }
-    </script>
-</body>
-</html>
+        </div>
+        </body>
+        </html>
+ 

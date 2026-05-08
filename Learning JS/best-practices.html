@@ -86,31 +86,31 @@
             margin: 25px 0; 
             border-radius: 8px; 
         }
-        .nav {
+        .anchor-nav {
             background: #2c3e50;
             color: white;
             padding: 15px 0;
             position: sticky;
-            top: 0;
-            z-index: 100;
-            margin: -20px -20px 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            top: 60px; /* Space for the main nav */
+            z-index: 90;
+            margin-bottom: 30px;
+            border-radius: 8px;
         }
-        .nav ul {
+        .anchor-nav ul {
             list-style: none;
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 20px;
             flex-wrap: wrap;
             margin: 0;
             padding: 0;
         }
-        .nav a {
+        .anchor-nav a {
             color: white;
             text-decoration: none;
             font-weight: 500;
         }
-        .nav a:hover {
+        .anchor-nav a:hover {
             color: #3498db;
         }
         .section-header {
@@ -119,31 +119,13 @@
             gap: 12px;
             margin-bottom: 20px;
         }
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            color: #666;
-            border-top: 1px solid #ddd;
-        }
-        .btn {
-            display: inline-block;
-            background: #3498db;
-            color: white;
-            padding: 12px 28px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        .btn:hover {
-            background: #2980b9;
-            transform: translateY(-2px);
-        }
     </style>
 </head>
 <body>
-    <nav class="nav">
+    <h1>🚀 Best JavaScript Practices 2026</h1>
+    <p class="subtitle">Write clean, maintainable, secure, and performant code • Good vs Bad Examples</p>
+
+    <nav class="anchor-nav">
         <ul>
             <li><a href="#variables">Variables</a></li>
             <li><a href="#comparison">Comparison</a></li>
@@ -156,12 +138,9 @@
         </ul>
     </nav>
 
-    <h1>✅ Modern JavaScript Best Practices (2026)</h1>
-    <p class="subtitle">Write clean, maintainable, secure, and performant code • Good vs Bad Examples</p>
-
     <div class="practice-section" id="variables">
         <div class="section-header">
-            <h2>⚙️ Variables &amp; Declarations</h2>
+            <h2>⚙️ Variables & Declarations</h2>
         </div>
         
         <div class="comparison">
@@ -203,7 +182,7 @@ let userData = [];</code></pre>
 
     <div class="practice-section" id="comparison">
         <div class="section-header">
-            <h2>🔄 Comparisons &amp; Conditionals</h2>
+            <h2>🔄 Comparisons & Conditionals</h2>
         </div>
         
         <div class="comparison">
@@ -238,7 +217,7 @@ if (value) { ... }   // truthy/falsy bugs</code></pre>
 
     <div class="practice-section" id="functions">
         <div class="section-header">
-            <h2>📝 Functions &amp; Modules</h2>
+            <h2>📝 Functions & Modules</h2>
         </div>
         
         <div class="comparison">
@@ -273,7 +252,7 @@ arr.map(function(item) { return item * 2 }); // avoid anonymous</code></pre>
 
     <div class="practice-section" id="error">
         <div class="section-header">
-            <h2>🛡️ Error Handling &amp; Validation</h2>
+            <h2>🛡️ Error Handling & Validation</h2>
         </div>
         
         <div class="comparison">
@@ -308,7 +287,6 @@ try { ... } catch(e) {} // silent fail</code></pre>
         </div>
     </div>
 
-    <!-- New Section: Arrays -->
     <div class="practice-section" id="arrays">
         <div class="section-header">
             <h2>📋 Arrays Best Practices</h2>
@@ -341,10 +319,9 @@ users.push(newUser); // mutating shared state</code></pre>
         </div>
     </div>
 
-    <!-- New Section: Objects -->
     <div class="practice-section" id="objects">
         <div class="section-header">
-            <h2>🗃️ Objects &amp; Data Structures</h2>
+            <h2>🗃️ Objects & Data Structures</h2>
         </div>
         
         <div class="comparison">
@@ -371,7 +348,6 @@ obj['key'] = value;</code></pre>
         </div>
     </div>
 
-    <!-- New Section: Async -->
     <div class="practice-section" id="async">
         <div class="section-header">
             <h2>⚡ Asynchronous Code</h2>
@@ -414,10 +390,9 @@ async function bad() {
         </div>
     </div>
 
-    <!-- New Section: Performance -->
     <div class="practice-section" id="performance">
         <div class="section-header">
-            <h2>🚀 Performance &amp; Optimization</h2>
+            <h2>🚀 Performance & Optimization</h2>
         </div>
         
         <div class="comparison">
@@ -431,17 +406,16 @@ const debouncedSearch = debounce(searchHandler, 300);
 const userMap = new Map(users.map(u => [u.id, u]));
 
 // Avoid memory leaks - clean event listeners
-useEffect(() => {
-    return () => window.removeEventListener(...);
-}, []);</code></pre>
+// (Using a generic example)
+window.removeEventListener('resize', handler);</code></pre>
                 </div>
             </div>
             <div>
                 <div class="bad">
                     <h3>❌ Bad Practice</h3>
-                    <pre><code>for (let i = 0; i < 10000; i++) { ... } // inside render
+                    <pre><code>for (let i = 0; i < 10000; i++) { ... } // inside loop
 
-innerHTML += '&lt;div&gt;...&lt;/div&gt;' // repeated DOM manipulation</code></pre>
+innerHTML += '<div>...</div>' // repeated DOM manipulation</code></pre>
                 </div>
             </div>
         </div>
@@ -451,7 +425,7 @@ innerHTML += '&lt;div&gt;...&lt;/div&gt;' // repeated DOM manipulation</code></p
         <h3>💡 Pro Tips for Professional Code</h3>
         <ul>
             <li><strong>Always</strong> use ESLint + Prettier</li>
-            <li>Write small, focused functions (&lt; 30 lines ideally)</li>
+            <li>Write small, focused functions (< 30 lines ideally)</li>
             <li>Prefer immutability when working with state</li>
             <li>Use meaningful comments only when code isn't self-explanatory</li>
             <li>Implement proper TypeScript for large projects</li>
@@ -461,29 +435,6 @@ innerHTML += '&lt;div&gt;...&lt;/div&gt;' // repeated DOM manipulation</code></p
         </ul>
     </div>
 
-    <div style="text-align: center; margin: 40px 0;">
-        <a href="index.html" class="btn">🏠 Back to Home</a>
-    </div>
-
-    <footer>
-        <p>Modern JavaScript Best Practices Guide • Updated 2026</p>
-        <p>Focus on readability, maintainability, and performance.</p>
-    </footer>
-
-    <script>
-        // Simple smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="../js/core.js"></script>
 </body>
 </html>

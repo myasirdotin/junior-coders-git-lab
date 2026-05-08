@@ -19,7 +19,7 @@
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <nav role="navigation" aria-label="Main navigation">
-        <a href="index.html">Playground</a>
+        <a href="playground.html">Playground</a>
         <a href="exercises.html" class="active" aria-current="page">Exercises</a>
         <a href="learningjs.html">Learning JS</a>
         <a href="glossary.html">Glossary</a>
@@ -323,19 +323,8 @@ console.log("5! =", factorial(5));</code></pre></div>
             const exercise = exercises[category];
             if (!exercise) return;
             localStorage.setItem('pendingExercise', JSON.stringify(exercise));
-            window.location.href = "index.html";
+            window.location.href = "playground.html";
         }
-
-        // Check if returning from exercise load
-        window.addEventListener('DOMContentLoaded', () => {
-            const pending = localStorage.getItem('pendingExercise');
-            if (pending && document.getElementById('code-editor')) {
-                const exercise = JSON.parse(pending);
-                document.getElementById('code-editor').value = exercise.starterCode;
-                document.getElementById('console').innerHTML = `<div class="info-entry">--- Exercise: ${exercise.title} ---</div>`;
-                localStorage.removeItem('pendingExercise');
-            }
-        });
     </script>
 </body>
 </html>

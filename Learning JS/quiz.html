@@ -57,7 +57,7 @@
                 <div class="option" onclick="checkAnswer(this, false)">&lt;!-- comment --&gt;</div>
                 <div class="option" onclick="checkAnswer(this, false)"># comment</div>
                 <div class="option" onclick="checkAnswer(this, true)">// comment</div>
-                <div class="option" onclick="checkAnswer(this, false)">/* comment */</div>
+                <div class="option" onclick="checkAnswer(this, true)">/* comment */</div>
             </div>
         </div>
     </div>
@@ -81,10 +81,7 @@
         Score: <span id="score">0</span> / 5
     </div>
 
-    <div style="text-align: center; margin-top: 30px;">
-        <a href="index.html" class="btn">🏠 Back to Home</a>
-    </div>
-
+    <script src="../js/core.js"></script>
     <script>
         let score = 0;
         
@@ -120,10 +117,10 @@
         function checkFillBlank() {
             const answer = document.getElementById('answer5').value.toLowerCase().trim();
             if (answer === 'function') {
-                alert('✅ Correct! Use the function keyword');
+                showToast('✅ Correct! Use the function keyword');
                 score++;
             } else {
-                alert('❌ Wrong! The correct answer is function');
+                showToast('❌ Wrong! The correct answer is function', 'error');
             }
             document.getElementById('score').textContent = score;
         }
