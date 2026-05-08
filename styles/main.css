@@ -552,42 +552,55 @@ p { margin-bottom: 1rem; }
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(20px);
     border-top: 1px solid var(--border-dim);
-    z-index: 1000;
-    padding: 0.75rem 0.5rem;
-    padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+    z-index: 2000;
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 [data-theme="light"] .bottom-nav {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
 }
 
 .bottom-nav-container {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    max-width: 600px;
-    margin: 0 auto;
+    justify-content: space-between;
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0.5rem 0;
 }
 
 .tab-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
     color: var(--text-muted);
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    gap: 4px;
+    gap: 2px;
     transition: all 0.2s;
-    flex: 1;
+    flex: 1 1 0; /* Force equal width */
+    min-width: 0; /* Allow shrinking */
+    text-align: center;
 }
 
 .tab-item .tab-icon {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    margin-bottom: 2px;
     transition: transform 0.2s;
+}
+
+.tab-item span:not(.tab-icon) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
 .tab-item:hover, .tab-item.active {
@@ -595,12 +608,12 @@ p { margin-bottom: 1rem; }
 }
 
 .tab-item.active .tab-icon {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
 }
 
 @media (max-width: 1024px) {
     .bottom-nav { display: block; }
-    body { padding-bottom: 80px; } /* Space for bottom nav */
+    body { padding-bottom: 70px; } /* Space for bottom nav */
     
     /* Hide main categories from top nav on mobile to avoid redundancy */
     .nav-links a[href*="learninghtml"],
@@ -609,8 +622,6 @@ p { margin-bottom: 1rem; }
     .nav-links a[href="index.html"] {
         display: none;
     }
-    
-    /* Show them in bottom nav instead */
 }
 
 /* Animations */

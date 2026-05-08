@@ -56,10 +56,12 @@
 
     // --- Utility Functions ---
     const getBaseUrl = () => {
-        const path = window.location.pathname;
-        if (path.includes('Learning HTML')) return '../';
-        if (path.includes('Learning CSS')) return '../';
-        if (path.includes('Learning JS')) return '../';
+        const path = decodeURIComponent(window.location.pathname);
+        if (path.includes('Learning HTML/') || 
+            path.includes('Learning CSS/') || 
+            path.includes('Learning JS/')) {
+            return '../';
+        }
         return './';
     };
 
@@ -82,7 +84,6 @@
         const baseUrl = getBaseUrl();
         const currentModule = getCurrentModule();
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-        const fullPath = window.location.pathname;
         
         // Ensure "Junior Coders" logo always points to root index.html
         const logo = `<a href="${baseUrl}index.html" class="nav-logo">🚀 Junior Coders</a>`;
@@ -96,10 +97,10 @@
         } else {
             // Root navigation
             linksHtml = `
-                <a href="index.html" class="${currentPath === 'index.html' ? 'active' : ''}">Home</a>
-                <a href="Learning HTML/learninghtml.html">HTML</a>
-                <a href="Learning CSS/learningcss.html">CSS</a>
-                <a href="Learning JS/learningjs.html">JavaScript</a>
+                <a href="${baseUrl}index.html" class="${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">Home</a>
+                <a href="${baseUrl}Learning%20HTML/learninghtml.html">HTML</a>
+                <a href="${baseUrl}Learning%20CSS/learningcss.html">CSS</a>
+                <a href="${baseUrl}Learning%20JS/learningjs.html">JavaScript</a>
             `;
         }
 
@@ -127,15 +128,15 @@
                     <span class="tab-icon">🏠</span>
                     <span>Home</span>
                 </a>
-                <a href="${baseUrl}Learning HTML/learninghtml.html" class="tab-item ${currentModule === 'Learning HTML' ? 'active' : ''}">
+                <a href="${baseUrl}Learning%20HTML/learninghtml.html" class="tab-item ${currentModule === 'Learning HTML' ? 'active' : ''}">
                     <span class="tab-icon">🌐</span>
                     <span>HTML</span>
                 </a>
-                <a href="${baseUrl}Learning CSS/learningcss.html" class="tab-item ${currentModule === 'Learning CSS' ? 'active' : ''}">
+                <a href="${baseUrl}Learning%20CSS/learningcss.html" class="tab-item ${currentModule === 'Learning CSS' ? 'active' : ''}">
                     <span class="tab-icon">🎨</span>
                     <span>CSS</span>
                 </a>
-                <a href="${baseUrl}Learning JS/learningjs.html" class="tab-item ${currentModule === 'Learning JS' ? 'active' : ''}">
+                <a href="${baseUrl}Learning%20JS/learningjs.html" class="tab-item ${currentModule === 'Learning JS' ? 'active' : ''}">
                     <span class="tab-icon">⚡</span>
                     <span>JS</span>
                 </a>
