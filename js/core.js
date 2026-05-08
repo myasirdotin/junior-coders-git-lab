@@ -126,29 +126,17 @@
         bottomNav.className = 'bottom-nav';
         bottomNav.innerHTML = `
             <div class="bottom-nav-container">
-                <a href="${baseUrl}index.html" class="tab-item ${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">
-                    <span class="tab-icon">🏠</span>
-                    <span>Home</span>
-                </a>
                 <a href="${baseUrl}getting-started.html" class="tab-item ${currentPath === 'getting-started.html' ? 'active' : ''}">
                     <span class="tab-icon">📖</span>
                     <span>Basics</span>
                 </a>
+                <a href="${baseUrl}index.html" class="tab-item ${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">
+                    <span class="tab-icon">🏠</span>
+                    <span>Home</span>
+                </a>
                 <a href="${baseUrl}master-playground.html" class="tab-item ${currentPath === 'master-playground.html' ? 'active' : ''}">
                     <span class="tab-icon">🧪</span>
                     <span>Lab</span>
-                </a>
-                <a href="${baseUrl}Learning%20HTML/learninghtml.html" class="tab-item ${currentModule === 'Learning HTML' ? 'active' : ''}">
-                    <span class="tab-icon">🌐</span>
-                    <span>HTML</span>
-                </a>
-                <a href="${baseUrl}Learning%20CSS/learningcss.html" class="tab-item ${currentModule === 'Learning CSS' ? 'active' : ''}">
-                    <span class="tab-icon">🎨</span>
-                    <span>CSS</span>
-                </a>
-                <a href="${baseUrl}Learning%20JS/learningjs.html" class="tab-item ${currentModule === 'Learning JS' ? 'active' : ''}">
-                    <span class="tab-icon">⚡</span>
-                    <span>JS</span>
                 </a>
             </div>
         `;

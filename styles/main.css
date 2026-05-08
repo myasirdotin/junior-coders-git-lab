@@ -566,7 +566,7 @@ p { margin-bottom: 1rem; }
 
 .bottom-nav-container {
     display: grid;
-    grid-template-columns: repeat(6, 1fr); /* Exactly 6 equal parts */
+    grid-template-columns: repeat(3, 1fr); /* Exactly 3 equal parts */
     width: 100%;
     height: 65px;
     margin: 0;
@@ -580,9 +580,9 @@ p { margin-bottom: 1rem; }
     justify-content: center;
     text-decoration: none;
     color: var(--text-muted);
-    font-size: 0.6rem; /* Optimized for 6 items */
+    font-size: 0.75rem; /* Better readability with 3 items */
     font-weight: 700;
-    gap: 1px;
+    gap: 2px;
     transition: all 0.2s ease;
     width: 100%;
     height: 100%;
@@ -590,7 +590,7 @@ p { margin-bottom: 1rem; }
 }
 
 .tab-item .tab-icon {
-    font-size: 1.2rem; /* Optimized for 6 items */
+    font-size: 1.5rem; /* Larger icons with more space */
     line-height: 1;
     margin-bottom: 2px;
 }
