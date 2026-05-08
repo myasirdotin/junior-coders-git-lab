@@ -3,88 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 7: Learn how to create two-dimensional layouts using CSS Grid.">
-    <title>Module 7: CSS Grid</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Module 7: Create two-dimensional layouts with CSS Grid.">
+    <title>Module 7: CSS Grid | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #0f172a, #3b82f6); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 4</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">The Grid Blueprint!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Master the ultimate tool for 2D layouts. Draw your website like a pro! 🗺️</p>
+        </header>
 
-    <div class="module-container">
-        <a href="learningcss.html" class="back-link">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 7: CSS Grid</h1>
-            <p>⏱ 50 minutes | Week 4</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
-            <ul>
-                <li>Understand the concept of Grid containers and items</li>
-                <li>Learn how to define rows and columns</li>
-                <li>Master the <code>fr</code> unit and <code>repeat()</code> function</li>
-                <li>Learn how to position items using <code>grid-area</code> and <code>grid-template-areas</code></li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Overview</h2>
-            <p>CSS Grid Layout is the most powerful layout system available in CSS. It is a 2D system, meaning it can handle both columns and rows.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <div class="reading-material">
-                <h3>📚 The Grid Container</h3>
-                <p>To make an HTML element into a grid container, set its <code>display</code> property to <code>grid</code> or <code>inline-grid</code>.</p>
-
-                <div class="code-example">
-                    <code>.container {
-  display: grid;
-  grid-template-columns: 200px auto 200px;
-}</code>
+        <!-- Grid Concept -->
+        <section class="content-section">
+            <h2>Rows and Columns</h2>
+            <p>While Flexbox is like a line, **Grid** is like a piece of graph paper. You define exactly how many rows and columns you want.</p>
+            <div style="background: #0f172a; padding: 2rem; border-radius: 1.5rem; border: 3px solid #3b82f6; margin-top: 2rem;">
+                <div style="display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, 80px); gap: 10px;">
+                    <div style="background: rgba(59, 130, 246, 0.5); border: 2px solid white; display: grid; place-items: center; color: white; font-weight: 900; border-radius: 8px;">1</div>
+                    <div style="background: rgba(59, 130, 246, 0.5); border: 2px solid white; display: grid; place-items: center; color: white; font-weight: 900; border-radius: 8px;">2</div>
+                    <div style="background: rgba(59, 130, 246, 0.5); border: 2px solid white; display: grid; place-items: center; color: white; font-weight: 900; border-radius: 8px;">3</div>
+                    <div style="background: rgba(59, 130, 246, 0.5); border: 2px solid white; display: grid; place-items: center; color: white; font-weight: 900; border-radius: 8px;">4</div>
+                    <div style="background: rgba(59, 130, 246, 0.5); border: 2px solid white; display: grid; place-items: center; color: white; font-weight: 900; border-radius: 8px;">5</div>
+                    <div style="background: rgba(59, 130, 246, 0.5); border: 2px solid white; display: grid; place-items: center; color: white; font-weight: 900; border-radius: 8px;">6</div>
                 </div>
             </div>
-
-            <div class="key-point">
-                <strong>💡 Key Point:</strong> Unlike Flexbox, which is primarily 1D, Grid is designed for 2D layouts.
+            <div style="background: #020617; padding: 1rem; border-radius: 1rem; margin-top: 1rem;">
+                <code style="color: #3b82f6;">display: grid; <br> grid-template-columns: repeat(3, 1fr);</code>
             </div>
+        </section>
 
-            <h3>7.1 The fr Unit</h3>
-            <p>The <code>fr</code> unit allows you to set the size of a track as a fraction of the free space of the grid container.</p>
-
-            <div class="code-example">
-                <code>.container {
-  display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-}</code>
+        <!-- The FR Unit -->
+        <section class="content-section">
+            <h2>The "Fraction" Unit (fr) 🍕</h2>
+            <p>Instead of pixels, Grid uses <code>fr</code>. It stands for "Fraction". It tells the browser to share the space like a pizza!</p>
+            <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; margin-top: 1rem;">
+                <p><code>grid-template-columns: 1fr 2fr 1fr;</code></p>
+                <p style="font-size: 0.85rem; color: var(--text-secondary);">The middle column will be TWICE as big as the others!</p>
             </div>
+        </section>
 
-            <h3>7.2 Grid Gap</h3>
-            <p>The <code>gap</code> property (or <code>grid-gap</code>) defines the size of the gutters between grid items.</p>
-
-            <div class="code-example">
-                <code>.container {
-  display: grid;
-  gap: 20px;
-}</code>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
-            <ol>
-                <li>Create a 3x3 grid with equal-sized cells</li>
-                <li>Build a "Holy Grail" layout (header, sidebar, main, aside, footer) using <code>grid-template-areas</code></li>
-                <li>Use <code>grid-column</code> and <code>grid-row</code> to make an item span multiple tracks</li>
-                <li>Experiment with <code>minmax()</code> for responsive column widths</li>
-            </ol>
-        </div>
-
-        
-    </div>
+        <!-- Quiz Section -->
+        <section class="content-section">
+            <h2>Grid Mastery Test!</h2>
+            <form id="quiz-form-7" class="quiz-section">
+                <div class="quiz-question" data-answer="c">
+                    <p>Q1: Which CSS property is used to create a 2-dimensional grid layout?</p>
+                    <label><input type="radio" name="q7-1" value="a"> display: flex;</label>
+                    <label><input type="radio" name="q7-1" value="b"> type: block-grid;</label>
+                    <label><input type="radio" name="q7-1" value="c"> display: grid;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(7)">Check Answers</button>
+            </form>
+        </section>
+    </main>
 
     <script src="../js/core.js"></script>
 </body>

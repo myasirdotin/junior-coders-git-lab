@@ -3,86 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 6: Master advanced Flexbox properties for complex layouts.">
-    <title>Module 6: Advanced Flexbox</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Module 6: Master advanced Flexbox properties and create complex layouts.">
+    <title>Module 6: Advanced Flexbox | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #a855f7, #ec4899); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 3</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Advanced Flexing!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Teach your flex items how to grow, shrink, and wrap like professional gymnasts! 🤸</p>
+        </header>
 
-    <div class="module-container">
-        <a href="learningcss.html" class="back-link">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 6: Advanced Flexbox</h1>
-            <p>⏱ 40 minutes | Week 3</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
-            <ul>
-                <li>Learn how to handle wrapping with <code>flex-wrap</code></li>
-                <li>Understand the <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code> properties</li>
-                <li>Master the <code>flex</code> shorthand property</li>
-                <li>Learn how to use <code>align-self</code> to align individual items</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Overview</h2>
-            <p>Moving beyond the basics, we'll explore how to control how flex items grow, shrink, and wrap to create more complex and robust layouts.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <div class="reading-material">
-                <h3>📚 Flex Wrapping</h3>
-                <p>By default, flex items will all try to fit onto one line. You can change that and allow the items to wrap as needed with the <code>flex-wrap</code> property.</p>
-
-                <div class="code-example">
-                    <code>.container {
-  display: flex;
-  flex-wrap: wrap;
-}</code>
+        <!-- Flex Wrap Section -->
+        <section class="content-section">
+            <h2>The "Wrap" Power 🍬</h2>
+            <p>What happens when there are too many items for one row? By default, they squish! Use <code>flex-wrap</code> to let them drop to the next line.</p>
+            <div style="background: #0f172a; padding: 2rem; border-radius: 1.5rem; border: 3px solid #a855f7; margin-top: 2rem;">
+                <div style="display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
+                    <div style="background: white; color: #a855f7; padding: 1rem 2rem; border-radius: 1rem; font-weight: 900;">1</div>
+                    <div style="background: white; color: #a855f7; padding: 1rem 2rem; border-radius: 1rem; font-weight: 900;">2</div>
+                    <div style="background: white; color: #a855f7; padding: 1rem 2rem; border-radius: 1rem; font-weight: 900;">3</div>
+                    <div style="background: white; color: #a855f7; padding: 1rem 2rem; border-radius: 1rem; font-weight: 900;">4</div>
+                    <div style="background: white; color: #a855f7; padding: 1rem 2rem; border-radius: 1rem; font-weight: 900;">5</div>
+                    <div style="background: white; color: #a855f7; padding: 1rem 2rem; border-radius: 1rem; font-weight: 900;">6</div>
                 </div>
             </div>
-
-            <div class="key-point">
-                <strong>💡 Key Point:</strong> The <code>flex</code> shorthand is recommended over individual <code>flex-grow</code>, <code>flex-shrink</code>, and <code>flex-basis</code> properties.
+            <div style="background: #020617; padding: 1rem; border-radius: 1rem; margin-top: 1rem;">
+                <code style="color: #a855f7;">flex-wrap: wrap;</code>
             </div>
+        </section>
 
-            <h3>6.1 Flex Grow, Shrink & Basis</h3>
-            <p>These properties define how items should grow or shrink to fill the available space.</p>
-
-            <div class="code-example">
-                <code>.item {
-  flex: 1 0 200px; /* grow, shrink, basis */
-}</code>
+        <!-- Flex Grow Section -->
+        <section class="content-section">
+            <h2>The "Greedy" Item 🍔</h2>
+            <p>Want one item to take up all the extra space? Use <code>flex-grow</code>!</p>
+            <div style="background: #0f172a; padding: 2rem; border-radius: 1.5rem; border: 3px solid #ec4899; margin-top: 2rem;">
+                <div style="display: flex; gap: 1rem;">
+                    <div style="background: white; color: #ec4899; padding: 1rem; border-radius: 1rem; font-weight: 900; flex-grow: 1;">I am greedy! (grow: 1)</div>
+                    <div style="background: rgba(255,255,255,0.2); color: white; padding: 1rem; border-radius: 1rem; font-weight: 900;">Normal</div>
+                </div>
             </div>
+        </section>
 
-            <h3>6.2 Align Self</h3>
-            <p>The <code>align-self</code> property allows the default alignment (or the one specified by <code>align-items</code>) to be overridden for individual flex items.</p>
-
-            <div class="code-example">
-                <code>.item-top {
-  align-self: flex-start;
-}</code>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
-            <ol>
-                <li>Create a responsive card grid using <code>flex-wrap</code></li>
-                <li>Build a sidebar/content layout where the content fills the remaining space</li>
-                <li>Use <code>order</code> to change the visual sequence of elements</li>
-                <li>Create a "sticky footer" using Flexbox on the body</li>
-            </ol>
-        </div>
-
-        
-    </div>
+        <!-- Quiz Section -->
+        <section class="content-section">
+            <h2>Advanced Flex Quiz!</h2>
+            <form id="quiz-form-6" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Which property allows flex items to move to a new line if there isn't enough room?</p>
+                    <label><input type="radio" name="q6-1" value="a"> flex-direction</label>
+                    <label><input type="radio" name="q6-1" value="b"> flex-wrap</label>
+                    <label><input type="radio" name="q6-1" value="c"> flex-grow</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(6)">Check Answers</button>
+            </form>
+        </section>
+    </main>
 
     <script src="../js/core.js"></script>
 </body>

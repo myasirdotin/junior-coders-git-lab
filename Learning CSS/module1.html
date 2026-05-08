@@ -4,177 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Module 1: Learn about CSS basics, syntax, selectors, and how to add styles to HTML.">
-    <title>Module 1: Introduction to CSS</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Module 1: Intro to CSS | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #3b82f6, #6366f1); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 1</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">The Magic of CSS!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Time to turn your "Skeleton" into a Masterpiece! 🎨</p>
+        </header>
 
-    <div class="module-container">
-        <a href="learningcss.html" class="back-link">← Back to Syllabus</a>
+        <!-- Analogy Section -->
+        <section class="content-section">
+            <h2>The House Analogy</h2>
+            <p>Remember our house? HTML was the <strong>bricks and wood</strong>. Without CSS, your house looks like a building site!</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; text-align: center;">
+                <div style="background: var(--bg-glass); padding: 2rem; border-radius: 1rem;">
+                    <span style="font-size: 3rem;">🏠</span>
+                    <h3>HTML Only</h3>
+                    <p style="font-size: 0.9rem;">Grey walls, boring text, no colors.</p>
+                </div>
+                <div style="background: rgba(59, 130, 246, 0.1); padding: 2rem; border-radius: 1rem; border: 2px solid var(--primary);">
+                    <span style="font-size: 3rem;">🏡</span>
+                    <h3>HTML + CSS</h3>
+                    <p style="font-size: 0.9rem;">Paint, gardens, windows, and style!</p>
+                </div>
+            </div>
+        </section>
 
-        <div class="module-header">
-            <h1>Module 1: Introduction to CSS</h1>
-            <p>⏱ 30 minutes | Week 1</p>
-        </div>
+        <!-- The Glue Section -->
+        <section class="content-section" style="border-left: 8px solid var(--primary);">
+            <h2>🔗 The Glue (How to Link)</h2>
+            <p>To let your HTML know which CSS "spice" to use, you must link them in the <code>&lt;head&gt;</code> section:</p>
+            <div style="background: #020617; padding: 1.5rem; border-radius: 1rem; font-family: var(--font-mono); color: #f8fafc; margin: 1rem 0; border-left: 4px solid #34d399;">
+                &lt;link rel="stylesheet" href="<span style="color: #34d399;">style.css</span>"&gt;
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-secondary);"><strong>Note:</strong> If your CSS file is in a different folder, make sure the path is correct!</p>
+        </section>
 
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
+        <!-- Syntax Section -->
+        <section class="content-section">
+            <h2>Writing CSS "Rules"</h2>
+            <p>Every CSS instruction is like a command for the computer. It looks like this:</p>
+            <div style="background: #020617; padding: 2rem; border-radius: 1rem; margin: 1.5rem 0;">
+                <code style="color: #f8fafc; font-size: 1.1rem;">
+                    <span style="color: #f43f5e;">h1</span> { <br>
+                    &nbsp;&nbsp;<span style="color: #3b82f6;">color</span>: <span style="color: #eab308;">blue</span>; <br>
+                    &nbsp;&nbsp;<span style="color: #3b82f6;">font-size</span>: <span style="color: #eab308;">24px</span>; <br>
+                    }
+                </code>
+            </div>
             <ul>
-                <li>Understand what CSS is and its purpose</li>
-                <li>Learn the basic syntax of CSS rules</li>
-                <li>Understand different types of selectors</li>
-                <li>Know how to add CSS to HTML documents</li>
+                <li><strong>Selector (h1):</strong> Who are we talking to?</li>
+                <li><strong>Property (color):</strong> What are we changing?</li>
+                <li><strong>Value (blue):</strong> What should it look like?</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="content-section">
-            <h2>Overview</h2>
-            <p>CSS (Cascading Style Sheets) is the language used to style and layout web pages. While HTML provides the structure, CSS controls how that structure looks - colors, fonts, spacing, and much more.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <div class="reading-material">
-                <h3>📚 What is CSS?</h3>
-                <p><strong>CSS</strong> stands for Cascading Style Sheets. It describes how HTML elements should be displayed on screen, on paper, or in other media. CSS saves a lot of work - it can control the layout of multiple web pages all at once.</p>
+        <!-- Selectors Section -->
+        <section class="content-section">
+            <h2>The Three Secret Selectors</h2>
+            <div style="display: grid; gap: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                    <strong>1. Tag Selector:</strong> Styles ALL tags of that type (e.g., <code>p { ... }</code>).
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                    <strong>2. Class Selector:</strong> Styles specific groups. Use a <span style="color: var(--primary);">dot</span> (e.g., <code>.my-style { ... }</code>).
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                    <strong>3. ID Selector:</strong> Styles ONE unique item. Use a <span style="color: var(--secondary);">hashtag</span> (e.g., <code>#header { ... }</code>).
+                </div>
             </div>
+        </section>
 
-            <div class="key-point">
-                <strong>💡 Key Point:</strong> CSS separates content (HTML) from presentation (styles). This makes your code cleaner, more maintainable, and allows you to change the look of an entire website by editing just one file.
-            </div>
-
-            <h3>1.1 CSS Syntax</h3>
-            <p>A CSS rule consists of a selector and a declaration block:</p>
-
-            <div class="code-example">
-                <code>selector {
-  property: value;
-  property: value;
-}</code>
-            </div>
-
-            <p>Example:</p>
-            <div class="code-example">
-                <code>h1 {
-  color: blue;
-  font-size: 24px;
-}</code>
-            </div>
-
-            <div class="tip-box">
-                <strong>✅ Best Practice:</strong> Always put each declaration on its own line with a semicolon at the end. This makes your CSS easier to read and maintain.
-            </div>
-
-            <h3>1.2 CSS Selectors</h3>
-            <p>Selectors are used to "find" (or select) the HTML elements you want to style.</p>
-            
-            <p><strong>Element Selector</strong> - Selects all elements of a specific type:</p>
-            <div class="code-example">
-                <code>p {
-  color: red;
-}</code>
-            </div>
-            
-            <p><strong>Class Selector</strong> - Selects all elements with a specific class (preceded by a dot):</p>
-            <div class="code-example">
-                <code>.highlight {
-  background-color: yellow;
-}</code>
-            </div>
-            
-            <p><strong>ID Selector</strong> - Selects the element with a specific id (preceded by #):</p>
-            <div class="code-example">
-                <code>#main-title {
-  text-align: center;
-}</code>
-            </div>
-
-            <div class="warning-box">
-                <strong>⚠️ Common Mistake:</strong> IDs should be unique - only one element per page should have a specific ID. Classes can be reused on multiple elements.
-            </div>
-
-            <h3>1.3 Adding CSS to HTML</h3>
-            <p>There are three ways to add CSS to your HTML:</p>
-
-            <p><strong>1. External CSS (Recommended)</strong> - Link to a separate .css file:</p>
-            <div class="code-example">
-                <code><head>
-  <link rel="stylesheet" href="style.css">
-</head></code>
-            </div>
-
-            <p><strong>2. Internal CSS</strong> - Add styles in a <style> tag:</p>
-            <div class="code-example">
-                <code><head>
-  <style>
-    body { background-color: #f0f0f0; }
-  </style>
-</head></code>
-            </div>
-
-            <p><strong>3. Inline CSS</strong> - Add styles directly to an element:</p>
-            <div class="code-example">
-                <code><p style="color: blue;">This is blue text</p></code>
-            </div>
-
-            <div class="tip-box">
-                <strong>✅ Best Practice:</strong> Use external CSS files whenever possible. They keep your HTML clean and allow you to reuse styles across multiple pages.
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Common Mistakes</h2>
-            <ul>
-                <li><strong>Forgetting semicolons</strong> - Each CSS declaration must end with a semicolon.</li>
-                <li><strong>Misspelling properties</strong> - CSS is case-insensitive, but misspelling property names will cause them to be ignored.</li>
-                <li><strong>Using the wrong selector</strong> - Remember: classes use <code>.</code>, IDs use <code>#</code>, elements use just the tag name.</li>
-                <li><strong>Not closing braces</strong> - Every opening brace <code>{</code> must have a closing brace <code>}</code>.</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
-            <ol>
-                <li>Create an external CSS file and link it to your HTML</li>
-                <li>Use element selectors to style all paragraphs</li>
-                <li>Create a class and apply it to multiple elements</li>
-                <li>Use an ID selector for a unique element</li>
-            </ol>
-        </div>
-
-        <div class="content-section">
+        <!-- Quiz Section -->
+        <section class="content-section">
             <h2>Check Your Understanding</h2>
             <form id="quiz-form-1" class="quiz-section">
                 <div class="quiz-question" data-answer="b">
-                    <p>Q1: What does CSS stand for?</p>
-                    <label><input type="radio" name="q1-1" value="a"> a) Computer Style Sheets</label>
-                    <label><input type="radio" name="q1-1" value="b"> b) Cascading Style Sheets</label>
-                    <label><input type="radio" name="q1-1" value="c"> c) Creative Style System</label>
+                    <p>Q1: Where do we put the &lt;link&gt; tag to add CSS?</p>
+                    <label><input type="radio" name="q1" value="a"> Inside the &lt;body&gt;</label>
+                    <label><input type="radio" name="q1" value="b"> Inside the &lt;head&gt;</label>
+                    <label><input type="radio" name="q1" value="c"> Inside the &lt;footer&gt;</label>
                     <div class="quiz-feedback"></div>
                 </div>
                 <div class="quiz-question" data-answer="a">
-                    <p>Q2: Which selector is used to select an element with a specific class?</p>
-                    <label><input type="radio" name="q1-2" value="a"> a) .classname</label>
-                    <label><input type="radio" name="q1-2" value="b"> b) #classname</label>
-                    <label><input type="radio" name="q1-2" value="c"> c) classname</label>
+                    <p>Q2: Which symbol is used for a CLASS selector?</p>
+                    <label><input type="radio" name="q1" value="a"> A dot (.)</label>
+                    <label><input type="radio" name="q1" value="b"> A hashtag (#)</label>
+                    <label><input type="radio" name="q1" value="c"> A slash (/)</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <div class="quiz-question" data-answer="c">
-                    <p>Q3: What is the recommended way to add CSS to a website with multiple pages?</p>
-                    <label><input type="radio" name="q1-3" value="a"> a) Inline CSS</label>
-                    <label><input type="radio" name="q1-3" value="b"> b) Internal CSS</label>
-                    <label><input type="radio" name="q1-3" value="c"> c) External CSS</label>
-                    <div class="quiz-feedback"></div>
-                </div>
-                <button type="button" class="quiz-submit" onclick="checkQuiz(1)">Check Answers</button>
-                <div id="quiz-score-1" class="quiz-score"></div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answers</button>
             </form>
-        </div>
-
-        
-    </div>
+        </section>
+    </main>
 
     <script src="../js/core.js"></script>
 </body>

@@ -4,78 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Module 2: Learn about CSS colors, font properties, and text styling.">
-    <title>Module 2: Colors & Text</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Module 2: Colors & Text | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #f43f5e, #ec4899); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 1</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Colors & Fonts!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Make your website pop with vibrant colors and cool text! 🌈</p>
+        </header>
 
-    <div class="module-container">
-        <a href="learningcss.html" class="back-link">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 2: Colors & Text</h1>
-            <p>⏱ 35 minutes | Week 1</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
-            <ul>
-                <li>Learn different ways to specify colors in CSS</li>
-                <li>Understand font properties and how to use web fonts</li>
-                <li>Learn how to style and align text</li>
-                <li>Master text decoration and transformation</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Overview</h2>
-            <p>Colors and typography are fundamental to web design. In this module, we'll explore how to bring life to your web pages using various color formats and text styling techniques.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <div class="reading-material">
-                <h3>📚 CSS Colors</h3>
-                <p>Colors can be specified using predefined color names, or RGB, HEX, HSL, RGBA, HSLA values.</p>
+        <!-- Color Section -->
+        <section class="content-section">
+            <h2>The Color Palette</h2>
+            <p>Computers see colors in three main ways. It's like mixing paint in a lab!</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div style="background: #fef2f2; border: 2px solid #f43f5e; padding: 1.5rem; border-radius: 1rem; text-align: center;">
+                    <span style="color: #f43f5e; font-weight: 800; font-size: 1.2rem;">Names</span>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Simple: <code>red</code>, <code>blue</code>, <code>gold</code>.</p>
+                </div>
+                <div style="background: #f0fdf4; border: 2px solid #22c55e; padding: 1.5rem; border-radius: 1rem; text-align: center;">
+                    <span style="color: #22c55e; font-weight: 800; font-size: 1.2rem;">Hex Codes</span>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Secret codes: <code>#ff0000</code> is red!</p>
+                </div>
+                <div style="background: #eff6ff; border: 2px solid #3b82f6; padding: 1.5rem; border-radius: 1rem; text-align: center;">
+                    <span style="color: #3b82f6; font-weight: 800; font-size: 1.2rem;">RGB</span>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Red, Green, Blue: <code>rgb(255, 0, 0)</code>.</p>
+                </div>
             </div>
+        </section>
 
-            <div class="key-point">
-                <strong>💡 Key Point:</strong> Using RGBA or HSLA allows you to add transparency (alpha) to your colors, which is great for overlays and complex designs.
+        <!-- Typography Section -->
+        <section class="content-section">
+            <h2>The Font Factory</h2>
+            <p>Fonts change the "personality" of your site. Is it serious, playful, or techy?</p>
+            <div style="background: var(--bg-glass); padding: 2rem; border-radius: 1rem; margin: 1.5rem 0;">
+                <div style="font-family: serif; font-size: 1.5rem; margin-bottom: 1rem;">This is a Serif Font (Fancy)</div>
+                <div style="font-family: sans-serif; font-size: 1.5rem; margin-bottom: 1rem;">This is a Sans-Serif Font (Clean)</div>
+                <div style="font-family: monospace; font-size: 1.5rem;">This is a Monospace Font (Code)</div>
             </div>
-
-            <h3>2.1 Font Properties</h3>
-            <p>The <code>font-family</code> property should hold several font names as a "fallback" system.</p>
-
-            <div class="code-example">
-                <code>p {
-  font-family: "Lucida Console", "Courier New", monospace;
-}</code>
+            <div style="background: #020617; padding: 1.5rem; border-radius: 1rem;">
+                <code style="color: #3b82f6;">font-family: 'Outfit', sans-serif;</code>
             </div>
+        </section>
 
-            <h3>2.2 Text Alignment</h3>
-            <p>The <code>text-align</code> property is used to set the horizontal alignment of a text.</p>
-
-            <div class="code-example">
-                <code>h1 {
-  text-align: center;
-}</code>
+        <!-- Text Styling -->
+        <section class="content-section">
+            <h2>Text Superpowers</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                    <h3>Size & Weight</h3>
+                    <p><code>font-size: 20px;</code></p>
+                    <p><code>font-weight: bold;</code></p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                    <h3>Alignment</h3>
+                    <p><code>text-align: center;</code></p>
+                    <p><code>text-decoration: underline;</code></p>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
-            <ol>
-                <li>Change the color of a heading using a HEX value</li>
-                <li>Apply a Google Font to your page</li>
-                <li>Experiment with different text-align values</li>
-                <li>Add a text-shadow to a large title</li>
-            </ol>
-        </div>
-
-        
-    </div>
+        <!-- Quiz Section -->
+        <section class="content-section">
+            <h2>Color Challenge!</h2>
+            <form id="quiz-form-2" class="quiz-section">
+                <div class="quiz-question" data-answer="c">
+                    <p>Q1: How do you center text in CSS?</p>
+                    <label><input type="radio" name="q2-1" value="a"> align: center;</label>
+                    <label><input type="radio" name="q2-1" value="b"> middle: true;</label>
+                    <label><input type="radio" name="q2-1" value="c"> text-align: center;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(2)">Check Answers</button>
+            </form>
+        </section>
+    </main>
 
     <script src="../js/core.js"></script>
 </body>

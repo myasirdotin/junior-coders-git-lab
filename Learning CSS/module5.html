@@ -3,87 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 5: Learn the basics of Flexbox for creating flexible one-dimensional layouts.">
-    <title>Module 5: Introduction to Flexbox</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Module 5: Learn the fundamentals of Flexbox for one-dimensional layouts.">
+    <title>Module 5: Intro to Flexbox | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #0ea5e9, #6366f1); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 3</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">The Elastic Layout!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Flexbox is like a magical rubber band for your website! 🪁</p>
+        </header>
 
-    <div class="module-container">
-        <a href="learningcss.html" class="back-link">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 5: Introduction to Flexbox</h1>
-            <p>⏱ 45 minutes | Week 3</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
-            <ul>
-                <li>Understand the concept of Flexbox containers and items</li>
-                <li>Learn how to create a flex container</li>
-                <li>Master <code>flex-direction</code> and <code>justify-content</code></li>
-                <li>Learn how to align items with <code>align-items</code></li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Overview</h2>
-            <p>Flexbox is a one-dimensional layout method for arranging items in rows or columns. It makes it much easier to design flexible responsive layout structure.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <div class="reading-material">
-                <h3>📚 The Flex Container</h3>
-                <p>To start using Flexbox, you need to first define a flex container.</p>
-
-                <div class="code-example">
-                    <code>.container {
-  display: flex;
-}</code>
+        <!-- Container vs Item -->
+        <section class="content-section">
+            <h2>The "Boss" and the "Workers"</h2>
+            <p>Flexbox works with two parts: a <strong>Container</strong> (the boss) and <strong>Items</strong> (the workers).</p>
+            <div style="background: #0f172a; padding: 2rem; border-radius: 1.5rem; border: 3px solid #0ea5e9; margin-top: 2rem;">
+                <p style="color: #0ea5e9; font-weight: 800; font-size: 0.8rem; margin-bottom: 1rem;">FLEX CONTAINER (display: flex;)</p>
+                <div style="display: flex; gap: 1rem; justify-content: space-around;">
+                    <div style="background: white; color: #0ea5e9; padding: 1.5rem; border-radius: 1rem; font-weight: 900;">Item 1</div>
+                    <div style="background: white; color: #0ea5e9; padding: 1.5rem; border-radius: 1rem; font-weight: 900;">Item 2</div>
+                    <div style="background: white; color: #0ea5e9; padding: 1.5rem; border-radius: 1rem; font-weight: 900;">Item 3</div>
                 </div>
             </div>
+        </section>
 
-            <div class="key-point">
-                <strong>💡 Key Point:</strong> Flexbox deals with alignment in two axes: the main axis (defined by <code>flex-direction</code>) and the cross axis.
+        <!-- Main Properties -->
+        <section class="content-section">
+            <h2>Controlling the Workers</h2>
+            <p>The "Boss" (Container) can give three main commands:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                    <h3>1. Direction ➡️</h3>
+                    <p>Are we a row or a column?</p>
+                    <code>flex-direction: row;</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                    <h3>2. Justify ↔️</h3>
+                    <p>Space them out horizontally.</p>
+                    <code>justify-content: center;</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                    <h3>3. Align ↕️</h3>
+                    <p>Center them vertically.</p>
+                    <code>align-items: center;</code>
+                </div>
             </div>
+        </section>
 
-            <h3>5.1 Justify Content</h3>
-            <p>The <code>justify-content</code> property is used to align the flex items along the main axis.</p>
-
-            <div class="code-example">
-                <code>.container {
-  display: flex;
-  justify-content: space-between;
-}</code>
-            </div>
-
-            <h3>5.2 Align Items</h3>
-            <p>The <code>align-items</code> property is used to align the flex items along the cross axis.</p>
-
-            <div class="code-example">
-                <code>.container {
-  display: flex;
-  align-items: center;
-}</code>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
-            <ol>
-                <li>Center a box both horizontally and vertically using Flexbox</li>
-                <li>Create a simple navigation bar with spaced-out links</li>
-                <li>Build a three-column layout where each column has equal width</li>
-                <li>Experiment with <code>flex-direction: column-reverse</code></li>
-            </ol>
-        </div>
-
-        
-    </div>
+        <!-- Quiz Section -->
+        <section class="content-section">
+            <h2>Flex Quiz!</h2>
+            <form id="quiz-form-5" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: Which property turns an element into a Flex Container?</p>
+                    <label><input type="radio" name="q5-1" value="a"> display: flex;</label>
+                    <label><input type="radio" name="q5-1" value="b"> type: flexbox;</label>
+                    <label><input type="radio" name="q5-1" value="c"> layout: row;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(5)">Check Answers</button>
+            </form>
+        </section>
+    </main>
 
     <script src="../js/core.js"></script>
 </body>

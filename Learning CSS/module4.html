@@ -3,86 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 4: Learn about the display property, document flow, and positioning elements.">
-    <title>Module 4: Display & Positioning</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Module 4: Control how elements are displayed and positioned on the page.">
+    <title>Module 4: Display & Positioning | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #6366f1, #a855f7); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 2</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">Display & Position!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Learn the secrets of invisibility and teleportation in CSS! 🪄</p>
+        </header>
 
-    <div class="module-container">
-        <a href="learningcss.html" class="back-link">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 4: Display & Positioning</h1>
-            <p>⏱ 45 minutes | Week 2</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
-            <ul>
-                <li>Understand the <code>display</code> property and its values</li>
-                <li>Learn the difference between block and inline elements</li>
-                <li>Master the <code>position</code> property (static, relative, absolute, fixed, sticky)</li>
-                <li>Understand the <code>z-index</code> property for layering</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Overview</h2>
-            <p>Layout in CSS is governed by how elements are displayed and where they are positioned in the document flow.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <div class="reading-material">
-                <h3>📚 The Display Property</h3>
-                <p>The <code>display</code> property is the most important CSS property for controlling layout.</p>
-                <ul>
-                    <li><code>block</code> - Takes up the full width available</li>
-                    <li><code>inline</code> - Takes up only as much width as necessary</li>
-                    <li><code>none</code> - Removes the element from the page</li>
-                </ul>
+        <!-- Display Section -->
+        <section class="content-section">
+            <h2>The "Display" Superpower</h2>
+            <p>The <code>display</code> property tells a box how to behave. It's like choosing a character type!</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border: 2px solid #6366f1;">
+                    <h3>Block 🧱</h3>
+                    <p>Takes up the <strong>whole width</strong>. Like a brick in a wall.</p>
+                    <code>display: block;</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border: 2px solid #a855f7;">
+                    <h3>Inline 🧵</h3>
+                    <p>Only takes as much space as it needs. Like words in a sentence.</p>
+                    <code>display: inline;</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f43f5e;">
+                    <h3>None 🫥</h3>
+                    <p>Poof! The element is gone. It doesn't even take up space.</p>
+                    <code>display: none;</code>
+                </div>
             </div>
+        </section>
 
-            <div class="key-point">
-                <strong>💡 Key Point:</strong> <code>inline-block</code> elements are like <code>inline</code> elements but they can have a width and a height.
+        <!-- Positioning Section -->
+        <section class="content-section">
+            <h2>The "Position" Teleport</h2>
+            <p>Want to move a box to a specific spot? Use the <code>position</code> property!</p>
+            <div style="display: grid; gap: 1.5rem; margin-top: 2rem;">
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                    <strong>Relative:</strong> Moves the box slightly from where it normally sits. 
+                    <code>position: relative; top: 10px;</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #eab308;">
+                    <strong>Absolute:</strong> The box "breaks free" and flies to a specific spot inside its parent!
+                    <code>position: absolute; right: 0;</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #10b981;">
+                    <strong>Fixed:</strong> The box sticks to the screen even when you scroll. Like our navigation bar!
+                    <code>position: fixed; top: 0;</code>
+                </div>
             </div>
+        </section>
 
-            <h3>4.1 Positioning</h3>
-            <p>The <code>position</code> property specifies the type of positioning method used for an element.</p>
-
-            <div class="code-example">
-                <code>.fixed-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}</code>
-            </div>
-
-            <h3>4.2 Z-Index</h3>
-            <p>The <code>z-index</code> property specifies the stack order of an element.</p>
-
-            <div class="code-example">
-                <code>.overlay {
-  z-index: 10;
-}</code>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="index.html">Playground</a>:</p>
-            <ol>
-                <li>Change a list into a horizontal navigation bar using <code>display: inline</code></li>
-                <li>Create a "Back to Top" button that is fixed to the bottom-right corner</li>
-                <li>Use absolute positioning to place an icon inside a relative-positioned card</li>
-                <li>Experiment with <code>position: sticky</code> for a section header</li>
-            </ol>
-        </div>
-
-        
-    </div>
+        <!-- Quiz Section -->
+        <section class="content-section">
+            <h2>Positioning Quiz!</h2>
+            <form id="quiz-form-4" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Which display value makes an element completely invisible and removes its space?</p>
+                    <label><input type="radio" name="q4-1" value="a"> block</label>
+                    <label><input type="radio" name="q4-1" value="b"> none</label>
+                    <label><input type="radio" name="q4-1" value="c"> inline</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(4)">Check Answers</button>
+            </form>
+        </section>
+    </main>
 
     <script src="../js/core.js"></script>
 </body>
