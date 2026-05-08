@@ -1,0 +1,28 @@
+{
+  "name": "learncode-v01",
+  "version": "1.0.0",
+  "description": "A premium interactive learning platform for aspiring web developers, featuring structured modules for HTML, CSS, and JavaScript.",
+  "main": "index.html",
+  "scripts": {
+    "start": "echo \"Open index.html in your browser to start learning!\""
+  },
+  "keywords": [
+    "education",
+    "web-development",
+    "html",
+    "css",
+    "javascript",
+    "interactive-learning",
+    "junior-coders"
+  ],
+  "author": "Yasir Rasool",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yasir-rasool/junior-coders-git-lab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yasir-rasool/junior-coders-git-lab/issues"
+  },
+  "homepage": "https://github.com/yasir-rasool/junior-coders-git-lab#readme"
+}

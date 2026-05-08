@@ -1,6 +1,11 @@
-# Junior Coders Git Lab - Project Instructions
+# LearnCode V-01 - Project Instructions
 
-This project is an educational platform for learning HTML, CSS, and JavaScript.
+This project is an interactive educational platform for mastering HTML, CSS, and JavaScript. It has been formalized as the **LearnCode V-01** package for GitHub release.
+
+## Project Identity
+- **Version**: 1.0.0
+- **Lead Developer**: Yasir Rasool
+- **License**: MIT
 
 ## Specialized Agents
 The following custom subagents are available to help with specific modules:
