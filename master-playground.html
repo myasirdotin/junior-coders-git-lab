@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Playground | Junior Coders IDE</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body class="ide-mode">
+
+    <div class="master-playground-container">
+        <!-- Sidebar / Editor Section -->
+        <section class="ide-editor-panel">
+            <div class="ide-tabs">
+                <button class="ide-tab active" data-tab="html">index.html</button>
+                <button class="ide-tab" data-tab="css">style.css</button>
+                <button class="ide-tab" data-tab="js">script.js</button>
+            </div>
+            <div class="ide-content-area">
+                <textarea id="master-html" class="ide-textarea active" spellcheck="false" placeholder="<!-- Write your HTML here -->
+<h1>My Awesome Project</h1>
+<p>Type something to see it update live!</p>"></textarea>
+                <textarea id="master-css" class="ide-textarea" spellcheck="false" placeholder="/* Write your CSS here */
+h1 {
+    color: #6366f1;
+    text-align: center;
+}"></textarea>
+                <textarea id="master-js" class="ide-textarea" spellcheck="false" placeholder="// Write your JS here
+console.log('Welcome to the Master Playground!');"></textarea>
+            </div>
+            <!-- Console -->
+            <div class="ide-console" id="master-console">
+                <div class="console-entry">--- System Ready. Happy Coding! ---</div>
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section class="ide-preview-panel">
+            <div class="preview-header">
+                <span class="preview-badge">Live Preview</span>
+                <button class="btn-icon" onclick="window.location.reload()" title="Refresh Preview">🔄</button>
+            </div>
+            <iframe id="master-preview"></iframe>
+        </section>
+    </div>
+
+    <!-- Core Logic -->
+    <script src="js/core.js"></script>
+    <script src="js/playground.js"></script>
+</body>
+</html>

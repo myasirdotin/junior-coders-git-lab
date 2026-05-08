@@ -99,6 +99,7 @@
             linksHtml = `
                 <a href="${baseUrl}index.html" class="${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">Home</a>
                 <a href="${baseUrl}getting-started.html" class="${currentPath === 'getting-started.html' ? 'active' : ''}">Basics</a>
+                <a href="${baseUrl}master-playground.html" class="${currentPath === 'master-playground.html' ? 'active' : ''}">Code Lab</a>
                 <a href="${baseUrl}Learning%20HTML/learninghtml.html">HTML</a>
                 <a href="${baseUrl}Learning%20CSS/learningcss.html">CSS</a>
                 <a href="${baseUrl}Learning%20JS/learningjs.html">JavaScript</a>
@@ -132,6 +133,10 @@
                 <a href="${baseUrl}getting-started.html" class="tab-item ${currentPath === 'getting-started.html' ? 'active' : ''}">
                     <span class="tab-icon">📖</span>
                     <span>Basics</span>
+                </a>
+                <a href="${baseUrl}master-playground.html" class="tab-item ${currentPath === 'master-playground.html' ? 'active' : ''}">
+                    <span class="tab-icon">🧪</span>
+                    <span>Lab</span>
                 </a>
                 <a href="${baseUrl}Learning%20HTML/learninghtml.html" class="tab-item ${currentModule === 'Learning HTML' ? 'active' : ''}">
                     <span class="tab-icon">🌐</span>

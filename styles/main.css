@@ -806,6 +806,138 @@ p { margin-bottom: 1rem; }
 .code-comment { color: #64748b; font-style: italic; }
 .code-val { color: #34d399; }
 
+/* --- Master Playground IDE --- */
+.master-playground-container {
+    display: flex;
+    flex-direction: row;
+    height: calc(100vh - 140px); /* Adjust for top/bottom nav */
+    margin: 1rem;
+    gap: 1rem;
+    background: var(--bg-card);
+    border: 2px solid var(--border-dim);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.ide-editor-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: #020617;
+    border-right: 1px solid var(--border-dim);
+}
+
+.ide-tabs {
+    display: flex;
+    background: #0f172a;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--border-dim);
+}
+
+.ide-tab {
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    color: var(--text-muted);
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    background: transparent;
+}
+
+.ide-tab:hover { background: rgba(255,255,255,0.05); }
+.ide-tab.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+}
+
+.ide-content-area {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.ide-textarea {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    color: #f8fafc;
+    border: none;
+    padding: 1.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    resize: none;
+    outline: none;
+}
+
+.ide-textarea.active { display: block; }
+
+.ide-preview-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background: white;
+}
+
+.preview-header {
+    background: #f8fafc;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-badge {
+    background: var(--accent);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.2rem 0.6rem;
+    border-radius: 99px;
+    text-transform: uppercase;
+}
+
+#master-preview {
+    flex: 1;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+.ide-console {
+    height: 150px;
+    background: #000;
+    border-top: 1px solid #334155;
+    padding: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    overflow-y: auto;
+    color: #34d399;
+}
+
+.console-entry { border-bottom: 1px solid #1e293b; padding: 0.25rem 0; }
+.console-error { color: #f43f5e; }
+
+@media (max-width: 1024px) {
+    .master-playground-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 80vh;
+    }
+    .ide-editor-panel, .ide-preview-panel {
+        flex: none;
+        height: 500px;
+    }
+}
+
 /* Animations */
 @keyframes slideDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
 

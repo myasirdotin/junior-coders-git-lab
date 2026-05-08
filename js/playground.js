@@ -94,12 +94,109 @@
                 }
                 localStorage.removeItem('pendingExercise');
             }
+        },
+
+        // --- Master Playground (Integrated IDE) ---
+        initMaster: function() {
+            const htmlEditor = document.getElementById('master-html');
+            const cssEditor = document.getElementById('master-css');
+            const jsEditor = document.getElementById('master-js');
+            const preview = document.getElementById('master-preview');
+            const consoleEl = document.getElementById('master-console');
+            const tabs = document.querySelectorAll('.ide-tab');
+
+            if (!htmlEditor || !preview) return;
+
+            // 1. Tab Switching
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.dataset.tab;
+                    
+                    // Update Tab UI
+                    tabs.forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+
+                    // Update Editor UI
+                    document.querySelectorAll('.ide-textarea').forEach(tx => tx.classList.remove('active'));
+                    document.getElementById(`master-${target}`).classList.add('active');
+                });
+            });
+
+            // 2. Custom Console Hook
+            const logToIDE = (msg, type = 'info') => {
+                const entry = document.createElement('div');
+                entry.className = `console-entry ${type === 'error' ? 'console-error' : ''}`;
+                entry.textContent = `> ${msg}`;
+                consoleEl.appendChild(entry);
+                consoleEl.scrollTop = consoleEl.scrollHeight;
+            };
+
+            // 3. Update Preview
+            const updatePreview = () => {
+                const html = htmlEditor.value;
+                const css = cssEditor.value;
+                const js = jsEditor.value;
+
+                const fullContent = `
+                    <!DOCTYPE html>
+                    <html>
+                    <head>
+                        <style>${css}</style>
+                    </head>
+                    <body>
+                        ${html}
+                        <script>
+                            // Catch console.log
+                            const oldLog = console.log;
+                            console.log = function(...args) {
+                                window.parent.postMessage({ type: 'log', data: args.join(' ') }, '*');
+                                oldLog.apply(console, args);
+                            };
+                            // Catch Errors
+                            window.onerror = function(msg) {
+                                window.parent.postMessage({ type: 'error', data: msg }, '*');
+                            };
+                            try {
+                                ${js}
+                            } catch(e) {
+                                console.error(e);
+                                window.parent.postMessage({ type: 'error', data: e.message }, '*');
+                            }
+                        </script>
+                    </body>
+                    </html>
+                `;
+
+                const doc = preview.contentWindow.document;
+                doc.open();
+                doc.write(fullContent);
+                doc.close();
+            };
+
+            // 4. Listen for logs from Iframe
+            window.addEventListener('message', (e) => {
+                if (e.data.type === 'log') logToIDE(e.data.data);
+                if (e.data.type === 'error') logToIDE(e.data.data, 'error');
+            });
+
+            // 5. Setup Live Update
+            [htmlEditor, cssEditor, jsEditor].forEach(ed => {
+                ed.addEventListener('input', () => {
+                    // Debounce update to avoid lag
+                    clearTimeout(window.previewTimeout);
+                    window.previewTimeout = setTimeout(updatePreview, 500);
+                });
+            });
+
+            updatePreview();
         }
     };
 
     // Auto-detect which playground to initialize
     document.addEventListener('DOMContentLoaded', () => {
-        if (document.getElementById('html-editor') && document.getElementById('css-editor')) {
+        if (document.getElementById('master-html')) {
+            Playground.initMaster();
+        } else if (document.getElementById('html-editor') && document.getElementById('css-editor')) {
             Playground.initCSS();
         } else if (document.getElementById('console')) {
             Playground.initJS();
