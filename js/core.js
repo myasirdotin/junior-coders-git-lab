@@ -262,10 +262,45 @@
         window.showToast(`You scored ${score}/${questions.length}!`, score === questions.length ? 'success' : 'error');
     };
 
+    function injectModuleNavigator() {
+        const currentModule = getCurrentModule();
+        if (!currentModule) return;
+
+        const path = window.location.pathname.split('/').pop();
+        if (path.includes('learning') || path.includes('index') || path.includes('playground') || path.includes('exercises') || path.includes('glossary') || path.includes('quiz')) return;
+
+        const modules = CONFIG.MODULES[currentModule];
+        const currentIndex = modules.findIndex(m => m.url === path);
+        if (currentIndex === -1) return;
+
+        const prev = modules[currentIndex - 1];
+        const next = modules[currentIndex + 1];
+        
+        // Find module number for completion
+        const moduleMatch = path.match(/module(\d+)/);
+        const moduleNum = moduleMatch ? moduleMatch[1] : null;
+
+        const nav = document.createElement('div');
+        nav.className = 'module-navigator';
+        nav.innerHTML = `
+            <a href="${prev ? prev.url : '#'}" class="btn-nav-control prev" ${!prev ? 'disabled' : ''}>
+                <span>←</span> Previous
+            </a>
+            ${moduleNum ? `<button class="btn-nav-control complete" onclick="markComplete('${moduleNum}')">✓ Complete</button>` : ''}
+            <a href="${next ? next.url : (currentModule.includes('HTML') ? 'learninghtml.html' : currentModule.includes('CSS') ? 'learningcss.html' : 'learningjs.html')}" class="btn-nav-control next">
+                ${next ? 'Next' : 'Finish'} <span>→</span>
+            </a>
+        `;
+
+        const container = document.querySelector('.module-container') || document.querySelector('main') || document.body;
+        container.appendChild(nav);
+    }
+
     // --- Initialization ---
     document.addEventListener('DOMContentLoaded', () => {
         initTheme();
         injectNavigation();
+        injectModuleNavigator();
         injectFooter();
 
         // Global Event Delegation
