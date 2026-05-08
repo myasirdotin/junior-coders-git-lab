@@ -39,7 +39,7 @@
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yasir-rasool/junior-coders-git-lab.git
+   git clone https://github.com/myasirdotin/junior-coders-git-lab.git
    ```
 2. **Launch the Platform**:
    Simply open `index.html` in any modern web browser.
@@ -60,7 +60,7 @@
 ## 👤 Author
 
 **Yasir Rasool**
-- GitHub: [@yasir-rasool](https://github.com/yasir-rasool)
+- GitHub: [@myasirdotin](https://github.com/myasirdotin)
 
 ---
 

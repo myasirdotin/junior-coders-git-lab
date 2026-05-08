@@ -19,10 +19,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yasir-rasool/junior-coders-git-lab.git"
+    "url": "git+https://github.com/myasirdotin/junior-coders-git-lab.git"
   },
   "bugs": {
-    "url": "https://github.com/yasir-rasool/junior-coders-git-lab/issues"
+    "url": "https://github.com/myasirdotin/junior-coders-git-lab/issues"
   },
-  "homepage": "https://github.com/yasir-rasool/junior-coders-git-lab#readme"
+  "homepage": "https://github.com/myasirdotin/junior-coders-git-lab#readme"
 }
