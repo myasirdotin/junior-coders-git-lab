@@ -1026,6 +1026,35 @@ p { margin-bottom: 1rem; }
 @media (max-width: 768px) {
     .dashboard-grid {
         grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .stats-row {
+        justify-content: space-between;
+        gap: 1rem;
+    }
+    .mission-card {
+        padding: 1.5rem;
+    }
+    .stat-value {
+        font-size: 1.5rem;
+    }
+}
+
+/* IDE Mobile Fixes */
+@media (max-width: 1024px) {
+    .master-playground-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh; /* Allow it to grow */
+        margin: 0.5rem;
+    }
+    .ide-editor-panel {
+        height: 400px;
+        border-right: none;
+        border-bottom: 1px solid var(--border-dim);
+    }
+    .ide-preview-panel {
+        height: 500px;
     }
 }
 
