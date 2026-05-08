@@ -319,7 +319,18 @@ p { margin-bottom: 1rem; }
 
 .course-card.html::before { background: var(--html-brand); }
 .course-card.css::before { background: var(--css-brand); }
-.course-card.js::before { background: var(--js-brand); }
+.course-card.pro-card {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .course-card.pro-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
 
 .course-card:hover { 
     transform: translateY(-12px) scale(1.02); 
@@ -1064,10 +1075,19 @@ p { margin-bottom: 1rem; }
 /* Responsive Adjustments */
 @media (max-width: 640px) {
     .container { padding: 1rem; }
-    .hero h1 { font-size: 2.5rem; }
-    .hero p { font-size: 1.1rem; }
-    .module-header { padding: 2rem 1rem !important; }
-    .module-header h1 { font-size: 2rem !important; }
-    .content-section { padding: 1.5rem; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; }
+    .module-header { padding: 2.5rem 1.5rem !important; border-radius: 1.5rem !important; }
+    .module-header h1 { font-size: 1.8rem !important; }
+    .module-header p { font-size: 1rem !important; }
+    
+    .syllabus-container { margin: 2rem auto; }
+    .syllabus-header { margin-bottom: 2rem; }
+    .syllabus-header h1 { font-size: 2rem; }
+    
+    .progress-section { padding: 1.5rem; margin-bottom: 2.5rem; }
+    .week-header { font-size: 1.2rem; padding: 0.8rem 1.2rem; margin-bottom: 1.5rem; }
+    
+    .content-section { padding: 1.5rem; margin-bottom: 2rem; }
     .course-card { padding: 2rem 1.5rem; }
 }
