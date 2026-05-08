@@ -545,32 +545,32 @@ p { margin-bottom: 1rem; }
     transform: scale(1.05);
 }
 
-/* Bottom Navigation (Mobile Only) */
+/* Bottom Navigation (Mobile Only) - Ultra Robust Version */
 .bottom-nav {
     display: none;
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(20px);
+    right: 0;
+    width: 100vw; /* Force viewport width */
+    background: #0f172a; /* Solid background for max visibility */
     border-top: 1px solid var(--border-dim);
-    z-index: 2000;
-    padding-bottom: env(safe-area-inset-bottom);
+    z-index: 10000; /* Ensure it stays above everything */
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    box-shadow: 0 -10px 25px rgba(0,0,0,0.5);
 }
 
 [data-theme="light"] .bottom-nav {
-    background: rgba(255, 255, 255, 0.95);
+    background: #ffffff;
 }
 
 .bottom-nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Exactly 4 equal parts */
     width: 100%;
-    max-width: 100%;
+    height: 65px;
     margin: 0;
-    padding: 0.5rem 0;
+    padding: 0;
 }
 
 .tab-item {
@@ -580,47 +580,56 @@ p { margin-bottom: 1rem; }
     justify-content: center;
     text-decoration: none;
     color: var(--text-muted);
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     font-weight: 700;
     gap: 2px;
-    transition: all 0.2s;
-    flex: 1 1 0; /* Force equal width */
-    min-width: 0; /* Allow shrinking */
-    text-align: center;
+    transition: all 0.2s ease;
+    width: 100%;
+    height: 100%;
 }
 
 .tab-item .tab-icon {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 1;
     margin-bottom: 2px;
-    transition: transform 0.2s;
 }
 
-.tab-item span:not(.tab-icon) {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 100%;
+.tab-item:active {
+    background: rgba(99, 102, 241, 0.1);
 }
 
-.tab-item:hover, .tab-item.active {
+.tab-item.active {
     color: var(--primary);
+    position: relative;
 }
 
-.tab-item.active .tab-icon {
-    transform: translateY(-2px);
+.tab-item.active::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 0 0 4px 4px;
 }
 
 @media (max-width: 1024px) {
-    .bottom-nav { display: block; }
-    body { padding-bottom: 70px; } /* Space for bottom nav */
+    .bottom-nav { display: block !important; }
+    body { padding-bottom: 70px !important; }
     
-    /* Hide main categories from top nav on mobile to avoid redundancy */
+    /* Ensure no horizontal scroll */
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
     .nav-links a[href*="learninghtml"],
     .nav-links a[href*="learningcss"],
     .nav-links a[href*="learningjs"],
     .nav-links a[href="index.html"] {
-        display: none;
+        display: none !important;
     }
 }
 
