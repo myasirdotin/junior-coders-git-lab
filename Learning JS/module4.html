@@ -3,338 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 4: Learn JavaScript conditional logic including if/else statements, comparison operators, and logical operators.">
-    <meta name="keywords" content="JavaScript, conditionals, if/else, comparison, logical operators, ternary, beginner, tutorial">
-    <meta name="author" content="Yasir Rasool">
-    <meta name="theme-color" content="#4f46e5">
-    <meta property="og:title" content="Module 4: Conditional Logic | Junior Coders">
-    <meta property="og:description" content="Learn JavaScript conditional logic including if/else statements, comparison operators, and logical operators.">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>Module 4: Conditional Logic | Junior Coders</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%BB</text></svg>">
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Module 4: Learn how to wrap your code into reusable machines called functions.">
+    <title>Module 4: Functions | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #6366f1, #4f46e5); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 2</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">The Code Machine!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Don't repeat yourself! Build reusable machines to do the work for you. ⚙️</p>
+        </header>
 
-    <main id="main-content" class="module-container">
-        <a href="learningjs.html" class="back-link" role="button">← Back to Syllabus</a>
+        <!-- Function Concept -->
+        <section class="content-section">
+            <h2>What is a Function?</h2>
+            <p>A **Function** is like a toaster. You put something in (Bread), the machine does some work (Toasting), and gives you something back (Toast!).</p>
+            
+            <div style="background: #0f172a; padding: 3rem; border-radius: 2rem; border: 3px solid #6366f1; margin-top: 2rem; text-align: center; position: relative;">
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem;">
+                    <!-- Input -->
+                    <div style="background: #eab308; color: #0f172a; padding: 1rem; border-radius: 0.5rem; font-weight: 800;">
+                        Bread (Input)
+                    </div>
+                    <span style="font-size: 2rem;">➡️</span>
+                    <!-- Machine -->
+                    <div style="background: #6366f1; color: white; padding: 2rem; border-radius: 1rem; font-weight: 900; border: 4px solid white;">
+                        🍞 TOASTER <br>
+                        <span style="font-size: 0.7rem; font-weight: 400;">(The Function)</span>
+                    </div>
+                    <span style="font-size: 2rem;">➡️</span>
+                    <!-- Output -->
+                    <div style="background: #f59e0b; color: #0f172a; padding: 1rem; border-radius: 0.5rem; font-weight: 800;">
+                        Toast (Output)
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="module-header">
-            <h1>Module 4: Conditional Logic</h1>
-            <p>⏱ 55 minutes | Week 2</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
+        <!-- Syntax Section -->
+        <section class="content-section">
+            <h2>How to build your Machine</h2>
+            <p>We use the keyword <code>function</code>, give it a name, and use curly braces for the instructions.</p>
+            <div style="background: #020617; padding: 2rem; border-radius: 1.5rem; margin: 1.5rem 0;">
+                <code style="color: #f8fafc; line-height: 1.8;">
+                    <span style="color: #6366f1;">function</span> <span style="color: #34d399;">sayHello</span>(name) { <br>
+                    &nbsp;&nbsp;console.log(<span style="color: #eab308;">"Hello "</span> + name); <br>
+                    } <br><br>
+                    <span style="color: #64748b;">// Start the machine!</span> <br>
+                    sayHello(<span style="color: #eab308;">"Ali"</span>);
+                </code>
+            </div>
             <ul>
-                <li>Use comparison operators (<code>===</code>, <code>!==</code>, <code>&gt;</code>, <code>&lt;</code>)</li>
-                <li>Combine conditions with logical operators (<code>&amp;&amp;</code>, <code>||</code>, <code>!</code>)</li>
-                <li>Write if/else and else if statements</li>
-                <li>Use the ternary operator and switch statements</li>
+                <li><strong>Parameters (name):</strong> The inputs your machine needs.</li>
+                <li><strong>Calling:</strong> Using the machine name with <code>()</code> to start it.</li>
             </ul>
-        </div>
+        </section>
 
-        <div class="content-section">
-            <h2>Overview</h2>
-            <p>Make decisions in your code using conditional statements. Learn how to control the flow of your program based on different conditions and logical expressions.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <div class="reading-material">
-                <h3>📚 What is Conditional Logic?</h3>
-                <p><strong>Conditional logic</strong> allows your code to make decisions. It executes different blocks of code based on whether a condition is <code>true</code> or <code>false</code>. Think of it like a fork in the road - your program chooses which path to take!</p>
+        <!-- Return Values -->
+        <section class="content-section" style="border-left: 8px solid #f43f5e;">
+            <h2>The "Return" Secret 📤</h2>
+            <p>Some machines don't just "do" something, they **give back** a result using the <code>return</code> keyword.</p>
+            <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                <code>return 5 + 5; <span style="color: #10b981;">// The machine gives back 10</span></code>
             </div>
+        </section>
 
-            <h3>4.1 Comparison Operators</h3>
-            <p>Comparison operators are used to compare values and return a boolean result:</p>
-
-            <div class="code-example">
-                <code>let x = 10;
-let y = 5;
-
-// Equal to
-console.log(x == y);   // false
-console.log(10 == "10"); // true (loose equality - type conversion!)
-
-// Strict equal (no type conversion)
-console.log(x === 10);   // true
-console.log(10 === "10"); // false (different types)
-
-// Not equal
-console.log(x != y);    // true
-console.log(x !== "10"); // true (strict not equal)
-
-// Greater than / Less than
-console.log(x > y);     // true
-console.log(x < y);     // false
-console.log(x >= 10);   // true
-console.log(y <= 5);    // true</code>
-            </div>
-
-            <div class="warning-box">
-                <strong>⚠️ Common Mistake:</strong> Always use <code>===</code> (strict equality) instead of <code>==</code> (loose equality). The loose equality performs type coercion which can lead to unexpected results!
-            </div>
-
-            <h3>4.2 Logical Operators</h3>
-            <p>Logical operators allow you to combine multiple conditions:</p>
-
-            <div class="code-example">
-                <code>let age = 25;
-let hasLicense = true;
-let hasCar = false;
-
-// AND (&&) - both conditions must be true
-console.log(age >= 18 && hasLicense); // true
-console.log(hasLicense && hasCar);    // false
-
-// OR (||) - at least one condition must be true
-console.log(hasCar || hasLicense);    // true
-console.log(age < 18 || hasCar);      // false
-
-// NOT (!) - reverses the boolean value
-console.log(!hasCar);                 // true
-console.log(!(age < 18));             // true
-
-// Real-world example
-let canDrive = age >= 18 && hasLicense;
-console.log(`Can drive: ${canDrive}`); // "Can drive: true"
-
-let needsRide = !hasCar || !hasLicense;
-console.log(`Needs a ride: ${needsRide}`); // "Needs a ride: true"</code>
-            </div>
-
-            <div class="key-point">
-                <strong>💡 Short-Circuit Evaluation:</strong> JavaScript stops evaluating as soon as it knows the result. For <code>&&</code>, if the first value is <code>false</code>, it returns that value. For <code>||</code>, if the first value is <code>true</code>, it returns that value!
-            </div>
-
-            <h3>4.3 if/else Statements</h3>
-            <p>The <code>if</code> statement executes code only when a condition is true:</p>
-
-            <div class="code-example">
-                <code>// Basic if statement
-let temperature = 30;
-
-if (temperature > 25) {
-    console.log("It's hot outside!");
-}
-
-// if/else statement
-let score = 75;
-
-if (score >= 80) {
-    console.log("You passed with distinction!");
-} else {
-    console.log("You passed, but can do better.");
-}
-
-// if/else if/else chain
-let grade = 85;
-
-if (grade >= 90) {
-    console.log("Grade: A");
-} else if (grade >= 80) {
-    console.log("Grade: B");
-} else if (grade >= 70) {
-    console.log("Grade: C");
-} else if (grade >= 60) {
-    console.log("Grade: D");
-} else {
-    console.log("Grade: F - Failed");
-}
-
-// Multiple conditions
-let hour = 14;
-let day = "Monday";
-
-if (hour >= 9 && hour <= 17 && day !== "Saturday" && day !== "Sunday") {
-    console.log("The store is open.");
-} else {
-    console.log("The store is closed.");
-}</code>
-            </div>
-
-            <div class="tip-box">
-                <strong>✅ Best Practice:</strong> Always use curly braces <code>{}</code> even for single-line if statements. It makes your code more readable and prevents bugs when you add more lines later!
-            </div>
-
-            <h3>4.4 Truthy and Falsy Values</h3>
-            <p>In JavaScript, values can be "truthy" or "falsy" when evaluated in a boolean context:</p>
-
-            <div class="code-example">
-                <code>// Falsy values (evaluate to false)
-// 1. false
-// 2. 0 (zero)
-// 3. "" (empty string)
-// 4. null
-// 5. undefined
-// 6. NaN
-
-// Everything else is truthy!
-
-let name = "";
-if (!name) {
-    console.log("Name is required!"); // This runs
-}
-
-let user = null;
-if (!user) {
-    console.log("User not logged in"); // This runs
-}
-
-let items = [];
-if (items.length) {
-    console.log("Has items");
-} else {
-    console.log("Cart is empty"); // This runs
-}
-
-// Useful pattern: default values
-let input = "";
-let defaultValue = "Guest";
-let userName = input || defaultValue;
-console.log(userName); // "Guest"</code>
-            </div>
-
-            <h3>4.5 Ternary Operator</h3>
-            <p>The ternary operator is a shorthand for simple if/else statements:</p>
-
-            <div class="code-example">
-                <code>// Syntax: condition ? valueIfTrue : valueIfFalse
-
-let age = 20;
-let status = age >= 18 ? "Adult" : "Minor";
-console.log(status); // "Adult"
-
-// Equivalent to:
-// let status;
-// if (age >= 18) {
-//     status = "Adult";
-// } else {
-//     status = "Minor";
-// }
-
-// More examples
-let price = 100;
-let discount = price > 50 ? 0.1 : 0; // 10% discount if price > 50
-let finalPrice = price * (1 - discount);
-console.log(finalPrice); // 90
-
-// Nested ternary (use sparingly!)
-let score = 85;
-let result = score >= 90 ? "A" : score >= 80 ? "B" : score >= 70 ? "C" : "F";
-console.log(result); // "B"
-
-// With functions
-let isLoggedIn = true;
-let message = isLoggedIn ? greetUser() : promptLogin();</code>
-            </div>
-
-            <div class="tip-box">
-                <strong>✅ When to use Ternary:</strong> Use ternary operators for simple, single-value assignments. For complex logic or multiple statements, stick with if/else for better readability!
-            </div>
-
-            <h3>4.6 Switch Statement</h3>
-            <p>The <code>switch</code> statement is useful when you have many conditions to check against the same value:</p>
-
-            <div class="code-example">
-                <code>let day = "Monday";
-
-switch (day) {
-    case "Monday":
-        console.log("Start of the work week");
-        break;
-    case "Tuesday":
-    case "Wednesday":
-    case "Thursday":
-        console.log("Midweek day");
-        break;
-    case "Friday":
-        console.log("TGIF! Weekend is near");
-        break;
-    case "Saturday":
-    case "Sunday":
-        console.log("Weekend! Time to relax");
-        break;
-    default:
-        console.log("Invalid day");
-}
-
-// Switch with numbers
-let month = 3;
-let monthName;
-
-switch (month) {
-    case 1: monthName = "January"; break;
-    case 2: monthName = "February"; break;
-    case 3: monthName = "March"; break;
-    // ... more cases
-    default: monthName = "Unknown";
-}
-console.log(monthName); // "March"</code>
-            </div>
-
-            <div class="warning-box">
-                <strong>⚠️ Don't forget break!</strong> Without <code>break</code>, execution will "fall through" to the next case. This is sometimes useful (like for grouping cases), but often a bug!
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Common Mistakes</h2>
-            <ul>
-                <li><strong>Using <code>=</code> (assignment) instead of <code>===</code> (comparison)</strong> - A single equals sign assigns a value; it does not compare. This is one of the most frequent bugs in beginner code.</li>
-                <li><strong>Forgetting <code>break</code> in switch statements (fall-through bug)</strong> - Without <code>break</code>, execution continues into the next case block, which is usually unintended.</li>
-                <li><strong>Using <code>==</code> instead of <code>===</code> (loose equality allows type coercion)</strong> - Loose equality can produce surprising results like <code>"0" == false</code> being <code>true</code>. Always prefer strict equality.</li>
-                <li><strong>Not handling all possible conditions (missing else/default)</strong> - Always include an <code>else</code> or <code>default</code> clause to handle unexpected values gracefully.</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="playground.html">Playground</a>:</p>
-            <ol>
-                <li>Write a program that checks if a number is positive, negative, or zero</li>
-                <li>Create a simple login system that checks username and password</li>
-                <li>Build a grade calculator that converts numeric scores to letter grades (A-F)</li>
-                <li>Write a function that determines if a year is a leap year</li>
-                <li>Create a simple menu system using switch statements</li>
-                <li>Use ternary operators to create a greeting based on time of day</li>
-            </ol>
-        </div>
-
-        <div class="content-section">
-            <h2>Check Your Understanding</h2>
+        <!-- Quiz Section -->
+        <section class="content-section">
+            <h2>Machine Quiz!</h2>
             <form id="quiz-form-4" class="quiz-section">
-                <div class="quiz-question" data-answer="b">
-                    <p>Q1: What does === check that == does not?</p>
-                    <label><input type="radio" name="q4-1" value="a"> a) Value only</label>
-                    <label><input type="radio" name="q4-1" value="b"> b) Value and type</label>
-                    <label><input type="radio" name="q4-1" value="c"> c) Type only</label>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: Which keyword is used to create a new function?</p>
+                    <label><input type="radio" name="q4-1" value="a"> function</label>
+                    <label><input type="radio" name="q4-1" value="b"> machine</label>
+                    <label><input type="radio" name="q4-1" value="c"> start</label>
                     <div class="quiz-feedback"></div>
                 </div>
                 <div class="quiz-question" data-answer="b">
-                    <p>Q2: What does <code>true && false</code> evaluate to?</p>
-                    <label><input type="radio" name="q4-2" value="a"> a) true</label>
-                    <label><input type="radio" name="q4-2" value="b"> b) false</label>
-                    <label><input type="radio" name="q4-2" value="c"> c) undefined</label>
+                    <p>Q2: What is the "Input" inside the parentheses called?</p>
+                    <label><input type="radio" name="q4-2" value="a"> A Box</label>
+                    <label><input type="radio" name="q4-2" value="b"> A Parameter</label>
+                    <label><input type="radio" name="q4-2" value="c"> A Variable</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <div class="quiz-question" data-answer="c">
-                    <p>Q3: What keyword prevents fall-through in a switch?</p>
-                    <label><input type="radio" name="q4-3" value="a"> a) stop</label>
-                    <label><input type="radio" name="q4-3" value="b"> b) return</label>
-                    <label><input type="radio" name="q4-3" value="c"> c) break</label>
-                    <div class="quiz-feedback"></div>
-                </div>
-                <button type="button" class="quiz-submit" onclick="checkQuiz(4)">Check Answers</button>
-                <div id="quiz-score-4" class="quiz-score"></div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(4)">Check Answers</button>
             </form>
-        </div>
-
-        
+        </section>
     </main>
 
     <script src="../js/core.js"></script>

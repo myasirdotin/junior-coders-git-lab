@@ -4,168 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Module 1: Learn about JavaScript variables and data types including let, const, strings, numbers, booleans, and typeof.">
-    <meta name="keywords" content="JavaScript, variables, data types, let, const, typeof, beginner, tutorial">
-    <meta name="author" content="Yasir Rasool">
-    <meta name="theme-color" content="#4f46e5">
-    <meta property="og:title" content="Module 1: Variables & Data Types | Junior Coders">
-    <meta property="og:description" content="Learn about JavaScript variables and data types including let, const, strings, numbers, booleans, and typeof.">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>Module 1: Variables & Data Types | Junior Coders</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%BB</text></svg>">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Module 1: Variables | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #4f46e5, #818cf8); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 1</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">The Memory Vault!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">JavaScript is the brain! Let's learn how to remember things using variables. 🧠</p>
+        </header>
 
-    <main id="main-content" class="module-container">
-        <a href="learningjs.html" class="back-link" role="button">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 1: Variables & Data Types</h1>
-            <p>⏱ 45 minutes | Week 1</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
-            <ul>
-                <li>Understand what variables are</li>
-                <li>Use <code>let</code> and <code>const</code> to declare variables</li>
-                <li>Work with strings, numbers, and booleans</li>
-                <li>Use <code>typeof</code> to check data types</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Overview</h2>
-            <p>Learn how to store and manage data using variables. Understand different data types in JavaScript and how to work with them effectively.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <div class="reading-material">
-                <h3>📚 What is a Variable?</h3>
-                <p>A <strong>variable</strong> is like a labeled container that stores a value. Think of it as a box with a name tag - you can put something inside, take it out, or replace it with something else.</p>
+        <!-- Variable Concept -->
+        <section class="content-section">
+            <h2>The "Labeled Box" Analogy</h2>
+            <p>A **Variable** is like a box with a label. You put something inside (data), and give the box a name (label) so you can find it later!</p>
+            <div style="display: flex; justify-content: space-around; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; text-align: center;">
+                <div style="background: var(--bg-glass); border: 3px solid #4f46e5; padding: 2rem; border-radius: 1.5rem; width: 250px;">
+                    <span style="font-size: 3rem;">📦</span>
+                    <h3 style="color: #4f46e5; margin-top: 1rem;">let name = "Ali";</h3>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">The "let" box can be opened and changed later.</p>
+                </div>
+                <div style="background: var(--bg-glass); border: 3px solid #f43f5e; padding: 2rem; border-radius: 1.5rem; width: 250px;">
+                    <span style="font-size: 3rem;">🔒</span>
+                    <h3 style="color: #f43f5e; margin-top: 1rem;">const age = 12;</h3>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">The "const" vault is locked! It never changes.</p>
+                </div>
             </div>
+        </section>
 
-            <div class="key-point">
-                <strong>💡 Key Point:</strong> Variables in JavaScript are dynamically typed, meaning you don't need to declare what type of data the variable will hold. JavaScript figures it out automatically!
+        <!-- Data Types Section -->
+        <section class="content-section">
+            <h2>What's Inside the Box?</h2>
+            <p>JavaScript can store different kinds of "stuff". These are called **Data Types**.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #eab308;">
+                    <h3>Strings 🧵</h3>
+                    <p>Just text! Always goes inside quotes.</p>
+                    <code>"Hello Junior Coders!"</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #10b981;">
+                    <h3>Numbers 🔢</h3>
+                    <p>Whole numbers or decimals. No quotes needed!</p>
+                    <code>42</code> or <code>19.99</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #f43f5e;">
+                    <h3>Booleans ✅</h3>
+                    <p>Simple Yes/No or True/False. </p>
+                    <code>true</code> or <code>false</code>
+                </div>
             </div>
+        </section>
 
-            <h3>1.1 Declaring Variables</h3>
-            <p>JavaScript provides three ways to declare variables:</p>
-
-            <div class="code-example">
-                <code>// let - can be reassigned
-let name = "Ali";
-name = "Ahmed"; // This is allowed
-
-// const - cannot be reassigned (constant)
-const pi = 3.14159;
-// pi = 3.14; // ERROR! Cannot reassign
-
-// var - old way (avoid using)
-var oldVariable = "deprecated";</code>
+        <!-- Syntax Section -->
+        <section class="content-section">
+            <h2>The Variable Formula</h2>
+            <div style="background: #020617; padding: 2rem; border-radius: 1.5rem; margin: 1.5rem 0;">
+                <code style="color: #f8fafc; font-size: 1.2rem;">
+                    <span style="color: #4f46e5;">let</span> <span style="color: #34d399;">score</span> = <span style="color: #eab308;">10</span>;
+                </code>
             </div>
-
-            <div class="tip-box">
-                <strong>✅ Best Practice:</strong> Always use <code>const</code> by default. Only use <code>let</code> when you know the value will change. Avoid <code>var</code> entirely!
-            </div>
-
-            <h3>1.2 Data Types</h3>
-            <p>JavaScript has several built-in data types:</p>
-
-            <div class="code-example">
-                <code>// String - text data
-let greeting = "Hello, World!";
-
-// Number - integers and decimals
-let age = 25;
-let price = 19.99;
-
-// Boolean - true or false
-let isStudent = true;
-let hasLicense = false;
-
-// Undefined - variable declared but not assigned
-let notDefined;
-console.log(notDefined); // undefined
-
-// Null - intentional absence of value
-let emptyValue = null;</code>
-            </div>
-
-            <div class="warning-box">
-                <strong>⚠️ Common Mistake:</strong> Don't confuse <code>undefined</code> and <code>null</code>. <code>undefined</code> means "not assigned yet", while <code>null</code> means "intentionally empty".
-            </div>
-
-            <h3>1.3 Checking Data Types</h3>
-            <p>Use the <code>typeof</code> operator to check what type a variable is:</p>
-
-            <div class="code-example">
-                <code>let name = "Sara";
-console.log(typeof name); // "string"
-
-let age = 20;
-console.log(typeof age); // "number"
-
-let isActive = true;
-console.log(typeof isActive); // "boolean"</code>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Common Mistakes</h2>
-            <ul>
-                <li><strong>Using <code>var</code> instead of <code>let</code>/<code>const</code></strong> - <code>var</code> has confusing scoping rules. Stick with <code>let</code> and <code>const</code>.</li>
-                <li><strong>Forgetting that JavaScript is case-sensitive</strong> - <code>myVar</code> and <code>myvar</code> are two completely different variables.</li>
-                <li><strong>Not understanding the difference between <code>undefined</code> and <code>null</code></strong> - <code>undefined</code> means a variable was declared but never assigned; <code>null</code> is an intentional empty value.</li>
-                <li><strong>Trying to reassign a <code>const</code> variable</strong> - Constants cannot be changed after they are assigned. Use <code>let</code> if the value needs to change.</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="playground.html">Playground</a>:</p>
             <ol>
-                <li>Declare a variable with your name and print it</li>
-                <li>Declare a constant with your birth year</li>
-                <li>Create variables of each data type</li>
-                <li>Use typeof to check each variable's type</li>
+                <li><strong>Keyword (let/const):</strong> Are we making a box or a vault?</li>
+                <li><strong>Name (score):</strong> The label on our box.</li>
+                <li><strong>Assignment (=):</strong> Put the stuff inside!</li>
+                <li><strong>Value (10):</strong> The actual data we are storing.</li>
             </ol>
-        </div>
+        </section>
 
-        <div class="content-section">
-            <h2>Check Your Understanding</h2>
+        <!-- Quiz Section -->
+        <section class="content-section">
+            <h2>JS Logic Quiz!</h2>
             <form id="quiz-form-1" class="quiz-section">
                 <div class="quiz-question" data-answer="c">
-                    <p>Q1: Which keyword should you use to declare a variable that won't change?</p>
-                    <label><input type="radio" name="q1-1" value="a"> a) var</label>
-                    <label><input type="radio" name="q1-1" value="b"> b) let</label>
-                    <label><input type="radio" name="q1-1" value="c"> c) const</label>
+                    <p>Q1: Which keyword should you use for a variable that will NEVER change?</p>
+                    <label><input type="radio" name="q1" value="a"> var</label>
+                    <label><input type="radio" name="q1" value="b"> let</label>
+                    <label><input type="radio" name="q1" value="c"> const</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <div class="quiz-question" data-answer="b">
-                    <p>Q2: What does typeof 42 return?</p>
-                    <label><input type="radio" name="q1-2" value="a"> a) "integer"</label>
-                    <label><input type="radio" name="q1-2" value="b"> b) "number"</label>
-                    <label><input type="radio" name="q1-2" value="c"> c) "Number"</label>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: Which data type is used for text like "Hello"?</p>
+                    <label><input type="radio" name="q2" value="a"> String</label>
+                    <label><input type="radio" name="q2" value="b"> Number</label>
+                    <label><input type="radio" name="q2" value="c"> Boolean</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <div class="quiz-question" data-answer="c">
-                    <p>Q3: What is the value of a variable declared with let but not assigned?</p>
-                    <label><input type="radio" name="q1-3" value="a"> a) null</label>
-                    <label><input type="radio" name="q1-3" value="b"> b) 0</label>
-                    <label><input type="radio" name="q1-3" value="c"> c) undefined</label>
-                    <div class="quiz-feedback"></div>
-                </div>
-                <button type="button" class="quiz-submit" onclick="checkQuiz(1)">Check Answers</button>
-                <div id="quiz-score-1" class="quiz-score"></div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answers</button>
             </form>
-        </div>
-
-        
+        </section>
     </main>
 
     <script src="../js/core.js"></script>

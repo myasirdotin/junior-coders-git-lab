@@ -3,406 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 7: Functions - Learn to declare and call functions, use parameters, arrow functions, scope, closures, and higher-order functions in JavaScript.">
-    <title>Module 7: Functions</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Module 7: Learn how to connect JavaScript to your HTML to change content and styles live.">
+    <title>Module 7: DOM Intro | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #3b82f6, #0ea5e9); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 3</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">The Page Controller!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Connect your JavaScript "Brain" to your HTML "Skeleton"! 🎮</p>
+        </header>
 
-    <div class="module-container">
-        <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 7: Functions</h1>
-            <p>⏱ 70 minutes | Week 4</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
-            <ul>
-                <li>Declare and call functions</li>
-                <li>Use parameters, default values, and return statements</li>
-                <li>Write arrow functions</li>
-                <li>Understand scope and closures</li>
-                <li>Use higher-order functions (map, filter, reduce)</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Overview</h2>
-            <p>Create reusable blocks of code with functions. Learn how to define functions, pass parameters, return values, and understand the different ways to write functions in JavaScript.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <div class="reading-material">
-                <h3>📚 What is a Function?</h3>
-                <p>A <strong>function</strong> is a reusable block of code that performs a specific task. Think of it as a mini-program within your program. You can call (execute) a function whenever you need it, without rewriting the same code over and over.</p>
+        <!-- DOM Concept -->
+        <section class="content-section">
+            <h2>What is the DOM?</h2>
+            <p>The **DOM (Document Object Model)** is like a map of your website. It turns every tag into an object that JavaScript can talk to!</p>
+            
+            <div style="background: #0f172a; padding: 2rem; border-radius: 2rem; border: 3px solid #3b82f6; margin-top: 2rem; text-align: center;">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
+                    <div style="background: white; color: #3b82f6; padding: 1rem 2rem; border-radius: 0.5rem; font-weight: 900; border: 3px solid #3b82f6;">DOCUMENT</div>
+                    <div style="width: 2px; height: 20px; background: #3b82f6;"></div>
+                    <div style="background: white; color: #3b82f6; padding: 1rem 2rem; border-radius: 0.5rem; font-weight: 900; border: 3px solid #3b82f6;">&lt;body&gt;</div>
+                    <div style="display: flex; gap: 2rem; margin-top: 1rem;">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 2px; height: 20px; background: #3b82f6;"></div>
+                            <div style="background: #eff6ff; color: #3b82f6; padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 800; border: 1px solid #3b82f6;">&lt;h1&gt;</div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <div style="width: 2px; height: 20px; background: #3b82f6;"></div>
+                            <div style="background: #eff6ff; color: #3b82f6; padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 800; border: 1px solid #3b82f6;">&lt;p&gt;</div>
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.8rem; color: #3b82f6;">JavaScript can "Select" and "Change" any of these!</p>
             </div>
+        </section>
 
-            <h3>7.1 Function Declaration</h3>
-            <p>The traditional way to create a function:</p>
-
-            <div class="code-example">
-                <code>// Basic function declaration
-function greet() {
-    console.log("Hello, World!");
-}
-
-// Calling the function
-greet(); // "Hello, World!"
-
-// Function with parameters
-function greetUser(name) {
-    console.log(`Hello, ${name}!`);
-}
-
-greetUser("Alice"); // "Hello, Alice!"
-greetUser("Bob");   // "Hello, Bob!"
-
-// Function with multiple parameters
-function addNumbers(a, b) {
-    let sum = a + b;
-    console.log(`${a} + ${b} = ${sum}`);
-}
-
-addNumbers(5, 3); // "5 + 3 = 8"
-
-// Function with return value
-function multiply(a, b) {
-    return a * b;
-}
-
-let result = multiply(4, 5);
-console.log(result); // 20
-console.log(multiply(3, 7)); // 21</code>
+        <!-- Selection Section -->
+        <section class="content-section">
+            <h2>Finding Elements</h2>
+            <p>Before you can change something, you have to **find** it. We use <code>document.getElementById</code> to grab a specific item.</p>
+            <div style="background: #020617; padding: 2rem; border-radius: 1.5rem; margin: 1.5rem 0;">
+                <code style="color: #f8fafc; font-size: 1.1rem; line-height: 1.6;">
+                    <span style="color: #64748b;">// 1. Find the title</span> <br>
+                    <span style="color: #4f46e5;">const</span> <span style="color: #34d399;">myTitle</span> = document.getElementById(<span style="color: #eab308;">"main-header"</span>); <br><br>
+                    <span style="color: #64748b;">// 2. Change its text!</span> <br>
+                    myTitle.innerHTML = <span style="color: #eab308;">"JS is Awesome!"</span>;
+                </code>
             </div>
+        </section>
 
-            <div class="key-point">
-                <strong>💡 Parameter vs Argument:</strong> <strong>Parameters</strong> are the variables listed in the function definition. <strong>Arguments</strong> are the actual values passed when calling the function.
+        <!-- What can we change? -->
+        <section class="content-section" style="border-left: 8px solid #10b981;">
+            <h2>The Magic Wand 🪄</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                    <strong>innerHTML</strong> <br> Change the text or HTML inside.
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                    <strong>style</strong> <br> Change colors, fonts, or sizes.
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
+                    <strong>src</strong> <br> Change an image to a new one!
+                </div>
             </div>
+        </section>
 
-            <h3>7.2 Default Parameters</h3>
-            <p>You can set default values for parameters:</p>
-
-            <div class="code-example">
-                <code>// Default parameter values
-function greet(name = "Guest") {
-    console.log(`Hello, ${name}!`);
-}
-
-greet();           // "Hello, Guest!"
-greet("Alice");    // "Hello, Alice!"
-
-// Multiple default parameters
-function createProfile(name, age = 18, city = "Unknown") {
-    return { name, age, city };
-}
-
-console.log(createProfile("John"));
-// { name: "John", age: 18, city: "Unknown" }
-
-console.log(createProfile("Jane", 25, "NYC"));
-// { name: "Jane", age: 25, city: "NYC" }
-
-// Default with expressions
-function calculateArea(radius = 1) {
-    return Math.PI * radius * radius;
-}
-
-console.log(calculateArea());    // 3.14159...
-console.log(calculateArea(5));   // 78.5398...</code>
-            </div>
-
-            <h3>7.3 Arrow Functions</h3>
-            <p>A shorter syntax for writing functions (ES6):</p>
-
-            <div class="code-example">
-                <code>// Regular function
-function add(a, b) {
-    return a + b;
-}
-
-// Arrow function equivalent
-const add = (a, b) => {
-    return a + b;
-};
-
-// Concise body (implicit return)
-const add = (a, b) => a + b;
-
-// Single parameter (parentheses optional)
-const square = x => x * x;
-console.log(square(5)); // 25
-
-// No parameters
-const sayHello = () => console.log("Hello!");
-sayHello(); // "Hello!"
-
-// Returning an object (wrap in parentheses)
-const createUser = (name, age) => ({ name, age });
-console.log(createUser("Alice", 25));
-// { name: "Alice", age: 25 }
-
-// Arrow functions with arrays
-let numbers = [1, 2, 3, 4, 5];
-let doubled = numbers.map(num => num * 2);
-console.log(doubled); // [2, 4, 6, 8, 10]
-
-let evens = numbers.filter(num => num % 2 === 0);
-console.log(evens); // [2, 4]</code>
-            </div>
-
-            <div class="tip-box">
-                <strong>✅ When to use Arrow Functions:</strong> Arrow functions are great for short callbacks and when you want to preserve the <code>this</code> context. However, they don't have their own <code>this</code> binding, so avoid them for object methods!
-            </div>
-
-            <h3>7.4 Function Expressions</h3>
-            <p>Functions can be stored in variables:</p>
-
-            <div class="code-example">
-                <code>// Function expression
-const greet = function(name) {
-    return `Hello, ${name}!`;
-};
-
-console.log(greet("Alice")); // "Hello, Alice!"
-
-// Anonymous function (no name)
-const anonymous = function() {
-    console.log("I'm anonymous!");
-};
-
-// Named function expression
-const factorial = function fact(n) {
-    if (n <= 1) return 1;
-    return n * fact(n - 1);
-};
-
-console.log(factorial(5)); // 120
-
-// Difference: Function Declaration vs Expression
-// Declaration - hoisted (can call before definition)
-sayHello(); // Works!
-function sayHello() {
-    console.log("Hello!");
-}
-
-// Expression - NOT hoisted (can't call before definition)
-// sayHi(); // Error!
-const sayHi = function() {
-    console.log("Hi!");
-};</code>
-            </div>
-
-            <div class="warning-box">
-                <strong>⚠️ Hoisting:</strong> Function declarations are hoisted (moved to top of scope), but function expressions are not. Always define expressions before using them!
-            </div>
-
-            <h3>7.5 Scope and Closures</h3>
-            <p>Understanding where variables are accessible:</p>
-
-            <div class="code-example">
-                <code>// Global scope
-let globalVar = "I'm global!";
-
-function outer() {
-    // Function scope
-    let functionVar = "I'm in outer!";
-
-    function inner() {
-        // Inner function scope
-        let innerVar = "I'm in inner!";
-        console.log(globalVar);   // Accessible
-        console.log(functionVar); // Accessible
-        console.log(innerVar);    // Accessible
-    }
-
-    inner();
-    console.log(innerVar); // Error! Not accessible here
-}
-
-outer();
-console.log(functionVar); // Error! Not accessible here
-
-// Block scope with let and const
-if (true) {
-    let blockVar = "I'm in the block!";
-    const blockConst = "Me too!";
-    console.log(blockVar);  // Accessible
-}
-console.log(blockVar); // Error! Not accessible outside block
-
-// Closure - function remembering its lexical scope
-function createCounter() {
-    let count = 0;
-
-    return function() {
-        count++;
-        return count;
-    };
-}
-
-const counter = createCounter();
-console.log(counter()); // 1
-console.log(counter()); // 2
-console.log(counter()); // 3
-// 'count' is still accessible due to closure!</code>
-            </div>
-
-            <div class="key-point">
-                <strong>💡 Closure:</strong> A closure is when a function "remembers" the variables from its outer scope, even when called outside that scope. This is powerful for creating private variables!
-            </div>
-
-            <h3>7.6 Higher-Order Functions</h3>
-            <p>Functions that take other functions as arguments or return them:</p>
-
-            <div class="code-example">
-                <code>// Function that takes a function as argument
-function operateOnArray(arr, operation) {
-    let result = [];
-    for (let item of arr) {
-        result.push(operation(item));
-    }
-    return result;
-}
-
-let numbers = [1, 2, 3, 4, 5];
-let doubled = operateOnArray(numbers, n => n * 2);
-let squared = operateOnArray(numbers, n => n * n);
-console.log(doubled); // [2, 4, 6, 8, 10]
-console.log(squared); // [1, 4, 9, 16, 25]
-
-// Function that returns a function
-function createMultiplier(multiplier) {
-    return function(number) {
-        return number * multiplier;
-    };
-}
-
-const double = createMultiplier(2);
-const triple = createMultiplier(3);
-
-console.log(double(5)); // 10
-console.log(triple(5)); // 15
-
-// Built-in higher-order functions
-let words = ["hello", "world", "javascript"];
-
-// map - transform each element
-let uppercased = words.map(word => word.toUpperCase());
-console.log(uppercased); // ["HELLO", "WORLD", "JAVASCRIPT"]
-
-// filter - keep elements that pass test
-let longWords = words.filter(word => word.length > 5);
-console.log(longWords); // ["javascript"]
-
-// reduce - combine all elements into one
-let sum = numbers.reduce((total, num) => total + num, 0);
-console.log(sum); // 15
-
-// find - get first matching element
-let firstEven = numbers.find(num => num % 2 === 0);
-console.log(firstEven); // 2</code>
-            </div>
-
-            <div class="tip-box">
-                <strong>✅ Pro Tip:</strong> Master <code>map</code>, <code>filter</code>, and <code>reduce</code> - these are the most commonly used higher-order functions in JavaScript and will make your code cleaner and more expressive!
-            </div>
-
-            <h3>7.7 The Arguments Object</h3>
-            <p>Access all arguments passed to a function:</p>
-
-            <div class="code-example">
-                <code>// The arguments object (available in regular functions)
-function sumAll() {
-    let total = 0;
-    for (let arg of arguments) {
-        total += arg;
-    }
-    return total;
-}
-
-console.log(sumAll(1, 2, 3));       // 6
-console.log(sumAll(1, 2, 3, 4, 5)); // 15
-
-// Rest parameters (modern approach)
-function sumAllRest(...numbers) {
-    return numbers.reduce((total, num) => total + num, 0);
-}
-
-console.log(sumAllRest(1, 2, 3));       // 6
-console.log(sumAllRest(1, 2, 3, 4, 5)); // 15
-
-// Rest parameters with other parameters
-function greet(greeting, ...names) {
-    names.forEach(name => {
-        console.log(`${greeting}, ${name}!`);
-    });
-}
-
-greet("Hello", "Alice", "Bob", "Charlie");
-// Hello, Alice!
-// Hello, Bob!
-// Hello, Charlie!</code>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Common Mistakes</h2>
-            <ul>
-                <li><strong>Forgetting to use <code>return</code>:</strong> A function returns <code>undefined</code> by default if there is no <code>return</code> statement.</li>
-                <li><strong>Confusing function declarations with expressions:</strong> Declarations are hoisted, but expressions are not. This means you can call a declared function before its definition, but not an expression.</li>
-                <li><strong>Using arrow functions as object methods:</strong> Arrow functions don't have their own <code>this</code>, so they won't refer to the object when used as methods.</li>
-                <li><strong>Not understanding that parameters are local to the function:</strong> Parameters exist only inside the function scope and do not affect variables with the same name outside.</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="playground.html">Playground</a>:</p>
-            <ol>
-                <li>Write a function that checks if a number is prime</li>
-                <li>Create a function that reverses a string without using built-in methods</li>
-                <li>Write a higher-order function that creates a "greeter" with a custom greeting</li>
-                <li>Use arrow functions and array methods to process a list of objects</li>
-                <li>Create a counter using closures that can increment, decrement, and reset</li>
-                <li>Write a function that uses rest parameters to find the average of any number of arguments</li>
-            </ol>
-        </div>
-
-        <div class="content-section">
-            <h2>Check Your Understanding</h2>
+        <!-- Quiz Section -->
+        <section class="content-section">
+            <h2>DOM Quiz!</h2>
             <form id="quiz-form-7" class="quiz-section">
-                <div class="quiz-question" data-answer="c">
-                    <p>Q1: What does a function return if there's no return statement?</p>
-                    <label><input type="radio" name="q7-1" value="a"> a) null</label>
-                    <label><input type="radio" name="q7-1" value="b"> b) 0</label>
-                    <label><input type="radio" name="q7-1" value="c"> c) undefined</label>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: What does DOM stand for?</p>
+                    <label><input type="radio" name="q7-1" value="a"> Digital Object Memory</label>
+                    <label><input type="radio" name="q7-1" value="b"> Document Object Model</label>
+                    <label><input type="radio" name="q7-1" value="c"> Data Only Management</label>
                     <div class="quiz-feedback"></div>
                 </div>
                 <div class="quiz-question" data-answer="a">
-                    <p>Q2: Which is a valid arrow function?</p>
-                    <label><input type="radio" name="q7-2" value="a"> a) const f = x => x * 2</label>
-                    <label><input type="radio" name="q7-2" value="b"> b) const f = x -> x * 2</label>
-                    <label><input type="radio" name="q7-2" value="c"> c) const f = (x) >> x * 2</label>
+                    <p>Q2: Which command is used to find an element by its ID name?</p>
+                    <label><input type="radio" name="q7-2" value="a"> getElementById</label>
+                    <label><input type="radio" name="q7-2" value="b"> findMyTag</label>
+                    <label><input type="radio" name="q7-2" value="c"> selectId</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <div class="quiz-question" data-answer="b">
-                    <p>Q3: What is a closure?</p>
-                    <label><input type="radio" name="q7-3" value="a"> a) A function that closes the browser</label>
-                    <label><input type="radio" name="q7-3" value="b"> b) A function that remembers its outer scope variables</label>
-                    <label><input type="radio" name="q7-3" value="c"> c) A function with no parameters</label>
-                    <div class="quiz-feedback"></div>
-                </div>
-                <button type="button" class="quiz-submit" onclick="checkQuiz(7)">Check Answers</button>
-                <div id="quiz-score-7" class="quiz-score"></div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(7)">Check Answers</button>
             </form>
-        </div>
-
-        
-    </div>
+        </section>
+    </main>
 
     <script src="../js/core.js"></script>
 </body>

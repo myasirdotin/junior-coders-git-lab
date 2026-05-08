@@ -3,587 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 9: DOM & Events</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="../js/core.js"></script>
-    <style>
-        .module-container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .module-header { text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 15px; margin-bottom: 25px; }
-        .module-header h1 { color: white; border: none; margin: 0; }
-        .back-link { display: inline-block; margin-bottom: 15px; color: #667eea; text-decoration: none; font-weight: bold; }
-        .back-link:hover { text-decoration: underline; }
-        .content-section { background: white; padding: 20px; border-radius: 10px; border: 3px solid #000; box-shadow: 5px 5px 0px #000; margin-bottom: 20px; }
-        .content-section h2 { color: #667eea; margin-top: 0; }
-        .reading-material { background: #fff9c4; padding: 15px; border-radius: 8px; margin: 15px 0; border-left: 4px solid #FFC107; }
-        .reading-material h3 { margin: 0 0 10px 0; color: #f57f17; }
-        .code-example { background: #1e1e1e; color: #d4d4d4; padding: 15px; border-radius: 5px; margin: 10px 0; overflow-x: auto; }
-        .code-example code { font-family: 'Courier New', monospace; font-size: 14px; }
-        .key-point { background: #e3f2fd; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #2196F3; }
-        .key-point strong { color: #1976D2; }
-        .tip-box { background: #e8f5e9; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #4CAF50; }
-        .tip-box strong { color: #2E7D32; }
-        .warning-box { background: #fff3e0; padding: 12px 15px; border-radius: 5px; margin: 10px 0; border-left: 4px solid #FF9800; }
-        .warning-box strong { color: #E65100; }
-        .nav-buttons { display: flex; justify-content: space-between; margin-top: 20px; }
-        .btn-nav { background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 20px; font-weight: bold; text-decoration: none; }
-        .btn-nav:hover { background: #5568d3; }
-        .complete-btn { background: #4CAF50; color: white; padding: 12px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1em; }
-        .complete-btn:hover { background: #45a049; }
-    </style>
+    <meta name="description" content="Module 9: Learn how to make your website react to user clicks and inputs using events.">
+    <title>Module 9: Events | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header path-js">
+            <span class="badge" style="background: white; color: var(--primary);">Level 3</span>
+            <h1>The Big Reaction!</h1>
+            <p>Make your website come alive by listening to your users. ⚡</p>
+        </header>
 
-    <div class="module-container">
-        <a href="learningjs.html" class="back-link">← Back to Syllabus</a>
-        
-        <div class="module-header">
-            <h1>Module 9: DOM & Events</h1>
-            <p>⏱ 80 minutes | Week 6</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Overview</h2>
-            <p>Interact with web pages using JavaScript. Learn how to select and manipulate HTML elements, respond to user interactions, handle form submissions, and create dynamic, interactive web applications.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
+        <!-- Events Concept -->
+        <section class="content-section">
+            <h2>What is an Event?</h2>
+            <p>An **Event** is something that happens on your page. It's like a doorbell—when a user "rings" it (clicks, types, or moves the mouse), JavaScript "answers" the door!</p>
             
-            <div class="reading-material">
-                <h3>📚 What is the DOM?</h3>
-                <p>The <strong>Document Object Model (DOM)</strong> is a programming interface for HTML documents. It represents the page as a tree of objects, where each node is part of the document. JavaScript can access and manipulate these nodes to change the content, structure, and style of a webpage dynamically.</p>
+            <div class="analogy-container">
+                <div class="analogy-grid">
+                    <div class="analogy-card active">
+                        <span class="analogy-icon">🖱️</span>
+                        <h3>Click Event</h3>
+                        <p>User clicks a button.</p>
+                    </div>
+                    <div class="analogy-card active">
+                        <span class="analogy-icon">⌨️</span>
+                        <h3>Key Event</h3>
+                        <p>User types a key.</p>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <h3>9.1 Selecting Elements</h3>
-            <p>Various ways to select elements from the DOM:</p>
-            
-            <div class="code-example">
-                <code><!-- Sample HTML -->
-<div id="main">
-    <h1 class="title">Hello World</h1>
-    <p class="description">Welcome to my page</p>
-    <ul>
-        <li class="item">Item 1</li>
-        <li class="item">Item 2</li>
-        <li class="item">Item 3</li>
-    </ul>
-    <button id="myButton">Click Me</button>
-</div>
-
-<script>
-// getElementById - select by id
-const main = document.getElementById('main');
-const button = document.getElementById('myButton');
-
-// getElementsByClassName - returns HTMLCollection (array-like)
-const items = document.getElementsByClassName('item');
-console.log(items[0].textContent); // "Item 1"
-
-// getElementsByTagName - returns HTMLCollection
-const listItems = document.getElementsByTagName('li');
-
-// querySelector - returns FIRST matching element (CSS selectors)
-const title = document.querySelector('.title');
-const firstItem = document.querySelector('li');
-const mainDiv = document.querySelector('#main');
-
-// querySelectorAll - returns NodeList of ALL matching elements
-const allItems = document.querySelectorAll('.item');
-allItems.forEach(item => {
-    console.log(item.textContent);
-});
-
-// Modern approaches (preferred)
-const heading = document.querySelector('h1');
-const allParagraphs = document.querySelectorAll('p');
-
-// Chaining selectors
-const itemsInMain = document.querySelectorAll('#main .item');
-</script></code>
+        <!-- The Event Listener Section -->
+        <section class="content-section">
+            <h2>The "Ears" of Code</h2>
+            <p>We use an <strong>Event Listener</strong> to tell JavaScript to "listen" for a specific event on a specific element.</p>
+            <div class="code-block">
+                <span class="code-keyword">const</span> btn = document.getElementById(<span class="code-string">"myBtn"</span>); <br><br>
+                btn.addEventListener(<span class="code-string">"click"</span>, <span class="code-keyword">function</span>() { <br>
+                &nbsp;&nbsp;alert(<span class="code-string">"Button was clicked!"</span>); <br>
+                });
             </div>
+        </section>
 
-            <div class="key-point">
-                <strong>💡 querySelector vs getElementById:</strong> Use <code>querySelector</code> for flexibility (CSS selectors). Use <code>getElementById</code> for speed when you only need to select by ID. <code>querySelectorAll</code> returns a static NodeList, while <code>getElementsByClassName</code> returns a live HTMLCollection.
-            </div>
+        <!-- Quiz Section -->
+        <section class="content-section">
+            <h2>Events Quiz!</h2>
+            <form id="quiz-form-9" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: Which method is used to wait for an action like a "click"?</p>
+                    <label><input type="radio" name="q9-1" value="a"> addEventListener</label>
+                    <label><input type="radio" name="q9-1" value="b"> waitForAction</label>
+                    <label><input type="radio" name="q9-1" value="c"> listenToUser</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(9)">Check Answers</button>
+            </form>
+        </section>
+    </main>
 
-            <h3>9.2 Manipulating DOM Elements</h3>
-            <p>Change content, attributes, and styles:</p>
-            
-            <div class="code-example">
-                <code><div id="box" class="container" style="width: 100px; height: 100px; background: red;">
-    <p id="text">Original Text</p>
-</div>
-
-<script>
-const box = document.getElementById('box');
-const text = document.getElementById('text');
-
-// Changing text content
-text.textContent = 'New Text';
-text.innerText = 'Updated Text'; // respects CSS styling
-
-// Changing HTML content
-text.innerHTML = '<strong>Bold Text</strong>';
-
-// Changing attributes
-box.setAttribute('id', 'newId');
-console.log(box.getAttribute('class')); // "container"
-box.removeAttribute('style');
-
-// Working with classes
-box.classList.add('active');
-box.classList.remove('container');
-box.classList.toggle('hidden');
-box.classList.replace('active', 'highlighted');
-console.log(box.classList.contains('highlighted')); // true
-
-// Changing styles
-box.style.backgroundColor = 'blue';
-box.style.width = '200px';
-box.style.height = '200px';
-box.style.cssText = 'color: white; font-size: 20px; padding: 10px;';
-
-// Reading element properties
-console.log(box.offsetWidth);   // element width including padding
-console.log(box.offsetHeight);  // element height including padding
-console.log(box.offsetTop);     // distance from top of parent
-console.log(box.scrollWidth);   // total scrollable width
-</script></code>
-            </div>
-
-            <h3>9.3 Creating and Removing Elements</h3>
-            <p>Dynamically add and remove elements:</p>
-            
-            <div class="code-example">
-                <code><ul id="shoppingList">
-    <li>Milk</li>
-    <li>Eggs</li>
-</ul>
-<button id="addItem">Add Item</button>
-<button id="clearList">Clear List</button>
-
-<script>
-const list = document.getElementById('shoppingList');
-const addItemBtn = document.getElementById('addItem');
-const clearBtn = document.getElementById('clearList');
-
-// Creating a new element
-const newItem = document.createElement('li');
-newItem.textContent = 'Bread';
-newItem.className = 'grocery-item';
-newItem.id = 'item-3';
-
-// Adding element to DOM
-list.appendChild(newItem); // Add to end
-list.prepend(newItem);     // Add to beginning
-
-// Insert at specific position
-const firstItem = list.querySelector('li');
-list.insertBefore(newItem, firstItem);
-
-// Insert adjacent HTML
-list.insertAdjacentHTML('beforeend', '<li>Butter</li>');
-// Options: 'beforebegin', 'afterbegin', 'beforeend', 'afterend'
-
-// Removing elements
-newItem.remove();          // Remove the element itself
-list.removeChild(firstItem); // Remove child from parent
-
-// Clear all children
-clearBtn.addEventListener('click', () => {
-    list.innerHTML = ''; // Quick clear
-    // OR
-    while (list.firstChild) {
-        list.removeChild(list.firstChild);
-    }
-});
-
-// Cloning elements
-const clone = newItem.cloneNode(true); // true = deep clone (with children)
-list.appendChild(clone);
-
-// Adding item with click
-addItemBtn.addEventListener('click', () => {
-    const itemText = prompt('Enter item:');
-    if (itemText) {
-        const li = document.createElement('li');
-        li.textContent = itemText;
-        list.appendChild(li);
-    }
-});
-</script></code>
-            </div>
-
-            <div class="warning-box">
-                <strong>⚠️ innerHTML Security:</strong> Be careful when using <code>innerHTML</code> with user input! It can lead to XSS (Cross-Site Scripting) attacks. Use <code>textContent</code> for plain text, or sanitize HTML input before inserting.
-            </div>
-
-            <h3>9.4 Event Listeners</h3>
-            <p>Respond to user interactions:</p>
-            
-            <div class="code-example">
-                <code><button id="myButton">Click Me!</button>
-<input type="text" id="myInput" placeholder="Type something...">
-<form id="myForm">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <button type="submit">Submit</button>
-</form>
-<div id="output"></div>
-
-<script>
-const button = document.getElementById('myButton');
-const input = document.getElementById('myInput');
-const form = document.getElementById('myForm');
-const output = document.getElementById('output');
-
-// Adding event listeners
-button.addEventListener('click', function(event) {
-    console.log('Button clicked!');
-    console.log(event); // Event object with details
-    output.textContent = 'Button was clicked!';
-});
-
-// Arrow function syntax
-button.addEventListener('click', (e) => {
-    output.textContent = 'Clicked at: ' + new Date().toLocaleTimeString();
-});
-
-// Multiple events on same element
-input.addEventListener('input', (e) => {
-    console.log('Input value:', e.target.value);
-});
-
-input.addEventListener('focus', () => {
-    input.style.borderColor = 'blue';
-});
-
-input.addEventListener('blur', () => {
-    input.style.borderColor = '';
-});
-
-// Keyboard events
-input.addEventListener('keydown', (e) => {
-    console.log('Key pressed:', e.key);
-    if (e.key === 'Enter') {
-        console.log('Enter pressed!');
-    }
-});
-
-input.addEventListener('keyup', (e) => {
-    console.log('Key released:', e.key);
-});
-
-// Removing event listeners
-const handleClick = () => console.log('Clicked!');
-button.addEventListener('click', handleClick);
-button.removeEventListener('click', handleClick); // Must use same function reference
-
-// Once option - event fires only once
-button.addEventListener('click', () => {
-    console.log('This fires only once');
-}, { once: true });
-
-// Event object properties
-button.addEventListener('click', (e) => {
-    console.log('Type:', e.type);           // "click"
-    console.log('Target:', e.target);       // element that was clicked
-    console.log('CurrentTarget:', e.currentTarget); // element with listener
-    console.log('Time:', e.timeStamp);      // milliseconds since page load
-});
-</script></code>
-            </div>
-
-            <div class="tip-box">
-                <strong>✅ Event Delegation:</strong> Instead of adding listeners to many elements, add one listener to a parent and use <code>event.target</code> to identify which child was clicked. This is more efficient for dynamic content!
-            </div>
-
-            <h3>9.5 Event Delegation</h3>
-            <p>Handle events efficiently on multiple elements:</p>
-            
-            <div class="code-example">
-                <code><ul id="todoList">
-    <li data-id="1">
-        <span>Learn JavaScript</span>
-        <button class="delete-btn">Delete</button>
-    </li>
-    <li data-id="2">
-        <span>Build a project</span>
-        <button class="delete-btn">Delete</button>
-    </li>
-    <li data-id="3">
-        <span>Deploy to production</span>
-        <button class="delete-btn">Delete</button>
-    </li>
-</ul>
-<button id="addItem">Add Todo</button>
-
-<script>
-const todoList = document.getElementById('todoList');
-const addBtn = document.getElementById('addItem');
-
-// Event delegation - one listener for all list items
-todoList.addEventListener('click', (e) => {
-    // Check if delete button was clicked
-    if (e.target.classList.contains('delete-btn')) {
-        const li = e.target.parentElement;
-        li.remove();
-        console.log('Deleted item:', li.dataset.id);
-    }
-    
-    // Check if text was clicked
-    if (e.target.tagName === 'SPAN') {
-        e.target.style.textDecoration = 
-            e.target.style.textDecoration === 'line-through' ? 'none' : 'line-through';
-    }
-});
-
-// Adding new items dynamically
-let todoCount = 3;
-addBtn.addEventListener('click', () => {
-    todoCount++;
-    const li = document.createElement('li');
-    li.dataset.id = todoCount;
-    li.innerHTML = `
-        <span>New Todo ${todoCount}</span>
-        <button class="delete-btn">Delete</button>
-    `;
-    todoList.appendChild(li);
-    // No need to add event listeners - delegation handles it!
-});
-
-// Mouse events with delegation
-todoList.addEventListener('mouseover', (e) => {
-    if (e.target.tagName === 'LI') {
-        e.target.style.backgroundColor = '#f0f0f0';
-    }
-});
-
-todoList.addEventListener('mouseout', (e) => {
-    if (e.target.tagName === 'LI') {
-        e.target.style.backgroundColor = '';
-    }
-});
-</script></code>
-            </div>
-
-            <h3>9.6 Form Handling</h3>
-            <p>Working with forms and form data:</p>
-            
-            <div class="code-example">
-                <code><form id="registrationForm">
-    <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <span class="error"></span>
-    </div>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        <span class="error"></span>
-    </div>
-    <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" minlength="6" required>
-        <span class="error"></span>
-    </div>
-    <div class="form-group">
-        <label for="confirmPassword">Confirm Password:</label>
-        <input type="password" id="confirmPassword" name="confirmPassword" required>
-        <span class="error"></span>
-    </div>
-    <div class="form-group">
-        <label>
-            <input type="checkbox" name="terms" required>
-            I agree to the terms
-        </label>
-        <span class="error"></span>
-    </div>
-    <div class="form-group">
-        <label for="country">Country:</label>
-        <select id="country" name="country">
-            <option value="">Select...</option>
-            <option value="us">United States</option>
-            <option value="uk">United Kingdom</option>
-            <option value="other">Other</option>
-        </select>
-    </div>
-    <button type="submit">Register</button>
-    <button type="reset">Reset</button>
-</form>
-<div id="formOutput"></div>
-
-<script>
-const form = document.getElementById('registrationForm');
-const output = document.getElementById('formOutput');
-
-// Form submission
-form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevent page reload
-    
-    // Get form data using FormData API
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData.entries());
-    
-    // Validate passwords match
-    if (data.password !== data.confirmPassword) {
-        alert('Passwords do not match!');
-        return;
-    }
-    
-    // Validate email format
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(data.email)) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-    
-    // Display submitted data
-    output.innerHTML = '<h3>Form Submitted!</h3>' +
-        Object.entries(data)
-            .map(([key, value]) => `<p><strong>${key}:</strong> ${value}</p>`)
-            .join('');
-    
-    console.log('Form data:', data);
-    
-    // In real app, send to server:
-    // fetch('/api/register', {
-    //     method: 'POST',
-    //     headers: { 'Content-Type': 'application/json' },
-    //     body: JSON.stringify(data)
-    // });
-});
-
-// Real-time validation
-const password = document.getElementById('password');
-const confirm = document.getElementById('confirmPassword');
-
-confirm.addEventListener('input', () => {
-    const errorSpan = confirm.nextElementSibling;
-    if (confirm.value && password.value !== confirm.value) {
-        errorSpan.textContent = 'Passwords do not match';
-        errorSpan.style.color = 'red';
-    } else {
-        errorSpan.textContent = '';
-    }
-});
-
-// Email validation on blur
-const email = document.getElementById('email');
-email.addEventListener('blur', () => {
-    const errorSpan = email.nextElementSibling;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email.value && !emailRegex.test(email.value)) {
-        errorSpan.textContent = 'Please enter a valid email';
-        errorSpan.style.color = 'red';
-    } else {
-        errorSpan.textContent = '';
-    }
-});
-
-// Get specific form values
-const nameValue = form.querySelector('#name').value;
-const countryValue = form.querySelector('#country').value;
-
-// Check/uncheck checkbox
-const termsCheckbox = form.querySelector('input[name="terms"]');
-termsCheckbox.checked = true; // Check
-termsCheckbox.checked = false; // Uncheck
-
-// Disable/enable form elements
-form.querySelector('#name').disabled = true;
-form.querySelector('#name').disabled = false;
-
-// Reset form
-form.addEventListener('reset', () => {
-    // Clear all error messages
-    form.querySelectorAll('.error').forEach(span => {
-        span.textContent = '';
-    });
-    output.innerHTML = '';
-});
-</script></code>
-            </div>
-
-            <div class="tip-box">
-                <strong>✅ FormData API:</strong> The <code>FormData</code> object lets you compile form values to send via fetch/XMLHttpRequest. Use <code>Object.fromEntries()</code> to convert it to a plain object. Great for handling file uploads too!
-            </div>
-
-            <h3>9.7 Common DOM Events Reference</h3>
-            <p>Quick reference for frequently used events:</p>
-            
-            <div class="code-example">
-                <code>// Mouse Events
-element.addEventListener('click', handler);      // Click
-element.addEventListener('dblclick', handler);   // Double click
-element.addEventListener('mousedown', handler);  // Mouse button pressed
-element.addEventListener('mouseup', handler);    // Mouse button released
-element.addEventListener('mousemove', handler);  // Mouse moved
-element.addEventListener('mouseover', handler);  // Mouse enters element
-element.addEventListener('mouseout', handler);   // Mouse leaves element
-element.addEventListener('mouseenter', handler); // Mouse enters (no bubbling)
-element.addEventListener('mouseleave', handler); // Mouse leaves (no bubbling)
-element.addEventListener('contextmenu', handler); // Right-click
-
-// Keyboard Events
-element.addEventListener('keydown', handler);    // Key pressed
-element.addEventListener('keyup', handler);      // Key released
-element.addEventListener('keypress', handler);   // Key pressed (deprecated)
-
-// Form Events
-form.addEventListener('submit', handler);        // Form submitted
-form.addEventListener('reset', handler);         // Form reset
-input.addEventListener('input', handler);        // Input value changed
-input.addEventListener('change', handler);       // Value committed (blur after change)
-input.addEventListener('focus', handler);        // Element focused
-input.addEventListener('blur', handler);         // Element loses focus
-select.addEventListener('change', handler);      // Selection changed
-
-// Document/Window Events
-window.addEventListener('load', handler);        // Page fully loaded
-window.addEventListener('DOMContentLoaded', handler); // DOM ready
-window.addEventListener('resize', handler);      // Window resized
-window.addEventListener('scroll', handler);      // Page scrolled
-window.addEventListener('beforeunload', handler); // Before leaving page
-
-// Touch Events (mobile)
-element.addEventListener('touchstart', handler); // Touch starts
-element.addEventListener('touchmove', handler);  // Touch moves
-element.addEventListener('touchend', handler);   // Touch ends
-
-// Preventing default behavior
-link.addEventListener('click', (e) => {
-    e.preventDefault(); // Don't follow link
-});
-
-form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Don't submit form
-});
-
-// Stopping event propagation
-child.addEventListener('click', (e) => {
-    e.stopPropagation(); // Don't bubble to parent
-    e.stopImmediatePropagation(); // Also prevent other listeners on same element
-});</code>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="playground.html">Playground</a>:</p>
-            <ol>
-                <li>Create a to-do list app where you can add, delete, and mark items as complete</li>
-                <li>Build a simple image gallery with next/previous buttons and thumbnail navigation</li>
-                <li>Create a form with real-time validation that shows error messages as the user types</li>
-                <li>Build a modal/popup window that opens when clicking a button and closes when clicking outside or on an X button</li>
-                <li>Create a dark/light theme toggle that saves the user's preference to localStorage</li>
-                <li>Build a simple calculator with buttons for numbers and operations that displays results</li>
-                <li>Create a character counter for a textarea that shows remaining characters and changes color when near the limit</li>
-            </ol>
-        </div>
-
-        
-        </div>
-        </body>
-        </html>
- 
+    <script src="../js/core.js"></script>
+</body>
+</html>

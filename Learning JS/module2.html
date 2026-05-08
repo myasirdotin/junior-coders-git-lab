@@ -3,150 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 2: Learn JavaScript math operations including arithmetic operators, the Math object, random numbers, and operator precedence.">
-    <meta name="keywords" content="JavaScript, math, arithmetic, operators, Math object, random, beginner, tutorial">
-    <meta name="author" content="Yasir Rasool">
-    <meta name="theme-color" content="#4f46e5">
-    <meta property="og:title" content="Module 2: Math Operations | Junior Coders">
-    <meta property="og:description" content="Learn JavaScript math operations including arithmetic operators, the Math object, random numbers, and operator precedence.">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>Module 2: Math Operations | Junior Coders</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%BB</text></svg>">
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Module 2: Learn about JavaScript operators including arithmetic, assignment, and comparison.">
+    <title>Module 2: Operators | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #f59e0b, #ef4444); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 1</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">The Magical Calculator!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Learn how to do math and make comparisons in JavaScript! ➕➖✖️➗</p>
+        </header>
 
-    <main id="main-content" class="module-container">
-        <a href="learningjs.html" class="back-link" role="button">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 2: Math Operations</h1>
-            <p>⏱ 40 minutes | Week 1</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
-            <ul>
-                <li>Perform arithmetic operations (+, -, *, /, %)</li>
-                <li>Use the Math object for advanced calculations</li>
-                <li>Generate random numbers</li>
-                <li>Understand operator precedence (PEMDAS)</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Overview</h2>
-            <p>Master arithmetic operations and mathematical expressions in JavaScript. Learn how to perform calculations and use the Math object.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <div class="reading-material">
-                <h3>📚 Arithmetic Operators</h3>
-                <p>JavaScript supports all standard mathematical operations.</p>
+        <!-- Arithmetic Section -->
+        <section class="content-section">
+            <h2>Math Monsters 👾</h2>
+            <p>JavaScript can do math faster than any human. We use these symbols to talk to the computer:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 2rem; text-align: center;">
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f59e0b;">
+                    <span style="font-size: 2rem;">➕</span>
+                    <p>Addition</p>
+                    <code>5 + 5 = 10</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f59e0b;">
+                    <span style="font-size: 2rem;">➖</span>
+                    <p>Subtraction</p>
+                    <code>10 - 4 = 6</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f59e0b;">
+                    <span style="font-size: 2rem;">✖️</span>
+                    <p>Multiply</p>
+                    <code>2 * 3 = 6</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f59e0b;">
+                    <span style="font-size: 2rem;">➗</span>
+                    <p>Divide</p>
+                    <code>8 / 2 = 4</code>
+                </div>
             </div>
+        </section>
 
-            <div class="code-example">
-                <code>// Basic operators
-let sum = 10 + 5;      // 15 (addition)
-let diff = 10 - 5;     // 5 (subtraction)
-let product = 10 * 5;  // 50 (multiplication)
-let quotient = 10 / 5; // 2 (division)
-
-// Special operators
-let remainder = 10 % 3;  // 1 (modulus)
-let power = 2 ** 3;      // 8 (exponentiation)</code>
+        <!-- Comparison Section -->
+        <section class="content-section">
+            <h2>The Comparison Test ⚖️</h2>
+            <p>Sometimes we need to ask questions like "Is this bigger than that?" or "Is this the same?". The answer is always <strong>true</strong> or <strong>false</strong>.</p>
+            <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <span>Is 10 greater than 5?</span>
+                    <code>10 > 5 <span style="color: #10b981;">// true</span></code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    <span>Is 3 less than 1?</span>
+                    <code>3 < 1 <span style="color: #f43f5e;">// false</span></code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; display: flex; justify-content: space-between; align-items: center; border: 2px solid #3b82f6;">
+                    <span>Is it exactly the same?</span>
+                    <code>"Apple" === "Apple" <span style="color: #10b981;">// true</span></code>
+                </div>
             </div>
+        </section>
 
-            <div class="key-point">
-                <strong>💡 PEMDAS:</strong> <strong>P</strong>arentheses → <strong>E</strong>xponents → <strong>M</strong>ultiplication/<strong>D</strong>ivision → <strong>A</strong>ddition/<strong>S</strong>ubtraction
+        <!-- Logical Operators -->
+        <section class="content-section">
+            <h2>Super Logic! 🧠</h2>
+            <p>We can combine questions using <strong>AND</strong> and <strong>OR</strong>.</p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="background: #020617; padding: 2rem; border-radius: 1.5rem; border-left: 5px solid #3b82f6;">
+                    <h3>&& (AND)</h3>
+                    <p style="font-size: 0.9rem;">Both MUST be true. <br> "I want pizza AND ice cream."</p>
+                </div>
+                <div style="background: #020617; padding: 2rem; border-radius: 1.5rem; border-left: 5px solid #ec4899;">
+                    <h3>|| (OR)</h3>
+                    <p style="font-size: 0.9rem;">Only one needs to be true. <br> "I want pizza OR burgers."</p>
+                </div>
             </div>
+        </section>
 
-            <h3>2.1 The Math Object</h3>
-
-            <div class="code-example">
-                <code>// Math constants
-console.log(Math.PI);        // 3.14159...
-console.log(Math.E);         // 2.71828...
-
-// Rounding
-console.log(Math.round(4.7));   // 5
-console.log(Math.floor(4.7));   // 4
-console.log(Math.ceil(4.2));    // 5
-
-// Other useful methods
-console.log(Math.max(1, 5, 3));  // 5
-console.log(Math.min(1, 5, 3));  // 1
-console.log(Math.sqrt(16));      // 4
-console.log(Math.abs(-5));       // 5
-
-// Random numbers
-console.log(Math.random());  // 0 to <1
-
-// Random integer between min and max
-let randomInt = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
-console.log(randomInt(1, 6));  // Random 1-6</code>
-            </div>
-
-            <div class="tip-box">
-                <strong>✅ Pro Tip:</strong> Use modulus (<code>%</code>) to check if a number is even: <code>num % 2 === 0</code>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Common Mistakes</h2>
-            <ul>
-                <li><strong>Dividing by zero (returns Infinity, not an error)</strong> - JavaScript won't crash, but <code>10 / 0</code> gives <code>Infinity</code>, which can cause unexpected results.</li>
-                <li><strong>Confusing <code>Math.floor()</code> and <code>Math.round()</code></strong> - <code>Math.floor()</code> always rounds down, while <code>Math.round()</code> rounds to the nearest integer.</li>
-                <li><strong>Forgetting that <code>Math.random()</code> never returns exactly 1</strong> - It returns a value from 0 (inclusive) up to but not including 1.</li>
-                <li><strong>Using <code>+</code> with strings and numbers (concatenation vs addition)</strong> - <code>"5" + 3</code> gives <code>"53"</code>, not <code>8</code>. Use <code>Number()</code> or <code>parseInt()</code> to convert strings first.</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these in the <a href="playground.html">Playground</a>:</p>
-            <ol>
-                <li>Calculate the area of a circle (π × r²)</li>
-                <li>Generate a random number between 1 and 100</li>
-                <li>Check if a number is even or odd</li>
-                <li>Round a decimal to the nearest integer</li>
-            </ol>
-        </div>
-
-        <div class="content-section">
-            <h2>Check Your Understanding</h2>
+        <!-- Quiz Section -->
+        <section class="content-section">
+            <h2>Math & Logic Quiz!</h2>
             <form id="quiz-form-2" class="quiz-section">
                 <div class="quiz-question" data-answer="b">
-                    <p>Q1: What does 10 % 3 return?</p>
-                    <label><input type="radio" name="q2-1" value="a"> a) 3</label>
-                    <label><input type="radio" name="q2-1" value="b"> b) 1</label>
-                    <label><input type="radio" name="q2-1" value="c"> c) 3.33</label>
+                    <p>Q1: What is the result of 10 * 2?</p>
+                    <label><input type="radio" name="q2-1" value="a"> 12</label>
+                    <label><input type="radio" name="q2-1" value="b"> 20</label>
+                    <label><input type="radio" name="q2-1" value="c"> 5</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <div class="quiz-question" data-answer="b">
-                    <p>Q2: What does Math.floor(4.9) return?</p>
-                    <label><input type="radio" name="q2-2" value="a"> a) 5</label>
-                    <label><input type="radio" name="q2-2" value="b"> b) 4</label>
-                    <label><input type="radio" name="q2-2" value="c"> c) 4.9</label>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: What does (5 > 3 && 10 > 2) return?</p>
+                    <label><input type="radio" name="q2-2" value="a"> true (both are true)</label>
+                    <label><input type="radio" name="q2-2" value="b"> false (one is wrong)</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <div class="quiz-question" data-answer="b">
-                    <p>Q3: Which generates a random integer from 1 to 10?</p>
-                    <label><input type="radio" name="q2-3" value="a"> a) Math.random() * 10</label>
-                    <label><input type="radio" name="q2-3" value="b"> b) Math.floor(Math.random() * 10) + 1</label>
-                    <label><input type="radio" name="q2-3" value="c"> c) Math.round(Math.random() * 10)</label>
-                    <div class="quiz-feedback"></div>
-                </div>
-                <button type="button" class="quiz-submit" onclick="checkQuiz(2)">Check Answers</button>
-                <div id="quiz-score-2" class="quiz-score"></div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(2)">Check Answers</button>
             </form>
-        </div>
-
-        
+        </section>
     </main>
 
     <script src="../js/core.js"></script>

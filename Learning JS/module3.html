@@ -3,221 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 3: Learn JavaScript string manipulation including concatenation, template literals, and string methods.">
-    <meta name="keywords" content="JavaScript, strings, template literals, concatenation, string methods, beginner, tutorial">
-    <meta name="author" content="Yasir Rasool">
-    <meta name="theme-color" content="#4f46e5">
-    <meta property="og:title" content="Module 3: String Manipulation | Junior Coders">
-    <meta property="og:description" content="Learn JavaScript string manipulation including concatenation, template literals, and string methods.">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <title>Module 3: String Manipulation | Junior Coders</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>%F0%9F%92%BB</text></svg>">
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Module 3: Learn how to make decisions in your code using if/else statements.">
+    <title>Module 3: Conditionals | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
 </head>
 <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #10b981, #059669); padding: 4rem; border-radius: 2rem; color: white;">
+            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 1rem; font-weight: 800;">Level 1</span>
+            <h1 style="color: white; -webkit-text-fill-color: white;">The Choice Path!</h1>
+            <p style="color: rgba(255,255,255,0.9); font-size: 1.2rem;">Teach your website how to think and make decisions! 🚦</p>
+        </header>
 
-    <main id="main-content" class="module-container">
-        <a href="learningjs.html" class="back-link" role="button">← Back to Syllabus</a>
-
-        <div class="module-header">
-            <h1>Module 3: String Manipulation</h1>
-            <p>⏱ 50 minutes | Week 2</p>
-        </div>
-
-        <div class="content-section">
-            <h2>Learning Objectives</h2>
-            <ul>
-                <li>Create and manipulate strings</li>
-                <li>Use template literals for string formatting</li>
-                <li>Apply essential string methods (toUpperCase, slice, split, etc.)</li>
-                <li>Understand that strings are immutable</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Overview</h2>
-            <p>Learn to work with text data in JavaScript. Master string concatenation, template literals, and essential string methods to manipulate and format text effectively.</p>
-        </div>
-
-        <div class="content-section">
-            <h2>📖 Reading Material</h2>
-
-            <div class="reading-material">
-                <h3>📚 What are Strings?</h3>
-                <p>A <strong>string</strong> is a sequence of characters used to represent text. In JavaScript, strings are wrapped in quotes - either single (<code>'</code>), double (<code>"</code>), or backticks (<code>`</code>).</p>
+        <!-- Conditionals Concept -->
+        <section class="content-section">
+            <h2>The "If/Else" Story</h2>
+            <p>Every decision in a computer starts with the word **IF**. It's like following a set of instructions for your day.</p>
+            <div style="background: #0f172a; padding: 2rem; border-radius: 2rem; border: 2px solid #10b981; margin-top: 2rem;">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center;">
+                    <div style="background: white; color: #0f172a; padding: 1rem 2rem; border-radius: 1rem; font-weight: 800; width: 100%; max-width: 300px; border: 4px solid #10b981;">
+                        Is it Raining? 🌧️
+                    </div>
+                    <div style="width: 2px; height: 30px; background: #10b981;"></div>
+                    <div style="display: flex; gap: 4rem; width: 100%; justify-content: center;">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <span style="color: #10b981; font-weight: 900; margin-bottom: 0.5rem;">YES (if)</span>
+                            <div style="background: rgba(16, 185, 129, 0.2); color: white; padding: 1rem; border-radius: 0.5rem; border: 1px solid #10b981;">
+                                Take Umbrella 🌂
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <span style="color: #f43f5e; font-weight: 900; margin-bottom: 0.5rem;">NO (else)</span>
+                            <div style="background: rgba(244, 63, 94, 0.2); color: white; padding: 1rem; border-radius: 0.5rem; border: 1px solid #f43f5e;">
+                                Wear Sunglasses 😎
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
 
-            <h3>3.1 String Concatenation</h3>
-            <p>Concatenation means joining two or more strings together:</p>
-
-            <div class="code-example">
-                <code>// Using the + operator
-let firstName = "John";
-let lastName = "Doe";
-let fullName = firstName + " " + lastName;
-console.log(fullName); // "John Doe"
-
-// Using the += operator
-let greeting = "Hello";
-greeting += " World!";
-console.log(greeting); // "Hello World!"
-
-// Concatenating with numbers
-let message = "I am " + 25 + " years old";
-console.log(message); // "I am 25 years old"</code>
+        <!-- Syntax Section -->
+        <section class="content-section">
+            <h2>How to write it in Code</h2>
+            <p>We use parentheses <code>( )</code> for the question and curly braces <code>{ }</code> for the action.</p>
+            <div style="background: #020617; padding: 2rem; border-radius: 1.5rem; margin: 1.5rem 0;">
+                <code style="color: #f8fafc; line-height: 1.8;">
+                    <span style="color: #6366f1;">if</span> (isRaining) { <br>
+                    &nbsp;&nbsp;console.log(<span style="color: #eab308;">"Get your umbrella!"</span>); <br>
+                    } <span style="color: #6366f1;">else</span> { <br>
+                    &nbsp;&nbsp;console.log(<span style="color: #eab308;">"Enjoy the sun!"</span>); <br>
+                    }
+                </code>
             </div>
+        </section>
 
-            <div class="warning-box">
-                <strong>⚠️ Common Mistake:</strong> When concatenating numbers, JavaScript converts them to strings. <code>"5" + 3</code> equals <code>"53"</code>, not <code>8</code>!
+        <!-- Else If Section -->
+        <section class="content-section">
+            <h2>The "Else If" (More Choices)</h2>
+            <p>What if there are more than two choices? We use <strong>else if</strong> to add another check in the middle.</p>
+            <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #3b82f6;">
+                <p>1. <strong>If</strong> it's morning... Eat Breakfast</p>
+                <p>2. <strong>Else if</strong> it's noon... Eat Lunch</p>
+                <p>3. <strong>Else</strong> (nothing else worked)... Eat Dinner</p>
             </div>
+        </section>
 
-            <h3>3.2 Template Literals</h3>
-            <p>Template literals (introduced in ES6) provide an easier way to work with strings using backticks (<code>`</code>) and embedded expressions:</p>
-
-            <div class="code-example">
-                <code>// Basic template literal
-let name = "Alice";
-let greeting = `Hello, ${name}!`;
-console.log(greeting); // "Hello, Alice!"
-
-// Multi-line strings (no need for \n!)
-let message = `This is line 1
-This is line 2
-This is line 3`;
-console.log(message);
-
-// Embedding expressions
-let price = 99.99;
-let tax = 8.5;
-let total = `$${price} + $${tax} = $${price + tax}`;
-console.log(total); // "$99.99 + $8.5 = $108.49"
-
-// Calling functions inside template literals
-let getName = () => "Bob";
-console.log(`Hello, ${getName()}!`); // "Hello, Bob!"</code>
-            </div>
-
-            <div class="tip-box">
-                <strong>✅ Best Practice:</strong> Use template literals instead of concatenation for cleaner, more readable code, especially when working with variables or multi-line strings!
-            </div>
-
-            <h3>3.3 String Methods</h3>
-            <p>JavaScript provides many built-in methods to manipulate strings:</p>
-
-            <div class="code-example">
-                <code>let text = "  Hello, JavaScript World!  ";
-
-// Getting string length
-console.log(text.length); // 28 (includes spaces)
-
-// Changing case
-console.log(text.toUpperCase()); // "  HELLO, JAVASCRIPT WORLD!  "
-console.log(text.toLowerCase()); // "  hello, javascript world!  "
-
-// Trimming whitespace
-console.log(text.trim()); // "Hello, JavaScript World!"
-console.log(text.trimStart()); // "Hello, JavaScript World!  "
-console.log(text.trimEnd());   // "  Hello, JavaScript World!"
-
-// Finding substrings
-let sentence = "The quick brown fox";
-console.log(sentence.indexOf("quick")); // 4
-console.log(sentence.includes("brown")); // true
-console.log(sentence.startsWith("The")); // true
-console.log(sentence.endsWith("fox"));   // true
-
-// Extracting parts of strings
-console.log(sentence.slice(4, 9));  // "quick"
-console.log(sentence.substring(4, 9)); // "quick"
-console.log(sentence.substr(4, 5));    // "quick"
-
-// Replacing content
-console.log(sentence.replace("fox", "dog")); // "The quick brown dog"
-console.log(sentence.replaceAll("o", "0"));  // "The quick br0wn f0x"
-
-// Splitting strings into arrays
-let fruits = "apple,banana,cherry";
-console.log(fruits.split(",")); // ["apple", "banana", "cherry"]</code>
-            </div>
-
-            <div class="key-point">
-                <strong>💡 Key Point:</strong> Strings are <strong>immutable</strong> in JavaScript. String methods don't change the original string - they return a new string!
-            </div>
-
-            <h3>3.4 Accessing Characters</h3>
-            <p>You can access individual characters in a string using bracket notation:</p>
-
-            <div class="code-example">
-                <code>let word = "Hello";
-
-// Using bracket notation
-console.log(word[0]); // "H"
-console.log(word[1]); // "e"
-console.log(word[word.length - 1]); // "o" (last character)
-
-// Using charAt() method
-console.log(word.charAt(0)); // "H"
-console.log(word.charAt(4)); // "o"
-
-// Using charCodeAt() for ASCII values
-console.log(word.charCodeAt(0)); // 72 (ASCII code for 'H')</code>
-            </div>
-        </div>
-
-        <div class="content-section">
-            <h2>Common Mistakes</h2>
-            <ul>
-                <li><strong>Forgetting that <code>"5" + 3</code> equals <code>"53"</code> not <code>8</code></strong> - The <code>+</code> operator concatenates when one operand is a string. Use <code>Number()</code> to convert first.</li>
-                <li><strong>Thinking string methods modify the original string (they don't - strings are immutable)</strong> - Methods like <code>toUpperCase()</code> and <code>slice()</code> return a new string; the original is unchanged.</li>
-                <li><strong>Mixing up <code>slice()</code> and <code>splice()</code></strong> - <code>splice()</code> is for arrays, not strings. Use <code>slice()</code> for extracting parts of a string.</li>
-                <li><strong>Not using <code>trim()</code> when processing user input</strong> - Users often accidentally add extra spaces. Always <code>trim()</code> input before comparing or storing it.</li>
-            </ul>
-        </div>
-
-        <div class="content-section">
-            <h2>Practice</h2>
-            <p>Try these exercises in the <a href="playground.html">Playground</a>:</p>
-            <ol>
-                <li>Create a greeting using template literals with your name and age</li>
-                <li>Take a sentence and convert it to uppercase, then replace all vowels with "*"</li>
-                <li>Split a comma-separated string into an array and join it back with " | "</li>
-                <li>Extract the domain name from an email address (e.g., "user@gmail.com" → "gmail")</li>
-                <li>Create a multi-line formatted address using template literals</li>
-            </ol>
-        </div>
-
-        <div class="content-section">
-            <h2>Check Your Understanding</h2>
+        <!-- Quiz Section -->
+        <section class="content-section">
+            <h2>Decision Quiz!</h2>
             <form id="quiz-form-3" class="quiz-section">
                 <div class="quiz-question" data-answer="b">
-                    <p>Q1: What does <code>'Hello' + ' ' + 'World'</code> return?</p>
-                    <label><input type="radio" name="q3-1" value="a"> a) HelloWorld</label>
-                    <label><input type="radio" name="q3-1" value="b"> b) Hello World</label>
-                    <label><input type="radio" name="q3-1" value="c"> c) Error</label>
+                    <p>Q1: Which block of code runs ONLY if the "if" question is false?</p>
+                    <label><input type="radio" name="q3-1" value="a"> if</label>
+                    <label><input type="radio" name="q3-1" value="b"> else</label>
+                    <label><input type="radio" name="q3-1" value="c"> script</label>
                     <div class="quiz-feedback"></div>
                 </div>
                 <div class="quiz-question" data-answer="a">
-                    <p>Q2: What does <code>'JavaScript'.slice(0, 4)</code> return?</p>
-                    <label><input type="radio" name="q3-2" value="a"> a) Java</label>
-                    <label><input type="radio" name="q3-2" value="b"> b) JavaS</label>
-                    <label><input type="radio" name="q3-2" value="c"> c) Scri</label>
+                    <p>Q2: What symbol do we use to wrap the ACTION part of an "if" statement?</p>
+                    <label><input type="radio" name="q3-2" value="a"> Curly Braces { }</label>
+                    <label><input type="radio" name="q3-2" value="b"> Parentheses ( )</label>
+                    <label><input type="radio" name="q3-2" value="c"> Square Brackets [ ]</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <div class="quiz-question" data-answer="c">
-                    <p>Q3: Which creates a multi-line string?</p>
-                    <label><input type="radio" name="q3-3" value="a"> a) Single quotes</label>
-                    <label><input type="radio" name="q3-3" value="b"> b) Double quotes</label>
-                    <label><input type="radio" name="q3-3" value="c"> c) Backticks (template literals)</label>
-                    <div class="quiz-feedback"></div>
-                </div>
-                <button type="button" class="quiz-submit" onclick="checkQuiz(3)">Check Answers</button>
-                <div id="quiz-score-3" class="quiz-score"></div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(3)">Check Answers</button>
             </form>
-        </div>
-
-        
+        </section>
     </main>
 
     <script src="../js/core.js"></script>
