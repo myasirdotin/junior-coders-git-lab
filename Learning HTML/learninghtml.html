@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Path | Junior Coders</title>
+    <meta name="description" content="Master HTML5 from scratch. 12 modules covering semantics, accessibility, and modern structures.">
+    <title>HTML Adventure | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,132 +12,314 @@
 </head>
 <body>
 
-    <main class="module-container">
-        
-        <header class="module-header">
+    <div class="syllabus-container">
+        <header class="syllabus-header">
             <h1>HTML Adventure</h1>
-            <p>From blank page to professional structures, one step at a time!</p>
+            <p>The foundation of every great website starts here.</p>
         </header>
 
-        <section class="content-section" style="text-align: center; background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(244, 63, 94, 0.1));">
-            <h2>Your Journey Progress</h2>
-            <div style="background: var(--bg-glass); height: 20px; border-radius: 10px; margin: 1.5rem 0; overflow: hidden; border: 2px solid var(--border-dim);">
-                <div id="progressFill" style="width: 0%; height: 100%; background: linear-gradient(to right, #6366f1, #f43f5e); transition: width 0.8s ease;"></div>
+        <div class="course-info">
+            <div class="info-card">
+                <h3>Modules</h3>
+                <p>12</p>
             </div>
-            <p style="color: var(--text-secondary); font-weight: 600;">You've mastered <span id="completedModules" style="color: var(--primary); font-size: 1.5rem;">0</span> out of 12 modules! 🚀</p>
-        </section>
-
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
-            
-            <!-- Module 1 -->
-            <div class="content-section" style="border-left: 8px solid #6366f1; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                <span style="font-weight: 900; color: #6366f1; font-size: 0.8rem; text-transform: uppercase;">Module 1</span>
-                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Introduction</h4>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">What is HTML? Learn the basic skeleton of every website.</p>
-                <a href="module1.html" class="btn-primary" style="margin-top: 1.5rem; background: #6366f1;">Start Adventure</a>
+            <div class="info-card">
+                <h3>Level</h3>
+                <p>Beginner</p>
             </div>
-
-            <!-- Module 2 -->
-            <div class="content-section" style="border-left: 8px solid #f43f5e; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                <span style="font-weight: 900; color: #f43f5e; font-size: 0.8rem; text-transform: uppercase;">Module 2</span>
-                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Attributes</h4>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Learn how to give tags "superpowers" using attributes.</p>
-                <a href="module2.html" class="btn-primary" style="margin-top: 1.5rem; background: #f43f5e;">Learn Power-ups</a>
+            <div class="info-card">
+                <h3>Experience</h3>
+                <p>0 XP</p>
             </div>
-
-            <!-- Module 3 -->
-            <div class="content-section" style="border-left: 8px solid #10b981; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                <span style="font-weight: 900; color: #10b981; font-size: 0.8rem; text-transform: uppercase;">Module 3</span>
-                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Headings</h4>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Organize your stories with big, bold titles and paragraphs.</p>
-                <a href="module3.html" class="btn-primary" style="margin-top: 1.5rem; background: #10b981;">Make Headings</a>
+            <div class="info-card">
+                <h3>Status</h3>
+                <p>Active</p>
             </div>
-
-            <!-- Module 4 -->
-            <div class="content-section" style="border-left: 8px solid #f59e0b; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                <span style="font-weight: 900; color: #f59e0b; font-size: 0.8rem; text-transform: uppercase;">Module 4</span>
-                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Formatting</h4>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Make your text <strong>bold</strong>, <em>italic</em>, or highlighted!</p>
-                <a href="module4.html" class="btn-primary" style="margin-top: 1.5rem; background: #f59e0b;">Style Text</a>
-            </div>
-
-            <!-- Module 5 -->
-            <div class="content-section" style="border-left: 8px solid #0ea5e9; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                <span style="font-weight: 900; color: #0ea5e9; font-size: 0.8rem; text-transform: uppercase;">Module 5</span>
-                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Links</h4>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Teleport from one page to another using hyperlinks!</p>
-                <a href="module5.html" class="btn-primary" style="margin-top: 1.5rem; background: #0ea5e9;">Teleport Now</a>
-            </div>
-
-            <!-- Module 6 -->
-            <div class="content-section" style="border-left: 8px solid #8b5cf6; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                <span style="font-weight: 900; color: #8b5cf6; font-size: 0.8rem; text-transform: uppercase;">Module 6</span>
-                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Images</h4>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Bring your site to life with cool pictures and media.</p>
-                <a href="module6.html" class="btn-primary" style="margin-top: 1.5rem; background: #8b5cf6;">Add Pictures</a>
-            </div>
-
-            <!-- Module 7 -->
-            <div class="content-section" style="border-left: 8px solid #ec4899; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                <span style="font-weight: 900; color: #ec4899; font-size: 0.8rem; text-transform: uppercase;">Module 7</span>
-                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Tables</h4>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Organize data like a pro using rows and cells.</p>
-                <a href="module7.html" class="btn-primary" style="margin-top: 1.5rem; background: #ec4899;">Make a Grid</a>
-            </div>
-
-            <!-- Module 8 -->
-            <div class="content-section" style="border-left: 8px solid #6366f1; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                <span style="font-weight: 900; color: #6366f1; font-size: 0.8rem; text-transform: uppercase;">Module 8</span>
-                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Lists</h4>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Bullet points or numbers? Learn how to list things!</p>
-                <a href="module8.html" class="btn-primary" style="margin-top: 1.5rem; background: #6366f1;">Make Lists</a>
-            </div>
-
-            <!-- Module 9 -->
-            <div class="content-section" style="border-left: 8px solid #10b981; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                <span style="font-weight: 900; color: #10b981; font-size: 0.8rem; text-transform: uppercase;">Module 9</span>
-                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Block/Inline</h4>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Understanding how invisible boxes work on your page.</p>
-                <a href="module9.html" class="btn-primary" style="margin-top: 1.5rem; background: #10b981;">See the Boxes</a>
-            </div>
-
-            <!-- Module 10 -->
-            <div class="content-section" style="border-left: 8px solid #f59e0b; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                <span style="font-weight: 900; color: #f59e0b; font-size: 0.8rem; text-transform: uppercase;">Module 10</span>
-                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Class & ID</h4>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Naming elements so you can style them later with CSS!</p>
-                <a href="module10.html" class="btn-primary" style="margin-top: 1.5rem; background: #f59e0b;">Name It!</a>
-            </div>
-
-            <!-- Module 11 -->
-            <div class="content-section" style="border-left: 8px solid #0ea5e9; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                <span style="font-weight: 900; color: #0ea5e9; font-size: 0.8rem; text-transform: uppercase;">Module 11</span>
-                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Forms</h4>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Build logins, surveys, and search bars for your users.</p>
-                <a href="module11.html" class="btn-primary" style="margin-top: 1.5rem; background: #0ea5e9;">Build Forms</a>
-            </div>
-
-            <!-- Module 12 -->
-            <div class="content-section" style="border-left: 8px solid #f43f5e; padding: 2rem; margin: 0; display: flex; flex-direction: column;">
-                <span style="font-weight: 900; color: #f43f5e; font-size: 0.8rem; text-transform: uppercase;">Module 12</span>
-                <h4 style="font-size: 1.4rem; margin-bottom: 1rem;">Semantics</h4>
-                <p style="font-size: 0.95rem; color: var(--text-secondary); flex-grow: 1;">Write meaningful code that the whole world can understand.</p>
-                <a href="module12.html" class="btn-primary" style="margin-top: 1.5rem; background: #f43f5e;">Be Smart!</a>
-            </div>
-
         </div>
 
-    </main>
+        <div class="progress-section">
+            <h2>Your Journey Progress</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p class="progress-text">You've mastered <span id="completedModules">0</span> of 12 Modules</p>
+        </div>
+
+        <!-- Week 1: The Basics -->
+        <div class="week-section">
+            <div class="week-header">Week 1: The Foundation</div>
+            <div class="modules-grid">
+                <!-- Module 1 -->
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>1: Introduction</h2>
+                        <span class="module-badge">Level 1</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Learn what HTML is and the basic skeleton of every website.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Tags</span>
+                            <span class="topic-tag">Structure</span>
+                            <span class="topic-tag">Elements</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <a href="module1.html" class="btn-start">Start Adventure</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 2 -->
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>2: Attributes</h2>
+                        <span class="module-badge">Level 1</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Learn how to give tags "superpowers" using key-value attributes.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">href</span>
+                            <span class="topic-tag">src</span>
+                            <span class="topic-tag">alt</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <a href="module2.html" class="btn-start">Learn Power-ups</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 3 -->
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>3: Headings</h2>
+                        <span class="module-badge">Level 1</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Organize your content with bold titles and structured paragraphs.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">h1-h6</span>
+                            <span class="topic-tag">p tag</span>
+                            <span class="topic-tag">Hierarchy</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <a href="module3.html" class="btn-start">Make Titles</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 4 -->
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>4: Formatting</h2>
+                        <span class="module-badge">Level 1</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Learn to style text without CSS using semantic formatting tags.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Bold</span>
+                            <span class="topic-tag">Italic</span>
+                            <span class="topic-tag">Emphasis</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <a href="module4.html" class="btn-start">Style Text</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Week 2: Content & Media -->
+        <div class="week-section">
+            <div class="week-header">Week 2: Building Content</div>
+            <div class="modules-grid">
+                <!-- Module 5 -->
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>5: Links</h2>
+                        <span class="module-badge">Level 2</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Teleport users between pages using the magic of hyperlinks.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Anchor Tag</span>
+                            <span class="topic-tag">Paths</span>
+                            <span class="topic-tag">Target</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <a href="module5.html" class="btn-start">Teleport Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 6 -->
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>6: Images</h2>
+                        <span class="module-badge">Level 2</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Bring your website to life with photos and visual media.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">img tag</span>
+                            <span class="topic-tag">Optimization</span>
+                            <span class="topic-tag">Accessibility</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <a href="module6.html" class="btn-start">Add Pictures</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 7 -->
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>7: Tables</h2>
+                        <span class="module-badge">Level 2</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Organize complex data like a pro using rows, columns, and cells.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">tr/td</span>
+                            <span class="topic-tag">thead</span>
+                            <span class="topic-tag">Data Grids</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <a href="module7.html" class="btn-start">Organize Data</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 8 -->
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>8: Lists</h2>
+                        <span class="module-badge">Level 2</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Learn how to group items using ordered and unordered lists.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">ul/ol</span>
+                            <span class="topic-tag">li tag</span>
+                            <span class="topic-tag">Nesting</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <a href="module8.html" class="btn-start">Create Lists</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Week 3: Advanced Structure -->
+        <div class="week-section">
+            <div class="week-header">Week 3: Modern Web Structure</div>
+            <div class="modules-grid">
+                <!-- Module 9 -->
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>9: Block & Inline</h2>
+                        <span class="module-badge">Level 3</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Understand how elements occupy space and interact with each other.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Divs</span>
+                            <span class="topic-tag">Spans</span>
+                            <span class="topic-tag">Display</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <a href="module9.html" class="btn-start">See the Boxes</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 10 -->
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>10: Class & ID</h2>
+                        <span class="module-badge">Level 3</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Naming elements correctly so you can style them with CSS later.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Selectors</span>
+                            <span class="topic-tag">Reusability</span>
+                            <span class="topic-tag">Uniqueness</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <a href="module10.html" class="btn-start">Name It!</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 11 -->
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>11: Forms</h2>
+                        <span class="module-badge">Level 3</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Build inputs, buttons, and text areas to talk to your users.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Input</span>
+                            <span class="topic-tag">Labels</span>
+                            <span class="topic-tag">Validation</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <a href="module11.html" class="btn-start">Build Forms</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Module 12 -->
+                <div class="module-card">
+                    <div class="module-card-header">
+                        <h2>12: Semantics</h2>
+                        <span class="module-badge">Level 3</span>
+                    </div>
+                    <div class="module-card-body">
+                        <p>Write meaningful code for better SEO and accessibility.</p>
+                        <div class="module-topics">
+                            <span class="topic-tag">Main</span>
+                            <span class="topic-tag">Article</span>
+                            <span class="topic-tag">Footer</span>
+                        </div>
+                        <div class="module-card-footer">
+                            <a href="module12.html" class="btn-start">Be Smart!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="resources-section" style="margin-top: 5rem; text-align: center;">
+            <h2>Mastery Tools</h2>
+            <div class="course-info" style="margin-top: 2rem;">
+                <a href="playground.html" class="info-card" style="text-decoration: none; color: inherit;">
+                    <h3>Playground</h3>
+                    <p>Code Editor</p>
+                </a>
+                <a href="exercises.html" class="info-card" style="text-decoration: none; color: inherit;">
+                    <h3>Exercises</h3>
+                    <p>Skill Tests</p>
+                </a>
+                <a href="glossary.html" class="info-card" style="text-decoration: none; color: inherit;">
+                    <h3>Glossary</h3>
+                    <p>Quick Help</p>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <script src="../js/core.js"></script>
     <script>
-        // Update progress specifically for 12 modules
         document.addEventListener('DOMContentLoaded', () => {
             const completed = JSON.parse(localStorage.getItem('jc_completed_modules') || '[]');
-            const count = completed.filter(m => typeof m === 'number' && m <= 12).length;
+            const count = completed.filter(m => m.startsWith('Learning HTML')).length;
             const percentage = (count / 12) * 100;
+            
             const fill = document.getElementById('progressFill');
             const text = document.getElementById('completedModules');
+            
             if (fill) fill.style.width = percentage + '%';
             if (text) text.textContent = count;
         });
