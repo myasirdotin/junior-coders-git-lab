@@ -130,10 +130,18 @@
         
         let linksHtml = '';
         if (currentModule) {
-            // Home link also points to root index.html
-            linksHtml = `<a href="${baseUrl}index.html">Home</a>` + CONFIG.MODULES[currentModule].map(item => `
-                <a href="${item.url}" class="${currentPath === item.url ? 'active' : ''}">${item.name}</a>
-            `).join('');
+            // Refactored to use a dropdown for module links to keep nav clean
+            linksHtml = `
+                <a href="${baseUrl}index.html">Home</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-btn" id="modules-dropdown-btn">Modules ▾</button>
+                    <div class="nav-dropdown-content">
+                        ${CONFIG.MODULES[currentModule].map(item => `
+                            <a href="${item.url}" class="${currentPath === item.url ? 'active' : ''}">${item.name}</a>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
         } else {
             // Root navigation
             linksHtml = `
@@ -192,6 +200,15 @@
             document.body.style.overflow = navLinks?.classList.contains('open') ? 'hidden' : '';
         });
 
+        // Dropdown toggle for mobile
+        const dropdownBtn = document.getElementById('modules-dropdown-btn');
+        dropdownBtn?.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024) {
+                e.preventDefault();
+                dropdownBtn.parentElement.classList.toggle('active');
+            }
+        });
+
         // Close menu when clicking a link
         navLinks?.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
@@ -209,6 +226,11 @@
         footer.className = 'site-footer';
         footer.innerHTML = `
             <div class="footer-content">
+                <div class="footer-links">
+                    <a href="${getBaseUrl()}index.html">Home</a>
+                    <a href="${getBaseUrl()}getting-started.html">Getting Started</a>
+                    <a href="${getBaseUrl()}contact.html">Contact Us</a>
+                </div>
                 <div class="credits">Created with ❤️ by <strong>Yasir Rasool</strong></div>
                 <p>&copy; ${new Date().getFullYear()} Junior Coders platform. All rights reserved.</p>
             </div>

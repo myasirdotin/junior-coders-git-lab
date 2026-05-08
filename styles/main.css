@@ -171,6 +171,77 @@ p { margin-bottom: 1rem; }
     background: var(--primary);
 }
 
+/* Navigation Dropdown */
+.nav-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-dropdown-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.nav-dropdown-btn:hover {
+    color: white;
+    background: var(--primary);
+}
+
+.nav-dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #1e293b;
+    min-width: 220px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border-radius: 1rem;
+    padding: 0.5rem;
+    z-index: 1100;
+    border: 1px solid var(--border-dim);
+}
+
+.nav-dropdown-content a {
+    display: block !important;
+    text-align: left !important;
+    padding: 0.75rem 1rem !important;
+    width: 100% !important;
+    font-size: 0.85rem !important;
+}
+
+.nav-dropdown:hover .nav-dropdown-content {
+    display: block;
+}
+
+@media (max-width: 1024px) {
+    .nav-dropdown { width: 100%; }
+    .nav-dropdown-btn { 
+        width: 100%; 
+        font-size: 1.2rem; 
+        padding: 1rem;
+    }
+    .nav-dropdown-content {
+        position: static;
+        display: none;
+        box-shadow: none;
+        background: rgba(255,255,255,0.05);
+        border: none;
+        padding-left: 0;
+        margin-top: 0.5rem;
+    }
+    .nav-dropdown.active .nav-dropdown-content {
+        display: block;
+    }
+}
+
 @media (max-width: 1024px) {
     .mobile-toggle { display: flex; }
     
@@ -391,6 +462,18 @@ p { margin-bottom: 1rem; }
 }
 .quiz-question label:hover { background: rgba(99, 102, 241, 0.1); border-color: var(--primary); }
 .quiz-question input[type="radio"] { width: 1.2rem; height: 1.2rem; accent-color: var(--primary); }
+
+/* Form Elements */
+input[type="text"], input[type="email"], textarea {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="light"] input[type="text"], 
+[data-theme="light"] input[type="email"], 
+[data-theme="light"] textarea {
+    background: rgba(0, 0, 0, 0.05) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+}
 
 /* Syllabus & Course Components */
 .syllabus-container {
@@ -637,12 +720,7 @@ p { margin-bottom: 1rem; }
         overflow-x: hidden;
     }
 
-    .nav-links a[href*="learninghtml"],
-    .nav-links a[href*="learningcss"],
-    .nav-links a[href*="learningjs"],
-    .nav-links a[href="index.html"] {
-        display: none !important;
-    }
+    /* Fixed: Mobile menu now shows all links for better navigation */
 }
 
 /* Unified Module Navigator */
@@ -1075,8 +1153,11 @@ p { margin-bottom: 1rem; }
 /* Responsive Adjustments */
 @media (max-width: 640px) {
     .container { padding: 1rem; }
+    .hero { margin: 2rem 0 3rem; }
     .hero h1 { font-size: 2.2rem; }
     .hero p { font-size: 1rem; }
+    .dashboard-grid { margin-bottom: 2rem; }
+    .mission-card { padding: 1.25rem; }
     .module-header { padding: 2.5rem 1.5rem !important; border-radius: 1.5rem !important; }
     .module-header h1 { font-size: 1.8rem !important; }
     .module-header p { font-size: 1rem !important; }
@@ -1090,4 +1171,68 @@ p { margin-bottom: 1rem; }
     
     .content-section { padding: 1.5rem; margin-bottom: 2rem; }
     .course-card { padding: 2rem 1.5rem; }
+}
+
+/* --- Site Footer --- */
+.site-footer {
+    background: #0f172a;
+    color: var(--text-secondary);
+    padding: 4rem 1.5rem;
+    margin-top: 6rem;
+    border-top: 2px solid var(--border-dim);
+    text-align: center;
+}
+
+[data-theme="light"] .site-footer {
+    background: #f8fafc;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+}
+
+.credits {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.credits strong {
+    color: var(--primary);
+}
+
+.site-footer p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .site-footer {
+        padding: 3rem 1.5rem 6rem; /* Extra bottom padding for mobile nav */
+    }
+    .footer-links {
+        gap: 1.5rem;
+    }
 }
