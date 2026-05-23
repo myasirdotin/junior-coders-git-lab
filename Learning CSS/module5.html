@@ -53,6 +53,48 @@
             </div>
         </section>
 
+        <!-- Sandbox Section -->
+        <section class="content-section">
+            <h2>The Layout Boss Sandbox 🪁</h2>
+            <p>Try changing <code>justify-content</code> properties (like <code>space-between</code>, <code>space-around</code>, or <code>center</code>) to tell the worker boxes where to align!</p>
+            <div class="playground-container" style="margin-top: 1.5rem;">
+                <div class="editor-area" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div>
+                        <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">HTML Structure (Read-Only)</label>
+                        <textarea id="html-editor" readonly style="height: 100px; background: #0b1329; color: #64748b; font-family: var(--font-mono); font-size: 0.9rem; border: 2px solid var(--border-dim); border-radius: 0.75rem; padding: 0.5rem; width: 100%; resize: none; outline: none;"><div class="boss-container">
+    <div class="worker">👷 1</div>
+    <div class="worker">👷 2</div>
+    <div class="worker">👷 3</div>
+</div></textarea>
+                    </div>
+                    <div>
+                        <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">CSS Styles</label>
+                        <textarea id="css-editor" spellcheck="false" style="height: 170px; background: #020617; color: #f8fafc; font-family: var(--font-mono); font-size: 0.95rem; border: 2px solid var(--border-dim); border-radius: 0.75rem; padding: 0.5rem; width: 100%; resize: none; outline: none;">.boss-container {
+    display: flex;
+    justify-content: space-around; /* Try: center, space-between, flex-end */
+    
+    background: #0f172a;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    border: 3px solid #0ea5e9;
+}
+
+.worker {
+    background: white;
+    color: #0ea5e9;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 900;
+}</textarea>
+                    </div>
+                </div>
+                <div class="preview-area">
+                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Live Preview</label>
+                    <div id="preview" style="background: var(--bg-card); min-height: 290px; border-radius: 1rem; border: 2px solid var(--border-dim); padding: 1.5rem; display: flex; flex-direction: column; align-items: stretch; justify-content: center; overflow: auto; color: white;"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Quiz Section -->
         <section class="content-section">
             <h2>Flex Quiz!</h2>
@@ -70,5 +112,6 @@
     </main>
 
     <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
 </body>
 </html>
