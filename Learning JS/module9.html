@@ -49,6 +49,40 @@
             </div>
         </section>
 
+        <!-- Sandbox Section -->
+        <section class="content-section">
+            <h2>Your Event Listener Sandbox ⚡</h2>
+            <p>Write an event listener to make the button trigger a magic card visual change! Click run first, and then try clicking the interactive sample button below!</p>
+            
+            <!-- Sample Interactive Area -->
+            <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 1rem; border: 2px dashed var(--accent); margin: 1.5rem 0; text-align: center;">
+                <button id="magic-btn" class="btn-primary" style="background: var(--accent); color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; margin-bottom: 0.5rem; cursor: pointer;">Sample Interactive Button</button>
+                <p id="magic-status" style="font-size: 0.85rem; color: var(--text-secondary);">Waiting for event listener to click...</p>
+            </div>
+
+            <div class="playground-container">
+                <div class="editor-area">
+                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">JavaScript Editor</label>
+                    <textarea id="code-editor" spellcheck="false" style="width: 100%; height: 180px; background: #020617; color: #f8fafc; border: 2px solid var(--border-dim); border-radius: 1rem; padding: 1rem; font-family: var(--font-mono); font-size: 0.95rem; resize: none; outline: none; margin-bottom: 1rem;">const btn = document.getElementById("magic-btn");
+const status = document.getElementById("magic-status");
+
+// Listen for a "click" event
+btn.addEventListener("click", function() {
+    status.innerHTML = "🎉 Magic button was clicked!";
+    status.style.color = "#10b981";
+    console.log("Interactive button clicked successfully!");
+});
+
+console.log("Event listener registered! Try clicking the button above!");</textarea>
+                    <button class="btn-primary" onclick="runJS()" style="padding: 0.5rem 1.5rem; font-size: 0.85rem; border-radius: 0.75rem;">⚡ Run Code</button>
+                </div>
+                <div class="preview-area">
+                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Console Output</label>
+                    <div id="console" style="width: 100%; height: 180px; background: #020617; border-radius: 1rem; border: 2px solid var(--border-dim); overflow: auto; padding: 1rem; color: #34d399; font-family: var(--font-mono); font-size: 0.9rem;"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Quiz Section -->
         <section class="content-section">
             <h2>Events Quiz!</h2>
@@ -66,5 +100,6 @@
     </main>
 
     <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
 </body>
 </html>

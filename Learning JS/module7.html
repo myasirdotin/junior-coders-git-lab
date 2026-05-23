@@ -71,6 +71,38 @@
             </div>
         </section>
 
+        <!-- Sandbox Section -->
+        <section class="content-section">
+            <h2>Your DOM Magic Wand Sandbox 🪄</h2>
+            <p>Write JavaScript to select the magic title below and change its style or text contents! Click run to see the changes live on the page!</p>
+            
+            <!-- Sample Card for students to manipulate -->
+            <div id="magic-card" style="background: var(--bg-card); padding: 1.5rem; border-radius: 1rem; border: 2px solid var(--border-dim); margin: 1.5rem 0; text-align: center; transition: all 0.3s ease;">
+                <h3 id="magic-title" style="color: var(--primary); margin-bottom: 0.5rem; font-size: 1.5rem;">The Sleeping Giant 😴</h3>
+                <p id="magic-text" style="font-size: 0.85rem; color: var(--text-secondary);">This card is waiting for your JS code magic to wake it up!</p>
+            </div>
+
+            <div class="playground-container">
+                <div class="editor-area">
+                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">JavaScript Editor</label>
+                    <textarea id="code-editor" spellcheck="false" style="width: 100%; height: 180px; background: #020617; color: #f8fafc; border: 2px solid var(--border-dim); border-radius: 1rem; padding: 1rem; font-family: var(--font-mono); font-size: 0.95rem; resize: none; outline: none; margin-bottom: 1rem;">// 1. Find the title element
+const title = document.getElementById("magic-title");
+
+// 2. Wake it up by changing its text and color!
+title.innerHTML = "Woken Up Giant! ⚡🧙‍♂️";
+title.style.color = "#10b981";
+
+// 3. Change card border
+document.getElementById("magic-card").style.borderColor = "#10b981";</textarea>
+                    <button class="btn-primary" onclick="runJS()" style="padding: 0.5rem 1.5rem; font-size: 0.85rem; border-radius: 0.75rem;">⚡ Run Code</button>
+                </div>
+                <div class="preview-area">
+                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Console Output</label>
+                    <div id="console" style="width: 100%; height: 180px; background: #020617; border-radius: 1rem; border: 2px solid var(--border-dim); overflow: auto; padding: 1rem; color: #34d399; font-family: var(--font-mono); font-size: 0.9rem;"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Quiz Section -->
         <section class="content-section">
             <h2>DOM Quiz!</h2>
@@ -95,5 +127,6 @@
     </main>
 
     <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
 </body>
 </html>

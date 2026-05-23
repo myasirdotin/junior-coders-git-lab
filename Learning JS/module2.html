@@ -80,6 +80,30 @@
             </div>
         </section>
 
+        <!-- Sandbox Section -->
+        <section class="content-section">
+            <h2>Your Magic Calculator Sandbox ➕➖✖️➗</h2>
+            <p>Try doing math and using comparison operators! Run the code below to see the calculator in action.</p>
+            <div class="playground-container" style="margin-top: 1.5rem;">
+                <div class="editor-area">
+                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">JavaScript Editor</label>
+                    <textarea id="code-editor" spellcheck="false" style="width: 100%; height: 180px; background: #020617; color: #f8fafc; border: 2px solid var(--border-dim); border-radius: 1rem; padding: 1rem; font-family: var(--font-mono); font-size: 0.95rem; resize: none; outline: none; margin-bottom: 1rem;">let itemsCount = 10;
+let pricePerItem = 5;
+let totalPrice = itemsCount * pricePerItem;
+
+console.log("Total price is: $", totalPrice);
+
+let isExpensive = totalPrice > 40;
+console.log("Is total price greater than $40?", isExpensive);</textarea>
+                    <button class="btn-primary" onclick="runJS()" style="padding: 0.5rem 1.5rem; font-size: 0.85rem; border-radius: 0.75rem;">⚡ Run Code</button>
+                </div>
+                <div class="preview-area">
+                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Console Output</label>
+                    <div id="console" style="width: 100%; height: 180px; background: #020617; border-radius: 1rem; border: 2px solid var(--border-dim); overflow: auto; padding: 1rem; color: #34d399; font-family: var(--font-mono); font-size: 0.9rem;"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Quiz Section -->
         <section class="content-section">
             <h2>Math & Logic Quiz!</h2>
@@ -103,5 +127,6 @@
     </main>
 
     <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
 </body>
 </html>
