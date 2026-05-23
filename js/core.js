@@ -73,9 +73,108 @@
         return null;
     };
 
+    // --- Centralized State Engine ---
+    const JC_State = {
+        KEY: 'jc_user_state',
+        
+        defaultSchema: {
+            theme: 'dark',
+            completedModules: [],
+            streak: 1,
+            lastActiveDay: null,
+            lastModule: null,
+            lastModulePath: null
+        },
+
+        load: function() {
+            let state = localStorage.getItem(this.KEY);
+            if (state) {
+                try {
+                    return JSON.parse(state);
+                } catch(e) {
+                    console.error("Failed to parse state, resetting...", e);
+                }
+            }
+            
+            // Safe Backward-Compatible Migration
+            const legacyTheme = localStorage.getItem(CONFIG.STORAGE_KEYS.THEME);
+            const legacyCompleted = localStorage.getItem(CONFIG.STORAGE_KEYS.COMPLETED);
+            const legacyStreak = localStorage.getItem('jc_daily_streak');
+            const legacyLastActive = localStorage.getItem('jc_last_active_day');
+            const legacyLastModule = localStorage.getItem('jc_last_module');
+            const legacyLastPath = localStorage.getItem('jc_last_module_path');
+
+            const migrated = {
+                theme: legacyTheme || 'dark',
+                completedModules: legacyCompleted ? JSON.parse(legacyCompleted) : [],
+                streak: legacyStreak ? parseInt(legacyStreak) : 1,
+                lastActiveDay: legacyLastActive || null,
+                lastModule: legacyLastModule || null,
+                lastModulePath: legacyLastPath || null
+            };
+
+            this.save(migrated);
+            return migrated;
+        },
+
+        save: function(state) {
+            localStorage.setItem(this.KEY, JSON.stringify(state));
+            // Sync with legacy keys to support isolated module index files!
+            localStorage.setItem(CONFIG.STORAGE_KEYS.COMPLETED, JSON.stringify(state.completedModules));
+            localStorage.setItem(CONFIG.STORAGE_KEYS.THEME, state.theme);
+            localStorage.setItem('jc_daily_streak', state.streak.toString());
+            if (state.lastActiveDay) localStorage.setItem('jc_last_active_day', state.lastActiveDay);
+            if (state.lastModule) localStorage.setItem('jc_last_module', state.lastModule);
+            if (state.lastModulePath) localStorage.setItem('jc_last_module_path', state.lastModulePath);
+        },
+
+        get: function(key) {
+            const state = this.load();
+            return state[key] !== undefined ? state[key] : this.defaultSchema[key];
+        },
+
+        set: function(key, value) {
+            const state = this.load();
+            state[key] = value;
+            this.save(state);
+        }
+    };
+
     // --- Gamification Engine ---
+    const updateStreak = () => {
+        const now = new Date();
+        const todayStr = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
+        
+        let streak = JC_State.get('streak');
+        const lastActive = JC_State.get('lastActiveDay');
+        
+        if (lastActive) {
+            if (lastActive !== todayStr) {
+                const lastDate = new Date(lastActive);
+                const diffTime = Math.abs(now - lastDate);
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                
+                if (diffDays === 1) {
+                    streak += 1;
+                    JC_State.set('streak', streak);
+                    setTimeout(() => {
+                        window.showToast(`Daily streak updated! 🔥 ${streak} Days`);
+                    }, 1000);
+                } else if (diffDays > 1) {
+                    streak = 1;
+                    JC_State.set('streak', 1);
+                }
+                JC_State.set('lastActiveDay', todayStr);
+            }
+        } else {
+            JC_State.set('lastActiveDay', todayStr);
+            JC_State.set('streak', 1);
+        }
+        return streak;
+    };
+
     const calculateStats = () => {
-        const completed = JSON.parse(localStorage.getItem(CONFIG.STORAGE_KEYS.COMPLETED) || '[]');
+        const completed = JC_State.get('completedModules');
         const xp = completed.length * 100;
         
         let rank = 'Recruit';
@@ -83,29 +182,33 @@
         if (xp >= 1500) rank = 'Coder';
         if (xp >= 2500) rank = 'Master';
 
-        return { xp, count: completed.length, rank };
+        const streak = JC_State.get('streak');
+
+        return { xp, count: completed.length, rank, streak };
     };
 
     const trackVisit = () => {
         const path = window.location.pathname.split('/').pop();
         if (path.includes('module')) {
-            localStorage.setItem('jc_last_module', JSON.path || path);
-            localStorage.setItem('jc_last_module_path', window.location.pathname);
+            JC_State.set('lastModule', path);
+            JC_State.set('lastModulePath', window.location.pathname);
         }
     };
 
     const updateDashboard = () => {
         const stats = calculateStats();
-        const lastPath = localStorage.getItem('jc_last_module_path');
+        const lastPath = JC_State.get('lastModulePath');
         
         const xpEl = document.getElementById('user-xp');
         const countEl = document.getElementById('user-completed');
         const rankEl = document.getElementById('user-rank');
+        const streakEl = document.getElementById('user-streak');
         const continueBtn = document.getElementById('continue-mission');
 
         if (xpEl) xpEl.textContent = stats.xp;
         if (countEl) countEl.textContent = stats.count;
         if (rankEl) rankEl.textContent = stats.rank;
+        if (streakEl) streakEl.textContent = stats.streak;
         
         if (continueBtn && lastPath) {
             continueBtn.href = lastPath;
@@ -253,7 +356,7 @@
 
     // --- State Management ---
     function initTheme() {
-        const savedTheme = localStorage.getItem(CONFIG.STORAGE_KEYS.THEME) || 'dark';
+        const savedTheme = JC_State.get('theme');
         document.documentElement.setAttribute('data-theme', savedTheme);
     }
 
@@ -261,22 +364,46 @@
         const current = document.documentElement.getAttribute('data-theme');
         const next = current === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem(CONFIG.STORAGE_KEYS.THEME, next);
+        JC_State.set('theme', next);
     }
     window.toggleTheme = toggleTheme;
 
     // --- Progress Tracking ---
+    function triggerConfetti() {
+        if (typeof confetti === 'undefined') {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js';
+            script.onload = () => {
+                window.confetti({
+                    particleCount: 120,
+                    spread: 80,
+                    origin: { y: 0.6 },
+                    colors: ['#6366f1', '#f43f5e', '#10b981', '#f59e0b', '#0ea5e9']
+                });
+            };
+            document.head.appendChild(script);
+        } else {
+            window.confetti({
+                particleCount: 120,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#6366f1', '#f43f5e', '#10b981', '#f59e0b', '#0ea5e9']
+            });
+        }
+    }
+
     window.markComplete = (moduleNum) => {
         const currentModule = getCurrentModule();
         if (!currentModule) return;
 
-        const completed = JSON.parse(localStorage.getItem(CONFIG.STORAGE_KEYS.COMPLETED) || '[]');
+        const completed = JC_State.get('completedModules');
         const moduleKey = `${currentModule}_${moduleNum}`;
         
         if (!completed.includes(moduleKey)) {
             completed.push(moduleKey);
-            localStorage.setItem(CONFIG.STORAGE_KEYS.COMPLETED, JSON.stringify(completed));
+            JC_State.set('completedModules', completed);
             window.showToast(`Module ${moduleNum} completed! 🎉`);
+            triggerConfetti();
             
             // Trigger progress update if on syllabus page
             const progressFill = document.getElementById('progressFill');
@@ -354,6 +481,7 @@
     // --- Initialization ---
     document.addEventListener('DOMContentLoaded', () => {
         initTheme();
+        updateStreak();
         injectNavigation();
         injectModuleNavigator();
         injectFooter();

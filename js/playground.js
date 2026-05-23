@@ -179,7 +179,17 @@
                 if (e.data.type === 'error') logToIDE(e.data.data, 'error');
             });
 
-            // 5. Setup Live Update
+            // 5. Viewport Switching Simulator
+            const vpButtons = document.querySelectorAll('.viewport-btn');
+            vpButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    vpButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    preview.style.width = btn.dataset.width;
+                });
+            });
+
+            // 6. Setup Live Update
             [htmlEditor, cssEditor, jsEditor].forEach(ed => {
                 ed.addEventListener('input', () => {
                     // Debounce update to avoid lag

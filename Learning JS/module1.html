@@ -73,6 +73,27 @@
             </ol>
         </section>
 
+        <!-- Sandbox Section -->
+        <section class="content-section">
+            <h2>Your Memory Sandbox 📦</h2>
+            <p>Try creating a variable called <code>myName</code>, store your name in it, and print it using <code>console.log(myName);</code>! Click run below to see your results.</p>
+            <div class="playground-container" style="margin-top: 1.5rem;">
+                <div class="editor-area">
+                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">JavaScript Editor</label>
+                    <textarea id="code-editor" spellcheck="false" style="width: 100%; height: 180px; background: #020617; color: #f8fafc; border: 2px solid var(--border-dim); border-radius: 1rem; padding: 1rem; font-family: var(--font-mono); font-size: 0.95rem; resize: none; outline: none; margin-bottom: 1rem;">let myName = "Yasir";
+const myAge = 12;
+
+console.log("Hello, my name is", myName);
+console.log("I am", myAge, "years old!");</textarea>
+                    <button class="btn-primary" onclick="runJS()" style="padding: 0.5rem 1.5rem; font-size: 0.85rem; border-radius: 0.75rem;">⚡ Run Code</button>
+                </div>
+                <div class="preview-area">
+                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Console Output</label>
+                    <div id="console" style="width: 100%; height: 180px; background: #020617; border-radius: 1rem; border: 2px solid var(--border-dim); overflow: auto; padding: 1rem; color: #34d399; font-family: var(--font-mono); font-size: 0.9rem;"></div>
+                </div>
+            </div>
+        </section>
+
         <!-- Quiz Section -->
         <section class="content-section">
             <h2>JS Logic Quiz!</h2>
@@ -97,5 +118,6 @@
     </main>
 
     <script src="../js/core.js"></script>
+    <script src="../js/playground.js"></script>
 </body>
 </html>

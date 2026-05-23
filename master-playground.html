@@ -41,6 +41,11 @@ console.log('Welcome to the Master Playground!');"></textarea>
         <section class="ide-preview-panel">
             <div class="preview-header">
                 <span class="preview-badge">Live Preview</span>
+                <div class="viewport-controls">
+                    <button class="viewport-btn active" data-width="100%">💻 Desktop</button>
+                    <button class="viewport-btn" data-width="768px">📟 Tablet</button>
+                    <button class="viewport-btn" data-width="375px">📱 Mobile</button>
+                </div>
                 <button class="btn-icon" onclick="window.location.reload()" title="Refresh Preview">🔄</button>
             </div>
             <iframe id="master-preview"></iframe>

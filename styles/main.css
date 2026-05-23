@@ -1236,3 +1236,73 @@ input[type="text"], input[type="email"], textarea {
         gap: 1.5rem;
     }
 }
+
+/* --- Visual Gamification & IDE Simulator Upgrades --- */
+.viewport-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+.viewport-btn {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-dim);
+    color: var(--text-primary);
+    cursor: pointer;
+    padding: 0.35rem 0.7rem;
+    border-radius: 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+.viewport-btn:hover {
+    background: var(--border-dim);
+}
+.viewport-btn.active {
+    background: var(--primary);
+    color: white !important;
+    border-color: var(--primary);
+}
+[data-theme="light"] .viewport-btn {
+    color: var(--text-primary);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+[data-theme="light"] .viewport-btn.active {
+    color: white !important;
+}
+#master-preview {
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 0 auto;
+}
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 1.5rem;
+    background: var(--accent);
+    color: white;
+    border-radius: 1rem;
+    font-weight: 700;
+    box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+    z-index: 10000;
+    animation: slideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.toast-error {
+    background: var(--secondary);
+    box-shadow: 0 10px 25px rgba(244, 63, 94, 0.3);
+}
+.toast.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
