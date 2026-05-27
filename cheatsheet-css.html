@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Cheat Sheet | Junior Coders</title>
+    <meta name="description" content="A complete CSS cheat sheet for Class 7 students. Every property, selector, and trick in one page.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="cheatsheet-container">
+
+    <header class="cheat-hero css-hero">
+        <span class="course-level css-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Class 7</span>
+        <h1>CSS Cheat Sheet</h1>
+        <p>Every property, selector, and trick — one page, always ready. Bookmark this!</p>
+    </header>
+
+    <div class="cheat-tip">
+        <strong>CSS Rule Structure:</strong> <code style="color:#3b82f6;">selector</code> { <code style="color:#10b981;">property</code>: <code style="color:#eab308;">value</code>; } &nbsp;—&nbsp; For example: <code>h1 { color: red; font-size: 24px; }</code>
+    </div>
+
+    <div class="cheat-grid">
+
+        <!-- Selectors -->
+        <div class="cheat-card">
+            <div class="cheat-card-header css-hdr">🎯 Selectors</div>
+            <table class="cheat-table css-table">
+                <tr><td>p { }</td><td>All &lt;p&gt; elements</td></tr>
+                <tr><td>.box { }</td><td>All elements with class="box"</td></tr>
+                <tr><td>#header { }</td><td>The element with id="header"</td></tr>
+                <tr><td>* { }</td><td>Every element on the page</td></tr>
+                <tr><td>h1, p { }</td><td>Both h1 AND p elements</td></tr>
+                <tr><td>div p { }</td><td>Any p inside a div (descendant)</td></tr>
+                <tr><td>div &gt; p { }</td><td>Direct child p of a div only</td></tr>
+                <tr><td>a:hover { }</td><td>Link when mouse hovers over it</td></tr>
+                <tr><td>input:focus { }</td><td>Input when it's clicked/active</td></tr>
+                <tr><td>li:first-child { }</td><td>The first list item only</td></tr>
+                <tr><td>li:last-child { }</td><td>The last list item only</td></tr>
+                <tr><td>li:nth-child(2) { }</td><td>The 2nd item specifically</td></tr>
+                <tr><td>p::before { }</td><td>Insert content before every &lt;p&gt;</td></tr>
+                <tr><td>p::after { }</td><td>Insert content after every &lt;p&gt;</td></tr>
+            </table>
+        </div>
+
+        <!-- Colors -->
+        <div class="cheat-card">
+            <div class="cheat-card-header css-hdr">🎨 Colors</div>
+            <table class="cheat-table css-table">
+                <tr><td>color: red</td><td>Text color using a named color</td></tr>
+                <tr><td>color: #ff0000</td><td>Text color using hex code</td></tr>
+                <tr><td>color: rgb(255, 0, 0)</td><td>Text color using RGB values</td></tr>
+                <tr><td>color: rgba(0,0,0, 0.5)</td><td>Color + transparency (0=clear, 1=solid)</td></tr>
+                <tr><td>color: hsl(240, 100%, 50%)</td><td>Hue, saturation, lightness</td></tr>
+                <tr><td>background-color: blue</td><td>Background fill color</td></tr>
+                <tr><td>background: linear-gradient(red, blue)</td><td>Gradient from red to blue</td></tr>
+                <tr><td>opacity: 0.5</td><td>Makes whole element 50% transparent</td></tr>
+            </table>
+        </div>
+
+        <!-- Text & Fonts -->
+        <div class="cheat-card">
+            <div class="cheat-card-header css-hdr">✏️ Text &amp; Fonts</div>
+            <table class="cheat-table css-table">
+                <tr><td>font-size: 16px</td><td>Text size in pixels</td></tr>
+                <tr><td>font-size: 1.2rem</td><td>Text size relative to page root (scalable)</td></tr>
+                <tr><td>font-family: Arial, sans-serif</td><td>Font name (always add a fallback)</td></tr>
+                <tr><td>font-weight: bold</td><td>Bold text (or 100–900)</td></tr>
+                <tr><td>font-style: italic</td><td>Italic text</td></tr>
+                <tr><td>text-align: center</td><td>Center, left, right, or justify</td></tr>
+                <tr><td>text-decoration: none</td><td>Remove underline from links</td></tr>
+                <tr><td>text-transform: uppercase</td><td>ALL CAPS / lowercase / Capitalize</td></tr>
+                <tr><td>line-height: 1.6</td><td>Space between lines (1.6 is comfortable)</td></tr>
+                <tr><td>letter-spacing: 2px</td><td>Space between letters</td></tr>
+                <tr><td>word-spacing: 4px</td><td>Space between words</td></tr>
+                <tr><td>white-space: nowrap</td><td>Prevents text from wrapping to next line</td></tr>
+            </table>
+        </div>
+
+        <!-- Box Model -->
+        <div class="cheat-card">
+            <div class="cheat-card-header css-hdr">📦 Box Model</div>
+            <table class="cheat-table css-table">
+                <tr><td>width: 200px</td><td>Set element width</td></tr>
+                <tr><td>height: 100px</td><td>Set element height</td></tr>
+                <tr><td>max-width: 800px</td><td>Won't grow wider than this</td></tr>
+                <tr><td>min-height: 100px</td><td>Won't shrink shorter than this</td></tr>
+                <tr><td>padding: 10px</td><td>Inside space (all 4 sides)</td></tr>
+                <tr><td>padding: 10px 20px</td><td>Top/bottom=10px, left/right=20px</td></tr>
+                <tr><td>margin: 20px</td><td>Outside space (all 4 sides)</td></tr>
+                <tr><td>margin: 0 auto</td><td>Center a block element horizontally</td></tr>
+                <tr><td>border: 2px solid black</td><td>Border: width style color</td></tr>
+                <tr><td>border-radius: 10px</td><td>Rounded corners</td></tr>
+                <tr><td>border-radius: 50%</td><td>Perfect circle (on a square)</td></tr>
+                <tr><td>box-sizing: border-box</td><td>Padding/border fit INSIDE the width</td></tr>
+                <tr><td>overflow: hidden</td><td>Hide anything that doesn't fit</td></tr>
+                <tr><td>box-shadow: 4px 4px 10px gray</td><td>Drop shadow (x, y, blur, color)</td></tr>
+            </table>
+        </div>
+
+        <!-- Display & Visibility -->
+        <div class="cheat-card">
+            <div class="cheat-card-header css-hdr">👁️ Display</div>
+            <table class="cheat-table css-table">
+                <tr><td>display: block</td><td>Full-width, new line before &amp; after</td></tr>
+                <tr><td>display: inline</td><td>Flows with surrounding text</td></tr>
+                <tr><td>display: inline-block</td><td>Inline but you can set width/height</td></tr>
+                <tr><td>display: flex</td><td>Flexbox layout — most powerful!</td></tr>
+                <tr><td>display: grid</td><td>Grid layout — for complex designs</td></tr>
+                <tr><td>display: none</td><td>Hides element AND removes its space</td></tr>
+                <tr><td>visibility: hidden</td><td>Invisible but still takes up space</td></tr>
+                <tr><td>cursor: pointer</td><td>Shows a hand cursor on hover</td></tr>
+            </table>
+        </div>
+
+        <!-- Flexbox -->
+        <div class="cheat-card">
+            <div class="cheat-card-header css-hdr">💪 Flexbox</div>
+            <table class="cheat-table css-table">
+                <tr><td>display: flex</td><td>Turn on Flexbox on a container</td></tr>
+                <tr><td>flex-direction: row</td><td>Children go left to right (default)</td></tr>
+                <tr><td>flex-direction: column</td><td>Children go top to bottom</td></tr>
+                <tr><td>justify-content: flex-start</td><td>Align horizontally: start</td></tr>
+                <tr><td>justify-content: center</td><td>Center children horizontally</td></tr>
+                <tr><td>justify-content: space-between</td><td>Space children evenly</td></tr>
+                <tr><td>align-items: flex-start</td><td>Align vertically: top</td></tr>
+                <tr><td>align-items: center</td><td>Center children vertically</td></tr>
+                <tr><td>align-items: stretch</td><td>Stretch children to full height</td></tr>
+                <tr><td>gap: 1rem</td><td>Space between flex children</td></tr>
+                <tr><td>flex-wrap: wrap</td><td>Overflow wraps to next line</td></tr>
+                <tr><td>flex: 1</td><td>Child grows to fill available space</td></tr>
+                <tr><td>flex-grow: 1</td><td>Child grows proportionally</td></tr>
+                <tr><td>order: 2</td><td>Control the order of children</td></tr>
+            </table>
+        </div>
+
+        <!-- Grid -->
+        <div class="cheat-card">
+            <div class="cheat-card-header css-hdr">🔲 CSS Grid</div>
+            <table class="cheat-table css-table">
+                <tr><td>display: grid</td><td>Turn on Grid on a container</td></tr>
+                <tr><td>grid-template-columns: 1fr 1fr</td><td>Two equal-width columns</td></tr>
+                <tr><td>grid-template-columns: repeat(3, 1fr)</td><td>Three equal columns</td></tr>
+                <tr><td>grid-template-columns: 200px auto</td><td>Fixed + flexible columns</td></tr>
+                <tr><td>grid-template-rows: 100px auto</td><td>Define row heights</td></tr>
+                <tr><td>gap: 1rem</td><td>Space between all grid cells</td></tr>
+                <tr><td>column-gap: 2rem</td><td>Space between columns only</td></tr>
+                <tr><td>row-gap: 1rem</td><td>Space between rows only</td></tr>
+                <tr><td>grid-column: 1 / 3</td><td>Item spans columns 1 to 3</td></tr>
+                <tr><td>grid-column: 1 / -1</td><td>Item spans the full width</td></tr>
+                <tr><td>place-items: center</td><td>Center all items in their cells</td></tr>
+            </table>
+        </div>
+
+        <!-- Position -->
+        <div class="cheat-card">
+            <div class="cheat-card-header css-hdr">📍 Positioning</div>
+            <table class="cheat-table css-table">
+                <tr><td>position: static</td><td>Default — normal document flow</td></tr>
+                <tr><td>position: relative</td><td>Move from its normal position</td></tr>
+                <tr><td>position: absolute</td><td>Place relative to nearest positioned parent</td></tr>
+                <tr><td>position: fixed</td><td>Stays fixed on screen when scrolling</td></tr>
+                <tr><td>position: sticky</td><td>Scrolls normally, then sticks</td></tr>
+                <tr><td>top: 10px</td><td>Distance from the top</td></tr>
+                <tr><td>right: 0</td><td>Distance from the right</td></tr>
+                <tr><td>bottom: 0</td><td>Distance from the bottom</td></tr>
+                <tr><td>left: 50%</td><td>Distance from the left</td></tr>
+                <tr><td>z-index: 10</td><td>Layer order (higher = on top)</td></tr>
+            </table>
+        </div>
+
+        <!-- Transitions & Transforms -->
+        <div class="cheat-card">
+            <div class="cheat-card-header css-hdr">✨ Animations</div>
+            <table class="cheat-table css-table">
+                <tr><td>transition: all 0.3s ease</td><td>Smooth animation when property changes</td></tr>
+                <tr><td>transition: color 0.2s</td><td>Animate only the color change</td></tr>
+                <tr><td>transform: rotate(45deg)</td><td>Rotate 45 degrees</td></tr>
+                <tr><td>transform: scale(1.1)</td><td>Grow to 110% size</td></tr>
+                <tr><td>transform: translateX(20px)</td><td>Move right 20px</td></tr>
+                <tr><td>transform: translateY(-10px)</td><td>Move up 10px</td></tr>
+                <tr><td>animation: spin 1s infinite</td><td>Run a named animation forever</td></tr>
+                <tr><td>@keyframes spin { 0% { ... } to { ... } }</td><td>Define an animation sequence</td></tr>
+            </table>
+        </div>
+
+        <!-- Responsive Design -->
+        <div class="cheat-card">
+            <div class="cheat-card-header css-hdr">📱 Responsive Design</div>
+            <table class="cheat-table css-table">
+                <tr><td>@media (max-width: 768px) { }</td><td>Styles for tablets &amp; phones</td></tr>
+                <tr><td>@media (max-width: 480px) { }</td><td>Styles for small phones only</td></tr>
+                <tr><td>@media (min-width: 1024px) { }</td><td>Styles for desktop only</td></tr>
+                <tr><td>width: 100%</td><td>Fill the full parent width</td></tr>
+                <tr><td>max-width: 100%</td><td>Never overflow the container</td></tr>
+                <tr><td>font-size: clamp(1rem, 4vw, 2rem)</td><td>Scale font between min and max</td></tr>
+                <tr><td>vw / vh</td><td>% of viewport width / height</td></tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="cheat-tip" style="margin-top: 2rem;">
+        <strong>Pro Tip:</strong> Always write CSS for mobile first (small screens), then add <code>@media (min-width: ...)</code> rules for bigger screens. This is called <em>Mobile-First Design!</em>
+    </div>
+
+    <div style="text-align:center; margin-top: 3rem;">
+        <a href="Learning CSS/learningcss.html" class="btn-primary" style="background: linear-gradient(135deg,#3b82f6,#6366f1); margin-right:1rem;">Back to CSS Course</a>
+        <a href="cheatsheet-js.html" class="btn-primary" style="background: linear-gradient(135deg,#eab308,#f59e0b); color: #0f172a;">JS Cheat Sheet →</a>
+    </div>
+
+</div>
+<script src="js/core.js"></script>
+</body>
+</html>

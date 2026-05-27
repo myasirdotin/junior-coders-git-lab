@@ -53,7 +53,7 @@
                     <h3 style="color: var(--primary); margin-bottom: 1rem;">Daily Goal</h3>
                     <p style="font-size: 0.85rem; color: var(--text-secondary);">Complete 1 module today to keep your streak alive! 🔥</p>
                     <div style="margin-top: 1.5rem; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden;">
-                        <div style="width: 30%; height: 100%; background: var(--accent);"></div>
+                        <div id="daily-goal-fill" style="width: 0%; height: 100%; background: var(--accent); transition: width 0.8s ease;"></div>
                     </div>
                 </div>
             </section>
@@ -71,6 +71,7 @@
                 </a>
 
                 <a href="Learning HTML/learninghtml.html" class="course-card html">
+                    <span class="course-level html-level">Class 6</span>
                     <div class="icon-wrapper">🌐</div>
                     <h2>HTML5</h2>
                     <p>Master the structure of the web. Learn semantic tags, accessibility, and modern document architecture.</p>
@@ -78,6 +79,7 @@
                 </a>
 
                 <a href="Learning CSS/learningcss.html" class="course-card css">
+                    <span class="course-level css-level">Class 7</span>
                     <div class="icon-wrapper">🎨</div>
                     <h2>Modern CSS</h2>
                     <p>Bring your sites to life with Flexbox, Grid, and beautiful animations. Style like a pro.</p>
@@ -85,12 +87,41 @@
                 </a>
 
                 <a href="Learning JS/learningjs.html" class="course-card js">
+                    <span class="course-level js-level">Class 8</span>
                     <div class="icon-wrapper">⚡</div>
                     <h2>JavaScript</h2>
                     <p>Add logic and interactivity. Learn DOM manipulation, events, and modern ES6+ features.</p>
                     <div class="badge">9 Modules</div>
                 </a>
 
+            </section>
+
+            <!-- Cheat Sheets & AI Roadmap -->
+            <section style="margin-top: 3rem;">
+                <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Quick Resources</h2>
+                <div class="course-grid" style="gap: 1.5rem;">
+                    <a href="cheatsheet-html.html" class="course-card html" style="padding: 2rem 1.5rem;">
+                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
+                        <h3 style="margin-bottom: 0.5rem;">HTML Cheat Sheet</h3>
+                        <p style="font-size: 0.9rem;">Every tag you need, one page.</p>
+                    </a>
+                    <a href="cheatsheet-css.html" class="course-card css" style="padding: 2rem 1.5rem;">
+                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
+                        <h3 style="margin-bottom: 0.5rem;">CSS Cheat Sheet</h3>
+                        <p style="font-size: 0.9rem;">Every property and selector, fast.</p>
+                    </a>
+                    <a href="cheatsheet-js.html" class="course-card js" style="padding: 2rem 1.5rem;">
+                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
+                        <h3 style="margin-bottom: 0.5rem;">JS Cheat Sheet</h3>
+                        <p style="font-size: 0.9rem;">Syntax, arrays, DOM — all here.</p>
+                    </a>
+                    <a href="ai-roadmap.html" class="course-card" style="padding: 2rem 1.5rem; border-color: rgba(236,72,153,0.4);">
+                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">🤖</div>
+                        <h3 style="margin-bottom: 0.5rem;">AI Roadmap</h3>
+                        <p style="font-size: 0.9rem;">From coder to AI creator — your path forward.</p>
+                        <div class="badge" style="background: rgba(236,72,153,0.15); color: #ec4899; border: 1px solid rgba(236,72,153,0.3);">New</div>
+                    </a>
+                </div>
             </section>
         </main>
     </div>
