@@ -10,6 +10,9 @@
     --html-brand: #ff6b35;
     --css-brand: #3b82f6;
     --js-brand: #eab308;
+    --php-brand: #7c3aed;
+    --mysql-brand: #00b4d8;
+    --laravel-brand: #ff2d20;
     
     --bg-main: #0f172a;
     --bg-card: rgba(30, 41, 59, 0.7);
@@ -796,6 +799,9 @@ input[type="text"], input[type="email"], textarea {
 .module-header.path-css { background: linear-gradient(135deg, #3b82f6, #6366f1); }
 .module-header.path-js { background: linear-gradient(135deg, #4f46e5, #818cf8); }
 .module-header.path-getting-started { background: linear-gradient(135deg, #6366f1, #ec4899); }
+.module-header.path-php { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+.module-header.path-mysql { background: linear-gradient(135deg, #0077b6, #00b4d8); }
+.module-header.path-laravel { background: linear-gradient(135deg, #e3342f, #ff6b6b); }
 
 .module-header h1 { color: white !important; -webkit-text-fill-color: white !important; }
 .module-header p { color: rgba(255, 255, 255, 0.9) !important; font-size: 1.2rem; }
@@ -1632,4 +1638,124 @@ input[type="text"], input[type="email"], textarea {
 .ai-tool-card .tool-icon { font-size: 2.5rem; display: block; margin-bottom: 0.75rem; }
 .ai-tool-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
 .ai-tool-card p  { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+
+/* ============================================================
+   BACKEND TRACK — PHP, MySQL, Laravel
+   ============================================================ */
+
+/* Course card accents */
+.course-card.php::before     { background: var(--php-brand); }
+.course-card.mysql::before   { background: var(--mysql-brand); }
+.course-card.laravel::before { background: var(--laravel-brand); }
+
+/* Class-level badges */
+.course-level.php-level     { background: rgba(124,58,237,0.15); color: var(--php-brand);     border: 1px solid rgba(124,58,237,0.3); }
+.course-level.mysql-level   { background: rgba(0,180,216,0.15);  color: var(--mysql-brand);   border: 1px solid rgba(0,180,216,0.3); }
+.course-level.laravel-level { background: rgba(255,45,32,0.15);  color: var(--laravel-brand); border: 1px solid rgba(255,45,32,0.3); }
+
+/* Module header gradients */
+.module-header.path-php     { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+.module-header.path-mysql   { background: linear-gradient(135deg, #00b4d8, #0077b6); }
+.module-header.path-laravel { background: linear-gradient(135deg, #ff2d20, #dc2626); }
+
+/* Cheat sheet hero headers */
+.cheat-hero.php-hero     { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+.cheat-hero.mysql-hero   { background: linear-gradient(135deg, #00b4d8, #0077b6); }
+.cheat-hero.laravel-hero { background: linear-gradient(135deg, #ff2d20, #dc2626); }
+
+/* Cheat card category headers */
+.cheat-card-header.php-hdr     { background: rgba(124,58,237,0.15); color: var(--php-brand);     border-bottom: 2px solid rgba(124,58,237,0.3); }
+.cheat-card-header.mysql-hdr   { background: rgba(0,180,216,0.15);  color: var(--mysql-brand);   border-bottom: 2px solid rgba(0,180,216,0.3); }
+.cheat-card-header.laravel-hdr { background: rgba(255,45,32,0.15);  color: var(--laravel-brand); border-bottom: 2px solid rgba(255,45,32,0.3); }
+
+/* Cheat table code column colors */
+.cheat-table.php-table     td:first-child { color: var(--php-brand); }
+.cheat-table.mysql-table   td:first-child { color: var(--mysql-brand); }
+.cheat-table.laravel-table td:first-child { color: var(--laravel-brand); }
+
+/* SQL demo tables (MySQL module pages) */
+.sql-demo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+.sql-demo-table th {
+    background: rgba(0,180,216,0.15);
+    color: var(--mysql-brand);
+    font-weight: 800;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(0,180,216,0.3);
+}
+.sql-demo-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--border-dim);
+    color: var(--text-secondary);
+}
+.sql-demo-table tr:last-child td { border-bottom: none; }
+.sql-demo-table tr:hover td { background: var(--bg-glass); }
+
+/* Danger warning box for risky SQL */
+.danger-box {
+    background: rgba(244,63,94,0.08);
+    border-left: 4px solid var(--secondary);
+    padding: 1rem 1.5rem;
+    border-radius: 0 1rem 1rem 0;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+.danger-box strong { color: var(--secondary); }
+
+/* Homepage section divider (Frontend / Backend split) */
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3.5rem 0 1.5rem;
+}
+.section-divider h2 { margin: 0; white-space: nowrap; font-size: 1.25rem; }
+.section-divider::before,
+.section-divider::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: var(--border-dim);
+    border-radius: 2px;
+}
+
+/* Full-Stack Journey bridge card */
+.fullstack-bridge {
+    background: var(--bg-card);
+    border: 2px solid var(--border-dim);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.fullstack-bridge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(99,102,241,0.05) 0%, rgba(255,45,32,0.05) 100%);
+    pointer-events: none;
+}
+.fullstack-side { position: relative; z-index: 1; flex: 1; min-width: 130px; }
+.fullstack-side h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.75rem; }
+.fullstack-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+.fullstack-pill { padding: 0.35rem 0.85rem; border-radius: 99px; font-size: 0.78rem; font-weight: 800; }
+.fullstack-arrow { font-size: 1.8rem; color: var(--text-muted); position: relative; z-index: 1; flex-shrink: 0; }
 

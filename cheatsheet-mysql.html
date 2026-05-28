@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL Cheat Sheet | Junior Coders</title>
+    <meta name="description" content="A complete MySQL cheat sheet for Class 9 students. Queries, joins, indexes — one page.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="cheatsheet-container">
+
+    <header class="cheat-hero mysql-hero">
+        <span class="course-level mysql-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Class 9</span>
+        <h1>MySQL Cheat Sheet</h1>
+        <p>Every SQL query you need — from SELECT to JOINs, one page, always ready!</p>
+    </header>
+
+    <div class="cheat-tip">
+        <strong>SQL Structure:</strong> <code style="color:#00b4d8;">COMMAND</code> <code style="color:#10b981;">column/table</code> <code style="color:#eab308;">condition</code> — SQL keywords are written in UPPERCASE by convention. Statements end with a <code>;</code>.
+    </div>
+
+    <div class="cheat-grid">
+
+        <!-- Database & Table Commands -->
+        <div class="cheat-card">
+            <div class="cheat-card-header mysql-hdr">🗄️ Database Commands</div>
+            <table class="cheat-table mysql-table">
+                <tr><td>CREATE DATABASE school;</td><td>Create a new database</td></tr>
+                <tr><td>DROP DATABASE school;</td><td>Delete a database (careful!)</td></tr>
+                <tr><td>USE school;</td><td>Switch to a database</td></tr>
+                <tr><td>SHOW DATABASES;</td><td>List all databases</td></tr>
+                <tr><td>SHOW TABLES;</td><td>List all tables in current database</td></tr>
+                <tr><td>DESCRIBE students;</td><td>Show columns of a table</td></tr>
+                <tr><td>DROP TABLE students;</td><td>Delete a table completely</td></tr>
+                <tr><td>TRUNCATE TABLE students;</td><td>Delete all rows but keep structure</td></tr>
+            </table>
+        </div>
+
+        <!-- CREATE TABLE -->
+        <div class="cheat-card">
+            <div class="cheat-card-header mysql-hdr">🏗️ CREATE TABLE</div>
+            <table class="cheat-table mysql-table">
+                <tr><td>INT</td><td>Whole number (age, count)</td></tr>
+                <tr><td>VARCHAR(100)</td><td>Text up to 100 characters</td></tr>
+                <tr><td>TEXT</td><td>Long text (descriptions)</td></tr>
+                <tr><td>DECIMAL(8,2)</td><td>Money: 8 digits, 2 decimal places</td></tr>
+                <tr><td>BOOLEAN</td><td>True (1) or False (0)</td></tr>
+                <tr><td>DATE</td><td>Date: YYYY-MM-DD</td></tr>
+                <tr><td>DATETIME</td><td>Date + time combined</td></tr>
+                <tr><td>PRIMARY KEY (id)</td><td>Unique identifier column</td></tr>
+                <tr><td>AUTO_INCREMENT</td><td>ID increases automatically</td></tr>
+                <tr><td>NOT NULL</td><td>Column cannot be empty</td></tr>
+                <tr><td>DEFAULT 'active'</td><td>Use this value if none given</td></tr>
+                <tr><td>UNIQUE</td><td>No duplicate values allowed</td></tr>
+            </table>
+        </div>
+
+        <!-- SELECT -->
+        <div class="cheat-card">
+            <div class="cheat-card-header mysql-hdr">🔍 SELECT (Read)</div>
+            <table class="cheat-table mysql-table">
+                <tr><td>SELECT * FROM students;</td><td>Get all rows and columns</td></tr>
+                <tr><td>SELECT name, grade FROM students;</td><td>Get specific columns only</td></tr>
+                <tr><td>SELECT DISTINCT grade FROM students;</td><td>Remove duplicate values</td></tr>
+                <tr><td>WHERE grade = 'A'</td><td>Filter rows by condition</td></tr>
+                <tr><td>WHERE age &gt; 13</td><td>Greater than filter</td></tr>
+                <tr><td>WHERE name LIKE 'A%'</td><td>Names starting with A</td></tr>
+                <tr><td>WHERE name LIKE '%ali%'</td><td>Names containing "ali"</td></tr>
+                <tr><td>WHERE grade IN ('A','B')</td><td>Match any of these values</td></tr>
+                <tr><td>WHERE age BETWEEN 12 AND 15</td><td>Range filter (inclusive)</td></tr>
+                <tr><td>WHERE email IS NULL</td><td>No email set</td></tr>
+                <tr><td>ORDER BY name ASC</td><td>Sort A→Z</td></tr>
+                <tr><td>ORDER BY grade DESC</td><td>Sort Z→A (descending)</td></tr>
+                <tr><td>LIMIT 10</td><td>Only return 10 rows</td></tr>
+                <tr><td>LIMIT 10 OFFSET 20</td><td>Skip 20, then get 10 (pagination)</td></tr>
+            </table>
+        </div>
+
+        <!-- INSERT, UPDATE, DELETE -->
+        <div class="cheat-card">
+            <div class="cheat-card-header mysql-hdr">✏️ INSERT / UPDATE / DELETE</div>
+            <table class="cheat-table mysql-table">
+                <tr><td colspan="2" style="color:#10b981; font-weight:600;">INSERT</td></tr>
+                <tr><td>INSERT INTO students (name, grade) VALUES ('Ali', 'A');</td><td>Add one row</td></tr>
+                <tr><td>INSERT INTO students VALUES (NULL, 'Sara', 'B', 14);</td><td>All columns in order</td></tr>
+                <tr><td colspan="2" style="color:#eab308; font-weight:600;">UPDATE</td></tr>
+                <tr><td>UPDATE students SET grade='A' WHERE id=1;</td><td>Change a value (always use WHERE!)</td></tr>
+                <tr><td>UPDATE students SET grade='A', age=15 WHERE name='Ali';</td><td>Update multiple columns</td></tr>
+                <tr><td colspan="2" style="color:#f43f5e; font-weight:600;">DELETE</td></tr>
+                <tr><td>DELETE FROM students WHERE id=1;</td><td>Delete specific row (always use WHERE!)</td></tr>
+                <tr><td>DELETE FROM students WHERE grade='F';</td><td>Delete by condition</td></tr>
+            </table>
+        </div>
+
+        <!-- Aggregate Functions -->
+        <div class="cheat-card">
+            <div class="cheat-card-header mysql-hdr">📊 Aggregate Functions</div>
+            <table class="cheat-table mysql-table">
+                <tr><td>COUNT(*)</td><td>Count all rows</td></tr>
+                <tr><td>COUNT(email)</td><td>Count non-null values in email</td></tr>
+                <tr><td>SUM(price)</td><td>Add up all prices</td></tr>
+                <tr><td>AVG(age)</td><td>Average of all ages</td></tr>
+                <tr><td>MAX(grade)</td><td>Highest value</td></tr>
+                <tr><td>MIN(age)</td><td>Lowest value</td></tr>
+                <tr><td>GROUP BY grade</td><td>Group rows by a column value</td></tr>
+                <tr><td>HAVING COUNT(*) &gt; 5</td><td>Filter groups (like WHERE for groups)</td></tr>
+            </table>
+        </div>
+
+        <!-- JOINs -->
+        <div class="cheat-card">
+            <div class="cheat-card-header mysql-hdr">🔗 JOINs</div>
+            <table class="cheat-table mysql-table">
+                <tr><td>INNER JOIN</td><td>Only rows that match in BOTH tables</td></tr>
+                <tr><td>LEFT JOIN</td><td>All rows from left table + matching right rows</td></tr>
+                <tr><td>RIGHT JOIN</td><td>All rows from right table + matching left rows</td></tr>
+                <tr><td colspan="2" style="padding-top:0.75rem; color: #64748b; font-size:0.85rem;">Example — students with their classroom:</td></tr>
+                <tr><td colspan="2"><code>SELECT s.name, c.name AS class<br>FROM students s<br>INNER JOIN classrooms c ON s.class_id = c.id;</code></td></tr>
+                <tr><td>ON s.class_id = c.id</td><td>The matching condition between tables</td></tr>
+                <tr><td>table_alias.column</td><td>Prefix with alias to avoid ambiguity</td></tr>
+            </table>
+        </div>
+
+        <!-- Constraints & Keys -->
+        <div class="cheat-card">
+            <div class="cheat-card-header mysql-hdr">🔑 Keys &amp; Constraints</div>
+            <table class="cheat-table mysql-table">
+                <tr><td>PRIMARY KEY</td><td>Unique row identifier — only one per table</td></tr>
+                <tr><td>FOREIGN KEY (class_id) REFERENCES classrooms(id)</td><td>Link to another table's primary key</td></tr>
+                <tr><td>UNIQUE (email)</td><td>No two rows can have the same email</td></tr>
+                <tr><td>NOT NULL</td><td>Field must always have a value</td></tr>
+                <tr><td>CHECK (age &gt;= 10)</td><td>Value must satisfy a condition</td></tr>
+                <tr><td>ON DELETE CASCADE</td><td>Delete child rows when parent is deleted</td></tr>
+                <tr><td>CREATE INDEX idx ON t(col);</td><td>Speed up searches on a column</td></tr>
+            </table>
+        </div>
+
+        <!-- Useful Extras -->
+        <div class="cheat-card">
+            <div class="cheat-card-header mysql-hdr">💡 Useful Extras</div>
+            <table class="cheat-table mysql-table">
+                <tr><td>SELECT CONCAT(first,' ',last) AS full_name</td><td>Join two columns into one</td></tr>
+                <tr><td>SELECT UPPER(name) FROM students;</td><td>Uppercase text in query</td></tr>
+                <tr><td>SELECT LOWER(email) FROM students;</td><td>Lowercase text</td></tr>
+                <tr><td>SELECT LENGTH(name) FROM students;</td><td>Character count of value</td></tr>
+                <tr><td>SELECT NOW();</td><td>Current date and time</td></tr>
+                <tr><td>SELECT CURDATE();</td><td>Current date only</td></tr>
+                <tr><td>WHERE YEAR(dob) = 2010</td><td>Filter by year of a date column</td></tr>
+                <tr><td>IFNULL(grade, 'N/A')</td><td>Return 'N/A' if value is NULL</td></tr>
+                <tr><td>-- This is a comment</td><td>SQL comment (single line)</td></tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="cheat-tip" style="margin-top: 2rem;">
+        <strong>Safety Rule:</strong> <strong>Always</strong> use <code>WHERE</code> in <code>UPDATE</code> and <code>DELETE</code> statements — without it you'll update or delete <em>every single row</em> in the table!
+    </div>
+
+    <div style="text-align:center; margin-top: 3rem;">
+        <a href="Learning MySQL/learningmysql.html" class="btn-primary" style="background: linear-gradient(135deg, var(--mysql-brand), #0369a1); margin-right:1rem;">Back to MySQL Course</a>
+        <a href="cheatsheet-laravel.html" class="btn-primary" style="background: linear-gradient(135deg, var(--laravel-brand), #dc2626); color: white;">Laravel Cheat Sheet →</a>
+    </div>
+
+</div>
+<script src="js/core.js"></script>
+</body>
+</html>

@@ -58,6 +58,37 @@
                 { name: 'Exercises', url: 'exercises.html' },
                 { name: 'Glossary', url: 'glossary.html' },
                 { name: 'Quiz', url: 'quiz.html' }
+            ],
+            'Learning PHP': [
+                { name: 'Syllabus', url: 'learningphp.html' },
+                { name: '1: Intro to PHP', url: 'module1.html' },
+                { name: '2: Variables & Types', url: 'module2.html' },
+                { name: '3: Control Flow', url: 'module3.html' },
+                { name: '4: Functions', url: 'module4.html' },
+                { name: '5: Arrays', url: 'module5.html' },
+                { name: '6: Forms & POST', url: 'module6.html' },
+                { name: '7: File I/O', url: 'module7.html' },
+                { name: '8: OOP Basics', url: 'module8.html' }
+            ],
+            'Learning MySQL': [
+                { name: 'Syllabus', url: 'learningmysql.html' },
+                { name: '1: Intro to Databases', url: 'module1.html' },
+                { name: '2: CREATE TABLE', url: 'module2.html' },
+                { name: '3: INSERT & SELECT', url: 'module3.html' },
+                { name: '4: UPDATE & DELETE', url: 'module4.html' },
+                { name: '5: JOINs', url: 'module5.html' },
+                { name: '6: Advanced Queries', url: 'module6.html' }
+            ],
+            'Learning Laravel': [
+                { name: 'Syllabus', url: 'learninglaravel.html' },
+                { name: '1: Introduction', url: 'module1.html' },
+                { name: '2: Routing', url: 'module2.html' },
+                { name: '3: Controllers', url: 'module3.html' },
+                { name: '4: Blade Templates', url: 'module4.html' },
+                { name: '5: Eloquent ORM', url: 'module5.html' },
+                { name: '6: Migrations', url: 'module6.html' },
+                { name: '7: Forms & Validation', url: 'module7.html' },
+                { name: '8: Authentication', url: 'module8.html' }
             ]
         }
     };
@@ -65,9 +96,12 @@
     // --- Utility Functions ---
     const getBaseUrl = () => {
         const path = decodeURIComponent(window.location.pathname);
-        if (path.includes('Learning HTML/') || 
-            path.includes('Learning CSS/') || 
-            path.includes('Learning JS/')) {
+        if (path.includes('Learning HTML/') ||
+            path.includes('Learning CSS/') ||
+            path.includes('Learning JS/') ||
+            path.includes('Learning PHP/') ||
+            path.includes('Learning MySQL/') ||
+            path.includes('Learning Laravel/')) {
             return '../';
         }
         return './';
@@ -78,6 +112,9 @@
         if (path.includes('Learning HTML')) return 'Learning HTML';
         if (path.includes('Learning CSS')) return 'Learning CSS';
         if (path.includes('Learning JS')) return 'Learning JS';
+        if (path.includes('Learning PHP')) return 'Learning PHP';
+        if (path.includes('Learning MySQL')) return 'Learning MySQL';
+        if (path.includes('Learning Laravel')) return 'Learning Laravel';
         return null;
     };
 
@@ -245,9 +282,12 @@
         const logo = `<a href="${baseUrl}index.html" class="nav-logo">🚀 Junior Coders</a>`;
         
         let linksHtml = '';
-        const cheatsheetLink = currentModule === 'Learning HTML' ? 'cheatsheet-html.html'
-                             : currentModule === 'Learning CSS'  ? 'cheatsheet-css.html'
-                             : currentModule === 'Learning JS'   ? 'cheatsheet-js.html'
+        const cheatsheetLink = currentModule === 'Learning HTML'    ? 'cheatsheet-html.html'
+                             : currentModule === 'Learning CSS'     ? 'cheatsheet-css.html'
+                             : currentModule === 'Learning JS'      ? 'cheatsheet-js.html'
+                             : currentModule === 'Learning PHP'     ? 'cheatsheet-php.html'
+                             : currentModule === 'Learning MySQL'   ? 'cheatsheet-mysql.html'
+                             : currentModule === 'Learning Laravel' ? 'cheatsheet-laravel.html'
                              : null;
 
         if (currentModule) {
@@ -273,11 +313,22 @@
                 <a href="${baseUrl}Learning%20CSS/learningcss.html">CSS</a>
                 <a href="${baseUrl}Learning%20JS/learningjs.html">JavaScript</a>
                 <div class="nav-dropdown">
+                    <button class="nav-dropdown-btn" id="backend-dropdown-btn">🗄️ Backend ▾</button>
+                    <div class="nav-dropdown-content">
+                        <a href="${baseUrl}Learning%20PHP/learningphp.html">PHP</a>
+                        <a href="${baseUrl}Learning%20MySQL/learningmysql.html">MySQL</a>
+                        <a href="${baseUrl}Learning%20Laravel/learninglaravel.html">Laravel</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
                     <button class="nav-dropdown-btn" id="cheatsheets-dropdown-btn">📋 Cheat Sheets ▾</button>
                     <div class="nav-dropdown-content">
                         <a href="${baseUrl}cheatsheet-html.html">HTML Cheat Sheet</a>
                         <a href="${baseUrl}cheatsheet-css.html">CSS Cheat Sheet</a>
                         <a href="${baseUrl}cheatsheet-js.html">JS Cheat Sheet</a>
+                        <a href="${baseUrl}cheatsheet-php.html">PHP Cheat Sheet</a>
+                        <a href="${baseUrl}cheatsheet-mysql.html">MySQL Cheat Sheet</a>
+                        <a href="${baseUrl}cheatsheet-laravel.html">Laravel Cheat Sheet</a>
                     </div>
                 </div>
                 <a href="${baseUrl}ai-roadmap.html" class="${currentPath === 'ai-roadmap.html' ? 'active' : ''}">🤖 AI Roadmap</a>
@@ -300,13 +351,19 @@
         document.body.prepend(nav);
 
         // Inject Bottom Nav for Mobile (context-aware)
-        const coursePageUrl = currentModule === 'Learning HTML' ? 'learninghtml.html'
-                            : currentModule === 'Learning CSS'  ? 'learningcss.html'
-                            : currentModule === 'Learning JS'   ? 'learningjs.html'
+        const coursePageUrl = currentModule === 'Learning HTML'    ? 'learninghtml.html'
+                            : currentModule === 'Learning CSS'     ? 'learningcss.html'
+                            : currentModule === 'Learning JS'      ? 'learningjs.html'
+                            : currentModule === 'Learning PHP'     ? 'learningphp.html'
+                            : currentModule === 'Learning MySQL'   ? 'learningmysql.html'
+                            : currentModule === 'Learning Laravel' ? 'learninglaravel.html'
                             : null;
-        const cheatUrl = currentModule === 'Learning HTML' ? 'cheatsheet-html.html'
-                       : currentModule === 'Learning CSS'  ? 'cheatsheet-css.html'
-                       : currentModule === 'Learning JS'   ? 'cheatsheet-js.html'
+        const cheatUrl = currentModule === 'Learning HTML'    ? 'cheatsheet-html.html'
+                       : currentModule === 'Learning CSS'     ? 'cheatsheet-css.html'
+                       : currentModule === 'Learning JS'      ? 'cheatsheet-js.html'
+                       : currentModule === 'Learning PHP'     ? 'cheatsheet-php.html'
+                       : currentModule === 'Learning MySQL'   ? 'cheatsheet-mysql.html'
+                       : currentModule === 'Learning Laravel' ? 'cheatsheet-laravel.html'
                        : null;
 
         const bottomNav = document.createElement('div');
@@ -521,7 +578,14 @@
                 <span>←</span> Previous
             </a>
             ${moduleNum ? `<button class="btn-nav-control complete" onclick="markComplete('${moduleNum}')">✓ Complete</button>` : ''}
-            <a href="${next ? next.url : (currentModule.includes('HTML') ? 'learninghtml.html' : currentModule.includes('CSS') ? 'learningcss.html' : 'learningjs.html')}" class="btn-nav-control next">
+            <a href="${next ? next.url : (
+                currentModule === 'Learning HTML'    ? 'learninghtml.html'    :
+                currentModule === 'Learning CSS'     ? 'learningcss.html'     :
+                currentModule === 'Learning JS'      ? 'learningjs.html'      :
+                currentModule === 'Learning PHP'     ? 'learningphp.html'     :
+                currentModule === 'Learning MySQL'   ? 'learningmysql.html'   :
+                'learninglaravel.html'
+            )}" class="btn-nav-control next">
                 ${next ? 'Next' : 'Finish'} <span>→</span>
             </a>
         `;

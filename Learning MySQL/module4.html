@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: UPDATE &amp; DELETE | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-mysql">
+            <span class="badge" style="background: white; color: var(--mysql-brand);">Level 2</span>
+            <h1>UPDATE &amp; DELETE</h1>
+            <p>Modify and Remove Data! ✏️</p>
+        </header>
+
+        <section class="content-section">
+            <h2>What is CRUD?</h2>
+            <p>In databases, almost every operation fits into one of four categories — together they form <strong>CRUD</strong>:</p>
+
+            <div style="overflow-x: auto; margin: 1.5rem 0;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 1rem; text-align: left;">Letter</th>
+                            <th style="padding: 1rem; text-align: left;">Operation</th>
+                            <th style="padding: 1rem; text-align: left;">SQL Command</th>
+                            <th style="padding: 1rem; text-align: left;">What it Does</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem; font-size: 1.5rem; font-weight: 800; color: #10b981;">C</td>
+                            <td style="padding: 0.9rem 1rem; font-weight: 700;">Create</td>
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand);">INSERT INTO</code></td>
+                            <td style="padding: 0.9rem 1rem;">Add new rows</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem; font-size: 1.5rem; font-weight: 800; color: #3b82f6;">R</td>
+                            <td style="padding: 0.9rem 1rem; font-weight: 700;">Read</td>
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand);">SELECT</code></td>
+                            <td style="padding: 0.9rem 1rem;">Retrieve data</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem; font-size: 1.5rem; font-weight: 800; color: #f59e0b;">U</td>
+                            <td style="padding: 0.9rem 1rem; font-weight: 700;">Update</td>
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand);">UPDATE ... SET</code></td>
+                            <td style="padding: 0.9rem 1rem;">Modify existing rows</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.9rem 1rem; font-size: 1.5rem; font-weight: 800; color: #ef4444;">D</td>
+                            <td style="padding: 0.9rem 1rem; font-weight: 700;">Delete</td>
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand);">DELETE FROM</code></td>
+                            <td style="padding: 0.9rem 1rem;">Remove rows</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>You already know <strong>C</strong> (INSERT) and <strong>R</strong> (SELECT) from Module 3. Today we learn <strong>U</strong> and <strong>D</strong>!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>UPDATE — Changing Existing Data</h2>
+            <p>The <strong>UPDATE</strong> command modifies data that's already in the table. Use <strong>SET</strong> to specify what to change, and <strong>WHERE</strong> to say which row(s) to change.</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Change Ali's grade to A+</span>
+<span class="code-keyword">UPDATE</span> students
+<span class="code-keyword">SET</span> grade = <span class="code-string">'A+'</span>
+<span class="code-keyword">WHERE</span> id = <span class="code-val">1</span>;</code>
+            </div>
+
+            <p style="margin-top: 1.5rem;">You can update multiple columns at the same time by separating them with commas:</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Update both age and grade for the student named 'Ali Hassan'</span>
+<span class="code-keyword">UPDATE</span> students
+<span class="code-keyword">SET</span> age = <span class="code-val">14</span>, grade = <span class="code-string">'B'</span>
+<span class="code-keyword">WHERE</span> name = <span class="code-string">'Ali Hassan'</span>;</code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2 style="color: #ef4444;">⚠️ DANGER: Always Use WHERE with UPDATE!</h2>
+            <p>This is the most important safety rule in SQL. Look at what happens without WHERE:</p>
+
+            <div class="code-block" style="border: 2px solid #ef4444;">
+                <code><span class="code-comment">-- ⚠️ CATASTROPHIC! Updates EVERY student's grade to 'F'!</span>
+<span class="code-keyword">UPDATE</span> students
+<span class="code-keyword">SET</span> grade = <span class="code-string">'F'</span>;
+<span class="code-comment">-- There is no undo for this in most systems!</span></code>
+            </div>
+
+            <div style="margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: rgba(239,68,68,0.12); border-left: 4px solid #ef4444; border-radius: 0 1rem 1rem 0;">
+                <p style="margin: 0;">⚠️ <strong>Without a WHERE clause, UPDATE changes EVERY single row in the table.</strong> Imagine setting every student's grade to 'F' by accident! Always double-check that your WHERE clause is correct before running an UPDATE.</p>
+            </div>
+
+            <p>The safe version targets one student using their unique <code>id</code>:</p>
+            <div class="code-block">
+                <code><span class="code-comment">-- Safe: only changes student with id = 1</span>
+<span class="code-keyword">UPDATE</span> students
+<span class="code-keyword">SET</span> grade = <span class="code-string">'F'</span>
+<span class="code-keyword">WHERE</span> id = <span class="code-val">1</span>;  <span class="code-comment">-- only Ali Hassan is affected</span></code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>DELETE — Removing Rows</h2>
+            <p>The <strong>DELETE FROM</strong> command removes rows from a table. Again — always use WHERE!</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Remove only the student with id = 3 (Bilal Ahmed)</span>
+<span class="code-keyword">DELETE FROM</span> students <span class="code-keyword">WHERE</span> id = <span class="code-val">3</span>;
+
+<span class="code-comment">-- Remove all students with grade 'B'</span>
+<span class="code-keyword">DELETE FROM</span> students <span class="code-keyword">WHERE</span> grade = <span class="code-string">'B'</span>;</code>
+            </div>
+
+            <p style="margin-top: 1.5rem;">After deleting Bilal (id=3), our table now looks like this:</p>
+
+            <div style="overflow-x: auto; margin: 1rem 0 2rem;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 0.8rem 1rem; text-align: left;">id</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">name</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">age</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.8rem 1rem; color: var(--mysql-brand); font-weight: 700;">1</td>
+                            <td style="padding: 0.8rem 1rem;">Ali Hassan</td>
+                            <td style="padding: 0.8rem 1rem;">14</td>
+                            <td style="padding: 0.8rem 1rem;">B</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.8rem 1rem; color: var(--mysql-brand); font-weight: 700;">2</td>
+                            <td style="padding: 0.8rem 1rem;">Sara Khan</td>
+                            <td style="padding: 0.8rem 1rem;">12</td>
+                            <td style="padding: 0.8rem 1rem;">A+</td>
+                        </tr>
+                        <tr style="text-decoration: line-through; opacity: 0.3;">
+                            <td style="padding: 0.8rem 1rem;">3</td>
+                            <td style="padding: 0.8rem 1rem;">Bilal Ahmed</td>
+                            <td style="padding: 0.8rem 1rem;">14</td>
+                            <td style="padding: 0.8rem 1rem;">B+</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.8rem 1rem; color: var(--mysql-brand); font-weight: 700;">4</td>
+                            <td style="padding: 0.8rem 1rem;">Aisha Malik</td>
+                            <td style="padding: 0.8rem 1rem;">13</td>
+                            <td style="padding: 0.8rem 1rem;">A</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.8rem 1rem; color: var(--mysql-brand); font-weight: 700;">5</td>
+                            <td style="padding: 0.8rem 1rem;">Usman Tariq</td>
+                            <td style="padding: 0.8rem 1rem;">12</td>
+                            <td style="padding: 0.8rem 1rem;">B</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-style: italic; color: var(--text-muted);">Notice: id 3 is gone, but the other ids stay the same. AUTO_INCREMENT does NOT reassign numbers.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>TRUNCATE TABLE — Clear Everything</h2>
+            <p>If you want to remove ALL rows from a table but keep the table structure itself, use <strong>TRUNCATE TABLE</strong>. It's much faster than DELETE without WHERE.</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Remove all rows from students table (keeps the table structure)</span>
+<span class="code-keyword">TRUNCATE TABLE</span> students;
+
+<span class="code-comment">-- After this, students table is empty but still exists</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students;
+<span class="code-comment">-- Returns: (empty result)</span></code>
+            </div>
+
+            <div style="margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: rgba(239,68,68,0.1); border-left: 4px solid #ef4444; border-radius: 0 1rem 1rem 0;">
+                <p style="margin: 0;">⚠️ <strong>TRUNCATE also resets the AUTO_INCREMENT counter back to 1.</strong> Use with extreme care — there's no undo!</p>
+            </div>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid var(--mysql-brand);">
+            <h2>Quick Quiz!</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: What does CRUD stand for?</p>
+                    <label><input type="radio" name="q1" value="a"> Create, Read, Update, Delete</label>
+                    <label><input type="radio" name="q1" value="b"> Copy, Remove, Use, Display</label>
+                    <label><input type="radio" name="q1" value="c"> Code, Run, User, Debug</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: What happens if you run UPDATE without a WHERE clause?</p>
+                    <label><input type="radio" name="q2" value="a"> It updates every row in the entire table</label>
+                    <label><input type="radio" name="q2" value="b"> It updates nothing and shows a warning</label>
+                    <label><input type="radio" name="q2" value="c"> It shows a syntax error and stops</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: Which command safely removes one specific row?</p>
+                    <label><input type="radio" name="q3" value="a"> DELETE FROM students WHERE id = 1</label>
+                    <label><input type="radio" name="q3" value="b"> TRUNCATE TABLE students</label>
+                    <label><input type="radio" name="q3" value="c"> DROP TABLE students</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">Check Answers</button>
+            </div>
+        </section>
+
+        <section class="content-section" style="text-align: center;">
+            <h2>Amazing! You now know full CRUD!</h2>
+            <p>Ready to connect multiple tables together with JOINs?</p>
+            <a href="module5.html" class="btn-primary" style="background: linear-gradient(135deg, #0077b6, #00b4d8); margin-top: 1rem;">Next: JOINs &rarr;</a>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

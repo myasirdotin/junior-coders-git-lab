@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Control Flow | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-php">
+            <span class="badge" style="background:white;color:var(--php-brand);">Level 1</span>
+            <h1>Control Flow</h1>
+            <p>Tell PHP what to do and when! 🚦</p>
+        </header>
+
+        <!-- Section 1: If / Else -->
+        <section class="content-section">
+            <h2>🚦 Making Decisions with if / else</h2>
+            <p>In real life, you make decisions all the time: <em>"If it is raining, I will take an umbrella. Otherwise, I will wear sunglasses."</em> PHP can make decisions the same way!</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-keyword">$age</span> = <span class="code-val">15</span>;
+
+<span class="code-keyword">if</span> (<span class="code-keyword">$age</span> >= <span class="code-val">18</span>) {
+    <span class="code-keyword">echo</span> <span class="code-string">"You can vote!"</span>;
+} <span class="code-keyword">elseif</span> (<span class="code-keyword">$age</span> >= <span class="code-val">13</span>) {
+    <span class="code-keyword">echo</span> <span class="code-string">"You are a teenager!"</span>;
+} <span class="code-keyword">else</span> {
+    <span class="code-keyword">echo</span> <span class="code-string">"You are a kid!"</span>;
+}
+<span class="code-comment">// Output: You are a teenager!</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+
+            <p>Let us understand the structure:</p>
+            <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 2;">
+                <li><code>if (condition)</code> — Check the first condition. If it is <strong>true</strong>, run the block.</li>
+                <li><code>elseif (condition)</code> — If the first condition failed, check another one.</li>
+                <li><code>else</code> — If <em>none</em> of the above are true, run this block.</li>
+                <li>Curly braces <code>{ }</code> wrap the code that belongs to each branch.</li>
+            </ul>
+
+            <div class="connection-box">
+                <p>🔢 <strong>Comparison Operators you'll use in conditions:</strong></p>
+                <ul style="margin: 0.5rem 0 0 1.5rem; line-height: 2;">
+                    <li><code>==</code> — Equal to (value only)</li>
+                    <li><code>===</code> — Identical (value AND type)</li>
+                    <li><code>!=</code> — Not equal to</li>
+                    <li><code>&gt;</code> — Greater than</li>
+                    <li><code>&lt;</code> — Less than</li>
+                    <li><code>&gt;=</code> — Greater than or equal to</li>
+                    <li><code>&lt;=</code> — Less than or equal to</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 2: Switch -->
+        <section class="content-section">
+            <h2>🎛️ The Switch Statement</h2>
+            <p>When you have many possible values for one variable, a <code>switch</code> is cleaner than many <code>elseif</code> blocks. Think of it like a TV remote — each button (case) does something different!</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-keyword">$day</span> = <span class="code-string">"Monday"</span>;
+
+<span class="code-keyword">switch</span> (<span class="code-keyword">$day</span>) {
+    <span class="code-keyword">case</span> <span class="code-string">"Monday"</span>:
+        <span class="code-keyword">echo</span> <span class="code-string">"Start of school week 😅"</span>;
+        <span class="code-keyword">break</span>;
+    <span class="code-keyword">case</span> <span class="code-string">"Friday"</span>:
+        <span class="code-keyword">echo</span> <span class="code-string">"Almost the weekend! 🎉"</span>;
+        <span class="code-keyword">break</span>;
+    <span class="code-keyword">case</span> <span class="code-string">"Saturday"</span>:
+    <span class="code-keyword">case</span> <span class="code-string">"Sunday"</span>:
+        <span class="code-keyword">echo</span> <span class="code-string">"Weekend! Time to relax! 😎"</span>;
+        <span class="code-keyword">break</span>;
+    <span class="code-keyword">default</span>:
+        <span class="code-keyword">echo</span> <span class="code-string">"Just another weekday."</span>;
+}
+<span class="code-comment">// Output: Start of school week 😅</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+
+            <div class="connection-box">
+                <p>⚠️ <strong>Don't forget <code>break</code>!</strong> Without it, PHP will keep running through all the cases below, even if they don't match. This is called "fall-through".</p>
+            </div>
+        </section>
+
+        <!-- Section 3: For Loop -->
+        <section class="content-section">
+            <h2>🔁 The for Loop</h2>
+            <p>Loops let you repeat code many times without writing it over and over. A <code>for</code> loop is perfect when you know exactly <strong>how many times</strong> to repeat.</p>
+
+            <div class="connection-box">
+                <p>🧠 <strong>Analogy:</strong> Imagine a teacher saying: <em>"Write your name 10 times."</em> You would not write 10 separate lines. You would just count and keep writing until you reached 10.</p>
+            </div>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// Print numbers 1 to 5</span>
+<span class="code-keyword">for</span> (<span class="code-keyword">$i</span> = <span class="code-val">1</span>; <span class="code-keyword">$i</span> &lt;= <span class="code-val">5</span>; <span class="code-keyword">$i</span>++) {
+    <span class="code-keyword">echo</span> <span class="code-string">"Number: "</span> . <span class="code-keyword">$i</span> . <span class="code-string">"&lt;br&gt;"</span>;
+}
+<span class="code-comment">// Output: Number: 1, Number: 2 ... Number: 5</span>
+
+<span class="code-comment">// Count down from 5 to 1</span>
+<span class="code-keyword">for</span> (<span class="code-keyword">$i</span> = <span class="code-val">5</span>; <span class="code-keyword">$i</span> >= <span class="code-val">1</span>; <span class="code-keyword">$i</span>--) {
+    <span class="code-keyword">echo</span> <span class="code-keyword">$i</span> . <span class="code-string">"... "</span>;
+}
+<span class="code-comment">// Output: 5... 4... 3... 2... 1...</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+
+            <p>The for loop has <strong>3 parts</strong> inside the brackets:</p>
+            <ol style="margin: 1rem 0 1rem 1.5rem; line-height: 2;">
+                <li><strong>Start:</strong> <code>$i = 1</code> — begin counting from 1</li>
+                <li><strong>Condition:</strong> <code>$i &lt;= 5</code> — keep going while i is 5 or less</li>
+                <li><strong>Step:</strong> <code>$i++</code> — add 1 to i after each loop</li>
+            </ol>
+        </section>
+
+        <!-- Section 4: While Loop -->
+        <section class="content-section">
+            <h2>⏳ The while Loop</h2>
+            <p>A <code>while</code> loop keeps running <strong>as long as a condition is true</strong>. Use it when you don't know in advance how many times to loop.</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// Simulate a number guessing game</span>
+<span class="code-keyword">$secret</span>  = <span class="code-val">7</span>;
+<span class="code-keyword">$guess</span>   = <span class="code-val">1</span>;
+
+<span class="code-keyword">while</span> (<span class="code-keyword">$guess</span> != <span class="code-keyword">$secret</span>) {
+    <span class="code-keyword">echo</span> <span class="code-string">"Guessing: "</span> . <span class="code-keyword">$guess</span> . <span class="code-string">"&lt;br&gt;"</span>;
+    <span class="code-keyword">$guess</span>++;
+}
+
+<span class="code-keyword">echo</span> <span class="code-string">"Found it! The secret was "</span> . <span class="code-keyword">$secret</span>;
+<span class="code-comment">// Prints: Guessing: 1, 2, 3, 4, 5, 6 — then "Found it! The secret was 7"</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+
+            <div class="connection-box">
+                <p>⚠️ <strong>Infinite Loop Warning!</strong> If your condition never becomes false, the loop runs forever and crashes the server. Always make sure your loop variable changes inside the loop!</p>
+            </div>
+        </section>
+
+        <!-- Section 5: foreach Loop -->
+        <section class="content-section">
+            <h2>📋 The foreach Loop</h2>
+            <p>The <code>foreach</code> loop is specially designed for <strong>arrays</strong> (lists of items). It automatically goes through each item one by one — perfect for looping over data!</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-keyword">$fruits</span> = [<span class="code-string">"Apple"</span>, <span class="code-string">"Banana"</span>, <span class="code-string">"Mango"</span>, <span class="code-string">"Strawberry"</span>];
+
+<span class="code-keyword">foreach</span> (<span class="code-keyword">$fruits</span> <span class="code-keyword">as</span> <span class="code-keyword">$fruit</span>) {
+    <span class="code-keyword">echo</span> <span class="code-string">"I love "</span> . <span class="code-keyword">$fruit</span> . <span class="code-string">"!&lt;br&gt;"</span>;
+}
+<span class="code-comment">// Output:
+// I love Apple!
+// I love Banana!
+// I love Mango!
+// I love Strawberry!</span>
+
+<span class="code-comment">// With associative arrays (key => value)</span>
+<span class="code-keyword">$student</span> = [<span class="code-string">"name"</span> => <span class="code-string">"Sara"</span>, <span class="code-string">"age"</span> => <span class="code-val">13</span>, <span class="code-string">"grade"</span> => <span class="code-string">"A"</span>];
+
+<span class="code-keyword">foreach</span> (<span class="code-keyword">$student</span> <span class="code-keyword">as</span> <span class="code-keyword">$key</span> => <span class="code-keyword">$value</span>) {
+    <span class="code-keyword">echo</span> <span class="code-keyword">$key</span> . <span class="code-string">": "</span> . <span class="code-keyword">$value</span> . <span class="code-string">"&lt;br&gt;"</span>;
+}
+<span class="code-comment">// Output: name: Sara, age: 13, grade: A</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+
+            <div class="connection-box">
+                <p>💡 <strong>PHP loops work just like JavaScript loops!</strong> If you know JavaScript, you already understand the logic. The main difference is PHP uses <code>$</code> for variables and has the handy <code>foreach</code> for arrays.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Real Example -->
+        <section class="content-section">
+            <h2>🎯 Real Example: The Grade Calculator</h2>
+            <p>Let's combine everything we've learned to build a grade checker:</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-keyword">$scores</span> = [<span class="code-val">88</span>, <span class="code-val">72</span>, <span class="code-val">95</span>, <span class="code-val">61</span>, <span class="code-val">78</span>];
+
+<span class="code-keyword">foreach</span> (<span class="code-keyword">$scores</span> <span class="code-keyword">as</span> <span class="code-keyword">$score</span>) {
+    <span class="code-keyword">if</span> (<span class="code-keyword">$score</span> >= <span class="code-val">90</span>) {
+        <span class="code-keyword">echo</span> <span class="code-keyword">$score</span> . <span class="code-string">": Grade A ⭐&lt;br&gt;"</span>;
+    } <span class="code-keyword">elseif</span> (<span class="code-keyword">$score</span> >= <span class="code-val">75</span>) {
+        <span class="code-keyword">echo</span> <span class="code-keyword">$score</span> . <span class="code-string">": Grade B 👍&lt;br&gt;"</span>;
+    } <span class="code-keyword">elseif</span> (<span class="code-keyword">$score</span> >= <span class="code-val">60</span>) {
+        <span class="code-keyword">echo</span> <span class="code-keyword">$score</span> . <span class="code-string">": Grade C 📚&lt;br&gt;"</span>;
+    } <span class="code-keyword">else</span> {
+        <span class="code-keyword">echo</span> <span class="code-keyword">$score</span> . <span class="code-string">": Grade F — Study harder! 📖&lt;br&gt;"</span>;
+    }
+}
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="content-section">
+            <h2>Quick Quiz! 🧠</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Which loop is best for going through each item in an array?</p>
+                    <label><input type="radio" name="q1" value="a"> <code>while</code></label>
+                    <label><input type="radio" name="q1" value="b"> <code>foreach</code></label>
+                    <label><input type="radio" name="q1" value="c"> <code>for</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q2: What keyword do you use to stop a <code>switch</code> case from falling through?</p>
+                    <label><input type="radio" name="q2" value="a"> <code>stop</code></label>
+                    <label><input type="radio" name="q2" value="b"> <code>exit</code></label>
+                    <label><input type="radio" name="q2" value="c"> <code>break</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: In a <code>for</code> loop: <code>for ($i = 0; $i &lt; 3; $i++)</code>, how many times does it run?</p>
+                    <label><input type="radio" name="q3" value="a"> 3 times</label>
+                    <label><input type="radio" name="q3" value="b"> 4 times</label>
+                    <label><input type="radio" name="q3" value="c"> 2 times</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answers</button>
+            </div>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

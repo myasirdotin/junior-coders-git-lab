@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: Introduction to PHP | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-php">
+            <span class="badge" style="background:white;color:var(--php-brand);">Level 1</span>
+            <h1>Introduction to PHP</h1>
+            <p>Discover the language that powers 80% of the web! 🌐</p>
+        </header>
+
+        <!-- Section 1: What is PHP? -->
+        <section class="content-section">
+            <h2>🍽️ What is PHP?</h2>
+            <p>PHP stands for <strong>PHP: Hypertext Preprocessor</strong> (yes, the name contains itself — programmers are funny like that!). It is a <strong>server-side</strong> programming language, which means it runs on the web server — not in your browser.</p>
+
+            <div class="connection-box">
+                <p><strong>🧠 Think of it like a restaurant:</strong></p>
+                <p>PHP is like a <strong>waiter</strong> in a restaurant. <em>You</em> (the browser) order food. The <em>waiter</em> (PHP) goes to the kitchen (the database), gets the food, cooks it up, and brings it back to you. You never see what happens in the kitchen — you just get the result!</p>
+            </div>
+
+            <div class="analogy-container">
+                <div class="analogy-grid">
+                    <div class="analogy-card">
+                        <span class="analogy-icon">🌐</span>
+                        <h3>HTML</h3>
+                        <p>The structure of the page — the walls and doors of the restaurant</p>
+                    </div>
+                    <div class="analogy-card">
+                        <span class="analogy-icon">🎨</span>
+                        <h3>CSS</h3>
+                        <p>The looks — the decorations and colour of the restaurant</p>
+                    </div>
+                    <div class="analogy-card active">
+                        <span class="analogy-icon">⚙️</span>
+                        <h3>PHP</h3>
+                        <p>The kitchen — where all the real work happens behind the scenes!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: How PHP Works -->
+        <section class="content-section">
+            <h2>🔄 How PHP Works</h2>
+            <p>When you visit a PHP-powered website, here is what happens step by step:</p>
+
+            <div class="flow-container" style="margin-top: 1.5rem;">
+                <div class="flow-step">🖥️ Browser sends a Request</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step">🌍 Web Server receives it</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step">⚙️ PHP runs and builds the page</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step">📄 HTML Response is sent back</div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step">🖥️ Browser shows the final page</div>
+            </div>
+
+            <p style="margin-top: 1.5rem;">The browser <strong>never sees PHP code</strong> — it only receives the HTML that PHP created. This is what makes PHP powerful and secure!</p>
+        </section>
+
+        <!-- Section 3: Your First PHP Code -->
+        <section class="content-section">
+            <h2>✍️ Your First PHP Code</h2>
+            <p>All PHP code is written inside special tags: <strong>&lt;?php</strong> to open and <strong>?&gt;</strong> to close. Everything in between is PHP!</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// This is a comment — PHP ignores it</span>
+<span class="code-keyword">echo</span> <span class="code-string">"Hello, Junior Coder!"</span>;
+
+<span class="code-keyword">$name</span> = <span class="code-string">"Yasir"</span>;
+<span class="code-keyword">echo</span> <span class="code-string">"Welcome, "</span> . <span class="code-keyword">$name</span>;
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+
+            <p>Let us break down each line:</p>
+            <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 2;">
+                <li><code>&lt;?php</code> — Opens the PHP block. Everything after this is PHP code.</li>
+                <li><code>// This is a comment</code> — PHP ignores lines starting with <code>//</code>. Great for notes!</li>
+                <li><code>echo "Hello, Junior Coder!";</code> — <strong>echo</strong> prints text to the screen. Always end with a semicolon <code>;</code></li>
+                <li><code>$name = "Yasir";</code> — Creates a variable called <code>$name</code> and stores the text "Yasir".</li>
+                <li><code>echo "Welcome, " . $name;</code> — The dot <code>.</code> joins two pieces of text together.</li>
+                <li><code>?&gt;</code> — Closes the PHP block.</li>
+            </ul>
+
+            <div class="connection-box">
+                <p>💡 <strong>Important Rules:</strong></p>
+                <ul style="margin: 0.5rem 0 0 1.5rem; line-height: 2;">
+                    <li>Every PHP statement ends with a <strong>semicolon <code>;</code></strong> — never forget it!</li>
+                    <li>PHP is <strong>case-sensitive</strong> for variable names: <code>$name</code> and <code>$Name</code> are different!</li>
+                    <li>PHP files are saved with the <strong>.php</strong> extension, not .html</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 4: PHP vs JavaScript -->
+        <section class="content-section">
+            <h2>⚔️ PHP vs JavaScript — What's the Difference?</h2>
+            <p>You might already know JavaScript. Here is how PHP compares:</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="background: var(--bg-glass); border: 2px solid #eab308; border-radius: 1rem; padding: 1.5rem;">
+                    <h3 style="color: #eab308; margin-bottom: 1rem;">⚡ JavaScript</h3>
+                    <ul style="list-style: none; line-height: 2.2;">
+                        <li>🖥️ Runs in the <strong>browser</strong></li>
+                        <li>👀 User can see the code</li>
+                        <li>🎯 Makes pages interactive</li>
+                        <li>🔄 Responds to clicks &amp; events</li>
+                        <li>📁 Cannot read server files</li>
+                    </ul>
+                </div>
+                <div style="background: var(--bg-glass); border: 2px solid var(--php-brand); border-radius: 1rem; padding: 1.5rem;">
+                    <h3 style="color: var(--php-brand); margin-bottom: 1rem;">🐘 PHP</h3>
+                    <ul style="list-style: none; line-height: 2.2;">
+                        <li>🌍 Runs on the <strong>server</strong></li>
+                        <li>🔒 Code is hidden from users</li>
+                        <li>🗄️ Connects to databases</li>
+                        <li>📂 Can read &amp; write files</li>
+                        <li>📬 Processes form data</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p style="margin-top: 1.5rem;">Many websites use <strong>both</strong>! PHP builds the page on the server, and JavaScript makes it interactive in the browser.</p>
+        </section>
+
+        <!-- Section 5: Where Does PHP Run? -->
+        <section class="content-section">
+            <h2>🏃 Getting PHP Running</h2>
+            <p>To run PHP, you need a web server with PHP installed. Here are two popular options for beginners:</p>
+
+            <div class="analogy-grid" style="margin-top: 1rem;">
+                <div class="analogy-card">
+                    <span class="analogy-icon">🪟</span>
+                    <h3>XAMPP</h3>
+                    <p>Free tool for Windows &amp; Mac. Installs Apache + PHP + MySQL all at once!</p>
+                </div>
+                <div class="analogy-card">
+                    <span class="analogy-icon">🐧</span>
+                    <h3>LAMP Stack</h3>
+                    <p>Linux + Apache + MySQL + PHP — the classic server setup used worldwide.</p>
+                </div>
+                <div class="analogy-card">
+                    <span class="analogy-icon">☁️</span>
+                    <h3>Online Editors</h3>
+                    <p>Sites like <strong>3v4l.org</strong> let you run PHP in the browser for free!</p>
+                </div>
+            </div>
+
+            <div class="connection-box" style="margin-top: 2rem;">
+                <p>🐘 <strong>Fun Fact:</strong> PHP was created in 1994 by Rasmus Lerdorf. The elephant is PHP's mascot! Giant websites like Facebook, Wikipedia, and WordPress all use PHP under the hood.</p>
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="content-section">
+            <h2>Quick Quiz! 🧠</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: Which tag is used to start a PHP block?</p>
+                    <label><input type="radio" name="q1" value="a"> <code>&lt;?php</code></label>
+                    <label><input type="radio" name="q1" value="b"> <code>&lt;php</code></label>
+                    <label><input type="radio" name="q1" value="c"> <code>&lt;?</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q2: Where does PHP code run?</p>
+                    <label><input type="radio" name="q2" value="a"> In the browser</label>
+                    <label><input type="radio" name="q2" value="b"> On the server</label>
+                    <label><input type="radio" name="q2" value="c"> In the database</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: What does the <code>echo</code> keyword do in PHP?</p>
+                    <label><input type="radio" name="q3" value="a"> Prints text to the screen</label>
+                    <label><input type="radio" name="q3" value="b"> Deletes text from the page</label>
+                    <label><input type="radio" name="q3" value="c"> Imports a file into PHP</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answers</button>
+            </div>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>
