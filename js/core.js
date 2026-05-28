@@ -343,6 +343,10 @@
                 </button>
                 <div class="nav-links" id="nav-links">
                     ${linksHtml}
+                    <div class="nav-search" id="nav-search">
+                        <input type="text" placeholder="🔍 Search…" class="nav-search-input" id="nav-search-input" autocomplete="off" aria-label="Search courses and modules">
+                        <div class="nav-search-results" id="nav-search-results"></div>
+                    </div>
                     <button class="theme-toggle btn-icon" title="Toggle Theme" aria-label="Toggle theme">🌓</button>
                 </div>
             </div>
@@ -411,14 +415,24 @@
             document.body.style.overflow = navLinks?.classList.contains('open') ? 'hidden' : '';
         });
 
-        // Dropdown toggle for mobile (works for both modules and cheat sheets dropdowns)
+        // Dropdown toggle — works on ALL screen sizes (click toggles, outside click closes)
         nav.querySelectorAll('.nav-dropdown-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                if (window.innerWidth <= 1024) {
-                    e.preventDefault();
-                    btn.parentElement.classList.toggle('active');
-                }
+                e.preventDefault();
+                e.stopPropagation();
+                const parent = btn.parentElement;
+                const isOpen = parent.classList.contains('active');
+                // Close every other open dropdown first
+                nav.querySelectorAll('.nav-dropdown.active').forEach(d => d.classList.remove('active'));
+                if (!isOpen) parent.classList.add('active');
             });
+        });
+
+        // Close dropdowns when clicking anywhere outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.nav-dropdown')) {
+                nav.querySelectorAll('.nav-dropdown.active').forEach(d => d.classList.remove('active'));
+            }
         });
 
         // Close menu when clicking a link
@@ -429,6 +443,8 @@
                 document.body.style.overflow = '';
             });
         });
+
+        initSearch(baseUrl);
     }
 
     function injectFooter() {
@@ -552,6 +568,94 @@
 
         window.showToast(`You scored ${score}/${questions.length}!`, score === questions.length ? 'success' : 'error');
     };
+
+    // --- Search Engine ---
+    function buildSearchIndex(baseUrl) {
+        const index = [];
+        const courseMap = {
+            'Learning HTML':   { icon: '🌐', path: 'Learning%20HTML',   home: 'learninghtml.html'   },
+            'Learning CSS':    { icon: '🎨', path: 'Learning%20CSS',    home: 'learningcss.html'    },
+            'Learning JS':     { icon: '⚡', path: 'Learning%20JS',     home: 'learningjs.html'     },
+            'Learning PHP':    { icon: '🐘', path: 'Learning%20PHP',    home: 'learningphp.html'    },
+            'Learning MySQL':  { icon: '🗄️', path: 'Learning%20MySQL',  home: 'learningmysql.html'  },
+            'Learning Laravel':{ icon: '🔥', path: 'Learning%20Laravel',home: 'learninglaravel.html'},
+        };
+
+        // Course home pages
+        Object.entries(courseMap).forEach(([name, c]) => {
+            index.push({ label: name, sub: 'Course', icon: c.icon, url: `${baseUrl}${c.path}/${c.home}` });
+        });
+
+        // Individual modules
+        Object.entries(CONFIG.MODULES).forEach(([course, modules]) => {
+            const c = courseMap[course];
+            modules.forEach(mod => {
+                if (mod.url === c.home) return; // skip syllabus duplicate
+                index.push({ label: mod.name, sub: course, icon: c.icon, url: `${baseUrl}${c.path}/${mod.url}` });
+            });
+        });
+
+        // Cheat sheets
+        [
+            { label: 'HTML Cheat Sheet',    sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-html.html`    },
+            { label: 'CSS Cheat Sheet',     sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-css.html`     },
+            { label: 'JS Cheat Sheet',      sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-js.html`      },
+            { label: 'PHP Cheat Sheet',     sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-php.html`     },
+            { label: 'MySQL Cheat Sheet',   sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-mysql.html`   },
+            { label: 'Laravel Cheat Sheet', sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-laravel.html` },
+        ].forEach(item => index.push(item));
+
+        // Other pages
+        [
+            { label: 'AI Roadmap',   sub: 'Pages', icon: '🤖', url: `${baseUrl}ai-roadmap.html`        },
+            { label: 'Getting Started', sub: 'Pages', icon: '📖', url: `${baseUrl}getting-started.html` },
+            { label: 'Code Lab',     sub: 'Pages', icon: '🧪', url: `${baseUrl}master-playground.html`  },
+            { label: 'Home',         sub: 'Pages', icon: '🏠', url: `${baseUrl}index.html`              },
+        ].forEach(item => index.push(item));
+
+        return index;
+    }
+
+    function initSearch(baseUrl) {
+        const input   = document.getElementById('nav-search-input');
+        const results = document.getElementById('nav-search-results');
+        if (!input || !results) return;
+
+        const index = buildSearchIndex(baseUrl);
+
+        const render = (q) => {
+            const term = q.trim().toLowerCase();
+            if (!term) { results.classList.remove('open'); results.innerHTML = ''; return; }
+            const hits = index.filter(item =>
+                item.label.toLowerCase().includes(term) || item.sub.toLowerCase().includes(term)
+            ).slice(0, 9);
+            if (hits.length === 0) {
+                results.innerHTML = '<div class="search-no-results">No results found 😕</div>';
+            } else {
+                results.innerHTML = hits.map(item => `
+                    <a href="${item.url}" class="search-result-item">
+                        <span class="search-result-icon">${item.icon}</span>
+                        <span class="search-result-label">${item.label}</span>
+                        <span class="search-result-sub">${item.sub}</span>
+                    </a>
+                `).join('');
+            }
+            results.classList.add('open');
+        };
+
+        input.addEventListener('input', () => render(input.value));
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') { results.classList.remove('open'); input.value = ''; input.blur(); }
+            if (e.key === 'Enter') {
+                const first = results.querySelector('a.search-result-item');
+                if (first) first.click();
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#nav-search')) results.classList.remove('open');
+        });
+    }
 
     function injectModuleNavigator() {
         const currentModule = getCurrentModule();
