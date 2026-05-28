@@ -30,6 +30,14 @@
             ],
             'Learning CSS': [
                 { name: 'Lessons', url: 'learningcss.html' },
+                { name: '1: Intro CSS', url: 'module1.html' },
+                { name: '2: Colors & Text', url: 'module2.html' },
+                { name: '3: Box Model', url: 'module3.html' },
+                { name: '4: Positioning', url: 'module4.html' },
+                { name: '5: Flexbox', url: 'module5.html' },
+                { name: '6: Adv. Flexbox', url: 'module6.html' },
+                { name: '7: CSS Grid', url: 'module7.html' },
+                { name: '8: Responsive', url: 'module8.html' },
                 { name: 'Playground', url: 'playground.html' },
                 { name: 'Exercises', url: 'exercises.html' },
                 { name: 'Glossary', url: 'glossary.html' },
@@ -50,6 +58,37 @@
                 { name: 'Exercises', url: 'exercises.html' },
                 { name: 'Glossary', url: 'glossary.html' },
                 { name: 'Quiz', url: 'quiz.html' }
+            ],
+            'Learning PHP': [
+                { name: 'Syllabus', url: 'learningphp.html' },
+                { name: '1: Intro to PHP', url: 'module1.html' },
+                { name: '2: Variables & Types', url: 'module2.html' },
+                { name: '3: Control Flow', url: 'module3.html' },
+                { name: '4: Functions', url: 'module4.html' },
+                { name: '5: Arrays', url: 'module5.html' },
+                { name: '6: Forms & POST', url: 'module6.html' },
+                { name: '7: File I/O', url: 'module7.html' },
+                { name: '8: OOP Basics', url: 'module8.html' }
+            ],
+            'Learning MySQL': [
+                { name: 'Syllabus', url: 'learningmysql.html' },
+                { name: '1: Intro to Databases', url: 'module1.html' },
+                { name: '2: CREATE TABLE', url: 'module2.html' },
+                { name: '3: INSERT & SELECT', url: 'module3.html' },
+                { name: '4: UPDATE & DELETE', url: 'module4.html' },
+                { name: '5: JOINs', url: 'module5.html' },
+                { name: '6: Advanced Queries', url: 'module6.html' }
+            ],
+            'Learning Laravel': [
+                { name: 'Syllabus', url: 'learninglaravel.html' },
+                { name: '1: Introduction', url: 'module1.html' },
+                { name: '2: Routing', url: 'module2.html' },
+                { name: '3: Controllers', url: 'module3.html' },
+                { name: '4: Blade Templates', url: 'module4.html' },
+                { name: '5: Eloquent ORM', url: 'module5.html' },
+                { name: '6: Migrations', url: 'module6.html' },
+                { name: '7: Forms & Validation', url: 'module7.html' },
+                { name: '8: Authentication', url: 'module8.html' }
             ]
         }
     };
@@ -57,9 +96,12 @@
     // --- Utility Functions ---
     const getBaseUrl = () => {
         const path = decodeURIComponent(window.location.pathname);
-        if (path.includes('Learning HTML/') || 
-            path.includes('Learning CSS/') || 
-            path.includes('Learning JS/')) {
+        if (path.includes('Learning HTML/') ||
+            path.includes('Learning CSS/') ||
+            path.includes('Learning JS/') ||
+            path.includes('Learning PHP/') ||
+            path.includes('Learning MySQL/') ||
+            path.includes('Learning Laravel/')) {
             return '../';
         }
         return './';
@@ -70,6 +112,9 @@
         if (path.includes('Learning HTML')) return 'Learning HTML';
         if (path.includes('Learning CSS')) return 'Learning CSS';
         if (path.includes('Learning JS')) return 'Learning JS';
+        if (path.includes('Learning PHP')) return 'Learning PHP';
+        if (path.includes('Learning MySQL')) return 'Learning MySQL';
+        if (path.includes('Learning Laravel')) return 'Learning Laravel';
         return null;
     };
 
@@ -143,7 +188,7 @@
     // --- Gamification Engine ---
     const updateStreak = () => {
         const now = new Date();
-        const todayStr = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
+        const todayStr = now.toISOString().split('T')[0];
         
         let streak = JC_State.get('streak');
         const lastActive = JC_State.get('lastActiveDay');
@@ -176,15 +221,18 @@
     const calculateStats = () => {
         const completed = JC_State.get('completedModules');
         const xp = completed.length * 100;
-        
+
         let rank = 'Recruit';
         if (xp >= 500) rank = 'Apprentice';
         if (xp >= 1500) rank = 'Coder';
         if (xp >= 2500) rank = 'Master';
 
         const streak = JC_State.get('streak');
+        const lastActiveDay = JC_State.get('lastActiveDay');
+        const todayStr = new Date().toISOString().split('T')[0];
+        const dailyGoalDone = lastActiveDay === todayStr && completed.length > 0;
 
-        return { xp, count: completed.length, rank, streak };
+        return { xp, count: completed.length, rank, streak, dailyGoalDone };
     };
 
     const trackVisit = () => {
@@ -198,18 +246,20 @@
     const updateDashboard = () => {
         const stats = calculateStats();
         const lastPath = JC_State.get('lastModulePath');
-        
+
         const xpEl = document.getElementById('user-xp');
         const countEl = document.getElementById('user-completed');
         const rankEl = document.getElementById('user-rank');
         const streakEl = document.getElementById('user-streak');
         const continueBtn = document.getElementById('continue-mission');
+        const dailyFill = document.getElementById('daily-goal-fill');
 
         if (xpEl) xpEl.textContent = stats.xp;
         if (countEl) countEl.textContent = stats.count;
         if (rankEl) rankEl.textContent = stats.rank;
         if (streakEl) streakEl.textContent = stats.streak;
-        
+        if (dailyFill) dailyFill.style.width = stats.dailyGoalDone ? '100%' : '0%';
+
         if (continueBtn && lastPath) {
             continueBtn.href = lastPath;
             continueBtn.style.display = 'inline-flex';
@@ -232,8 +282,15 @@
         const logo = `<a href="${baseUrl}index.html" class="nav-logo">🚀 Junior Coders</a>`;
         
         let linksHtml = '';
+        const cheatsheetLink = currentModule === 'Learning HTML'    ? 'cheatsheet-html.html'
+                             : currentModule === 'Learning CSS'     ? 'cheatsheet-css.html'
+                             : currentModule === 'Learning JS'      ? 'cheatsheet-js.html'
+                             : currentModule === 'Learning PHP'     ? 'cheatsheet-php.html'
+                             : currentModule === 'Learning MySQL'   ? 'cheatsheet-mysql.html'
+                             : currentModule === 'Learning Laravel' ? 'cheatsheet-laravel.html'
+                             : null;
+
         if (currentModule) {
-            // Refactored to use a dropdown for module links to keep nav clean
             linksHtml = `
                 <a href="${baseUrl}index.html">Home</a>
                 <div class="nav-dropdown">
@@ -244,9 +301,10 @@
                         `).join('')}
                     </div>
                 </div>
+                ${cheatsheetLink ? `<a href="${cheatsheetLink}" class="${currentPath === cheatsheetLink ? 'active' : ''}">📋 Cheat Sheet</a>` : ''}
+                <a href="${baseUrl}ai-roadmap.html" class="${currentPath === 'ai-roadmap.html' ? 'active' : ''}">🤖 AI Roadmap</a>
             `;
         } else {
-            // Root navigation
             linksHtml = `
                 <a href="${baseUrl}index.html" class="${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">Home</a>
                 <a href="${baseUrl}getting-started.html" class="${currentPath === 'getting-started.html' ? 'active' : ''}">Basics</a>
@@ -254,6 +312,26 @@
                 <a href="${baseUrl}Learning%20HTML/learninghtml.html">HTML</a>
                 <a href="${baseUrl}Learning%20CSS/learningcss.html">CSS</a>
                 <a href="${baseUrl}Learning%20JS/learningjs.html">JavaScript</a>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-btn" id="backend-dropdown-btn">🗄️ Backend ▾</button>
+                    <div class="nav-dropdown-content">
+                        <a href="${baseUrl}Learning%20PHP/learningphp.html">PHP</a>
+                        <a href="${baseUrl}Learning%20MySQL/learningmysql.html">MySQL</a>
+                        <a href="${baseUrl}Learning%20Laravel/learninglaravel.html">Laravel</a>
+                    </div>
+                </div>
+                <div class="nav-dropdown">
+                    <button class="nav-dropdown-btn" id="cheatsheets-dropdown-btn">📋 Cheat Sheets ▾</button>
+                    <div class="nav-dropdown-content">
+                        <a href="${baseUrl}cheatsheet-html.html">HTML Cheat Sheet</a>
+                        <a href="${baseUrl}cheatsheet-css.html">CSS Cheat Sheet</a>
+                        <a href="${baseUrl}cheatsheet-js.html">JS Cheat Sheet</a>
+                        <a href="${baseUrl}cheatsheet-php.html">PHP Cheat Sheet</a>
+                        <a href="${baseUrl}cheatsheet-mysql.html">MySQL Cheat Sheet</a>
+                        <a href="${baseUrl}cheatsheet-laravel.html">Laravel Cheat Sheet</a>
+                    </div>
+                </div>
+                <a href="${baseUrl}ai-roadmap.html" class="${currentPath === 'ai-roadmap.html' ? 'active' : ''}">🤖 AI Roadmap</a>
             `;
         }
 
@@ -265,17 +343,47 @@
                 </button>
                 <div class="nav-links" id="nav-links">
                     ${linksHtml}
-                    <button class="theme-toggle btn-icon" title="Toggle Theme">🌓</button>
+                    <button class="theme-toggle btn-icon" title="Toggle Theme" aria-label="Toggle theme">🌓</button>
                 </div>
             </div>
         `;
 
         document.body.prepend(nav);
 
-        // Inject Bottom Nav for Mobile
+        // Inject Bottom Nav for Mobile (context-aware)
+        const coursePageUrl = currentModule === 'Learning HTML'    ? 'learninghtml.html'
+                            : currentModule === 'Learning CSS'     ? 'learningcss.html'
+                            : currentModule === 'Learning JS'      ? 'learningjs.html'
+                            : currentModule === 'Learning PHP'     ? 'learningphp.html'
+                            : currentModule === 'Learning MySQL'   ? 'learningmysql.html'
+                            : currentModule === 'Learning Laravel' ? 'learninglaravel.html'
+                            : null;
+        const cheatUrl = currentModule === 'Learning HTML'    ? 'cheatsheet-html.html'
+                       : currentModule === 'Learning CSS'     ? 'cheatsheet-css.html'
+                       : currentModule === 'Learning JS'      ? 'cheatsheet-js.html'
+                       : currentModule === 'Learning PHP'     ? 'cheatsheet-php.html'
+                       : currentModule === 'Learning MySQL'   ? 'cheatsheet-mysql.html'
+                       : currentModule === 'Learning Laravel' ? 'cheatsheet-laravel.html'
+                       : null;
+
         const bottomNav = document.createElement('div');
         bottomNav.className = 'bottom-nav';
-        bottomNav.innerHTML = `
+        bottomNav.innerHTML = currentModule ? `
+            <div class="bottom-nav-container">
+                <a href="${coursePageUrl}" class="tab-item ${currentPath === coursePageUrl ? 'active' : ''}">
+                    <span class="tab-icon">📚</span>
+                    <span>Course</span>
+                </a>
+                <a href="${baseUrl}index.html" class="tab-item">
+                    <span class="tab-icon">🏠</span>
+                    <span>Home</span>
+                </a>
+                <a href="${cheatUrl}" class="tab-item ${currentPath === cheatUrl ? 'active' : ''}">
+                    <span class="tab-icon">📋</span>
+                    <span>Cheat Sheet</span>
+                </a>
+            </div>
+        ` : `
             <div class="bottom-nav-container">
                 <a href="${baseUrl}getting-started.html" class="tab-item ${currentPath === 'getting-started.html' ? 'active' : ''}">
                     <span class="tab-icon">📖</span>
@@ -303,13 +411,14 @@
             document.body.style.overflow = navLinks?.classList.contains('open') ? 'hidden' : '';
         });
 
-        // Dropdown toggle for mobile
-        const dropdownBtn = document.getElementById('modules-dropdown-btn');
-        dropdownBtn?.addEventListener('click', (e) => {
-            if (window.innerWidth <= 1024) {
-                e.preventDefault();
-                dropdownBtn.parentElement.classList.toggle('active');
-            }
+        // Dropdown toggle for mobile (works for both modules and cheat sheets dropdowns)
+        nav.querySelectorAll('.nav-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (window.innerWidth <= 1024) {
+                    e.preventDefault();
+                    btn.parentElement.classList.toggle('active');
+                }
+            });
         });
 
         // Close menu when clicking a link
@@ -469,7 +578,14 @@
                 <span>←</span> Previous
             </a>
             ${moduleNum ? `<button class="btn-nav-control complete" onclick="markComplete('${moduleNum}')">✓ Complete</button>` : ''}
-            <a href="${next ? next.url : (currentModule.includes('HTML') ? 'learninghtml.html' : currentModule.includes('CSS') ? 'learningcss.html' : 'learningjs.html')}" class="btn-nav-control next">
+            <a href="${next ? next.url : (
+                currentModule === 'Learning HTML'    ? 'learninghtml.html'    :
+                currentModule === 'Learning CSS'     ? 'learningcss.html'     :
+                currentModule === 'Learning JS'      ? 'learningjs.html'      :
+                currentModule === 'Learning PHP'     ? 'learningphp.html'     :
+                currentModule === 'Learning MySQL'   ? 'learningmysql.html'   :
+                'learninglaravel.html'
+            )}" class="btn-nav-control next">
                 ${next ? 'Next' : 'Finish'} <span>→</span>
             </a>
         `;

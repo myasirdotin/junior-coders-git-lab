@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 7: Forms & Validation | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-laravel">
+            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 7</span>
+            <h1>Forms &amp; Validation 📝</h1>
+            <p>Collect user input safely and validate it like a pro!</p>
+        </header>
+
+        <section class="content-section">
+            <h2>HTML Forms in Laravel</h2>
+            <p>Building forms in Laravel uses standard HTML, but with two important Laravel additions: <code>@csrf</code> for security, and <code>@method</code> for PUT/PATCH/DELETE requests (since HTML forms only support GET and POST natively).</p>
+
+            <div class="code-block">
+<code><span class="code-comment">&lt;!-- A form to create a new student --&gt;</span>
+&lt;form method="POST" action="<span class="code-string">{{ route('students.store') }}</span>"&gt;
+    <span class="code-keyword">@csrf</span>  <span class="code-comment">&lt;!-- Required! Generates CSRF security token --&gt;</span>
+
+    &lt;label&gt;Name:&lt;/label&gt;
+    &lt;input type="text" name="name" value="<span class="code-string">{{ old('name') }}</span>"&gt;
+    <span class="code-comment">&lt;!-- old() re-fills the field if validation fails --&gt;</span>
+
+    <span class="code-keyword">@error</span>(<span class="code-string">'name'</span>)
+        &lt;p style="color:red;"&gt;<span class="code-string">{{ $message }}</span>&lt;/p&gt;
+    <span class="code-keyword">@enderror</span>
+
+    &lt;label&gt;Email:&lt;/label&gt;
+    &lt;input type="email" name="email" value="<span class="code-string">{{ old('email') }}</span>"&gt;
+
+    <span class="code-keyword">@error</span>(<span class="code-string">'email'</span>)
+        &lt;p style="color:red;"&gt;<span class="code-string">{{ $message }}</span>&lt;/p&gt;
+    <span class="code-keyword">@enderror</span>
+
+    &lt;button type="submit"&gt;Save Student&lt;/button&gt;
+&lt;/form&gt;</code>
+            </div>
+
+            <div class="connection-box" style="border-left-color: #eab308;">
+                <strong>🔑 Why old()?</strong><br>
+                When a form fails validation, Laravel redirects the user back to the form. <code>old('name')</code> retrieves the value the user typed so they don't have to retype everything — great UX!
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Handling Form Submission in the Controller 🎮</h2>
+
+            <div class="code-block">
+<code><span class="code-keyword">public function</span> <span class="code-val">store</span>(<span class="code-val">Request</span> <span class="code-val">$request</span>) {
+    <span class="code-comment">// Step 1: Validate the incoming data</span>
+    <span class="code-val">$validated</span> = <span class="code-val">$request</span>-&gt;<span class="code-val">validate</span>([
+        <span class="code-string">'name'</span>  =&gt; <span class="code-string">'required|min:2|max:100'</span>,
+        <span class="code-string">'email'</span> =&gt; <span class="code-string">'required|email|unique:students'</span>,
+        <span class="code-string">'grade'</span> =&gt; <span class="code-string">'nullable|in:A,B,C,D,F'</span>,
+    ]);
+
+    <span class="code-comment">// Step 2: Save the validated data</span>
+    <span class="code-val">Student</span>::<span class="code-val">create</span>(<span class="code-val">$validated</span>);
+
+    <span class="code-comment">// Step 3: Redirect with a success message</span>
+    <span class="code-keyword">return</span> <span class="code-val">redirect</span>()-&gt;<span class="code-val">route</span>(<span class="code-string">'students.index'</span>)
+                        -&gt;<span class="code-val">with</span>(<span class="code-string">'success'</span>, <span class="code-string">'Student added!'</span>);
+}</code>
+            </div>
+
+            <p>If validation fails, Laravel <em>automatically</em> redirects back to the form and puts the error messages in the session — no extra code needed!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Common Validation Rules 📋</h2>
+
+            <table class="sql-demo-table" style="width:100%;">
+                <thead><tr><th>Rule</th><th>What it checks</th></tr></thead>
+                <tbody>
+                    <tr><td><code>required</code></td><td>Field must not be empty</td></tr>
+                    <tr><td><code>string</code></td><td>Must be a text string</td></tr>
+                    <tr><td><code>min:3</code></td><td>At least 3 characters (or number ≥ 3)</td></tr>
+                    <tr><td><code>max:255</code></td><td>No more than 255 characters</td></tr>
+                    <tr><td><code>email</code></td><td>Must be a valid email format</td></tr>
+                    <tr><td><code>unique:table</code></td><td>Value must not already exist in table</td></tr>
+                    <tr><td><code>numeric</code></td><td>Must be a number</td></tr>
+                    <tr><td><code>in:A,B,C</code></td><td>Must be one of these values</td></tr>
+                    <tr><td><code>nullable</code></td><td>Field is optional (can be empty)</td></tr>
+                    <tr><td><code>confirmed</code></td><td>Must match a <code>_confirmation</code> field</td></tr>
+                    <tr><td><code>date</code></td><td>Must be a valid date</td></tr>
+                    <tr><td><code>image</code></td><td>Must be an image file (jpg, png, etc.)</td></tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top:1rem;">Combine rules with a pipe <code>|</code>: <code>'required|email|max:150'</code></p>
+        </section>
+
+        <section class="content-section">
+            <h2>Displaying Flash Messages 💬</h2>
+            <p>When you redirect with <code>->with('success', 'Student added!')</code>, you can display that message in your Blade template:</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">@if</span> (session(<span class="code-string">'success'</span>))
+    &lt;div style="background:#d1fae5; color:#065f46; padding:1rem; border-radius:0.5rem;"&gt;
+        ✅ <span class="code-string">{{ session('success') }}</span>
+    &lt;/div&gt;
+<span class="code-keyword">@endif</span>
+
+<span class="code-keyword">@if</span> (session(<span class="code-string">'error'</span>))
+    &lt;div style="background:#fee2e2; color:#991b1b; padding:1rem; border-radius:0.5rem;"&gt;
+        ❌ <span class="code-string">{{ session('error') }}</span>
+    &lt;/div&gt;
+<span class="code-keyword">@endif</span></code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Quick Quiz! 🧪</h2>
+            <form id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p><strong>Q1:</strong> Why must you include <code>@csrf</code> in every Laravel form?</p>
+                    <label><input type="radio" name="q1" value="a"> To style the form automatically</label>
+                    <label><input type="radio" name="q1" value="b"> To protect against Cross-Site Request Forgery attacks</label>
+                    <label><input type="radio" name="q1" value="c"> To enable file uploads</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q2:</strong> What does <code>old('name')</code> do in a Blade form?</p>
+                    <label><input type="radio" name="q2" value="a"> Refills the field with the previously submitted value after a failed validation</label>
+                    <label><input type="radio" name="q2" value="b"> Retrieves the oldest record from the database</label>
+                    <label><input type="radio" name="q2" value="c"> Clears the input field</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p><strong>Q3:</strong> What happens automatically when <code>$request->validate()</code> fails?</p>
+                    <label><input type="radio" name="q3" value="a"> The app crashes with an error</label>
+                    <label><input type="radio" name="q3" value="b"> The data is saved anyway</label>
+                    <label><input type="radio" name="q3" value="c"> Laravel redirects back to the form with error messages in the session</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #e3342f, #ff6b6b);">Check Answers</button>
+            </form>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

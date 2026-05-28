@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5: Arrays | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-php">
+            <span class="badge" style="background:white;color:var(--php-brand);">Level 2</span>
+            <h1>Arrays</h1>
+            <p>Collections of Data! 📋</p>
+        </header>
+
+        <!-- Section 1: What is an Array? -->
+        <section class="content-section">
+            <h2>📋 What is an Array?</h2>
+            <p>An array is like a <strong>shopping list</strong>. Instead of having a separate variable for each item, you put multiple values inside one variable — in order, numbered from zero.</p>
+
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> Imagine a <strong>train</strong>. Each carriage (wagon) holds one passenger. The first carriage is number <strong>0</strong>, the second is <strong>1</strong>, and so on. The array is the entire train!</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Indexed Arrays -->
+        <section class="content-section">
+            <h2>🔢 Indexed Arrays</h2>
+            <p>Indexed arrays store values with automatic numeric keys starting at <strong>0</strong>. This is the most common type of array.</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// Creating an indexed array</span>
+<span class="code-keyword">$fruits</span> = [<span class="code-string">"apple"</span>, <span class="code-string">"banana"</span>, <span class="code-string">"mango"</span>];
+
+<span class="code-comment">// Accessing items by their index (position)</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">$fruits</span>[<span class="code-val">0</span>];  <span class="code-comment">// apple  (first item — index 0)</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">$fruits</span>[<span class="code-val">1</span>];  <span class="code-comment">// banana (second item — index 1)</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">$fruits</span>[<span class="code-val">2</span>];  <span class="code-comment">// mango  (third item — index 2)</span>
+
+<span class="code-comment">// Counting items</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">count</span>(<span class="code-keyword">$fruits</span>);  <span class="code-comment">// 3</span>
+
+<span class="code-comment">// Adding a new item to the end</span>
+<span class="code-keyword">$fruits</span>[] = <span class="code-string">"strawberry"</span>;
+<span class="code-comment">// $fruits is now ["apple", "banana", "mango", "strawberry"]</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Section 3: Associative Arrays -->
+        <section class="content-section">
+            <h2>🗝️ Associative Arrays</h2>
+            <p>Associative arrays use <strong>named keys</strong> instead of numbers. This is perfect when your data has labels — like a student's profile with a name, age, and grade.</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// Creating an associative array</span>
+<span class="code-keyword">$student</span> = [
+    <span class="code-string">"name"</span>  => <span class="code-string">"Ali"</span>,
+    <span class="code-string">"age"</span>   => <span class="code-val">12</span>,
+    <span class="code-string">"grade"</span> => <span class="code-string">"A"</span>,
+    <span class="code-string">"city"</span>  => <span class="code-string">"Lahore"</span>
+];
+
+<span class="code-comment">// Accessing values by key name</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">$student</span>[<span class="code-string">"name"</span>];   <span class="code-comment">// Ali</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">$student</span>[<span class="code-string">"grade"</span>];  <span class="code-comment">// A</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">$student</span>[<span class="code-string">"city"</span>];   <span class="code-comment">// Lahore</span>
+
+<span class="code-comment">// Updating a value</span>
+<span class="code-keyword">$student</span>[<span class="code-string">"grade"</span>] = <span class="code-string">"A+"</span>;
+
+<span class="code-comment">// Adding a new key</span>
+<span class="code-keyword">$student</span>[<span class="code-string">"school"</span>] = <span class="code-string">"DPS"</span>;
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Section 4: Multi-dimensional Arrays -->
+        <section class="content-section">
+            <h2>🏢 Multi-dimensional Arrays</h2>
+            <p>Arrays can contain other arrays inside them! This is called a <strong>multi-dimensional array</strong>. Think of it like a spreadsheet — rows and columns of data.</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// A class of students — each student is an array inside $class</span>
+<span class="code-keyword">$class</span> = [
+    [<span class="code-string">"name"</span> => <span class="code-string">"Ali"</span>,  <span class="code-string">"score"</span> => <span class="code-val">90</span>],
+    [<span class="code-string">"name"</span> => <span class="code-string">"Sara"</span>, <span class="code-string">"score"</span> => <span class="code-val">85</span>],
+    [<span class="code-string">"name"</span> => <span class="code-string">"Zaid"</span>, <span class="code-string">"score"</span> => <span class="code-val">78</span>],
+];
+
+<span class="code-comment">// Accessing nested values</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">$class</span>[<span class="code-val">0</span>][<span class="code-string">"name"</span>];   <span class="code-comment">// Ali   (first student, name)</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">$class</span>[<span class="code-val">1</span>][<span class="code-string">"score"</span>];  <span class="code-comment">// 85    (second student, score)</span>
+
+<span class="code-comment">// Loop through all students</span>
+<span class="code-keyword">foreach</span> (<span class="code-keyword">$class</span> <span class="code-keyword">as</span> <span class="code-keyword">$s</span>) {
+    <span class="code-keyword">echo</span> <span class="code-keyword">$s</span>[<span class="code-string">"name"</span>] . <span class="code-string">": "</span> . <span class="code-keyword">$s</span>[<span class="code-string">"score"</span>] . <span class="code-string">"&lt;br&gt;"</span>;
+}
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Section 5: Array Functions -->
+        <section class="content-section">
+            <h2>🛠️ Essential Array Functions</h2>
+            <p>PHP has many built-in functions to manage arrays. Here are the most useful ones:</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-keyword">$nums</span> = [<span class="code-val">5</span>, <span class="code-val">3</span>, <span class="code-val">9</span>, <span class="code-val">1</span>, <span class="code-val">7</span>];
+
+<span class="code-comment">// count() — how many items?</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">count</span>(<span class="code-keyword">$nums</span>);      <span class="code-comment">// 5</span>
+
+<span class="code-comment">// array_push() — add to the end</span>
+<span class="code-keyword">array_push</span>(<span class="code-keyword">$nums</span>, <span class="code-val">42</span>);  <span class="code-comment">// [5,3,9,1,7,42]</span>
+
+<span class="code-comment">// array_pop() — remove from the end</span>
+<span class="code-keyword">$last</span> = <span class="code-keyword">array_pop</span>(<span class="code-keyword">$nums</span>);  <span class="code-comment">// $last = 42</span>
+
+<span class="code-comment">// sort() — sort from smallest to largest</span>
+<span class="code-keyword">sort</span>(<span class="code-keyword">$nums</span>);
+<span class="code-comment">// $nums is now [1, 3, 5, 7, 9]</span>
+
+<span class="code-comment">// in_array() — check if a value exists</span>
+<span class="code-keyword">var_dump</span>(<span class="code-keyword">in_array</span>(<span class="code-val">7</span>, <span class="code-keyword">$nums</span>));  <span class="code-comment">// bool(true)</span>
+<span class="code-keyword">var_dump</span>(<span class="code-keyword">in_array</span>(<span class="code-val">99</span>, <span class="code-keyword">$nums</span>)); <span class="code-comment">// bool(false)</span>
+
+<span class="code-comment">// array_merge() — join two arrays</span>
+<span class="code-keyword">$a</span> = [<span class="code-val">1</span>, <span class="code-val">2</span>];
+<span class="code-keyword">$b</span> = [<span class="code-val">3</span>, <span class="code-val">4</span>];
+<span class="code-keyword">$c</span> = <span class="code-keyword">array_merge</span>(<span class="code-keyword">$a</span>, <span class="code-keyword">$b</span>);  <span class="code-comment">// [1, 2, 3, 4]</span>
+
+<span class="code-comment">// array_keys() and array_values()</span>
+<span class="code-keyword">$car</span>  = [<span class="code-string">"brand"</span> => <span class="code-string">"Toyota"</span>, <span class="code-string">"color"</span> => <span class="code-string">"Red"</span>];
+<span class="code-keyword">$keys</span> = <span class="code-keyword">array_keys</span>(<span class="code-keyword">$car</span>);    <span class="code-comment">// ["brand", "color"]</span>
+<span class="code-keyword">$vals</span> = <span class="code-keyword">array_values</span>(<span class="code-keyword">$car</span>);  <span class="code-comment">// ["Toyota", "Red"]</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+
+            <div style="overflow-x: auto; margin-top: 1.5rem;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                    <thead>
+                        <tr style="background: var(--php-brand); color: white;">
+                            <th style="padding: 0.75rem 1rem; text-align: left;">Function</th>
+                            <th style="padding: 0.75rem 1rem; text-align: left;">What it does</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>count()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Returns the number of items in an array</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>array_push()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Adds one or more items to the end</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>array_pop()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Removes and returns the last item</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>sort()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Sorts array values in ascending order</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>in_array()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Checks if a value exists in an array</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>array_merge()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Combines two or more arrays into one</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>array_keys()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Returns all the keys of an array</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem 1rem;"><code>array_values()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Returns all the values of an array</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 6: foreach with arrays -->
+        <section class="content-section">
+            <h2>🔁 Looping Through Arrays with foreach</h2>
+            <p>The <code>foreach</code> loop and arrays are best friends! Use it to automatically visit every item in an array.</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// Example: Build a shopping list</span>
+<span class="code-keyword">$cart</span> = [
+    <span class="code-string">"Rice"</span>    => <span class="code-val">200</span>,
+    <span class="code-string">"Bread"</span>   => <span class="code-val">60</span>,
+    <span class="code-string">"Milk"</span>    => <span class="code-val">120</span>,
+    <span class="code-string">"Apples"</span>  => <span class="code-val">350</span>,
+];
+
+<span class="code-keyword">$total</span> = <span class="code-val">0</span>;
+
+<span class="code-keyword">foreach</span> (<span class="code-keyword">$cart</span> <span class="code-keyword">as</span> <span class="code-keyword">$item</span> => <span class="code-keyword">$price</span>) {
+    <span class="code-keyword">echo</span> <span class="code-keyword">$item</span> . <span class="code-string">": Rs "</span> . <span class="code-keyword">$price</span> . <span class="code-string">"&lt;br&gt;"</span>;
+    <span class="code-keyword">$total</span> += <span class="code-keyword">$price</span>;
+}
+
+<span class="code-keyword">echo</span> <span class="code-string">"---&lt;br&gt;Total: Rs "</span> . <span class="code-keyword">$total</span>;
+<span class="code-comment">// Output:
+// Rice: Rs 200
+// Bread: Rs 60
+// Milk: Rs 120
+// Apples: Rs 350
+// ---
+// Total: Rs 730</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="content-section">
+            <h2>Quick Quiz! 🧠</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: What index does the first item of an array have?</p>
+                    <label><input type="radio" name="q1" value="a"> 1</label>
+                    <label><input type="radio" name="q1" value="b"> 0</label>
+                    <label><input type="radio" name="q1" value="c"> -1</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q2: Which function checks if a value exists inside an array?</p>
+                    <label><input type="radio" name="q2" value="a"> <code>array_has()</code></label>
+                    <label><input type="radio" name="q2" value="b"> <code>isset()</code></label>
+                    <label><input type="radio" name="q2" value="c"> <code>in_array()</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: In an associative array, you access values using:</p>
+                    <label><input type="radio" name="q3" value="a"> Key names like <code>$arr["name"]</code></label>
+                    <label><input type="radio" name="q3" value="b"> Only numbers like <code>$arr[0]</code></label>
+                    <label><input type="radio" name="q3" value="c"> The <code>get()</code> function</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answers</button>
+            </div>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

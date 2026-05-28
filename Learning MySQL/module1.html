@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 1: Intro to Databases | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-mysql">
+            <span class="badge" style="background: white; color: var(--mysql-brand);">Level 1</span>
+            <h1>What is a Database?</h1>
+            <p>The organized home for all your data! 🗄️</p>
+        </header>
+
+        <section class="content-section">
+            <h2>The Filing Cabinet Analogy</h2>
+            <p>Have you ever seen a filing cabinet in a school office? A <strong>database</strong> works exactly the same way — it's a digital filing cabinet that keeps all your information organized so you can find it instantly.</p>
+
+            <div class="analogy-container">
+                <div class="analogy-grid">
+                    <div class="analogy-card">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🗄️</div>
+                        <h3>Database</h3>
+                        <p>The whole filing cabinet — holds everything</p>
+                    </div>
+                    <div class="analogy-card">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📂</div>
+                        <h3>Table</h3>
+                        <p>A drawer in the cabinet — for one type of info</p>
+                    </div>
+                    <div class="analogy-card">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">📄</div>
+                        <h3>Row (Record)</h3>
+                        <p>An individual file — info about one student</p>
+                    </div>
+                    <div class="analogy-card">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🏷️</div>
+                        <h3>Column (Field)</h3>
+                        <p>A category label — like "Name" or "Grade"</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>A Real Database Table</h2>
+            <p>Here's what a <strong>students</strong> table looks like inside a database. Each row is one student. Each column is a piece of information about them:</p>
+
+            <div style="overflow-x: auto; margin: 2rem 0;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 1rem; text-align: left;">id</th>
+                            <th style="padding: 1rem; text-align: left;">name</th>
+                            <th style="padding: 1rem; text-align: left;">age</th>
+                            <th style="padding: 1rem; text-align: left;">grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem; color: var(--mysql-brand); font-weight: 700;">1</td>
+                            <td style="padding: 0.9rem 1rem;">Ali Hassan</td>
+                            <td style="padding: 0.9rem 1rem;">13</td>
+                            <td style="padding: 0.9rem 1rem;">A</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem; color: var(--mysql-brand); font-weight: 700;">2</td>
+                            <td style="padding: 0.9rem 1rem;">Sara Khan</td>
+                            <td style="padding: 0.9rem 1rem;">12</td>
+                            <td style="padding: 0.9rem 1rem;">A+</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem; color: var(--mysql-brand); font-weight: 700;">3</td>
+                            <td style="padding: 0.9rem 1rem;">Bilal Ahmed</td>
+                            <td style="padding: 0.9rem 1rem;">14</td>
+                            <td style="padding: 0.9rem 1rem;">B+</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem; color: var(--mysql-brand); font-weight: 700;">4</td>
+                            <td style="padding: 0.9rem 1rem;">Aisha Malik</td>
+                            <td style="padding: 0.9rem 1rem;">13</td>
+                            <td style="padding: 0.9rem 1rem;">A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>Notice how the <strong>id</strong> column has unique numbers (1, 2, 3, 4)? That's called the <strong>Primary Key</strong> — it makes sure every student can be found without confusion, even if two students have the same name!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Key Terms You Need to Know</h2>
+
+            <div class="analogy-grid" style="margin-top: 1.5rem;">
+                <div class="analogy-card" style="text-align: left;">
+                    <h3 style="color: var(--mysql-brand);">Database</h3>
+                    <p>A collection of organized tables. Example: a school's entire database might have a <em>students</em> table, a <em>teachers</em> table, and a <em>subjects</em> table.</p>
+                </div>
+                <div class="analogy-card" style="text-align: left;">
+                    <h3 style="color: var(--mysql-brand);">Table</h3>
+                    <p>A grid of rows and columns. Like a spreadsheet, but much more powerful and can hold millions of rows.</p>
+                </div>
+                <div class="analogy-card" style="text-align: left;">
+                    <h3 style="color: var(--mysql-brand);">Row (Record)</h3>
+                    <p>One complete entry. In the students table, one row = one student with all their info.</p>
+                </div>
+                <div class="analogy-card" style="text-align: left;">
+                    <h3 style="color: var(--mysql-brand);">Column (Field)</h3>
+                    <p>One type of information. All values in a column share the same type — e.g., the <em>age</em> column only holds numbers.</p>
+                </div>
+                <div class="analogy-card" style="text-align: left;">
+                    <h3 style="color: var(--mysql-brand);">Primary Key</h3>
+                    <p>A unique identifier for each row. No two rows can share the same Primary Key. The <em>id</em> column is almost always the Primary Key.</p>
+                </div>
+                <div class="analogy-card" style="text-align: left;">
+                    <h3 style="color: var(--mysql-brand);">DBMS</h3>
+                    <p>Database Management System — the software that runs your database. MySQL is one of the most popular DBMS tools in the world!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>What is MySQL?</h2>
+            <p>MySQL is <strong>free, open-source software</strong> that manages your databases. When you use apps like Facebook, YouTube, Twitter, or any school software, they almost certainly use a database like MySQL behind the scenes.</p>
+
+            <p>MySQL is called a <strong>Relational Database</strong>. That means it stores data in tables that can be <em>related</em> to each other. For example, a students table can connect to a grades table.</p>
+
+            <div class="code-block" style="margin-top: 1.5rem;">
+                <code><span class="code-comment">-- This is what talking to MySQL looks like!</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students;
+<span class="code-comment">-- "Give me everything from the students table"</span></code>
+            </div>
+
+            <p style="margin-top: 1.5rem;">Those lines above are called <strong>SQL</strong> — Structured Query Language. It's the language you use to talk to MySQL. By the end of this course, you'll be writing SQL like a pro!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>MySQL vs NoSQL — What's the Difference?</h2>
+            <div style="overflow-x: auto; margin: 1.5rem 0;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 1rem; text-align: left;">Feature</th>
+                            <th style="padding: 1rem; text-align: left;">MySQL (Relational)</th>
+                            <th style="padding: 1rem; text-align: left;">NoSQL (e.g. MongoDB)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem; font-weight: 600;">Data Format</td>
+                            <td style="padding: 0.9rem 1rem;">Tables with rows &amp; columns</td>
+                            <td style="padding: 0.9rem 1rem;">Documents (like JSON files)</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem; font-weight: 600;">Best For</td>
+                            <td style="padding: 0.9rem 1rem;">Structured, related data</td>
+                            <td style="padding: 0.9rem 1rem;">Flexible, unstructured data</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.9rem 1rem; font-weight: 600;">Examples</td>
+                            <td style="padding: 0.9rem 1rem;">Schools, banks, e-commerce</td>
+                            <td style="padding: 0.9rem 1rem;">Social apps, real-time feeds</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>For this course, we focus on MySQL — it's the #1 choice for most websites and apps you'll build!</p>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid var(--mysql-brand);">
+            <h2>Quick Quiz!</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: What is a table in a database?</p>
+                    <label><input type="radio" name="q1" value="a"> A collection of rows and columns that stores data</label>
+                    <label><input type="radio" name="q1" value="b"> A web page that displays information</label>
+                    <label><input type="radio" name="q1" value="c"> A PHP file that runs on the server</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: What is a Primary Key?</p>
+                    <label><input type="radio" name="q2" value="a"> A unique identifier for each row in a table</label>
+                    <label><input type="radio" name="q2" value="b"> The password to access the database</label>
+                    <label><input type="radio" name="q2" value="c"> The name of the table itself</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: MySQL is what type of database?</p>
+                    <label><input type="radio" name="q3" value="a"> Relational — stores data in connected tables</label>
+                    <label><input type="radio" name="q3" value="b"> Document — stores data as flexible JSON files</label>
+                    <label><input type="radio" name="q3" value="c"> Graph — stores data as connected nodes</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">Check Answers</button>
+            </div>
+        </section>
+
+        <section class="content-section" style="text-align: center;">
+            <h2>Ready for Module 2?</h2>
+            <p>Now that you know what a database is, let's learn how to create one!</p>
+            <a href="module2.html" class="btn-primary" style="background: linear-gradient(135deg, #0077b6, #00b4d8); margin-top: 1rem;">Next: CREATE TABLE &rarr;</a>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: Controllers | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+
+        <!-- Hero Header -->
+        <header class="module-header path-laravel">
+            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 1</span>
+            <h1>Controllers 🧠</h1>
+            <p>The brains of your application — where the real logic happens!</p>
+        </header>
+
+        <!-- Analogy -->
+        <section class="content-section">
+            <h2>What is a Controller?</h2>
+            <p>In the MVC pattern, the Controller is the manager that connects everything together. It receives a request, decides what to do, talks to the right Model, and returns the right View.</p>
+
+            <div class="connection-box" style="border-left-color: var(--laravel-brand);">
+                <strong>The Restaurant Manager Analogy 🍽️</strong><br><br>
+                A controller is like a manager at a restaurant. When an order (request) comes in, the manager decides which chef (model) to call and which plate (view) to serve it on. The manager doesn't cook the food themselves — they coordinate everything and make sure the right dish reaches the right customer!
+            </div>
+        </section>
+
+        <!-- Creating a Controller -->
+        <section class="content-section">
+            <h2>Creating a Controller with Artisan 🏗️</h2>
+            <p>You never have to create controller files by hand. Artisan creates them for you with the right structure already in place:</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment"># Creates app/Http/Controllers/StudentController.php</span><br>
+                    <span class="code-keyword">php artisan make:controller</span> <span class="code-string">StudentController</span>
+                </code>
+            </div>
+
+            <p>This creates the file <code>app/Http/Controllers/StudentController.php</code>. Let's look at what's inside and add some methods:</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">&lt;?php</span><br><br>
+                    <span class="code-keyword">namespace</span> <span class="code-val">App\Http\Controllers</span>;<br><br>
+                    <span class="code-keyword">use</span> <span class="code-val">Illuminate\Http\Request</span>;<br>
+                    <span class="code-keyword">use</span> <span class="code-val">App\Models\Student</span>;<br><br>
+                    <span class="code-keyword">class</span> <span class="code-val">StudentController</span> <span class="code-keyword">extends</span> <span class="code-val">Controller</span><br>
+                    {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Show a list of all students</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public function</span> <span class="code-val">index</span>()<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">$students</span> = <span class="code-val">Student</span>::<span class="code-val">all</span>();<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.index'</span>, [<span class="code-string">'students'</span> =&gt; <span class="code-val">$students</span>]);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Show one specific student</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public function</span> <span class="code-val">show</span>(<span class="code-val">$id</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">$student</span> = <span class="code-val">Student</span>::<span class="code-val">find</span>(<span class="code-val">$id</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.show'</span>, <span class="code-val">compact</span>(<span class="code-string">'student'</span>));<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                    }
+                </code>
+            </div>
+
+            <p>Let's break that down line by line:</p>
+            <ul style="display: grid; gap: 0.75rem; margin-top: 1rem;">
+                <li><strong>namespace</strong> — Tells PHP where this class lives in the folder structure.</li>
+                <li><strong>use App\Models\Student</strong> — Imports the Student model so we can use it.</li>
+                <li><strong>extends Controller</strong> — Our controller inherits helpful features from Laravel's base Controller.</li>
+                <li><strong>public function index()</strong> — A method that handles a request. "index" is the standard name for "show a list".</li>
+                <li><strong>Student::all()</strong> — Asks the Student model to fetch ALL students from the database.</li>
+                <li><strong>return view('students.index', [...])</strong> — Sends data to the Blade template and returns the HTML.</li>
+            </ul>
+        </section>
+
+        <!-- RESTful Methods -->
+        <section class="content-section">
+            <h2>The 7 RESTful Methods 📋</h2>
+            <p>Real-world web apps perform 4 basic operations on data: Create, Read, Update, Delete (CRUD). Laravel controllers use 7 standard method names that map to these operations:</p>
+
+            <div style="overflow-x: auto; margin-top: 1.5rem;">
+                <table style="width: 100%; border-collapse: collapse; background: var(--bg-glass); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: rgba(227, 52, 47, 0.2);">
+                            <th style="padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-dim);">Method Name</th>
+                            <th style="padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-dim);">HTTP Verb</th>
+                            <th style="padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-dim);">What It Does</th>
+                            <th style="padding: 1rem; text-align: left; border-bottom: 1px solid var(--border-dim);">Example URL</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 1rem;"><code style="color: #34d399;">index()</code></td>
+                            <td style="padding: 1rem;">GET</td>
+                            <td style="padding: 1rem;">List all items</td>
+                            <td style="padding: 1rem;">/students</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 1rem;"><code style="color: #34d399;">show()</code></td>
+                            <td style="padding: 1rem;">GET</td>
+                            <td style="padding: 1rem;">Show one item</td>
+                            <td style="padding: 1rem;">/students/5</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 1rem;"><code style="color: #6366f1;">create()</code></td>
+                            <td style="padding: 1rem;">GET</td>
+                            <td style="padding: 1rem;">Show "create new" form</td>
+                            <td style="padding: 1rem;">/students/create</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 1rem;"><code style="color: #6366f1;">store()</code></td>
+                            <td style="padding: 1rem;">POST</td>
+                            <td style="padding: 1rem;">Save new item to database</td>
+                            <td style="padding: 1rem;">/students</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 1rem;"><code style="color: #eab308;">edit()</code></td>
+                            <td style="padding: 1rem;">GET</td>
+                            <td style="padding: 1rem;">Show "edit" form</td>
+                            <td style="padding: 1rem;">/students/5/edit</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 1rem;"><code style="color: #eab308;">update()</code></td>
+                            <td style="padding: 1rem;">PUT/PATCH</td>
+                            <td style="padding: 1rem;">Save edited data</td>
+                            <td style="padding: 1rem;">/students/5</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 1rem;"><code style="color: #f43f5e;">destroy()</code></td>
+                            <td style="padding: 1rem;">DELETE</td>
+                            <td style="padding: 1rem;">Delete an item</td>
+                            <td style="padding: 1rem;">/students/5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Return Types -->
+        <section class="content-section">
+            <h2>What Can a Controller Return? 📤</h2>
+            <p>Controllers are flexible — they can return different types of responses depending on what you need:</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">// Return a Blade view (most common)</span><br>
+                    <span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.index'</span>, [<span class="code-string">'students'</span> =&gt; <span class="code-val">$students</span>]);<br><br>
+                    <span class="code-comment">// Return a Blade view using compact() — cleaner syntax!</span><br>
+                    <span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.show'</span>, <span class="code-val">compact</span>(<span class="code-string">'student'</span>));<br><br>
+                    <span class="code-comment">// Return JSON data (for APIs)</span><br>
+                    <span class="code-keyword">return</span> <span class="code-val">response</span>()-&gt;<span class="code-val">json</span>([<span class="code-string">'name'</span> =&gt; <span class="code-string">'Ali'</span>, <span class="code-string">'age'</span> =&gt; <span class="code-val">12</span>]);<br><br>
+                    <span class="code-comment">// Redirect to another page</span><br>
+                    <span class="code-keyword">return</span> <span class="code-val">redirect</span>()-&gt;<span class="code-val">route</span>(<span class="code-string">'students.index'</span>);<br><br>
+                    <span class="code-comment">// Redirect back with a success message</span><br>
+                    <span class="code-keyword">return</span> <span class="code-val">redirect</span>()-&gt;<span class="code-val">back</span>()-&gt;<span class="code-val">with</span>(<span class="code-string">'success'</span>, <span class="code-string">'Student added!'</span>);
+                </code>
+            </div>
+
+            <div class="connection-box" style="border-left-color: #34d399;">
+                <strong>compact() is a PHP shortcut!</strong><br><br>
+                <code>compact('student')</code> is exactly the same as <code>['student' => $student]</code>. It automatically looks for a variable named <code>$student</code> and puts it in the array. Much cleaner when passing multiple variables!
+            </div>
+        </section>
+
+        <!-- Dependency Injection -->
+        <section class="content-section">
+            <h2>Receiving Form Data with Request 📨</h2>
+            <p>When a form is submitted, the data arrives in the <strong>Request</strong> object. Laravel can automatically inject it into your controller method — you just type-hint it in the parameters:</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-keyword">use</span> <span class="code-val">Illuminate\Http\Request</span>;<br><br>
+                    <span class="code-keyword">public function</span> <span class="code-val">store</span>(<span class="code-val">Request</span> <span class="code-val">$request</span>)<br>
+                    {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Get a specific field from the form</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">$name</span> = <span class="code-val">$request</span>-&gt;<span class="code-val">input</span>(<span class="code-string">'name'</span>);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">$age</span> = <span class="code-val">$request</span>-&gt;<span class="code-val">input</span>(<span class="code-string">'age'</span>);<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Save it to the database</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">Student</span>::<span class="code-val">create</span>([<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">'name'</span> =&gt; <span class="code-val">$name</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">'age'</span> =&gt; <span class="code-val">$age</span>,<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;]);<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-val">redirect</span>()-&gt;<span class="code-val">route</span>(<span class="code-string">'students.index'</span>)-&gt;<span class="code-val">with</span>(<span class="code-string">'success'</span>, <span class="code-string">'Student added!'</span>);<br>
+                    }
+                </code>
+            </div>
+        </section>
+
+        <!-- Resource Controller -->
+        <section class="content-section">
+            <h2>Resource Controllers — One Command Does It All! 🚀</h2>
+            <p>If you need all 7 RESTful methods, use the <code>--resource</code> flag. Laravel creates the controller with all 7 methods already defined:</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment"># Creates a controller with all 7 RESTful methods pre-built</span><br>
+                    <span class="code-keyword">php artisan make:controller</span> <span class="code-string">StudentController</span> <span class="code-val">--resource</span><br><br>
+                    <span class="code-comment"># In routes/web.php, register all 7 routes with ONE line!</span><br>
+                    <span class="code-keyword">Route</span>::<span class="code-val">resource</span>(<span class="code-string">'students'</span>, <span class="code-val">StudentController</span>::<span class="code-keyword">class</span>);
+                </code>
+            </div>
+
+            <p>That single <code>Route::resource()</code> line creates all 7 routes automatically! Run <code>php artisan route:list</code> and you'll see them all listed.</p>
+        </section>
+
+        <!-- Quiz -->
+        <section class="content-section">
+            <h2>Quick Knowledge Check! 🧪</h2>
+            <form id="quiz-form-1" class="quiz-section" style="margin-top: 1.5rem;">
+
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q1:</strong> What Artisan command creates a new controller?</p>
+                    <label><input type="radio" name="q1" value="a"> php artisan make:controller</label>
+                    <label><input type="radio" name="q1" value="b"> php make controller</label>
+                    <label><input type="radio" name="q1" value="c"> artisan controller new</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q2:</strong> Where do Laravel controllers live in the folder structure?</p>
+                    <label><input type="radio" name="q2" value="a"> app/Http/Controllers/</label>
+                    <label><input type="radio" name="q2" value="b"> routes/</label>
+                    <label><input type="radio" name="q2" value="c"> resources/controllers/</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q3:</strong> What does <code>return view('students.index', $data)</code> return?</p>
+                    <label><input type="radio" name="q3" value="a"> A rendered Blade template (HTML page)</label>
+                    <label><input type="radio" name="q3" value="b"> A JSON response</label>
+                    <label><input type="radio" name="q3" value="c"> Plain text output</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #e3342f, #ff6b6b);">Check Answers</button>
+            </form>
+        </section>
+
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

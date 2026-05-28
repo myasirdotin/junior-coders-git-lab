@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Cheat Sheet | Junior Coders</title>
+    <meta name="description" content="A complete Laravel cheat sheet for Class 9 students. Routes, Eloquent, Blade, Artisan — one page.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="cheatsheet-container">
+
+    <header class="cheat-hero laravel-hero">
+        <span class="course-level laravel-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Class 9</span>
+        <h1>Laravel Cheat Sheet</h1>
+        <p>Routes, Eloquent, Blade, Artisan — everything in one place. Bookmark this!</p>
+    </header>
+
+    <div class="cheat-tip">
+        <strong>Laravel Flow:</strong> Browser → <code style="color:#ff2d20;">Route</code> → <code style="color:#6366f1;">Controller</code> → <code style="color:#10b981;">Model</code> (database) → <code style="color:#eab308;">View</code> (Blade) → Browser gets HTML back.
+    </div>
+
+    <div class="cheat-grid">
+
+        <!-- Artisan -->
+        <div class="cheat-card">
+            <div class="cheat-card-header laravel-hdr">⚙️ Artisan Commands</div>
+            <table class="cheat-table laravel-table">
+                <tr><td>php artisan serve</td><td>Start the local development server</td></tr>
+                <tr><td>php artisan make:controller StudentController</td><td>Generate a controller</td></tr>
+                <tr><td>php artisan make:model Student -m</td><td>Model + migration together</td></tr>
+                <tr><td>php artisan make:migration create_students_table</td><td>Generate a migration file</td></tr>
+                <tr><td>php artisan migrate</td><td>Run pending migrations</td></tr>
+                <tr><td>php artisan migrate:rollback</td><td>Undo the last migration batch</td></tr>
+                <tr><td>php artisan migrate:fresh --seed</td><td>Rebuild DB and seed test data</td></tr>
+                <tr><td>php artisan make:seeder StudentSeeder</td><td>Generate a seeder file</td></tr>
+                <tr><td>php artisan db:seed</td><td>Run all seeders</td></tr>
+                <tr><td>php artisan route:list</td><td>List all registered routes</td></tr>
+                <tr><td>php artisan tinker</td><td>Interactive PHP shell (great for testing!)</td></tr>
+                <tr><td>php artisan cache:clear</td><td>Clear application cache</td></tr>
+            </table>
+        </div>
+
+        <!-- Routing -->
+        <div class="cheat-card">
+            <div class="cheat-card-header laravel-hdr">🗺️ Routing</div>
+            <table class="cheat-table laravel-table">
+                <tr><td>Route::get('/url', fn() =&gt; 'Hello');</td><td>Basic GET route</td></tr>
+                <tr><td>Route::post('/students', [Controller::class, 'store']);</td><td>POST route to controller</td></tr>
+                <tr><td>Route::put('/students/{id}', [C::class, 'update']);</td><td>PUT (full update)</td></tr>
+                <tr><td>Route::patch('/students/{id}', [C::class, 'update']);</td><td>PATCH (partial update)</td></tr>
+                <tr><td>Route::delete('/students/{id}', [C::class, 'destroy']);</td><td>DELETE route</td></tr>
+                <tr><td>Route::resource('students', StudentController::class);</td><td>All 7 CRUD routes at once!</td></tr>
+                <tr><td>Route::get('/s/{id}', fn($id) =&gt; $id);</td><td>Route parameter</td></tr>
+                <tr><td>Route::get('/s/{id?}', fn($id=null) =&gt; ...)</td><td>Optional parameter</td></tr>
+                <tr><td>->name('students.index')</td><td>Name a route for easy referencing</td></tr>
+                <tr><td>route('students.index')</td><td>Generate URL from named route</td></tr>
+                <tr><td>->middleware('auth')</td><td>Protect route — login required</td></tr>
+            </table>
+        </div>
+
+        <!-- Controllers -->
+        <div class="cheat-card">
+            <div class="cheat-card-header laravel-hdr">🎮 Controllers</div>
+            <table class="cheat-table laravel-table">
+                <tr><td>index()</td><td>List all records → view</td></tr>
+                <tr><td>create()</td><td>Show the "add new" form</td></tr>
+                <tr><td>store(Request $request)</td><td>Validate + save new record</td></tr>
+                <tr><td>show($id)</td><td>Show one record</td></tr>
+                <tr><td>edit($id)</td><td>Show the "edit" form for one record</td></tr>
+                <tr><td>update(Request $request, $id)</td><td>Validate + update a record</td></tr>
+                <tr><td>destroy($id)</td><td>Delete a record</td></tr>
+                <tr><td>return view('name', ['key' =&gt; $val])</td><td>Send data to a Blade view</td></tr>
+                <tr><td>return redirect()->route('name')</td><td>Redirect to named route</td></tr>
+                <tr><td>return redirect()->back()</td><td>Go back to previous page</td></tr>
+                <tr><td>->with('success', 'Done!')</td><td>Flash a session message</td></tr>
+            </table>
+        </div>
+
+        <!-- Eloquent -->
+        <div class="cheat-card">
+            <div class="cheat-card-header laravel-hdr">🗣️ Eloquent ORM</div>
+            <table class="cheat-table laravel-table">
+                <tr><td>Student::all()</td><td>Get all records as a collection</td></tr>
+                <tr><td>Student::find($id)</td><td>Find by primary key</td></tr>
+                <tr><td>Student::findOrFail($id)</td><td>Find or throw 404 error</td></tr>
+                <tr><td>Student::first()</td><td>Get just the first record</td></tr>
+                <tr><td>Student::where('grade','A')->get()</td><td>Filter then get all matches</td></tr>
+                <tr><td>->orderBy('name','asc')</td><td>Sort results</td></tr>
+                <tr><td>->limit(10)->get()</td><td>Get at most 10 records</td></tr>
+                <tr><td>->paginate(10)</td><td>Paginate results (10 per page)</td></tr>
+                <tr><td>Student::create([...])</td><td>Create + save in one step</td></tr>
+                <tr><td>$s->save()</td><td>Save changes to an object</td></tr>
+                <tr><td>$s->delete()</td><td>Delete one record</td></tr>
+                <tr><td>Student::where(...)->delete()</td><td>Delete matching records</td></tr>
+                <tr><td>$fillable = ['name','email']</td><td>Columns safe for mass-assignment</td></tr>
+            </table>
+        </div>
+
+        <!-- Blade -->
+        <div class="cheat-card">
+            <div class="cheat-card-header laravel-hdr">🌿 Blade Templates</div>
+            <table class="cheat-table laravel-table">
+                <tr><td>{{ $variable }}</td><td>Echo (HTML-escaped — safe!)</td></tr>
+                <tr><td>{!! $html !!}</td><td>Echo raw HTML (trusted content only)</td></tr>
+                <tr><td>{{ $x ?? 'default' }}</td><td>Echo with fallback value</td></tr>
+                <tr><td>@if / @elseif / @else / @endif</td><td>Conditional block</td></tr>
+                <tr><td>@foreach ($items as $item)</td><td>Loop over collection</td></tr>
+                <tr><td>@forelse ... @empty ... @endforelse</td><td>Loop with empty-state fallback</td></tr>
+                <tr><td>@for / @while / @endfor / @endwhile</td><td>Standard for/while loops</td></tr>
+                <tr><td>@extends('layouts.app')</td><td>Inherit a layout template</td></tr>
+                <tr><td>@section('content') ... @endsection</td><td>Fill a layout slot</td></tr>
+                <tr><td>@yield('content')</td><td>Mark where slot goes in layout</td></tr>
+                <tr><td>@include('partials.nav')</td><td>Include a partial template</td></tr>
+                <tr><td>@csrf</td><td>Security token — required in every form!</td></tr>
+                <tr><td>@method('PUT')</td><td>Spoof PUT/PATCH/DELETE in forms</td></tr>
+                <tr><td>@error('field') {{ $message }} @enderror</td><td>Show validation error</td></tr>
+                <tr><td>@auth / @endauth</td><td>Show only to logged-in users</td></tr>
+                <tr><td>@guest / @endguest</td><td>Show only to visitors</td></tr>
+            </table>
+        </div>
+
+        <!-- Validation -->
+        <div class="cheat-card">
+            <div class="cheat-card-header laravel-hdr">✅ Validation Rules</div>
+            <table class="cheat-table laravel-table">
+                <tr><td>required</td><td>Must not be empty</td></tr>
+                <tr><td>string</td><td>Must be a text string</td></tr>
+                <tr><td>email</td><td>Valid email format</td></tr>
+                <tr><td>min:3 / max:255</td><td>Min/max character length</td></tr>
+                <tr><td>unique:students</td><td>Value must not exist in table</td></tr>
+                <tr><td>unique:students,email,{$id}</td><td>Unique except for this record</td></tr>
+                <tr><td>numeric</td><td>Must be a number</td></tr>
+                <tr><td>integer</td><td>Must be a whole number</td></tr>
+                <tr><td>in:A,B,C</td><td>Must be one of these values</td></tr>
+                <tr><td>nullable</td><td>Field can be empty/null</td></tr>
+                <tr><td>confirmed</td><td>Must match field_name_confirmation</td></tr>
+                <tr><td>image</td><td>Must be jpg, png, gif, etc.</td></tr>
+                <tr><td>date</td><td>Must be a valid date</td></tr>
+                <tr><td>boolean</td><td>Must be true or false (1/0)</td></tr>
+            </table>
+        </div>
+
+        <!-- Auth & Middleware -->
+        <div class="cheat-card">
+            <div class="cheat-card-header laravel-hdr">🔐 Auth &amp; Middleware</div>
+            <table class="cheat-table laravel-table">
+                <tr><td>Auth::check()</td><td>Is someone logged in?</td></tr>
+                <tr><td>Auth::user()</td><td>Get the logged-in User object</td></tr>
+                <tr><td>Auth::id()</td><td>Get the logged-in user's ID</td></tr>
+                <tr><td>auth()->user()->name</td><td>Helper function access</td></tr>
+                <tr><td>Auth::logout()</td><td>Log the user out</td></tr>
+                <tr><td>->middleware('auth')</td><td>Route requires login</td></tr>
+                <tr><td>->middleware('guest')</td><td>Route only for visitors (e.g. login page)</td></tr>
+                <tr><td>php artisan breeze:install blade</td><td>Install Breeze auth starter kit</td></tr>
+                <tr><td>session('key')</td><td>Read a session value</td></tr>
+                <tr><td>session(['key' =&gt; 'value'])</td><td>Store in session</td></tr>
+                <tr><td>session()->forget('key')</td><td>Remove from session</td></tr>
+            </table>
+        </div>
+
+        <!-- Migrations -->
+        <div class="cheat-card">
+            <div class="cheat-card-header laravel-hdr">🗂️ Migration Column Types</div>
+            <table class="cheat-table laravel-table">
+                <tr><td>$table->id()</td><td>Auto-increment BIGINT primary key</td></tr>
+                <tr><td>$table->string('name')</td><td>VARCHAR(255)</td></tr>
+                <tr><td>$table->string('name', 100)</td><td>VARCHAR with custom length</td></tr>
+                <tr><td>$table->text('bio')</td><td>Long text (TEXT)</td></tr>
+                <tr><td>$table->integer('age')</td><td>Whole number (INT)</td></tr>
+                <tr><td>$table->decimal('price', 8, 2)</td><td>Money/decimal values</td></tr>
+                <tr><td>$table->boolean('active')</td><td>True/false (TINYINT)</td></tr>
+                <tr><td>$table->date('dob')</td><td>Date only</td></tr>
+                <tr><td>$table->timestamps()</td><td>created_at + updated_at</td></tr>
+                <tr><td>->nullable()</td><td>Column can be NULL</td></tr>
+                <tr><td>->default('pending')</td><td>Default value</td></tr>
+                <tr><td>->unique()</td><td>No duplicates allowed</td></tr>
+                <tr><td>$table->foreignId('student_id')->constrained()</td><td>Foreign key with constraint</td></tr>
+            </table>
+        </div>
+
+        <!-- Relationships -->
+        <div class="cheat-card">
+            <div class="cheat-card-header laravel-hdr">🔗 Eloquent Relationships</div>
+            <table class="cheat-table laravel-table">
+                <tr><td>hasOne(Profile::class)</td><td>One-to-one (User has one Profile)</td></tr>
+                <tr><td>belongsTo(User::class)</td><td>Inverse of hasOne/hasMany</td></tr>
+                <tr><td>hasMany(Post::class)</td><td>One-to-many (User has many Posts)</td></tr>
+                <tr><td>belongsToMany(Role::class)</td><td>Many-to-many (pivot table)</td></tr>
+                <tr><td>$user->posts</td><td>Access relationship as property</td></tr>
+                <tr><td>$user->posts()->where(...)->get()</td><td>Query through relationship</td></tr>
+                <tr><td>with('posts')</td><td>Eager load (prevents N+1 problem!)</td></tr>
+                <tr><td>Student::with('classroom')->get()</td><td>Load students + their classroom</td></tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="cheat-tip" style="margin-top: 2rem;">
+        <strong>Route Resource Shortcuts:</strong> <code>Route::resource('students', StudentController::class)</code> creates <strong>7 routes</strong> automatically: index, create, store, show, edit, update, and destroy — saving you from writing each one individually!
+    </div>
+
+    <div style="text-align:center; margin-top: 3rem;">
+        <a href="Learning Laravel/learninglaravel.html" class="btn-primary" style="background: linear-gradient(135deg, var(--laravel-brand), #dc2626); margin-right:1rem;">Back to Laravel Course</a>
+        <a href="cheatsheet-php.html" class="btn-primary" style="background: linear-gradient(135deg, var(--php-brand), #9333ea); color: white;">← PHP Cheat Sheet</a>
+    </div>
+
+</div>
+<script src="js/core.js"></script>
+</body>
+</html>

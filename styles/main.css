@@ -10,6 +10,9 @@
     --html-brand: #ff6b35;
     --css-brand: #3b82f6;
     --js-brand: #eab308;
+    --php-brand: #7c3aed;
+    --mysql-brand: #00b4d8;
+    --laravel-brand: #ff2d20;
     
     --bg-main: #0f172a;
     --bg-card: rgba(30, 41, 59, 0.7);
@@ -434,7 +437,7 @@ p { margin-bottom: 1rem; }
 
 @media (max-width: 900px) {
     .playground-container { grid-template-columns: 1fr; }
-    .editor-area textarea, .preview-area #preview, .preview-area #console { height: 350px; }
+    .editor-area textarea, .preview-area #preview, .preview-area #console { height: 250px; }
 }
 
 .editor-area textarea {
@@ -555,7 +558,7 @@ input[type="text"], input[type="email"], textarea {
 
 .modules-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -796,6 +799,9 @@ input[type="text"], input[type="email"], textarea {
 .module-header.path-css { background: linear-gradient(135deg, #3b82f6, #6366f1); }
 .module-header.path-js { background: linear-gradient(135deg, #4f46e5, #818cf8); }
 .module-header.path-getting-started { background: linear-gradient(135deg, #6366f1, #ec4899); }
+.module-header.path-php { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+.module-header.path-mysql { background: linear-gradient(135deg, #0077b6, #00b4d8); }
+.module-header.path-laravel { background: linear-gradient(135deg, #e3342f, #ff6b6b); }
 
 .module-header h1 { color: white !important; -webkit-text-fill-color: white !important; }
 .module-header p { color: rgba(255, 255, 255, 0.9) !important; font-size: 1.2rem; }
@@ -1305,4 +1311,451 @@ input[type="text"], input[type="email"], textarea {
         transform: translateY(0);
     }
 }
+
+/* --- Quiz Feedback --- */
+.quiz-feedback {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-top: 0.75rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.75rem;
+    min-height: 0;
+    display: none;
+}
+.quiz-feedback.correct {
+    display: block;
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.quiz-feedback.incorrect {
+    display: block;
+    color: #f43f5e;
+    background: rgba(244, 63, 94, 0.1);
+    border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+/* --- Mobile Toast Fix (don't overlap bottom nav) --- */
+@media (max-width: 1024px) {
+    .toast {
+        bottom: 5.5rem;
+        right: 1rem;
+        left: 1rem;
+        text-align: center;
+    }
+}
+
+/* --- Analogy Grid Mobile Fix --- */
+@media (max-width: 480px) {
+    .analogy-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* --- Class Level Badge on Course Cards --- */
+.course-level {
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 0.3rem 0.8rem;
+    border-radius: 99px;
+    margin-bottom: 0.75rem;
+    display: inline-block;
+}
+.course-level.html-level { background: rgba(255,107,53,0.15); color: var(--html-brand); border: 1px solid rgba(255,107,53,0.3); }
+.course-level.css-level  { background: rgba(59,130,246,0.15); color: var(--css-brand); border: 1px solid rgba(59,130,246,0.3); }
+.course-level.js-level   { background: rgba(234,179,8,0.15);  color: var(--js-brand);  border: 1px solid rgba(234,179,8,0.3); }
+
+/* --- Cheat Sheet Page --- */
+.cheatsheet-container {
+    max-width: 1100px;
+    margin: 2rem auto;
+    padding: 0 1.5rem 4rem;
+}
+
+.cheat-hero {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.cheat-hero.html-hero { background: linear-gradient(135deg, #ff6b35, #f43f5e); }
+.cheat-hero.css-hero  { background: linear-gradient(135deg, #3b82f6, #6366f1); }
+.cheat-hero.js-hero   { background: linear-gradient(135deg, #eab308, #f59e0b); }
+
+.cheat-hero h1 { color: white !important; -webkit-text-fill-color: white !important; font-size: clamp(2rem, 6vw, 3.5rem); }
+.cheat-hero p  { color: rgba(255,255,255,0.9) !important; font-size: 1.1rem; }
+
+.cheat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.cheat-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border-dim);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+.cheat-card-header {
+    padding: 1rem 1.5rem;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.cheat-card-header.html-hdr { background: rgba(255,107,53,0.15); color: var(--html-brand); border-bottom: 2px solid rgba(255,107,53,0.3); }
+.cheat-card-header.css-hdr  { background: rgba(59,130,246,0.15);  color: var(--css-brand);  border-bottom: 2px solid rgba(59,130,246,0.3); }
+.cheat-card-header.js-hdr   { background: rgba(234,179,8,0.15);   color: var(--js-brand);   border-bottom: 2px solid rgba(234,179,8,0.3); }
+.cheat-card-header.gen-hdr  { background: rgba(99,102,241,0.15);  color: var(--primary);    border-bottom: 2px solid rgba(99,102,241,0.3); }
+
+.cheat-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cheat-table tr {
+    border-bottom: 1px solid var(--border-dim);
+    transition: background 0.15s;
+}
+.cheat-table tr:last-child { border-bottom: none; }
+.cheat-table tr:hover { background: var(--bg-glass); }
+
+.cheat-table td {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.88rem;
+    vertical-align: top;
+}
+
+.cheat-table td:first-child {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: #6366f1;
+    white-space: nowrap;
+    width: 40%;
+}
+
+.cheat-table.css-table td:first-child { color: var(--css-brand); }
+.cheat-table.js-table  td:first-child { color: var(--js-brand); }
+
+.cheat-table td:last-child { color: var(--text-secondary); }
+
+.cheat-tip {
+    background: rgba(99,102,241,0.08);
+    border-left: 4px solid var(--primary);
+    padding: 1rem 1.5rem;
+    border-radius: 0 1rem 1rem 0;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+/* --- AI Roadmap Page --- */
+.roadmap-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1.5rem 4rem;
+}
+
+.roadmap-hero {
+    text-align: center;
+    padding: 3.5rem 2rem;
+    border-radius: var(--radius-lg);
+    margin-bottom: 4rem;
+    background: linear-gradient(135deg, #6366f1, #ec4899, #f59e0b);
+    position: relative;
+    overflow: hidden;
+}
+
+.roadmap-hero h1 { color: white !important; -webkit-text-fill-color: white !important; font-size: clamp(2rem, 6vw, 3rem); }
+.roadmap-hero p  { color: rgba(255,255,255,0.92) !important; font-size: 1.1rem; }
+
+.roadmap-timeline {
+    position: relative;
+    padding-left: 3rem;
+}
+
+.roadmap-timeline::before {
+    content: '';
+    position: absolute;
+    left: 1.1rem;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary), #ec4899, #f59e0b);
+    border-radius: 3px;
+}
+
+.roadmap-step {
+    position: relative;
+    margin-bottom: 3rem;
+    background: var(--bg-card);
+    border: 2px solid var(--border-dim);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.roadmap-step:hover {
+    transform: translateX(6px);
+    border-color: var(--primary);
+}
+
+.roadmap-step-number {
+    position: absolute;
+    left: -3.85rem;
+    top: 1.5rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 0.85rem;
+    border: 3px solid var(--bg-main);
+    z-index: 1;
+}
+
+.roadmap-step.you-are-here { border-color: var(--accent); border-width: 3px; }
+.roadmap-step.you-are-here .roadmap-step-number { background: var(--accent); color: white; }
+.roadmap-step.level-1 .roadmap-step-number { background: var(--primary); color: white; }
+.roadmap-step.level-2 .roadmap-step-number { background: #ec4899; color: white; }
+.roadmap-step.level-3 .roadmap-step-number { background: var(--info); color: white; }
+.roadmap-step.level-4 .roadmap-step-number { background: var(--warning); color: white; }
+.roadmap-step.level-5 .roadmap-step-number { background: #8b5cf6; color: white; }
+.roadmap-step.level-6 .roadmap-step-number { background: linear-gradient(135deg, #6366f1, #ec4899); color: white; }
+
+.roadmap-step-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.roadmap-tag {
+    font-size: 0.7rem;
+    font-weight: 800;
+    padding: 0.2rem 0.7rem;
+    border-radius: 99px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.roadmap-tag.current { background: var(--accent); color: white; }
+.roadmap-tag.coming  { background: var(--bg-glass); color: var(--text-muted); border: 1px solid var(--border-dim); }
+.roadmap-tag.bonus   { background: rgba(234,179,8,0.2); color: var(--js-brand); }
+
+.roadmap-step p { color: var(--text-secondary); margin-bottom: 1rem; }
+
+.roadmap-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.roadmap-tool {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-dim);
+    padding: 0.35rem 0.9rem;
+    border-radius: 0.75rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+}
+
+.prompt-examples {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .prompt-examples { grid-template-columns: 1fr; }
+    .roadmap-timeline { padding-left: 2.5rem; }
+}
+
+.prompt-box {
+    padding: 1.25rem;
+    border-radius: 1rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.prompt-box.good {
+    background: rgba(16, 185, 129, 0.08);
+    border: 2px solid rgba(16, 185, 129, 0.3);
+}
+.prompt-box.bad {
+    background: rgba(244, 63, 94, 0.08);
+    border: 2px solid rgba(244, 63, 94, 0.3);
+}
+.prompt-box .prompt-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+.prompt-box.good .prompt-label { color: #10b981; }
+.prompt-box.bad  .prompt-label { color: #f43f5e; }
+
+.ai-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.ai-tool-card {
+    background: var(--bg-card);
+    border: 2px solid var(--border-dim);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s;
+}
+.ai-tool-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+.ai-tool-card .tool-icon { font-size: 2.5rem; display: block; margin-bottom: 0.75rem; }
+.ai-tool-card h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+.ai-tool-card p  { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+
+/* ============================================================
+   BACKEND TRACK — PHP, MySQL, Laravel
+   ============================================================ */
+
+/* Course card accents */
+.course-card.php::before     { background: var(--php-brand); }
+.course-card.mysql::before   { background: var(--mysql-brand); }
+.course-card.laravel::before { background: var(--laravel-brand); }
+
+/* Class-level badges */
+.course-level.php-level     { background: rgba(124,58,237,0.15); color: var(--php-brand);     border: 1px solid rgba(124,58,237,0.3); }
+.course-level.mysql-level   { background: rgba(0,180,216,0.15);  color: var(--mysql-brand);   border: 1px solid rgba(0,180,216,0.3); }
+.course-level.laravel-level { background: rgba(255,45,32,0.15);  color: var(--laravel-brand); border: 1px solid rgba(255,45,32,0.3); }
+
+/* Module header gradients */
+.module-header.path-php     { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+.module-header.path-mysql   { background: linear-gradient(135deg, #00b4d8, #0077b6); }
+.module-header.path-laravel { background: linear-gradient(135deg, #ff2d20, #dc2626); }
+
+/* Cheat sheet hero headers */
+.cheat-hero.php-hero     { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+.cheat-hero.mysql-hero   { background: linear-gradient(135deg, #00b4d8, #0077b6); }
+.cheat-hero.laravel-hero { background: linear-gradient(135deg, #ff2d20, #dc2626); }
+
+/* Cheat card category headers */
+.cheat-card-header.php-hdr     { background: rgba(124,58,237,0.15); color: var(--php-brand);     border-bottom: 2px solid rgba(124,58,237,0.3); }
+.cheat-card-header.mysql-hdr   { background: rgba(0,180,216,0.15);  color: var(--mysql-brand);   border-bottom: 2px solid rgba(0,180,216,0.3); }
+.cheat-card-header.laravel-hdr { background: rgba(255,45,32,0.15);  color: var(--laravel-brand); border-bottom: 2px solid rgba(255,45,32,0.3); }
+
+/* Cheat table code column colors */
+.cheat-table.php-table     td:first-child { color: var(--php-brand); }
+.cheat-table.mysql-table   td:first-child { color: var(--mysql-brand); }
+.cheat-table.laravel-table td:first-child { color: var(--laravel-brand); }
+
+/* SQL demo tables (MySQL module pages) */
+.sql-demo-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+.sql-demo-table th {
+    background: rgba(0,180,216,0.15);
+    color: var(--mysql-brand);
+    font-weight: 800;
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid rgba(0,180,216,0.3);
+}
+.sql-demo-table td {
+    padding: 0.65rem 1rem;
+    border-bottom: 1px solid var(--border-dim);
+    color: var(--text-secondary);
+}
+.sql-demo-table tr:last-child td { border-bottom: none; }
+.sql-demo-table tr:hover td { background: var(--bg-glass); }
+
+/* Danger warning box for risky SQL */
+.danger-box {
+    background: rgba(244,63,94,0.08);
+    border-left: 4px solid var(--secondary);
+    padding: 1rem 1.5rem;
+    border-radius: 0 1rem 1rem 0;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+.danger-box strong { color: var(--secondary); }
+
+/* Homepage section divider (Frontend / Backend split) */
+.section-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 3.5rem 0 1.5rem;
+}
+.section-divider h2 { margin: 0; white-space: nowrap; font-size: 1.25rem; }
+.section-divider::before,
+.section-divider::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: var(--border-dim);
+    border-radius: 2px;
+}
+
+/* Full-Stack Journey bridge card */
+.fullstack-bridge {
+    background: var(--bg-card);
+    border: 2px solid var(--border-dim);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.fullstack-bridge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(99,102,241,0.05) 0%, rgba(255,45,32,0.05) 100%);
+    pointer-events: none;
+}
+.fullstack-side { position: relative; z-index: 1; flex: 1; min-width: 130px; }
+.fullstack-side h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.75rem; }
+.fullstack-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; }
+.fullstack-pill { padding: 0.35rem 0.85rem; border-radius: 99px; font-size: 0.78rem; font-weight: 800; }
+.fullstack-arrow { font-size: 1.8rem; color: var(--text-muted); position: relative; z-index: 1; flex-shrink: 0; }
 

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 8: OOP Basics | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-php">
+            <span class="badge" style="background:white;color:var(--php-brand);">Level 8</span>
+            <h1>OOP Basics 🏛️</h1>
+            <p>Build cleaner, reusable code with Classes and Objects!</p>
+        </header>
+
+        <section class="content-section">
+            <h2>🧱 What is Object-Oriented Programming?</h2>
+            <p>OOP is a way of organizing your code using <strong>blueprints</strong> (classes) to create <strong>things</strong> (objects) that have their own properties and actions.</p>
+
+            <div class="connection-box">
+                <strong>🚗 The Car Blueprint Analogy</strong><br><br>
+                A <strong>class</strong> is like a car blueprint — it describes what every car has (color, speed, brand) and what a car can do (accelerate, brake, honk). An <strong>object</strong> is an actual car built from that blueprint. You can build many cars (objects) from the same blueprint (class) — each one is its own individual car!
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>📐 Defining a Class</h2>
+            <p>Use the <code>class</code> keyword to define a class. Properties are variables that belong to the object. Methods are functions that belong to the object.</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-keyword">class</span> <span class="code-val">Student</span> {
+    <span class="code-comment">// Properties</span>
+    <span class="code-keyword">public</span> <span class="code-val">$name</span>;
+    <span class="code-keyword">public</span> <span class="code-val">$grade</span>;
+    <span class="code-keyword">public</span> <span class="code-val">$xp</span> = <span class="code-val">0</span>;
+
+    <span class="code-comment">// Constructor — runs automatically when object is created</span>
+    <span class="code-keyword">public function</span> <span class="code-val">__construct</span>(<span class="code-val">$name</span>, <span class="code-val">$grade</span>) {
+        <span class="code-val">$this</span>-&gt;<span class="code-val">name</span>  = <span class="code-val">$name</span>;
+        <span class="code-val">$this</span>-&gt;<span class="code-val">grade</span> = <span class="code-val">$grade</span>;
+    }
+
+    <span class="code-comment">// Method</span>
+    <span class="code-keyword">public function</span> <span class="code-val">completeModule</span>() {
+        <span class="code-val">$this</span>-&gt;<span class="code-val">xp</span> += <span class="code-val">100</span>;
+        <span class="code-keyword">echo</span> <span class="code-val">$this</span>-&gt;<span class="code-val">name</span> . <span class="code-string">" earned 100 XP! Total: "</span> . <span class="code-val">$this</span>-&gt;<span class="code-val">xp</span>;
+    }
+}
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🏭 Creating Objects</h2>
+            <p>Use the <code>new</code> keyword to create an object from a class. Access properties and methods with the arrow <code>-&gt;</code> operator.</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// Create two different Student objects from the same class</span>
+<span class="code-val">$ali</span>   = <span class="code-keyword">new</span> <span class="code-val">Student</span>(<span class="code-string">"Ali"</span>, <span class="code-string">"9th"</span>);
+<span class="code-val">$sara</span>  = <span class="code-keyword">new</span> <span class="code-val">Student</span>(<span class="code-string">"Sara"</span>, <span class="code-string">"10th"</span>);
+
+<span class="code-comment">// Access a property</span>
+<span class="code-keyword">echo</span> <span class="code-val">$ali</span>-&gt;<span class="code-val">name</span>;    <span class="code-comment">// Ali</span>
+<span class="code-keyword">echo</span> <span class="code-val">$sara</span>-&gt;<span class="code-val">grade</span>;   <span class="code-comment">// 10th</span>
+
+<span class="code-comment">// Call a method</span>
+<span class="code-val">$ali</span>-&gt;<span class="code-val">completeModule</span>();   <span class="code-comment">// Ali earned 100 XP! Total: 100</span>
+<span class="code-val">$ali</span>-&gt;<span class="code-val">completeModule</span>();   <span class="code-comment">// Ali earned 100 XP! Total: 200</span>
+<span class="code-val">$sara</span>-&gt;<span class="code-val">completeModule</span>();  <span class="code-comment">// Sara earned 100 XP! Total: 100</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>🔐 Access Modifiers</h2>
+            <p>PHP has three levels of access control for properties and methods:</p>
+
+            <div class="analogy-grid">
+                <div class="analogy-card active" style="border-color: #10b981;">
+                    <span class="analogy-icon">🌍</span>
+                    <h3 style="color: #10b981;">public</h3>
+                    <p>Accessible from anywhere — inside the class, outside it, in child classes.</p>
+                </div>
+                <div class="analogy-card active" style="border-color: #eab308;">
+                    <span class="analogy-icon">🏠</span>
+                    <h3 style="color: #eab308;">protected</h3>
+                    <p>Only accessible inside the class and classes that extend it (child classes).</p>
+                </div>
+                <div class="analogy-card active" style="border-color: #f43f5e;">
+                    <span class="analogy-icon">🔒</span>
+                    <h3 style="color: #f43f5e;">private</h3>
+                    <p>Only accessible inside the exact class it's defined in. Totally hidden.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>👨‍👩‍👧 Inheritance — Extending Classes</h2>
+            <p>A child class can <strong>extend</strong> a parent class to inherit all its properties and methods, then add its own unique behaviour.</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-keyword">class</span> <span class="code-val">Person</span> {
+    <span class="code-keyword">public</span> <span class="code-val">$name</span>;
+    <span class="code-keyword">public function</span> <span class="code-val">greet</span>() {
+        <span class="code-keyword">echo</span> <span class="code-string">"Hi, I am "</span> . <span class="code-val">$this</span>-&gt;<span class="code-val">name</span>;
+    }
+}
+
+<span class="code-comment">// Student inherits everything from Person</span>
+<span class="code-keyword">class</span> <span class="code-val">Student</span> <span class="code-keyword">extends</span> <span class="code-val">Person</span> {
+    <span class="code-keyword">public</span> <span class="code-val">$grade</span>;
+
+    <span class="code-keyword">public function</span> <span class="code-val">study</span>() {
+        <span class="code-keyword">echo</span> <span class="code-val">$this</span>-&gt;<span class="code-val">name</span> . <span class="code-string">" is studying in grade "</span> . <span class="code-val">$this</span>-&gt;<span class="code-val">grade</span>;
+    }
+}
+
+<span class="code-val">$s</span> = <span class="code-keyword">new</span> <span class="code-val">Student</span>();
+<span class="code-val">$s</span>-&gt;<span class="code-val">name</span>  = <span class="code-string">"Yasir"</span>;
+<span class="code-val">$s</span>-&gt;<span class="code-val">grade</span> = <span class="code-string">"9th"</span>;
+<span class="code-val">$s</span>-&gt;<span class="code-val">greet</span>();   <span class="code-comment">// Hi, I am Yasir</span>
+<span class="code-val">$s</span>-&gt;<span class="code-val">study</span>();   <span class="code-comment">// Yasir is studying in grade 9th</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+
+            <div class="connection-box">
+                <strong>💡 Why OOP?</strong><br><br>
+                OOP keeps your code organized, reusable, and easy to maintain. Instead of writing the same logic over and over, you define it once in a class and create as many objects as you need. This is how Laravel, WordPress, and almost every modern PHP framework is built!
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Quick Quiz! 🧠</h2>
+            <div id="quiz-form-8" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: What keyword is used to create an object from a class?</p>
+                    <label><input type="radio" name="q1" value="a"> <code>create</code></label>
+                    <label><input type="radio" name="q1" value="b"> <code>new</code></label>
+                    <label><input type="radio" name="q1" value="c"> <code>object</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: Which method runs automatically when an object is created?</p>
+                    <label><input type="radio" name="q2" value="a"> <code>__construct()</code></label>
+                    <label><input type="radio" name="q2" value="b"> <code>__init()</code></label>
+                    <label><input type="radio" name="q2" value="c"> <code>start()</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: Which keyword does a child class use to inherit from a parent?</p>
+                    <label><input type="radio" name="q3" value="a"> <code>inherit</code></label>
+                    <label><input type="radio" name="q3" value="b"> <code>implements</code></label>
+                    <label><input type="radio" name="q3" value="c"> <code>extends</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(8)" style="background: linear-gradient(135deg, var(--php-brand), #9333ea);">Check Answers</button>
+            </div>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

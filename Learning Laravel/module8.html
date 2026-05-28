@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 8: Authentication | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-laravel">
+            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 8</span>
+            <h1>Authentication 🔐</h1>
+            <p>Secure login, registration, and user sessions — built into Laravel!</p>
+        </header>
+
+        <section class="content-section">
+            <h2>What is Authentication?</h2>
+            <p><strong>Authentication</strong> is the process of verifying who a user is. When someone logs in with their email and password, your app checks if those credentials are correct, then remembers who they are for the rest of their session.</p>
+
+            <div class="analogy-grid">
+                <div class="analogy-card active" style="border-color: #6366f1;">
+                    <span class="analogy-icon">🪪</span>
+                    <h3>Authentication</h3>
+                    <p><em>Who are you?</em> — Verify the user's identity via login</p>
+                </div>
+                <div class="analogy-card active" style="border-color: #10b981;">
+                    <span class="analogy-icon">🛡️</span>
+                    <h3>Authorization</h3>
+                    <p><em>What can you do?</em> — Control which pages/actions a user can access</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Laravel Breeze — Quick Auth Setup ⚡</h2>
+            <p>Laravel Breeze is the simplest way to add a full login/register system to a new Laravel app. It generates all the routes, controllers, and views for you in seconds.</p>
+
+            <div class="code-block">
+<code><span class="code-comment"># 1. Install Breeze via Composer</span>
+composer require laravel/breeze --dev
+
+<span class="code-comment"># 2. Generate the auth scaffolding (Blade version)</span>
+php artisan breeze:install blade
+
+<span class="code-comment"># 3. Install frontend assets</span>
+npm install && npm run dev
+
+<span class="code-comment"># 4. Run migrations (creates the users table)</span>
+php artisan migrate</code>
+            </div>
+
+            <p style="margin-top:1rem;">After running these four commands you have a complete login, registration, password reset, and email verification system — ready to use!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>The Auth Facade 🎭</h2>
+            <p>The <code>Auth</code> facade is your tool for working with the currently logged-in user anywhere in your app:</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">use</span> Illuminate\Support\Facades\Auth;
+
+<span class="code-comment">// Check if someone is logged in</span>
+<span class="code-keyword">if</span> (<span class="code-val">Auth</span>::<span class="code-val">check</span>()) {
+    <span class="code-keyword">echo</span> <span class="code-string">"Welcome back!"</span>;
+}
+
+<span class="code-comment">// Get the logged-in user object</span>
+<span class="code-val">$user</span> = <span class="code-val">Auth</span>::<span class="code-val">user</span>();
+<span class="code-keyword">echo</span> <span class="code-val">$user</span>-&gt;<span class="code-val">name</span>;
+<span class="code-keyword">echo</span> <span class="code-val">$user</span>-&gt;<span class="code-val">email</span>;
+
+<span class="code-comment">// Get just the user's ID</span>
+<span class="code-val">$id</span> = <span class="code-val">Auth</span>::<span class="code-val">id</span>();
+
+<span class="code-comment">// Log the user out</span>
+<span class="code-val">Auth</span>::<span class="code-val">logout</span>();</code>
+            </div>
+
+            <p>In Blade templates you can use the same via the <code>auth()</code> helper:</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">@auth</span>
+    &lt;p&gt;Hello, <span class="code-string">{{ auth()->user()->name }}</span>! 👋&lt;/p&gt;
+    &lt;a href="/logout"&gt;Log Out&lt;/a&gt;
+<span class="code-keyword">@endauth</span>
+
+<span class="code-keyword">@guest</span>
+    &lt;a href="/login"&gt;Log In&lt;/a&gt;
+    &lt;a href="/register"&gt;Register&lt;/a&gt;
+<span class="code-keyword">@endguest</span></code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Protecting Routes with Middleware 🔒</h2>
+            <p>The <code>auth</code> middleware automatically redirects guests to the login page if they try to access protected routes. Wrap any route you want to protect:</p>
+
+            <div class="code-block">
+<code><span class="code-comment">// Protect a single route</span>
+<span class="code-val">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/dashboard'</span>, <span class="code-string">[DashboardController::class, 'index']</span>)
+    -&gt;<span class="code-val">middleware</span>(<span class="code-string">'auth'</span>);
+
+<span class="code-comment">// Protect a group of routes</span>
+<span class="code-val">Route</span>::<span class="code-val">middleware</span>([<span class="code-string">'auth'</span>])-&gt;<span class="code-val">group</span>(<span class="code-keyword">function</span> () {
+    <span class="code-val">Route</span>::<span class="code-val">resource</span>(<span class="code-string">'students'</span>, <span class="code-val">StudentController</span>::<span class="code-keyword">class</span>);
+    <span class="code-val">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/profile'</span>, [<span class="code-val">ProfileController</span>::<span class="code-keyword">class</span>, <span class="code-string">'show'</span>]);
+});</code>
+            </div>
+
+            <div class="connection-box" style="border-left-color: var(--laravel-brand);">
+                <strong>🎉 You've completed the Laravel Course!</strong><br><br>
+                You now know routing, controllers, Blade templates, Eloquent ORM, migrations, forms, validation, and authentication. You have the complete skill set to build real, production-ready web applications with Laravel. The next step is to combine everything and build your first full-stack project! 🚀
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Quick Quiz! 🧪</h2>
+            <form id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q1:</strong> What is the difference between authentication and authorization?</p>
+                    <label><input type="radio" name="q1" value="a"> Auth verifies identity; authorization controls what actions they can perform</label>
+                    <label><input type="radio" name="q1" value="b"> They are the same thing</label>
+                    <label><input type="radio" name="q1" value="c"> Authorization verifies identity; authentication controls actions</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p><strong>Q2:</strong> Which Blade directive shows content only to logged-in users?</p>
+                    <label><input type="radio" name="q2" value="a"> <code>@loggedin ... @endloggedin</code></label>
+                    <label><input type="radio" name="q2" value="b"> <code>@auth ... @endauth</code></label>
+                    <label><input type="radio" name="q2" value="c"> <code>@user ... @enduser</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p><strong>Q3:</strong> How do you protect a route so only logged-in users can access it?</p>
+                    <label><input type="radio" name="q3" value="a"> Add <code>->secure()</code> to the route</label>
+                    <label><input type="radio" name="q3" value="b"> Use <code>Route::private()</code></label>
+                    <label><input type="radio" name="q3" value="c"> Apply the <code>->middleware('auth')</code> middleware</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #e3342f, #ff6b6b);">Check Answers</button>
+            </form>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

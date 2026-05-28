@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5: JOINs | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-mysql">
+            <span class="badge" style="background: white; color: var(--mysql-brand);">Level 3</span>
+            <h1>JOINs</h1>
+            <p>Connect Your Tables! 🔗</p>
+        </header>
+
+        <section class="content-section">
+            <h2>Why Do We Need Multiple Tables?</h2>
+            <p>Imagine you're building a school system. You could put everything into one giant table — but that creates a mess. What if a student has grades in 5 subjects? You'd need 5 rows for the same student!</p>
+
+            <p>The better approach is to split data into <strong>separate tables</strong> and then <em>link</em> them together. This is called a <strong>Relational Database</strong> — it's the whole reason MySQL is called "relational"!</p>
+
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin: 2rem 0; justify-content: center; align-items: flex-start;">
+                <!-- Students Table -->
+                <div style="flex: 1; min-width: 220px;">
+                    <div style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white; padding: 0.75rem 1.25rem; border-radius: 1rem 1rem 0 0; font-weight: 700; text-align: center;">students</div>
+                    <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 0 0 1rem 1rem; overflow: hidden;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid rgba(0,180,216,0.3);">
+                                <th style="padding: 0.6rem 0.9rem; text-align: left; color: var(--mysql-brand);">id</th>
+                                <th style="padding: 0.6rem 0.9rem; text-align: left;">name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.6rem 0.9rem; color: var(--mysql-brand); font-weight: 700;">1</td>
+                                <td style="padding: 0.6rem 0.9rem;">Ali Hassan</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                                <td style="padding: 0.6rem 0.9rem; color: var(--mysql-brand); font-weight: 700;">2</td>
+                                <td style="padding: 0.6rem 0.9rem;">Sara Khan</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 0.6rem 0.9rem; color: var(--mysql-brand); font-weight: 700;">3</td>
+                                <td style="padding: 0.6rem 0.9rem;">Aisha Malik</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Arrow -->
+                <div style="display: flex; align-items: center; font-size: 2rem; color: var(--mysql-brand); padding-top: 2rem;">
+                    🔗
+                </div>
+
+                <!-- Grades Table -->
+                <div style="flex: 1; min-width: 280px;">
+                    <div style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white; padding: 0.75rem 1.25rem; border-radius: 1rem 1rem 0 0; font-weight: 700; text-align: center;">grades</div>
+                    <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 0 0 1rem 1rem; overflow: hidden;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid rgba(0,180,216,0.3);">
+                                <th style="padding: 0.6rem 0.9rem; text-align: left; color: var(--mysql-brand);">id</th>
+                                <th style="padding: 0.6rem 0.9rem; text-align: left; color: #f59e0b;">student_id</th>
+                                <th style="padding: 0.6rem 0.9rem; text-align: left;">subject</th>
+                                <th style="padding: 0.6rem 0.9rem; text-align: left;">score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.6rem 0.9rem; color: var(--mysql-brand); font-weight: 700;">1</td>
+                                <td style="padding: 0.6rem 0.9rem; color: #f59e0b; font-weight: 700;">1</td>
+                                <td style="padding: 0.6rem 0.9rem;">Math</td>
+                                <td style="padding: 0.6rem 0.9rem;">95</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                                <td style="padding: 0.6rem 0.9rem; color: var(--mysql-brand); font-weight: 700;">2</td>
+                                <td style="padding: 0.6rem 0.9rem; color: #f59e0b; font-weight: 700;">1</td>
+                                <td style="padding: 0.6rem 0.9rem;">Science</td>
+                                <td style="padding: 0.6rem 0.9rem;">88</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                                <td style="padding: 0.6rem 0.9rem; color: var(--mysql-brand); font-weight: 700;">3</td>
+                                <td style="padding: 0.6rem 0.9rem; color: #f59e0b; font-weight: 700;">2</td>
+                                <td style="padding: 0.6rem 0.9rem;">Math</td>
+                                <td style="padding: 0.6rem 0.9rem;">99</td>
+                            </tr>
+                            <tr style="background: rgba(255,255,255,0.03);">
+                                <td style="padding: 0.6rem 0.9rem; color: var(--mysql-brand); font-weight: 700;">4</td>
+                                <td style="padding: 0.6rem 0.9rem; color: #f59e0b; font-weight: 700;">3</td>
+                                <td style="padding: 0.6rem 0.9rem;">English</td>
+                                <td style="padding: 0.6rem 0.9rem;">78</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <p>The <strong style="color: #f59e0b;">student_id</strong> column in the <em>grades</em> table is a <strong>Foreign Key</strong> — it points back to the <strong style="color: var(--mysql-brand);">id</strong> column in the <em>students</em> table. This is how the two tables are linked!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Creating These Tables</h2>
+            <div class="code-block">
+                <code><span class="code-keyword">CREATE TABLE</span> students (
+    id   <span class="code-keyword">INT</span> <span class="code-keyword">AUTO_INCREMENT</span> <span class="code-keyword">PRIMARY KEY</span>,
+    name <span class="code-keyword">VARCHAR</span>(<span class="code-val">100</span>)
+);
+
+<span class="code-keyword">CREATE TABLE</span> grades (
+    id         <span class="code-keyword">INT</span> <span class="code-keyword">AUTO_INCREMENT</span> <span class="code-keyword">PRIMARY KEY</span>,
+    student_id <span class="code-keyword">INT</span>,           <span class="code-comment">-- Foreign Key: links to students.id</span>
+    subject    <span class="code-keyword">VARCHAR</span>(<span class="code-val">100</span>),
+    score      <span class="code-keyword">INT</span>
+);
+
+<span class="code-comment">-- Insert sample data</span>
+<span class="code-keyword">INSERT INTO</span> students (name) <span class="code-keyword">VALUES</span>
+    (<span class="code-string">'Ali Hassan'</span>), (<span class="code-string">'Sara Khan'</span>), (<span class="code-string">'Aisha Malik'</span>);
+
+<span class="code-keyword">INSERT INTO</span> grades (student_id, subject, score) <span class="code-keyword">VALUES</span>
+    (<span class="code-val">1</span>, <span class="code-string">'Math'</span>,    <span class="code-val">95</span>),
+    (<span class="code-val">1</span>, <span class="code-string">'Science'</span>, <span class="code-val">88</span>),
+    (<span class="code-val">2</span>, <span class="code-string">'Math'</span>,    <span class="code-val">99</span>),
+    (<span class="code-val">3</span>, <span class="code-string">'English'</span>, <span class="code-val">78</span>);</code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>INNER JOIN — The Most Common JOIN</h2>
+            <p>An <strong>INNER JOIN</strong> returns rows where there is a match in <em>both</em> tables. If a student has no grades, they won't appear in the result.</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Get each student's name along with their subject and score</span>
+<span class="code-keyword">SELECT</span>
+    students.name,
+    grades.subject,
+    grades.score
+<span class="code-keyword">FROM</span> students
+<span class="code-keyword">INNER JOIN</span> grades
+    <span class="code-keyword">ON</span> students.id = grades.student_id;</code>
+            </div>
+
+            <p style="margin-top: 1rem;">Result:</p>
+            <div style="overflow-x: auto; margin: 1rem 0 2rem; max-width: 500px;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 0.8rem 1rem; text-align: left;">name</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">subject</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.8rem 1rem;">Ali Hassan</td>
+                            <td style="padding: 0.8rem 1rem;">Math</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981; font-weight: 700;">95</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.8rem 1rem;">Ali Hassan</td>
+                            <td style="padding: 0.8rem 1rem;">Science</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981; font-weight: 700;">88</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.8rem 1rem;">Sara Khan</td>
+                            <td style="padding: 0.8rem 1rem;">Math</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981; font-weight: 700;">99</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.8rem 1rem;">Aisha Malik</td>
+                            <td style="padding: 0.8rem 1rem;">English</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981; font-weight: 700;">78</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>Ali Hassan appears twice because he has grades in two subjects! The JOIN automatically multiplied the rows to match.</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Using Aliases to Simplify Queries</h2>
+            <p>Typing <code>students.name</code> every time gets long. You can create short aliases using <code>AS</code>:</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- s = students alias, g = grades alias</span>
+<span class="code-keyword">SELECT</span> s.name, g.subject, g.score
+<span class="code-keyword">FROM</span> students <span class="code-keyword">AS</span> s
+<span class="code-keyword">INNER JOIN</span> grades <span class="code-keyword">AS</span> g
+    <span class="code-keyword">ON</span> s.id = g.student_id;</code>
+            </div>
+
+            <p style="margin-top: 1rem;">This produces the exact same result — just easier to write!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>LEFT JOIN — Include Unmatched Rows</h2>
+            <p>A <strong>LEFT JOIN</strong> returns ALL rows from the <em>left</em> table (the one in FROM), even if there's no matching row in the right table. The unmatched values show up as <code>NULL</code>.</p>
+
+            <p>Imagine we add a student who has no grades yet:</p>
+
+            <div class="code-block">
+                <code><span class="code-keyword">INSERT INTO</span> students (name) <span class="code-keyword">VALUES</span> (<span class="code-string">'Usman Tariq'</span>);
+<span class="code-comment">-- Usman has no grades yet</span>
+
+<span class="code-comment">-- LEFT JOIN shows ALL students, even Usman with no grades</span>
+<span class="code-keyword">SELECT</span> s.name, g.subject, g.score
+<span class="code-keyword">FROM</span> students <span class="code-keyword">AS</span> s
+<span class="code-keyword">LEFT JOIN</span> grades <span class="code-keyword">AS</span> g
+    <span class="code-keyword">ON</span> s.id = g.student_id;</code>
+            </div>
+
+            <p style="margin-top: 1rem;">Result (notice Usman appears with NULLs):</p>
+            <div style="overflow-x: auto; margin: 1rem 0 2rem; max-width: 500px;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 0.8rem 1rem; text-align: left;">name</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">subject</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.8rem 1rem;">Ali Hassan</td>
+                            <td style="padding: 0.8rem 1rem;">Math</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981;">95</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.8rem 1rem;">Ali Hassan</td>
+                            <td style="padding: 0.8rem 1rem;">Science</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981;">88</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.8rem 1rem;">Sara Khan</td>
+                            <td style="padding: 0.8rem 1rem;">Math</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981;">99</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.8rem 1rem;">Aisha Malik</td>
+                            <td style="padding: 0.8rem 1rem;">English</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981;">78</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.8rem 1rem;">Usman Tariq</td>
+                            <td style="padding: 0.8rem 1rem; color: var(--text-muted); font-style: italic;">NULL</td>
+                            <td style="padding: 0.8rem 1rem; color: var(--text-muted); font-style: italic;">NULL</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Other JOIN Types</h2>
+            <div style="overflow-x: auto; margin: 1.5rem 0;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 1rem; text-align: left;">JOIN Type</th>
+                            <th style="padding: 1rem; text-align: left;">What it Returns</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem; font-weight: 700; color: var(--mysql-brand);">INNER JOIN</td>
+                            <td style="padding: 0.9rem 1rem;">Only rows with a match in BOTH tables</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem; font-weight: 700; color: var(--mysql-brand);">LEFT JOIN</td>
+                            <td style="padding: 0.9rem 1rem;">All rows from the left table, NULLs for unmatched right rows</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem; font-weight: 700; color: var(--mysql-brand);">RIGHT JOIN</td>
+                            <td style="padding: 0.9rem 1rem;">All rows from the right table, NULLs for unmatched left rows</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.9rem 1rem; font-weight: 700; color: var(--mysql-brand);">FULL JOIN</td>
+                            <td style="padding: 0.9rem 1rem;">All rows from both tables, NULLs where there's no match (not all databases support this)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p>For most school and beginner projects, <strong>INNER JOIN</strong> and <strong>LEFT JOIN</strong> are all you need!</p>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid var(--mysql-brand);">
+            <h2>Quick Quiz!</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: What does INNER JOIN return?</p>
+                    <label><input type="radio" name="q1" value="a"> Only rows that have a match in both tables</label>
+                    <label><input type="radio" name="q1" value="b"> All rows from both tables, including unmatched ones</label>
+                    <label><input type="radio" name="q1" value="c"> Only rows that have NO match in either table</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: What links two tables together in a relational database?</p>
+                    <label><input type="radio" name="q2" value="a"> A Foreign Key in one table that references the Primary Key of another</label>
+                    <label><input type="radio" name="q2" value="b"> The Primary Key — it automatically connects all tables</label>
+                    <label><input type="radio" name="q2" value="c"> An Index that points from one table to another</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: What does a LEFT JOIN include that INNER JOIN does not?</p>
+                    <label><input type="radio" name="q3" value="a"> All rows from the left table, even if they have no matching row in the right table</label>
+                    <label><input type="radio" name="q3" value="b"> Only matching rows from both tables, same as INNER JOIN</label>
+                    <label><input type="radio" name="q3" value="c"> All rows from the right table, even if there's no match on the left</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">Check Answers</button>
+            </div>
+        </section>
+
+        <section class="content-section" style="text-align: center;">
+            <h2>One More Module to Go!</h2>
+            <p>You've mastered JOINs — now unlock the power of aggregate functions and advanced queries!</p>
+            <a href="module6.html" class="btn-primary" style="background: linear-gradient(135deg, #0077b6, #00b4d8); margin-top: 1rem;">Next: Advanced Queries &rarr;</a>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

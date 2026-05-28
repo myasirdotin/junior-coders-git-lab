@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: Blade Templates | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+
+        <!-- Hero Header -->
+        <header class="module-header path-laravel">
+            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 2</span>
+            <h1>Blade Templates 🌿</h1>
+            <p>Beautiful, dynamic HTML — write less, show more!</p>
+        </header>
+
+        <!-- Analogy -->
+        <section class="content-section">
+            <h2>What is Blade?</h2>
+            <p>You already know HTML. Blade is HTML with superpowers! It lets you embed dynamic PHP values, use loops, conditionals, and even reuse entire page layouts — all with a super clean, readable syntax.</p>
+
+            <div class="connection-box" style="border-left-color: var(--laravel-brand);">
+                <strong>The Smart Template Analogy 📄</strong><br><br>
+                Blade is like a smart HTML template. You write HTML but with special codes that let PHP values appear automatically. Think of a school report card template — the template is always the same, but each student's name and grades fill in the blanks differently every time!
+            </div>
+
+            <div class="connection-box" style="border-left-color: #34d399; margin-top: 1.5rem;">
+                <strong>Where do Blade files live?</strong><br><br>
+                All Blade templates go in <code>resources/views/</code>. They have the extension <code>.blade.php</code>. So a file called <code>resources/views/students/index.blade.php</code> is called with <code>view('students.index')</code> in your controller.
+            </div>
+        </section>
+
+        <!-- Echoing Variables -->
+        <section class="content-section">
+            <h2>Displaying Variables — The {{ }} Syntax 🖨️</h2>
+            <p>The most common thing you'll do in Blade is display a PHP variable on the page. Use double curly braces:</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">&lt;!-- Safely echo a variable (HTML is escaped — no XSS risk!) --&gt;</span><br>
+                    &lt;h1&gt;<span class="code-string">{{ $student-&gt;name }}</span>&lt;/h1&gt;<br>
+                    &lt;p&gt;Age: <span class="code-string">{{ $student-&gt;age }}</span>&lt;/p&gt;<br><br>
+                    <span class="code-comment">&lt;!-- Echo raw HTML (use carefully — only for trusted content!) --&gt;</span><br>
+                    &lt;div&gt;<span class="code-string">{!! $htmlContent !!}</span>&lt;/div&gt;<br><br>
+                    <span class="code-comment">&lt;!-- Echo with a default value if variable is null --&gt;</span><br>
+                    &lt;p&gt;<span class="code-string">{{ $student-&gt;grade ?? 'Not graded yet' }}</span>&lt;/p&gt;
+                </code>
+            </div>
+
+            <div class="analogy-grid" style="margin-top: 1.5rem;">
+                <div class="analogy-card active" style="border-color: #34d399; background: rgba(52, 211, 153, 0.05);">
+                    <span class="analogy-icon">🛡️</span>
+                    <h3 style="color: #34d399;">{{ $var }} — Safe</h3>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Blade automatically escapes HTML characters. If someone tries to inject <code>&lt;script&gt;</code> tags, they'll show as text, not run as code. Always use this!</p>
+                </div>
+                <div class="analogy-card active" style="border-color: #f43f5e; background: rgba(244, 63, 94, 0.05);">
+                    <span class="analogy-icon">⚠️</span>
+                    <h3 style="color: #f43f5e;">{!! $var !!} — Unescaped</h3>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">This renders raw HTML. Only use it when you 100% control the content — like HTML you generated yourself in PHP. Never use it with user input!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Control Structures -->
+        <section class="content-section">
+            <h2>Control Structures — Logic in Your Templates 🔀</h2>
+            <p>Blade has clean, readable directives for all common PHP logic. Notice how they start with <code>@</code> — that's how you know it's a Blade directive!</p>
+
+            <h3 style="margin-top: 1.5rem; color: #6366f1;">If / Else / Elseif</h3>
+            <div class="code-block">
+                <code>
+                    <span class="code-keyword">@if</span> (<span class="code-val">$student-&gt;grade</span> === <span class="code-string">'A'</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p style="color: green;"&gt;Excellent work! 🌟&lt;/p&gt;<br>
+                    <span class="code-keyword">@elseif</span> (<span class="code-val">$student-&gt;grade</span> === <span class="code-string">'B'</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p style="color: blue;"&gt;Good job! Keep it up!&lt;/p&gt;<br>
+                    <span class="code-keyword">@else</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p style="color: orange;"&gt;Keep studying! You can do it!&lt;/p&gt;<br>
+                    <span class="code-keyword">@endif</span>
+                </code>
+            </div>
+
+            <h3 style="margin-top: 1.5rem; color: #6366f1;">Foreach Loop</h3>
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">&lt;!-- Loop through a collection of students --&gt;</span><br>
+                    &lt;ul&gt;<br>
+                    &nbsp;&nbsp;<span class="code-keyword">@foreach</span> (<span class="code-val">$students</span> <span class="code-keyword">as</span> <span class="code-val">$student</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">{{ $student-&gt;name }}</span> — Grade: <span class="code-string">{{ $student-&gt;grade }}</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;<br>
+                    &nbsp;&nbsp;<span class="code-keyword">@endforeach</span><br>
+                    &lt;/ul&gt;<br><br>
+                    <span class="code-comment">&lt;!-- @forelse is like foreach but handles the empty case! --&gt;</span><br>
+                    <span class="code-keyword">@forelse</span> (<span class="code-val">$students</span> <span class="code-keyword">as</span> <span class="code-val">$student</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<span class="code-string">{{ $student-&gt;name }}</span>&lt;/p&gt;<br>
+                    <span class="code-keyword">@empty</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;No students found!&lt;/p&gt;<br>
+                    <span class="code-keyword">@endforelse</span>
+                </code>
+            </div>
+
+            <h3 style="margin-top: 1.5rem; color: #6366f1;">For Loop and While Loop</h3>
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">&lt;!-- Standard for loop --&gt;</span><br>
+                    <span class="code-keyword">@for</span> (<span class="code-val">$i</span> = <span class="code-val">0</span>; <span class="code-val">$i</span> &lt; <span class="code-val">5</span>; <span class="code-val">$i</span>++)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Row number: <span class="code-string">{{ $i }}</span>&lt;/p&gt;<br>
+                    <span class="code-keyword">@endfor</span><br><br>
+                    <span class="code-comment">&lt;!-- While loop --&gt;</span><br>
+                    <span class="code-keyword">@while</span> (<span class="code-val">$count</span> &gt; <span class="code-val">0</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Count: <span class="code-string">{{ $count-- }}</span>&lt;/p&gt;<br>
+                    <span class="code-keyword">@endwhile</span>
+                </code>
+            </div>
+        </section>
+
+        <!-- Layout Inheritance -->
+        <section class="content-section">
+            <h2>Layout Inheritance — Write HTML Once, Use Everywhere! 🏛️</h2>
+            <p>Every page on a website shares common elements — a header, footer, navigation. With Blade layouts, you write those shared parts <em>once</em> and every page automatically gets them!</p>
+
+            <h3 style="margin-top: 1.5rem;">Step 1: Create a Layout Template</h3>
+            <p>Create <code>resources/views/layouts/app.blade.php</code>:</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">&lt;!-- resources/views/layouts/app.blade.php --&gt;</span><br>
+                    &lt;!DOCTYPE html&gt;<br>
+                    &lt;html&gt;<br>
+                    &lt;head&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;<span class="code-string">{{ $title ?? 'My School App' }}</span>&lt;/title&gt;<br>
+                    &lt;/head&gt;<br>
+                    &lt;body&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt; ... your navigation here ... &lt;/nav&gt;<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">&lt;!-- This is the SLOT where child pages inject their content --&gt;</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@yield</span>(<span class="code-string">'content'</span>)<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;footer&gt; ... your footer here ... &lt;/footer&gt;<br>
+                    &lt;/body&gt;<br>
+                    &lt;/html&gt;
+                </code>
+            </div>
+
+            <h3 style="margin-top: 1.5rem;">Step 2: Child Page Extends the Layout</h3>
+            <p>Create <code>resources/views/students/index.blade.php</code>:</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">&lt;!-- Tell Blade which layout to use --&gt;</span><br>
+                    <span class="code-keyword">@extends</span>(<span class="code-string">'layouts.app'</span>)<br><br>
+                    <span class="code-comment">&lt;!-- Fill in the 'content' slot --&gt;</span><br>
+                    <span class="code-keyword">@section</span>(<span class="code-string">'content'</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;All Students&lt;/h1&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@foreach</span> (<span class="code-val">$students</span> <span class="code-keyword">as</span> <span class="code-val">$student</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<span class="code-string">{{ $student-&gt;name }}</span>&lt;/p&gt;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@endforeach</span><br>
+                    <span class="code-keyword">@endsection</span>
+                </code>
+            </div>
+
+            <div class="flow-container" style="margin-top: 1.5rem;">
+                <div class="flow-step" style="border-color: #6366f1; background: #ede9fe; color: #3730a3;">
+                    @extends('layouts.app') — "Use this layout!"
+                </div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step" style="border-color: #e3342f; background: #fee2e2; color: #991b1b;">
+                    @section('content') ... @endsection — "Here's my unique content"
+                </div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step" style="border-color: #34d399; background: #d1fae5; color: #065f46;">
+                    @yield('content') in layout — "Insert that content here!"
+                </div>
+                <div class="flow-arrow"></div>
+                <div class="flow-step" style="border-color: #6366f1; background: #ede9fe; color: #3730a3;">
+                    Browser receives the complete merged HTML page
+                </div>
+            </div>
+        </section>
+
+        <!-- Includes -->
+        <section class="content-section">
+            <h2>Includes and Components 🧩</h2>
+            <p>Break your templates into small, reusable pieces using <code>@include</code>. Great for things like navigation bars, alert messages, and cards that appear on multiple pages!</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">&lt;!-- Include a partial Blade file --&gt;</span><br>
+                    <span class="code-keyword">@include</span>(<span class="code-string">'partials.nav'</span>)<br>
+                    <span class="code-keyword">@include</span>(<span class="code-string">'partials.footer'</span>)<br><br>
+                    <span class="code-comment">&lt;!-- Include with extra variables --&gt;</span><br>
+                    <span class="code-keyword">@include</span>(<span class="code-string">'partials.student-card'</span>, [<span class="code-string">'student'</span> =&gt; <span class="code-val">$student</span>])<br><br>
+                    <span class="code-comment">&lt;!-- Only include if a condition is true --&gt;</span><br>
+                    <span class="code-keyword">@includeIf</span>(<span class="code-string">'partials.alert'</span>)
+                </code>
+            </div>
+
+            <div class="connection-box" style="border-left-color: #eab308;">
+                <strong>The @csrf Directive — Never Forget This! 🔒</strong><br><br>
+                Any HTML form that submits data to Laravel MUST include <code>@csrf</code> inside it. This generates a hidden security token that proves the form is legitimate and protects against cross-site request forgery attacks. Laravel will reject forms without it!
+                <div class="code-block" style="margin-top: 1rem;">
+                    <code>
+                        &lt;form method="POST" action="/students"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@csrf</span> <span class="code-comment">&lt;!-- ALWAYS include this in forms! --&gt;</span><br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" name="name"&gt;<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;button type="submit"&gt;Save&lt;/button&gt;<br>
+                        &lt;/form&gt;
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Passing Data -->
+        <section class="content-section">
+            <h2>Passing Data from Controller to View 📦</h2>
+            <p>Remember how controllers call <code>view()</code>? The second argument is the data you want to pass to the template. There are two clean ways to do this:</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">// Method 1: Array syntax</span><br>
+                    <span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.index'</span>, [<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">'students'</span> =&gt; <span class="code-val">Student</span>::<span class="code-val">all</span>(),<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">'title'</span> =&gt; <span class="code-string">'All Students'</span>,<br>
+                    ]);<br><br>
+                    <span class="code-comment">// Method 2: compact() — cleaner for multiple variables</span><br>
+                    <span class="code-val">$students</span> = <span class="code-val">Student</span>::<span class="code-val">all</span>();<br>
+                    <span class="code-val">$title</span> = <span class="code-string">'All Students'</span>;<br>
+                    <span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.index'</span>, <span class="code-val">compact</span>(<span class="code-string">'students'</span>, <span class="code-string">'title'</span>));
+                </code>
+            </div>
+
+            <p>In your Blade template, those variables are then available directly:</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">&lt;!-- resources/views/students/index.blade.php --&gt;</span><br>
+                    &lt;h1&gt;<span class="code-string">{{ $title }}</span>&lt;/h1&gt;<br>
+                    <span class="code-keyword">@foreach</span> (<span class="code-val">$students</span> <span class="code-keyword">as</span> <span class="code-val">$s</span>)<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<span class="code-string">{{ $s-&gt;name }}</span>&lt;/p&gt;<br>
+                    <span class="code-keyword">@endforeach</span>
+                </code>
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="content-section">
+            <h2>Quick Knowledge Check! 🧪</h2>
+            <form id="quiz-form-1" class="quiz-section" style="margin-top: 1.5rem;">
+
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q1:</strong> How do you safely echo a PHP variable in a Blade template?</p>
+                    <label><input type="radio" name="q1" value="a"> {{ $var }}</label>
+                    <label><input type="radio" name="q1" value="b"> &lt;?php echo $var ?&gt;</label>
+                    <label><input type="radio" name="q1" value="c"> [[$var]]</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q2:</strong> What does <code>@extends('layouts.app')</code> do in a Blade file?</p>
+                    <label><input type="radio" name="q2" value="a"> Tells Blade to inherit and wrap the content in that layout template</label>
+                    <label><input type="radio" name="q2" value="b"> Creates a brand-new view file</label>
+                    <label><input type="radio" name="q2" value="c"> Deletes the specified section from the page</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q3:</strong> The <code>@csrf</code> directive protects your forms against which attack?</p>
+                    <label><input type="radio" name="q3" value="a"> Cross-Site Request Forgery (CSRF)</label>
+                    <label><input type="radio" name="q3" value="b"> SQL Injection</label>
+                    <label><input type="radio" name="q3" value="c"> Brute force password attacks</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #e3342f, #ff6b6b);">Check Answers</button>
+            </form>
+        </section>
+
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

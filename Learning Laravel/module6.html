@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 6: Migrations | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-laravel">
+            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 6</span>
+            <h1>Migrations 🏗️</h1>
+            <p>Version-control your database schema — never lose track of changes!</p>
+        </header>
+
+        <section class="content-section">
+            <h2>What are Migrations?</h2>
+            <p>Migrations are like <strong>version control for your database</strong>. Instead of manually creating tables in phpMyAdmin, you write PHP code that describes your tables. Your whole team runs the same migrations and everyone gets the identical database structure.</p>
+
+            <div class="connection-box" style="border-left-color: var(--laravel-brand);">
+                <strong>📐 The Building Blueprint Analogy</strong><br><br>
+                Imagine building a school. Instead of telling each construction worker what to build verbally, you give them all the same blueprint. Migrations are your database blueprints — precise, shareable, and version-controlled with Git!
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Creating a Migration ⚙️</h2>
+
+            <div class="code-block">
+<code><span class="code-comment"># Create a migration for a new table</span>
+php artisan make:migration create_students_table
+
+<span class="code-comment"># Create a migration AND a model together</span>
+php artisan make:model Student -m
+
+<span class="code-comment"># Create a migration to add a column to an existing table</span>
+php artisan make:migration add_email_to_students_table --table=students</code>
+            </div>
+
+            <p>This generates a file in <code>database/migrations/</code>. Open it and you'll see two methods: <code>up()</code> (what to do) and <code>down()</code> (how to undo it).</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Writing a Migration 📝</h2>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-keyword">use</span> Illuminate\Database\Migrations\Migration;
+<span class="code-keyword">use</span> Illuminate\Database\Schema\Blueprint;
+<span class="code-keyword">use</span> Illuminate\Support\Facades\Schema;
+
+<span class="code-keyword">return new class</span> <span class="code-keyword">extends</span> Migration {
+    <span class="code-keyword">public function</span> <span class="code-val">up</span>(): <span class="code-keyword">void</span> {
+        <span class="code-val">Schema</span>::<span class="code-val">create</span>(<span class="code-string">'students'</span>, <span class="code-keyword">function</span> (<span class="code-val">Blueprint</span> <span class="code-val">$table</span>) {
+            <span class="code-val">$table</span>-&gt;<span class="code-val">id</span>();                              <span class="code-comment">// auto-increment id</span>
+            <span class="code-val">$table</span>-&gt;<span class="code-val">string</span>(<span class="code-string">'name'</span>);                    <span class="code-comment">// VARCHAR(255)</span>
+            <span class="code-val">$table</span>-&gt;<span class="code-val">string</span>(<span class="code-string">'email'</span>)-&gt;<span class="code-val">unique</span>();         <span class="code-comment">// unique email</span>
+            <span class="code-val">$table</span>-&gt;<span class="code-val">string</span>(<span class="code-string">'grade'</span>)-&gt;<span class="code-val">nullable</span>();       <span class="code-comment">// optional</span>
+            <span class="code-val">$table</span>-&gt;<span class="code-val">integer</span>(<span class="code-string">'age'</span>)-&gt;<span class="code-val">default</span>(<span class="code-val">14</span>);      <span class="code-comment">// default value</span>
+            <span class="code-val">$table</span>-&gt;<span class="code-val">timestamps</span>();                      <span class="code-comment">// created_at, updated_at</span>
+        });
+    }
+
+    <span class="code-keyword">public function</span> <span class="code-val">down</span>(): <span class="code-keyword">void</span> {
+        <span class="code-val">Schema</span>::<span class="code-val">dropIfExists</span>(<span class="code-string">'students'</span>);
+    }
+};</code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Common Column Types 📊</h2>
+
+            <table class="sql-demo-table" style="width:100%;">
+                <thead><tr><th>Method</th><th>SQL Type</th><th>Use Case</th></tr></thead>
+                <tbody>
+                    <tr><td><code>$table->id()</code></td><td>BIGINT UNSIGNED</td><td>Auto-increment primary key</td></tr>
+                    <tr><td><code>$table->string('col')</code></td><td>VARCHAR(255)</td><td>Names, titles, emails</td></tr>
+                    <tr><td><code>$table->text('col')</code></td><td>TEXT</td><td>Long descriptions, articles</td></tr>
+                    <tr><td><code>$table->integer('col')</code></td><td>INT</td><td>Whole numbers (age, count)</td></tr>
+                    <tr><td><code>$table->decimal('col',8,2)</code></td><td>DECIMAL</td><td>Money, prices</td></tr>
+                    <tr><td><code>$table->boolean('col')</code></td><td>TINYINT(1)</td><td>True/False flags</td></tr>
+                    <tr><td><code>$table->date('col')</code></td><td>DATE</td><td>Birthdays, due dates</td></tr>
+                    <tr><td><code>$table->timestamps()</code></td><td>2×TIMESTAMP</td><td>created_at & updated_at</td></tr>
+                    <tr><td><code>$table->foreignId('x_id')</code></td><td>BIGINT UNSIGNED</td><td>Foreign key reference</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="content-section">
+            <h2>Running Migrations ▶️</h2>
+
+            <div class="code-block">
+<code><span class="code-comment"># Run all pending migrations</span>
+php artisan migrate
+
+<span class="code-comment"># Rollback the last batch of migrations</span>
+php artisan migrate:rollback
+
+<span class="code-comment"># Rollback and re-run all migrations (fresh start)</span>
+php artisan migrate:fresh
+
+<span class="code-comment"># Fresh + seed the database with test data</span>
+php artisan migrate:fresh --seed
+
+<span class="code-comment"># See which migrations have run</span>
+php artisan migrate:status</code>
+            </div>
+
+            <div class="connection-box" style="border-left-color: #f43f5e;">
+                <strong>⚠️ Warning:</strong> <code>migrate:fresh</code> DROPS all tables and rebuilds from scratch. Never run it on a production database — all real data will be lost!
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Quick Quiz! 🧪</h2>
+            <form id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q1:</strong> What are migrations in Laravel?</p>
+                    <label><input type="radio" name="q1" value="a"> PHP files that version-control your database schema</label>
+                    <label><input type="radio" name="q1" value="b"> Files that move data between servers</label>
+                    <label><input type="radio" name="q1" value="c"> SQL backup files</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p><strong>Q2:</strong> What does the <code>down()</code> method in a migration do?</p>
+                    <label><input type="radio" name="q2" value="a"> Creates the table</label>
+                    <label><input type="radio" name="q2" value="b"> Undoes (rolls back) what <code>up()</code> did</label>
+                    <label><input type="radio" name="q2" value="c"> Seeds the table with data</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p><strong>Q3:</strong> Which command runs all pending migrations?</p>
+                    <label><input type="radio" name="q3" value="a"> <code>php artisan db:run</code></label>
+                    <label><input type="radio" name="q3" value="b"> <code>php artisan schema:up</code></label>
+                    <label><input type="radio" name="q3" value="c"> <code>php artisan migrate</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #e3342f, #ff6b6b);">Check Answers</button>
+            </form>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

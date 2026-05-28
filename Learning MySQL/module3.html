@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 3: INSERT &amp; SELECT | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-mysql">
+            <span class="badge" style="background: white; color: var(--mysql-brand);">Level 2</span>
+            <h1>INSERT &amp; SELECT</h1>
+            <p>Add and Read Your Data! 📖</p>
+        </header>
+
+        <section class="content-section">
+            <h2>Adding Data with INSERT INTO</h2>
+            <p>Your table is created — now let's put students in it! The <strong>INSERT INTO</strong> command adds a new row to your table.</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Insert one student into the students table</span>
+<span class="code-keyword">INSERT INTO</span> students (name, age, grade)
+<span class="code-keyword">VALUES</span> (<span class="code-string">'Ali Hassan'</span>, <span class="code-val">13</span>, <span class="code-string">'A'</span>);</code>
+            </div>
+
+            <div style="margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: rgba(0,180,216,0.08); border-left: 4px solid var(--mysql-brand); border-radius: 0 1rem 1rem 0;">
+                <p style="margin: 0;"><strong>Notice:</strong> We didn't include <em>id</em> in our column list — because it's <code>AUTO_INCREMENT</code>, MySQL assigns it automatically! We also didn't include <em>enrolled_at</em>, so it will be NULL (empty) unless we add it.</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Inserting Multiple Rows at Once</h2>
+            <p>You can add several students in a single query — just separate each set of values with a comma:</p>
+
+            <div class="code-block">
+                <code><span class="code-keyword">INSERT INTO</span> students (name, age, grade, enrolled_at)
+<span class="code-keyword">VALUES</span>
+    (<span class="code-string">'Ali Hassan'</span>,   <span class="code-val">13</span>, <span class="code-string">'A'</span>,  <span class="code-string">'2024-09-01'</span>),
+    (<span class="code-string">'Sara Khan'</span>,    <span class="code-val">12</span>, <span class="code-string">'A+'</span>, <span class="code-string">'2024-09-01'</span>),
+    (<span class="code-string">'Bilal Ahmed'</span>,  <span class="code-val">14</span>, <span class="code-string">'B+'</span>, <span class="code-string">'2024-09-02'</span>),
+    (<span class="code-string">'Aisha Malik'</span>,  <span class="code-val">13</span>, <span class="code-string">'A'</span>,  <span class="code-string">'2024-09-02'</span>),
+    (<span class="code-string">'Usman Tariq'</span>,  <span class="code-val">12</span>, <span class="code-string">'B'</span>,  <span class="code-string">'2024-09-03'</span>);</code>
+            </div>
+
+            <p style="margin-top: 1.5rem;">This is much faster than running 5 separate INSERT statements!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Reading Data with SELECT</h2>
+            <p>The <strong>SELECT</strong> command is the most powerful in SQL. You use it to read and retrieve data from your tables.</p>
+
+            <h3 style="margin-top: 1.5rem; color: var(--mysql-brand);">SELECT * — Get Everything</h3>
+            <div class="code-block">
+                <code><span class="code-comment">-- The * means "all columns"</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students;</code>
+            </div>
+
+            <p style="margin-top: 1rem;">Result:</p>
+            <div style="overflow-x: auto; margin: 1rem 0 2rem;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 0.8rem 1rem; text-align: left;">id</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">name</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">age</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">grade</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">enrolled_at</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.8rem 1rem; color: var(--mysql-brand); font-weight: 700;">1</td>
+                            <td style="padding: 0.8rem 1rem;">Ali Hassan</td>
+                            <td style="padding: 0.8rem 1rem;">13</td>
+                            <td style="padding: 0.8rem 1rem;">A</td>
+                            <td style="padding: 0.8rem 1rem;">2024-09-01</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.8rem 1rem; color: var(--mysql-brand); font-weight: 700;">2</td>
+                            <td style="padding: 0.8rem 1rem;">Sara Khan</td>
+                            <td style="padding: 0.8rem 1rem;">12</td>
+                            <td style="padding: 0.8rem 1rem;">A+</td>
+                            <td style="padding: 0.8rem 1rem;">2024-09-01</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.8rem 1rem; color: var(--mysql-brand); font-weight: 700;">3</td>
+                            <td style="padding: 0.8rem 1rem;">Bilal Ahmed</td>
+                            <td style="padding: 0.8rem 1rem;">14</td>
+                            <td style="padding: 0.8rem 1rem;">B+</td>
+                            <td style="padding: 0.8rem 1rem;">2024-09-02</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.8rem 1rem; color: var(--mysql-brand); font-weight: 700;">4</td>
+                            <td style="padding: 0.8rem 1rem;">Aisha Malik</td>
+                            <td style="padding: 0.8rem 1rem;">13</td>
+                            <td style="padding: 0.8rem 1rem;">A</td>
+                            <td style="padding: 0.8rem 1rem;">2024-09-02</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.8rem 1rem; color: var(--mysql-brand); font-weight: 700;">5</td>
+                            <td style="padding: 0.8rem 1rem;">Usman Tariq</td>
+                            <td style="padding: 0.8rem 1rem;">12</td>
+                            <td style="padding: 0.8rem 1rem;">B</td>
+                            <td style="padding: 0.8rem 1rem;">2024-09-03</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="color: var(--mysql-brand);">SELECT Specific Columns</h3>
+            <p>You don't have to get everything. Pick only the columns you need:</p>
+            <div class="code-block">
+                <code><span class="code-comment">-- Only get name and grade</span>
+<span class="code-keyword">SELECT</span> name, grade <span class="code-keyword">FROM</span> students;</code>
+            </div>
+
+            <p style="margin-top: 1rem;">Result:</p>
+            <div style="overflow-x: auto; margin: 1rem 0 2rem; max-width: 400px;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 0.8rem 1rem; text-align: left;">name</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);"><td style="padding: 0.8rem 1rem;">Ali Hassan</td><td style="padding: 0.8rem 1rem;">A</td></tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);"><td style="padding: 0.8rem 1rem;">Sara Khan</td><td style="padding: 0.8rem 1rem;">A+</td></tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);"><td style="padding: 0.8rem 1rem;">Bilal Ahmed</td><td style="padding: 0.8rem 1rem;">B+</td></tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);"><td style="padding: 0.8rem 1rem;">Aisha Malik</td><td style="padding: 0.8rem 1rem;">A</td></tr>
+                        <tr><td style="padding: 0.8rem 1rem;">Usman Tariq</td><td style="padding: 0.8rem 1rem;">B</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Filtering with WHERE</h2>
+            <p>The <strong>WHERE</strong> clause lets you filter rows — only get the students that match your condition.</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Only get students with grade 'A'</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">WHERE</span> grade = <span class="code-string">'A'</span>;
+
+<span class="code-comment">-- Only get students older than 12</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">WHERE</span> age &gt; <span class="code-val">12</span>;
+
+<span class="code-comment">-- Get a specific student by ID</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">WHERE</span> id = <span class="code-val">2</span>;</code>
+            </div>
+
+            <p style="margin-top: 1rem;">Result for <code>WHERE grade = 'A'</code>:</p>
+            <div style="overflow-x: auto; margin: 1rem 0 2rem;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 0.8rem 1rem; text-align: left;">id</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">name</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">age</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.8rem 1rem; color: var(--mysql-brand); font-weight: 700;">1</td>
+                            <td style="padding: 0.8rem 1rem;">Ali Hassan</td>
+                            <td style="padding: 0.8rem 1rem;">13</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981; font-weight: 700;">A</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.8rem 1rem; color: var(--mysql-brand); font-weight: 700;">4</td>
+                            <td style="padding: 0.8rem 1rem;">Aisha Malik</td>
+                            <td style="padding: 0.8rem 1rem;">13</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981; font-weight: 700;">A</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Sorting with ORDER BY</h2>
+            <p>Use <strong>ORDER BY</strong> to sort your results. <code>ASC</code> means smallest to largest (ascending), <code>DESC</code> means largest to smallest (descending).</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Sort students by age, youngest first</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">ORDER BY</span> age <span class="code-keyword">ASC</span>;
+
+<span class="code-comment">-- Sort by name alphabetically (A to Z)</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">ORDER BY</span> name <span class="code-keyword">ASC</span>;
+
+<span class="code-comment">-- Sort by grade, best grade first (Z to A)</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">ORDER BY</span> grade <span class="code-keyword">DESC</span>;</code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Limiting Results with LIMIT</h2>
+            <p>What if you have 1,000 students but only want to see the first 5? Use <strong>LIMIT</strong>:</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Show only the first 5 students</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">LIMIT</span> <span class="code-val">5</span>;
+
+<span class="code-comment">-- Combine with ORDER BY to get the top 3 oldest students</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">ORDER BY</span> age <span class="code-keyword">DESC</span> <span class="code-keyword">LIMIT</span> <span class="code-val">3</span>;</code>
+            </div>
+
+            <p style="margin-top: 1.5rem;">LIMIT is very useful for website pages that show results in batches — this technique is called <strong>pagination</strong>.</p>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid var(--mysql-brand);">
+            <h2>Quick Quiz!</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: Which SQL keyword is used to retrieve data from a table?</p>
+                    <label><input type="radio" name="q1" value="a"> SELECT</label>
+                    <label><input type="radio" name="q1" value="b"> GET</label>
+                    <label><input type="radio" name="q1" value="c"> FETCH</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: Which clause filters rows based on a condition?</p>
+                    <label><input type="radio" name="q2" value="a"> WHERE</label>
+                    <label><input type="radio" name="q2" value="b"> IF</label>
+                    <label><input type="radio" name="q2" value="c"> FILTER</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: How do you sort query results in MySQL?</p>
+                    <label><input type="radio" name="q3" value="a"> ORDER BY column ASC / DESC</label>
+                    <label><input type="radio" name="q3" value="b"> SORT BY column ASC / DESC</label>
+                    <label><input type="radio" name="q3" value="c"> ARRANGE BY column ASC / DESC</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">Check Answers</button>
+            </div>
+        </section>
+
+        <section class="content-section" style="text-align: center;">
+            <h2>Excellent! Ready for Module 4?</h2>
+            <p>You can now read and write data. Next — learn how to update and delete it!</p>
+            <a href="module4.html" class="btn-primary" style="background: linear-gradient(135deg, #0077b6, #00b4d8); margin-top: 1rem;">Next: UPDATE &amp; DELETE &rarr;</a>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>
