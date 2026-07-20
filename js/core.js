@@ -338,8 +338,9 @@
         nav.innerHTML = `
             <div class="nav-container">
                 ${logo}
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">
-                    <span></span><span></span><span></span>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Open menu" aria-controls="nav-links" aria-expanded="false">
+                    <span class="mobile-toggle-icon" aria-hidden="true"><span></span><span></span><span></span></span>
+                    <span class="mobile-toggle-label">Menu</span>
                 </button>
                 <div class="nav-links" id="nav-links">
                     ${linksHtml}
@@ -414,6 +415,7 @@
             toggle?.classList.remove('active');
             navLinks?.classList.remove('open');
             toggle?.setAttribute('aria-expanded', 'false');
+            toggle?.setAttribute('aria-label', 'Open menu');
             nav.querySelectorAll('.nav-dropdown.active').forEach(dropdown => dropdown.classList.remove('active'));
             dropdownButtons.forEach(button => button.setAttribute('aria-expanded', 'false'));
             document.body.style.overflow = '';
@@ -423,6 +425,7 @@
             const isOpen = navLinks?.classList.toggle('open') ?? false;
             toggle.classList.toggle('active', isOpen);
             toggle.setAttribute('aria-expanded', String(isOpen));
+            toggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
             document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 

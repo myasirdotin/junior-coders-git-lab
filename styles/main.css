@@ -134,8 +134,8 @@ p { margin-bottom: 1rem; }
 /* Hamburger Menu */
 .mobile-toggle {
     display: none;
-    flex-direction: column;
-    gap: 6px;
+    align-items: center;
+    gap: 0.5rem;
     background: none;
     border: none;
     cursor: pointer;
@@ -143,7 +143,13 @@ p { margin-bottom: 1rem; }
     padding: 10px;
 }
 
-.mobile-toggle span {
+.mobile-toggle-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.mobile-toggle-icon span {
     display: block;
     width: 25px;
     height: 3px;
@@ -229,7 +235,7 @@ p { margin-bottom: 1rem; }
     display: block;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .nav-dropdown { width: 100%; }
     .nav-dropdown-btn {
         width: 100%;
@@ -319,14 +325,14 @@ p { margin-bottom: 1rem; }
 [data-theme="light"] .nav-search-results { background: #fff; }
 [data-theme="light"] .search-result-item:hover { background: rgba(0,0,0,0.05); color: var(--text-primary); }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .nav-search { width: 100%; margin: 0.5rem 0; }
     .nav-search-input { width: 100%; border-radius: 1rem; padding: 0.75rem 1.25rem; font-size: 1rem; }
     .nav-search-input:focus { width: 100%; }
     .nav-search-results { position: static; box-shadow: none; margin-top: 0.5rem; border-radius: 0.75rem; max-height: 300px; }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .mobile-toggle { display: flex; }
     
     .nav-links {
@@ -354,9 +360,10 @@ p { margin-bottom: 1rem; }
     }
 
     /* Hamburger Animation */
-    .mobile-toggle.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    .mobile-toggle.active span:nth-child(2) { opacity: 0; }
-    .mobile-toggle.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    .mobile-toggle-label { font-size: 0.9rem; font-weight: 700; color: var(--text-primary); }
+    .mobile-toggle.active .mobile-toggle-icon span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .mobile-toggle.active .mobile-toggle-icon span:nth-child(2) { opacity: 0; }
+    .mobile-toggle.active .mobile-toggle-icon span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
 }
 
 /* Buttons */
@@ -794,7 +801,7 @@ input[type="text"], input[type="email"], textarea {
     border-radius: 0 0 4px 4px;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
     .bottom-nav { display: block !important; }
     body { padding-bottom: 70px !important; }
     
