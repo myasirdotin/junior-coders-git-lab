@@ -221,6 +221,10 @@ p { margin-bottom: 1rem; }
     display: block;
 }
 
+.nav-dropdown:focus-within .nav-dropdown-content {
+    display: block;
+}
+
 @media (max-width: 1024px) {
     .nav-dropdown { width: 100%; }
     .nav-dropdown-btn { 
@@ -1228,6 +1232,54 @@ input[type="text"], input[type="email"], textarea {
     margin: 0;
 }
 
+/* Contact form */
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.form-notice {
+    margin: 0;
+    padding: 1rem;
+    border-left: 4px solid var(--warning);
+    border-radius: 0.75rem;
+    background: var(--bg-glass);
+    color: var(--text-secondary);
+}
+
+.form-field {
+    display: grid;
+    gap: 0.5rem;
+}
+
+.form-field label {
+    font-weight: 600;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-dim);
+    border-radius: 1rem;
+    background: var(--bg-glass);
+    color: var(--text-primary);
+    font: inherit;
+}
+
+.form-field textarea {
+    resize: vertical;
+}
+
+.contact-submit {
+    width: 100%;
+}
+
 @media (max-width: 768px) {
     .site-footer {
         padding: 3rem 1.5rem 6rem; /* Extra bottom padding for mobile nav */
@@ -1306,3 +1358,12 @@ input[type="text"], input[type="email"], textarea {
     }
 }
 
+/* Keep keyboard navigation visible throughout the shared interface. */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--warning);
+    outline-offset: 3px;
+}

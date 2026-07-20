@@ -30,6 +30,14 @@
             ],
             'Learning CSS': [
                 { name: 'Lessons', url: 'learningcss.html' },
+                { name: '1: Intro to CSS', url: 'module1.html' },
+                { name: '2: Colors & Text', url: 'module2.html' },
+                { name: '3: Box Model', url: 'module3.html' },
+                { name: '4: Display & Positioning', url: 'module4.html' },
+                { name: '5: Intro to Flexbox', url: 'module5.html' },
+                { name: '6: Advanced Flexbox', url: 'module6.html' },
+                { name: '7: CSS Grid', url: 'module7.html' },
+                { name: '8: Responsive Design', url: 'module8.html' },
                 { name: 'Playground', url: 'playground.html' },
                 { name: 'Exercises', url: 'exercises.html' },
                 { name: 'Glossary', url: 'glossary.html' },
@@ -260,12 +268,12 @@
         nav.innerHTML = `
             <div class="nav-container">
                 ${logo}
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu" aria-controls="nav-links" aria-expanded="false">
                     <span></span><span></span><span></span>
                 </button>
                 <div class="nav-links" id="nav-links">
                     ${linksHtml}
-                    <button class="theme-toggle btn-icon" title="Toggle Theme">🌓</button>
+                    <button class="theme-toggle btn-icon" type="button" aria-label="Toggle colour theme" title="Toggle Theme">🌓</button>
                 </div>
             </div>
         `;
@@ -296,29 +304,45 @@
         // Mobile Menu Toggle Logic
         const toggle = document.getElementById('mobile-toggle');
         const navLinks = document.getElementById('nav-links');
+        const dropdownBtn = document.getElementById('modules-dropdown-btn');
+
+        const closeMenu = () => {
+            toggle?.classList.remove('active');
+            navLinks?.classList.remove('open');
+            toggle?.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        };
         
         toggle?.addEventListener('click', () => {
-            toggle.classList.toggle('active');
-            navLinks?.classList.toggle('open');
-            document.body.style.overflow = navLinks?.classList.contains('open') ? 'hidden' : '';
+            const isOpen = navLinks?.classList.toggle('open') ?? false;
+            toggle.classList.toggle('active', isOpen);
+            toggle.setAttribute('aria-expanded', String(isOpen));
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
         // Dropdown toggle for mobile
-        const dropdownBtn = document.getElementById('modules-dropdown-btn');
+        dropdownBtn?.setAttribute('aria-expanded', 'false');
+        dropdownBtn?.setAttribute('aria-haspopup', 'true');
         dropdownBtn?.addEventListener('click', (e) => {
             if (window.innerWidth <= 1024) {
                 e.preventDefault();
-                dropdownBtn.parentElement.classList.toggle('active');
+                const isOpen = dropdownBtn.parentElement.classList.toggle('active');
+                dropdownBtn.setAttribute('aria-expanded', String(isOpen));
             }
         });
 
         // Close menu when clicking a link
         navLinks?.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                toggle?.classList.remove('active');
-                navLinks.classList.remove('open');
-                document.body.style.overflow = '';
-            });
+            link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key !== 'Escape') return;
+
+            closeMenu();
+            dropdownBtn?.parentElement.classList.remove('active');
+            dropdownBtn?.setAttribute('aria-expanded', 'false');
+            toggle?.focus();
         });
     }
 

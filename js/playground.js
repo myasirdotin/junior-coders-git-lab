@@ -17,11 +17,12 @@
                 const content = editor.value;
                 const iframe = preview.querySelector('iframe') || document.createElement('iframe');
                 if (!preview.contains(iframe)) {
+                    iframe.title = 'HTML preview';
+                    iframe.setAttribute('sandbox', 'allow-scripts');
                     iframe.style.width = '100%'; iframe.style.height = '100%'; iframe.style.border = 'none';
                     preview.innerHTML = ''; preview.appendChild(iframe);
                 }
-                const doc = iframe.contentWindow.document;
-                doc.open(); doc.write(content); doc.close();
+                iframe.srcdoc = content;
             };
 
             editor.addEventListener('input', update);
@@ -38,10 +39,14 @@
             const update = () => {
                 const html = htmlEditor.value;
                 const css = cssEditor.value;
-                preview.innerHTML = html;
-                const style = document.createElement('style');
-                style.textContent = css;
-                preview.prepend(style);
+                const iframe = preview.querySelector('iframe') || document.createElement('iframe');
+                if (!preview.contains(iframe)) {
+                    iframe.title = 'CSS preview';
+                    iframe.setAttribute('sandbox', 'allow-scripts');
+                    iframe.style.width = '100%'; iframe.style.height = '100%'; iframe.style.border = 'none';
+                    preview.innerHTML = ''; preview.appendChild(iframe);
+                }
+                iframe.srcdoc = `<!DOCTYPE html><html><head><style>${css}</style></head><body>${html}</body></html>`;
             };
 
             [htmlEditor, cssEditor].forEach(el => el.addEventListener('input', update));
@@ -54,28 +59,34 @@
             const consoleEl = document.getElementById('console');
             if (!editor || !consoleEl) return;
 
-            // Hook into console.log
-            const originalLog = console.log;
-            console.log = function(...args) {
-                originalLog.apply(console, args);
+            const runner = document.createElement('iframe');
+            runner.hidden = true;
+            runner.title = 'JavaScript code runner';
+            runner.setAttribute('sandbox', 'allow-scripts');
+            document.body.appendChild(runner);
+
+            const logToConsole = (message, isError = false) => {
                 const entry = document.createElement('div');
-                entry.className = 'log-entry';
-                entry.textContent = args.map(arg => typeof arg === 'object' ? JSON.stringify(arg) : String(arg)).join(' ');
+                entry.className = isError ? 'log-entry error-entry' : 'log-entry';
+                entry.textContent = isError ? `Error: ${message}` : message;
                 consoleEl.appendChild(entry);
                 consoleEl.scrollTop = consoleEl.scrollHeight;
             };
 
+            window.addEventListener('message', (event) => {
+                if (event.source !== runner.contentWindow || !event.data?.type) return;
+                if (event.data.type === 'log') logToConsole(event.data.data);
+                if (event.data.type === 'error') logToConsole(event.data.data, true);
+            });
+
             window.runJS = () => {
                 consoleEl.innerHTML = '<div class="info-entry">--- Running... ---</div>';
-                try {
-                    new Function(editor.value)();
-                } catch (e) {
-                    console.error(e);
-                    const err = document.createElement('div');
-                    err.className = 'log-entry error-entry';
-                    err.textContent = 'Error: ' + e.message;
-                    consoleEl.appendChild(err);
-                }
+                runner.srcdoc = `<!DOCTYPE html><script>
+                    const send = (type, data) => parent.postMessage({ type, data }, '*');
+                    console.log = (...args) => send('log', args.map(String).join(' '));
+                    window.onerror = message => send('error', message);
+                    try { ${editor.value} } catch (error) { send('error', error.message); }
+                <\/script>`;
             };
         },
 
@@ -167,14 +178,12 @@
                     </html>
                 `;
 
-                const doc = preview.contentWindow.document;
-                doc.open();
-                doc.write(fullContent);
-                doc.close();
+                preview.srcdoc = fullContent;
             };
 
             // 4. Listen for logs from Iframe
             window.addEventListener('message', (e) => {
+                if (e.source !== preview.contentWindow || !e.data?.type) return;
                 if (e.data.type === 'log') logToIDE(e.data.data);
                 if (e.data.type === 'error') logToIDE(e.data.data, 'error');
             });
