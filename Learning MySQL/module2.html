@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: CREATE TABLE | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-mysql">
+            <span class="badge" style="background: white; color: var(--mysql-brand);">Level 1</span>
+            <h1>CREATE TABLE</h1>
+            <p>Design your data structure! 🏗️</p>
+        </header>
+
+        <section class="content-section">
+            <h2>SQL is Not Case-Sensitive — But Convention Matters!</h2>
+            <p>Good news: SQL doesn't care whether you type in UPPERCASE or lowercase. Both of these do exactly the same thing:</p>
+
+            <div class="code-block">
+                <code><span class="code-keyword">select</span> * <span class="code-keyword">from</span> students;   <span class="code-comment">-- works fine</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students;   <span class="code-comment">-- also works, and is the standard</span></code>
+            </div>
+
+            <p style="margin-top: 1.5rem;">By convention, we write <strong>SQL keywords in UPPERCASE</strong> (like SELECT, FROM, WHERE) and our own names (table names, column names) in lowercase. This makes your code much easier to read!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Step 1: Create a Database</h2>
+            <p>Before you can create tables, you need a database to put them in. Think of it as creating a new filing cabinet.</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Create a new database called school</span>
+<span class="code-keyword">CREATE DATABASE</span> school;
+
+<span class="code-comment">-- Tell MySQL to use this database for all our commands</span>
+<span class="code-keyword">USE</span> school;</code>
+            </div>
+
+            <p style="margin-top: 1.5rem;">You only need to create a database once. After that, you just <code>USE</code> it every time you start a session.</p>
+
+            <div class="code-block" style="margin-top: 1rem;">
+                <code><span class="code-comment">-- See all databases on this server</span>
+<span class="code-keyword">SHOW DATABASES</span>;</code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>MySQL Data Types</h2>
+            <p>When you create a table, you must tell MySQL what <strong>type of data</strong> each column will hold. Here are the most important ones:</p>
+
+            <div style="overflow-x: auto; margin: 1.5rem 0;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 1rem; text-align: left;">Data Type</th>
+                            <th style="padding: 1rem; text-align: left;">What it Stores</th>
+                            <th style="padding: 1rem; text-align: left;">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">INT</code></td>
+                            <td style="padding: 0.9rem 1rem;">Whole numbers</td>
+                            <td style="padding: 0.9rem 1rem;">13, 100, -5</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">VARCHAR(n)</code></td>
+                            <td style="padding: 0.9rem 1rem;">Short text (max n characters)</td>
+                            <td style="padding: 0.9rem 1rem;">'Ali', 'Class A'</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">TEXT</code></td>
+                            <td style="padding: 0.9rem 1rem;">Long text (no size limit)</td>
+                            <td style="padding: 0.9rem 1rem;">A whole essay or description</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">DATE</code></td>
+                            <td style="padding: 0.9rem 1rem;">A date (no time)</td>
+                            <td style="padding: 0.9rem 1rem;">'2024-09-01'</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">DATETIME</code></td>
+                            <td style="padding: 0.9rem 1rem;">Date and time together</td>
+                            <td style="padding: 0.9rem 1rem;">'2024-09-01 08:30:00'</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">BOOLEAN / TINYINT(1)</code></td>
+                            <td style="padding: 0.9rem 1rem;">True (1) or False (0)</td>
+                            <td style="padding: 0.9rem 1rem;">1, 0</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">DECIMAL(m,d)</code></td>
+                            <td style="padding: 0.9rem 1rem;">Precise decimal numbers</td>
+                            <td style="padding: 0.9rem 1rem;">DECIMAL(5,2) → 999.99</td>
+                        </tr>
+                        <tr style="background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">FLOAT</code></td>
+                            <td style="padding: 0.9rem 1rem;">Approximate decimal numbers</td>
+                            <td style="padding: 0.9rem 1rem;">3.14, 9.81</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Step 2: Create a Table</h2>
+            <p>Now let's create our <strong>students</strong> table! Here is a complete example with all the important parts explained:</p>
+
+            <div class="code-block">
+                <code><span class="code-keyword">CREATE TABLE</span> students (
+    id          <span class="code-keyword">INT</span> <span class="code-keyword">AUTO_INCREMENT</span> <span class="code-keyword">PRIMARY KEY</span>,
+    name        <span class="code-keyword">VARCHAR</span>(<span class="code-val">100</span>),
+    age         <span class="code-keyword">INT</span>,
+    grade       <span class="code-keyword">VARCHAR</span>(<span class="code-val">5</span>),
+    enrolled_at <span class="code-keyword">DATE</span>
+);</code>
+            </div>
+
+            <div style="margin: 2rem 0; padding: 1.5rem; background: rgba(0,180,216,0.08); border-left: 4px solid var(--mysql-brand); border-radius: 0 1rem 1rem 0;">
+                <h3 style="color: var(--mysql-brand); margin-bottom: 1rem;">Breaking it Down</h3>
+                <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.75rem;">
+                    <li><strong style="color: var(--mysql-brand);">id INT AUTO_INCREMENT PRIMARY KEY</strong> — MySQL automatically assigns 1, 2, 3... to each new row. It's the unique identifier.</li>
+                    <li><strong style="color: var(--mysql-brand);">name VARCHAR(100)</strong> — A text column that can hold up to 100 characters.</li>
+                    <li><strong style="color: var(--mysql-brand);">age INT</strong> — A whole number for the student's age.</li>
+                    <li><strong style="color: var(--mysql-brand);">grade VARCHAR(5)</strong> — A short text like 'A', 'B+', or 'A+'.</li>
+                    <li><strong style="color: var(--mysql-brand);">enrolled_at DATE</strong> — The date the student enrolled, e.g. '2024-09-01'.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Exploring Your Database</h2>
+            <p>After creating tables, you can check what exists with these helpful commands:</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- See all tables in the current database</span>
+<span class="code-keyword">SHOW TABLES</span>;
+
+<span class="code-comment">-- See the structure (columns, types) of a table</span>
+<span class="code-keyword">DESCRIBE</span> students;
+
+<span class="code-comment">-- Or shorthand:</span>
+<span class="code-keyword">DESC</span> students;</code>
+            </div>
+
+            <p style="margin-top: 1.5rem;">Running <code>DESCRIBE students</code> will show you a table like this:</p>
+
+            <div style="overflow-x: auto; margin: 1.5rem 0;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 1rem; text-align: left;">Field</th>
+                            <th style="padding: 1rem; text-align: left;">Type</th>
+                            <th style="padding: 1rem; text-align: left;">Key</th>
+                            <th style="padding: 1rem; text-align: left;">Extra</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem;">id</td>
+                            <td style="padding: 0.9rem 1rem;">int</td>
+                            <td style="padding: 0.9rem 1rem; color: #f59e0b;">PRI</td>
+                            <td style="padding: 0.9rem 1rem;">auto_increment</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem;">name</td>
+                            <td style="padding: 0.9rem 1rem;">varchar(100)</td>
+                            <td style="padding: 0.9rem 1rem;"></td>
+                            <td style="padding: 0.9rem 1rem;"></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem;">age</td>
+                            <td style="padding: 0.9rem 1rem;">int</td>
+                            <td style="padding: 0.9rem 1rem;"></td>
+                            <td style="padding: 0.9rem 1rem;"></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem;">grade</td>
+                            <td style="padding: 0.9rem 1rem;">varchar(5)</td>
+                            <td style="padding: 0.9rem 1rem;"></td>
+                            <td style="padding: 0.9rem 1rem;"></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.9rem 1rem;">enrolled_at</td>
+                            <td style="padding: 0.9rem 1rem;">date</td>
+                            <td style="padding: 0.9rem 1rem;"></td>
+                            <td style="padding: 0.9rem 1rem;"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Removing a Table Safely</h2>
+            <p>If you want to delete a table, use <code>DROP TABLE</code>. Always add <code>IF EXISTS</code> to avoid an error if the table doesn't exist:</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Safe way to delete a table (won't error if it doesn't exist)</span>
+<span class="code-keyword">DROP TABLE IF EXISTS</span> students;
+
+<span class="code-comment">-- Dangerous! Will throw an error if table doesn't exist</span>
+<span class="code-keyword">DROP TABLE</span> students;</code>
+            </div>
+
+            <div style="margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: rgba(239,68,68,0.1); border-left: 4px solid #ef4444; border-radius: 0 1rem 1rem 0;">
+                <p style="margin: 0;">⚠️ <strong>Warning:</strong> DROP TABLE permanently deletes the table AND all the data in it. There is no undo! Always double-check before running this command.</p>
+            </div>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid var(--mysql-brand);">
+            <h2>Quick Quiz!</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: Which data type stores whole numbers?</p>
+                    <label><input type="radio" name="q1" value="a"> INT</label>
+                    <label><input type="radio" name="q1" value="b"> VARCHAR</label>
+                    <label><input type="radio" name="q1" value="c"> DATE</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: What does AUTO_INCREMENT do?</p>
+                    <label><input type="radio" name="q2" value="a"> Automatically assigns the next number (1, 2, 3...) to each new row</label>
+                    <label><input type="radio" name="q2" value="b"> Repeats the same number for every new row</label>
+                    <label><input type="radio" name="q2" value="c"> Assigns a random number to each new row</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: Which keyword removes a table from the database?</p>
+                    <label><input type="radio" name="q3" value="a"> DROP TABLE</label>
+                    <label><input type="radio" name="q3" value="b"> DELETE TABLE</label>
+                    <label><input type="radio" name="q3" value="c"> REMOVE TABLE</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">Check Answers</button>
+            </div>
+        </section>
+
+        <section class="content-section" style="text-align: center;">
+            <h2>Great Work! Ready for Module 3?</h2>
+            <p>Your table is built — now let's fill it with data!</p>
+            <a href="module3.html" class="btn-primary" style="background: linear-gradient(135deg, #0077b6, #00b4d8); margin-top: 1rem;">Next: INSERT &amp; SELECT &rarr;</a>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

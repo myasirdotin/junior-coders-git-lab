@@ -56,13 +56,27 @@
             <h2>Quick Quiz!</h2>
             <div id="quiz-form-1" class="quiz-section">
                 <div class="quiz-question" data-answer="b">
-                    <p>What tag do we use to show the main content of the page?</p>
+                    <p>Q1: What tag do we use to show the main content of the page?</p>
                     <label><input type="radio" name="q1" value="a"> &lt;head&gt;</label>
                     <label><input type="radio" name="q1" value="b"> &lt;body&gt;</label>
                     <label><input type="radio" name="q1" value="c"> &lt;skeleton&gt;</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answer</button>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q2: Which tag makes the BIGGEST heading?</p>
+                    <label><input type="radio" name="q2" value="a"> &lt;h6&gt;</label>
+                    <label><input type="radio" name="q2" value="b"> &lt;h1&gt;</label>
+                    <label><input type="radio" name="q2" value="c"> &lt;big&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: What does HTML stand for?</p>
+                    <label><input type="radio" name="q3" value="a"> HyperText Markup Language</label>
+                    <label><input type="radio" name="q3" value="b"> HyperText Making Language</label>
+                    <label><input type="radio" name="q3" value="c"> Home Tool Markup Language</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answers</button>
             </div>
         </section>
 

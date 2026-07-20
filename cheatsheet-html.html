@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Cheat Sheet | Junior Coders</title>
+    <meta name="description" content="A complete HTML cheat sheet for Class 6 students. Every tag you need in one quick-reference page.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="cheatsheet-container">
+
+    <header class="cheat-hero html-hero">
+        <span class="course-level html-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Class 6</span>
+        <h1>HTML Cheat Sheet</h1>
+        <p>Every tag you need — one page, always ready. Bookmark this!</p>
+    </header>
+
+    <div class="cheat-tip">
+        <strong>How to use this cheat sheet:</strong> When you forget a tag or what it does, look it up here. The left column shows the tag, the right column explains it in plain English.
+    </div>
+
+    <div class="cheat-grid">
+
+        <!-- Document Structure -->
+        <div class="cheat-card">
+            <div class="cheat-card-header html-hdr">🏗️ Document Structure</div>
+            <table class="cheat-table">
+                <tr><td>&lt;!DOCTYPE html&gt;</td><td>Tells the browser: "This is HTML5!"</td></tr>
+                <tr><td>&lt;html lang="en"&gt;</td><td>The root wrapper for the whole page</td></tr>
+                <tr><td>&lt;head&gt;</td><td>Hidden section: title, links, meta info</td></tr>
+                <tr><td>&lt;title&gt;</td><td>The text shown on the browser tab</td></tr>
+                <tr><td>&lt;meta charset="UTF-8"&gt;</td><td>Supports all characters and languages</td></tr>
+                <tr><td>&lt;meta name="viewport"&gt;</td><td>Makes the page work on mobile phones</td></tr>
+                <tr><td>&lt;body&gt;</td><td>Everything visible on the page goes here</td></tr>
+            </table>
+        </div>
+
+        <!-- Headings & Text -->
+        <div class="cheat-card">
+            <div class="cheat-card-header html-hdr">✏️ Headings &amp; Text</div>
+            <table class="cheat-table">
+                <tr><td>&lt;h1&gt; to &lt;h6&gt;</td><td>Headings — h1 is biggest, h6 is smallest</td></tr>
+                <tr><td>&lt;p&gt;</td><td>A paragraph of text</td></tr>
+                <tr><td>&lt;strong&gt;</td><td><strong>Bold text</strong> (important meaning)</td></tr>
+                <tr><td>&lt;em&gt;</td><td><em>Italic text</em> (emphasized meaning)</td></tr>
+                <tr><td>&lt;br&gt;</td><td>Line break (no closing tag needed)</td></tr>
+                <tr><td>&lt;hr&gt;</td><td>Horizontal rule — a dividing line</td></tr>
+                <tr><td>&lt;mark&gt;</td><td>Highlighted text like a marker pen</td></tr>
+                <tr><td>&lt;code&gt;</td><td>Inline code styling like <code>this</code></td></tr>
+                <tr><td>&lt;small&gt;</td><td>Smaller, fine-print text</td></tr>
+                <tr><td>&lt;del&gt;</td><td><del>Strikethrough</del> (deleted text)</td></tr>
+                <tr><td>&lt;sup&gt; / &lt;sub&gt;</td><td>Super²  and Sub₂scripts</td></tr>
+                <tr><td>&lt;blockquote&gt;</td><td>An indented quote from somewhere else</td></tr>
+            </table>
+        </div>
+
+        <!-- Links & Images -->
+        <div class="cheat-card">
+            <div class="cheat-card-header html-hdr">🔗 Links &amp; Images</div>
+            <table class="cheat-table">
+                <tr><td>&lt;a href="url"&gt;</td><td>Hyperlink — click to go somewhere</td></tr>
+                <tr><td>target="_blank"</td><td>Open link in a new tab</td></tr>
+                <tr><td>&lt;img src="file" alt="desc"&gt;</td><td>Show an image (no closing tag)</td></tr>
+                <tr><td>alt="description"</td><td>Text shown if image fails to load (required!)</td></tr>
+                <tr><td>width="200" height="100"</td><td>Set image size in pixels</td></tr>
+                <tr><td>&lt;figure&gt;</td><td>Container for image + caption</td></tr>
+                <tr><td>&lt;figcaption&gt;</td><td>Caption text below an image</td></tr>
+                <tr><td>&lt;video src="file"&gt;</td><td>Embed a video player</td></tr>
+                <tr><td>&lt;audio src="file"&gt;</td><td>Embed an audio player</td></tr>
+                <tr><td>&lt;iframe src="url"&gt;</td><td>Embed another webpage inside yours</td></tr>
+            </table>
+        </div>
+
+        <!-- Lists -->
+        <div class="cheat-card">
+            <div class="cheat-card-header html-hdr">📝 Lists</div>
+            <table class="cheat-table">
+                <tr><td>&lt;ul&gt;</td><td>Unordered list (bullet points •)</td></tr>
+                <tr><td>&lt;ol&gt;</td><td>Ordered list (1. 2. 3. …)</td></tr>
+                <tr><td>&lt;li&gt;</td><td>One item inside a list</td></tr>
+                <tr><td>&lt;dl&gt;</td><td>Description / definition list</td></tr>
+                <tr><td>&lt;dt&gt;</td><td>The term being defined</td></tr>
+                <tr><td>&lt;dd&gt;</td><td>The definition of that term</td></tr>
+            </table>
+        </div>
+
+        <!-- Tables -->
+        <div class="cheat-card">
+            <div class="cheat-card-header html-hdr">📊 Tables</div>
+            <table class="cheat-table">
+                <tr><td>&lt;table&gt;</td><td>Creates a table</td></tr>
+                <tr><td>&lt;thead&gt;</td><td>The header section of the table</td></tr>
+                <tr><td>&lt;tbody&gt;</td><td>The body (data) section</td></tr>
+                <tr><td>&lt;tfoot&gt;</td><td>The footer section</td></tr>
+                <tr><td>&lt;tr&gt;</td><td>Table Row</td></tr>
+                <tr><td>&lt;th&gt;</td><td>Table Header cell (bold, centered)</td></tr>
+                <tr><td>&lt;td&gt;</td><td>Table Data cell (regular)</td></tr>
+                <tr><td>colspan="2"</td><td>Make a cell span 2 columns</td></tr>
+                <tr><td>rowspan="2"</td><td>Make a cell span 2 rows</td></tr>
+            </table>
+        </div>
+
+        <!-- Forms -->
+        <div class="cheat-card">
+            <div class="cheat-card-header html-hdr">📬 Forms</div>
+            <table class="cheat-table">
+                <tr><td>&lt;form&gt;</td><td>The container for all form inputs</td></tr>
+                <tr><td>&lt;label for="id"&gt;</td><td>Text label — connects to an input</td></tr>
+                <tr><td>&lt;input type="text"&gt;</td><td>Single-line text box</td></tr>
+                <tr><td>&lt;input type="email"&gt;</td><td>Email field with validation</td></tr>
+                <tr><td>&lt;input type="password"&gt;</td><td>Password field (hides text)</td></tr>
+                <tr><td>&lt;input type="number"&gt;</td><td>Number input with up/down arrows</td></tr>
+                <tr><td>&lt;input type="checkbox"&gt;</td><td>Tick box — select multiple</td></tr>
+                <tr><td>&lt;input type="radio"&gt;</td><td>Circle button — select one only</td></tr>
+                <tr><td>&lt;input type="submit"&gt;</td><td>Submit button for the form</td></tr>
+                <tr><td>&lt;button&gt;</td><td>A clickable button (more flexible)</td></tr>
+                <tr><td>&lt;select&gt;</td><td>Dropdown menu container</td></tr>
+                <tr><td>&lt;option&gt;</td><td>One choice inside a &lt;select&gt;</td></tr>
+                <tr><td>&lt;textarea&gt;</td><td>Multi-line text input box</td></tr>
+                <tr><td>placeholder="hint"</td><td>Grey hint text inside an input</td></tr>
+                <tr><td>required</td><td>Makes a field mandatory</td></tr>
+            </table>
+        </div>
+
+        <!-- Semantic / Structure -->
+        <div class="cheat-card">
+            <div class="cheat-card-header html-hdr">🧠 Semantic Tags</div>
+            <table class="cheat-table">
+                <tr><td>&lt;header&gt;</td><td>Top section — logo, title, nav</td></tr>
+                <tr><td>&lt;nav&gt;</td><td>Navigation links (menu)</td></tr>
+                <tr><td>&lt;main&gt;</td><td>The main unique content of the page</td></tr>
+                <tr><td>&lt;section&gt;</td><td>A grouped topic or chapter</td></tr>
+                <tr><td>&lt;article&gt;</td><td>A standalone piece of content (blog post)</td></tr>
+                <tr><td>&lt;aside&gt;</td><td>Side content, related but not main</td></tr>
+                <tr><td>&lt;footer&gt;</td><td>Bottom section — copyright, links</td></tr>
+                <tr><td>&lt;div&gt;</td><td>Generic block container (no meaning)</td></tr>
+                <tr><td>&lt;span&gt;</td><td>Generic inline wrapper (no meaning)</td></tr>
+            </table>
+        </div>
+
+        <!-- Attributes -->
+        <div class="cheat-card">
+            <div class="cheat-card-header html-hdr">⚙️ Common Attributes</div>
+            <table class="cheat-table">
+                <tr><td>class="name"</td><td>CSS styling group — reusable</td></tr>
+                <tr><td>id="name"</td><td>Unique identifier — used once per page</td></tr>
+                <tr><td>style="..."</td><td>Inline CSS (use sparingly)</td></tr>
+                <tr><td>href="url"</td><td>Where a link points to</td></tr>
+                <tr><td>src="file"</td><td>Source file (images, scripts)</td></tr>
+                <tr><td>alt="text"</td><td>Alternative text for images</td></tr>
+                <tr><td>title="hint"</td><td>Tooltip text on hover</td></tr>
+                <tr><td>disabled</td><td>Makes an input non-clickable</td></tr>
+                <tr><td>hidden</td><td>Hides an element completely</td></tr>
+                <tr><td>data-*="value"</td><td>Custom data stored on any element</td></tr>
+            </table>
+        </div>
+
+    </div><!-- end .cheat-grid -->
+
+    <div class="cheat-tip" style="margin-top: 2rem;">
+        <strong>Remember:</strong> Good HTML is <em>semantic</em> — use tags that describe the <em>meaning</em> of your content, not just how it looks. Use <code>&lt;strong&gt;</code> for important text, not just bold. Use <code>&lt;h1&gt;</code> only once per page!
+    </div>
+
+    <div style="text-align:center; margin-top: 3rem;">
+        <a href="Learning HTML/learninghtml.html" class="btn-primary" style="margin-right:1rem;">Back to HTML Course</a>
+        <a href="cheatsheet-css.html" class="btn-primary" style="background: linear-gradient(135deg, #3b82f6, #6366f1);">CSS Cheat Sheet →</a>
+    </div>
+
+</div>
+<script src="js/core.js"></script>
+</body>
+</html>

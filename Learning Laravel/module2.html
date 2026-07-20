@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 2: Routing | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+
+        <!-- Hero Header -->
+        <header class="module-header path-laravel">
+            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 1</span>
+            <h1>Routing 🗺️</h1>
+            <p>Define where every URL goes — the road map of your entire application!</p>
+        </header>
+
+        <!-- Analogy -->
+        <section class="content-section">
+            <h2>What is Routing?</h2>
+            <p>Every time a user visits a URL on your website, Laravel needs to know what to do. Should it show a page? Return some data? Run some code? That's exactly what routes are for!</p>
+
+            <div class="connection-box" style="border-left-color: var(--laravel-brand);">
+                <strong>The Street Signs Analogy 🚦</strong><br><br>
+                Routes are like street signs for your app. When a user visits <code>/about</code>, the route sign points them to the About controller. When they visit <code>/contact</code>, a different sign points them somewhere else. Without routes, requests would get lost and nothing would work!
+            </div>
+        </section>
+
+        <!-- Basic Routes -->
+        <section class="content-section">
+            <h2>Basic Routes in routes/web.php</h2>
+            <p>All web routes live in the file <code>routes/web.php</code>. Laravel reads this file and matches every incoming URL to the code you've defined. Let's look at three common route types:</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">// routes/web.php</span><br>
+                    <span class="code-comment">// A simple route that returns plain text</span><br>
+                    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/hello'</span>, <span class="code-keyword">function</span> () {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-string">'Hello World!'</span>;<br>
+                    });<br><br>
+                    <span class="code-comment">// A route that calls a Controller method</span><br>
+                    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/about'</span>, [<span class="code-val">AboutController</span>::<span class="code-keyword">class</span>, <span class="code-string">'index'</span>]);<br><br>
+                    <span class="code-comment">// A POST route for form submissions</span><br>
+                    <span class="code-keyword">Route</span>::<span class="code-val">post</span>(<span class="code-string">'/contact'</span>, [<span class="code-val">ContactController</span>::<span class="code-keyword">class</span>, <span class="code-string">'store'</span>]);
+                </code>
+            </div>
+
+            <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 4px solid #34d399;">
+                    <strong style="color: #34d399;">Route::get()</strong>
+                    <p style="margin: 0.3rem 0 0; font-size: 0.9rem;">Handles GET requests — when a user visits a URL in the browser. Used for showing pages.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 4px solid #6366f1;">
+                    <strong style="color: #6366f1;">Route::post()</strong>
+                    <p style="margin: 0.3rem 0 0; font-size: 0.9rem;">Handles POST requests — when a user submits a form. Used for saving data.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 4px solid #eab308;">
+                    <strong style="color: #eab308;">Route::put() / Route::delete()</strong>
+                    <p style="margin: 0.3rem 0 0; font-size: 0.9rem;">For updating and deleting resources. Used heavily in REST APIs.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Route Parameters -->
+        <section class="content-section">
+            <h2>Route Parameters — Dynamic URLs 🎯</h2>
+            <p>What if you want a URL that includes a student's ID? Like <code>/student/5</code> or <code>/student/12</code>? Route parameters let you capture that value and use it in your code!</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">// The {id} is a route parameter — it captures whatever is in the URL</span><br>
+                    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/student/{id}'</span>, <span class="code-keyword">function</span> (<span class="code-val">$id</span>) {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-string">'Showing student number: '</span> . <span class="code-val">$id</span>;<br>
+                    });<br><br>
+                    <span class="code-comment">// Multiple parameters work too!</span><br>
+                    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/class/{classId}/student/{studentId}'</span>, [<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">StudentController</span>::<span class="code-keyword">class</span>, <span class="code-string">'show'</span><br>
+                    ]);
+                </code>
+            </div>
+
+            <p>If a user visits <code>/student/7</code>, Laravel will automatically set <code>$id = 7</code> and pass it to your function or controller method. Magic!</p>
+
+            <div class="connection-box" style="border-left-color: #eab308;">
+                <strong>Optional Parameters with ?</strong><br><br>
+                Add a question mark to make a parameter optional: <code>Route::get('/student/{id?}', ...)</code>. Then set a default value in your function: <code>function($id = null)</code>.
+            </div>
+        </section>
+
+        <!-- Named Routes -->
+        <section class="content-section">
+            <h2>Named Routes — Give Your Routes a Name 🏷️</h2>
+            <p>Instead of hard-coding URLs like <code>"/about"</code> everywhere in your code, you can give routes names and use those names instead. This is incredibly useful — if you ever change a URL, you only have to change it in one place!</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">// Give a route a name using ->name()</span><br>
+                    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/home'</span>, [<span class="code-val">HomeController</span>::<span class="code-keyword">class</span>, <span class="code-string">'index'</span>])-><span class="code-val">name</span>(<span class="code-string">'home'</span>);<br><br>
+                    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/student/{id}'</span>, [<span class="code-val">StudentController</span>::<span class="code-keyword">class</span>, <span class="code-string">'show'</span>])-><span class="code-val">name</span>(<span class="code-string">'student.show'</span>);<br><br>
+                    <span class="code-comment">// In your Blade views, use route() to generate URLs by name</span><br>
+                    <span class="code-comment">// Instead of: href="/home"</span><br>
+                    <span class="code-comment">// Use:        href="{{ route('home') }}"</span><br><br>
+                    <span class="code-comment">// With parameters:</span><br>
+                    <span class="code-comment">// href="{{ route('student.show', ['id' => 5]) }}"</span>
+                </code>
+            </div>
+
+            <div class="analogy-grid" style="margin-top: 1.5rem;">
+                <div class="analogy-card active">
+                    <span class="analogy-icon">😱</span>
+                    <h3>Without Named Routes</h3>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">You write <code>href="/student/show"</code> in 20 places. You change the URL. Now you have to find and fix all 20 places!</p>
+                </div>
+                <div class="analogy-card active" style="border-color: var(--laravel-brand); background: rgba(227, 52, 47, 0.05);">
+                    <span class="analogy-icon">😌</span>
+                    <h3>With Named Routes</h3>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">You write <code>route('student.show')</code> everywhere. You change the URL in one place. Done!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Route Groups -->
+        <section class="content-section">
+            <h2>Route Groups — Organize Related Routes 📦</h2>
+            <p>When you have many routes that share the same URL prefix (like all admin pages starting with <code>/admin/</code>), you can group them together to keep things tidy.</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-comment">// All routes inside this group start with /admin/</span><br>
+                    <span class="code-keyword">Route</span>::<span class="code-val">prefix</span>(<span class="code-string">'admin'</span>)-><span class="code-val">group</span>(<span class="code-keyword">function</span> () {<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// This matches /admin/dashboard</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/dashboard'</span>, [<span class="code-val">AdminController</span>::<span class="code-keyword">class</span>, <span class="code-string">'dashboard'</span>]);<br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// This matches /admin/users</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/users'</span>, [<span class="code-val">AdminController</span>::<span class="code-keyword">class</span>, <span class="code-string">'users'</span>]);<br><br>
+                    });
+                </code>
+            </div>
+
+            <p>You can also group by middleware (we'll learn about this in the Authentication module) to protect certain routes from unauthenticated users.</p>
+        </section>
+
+        <!-- Artisan Route List -->
+        <section class="content-section">
+            <h2>Inspect Your Routes with Artisan ⚙️</h2>
+            <p>Lost track of all the routes in your app? Laravel has a command that shows you every single route — its URL, method, and which controller it calls:</p>
+
+            <div class="code-block">
+                <code>
+                    <span class="code-keyword">php artisan route:list</span>
+                </code>
+            </div>
+
+            <p>This displays a table in the terminal showing every route: the HTTP method (GET, POST, etc.), the URI (the URL pattern), and the action (which controller method handles it). Incredibly useful for debugging!</p>
+
+            <div class="connection-box" style="border-left-color: var(--laravel-brand);">
+                <strong>Pro Tip 💡</strong><br><br>
+                Try running <code>php artisan route:list --compact</code> for a shorter, cleaner output. Or filter by keyword: <code>php artisan route:list --name=student</code> to only show student-related routes.
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="content-section">
+            <h2>Quick Knowledge Check! 🧪</h2>
+            <form id="quiz-form-1" class="quiz-section" style="margin-top: 1.5rem;">
+
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q1:</strong> Where are Laravel web routes defined?</p>
+                    <label><input type="radio" name="q1" value="a"> routes/web.php</label>
+                    <label><input type="radio" name="q1" value="b"> app/routes.php</label>
+                    <label><input type="radio" name="q1" value="c"> public/routes.php</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q2:</strong> What type of requests does <code>Route::get()</code> handle?</p>
+                    <label><input type="radio" name="q2" value="a"> GET requests (visiting a URL in the browser)</label>
+                    <label><input type="radio" name="q2" value="b"> POST requests (submitting a form)</label>
+                    <label><input type="radio" name="q2" value="c"> Both GET and POST requests</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q3:</strong> How do you give a route a name in Laravel?</p>
+                    <label><input type="radio" name="q3" value="a"> ->name('route-name')</label>
+                    <label><input type="radio" name="q3" value="b"> ->label('route-name')</label>
+                    <label><input type="radio" name="q3" value="c"> ->alias('route-name')</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #e3342f, #ff6b6b);">Check Answers</button>
+            </form>
+        </section>
+
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

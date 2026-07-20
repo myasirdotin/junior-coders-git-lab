@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 4: Functions | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-php">
+            <span class="badge" style="background:white;color:var(--php-brand);">Level 2</span>
+            <h1>Functions</h1>
+            <p>Your PHP Power Tools! ⚙️</p>
+        </header>
+
+        <!-- Section 1: What is a Function? -->
+        <section class="content-section">
+            <h2>⚙️ What is a Function?</h2>
+            <p>A function is a <strong>named block of code</strong> that performs a specific task. Instead of writing the same code multiple times, you write it once inside a function and then <strong>call</strong> it whenever you need it.</p>
+
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> Think of a function like a <strong>vending machine</strong>. You press a button (call the function), put in coins (pass values), and get a snack out (receive a result). You don't need to know <em>how</em> the machine works — you just use it!</p>
+            </div>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// Step 1: DEFINE the function (build the vending machine)</span>
+<span class="code-keyword">function</span> <span class="code-val">greet</span>() {
+    <span class="code-keyword">echo</span> <span class="code-string">"Hello, welcome to PHP!"</span>;
+}
+
+<span class="code-comment">// Step 2: CALL the function (press the button)</span>
+<span class="code-val">greet</span>();  <span class="code-comment">// Output: Hello, welcome to PHP!</span>
+<span class="code-val">greet</span>();  <span class="code-comment">// Call it again — it works every time!</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Section 2: Parameters -->
+        <section class="content-section">
+            <h2>📥 Functions with Parameters</h2>
+            <p>Parameters are like <strong>inputs</strong> you give to a function. They let the function do its job with different data each time you call it.</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// Function with one parameter: $name</span>
+<span class="code-keyword">function</span> <span class="code-val">greet</span>(<span class="code-keyword">$name</span>) {
+    <span class="code-keyword">echo</span> <span class="code-string">"Hello, "</span> . <span class="code-keyword">$name</span> . <span class="code-string">"!"</span>;
+}
+
+<span class="code-val">greet</span>(<span class="code-string">"Ali"</span>);    <span class="code-comment">// Output: Hello, Ali!</span>
+<span class="code-val">greet</span>(<span class="code-string">"Sara"</span>);   <span class="code-comment">// Output: Hello, Sara!</span>
+<span class="code-val">greet</span>(<span class="code-string">"Yasir"</span>);  <span class="code-comment">// Output: Hello, Yasir!</span>
+
+<span class="code-comment">// Multiple parameters</span>
+<span class="code-keyword">function</span> <span class="code-val">addNumbers</span>(<span class="code-keyword">$a</span>, <span class="code-keyword">$b</span>) {
+    <span class="code-keyword">echo</span> <span class="code-keyword">$a</span> + <span class="code-keyword">$b</span>;
+}
+
+<span class="code-val">addNumbers</span>(<span class="code-val">10</span>, <span class="code-val">5</span>);   <span class="code-comment">// Output: 15</span>
+<span class="code-val">addNumbers</span>(<span class="code-val">100</span>, <span class="code-val">200</span>); <span class="code-comment">// Output: 300</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Section 3: Default Values -->
+        <section class="content-section">
+            <h2>🎯 Default Parameter Values</h2>
+            <p>You can give a parameter a <strong>default value</strong>. If the caller doesn't provide a value, the default is used automatically. It's like a pizza shop that uses mozzarella cheese by default unless you ask for something else!</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// $language has a default value of "PHP"</span>
+<span class="code-keyword">function</span> <span class="code-val">introduce</span>(<span class="code-keyword">$name</span>, <span class="code-keyword">$language</span> = <span class="code-string">"PHP"</span>) {
+    <span class="code-keyword">echo</span> <span class="code-string">"Hi! I am "</span> . <span class="code-keyword">$name</span> . <span class="code-string">" and I love "</span> . <span class="code-keyword">$language</span> . <span class="code-string">"!&lt;br&gt;"</span>;
+}
+
+<span class="code-val">introduce</span>(<span class="code-string">"Ali"</span>);              <span class="code-comment">// Hi! I am Ali and I love PHP!</span>
+<span class="code-val">introduce</span>(<span class="code-string">"Sara"</span>, <span class="code-string">"Python"</span>);  <span class="code-comment">// Hi! I am Sara and I love Python!</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Section 4: Return Values -->
+        <section class="content-section">
+            <h2>📤 Returning Values</h2>
+            <p>Instead of just printing, functions can <strong>return</strong> a value back to where they were called from. This lets you use the result in other calculations or save it in a variable.</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// This function RETURNS the result instead of printing it</span>
+<span class="code-keyword">function</span> <span class="code-val">multiply</span>(<span class="code-keyword">$a</span>, <span class="code-keyword">$b</span>) {
+    <span class="code-keyword">return</span> <span class="code-keyword">$a</span> * <span class="code-keyword">$b</span>;
+}
+
+<span class="code-keyword">$result</span> = <span class="code-val">multiply</span>(<span class="code-val">4</span>, <span class="code-val">5</span>);
+<span class="code-keyword">echo</span> <span class="code-keyword">$result</span>;  <span class="code-comment">// Output: 20</span>
+
+<span class="code-comment">// You can also use the return value directly</span>
+<span class="code-keyword">echo</span> <span class="code-val">multiply</span>(<span class="code-val">3</span>, <span class="code-val">7</span>);   <span class="code-comment">// Output: 21</span>
+
+<span class="code-comment">// A more practical example</span>
+<span class="code-keyword">function</span> <span class="code-val">getGrade</span>(<span class="code-keyword">$score</span>) {
+    <span class="code-keyword">if</span> (<span class="code-keyword">$score</span> >= <span class="code-val">90</span>) <span class="code-keyword">return</span> <span class="code-string">"A"</span>;
+    <span class="code-keyword">if</span> (<span class="code-keyword">$score</span> >= <span class="code-val">75</span>) <span class="code-keyword">return</span> <span class="code-string">"B"</span>;
+    <span class="code-keyword">if</span> (<span class="code-keyword">$score</span> >= <span class="code-val">60</span>) <span class="code-keyword">return</span> <span class="code-string">"C"</span>;
+    <span class="code-keyword">return</span> <span class="code-string">"F"</span>;
+}
+
+<span class="code-keyword">echo</span> <span class="code-val">getGrade</span>(<span class="code-val">88</span>);  <span class="code-comment">// Output: B</span>
+<span class="code-keyword">echo</span> <span class="code-val">getGrade</span>(<span class="code-val">95</span>);  <span class="code-comment">// Output: A</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Section 5: Variable Scope -->
+        <section class="content-section">
+            <h2>🔭 Variable Scope — Where Variables Live</h2>
+            <p>In PHP, variables created <strong>inside</strong> a function are only available <strong>inside</strong> that function. They do not exist outside. This is called <strong>local scope</strong>.</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-keyword">$planet</span> = <span class="code-string">"Earth"</span>;  <span class="code-comment">// Global variable</span>
+
+<span class="code-keyword">function</span> <span class="code-val">showPlanet</span>() {
+    <span class="code-comment">// $planet is NOT available here without 'global'</span>
+    <span class="code-keyword">echo</span> <span class="code-keyword">$planet</span>;  <span class="code-comment">// This would cause an error!</span>
+}
+
+<span class="code-keyword">function</span> <span class="code-val">showPlanetFixed</span>() {
+    <span class="code-keyword">global</span> <span class="code-keyword">$planet</span>;  <span class="code-comment">// Import the global variable</span>
+    <span class="code-keyword">echo</span> <span class="code-keyword">$planet</span>;     <span class="code-comment">// Now it works!</span>
+}
+
+<span class="code-val">showPlanetFixed</span>();  <span class="code-comment">// Output: Earth</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+
+            <div class="connection-box">
+                <p>💡 <strong>Best Practice:</strong> Rather than using <code>global</code>, it is better to <strong>pass variables as parameters</strong> and <strong>return results</strong>. This makes your code cleaner and easier to understand.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Built-in Functions -->
+        <section class="content-section">
+            <h2>🏗️ Useful Built-in PHP Functions</h2>
+            <p>PHP comes with thousands of functions already built in. Here are some you'll use all the time:</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// Math functions</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">abs</span>(-<span class="code-val">10</span>);         <span class="code-comment">// 10 (absolute value)</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">round</span>(<span class="code-val">4.6</span>);       <span class="code-comment">// 5 (round to nearest whole number)</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">max</span>(<span class="code-val">3</span>, <span class="code-val">8</span>, <span class="code-val">1</span>);    <span class="code-comment">// 8 (largest value)</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">min</span>(<span class="code-val">3</span>, <span class="code-val">8</span>, <span class="code-val">1</span>);    <span class="code-comment">// 1 (smallest value)</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">rand</span>(<span class="code-val">1</span>, <span class="code-val">100</span>);    <span class="code-comment">// Random number between 1 and 100</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">pow</span>(<span class="code-val">2</span>, <span class="code-val">8</span>);       <span class="code-comment">// 256 (2 to the power of 8)</span>
+
+<span class="code-comment">// Type checking</span>
+<span class="code-keyword">var_dump</span>(<span class="code-keyword">is_int</span>(<span class="code-val">42</span>));       <span class="code-comment">// bool(true)</span>
+<span class="code-keyword">var_dump</span>(<span class="code-keyword">is_string</span>(<span class="code-string">"Hi"</span>));  <span class="code-comment">// bool(true)</span>
+<span class="code-keyword">var_dump</span>(<span class="code-keyword">is_null</span>(<span class="code-val">null</span>));   <span class="code-comment">// bool(true)</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="content-section">
+            <h2>Quick Quiz! 🧠</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: What keyword is used to define a function in PHP?</p>
+                    <label><input type="radio" name="q1" value="a"> <code>def</code></label>
+                    <label><input type="radio" name="q1" value="b"> <code>function</code></label>
+                    <label><input type="radio" name="q1" value="c"> <code>method</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q2: What keyword sends a value back from a function?</p>
+                    <label><input type="radio" name="q2" value="a"> <code>send</code></label>
+                    <label><input type="radio" name="q2" value="b"> <code>echo</code></label>
+                    <label><input type="radio" name="q2" value="c"> <code>return</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: A variable created inside a function is by default:</p>
+                    <label><input type="radio" name="q3" value="a"> Only accessible inside that function</label>
+                    <label><input type="radio" name="q3" value="b"> Accessible everywhere in the script</label>
+                    <label><input type="radio" name="q3" value="c"> Deleted automatically after 1 second</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answers</button>
+            </div>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

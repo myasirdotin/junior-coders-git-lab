@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 7: File System | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-php">
+            <span class="badge" style="background:white;color:var(--php-brand);">Level 3</span>
+            <h1>File System</h1>
+            <p>Read and Write Files with PHP! 📁</p>
+        </header>
+
+        <!-- Section 1: Why Work with Files? -->
+        <section class="content-section">
+            <h2>📁 Why Work with Files?</h2>
+            <p>Sometimes you want data to <strong>persist</strong> — to stay saved even after the browser is closed or the server restarts. A simple way to do this in PHP is to save data to <strong>text files</strong> on the server.</p>
+
+            <div class="connection-box">
+                <p>🧠 <strong>Analogy:</strong> Think of your PHP script as a student and the file system as a <strong>notebook</strong>. PHP can open the notebook, read what's written, add new notes, or erase old ones — and the notebook keeps everything even after the student goes home!</p>
+            </div>
+
+            <div class="analogy-grid" style="margin-top: 1.5rem;">
+                <div class="analogy-card">
+                    <span class="analogy-icon">📖</span>
+                    <h3>Read a File</h3>
+                    <p>Load existing content from a file into your PHP script</p>
+                </div>
+                <div class="analogy-card">
+                    <span class="analogy-icon">✏️</span>
+                    <h3>Write to a File</h3>
+                    <p>Save new content (or replace old content) in a file</p>
+                </div>
+                <div class="analogy-card">
+                    <span class="analogy-icon">➕</span>
+                    <h3>Append to a File</h3>
+                    <p>Add new content to the <em>end</em> of an existing file</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Simple Read and Write -->
+        <section class="content-section">
+            <h2>⚡ The Easy Way: file_get_contents &amp; file_put_contents</h2>
+            <p>PHP gives us two super convenient functions for basic file operations. These are the easiest to use and perfect for beginners:</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// WRITE: Create a file and save content into it</span>
+<span class="code-comment">// If the file doesn't exist, PHP creates it automatically!</span>
+<span class="code-keyword">file_put_contents</span>(<span class="code-string">"notes.txt"</span>, <span class="code-string">"Hello, this is my first file!"</span>);
+
+<span class="code-comment">// READ: Load all the content from the file as a string</span>
+<span class="code-keyword">$content</span> = <span class="code-keyword">file_get_contents</span>(<span class="code-string">"notes.txt"</span>);
+<span class="code-keyword">echo</span> <span class="code-keyword">$content</span>;  <span class="code-comment">// Output: Hello, this is my first file!</span>
+
+<span class="code-comment">// APPEND: Add content to the END of the file (use FILE_APPEND flag)</span>
+<span class="code-keyword">file_put_contents</span>(<span class="code-string">"notes.txt"</span>, <span class="code-string">"\nA second line!"</span>, <span class="code-val">FILE_APPEND</span>);
+
+<span class="code-comment">// Read again to see both lines</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">file_get_contents</span>(<span class="code-string">"notes.txt"</span>);
+<span class="code-comment">// Hello, this is my first file!
+// A second line!</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Section 3: fopen / fwrite / fread / fclose -->
+        <section class="content-section">
+            <h2>🔧 The Advanced Way: fopen, fwrite, fread, fclose</h2>
+            <p>For more control over file operations, use the <code>fopen()</code> family of functions. Think of it like actually <strong>picking up a pen and writing</strong> step by step.</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// Step 1: OPEN the file
+// "w"  = write (creates file or clears existing content)
+// "r"  = read (file must already exist)
+// "a"  = append (add to end of file)
+// "r+" = read and write</span>
+
+<span class="code-keyword">$file</span> = <span class="code-keyword">fopen</span>(<span class="code-string">"diary.txt"</span>, <span class="code-string">"w"</span>);
+
+<span class="code-comment">// Step 2: WRITE content to the file</span>
+<span class="code-keyword">fwrite</span>(<span class="code-keyword">$file</span>, <span class="code-string">"Day 1: I started learning PHP!\n"</span>);
+<span class="code-keyword">fwrite</span>(<span class="code-keyword">$file</span>, <span class="code-string">"Day 2: I understand file handling!\n"</span>);
+
+<span class="code-comment">// Step 3: CLOSE the file (very important!)</span>
+<span class="code-keyword">fclose</span>(<span class="code-keyword">$file</span>);
+
+<span class="code-comment">// Now READ the file back</span>
+<span class="code-keyword">$reader</span> = <span class="code-keyword">fopen</span>(<span class="code-string">"diary.txt"</span>, <span class="code-string">"r"</span>);
+<span class="code-keyword">$data</span>   = <span class="code-keyword">fread</span>(<span class="code-keyword">$reader</span>, <span class="code-keyword">filesize</span>(<span class="code-string">"diary.txt"</span>));
+<span class="code-keyword">fclose</span>(<span class="code-keyword">$reader</span>);
+
+<span class="code-keyword">echo</span> <span class="code-keyword">$data</span>;
+<span class="code-comment">// Output:
+// Day 1: I started learning PHP!
+// Day 2: I understand file handling!</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+
+            <div class="connection-box">
+                <p>⚠️ <strong>Always close files!</strong> Not closing a file with <code>fclose()</code> can cause data corruption or leave the file locked. Think of it like always putting the lid back on a pen!</p>
+            </div>
+        </section>
+
+        <!-- Section 4: file_exists and unlink -->
+        <section class="content-section">
+            <h2>🔍 Checking and Deleting Files</h2>
+            <p>Before reading a file, it's smart to check if it actually exists. And sometimes you need to delete files too:</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-comment">// Check if a file exists before reading</span>
+<span class="code-keyword">if</span> (<span class="code-keyword">file_exists</span>(<span class="code-string">"notes.txt"</span>)) {
+    <span class="code-keyword">$content</span> = <span class="code-keyword">file_get_contents</span>(<span class="code-string">"notes.txt"</span>);
+    <span class="code-keyword">echo</span> <span class="code-keyword">$content</span>;
+} <span class="code-keyword">else</span> {
+    <span class="code-keyword">echo</span> <span class="code-string">"File not found!"</span>;
+}
+
+<span class="code-comment">// Delete a file (be careful — this is permanent!)</span>
+<span class="code-keyword">if</span> (<span class="code-keyword">file_exists</span>(<span class="code-string">"old-log.txt"</span>)) {
+    <span class="code-keyword">unlink</span>(<span class="code-string">"old-log.txt"</span>);
+    <span class="code-keyword">echo</span> <span class="code-string">"File deleted!"</span>;
+}
+
+<span class="code-comment">// Get the size of a file in bytes</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">filesize</span>(<span class="code-string">"notes.txt"</span>);  <span class="code-comment">// e.g. 31 bytes</span>
+<span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Section 5: Practical Example -->
+        <section class="content-section">
+            <h2>🎯 Practical Example: Save Form Data to a File</h2>
+            <p>Let's put it all together! Here is how you can build a simple form that saves messages to a text file — like a basic guestbook:</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-keyword">$logFile</span> = <span class="code-string">"messages.txt"</span>;
+
+<span class="code-keyword">if</span> (<span class="code-keyword">$_SERVER</span>[<span class="code-string">"REQUEST_METHOD"</span>] == <span class="code-string">"POST"</span>) {
+    <span class="code-keyword">$name</span>    = <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">trim</span>(<span class="code-keyword">$_POST</span>[<span class="code-string">"name"</span>]));
+    <span class="code-keyword">$message</span> = <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">trim</span>(<span class="code-keyword">$_POST</span>[<span class="code-string">"message"</span>]));
+    <span class="code-keyword">$date</span>    = <span class="code-keyword">date</span>(<span class="code-string">"Y-m-d H:i:s"</span>);
+
+    <span class="code-keyword">if</span> (!<span class="code-keyword">empty</span>(<span class="code-keyword">$name</span>) && !<span class="code-keyword">empty</span>(<span class="code-keyword">$message</span>)) {
+        <span class="code-comment">// Save to file: one entry per line</span>
+        <span class="code-keyword">$entry</span> = <span class="code-string">"[$date] $name: $message\n"</span>;
+        <span class="code-keyword">file_put_contents</span>(<span class="code-keyword">$logFile</span>, <span class="code-keyword">$entry</span>, <span class="code-val">FILE_APPEND</span>);
+        <span class="code-keyword">echo</span> <span class="code-string">"&lt;p&gt;Message saved! ✅&lt;/p&gt;"</span>;
+    }
+}
+
+<span class="code-comment">// Display all saved messages</span>
+<span class="code-keyword">if</span> (<span class="code-keyword">file_exists</span>(<span class="code-keyword">$logFile</span>)) {
+    <span class="code-keyword">echo</span> <span class="code-string">"&lt;pre&gt;"</span>;
+    <span class="code-keyword">echo</span> <span class="code-keyword">file_get_contents</span>(<span class="code-keyword">$logFile</span>);
+    <span class="code-keyword">echo</span> <span class="code-string">"&lt;/pre&gt;"</span>;
+}
+<span class="code-keyword">?&gt;</span>
+
+&lt;<span class="code-keyword">form</span> <span class="code-string">method</span>=<span class="code-string">"POST"</span>&gt;
+    &lt;<span class="code-keyword">input</span> <span class="code-string">type</span>=<span class="code-string">"text"</span>     <span class="code-string">name</span>=<span class="code-string">"name"</span>    <span class="code-string">placeholder</span>=<span class="code-string">"Your name"</span>&gt;
+    &lt;<span class="code-keyword">input</span> <span class="code-string">type</span>=<span class="code-string">"text"</span>     <span class="code-string">name</span>=<span class="code-string">"message"</span> <span class="code-string">placeholder</span>=<span class="code-string">"Your message"</span>&gt;
+    &lt;<span class="code-keyword">button</span> <span class="code-string">type</span>=<span class="code-string">"submit"</span>&gt;Save Message&lt;/<span class="code-keyword">button</span>&gt;
+&lt;/<span class="code-keyword">form</span>&gt;</code>
+            </div>
+        </section>
+
+        <!-- Section 6: Safety Notes -->
+        <section class="content-section">
+            <h2>🔒 Safety Notes about File Permissions</h2>
+
+            <div class="connection-box">
+                <p>🛡️ <strong>Security is important! Here are key safety rules:</strong></p>
+                <ul style="margin: 1rem 0 0 1.5rem; line-height: 2.2;">
+                    <li>Never let users control the <strong>filename</strong> — always use a filename you define in code</li>
+                    <li>Always use <code>htmlspecialchars()</code> on user input before saving to files</li>
+                    <li>Store sensitive files <strong>outside</strong> the web-accessible folder so they can't be downloaded directly</li>
+                    <li>On Linux/Mac servers, files need the correct <strong>permissions</strong> (chmod 644) to be writable by PHP</li>
+                    <li>Use <code>file_exists()</code> before reading to avoid errors</li>
+                </ul>
+            </div>
+
+            <div style="overflow-x: auto; margin-top: 1.5rem;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                    <thead>
+                        <tr style="background: var(--php-brand); color: white;">
+                            <th style="padding: 0.75rem 1rem; text-align: left;">Function</th>
+                            <th style="padding: 0.75rem 1rem; text-align: left;">What it does</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>file_get_contents()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Read entire file as a string</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>file_put_contents()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Write (or overwrite) a file</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>fopen()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Open a file for reading/writing</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>fwrite()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Write to an opened file</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>fread()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Read content from an opened file</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>fclose()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Close an opened file</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-dim);">
+                            <td style="padding: 0.75rem 1rem;"><code>file_exists()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Check if a file exists</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem 1rem;"><code>unlink()</code></td>
+                            <td style="padding: 0.75rem 1rem;">Delete a file permanently</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="content-section">
+            <h2>Quick Quiz! 🧠</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Which function quickly writes content to a file in PHP?</p>
+                    <label><input type="radio" name="q1" value="a"> <code>fwrite()</code></label>
+                    <label><input type="radio" name="q1" value="b"> <code>file_put_contents()</code></label>
+                    <label><input type="radio" name="q1" value="c"> <code>save_file()</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q2: What does <code>unlink("file.txt")</code> do?</p>
+                    <label><input type="radio" name="q2" value="a"> Opens the file for reading</label>
+                    <label><input type="radio" name="q2" value="b"> Renames the file</label>
+                    <label><input type="radio" name="q2" value="c"> Permanently deletes the file</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: To add content to the END of a file without erasing what's there, which flag do you pass to <code>file_put_contents()</code>?</p>
+                    <label><input type="radio" name="q3" value="a"> <code>FILE_APPEND</code></label>
+                    <label><input type="radio" name="q3" value="b"> <code>FILE_ADD</code></label>
+                    <label><input type="radio" name="q3" value="c"> <code>APPEND_MODE</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answers</button>
+            </div>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

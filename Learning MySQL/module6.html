@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 6: Advanced Queries | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-mysql">
+            <span class="badge" style="background: white; color: var(--mysql-brand);">Level 3</span>
+            <h1>Power Queries</h1>
+            <p>Aggregate and Analyze Your Data! 📊</p>
+        </header>
+
+        <section class="content-section">
+            <h2>Aggregate Functions — Math on Your Data</h2>
+            <p>Aggregate functions perform calculations on a group of rows and return a single result. They're like a calculator built right into SQL!</p>
+
+            <div style="overflow-x: auto; margin: 1.5rem 0;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 1rem; text-align: left;">Function</th>
+                            <th style="padding: 1rem; text-align: left;">What it Does</th>
+                            <th style="padding: 1rem; text-align: left;">Example Use</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">COUNT()</code></td>
+                            <td style="padding: 0.9rem 1rem;">Count the number of rows</td>
+                            <td style="padding: 0.9rem 1rem;">How many students are enrolled?</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">SUM()</code></td>
+                            <td style="padding: 0.9rem 1rem;">Add up all values in a column</td>
+                            <td style="padding: 0.9rem 1rem;">Total score of all students</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">AVG()</code></td>
+                            <td style="padding: 0.9rem 1rem;">Calculate the average</td>
+                            <td style="padding: 0.9rem 1rem;">Average age of students</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">MIN()</code></td>
+                            <td style="padding: 0.9rem 1rem;">Find the smallest value</td>
+                            <td style="padding: 0.9rem 1rem;">Lowest score in class</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand); font-weight: 700;">MAX()</code></td>
+                            <td style="padding: 0.9rem 1rem;">Find the largest value</td>
+                            <td style="padding: 0.9rem 1rem;">Highest score in class</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>COUNT() — Count Your Rows</h2>
+            <div class="code-block">
+                <code><span class="code-comment">-- How many students are in the table?</span>
+<span class="code-keyword">SELECT</span> <span class="code-keyword">COUNT</span>(*) <span class="code-keyword">FROM</span> students;
+<span class="code-comment">-- Result: 5</span>
+
+<span class="code-comment">-- How many students have grade 'A'?</span>
+<span class="code-keyword">SELECT</span> <span class="code-keyword">COUNT</span>(*) <span class="code-keyword">FROM</span> students <span class="code-keyword">WHERE</span> grade = <span class="code-string">'A'</span>;
+<span class="code-comment">-- Result: 2</span></code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>SUM(), AVG(), MIN(), MAX()</h2>
+            <div class="code-block">
+                <code><span class="code-comment">-- Total score of all students in the grades table</span>
+<span class="code-keyword">SELECT</span> <span class="code-keyword">SUM</span>(score) <span class="code-keyword">FROM</span> grades;
+<span class="code-comment">-- Result: 360 (95 + 88 + 99 + 78)</span>
+
+<span class="code-comment">-- Average score across all grades</span>
+<span class="code-keyword">SELECT</span> <span class="code-keyword">AVG</span>(score) <span class="code-keyword">FROM</span> grades;
+<span class="code-comment">-- Result: 90</span>
+
+<span class="code-comment">-- Lowest and highest score</span>
+<span class="code-keyword">SELECT</span> <span class="code-keyword">MIN</span>(score), <span class="code-keyword">MAX</span>(score) <span class="code-keyword">FROM</span> grades;
+<span class="code-comment">-- Result: 78 | 99</span>
+
+<span class="code-comment">-- Average age of all students</span>
+<span class="code-keyword">SELECT</span> <span class="code-keyword">AVG</span>(age) <span class="code-keyword">FROM</span> students;
+<span class="code-comment">-- Result: 12.8</span></code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>GROUP BY — Analyze by Category</h2>
+            <p><strong>GROUP BY</strong> groups rows that share the same value in a column, then lets you run aggregate functions on each group. It's how you answer questions like "How many students are in each grade?"</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Count how many students have each grade</span>
+<span class="code-keyword">SELECT</span> grade, <span class="code-keyword">COUNT</span>(*) <span class="code-keyword">AS</span> total_students
+<span class="code-keyword">FROM</span> students
+<span class="code-keyword">GROUP BY</span> grade;</code>
+            </div>
+
+            <p style="margin-top: 1rem;">Result:</p>
+            <div style="overflow-x: auto; margin: 1rem 0 2rem; max-width: 350px;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 0.8rem 1rem; text-align: left;">grade</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">total_students</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.8rem 1rem; font-weight: 700; color: #10b981;">A</td>
+                            <td style="padding: 0.8rem 1rem;">2</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
+                            <td style="padding: 0.8rem 1rem; font-weight: 700; color: #10b981;">A+</td>
+                            <td style="padding: 0.8rem 1rem;">1</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.8rem 1rem; font-weight: 700; color: #f59e0b;">B+</td>
+                            <td style="padding: 0.8rem 1rem;">1</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.8rem 1rem; font-weight: 700; color: #f59e0b;">B</td>
+                            <td style="padding: 0.8rem 1rem;">1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Average score per subject in the grades table</span>
+<span class="code-keyword">SELECT</span> subject, <span class="code-keyword">AVG</span>(score) <span class="code-keyword">AS</span> avg_score
+<span class="code-keyword">FROM</span> grades
+<span class="code-keyword">GROUP BY</span> subject;</code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>HAVING — Filter After GROUP BY</h2>
+            <p><strong>HAVING</strong> is like WHERE, but it filters <em>after</em> GROUP BY has run. You need it to filter on aggregate results (like COUNT, SUM).</p>
+
+            <div style="overflow-x: auto; margin: 1.5rem 0; max-width: 600px;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 0.8rem; text-align: left;">WHERE</th>
+                            <th style="padding: 0.8rem; text-align: left;">HAVING</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.8rem;">Filters individual rows BEFORE grouping</td>
+                            <td style="padding: 0.8rem;">Filters groups AFTER GROUP BY runs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Only show grades that have MORE than 1 student</span>
+<span class="code-keyword">SELECT</span> grade, <span class="code-keyword">COUNT</span>(*) <span class="code-keyword">AS</span> total
+<span class="code-keyword">FROM</span> students
+<span class="code-keyword">GROUP BY</span> grade
+<span class="code-keyword">HAVING</span> <span class="code-keyword">COUNT</span>(*) &gt; <span class="code-val">1</span>;</code>
+            </div>
+
+            <p style="margin-top: 1rem;">Result (only grade 'A' has 2 students — the rest have 1):</p>
+            <div style="overflow-x: auto; margin: 1rem 0 2rem; max-width: 300px;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 0.8rem 1rem; text-align: left;">grade</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 0.8rem 1rem; color: #10b981; font-weight: 700;">A</td>
+                            <td style="padding: 0.8rem 1rem;">2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>LIKE — Pattern Matching</h2>
+            <p>The <strong>LIKE</strong> operator searches for a pattern in text. Use <code>%</code> as a wildcard (matches any characters).</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Find all students whose name STARTS with 'A'</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">WHERE</span> name <span class="code-keyword">LIKE</span> <span class="code-string">'A%'</span>;
+<span class="code-comment">-- Matches: Ali Hassan, Aisha Malik</span>
+
+<span class="code-comment">-- Find students whose name ENDS with 'Khan'</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">WHERE</span> name <span class="code-keyword">LIKE</span> <span class="code-string">'%Khan'</span>;
+<span class="code-comment">-- Matches: Sara Khan</span>
+
+<span class="code-comment">-- Find students whose name CONTAINS 'ali' anywhere</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">WHERE</span> name <span class="code-keyword">LIKE</span> <span class="code-string">'%ali%'</span>;
+<span class="code-comment">-- Matches: Ali Hassan, Aisha Malik</span></code>
+            </div>
+
+            <div style="margin: 1.5rem 0; padding: 1.25rem 1.5rem; background: rgba(0,180,216,0.08); border-left: 4px solid var(--mysql-brand); border-radius: 0 1rem 1rem 0;">
+                <strong>LIKE Pattern Cheat Sheet:</strong>
+                <ul style="margin-top: 0.75rem; padding-left: 1.5rem; display: flex; flex-direction: column; gap: 0.4rem;">
+                    <li><code>'A%'</code> — starts with A</li>
+                    <li><code>'%n'</code> — ends with n</li>
+                    <li><code>'%ali%'</code> — contains "ali" anywhere</li>
+                    <li><code>'A_i'</code> — A, then any one character, then i (e.g. "Ali")</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>IN — Match a List of Values</h2>
+            <p>The <strong>IN</strong> operator checks if a value matches any value in a list. It's cleaner than writing multiple OR conditions.</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Get students with grade A or A+</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students
+<span class="code-keyword">WHERE</span> grade <span class="code-keyword">IN</span> (<span class="code-string">'A'</span>, <span class="code-string">'A+'</span>);
+
+<span class="code-comment">-- Same thing with OR (harder to read!)</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students
+<span class="code-keyword">WHERE</span> grade = <span class="code-string">'A'</span> <span class="code-keyword">OR</span> grade = <span class="code-string">'A+'</span>;</code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>BETWEEN — Range Filtering</h2>
+            <p>The <strong>BETWEEN</strong> operator filters values within a range (inclusive — it includes the start and end values).</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Get students aged 11 to 13 (includes 11 and 13)</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students
+<span class="code-keyword">WHERE</span> age <span class="code-keyword">BETWEEN</span> <span class="code-val">11</span> <span class="code-keyword">AND</span> <span class="code-val">13</span>;
+
+<span class="code-comment">-- Get grades recorded in September 2024</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students
+<span class="code-keyword">WHERE</span> enrolled_at <span class="code-keyword">BETWEEN</span> <span class="code-string">'2024-09-01'</span> <span class="code-keyword">AND</span> <span class="code-string">'2024-09-30'</span>;</code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Subqueries — A Query Inside a Query</h2>
+            <p>A <strong>subquery</strong> is a SELECT statement nested inside another query. It's like asking two questions at once!</p>
+
+            <div class="code-block">
+                <code><span class="code-comment">-- Find all students older than the average age</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students
+<span class="code-keyword">WHERE</span> age &gt; (
+    <span class="code-keyword">SELECT</span> <span class="code-keyword">AVG</span>(age) <span class="code-keyword">FROM</span> students
+);
+<span class="code-comment">-- The inner query calculates average age (12.8)
+-- The outer query gets students older than 12.8 (so age 13 or 14)</span>
+
+<span class="code-comment">-- Find students who have at least one grade recorded</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students
+<span class="code-keyword">WHERE</span> id <span class="code-keyword">IN</span> (
+    <span class="code-keyword">SELECT</span> student_id <span class="code-keyword">FROM</span> grades
+);</code>
+            </div>
+
+            <p style="margin-top: 1.5rem;">The inner query (in parentheses) runs first, then the outer query uses its result. Very powerful once you master it!</p>
+        </section>
+
+        <section class="content-section">
+            <h2>Putting it All Together</h2>
+            <p>Here's a "real world" query combining everything from this module. This finds subjects where the average score is above 85:</p>
+
+            <div class="code-block">
+                <code><span class="code-keyword">SELECT</span>
+    subject,
+    <span class="code-keyword">COUNT</span>(*) <span class="code-keyword">AS</span> students_tested,
+    <span class="code-keyword">AVG</span>(score)  <span class="code-keyword">AS</span> avg_score,
+    <span class="code-keyword">MAX</span>(score)  <span class="code-keyword">AS</span> top_score
+<span class="code-keyword">FROM</span> grades
+<span class="code-keyword">GROUP BY</span> subject
+<span class="code-keyword">HAVING</span> <span class="code-keyword">AVG</span>(score) &gt; <span class="code-val">85</span>
+<span class="code-keyword">ORDER BY</span> avg_score <span class="code-keyword">DESC</span>;</code>
+            </div>
+
+            <p style="margin-top: 1rem;">Result:</p>
+            <div style="overflow-x: auto; margin: 1rem 0;">
+                <table style="width: 100%; border-collapse: collapse; background: rgba(0,180,216,0.05); border-radius: 1rem; overflow: hidden; max-width: 550px;">
+                    <thead>
+                        <tr style="background: linear-gradient(135deg, #0077b6, #00b4d8); color: white;">
+                            <th style="padding: 0.8rem 1rem; text-align: left;">subject</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">students_tested</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">avg_score</th>
+                            <th style="padding: 0.8rem 1rem; text-align: left;">top_score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
+                            <td style="padding: 0.8rem 1rem;">Math</td>
+                            <td style="padding: 0.8rem 1rem;">2</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981; font-weight: 700;">97</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981; font-weight: 700;">99</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.8rem 1rem;">Science</td>
+                            <td style="padding: 0.8rem 1rem;">1</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981; font-weight: 700;">88</td>
+                            <td style="padding: 0.8rem 1rem; color: #10b981; font-weight: 700;">88</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="font-style: italic; color: var(--text-muted);">(English avg is 78, so it's excluded by the HAVING filter)</p>
+        </section>
+
+        <section class="content-section" style="border-top: 5px solid var(--mysql-brand);">
+            <h2>Quick Quiz!</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: What does COUNT(*) do?</p>
+                    <label><input type="radio" name="q1" value="a"> Counts the total number of rows in a result</label>
+                    <label><input type="radio" name="q1" value="b"> Sums up all the values in a numeric column</label>
+                    <label><input type="radio" name="q1" value="c"> Calculates the average of all values in a column</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: GROUP BY groups rows by what?</p>
+                    <label><input type="radio" name="q2" value="a"> The unique values in a specified column</label>
+                    <label><input type="radio" name="q2" value="b"> The row number in the table</label>
+                    <label><input type="radio" name="q2" value="c"> The name of the table being queried</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: In LIKE 'A%', what does the pattern mean?</p>
+                    <label><input type="radio" name="q3" value="a"> The value starts with the letter A</label>
+                    <label><input type="radio" name="q3" value="b"> The value ends with the letter A</label>
+                    <label><input type="radio" name="q3" value="c"> The value contains the letter A anywhere</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">Check Answers</button>
+            </div>
+        </section>
+
+        <section class="content-section" style="text-align: center;">
+            <h2>🎉 Course Complete! You're a Database Developer!</h2>
+            <p>You've finished all 6 modules of Database Quest. You can now:</p>
+            <ul style="list-style: none; padding: 0; margin: 1.5rem auto; max-width: 500px; display: flex; flex-direction: column; gap: 0.6rem; text-align: left;">
+                <li>✅ Create databases and tables with the right data types</li>
+                <li>✅ Insert, read, update, and delete data (full CRUD)</li>
+                <li>✅ Join multiple tables together</li>
+                <li>✅ Use aggregate functions and GROUP BY to analyze data</li>
+                <li>✅ Filter with WHERE, HAVING, LIKE, IN, and BETWEEN</li>
+                <li>✅ Write subqueries for complex questions</li>
+            </ul>
+            <a href="learningmysql.html" class="btn-primary" style="background: linear-gradient(135deg, #0077b6, #00b4d8); margin-top: 1rem;">Back to Course Home</a>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>

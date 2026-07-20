@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 5: Eloquent ORM | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-laravel">
+            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 5</span>
+            <h1>Eloquent ORM 🗣️</h1>
+            <p>Talk to your database in plain PHP — no SQL required!</p>
+        </header>
+
+        <section class="content-section">
+            <h2>What is Eloquent?</h2>
+            <p>Eloquent is Laravel's built-in ORM (Object-Relational Mapper). It lets you interact with your database tables using PHP classes instead of raw SQL queries. Each database table has a corresponding <strong>Model</strong> class.</p>
+
+            <div class="connection-box" style="border-left-color: var(--laravel-brand);">
+                <strong>The Filing Cabinet Analogy 🗄️</strong><br><br>
+                Think of your database as a giant filing cabinet. Each drawer is a table (like "students"). Eloquent is your super-smart assistant — instead of manually searching through files (writing SQL), you just say "get me all students with grade A" and your assistant does the digging for you!
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Creating a Model 🏗️</h2>
+            <p>Generate a model with the Artisan command. By convention, if your table is called <code>students</code>, your model is called <code>Student</code> (singular, CamelCase).</p>
+
+            <div class="code-block">
+<code><span class="code-comment"># Create a model</span>
+php artisan make:model Student
+
+<span class="code-comment"># Create a model AND a migration at the same time</span>
+php artisan make:model Student -m</code>
+            </div>
+
+            <p>The generated model is clean and minimal — Eloquent handles everything automatically:</p>
+
+            <div class="code-block">
+<code><span class="code-keyword">&lt;?php</span>
+<span class="code-keyword">namespace</span> App\Models;
+<span class="code-keyword">use</span> Illuminate\Database\Eloquent\Model;
+
+<span class="code-keyword">class</span> <span class="code-val">Student</span> <span class="code-keyword">extends</span> <span class="code-val">Model</span> {
+    <span class="code-comment">// Eloquent automatically uses the 'students' table</span>
+    <span class="code-comment">// It also handles created_at and updated_at timestamps</span>
+
+    <span class="code-comment">// List columns that can be mass-assigned (saved via forms)</span>
+    <span class="code-keyword">protected</span> <span class="code-val">$fillable</span> = [<span class="code-string">'name'</span>, <span class="code-string">'grade'</span>, <span class="code-string">'email'</span>];
+}</code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>CRUD with Eloquent ⚡</h2>
+            <p>Eloquent makes all four database operations (Create, Read, Update, Delete) clean and intuitive:</p>
+
+            <h3 style="color: #10b981; margin-top: 1.5rem;">📖 Read</h3>
+            <div class="code-block">
+<code><span class="code-comment">// Get ALL students</span>
+<span class="code-val">$students</span> = <span class="code-val">Student</span>::<span class="code-val">all</span>();
+
+<span class="code-comment">// Find a student by their primary key (id)</span>
+<span class="code-val">$student</span> = <span class="code-val">Student</span>::<span class="code-val">find</span>(<span class="code-val">1</span>);
+
+<span class="code-comment">// Find or throw a 404 error if not found</span>
+<span class="code-val">$student</span> = <span class="code-val">Student</span>::<span class="code-val">findOrFail</span>(<span class="code-val">5</span>);
+
+<span class="code-comment">// Query with conditions</span>
+<span class="code-val">$topStudents</span> = <span class="code-val">Student</span>::<span class="code-val">where</span>(<span class="code-string">'grade'</span>, <span class="code-string">'A'</span>)
+                          -&gt;<span class="code-val">orderBy</span>(<span class="code-string">'name'</span>)
+                          -&gt;<span class="code-val">get</span>();</code>
+            </div>
+
+            <h3 style="color: #6366f1; margin-top: 1.5rem;">✏️ Create</h3>
+            <div class="code-block">
+<code><span class="code-comment">// Method 1: create() — uses $fillable for safety</span>
+<span class="code-val">Student</span>::<span class="code-val">create</span>([
+    <span class="code-string">'name'</span>  =&gt; <span class="code-string">'Ali Khan'</span>,
+    <span class="code-string">'grade'</span> =&gt; <span class="code-string">'A'</span>,
+    <span class="code-string">'email'</span> =&gt; <span class="code-string">'ali@school.com'</span>,
+]);
+
+<span class="code-comment">// Method 2: new + save()</span>
+<span class="code-val">$s</span> = <span class="code-keyword">new</span> <span class="code-val">Student</span>();
+<span class="code-val">$s</span>-&gt;<span class="code-val">name</span> = <span class="code-string">'Sara'</span>;
+<span class="code-val">$s</span>-&gt;<span class="code-val">save</span>();</code>
+            </div>
+
+            <h3 style="color: #eab308; margin-top: 1.5rem;">🔄 Update</h3>
+            <div class="code-block">
+<code><span class="code-val">$student</span> = <span class="code-val">Student</span>::<span class="code-val">find</span>(<span class="code-val">1</span>);
+<span class="code-val">$student</span>-&gt;<span class="code-val">grade</span> = <span class="code-string">'A+'</span>;
+<span class="code-val">$student</span>-&gt;<span class="code-val">save</span>();
+
+<span class="code-comment">// Or in one line:</span>
+<span class="code-val">Student</span>::<span class="code-val">where</span>(<span class="code-string">'name'</span>, <span class="code-string">'Ali'</span>)-&gt;<span class="code-val">update</span>([<span class="code-string">'grade'</span> =&gt; <span class="code-string">'A+'</span>]);</code>
+            </div>
+
+            <h3 style="color: #f43f5e; margin-top: 1.5rem;">🗑️ Delete</h3>
+            <div class="code-block">
+<code><span class="code-val">$student</span> = <span class="code-val">Student</span>::<span class="code-val">find</span>(<span class="code-val">1</span>);
+<span class="code-val">$student</span>-&gt;<span class="code-val">delete</span>();
+
+<span class="code-comment">// Or delete by condition:</span>
+<span class="code-val">Student</span>::<span class="code-val">where</span>(<span class="code-string">'grade'</span>, <span class="code-string">'F'</span>)-&gt;<span class="code-val">delete</span>();</code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Relationships 🔗</h2>
+            <p>Eloquent makes database relationships elegant. A student can belong to a class, a class can have many students:</p>
+
+            <div class="code-block">
+<code><span class="code-comment">// In Student model — student belongs to one Classroom</span>
+<span class="code-keyword">public function</span> <span class="code-val">classroom</span>() {
+    <span class="code-keyword">return</span> <span class="code-val">$this</span>-&gt;<span class="code-val">belongsTo</span>(<span class="code-val">Classroom</span>::<span class="code-keyword">class</span>);
+}
+
+<span class="code-comment">// In Classroom model — classroom has many Students</span>
+<span class="code-keyword">public function</span> <span class="code-val">students</span>() {
+    <span class="code-keyword">return</span> <span class="code-val">$this</span>-&gt;<span class="code-val">hasMany</span>(<span class="code-val">Student</span>::<span class="code-keyword">class</span>);
+}
+
+<span class="code-comment">// Usage — get a student's classroom name</span>
+<span class="code-val">$student</span> = <span class="code-val">Student</span>::<span class="code-val">find</span>(<span class="code-val">1</span>);
+<span class="code-keyword">echo</span> <span class="code-val">$student</span>-&gt;<span class="code-val">classroom</span>-&gt;<span class="code-val">name</span>;
+
+<span class="code-comment">// Get all students in classroom 1</span>
+<span class="code-val">$class</span> = <span class="code-val">Classroom</span>::<span class="code-val">find</span>(<span class="code-val">1</span>);
+<span class="code-val">$students</span> = <span class="code-val">$class</span>-&gt;<span class="code-val">students</span>;</code>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <h2>Quick Quiz! 🧪</h2>
+            <form id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p><strong>Q1:</strong> What does <code>Student::all()</code> return?</p>
+                    <label><input type="radio" name="q1" value="a"> The first student record</label>
+                    <label><input type="radio" name="q1" value="b"> A collection of all student records</label>
+                    <label><input type="radio" name="q1" value="c"> A count of students</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p><strong>Q2:</strong> Why do we list columns in <code>$fillable</code>?</p>
+                    <label><input type="radio" name="q2" value="a"> To protect against mass-assignment vulnerabilities</label>
+                    <label><input type="radio" name="q2" value="b"> To make queries run faster</label>
+                    <label><input type="radio" name="q2" value="c"> To define which columns are visible</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p><strong>Q3:</strong> Which method finds a record by ID and throws a 404 if not found?</p>
+                    <label><input type="radio" name="q3" value="a"> <code>find()</code></label>
+                    <label><input type="radio" name="q3" value="b"> <code>first()</code></label>
+                    <label><input type="radio" name="q3" value="c"> <code>findOrFail()</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: linear-gradient(135deg, #e3342f, #ff6b6b);">Check Answers</button>
+            </form>
+        </section>
+    </main>
+    <script src="../js/core.js"></script>
+</body>
+</html>
