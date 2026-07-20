@@ -30,7 +30,6 @@
             ],
             'Learning CSS': [
                 { name: 'Lessons', url: 'learningcss.html' },
-<<<<<<< HEAD
                 { name: '1: Intro to CSS', url: 'module1.html' },
                 { name: '2: Colors & Text', url: 'module2.html' },
                 { name: '3: Box Model', url: 'module3.html' },
@@ -39,16 +38,6 @@
                 { name: '6: Advanced Flexbox', url: 'module6.html' },
                 { name: '7: CSS Grid', url: 'module7.html' },
                 { name: '8: Responsive Design', url: 'module8.html' },
-=======
-                { name: '1: Intro CSS', url: 'module1.html' },
-                { name: '2: Colors & Text', url: 'module2.html' },
-                { name: '3: Box Model', url: 'module3.html' },
-                { name: '4: Positioning', url: 'module4.html' },
-                { name: '5: Flexbox', url: 'module5.html' },
-                { name: '6: Adv. Flexbox', url: 'module6.html' },
-                { name: '7: CSS Grid', url: 'module7.html' },
-                { name: '8: Responsive', url: 'module8.html' },
->>>>>>> 195b486c0a0dc858483299c78fa3fd95fad8039a
                 { name: 'Playground', url: 'playground.html' },
                 { name: 'Exercises', url: 'exercises.html' },
                 { name: 'Glossary', url: 'glossary.html' },
@@ -354,15 +343,11 @@
                 </button>
                 <div class="nav-links" id="nav-links">
                     ${linksHtml}
-<<<<<<< HEAD
-                    <button class="theme-toggle btn-icon" type="button" aria-label="Toggle colour theme" title="Toggle Theme">🌓</button>
-=======
                     <div class="nav-search" id="nav-search">
                         <input type="text" placeholder="🔍 Search…" class="nav-search-input" id="nav-search-input" autocomplete="off" aria-label="Search courses and modules">
                         <div class="nav-search-results" id="nav-search-results"></div>
                     </div>
-                    <button class="theme-toggle btn-icon" title="Toggle Theme" aria-label="Toggle theme">🌓</button>
->>>>>>> 195b486c0a0dc858483299c78fa3fd95fad8039a
+                    <button class="theme-toggle btn-icon" type="button" aria-label="Toggle colour theme" title="Toggle Theme">🌓</button>
                 </div>
             </div>
         `;
@@ -397,7 +382,7 @@
                     <span class="tab-icon">🏠</span>
                     <span>Home</span>
                 </a>
-                <a href="${cheatUrl}" class="tab-item ${currentPath === cheatUrl ? 'active' : ''}">
+                <a href="${baseUrl}${cheatUrl}" class="tab-item ${currentPath === cheatUrl ? 'active' : ''}">
                     <span class="tab-icon">📋</span>
                     <span>Cheat Sheet</span>
                 </a>
@@ -423,12 +408,14 @@
         // Mobile Menu Toggle Logic
         const toggle = document.getElementById('mobile-toggle');
         const navLinks = document.getElementById('nav-links');
-        const dropdownBtn = document.getElementById('modules-dropdown-btn');
+        const dropdownButtons = nav.querySelectorAll('.nav-dropdown-btn');
 
         const closeMenu = () => {
             toggle?.classList.remove('active');
             navLinks?.classList.remove('open');
             toggle?.setAttribute('aria-expanded', 'false');
+            nav.querySelectorAll('.nav-dropdown.active').forEach(dropdown => dropdown.classList.remove('active'));
+            dropdownButtons.forEach(button => button.setAttribute('aria-expanded', 'false'));
             document.body.style.overflow = '';
         };
         
@@ -439,34 +426,28 @@
             document.body.style.overflow = isOpen ? 'hidden' : '';
         });
 
-<<<<<<< HEAD
-        // Dropdown toggle for mobile
-        dropdownBtn?.setAttribute('aria-expanded', 'false');
-        dropdownBtn?.setAttribute('aria-haspopup', 'true');
-        dropdownBtn?.addEventListener('click', (e) => {
-            if (window.innerWidth <= 1024) {
-                e.preventDefault();
-                const isOpen = dropdownBtn.parentElement.classList.toggle('active');
-                dropdownBtn.setAttribute('aria-expanded', String(isOpen));
-=======
-        // Dropdown toggle — works on ALL screen sizes (click toggles, outside click closes)
-        nav.querySelectorAll('.nav-dropdown-btn').forEach(btn => {
+        // One interaction model works on both touch and pointer devices.
+        dropdownButtons.forEach(btn => {
+            btn.setAttribute('aria-expanded', 'false');
+            btn.setAttribute('aria-haspopup', 'true');
             btn.addEventListener('click', (e) => {
                 e.preventDefault();
                 e.stopPropagation();
                 const parent = btn.parentElement;
                 const isOpen = parent.classList.contains('active');
-                // Close every other open dropdown first
-                nav.querySelectorAll('.nav-dropdown.active').forEach(d => d.classList.remove('active'));
-                if (!isOpen) parent.classList.add('active');
+                nav.querySelectorAll('.nav-dropdown.active').forEach(dropdown => dropdown.classList.remove('active'));
+                dropdownButtons.forEach(button => button.setAttribute('aria-expanded', 'false'));
+                if (!isOpen) {
+                    parent.classList.add('active');
+                    btn.setAttribute('aria-expanded', 'true');
+                }
             });
         });
 
-        // Close dropdowns when clicking anywhere outside
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.nav-dropdown')) {
-                nav.querySelectorAll('.nav-dropdown.active').forEach(d => d.classList.remove('active'));
->>>>>>> 195b486c0a0dc858483299c78fa3fd95fad8039a
+                nav.querySelectorAll('.nav-dropdown.active').forEach(dropdown => dropdown.classList.remove('active'));
+                dropdownButtons.forEach(button => button.setAttribute('aria-expanded', 'false'));
             }
         });
 
@@ -479,8 +460,6 @@
             if (e.key !== 'Escape') return;
 
             closeMenu();
-            dropdownBtn?.parentElement.classList.remove('active');
-            dropdownBtn?.setAttribute('aria-expanded', 'false');
             toggle?.focus();
         });
 
