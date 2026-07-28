@@ -482,16 +482,19 @@ p {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(4px);
-    z-index: 1040;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    z-index: 1041;  /* must be BELOW nav-links (1060) but above page content */
     opacity: 0;
     transition: opacity 0.35s;
+    pointer-events: none; /* prevent backdrop from blocking drawer link clicks */
 }
 
 .nav-backdrop.visible {
     display: block;
     opacity: 1;
+    pointer-events: auto; /* clickable to close menu — but drawer is above it */
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -518,11 +521,12 @@ p {
         padding: 80px 1.25rem 2rem;
         transition: right 0.38s cubic-bezier(0.4, 0, 0.2, 1),
             box-shadow 0.38s;
-        z-index: 1050;
+        z-index: 1060; /* ABOVE backdrop (1041) so links are always clickable */
         overflow-y: auto;
         overflow-x: hidden;
         gap: 0.15rem;
         border-left: 1px solid rgba(99, 102, 241, 0.2);
+        isolation: isolate; /* create own stacking context, immune to backdrop blur */
     }
 
     [data-theme="light"] .nav-links {
