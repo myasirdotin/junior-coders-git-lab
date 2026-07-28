@@ -524,6 +524,7 @@ p {
         z-index: 1060; /* ABOVE backdrop (1041) so links are always clickable */
         overflow-y: auto;
         overflow-x: hidden;
+        -webkit-overflow-scrolling: touch; /* smooth iOS momentum scroll */
         gap: 0.15rem;
         border-left: 1px solid rgba(99, 102, 241, 0.2);
         isolation: isolate; /* create own stacking context, immune to backdrop blur */

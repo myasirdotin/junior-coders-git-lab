@@ -511,6 +511,7 @@
         });
 
         backdrop.addEventListener('click', closeMenu);
+        backdrop.addEventListener('touchstart', closeMenu, { passive: true }); // iOS Safari fix
 
         // ── Dropdown toggle (desktop click + mobile) ──
         dropdownButtons.forEach(btn => {
