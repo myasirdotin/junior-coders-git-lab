@@ -406,6 +406,7 @@
                     <div class="nav-mobile-actions" style="display:none;">
                         <span style="font-size:0.85rem; color:var(--text-muted); font-weight:600;">Switch Theme</span>
                         <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle Theme">🌓</button>
+                        <button class="reading-mode-toggle" type="button" aria-label="Toggle reading mode" title="Reading Mode">📖 Read Mode</button>
                     </div>
                 </div>
                 <div class="nav-right">
@@ -413,8 +414,10 @@
                         <input type="text" placeholder="🔍 Search…" class="nav-search-input" id="nav-search-input-desktop" autocomplete="off" aria-label="Search courses and modules">
                         <div class="nav-search-results" id="nav-search-results-desktop"></div>
                     </div>
+                    <button class="reading-mode-toggle" type="button" aria-label="Toggle reading mode" title="Distraction-Free Reading Mode">📖 Read Mode</button>
                     <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle Theme">🌓</button>
                 </div>
+
             </div>
         `;
 
@@ -990,7 +993,11 @@
                 <span></span><span></span><span></span>
             </div>
             <span class="speaker-status" id="speaker-status-text">Listen to this lesson</span>
+            <button type="button" class="reading-mode-btn" id="speaker-read-mode-btn" title="Toggle Distraction-Free Reading Mode">
+                <span>📖</span> Reading Mode
+            </button>
         `;
+
 
         if (header) {
             header.appendChild(toolbar);
@@ -1068,6 +1075,173 @@
         });
     }
 
+    // --- Reading Mode (Distraction-Free Focus & Typography Engine) ---
+    function initReadingMode() {
+        const STORAGE_KEY_THEME = 'jc_rm_theme';
+        const STORAGE_KEY_SIZE = 'jc_rm_size';
+        const STORAGE_KEY_FONT = 'jc_rm_font';
+
+        let currentTheme = localStorage.getItem(STORAGE_KEY_THEME) || 'theme-dark';
+        let currentSize = parseFloat(localStorage.getItem(STORAGE_KEY_SIZE)) || 1.15;
+        let currentFont = localStorage.getItem(STORAGE_KEY_FONT) || 'font-sans';
+
+        // 1. Create top scroll progress bar
+        let progressBar = document.getElementById('reading-progress-bar');
+        if (!progressBar) {
+            progressBar = document.createElement('div');
+            progressBar.id = 'reading-progress-bar';
+            progressBar.setAttribute('aria-hidden', 'true');
+            document.body.prepend(progressBar);
+        }
+
+        const updateScrollProgress = () => {
+            if (!document.body.classList.contains('reading-mode')) return;
+            const scrollTop = window.scrollY || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = `${Math.min(100, Math.max(0, percent))}%`;
+        };
+
+        window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+        // 2. Calculate reading time estimate
+        const getReadingTime = () => {
+            const content = document.querySelector('.module-container') || document.querySelector('main') || document.querySelector('.book-content') || document.body;
+            const text = content ? (content.innerText || '') : '';
+            const words = text.trim().split(/\s+/).length;
+            const minutes = Math.max(1, Math.ceil(words / 190));
+            return `⏱️ ${minutes} min read`;
+        };
+
+        // 3. Create floating reading mode toolbar
+        let readingBar = document.getElementById('reading-mode-bar');
+        if (!readingBar) {
+            readingBar = document.createElement('div');
+            readingBar.id = 'reading-mode-bar';
+            readingBar.className = 'reading-mode-bar';
+            readingBar.setAttribute('role', 'toolbar');
+            readingBar.setAttribute('aria-label', 'Reading Mode Controls');
+            readingBar.innerHTML = `
+                <div class="rm-pill-title">
+                    <span>📖</span>
+                    <span>Reader View</span>
+                </div>
+                <span class="rm-read-time" id="rm-read-time">${getReadingTime()}</span>
+                <div class="rm-divider"></div>
+                <div class="rm-btn-group" title="Adjust font size">
+                    <button type="button" class="rm-btn" id="rm-font-minus" title="Smaller text" aria-label="Decrease font size">A-</button>
+                    <button type="button" class="rm-btn" id="rm-font-plus" title="Larger text" aria-label="Increase font size">A+</button>
+                </div>
+                <div class="rm-divider"></div>
+                <div class="rm-btn-group" title="Reading theme">
+                    <button type="button" class="rm-theme-dot rm-theme-dark" data-theme="theme-dark" title="Dark Slate" aria-label="Dark theme"></button>
+                    <button type="button" class="rm-theme-dot rm-theme-sepia" data-theme="theme-sepia" title="Warm Sepia Paper" aria-label="Sepia paper theme"></button>
+                    <button type="button" class="rm-theme-dot rm-theme-light" data-theme="theme-light" title="Clean Light" aria-label="Light theme"></button>
+                </div>
+                <div class="rm-divider"></div>
+                <button type="button" class="rm-btn" id="rm-font-toggle" title="Toggle Serif / Sans font" aria-label="Toggle font family">Serif</button>
+                <button type="button" class="rm-exit-btn" id="rm-exit-btn" title="Exit reading mode (Esc)">✕ Exit</button>
+            `;
+            document.body.appendChild(readingBar);
+        }
+
+        const applySettings = () => {
+            document.body.classList.remove('theme-dark', 'theme-sepia', 'theme-light');
+            document.body.classList.add(currentTheme);
+
+            document.body.classList.remove('font-sans', 'font-serif');
+            document.body.classList.add(currentFont);
+
+            document.body.style.setProperty('--reading-font-size', `${currentSize}rem`);
+
+            readingBar.querySelectorAll('.rm-theme-dot').forEach(dot => {
+                dot.classList.toggle('active', dot.getAttribute('data-theme') === currentTheme);
+            });
+
+            const fontToggleBtn = readingBar.querySelector('#rm-font-toggle');
+            if (fontToggleBtn) {
+                fontToggleBtn.textContent = currentFont === 'font-serif' ? 'Sans' : 'Serif';
+            }
+
+            localStorage.setItem(STORAGE_KEY_THEME, currentTheme);
+            localStorage.setItem(STORAGE_KEY_SIZE, currentSize);
+            localStorage.setItem(STORAGE_KEY_FONT, currentFont);
+        };
+
+        const enterReadingMode = () => {
+            document.body.classList.add('reading-mode');
+            applySettings();
+            const timeEl = readingBar.querySelector('#rm-read-time');
+            if (timeEl) timeEl.textContent = getReadingTime();
+            updateScrollProgress();
+            window.showToast?.('Entered Reading Mode 📖 (Press Esc to exit)', 'info');
+        };
+
+        const exitReadingMode = () => {
+            document.body.classList.remove('reading-mode');
+            document.body.classList.remove('theme-dark', 'theme-sepia', 'theme-light', 'font-sans', 'font-serif');
+            document.body.style.removeProperty('--reading-font-size');
+            window.showToast?.('Exited Reading Mode', 'info');
+        };
+
+        const toggleReadingMode = () => {
+            if (document.body.classList.contains('reading-mode')) {
+                exitReadingMode();
+            } else {
+                enterReadingMode();
+            }
+        };
+
+        // Event Listeners for Toolbar
+        readingBar.querySelector('#rm-font-minus')?.addEventListener('click', () => {
+            if (currentSize > 0.9) {
+                currentSize = Math.round((currentSize - 0.1) * 10) / 10;
+                applySettings();
+            }
+        });
+
+        readingBar.querySelector('#rm-font-plus')?.addEventListener('click', () => {
+            if (currentSize < 1.6) {
+                currentSize = Math.round((currentSize + 0.1) * 10) / 10;
+                applySettings();
+            }
+        });
+
+        readingBar.querySelectorAll('.rm-theme-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                currentTheme = dot.getAttribute('data-theme');
+                applySettings();
+            });
+        });
+
+        readingBar.querySelector('#rm-font-toggle')?.addEventListener('click', () => {
+            currentFont = currentFont === 'font-serif' ? 'font-sans' : 'font-serif';
+            applySettings();
+        });
+
+        readingBar.querySelector('#rm-exit-btn')?.addEventListener('click', exitReadingMode);
+
+        // Global click listener for any reading-mode-toggle button
+        document.body.addEventListener('click', (e) => {
+            if (e.target.closest('.reading-mode-toggle') || e.target.closest('.reading-mode-btn')) {
+                e.preventDefault();
+                toggleReadingMode();
+            }
+        });
+
+        // Esc key closes reading mode
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && document.body.classList.contains('reading-mode')) {
+                exitReadingMode();
+            }
+        });
+
+        // Expose globally
+        window.toggleReadingMode = toggleReadingMode;
+        window.enterReadingMode = enterReadingMode;
+        window.exitReadingMode = exitReadingMode;
+    }
+
     // --- Initialization ---
     document.addEventListener('DOMContentLoaded', () => {
         initTheme();
@@ -1075,6 +1249,7 @@
         injectNavigation();
         injectModuleNavigator();
         injectLessonSpeaker();
+        initReadingMode();
         injectFooter();
 
         trackVisit();
@@ -1090,5 +1265,5 @@
         });
     });
 
-
 })();
+

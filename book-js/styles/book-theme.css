@@ -348,6 +348,44 @@ pre code {
 /* ═══════════════════════════════════════════════════════════════
    BOOK AUDIO SPEAKER (Text-to-Speech Engine)
    ═══════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   BOOK AUDIO SPEAKER (Text-to-Speech Engine) & READER HEADER
+   ═══════════════════════════════════════════════════════════════ */
+.book-reader-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.book-reader-header.is-speaking {
+  border-color: var(--js-yellow);
+  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.2);
+}
+
+.reader-header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.reader-controls-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
 .book-speaker-bar {
   display: inline-flex;
   align-items: center;
@@ -378,19 +416,25 @@ pre code {
   background: linear-gradient(135deg, #d97706, #b45309);
   color: white;
   border: none;
-  padding: 0.42rem 1rem;
+  padding: 0.5rem 1.15rem;
   border-radius: 999px;
-  font-size: 0.86rem;
+  font-size: 0.88rem;
   font-weight: 700;
   cursor: pointer;
   font-family: inherit;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.3);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 10px rgba(217, 119, 6, 0.3);
 }
 
 .book-speaker-btn-main:hover {
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4);
   filter: brightness(1.08);
+}
+
+.book-speaker-btn-main.is-playing {
+  background: linear-gradient(135deg, #059669, #047857);
+  box-shadow: 0 2px 10px rgba(5, 150, 105, 0.35);
 }
 
 .book-speaker-btn-stop {
@@ -400,7 +444,7 @@ pre code {
   background: var(--rose-light);
   color: var(--rose-red);
   border: 1px solid rgba(225, 29, 72, 0.3);
-  padding: 0.42rem 0.8rem;
+  padding: 0.48rem 0.85rem;
   border-radius: 999px;
   font-size: 0.82rem;
   font-weight: 700;
@@ -414,17 +458,97 @@ pre code {
   color: white;
 }
 
-.book-speaker-speed-select {
+.reader-speed-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
   background: var(--bg-sidebar);
   border: 1px solid var(--border-color);
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
+}
+
+.speed-caption {
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+}
+
+.book-speaker-speed-select {
+  background: transparent;
+  border: none;
   color: var(--text-secondary);
-  padding: 0.32rem 0.65rem;
-  border-radius: 999px;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 700;
   cursor: pointer;
   font-family: inherit;
   outline: none;
+}
+
+.reader-status-center {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  min-width: 160px;
+}
+
+.reader-chapter-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-sidebar);
+  border: 1px solid var(--border-color);
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  max-width: 320px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reader-chapter-badge .status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--js-yellow);
+  display: inline-block;
+}
+
+.reader-controls-right {
+  display: flex;
+  align-items: center;
+}
+
+.book-reading-mode-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: linear-gradient(135deg, #7c3aed, #6d28d9);
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1.15rem;
+  border-radius: 9999px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 2px 10px rgba(124, 58, 237, 0.3);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.book-reading-mode-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+  filter: brightness(1.1);
+}
+
+.book-reading-mode-toggle-btn.is-active {
+  background: linear-gradient(135deg, #059669, #047857);
 }
 
 .book-speaker-status {
@@ -457,8 +581,9 @@ pre code {
   animation: jsBookSoundWave 0.8s ease-in-out infinite alternate;
 }
 
-.book-speaker-waveform span:nth-child(2) { animation-delay: 0.2s; }
-.book-speaker-waveform span:nth-child(3) { animation-delay: 0.4s; }
+.book-speaker-waveform span:nth-child(2) { animation-delay: 0.15s; }
+.book-speaker-waveform span:nth-child(3) { animation-delay: 0.3s; }
+.book-speaker-waveform span:nth-child(4) { animation-delay: 0.45s; }
 
 @keyframes jsBookSoundWave {
   0% { height: 4px; }
@@ -501,4 +626,237 @@ pre code {
   border-radius: 6px;
   transition: background 0.25s ease, outline 0.25s ease;
 }
+
+/* ── Reading Mode for JS Book Reader ── */
+body.reading-mode .book-sidebar {
+  display: none !important;
+}
+
+body.reading-mode .book-content {
+  max-width: 780px !important;
+  margin: 2rem auto 5rem auto !important;
+  padding: 1.5rem 2rem !important;
+  font-size: var(--reading-font-size, 1.15rem) !important;
+  line-height: 1.85 !important;
+}
+
+body.reading-mode.theme-sepia {
+  background: #fbf0d9 !important;
+  color: #433422 !important;
+}
+
+body.reading-mode.theme-sepia .book-content,
+body.reading-mode.theme-sepia .pedagogy-box,
+body.reading-mode.theme-sepia .book-speaker-bar,
+body.reading-mode.theme-sepia .book-reader-header {
+  background: #f4e8cc !important;
+  border-color: #e2d2b3 !important;
+  color: #433422 !important;
+}
+
+body.reading-mode.theme-sepia .reader-chapter-badge,
+body.reading-mode.theme-sepia .reader-speed-pill {
+  background: #ecdcb9 !important;
+  border-color: #dfcd9f !important;
+  color: #433422 !important;
+}
+
+body.reading-mode.theme-sepia h1,
+body.reading-mode.theme-sepia h2,
+body.reading-mode.theme-sepia h3 {
+  color: #2b1f11 !important;
+}
+
+body.reading-mode.theme-dark {
+  background: #0f172a !important;
+  color: #e2e8f0 !important;
+}
+
+body.reading-mode.theme-dark .book-content,
+body.reading-mode.theme-dark .pedagogy-box,
+body.reading-mode.theme-dark .book-speaker-bar,
+body.reading-mode.theme-dark .book-reader-header {
+  background: #1e293b !important;
+  border-color: #334155 !important;
+  color: #e2e8f0 !important;
+}
+
+body.reading-mode.theme-dark .reader-chapter-badge,
+body.reading-mode.theme-dark .reader-speed-pill {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+body.reading-mode.theme-dark .reader-chapter-badge .status-text,
+body.reading-mode.theme-dark .book-speaker-speed-select {
+  color: #cbd5e1 !important;
+}
+
+body.reading-mode.theme-dark h1,
+body.reading-mode.theme-dark h2,
+body.reading-mode.theme-dark h3 {
+  color: #f8fafc !important;
+}
+
+body.reading-mode.font-serif {
+  font-family: 'Merriweather', Georgia, 'Times New Roman', serif !important;
+}
+
+/* Floating Reading Mode Toolbar for Book Readers */
+#reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, #f59e0b, #10b981);
+  z-index: 99999;
+  transition: width 0.1s ease-out;
+  display: none;
+}
+
+body.reading-mode #reading-progress-bar {
+  display: block;
+}
+
+.reading-mode-bar {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: rgba(15, 23, 42, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  z-index: 10000;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s;
+  opacity: 0;
+  pointer-events: none;
+  max-width: 95vw;
+}
+
+body.reading-mode .reading-mode-bar {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.rm-pill-title {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.rm-read-time {
+  font-size: 0.78rem;
+  color: #94a3b8;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.rm-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.rm-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.rm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #f1f5f9;
+  padding: 0.3rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.rm-btn:hover {
+  background: #f59e0b;
+  color: #0f172a;
+  border-color: #f59e0b;
+}
+
+.rm-theme-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.rm-theme-dot:hover,
+.rm-theme-dot.active {
+  transform: scale(1.15);
+  border-color: #f59e0b;
+}
+
+.rm-theme-dark { background: #0f172a; border: 2px solid #334155; }
+.rm-theme-sepia { background: #fbf0d9; border: 2px solid #d6c4a5; }
+.rm-theme-light { background: #ffffff; border: 2px solid #cbd5e1; }
+
+.rm-exit-btn {
+  background: rgba(225, 29, 72, 0.2);
+  color: #fb7185;
+  border: 1px solid rgba(225, 29, 72, 0.4);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.rm-exit-btn:hover {
+  background: #e11d48;
+  color: white;
+}
+
+.book-speaker-btn-reading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: var(--js-yellow-light);
+  color: #b45309;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  padding: 0.42rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.book-speaker-btn-reading:hover {
+  background: var(--js-yellow);
+  color: #0f172a;
+}
+
+
 

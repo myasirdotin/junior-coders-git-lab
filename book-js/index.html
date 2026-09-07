@@ -99,6 +99,48 @@
 
     <!-- Main Content Reader -->
     <main class="book-content">
+      <!-- Permanent Floating / Sticky Reader Top Bar with Audio Speaker & Reading Mode -->
+      <header class="book-reader-header" id="bookReaderHeader" role="region" aria-label="Book Reader Controls">
+        <div class="reader-header-main">
+          <div class="reader-controls-left">
+            <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read entire chapter aloud">
+              <span class="btn-icon">🔊</span>
+              <span class="btn-text">Read Chapter</span>
+            </button>
+            <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop audio narration">
+              <span class="btn-icon">⏹️</span>
+              <span class="btn-text">Stop</span>
+            </button>
+            <div class="reader-speed-pill">
+              <span class="speed-caption">Speed</span>
+              <select class="book-speaker-speed-select" id="book-speaker-speed-select" aria-label="Narration speed">
+                <option value="0.85">0.85x</option>
+                <option value="1.0" selected>1.0x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+              </select>
+            </div>
+            <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <div class="reader-status-center">
+            <div class="reader-chapter-badge">
+              <span class="status-dot"></span>
+              <span class="status-text" id="book-speaker-status-text">Ready to read</span>
+            </div>
+          </div>
+
+          <div class="reader-controls-right">
+            <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn" title="Toggle Distraction-Free Reading Mode">
+              <span class="btn-icon">📖</span>
+              <span class="btn-text">Reading Mode</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
       <!-- Live Interactive JavaScript Scratchpad on top -->
       <div class="js-runner-widget">
         <div class="js-runner-header">
@@ -110,7 +152,7 @@
         <div class="js-runner-output" id="jsConsoleOutput">Hello, World! I am learning JavaScript!</div>
       </div>
 
-      <div id="chapterContent">
+      <article class="book-article" id="chapterContent">
         <div style="text-align: center; padding: 2rem 1rem;">
           <span class="chapter-badge">Official Class 7 Textbook & Lab</span>
           <h1 class="chapter-title" style="margin-top: 0.5rem;">JavaScript for Class 7</h1>
@@ -122,10 +164,12 @@
             Launch Chapter 1: What Is Programming? 🚀
           </a>
         </div>
-      </div>
+      </article>
     </main>
   </div>
 
+  <!-- Offline chapters bundle for 100% offline & local file:// support -->
+  <script src="chapters-bundle.js"></script>
   <!-- Marked library for on-the-fly markdown rendering in the browser -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
@@ -167,21 +211,34 @@
       const contentArea = document.getElementById('chapterContent');
       contentArea.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--text-muted);">Loading Chapter...</div>';
 
-      try {
-        const response = await fetch(path);
-        if (!response.ok) throw new Error('Chapter file could not be loaded via HTTP.');
-        const markdown = await response.text();
+      let markdown = '';
+      // 1. Check pre-bundled offline cache (works 100% locally with file:// and offline!)
+      if (window.BOOK_JS_CHAPTERS && window.BOOK_JS_CHAPTERS[path]) {
+        markdown = window.BOOK_JS_CHAPTERS[path];
+      } else {
+        // 2. Fallback to HTTP fetch if running under a web server
+        try {
+          const response = await fetch(path);
+          if (response.ok) {
+            markdown = await response.text();
+          }
+        } catch (err) {
+          console.warn('HTTP fetch failed, offline bundle unavailable for:', path, err);
+        }
+      }
+
+      if (markdown) {
         contentArea.innerHTML = marked.parse(markdown);
         window.scrollTo({ top: 0, behavior: 'smooth' });
         if (window.initBookSpeaker) window.initBookSpeaker();
-      } catch (err) {
+      } else {
         contentArea.innerHTML = `
           <div class="pedagogy-box">
-            <h2>📖 Reading Mode Notice</h2>
-            <p>You can read all chapters directly in your editor, on GitHub, or via our offline Markdown files in <code>book-js/</code>.</p>
-            <p style="margin-top: 0.75rem;">Selected file: <strong>${path}</strong></p>
+            <h2>📖 Chapter Notice</h2>
+            <p>Could not load markdown for <code>${path}</code>.</p>
           </div>
         `;
+        if (window.initBookSpeaker) window.initBookSpeaker();
       }
     }
 
