@@ -1,0 +1,332 @@
+/* ==========================================================================
+   HTML & CSS for Class 7 - Educational Book Theme
+   Calm, Modern, Accessible Educational Design System
+   ========================================================================== */
+
+:root {
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-sidebar: #f1f5f9;
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  
+  --primary-blue: #2563eb;
+  --primary-blue-light: #eff6ff;
+  --calm-green: #059669;
+  --calm-green-light: #ecfdf5;
+  --purple-accent: #7c3aed;
+  --purple-light: #f5f3ff;
+  --warm-orange: #d97706;
+  --warm-orange-light: #fffbeb;
+  --rose-red: #e11d48;
+  --rose-light: #fff1f2;
+  
+  --border-color: #e2e8f0;
+  --code-bg: #0f172a;
+  --code-text: #e2e8f0;
+  
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Fira Code", Consolas, Monaco, "Courier New", monospace;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.08), 0 2px 4px -1px rgba(0,0,0,0.04);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.65;
+  font-size: 16px;
+}
+
+/* Layout */
+.book-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar Navigation */
+.book-sidebar {
+  width: 320px;
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border-color);
+  padding: 1.5rem 1rem;
+  overflow-y: auto;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+.book-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.book-brand h1 {
+  font-size: 1.15rem;
+  color: var(--primary-blue);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.book-brand span {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.part-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--purple-accent);
+  font-weight: 800;
+  margin: 1.25rem 0 0.5rem 0.5rem;
+}
+
+.chapter-nav-list {
+  list-style: none;
+}
+
+.chapter-nav-item {
+  margin-bottom: 0.25rem;
+}
+
+.chapter-nav-item a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.chapter-nav-item a:hover {
+  background-color: var(--primary-blue-light);
+  color: var(--primary-blue);
+  transform: translateX(3px);
+}
+
+.chapter-nav-item.active a {
+  background-color: var(--primary-blue);
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Main Content Area */
+.book-content {
+  flex: 1;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem 5rem 2rem;
+}
+
+/* Header & Metadata */
+.chapter-badge {
+  display: inline-block;
+  background-color: var(--primary-blue-light);
+  color: var(--primary-blue);
+  font-size: 0.825rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  margin-bottom: 0.75rem;
+}
+
+.chapter-title {
+  font-size: 2.25rem;
+  color: var(--text-primary);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 1.75rem;
+}
+
+/* Pedagogical Section Boxes */
+.pedagogy-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.pedagogy-section h2 {
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+/* Custom Callout Boxes */
+.callout {
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  margin: 1.5rem 0;
+  border-left: 5px solid;
+}
+
+.callout-objectives {
+  background-color: var(--calm-green-light);
+  border-left-color: var(--calm-green);
+}
+.callout-objectives h3 { color: var(--calm-green); font-size: 1.05rem; margin-bottom: 0.5rem; }
+
+.callout-detective {
+  background-color: var(--rose-light);
+  border-left-color: var(--rose-red);
+}
+.callout-detective h3 { color: var(--rose-red); font-size: 1.05rem; margin-bottom: 0.5rem; }
+
+.callout-designer {
+  background-color: var(--purple-light);
+  border-left-color: var(--purple-accent);
+}
+.callout-designer h3 { color: var(--purple-accent); font-size: 1.05rem; margin-bottom: 0.5rem; }
+
+.callout-tip {
+  background-color: var(--warm-orange-light);
+  border-left-color: var(--warm-orange);
+}
+.callout-tip h3 { color: var(--warm-orange); font-size: 1.05rem; margin-bottom: 0.5rem; }
+
+/* Visual Diagrams / ASCII Art */
+.visual-box {
+  background: #f1f5f9;
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: #0f172a;
+  white-space: pre;
+  overflow-x: auto;
+  line-height: 1.45;
+  margin: 1rem 0;
+}
+
+/* Code Blocks */
+.code-wrapper {
+  background: var(--code-bg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin: 1.25rem 0;
+  box-shadow: var(--shadow-md);
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e293b;
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+}
+
+.code-wrapper pre {
+  padding: 1.25rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.925rem;
+  color: var(--code-text);
+  line-height: 1.6;
+}
+
+/* Tables */
+.book-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: 0.95rem;
+}
+
+.book-table th {
+  background-color: #f1f5f9;
+  color: var(--text-primary);
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  font-weight: 700;
+}
+
+.book-table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+}
+
+.book-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Exercises Badges */
+.badge-easy { background: #dcfce7; color: #15803d; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; }
+.badge-medium { background: #fef3c7; color: #b45309; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; }
+.badge-challenge { background: #fee2e2; color: #b91c1c; padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 0.75rem; }
+
+/* Navigation Buttons at bottom of chapter */
+.chapter-pager {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid var(--border-color);
+}
+
+.btn-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-nav:hover {
+  background: var(--primary-blue-light);
+  border-color: var(--primary-blue);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .book-layout {
+    flex-direction: column;
+  }
+  .book-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+  .book-content {
+    padding: 1.5rem 1rem;
+  }
+}
