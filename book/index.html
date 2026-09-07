@@ -10,14 +10,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Mobile Navigation Bar -->
+  <div class="book-mobile-bar" id="bookMobileBar">
+    <button type="button" class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Open Chapters Menu">
+      <span class="toggle-icon">☰</span>
+      <span class="toggle-text">Chapters</span>
+    </button>
+    <div class="mobile-brand-title">HTML & CSS for Class 7</div>
+    <a href="../index.html" class="mobile-home-link" title="Platform Home">🏠</a>
+  </div>
+
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
   <div class="book-layout">
     <!-- Sidebar Navigation -->
-    <aside class="book-sidebar">
+    <aside class="book-sidebar" id="bookSidebar">
       <div class="book-brand">
         <div>
           <h1>Class 7 Web Academy</h1>
           <span>HTML & CSS Textbook & Lab</span>
         </div>
+        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close chapters menu">✕</button>
       </div>
 
       <div class="sidebar-search" style="margin-bottom: 1rem;">

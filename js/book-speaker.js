@@ -221,6 +221,59 @@
         }
       });
     }
+
+    setupMobileDrawer();
+  };
+
+  // Mobile Off-Canvas Drawer Setup
+  const setupMobileDrawer = () => {
+    const toggleBtn = document.getElementById('mobileSidebarToggle');
+    const closeBtn = document.getElementById('sidebarCloseBtn');
+    const backdrop = document.getElementById('sidebarBackdrop');
+    const sidebar = document.getElementById('bookSidebar');
+
+    const openDrawer = () => {
+      if (sidebar) sidebar.classList.add('is-open');
+      if (backdrop) backdrop.classList.add('is-active');
+      document.body.classList.add('sidebar-open');
+    };
+
+    const closeDrawer = () => {
+      if (sidebar) sidebar.classList.remove('is-open');
+      if (backdrop) backdrop.classList.remove('is-active');
+      document.body.classList.remove('sidebar-open');
+    };
+
+    if (toggleBtn && !toggleBtn.dataset.bound) {
+      toggleBtn.dataset.bound = 'true';
+      toggleBtn.addEventListener('click', openDrawer);
+    }
+    if (closeBtn && !closeBtn.dataset.bound) {
+      closeBtn.dataset.bound = 'true';
+      closeBtn.addEventListener('click', closeDrawer);
+    }
+    if (backdrop && !backdrop.dataset.bound) {
+      backdrop.dataset.bound = 'true';
+      backdrop.addEventListener('click', closeDrawer);
+    }
+
+    // Auto-close drawer when clicking any chapter nav link on mobile
+    document.querySelectorAll('.chapter-nav-item a').forEach(link => {
+      if (!link.dataset.drawerBound) {
+        link.dataset.drawerBound = 'true';
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 900) {
+            closeDrawer();
+          }
+        });
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDrawer();
+      }
+    });
   };
 
   window.initBookSpeaker = function() {
