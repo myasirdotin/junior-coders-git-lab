@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS for Class 7: Styling & Designing Websites | Junior Coders</title>
+  <meta name="description" content="Official Class 7 CSS Textbook: Learn Colors, Fonts, Flexbox, CSS Grid, Responsive Design, and Complete Website Projects.">
+  <link rel="stylesheet" href="../book/styles/book-theme.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #7c3aed;
+      --accent-green: #06b6d4;
+    }
+    .css-brand-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: white;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+    .chapter-nav-item.active a {
+      background: #f5f3ff;
+      color: #7c3aed;
+      border-left: 3px solid #7c3aed;
+    }
+    .chapter-nav-item a:hover {
+      color: #7c3aed;
+      background: #faf5ff;
+    }
+  </style>
+</head>
+<body>
+  <!-- Mobile Navigation Bar (Sticky Top App Bar for Phones & Tablets) -->
+  <div class="book-mobile-bar" id="bookMobileBar">
+    <button type="button" class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Open Chapters Menu">
+      <span class="toggle-icon">☰</span>
+      <span class="toggle-text">Chapters</span>
+    </button>
+    <div class="mobile-brand-title">CSS for Class 7</div>
+    <a href="../index.html" class="mobile-home-link" title="Platform Home">🏠</a>
+  </div>
+
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="book-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="book-sidebar" id="bookSidebar">
+      <div class="book-brand">
+        <div>
+          <span class="css-brand-badge">Official Textbook</span>
+          <h1 style="color: #7c3aed;">Class 7 CSS Academy</h1>
+          <span>Styling & Designing Websites</span>
+        </div>
+        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close chapters menu">✕</button>
+      </div>
+
+      <div class="sidebar-search" style="margin-bottom: 1rem;">
+        <input type="text" id="chapterFilter" placeholder="Search CSS chapters..." style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.85rem;">
+      </div>
+
+      <nav id="sidebarNav">
+        <div class="part-title">Part 1: Introduction to CSS</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item active"><a href="#ch13" onclick="loadChapter('part-3-intro-to-css/ch13-what-is-css.md', this)">13. What Is CSS?</a></li>
+          <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-3-intro-to-css/ch14-adding-css.md', this)">14. Adding CSS</a></li>
+          <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-3-intro-to-css/ch15-css-colors.md', this)">15. CSS Colors</a></li>
+          <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('part-3-intro-to-css/ch16-fonts-and-text-styling.md', this)">16. Fonts & Text Styling</a></li>
+          <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('part-3-intro-to-css/ch17-backgrounds.md', this)">17. Backgrounds</a></li>
+          <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('part-3-intro-to-css/ch18-css-box-model.md', this)">18. CSS Box Model</a></li>
+          <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('part-3-intro-to-css/ch19-borders-and-rounded-corners.md', this)">19. Borders & Rounded Corners</a></li>
+        </ul>
+
+        <div class="part-title">Part 2: Layout & Design</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch20" onclick="loadChapter('part-4-layout-and-design/ch20-display-property.md', this)">20. Display Property</a></li>
+          <li class="chapter-nav-item"><a href="#ch21" onclick="loadChapter('part-4-layout-and-design/ch21-flexbox.md', this)">21. Flexbox</a></li>
+          <li class="chapter-nav-item"><a href="#ch22" onclick="loadChapter('part-4-layout-and-design/ch22-css-grid.md', this)">22. CSS Grid</a></li>
+          <li class="chapter-nav-item"><a href="#ch23" onclick="loadChapter('part-4-layout-and-design/ch23-positioning.md', this)">23. Positioning</a></li>
+          <li class="chapter-nav-item"><a href="#ch24" onclick="loadChapter('part-4-layout-and-design/ch24-responsive-web-design.md', this)">24. Responsive Web Design</a></li>
+        </ul>
+
+        <div class="part-title">Part 3: Making Websites Beautiful</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch25" onclick="loadChapter('part-5-making-websites-beautiful/ch25-buttons.md', this)">25. Buttons</a></li>
+          <li class="chapter-nav-item"><a href="#ch26" onclick="loadChapter('part-5-making-websites-beautiful/ch26-hover-effects.md', this)">26. Hover Effects</a></li>
+          <li class="chapter-nav-item"><a href="#ch27" onclick="loadChapter('part-5-making-websites-beautiful/ch27-css-transitions.md', this)">27. CSS Transitions</a></li>
+          <li class="chapter-nav-item"><a href="#ch28" onclick="loadChapter('part-5-making-websites-beautiful/ch28-website-cards.md', this)">28. Website Cards</a></li>
+          <li class="chapter-nav-item"><a href="#ch29" onclick="loadChapter('part-5-making-websites-beautiful/ch29-navigation-bars.md', this)">29. Navigation Bars</a></li>
+        </ul>
+
+        <div class="part-title">Part 4: Complete Website Projects</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch30" onclick="loadChapter('part-6-complete-website-projects/ch30-personal-profile-website.md', this)">30. Personal Profile Website</a></li>
+          <li class="chapter-nav-item"><a href="#ch31" onclick="loadChapter('part-6-complete-website-projects/ch31-school-website.md', this)">31. School Website</a></li>
+          <li class="chapter-nav-item"><a href="#ch32" onclick="loadChapter('part-6-complete-website-projects/ch32-restaurant-website.md', this)">32. Restaurant Website</a></li>
+          <li class="chapter-nav-item"><a href="#ch33" onclick="loadChapter('part-6-complete-website-projects/ch33-portfolio-website.md', this)">33. Portfolio Website</a></li>
+          <li class="chapter-nav-item"><a href="#ch34" onclick="loadChapter('part-6-complete-website-projects/ch34-final-project-guide.md', this)">34. Final Project Planning</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Reader Main Content Area -->
+    <main class="book-reader">
+      <header class="reader-topbar">
+        <div class="breadcrumb">
+          <a href="../index.html">Junior Coders</a> &gt; <a href="../Learning%20CSS/learningcss.html">Learning CSS</a> &gt; <span>CSS Textbook</span>
+        </div>
+        <div class="reader-actions">
+          <a href="../Learning%20CSS/learningcss.html" class="btn-action">CSS Modules</a>
+          <a href="../book/index.html" class="btn-action">HTML Book</a>
+          <a href="../master-playground.html" class="btn-action" style="background: var(--primary-blue); color: white; border: none;">Code Lab</a>
+        </div>
+      </header>
+
+      <!-- Dynamic Chapter Content Area -->
+      <article class="book-article" id="chapterContent">
+        <div style="text-align: center; padding: 3rem 1rem;">
+          <span class="css-brand-badge">Official Class 7 Textbook</span>
+          <h1 class="chapter-title" style="margin-top: 0.5rem; color: #7c3aed;">CSS for Class 7</h1>
+          <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 2rem auto;">
+            Learn to Style and Design Beautiful, Responsive Websites from Scratch! Select any chapter from the sidebar or click below to launch Chapter 13.
+          </p>
+          <a href="#ch13" onclick="loadChapter('part-3-intro-to-css/ch13-what-is-css.md', document.querySelector('.chapter-nav-item a'))" class="btn-nav" style="background: linear-gradient(135deg, #7c3aed, #6d28d9); color: #fff; padding: 0.85rem 1.75rem; font-size: 1rem; text-decoration: none; border-radius: var(--radius-sm); font-weight: 700; box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);">
+            Start Chapter 13: What Is CSS? 🎨
+          </a>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <!-- Markdown Engine & Offline Chapter Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    if (typeof marked === 'undefined') {
+      window.marked = {
+        parse: function(text) {
+          return '<pre style="white-space: pre-wrap; font-family: inherit;">' + 
+                 text.replace(/</g, '&lt;').replace(/>/g, '&gt;') + 
+                 '</pre>';
+        }
+      };
+    }
+  </script>
+  <script src="../book/chapters-bundle.js"></script>
+
+  <script>
+    async function loadChapter(path, element) {
+      if (element) {
+        document.querySelectorAll('.chapter-nav-item').forEach(el => el.classList.remove('active'));
+        element.parentElement.classList.add('active');
+      }
+
+      const contentArea = document.getElementById('chapterContent');
+      contentArea.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--text-muted);">Loading Chapter...</div>';
+
+      let markdown = '';
+      // 1. Check pre-bundled offline cache (works 100% locally with file:// and offline!)
+      if (window.BOOK_CHAPTERS && window.BOOK_CHAPTERS[path]) {
+        markdown = window.BOOK_CHAPTERS[path];
+      } else {
+        // 2. Fallback to HTTP fetch if running under a web server
+        try {
+          const fetchPath = '../book/' + path;
+          const response = await fetch(fetchPath);
+          if (response.ok) {
+            markdown = await response.text();
+          }
+        } catch (err) {
+          console.warn('HTTP fetch failed, offline bundle unavailable for:', path, err);
+        }
+      }
+
+      if (markdown) {
+        contentArea.innerHTML = marked.parse(markdown);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.initBookSpeaker) window.initBookSpeaker();
+      } else {
+        contentArea.innerHTML = `
+          <div class="pedagogy-section">
+            <h2>📖 Chapter Notice</h2>
+            <p>Could not load markdown for <code>${path}</code>.</p>
+          </div>
+        `;
+        if (window.initBookSpeaker) window.initBookSpeaker();
+      }
+    }
+
+    // Filter chapters in sidebar
+    document.getElementById('chapterFilter').addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase();
+      document.querySelectorAll('.chapter-nav-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+
+    // Auto-detect hash on load
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash.startsWith('#ch')) {
+        const targetLink = document.querySelector(`a[href="${hash}"]`);
+        if (targetLink) {
+          targetLink.click();
+          return;
+        }
+      }
+      // Default: auto-load Chapter 13
+      const firstLink = document.querySelector('.chapter-nav-item a');
+      if (firstLink) {
+        firstLink.click();
+      }
+    });
+  </script>
+  <script src="../js/book-speaker.js"></script>
+</body>
+</html>

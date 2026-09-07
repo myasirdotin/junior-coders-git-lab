@@ -33,68 +33,88 @@
         <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close chapters menu">✕</button>
       </div>
 
+      <!-- Subject Quick Switcher Tabs -->
+      <div class="book-subject-tabs" id="bookSubjectTabs">
+        <button type="button" class="subject-tab active" data-filter="all" onclick="filterSubject('all', this)">All (34)</button>
+        <button type="button" class="subject-tab" data-filter="html" onclick="filterSubject('html', this)">HTML (12)</button>
+        <button type="button" class="subject-tab" data-filter="css" onclick="filterSubject('css', this)">🎨 CSS (17)</button>
+        <button type="button" class="subject-tab" data-filter="projects" onclick="filterSubject('projects', this)">Projects (5)</button>
+      </div>
+
       <div class="sidebar-search" style="margin-bottom: 1rem;">
         <input type="text" id="chapterFilter" placeholder="Search chapters..." style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.85rem;">
       </div>
 
       <nav id="sidebarNav">
-        <div class="part-title">Part 1: Getting Started</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-1-getting-started/ch01-what-is-a-website.md', this)">1. What Is a Website?</a></li>
-          <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-1-getting-started/ch02-how-websites-are-built.md', this)">2. How Websites Are Built</a></li>
-          <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-1-getting-started/ch03-your-first-web-page.md', this)">3. Your First Web Page</a></li>
-        </ul>
+        <div class="part-group" data-subject="html">
+          <div class="part-title">Part 1: Getting Started</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-1-getting-started/ch01-what-is-a-website.md', this)">1. What Is a Website?</a></li>
+            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-1-getting-started/ch02-how-websites-are-built.md', this)">2. How Websites Are Built</a></li>
+            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-1-getting-started/ch03-your-first-web-page.md', this)">3. Your First Web Page</a></li>
+          </ul>
+        </div>
 
-        <div class="part-title">Part 2: HTML Fundamentals</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-2-html-fundamentals/ch04-understanding-html-tags.md', this)">4. Understanding HTML Tags</a></li>
-          <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-2-html-fundamentals/ch05-headings-and-paragraphs.md', this)">5. Headings and Paragraphs</a></li>
-          <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-2-html-fundamentals/ch06-text-formatting.md', this)">6. Text Formatting</a></li>
-          <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-2-html-fundamentals/ch07-links.md', this)">7. Links</a></li>
-          <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-2-html-fundamentals/ch08-images.md', this)">8. Images</a></li>
-          <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-2-html-fundamentals/ch09-lists.md', this)">9. Lists</a></li>
-          <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-2-html-fundamentals/ch10-tables.md', this)">10. Tables</a></li>
-          <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-2-html-fundamentals/ch11-forms.md', this)">11. Forms</a></li>
-          <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-2-html-fundamentals/ch12-divs-and-page-sections.md', this)">12. Divs and Page Sections</a></li>
-        </ul>
+        <div class="part-group" data-subject="html">
+          <div class="part-title">Part 2: HTML Fundamentals</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-2-html-fundamentals/ch04-understanding-html-tags.md', this)">4. Understanding HTML Tags</a></li>
+            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-2-html-fundamentals/ch05-headings-and-paragraphs.md', this)">5. Headings and Paragraphs</a></li>
+            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-2-html-fundamentals/ch06-text-formatting.md', this)">6. Text Formatting</a></li>
+            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-2-html-fundamentals/ch07-links.md', this)">7. Links</a></li>
+            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-2-html-fundamentals/ch08-images.md', this)">8. Images</a></li>
+            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-2-html-fundamentals/ch09-lists.md', this)">9. Lists</a></li>
+            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-2-html-fundamentals/ch10-tables.md', this)">10. Tables</a></li>
+            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-2-html-fundamentals/ch11-forms.md', this)">11. Forms</a></li>
+            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-2-html-fundamentals/ch12-divs-and-page-sections.md', this)">12. Divs and Page Sections</a></li>
+          </ul>
+        </div>
 
-        <div class="part-title">Part 3: Introduction to CSS</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-3-intro-to-css/ch13-what-is-css.md', this)">13. What Is CSS?</a></li>
-          <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-3-intro-to-css/ch14-adding-css.md', this)">14. Adding CSS</a></li>
-          <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-3-intro-to-css/ch15-css-colors.md', this)">15. CSS Colors</a></li>
-          <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('part-3-intro-to-css/ch16-fonts-and-text-styling.md', this)">16. Fonts and Text Styling</a></li>
-          <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('part-3-intro-to-css/ch17-backgrounds.md', this)">17. Backgrounds</a></li>
-          <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('part-3-intro-to-css/ch18-css-box-model.md', this)">18. CSS Box Model</a></li>
-          <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('part-3-intro-to-css/ch19-borders-and-rounded-corners.md', this)">19. Borders & Rounded Corners</a></li>
-        </ul>
+        <div class="part-group" data-subject="css">
+          <div class="part-title">Part 3: Introduction to CSS</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-3-intro-to-css/ch13-what-is-css.md', this)">13. What Is CSS?</a></li>
+            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-3-intro-to-css/ch14-adding-css.md', this)">14. Adding CSS</a></li>
+            <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-3-intro-to-css/ch15-css-colors.md', this)">15. CSS Colors</a></li>
+            <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('part-3-intro-to-css/ch16-fonts-and-text-styling.md', this)">16. Fonts and Text Styling</a></li>
+            <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('part-3-intro-to-css/ch17-backgrounds.md', this)">17. Backgrounds</a></li>
+            <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('part-3-intro-to-css/ch18-css-box-model.md', this)">18. CSS Box Model</a></li>
+            <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('part-3-intro-to-css/ch19-borders-and-rounded-corners.md', this)">19. Borders & Rounded Corners</a></li>
+          </ul>
+        </div>
 
-        <div class="part-title">Part 4: Layout and Design</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch20" onclick="loadChapter('part-4-layout-and-design/ch20-display-property.md', this)">20. Display Property</a></li>
-          <li class="chapter-nav-item"><a href="#ch21" onclick="loadChapter('part-4-layout-and-design/ch21-flexbox.md', this)">21. Flexbox</a></li>
-          <li class="chapter-nav-item"><a href="#ch22" onclick="loadChapter('part-4-layout-and-design/ch22-css-grid.md', this)">22. CSS Grid</a></li>
-          <li class="chapter-nav-item"><a href="#ch23" onclick="loadChapter('part-4-layout-and-design/ch23-positioning.md', this)">23. Positioning</a></li>
-          <li class="chapter-nav-item"><a href="#ch24" onclick="loadChapter('part-4-layout-and-design/ch24-responsive-web-design.md', this)">24. Responsive Web Design</a></li>
-        </ul>
+        <div class="part-group" data-subject="css">
+          <div class="part-title">Part 4: Layout and Design</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch20" onclick="loadChapter('part-4-layout-and-design/ch20-display-property.md', this)">20. Display Property</a></li>
+            <li class="chapter-nav-item"><a href="#ch21" onclick="loadChapter('part-4-layout-and-design/ch21-flexbox.md', this)">21. Flexbox</a></li>
+            <li class="chapter-nav-item"><a href="#ch22" onclick="loadChapter('part-4-layout-and-design/ch22-css-grid.md', this)">22. CSS Grid</a></li>
+            <li class="chapter-nav-item"><a href="#ch23" onclick="loadChapter('part-4-layout-and-design/ch23-positioning.md', this)">23. Positioning</a></li>
+            <li class="chapter-nav-item"><a href="#ch24" onclick="loadChapter('part-4-layout-and-design/ch24-responsive-web-design.md', this)">24. Responsive Web Design</a></li>
+          </ul>
+        </div>
 
-        <div class="part-title">Part 5: Making Websites Beautiful</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch25" onclick="loadChapter('part-5-making-websites-beautiful/ch25-buttons.md', this)">25. Buttons</a></li>
-          <li class="chapter-nav-item"><a href="#ch26" onclick="loadChapter('part-5-making-websites-beautiful/ch26-hover-effects.md', this)">26. Hover Effects</a></li>
-          <li class="chapter-nav-item"><a href="#ch27" onclick="loadChapter('part-5-making-websites-beautiful/ch27-css-transitions.md', this)">27. CSS Transitions</a></li>
-          <li class="chapter-nav-item"><a href="#ch28" onclick="loadChapter('part-5-making-websites-beautiful/ch28-website-cards.md', this)">28. Website Cards</a></li>
-          <li class="chapter-nav-item"><a href="#ch29" onclick="loadChapter('part-5-making-websites-beautiful/ch29-navigation-bars.md', this)">29. Navigation Bars</a></li>
-        </ul>
+        <div class="part-group" data-subject="css">
+          <div class="part-title">Part 5: Making Websites Beautiful</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch25" onclick="loadChapter('part-5-making-websites-beautiful/ch25-buttons.md', this)">25. Buttons</a></li>
+            <li class="chapter-nav-item"><a href="#ch26" onclick="loadChapter('part-5-making-websites-beautiful/ch26-hover-effects.md', this)">26. Hover Effects</a></li>
+            <li class="chapter-nav-item"><a href="#ch27" onclick="loadChapter('part-5-making-websites-beautiful/ch27-css-transitions.md', this)">27. CSS Transitions</a></li>
+            <li class="chapter-nav-item"><a href="#ch28" onclick="loadChapter('part-5-making-websites-beautiful/ch28-website-cards.md', this)">28. Website Cards</a></li>
+            <li class="chapter-nav-item"><a href="#ch29" onclick="loadChapter('part-5-making-websites-beautiful/ch29-navigation-bars.md', this)">29. Navigation Bars</a></li>
+          </ul>
+        </div>
 
-        <div class="part-title">Part 6: Complete Website Projects</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch30" onclick="loadChapter('part-6-complete-website-projects/ch30-personal-profile-website.md', this)">30. Personal Profile Website</a></li>
-          <li class="chapter-nav-item"><a href="#ch31" onclick="loadChapter('part-6-complete-website-projects/ch31-school-website.md', this)">31. School Website</a></li>
-          <li class="chapter-nav-item"><a href="#ch32" onclick="loadChapter('part-6-complete-website-projects/ch32-restaurant-website.md', this)">32. Restaurant Website</a></li>
-          <li class="chapter-nav-item"><a href="#ch33" onclick="loadChapter('part-6-complete-website-projects/ch33-portfolio-website.md', this)">33. Portfolio Website</a></li>
-          <li class="chapter-nav-item"><a href="#ch34" onclick="loadChapter('part-6-complete-website-projects/ch34-final-project-guide.md', this)">34. Final Project Planning</a></li>
-        </ul>
+        <div class="part-group" data-subject="projects">
+          <div class="part-title">Part 6: Complete Website Projects</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch30" onclick="loadChapter('part-6-complete-website-projects/ch30-personal-profile-website.md', this)">30. Personal Profile Website</a></li>
+            <li class="chapter-nav-item"><a href="#ch31" onclick="loadChapter('part-6-complete-website-projects/ch31-school-website.md', this)">31. School Website</a></li>
+            <li class="chapter-nav-item"><a href="#ch32" onclick="loadChapter('part-6-complete-website-projects/ch32-restaurant-website.md', this)">32. Restaurant Website</a></li>
+            <li class="chapter-nav-item"><a href="#ch33" onclick="loadChapter('part-6-complete-website-projects/ch33-portfolio-website.md', this)">33. Portfolio Website</a></li>
+            <li class="chapter-nav-item"><a href="#ch34" onclick="loadChapter('part-6-complete-website-projects/ch34-final-project-guide.md', this)">34. Final Project Planning</a></li>
+          </ul>
+        </div>
       </nav>
     </aside>
 
@@ -145,14 +165,19 @@
       <!-- Dynamic Chapter Content Area -->
       <article class="book-article" id="chapterContent">
         <div style="text-align: center; padding: 3rem 1rem;">
-          <span class="chapter-badge">Welcome Junior Coders</span>
+          <span class="chapter-badge">Official Class 7 Textbook</span>
           <h1 class="chapter-title" style="margin-top: 0.5rem;">HTML and CSS for Class 7</h1>
           <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 2rem auto;">
-            Learn to Build Beautiful Websites from Scratch! Select any chapter from the navigation bar on the left to start reading, or click below to launch Chapter 1.
+            Learn to Build and Style Beautiful Websites! Choose whether you want to learn HTML building blocks or dive directly into styling with CSS.
           </p>
-          <a href="#ch1" onclick="loadChapter('part-1-getting-started/ch01-what-is-a-website.md', document.querySelector('.chapter-nav-item a'))" class="btn-nav" style="background: var(--primary-blue); color: #fff; padding: 0.85rem 1.75rem; font-size: 1rem;">
-            Start Chapter 1: What Is a Website? 🚀
-          </a>
+          <div style="display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap;">
+            <a href="#ch1" onclick="loadChapter('part-1-getting-started/ch01-what-is-a-website.md', document.querySelector('.chapter-nav-item a'))" class="btn-nav" style="background: var(--primary-blue); color: #fff; padding: 0.85rem 1.6rem; font-size: 0.95rem; text-decoration: none; border-radius: var(--radius-sm); font-weight: 700; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);">
+              Start HTML (Chapter 1) 🚀
+            </a>
+            <a href="#ch13" onclick="filterSubject('css'); loadChapter('part-3-intro-to-css/ch13-what-is-css.md', document.querySelectorAll('.chapter-nav-item a')[12]);" class="btn-nav" style="background: linear-gradient(135deg, #7c3aed, #6d28d9); color: #fff; padding: 0.85rem 1.6rem; font-size: 0.95rem; text-decoration: none; border-radius: var(--radius-sm); font-weight: 700; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
+              🎨 Jump to CSS (Chapter 13) ➔
+            </a>
+          </div>
         </div>
       </article>
     </main>
@@ -203,6 +228,27 @@
       }
     }
 
+    function filterSubject(subject, btn) {
+      const tabs = document.querySelectorAll('.subject-tab');
+      tabs.forEach(t => {
+        if (btn) {
+          t.classList.toggle('active', t === btn);
+        } else {
+          t.classList.toggle('active', t.getAttribute('data-filter') === subject);
+        }
+      });
+
+      const partGroups = document.querySelectorAll('.part-group');
+      partGroups.forEach(group => {
+        const groupSubject = group.getAttribute('data-subject');
+        if (subject === 'all' || groupSubject === subject) {
+          group.style.display = '';
+        } else {
+          group.style.display = 'none';
+        }
+      });
+    }
+
     // Filter chapters in sidebar
     document.getElementById('chapterFilter').addEventListener('input', function(e) {
       const query = e.target.value.toLowerCase();
@@ -210,6 +256,21 @@
         const text = item.textContent.toLowerCase();
         item.style.display = text.includes(query) ? '' : 'none';
       });
+    });
+
+    // Auto-detect hash or subject URL param (e.g. #css or ?subject=css)
+    window.addEventListener('DOMContentLoaded', () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const hash = window.location.hash.toLowerCase();
+      
+      if (urlParams.get('subject') === 'css' || hash === '#css') {
+        filterSubject('css');
+      } else if (hash.startsWith('#ch')) {
+        const targetLink = document.querySelector(`a[href="${hash}"]`);
+        if (targetLink) {
+          targetLink.click();
+        }
+      }
     });
   </script>
   <script src="../js/book-speaker.js"></script>
