@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript for Class 7: Learn, Think, Create</title>
+  <link rel="stylesheet" href="styles/book-theme.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="book-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="book-sidebar">
+      <div class="book-brand">
+        <div class="book-brand-icon">JS</div>
+        <div>
+          <h1>Class 7 JavaScript</h1>
+          <span>Learn, Think, Create</span>
+        </div>
+      </div>
+
+      <div class="sidebar-search" style="margin-bottom: 1rem;">
+        <input type="text" id="chapterFilter" placeholder="Search chapters & units..." style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.85rem;">
+      </div>
+
+      <nav id="sidebarNav">
+        <div class="part-title">Part 1: Getting Started</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-01-getting-started/ch01-what-is-programming.md', this)">1. What Is Programming?</a></li>
+          <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-01-getting-started/ch02-your-first-javascript-program.md', this)">2. Your First JS Program</a></li>
+        </ul>
+
+        <div class="part-title">Part 2: Variables and Data</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-02-variables-and-data/ch03-variables.md', this)">3. Variables</a></li>
+          <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-02-variables-and-data/ch04-data-types.md', this)">4. Data Types</a></li>
+          <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-02-variables-and-data/ch05-operators.md', this)">5. Operators</a></li>
+        </ul>
+
+        <div class="part-title">Part 3: Making Decisions</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-03-making-decisions/ch06-conditions.md', this)">6. Conditions</a></li>
+          <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-03-making-decisions/ch07-boolean-logic.md', this)">7. Boolean Logic</a></li>
+        </ul>
+
+        <div class="part-title">Part 4: Repetition and Logic</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-04-repetition-and-logic/ch08-loops.md', this)">8. Loops</a></li>
+          <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-04-repetition-and-logic/ch09-nested-loops.md', this)">9. Nested Loops</a></li>
+        </ul>
+
+        <div class="part-title">Part 5: Functions</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-05-functions/ch10-functions.md', this)">10. Functions</a></li>
+        </ul>
+
+        <div class="part-title">Part 6: Arrays and Data</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-06-arrays-and-data/ch11-arrays.md', this)">11. Arrays</a></li>
+          <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-06-arrays-and-data/ch12-array-methods.md', this)">12. Array Methods</a></li>
+        </ul>
+
+        <div class="part-title">Part 7: Strings and Text</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-07-strings-and-text/ch13-working-with-strings.md', this)">13. Working With Strings</a></li>
+        </ul>
+
+        <div class="part-title">Part 8: Objects</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-08-objects/ch14-objects.md', this)">14. Objects</a></li>
+        </ul>
+
+        <div class="part-title">Part 9: User Input & Interaction</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-09-user-input/ch15-taking-input.md', this)">15. Taking Input</a></li>
+        </ul>
+
+        <div class="part-title">Part 10: DOM & Web Interaction</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('part-10-dom-and-web/ch16-javascript-in-a-web-page.md', this)">16. JavaScript in a Web Page</a></li>
+          <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('part-10-dom-and-web/ch17-events.md', this)">17. Events</a></li>
+        </ul>
+
+        <div class="part-title">Workshops & Practice</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#p11" onclick="loadChapter('part-11-think-like-a-programmer/computational-thinking.md', this)">Part 11: Think Like a Programmer</a></li>
+          <li class="chapter-nav-item"><a href="#p12" onclick="loadChapter('part-12-debugging/debugging-guide.md', this)">Part 12: Debugging</a></li>
+          <li class="chapter-nav-item"><a href="#p13" onclick="loadChapter('part-13-mathematics/math-through-javascript.md', this)">Part 13: Maths in JavaScript</a></li>
+          <li class="chapter-nav-item"><a href="#p14" onclick="loadChapter('part-14-mini-projects/mini-projects-collection.md', this)">Part 14: 21 Mini Projects</a></li>
+          <li class="chapter-nav-item"><a href="#p15" onclick="loadChapter('part-15-creative-coding/creative-coding.md', this)">Part 15: Creative Coding</a></li>
+          <li class="chapter-nav-item"><a href="#final" onclick="loadChapter('final-project/final-project-guide.md', this)">Final Capstone Project</a></li>
+          <li class="chapter-nav-item"><a href="#ref" onclick="loadChapter('reference/quick-reference-and-glossary.md', this)">Quick Reference & Glossary</a></li>
+          <li class="chapter-nav-item"><a href="#teacher" onclick="loadChapter('teacher-guide/teachers-guide-and-rubrics.md', this)">Teacher's Guide & Rubrics</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content Reader -->
+    <main class="book-content">
+      <!-- Live Interactive JavaScript Scratchpad on top -->
+      <div class="js-runner-widget">
+        <div class="js-runner-header">
+          <span style="font-weight: 700; font-size: 0.9rem; color: #f59e0b;">⚡ Live JavaScript Scratchpad</span>
+          <button class="btn-run" onclick="runScratchpad()">Run Code ▶</button>
+        </div>
+        <textarea id="jsCodeInput" style="width: 100%; height: 80px; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 6px; padding: 8px; font-family: var(--font-mono); font-size: 0.85rem;" placeholder="// Type any JavaScript code here to test it live!&#10;console.log('Hello from Class 7!');">console.log("Hello, World! I am learning JavaScript!");</textarea>
+        <div style="margin-top: 8px; font-size: 0.75rem; color: #94a3b8;">Console Output:</div>
+        <div class="js-runner-output" id="jsConsoleOutput">Hello, World! I am learning JavaScript!</div>
+      </div>
+
+      <div id="chapterContent">
+        <div style="text-align: center; padding: 2rem 1rem;">
+          <span class="chapter-badge">Official Class 7 Textbook & Lab</span>
+          <h1 class="chapter-title" style="margin-top: 0.5rem;">JavaScript for Class 7</h1>
+          <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 680px; margin: 0 auto 2rem auto;">
+            <strong>Learn, Think, Create: A Beginner's Textbook and Coding Workbook</strong><br>
+            Written for young creators who have never coded before. Select Chapter 1 below to start your programming adventure!
+          </p>
+          <a href="#ch1" onclick="loadChapter('part-01-getting-started/ch01-what-is-programming.md', document.querySelector('.chapter-nav-item a'))" class="btn-run" style="padding: 0.85rem 1.75rem; font-size: 1rem; text-decoration: none; display: inline-block;">
+            Launch Chapter 1: What Is Programming? 🚀
+          </a>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Marked library for on-the-fly markdown rendering in the browser -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    // Live runner execution
+    function runScratchpad() {
+      const code = document.getElementById('jsCodeInput').value;
+      const outputEl = document.getElementById('jsConsoleOutput');
+      outputEl.textContent = '';
+
+      const originalLog = console.log;
+      const logs = [];
+      console.log = function(...args) {
+        logs.push(args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' '));
+        originalLog.apply(console, args);
+      };
+
+      try {
+        const result = eval(code);
+        if (logs.length > 0) {
+          outputEl.textContent = logs.join('\n');
+        } else if (result !== undefined) {
+          outputEl.textContent = String(result);
+        } else {
+          outputEl.textContent = '(Code ran successfully with no output)';
+        }
+      } catch (err) {
+        outputEl.textContent = '❌ Error: ' + err.message;
+      } finally {
+        console.log = originalLog;
+      }
+    }
+
+    async function loadChapter(path, element) {
+      if (element) {
+        document.querySelectorAll('.chapter-nav-item').forEach(el => el.classList.remove('active'));
+        element.parentElement.classList.add('active');
+      }
+
+      const contentArea = document.getElementById('chapterContent');
+      contentArea.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--text-muted);">Loading Chapter...</div>';
+
+      try {
+        const response = await fetch(path);
+        if (!response.ok) throw new Error('Chapter file could not be loaded via HTTP.');
+        const markdown = await response.text();
+        contentArea.innerHTML = marked.parse(markdown);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } catch (err) {
+        contentArea.innerHTML = `
+          <div class="pedagogy-box">
+            <h2>📖 Reading Mode Notice</h2>
+            <p>You can read all chapters directly in your editor, on GitHub, or via our offline Markdown files in <code>book-js/</code>.</p>
+            <p style="margin-top: 0.75rem;">Selected file: <strong>${path}</strong></p>
+          </div>
+        `;
+      }
+    }
+
+    // Filter chapters in sidebar
+    document.getElementById('chapterFilter').addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase();
+      document.querySelectorAll('.chapter-nav-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>

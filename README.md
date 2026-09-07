@@ -19,8 +19,9 @@
 
 ---
 
-## 📖 Official Textbook: “HTML and CSS for Class 7: Learn to Build Beautiful Websites”
+## 📖 Official Textbooks for Class 7
 
+### 1. “HTML and CSS for Class 7: Learn to Build Beautiful Websites”
 A complete 34-chapter, visual, project-based educational textbook designed for Grade 7 learners and beginners:
 - 🚀 **[Launch Interactive Web Reader](book/index.html)**
 - 📚 **[Browse Chapters & Curriculum Guide](book/README.md)**
@@ -31,6 +32,23 @@ A complete 34-chapter, visual, project-based educational textbook designed for G
   - **Part 4: Layout & Design** (Ch 20–24: Display, Flexbox, 2D Grid, positioning, responsive mobile design)
   - **Part 5: Making Websites Beautiful** (Ch 25–29: Buttons, hover states, transitions, cards, sticky navigation)
   - **Part 6: Capstone Projects** (Ch 30–34: Personal Profile, School Portal, Restaurant Website, Developer Portfolio, Final Project)
+
+### 2. “JavaScript for Class 7: Learn, Think, Create”
+A complete beginner's textbook and coding workbook with in-browser code runner:
+- ⚡ **[Launch Interactive JavaScript Reader & Runner](book-js/index.html)**
+- 📚 **[Browse Chapters & Curriculum Guide](book-js/README.md)**
+- **Curriculum Highlights**:
+  - **Part 1: Getting Started** (Ch 1–2: What is Programming, Your First JavaScript Program)
+  - **Part 2: Variables & Data** (Ch 3–5: Variables, Data Types, Operators)
+  - **Part 3: Making Decisions** (Ch 6–7: Conditions, Boolean Logic)
+  - **Part 4: Repetition & Logic** (Ch 8–9: Loops, Nested Loops)
+  - **Part 5: Functions** (Ch 10: Reusable Code Recipes)
+  - **Part 6: Arrays & Data** (Ch 11–12: Arrays, Array Methods)
+  - **Part 7: Strings & Text** (Ch 13: Working with Strings)
+  - **Part 8: Objects** (Ch 14: Modeling the Real World)
+  - **Part 9: User Input** (Ch 15: Taking Input)
+  - **Part 10: DOM & Web** (Ch 16–17: JavaScript in a Web Page, Events)
+  - **Special Workshops**: Computational Thinking, Debugging Playbook, Math through JS, 21 Mini Projects Collection, Creative Canvas Coding, and Capstone Quiz Arena.
 
 ---
 
