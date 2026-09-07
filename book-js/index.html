@@ -173,6 +173,7 @@
         const markdown = await response.text();
         contentArea.innerHTML = marked.parse(markdown);
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.initBookSpeaker) window.initBookSpeaker();
       } catch (err) {
         contentArea.innerHTML = `
           <div class="pedagogy-box">
@@ -193,5 +194,6 @@
       });
     });
   </script>
+  <script src="../js/book-speaker.js"></script>
 </body>
 </html>

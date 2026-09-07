@@ -798,12 +798,283 @@
         container.appendChild(nav);
     }
 
+    // --- Text-to-Speech Engine for Lessons ---
+    function injectLessonSpeaker() {
+        if (!('speechSynthesis' in window)) return;
+
+        const header = document.querySelector('.module-header');
+        const sections = document.querySelectorAll('.content-section');
+        if (!header && sections.length === 0) return;
+
+        // Speaker Engine State
+        let queue = [];
+        let currentIndex = -1;
+        let isPaused = false;
+        let currentRate = 1.0;
+        let preferredVoice = null;
+
+        const loadVoices = () => {
+            const voices = window.speechSynthesis.getVoices();
+            preferredVoice = voices.find(v => v.lang && v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Online'))) ||
+                             voices.find(v => v.lang && v.lang.startsWith('en')) ||
+                             voices[0] || null;
+        };
+        loadVoices();
+        if (window.speechSynthesis.onvoiceschanged !== undefined) {
+            window.speechSynthesis.onvoiceschanged = loadVoices;
+        }
+
+        const cleanText = (text) => {
+            return (text || '')
+                .replace(/<[^>]*>/g, ' ')
+                .replace(/&lt;/g, '<')
+                .replace(/&gt;/g, '>')
+                .replace(/&amp;/g, '&')
+                .replace(/\s+/g, ' ')
+                .trim();
+        };
+
+        const clearHighlights = () => {
+            document.querySelectorAll('.tts-highlight').forEach(el => el.classList.remove('tts-highlight'));
+            document.querySelectorAll('.section-speaker-btn.active').forEach(b => b.classList.remove('active'));
+        };
+
+        const stopSpeech = () => {
+            window.speechSynthesis.cancel();
+            queue = [];
+            currentIndex = -1;
+            isPaused = false;
+            clearHighlights();
+            updateToolbarUI('idle');
+        };
+
+        const updateToolbarUI = (state, label = '') => {
+            const bar = document.getElementById('lesson-speaker-bar');
+            const mainBtn = document.getElementById('speaker-main-btn');
+            const statusEl = document.getElementById('speaker-status-text');
+            if (!bar || !mainBtn) return;
+
+            if (state === 'speaking') {
+                bar.classList.add('is-speaking');
+                mainBtn.innerHTML = `<span>⏸️</span> Pause`;
+                if (statusEl) statusEl.textContent = label ? `Reading: "${label}"` : 'Reading lesson...';
+            } else if (state === 'paused') {
+                bar.classList.remove('is-speaking');
+                mainBtn.innerHTML = `<span>▶️</span> Resume`;
+                if (statusEl) statusEl.textContent = 'Paused';
+            } else {
+                bar.classList.remove('is-speaking');
+                mainBtn.innerHTML = `<span>🔊</span> Read Lesson`;
+                if (statusEl) statusEl.textContent = label || 'Listen to this lesson';
+            }
+        };
+
+        const playNextInQueue = () => {
+            if (currentIndex >= queue.length - 1) {
+                stopSpeech();
+                updateToolbarUI('idle', 'Finished reading 🎉');
+                return;
+            }
+
+            currentIndex++;
+            const item = queue[currentIndex];
+
+            clearHighlights();
+            if (item.el) {
+                item.el.classList.add('tts-highlight');
+                item.el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            const snippet = item.text.length > 25 ? item.text.substring(0, 25) + '...' : item.text;
+            updateToolbarUI('speaking', snippet);
+
+            const utterance = new SpeechSynthesisUtterance(item.text);
+            utterance.rate = currentRate;
+            if (preferredVoice) utterance.voice = preferredVoice;
+
+            utterance.onend = () => {
+                if (queue.length > 0 && !isPaused) {
+                    playNextInQueue();
+                }
+            };
+
+            utterance.onerror = (e) => {
+                if (e.error !== 'canceled') {
+                    playNextInQueue();
+                }
+            };
+
+            window.speechSynthesis.speak(utterance);
+        };
+
+        const buildLessonQueue = () => {
+            const items = [];
+
+            // Title and subtitle
+            if (header) {
+                const title = header.querySelector('h1');
+                const sub = header.querySelector('p');
+                if (title) items.push({ el: title, text: cleanText(title.innerText) });
+                if (sub) items.push({ el: sub, text: cleanText(sub.innerText) });
+            }
+
+            // Sections
+            sections.forEach(sec => {
+                const h2 = sec.querySelector('h2');
+                if (h2) items.push({ el: h2, text: cleanText(h2.innerText) });
+
+                const contentNodes = sec.querySelectorAll('p, li, .quiz-question > p');
+                contentNodes.forEach(node => {
+                    if (node.closest('#code-editor') || node.closest('.editor-area') || node.closest('.lesson-speaker-bar')) return;
+                    const txt = cleanText(node.innerText);
+                    if (txt.length > 1) {
+                        items.push({ el: node, text: txt });
+                    }
+                });
+            });
+
+            return items;
+        };
+
+        const startLessonSpeech = () => {
+            window.speechSynthesis.cancel();
+            queue = buildLessonQueue();
+            if (queue.length === 0) return;
+            currentIndex = -1;
+            isPaused = false;
+            playNextInQueue();
+        };
+
+        const startSectionSpeech = (sectionEl, btnEl) => {
+            stopSpeech();
+            btnEl.classList.add('active');
+
+            const items = [];
+            const h2 = sectionEl.querySelector('h2');
+            if (h2) items.push({ el: h2, text: cleanText(h2.innerText) });
+
+            const nodes = sectionEl.querySelectorAll('p, li, .quiz-question > p');
+            nodes.forEach(node => {
+                if (node.closest('#code-editor') || node.closest('.editor-area') || node.closest('.lesson-speaker-bar')) return;
+                const txt = cleanText(node.innerText);
+                if (txt.length > 1) {
+                    items.push({ el: node, text: txt });
+                }
+            });
+
+            queue = items;
+            currentIndex = -1;
+            isPaused = false;
+            playNextInQueue();
+        };
+
+        // Create Toolbar
+        const toolbar = document.createElement('div');
+        toolbar.className = 'lesson-speaker-bar';
+        toolbar.id = 'lesson-speaker-bar';
+        toolbar.setAttribute('role', 'region');
+        toolbar.setAttribute('aria-label', 'Lesson audio speaker');
+        toolbar.innerHTML = `
+            <button type="button" class="speaker-btn-main" id="speaker-main-btn" title="Read this lesson aloud">
+                <span>🔊</span> Read Lesson
+            </button>
+            <button type="button" class="speaker-btn-stop" id="speaker-stop-btn" title="Stop audio">
+                <span>⏹️</span> Stop
+            </button>
+            <select class="speaker-speed-select" id="speaker-speed-select" title="Voice speed" aria-label="Reading Speed">
+                <option value="0.85">0.85x</option>
+                <option value="1.0" selected>1.0x</option>
+                <option value="1.25">1.25x</option>
+            </select>
+            <div class="speaker-waveform" aria-hidden="true">
+                <span></span><span></span><span></span>
+            </div>
+            <span class="speaker-status" id="speaker-status-text">Listen to this lesson</span>
+        `;
+
+        if (header) {
+            header.appendChild(toolbar);
+        } else {
+            const container = document.querySelector('.module-container') || document.querySelector('main');
+            if (container) container.prepend(toolbar);
+        }
+
+        // Add events to toolbar
+        const mainBtn = toolbar.querySelector('#speaker-main-btn');
+        const stopBtn = toolbar.querySelector('#speaker-stop-btn');
+        const speedSelect = toolbar.querySelector('#speaker-speed-select');
+
+        mainBtn.addEventListener('click', () => {
+            if (window.speechSynthesis.speaking && !isPaused) {
+                window.speechSynthesis.pause();
+                isPaused = true;
+                updateToolbarUI('paused');
+            } else if (isPaused) {
+                window.speechSynthesis.resume();
+                isPaused = false;
+                updateToolbarUI('speaking');
+            } else {
+                startLessonSpeech();
+            }
+        });
+
+        stopBtn.addEventListener('click', () => {
+            stopSpeech();
+        });
+
+        speedSelect.addEventListener('change', (e) => {
+            currentRate = parseFloat(e.target.value) || 1.0;
+            if (window.speechSynthesis.speaking && !isPaused) {
+                if (queue[currentIndex]) {
+                    window.speechSynthesis.cancel();
+                    currentIndex--;
+                    playNextInQueue();
+                }
+            }
+        });
+
+        // Add mini speaker buttons next to every section h2
+        sections.forEach(sec => {
+            const h2 = sec.querySelector('h2');
+            if (!h2 || sec.querySelector('.section-speaker-btn')) return;
+
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'section-speaker-btn';
+            btn.title = 'Listen to this section';
+            btn.setAttribute('aria-label', `Listen to section: ${h2.innerText}`);
+            btn.innerHTML = '🔊';
+
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (btn.classList.contains('active') && window.speechSynthesis.speaking) {
+                    stopSpeech();
+                } else {
+                    startSectionSpeech(sec, btn);
+                }
+            });
+
+            h2.appendChild(btn);
+        });
+
+        // Stop speech on navigation or Escape key
+        window.addEventListener('beforeunload', () => {
+            window.speechSynthesis.cancel();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && window.speechSynthesis.speaking) {
+                stopSpeech();
+            }
+        });
+    }
+
     // --- Initialization ---
     document.addEventListener('DOMContentLoaded', () => {
         initTheme();
         updateStreak();
         injectNavigation();
         injectModuleNavigator();
+        injectLessonSpeaker();
         injectFooter();
 
         trackVisit();
@@ -818,5 +1089,6 @@
             }
         });
     });
+
 
 })();

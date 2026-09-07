@@ -16,10 +16,20 @@
 <body>
 
     <div class="container">
-        <header class="hero">
-            <h1>Junior Coders</h1>
-            <p>Your interactive journey to becoming a full-stack developer starts here. Simple, visual, and effective.</p>
+        <header class="hero cover-photo">
+            <div class="hero-pill-badge">
+                <span>✨</span> Interactive Coding Platform for Grades 6–9
+            </div>
+            <h1>Master Web Development</h1>
+            <p>Your interactive journey to becoming a confident full-stack creator starts here. Simple, visual, and effective.</p>
+            <div class="hero-quick-tags">
+                <a href="#frontend-paths" class="hero-tag">🌐 Frontend (Class 6–8)</a>
+                <a href="#backend-paths" class="hero-tag">🗄️ Backend (Class 9)</a>
+                <a href="#official-books" class="hero-tag">📖 Class 7 Textbooks</a>
+                <a href="master-playground.html" class="hero-tag">🧪 Code Lab IDE</a>
+            </div>
         </header>
+
 
         <main>
             <!-- Mission Control Dashboard -->
@@ -58,38 +68,39 @@
                 </div>
             </section>
 
-            <section class="course-grid" aria-label="Available Learning Paths">
+            <section class="course-grid" aria-label="Available Learning Paths" id="frontend-paths">
                 
                 <!-- Class 7 Complete Textbook Card (HTML & CSS) -->
-                <a href="book/index.html" class="course-card pro-card" style="background: linear-gradient(135deg, #1e3a8a, #0f172a); border: 2px solid #38bdf8; margin-bottom: 1.5rem;">
-                    <div class="icon-wrapper" style="background: #2563eb; color: white;">📖</div>
-                    <div style="flex: 1;">
-                        <span class="course-level" style="background: #38bdf8; color: #0f172a; font-weight: 700;">Class 7 Official Textbook #1</span>
-                        <h2 style="color: white; margin: 0.35rem 0 0 0;">HTML and CSS for Class 7: Learn to Build Beautiful Websites</h2>
-                        <p style="color: rgba(255,255,255,0.85); font-size: 1rem; margin-top: 0.5rem;">The complete 34-chapter illustrated, project-based educational textbook with interactive web reader, code labs, and capstone projects.</p>
+                <a href="book/index.html" class="course-card pro-card textbook-card html-css-book" id="official-books">
+                    <div class="icon-wrapper book-icon-blue">📖</div>
+                    <div class="pro-card-content">
+                        <span class="course-level book-badge-blue">Class 7 Official Textbook #1</span>
+                        <h2>HTML and CSS for Class 7: Learn to Build Beautiful Websites</h2>
+                        <p>The complete 34-chapter illustrated, project-based educational textbook with interactive web reader, code labs, and capstone projects.</p>
                     </div>
-                    <div class="badge" style="background: #10b981; color: white;">34 Chapters • Open Book 🚀</div>
+                    <div class="badge book-btn-blue">34 Chapters • Open Book 🚀</div>
                 </a>
 
                 <!-- Class 7 Complete Textbook Card (JavaScript) -->
-                <a href="book-js/index.html" class="course-card pro-card" style="background: linear-gradient(135deg, #78350f, #1e1b4b); border: 2px solid #f59e0b; margin-bottom: 2rem;">
-                    <div class="icon-wrapper" style="background: #d97706; color: white;">⚡</div>
-                    <div style="flex: 1;">
-                        <span class="course-level" style="background: #f59e0b; color: #0f172a; font-weight: 700;">Class 7 Official Textbook #2</span>
-                        <h2 style="color: white; margin: 0.35rem 0 0 0;">JavaScript for Class 7: Learn, Think, Create</h2>
-                        <p style="color: rgba(255,255,255,0.85); font-size: 1rem; margin-top: 0.5rem;">The complete beginner's textbook and coding workbook: 17 core chapters, 21 mini projects, computational thinking, live in-browser code runner, and Capstone Quiz Arena.</p>
+                <a href="book-js/index.html" class="course-card pro-card textbook-card js-book">
+                    <div class="icon-wrapper book-icon-amber">⚡</div>
+                    <div class="pro-card-content">
+                        <span class="course-level book-badge-amber">Class 7 Official Textbook #2</span>
+                        <h2>JavaScript for Class 7: Learn, Think, Create</h2>
+                        <p>The complete beginner's textbook and coding workbook: 17 core chapters, 21 mini projects, computational thinking, live in-browser code runner, and Capstone Quiz Arena.</p>
                     </div>
-                    <div class="badge" style="background: #f59e0b; color: #0f172a; font-weight: 700;">17 Chapters + 21 Projects • Open Book ⚡</div>
+                    <div class="badge book-btn-amber">17 Chapters + 21 Projects • Open Book ⚡</div>
                 </a>
 
                 <!-- Master Playground Card -->
-                <a href="master-playground.html" class="course-card pro-card" style="background: linear-gradient(135deg, #1e293b, #0f172a); border: 2px solid var(--primary); margin-bottom: 2rem;">
-                    <div class="icon-wrapper" style="background: var(--primary); color: white;">🧪</div>
-                    <div style="flex: 1;">
-                        <h2 style="color: white; margin: 0;">Code Lab (Integrated IDE)</h2>
-                        <p style="color: rgba(255,255,255,0.7); font-size: 1rem; margin-top: 0.5rem;">Build whole projects with HTML, CSS, and JS all in one place! Perfect for experiments.</p>
+                <a href="master-playground.html" class="course-card pro-card playground-banner">
+                    <div class="icon-wrapper playground-icon">🧪</div>
+                    <div class="pro-card-content">
+                        <span class="course-level" style="background: rgba(99,102,241,0.25); color: #a5b4fc; font-weight: 700;">Integrated Sandbox</span>
+                        <h2>Code Lab (All-in-One IDE)</h2>
+                        <p>Build whole web projects with HTML, CSS, and JS all in one place with real-time preview and console! Perfect for experiments.</p>
                     </div>
-                    <div class="badge" style="background: var(--accent); color: white;">Pro Tool</div>
+                    <div class="badge playground-badge">Pro Tool • Launch IDE 🚀</div>
                 </a>
 
                 <a href="Learning HTML/learninghtml.html" class="course-card html">
@@ -119,7 +130,7 @@
             </section>
 
             <!-- Backend Track -->
-            <section style="margin-top: 3rem;">
+            <section style="margin-top: 3.5rem;" id="backend-paths">
                 <div class="fullstack-bridge">
                     <span style="font-size: 2rem;">🏗️</span>
                     <div>
@@ -156,48 +167,41 @@
             </section>
 
             <!-- Cheat Sheets & AI Roadmap -->
-            <section style="margin-top: 3rem;">
-                <h2 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Quick Resources</h2>
+            <section style="margin-top: 3.5rem;" id="quick-resources">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem;">
+                    <h2 style="font-size: 1.6rem; margin: 0;">Quick Resources &amp; Cheat Sheets</h2>
+                    <span style="font-size: 0.9rem; color: var(--text-muted);">Fast syntax references &amp; future paths</span>
+                </div>
                 <div class="course-grid" style="gap: 1.5rem;">
-                    <a href="book/index.html" class="course-card css" style="padding: 2rem 1.5rem; border: 2px solid #38bdf8;">
-                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📘</div>
-                        <h3 style="margin-bottom: 0.5rem;">Class 7 HTML/CSS Book</h3>
-                        <p style="font-size: 0.9rem;">34 illustrated chapters &amp; interactive web reader.</p>
-                    </a>
-                    <a href="book-js/index.html" class="course-card js" style="padding: 2rem 1.5rem; border: 2px solid #f59e0b;">
-                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
-                        <h3 style="margin-bottom: 0.5rem;">Class 7 JavaScript Book</h3>
-                        <p style="font-size: 0.9rem;">17 chapters, 21 mini projects &amp; live JS console.</p>
-                    </a>
                     <a href="cheatsheet-html.html" class="course-card html" style="padding: 2rem 1.5rem;">
                         <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
                         <h3 style="margin-bottom: 0.5rem;">HTML Cheat Sheet</h3>
-                        <p style="font-size: 0.9rem;">Every tag you need, one page.</p>
+                        <p style="font-size: 0.9rem;">Every tag you need, organized on one page.</p>
                     </a>
                     <a href="cheatsheet-css.html" class="course-card css" style="padding: 2rem 1.5rem;">
                         <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
                         <h3 style="margin-bottom: 0.5rem;">CSS Cheat Sheet</h3>
-                        <p style="font-size: 0.9rem;">Every property and selector, fast.</p>
+                        <p style="font-size: 0.9rem;">Every selector, flexbox, and grid property fast.</p>
                     </a>
                     <a href="cheatsheet-js.html" class="course-card js" style="padding: 2rem 1.5rem;">
                         <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
                         <h3 style="margin-bottom: 0.5rem;">JS Cheat Sheet</h3>
-                        <p style="font-size: 0.9rem;">Syntax, arrays, DOM — all here.</p>
+                        <p style="font-size: 0.9rem;">Syntax, functions, arrays &amp; DOM cheatsheet.</p>
                     </a>
                     <a href="cheatsheet-php.html" class="course-card php" style="padding: 2rem 1.5rem;">
                         <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
                         <h3 style="margin-bottom: 0.5rem;">PHP Cheat Sheet</h3>
-                        <p style="font-size: 0.9rem;">Variables, arrays, OOP — all here.</p>
+                        <p style="font-size: 0.9rem;">Variables, arrays, superglobals &amp; OOP.</p>
                     </a>
                     <a href="cheatsheet-mysql.html" class="course-card mysql" style="padding: 2rem 1.5rem;">
                         <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
                         <h3 style="margin-bottom: 0.5rem;">MySQL Cheat Sheet</h3>
-                        <p style="font-size: 0.9rem;">SELECT, JOINs, aggregates — fast.</p>
+                        <p style="font-size: 0.9rem;">SELECT, JOINs, clauses, and aggregations.</p>
                     </a>
                     <a href="cheatsheet-laravel.html" class="course-card laravel" style="padding: 2rem 1.5rem;">
                         <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
                         <h3 style="margin-bottom: 0.5rem;">Laravel Cheat Sheet</h3>
-                        <p style="font-size: 0.9rem;">Routes, Eloquent, Blade, Artisan.</p>
+                        <p style="font-size: 0.9rem;">Routing, Blade, Eloquent ORM &amp; Artisan CLI.</p>
                     </a>
                     <a href="ai-roadmap.html" class="course-card" style="padding: 2rem 1.5rem; border-color: rgba(236,72,153,0.4);">
                         <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">🤖</div>
@@ -207,9 +211,64 @@
                     </a>
                 </div>
             </section>
+
         </main>
     </div>
 
+    <!-- Modern Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">🚀 Junior Coders</a>
+                <p>Empowering students from Class 6 to 9 with practical, visual, and project-based programming knowledge.</p>
+                <div class="footer-meta">
+                    <span class="footer-badge">Version 1.0.0</span>
+                    <span class="footer-badge">MIT License</span>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4>Frontend Track</h4>
+                <ul>
+                    <li><a href="Learning HTML/learninghtml.html">HTML5 (Class 6)</a></li>
+                    <li><a href="Learning CSS/learningcss.html">Modern CSS (Class 7)</a></li>
+                    <li><a href="Learning JS/learningjs.html">JavaScript (Class 8)</a></li>
+                    <li><a href="master-playground.html">Code Lab (Live IDE)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Backend Track</h4>
+                <ul>
+                    <li><a href="Learning PHP/learningphp.html">PHP Scripting (Class 9)</a></li>
+                    <li><a href="Learning MySQL/learningmysql.html">MySQL Databases (Class 9)</a></li>
+                    <li><a href="Learning Laravel/learninglaravel.html">Laravel Framework (Class 9)</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Textbooks &amp; Guides</h4>
+                <ul>
+                    <li><a href="book/index.html">Class 7 HTML &amp; CSS Book</a></li>
+                    <li><a href="book-js/index.html">Class 7 JavaScript Book</a></li>
+                    <li><a href="ai-roadmap.html">AI Creator Roadmap</a></li>
+                    <li><a href="getting-started.html">Getting Started Guide</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <p>&copy; 2026 Junior Coders Platform. Crafted with ❤️ for future developers.</p>
+                <div class="footer-bottom-links">
+                    <a href="cheatsheet-html.html">HTML Cheat Sheet</a>
+                    <a href="cheatsheet-css.html">CSS Cheat Sheet</a>
+                    <a href="cheatsheet-js.html">JS Cheat Sheet</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script src="js/core.js"></script>
 </body>
-</html>
+</html>
