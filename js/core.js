@@ -827,14 +827,31 @@
             window.speechSynthesis.onvoiceschanged = loadVoices;
         }
 
+        // Comprehensive Unicode Emoji and Pictograph Regular Expression
+        // Matches emoji sequences, presentation forms, skin tone modifiers, regional flags, keycaps, and variation selectors
+        const EMOJI_REGEX = /(?:\p{Extended_Pictographic}|\p{Emoji_Presentation}|\p{Emoji_Modifier_Base}|\p{Emoji_Modifier}|[\u{1F1E6}-\u{1F1FF}\u{200D}\u{FE0E}\u{FE0F}\u{20E3}])/gu;
+
         const cleanText = (text) => {
             return (text || '')
                 .replace(/<[^>]*>/g, ' ')
                 .replace(/&lt;/g, '<')
                 .replace(/&gt;/g, '>')
                 .replace(/&amp;/g, '&')
+                .replace(/&quot;/g, '"')
+                .replace(/&apos;/g, "'")
+                .replace(EMOJI_REGEX, '')
+                .replace(/\s+([,.:;!?])/g, '$1')
+                .replace(/\(\s+/g, '(')
+                .replace(/\s+\)/g, ')')
                 .replace(/\s+/g, ' ')
                 .trim();
+        };
+
+        const getCleanElementText = (el) => {
+            if (!el) return '';
+            const clone = el.cloneNode(true);
+            clone.querySelectorAll('button, .section-speaker-btn, .book-section-speaker-btn, script, style, .screen-reader-only').forEach(n => n.remove());
+            return cleanText(clone.innerText || clone.textContent || '');
         };
 
         const clearHighlights = () => {
@@ -888,10 +905,16 @@
                 item.el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }
 
-            const snippet = item.text.length > 25 ? item.text.substring(0, 25) + '...' : item.text;
+            const spokenText = cleanText(item.text);
+            if (!spokenText) {
+                playNextInQueue();
+                return;
+            }
+
+            const snippet = spokenText.length > 25 ? spokenText.substring(0, 25) + '...' : spokenText;
             updateToolbarUI('speaking', snippet);
 
-            const utterance = new SpeechSynthesisUtterance(item.text);
+            const utterance = new SpeechSynthesisUtterance(spokenText);
             utterance.rate = currentRate;
             if (preferredVoice) utterance.voice = preferredVoice;
 
@@ -917,19 +940,28 @@
             if (header) {
                 const title = header.querySelector('h1');
                 const sub = header.querySelector('p');
-                if (title) items.push({ el: title, text: cleanText(title.innerText) });
-                if (sub) items.push({ el: sub, text: cleanText(sub.innerText) });
+                if (title) {
+                    const txt = getCleanElementText(title);
+                    if (txt.length > 1) items.push({ el: title, text: txt });
+                }
+                if (sub) {
+                    const txt = getCleanElementText(sub);
+                    if (txt.length > 1) items.push({ el: sub, text: txt });
+                }
             }
 
             // Sections
             sections.forEach(sec => {
                 const h2 = sec.querySelector('h2');
-                if (h2) items.push({ el: h2, text: cleanText(h2.innerText) });
+                if (h2) {
+                    const txt = getCleanElementText(h2);
+                    if (txt.length > 1) items.push({ el: h2, text: txt });
+                }
 
                 const contentNodes = sec.querySelectorAll('p, li, .quiz-question > p');
                 contentNodes.forEach(node => {
                     if (node.closest('#code-editor') || node.closest('.editor-area') || node.closest('.lesson-speaker-bar')) return;
-                    const txt = cleanText(node.innerText);
+                    const txt = getCleanElementText(node);
                     if (txt.length > 1) {
                         items.push({ el: node, text: txt });
                     }
@@ -954,12 +986,15 @@
 
             const items = [];
             const h2 = sectionEl.querySelector('h2');
-            if (h2) items.push({ el: h2, text: cleanText(h2.innerText) });
+            if (h2) {
+                const txt = getCleanElementText(h2);
+                if (txt.length > 1) items.push({ el: h2, text: txt });
+            }
 
             const nodes = sectionEl.querySelectorAll('p, li, .quiz-question > p');
             nodes.forEach(node => {
                 if (node.closest('#code-editor') || node.closest('.editor-area') || node.closest('.lesson-speaker-bar')) return;
-                const txt = cleanText(node.innerText);
+                const txt = getCleanElementText(node);
                 if (txt.length > 1) {
                     items.push({ el: node, text: txt });
                 }
@@ -1049,7 +1084,7 @@
             btn.type = 'button';
             btn.className = 'section-speaker-btn';
             btn.title = 'Listen to this section';
-            btn.setAttribute('aria-label', `Listen to section: ${h2.innerText}`);
+            btn.setAttribute('aria-label', `Listen to section: ${getCleanElementText(h2)}`);
             btn.innerHTML = '🔊';
 
             btn.addEventListener('click', (e) => {

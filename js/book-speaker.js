@@ -27,14 +27,31 @@
     }
   }
 
+  // Comprehensive Unicode Emoji and Pictograph Regular Expression
+  // Matches emoji sequences, presentation forms, skin tone modifiers, regional flags, keycaps, and variation selectors
+  const EMOJI_REGEX = /(?:\p{Extended_Pictographic}|\p{Emoji_Presentation}|\p{Emoji_Modifier_Base}|\p{Emoji_Modifier}|[\u{1F1E6}-\u{1F1FF}\u{200D}\u{FE0E}\u{FE0F}\u{20E3}])/gu;
+
   const cleanText = (text) => {
     return (text || '')
       .replace(/<[^>]*>/g, ' ')
       .replace(/&lt;/g, '<')
       .replace(/&gt;/g, '>')
       .replace(/&amp;/g, '&')
+      .replace(/&quot;/g, '"')
+      .replace(/&apos;/g, "'")
+      .replace(EMOJI_REGEX, '')
+      .replace(/\s+([,.:;!?])/g, '$1')
+      .replace(/\(\s+/g, '(')
+      .replace(/\s+\)/g, ')')
       .replace(/\s+/g, ' ')
       .trim();
+  };
+
+  const getCleanElementText = (el) => {
+    if (!el) return '';
+    const clone = el.cloneNode(true);
+    clone.querySelectorAll('button, .book-section-speaker-btn, .section-speaker-btn, script, style, .screen-reader-only').forEach(n => n.remove());
+    return cleanText(clone.innerText || clone.textContent || '');
   };
 
   const clearHighlights = () => {
@@ -93,10 +110,16 @@
       item.el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     }
 
-    const snippet = item.text.length > 30 ? item.text.substring(0, 30) + '...' : item.text;
+    const spokenText = cleanText(item.text);
+    if (!spokenText) {
+      playNextInQueue();
+      return;
+    }
+
+    const snippet = spokenText.length > 30 ? spokenText.substring(0, 30) + '...' : spokenText;
     updateToolbarUI('speaking', snippet);
 
-    const utterance = new SpeechSynthesisUtterance(item.text);
+    const utterance = new SpeechSynthesisUtterance(spokenText);
     utterance.rate = currentRate;
     if (preferredVoice) utterance.voice = preferredVoice;
 
@@ -122,7 +145,7 @@
 
     elements.forEach(el => {
       if (el.closest('.book-reader-header') || el.closest('.book-speaker-bar') || el.closest('pre') || el.closest('.js-runner-widget') || el.closest('.sidebar-search')) return;
-      const txt = cleanText(el.innerText);
+      const txt = getCleanElementText(el);
       if (txt.length > 1) {
         items.push({ el, text: txt });
       }
@@ -145,17 +168,20 @@
     btnEl.classList.add('active');
 
     const items = [];
-    items.push({ el: headingEl, text: cleanText(headingEl.innerText) });
+    const headingTxt = getCleanElementText(headingEl);
+    if (headingTxt.length > 1) {
+      items.push({ el: headingEl, text: headingTxt });
+    }
 
     let nextNode = headingEl.nextElementSibling;
     while (nextNode && !['H1', 'H2', 'H3'].includes(nextNode.tagName)) {
       if (!nextNode.closest('pre') && !nextNode.closest('.js-runner-widget') && !nextNode.closest('.book-reader-header')) {
         if (nextNode.tagName === 'P' || nextNode.tagName === 'BLOCKQUOTE') {
-          const txt = cleanText(nextNode.innerText);
+          const txt = getCleanElementText(nextNode);
           if (txt.length > 1) items.push({ el: nextNode, text: txt });
         } else if (nextNode.tagName === 'UL' || nextNode.tagName === 'OL') {
           nextNode.querySelectorAll('li').forEach(li => {
-            const txt = cleanText(li.innerText);
+            const txt = getCleanElementText(li);
             if (txt.length > 1) items.push({ el: li, text: txt });
           });
         }
@@ -287,7 +313,7 @@
     const firstH1 = contentArea.querySelector('h1');
     const firstH2 = contentArea.querySelector('h2');
     const titleEl = firstH1 || firstH2;
-    const chapterName = titleEl ? cleanText(titleEl.innerText).replace(/^[#\s0-9.]+/, '') : 'Chapter';
+    const chapterName = titleEl ? getCleanElementText(titleEl).replace(/^[#\s0-9.]+/, '') : 'Chapter';
     
     const text = cleanText(contentArea.innerText);
     const words = text.split(/\s+/).filter(w => w.length > 0).length;
@@ -306,7 +332,7 @@
       btn.type = 'button';
       btn.className = 'book-section-speaker-btn';
       btn.title = 'Listen to this section';
-      btn.setAttribute('aria-label', `Listen to section: ${heading.innerText}`);
+      btn.setAttribute('aria-label', `Listen to section: ${getCleanElementText(heading)}`);
       btn.innerHTML = '🔊';
 
       btn.addEventListener('click', (e) => {
