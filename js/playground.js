@@ -92,17 +92,58 @@
 
         checkPendingExercise: function() {
             const pending = localStorage.getItem('pendingExercise');
-            if (pending) {
+            if (!pending) return;
+
+            try {
                 const exercise = JSON.parse(pending);
-                const editor = document.getElementById('code-editor');
-                const consoleEl = document.getElementById('console');
-                
-                if (editor) {
-                    editor.value = exercise.starterCode;
+                const code = exercise.starterCode || '';
+                const title = exercise.title || 'Snippet';
+
+                // 1. If inside Master Playground (master-html, master-css, master-js)
+                const masterHtml = document.getElementById('master-html');
+                const masterCss = document.getElementById('master-css');
+                const masterJs = document.getElementById('master-js');
+                const masterConsole = document.getElementById('master-console');
+
+                if (masterHtml && masterCss) {
+                    const isCss = exercise.type === 'css' || title.toLowerCase().includes('css') || (code.includes('{') && code.includes(':') && !code.includes('<'));
+                    const isJs = exercise.type === 'js' || title.toLowerCase().includes('js') || title.toLowerCase().includes('javascript');
+
+                    if (isCss) {
+                        masterCss.value = code;
+                        // Switch active tab to CSS
+                        const cssTab = document.querySelector('.ide-tab[data-tab="css"]');
+                        if (cssTab) cssTab.click();
+                    } else if (isJs && masterJs) {
+                        masterJs.value = code;
+                        const jsTab = document.querySelector('.ide-tab[data-tab="js"]');
+                        if (jsTab) jsTab.click();
+                    } else {
+                        masterHtml.value = code;
+                        const htmlTab = document.querySelector('.ide-tab[data-tab="html"]');
+                        if (htmlTab) htmlTab.click();
+                    }
+
+                    if (masterConsole) {
+                        const entry = document.createElement('div');
+                        entry.className = 'console-entry';
+                        entry.textContent = `> Loaded snippet from book: ${title}`;
+                        masterConsole.appendChild(entry);
+                    }
+                } else {
+                    // 2. Individual playgrounds
+                    const editor = document.getElementById('code-editor') || document.getElementById('css-editor');
+                    const consoleEl = document.getElementById('console');
+                    if (editor) {
+                        editor.value = code;
+                    }
+                    if (consoleEl) {
+                        consoleEl.innerHTML = `<div class="info-entry">--- Loaded from book: ${title} ---</div>`;
+                    }
                 }
-                if (consoleEl) {
-                    consoleEl.innerHTML = `<div class="info-entry">--- Exercise: ${exercise.title} ---</div>`;
-                }
+            } catch (err) {
+                console.warn('Error applying pending exercise:', err);
+            } finally {
                 localStorage.removeItem('pendingExercise');
             }
         },
@@ -215,6 +256,7 @@
     document.addEventListener('DOMContentLoaded', () => {
         if (document.getElementById('master-html')) {
             Playground.initMaster();
+            Playground.checkPendingExercise();
         } else if (document.getElementById('html-editor') && document.getElementById('css-editor')) {
             Playground.initCSS();
         } else if (document.getElementById('console')) {

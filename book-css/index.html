@@ -35,6 +35,172 @@
       color: #7c3aed;
       background: #faf5ff;
     }
+
+    /* Enhanced Code Block with Copy and Playground Actions */
+    .code-wrapper {
+      position: relative;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: var(--radius-md, 10px);
+      margin: 1.5rem 0;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+    }
+    .code-wrapper-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e293b;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #334155;
+      font-size: 0.8rem;
+    }
+    .code-lang-label {
+      font-family: var(--font-mono, monospace);
+      font-weight: 700;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .code-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-copy-code, .btn-try-code {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      font-family: inherit;
+      border-radius: 6px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .btn-copy-code {
+      background: #334155;
+      color: #f8fafc;
+      border-color: #475569;
+    }
+    .btn-copy-code:hover {
+      background: #475569;
+      color: #38bdf8;
+      transform: translateY(-1px);
+    }
+    .btn-copy-code.copied {
+      background: #15803d;
+      color: #ffffff;
+      border-color: #22c55e;
+    }
+    .btn-try-code {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      color: #ffffff;
+    }
+    .btn-try-code:hover {
+      background: linear-gradient(135deg, #6d28d9, #5b21b6);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+    }
+    .code-wrapper pre {
+      margin: 0 !important;
+      padding: 1.15rem !important;
+      background: transparent !important;
+      overflow-x: auto;
+    }
+    .code-wrapper code {
+      font-family: 'Fira Code', var(--font-mono, monospace);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: #e2e8f0;
+      background: transparent !important;
+      padding: 0 !important;
+    }
+
+    /* Reader Top Bar Styling */
+    .reader-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 2rem;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+    }
+    .reader-topbar .breadcrumb {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .reader-topbar .breadcrumb a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+    .reader-topbar .breadcrumb a:hover {
+      color: #7c3aed;
+    }
+    .reader-topbar .breadcrumb span {
+      color: #7c3aed;
+      font-weight: 700;
+    }
+    .reader-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.42rem 0.85rem;
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-action:hover {
+      background: #faf5ff;
+      color: #7c3aed;
+      border-color: #7c3aed;
+      transform: translateY(-1px);
+    }
+
+    /* Copy toast notification */
+    .copy-toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: #38bdf8;
+      border: 1px solid #38bdf8;
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+    }
+    .copy-toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
@@ -181,6 +347,7 @@
 
       if (markdown) {
         contentArea.innerHTML = marked.parse(markdown);
+        enhanceCodeBlocks(contentArea);
         window.scrollTo({ top: 0, behavior: 'smooth' });
         if (window.initBookSpeaker) window.initBookSpeaker();
       } else {
@@ -192,6 +359,133 @@
         `;
         if (window.initBookSpeaker) window.initBookSpeaker();
       }
+    }
+
+    // Toast notification for copying code
+    function showCopyToast(message) {
+      let toast = document.getElementById('copyToast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'copyToast';
+        toast.className = 'copy-toast';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<span>📋</span> <span>${message || 'Code copied to clipboard!'}</span>`;
+      toast.classList.add('show');
+      clearTimeout(window.copyToastTimer);
+      window.copyToastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // Wrap pre code blocks with headers containing Copy and Try in Code Lab buttons
+    function enhanceCodeBlocks(container) {
+      if (!container) return;
+      const preElements = container.querySelectorAll('pre');
+      preElements.forEach((pre, index) => {
+        if (pre.parentElement.classList.contains('code-wrapper')) return;
+
+        const codeEl = pre.querySelector('code');
+        const rawCode = codeEl ? codeEl.innerText : pre.innerText;
+
+        // Detect language from class (e.g. language-css, language-html)
+        let lang = 'Code';
+        if (codeEl && codeEl.className) {
+          const match = codeEl.className.match(/language-([a-zA-Z0-9_-]+)/);
+          if (match && match[1]) {
+            lang = match[1].toUpperCase();
+          }
+        } else if (rawCode.includes('{') && rawCode.includes('}') && (rawCode.includes(':') || rawCode.includes('px') || rawCode.includes('color'))) {
+          lang = 'CSS';
+        } else if (rawCode.includes('<') && rawCode.includes('>')) {
+          lang = 'HTML';
+        }
+
+        // Create wrapper container
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-wrapper';
+
+        // Header bar with language tag and actions
+        const header = document.createElement('div');
+        header.className = 'code-wrapper-header';
+
+        const langBadge = document.createElement('span');
+        langBadge.className = 'code-lang-label';
+        langBadge.textContent = lang;
+
+        const actions = document.createElement('div');
+        actions.className = 'code-actions';
+
+        // Copy Button
+        const copyBtn = document.createElement('button');
+        copyBtn.type = 'button';
+        copyBtn.className = 'btn-copy-code';
+        copyBtn.title = 'Copy code snippet to clipboard';
+        copyBtn.innerHTML = '<span>📋</span> <span>Copy</span>';
+
+        copyBtn.addEventListener('click', async () => {
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(rawCode);
+            } else {
+              // Fallback for non-https or older browsers
+              const textarea = document.createElement('textarea');
+              textarea.value = rawCode;
+              textarea.style.position = 'fixed';
+              textarea.style.left = '-999999px';
+              textarea.style.top = '-999999px';
+              document.body.appendChild(textarea);
+              textarea.focus();
+              textarea.select();
+              document.execCommand('copy');
+              textarea.remove();
+            }
+            copyBtn.classList.add('copied');
+            copyBtn.innerHTML = '<span>✅</span> <span>Copied!</span>';
+            showCopyToast('Code copied! Paste it into your project or Code Lab.');
+            setTimeout(() => {
+              copyBtn.classList.remove('copied');
+              copyBtn.innerHTML = '<span>📋</span> <span>Copy</span>';
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy text: ', err);
+            showCopyToast('Failed to copy automatically. Please select and copy.');
+          }
+        });
+
+        // Try in Code Lab Button
+        const tryBtn = document.createElement('a');
+        tryBtn.className = 'btn-try-code';
+        tryBtn.title = 'Open and test this code in Code Lab IDE';
+        tryBtn.innerHTML = '<span>🧪</span> <span>Try in Code Lab</span>';
+        tryBtn.href = '../master-playground.html';
+        tryBtn.target = '_blank';
+        tryBtn.rel = 'noopener noreferrer';
+
+        tryBtn.addEventListener('click', () => {
+          // Pre-populate playground if relevant
+          try {
+            const isCss = lang === 'CSS' || rawCode.includes('{') || rawCode.includes('color:');
+            const exercise = {
+              title: `CSS Book Snippet (${lang})`,
+              starterCode: rawCode,
+              type: isCss ? 'css' : 'html'
+            };
+            localStorage.setItem('pendingExercise', JSON.stringify(exercise));
+          } catch (e) {}
+        });
+
+        actions.appendChild(copyBtn);
+        actions.appendChild(tryBtn);
+
+        header.appendChild(langBadge);
+        header.appendChild(actions);
+
+        // Replace pre with wrapper containing header and pre
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(header);
+        wrapper.appendChild(pre);
+      });
     }
 
     // Filter chapters in sidebar

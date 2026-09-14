@@ -215,6 +215,7 @@
 
       if (markdown) {
         contentArea.innerHTML = marked.parse(markdown);
+        enhanceCodeBlocks(contentArea);
         window.scrollTo({ top: 0, behavior: 'smooth' });
         if (window.initBookSpeaker) window.initBookSpeaker();
       } else {
@@ -226,6 +227,131 @@
         `;
         if (window.initBookSpeaker) window.initBookSpeaker();
       }
+    }
+
+    // Toast notification for copying code
+    function showCopyToast(message) {
+      let toast = document.getElementById('copyToast');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'copyToast';
+        toast.className = 'copy-toast';
+        document.body.appendChild(toast);
+      }
+      toast.innerHTML = `<span>📋</span> <span>${message || 'Code copied to clipboard!'}</span>`;
+      toast.classList.add('show');
+      clearTimeout(window.copyToastTimer);
+      window.copyToastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // Wrap pre code blocks with headers containing Copy and Try in Code Lab buttons
+    function enhanceCodeBlocks(container) {
+      if (!container) return;
+      const preElements = container.querySelectorAll('pre');
+      preElements.forEach((pre) => {
+        if (pre.parentElement.classList.contains('code-wrapper')) return;
+
+        const codeEl = pre.querySelector('code');
+        const rawCode = codeEl ? codeEl.innerText : pre.innerText;
+
+        // Detect language from class (e.g. language-css, language-html)
+        let lang = 'Code';
+        if (codeEl && codeEl.className) {
+          const match = codeEl.className.match(/language-([a-zA-Z0-9_-]+)/);
+          if (match && match[1]) {
+            lang = match[1].toUpperCase();
+          }
+        } else if (rawCode.includes('{') && rawCode.includes('}') && (rawCode.includes(':') || rawCode.includes('px') || rawCode.includes('color'))) {
+          lang = 'CSS';
+        } else if (rawCode.includes('<') && rawCode.includes('>')) {
+          lang = 'HTML';
+        }
+
+        // Create wrapper container
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-wrapper';
+
+        // Header bar with language tag and actions
+        const header = document.createElement('div');
+        header.className = 'code-wrapper-header';
+
+        const langBadge = document.createElement('span');
+        langBadge.className = 'code-lang-label';
+        langBadge.textContent = lang;
+
+        const actions = document.createElement('div');
+        actions.className = 'code-actions';
+
+        // Copy Button
+        const copyBtn = document.createElement('button');
+        copyBtn.type = 'button';
+        copyBtn.className = 'btn-copy-code';
+        copyBtn.title = 'Copy code snippet to clipboard';
+        copyBtn.innerHTML = '<span>📋</span> <span>Copy</span>';
+
+        copyBtn.addEventListener('click', async () => {
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(rawCode);
+            } else {
+              const textarea = document.createElement('textarea');
+              textarea.value = rawCode;
+              textarea.style.position = 'fixed';
+              textarea.style.left = '-999999px';
+              textarea.style.top = '-999999px';
+              document.body.appendChild(textarea);
+              textarea.focus();
+              textarea.select();
+              document.execCommand('copy');
+              textarea.remove();
+            }
+            copyBtn.classList.add('copied');
+            copyBtn.innerHTML = '<span>✅</span> <span>Copied!</span>';
+            showCopyToast('Code copied! Paste it into your project or Code Lab.');
+            setTimeout(() => {
+              copyBtn.classList.remove('copied');
+              copyBtn.innerHTML = '<span>📋</span> <span>Copy</span>';
+            }, 2000);
+          } catch (err) {
+            console.error('Failed to copy text: ', err);
+            showCopyToast('Failed to copy automatically. Please select and copy.');
+          }
+        });
+
+        // Try in Code Lab Button
+        const tryBtn = document.createElement('a');
+        tryBtn.className = 'btn-try-code';
+        tryBtn.title = 'Open and test this code in Code Lab IDE';
+        tryBtn.innerHTML = '<span>🧪</span> <span>Try in Code Lab</span>';
+        tryBtn.href = '../master-playground.html';
+        tryBtn.target = '_blank';
+        tryBtn.rel = 'noopener noreferrer';
+
+        tryBtn.addEventListener('click', () => {
+          try {
+            const isCss = lang === 'CSS' || rawCode.includes('{') || rawCode.includes('color:');
+            const exercise = {
+              title: `Book Snippet (${lang})`,
+              starterCode: rawCode,
+              type: isCss ? 'css' : 'html'
+            };
+            localStorage.setItem('pendingExercise', JSON.stringify(exercise));
+          } catch (e) {}
+        });
+
+        actions.appendChild(copyBtn);
+        actions.appendChild(tryBtn);
+
+        header.appendChild(langBadge);
+        header.appendChild(actions);
+
+        // Replace pre with wrapper containing header and pre
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(header);
+        wrapper.appendChild(pre);
+      });
     }
 
     function filterSubject(subject, btn) {
