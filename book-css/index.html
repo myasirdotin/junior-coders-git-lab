@@ -314,6 +314,15 @@
   <div class="book-layout">
     <!-- Sidebar Navigation -->
     <aside class="book-sidebar" id="bookSidebar">
+      <div class="book-return-bar">
+        <a href="../index.html" class="book-back-home" title="Return to Junior Coders Home">
+          <span class="back-icon">←</span>
+          <span>Return Home</span>
+        </a>
+        <a href="../Learning CSS/learningcss.html" class="book-back-home" title="CSS Course Track">
+          <span>CSS Modules</span>
+        </a>
+      </div>
       <div class="book-brand">
         <div>
           <span class="css-brand-badge">Official Textbook</span>
@@ -371,10 +380,16 @@
     <!-- Reader Main Content Area -->
     <main class="book-reader">
       <header class="reader-topbar">
-        <div class="breadcrumb">
-          <a href="../index.html">Junior Coders</a> &gt; <a href="../Learning%20CSS/learningcss.html">Learning CSS</a> &gt; <span>CSS Textbook</span>
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <a href="../index.html" class="btn-action" style="background: #f8fafc; color: #7c3aed; font-weight: 700; border-color: #cbd5e1;">
+            <span>←</span> <span>Home</span>
+          </a>
+          <div class="breadcrumb">
+            <a href="../index.html">Junior Coders</a> &gt; <a href="../Learning%20CSS/learningcss.html">Learning CSS</a> &gt; <span>CSS Textbook</span>
+          </div>
         </div>
         <div class="reader-actions">
+          <a href="../index.html" class="btn-action">🏠 Home</a>
           <a href="../Learning%20CSS/learningcss.html" class="btn-action">CSS Modules</a>
           <a href="../book/index.html" class="btn-action">HTML Book</a>
           <a href="../master-playground.html" class="btn-action" style="background: var(--primary-blue); color: white; border: none;">Code Lab</a>

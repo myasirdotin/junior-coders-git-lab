@@ -37,6 +37,15 @@
   <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
   <div class="book-layout">
     <aside class="book-sidebar" id="bookSidebar">
+      <div class="book-return-bar">
+        <a href="../index.html" class="book-back-home" title="Return to Junior Coders Home">
+          <span class="back-icon">←</span>
+          <span>Return Home</span>
+        </a>
+        <a href="../Learning Laravel/learninglaravel.html" class="book-back-home" title="Laravel Course Track">
+          <span>Laravel Track</span>
+        </a>
+      </div>
       <div class="book-brand">
         <div class="book-brand-icon">&#128293;</div>
         <div><h1>Class 9 Laravel</h1><span>PHP Web Framework</span></div>
@@ -103,6 +112,22 @@
       </nav>
     </aside>
     <main class="book-content">
+      <!-- Reader Top Navigation Bar -->
+      <nav class="reader-top-nav" aria-label="Breadcrumb and quick navigation">
+        <div class="reader-breadcrumb">
+          <a href="../index.html"><span>🏠</span> Home</a>
+          <span>/</span>
+          <a href="../Learning Laravel/learninglaravel.html">Laravel Track</a>
+          <span>/</span>
+          <span class="active-book" style="color: #ef4444;">Class 9 Laravel Textbook</span>
+        </div>
+        <div class="reader-top-links">
+          <a href="../index.html" class="reader-nav-btn"><span>🏠</span> Home</a>
+          <a href="../Learning Laravel/learninglaravel.html" class="reader-nav-btn"><span>📚</span> Laravel Modules</a>
+          <a href="../master-playground.html" class="reader-nav-btn primary-btn" style="background: #ef4444; border-color: #ef4444;"><span>💻</span> Code Lab</a>
+        </div>
+      </nav>
+
       <header class="book-reader-header" id="bookReaderHeader" role="region" aria-label="Book Reader Controls">
         <div class="reader-header-main">
           <div class="reader-controls-left">

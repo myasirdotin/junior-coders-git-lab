@@ -68,6 +68,129 @@ body {
   flex-shrink: 0;
 }
 
+/* Return to Platform Bar & Topbar Navigation */
+.book-return-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  gap: 0.5rem;
+}
+
+.book-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  transition: all 0.2s ease;
+}
+
+.book-back-home:hover {
+  background: #eff6ff;
+  color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  transform: translateX(-2px);
+}
+
+.book-back-home .back-icon {
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+/* Reader Top Navigation Strip (Breadcrumbs & Direct Actions) */
+.reader-top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background: #ffffff;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.85rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.reader-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  flex-wrap: wrap;
+}
+
+.reader-breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.reader-breadcrumb a:hover {
+  color: var(--primary-blue);
+}
+
+.reader-breadcrumb .active-book {
+  color: var(--primary-blue);
+  font-weight: 700;
+}
+
+.reader-top-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.reader-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.75rem;
+  border-radius: 6px;
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.reader-nav-btn:hover {
+  background: #ffffff;
+  color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  transform: translateY(-1px);
+}
+
+.reader-nav-btn.primary-btn {
+  background: var(--primary-blue);
+  color: #ffffff;
+  border-color: var(--primary-blue);
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+}
+
+.reader-nav-btn.primary-btn:hover {
+  filter: brightness(1.1);
+}
+
 .book-brand {
   display: flex;
   align-items: center;
