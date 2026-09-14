@@ -102,6 +102,8 @@
                 const jsCode = exercise.js || (exercise.type === 'js' ? exercise.starterCode : '') || '';
                 const instructions = exercise.instructions || '';
                 const level = exercise.level || 'Practice';
+                const sourceUrl = exercise.sourceUrl || '';
+                const sourceTitle = exercise.sourceTitle || 'Book Chapter';
 
                 // 1. If inside Master Playground (master-html, master-css, master-js)
                 const masterHtml = document.getElementById('master-html');
@@ -139,14 +141,23 @@
                             document.body.insertBefore(missionBanner, document.body.firstChild);
                         }
                     }
+                    const returnLinkHtml = sourceUrl ? `
+                        <a href="${sourceUrl}" style="background: rgba(255,255,255,0.12); color: #38bdf8; border: 1px solid rgba(56,189,248,0.3); padding: 0.25rem 0.65rem; border-radius: 6px; text-decoration: none; font-size: 0.8rem; font-weight: 600; display: inline-flex; align-items: center; gap: 0.3rem;">
+                            <span>📖</span> Back to ${sourceTitle}
+                        </a>
+                    ` : '';
+
                     missionBanner.innerHTML = `
-                        <div class="mission-banner-bar" style="background: linear-gradient(90deg, #1e1b4b, #312e81); border-bottom: 2px solid #6366f1; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; color: #fff; font-size: 0.95rem;">
+                        <div class="mission-banner-bar" style="background: linear-gradient(90deg, #1e1b4b, #312e81); border-bottom: 2px solid #6366f1; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; color: #fff; font-size: 0.95rem; gap: 1rem; flex-wrap: wrap;">
                             <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
                                 <span style="background: #4f46e5; color: #fff; font-weight: 700; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 9999px; text-transform: uppercase;">${level}</span>
                                 <strong>${title}</strong>
                                 <span style="color: #cbd5e1;">${instructions}</span>
                             </div>
-                            <button type="button" onclick="this.closest('#ide-mission-banner').remove()" style="background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer; padding: 0 0.5rem;" title="Dismiss banner">✕</button>
+                            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                                ${returnLinkHtml}
+                                <button type="button" onclick="this.closest('#ide-mission-banner').remove()" style="background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer; padding: 0 0.5rem;" title="Dismiss banner">✕</button>
+                            </div>
                         </div>
                     `;
 
@@ -166,7 +177,31 @@
                     if (htmlEd && htmlCode) htmlEd.value = htmlCode;
                     if (cssEd && cssCode) cssEd.value = cssCode;
                     if (codeEd) codeEd.value = htmlCode || cssCode || jsCode || exercise.starterCode || '';
-                    
+
+                    // Trigger live preview refresh
+                    if (htmlEd) htmlEd.dispatchEvent(new Event('input'));
+                    if (cssEd) cssEd.dispatchEvent(new Event('input'));
+                    if (codeEd) codeEd.dispatchEvent(new Event('input'));
+
+                    // Check if dedicated lab mission banner exists in page
+                    const missionBanner = document.getElementById('lab-mission-banner');
+                    if (missionBanner) {
+                        missionBanner.style.display = 'block';
+                        const titleEl = missionBanner.querySelector('.mission-title');
+                        if (titleEl) titleEl.textContent = title;
+                        const descEl = missionBanner.querySelector('.mission-desc');
+                        if (descEl) descEl.textContent = instructions;
+                        const badgeEl = missionBanner.querySelector('.mission-badge');
+                        if (badgeEl) badgeEl.textContent = level;
+                    }
+
+                    const reviewBtn = document.getElementById('review-book-btn');
+                    if (reviewBtn && sourceUrl) {
+                        reviewBtn.href = sourceUrl;
+                        reviewBtn.style.display = 'inline-flex';
+                        reviewBtn.innerHTML = `<span>📖</span> <span>Review in Book: ${sourceTitle}</span>`;
+                    }
+
                     if (consoleEl) {
                         consoleEl.innerHTML = `<div class="info-entry">--- Mission Loaded: ${title} ---</div>`;
                     }

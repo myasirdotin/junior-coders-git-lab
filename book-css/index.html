@@ -202,6 +202,99 @@
       transform: translateY(0);
       opacity: 1;
     }
+
+    /* Chapter Lab Callout at the bottom of each chapter */
+    .chapter-lab-callout {
+      margin-top: 3.5rem;
+      background: linear-gradient(135deg, #1e1b4b, #0f172a);
+      border: 2px solid #7c3aed;
+      border-radius: 12px;
+      padding: 1.75rem 2rem;
+      box-shadow: 0 10px 30px rgba(124, 58, 237, 0.25);
+      color: #f8fafc;
+    }
+    .lab-callout-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.85rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .lab-badge {
+      background: #7c3aed;
+      color: white;
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .lab-module-tag {
+      font-size: 0.82rem;
+      color: #38bdf8;
+      font-weight: 600;
+    }
+    .chapter-lab-callout h3 {
+      color: #ffffff;
+      margin: 0 0 0.5rem 0;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+    .chapter-lab-callout p {
+      color: #cbd5e1;
+      margin: 0 0 1.25rem 0;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+    .lab-callout-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .btn-launch-playground {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.35rem;
+      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+      transition: all 0.2s;
+    }
+    .btn-launch-playground:hover {
+      background: linear-gradient(135deg, #6d28d9, #4338ca);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
+    }
+    .btn-launch-ide {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.25rem;
+      background: #1e293b;
+      color: #e2e8f0;
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid #334155;
+      transition: all 0.2s;
+    }
+    .btn-launch-ide:hover {
+      background: #334155;
+      color: #38bdf8;
+      border-color: #64748b;
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 <body>
@@ -349,6 +442,7 @@
       if (markdown) {
         contentArea.innerHTML = marked.parse(markdown);
         enhanceCodeBlocks(contentArea);
+        attachChapterLab(contentArea, path);
         window.scrollTo({ top: 0, behavior: 'smooth' });
         if (window.initBookSpeaker) window.initBookSpeaker();
       } else {
@@ -360,6 +454,101 @@
         `;
         if (window.initBookSpeaker) window.initBookSpeaker();
       }
+    }
+
+    // Companion Lab Challenge Database
+    const CSS_CHAPTER_LABS = {
+      ch13: { chapter: "13", title: "What is CSS? (Basic Typography)", desc: "Style the heading with modern font, color, and center alignment." },
+      ch14: { chapter: "14", title: "Adding CSS (Classes & Selectors)", desc: "Create reusable class selectors for badges and highlighted keywords." },
+      ch15: { chapter: "15", title: "CSS Colors & Gradients (Hero Banner)", desc: "Build a modern hero banner with linear-gradient background and text shadow." },
+      ch16: { chapter: "16", title: "Fonts & Text Styling", desc: "Format headings and body typography with letter spacing and readable line heights." },
+      ch17: { chapter: "17", title: "Backgrounds & Overlays", desc: "Combine background gradients and cover images with color overlays." },
+      ch18: { chapter: "18", title: "CSS Box Model (Padding, Margin, Borders)", desc: "Master the 4 layers of the Box Model on an interactive product card." },
+      ch19: { chapter: "19", title: "Borders & Rounded Corners", desc: "Create circular avatars and glowing badge borders with border-radius." },
+      ch20: { chapter: "20", title: "Display Property", desc: "Demonstrate block vs inline vs inline-block element layout flow." },
+      ch21: { chapter: "21", title: "Flexbox Alignment (Navigation Bar)", desc: "Build a responsive navigation header with space-between flexbox alignment." },
+      ch22: { chapter: "22", title: "CSS Grid (3x3 Photo Gallery)", desc: "Construct a responsive 3-column photo grid using grid-template-columns and gap." },
+      ch23: { chapter: "23", title: "CSS Positioning (Floating Badge)", desc: "Position a notification badge on the top right corner of an icon using relative/absolute." },
+      ch24: { chapter: "24", title: "Responsive Web Design (Media Queries)", desc: "Implement a media query breakpoint that stacks desktop columns on mobile viewports." },
+      ch25: { chapter: "25-27", title: "Hover Buttons & Micro-Animations", desc: "Animate button elevation and glow shadows with smooth CSS transitions." },
+      ch28: { chapter: "28", title: "Modern Glassmorphism Website Card", desc: "Build a translucent frosted glass card with backdrop-filter and gradient glow." },
+      ch29: { chapter: "29", title: "Complete Sticky Navigation Bar", desc: "Create a production-grade header with sticky top positioning and glass backdrop." }
+    };
+
+    function attachChapterLab(container, path) {
+      if (!container || !path) return;
+      
+      // Extract chapter key (e.g., ch18 from ch18-css-box-model.md)
+      const match = path.match(/ch(\d+)/i);
+      const chKey = match ? `ch${match[1]}` : null;
+      
+      // Check for matching lab or fallback to general lab
+      const lab = chKey && CSS_CHAPTER_LABS[chKey] ? CSS_CHAPTER_LABS[chKey] : {
+        chapter: match ? match[1] : "",
+        title: "Hands-On Chapter Practice Lab",
+        desc: "Practice what you just read by writing code in the interactive CSS Playground."
+      };
+
+      const labCallout = document.createElement('div');
+      labCallout.className = 'chapter-lab-callout';
+      labCallout.innerHTML = `
+        <div class="lab-callout-header">
+          <span class="lab-badge">🎯 Chapter Practice Lab</span>
+          <span class="lab-module-tag">Theory + Lab Companion</span>
+        </div>
+        <h3>Chapter ${lab.chapter} Lab: ${lab.title}</h3>
+        <p>${lab.desc}</p>
+        <div class="lab-callout-actions">
+          <button type="button" class="btn-launch-playground" onclick="launchLabChallenge('${chKey || 'ch15'}')">
+            <span>🚀</span> <span>Launch Challenge in CSS Playground</span>
+          </button>
+          <a href="../master-playground.html" class="btn-launch-ide" onclick="launchLabIDE('${chKey || 'ch15'}')">
+            <span>💻</span> <span>Open in Master IDE</span>
+          </a>
+        </div>
+      `;
+
+      container.appendChild(labCallout);
+
+      // Update URL hash without jumping
+      if (chKey && window.location.hash !== `#${chKey}`) {
+        history.replaceState(null, null, `#${chKey}`);
+      }
+    }
+
+    function launchLabChallenge(key) {
+      const lab = CSS_CHAPTER_LABS[key];
+      const title = lab ? `Ch ${lab.chapter}: ${lab.title}` : `CSS Chapter Lab`;
+      const desc = lab ? lab.desc : `Practice chapter concepts in the interactive playground.`;
+
+      const exercise = {
+        title: title,
+        level: `Class 7 CSS Lab`,
+        instructions: desc,
+        sourceUrl: `../book-css/index.html#${key}`,
+        sourceTitle: title,
+        type: 'css'
+      };
+
+      localStorage.setItem('pendingExercise', JSON.stringify(exercise));
+      window.location.href = `../Learning CSS/playground.html#${key}`;
+    }
+
+    function launchLabIDE(key) {
+      const lab = CSS_CHAPTER_LABS[key];
+      const title = lab ? `Ch ${lab.chapter}: ${lab.title}` : `CSS Chapter Lab`;
+      const desc = lab ? lab.desc : `Practice chapter concepts in the Master IDE.`;
+
+      const exercise = {
+        title: title,
+        level: `Class 7 CSS Lab`,
+        instructions: desc,
+        sourceUrl: `../book-css/index.html#${key}`,
+        sourceTitle: title,
+        type: 'css'
+      };
+
+      localStorage.setItem('pendingExercise', JSON.stringify(exercise));
     }
 
     // Toast notification for copying code

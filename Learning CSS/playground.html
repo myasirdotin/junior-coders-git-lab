@@ -3,41 +3,1513 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Playground | Junior Coders</title>
+    <title>CSS Interactive Lab & Playground | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --lab-purple: #7c3aed;
+            --lab-indigo: #4f46e5;
+            --lab-cyan: #06b6d4;
+            --lab-bg: #0b0f19;
+            --lab-card: #111827;
+            --lab-border: #1f2937;
+        }
+
+        body {
+            background: var(--lab-bg);
+            color: #f3f4f6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Lab Top Bar */
+        .lab-navbar {
+            background: #0f172a;
+            border-bottom: 1px solid #1e293b;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .lab-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .lab-brand a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .lab-brand a:hover {
+            color: #38bdf8;
+        }
+
+        .lab-brand h1 {
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #a78bfa, #38bdf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lab-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .lab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+            font-family: inherit;
+        }
+
+        .lab-btn-outline {
+            background: #1e293b;
+            color: #cbd5e1;
+            border-color: #334155;
+        }
+
+        .lab-btn-outline:hover {
+            background: #334155;
+            color: #fff;
+            border-color: #64748b;
+        }
+
+        .lab-btn-book {
+            background: linear-gradient(135deg, #7c3aed, #4f46e5);
+            color: white;
+            box-shadow: 0 2px 10px rgba(124, 58, 237, 0.35);
+        }
+
+        .lab-btn-book:hover {
+            background: linear-gradient(135deg, #6d28d9, #4338ca);
+            transform: translateY(-1px);
+        }
+
+        /* Challenge Selector Toolbar */
+        .challenge-toolbar {
+            background: #131d33;
+            border-bottom: 1px solid #1e293b;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .challenge-selector-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .challenge-selector-group label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        .challenge-select {
+            background: #0f172a;
+            color: #f8fafc;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 0.45rem 0.85rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 420px;
+        }
+
+        .challenge-select:focus {
+            border-color: #7c3aed;
+            box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.25);
+        }
+
+        .toolbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Mission Directive Banner */
+        .mission-banner {
+            background: linear-gradient(90deg, #1e1b4b, #0f172a);
+            border-bottom: 1px solid #312e81;
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .mission-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .mission-badge {
+            background: #7c3aed;
+            color: white;
+            font-weight: 800;
+            font-size: 0.72rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .mission-title {
+            font-weight: 700;
+            color: #f8fafc;
+            font-size: 0.95rem;
+        }
+
+        .mission-desc {
+            color: #cbd5e1;
+            font-size: 0.88rem;
+        }
+
+        /* Main Studio Grid */
+        .lab-workspace {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: calc(100vh - 170px);
+        }
+
+        @media (max-width: 900px) {
+            .lab-workspace {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Editor Section */
+        .editor-section {
+            border-right: 1px solid #1e293b;
+            display: flex;
+            flex-direction: column;
+            background: #0d1322;
+        }
+
+        .editor-tabs {
+            display: flex;
+            background: #0f172a;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .editor-tab {
+            padding: 0.65rem 1.25rem;
+            background: transparent;
+            border: none;
+            color: #94a3b8;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .editor-tab.active {
+            color: #38bdf8;
+            border-bottom-color: #38bdf8;
+            background: rgba(56, 189, 248, 0.04);
+        }
+
+        .editor-tab.tab-css.active {
+            color: #a78bfa;
+            border-bottom-color: #a78bfa;
+            background: rgba(167, 139, 250, 0.04);
+        }
+
+        .editor-pane-container {
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .code-textarea {
+            width: 100%;
+            height: 100%;
+            min-height: 280px;
+            background: #0b0f19;
+            color: #f1f5f9;
+            border: none;
+            padding: 1.25rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            resize: none;
+            outline: none;
+            box-sizing: border-box;
+            tab-size: 2;
+        }
+
+        .editor-pane {
+            display: none;
+            flex: 1;
+            height: 100%;
+        }
+
+        .editor-pane.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editor-status-bar {
+            background: #0f172a;
+            border-top: 1px solid #1e293b;
+            padding: 0.4rem 1rem;
+            font-size: 0.78rem;
+            color: #64748b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Preview Section */
+        .preview-section {
+            background: #111827;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-header {
+            background: #0f172a;
+            border-bottom: 1px solid #1e293b;
+            padding: 0.55rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .viewport-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .viewport-btn {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .viewport-btn.active {
+            background: #7c3aed;
+            color: white;
+            border-color: #7c3aed;
+        }
+
+        .preview-frame-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            background: #1e293b;
+            padding: 1rem;
+            overflow: auto;
+        }
+
+        .preview-box {
+            width: 100%;
+            height: 100%;
+            min-height: 480px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            border: 1px solid #334155;
+            transition: width 0.3s ease;
+            overflow: hidden;
+        }
+
+        /* Modal Overlay for Hints / Solution */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-card {
+            background: #111827;
+            border: 1px solid #374151;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+
+        .modal-header {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #1f2937;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            color: #f9fafb;
+            font-size: 1.1rem;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            overflow-y: auto;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .modal-body pre {
+            background: #0b0f19;
+            border: 1px solid #1f2937;
+            border-radius: 8px;
+            padding: 1rem;
+            color: #38bdf8;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.88rem;
+            overflow-x: auto;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #9ca3af;
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
-    <main class="module-container" style="max-width: 1200px;">
-        <header class="module-header">
-            <h1>CSS Playground</h1>
-            <p>Style your web pages in real-time.</p>
-        </header>
+    <!-- Lab Navbar -->
+    <header class="lab-navbar">
+        <div class="lab-brand">
+            <a href="../index.html"><span>🏠</span> Home</a>
+            <span style="color: #334155;">/</span>
+            <a href="learningcss.html">CSS Track</a>
+            <span style="color: #334155;">/</span>
+            <h1>CSS Interactive Lab</h1>
+        </div>
 
-        <section class="content-section">
-            <div class="playground-container">
-                <div class="editor-area" style="display: flex; flex-direction: column; gap: 1rem;">
-                    <div>
-                        <label>HTML</label>
-                        <textarea id="html-editor" style="height: 200px;" placeholder="<div class='box'>Hello!</div>"></textarea>
-                    </div>
-                    <div>
-                        <label>CSS</label>
-                        <textarea id="css-editor" style="height: 200px;" placeholder=".box { color: red; }"></textarea>
+        <div class="lab-nav-links">
+            <a id="review-book-btn" href="../book-css/index.html#ch13" class="lab-btn lab-btn-book" title="Open the textbook chapter for this challenge">
+                <span>📖</span> <span>Review Chapter in Book</span>
+            </a>
+            <a href="exercises.html" class="lab-btn lab-btn-outline">
+                <span>📋</span> <span>All Exercises</span>
+            </a>
+            <a href="../master-playground.html" class="lab-btn lab-btn-outline">
+                <span>💻</span> <span>Full Master IDE</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Challenge Selector & Action Bar -->
+    <section class="challenge-toolbar">
+        <div class="challenge-selector-group">
+            <label for="challengeSelect">🎯 Choose Lab Challenge:</label>
+            <select id="challengeSelect" class="challenge-select" onchange="switchChapterChallenge(this.value)">
+                <option value="ch13">Ch 13: What is CSS? (Basic Typography)</option>
+                <option value="ch14">Ch 14: Adding CSS (Classes & Selectors)</option>
+                <option value="ch15" selected>Ch 15: CSS Colors & Gradients (Hero Banner)</option>
+                <option value="ch16">Ch 16: Fonts & Text Styling (Typography Studio)</option>
+                <option value="ch17">Ch 17: Backgrounds & Overlays (Card Cover)</option>
+                <option value="ch18">Ch 18: Box Model (Padding, Margin, Borders)</option>
+                <option value="ch19">Ch 19: Borders & Rounded Corners (Avatar Badge)</option>
+                <option value="ch20">Ch 20: Display Property (Inline vs Block)</option>
+                <option value="ch21">Ch 21: Flexbox Alignment (Navigation Bar)</option>
+                <option value="ch22">Ch 22: CSS Grid (3x3 Photo Gallery)</option>
+                <option value="ch23">Ch 23: CSS Positioning (Floating Badge)</option>
+                <option value="ch24">Ch 24: Responsive Web Design (Media Queries)</option>
+                <option value="ch25">Ch 25-27: Glowing Hover Button & Transitions</option>
+                <option value="ch28">Ch 28: Modern Glassmorphism Website Card</option>
+                <option value="ch29">Ch 29: Complete Responsive Navbar</option>
+                <option value="sandbox">🛠️ Free Sandbox (Blank Canvas)</option>
+            </select>
+        </div>
+
+        <div class="toolbar-actions">
+            <button type="button" class="lab-btn lab-btn-outline" onclick="openModal('hintModal')">
+                <span>💡</span> <span>Hint</span>
+            </button>
+            <button type="button" class="lab-btn lab-btn-outline" onclick="openModal('solutionModal')">
+                <span>📝</span> <span>Solution</span>
+            </button>
+            <button type="button" class="lab-btn lab-btn-outline" onclick="resetActiveChallenge()" title="Reset to original challenge starter code">
+                <span>🔄</span> <span>Reset Code</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Mission Directive Banner -->
+    <section class="mission-banner" id="lab-mission-banner">
+        <div class="mission-content">
+            <span class="mission-badge" id="missionBadge">Chapter 15 Lab</span>
+            <span class="mission-title" id="missionTitle">CSS Colors & Gradients</span>
+            <span class="mission-desc" id="missionDesc">Style the hero box with a modern linear gradient background and centered text.</span>
+        </div>
+    </section>
+
+    <!-- Split Studio Workspace -->
+    <main class="lab-workspace">
+        <!-- Editor Section -->
+        <section class="editor-section">
+            <div class="editor-tabs">
+                <button type="button" class="editor-tab active" data-target="pane-css" onclick="switchEditorTab('css', this)">
+                    <span>🎨</span> <span>style.css</span>
+                </button>
+                <button type="button" class="editor-tab" data-target="pane-html" onclick="switchEditorTab('html', this)">
+                    <span>📄</span> <span>index.html</span>
+                </button>
+            </div>
+
+            <div class="editor-pane-container">
+                <!-- CSS Pane -->
+                <div id="pane-css" class="editor-pane active">
+                    <textarea id="css-editor" class="code-textarea" spellcheck="false" placeholder="/* Write your CSS rules here */"></textarea>
+                    <div class="editor-status-bar">
+                        <span>CSS3 Editor</span>
+                        <span id="css-status">Lines: 1</span>
                     </div>
                 </div>
-                <div class="preview-area">
-                    <label>Live Preview</label>
-                    <div id="preview" style="background: white; min-height: 420px; border-radius: 1rem;"></div>
+
+                <!-- HTML Pane -->
+                <div id="pane-html" class="editor-pane">
+                    <textarea id="html-editor" class="code-textarea" spellcheck="false" placeholder="<!-- Write your HTML structure here -->"></textarea>
+                    <div class="editor-status-bar">
+                        <span>HTML5 Document</span>
+                        <span id="html-status">Lines: 1</span>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section class="preview-section">
+            <div class="preview-header">
+                <div class="viewport-controls">
+                    <button type="button" class="viewport-btn active" onclick="setViewport('100%', this)">💻 Desktop</button>
+                    <button type="button" class="viewport-btn" onclick="setViewport('768px', this)">📟 Tablet</button>
+                    <button type="button" class="viewport-btn" onclick="setViewport('375px', this)">📱 Mobile</button>
+                </div>
+                <button type="button" class="lab-btn lab-btn-outline" style="padding: 0.2rem 0.5rem;" onclick="refreshPreview()" title="Refresh live preview">
+                    <span>🔄</span> Refresh
+                </button>
+            </div>
+
+            <div class="preview-frame-container">
+                <div id="preview" class="preview-box"></div>
             </div>
         </section>
     </main>
 
+    <!-- Hint Modal -->
+    <div class="modal-overlay" id="hintModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>💡 Challenge Hint</h3>
+                <button type="button" class="modal-close" onclick="closeModal('hintModal')">✕</button>
+            </div>
+            <div class="modal-body" id="hintModalContent">
+                <p>Use <code>background: linear-gradient(135deg, #7c3aed, #06b6d4);</code> to create a vibrant color gradient.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Modal -->
+    <div class="modal-overlay" id="solutionModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>📝 Challenge Solution</h3>
+                <button type="button" class="modal-close" onclick="closeModal('solutionModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>Here is the recommended solution code for this challenge:</p>
+                <pre id="solutionModalCode">/* Solution CSS will appear here */</pre>
+                <div style="margin-top: 1.25rem; display: flex; justify-content: flex-end; gap: 0.5rem;">
+                    <button type="button" class="lab-btn lab-btn-outline" onclick="closeModal('solutionModal')">Close</button>
+                    <button type="button" class="lab-btn lab-btn-book" onclick="loadSolutionToEditor()">Load Solution Into Editor</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
+    <script>
+        // Challenge Database mapped directly to Textbook Chapters
+        const CSS_LAB_CHALLENGES = {
+            ch13: {
+                chapter: "13",
+                bookAnchor: "ch13",
+                level: "Chapter 13 Lab",
+                title: "What is CSS? (Basic Typography)",
+                desc: "Style the heading with a deep purple color, modern font, and center align it.",
+                hint: "Use `color: #7c3aed;` and `text-align: center;` on the `h1` selector.",
+                solution: `h1 {
+  color: #7c3aed;
+  text-align: center;
+  font-family: sans-serif;
+}
+p {
+  color: #475569;
+  text-align: center;
+  font-size: 1.1rem;
+}`,
+                html: `<div class="content">
+  <h1>Welcome to CSS!</h1>
+  <p>CSS transforms raw HTML into beautiful visual experiences.</p>
+</div>`,
+                css: `/* Step 1: Center and color the heading */
+h1 {
+  color: #7c3aed;
+}
+
+p {
+  color: #64748b;
+}`
+            },
+            ch14: {
+                chapter: "14",
+                bookAnchor: "ch14",
+                level: "Chapter 14 Lab",
+                title: "Adding CSS (Classes & Selectors)",
+                desc: "Create styles for `.highlight` and `.badge` classes using class selectors.",
+                hint: "Target `.badge` with a rounded background and `.highlight` with bold colored text.",
+                solution: `.badge {
+  background: #38bdf8;
+  color: #0f172a;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: bold;
+}
+.highlight {
+  color: #7c3aed;
+  font-weight: 600;
+}`,
+                html: `<div class="card">
+  <span class="badge">PRO</span>
+  <h2>Mastering <span class="highlight">Class Selectors</span></h2>
+  <p>Classes let you style specific elements anywhere on your page.</p>
+</div>`,
+                css: `body {
+  font-family: sans-serif;
+  padding: 2rem;
+}
+
+/* Style the badge and highlight */
+.badge {
+  background: #0284c7;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.highlight {
+  color: #9333ea;
+}`
+            },
+            ch15: {
+                chapter: "15",
+                bookAnchor: "ch15",
+                level: "Chapter 15 Lab",
+                title: "CSS Colors & Gradients (Hero Banner)",
+                desc: "Style the `.hero-banner` with a linear gradient, white text, and a glowing text shadow.",
+                hint: "Use `background: linear-gradient(135deg, #7c3aed, #06b6d4);` and `text-shadow`.",
+                solution: `.hero-banner {
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+}
+.hero-banner h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}`,
+                html: `<div class="hero-banner">
+  <h1>Design With Vibrant Colors</h1>
+  <p>Combine gradients, contrasts, and shadows to build breathtaking banners.</p>
+</div>`,
+                css: `body {
+  font-family: sans-serif;
+  padding: 2rem;
+  background: #0f172a;
+}
+
+.hero-banner {
+  /* Add your gradient and padding here */
+  background: linear-gradient(135deg, #7c3aed, #06b6d4);
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+}`
+            },
+            ch16: {
+                chapter: "16",
+                bookAnchor: "ch16",
+                level: "Chapter 16 Lab",
+                title: "Fonts & Text Styling (Typography Studio)",
+                desc: "Style headings with font-family, letter-spacing, line-height, and font-weight.",
+                hint: "Use `letter-spacing: 0.05em;` and `font-weight: 700;`.",
+                solution: `h1 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1e293b;
+}
+p {
+  font-family: sans-serif;
+  line-height: 1.7;
+  color: #475569;
+}`,
+                html: `<article class="post">
+  <h1>The Art of Web Typography</h1>
+  <p>Good typography establishes hierarchy, rhythm, and clarity across your entire site.</p>
+</article>`,
+                css: `body {
+  padding: 2rem;
+  background: #f8fafc;
+}
+h1 {
+  color: #0f172a;
+  letter-spacing: 0.02em;
+}
+p {
+  line-height: 1.8;
+  color: #64748b;
+}`
+            },
+            ch17: {
+                chapter: "17",
+                bookAnchor: "ch17",
+                level: "Chapter 17 Lab",
+                title: "Backgrounds & Overlays (Card Cover)",
+                desc: "Apply a dark overlay over a background image with background-size: cover.",
+                hint: "Combine a gradient overlay with an image or use background-blend-mode.",
+                solution: `.card-cover {
+  background: linear-gradient(rgba(15, 23, 42, 0.75), rgba(124, 58, 237, 0.75));
+  color: white;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  text-align: center;
+}`,
+                html: `<div class="card-cover">
+  <h2>Featured Destination</h2>
+  <p>Explore breathtaking backgrounds and visual depth.</p>
+</div>`,
+                css: `body {
+  padding: 2rem;
+  background: #0b0f19;
+}
+.card-cover {
+  background: linear-gradient(135deg, rgba(15,23,42,0.9), rgba(124,58,237,0.7));
+  border: 1px solid #334155;
+  color: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  text-align: center;
+}`
+            },
+            ch18: {
+                chapter: "18",
+                bookAnchor: "ch18",
+                level: "Chapter 18 Lab",
+                title: "CSS Box Model (Padding, Margin, Border & Shadow)",
+                desc: "Build a sleek product card applying the 4 layers: content, padding, border, and margin.",
+                hint: "Remember: Padding is inner space inside the border; margin is outer space around the card.",
+                solution: `.product-card {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  max-width: 340px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  font-family: sans-serif;
+}`,
+                html: `<div class="product-card">
+  <div class="tag">Box Model Studio</div>
+  <h2>Interactive Card</h2>
+  <p>Padding creates breathable space. Margin separates elements. Borders define the shape.</p>
+  <button class="btn">Explore More</button>
+</div>`,
+                css: `.product-card {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border: 2px solid #cbd5e1;
+  border-radius: 12px;
+  max-width: 350px;
+  font-family: sans-serif;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.tag {
+  color: #7c3aed;
+  font-weight: bold;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.btn {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+}`
+            },
+            ch19: {
+                chapter: "19",
+                bookAnchor: "ch19",
+                level: "Chapter 19 Lab",
+                title: "Borders & Rounded Corners (Avatar Badge)",
+                desc: "Turn an image or box into a perfect circle with border-radius: 50% and a glowing border.",
+                hint: "Make width and height equal (e.g. 100px) and set `border-radius: 50%;`.",
+                solution: `.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #38bdf8;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: #1e293b;
+  margin: 0 auto;
+}`,
+                html: `<div class="profile-badge">
+  <div class="avatar">👨‍💻</div>
+  <h3>Alex Rivera</h3>
+  <span class="role">Frontend Developer</span>
+</div>`,
+                css: `body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 2rem;
+  background: #0f172a;
+  color: white;
+}
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 3px solid #7c3aed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  margin: 0 auto 1rem auto;
+  background: #1e293b;
+}
+.role {
+  color: #38bdf8;
+  font-size: 0.9rem;
+}`
+            },
+            ch20: {
+                chapter: "20",
+                bookAnchor: "ch20",
+                level: "Chapter 20 Lab",
+                title: "Display Property (Inline vs Block vs None)",
+                desc: "Demonstrate the behavior difference between block, inline, and inline-block elements.",
+                hint: "`inline-block` allows width/height while sitting on the same line.",
+                solution: `.item-block {
+  display: block;
+  background: #7c3aed;
+  color: white;
+  margin: 0.5rem 0;
+  padding: 0.5rem;
+}
+.item-inline-block {
+  display: inline-block;
+  background: #06b6d4;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin: 0.25rem;
+}`,
+                html: `<div class="container">
+  <div class="item-block">Block Item 1 (Full Width)</div>
+  <div class="item-block">Block Item 2 (Full Width)</div>
+  <hr>
+  <span class="item-inline-block">Inline-Block A</span>
+  <span class="item-inline-block">Inline-Block B</span>
+  <span class="item-inline-block">Inline-Block C</span>
+</div>`,
+                css: `body {
+  font-family: sans-serif;
+  padding: 1.5rem;
+}
+.item-block {
+  background: #6366f1;
+  color: white;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+}
+.item-inline-block {
+  display: inline-block;
+  background: #0284c7;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+}`
+            },
+            ch21: {
+                chapter: "21",
+                bookAnchor: "ch21",
+                level: "Chapter 21 Lab",
+                title: "Flexbox Alignment (Navigation Bar)",
+                desc: "Create a modern navigation header with logo on left, links in center, and action button on right.",
+                hint: "Set `display: flex; justify-content: space-between; align-items: center;` on the nav container.",
+                solution: `.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #1e293b;
+  color: white;
+  border-radius: 8px;
+}
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}`,
+                html: `<nav class="navbar">
+  <div class="logo">⚡ JuniorCoders</div>
+  <ul class="nav-links">
+    <li><a href="#">Tracks</a></li>
+    <li><a href="#">Textbooks</a></li>
+    <li><a href="#">Code Lab</a></li>
+  </ul>
+  <button class="btn-cta">Sign Up</button>
+</nav>`,
+                css: `body {
+  font-family: sans-serif;
+  padding: 1.5rem;
+  background: #f8fafc;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0f172a;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  color: #cbd5e1;
+  text-decoration: none;
+}
+
+.btn-cta {
+  background: #38bdf8;
+  color: #0f172a;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: bold;
+}`
+            },
+            ch22: {
+                chapter: "22",
+                bookAnchor: "ch22",
+                level: "Chapter 22 Lab",
+                title: "CSS Grid (3x3 Photo Gallery)",
+                desc: "Build an auto-responsive grid layout using `display: grid` and `grid-template-columns`.",
+                hint: "Use `grid-template-columns: repeat(3, 1fr);` and `gap: 1rem;`.",
+                solution: `.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+.grid-item {
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  height: 120px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}`,
+                html: `<div class="gallery-grid">
+  <div class="grid-item">1. HTML</div>
+  <div class="grid-item">2. CSS</div>
+  <div class="grid-item">3. JS</div>
+  <div class="grid-item">4. Flexbox</div>
+  <div class="grid-item">5. Grid</div>
+  <div class="grid-item">6. UI/UX</div>
+</div>`,
+                css: `body {
+  font-family: sans-serif;
+  padding: 1rem;
+  background: #0f172a;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.grid-item {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #38bdf8;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: bold;
+}`
+            },
+            ch23: {
+                chapter: "23",
+                bookAnchor: "ch23",
+                level: "Chapter 23 Lab",
+                title: "CSS Positioning (Floating Notification Badge)",
+                desc: "Position an unread notification counter badge at the top-right corner of an icon.",
+                hint: "Set `position: relative;` on parent and `position: absolute; top: -8px; right: -8px;` on badge.",
+                solution: `.icon-container {
+  position: relative;
+  display: inline-block;
+  font-size: 3rem;
+  margin: 3rem;
+}
+.badge-count {
+  position: absolute;
+  top: 0px;
+  right: -5px;
+  background: #ef4444;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+  border-radius: 999px;
+  border: 2px solid white;
+}`,
+                html: `<div style="text-align: center; padding: 2rem;">
+  <div class="icon-container">
+    🔔
+    <span class="badge-count">5</span>
+  </div>
+  <p>Absolute positioning places elements relative to their closest positioned parent.</p>
+</div>`,
+                css: `.icon-container {
+  position: relative;
+  display: inline-block;
+  font-size: 3.5rem;
+}
+
+.badge-count {
+  position: absolute;
+  top: 2px;
+  right: -2px;
+  background: #e11d48;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+}`
+            },
+            ch24: {
+                chapter: "24",
+                bookAnchor: "ch24",
+                level: "Chapter 24 Lab",
+                title: "Responsive Web Design (Media Queries)",
+                desc: "Build a layout that displays 2 columns on desktop, but seamlessly stacks on screens under 600px.",
+                hint: "Use `@media (max-width: 600px) { ... }` to adjust flex-direction or grid-template-columns.",
+                solution: `.split-layout {
+  display: flex;
+  gap: 1.5rem;
+}
+.col {
+  flex: 1;
+  background: #e0e7ff;
+  padding: 2rem;
+  border-radius: 8px;
+}
+@media (max-width: 600px) {
+  .split-layout {
+    flex-direction: column;
+  }
+}`,
+                html: `<div class="split-layout">
+  <div class="col">
+    <h3>Column Left</h3>
+    <p>Resize the viewport to Mobile (375px) above to see this column stack vertically!</p>
+  </div>
+  <div class="col">
+    <h3>Column Right</h3>
+    <p>Responsive design ensures every device has an optimal layout.</p>
+  </div>
+</div>`,
+                css: `body {
+  font-family: sans-serif;
+  padding: 1.5rem;
+}
+
+.split-layout {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.col {
+  flex: 1;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+/* Add media query for mobile viewport */
+@media (max-width: 600px) {
+  .split-layout {
+    flex-direction: column;
+  }
+}`
+            },
+            ch25: {
+                chapter: "25",
+                bookAnchor: "ch25",
+                level: "Chapter 25 Lab",
+                title: "Glowing Hover Buttons & Transitions",
+                desc: "Create an interactive button with smooth hover animation, transform lift, and glow shadow.",
+                hint: "Use `transition: all 0.3s ease;` and `:hover { transform: translateY(-3px); }`.",
+                solution: `.btn-glow {
+  background: linear-gradient(135deg, #7c3aed, #4f46e5);
+  color: white;
+  padding: 0.8rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);
+}
+.btn-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.6);
+}`,
+                html: `<div style="text-align: center; padding: 4rem;">
+  <button class="btn-glow">Hover Over Me! ✨</button>
+</div>`,
+                css: `body {
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+.btn-glow {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-glow:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(124, 58, 237, 0.5);
+}`
+            },
+            ch28: {
+                chapter: "28",
+                bookAnchor: "ch28",
+                level: "Chapter 28 Lab",
+                title: "Glassmorphism Card & Glowing Borders",
+                desc: "Create a modern translucent glass card with a frosted backdrop filter and smooth hover glow.",
+                hint: "Use `background: rgba(255, 255, 255, 0.1);` and `backdrop-filter: blur(12px);`.",
+                solution: `.glass-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  color: white;
+  max-width: 360px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}`,
+                html: `<div class="bg-wrapper">
+  <div class="glass-card">
+    <span class="pill">Glassmorphism</span>
+    <h2>Futuristic UI</h2>
+    <p>Frosted glass with backdrop-filter creates depth and elegance.</p>
+    <button class="btn-glow">Explore</button>
+  </div>
+</div>`,
+                css: `body {
+  margin: 0;
+  padding: 2rem;
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, #7c3aed, #0f172a);
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  color: white;
+  max-width: 320px;
+}
+
+.pill {
+  background: #38bdf8;
+  color: #0f172a;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.btn-glow {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  cursor: pointer;
+}`
+            },
+            ch29: {
+                chapter: "29",
+                bookAnchor: "ch29",
+                level: "Chapter 29 Lab",
+                title: "Complete Responsive Navbar",
+                desc: "Design a production-ready website header with sticky top positioning and hover transitions.",
+                hint: "Use `position: sticky; top: 0; z-index: 100;` on the header element.",
+                solution: `.header-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #334155;
+}`,
+                html: `<header class="header-nav">
+  <div class="logo">🚀 OrbitLabs</div>
+  <nav class="nav-items">
+    <a href="#" class="active">Home</a>
+    <a href="#">Products</a>
+    <a href="#">Docs</a>
+    <a href="#">Contact</a>
+  </nav>
+  <button class="btn-login">Log In</button>
+</header>`,
+                css: `body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #0b0f19;
+  color: white;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
+}
+
+.nav-items a {
+  color: #94a3b8;
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: color 0.2s;
+}
+
+.nav-items a:hover, .nav-items a.active {
+  color: #38bdf8;
+}
+
+.btn-login {
+  background: #7c3aed;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+}`
+            },
+            sandbox: {
+                chapter: "Sandbox",
+                bookAnchor: "ch13",
+                level: "Free Coding",
+                title: "Custom CSS Sandbox",
+                desc: "Experiment freely with your own HTML and CSS concepts.",
+                hint: "Try combining flexbox, animations, or custom color palettes!",
+                solution: `/* Free sandbox has no single solution */`,
+                html: `<div class="sandbox-container">
+  <h1>🎨 CSS Sandbox</h1>
+  <p>Type any HTML and CSS to create your own components!</p>
+</div>`,
+                css: `body {
+  font-family: sans-serif;
+  padding: 2rem;
+  text-align: center;
+  background: #f8fafc;
+}
+
+.sandbox-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+h1 {
+  color: #7c3aed;
+}`
+            }
+        };
+
+        let currentChallengeKey = 'ch15';
+
+        // Initialize Studio
+        function initStudio() {
+            // Check if URL hash or pendingExercise dictates a challenge
+            const hash = window.location.hash.replace('#', '');
+            if (hash && CSS_LAB_CHALLENGES[hash]) {
+                currentChallengeKey = hash;
+            }
+
+            const select = document.getElementById('challengeSelect');
+            if (select) select.value = currentChallengeKey;
+
+            loadChallengeData(currentChallengeKey);
+        }
+
+        function switchChapterChallenge(key) {
+            currentChallengeKey = key;
+            window.location.hash = key;
+            loadChallengeData(key);
+        }
+
+        function loadChallengeData(key) {
+            const ch = CSS_LAB_CHALLENGES[key] || CSS_LAB_CHALLENGES.ch15;
+            
+            // Set UI elements
+            document.getElementById('missionBadge').textContent = ch.level;
+            document.getElementById('missionTitle').textContent = ch.title;
+            document.getElementById('missionDesc').textContent = ch.desc;
+
+            // Set Review in Book Link
+            const reviewBtn = document.getElementById('review-book-btn');
+            if (reviewBtn) {
+                reviewBtn.href = `../book-css/index.html#${ch.bookAnchor}`;
+                reviewBtn.title = `Read Chapter ${ch.chapter} in the Official CSS Textbook`;
+                reviewBtn.innerHTML = `<span>📖</span> <span>Review Chapter ${ch.chapter} in Book</span>`;
+            }
+
+            // Set Modals
+            document.getElementById('hintModalContent').innerHTML = `<p>${ch.hint}</p>`;
+            document.getElementById('solutionModalCode').textContent = ch.solution;
+
+            // Set Editors
+            const htmlEd = document.getElementById('html-editor');
+            const cssEd = document.getElementById('css-editor');
+            htmlEd.value = ch.html;
+            cssEd.value = ch.css;
+
+            // Trigger preview
+            refreshPreview();
+            updateLineCounts();
+        }
+
+        function resetActiveChallenge() {
+            if (confirm("Reset current code back to chapter starter template?")) {
+                loadChallengeData(currentChallengeKey);
+            }
+        }
+
+        function switchEditorTab(type, button) {
+            document.querySelectorAll('.editor-tab').forEach(b => b.classList.remove('active'));
+            button.classList.add('active');
+
+            document.querySelectorAll('.editor-pane').forEach(p => p.classList.remove('active'));
+            if (type === 'css') {
+                document.getElementById('pane-css').classList.add('active');
+            } else {
+                document.getElementById('pane-html').classList.add('active');
+            }
+        }
+
+        function setViewport(width, btn) {
+            document.querySelectorAll('.viewport-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const previewBox = document.getElementById('preview');
+            previewBox.style.width = width;
+        }
+
+        function refreshPreview() {
+            const html = document.getElementById('html-editor').value;
+            const css = document.getElementById('css-editor').value;
+            const preview = document.getElementById('preview');
+
+            let iframe = preview.querySelector('iframe');
+            if (!iframe) {
+                iframe = document.createElement('iframe');
+                iframe.title = 'CSS live preview';
+                iframe.setAttribute('sandbox', 'allow-scripts');
+                iframe.style.width = '100%';
+                iframe.style.height = '100%';
+                iframe.style.border = 'none';
+                preview.innerHTML = '';
+                preview.appendChild(iframe);
+            }
+
+            iframe.srcdoc = `<!DOCTYPE html><html><head><meta charset="utf-8"><style>${css}</style></head><body>${html}</body></html>`;
+        }
+
+        function updateLineCounts() {
+            const htmlLines = (document.getElementById('html-editor').value.match(/\n/g) || []).length + 1;
+            const cssLines = (document.getElementById('css-editor').value.match(/\n/g) || []).length + 1;
+            document.getElementById('html-status').textContent = `Lines: ${htmlLines}`;
+            document.getElementById('css-status').textContent = `Lines: ${cssLines}`;
+        }
+
+        function openModal(id) {
+            const el = document.getElementById(id);
+            if (el) el.style.display = 'flex';
+        }
+
+        function closeModal(id) {
+            const el = document.getElementById(id);
+            if (el) el.style.display = 'none';
+        }
+
+        function loadSolutionToEditor() {
+            const ch = CSS_LAB_CHALLENGES[currentChallengeKey];
+            if (ch && ch.solution) {
+                document.getElementById('css-editor').value = ch.solution;
+                refreshPreview();
+                closeModal('solutionModal');
+            }
+        }
+
+        // Event listeners for live update
+        document.getElementById('html-editor').addEventListener('input', () => {
+            refreshPreview();
+            updateLineCounts();
+        });
+        document.getElementById('css-editor').addEventListener('input', () => {
+            refreshPreview();
+            updateLineCounts();
+        });
+
+        // Initialize on DOM load
+        window.addEventListener('DOMContentLoaded', () => {
+            initStudio();
+            // Also run global checkPendingExercise from playground.js in case redirected from book
+            if (window.checkPendingExercise) {
+                window.checkPendingExercise();
+            }
+        });
+    </script>
 </body>
 </html>
