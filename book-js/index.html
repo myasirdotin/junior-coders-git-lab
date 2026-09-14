@@ -116,6 +116,7 @@
       <!-- Permanent Floating / Sticky Reader Top Bar with Audio Speaker & Reading Mode -->
       <header class="book-reader-header" id="bookReaderHeader" role="region" aria-label="Book Reader Controls">
         <div class="reader-header-main">
+          <!-- Left: Audio controls -->
           <div class="reader-controls-left">
             <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read entire chapter aloud">
               <span class="btn-icon">🔊</span>
@@ -125,6 +126,27 @@
               <span class="btn-icon">⏹️</span>
               <span class="btn-text">Stop</span>
             </button>
+            <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="reader-divider" aria-hidden="true"></div>
+
+          <!-- Center: Chapter status badge -->
+          <div class="reader-status-center">
+            <div class="reader-chapter-badge">
+              <span class="status-dot"></span>
+              <span class="status-text" id="book-speaker-status-text">JavaScript for Class 7</span>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="reader-divider" aria-hidden="true"></div>
+
+          <!-- Right: Speed + Reading Mode -->
+          <div class="reader-controls-right">
             <div class="reader-speed-pill">
               <span class="speed-caption">Speed</span>
               <select class="book-speaker-speed-select" id="book-speaker-speed-select" aria-label="Narration speed">
@@ -134,19 +156,6 @@
                 <option value="1.5">1.5x</option>
               </select>
             </div>
-            <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
-            </div>
-          </div>
-
-          <div class="reader-status-center">
-            <div class="reader-chapter-badge">
-              <span class="status-dot"></span>
-              <span class="status-text" id="book-speaker-status-text">Ready to read</span>
-            </div>
-          </div>
-
-          <div class="reader-controls-right">
             <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn" title="Toggle Distraction-Free Reading Mode">
               <span class="btn-icon">📖</span>
               <span class="btn-text">Reading Mode</span>
