@@ -96,8 +96,12 @@
 
             try {
                 const exercise = JSON.parse(pending);
-                const code = exercise.starterCode || '';
-                const title = exercise.title || 'Snippet';
+                const title = exercise.title || 'Practice Mission';
+                const htmlCode = exercise.html || (exercise.type !== 'css' && exercise.type !== 'js' ? exercise.starterCode : '') || '';
+                const cssCode = exercise.css || (exercise.type === 'css' ? exercise.starterCode : '') || '';
+                const jsCode = exercise.js || (exercise.type === 'js' ? exercise.starterCode : '') || '';
+                const instructions = exercise.instructions || '';
+                const level = exercise.level || 'Practice';
 
                 // 1. If inside Master Playground (master-html, master-css, master-js)
                 const masterHtml = document.getElementById('master-html');
@@ -106,39 +110,65 @@
                 const masterConsole = document.getElementById('master-console');
 
                 if (masterHtml && masterCss) {
-                    const isCss = exercise.type === 'css' || title.toLowerCase().includes('css') || (code.includes('{') && code.includes(':') && !code.includes('<'));
-                    const isJs = exercise.type === 'js' || title.toLowerCase().includes('js') || title.toLowerCase().includes('javascript');
+                    if (htmlCode) masterHtml.value = htmlCode;
+                    if (cssCode) masterCss.value = cssCode;
+                    if (jsCode && masterJs) masterJs.value = jsCode;
 
-                    if (isCss) {
-                        masterCss.value = code;
-                        // Switch active tab to CSS
+                    // Tab switching
+                    if (exercise.type === 'css' || (!htmlCode && cssCode)) {
                         const cssTab = document.querySelector('.ide-tab[data-tab="css"]');
                         if (cssTab) cssTab.click();
-                    } else if (isJs && masterJs) {
-                        masterJs.value = code;
+                    } else if (exercise.type === 'js' || (!htmlCode && !cssCode && jsCode)) {
                         const jsTab = document.querySelector('.ide-tab[data-tab="js"]');
                         if (jsTab) jsTab.click();
                     } else {
-                        masterHtml.value = code;
                         const htmlTab = document.querySelector('.ide-tab[data-tab="html"]');
                         if (htmlTab) htmlTab.click();
                     }
 
+                    // Display Mission Directive Banner
+                    let missionBanner = document.getElementById('ide-mission-banner');
+                    if (!missionBanner) {
+                        missionBanner = document.createElement('div');
+                        missionBanner.id = 'ide-mission-banner';
+                        missionBanner.className = 'ide-mission-banner';
+                        const container = document.querySelector('.master-playground-container');
+                        if (container) {
+                            container.parentNode.insertBefore(missionBanner, container);
+                        } else {
+                            document.body.insertBefore(missionBanner, document.body.firstChild);
+                        }
+                    }
+                    missionBanner.innerHTML = `
+                        <div class="mission-banner-bar" style="background: linear-gradient(90deg, #1e1b4b, #312e81); border-bottom: 2px solid #6366f1; padding: 0.75rem 1.5rem; display: flex; align-items: center; justify-content: space-between; color: #fff; font-size: 0.95rem;">
+                            <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+                                <span style="background: #4f46e5; color: #fff; font-weight: 700; font-size: 0.75rem; padding: 0.2rem 0.6rem; border-radius: 9999px; text-transform: uppercase;">${level}</span>
+                                <strong>${title}</strong>
+                                <span style="color: #cbd5e1;">${instructions}</span>
+                            </div>
+                            <button type="button" onclick="this.closest('#ide-mission-banner').remove()" style="background: none; border: none; color: #94a3b8; font-size: 1.2rem; cursor: pointer; padding: 0 0.5rem;" title="Dismiss banner">✕</button>
+                        </div>
+                    `;
+
                     if (masterConsole) {
                         const entry = document.createElement('div');
                         entry.className = 'console-entry';
-                        entry.textContent = `> Loaded snippet from book: ${title}`;
+                        entry.textContent = `> Mission Loaded: ${title} [${level}]`;
                         masterConsole.appendChild(entry);
                     }
                 } else {
                     // 2. Individual playgrounds
-                    const editor = document.getElementById('code-editor') || document.getElementById('css-editor');
+                    const htmlEd = document.getElementById('html-editor');
+                    const cssEd = document.getElementById('css-editor');
+                    const codeEd = document.getElementById('code-editor');
                     const consoleEl = document.getElementById('console');
-                    if (editor) {
-                        editor.value = code;
-                    }
+
+                    if (htmlEd && htmlCode) htmlEd.value = htmlCode;
+                    if (cssEd && cssCode) cssEd.value = cssCode;
+                    if (codeEd) codeEd.value = htmlCode || cssCode || jsCode || exercise.starterCode || '';
+                    
                     if (consoleEl) {
-                        consoleEl.innerHTML = `<div class="info-entry">--- Loaded from book: ${title} ---</div>`;
+                        consoleEl.innerHTML = `<div class="info-entry">--- Mission Loaded: ${title} ---</div>`;
                     }
                 }
             } catch (err) {
@@ -214,7 +244,7 @@
                                 console.error(e);
                                 window.parent.postMessage({ type: 'error', data: e.message }, '*');
                             }
-                        </script>
+                        <\/script>
                     </body>
                     </html>
                 `;
@@ -259,11 +289,13 @@
             Playground.checkPendingExercise();
         } else if (document.getElementById('html-editor') && document.getElementById('css-editor')) {
             Playground.initCSS();
+            Playground.checkPendingExercise();
         } else if (document.getElementById('console')) {
             Playground.initJS();
             Playground.checkPendingExercise();
         } else if (document.getElementById('code-editor')) {
             Playground.initHTML();
+            Playground.checkPendingExercise();
         }
     });
 

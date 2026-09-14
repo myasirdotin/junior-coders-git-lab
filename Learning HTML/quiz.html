@@ -3,148 +3,368 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz & Games - Test Your Knowledge</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Test your HTML5 knowledge with the official BEI Coders Class 7 HTML Quiz. Earn XP and verify your web foundations.">
+    <title>HTML Mastery Quiz | BEI Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
-        h1 { color: #2c3e50; text-align: center; }
-        .quiz-container { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .question { font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #34495e; }
-        .options { display: flex; flex-direction: column; gap: 10px; }
-        .option { padding: 12px; border: 2px solid #3498db; border-radius: 5px; cursor: pointer; transition: all 0.3s; }
-        .option:hover { background: #ebf5fb; }
-        .option.correct { background: #d4edda; border-color: #28a745; }
-        .option.wrong { background: #f8d7da; border-color: #dc3545; }
-        .score { text-align: center; font-size: 24px; color: #27ae60; margin-top: 20px; }
-        .btn { background: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 5px; }
-        .btn:hover { background: #2980b9; }
-        .game-section { margin-top: 30px; }
-        .drag-item { background: #3498db; color: white; padding: 10px 15px; border-radius: 5px; cursor: grab; display: inline-block; margin: 5px; }
-        .drop-zone { min-height: 50px; border: 2px dashed #95a5a6; border-radius: 5px; padding: 10px; margin-top: 10px; }
-        .category { background: #ecf0f1; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .quiz-page-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .quiz-hero {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .quiz-card {
+            background: var(--bg-card, #1e293b);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+        .quiz-question-title {
+            font-size: 1.15rem;
+            color: #fff;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .q-number {
+            color: var(--primary-light, #818cf8);
+            font-weight: 800;
+        }
+        .options-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+        }
+        .option-btn {
+            padding: 0.85rem 1.25rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            color: var(--text-primary, #f1f5f9);
+            font-size: 0.95rem;
+            font-family: inherit;
+            cursor: pointer;
+            text-align: left;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .option-btn:hover:not(:disabled) {
+            background: rgba(99,102,241,0.15);
+            border-color: #6366f1;
+            transform: translateX(4px);
+        }
+        .option-btn.correct {
+            background: rgba(34,197,94,0.2) !important;
+            border-color: #22c55e !important;
+            color: #86efac !important;
+            font-weight: 600;
+        }
+        .option-btn.wrong {
+            background: rgba(239,68,68,0.2) !important;
+            border-color: #ef4444 !important;
+            color: #fca5a5 !important;
+        }
+        .explanation-box {
+            margin-top: 0.85rem;
+            padding: 0.75rem 1rem;
+            background: rgba(0,0,0,0.25);
+            border-left: 3px solid #6366f1;
+            border-radius: 4px;
+            font-size: 0.88rem;
+            color: #cbd5e1;
+            display: none;
+        }
+        .quiz-results-banner {
+            background: linear-gradient(135deg, #1e1b4b, #312e81);
+            border: 2px solid #6366f1;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            display: none;
+        }
+        .quiz-score-val {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #a5b4fc;
+            margin: 0.5rem 0;
+        }
+        .btn-restart {
+            padding: 0.75rem 1.75rem;
+            background: #4f46e5;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
     </style>
 </head>
 <body>
-    <h1>🎮 Quiz & Games - Test Your Knowledge</h1>
-    
-    <div class="quiz-container">
-        <h2>📝 HTML Quiz</h2>
-        <div id="html-quiz">
-            <div class="question">1. What does HTML stand for?</div>
-            <div class="options">
-                <div class="option" onclick="checkAnswer(this, false)">Hyper Text Markup Language</div>
-                <div class="option" onclick="checkAnswer(this, true)">Hyper Text Markup Language</div>
-                <div class="option" onclick="checkAnswer(this, false)">High Tech Modern Language</div>
-                <div class="option" onclick="checkAnswer(this, false)">Home Tool Markup Language</div>
+
+    <div class="quiz-page-container">
+        <header class="quiz-hero">
+            <div class="hero-pill-badge">
+                <span>🏆</span> Official Class 7 Assessment
             </div>
-        </div>
-    </div>
+            <h1 style="margin-top: 0.75rem;">HTML Fundamentals Quiz</h1>
+            <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                Answer all 10 questions to test your understanding of HTML structure, tags, links, media, tables, and semantics. Score 7/10 or higher to earn <strong>+50 XP</strong>!
+            </p>
+        </header>
 
-    <div class="quiz-container">
-        <h2>📝 CSS Quiz</h2>
-        <div id="css-quiz">
-            <div class="question">2. Which property is used to change the background color?</div>
-            <div class="options">
-                <div class="option" onclick="checkAnswer(this, false)">color</div>
-                <div class="option" onclick="checkAnswer(this, false)">bgcolor</div>
-                <div class="option" onclick="checkAnswer(this, true)">background-color</div>
-                <div class="option" onclick="checkAnswer(this, false)">background</div>
+        <main id="quizContainer">
+            <!-- Questions rendered via script -->
+        </main>
+
+        <section id="resultsBanner" class="quiz-results-banner">
+            <span style="font-size: 2.5rem;" id="resultsIcon">🎉</span>
+            <h2 id="resultsHeading" style="color: #fff; margin: 0.5rem 0 0;">Assessment Completed!</h2>
+            <div class="quiz-score-val" id="resultsScore">0 / 10</div>
+            <p id="resultsFeedback" style="color: #cbd5e1; max-width: 500px; margin: 0 auto;"></p>
+            <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap;">
+                <button type="button" class="btn-restart" onclick="restartQuiz()">🔄 Retake Quiz</button>
+                <a href="exercises.html" class="btn-restart" style="text-decoration: none; background: #334155;">🎯 Try Practice Missions</a>
+                <a href="../book/index.html" class="btn-restart" style="text-decoration: none; background: #059669;">📖 Back to Textbook</a>
             </div>
-        </div>
-    </div>
-
-    <div class="quiz-container">
-        <h2>📝 JavaScript Quiz</h2>
-        <div id="js-quiz">
-            <div class="question">3. How do you declare a variable in JavaScript?</div>
-            <div class="options">
-                <div class="option" onclick="checkAnswer(this, false)">var x = 5</div>
-                <div class="option" onclick="checkAnswer(this, true)">let x = 5</div>
-                <div class="option" onclick="checkAnswer(this, false)">variable x = 5</div>
-                <div class="option" onclick="checkAnswer(this, false)">v x = 5</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="quiz-container game-section">
-        <h2>🧩 Code Completion Game</h2>
-        <p>Drag the correct tag to complete the code:</p>
-        <div style="font-family: monospace; background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px;">
-            &lt;<span class="drag-item" draggable="true">html</span>&gt;<br>
-            &nbsp;&nbsp;&lt;body&gt;<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;Hello World<br>
-            &nbsp;&nbsp;&lt;/<span class="drop-zone" style="display:inline; min-height:20px;">body</span>&gt;<br>
-            &lt;/<span class="drag-item" draggable="true">head</span>&gt;
-        </div>
-    </div>
-
-    <div class="quiz-container">
-        <h2>🎯 True or False</h2>
-        <div class="question">4. The &lt;head&gt; tag contains visible content.</div>
-        <button class="btn" onclick="showFeedback(this, false)">True</button>
-        <button class="btn" onclick="showFeedback(this, true)">False</button>
-        <p class="feedback"></p>
-    </div>
-
-    <div class="quiz-container">
-        <h2>🔢 Fill in the Blank</h2>
-        <div class="question">5. The tag used for the largest heading is &lt;_____&gt;</div>
-        <input type="text" id="answer5" placeholder="Type your answer..." style="padding: 10px; font-size: 16px; width: 200px;">
-        <button class="btn" onclick="checkFillBlank()">Check Answer</button>
-    </div>
-
-    <div class="score">
-        Score: <span id="score">0</span> / 5
-    </div>
-
-    <div style="text-align: center; margin-top: 30px;">
-        <a href="learninghtml.html" class="btn">← Back to HTML lessons</a>
+        </section>
     </div>
 
     <script src="../js/core.js"></script>
     <script>
-        let score = 0;
-        
-        function checkAnswer(element, isCorrect) {
-            // Remove previous styling
-            const parent = element.parentElement;
-            const options = parent.querySelectorAll('.option');
-            options.forEach(opt => {
-                opt.classList.remove('correct', 'wrong');
-                opt.style.pointerEvents = 'none';
+        const QUESTIONS = [
+            {
+                q: "What does HTML stand for?",
+                options: [
+                    "HyperText Markup Language",
+                    "High Tech Modern Language",
+                    "Home Tool Management Language",
+                    "Hyperlink Transfer Machine Logic"
+                ],
+                answer: 0,
+                tip: "HTML stands for HyperText Markup Language, the structural code of all websites."
+            },
+            {
+                q: "Where must all visible content of a web page (headings, paragraphs, images) be placed?",
+                options: [
+                    "Inside the <head> container",
+                    "Inside the <body> container",
+                    "Inside the <!DOCTYPE> declaration",
+                    "Inside the <title> tag"
+                ],
+                answer: 1,
+                tip: "The <head> holds hidden metadata and settings, while <body> holds all content visible to visitors."
+            },
+            {
+                q: "Which heading tag represents the highest and most important rank on a web page?",
+                options: [
+                    "<h6>",
+                    "<heading>",
+                    "<h1>",
+                    "<head>"
+                ],
+                answer: 2,
+                tip: "<h1> is Heading 1, the top-level headline. Each page should ideally have exactly one <h1>."
+            },
+            {
+                q: "What is the key difference between the <strong> tag and the older <b> tag?",
+                options: [
+                    "<strong> makes text italic, while <b> makes it bold",
+                    "<strong> tells screen readers and search engines the text is important; <b> is purely visual",
+                    "<b> works only on mobile phones, while <strong> works only on computers",
+                    "There is no difference at all"
+                ],
+                answer: 1,
+                tip: "<strong> provides semantic meaning (importance), aiding accessibility tools like screen readers."
+            },
+            {
+                q: "Which attribute tells an <a> (anchor) tag the URL destination to link to?",
+                options: [
+                    "src=\"...\"",
+                    "link=\"...\"",
+                    "url=\"...\"",
+                    "href=\"...\""
+                ],
+                answer: 3,
+                tip: "href stands for Hypertext Reference (e.g. <a href=\"https://wikipedia.org\">)."
+            },
+            {
+                q: "Why is the alt attribute required on every <img> tag?",
+                options: [
+                    "It changes the photo's border color",
+                    "It describes the image for blind users with screen readers and if the file fails to load",
+                    "It makes the image download faster",
+                    "It rotates the image 90 degrees"
+                ],
+                answer: 1,
+                tip: "The alt attribute is an accessibility requirement that describes images when they cannot be seen."
+            },
+            {
+                q: "Which pair of tags creates a numbered sequence of instructions (1, 2, 3)?",
+                options: [
+                    "<ul> with <li>",
+                    "<ol> with <li>",
+                    "<list> with <item>",
+                    "<dl> with <dt>"
+                ],
+                answer: 1,
+                tip: "<ol> creates an Ordered List (numbered), while <ul> creates an Unordered List (bullet points)."
+            },
+            {
+                q: "In an HTML table, which tag is used for the header cells in the top row?",
+                options: [
+                    "<td> (Table Data)",
+                    "<tr> (Table Row)",
+                    "<th> (Table Header)",
+                    "<tb> (Table Box)"
+                ],
+                answer: 2,
+                tip: "<th> stands for Table Header, which browsers format as bold, centered cells."
+            },
+            {
+                q: "In an accessible HTML form, what must the label's for attribute match?",
+                options: [
+                    "The form's action attribute",
+                    "The input's name attribute",
+                    "The input's id attribute",
+                    "The button's type attribute"
+                ],
+                answer: 2,
+                tip: "<label for=\"username\"> connects directly to <input id=\"username\">."
+            },
+            {
+                q: "Which semantic tag should wrap the central, primary content of a web page?",
+                options: [
+                    "<div>",
+                    "<main>",
+                    "<aside>",
+                    "<footer>"
+                ],
+                answer: 1,
+                tip: "<main> represents the dominant, unique content of the document, excluding headers, sidebars, and footers."
+            }
+        ];
+
+        let userScore = 0;
+        let answeredCount = 0;
+
+        function renderQuiz() {
+            const container = document.getElementById('quizContainer');
+            container.innerHTML = '';
+            userScore = 0;
+            answeredCount = 0;
+            document.getElementById('resultsBanner').style.display = 'none';
+
+            QUESTIONS.forEach((qObj, qIdx) => {
+                const card = document.createElement('div');
+                card.className = 'quiz-card';
+                card.id = `qCard-${qIdx}`;
+
+                const optionsHtml = qObj.options.map((optText, optIdx) => `
+                    <button type="button" class="option-btn" onclick="selectAnswer(${qIdx}, ${optIdx}, this)">
+                        <span style="opacity: 0.6;">${String.fromCharCode(65 + optIdx)}.</span>
+                        <span>${optText}</span>
+                    </button>
+                `).join('');
+
+                card.innerHTML = `
+                    <h3 class="quiz-question-title">
+                        <span class="q-number">Q${qIdx + 1}.</span>
+                        <span>${qObj.q}</span>
+                    </h3>
+                    <div class="options-list">
+                        ${optionsHtml}
+                    </div>
+                    <div class="explanation-box" id="explain-${qIdx}">
+                        <strong>💡 Insight:</strong> ${qObj.tip}
+                    </div>
+                `;
+                container.appendChild(card);
             });
-            
-            if (isCorrect) {
-                element.classList.add('correct');
-                score++;
-            } else {
-                element.classList.add('wrong');
-            }
-            document.getElementById('score').textContent = score;
         }
-        
-        function showFeedback(btn, isCorrect) {
-            const parent = btn.parentElement;
-            let feedback = parent.querySelector('.feedback');
-            if (isCorrect) {
-                feedback.textContent = "✅ Correct! The head tag contains metadata, not visible content.";
-                feedback.style.color = "green";
+
+        function selectAnswer(qIdx, selectedIdx, btnEl) {
+            const qObj = QUESTIONS[qIdx];
+            const card = document.getElementById(`qCard-${qIdx}`);
+            const buttons = card.querySelectorAll('.option-btn');
+            const explainBox = document.getElementById(`explain-${qIdx}`);
+
+            // Prevent double answers
+            buttons.forEach(b => b.disabled = true);
+
+            if (selectedIdx === qObj.answer) {
+                btnEl.classList.add('correct');
+                userScore++;
             } else {
-                feedback.textContent = "❌ Wrong! The head tag contains metadata, not visible content.";
-                feedback.style.color = "red";
+                btnEl.classList.add('wrong');
+                // Highlight correct answer
+                if (buttons[qObj.answer]) {
+                    buttons[qObj.answer].classList.add('correct');
+                }
+            }
+
+            if (explainBox) explainBox.style.display = 'block';
+
+            answeredCount++;
+            if (answeredCount === QUESTIONS.length) {
+                setTimeout(showResults, 600);
             }
         }
-        
-        function checkFillBlank() {
-            const answer = document.getElementById('answer5').value.toLowerCase().trim();
-            if (answer === 'h1') {
-                alert('✅ Correct! The largest heading is h1');
-                score++;
+
+        function showResults() {
+            const banner = document.getElementById('resultsBanner');
+            const icon = document.getElementById('resultsIcon');
+            const heading = document.getElementById('resultsHeading');
+            const scoreEl = document.getElementById('resultsScore');
+            const feedback = document.getElementById('resultsFeedback');
+
+            scoreEl.textContent = `${userScore} / ${QUESTIONS.length}`;
+            banner.style.display = 'block';
+            banner.scrollIntoView({ behavior: 'smooth' });
+
+            if (userScore >= 7) {
+                icon.textContent = '🏆';
+                heading.textContent = 'Congratulations! You Passed!';
+                feedback.textContent = `Terrific job! You demonstrated solid mastery of HTML fundamentals. You earned +50 XP!`;
+                
+                // Award XP to core platform state
+                if (window.awardXP) {
+                    window.awardXP(50, 'HTML Assessment Passed!');
+                }
+                if (window.JC_State) {
+                    const state = window.JC_State.load();
+                    state.completedModules = state.completedModules || [];
+                    if (!state.completedModules.includes('HTML Quiz Passed')) {
+                        state.completedModules.push('HTML Quiz Passed');
+                        window.JC_State.save(state);
+                    }
+                }
             } else {
-                alert('❌ Wrong! The correct answer is h1');
+                icon.textContent = '📚';
+                heading.textContent = 'Keep Practicing!';
+                feedback.textContent = `You scored ${userScore}/10. Review Chapters 3–12 in the Class 7 textbook and retake the quiz to earn your +50 XP badge!`;
             }
-            document.getElementById('score').textContent = score;
         }
+
+        function restartQuiz() {
+            renderQuiz();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.addEventListener('DOMContentLoaded', renderQuiz);
     </script>
 </body>
 </html>

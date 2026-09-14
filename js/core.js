@@ -125,6 +125,8 @@
         defaultSchema: {
             theme: 'dark',
             completedModules: [],
+            completedChapters: [],
+            totalXP: 0,
             streak: 1,
             lastActiveDay: null,
             lastModule: null,
@@ -135,7 +137,10 @@
             let state = localStorage.getItem(this.KEY);
             if (state) {
                 try {
-                    return JSON.parse(state);
+                    const parsed = JSON.parse(state);
+                    parsed.completedChapters = parsed.completedChapters || [];
+                    parsed.totalXP = typeof parsed.totalXP === 'number' ? parsed.totalXP : 0;
+                    return parsed;
                 } catch(e) {
                     console.error("Failed to parse state, resetting...", e);
                 }
@@ -149,9 +154,12 @@
             const legacyLastModule = localStorage.getItem('jc_last_module');
             const legacyLastPath = localStorage.getItem('jc_last_module_path');
 
+            const completedList = legacyCompleted ? JSON.parse(legacyCompleted) : [];
             const migrated = {
                 theme: legacyTheme || 'dark',
-                completedModules: legacyCompleted ? JSON.parse(legacyCompleted) : [],
+                completedModules: completedList,
+                completedChapters: [],
+                totalXP: completedList.length * 100,
                 streak: legacyStreak ? parseInt(legacyStreak) : 1,
                 lastActiveDay: legacyLastActive || null,
                 lastModule: legacyLastModule || null,
@@ -164,9 +172,11 @@
 
         save: function(state) {
             localStorage.setItem(this.KEY, JSON.stringify(state));
-            localStorage.setItem(CONFIG.STORAGE_KEYS.COMPLETED, JSON.stringify(state.completedModules));
-            localStorage.setItem(CONFIG.STORAGE_KEYS.THEME, state.theme);
-            localStorage.setItem('jc_daily_streak', state.streak.toString());
+            localStorage.setItem(CONFIG.STORAGE_KEYS.COMPLETED, JSON.stringify(state.completedModules || []));
+            localStorage.setItem('jc_completed_chapters', JSON.stringify(state.completedChapters || []));
+            localStorage.setItem('jc_total_xp', (state.totalXP || 0).toString());
+            localStorage.setItem(CONFIG.STORAGE_KEYS.THEME, state.theme || 'dark');
+            localStorage.setItem('jc_daily_streak', (state.streak || 1).toString());
             if (state.lastActiveDay) localStorage.setItem('jc_last_active_day', state.lastActiveDay);
             if (state.lastModule) localStorage.setItem('jc_last_module', state.lastModule);
             if (state.lastModulePath) localStorage.setItem('jc_last_module_path', state.lastModulePath);
@@ -181,6 +191,60 @@
             const state = this.load();
             state[key] = value;
             this.save(state);
+        }
+    };
+
+    // Expose JC_State globally
+    window.JC_State = JC_State;
+
+    // --- XP & Progression Engine ---
+    window.awardXP = function(amount, reason = '') {
+        const state = JC_State.load();
+        state.totalXP = (state.totalXP || 0) + amount;
+        JC_State.save(state);
+        updateDashboard();
+        if (window.showToast) {
+            window.showToast(`+${amount} XP! ${reason} 🚀`, 'success');
+        }
+        return state.totalXP;
+    };
+
+    window.markChapterComplete = function(chapterKey, xpBonus = 25) {
+        const state = JC_State.load();
+        state.completedChapters = state.completedChapters || [];
+        if (!state.completedChapters.includes(chapterKey)) {
+            state.completedChapters.push(chapterKey);
+            state.totalXP = (state.totalXP || 0) + xpBonus;
+            const todayStr = new Date().toISOString().split('T')[0];
+            state.lastActiveDay = todayStr;
+            JC_State.save(state);
+            updateDashboard();
+            if (window.showToast) {
+                window.showToast(`Chapter Completed! +${xpBonus} XP 🎉`, 'success');
+            }
+            return true;
+        }
+        return false;
+    };
+
+    // --- Universal Exercise Loader ---
+    window.loadExerciseToPlayground = function(data) {
+        if (!data) return;
+        try {
+            localStorage.setItem('pendingExercise', JSON.stringify({
+                title: data.title || 'Coding Practice',
+                html: data.html || data.starterCode || '',
+                css: data.css || '',
+                js: data.js || '',
+                instructions: data.instructions || '',
+                level: data.level || 'Practice',
+                type: data.type || 'html'
+            }));
+            const isSub = window.location.pathname.includes('Learning') || window.location.pathname.includes('book');
+            const targetUrl = (isSub ? '../' : './') + 'master-playground.html';
+            window.location.href = targetUrl;
+        } catch(err) {
+            console.error('Failed to load exercise to playground:', err);
         }
     };
 
@@ -202,7 +266,7 @@
                     streak += 1;
                     JC_State.set('streak', streak);
                     setTimeout(() => {
-                        window.showToast(`Daily streak updated! 🔥 ${streak} Days`);
+                        window.showToast?.(`Daily streak updated! 🔥 ${streak} Days`);
                     }, 1000);
                 } else if (diffDays > 1) {
                     streak = 1;
@@ -218,25 +282,32 @@
     };
 
     const calculateStats = () => {
-        const completed = JC_State.get('completedModules');
-        const xp = completed.length * 100;
+        const state = JC_State.load();
+        const completedMods = state.completedModules || [];
+        const completedChaps = state.completedChapters || [];
+        
+        // Base calculated XP or stored totalXP
+        const xp = Math.max(state.totalXP || 0, (completedMods.length * 100) + (completedChaps.length * 25));
 
         let rank = 'Recruit';
-        if (xp >= 500) rank = 'Apprentice';
-        if (xp >= 1500) rank = 'Coder';
-        if (xp >= 2500) rank = 'Master';
+        if (xp >= 300) rank = 'Apprentice';
+        if (xp >= 700) rank = 'Builder';
+        if (xp >= 1400) rank = 'Stylist';
+        if (xp >= 2200) rank = 'Architect';
+        if (xp >= 3000) rank = 'Master';
 
-        const streak = JC_State.get('streak');
-        const lastActiveDay = JC_State.get('lastActiveDay');
+        const streak = state.streak || 1;
+        const lastActiveDay = state.lastActiveDay;
         const todayStr = new Date().toISOString().split('T')[0];
-        const dailyGoalDone = lastActiveDay === todayStr && completed.length > 0;
+        const dailyGoalDone = lastActiveDay === todayStr && (completedMods.length > 0 || completedChaps.length > 0 || xp > 0);
+        const totalCompleted = completedMods.length + completedChaps.length;
 
-        return { xp, count: completed.length, rank, streak, dailyGoalDone };
+        return { xp, count: totalCompleted, rank, streak, dailyGoalDone };
     };
 
     const trackVisit = () => {
         const path = window.location.pathname.split('/').pop();
-        if (path.includes('module')) {
+        if (path.includes('module') || path.includes('ch') || path.includes('index.html')) {
             JC_State.set('lastModule', path);
             JC_State.set('lastModulePath', window.location.pathname);
         }

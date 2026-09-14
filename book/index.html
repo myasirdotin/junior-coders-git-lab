@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML and CSS for Class 7: Learn to Build Beautiful Websites</title>
+  <link rel="stylesheet" href="../styles/main.css">
   <link rel="stylesheet" href="styles/book-theme.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -183,6 +184,8 @@
     </main>
   </div>
 
+  <!-- Core platform state and XP engine -->
+  <script src="../js/core.js"></script>
   <!-- Offline chapters bundle for 100% offline & local file:// support -->
   <script src="chapters-bundle.js"></script>
   <!-- Marked library for on-the-fly markdown rendering in the browser -->
@@ -214,7 +217,29 @@
       }
 
       if (markdown) {
-        contentArea.innerHTML = marked.parse(markdown);
+        const chapterId = path.split('/').pop().replace('.md', '');
+        const completedChapters = JSON.parse(localStorage.getItem('jc_completed_chapters') || '[]');
+        const isDone = completedChapters.includes(chapterId);
+
+        const completionHtml = `
+          <div class="chapter-completion-card" style="margin-top: 3.5rem; padding: 2rem; background: var(--bg-card, #1e293b); border: 2px solid var(--border-color, #334155); border-radius: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+            <div>
+              <span style="background: rgba(99,102,241,0.2); color: #818cf8; font-size: 0.8rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 9999px; text-transform: uppercase;">Chapter Checkpoint</span>
+              <h3 style="margin: 0.5rem 0 0.25rem 0; font-size: 1.25rem; color: #fff;">Finished Reading This Chapter?</h3>
+              <p style="margin: 0; color: #94a3b8; font-size: 0.95rem;">Mark as complete to add +25 XP to your Mission Control stats and keep your learning streak burning! 🔥</p>
+            </div>
+            <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+              <a href="../master-playground.html" target="_blank" style="text-decoration: none; padding: 0.75rem 1.4rem; background: #334155; color: #fff; border-radius: 8px; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem;">
+                <span>🧪</span> Open Code Lab
+              </a>
+              <button type="button" id="btn-complete-${chapterId}" onclick="completeChapterAction('${chapterId}')" style="padding: 0.75rem 1.6rem; background: ${isDone ? '#10b981' : '#4f46e5'}; color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 14px rgba(79,70,229,0.35); transition: all 0.2s ease;">
+                ${isDone ? '✅ Chapter Completed (+25 XP)' : 'Mark Completed (+25 XP) 🚀'}
+              </button>
+            </div>
+          </div>
+        `;
+
+        contentArea.innerHTML = marked.parse(markdown) + completionHtml;
         enhanceCodeBlocks(contentArea);
         window.scrollTo({ top: 0, behavior: 'smooth' });
         if (window.initBookSpeaker) window.initBookSpeaker();
@@ -227,6 +252,48 @@
         `;
         if (window.initBookSpeaker) window.initBookSpeaker();
       }
+    }
+
+    function completeChapterAction(chapterId) {
+      if (window.markChapterComplete) {
+        window.markChapterComplete(chapterId, 25);
+      } else {
+        const completed = JSON.parse(localStorage.getItem('jc_completed_chapters') || '[]');
+        if (!completed.includes(chapterId)) {
+          completed.push(chapterId);
+          localStorage.setItem('jc_completed_chapters', JSON.stringify(completed));
+        }
+      }
+      const btn = document.getElementById('btn-complete-' + chapterId);
+      if (btn) {
+        btn.style.background = '#10b981';
+        btn.innerHTML = '✅ Chapter Completed (+25 XP)';
+      }
+      updateSidebarCheckmarks();
+    }
+
+    function updateSidebarCheckmarks() {
+      const completed = JSON.parse(localStorage.getItem('jc_completed_chapters') || '[]');
+      document.querySelectorAll('.chapter-nav-item a').forEach(link => {
+        const onclickAttr = link.getAttribute('onclick') || '';
+        const match = onclickAttr.match(/loadChapter\('([^']+)'/);
+        if (match && match[1]) {
+          const chapId = match[1].split('/').pop().replace('.md', '');
+          let checkSpan = link.querySelector('.chap-done-check');
+          if (completed.includes(chapId)) {
+            if (!checkSpan) {
+              checkSpan = document.createElement('span');
+              checkSpan.className = 'chap-done-check';
+              checkSpan.textContent = ' ✅';
+              checkSpan.style.marginLeft = 'auto';
+              checkSpan.style.fontSize = '0.85rem';
+              link.appendChild(checkSpan);
+            }
+          } else if (checkSpan) {
+            checkSpan.remove();
+          }
+        }
+      });
     }
 
     // Toast notification for copying code
@@ -386,6 +453,7 @@
 
     // Auto-detect hash or subject URL param (e.g. #css or ?subject=css)
     window.addEventListener('DOMContentLoaded', () => {
+      updateSidebarCheckmarks();
       const urlParams = new URLSearchParams(window.location.search);
       const hash = window.location.hash.toLowerCase();
       

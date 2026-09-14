@@ -188,6 +188,38 @@
                 css: '/* Write your CSS here */'
             }
         };
+
+        function toggleHint(exId, hintNum) {
+            const el = document.getElementById(`hint-${exId}-${hintNum}`);
+            if (el) el.classList.toggle('show');
+        }
+
+        function toggleSolution(exId) {
+            const el = document.getElementById(`solution-${exId}`);
+            if (el) el.classList.toggle('show');
+        }
+
+        function loadExercise(category) {
+            const exercise = exercises[category];
+            if (!exercise) return;
+            if (window.loadExerciseToPlayground) {
+                window.loadExerciseToPlayground({
+                    title: `CSS: ${category}`,
+                    html: exercise.html,
+                    css: exercise.css,
+                    instructions: "Complete the CSS styling challenge according to the requirements.",
+                    type: 'css'
+                });
+            } else {
+                localStorage.setItem('pendingExercise', JSON.stringify({
+                    title: `CSS: ${category}`,
+                    html: exercise.html,
+                    css: exercise.css,
+                    type: 'css'
+                }));
+                window.location.href = "playground.html";
+            }
+        }
     </script>
 </body>
 </html>

@@ -3,153 +3,985 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Fun HTML practice missions for kids. Build mini pages, lists, tables, and forms with simple starter code.">
-    <title>HTML Practice Missions</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="description" content="Structured 3-level HTML coding practice for students. Follow, modify, and create real web pages with interactive starter code.">
+    <title>HTML Coding Missions | BEI Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        .missions-header {
+            text-align: center;
+            padding: 3rem 1rem 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .mission-category {
+            margin-bottom: 3.5rem;
+        }
+        .mission-category-title {
+            font-size: 1.5rem;
+            color: var(--primary-light, #818cf8);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.5rem;
+        }
+        .missions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+        .mission-card {
+            background: var(--bg-card, #1e293b);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .mission-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+            border-color: rgba(99,102,241,0.3);
+        }
+        .mission-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        .mission-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 9999px;
+            background: rgba(99,102,241,0.2);
+            color: #a5b4fc;
+        }
+        .mission-title {
+            font-size: 1.25rem;
+            margin: 0;
+            color: #fff;
+        }
+        .mission-desc {
+            color: var(--text-secondary, #94a3b8);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .requirements-list {
+            background: rgba(0,0,0,0.2);
+            border-radius: 8px;
+            padding: 0.75rem 1rem 0.75rem 1.8rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.85rem;
+            color: #cbd5e1;
+        }
+        .requirements-list li {
+            margin-bottom: 0.35rem;
+        }
+        .levels-toolbar {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        .btn-level {
+            flex: 1;
+            min-width: 90px;
+            padding: 0.5rem 0.4rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.05);
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .btn-level:hover {
+            background: rgba(255,255,255,0.12);
+        }
+        .btn-level.level-1 { border-color: rgba(34,197,94,0.4); color: #86efac; }
+        .btn-level.level-2 { border-color: rgba(234,179,8,0.4); color: #fde047; }
+        .btn-level.level-3 { border-color: rgba(239,68,68,0.4); color: #fca5a5; }
+        .btn-level.level-1:hover { background: rgba(34,197,94,0.15); }
+        .btn-level.level-2:hover { background: rgba(234,179,8,0.15); }
+        .btn-level.level-3:hover { background: rgba(239,68,68,0.15); }
+        .hint-block {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        .hint-summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: #38bdf8;
+            user-select: none;
+            outline: none;
+        }
+        .hint-content {
+            margin-top: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            background: rgba(56,189,248,0.1);
+            border-left: 3px solid #38bdf8;
+            border-radius: 4px;
+            color: #e0f2fe;
+            font-size: 0.82rem;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>HTML Practice Missions</h1>
-        <p>Pick a mini project, load the starter code, and build something fun.</p>
-    </header>
-
-    <div class="exercises-container">
-        <div class="exercise-category">
-            <h2>Starter Missions</h2>
-            <div class="exercise-grid">
-                <div class="exercise-card">
-                    <h3>Mission 1: My First Page</h3>
-                    <p>Create a simple page about yourself, your pet, or your favorite game.</p>
-                    <div class="exercise-requirements">
-                        <h4>Requirements:</h4>
-                        <ul>
-                            <li>Add the main page structure</li>
-                            <li>Write a page title</li>
-                            <li>Add one big heading</li>
-                            <li>Write at least one paragraph</li>
-                        </ul>
-                    </div>
-                    <button class="btn-starter" onclick="loadExercise('first-page')">Get Starter Code</button>
-                </div>
-
-                <div class="exercise-card">
-                    <h3>Mission 2: Poster Words</h3>
-                    <p>Make a page that uses headings and styled text like a mini poster.</p>
-                    <div class="exercise-requirements">
-                        <h4>Requirements:</h4>
-                        <ul>
-                            <li>Use <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and <code>&lt;h3&gt;</code></li>
-                            <li>Make one word bold with <code>&lt;strong&gt;</code></li>
-                            <li>Make one word emphasized with <code>&lt;em&gt;</code></li>
-                            <li>Highlight one word with <code>&lt;mark&gt;</code></li>
-                        </ul>
-                    </div>
-                    <button class="btn-starter" onclick="loadExercise('text-formatting')">Get Starter Code</button>
-                </div>
-
-                <div class="exercise-card">
-                    <h3>Mission 3: Favorite Things</h3>
-                    <p>Create a page with links and pictures that show what you like.</p>
-                    <div class="exercise-requirements">
-                        <h4>Requirements:</h4>
-                        <ul>
-                            <li>Add at least 2 links</li>
-                            <li>Add at least 1 image with alt text</li>
-                            <li>Write a short caption under the image</li>
-                        </ul>
-                    </div>
-                    <button class="btn-starter" onclick="loadExercise('links-images')">Get Starter Code</button>
-                </div>
+    <div class="container">
+        <header class="missions-header">
+            <div class="hero-pill-badge">
+                <span>🎯</span> 3-Level Progressive Coding System
             </div>
-        </div>
+            <h1 style="margin-top: 0.75rem;">HTML Practice Missions</h1>
+            <p style="color: var(--text-secondary); font-size: 1.05rem;">
+                Every mission offers 3 steps: <strong>Follow</strong> (learn syntax), <strong>Modify</strong> (experiment & tweak), and <strong>Create</strong> (solve independently in Code Lab).
+            </p>
+        </header>
 
-        <div class="exercise-category">
-            <h2>Builder Missions</h2>
-            <div class="exercise-grid">
-                <div class="exercise-card">
-                    <h3>Mission 4: Top 5 List</h3>
-                    <p>Make lists for favorite snacks, games, books, or weekend plans.</p>
-                    <div class="exercise-requirements">
-                        <h4>Requirements:</h4>
-                        <ul>
-                            <li>Create one unordered list</li>
-                            <li>Create one ordered list</li>
-                            <li>Add at least 4 items to each list</li>
-                            <li>Try a nested list if you want a challenge</li>
-                        </ul>
+        <main>
+            <!-- CATEGORY 1: Starter Missions -->
+            <section class="mission-category">
+                <h2 class="mission-category-title">🌱 Phase 1: Structure & Typography (Chapters 3–6)</h2>
+                <div class="missions-grid">
+                    
+                    <!-- Mission 1 -->
+                    <div class="mission-card">
+                        <div>
+                            <div class="mission-card-header">
+                                <h3 class="mission-title">Mission 1: First Page & Headings</h3>
+                                <span class="mission-badge">Ch 3–5</span>
+                            </div>
+                            <p class="mission-desc">Master document structure, heading ranks (h1–h6), and clean paragraph breaks.</p>
+                            <ul class="requirements-list">
+                                <li>Valid HTML5 boilerplate with title</li>
+                                <li>Exactly one <code>&lt;h1&gt;</code> for the main headline</li>
+                                <li>Section subheadings with <code>&lt;h2&gt;</code></li>
+                                <li>At least two readable paragraphs</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="levels-toolbar">
+                                <button type="button" class="btn-level level-1" onclick="runMission('first-page', 1)">🟢 L1: Follow</button>
+                                <button type="button" class="btn-level level-2" onclick="runMission('first-page', 2)">🟡 L2: Modify</button>
+                                <button type="button" class="btn-level level-3" onclick="runMission('first-page', 3)">🔴 L3: Create</button>
+                            </div>
+                            <details class="hint-block">
+                                <summary class="hint-summary">💡 Need a Hint?</summary>
+                                <div class="hint-content">Remember to place all visible text inside the <code>&lt;body&gt;</code> container, not the <code>&lt;head&gt;</code>!</div>
+                            </details>
+                        </div>
                     </div>
-                    <button class="btn-starter" onclick="loadExercise('lists')">Get Starter Code</button>
-                </div>
 
-                <div class="exercise-card">
-                    <h3>Mission 5: Weekly Schedule</h3>
-                    <p>Build a table for classes, chores, clubs, or game time.</p>
-                    <div class="exercise-requirements">
-                        <h4>Requirements:</h4>
-                        <ul>
-                            <li>Add a table with headings</li>
-                            <li>Use at least 3 columns</li>
-                            <li>Use at least 4 rows of information</li>
-                            <li>Add a title above the table</li>
-                        </ul>
+                    <!-- Mission 2 -->
+                    <div class="mission-card">
+                        <div>
+                            <div class="mission-card-header">
+                                <h3 class="mission-title">Mission 2: Poster Text Formatting</h3>
+                                <span class="mission-badge">Ch 6</span>
+                            </div>
+                            <p class="mission-desc">Style text semantically without CSS using bold importance, stress, highlights, and math formulas.</p>
+                            <ul class="requirements-list">
+                                <li>Highlight key words with <code>&lt;mark&gt;</code></li>
+                                <li>Mark critical warnings with <code>&lt;strong&gt;</code></li>
+                                <li>Include formulas using <code>&lt;sub&gt;</code> & <code>&lt;sup&gt;</code></li>
+                                <li>Show price updates using <code>&lt;del&gt;</code> & <code>&lt;ins&gt;</code></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="levels-toolbar">
+                                <button type="button" class="btn-level level-1" onclick="runMission('text-formatting', 1)">🟢 L1: Follow</button>
+                                <button type="button" class="btn-level level-2" onclick="runMission('text-formatting', 2)">🟡 L2: Modify</button>
+                                <button type="button" class="btn-level level-3" onclick="runMission('text-formatting', 3)">🔴 L3: Create</button>
+                            </div>
+                            <details class="hint-block">
+                                <summary class="hint-summary">💡 Need a Hint?</summary>
+                                <div class="hint-content">Use <code>H&lt;sub&gt;2&lt;/sub&gt;O</code> for water and <code>E=mc&lt;sup&gt;2&lt;/sup&gt;</code> for energy!</div>
+                            </details>
+                        </div>
                     </div>
-                    <button class="btn-starter" onclick="loadExercise('tables')">Get Starter Code</button>
-                </div>
 
-                <div class="exercise-card">
-                    <h3>Mission 6: Club Signup</h3>
-                    <p>Create a fun form for a reading club, art club, or coding club.</p>
-                    <div class="exercise-requirements">
-                        <h4>Requirements:</h4>
-                        <ul>
-                            <li>Add inputs for name and favorite activity</li>
-                            <li>Add labels for each input</li>
-                            <li>Add a message box</li>
-                            <li>Add a submit button</li>
-                        </ul>
+                    <!-- Mission 3 -->
+                    <div class="mission-card">
+                        <div>
+                            <div class="mission-card-header">
+                                <h3 class="mission-title">Mission 3: Links & Accessible Media</h3>
+                                <span class="mission-badge">Ch 7–8</span>
+                            </div>
+                            <p class="mission-desc">Connect to the web with hyperlinks and embed responsive images with screen-reader alt text.</p>
+                            <ul class="requirements-list">
+                                <li>External link with <code>target="_blank"</code></li>
+                                <li>Internal link navigating on the page</li>
+                                <li>Images with descriptive <code>alt</code> attributes</li>
+                                <li>Fixed width attribute to prevent layout shifts</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="levels-toolbar">
+                                <button type="button" class="btn-level level-1" onclick="runMission('links-images', 1)">🟢 L1: Follow</button>
+                                <button type="button" class="btn-level level-2" onclick="runMission('links-images', 2)">🟡 L2: Modify</button>
+                                <button type="button" class="btn-level level-3" onclick="runMission('links-images', 3)">🔴 L3: Create</button>
+                            </div>
+                            <details class="hint-block">
+                                <summary class="hint-summary">💡 Need a Hint?</summary>
+                                <div class="hint-content">Always add <code>rel="noopener noreferrer"</code> when using <code>target="_blank"</code> for safety!</div>
+                            </details>
+                        </div>
                     </div>
-                    <button class="btn-starter" onclick="loadExercise('forms')">Get Starter Code</button>
-                </div>
-            </div>
-        </div>
 
-        <div class="exercise-category">
-            <h2>Big Challenge Missions</h2>
-            <div class="exercise-grid">
-                <div class="exercise-card">
-                    <h3>Mission 7: Semantic Page</h3>
-                    <p>Create a complete page with clear sections like a real website.</p>
-                    <div class="exercise-requirements">
-                        <h4>Requirements:</h4>
-                        <ul>
-                            <li>Use <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code></li>
-                            <li>Add one section for your main idea</li>
-                            <li>Add one extra section or sidebar</li>
-                            <li>Give each area a heading</li>
-                        </ul>
-                    </div>
-                    <button class="btn-starter" onclick="loadExercise('semantic-page')">Get Starter Code</button>
                 </div>
+            </section>
 
-                <div class="exercise-card">
-                    <h3>Mission 8: Super Fan Page</h3>
-                    <p>Make a full page about a hobby, animal, sport, or favorite character.</p>
-                    <div class="exercise-requirements">
-                        <h4>Requirements:</h4>
-                        <ul>
-                            <li>Use a full semantic structure</li>
-                            <li>Add at least 2 content sections</li>
-                            <li>Add a list, image, or table somewhere on the page</li>
-                            <li>Finish with a footer message</li>
-                        </ul>
+            <!-- CATEGORY 2: Builder Missions -->
+            <section class="mission-category">
+                <h2 class="mission-category-title">🛠️ Phase 2: Data Grids & User Input (Chapters 9–11)</h2>
+                <div class="missions-grid">
+                    
+                    <!-- Mission 4 -->
+                    <div class="mission-card">
+                        <div>
+                            <div class="mission-card-header">
+                                <h3 class="mission-title">Mission 4: Lists & Multi-Tier Outlines</h3>
+                                <span class="mission-badge">Ch 9</span>
+                            </div>
+                            <p class="mission-desc">Group information logically using bulleted unordered lists, numbered recipes, and nested sub-items.</p>
+                            <ul class="requirements-list">
+                                <li>Unordered list <code>&lt;ul&gt;</code> for ingredients</li>
+                                <li>Ordered list <code>&lt;ol&gt;</code> for sequence steps</li>
+                                <li>At least one nested list inside an item</li>
+                                <li>No orphan text directly inside <code>&lt;ul&gt;</code></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="levels-toolbar">
+                                <button type="button" class="btn-level level-1" onclick="runMission('lists', 1)">🟢 L1: Follow</button>
+                                <button type="button" class="btn-level level-2" onclick="runMission('lists', 2)">🟡 L2: Modify</button>
+                                <button type="button" class="btn-level level-3" onclick="runMission('lists', 3)">🔴 L3: Create</button>
+                            </div>
+                            <details class="hint-block">
+                                <summary class="hint-summary">💡 Need a Hint?</summary>
+                                <div class="hint-content">To nest a list, put the inner <code>&lt;ul&gt;</code> completely INSIDE an <code>&lt;li&gt;...&lt;/li&gt;</code>!</div>
+                            </details>
+                        </div>
                     </div>
-                    <button class="btn-starter" onclick="loadExercise('blog-layout')">Get Starter Code</button>
+
+                    <!-- Mission 5 -->
+                    <div class="mission-card">
+                        <div>
+                            <div class="mission-card-header">
+                                <h3 class="mission-title">Mission 5: Weekly Timetable & Tables</h3>
+                                <span class="mission-badge">Ch 10</span>
+                            </div>
+                            <p class="mission-desc">Display structured school schedules with header cells, rows, and multi-column cell merges.</p>
+                            <ul class="requirements-list">
+                                <li>Table with header row using <code>&lt;th&gt;</code></li>
+                                <li>At least 4 content rows with <code>&lt;td&gt;</code></li>
+                                <li>Use <code>colspan</code> to span lunch across columns</li>
+                                <li>Border attribute or styled table frame</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="levels-toolbar">
+                                <button type="button" class="btn-level level-1" onclick="runMission('tables', 1)">🟢 L1: Follow</button>
+                                <button type="button" class="btn-level level-2" onclick="runMission('tables', 2)">🟡 L2: Modify</button>
+                                <button type="button" class="btn-level level-3" onclick="runMission('tables', 3)">🔴 L3: Create</button>
+                            </div>
+                            <details class="hint-block">
+                                <summary class="hint-summary">💡 Need a Hint?</summary>
+                                <div class="hint-content">Remember: <code>&lt;tr&gt;</code> creates a row, while <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code> create individual cells!</div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Mission 6 -->
+                    <div class="mission-card">
+                        <div>
+                            <div class="mission-card-header">
+                                <h3 class="mission-title">Mission 6: Interactive Signup Form</h3>
+                                <span class="mission-badge">Ch 11</span>
+                            </div>
+                            <p class="mission-desc">Build an accessible user registration form with connected labels, validation, and submission controls.</p>
+                            <ul class="requirements-list">
+                                <li>Inputs with matching <code>&lt;label for="..."&gt;</code></li>
+                                <li>Text, email, radio buttons, and checkbox</li>
+                                <li>Multi-line message with <code>&lt;textarea&gt;</code></li>
+                                <li>Validation with <code>required</code> attribute</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="levels-toolbar">
+                                <button type="button" class="btn-level level-1" onclick="runMission('forms', 1)">🟢 L1: Follow</button>
+                                <button type="button" class="btn-level level-2" onclick="runMission('forms', 2)">🟡 L2: Modify</button>
+                                <button type="button" class="btn-level level-3" onclick="runMission('forms', 3)">🔴 L3: Create</button>
+                            </div>
+                            <details class="hint-block">
+                                <summary class="hint-summary">💡 Need a Hint?</summary>
+                                <div class="hint-content">The <code>for</code> attribute in the label MUST match the <code>id</code> of the input so clicking the text selects the box!</div>
+                            </details>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
-        </div>
+            </section>
+
+            <!-- CATEGORY 3: Architecture & Projects -->
+            <section class="mission-category">
+                <h2 class="mission-category-title">🏛️ Phase 3: Semantic Layouts & Living Project (Chapters 12 & 30)</h2>
+                <div class="missions-grid">
+                    
+                    <!-- Mission 7 -->
+                    <div class="mission-card">
+                        <div>
+                            <div class="mission-card-header">
+                                <h3 class="mission-title">Mission 7: Semantic Page Layout</h3>
+                                <span class="mission-badge">Ch 12</span>
+                            </div>
+                            <p class="mission-desc">Assemble a clean, SEO-friendly page using HTML5 structural landmarks instead of generic div containers.</p>
+                            <ul class="requirements-list">
+                                <li>Semantic <code>&lt;header&gt;</code> and <code>&lt;nav&gt;</code></li>
+                                <li>Central <code>&lt;main&gt;</code> with 2 <code>&lt;section&gt;</code>s</li>
+                                <li>Sidebar info using <code>&lt;aside&gt;</code></li>
+                                <li>Footer with copyright notice</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="levels-toolbar">
+                                <button type="button" class="btn-level level-1" onclick="runMission('semantic-page', 1)">🟢 L1: Follow</button>
+                                <button type="button" class="btn-level level-2" onclick="runMission('semantic-page', 2)">🟡 L2: Modify</button>
+                                <button type="button" class="btn-level level-3" onclick="runMission('semantic-page', 3)">🔴 L3: Create</button>
+                            </div>
+                            <details class="hint-block">
+                                <summary class="hint-summary">💡 Need a Hint?</summary>
+                                <div class="hint-content">A page should only have ONE <code>&lt;main&gt;</code> element to identify primary content for search engines!</div>
+                            </details>
+                        </div>
+                    </div>
+
+                    <!-- Mission 8 -->
+                    <div class="mission-card">
+                        <div>
+                            <div class="mission-card-header">
+                                <h3 class="mission-title">Mission 8: Living Project (Personal Hub)</h3>
+                                <span class="mission-badge">Ch 30 Capstone</span>
+                            </div>
+                            <p class="mission-desc">Combine all HTML skills into your Personal Explorer Website: bio, media, timetable, and contact form.</p>
+                            <ul class="requirements-list">
+                                <li>Full semantic architecture</li>
+                                <li>Profile picture & hobbies photo gallery</li>
+                                <li>Weekly class timetable grid</li>
+                                <li>Interactive contact message form</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="levels-toolbar">
+                                <button type="button" class="btn-level level-1" onclick="runMission('blog-layout', 1)">🟢 L1: Follow</button>
+                                <button type="button" class="btn-level level-2" onclick="runMission('blog-layout', 2)">🟡 L2: Modify</button>
+                                <button type="button" class="btn-level level-3" onclick="runMission('blog-layout', 3)">🔴 L3: Create</button>
+                            </div>
+                            <details class="hint-block">
+                                <summary class="hint-summary">💡 Need a Hint?</summary>
+                                <div class="hint-content">This is your living project! You will style this exact page with CSS in the next module!</div>
+                            </details>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </main>
     </div>
 
+    <!-- Core Platform Engine -->
     <script src="../js/core.js"></script>
+    <script>
+        // Comprehensive 3-Level Exercise Data Bank
+        const EXERCISES_DATA = {
+            'first-page': {
+                title: "First Page & Headings",
+                1: {
+                    level: "Level 1: Follow",
+                    instructions: "Follow the template: Type the HTML5 boilerplate and add your personal introduction.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>My First Web Page</title>
+</head>
+<body>
+    <h1>Welcome to My Coding Journey</h1>
+    <p>My name is Alex and I am learning to build websites with BEI Coders!</p>
+    <hr>
+    <h2>What I Want to Build</h2>
+    <p>I want to create video games, school project portals, and creative stories.</p>
+</body>
+</html>`
+                },
+                2: {
+                    level: "Level 2: Modify",
+                    instructions: "Modify the page: Change the title to your school name, add an <h3> subheading, and write an extra paragraph.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Change This Title</title>
+</head>
+<body>
+    <h1>My School Portal</h1>
+    <h2>Class 7 Computer Science</h2>
+    <!-- TASK: Add an <h3> subheading and another paragraph below -->
+    <p>Welcome to our classroom web page!</p>
+</body>
+</html>`
+                },
+                3: {
+                    level: "Level 3: Create",
+                    instructions: "Create from scratch: Build a game review page with <h1> Title, <h2> Story, <h2> Gameplay, and <h2> Final Verdict with paragraphs.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Review</title>
+</head>
+<body>
+    <!-- Create your complete game review outline here! -->
+</body>
+</html>`
+                }
+            },
+
+            'text-formatting': {
+                title: "Text Formatting",
+                1: {
+                    level: "Level 1: Follow",
+                    instructions: "Follow the template: Study how strong, em, mark, and sub/sup format text semantically.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Science & Facts</title>
+</head>
+<body>
+    <h1>Science Laboratory Rules</h1>
+    <p><strong>DANGER:</strong> Always wear safety goggles before mixing chemicals!</p>
+    <p>Water is made of molecules: <em>H<sub>2</sub>O</em>.</p>
+    <p>Einstein's famous equation is: <mark>E = mc<sup>2</sup></mark>.</p>
+</body>
+</html>`
+                },
+                2: {
+                    level: "Level 2: Modify",
+                    instructions: "Modify the ticket: Strike out the expired price with <del>, insert the new price with <ins>, and emphasize the discount code.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket Voucher</title>
+</head>
+<body>
+    <h1>VIP Concert Pass</h1>
+    <!-- TASK: Format old price $50 with <del>, new price $35 with <ins>, and highlight the promo code SUMMER2026 -->
+    <p>Regular Price: $50</p>
+    <p>Sale Price: $35</p>
+    <p>Use code SUMMER2026 for free entry.</p>
+</body>
+</html>`
+                },
+                3: {
+                    level: "Level 3: Create",
+                    instructions: "Create from scratch: Write a nutritional fact card using at least 5 different text formatting tags.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Nutritional Guide</title>
+</head>
+<body>
+    <!-- Use <strong>, <em>, <mark>, <del>, <ins>, <sub>, or <sup> here! -->
+</body>
+</html>`
+                }
+            },
+
+            'links-images': {
+                title: "Links & Accessible Images",
+                1: {
+                    level: "Level 1: Follow",
+                    instructions: "Follow the template: Inspect how the external link opens in a new tab and how alt text makes images accessible.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Web Explorer</title>
+</head>
+<body>
+    <h1>Space Exploration Club</h1>
+    <p>Visit our official research page on <a href="https://en.wikipedia.org/wiki/Mars" target="_blank" rel="noopener noreferrer">Wikipedia's Mars Guide</a>.</p>
+    <hr>
+    <h2>Mars Rover Mission</h2>
+    <img src="https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=500" alt="Mars rover robotic explorer travelling on red rocky terrain" width="450">
+    <p><em>Curiosity Rover capturing surface samples on Mars.</em></p>
+</body>
+</html>`
+                },
+                2: {
+                    level: "Level 2: Modify",
+                    instructions: "Modify: Fix the broken link syntax and replace the poor 'photo' alt text with an informative description.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Fix My Links and Media</title>
+</head>
+<body>
+    <h1>Fix the Bugs!</h1>
+    <!-- BUG 1: Link is missing https:// and target attribute -->
+    <p>Search the web on <a href="google.com">Google</a>.</p>
+    <!-- BUG 2: Alt attribute is missing a descriptive explanation -->
+    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500" alt="photo" width="400">
+</body>
+</html>`
+                },
+                3: {
+                    level: "Level 3: Create",
+                    instructions: "Create from scratch: Build a 3-item 'My Top Bookmarks' launchpad with descriptions, links, and illustrative images.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>My Web Launchpad</title>
+</head>
+<body>
+    <!-- Build your 3 bookmark cards here with images and links -->
+</body>
+</html>`
+                }
+            },
+
+            'lists': {
+                title: "Lists & Outlines",
+                1: {
+                    level: "Level 1: Follow",
+                    instructions: "Follow the template: Observe how unordered lists create bullets while ordered lists number sequence steps.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Delicious Hot Cocoa</title>
+</head>
+<body>
+    <h1>Creamy Hot Cocoa Recipe</h1>
+    <h2>Ingredients</h2>
+    <ul>
+        <li>2 cups whole milk</li>
+        <li>2 tablespoons cocoa powder</li>
+        <li>1 tablespoon sugar</li>
+        <li>Marshmallows for topping</li>
+    </ul>
+    <h2>Preparation Steps</h2>
+    <ol>
+        <li>Pour milk into a small saucepan and heat over low flame.</li>
+        <li>Whisk in cocoa powder and sugar until smooth.</li>
+        <li>Pour into your favorite mug and top with marshmallows.</li>
+    </ol>
+</body>
+</html>`
+                },
+                2: {
+                    level: "Level 2: Modify",
+                    instructions: "Modify: Change the ordered list to Roman numerals (type='I') and nest an unordered list of optional spices inside Step 2.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Upgrade</title>
+</head>
+<body>
+    <h1>Secret Recipe</h1>
+    <ol>
+        <li>Heat the water.</li>
+        <li>Add spices (cinnamon, nutmeg, vanilla).</li>
+        <li>Stir and enjoy.</li>
+    </ol>
+</body>
+</html>`
+                },
+                3: {
+                    level: "Level 3: Create",
+                    instructions: "Create from scratch: Build a 3-level directory outline showing Computer -> Documents, Music, Code -> Projects.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>File System Tree</title>
+</head>
+<body>
+    <!-- Build your nested folder tree here using ul and li tags -->
+</body>
+</html>`
+                }
+            },
+
+            'tables': {
+                title: "Weekly Timetable & Tables",
+                1: {
+                    level: "Level 1: Follow",
+                    instructions: "Follow the template: See how <tr>, <th>, and <td> construct a student leaderboard.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Gaming Leaderboard</title>
+</head>
+<body>
+    <h1>Class 7 Coding Arena Leaderboard</h1>
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Player Name</th>
+                <th>Missions Cleared</th>
+                <th>Total XP</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Maya Coder</td>
+                <td>12</td>
+                <td>1,200</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Leo Hacker</td>
+                <td>10</td>
+                <td>1,000</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Sara Dev</td>
+                <td>9</td>
+                <td>900</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>`
+                },
+                2: {
+                    level: "Level 2: Modify",
+                    instructions: "Modify: Add a bottom summary row that spans across 3 columns using colspan='3' to show 'Total Class Points: 3,100'.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Spanning Practice</title>
+</head>
+<body>
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>Notebook</td>
+            <td>2</td>
+            <td>$6</td>
+        </tr>
+        <!-- TASK: Add a footer row using colspan="2" for "Grand Total" and a td for "$6" -->
+    </table>
+</body>
+</html>`
+                },
+                3: {
+                    level: "Level 3: Create",
+                    instructions: "Create from scratch: Build your 5-day school timetable with 4 class periods and a lunch row spanning all columns.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>My School Timetable</title>
+</head>
+<body>
+    <!-- Build your weekly timetable table here -->
+</body>
+</html>`
+                }
+            },
+
+            'forms': {
+                title: "Interactive Signup Form",
+                1: {
+                    level: "Level 1: Follow",
+                    instructions: "Follow the template: Inspect how label 'for' attributes link directly to input 'id's for complete accessibility.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Club Registration</title>
+</head>
+<body>
+    <h1>Junior Robotics Club Registration</h1>
+    <form action="#" method="GET">
+        <p>
+            <label for="student-name">Student Full Name:</label><br>
+            <input type="text" id="student-name" name="fullname" required placeholder="e.g., Alex Smith">
+        </p>
+        <p>
+            <label for="student-email">Parent/Guardian Email:</label><br>
+            <input type="email" id="student-email" name="email" required placeholder="parent@example.com">
+        </p>
+        <p>
+            <label>Grade Level:</label><br>
+            <input type="radio" id="g6" name="grade" value="6"> <label for="g6">Grade 6</label><br>
+            <input type="radio" id="g7" name="grade" value="7" checked> <label for="g7">Grade 7</label><br>
+            <input type="radio" id="g8" name="grade" value="8"> <label for="g8">Grade 8</label>
+        </p>
+        <p>
+            <button type="submit">Submit Application 🚀</button>
+        </p>
+    </form>
+</body>
+</html>`
+                },
+                2: {
+                    level: "Level 2: Modify",
+                    instructions: "Modify: Add a dropdown <select> for 'Favorite Topic' (Robots, AI, Web) and a multi-line <textarea> for 'Why do you want to join?'.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Enhancements</title>
+</head>
+<body>
+    <h1>Club Signup</h1>
+    <form>
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" required><br><br>
+        <!-- TASK: Add a select dropdown and a textarea message box below -->
+        
+        <button type="submit">Sign Up</button>
+    </form>
+</body>
+</html>`
+                },
+                3: {
+                    level: "Level 3: Create",
+                    instructions: "Create from scratch: Build a complete School Pizza Order Form with student name, size (radio), toppings (checkboxes), and delivery notes.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Pizza Order Form</title>
+</head>
+<body>
+    <!-- Build your complete interactive pizza order form here -->
+</body>
+</html>`
+                }
+            },
+
+            'semantic-page': {
+                title: "Semantic Page Architecture",
+                1: {
+                    level: "Level 1: Follow",
+                    instructions: "Follow the template: Observe how header, nav, main, section, aside, and footer establish a real website layout.",
+                    html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>The Tech Times</title>
+</head>
+<body>
+    <header>
+        <h1>📰 The Tech Times</h1>
+        <p>Your School's Digital Newspaper</p>
+        <nav>
+            <a href="#science">Science</a> | 
+            <a href="#coding">Coding</a> | 
+            <a href="#sports">Sports</a>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <article id="coding">
+            <h2>Students Build Real Web Apps in Class 7</h2>
+            <p>Using semantic HTML5, young creators are designing accessible websites from scratch.</p>
+        </article>
+        <aside>
+            <h3>Quick Announcements</h3>
+            <p>Coding club meets every Thursday at 3:30 PM in Lab 2.</p>
+        </aside>
+    </main>
+    <hr>
+    <footer>
+        <p>&copy; 2026 BEI Coders Academy. Published with pride.</p>
+    </footer>
+</body>
+</html>`
+                },
+                2: {
+                    level: "Level 2: Modify",
+                    instructions: "Modify: Refactor a page made of generic <div> tags into proper <header>, <nav>, <article>, and <footer> tags.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>Fix the Div Soup!</title>
+</head>
+<body>
+    <!-- TASK: Replace the outer divs with appropriate semantic tags -->
+    <div class="header">
+        <h1>Welcome to My Blog</h1>
+        <div class="nav"><a href="#">Home</a></div>
+    </div>
+    <div class="content">
+        <div class="post">
+            <h2>Post Title</h2>
+            <p>Post content goes here.</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>&copy; 2026 Student</p>
+    </div>
+</body>
+</html>`
+                },
+                3: {
+                    level: "Level 3: Create",
+                    instructions: "Create from scratch: Build a complete School Library portal page using semantic HTML5 tags throughout.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>School Library Portal</title>
+</head>
+<body>
+    <!-- Construct your complete semantic layout here -->
+</body>
+</html>`
+                }
+            },
+
+            'blog-layout': {
+                title: "Living Project: Personal Hub",
+                1: {
+                    level: "Level 1: Follow",
+                    instructions: "Follow the template: This is the foundation of your Living Project. Review each section before customizing.",
+                    html: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Alex River | Explorer & Web Creator</title>
+</head>
+<body>
+    <header>
+        <h1>🚀 Alex River</h1>
+        <p>Student • Web Creator • Science Enthusiast</p>
+        <nav>
+            <a href="#about">About</a> | 
+            <a href="#hobbies">Hobbies</a> | 
+            <a href="#schedule">Schedule</a> | 
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <hr>
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>Hello! I am a Class 7 student passionate about building interactive websites and space science.</p>
+        </section>
+
+        <section id="hobbies">
+            <h2>My Favorite Things</h2>
+            <ul>
+                <li>Coding with HTML and CSS</li>
+                <li>Stargazing and Astronomy</li>
+                <li>Playing Basketball</li>
+            </ul>
+        </section>
+
+        <section id="schedule">
+            <h2>My Study Routine</h2>
+            <table border="1" cellpadding="6">
+                <tr>
+                    <th>Day</th>
+                    <th>Focus Subject</th>
+                    <th>Hours</th>
+                </tr>
+                <tr>
+                    <td>Monday</td>
+                    <td>Web Development</td>
+                    <td>1.5 hrs</td>
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>Mathematics</td>
+                    <td>2.0 hrs</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="contact">
+            <h2>Send Me a Message</h2>
+            <form action="#" method="GET">
+                <label for="cname">Name:</label><br>
+                <input type="text" id="cname" required><br><br>
+                <label for="cmsg">Message:</label><br>
+                <textarea id="cmsg" rows="3" required></textarea><br><br>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <hr>
+    <footer>
+        <p>&copy; 2026 Alex River. Built with BEI Coders.</p>
+    </footer>
+</body>
+</html>`
+                },
+                2: {
+                    level: "Level 2: Modify",
+                    instructions: "Modify: Personalize this template with your own name, 3 real hobbies, a photo image, and an updated study schedule.",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>My Customized Explorer Hub</title>
+</head>
+<body>
+    <!-- Personalize this page with YOUR information and hobbies! -->
+    <h1>[Your Name Here]</h1>
+    <p>[Your Tagline Here]</p>
+</body>
+</html>`
+                },
+                3: {
+                    level: "Level 3: Create",
+                    instructions: "Create from scratch: Assemble your full Personal Portfolio from a blank canvas. This is your Class 7 Milestone!",
+                    html: `<!DOCTYPE html>
+<html>
+<head>
+    <title>My Portfolio Milestone</title>
+</head>
+<body>
+    <!-- Build your complete Personal Portfolio here -->
+</body>
+</html>`
+                }
+            }
+        };
+
+        // Mission Runner Hook
+        function runMission(missionKey, level) {
+            const missionGroup = EXERCISES_DATA[missionKey];
+            if (!missionGroup) {
+                console.warn("Unknown mission:", missionKey);
+                return;
+            }
+            const data = missionGroup[level] || missionGroup[1];
+            if (window.loadExerciseToPlayground) {
+                window.loadExerciseToPlayground({
+                    title: missionGroup.title,
+                    level: data.level,
+                    instructions: data.instructions,
+                    html: data.html,
+                    type: 'html'
+                });
+            }
+        }
+
+        // Backward-compatible loadExercise handler
+        window.loadExercise = function(key) {
+            runMission(key, 1);
+        };
+    </script>
 </body>
 </html>

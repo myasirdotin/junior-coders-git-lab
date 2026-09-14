@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySQL for Class 9: Databases &amp; Queries | BEI Coders</title>
+  <meta name="description" content="Official Class 9 MySQL Textbook: Learn databases, tables, SELECT, INSERT, UPDATE, DELETE, JOINs and advanced queries.">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="stylesheet" href="../book/styles/book-theme.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { --primary-blue: #0ea5e9; }
+    .book-brand-icon { background:linear-gradient(135deg,#0ea5e9,#0284c7)!important; color:#fff; font-weight:800; display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:10px; flex-shrink:0; }
+    .chapter-nav-item.active a { background:#f0f9ff; color:#0ea5e9; border-left:3px solid #0ea5e9; }
+    .chapter-nav-item a:hover { color:#0ea5e9; background:#e0f2fe; }
+    .code-wrapper { position:relative; background:#0f172a; border:1px solid #334155; border-radius:10px; margin:1.5rem 0; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.25); }
+    .code-wrapper-header { display:flex; justify-content:space-between; align-items:center; background:#1e293b; padding:0.5rem 1rem; border-bottom:1px solid #334155; font-size:0.8rem; }
+    .code-lang-label { font-family:var(--font-mono,monospace); font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em; }
+    .code-actions { display:flex; align-items:center; gap:0.5rem; }
+    .btn-copy-code { display:inline-flex; align-items:center; gap:0.35rem; padding:0.3rem 0.65rem; font-size:0.78rem; font-weight:600; font-family:inherit; border-radius:6px; cursor:pointer; background:#334155; color:#cbd5e1; border:1px solid #475569; transition:background 0.15s; }
+    .btn-copy-code:hover { background:#475569; }
+    .btn-copy-code.copied { background:#059669; color:#fff; border-color:#059669; }
+    .copy-toast { position:fixed; bottom:1.5rem; left:50%; transform:translateX(-50%) translateY(2rem); background:#1e293b; color:#e2e8f0; border:1px solid #334155; border-radius:10px; padding:0.7rem 1.2rem; font-size:0.88rem; font-weight:600; display:flex; align-items:center; gap:0.5rem; z-index:9999; opacity:0; pointer-events:none; transition:all 0.25s ease; }
+    .copy-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+  <div class="book-mobile-bar" id="bookMobileBar">
+    <button type="button" class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Open Chapters Menu">
+      <span class="toggle-icon">&#9776;</span><span class="toggle-text">Chapters</span>
+    </button>
+    <div class="mobile-brand-title">MySQL for Class 9</div>
+    <a href="../index.html" class="mobile-home-link" title="Platform Home">&#127968;</a>
+  </div>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+  <div class="book-layout">
+    <aside class="book-sidebar" id="bookSidebar">
+      <div class="book-brand">
+        <div class="book-brand-icon">&#128451;&#65039;</div>
+        <div><h1>Class 9 MySQL</h1><span>Databases &amp; Queries</span></div>
+        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn">&#10005;</button>
+      </div>
+      <div class="sidebar-search" style="margin-bottom:1rem;">
+        <input type="text" id="chapterFilter" placeholder="Search chapters..." style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);font-size:0.85rem;">
+      </div>
+      <nav id="sidebarNav">
+        <div class="part-group"><div class="part-title">Part 1: Introduction to Databases</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('ch1',this)">1. What is a Database?</a></li>
+          <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('ch2',this)">2. Tables, Rows &amp; Columns</a></li>
+          <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('ch3',this)">3. Setting Up MySQL</a></li>
+        </ul></div>
+        <div class="part-group"><div class="part-title">Part 2: Creating Databases &amp; Tables</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('ch4',this)">4. CREATE DATABASE</a></li>
+          <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('ch5',this)">5. CREATE TABLE</a></li>
+          <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('ch6',this)">6. Data Types</a></li>
+          <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('ch7',this)">7. Primary Keys</a></li>
+        </ul></div>
+        <div class="part-group"><div class="part-title">Part 3: INSERT &amp; SELECT</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('ch8',this)">8. INSERT INTO</a></li>
+          <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('ch9',this)">9. SELECT Basics</a></li>
+          <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('ch10',this)">10. WHERE Clause</a></li>
+          <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('ch11',this)">11. ORDER BY &amp; LIMIT</a></li>
+        </ul></div>
+        <div class="part-group"><div class="part-title">Part 4: UPDATE &amp; DELETE</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('ch12',this)">12. UPDATE Statement</a></li>
+          <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('ch13',this)">13. DELETE Statement</a></li>
+          <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('ch14',this)">14. Safe Updates</a></li>
+        </ul></div>
+        <div class="part-group"><div class="part-title">Part 5: JOINs</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('ch15',this)">15. What is a JOIN?</a></li>
+          <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('ch16',this)">16. INNER JOIN</a></li>
+          <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('ch17',this)">17. LEFT JOIN</a></li>
+          <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('ch18',this)">18. Foreign Keys</a></li>
+        </ul></div>
+        <div class="part-group"><div class="part-title">Part 6: Advanced Queries</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('ch19',this)">19. Aggregate Functions</a></li>
+          <li class="chapter-nav-item"><a href="#ch20" onclick="loadChapter('ch20',this)">20. GROUP BY</a></li>
+          <li class="chapter-nav-item"><a href="#ch21" onclick="loadChapter('ch21',this)">21. LIKE &amp; Wildcards</a></li>
+          <li class="chapter-nav-item"><a href="#ch22" onclick="loadChapter('ch22',this)">22. Subqueries</a></li>
+        </ul></div>
+        <div class="part-group"><div class="part-title">Projects &amp; Reference</div>
+        <ul class="chapter-nav-list">
+          <li class="chapter-nav-item"><a href="#proj1" onclick="loadChapter('proj1',this)">&#127959; Project 1: Student Database</a></li>
+          <li class="chapter-nav-item"><a href="#proj2" onclick="loadChapter('proj2',this)">&#127959; Project 2: Library System</a></li>
+          <li class="chapter-nav-item"><a href="#ref" onclick="loadChapter('ref',this)">&#128203; MySQL Quick Reference</a></li>
+        </ul></div>
+      </nav>
+    </aside>
+    <main class="book-content">
+      <header class="book-reader-header" id="bookReaderHeader" role="region" aria-label="Book Reader Controls">
+        <div class="reader-header-main">
+          <div class="reader-controls-left">
+            <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read chapter"><span class="btn-icon">&#128266;</span><span class="btn-text">Read Chapter</span></button>
+            <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop"><span class="btn-icon">&#9209;&#65039;</span><span class="btn-text">Stop</span></button>
+            <div class="reader-speed-pill"><span class="speed-caption">Speed</span>
+              <select class="book-speaker-speed-select" id="book-speaker-speed-select">
+                <option value="0.85">0.85x</option><option value="1.0" selected>1.0x</option>
+                <option value="1.25">1.25x</option><option value="1.5">1.5x</option>
+              </select>
+            </div>
+            <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+          </div>
+          <div class="reader-status-center"><div class="reader-chapter-badge"><span class="status-dot"></span><span class="status-text" id="book-speaker-status-text">Ready to read</span></div></div>
+          <div class="reader-controls-right">
+            <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn"><span class="btn-icon">&#128214;</span><span class="btn-text">Reading Mode</span></button>
+          </div>
+        </div>
+      </header>
+      <article class="book-article" id="chapterContent">
+        <div style="text-align:center;padding:3rem 1rem;">
+          <span class="chapter-badge">Official Class 9 Textbook</span>
+          <h1 class="chapter-title" style="margin-top:0.5rem;">MySQL for Class 9</h1>
+          <p style="font-size:1.15rem;color:var(--text-secondary);max-width:650px;margin:0 auto 2rem auto;">
+            Learn to store and retrieve data using the world's most popular open-source database. Master SQL queries, table design, and JOINs.
+          </p>
+          <div style="display:flex;gap:0.85rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
+            <a href="#ch1" onclick="loadChapter('ch1',document.querySelector('.chapter-nav-item a'))" style="background:linear-gradient(135deg,#0ea5e9,#0284c7);color:#fff;padding:0.85rem 1.6rem;font-size:0.95rem;text-decoration:none;border-radius:8px;font-weight:700;box-shadow:0 4px 12px rgba(14,165,233,0.3);">
+              Start Chapter 1: What is a Database? &#128451;&#65039;
+            </a>
+            <a href="../Learning MySQL/learningmysql.html" style="background:rgba(14,165,233,0.1);color:#0ea5e9;border:2px solid #0ea5e9;padding:0.85rem 1.6rem;font-size:0.95rem;text-decoration:none;border-radius:8px;font-weight:700;">
+              &#128218; Interactive MySQL Modules
+            </a>
+          </div>
+          <div class="pedagogy-box" style="text-align:left;max-width:650px;margin:0 auto;">
+            <h3>&#128218; What you will learn</h3>
+            <ul style="list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 1rem;">
+              <li>&#9989; Database design</li><li>&#9989; CREATE TABLE &amp; types</li>
+              <li>&#9989; INSERT, SELECT, UPDATE, DELETE</li><li>&#9989; WHERE, ORDER BY, LIMIT</li>
+              <li>&#9989; INNER JOIN &amp; LEFT JOIN</li><li>&#9989; Aggregate functions (COUNT, SUM)</li>
+              <li>&#9989; GROUP BY &amp; HAVING</li><li>&#9989; 2 real database projects</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
+  <script src="../js/core.js"></script>
+  <script>
+    const CHAPTERS = {
+      ch1: { content: `<span class="chapter-badge">Chapter 1</span><h1 class="chapter-title">What is a Database?</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Understand what a database is and why we need one</li><li>Know the difference between a database and a spreadsheet</li></ul></div><h2>&#128451;&#65039; What is a Database?</h2><p>A <strong>database</strong> is an organized collection of structured data stored electronically on a computer. Databases make it easy to <strong>store, find, update, and delete</strong> large amounts of information.</p><div class="fun-fact-box"><span class="fun-fact-label">&#128161; Real World Examples</span><p>Your school's student records, a hospital's patient list, Facebook's user profiles, and your phone's contact list are all powered by databases!</p></div><h2>&#128200; Database vs Spreadsheet</h2><table class="data-table"><thead><tr><th>Feature</th><th>Spreadsheet</th><th>Database</th></tr></thead><tbody><tr><td>Best for</td><td>Small data, calculations</td><td>Large data, relationships</td></tr><tr><td>Multiple users</td><td>Difficult</td><td>Easy — many users at once</td></tr><tr><td>Security</td><td>Basic</td><td>Advanced access control</td></tr><tr><td>Speed</td><td>Slow with big data</td><td>Fast even with millions of records</td></tr></tbody></table><h2>&#129309; What is MySQL?</h2><p><strong>MySQL</strong> is a free, open-source <strong>Relational Database Management System (RDBMS)</strong>. You interact with it using <strong>SQL</strong> (Structured Query Language).</p><div class="challenge-box"><h3>&#127942; Quick Check</h3><ol><li>What is a database?</li><li>Give 2 real-world examples of databases you use every day.</li><li>What does RDBMS stand for?</li></ol></div>` },
+      ch5: { content: `<span class="chapter-badge">Chapter 5</span><h1 class="chapter-title">CREATE TABLE</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Create a table in MySQL</li><li>Define columns with appropriate data types</li></ul></div><h2>&#128203; Creating a Table</h2><pre><code class="language-sql">CREATE TABLE students (
+    id       INT AUTO_INCREMENT PRIMARY KEY,
+    name     VARCHAR(100) NOT NULL,
+    age      INT,
+    grade    INT,
+    email    VARCHAR(200)
+);</code></pre><h2>&#128202; Common Data Types</h2><table class="data-table"><thead><tr><th>Type</th><th>Used for</th><th>Example</th></tr></thead><tbody><tr><td>INT</td><td>Whole numbers</td><td>42, 15, 2024</td></tr><tr><td>VARCHAR(n)</td><td>Text (max n chars)</td><td>"Ahmed", "Karachi"</td></tr><tr><td>TEXT</td><td>Long text</td><td>Paragraph or description</td></tr><tr><td>DECIMAL(m,d)</td><td>Decimal numbers</td><td>95.5, 3.14</td></tr><tr><td>DATE</td><td>Date values</td><td>2024-09-14</td></tr><tr><td>BOOLEAN</td><td>True / False</td><td>1 or 0</td></tr></tbody></table><div class="challenge-box"><h3>&#127942; Practice</h3><p>Create a table called <code>teachers</code> with columns: id, name, subject, salary, email.</p></div>` },
+      ch9: { content: `<span class="chapter-badge">Chapter 9</span><h1 class="chapter-title">SELECT Basics</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Use SELECT to retrieve data from a table</li><li>Filter results with WHERE</li></ul></div><h2>&#128270; The SELECT Statement</h2><pre><code class="language-sql">-- Select all columns from a table
+SELECT * FROM students;
+
+-- Select specific columns
+SELECT name, grade FROM students;
+
+-- Select with a condition
+SELECT name, age FROM students WHERE grade = 9;
+
+-- Select with multiple conditions
+SELECT * FROM students WHERE grade = 9 AND age >= 14;
+
+-- Sort results
+SELECT name, grade FROM students ORDER BY name ASC;
+
+-- Limit results
+SELECT * FROM students LIMIT 5;</code></pre><div class="challenge-box"><h3>&#127942; Practice</h3><p>Write queries to:<ol><li>Get all students from the students table</li><li>Get only name and email columns</li><li>Get students where grade = 9</li><li>Sort all students by name (A-Z)</li></ol></p></div>` },
+      ref: { content: `<span class="chapter-badge">Quick Reference</span><h1 class="chapter-title">MySQL Quick Reference</h1><h2>&#128451;&#65039; Database Commands</h2><pre><code class="language-sql">CREATE DATABASE school;
+USE school;
+SHOW DATABASES;
+DROP DATABASE school;</code></pre><h2>&#128203; Table Commands</h2><pre><code class="language-sql">CREATE TABLE students (
+  id    INT AUTO_INCREMENT PRIMARY KEY,
+  name  VARCHAR(100) NOT NULL,
+  grade INT,
+  email VARCHAR(200)
+);
+SHOW TABLES;
+DESCRIBE students;</code></pre><h2>&#128260; CRUD Operations</h2><pre><code class="language-sql">-- INSERT
+INSERT INTO students (name, grade, email)
+VALUES ('Ahmed', 9, 'ahmed@email.com');
+
+-- SELECT
+SELECT * FROM students WHERE grade = 9;
+
+-- UPDATE
+UPDATE students SET grade = 10 WHERE name = 'Ahmed';
+
+-- DELETE
+DELETE FROM students WHERE id = 1;</code></pre><h2>&#128101; JOINs</h2><pre><code class="language-sql">-- INNER JOIN
+SELECT s.name, c.course_name
+FROM students s
+INNER JOIN courses c ON s.course_id = c.id;
+
+-- LEFT JOIN
+SELECT s.name, c.course_name
+FROM students s
+LEFT JOIN courses c ON s.course_id = c.id;</code></pre><h2>&#128202; Aggregate Functions</h2><pre><code class="language-sql">SELECT COUNT(*) FROM students;
+SELECT AVG(age) FROM students;
+SELECT MAX(grade) FROM students;
+SELECT grade, COUNT(*) FROM students GROUP BY grade;</code></pre>` }
+    };
+
+    function loadChapter(id, el) {
+      if(el){document.querySelectorAll('.chapter-nav-item').forEach(e=>e.classList.remove('active'));el.parentElement.classList.add('active');}
+      const area=document.getElementById('chapterContent');
+      const ch=CHAPTERS[id];
+      if(ch){area.innerHTML=ch.content;enhanceCodeBlocks(area);window.scrollTo({top:0,behavior:'smooth'});if(window.initBookSpeaker)window.initBookSpeaker();}
+      else{area.innerHTML=`<div class="pedagogy-box" style="text-align:center;padding:3rem 1rem;"><h2>&#128679; Chapter Coming Soon</h2><p>This chapter is being prepared. Check back soon!</p><p style="margin-top:1rem;"><a href="../Learning MySQL/learningmysql.html" style="color:#0ea5e9;font-weight:700;">&#128218; Visit Interactive MySQL Modules &#8594;</a></p></div>`;window.scrollTo({top:0,behavior:'smooth'});}
+    }
+
+    function showCopyToast(msg){let t=document.getElementById('copyToast');if(!t){t=document.createElement('div');t.id='copyToast';t.className='copy-toast';document.body.appendChild(t);}t.innerHTML='<span>&#128203;</span> <span>'+(msg||'Copied!')+'</span>';t.classList.add('show');clearTimeout(window.ctt);window.ctt=setTimeout(()=>t.classList.remove('show'),2500);}
+
+    function enhanceCodeBlocks(container){
+      if(!container)return;
+      container.querySelectorAll('pre').forEach(pre=>{
+        if(pre.parentElement.classList.contains('code-wrapper'))return;
+        const ce=pre.querySelector('code');const raw=ce?ce.innerText:pre.innerText;
+        let lang='SQL';if(ce&&ce.className){const m=ce.className.match(/language-([a-zA-Z0-9_-]+)/);if(m)lang=m[1].toUpperCase();}
+        const w=document.createElement('div');w.className='code-wrapper';
+        const h=document.createElement('div');h.className='code-wrapper-header';
+        const lb=document.createElement('span');lb.className='code-lang-label';lb.textContent=lang;
+        const ac=document.createElement('div');ac.className='code-actions';
+        const cb=document.createElement('button');cb.type='button';cb.className='btn-copy-code';cb.innerHTML='<span>&#128203;</span> <span>Copy</span>';
+        cb.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(raw);}catch(e){const ta=document.createElement('textarea');ta.value=raw;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}cb.classList.add('copied');cb.innerHTML='<span>&#9989;</span> <span>Copied!</span>';showCopyToast('Copied!');setTimeout(()=>{cb.classList.remove('copied');cb.innerHTML='<span>&#128203;</span> <span>Copy</span>';},2000);});
+        ac.appendChild(cb);h.appendChild(lb);h.appendChild(ac);
+        pre.parentNode.insertBefore(w,pre);w.appendChild(h);w.appendChild(pre);
+      });
+    }
+
+    document.getElementById('mobileSidebarToggle').addEventListener('click',()=>{document.getElementById('bookSidebar').classList.add('open');document.getElementById('sidebarBackdrop').classList.add('visible');});
+    document.getElementById('sidebarCloseBtn').addEventListener('click',()=>{document.getElementById('bookSidebar').classList.remove('open');document.getElementById('sidebarBackdrop').classList.remove('visible');});
+    document.getElementById('sidebarBackdrop').addEventListener('click',()=>{document.getElementById('bookSidebar').classList.remove('open');document.getElementById('sidebarBackdrop').classList.remove('visible');});
+    document.getElementById('chapterFilter').addEventListener('input',function(e){const q=e.target.value.toLowerCase();document.querySelectorAll('.chapter-nav-item').forEach(i=>{i.style.display=i.textContent.toLowerCase().includes(q)?'':'none';});});
+  </script>
+  <script src="../js/book-speaker.js"></script>
+</body>
+</html>
