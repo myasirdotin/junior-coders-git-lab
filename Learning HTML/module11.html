@@ -3,70 +3,311 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 11: Building Forms | Junior Coders</title>
+    <meta name="description" content="Module 11: HTML Forms, Inputs & User Interaction. Collect data with text, email, password, radio, checkbox, select, and textarea inputs. Official Class 6 & 7 curriculum.">
+    <title>Module 11: Forms & User Interaction | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="module-container">
+        <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: white; color: var(--primary);">Level 11</span>
-            <h1>Building Forms!</h1>
-            <p>Collect secrets, surveys, and messages from your users. 📝</p>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 3: Architecture &amp; Forms</span>
+            <h1>Module 11: Forms &amp; User Interaction</h1>
+            <p>Collect data from your users — names, emails, passwords, choices, and messages — with the power of HTML forms.</p>
         </header>
 
+        <!-- Official Textbook Companion Connection -->
+        <div class="book-companion-card">
+            <div class="book-companion-left">
+                <span class="book-companion-icon">📖</span>
+                <div class="book-companion-text">
+                    <span>Official Single Source of Truth</span>
+                    <strong>Book Chapter 11: Forms, Inputs &amp; User Interaction</strong>
+                </div>
+            </div>
+            <a href="../book-html/index.html#ch11" target="_blank" class="btn-read-book">
+                <span>Read in Textbook</span> <span>↗</span>
+            </a>
+        </div>
+
+        <!-- Section 1: What is a Form? -->
         <section class="content-section">
-            <h2>The Form Wrapper</h2>
-            <p>A form is like an <strong>envelope</strong>. You put all your inputs inside the <code>&lt;form&gt;</code> tag so they can be sent together!</p>
+            <h2>📬 What is an HTML Form? (From Chapter 11)</h2>
+            <p>An HTML form is like a <strong>digital envelope</strong>. Everything the user types — name, email, password, choices — gets collected inside the <code>&lt;form&gt;</code> container and sent together to a server.</p>
+            <div class="comparison">
+                <div class="good">
+                    <h4>🏗️ The Form Container</h4>
+                    <ul>
+                        <li>All inputs must live <strong>inside</strong> <code>&lt;form&gt;&lt;/form&gt;</code>.</li>
+                        <li><code>action="..."</code> — URL where the data is sent.</li>
+                        <li><code>method="get"</code> — data visible in URL (for searches).</li>
+                        <li><code>method="post"</code> — data hidden (for passwords, private data).</li>
+                    </ul>
+                </div>
+                <div class="good">
+                    <h4>🏷️ Labels Are Essential</h4>
+                    <ul>
+                        <li>Every input needs a <code>&lt;label&gt;</code> so users know what to type.</li>
+                        <li>Connect them using matching <code>for</code> and <code>id</code> attributes.</li>
+                        <li>Without labels, screen readers cannot describe the field — breaking accessibility.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
+        <!-- Section 2: Input Type Gallery -->
         <section class="content-section">
-            <h2>Inputs & Labels</h2>
-            <p>Every input needs a <strong>Label</strong> so users know what to type. We connect them using the <code>for</code> attribute and the <code>id</code>.</p>
-            <ul>
-                <li><code>&lt;input type="text"&gt;</code>: For names or messages.</li>
-                <li><code>&lt;input type="password"&gt;</code>: For secret codes!</li>
-                <li><code>&lt;button type="submit"&gt;</code>: To send the form.</li>
-            </ul>
+            <h2>🎛️ The Input Type Gallery (All from Ch 11)</h2>
+            <p>The <code>&lt;input&gt;</code> tag is the most powerful form element. Its <code>type</code> attribute transforms it into many different controls:</p>
+            <table style="width:100%; border-collapse:collapse; margin-top: 1rem; font-size: 0.9rem;">
+                <thead>
+                    <tr style="background: rgba(234,88,12,0.15); color: #ea580c; text-align:left;">
+                        <th style="padding: 0.65rem 0.85rem; border-bottom: 2px solid rgba(234,88,12,0.3);">Input Type</th>
+                        <th style="padding: 0.65rem 0.85rem; border-bottom: 2px solid rgba(234,88,12,0.3);">What it creates</th>
+                        <th style="padding: 0.65rem 0.85rem; border-bottom: 2px solid rgba(234,88,12,0.3);">Real-World Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-dim);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>type="text"</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Single-line text box</td>
+                        <td style="padding: 0.55rem 0.85rem;">Name, city, username</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-dim); background: rgba(255,255,255,0.02);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>type="email"</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Text box + email validation</td>
+                        <td style="padding: 0.55rem 0.85rem;">Sign-up, contact forms</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-dim);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>type="password"</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Characters hidden as dots</td>
+                        <td style="padding: 0.55rem 0.85rem;">Login, account creation</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-dim); background: rgba(255,255,255,0.02);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>type="number"</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Numbers only with spinner</td>
+                        <td style="padding: 0.55rem 0.85rem;">Age, quantity, grade</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-dim);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>type="radio"</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Pick ONE from a group</td>
+                        <td style="padding: 0.55rem 0.85rem;">Gender, class section</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-dim); background: rgba(255,255,255,0.02);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>type="checkbox"</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Pick MANY from a group</td>
+                        <td style="padding: 0.55rem 0.85rem;">Hobbies, preferences</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-dim);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>&lt;select&gt;</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Drop-down menu</td>
+                        <td style="padding: 0.55rem 0.85rem;">Country, class, grade</td>
+                    </tr>
+                    <tr style="background: rgba(255,255,255,0.02);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>&lt;textarea&gt;</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Multi-line text area</td>
+                        <td style="padding: 0.55rem 0.85rem;">Comments, messages, bio</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
+        <!-- Section 3: Key Form Attributes -->
         <section class="content-section">
-            <h2>Mission: Create a Login</h2>
-            <p>Try building a simple login form with a username and a password!</p>
+            <h2>🔑 Essential Form Attributes</h2>
+            <div class="comparison">
+                <div class="good">
+                    <h4>🎯 Inputs — Must-Know Attributes</h4>
+                    <ul>
+                        <li><code>id="..."</code> — Unique identifier, linked to its label's <code>for</code>.</li>
+                        <li><code>name="..."</code> — The key that identifies this field's data on the server.</li>
+                        <li><code>placeholder="..."</code> — Ghost text hint shown before user types.</li>
+                        <li><code>required</code> — Forces the user to fill in the field before submitting.</li>
+                    </ul>
+                </div>
+                <div class="good">
+                    <h4>📋 Radio &amp; Checkbox Rules</h4>
+                    <ul>
+                        <li>All radio buttons in a group share the <strong>same</strong> <code>name</code>.</li>
+                        <li>Each radio/checkbox gets its own unique <code>id</code> and matching <code>value</code>.</li>
+                        <li>Radio = mutually exclusive (pick one). Checkbox = multi-select (pick many).</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Live Interactive Coding Playground -->
+        <section class="content-section">
+            <h2>💻 Interactive Lab: Student Registration Form</h2>
+            <p>Study the form structure below. Change the placeholder text, add a new field, or try adding the <code>required</code> attribute to make fields mandatory:</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false">
-<form>
-    <label for="user">Username:</label><br>
-    <input type="text" id="user"><br><br>
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;&lt;title&gt;Student Registration&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
 
-    <label for="pass">Secret Code:</label><br>
-    <input type="password" id="pass"><br><br>
+&lt;h1&gt;Junior Coders — Student Sign-Up&lt;/h1&gt;
 
-    <button type="submit">Login Now!</button>
-</form></textarea>
+&lt;form action="#" method="post"&gt;
+
+  &lt;!-- Text Fields --&gt;
+  &lt;label for="fname"&gt;Full Name:&lt;/label&gt;&lt;br&gt;
+  &lt;input type="text" id="fname" name="fullname"
+         placeholder="e.g. Ahmed Khan" required&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;label for="email"&gt;Email Address:&lt;/label&gt;&lt;br&gt;
+  &lt;input type="email" id="email" name="email"
+         placeholder="you@school.com"&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;label for="age"&gt;Age:&lt;/label&gt;&lt;br&gt;
+  &lt;input type="number" id="age" name="age"
+         min="10" max="18" placeholder="12"&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;!-- Radio: Pick ONE class --&gt;
+  &lt;p&gt;&lt;strong&gt;Your Class:&lt;/strong&gt;&lt;/p&gt;
+  &lt;label&gt;&lt;input type="radio" name="class" value="6"&gt; Class 6&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;&lt;input type="radio" name="class" value="7"&gt; Class 7&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;!-- Checkbox: Pick MANY hobbies --&gt;
+  &lt;p&gt;&lt;strong&gt;Hobbies:&lt;/strong&gt;&lt;/p&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="hobby" value="coding"&gt; 💻 Coding&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="hobby" value="art"&gt; 🎨 Art&lt;/label&gt;&lt;br&gt;
+  &lt;label&gt;&lt;input type="checkbox" name="hobby" value="sports"&gt; ⚽ Sports&lt;/label&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;!-- Dropdown Select --&gt;
+  &lt;label for="subject"&gt;Favourite Subject:&lt;/label&gt;&lt;br&gt;
+  &lt;select id="subject" name="subject"&gt;
+    &lt;option value=""&gt;-- Choose --&lt;/option&gt;
+    &lt;option value="maths"&gt;Mathematics&lt;/option&gt;
+    &lt;option value="science"&gt;Science&lt;/option&gt;
+    &lt;option value="english"&gt;English&lt;/option&gt;
+    &lt;option value="computers"&gt;Computers&lt;/option&gt;
+  &lt;/select&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;!-- Textarea --&gt;
+  &lt;label for="msg"&gt;Why do you want to join?&lt;/label&gt;&lt;br&gt;
+  &lt;textarea id="msg" name="message"
+            rows="4" cols="40"
+            placeholder="Tell us about yourself..."&gt;&lt;/textarea&gt;&lt;br&gt;&lt;br&gt;
+
+  &lt;button type="submit"&gt;🚀 Submit Registration&lt;/button&gt;
+
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" style="border-top: 5px solid #0ea5e9;">
-            <h2>Quick Quiz!</h2>
-            <div id="quiz-form-11" class="quiz-section">
-                <div class="quiz-question" data-answer="b">
-                    <p>Which input type hides the characters you type?</p>
-                    <label><input type="radio" name="q1" value="a"> text</label>
-                    <label><input type="radio" name="q1" value="b"> password</label>
-                    <label><input type="radio" name="q1" value="c"> secret</label>
-                    <div class="quiz-feedback"></div>
+        <!-- Section 5: Official Book Practice Exercises -->
+        <section class="content-section">
+            <h2>🏆 Official Book Practice Exercises</h2>
+            <div class="practice-section">
+                <!-- Easy -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                    <p>What attribute on a <code>&lt;label&gt;</code> connects it to an <code>&lt;input&gt;</code>? What matching attribute must the input have? Why does this matter for accessibility?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary>Show Answer</summary>
+                        <div class="hint-block-content">
+                            The <code>for</code> attribute on the <code>&lt;label&gt;</code> must match the <code>id</code> attribute on the <code>&lt;input&gt;</code>. This connection means clicking the label text will focus the input — essential for screen readers and users with motor difficulties (they get a larger click target too).
+                        </div>
+                    </details>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(11)">Check Answer</button>
+
+                <!-- Medium -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟡 Level 2: Application — Spot the Bug (Medium)</h4>
+                    <p>There are <strong>two errors</strong> in the code below. Can you identify and fix both?</p>
+                    <pre style="background: rgba(244,63,94,0.08); border: 1px solid rgba(244,63,94,0.3); border-radius: 8px; padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.85rem; color: #fda4af; overflow-x: auto;">&lt;label for="city"&gt;Your City:&lt;/label&gt;
+&lt;input type="text" id="location" name="city"&gt;
+
+&lt;p&gt;Favourite sport?&lt;/p&gt;
+&lt;label&gt;&lt;input type="radio" name="cricket" value="cricket"&gt; Cricket&lt;/label&gt;
+&lt;label&gt;&lt;input type="radio" name="football" value="football"&gt; Football&lt;/label&gt;</pre>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary>Show Answer</summary>
+                        <div class="hint-block-content">
+                            <strong>Bug 1:</strong> The label's <code>for="city"</code> does not match the input's <code>id="location"</code>. Fix: change input to <code>id="city"</code>.<br><br>
+                            <strong>Bug 2:</strong> Both radio buttons have <strong>different</strong> <code>name</code> attributes (<code>name="cricket"</code> and <code>name="football"</code>). Radio buttons in the same group MUST share the same <code>name</code>. Fix: give both <code>name="sport"</code>.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Challenge -->
+                <div>
+                    <h4>🔴 Level 3: Textbook Challenge — School Registration Form</h4>
+                    <p><strong>Chapter 11 Real-World Mission:</strong> In the editor above, build a complete <strong>Junior Coders School Registration Form</strong> that includes all of the following:</p>
+                    <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
+                        <li>A <code>&lt;text&gt;</code> field for <strong>Student Full Name</strong> (with <code>required</code>)</li>
+                        <li>An <code>&lt;email&gt;</code> field for <strong>Parent Email</strong></li>
+                        <li>A <code>&lt;radio&gt;</code> group for <strong>Class</strong> (Class 6 / Class 7 / Class 8)</li>
+                        <li>A <code>&lt;select&gt;</code> dropdown for <strong>Which subject do you want to master?</strong> (HTML / CSS / JavaScript)</li>
+                        <li>At least 3 <code>&lt;checkbox&gt;</code> options for <strong>Coding Goals</strong> (Build websites / Make apps / Learn AI / other)</li>
+                        <li>A <code>&lt;textarea&gt;</code> asking <em>"What is your dream project?"</em></li>
+                        <li>A <code>&lt;submit&gt;</code> button labelled <strong>"Join the Adventure 🚀"</strong></li>
+                    </ol>
+                </div>
             </div>
         </section>
 
-        
+        <!-- Section 6: Interactive Quiz -->
+        <section class="content-section" style="border-top: 4px solid #ea580c;">
+            <h2>⚡ Quick Knowledge Check</h2>
+            <div id="quiz-form-11" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Which <code>input type</code> hides characters as dots — perfect for passwords?</p>
+                    <label><input type="radio" name="q1" value="a"> type="secret"</label>
+                    <label><input type="radio" name="q1" value="b"> type="password"</label>
+                    <label><input type="radio" name="q1" value="c"> type="hidden"</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: You have 3 radio buttons for "Favourite Season". What must they all share?</p>
+                    <label><input type="radio" name="q2" value="a"> The same <code>name</code> attribute</label>
+                    <label><input type="radio" name="q2" value="b"> The same <code>id</code> attribute</label>
+                    <label><input type="radio" name="q2" value="c"> The same <code>value</code> attribute</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: Which HTML element creates a multi-line text input area (like a comment box)?</p>
+                    <label><input type="radio" name="q3" value="a"> <code>&lt;input type="multiline"&gt;</code></label>
+                    <label><input type="radio" name="q3" value="b"> <code>&lt;input type="text" rows="5"&gt;</code></label>
+                    <label><input type="radio" name="q3" value="c"> <code>&lt;textarea&gt;&lt;/textarea&gt;</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(11)" style="background: #ea580c; border: none; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; cursor: pointer; color: white;">Check Answers</button>
+            </div>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <div class="module-nav-bar">
+            <a href="module10.html" class="btn-nav-action">
+                <span>←</span> <span>Module 10</span>
+            </a>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="learninghtml.html" class="btn-nav-action">
+                    <span>📚</span> <span>Syllabus</span>
+                </a>
+                <a href="../book-html/index.html#ch11" target="_blank" class="btn-nav-action">
+                    <span>📖</span> <span>Open Book Ch 11</span>
+                </a>
+                <a href="module12.html" class="btn-nav-action primary">
+                    <span>Next: Module 12 (Semantics)</span> <span>→</span>
+                </a>
+            </div>
+        </div>
     </main>
+
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
 </body>
