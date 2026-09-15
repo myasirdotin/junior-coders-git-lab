@@ -205,21 +205,21 @@ Then, write a loop that tests all numbers from 1 to 10 using your `isEven()` fun
 
 ---
 
-## 13. Mini Project: Pizza Party Bill Splitter 🍕
+## 13. Mini Project: Iftar Dinner Bill Splitter 🍽️
 
 Create a complete script with two functions:
 1. `calculateTotalWithTax(subtotal, taxRate)`
-2. `splitBill(totalAmount, numberOfFriends)`
+2. `splitBill(totalAmount, numberOfGuests)`
 
 Print a beautiful receipt:
 ```text
-=== PIZZA PALACE RECEIPT ===
+=== IFTAR GATHERING RECEIPT ===
 Subtotal: Rs 1500
 Tax (5%): Rs 75
 Total Amount: Rs 1575
-Friends Sharing: 5
-Each Friend Pays: Rs 315
-============================
+Guests Sharing: 5
+Each Guest Pays: Rs 315
+================================
 ```
 
 ---

@@ -101,7 +101,7 @@ Type this into your editor and save it as `timetable.html`:
         <td>Period 3 (11:00 - 12:00)</td>
         <td>Visual Art</td>
         <td>Robotics Lab</td>
-        <td>Music & Choir</td>
+        <td>Islamic Studies</td>
       </tr>
     </table>
   </body>

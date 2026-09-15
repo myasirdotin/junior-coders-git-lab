@@ -9,7 +9,7 @@ Imagine being selected as a student astronaut for a mission to Mars:
   - At the top: Your official mission portrait wearing your space flight suit.
   - A summary of who you are and why you were chosen.
   - A breakdown of your special skills: *Orbital Navigation*, *Botany*, *Robotics*, and *Problem Solving*.
-  - A showcase of your personal hobbies so kids around the world get to know the real you: *Playing acoustic guitar*, *Astrophotography*, and *Chess*.
+  - A showcase of your personal hobbies so kids around the world get to know the real you: *Calligraphy*, *Astrophotography*, and *Chess*.
   - A message portal where students can send radio questions to your spacecraft!
 
 **A Personal Profile Website is your digital passport to the world!**

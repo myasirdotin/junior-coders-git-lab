@@ -74,13 +74,13 @@ console.log(letters.join("-")); // "J-A-V-A"
 
 ---
 
-## 4. Real-World Example 🎵
+## 4. Real-World Example 📚
 
-Think of a Spotify music playlist:
-1. When you select **"Play Next"**, it uses `playlist.unshift(newSong)`.
-2. When you click **"Add to Queue"**, it uses `playlist.push(newSong)`.
-3. When the song finishes playing, it is removed from the top using `playlist.shift()`.
-4. When searching if a song is already saved in a playlist, it runs `playlist.includes(songName)`.
+Think of a **student’s Reading Bookmark List** — a list of book chapters saved to read later:
+1. When you tap **“Read This Next”**, the chapter jumps to the front using `readingList.unshift(newChapter)`.
+2. When you tap **“Add to End of List”**, it goes to the back using `readingList.push(newChapter)`.
+3. When you finish the first chapter, it is removed from the front using `readingList.shift()`.
+4. When checking if a chapter is already saved, the app runs `readingList.includes(chapterName)`.
 
 ---
 

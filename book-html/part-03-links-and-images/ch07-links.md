@@ -201,7 +201,7 @@ Create an HTML page titled `my-launchpad.html`. Include:
 - 3 categories using `<h2>` tags:
   - *Math & Puzzles*
   - *Science & Nature*
-  - *Art & Music*
+  - *Art & Calligraphy*
 - Under each category, add at least 2 descriptive links to real websites that open in a new tab (`target="_blank"`).
 
 ---

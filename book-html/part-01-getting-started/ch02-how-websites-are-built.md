@@ -62,7 +62,7 @@ House Structure           Paint & Style             Smart Switches
 ```
 
 > 🍎 **Teacher Tip**:
-> Think of HTML as your bones, CSS as your clothes and hairstyle, and JavaScript as your ability to run, jump, and dance!
+> Think of HTML as your bones, CSS as your clothes and hairstyle, and JavaScript as your brain — the intelligence that lets you think, solve problems, and interact with the world!
 
 ---
 

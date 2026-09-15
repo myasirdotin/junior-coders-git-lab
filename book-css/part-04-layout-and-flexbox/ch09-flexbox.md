@@ -171,11 +171,11 @@ Type this into your editor and save it as `navbar-flex.html`:
 
 ## 6. 🌍 Real-World Connection: How Top Apps Use Flexbox
 
-Every single navigation bar on **Twitter/X**, **Instagram**, **GitHub**, and **Spotify** is powered by Flexbox!
-- On Spotify's web player, the bottom playback bar uses `justify-content: space-between;`:
-  - Left item: Album artwork and song title.
-  - Middle item: Play/Pause controls.
-  - Right item: Volume slider.
+Every single navigation bar on **Twitter/X**, **Instagram**, **GitHub**, and **Khan Academy** is powered by Flexbox!
+- On **BBC News** and **Al Jazeera**, the top navigation bar uses `justify-content: space-between;`:
+  - Left item: News logo and category icon.
+  - Middle item: Breaking news headline ticker.
+  - Right item: Search bar and language switcher.
 - Flexbox makes sure this layout stays balanced whether your browser window is narrow or wide!
 
 ---
