@@ -26,6 +26,7 @@
                 { name: '10: Class/ID', url: 'module10.html' },
                 { name: '11: Forms', url: 'module11.html' },
                 { name: '12: Semantics', url: 'module12.html' },
+                { name: '13: Capstone Projects', url: 'module13.html' },
                 { name: 'Playground', url: 'playground.html' }
             ],
             'Learning CSS': [

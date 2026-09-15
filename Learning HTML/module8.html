@@ -3,62 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 8: Lists | Junior Coders</title>
+    <meta name="description" content="Module 8: Ordered and Unordered Lists and Nesting. Official Class 6 & 7 curriculum.">
+    <title>Module 8: Lists &amp; Grouping | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .book-companion-card {
+            background: linear-gradient(135deg, rgba(234, 88, 12, 0.12), rgba(30, 41, 59, 0.7));
+            border: 1px solid rgba(234, 88, 12, 0.35);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem auto 2.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            max-width: 900px;
+        }
+        .book-companion-left {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+        .book-companion-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+        .book-companion-text span {
+            display: block;
+            font-size: 0.75rem;
+            color: #fdba74;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+        .book-companion-text strong {
+            font-size: 1rem;
+            color: #fff;
+        }
+        .btn-read-book {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #ea580c;
+            color: white;
+            padding: 0.45rem 1rem;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(234, 88, 12, 0.35);
+        }
+        .btn-read-book:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+        .module-nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-dim);
+            flex-wrap: wrap;
+        }
+        .btn-nav-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+        .btn-nav-action:hover {
+            border-color: #ea580c;
+            color: #ea580c;
+            transform: translateY(-2px);
+        }
+        .btn-nav-action.primary {
+            background: #ea580c;
+            color: white;
+            border-color: #ea580c;
+        }
+        .btn-nav-action.primary:hover {
+            filter: brightness(1.1);
+        }
+    </style>
 </head>
 <body>
     <main class="module-container">
+        <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: white; color: var(--primary);">Level 8</span>
-            <h1>Listing Things!</h1>
-            <p>Bullet points or numbers? Let's make some lists. 📝</p>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 2: Content &amp; Media</span>
+            <h1>Module 8: Lists &amp; Grouping</h1>
+            <p>Master bulleted lists, numbered sequences, and nested navigation menus.</p>
         </header>
 
+        <!-- Official Textbook Companion Connection -->
+        <div class="book-companion-card">
+            <div class="book-companion-left">
+                <span class="book-companion-icon">📖</span>
+                <div class="book-companion-text">
+                    <span>Official Single Source of Truth</span>
+                    <strong>Book Chapter 9: Ordered &amp; Unordered Lists</strong>
+                </div>
+            </div>
+            <a href="../book-html/index.html#ch9" target="_blank" class="btn-read-book">
+                <span>Read in Textbook</span> <span>↗</span>
+            </a>
+        </div>
+
+        <!-- Section 1: The List Types -->
         <section class="content-section">
-            <h2>Two Types of Lists</h2>
-            <p>We use lists to keep our ideas organized!</p>
+            <h2>📋 The Three Flavors of HTML Lists (From Chapter 9)</h2>
+            <p>HTML provides three distinct ways to group related items:</p>
             <ul>
-                <li><strong>Unordered List (<code>&lt;ul&gt;</code>):</strong> Use this for bullet points.</li>
-                <li><strong>Ordered List (<code>&lt;ol&gt;</code>):</strong> Use this for numbered lists (1, 2, 3...).</li>
+                <li><code>&lt;ul&gt;</code>: <strong>Unordered List</strong>. Uses circular bullets. The order of items does not matter (e.g. groceries, features).</li>
+                <li><code>&lt;ol&gt;</code>: <strong>Ordered List</strong>. Uses numbers or letters (1, 2, 3 or A, B, C). Order is strictly sequential (e.g. recipe steps, top 10 rankings).</li>
+                <li><code>&lt;li&gt;</code>: <strong>List Item</strong>. The individual elements living inside <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>.</li>
             </ul>
-            <p>Both types use the <code>&lt;li&gt;</code> tag for each <strong>List Item</strong>.</p>
         </section>
 
+        <!-- Section 2: Nested Lists and Numbering -->
         <section class="content-section">
-            <h2>Mission: Shopping List</h2>
-            <p>Make a list of 3 things you want to buy for your room!</p>
+            <h2>🌳 Nested Lists &amp; Custom Numbering</h2>
+            <div class="comparison">
+                <div class="good">
+                    <h4>🔢 Ordered List Attributes</h4>
+                    <ul>
+                        <li><code>type="A"</code>: Uppercase letters (A, B, C...)</li>
+                        <li><code>type="i"</code>: Lowercase Roman numerals (i, ii, iii...)</li>
+                        <li><code>start="5"</code>: Begins counting at number 5!</li>
+                    </ul>
+                </div>
+                <div class="good">
+                    <h4>📂 Nested Multi-Level Lists</h4>
+                    <p>Place an entire new <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code> <strong>inside</strong> an existing <code>&lt;li&gt;</code> element to build tree outlines and dropdown menus!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Live Interactive Coding Playground -->
+        <section class="content-section">
+            <h2>💻 Interactive Lab: Recipe &amp; Gaming Gear</h2>
+            <p>Test building nested grocery and recipe lists in the live code editor:</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false">
-<h2>My Wishlist</h2>
-<ul>
-    <li>New Poster</li>
-    <li>Gaming Mouse</li>
-    <li>Lava Lamp</li>
-</ul></textarea>
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Chef's Kitchen&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Homemade Pizza Recipe 🍕&lt;/h1&gt;
+    
+    &lt;h2&gt;Ingredients Needed (Unordered):&lt;/h2&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Pizza Dough&lt;/li&gt;
+        &lt;li&gt;Tomato Sauce&lt;/li&gt;
+        &lt;li&gt;Toppings:
+            &lt;ul&gt;
+                &lt;li&gt;Mozzarella Cheese&lt;/li&gt;
+                &lt;li&gt;Fresh Basil&lt;/li&gt;
+                &lt;li&gt;Mushrooms&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;h2&gt;Baking Steps (Ordered):&lt;/h2&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Preheat oven to 450°F (230°C).&lt;/li&gt;
+        &lt;li&gt;Roll out the dough into a 12-inch circle.&lt;/li&gt;
+        &lt;li&gt;Spread tomato sauce and scatter toppings.&lt;/li&gt;
+        &lt;li&gt;Bake for 12-15 minutes until golden brown.&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" style="border-top: 5px solid #6366f1;">
-            <h2>Quick Quiz!</h2>
-            <div id="quiz-form-8" class="quiz-section">
-                <div class="quiz-question" data-answer="c">
-                    <p>Which tag do we use for an item inside a list?</p>
-                    <label><input type="radio" name="q1" value="a"> &lt;ul&gt;</label>
-                    <label><input type="radio" name="q1" value="b"> &lt;ol&gt;</label>
-                    <label><input type="radio" name="q1" value="c"> &lt;li&gt;</label>
-                    <div class="quiz-feedback"></div>
+        <!-- Section 4: Official Book Practice Exercises -->
+        <section class="content-section">
+            <h2>🏆 Official Book Practice Exercises</h2>
+            <div class="practice-section">
+                <!-- Easy -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                    <p>When should you use <code>&lt;ul&gt;</code> versus <code>&lt;ol&gt;</code>? Can a <code>&lt;li&gt;</code> exist by itself without a list container?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            Use <code>&lt;ol&gt;</code> when sequence matters (numbered steps). Use <code>&lt;ul&gt;</code> when items are unordered (bullets). A <code>&lt;li&gt;</code> must ALWAYS live inside a parent <code>&lt;ul&gt;</code> or <code>&lt;ol&gt;</code>.
+                        </div>
+                    </details>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(8)">Check Answer</button>
+
+                <!-- Medium -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟡 Level 2: Application (Medium)</h4>
+                    <p>How do you create a numbered list that starts counting from number 10 instead of number 1?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            Use the <code>start</code> attribute: <code>&lt;ol start="10"&gt;&lt;li&gt;Tenth Item&lt;/li&gt;&lt;/ol&gt;</code>.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Challenge -->
+                <div>
+                    <h4>🔴 Level 3: Textbook Challenge (Problem Solving)</h4>
+                    <p><strong>Chapter 9 Website Sitemap:</strong> In the editor above, build a 3-level website navigation tree outline with Main Pages (Home, Courses, About), where Courses expands into Web Development (HTML, CSS, JS) and Game Design (Godot, Unity).</p>
+                </div>
             </div>
         </section>
 
-        
+        <!-- Section 5: Interactive Quiz -->
+        <section class="content-section" style="border-top: 4px solid #ea580c;">
+            <h2>⚡ Quick Knowledge Check</h2>
+            <div id="quiz-form-8" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Which tag creates a numbered sequential list?</p>
+                    <label><input type="radio" name="q1" value="a"> &lt;ul&gt;</label>
+                    <label><input type="radio" name="q1" value="b"> &lt;ol&gt;</label>
+                    <label><input type="radio" name="q1" value="c"> &lt;list&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: What is the tag for every item placed inside a list?</p>
+                    <label><input type="radio" name="q2" value="a"> &lt;li&gt;</label>
+                    <label><input type="radio" name="q2" value="b"> &lt;item&gt;</label>
+                    <label><input type="radio" name="q2" value="c"> &lt;dt&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: Where should a sub-list (nested list) be placed in valid HTML?</p>
+                    <label><input type="radio" name="q3" value="a"> Directly after &lt;/ul&gt;</label>
+                    <label><input type="radio" name="q3" value="b"> Between two &lt;p&gt; tags</label>
+                    <label><input type="radio" name="q3" value="c"> Inside an existing &lt;li&gt; element</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(8)" style="background: #ea580c; border: none; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; cursor: pointer; color: white;">Check Answers</button>
+            </div>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <div class="module-nav-bar">
+            <a href="module7.html" class="btn-nav-action">
+                <span>←</span> <span>Module 7</span>
+            </a>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="learninghtml.html" class="btn-nav-action">
+                    <span>📚</span> <span>Syllabus</span>
+                </a>
+                <a href="../book-html/index.html#ch9" target="_blank" class="btn-nav-action">
+                    <span>📖</span> <span>Open Book Ch 9</span>
+                </a>
+                <a href="module9.html" class="btn-nav-action primary">
+                    <span>Next: Module 9 (Block/Inline)</span> <span>→</span>
+                </a>
+            </div>
+        </div>
     </main>
+
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
 </body>

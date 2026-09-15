@@ -3,70 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 7: Table Grids | Junior Coders</title>
+    <meta name="description" content="Module 7: Tables and Tabular Data Structures. Official Class 6 & 7 curriculum.">
+    <title>Module 7: Tables &amp; Data Grids | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .book-companion-card {
+            background: linear-gradient(135deg, rgba(234, 88, 12, 0.12), rgba(30, 41, 59, 0.7));
+            border: 1px solid rgba(234, 88, 12, 0.35);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem auto 2.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            max-width: 900px;
+        }
+        .book-companion-left {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+        .book-companion-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+        .book-companion-text span {
+            display: block;
+            font-size: 0.75rem;
+            color: #fdba74;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+        .book-companion-text strong {
+            font-size: 1rem;
+            color: #fff;
+        }
+        .btn-read-book {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #ea580c;
+            color: white;
+            padding: 0.45rem 1rem;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(234, 88, 12, 0.35);
+        }
+        .btn-read-book:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+        .module-nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-dim);
+            flex-wrap: wrap;
+        }
+        .btn-nav-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+        .btn-nav-action:hover {
+            border-color: #ea580c;
+            color: #ea580c;
+            transform: translateY(-2px);
+        }
+        .btn-nav-action.primary {
+            background: #ea580c;
+            color: white;
+            border-color: #ea580c;
+        }
+        .btn-nav-action.primary:hover {
+            filter: brightness(1.1);
+        }
+    </style>
 </head>
 <body>
     <main class="module-container">
+        <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: white; color: var(--primary);">Level 7</span>
-            <h1>Table Grids!</h1>
-            <p>Learn how to organize data into rows and cells. 📊</p>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 2: Content &amp; Media</span>
+            <h1>Module 7: Tables &amp; Data Grids</h1>
+            <p>Structure multidimensional information like timetables, game leaderboards, and pricing comparisons.</p>
         </header>
 
+        <!-- Official Textbook Companion Connection -->
+        <div class="book-companion-card">
+            <div class="book-companion-left">
+                <span class="book-companion-icon">📖</span>
+                <div class="book-companion-text">
+                    <span>Official Single Source of Truth</span>
+                    <strong>Book Chapter 10: Tables &amp; Tabular Data Structures</strong>
+                </div>
+            </div>
+            <a href="../book-html/index.html#ch10" target="_blank" class="btn-read-book">
+                <span>Read in Textbook</span> <span>↗</span>
+            </a>
+        </div>
+
+        <!-- Section 1: The Table Building Blocks -->
         <section class="content-section">
-            <h2>The Table Family</h2>
-            <p>Tables are like a big box full of smaller boxes. We use these tags:</p>
+            <h2>📊 Table Anatomy (From Chapter 10)</h2>
+            <p>HTML tables arrange data neatly into horizontal rows and vertical columns. They are constructed using 4 fundamental tags:</p>
             <ul>
-                <li><code>&lt;table&gt;</code>: The big container.</li>
-                <li><code>&lt;tr&gt;</code>: A **Table Row** (Side to side).</li>
-                <li><code>&lt;td&gt;</code>: A **Table Data** cell (Up and down).</li>
+                <li><code>&lt;table&gt;</code>: The outer boundary wrapping the entire tabular grid.</li>
+                <li><code>&lt;tr&gt;</code>: <strong>Table Row</strong> (horizontal strip from left to right).</li>
+                <li><code>&lt;th&gt;</code>: <strong>Table Header</strong> cell (bold, centered column or row labels).</li>
+                <li><code>&lt;td&gt;</code>: <strong>Table Data</strong> cell (standard information cells).</li>
             </ul>
         </section>
 
+        <!-- Section 2: thead, tbody, and Spanning -->
         <section class="content-section">
-            <h2>Mission: Build a Schedule</h2>
-            <p>Try making a small table for your school schedule below!</p>
+            <h2>🧱 Semantic Table Sections &amp; Spans</h2>
+            <div class="comparison">
+                <div class="good">
+                    <h4>🏛️ Semantic Architecture</h4>
+                    <ul>
+                        <li><code>&lt;thead&gt;</code>: Encloses the header rows at the top.</li>
+                        <li><code>&lt;tbody&gt;</code>: Holds the main body rows.</li>
+                        <li><code>&lt;tfoot&gt;</code>: Holds summary or total calculation rows.</li>
+                    </ul>
+                </div>
+                <div class="good">
+                    <h4>📐 Merging Cells with Spans</h4>
+                    <ul>
+                        <li><code>colspan="2"</code>: Stretches a single cell horizontally across 2 columns.</li>
+                        <li><code>rowspan="2"</code>: Stretches a single cell vertically down across 2 rows.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Live Interactive Coding Playground -->
+        <section class="content-section">
+            <h2>💻 Interactive Lab: School Timetable &amp; Grades</h2>
+            <p>Modify the grades leaderboard below in real time. Watch how rows and cells render:</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false">
-<table border="1">
-    <tr>
-        <th>Subject</th>
-        <th>Time</th>
-    </tr>
-    <tr>
-        <td>Math</td>
-        <td>9:00 AM</td>
-    </tr>
-    <tr>
-        <td>Coding</td>
-        <td>10:30 AM</td>
-    </tr>
-</table></textarea>
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Student Honor Roll&lt;/title&gt;
+    &lt;style&gt;
+        table { width: 100%; border-collapse: collapse; font-family: sans-serif; }
+        th, td { border: 1px solid #475569; padding: 8px 12px; text-align: left; }
+        th { background: #ea580c; color: white; }
+        tr:nth-child(even) { background: #f8fafc; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Junior Coders Leaderboard 🏆&lt;/h2&gt;
+    &lt;table&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Rank&lt;/th&gt;
+                &lt;th&gt;Student Name&lt;/th&gt;
+                &lt;th&gt;Completed Track&lt;/th&gt;
+                &lt;th&gt;XP Score&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td&gt;1&lt;/td&gt;
+                &lt;td&gt;Sara Ahmed&lt;/td&gt;
+                &lt;td&gt;HTML &amp; CSS&lt;/td&gt;
+                &lt;td&gt;2,450 XP&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td&gt;2&lt;/td&gt;
+                &lt;td&gt;Leo Chen&lt;/td&gt;
+                &lt;td&gt;JavaScript Games&lt;/td&gt;
+                &lt;td&gt;2,180 XP&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" style="border-top: 5px solid #ec4899;">
-            <h2>Quick Question!</h2>
-            <div id="quiz-form-7" class="quiz-section">
-                <div class="quiz-question" data-answer="b">
-                    <p>Which tag creates a single row in a table?</p>
-                    <label><input type="radio" name="q1" value="a"> &lt;td&gt;</label>
-                    <label><input type="radio" name="q1" value="b"> &lt;tr&gt;</label>
-                    <label><input type="radio" name="q1" value="c"> &lt;table&gt;</label>
-                    <div class="quiz-feedback"></div>
+        <!-- Section 4: Official Book Practice Exercises -->
+        <section class="content-section">
+            <h2>🏆 Official Book Practice Exercises</h2>
+            <div class="practice-section">
+                <!-- Easy -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                    <p>What is the difference between <code>&lt;th&gt;</code> and <code>&lt;td&gt;</code>? What does <code>&lt;tr&gt;</code> stand for?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            <code>&lt;tr&gt;</code> stands for <strong>Table Row</strong>. <code>&lt;th&gt;</code> creates bold, centered header labels, while <code>&lt;td&gt;</code> creates regular table data cells.
+                        </div>
+                    </details>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(7)">Check Answer</button>
+
+                <!-- Medium -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟡 Level 2: Application (Medium)</h4>
+                    <p>How do you make a single table cell stretch across 3 columns to display a full-width announcement?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            Add the <code>colspan="3"</code> attribute to the <code>&lt;th&gt;</code> or <code>&lt;td&gt;</code> tag: <code>&lt;td colspan="3"&gt;Special Announcement&lt;/td&gt;</code>.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Challenge -->
+                <div>
+                    <h4>🔴 Level 3: Textbook Challenge (Problem Solving)</h4>
+                    <p><strong>Chapter 10 Weekly Timetable:</strong> In the editor above, build a 5-day school timetable table with columns for Day, Period 1, Period 2, and Lunch, using <code>colspan="2"</code> on the Lunch row to span across multiple periods!</p>
+                </div>
             </div>
         </section>
 
-        
+        <!-- Section 5: Interactive Quiz -->
+        <section class="content-section" style="border-top: 4px solid #ea580c;">
+            <h2>⚡ Quick Knowledge Check</h2>
+            <div id="quiz-form-7" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Which tag defines a horizontal row in an HTML table?</p>
+                    <label><input type="radio" name="q1" value="a"> &lt;row&gt;</label>
+                    <label><input type="radio" name="q1" value="b"> &lt;tr&gt;</label>
+                    <label><input type="radio" name="q1" value="c"> &lt;td&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: Which cell tag renders text bold and centered by default?</p>
+                    <label><input type="radio" name="q2" value="a"> &lt;th&gt;</label>
+                    <label><input type="radio" name="q2" value="b"> &lt;td&gt;</label>
+                    <label><input type="radio" name="q2" value="c"> &lt;cell&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: Which attribute merges a cell across two vertical rows?</p>
+                    <label><input type="radio" name="q3" value="a"> colspan="2"</label>
+                    <label><input type="radio" name="q3" value="b"> merge="2"</label>
+                    <label><input type="radio" name="q3" value="c"> rowspan="2"</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(7)" style="background: #ea580c; border: none; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; cursor: pointer; color: white;">Check Answers</button>
+            </div>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <div class="module-nav-bar">
+            <a href="module6.html" class="btn-nav-action">
+                <span>←</span> <span>Module 6</span>
+            </a>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="learninghtml.html" class="btn-nav-action">
+                    <span>📚</span> <span>Syllabus</span>
+                </a>
+                <a href="../book-html/index.html#ch10" target="_blank" class="btn-nav-action">
+                    <span>📖</span> <span>Open Book Ch 10</span>
+                </a>
+                <a href="module8.html" class="btn-nav-action primary">
+                    <span>Next: Module 8 (Lists)</span> <span>→</span>
+                </a>
+            </div>
+        </div>
     </main>
+
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
 </body>

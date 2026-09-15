@@ -3,63 +3,283 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 5: Hyperlink Teleport | Junior Coders</title>
+    <meta name="description" content="Module 5: Hyperlinks and Multi-Page Navigation. Official Class 6 & 7 curriculum.">
+    <title>Module 5: Links &amp; Navigation | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .book-companion-card {
+            background: linear-gradient(135deg, rgba(234, 88, 12, 0.12), rgba(30, 41, 59, 0.7));
+            border: 1px solid rgba(234, 88, 12, 0.35);
+            border-radius: var(--radius-md);
+            padding: 1rem 1.5rem;
+            margin: 1.5rem auto 2.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            max-width: 900px;
+        }
+        .book-companion-left {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+        .book-companion-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+        .book-companion-text span {
+            display: block;
+            font-size: 0.75rem;
+            color: #fdba74;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+        }
+        .book-companion-text strong {
+            font-size: 1rem;
+            color: #fff;
+        }
+        .btn-read-book {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #ea580c;
+            color: white;
+            padding: 0.45rem 1rem;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 2px 8px rgba(234, 88, 12, 0.35);
+        }
+        .btn-read-book:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+        .module-nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-dim);
+            flex-wrap: wrap;
+        }
+        .btn-nav-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            text-decoration: none;
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            color: var(--text-primary);
+            transition: all 0.2s;
+        }
+        .btn-nav-action:hover {
+            border-color: #ea580c;
+            color: #ea580c;
+            transform: translateY(-2px);
+        }
+        .btn-nav-action.primary {
+            background: #ea580c;
+            color: white;
+            border-color: #ea580c;
+        }
+        .btn-nav-action.primary:hover {
+            filter: brightness(1.1);
+        }
+    </style>
 </head>
 <body>
     <main class="module-container">
+        <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: white; color: var(--primary);">Level 5</span>
-            <h1>Hyperlink Teleport!</h1>
-            <p>Learn how to jump between pages using links. 🌀</p>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 2: Content &amp; Media</span>
+            <h1>Module 5: Links &amp; Navigation</h1>
+            <p>Connect documents together into an interconnected web using hyperlinks, bookmarks, and paths.</p>
         </header>
 
+        <!-- Official Textbook Companion Connection -->
+        <div class="book-companion-card">
+            <div class="book-companion-left">
+                <span class="book-companion-icon">📖</span>
+                <div class="book-companion-text">
+                    <span>Official Single Source of Truth</span>
+                    <strong>Book Chapter 7: Hyperlinks &amp; Navigation</strong>
+                </div>
+            </div>
+            <a href="../book-html/index.html#ch7" target="_blank" class="btn-read-book">
+                <span>Read in Textbook</span> <span>↗</span>
+            </a>
+        </div>
+
+        <!-- Section 1: The Anchor Tag -->
         <section class="content-section">
-            <h2>What is a Link?</h2>
-            <p>A link is like a <strong>secret door</strong> that takes you to another page. We use the <code>&lt;a&gt;</code> tag (Anchor) to make them.</p>
-            <div style="background: #1e293b; padding: 2rem; border-radius: 1rem; text-align: center; margin: 1.5rem 0;">
-                <code style="color: #0ea5e9; font-size: 1.3rem;">&lt;a href="https://google.com"&gt;Click Me!&lt;/a&gt;</code>
+            <h2>🔗 The Anchor Tag (&lt;a&gt;) and href</h2>
+            <p>Without links, the internet would just be isolated documents on separate islands. The <strong>anchor tag</strong> (<code>&lt;a&gt;</code>) bridges pages together using the <code>href</code> (Hypertext REFerence) attribute:</p>
+            <div class="code-block" style="background: #0f172a; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                <code style="color: #ea580c; font-size: 1.2rem;">&lt;a <span style="color: #38bdf8;">href</span>="<span style="color: #a3e635;">https://wikipedia.org</span>" <span style="color: #38bdf8;">target</span>="<span style="color: #a3e635;">_blank</span>"&gt;</code>
+                <span style="color: white; font-size: 1.2rem;">Visit Wikipedia</span>
+                <code style="color: #ea580c; font-size: 1.2rem;">&lt;/a&gt;</code>
             </div>
         </section>
 
+        <!-- Section 2: Relative vs Absolute Paths -->
         <section class="content-section">
-            <h2>The "href" Power-up</h2>
-            <p>The <code>href</code> attribute tells the link <strong>where</strong> to go. Without it, the door doesn't lead anywhere!</p>
-            <p><strong>Pro Tip:</strong> Use <code>target="_blank"</code> to open the link in a <strong>new tab</strong> so you don't lose your current page.</p>
+            <h2>🗺️ Relative vs. Absolute URLs</h2>
+            <div class="comparison">
+                <div class="good">
+                    <h4>🌐 Absolute URLs (External)</h4>
+                    <p>Includes the full web address with protocol: <code>https://google.com</code>. Used whenever linking to a completely different external website.</p>
+                </div>
+                <div class="good">
+                    <h4>📁 Relative URLs (Internal)</h4>
+                    <p>Points to files in the same project: <code>about.html</code> or <code>../index.html</code>. Used for moving between pages on your own website.</p>
+                </div>
+            </div>
         </section>
 
+        <!-- Section 3: Target and Bookmarks -->
         <section class="content-section">
-            <h2>Mission: Create a Teleporter</h2>
-            <p>Try making a link to your favorite game or website in the editor below!</p>
+            <h2>🎯 New Tabs &amp; In-Page Bookmarks</h2>
+            <ul>
+                <li><code>target="_blank"</code>: Instructs the browser to open the clicked link in a brand new tab, keeping your original page open.</li>
+                <li><strong>In-Page Jump Links</strong>: Point <code>href="#contact"</code> to immediately smooth-scroll down to any element on the same page with <code>id="contact"</code>!</li>
+                <li><code>href="mailto:help@example.com"</code>: Automatically launches the user's default email app.</li>
+            </ul>
+        </section>
+
+        <!-- Section 4: Live Interactive Coding Playground -->
+        <section class="content-section">
+            <h2>💻 Interactive Lab: Build a Web Navigation Hub</h2>
+            <p>Test clicking internal bookmarks and external links right in the preview:</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false">
-<p>Check out my favorite site: 
-<a href="https://roblox.com" target="_blank">Roblox</a>
-</p></textarea>
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;My Portal&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Alex's Navigation Hub 🌐&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;a href="#about"&gt;About Me&lt;/a&gt; | 
+        &lt;a href="#contact"&gt;Contact&lt;/a&gt; | 
+        &lt;a href="https://github.com" target="_blank"&gt;GitHub ↗&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;hr&gt;
+    
+    &lt;h2 id="about"&gt;About Me&lt;/h2&gt;
+    &lt;p&gt;I am learning full-stack web development at Junior Coders.&lt;/p&gt;
+    
+    &lt;h2 id="contact"&gt;Contact Info&lt;/h2&gt;
+    &lt;p&gt;Email me directly at: &lt;a href="mailto:coder@example.com"&gt;coder@example.com&lt;/a&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" style="border-top: 5px solid #0ea5e9;">
-            <h2>Challenge!</h2>
+        <!-- Section 5: Official Book Practice Exercises -->
+        <section class="content-section">
+            <h2>🏆 Official Book Practice Exercises</h2>
+            <div class="practice-section">
+                <!-- Easy -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                    <p>What does <code>href</code> stand for? Which attribute opens a link in a new tab?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            <code>href</code> stands for <strong>Hypertext REFerence</strong>. <code>target="_blank"</code> tells the browser to open the destination page in a new window or tab.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Medium -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟡 Level 2: Application (Medium)</h4>
+                    <p>How do you create an in-page link that jumps directly down to a section titled "Back to Top" or "Contact Us"?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            Give the target section an <code>id</code> (e.g. <code>&lt;h2 id="contact"&gt;</code>), and point the link's <code>href</code> to that ID prefixed with a hash symbol: <code>&lt;a href="#contact"&gt;Jump to Contact&lt;/a&gt;</code>.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Challenge -->
+                <div>
+                    <h4>🔴 Level 3: Textbook Challenge (Problem Solving)</h4>
+                    <p><strong>Chapter 7 Navigation Bar:</strong> In the editor above, design a 4-link horizontal navigation bar for a "Space Tourism Agency" that links to #destinations, #rockets, #pricing, and an external link to NASA's official site with <code>target="_blank"</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Interactive Quiz -->
+        <section class="content-section" style="border-top: 4px solid #ea580c;">
+            <h2>⚡ Quick Knowledge Check</h2>
             <div id="quiz-form-5" class="quiz-section">
                 <div class="quiz-question" data-answer="b">
-                    <p>Which attribute tells the link where to go?</p>
-                    <label><input type="radio" name="q1" value="a"> target</label>
+                    <p>Q1: Which attribute specifies the destination URL for a hyperlink?</p>
+                    <label><input type="radio" name="q1" value="a"> src</label>
                     <label><input type="radio" name="q1" value="b"> href</label>
                     <label><input type="radio" name="q1" value="c"> link</label>
                     <div class="quiz-feedback"></div>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(5)">Check Answer</button>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q2: What is the correct value of target to launch a link in a fresh new tab?</p>
+                    <label><input type="radio" name="q2" value="a"> target="new"</label>
+                    <label><input type="radio" name="q2" value="b"> target="window"</label>
+                    <label><input type="radio" name="q2" value="c"> target="_blank"</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: Which link format opens the visitor's email program to send a message?</p>
+                    <label><input type="radio" name="q3" value="a"> &lt;a href="mailto:hello@code.org"&gt;</label>
+                    <label><input type="radio" name="q3" value="b"> &lt;a href="email:hello@code.org"&gt;</label>
+                    <label><input type="radio" name="q3" value="c"> &lt;a send="hello@code.org"&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(5)" style="background: #ea580c; border: none; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; cursor: pointer; color: white;">Check Answers</button>
             </div>
         </section>
 
-        
+        <!-- Module Navigation Footer -->
+        <div class="module-nav-bar">
+            <a href="module4.html" class="btn-nav-action">
+                <span>←</span> <span>Module 4</span>
+            </a>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="learninghtml.html" class="btn-nav-action">
+                    <span>📚</span> <span>Syllabus</span>
+                </a>
+                <a href="../book-html/index.html#ch7" target="_blank" class="btn-nav-action">
+                    <span>📖</span> <span>Open Book Ch 7</span>
+                </a>
+                <a href="module6.html" class="btn-nav-action primary">
+                    <span>Next: Module 6 (Images)</span> <span>→</span>
+                </a>
+            </div>
+        </div>
     </main>
+
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
 </body>

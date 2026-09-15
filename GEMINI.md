@@ -14,7 +14,7 @@ The following custom subagents are available to help with specific modules:
 - `@js-tutor`: Expert in JavaScript logic and DOM manipulation.
 
 ## Learning Modules
-- **Learning HTML**: 8 modules covering basics to semantic HTML.
+- **Learning HTML**: 12 core modules + capstone projects aligned with the 17 chapters of `book-html/`.
 - **Learning CSS**: 8 modules covering styling to Grid/Responsive design.
 - **Learning JS**: 9 modules covering variables to DOM/Events.
 
