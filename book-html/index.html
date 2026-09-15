@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CSS for Class 7: Styling & Designing Websites | Junior Coders</title>
-  <meta name="description" content="Official Class 7 CSS Textbook: Learn Colors, Fonts, Flexbox, CSS Grid, Responsive Design, and Complete Website Projects.">
+  <title>HTML for Class 6 & 7: Structure the Web | Junior Coders</title>
+  <meta name="description" content="Official Class 6 & 7 HTML Textbook: Learn tags, headings, formatting, links, images, lists, tables, forms, semantic layouts, and real web projects.">
   <link rel="stylesheet" href="../styles/main.css">
   <link rel="stylesheet" href="styles/book-theme.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,12 +12,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-blue: #7c3aed;
-      --accent-green: #06b6d4;
+      --primary-blue: #ea580c;
+      --primary-blue-light: #fff7ed;
+      --accent-green: #059669;
     }
-    .css-brand-badge {
+    .html-brand-badge {
       display: inline-block;
-      background: linear-gradient(135deg, #7c3aed, #4f46e5);
+      background: linear-gradient(135deg, #ea580c, #c2410c);
       color: white;
       font-size: 0.72rem;
       font-weight: 800;
@@ -28,13 +29,13 @@
       margin-bottom: 0.25rem;
     }
     .chapter-nav-item.active a {
-      background: #f5f3ff;
-      color: #7c3aed;
-      border-left: 3px solid #7c3aed;
+      background: #fff7ed;
+      color: #ea580c;
+      border-left: 3px solid #ea580c;
     }
     .chapter-nav-item a:hover {
-      color: #7c3aed;
-      background: #faf5ff;
+      color: #ea580c;
+      background: #fffaf5;
     }
 
     /* Enhanced Code Block with Copy and Playground Actions */
@@ -89,7 +90,7 @@
     }
     .btn-copy-code:hover {
       background: #475569;
-      color: #38bdf8;
+      color: #fb923c;
       transform: translateY(-1px);
     }
     .btn-copy-code.copied {
@@ -98,13 +99,13 @@
       border-color: #22c55e;
     }
     .btn-try-code {
-      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      background: linear-gradient(135deg, #ea580c, #c2410c);
       color: #ffffff;
     }
     .btn-try-code:hover {
-      background: linear-gradient(135deg, #6d28d9, #5b21b6);
+      background: linear-gradient(135deg, #c2410c, #9a3412);
       transform: translateY(-1px);
-      box-shadow: 0 2px 8px rgba(124, 58, 237, 0.4);
+      box-shadow: 0 2px 8px rgba(234, 88, 12, 0.4);
     }
     .code-wrapper pre {
       margin: 0 !important;
@@ -144,16 +145,17 @@
       text-decoration: none;
     }
     .reader-topbar .breadcrumb a:hover {
-      color: #7c3aed;
+      color: #ea580c;
     }
     .reader-topbar .breadcrumb span {
-      color: #7c3aed;
+      color: #ea580c;
       font-weight: 700;
     }
     .reader-actions {
       display: flex;
       align-items: center;
       gap: 0.65rem;
+      flex-wrap: wrap;
     }
     .btn-action {
       display: inline-flex;
@@ -170,9 +172,9 @@
       transition: all 0.2s;
     }
     .btn-action:hover {
-      background: #faf5ff;
-      color: #7c3aed;
-      border-color: #7c3aed;
+      background: #fff7ed;
+      color: #ea580c;
+      border-color: #ea580c;
       transform: translateY(-1px);
     }
 
@@ -182,8 +184,8 @@
       bottom: 24px;
       right: 24px;
       background: #0f172a;
-      color: #38bdf8;
-      border: 1px solid #38bdf8;
+      color: #fb923c;
+      border: 1px solid #fb923c;
       padding: 0.75rem 1.25rem;
       border-radius: 8px;
       font-size: 0.88rem;
@@ -203,14 +205,14 @@
       opacity: 1;
     }
 
-    /* Chapter Lab Callout at the bottom of each chapter */
+    /* Chapter Lab Callout */
     .chapter-lab-callout {
       margin-top: 3.5rem;
-      background: linear-gradient(135deg, #1e1b4b, #0f172a);
-      border: 2px solid #7c3aed;
+      background: linear-gradient(135deg, #431407, #0f172a);
+      border: 2px solid #ea580c;
       border-radius: 12px;
       padding: 1.75rem 2rem;
-      box-shadow: 0 10px 30px rgba(124, 58, 237, 0.25);
+      box-shadow: 0 10px 30px rgba(234, 88, 12, 0.25);
       color: #f8fafc;
     }
     .lab-callout-header {
@@ -222,7 +224,7 @@
       gap: 0.5rem;
     }
     .lab-badge {
-      background: #7c3aed;
+      background: #ea580c;
       color: white;
       font-size: 0.76rem;
       font-weight: 800;
@@ -233,7 +235,7 @@
     }
     .lab-module-tag {
       font-size: 0.82rem;
-      color: #38bdf8;
+      color: #fdba74;
       font-weight: 600;
     }
     .chapter-lab-callout h3 {
@@ -243,7 +245,7 @@
       font-weight: 700;
     }
     .chapter-lab-callout p {
-      color: #cbd5e1;
+      color: #fed7aa;
       margin: 0 0 1.25rem 0;
       line-height: 1.6;
       font-size: 0.95rem;
@@ -251,48 +253,40 @@
     .lab-callout-actions {
       display: flex;
       align-items: center;
-      gap: 0.75rem;
+      gap: 0.85rem;
       flex-wrap: wrap;
     }
-    .btn-launch-playground {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.65rem 1.35rem;
-      background: linear-gradient(135deg, #7c3aed, #4f46e5);
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 0.9rem;
-      border-radius: 8px;
-      text-decoration: none;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
-      transition: all 0.2s;
-    }
-    .btn-launch-playground:hover {
-      background: linear-gradient(135deg, #6d28d9, #4338ca);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.5);
-    }
-    .btn-launch-ide {
+    .btn-launch-playground, .btn-launch-ide {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       padding: 0.65rem 1.25rem;
-      background: #1e293b;
-      color: #e2e8f0;
-      font-weight: 600;
       font-size: 0.9rem;
+      font-weight: 700;
       border-radius: 8px;
       text-decoration: none;
-      border: 1px solid #334155;
-      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+    .btn-launch-playground {
+      background: linear-gradient(135deg, #ea580c, #c2410c);
+      color: white;
+      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.4);
+    }
+    .btn-launch-playground:hover {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(234, 88, 12, 0.5);
+    }
+    .btn-launch-ide {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fed7aa;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
     .btn-launch-ide:hover {
-      background: #334155;
-      color: #38bdf8;
-      border-color: #64748b;
+      background: rgba(255, 255, 255, 0.18);
+      color: #ffffff;
       transform: translateY(-2px);
     }
 
@@ -319,7 +313,7 @@
     }
     .subject-tab.active {
       background: #ffffff;
-      color: #7c3aed;
+      color: #ea580c;
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
   </style>
@@ -331,7 +325,7 @@
       <span class="toggle-icon">☰</span>
       <span class="toggle-text">Chapters</span>
     </button>
-    <div class="mobile-brand-title">CSS for Class 7</div>
+    <div class="mobile-brand-title">HTML for Class 6 & 7</div>
     <a href="../index.html" class="mobile-home-link" title="Platform Home">🏠</a>
   </div>
 
@@ -346,112 +340,94 @@
           <span class="back-icon">←</span>
           <span>Return Home</span>
         </a>
-        <a href="../Learning CSS/learningcss.html" class="book-back-home" title="CSS Course Track">
-          <span>CSS Modules</span>
+        <a href="../Learning HTML/learninghtml.html" class="book-back-home" title="HTML Course Track">
+          <span>HTML Track</span>
         </a>
       </div>
       <div class="book-brand">
         <div>
-          <span class="css-brand-badge">Official Textbook</span>
-          <h1 style="color: #7c3aed;">Class 7 CSS Academy</h1>
-          <span>Styling & Designing Websites</span>
+          <span class="html-brand-badge">Official Textbook</span>
+          <h1 style="color: #ea580c;">Class 6 & 7 HTML</h1>
+          <span>Learn to Structure the Web</span>
         </div>
         <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close chapters menu">✕</button>
       </div>
 
       <!-- Quick Subject Tabs -->
       <div class="book-subject-tabs" id="bookSubjectTabs">
-        <button type="button" class="subject-tab active" data-filter="all" onclick="filterCssGroup('all', this)">All (24)</button>
-        <button type="button" class="subject-tab" data-filter="basics" onclick="filterCssGroup('basics', this)">Basics (7)</button>
-        <button type="button" class="subject-tab" data-filter="layout" onclick="filterCssGroup('layout', this)">Layout (5)</button>
-        <button type="button" class="subject-tab" data-filter="ui" onclick="filterCssGroup('ui', this)">UI & FX (5)</button>
-        <button type="button" class="subject-tab" data-filter="projects" onclick="filterCssGroup('projects', this)">Projects (7)</button>
+        <button type="button" class="subject-tab active" data-filter="all" onclick="filterHtmlGroup('all', this)">All (19)</button>
+        <button type="button" class="subject-tab" data-filter="starter" onclick="filterHtmlGroup('starter', this)">Basics (6)</button>
+        <button type="button" class="subject-tab" data-filter="tags" onclick="filterHtmlGroup('tags', this)">Content (6)</button>
+        <button type="button" class="subject-tab" data-filter="projects" onclick="filterHtmlGroup('projects', this)">Projects (5)</button>
       </div>
 
       <div class="sidebar-search" style="margin-bottom: 1rem;">
-        <input type="text" id="chapterFilter" placeholder="Search CSS chapters..." style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.85rem;">
+        <input type="text" id="chapterFilter" placeholder="Search HTML chapters &amp; units..." style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.85rem;">
       </div>
 
       <nav id="sidebarNav">
-        <div class="part-group" data-group="basics">
+        <div class="part-group" data-group="starter">
           <div class="part-title">Part 1: Getting Started</div>
           <ul class="chapter-nav-list">
-            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-01-getting-started/ch01-what-is-css.md', this)">1. What Is CSS?</a></li>
-            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-01-getting-started/ch02-adding-css.md', this)">2. Adding CSS</a></li>
+            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-01-getting-started/ch01-what-is-a-website.md', this)">1. What Is a Website?</a></li>
+            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-01-getting-started/ch02-how-websites-are-built.md', this)">2. How Websites Are Built</a></li>
+            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-01-getting-started/ch03-your-first-web-page.md', this)">3. Your First Web Page</a></li>
           </ul>
         </div>
 
-        <div class="part-group" data-group="basics">
-          <div class="part-title">Part 2: Colors &amp; Typography</div>
+        <div class="part-group" data-group="starter">
+          <div class="part-title">Part 2: Headings &amp; Text</div>
           <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-02-colors-and-typography/ch03-css-colors.md', this)">3. CSS Colors &amp; Gradients</a></li>
-            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-02-colors-and-typography/ch04-fonts-and-text-styling.md', this)">4. Fonts &amp; Text Styling</a></li>
-            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-02-colors-and-typography/ch05-backgrounds.md', this)">5. Backgrounds &amp; Overlays</a></li>
+            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-02-headings-and-text/ch04-understanding-html-tags.md', this)">4. Understanding HTML Tags</a></li>
+            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-02-headings-and-text/ch05-headings-and-paragraphs.md', this)">5. Headings &amp; Paragraphs</a></li>
+            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-02-headings-and-text/ch06-text-formatting.md', this)">6. Text Formatting</a></li>
           </ul>
         </div>
 
-        <div class="part-group" data-group="basics">
-          <div class="part-title">Part 3: Box Model &amp; Borders</div>
+        <div class="part-group" data-group="tags">
+          <div class="part-title">Part 3: Links &amp; Media</div>
           <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-03-box-model-and-borders/ch06-css-box-model.md', this)">6. CSS Box Model</a></li>
-            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-03-box-model-and-borders/ch07-borders-and-rounded-corners.md', this)">7. Borders &amp; Rounded Corners</a></li>
+            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-03-links-and-images/ch07-links.md', this)">7. Hyperlinks &amp; Navigation</a></li>
+            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-03-links-and-images/ch08-images.md', this)">8. Images &amp; Media</a></li>
           </ul>
         </div>
 
-        <div class="part-group" data-group="layout">
-          <div class="part-title">Part 4: Layout &amp; Flexbox</div>
+        <div class="part-group" data-group="tags">
+          <div class="part-title">Part 4: Lists &amp; Tables</div>
           <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-04-layout-and-flexbox/ch08-display-property.md', this)">8. Display Property</a></li>
-            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-04-layout-and-flexbox/ch09-flexbox.md', this)">9. Flexbox Layout</a></li>
+            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-04-lists-and-tables/ch09-lists.md', this)">9. Ordered &amp; Unordered Lists</a></li>
+            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-04-lists-and-tables/ch10-tables.md', this)">10. Tables &amp; Tabular Data</a></li>
           </ul>
         </div>
 
-        <div class="part-group" data-group="layout">
-          <div class="part-title">Part 5: Grid &amp; Positioning</div>
+        <div class="part-group" data-group="tags">
+          <div class="part-title">Part 5: Forms &amp; User Input</div>
           <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-05-grid-and-positioning/ch10-css-grid.md', this)">10. CSS Grid</a></li>
-            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-05-grid-and-positioning/ch11-positioning.md', this)">11. CSS Positioning</a></li>
+            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-05-forms-and-input/ch11-forms.md', this)">11. Forms &amp; Inputs</a></li>
           </ul>
         </div>
 
-        <div class="part-group" data-group="layout">
-          <div class="part-title">Part 6: Responsive Design</div>
+        <div class="part-group" data-group="tags">
+          <div class="part-title">Part 6: Layout &amp; Semantics</div>
           <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-06-responsive-design/ch12-responsive-web-design.md', this)">12. Responsive Web Design</a></li>
-          </ul>
-        </div>
-
-        <div class="part-group" data-group="ui">
-          <div class="part-title">Part 7: UI Components &amp; Cards</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-07-ui-components-and-cards/ch13-buttons.md', this)">13. Modern Buttons</a></li>
-            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-07-ui-components-and-cards/ch14-website-cards.md', this)">14. Website Cards</a></li>
-            <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-07-ui-components-and-cards/ch15-navigation-bars.md', this)">15. Navigation Bars</a></li>
-          </ul>
-        </div>
-
-        <div class="part-group" data-group="ui">
-          <div class="part-title">Part 8: Animations &amp; Transitions</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('part-08-animations-and-transitions/ch16-hover-effects.md', this)">16. Hover Effects &amp; Micro-Interactions</a></li>
-            <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('part-08-animations-and-transitions/ch17-css-transitions.md', this)">17. CSS Transitions &amp; Keyframes</a></li>
+            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-06-layout-and-semantics/ch12-divs-and-page-sections.md', this)">12. Divs &amp; Semantic Sections</a></li>
           </ul>
         </div>
 
         <div class="part-group" data-group="projects">
-          <div class="part-title">Part 9: Website Projects</div>
+          <div class="part-title">Part 7: Website Projects</div>
           <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('part-09-website-projects/ch18-personal-profile-website.md', this)">18. Personal Profile Website</a></li>
-            <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('part-09-website-projects/ch19-school-website.md', this)">19. School Website</a></li>
-            <li class="chapter-nav-item"><a href="#ch20" onclick="loadChapter('part-09-website-projects/ch20-restaurant-website.md', this)">20. Restaurant Website</a></li>
-            <li class="chapter-nav-item"><a href="#ch21" onclick="loadChapter('part-09-website-projects/ch21-portfolio-website.md', this)">21. Portfolio Website</a></li>
+            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-07-website-projects/ch13-personal-profile-website.md', this)">13. Personal Profile Website</a></li>
+            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-07-website-projects/ch14-school-website.md', this)">14. School Website</a></li>
+            <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-07-website-projects/ch15-restaurant-website.md', this)">15. Restaurant Website</a></li>
+            <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('part-07-website-projects/ch16-portfolio-website.md', this)">16. Developer Portfolio</a></li>
           </ul>
         </div>
 
         <div class="part-group" data-group="projects">
-          <div class="part-title">Part 10: Capstone Project</div>
+          <div class="part-title">Part 8: Final Capstone</div>
           <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch22" onclick="loadChapter('part-10-capstone-project/ch22-final-project-guide.md', this)">22. Capstone Project Planning</a></li>
+            <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('part-08-capstone-project/ch17-final-project-guide.md', this)">17. Capstone Project Planning</a></li>
             <li class="chapter-nav-item"><a href="#ref" onclick="loadChapter('reference/quick-reference-and-glossary.md', this)">📖 Quick Reference &amp; Glossary</a></li>
             <li class="chapter-nav-item"><a href="#teacher" onclick="loadChapter('teacher-guide/teachers-guide-and-rubrics.md', this)">🍎 Teacher's Guide &amp; Rubrics</a></li>
           </ul>
@@ -461,27 +437,29 @@
 
     <!-- Reader Main Content Area -->
     <main class="book-reader">
+      <!-- Breadcrumb Top Bar -->
       <header class="reader-topbar">
         <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
-          <a href="../index.html" class="btn-action" style="background: #f8fafc; color: #7c3aed; font-weight: 700; border-color: #cbd5e1;">
+          <a href="../index.html" class="btn-action" style="background: #f8fafc; color: #ea580c; font-weight: 700; border-color: #cbd5e1;">
             <span>←</span> <span>Home</span>
           </a>
           <div class="breadcrumb">
-            <a href="../index.html">Junior Coders</a> &gt; <a href="../Learning%20CSS/learningcss.html">Learning CSS</a> &gt; <span>CSS Textbook</span>
+            <a href="../index.html">Junior Coders</a> &gt; <a href="../Learning%20HTML/learninghtml.html">Learning HTML</a> &gt; <span>HTML Textbook</span>
           </div>
         </div>
         <div class="reader-actions">
           <a href="../index.html" class="btn-action">🏠 Home</a>
-          <a href="../Learning%20CSS/learningcss.html" class="btn-action">CSS Modules</a>
-          <a href="../book-html/index.html" class="btn-action">🌐 HTML Book</a>
+          <a href="../Learning%20HTML/learninghtml.html" class="btn-action">HTML Modules</a>
+          <a href="../book-css/index.html" class="btn-action">🎨 CSS Book</a>
           <a href="../book-js/index.html" class="btn-action">⚡ JS Book</a>
-          <a href="../master-playground.html" class="btn-action" style="background: var(--primary-blue); color: white; border: none;">Code Lab</a>
+          <a href="../master-playground.html" class="btn-action" style="background: #ea580c; color: white; border: none;">Code Lab</a>
         </div>
       </header>
 
       <!-- Sticky Audio Speaker & Reading Mode Bar -->
       <header class="book-reader-header" id="bookReaderHeader" role="region" aria-label="Book Reader Controls">
         <div class="reader-header-main">
+          <!-- Left: Audio controls -->
           <div class="reader-controls-left">
             <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read entire chapter aloud">
               <span class="btn-icon">🔊</span>
@@ -495,14 +473,22 @@
               <span></span><span></span><span></span><span></span>
             </div>
           </div>
+
+          <!-- Divider -->
           <div class="reader-divider" aria-hidden="true"></div>
+
+          <!-- Center: Chapter status badge -->
           <div class="reader-status-center">
             <div class="reader-chapter-badge">
-              <span class="status-dot" style="background: #7c3aed;"></span>
-              <span class="status-text" id="book-speaker-status-text">CSS for Class 7</span>
+              <span class="status-dot" style="background: #ea580c;"></span>
+              <span class="status-text" id="book-speaker-status-text">HTML for Class 6 & 7</span>
             </div>
           </div>
+
+          <!-- Divider -->
           <div class="reader-divider" aria-hidden="true"></div>
+
+          <!-- Right: Speed + Reading Mode -->
           <div class="reader-controls-right">
             <div class="reader-speed-pill">
               <span class="speed-caption">Speed</span>
@@ -524,13 +510,13 @@
       <!-- Dynamic Chapter Content Area -->
       <article class="book-article" id="chapterContent">
         <div style="text-align: center; padding: 3rem 1rem;">
-          <span class="css-brand-badge">Official Class 7 Textbook</span>
-          <h1 class="chapter-title" style="margin-top: 0.5rem; color: #7c3aed;">CSS for Class 7</h1>
+          <span class="html-brand-badge">Official Class 6 & 7 Textbook</span>
+          <h1 class="chapter-title" style="margin-top: 0.5rem; color: #ea580c;">HTML for Class 6 & 7</h1>
           <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 2rem auto;">
-            Learn to Style and Design Beautiful, Responsive Websites from Scratch! Select any chapter from the sidebar or click below to launch Chapter 1.
+            Learn to Build and Structure Real Websites from Scratch! Master Tags, Headings, Lists, Tables, Forms, and Semantic Web Layouts. Select any chapter from the sidebar or click below to start Chapter 1.
           </p>
-          <a href="#ch1" onclick="loadChapter('part-01-getting-started/ch01-what-is-css.md', document.querySelector('.chapter-nav-item a'))" class="btn-nav" style="background: linear-gradient(135deg, #7c3aed, #6d28d9); color: #fff; padding: 0.85rem 1.75rem; font-size: 1rem; text-decoration: none; border-radius: var(--radius-sm); font-weight: 700; box-shadow: 0 4px 14px rgba(124, 58, 237, 0.35);">
-            Start Chapter 1: What Is CSS? 🎨
+          <a href="#ch1" onclick="loadChapter('part-01-getting-started/ch01-what-is-a-website.md', document.querySelector('.chapter-nav-item a'))" class="btn-nav" style="background: linear-gradient(135deg, #ea580c, #c2410c); color: #fff; padding: 0.85rem 1.75rem; font-size: 1rem; text-decoration: none; border-radius: var(--radius-sm); font-weight: 700; box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);">
+            Start Chapter 1: What Is a Website? 🌐
           </a>
         </div>
       </article>
@@ -564,7 +550,7 @@
 
       let markdown = '';
       // 1. Check pre-bundled offline cache (works 100% locally with file:// and offline!)
-      const cache = window.BOOK_CSS_CHAPTERS || window.BOOK_CHAPTERS;
+      const cache = window.BOOK_HTML_CHAPTERS || window.BOOK_CHAPTERS;
       if (cache && cache[path]) {
         markdown = cache[path];
       } else {
@@ -599,51 +585,46 @@
       }
     }
 
-    // Companion Lab Challenge Database
-    const CSS_CHAPTER_LABS = {
-      ch1: { chapter: "1", title: "What Is CSS? (Basic Typography)", desc: "Style the heading with modern font, color, and center alignment." },
-      ch2: { chapter: "2", title: "Adding CSS (Selectors & Classes)", desc: "Create reusable class selectors for badges and highlighted keywords." },
-      ch3: { chapter: "3", title: "CSS Colors & Gradients (Hero Banner)", desc: "Build a modern hero banner with linear-gradient background and text shadow." },
-      ch4: { chapter: "4", title: "Fonts & Text Styling", desc: "Format headings and body typography with letter spacing and readable line heights." },
-      ch5: { chapter: "5", title: "Backgrounds & Overlays", desc: "Combine background gradients and cover images with color overlays." },
-      ch6: { chapter: "6", title: "CSS Box Model (Padding, Margin, Borders)", desc: "Master the 4 layers of the Box Model on an interactive product card." },
-      ch7: { chapter: "7", title: "Borders & Rounded Corners", desc: "Create circular avatars and glowing badge borders with border-radius." },
-      ch8: { chapter: "8", title: "Display Property", desc: "Demonstrate block vs inline vs inline-block element layout flow." },
-      ch9: { chapter: "9", title: "Flexbox Alignment (Navigation Bar)", desc: "Build a responsive navigation header with space-between flexbox alignment." },
-      ch10: { chapter: "10", title: "CSS Grid (3x3 Photo Gallery)", desc: "Construct a responsive 3-column photo grid using grid-template-columns and gap." },
-      ch11: { chapter: "11", title: "CSS Positioning (Floating Badge)", desc: "Position a notification badge on the top right corner of an icon using relative/absolute." },
-      ch12: { chapter: "12", title: "Responsive Web Design (Media Queries)", desc: "Implement a media query breakpoint that stacks desktop columns on mobile viewports." },
-      ch13: { chapter: "13", title: "Modern Buttons & States", desc: "Design primary, ghost, and gradient action buttons with tactile active states." },
-      ch14: { chapter: "14", title: "Modern Glassmorphism Website Card", desc: "Build a translucent frosted glass card with backdrop-filter and gradient glow." },
-      ch15: { chapter: "15", title: "Complete Sticky Navigation Bar", desc: "Create a production-grade header with sticky top positioning and glass backdrop." },
-      ch16: { chapter: "16", title: "Hover Effects & Micro-Interactions", desc: "Design interactive hover transformations, icon shifts, and subtle feedback." },
-      ch17: { chapter: "17", title: "CSS Transitions & Keyframes", desc: "Animate button elevation, glowing shadows, and keyframe loops." },
-      ch18: { chapter: "18", title: "Project: Personal Profile Website", desc: "Build and style a complete responsive biography page from scratch." },
-      ch19: { chapter: "19", title: "Project: School Event Website", desc: "Design an attractive campus event announcement page with timetable and hero section." },
-      ch20: { chapter: "20", title: "Project: Restaurant Menu Website", desc: "Craft a stylish food menu layout with dish cards, pricing badges, and categories." },
-      ch21: { chapter: "21", title: "Project: Modern Developer Portfolio", desc: "Build a multi-section developer portfolio featuring skills, project showcases, and contact info." },
-      ch22: { chapter: "22", title: "Capstone Project: Production Website", desc: "Architect, style, and polish an original multi-page responsive web experience." },
-      ref: { chapter: "Reference", title: "CSS Quick Reference & Cheatsheet", desc: "Quickly lookup CSS selectors, box model values, flexbox alignments, and color units." },
-      teacher: { chapter: "Teacher", title: "Teacher's Guide & Rubrics", desc: "Teaching milestones, classroom pacing, and grading rubrics for CSS web design." }
+    // Companion Lab Challenge Database for HTML
+    const HTML_CHAPTER_LABS = {
+      ch1: { chapter: "1", title: "What is a Website? (Structure Inspection)", desc: "Examine the skeleton of a basic webpage and identify content vs tags." },
+      ch2: { chapter: "2", title: "How Websites are Built", desc: "Understand how HTML, CSS, and JS collaborate to build interactive experiences." },
+      ch3: { chapter: "3", title: "Your First Web Page (HTML Boilerplate)", desc: "Write a complete <!DOCTYPE html> document with <html>, <head>, and <body>." },
+      ch4: { chapter: "4", title: "HTML Tags & Attributes", desc: "Experiment with opening/closing tags and element attributes like id, class, and title." },
+      ch5: { chapter: "5", title: "Headings & Paragraphs", desc: "Build an informational news article using proper <h1> through <h6> hierarchy." },
+      ch6: { chapter: "6", title: "Text Formatting (Bold, Italic, Mark)", desc: "Highlight important keywords using <strong>, <em>, <mark>, and <del> tags." },
+      ch7: { chapter: "7", title: "Hyperlinks & Navigation", desc: "Connect web pages using <a href> anchors with target='_blank' and internal jumps." },
+      ch8: { chapter: "8", title: "Images & Media", desc: "Embed responsive photos using <img src> with accessible alt descriptions." },
+      ch9: { chapter: "9", title: "Lists (Ordered, Unordered, Nested)", desc: "Create a cooking recipe using ordered <ol> steps and bulleted <ul> ingredients." },
+      ch10: { chapter: "10", title: "Tables & Tabular Data", desc: "Construct a clean student marksheet table using <table>, <tr>, <th>, and <td>." },
+      ch11: { chapter: "11", title: "Interactive User Forms", desc: "Build a student registration form with text inputs, email fields, and submit buttons." },
+      ch12: { chapter: "12", title: "Semantic Sections & Divs", desc: "Structure a modern webpage layout with <header>, <nav>, <main>, <section>, and <footer>." },
+      ch13: { chapter: "13", title: "Capstone: Personal Bio Website", desc: "Build a complete 1-page personal profile website showcasing your interests." },
+      ch14: { chapter: "14", title: "Capstone: School Portal Page", desc: "Build a school homepage with navigation, announcement list, and contact form." },
+      ch15: { chapter: "15", title: "Capstone: Restaurant Menu Website", desc: "Build an attractive restaurant website with dishes, pricing tables, and address." },
+      ch16: { chapter: "16", title: "Capstone: Junior Developer Portfolio", desc: "Construct a multi-section portfolio highlighting your HTML coding achievements." },
+      ch17: { chapter: "17", title: "Final Capstone Project Planning", desc: "Plan, draft, and assemble your complete capstone project website." },
+      ref: { chapter: "Ref", title: "Quick Reference & Tag Cheatsheet", desc: "Fast reference for essential HTML syntax, boilerplate, and common tags." },
+      teacher: { chapter: "Guide", title: "Teacher Curriculum Guide & Rubrics", desc: "Pedagogical guidelines, 12-week pacing chart, and assessment rubrics." }
     };
 
     function attachChapterLab(container, path) {
       if (!container || !path) return;
       
-      // Extract chapter key (e.g., ch01 -> ch1, reference -> ref, teacher-guide -> teacher)
       let chKey = null;
-      if (path.includes('reference/')) chKey = 'ref';
-      else if (path.includes('teacher-guide/')) chKey = 'teacher';
-      else {
-        const match = path.match(/ch0*(\d+)/i);
-        if (match) chKey = `ch${parseInt(match[1], 10)}`;
+      if (path.includes('reference')) {
+        chKey = 'ref';
+      } else if (path.includes('teacher-guide')) {
+        chKey = 'teacher';
+      } else {
+        const match = path.match(/ch(\d+)/i);
+        chKey = match ? `ch${parseInt(match[1], 10)}` : null;
       }
       
-      // Check for matching lab or fallback to general lab
-      const lab = chKey && CSS_CHAPTER_LABS[chKey] ? CSS_CHAPTER_LABS[chKey] : {
-        chapter: chKey || "",
-        title: "Hands-On Chapter Practice Lab",
-        desc: "Practice what you just read by writing code in the interactive CSS Playground."
+      const lab = chKey && HTML_CHAPTER_LABS[chKey] ? HTML_CHAPTER_LABS[chKey] : {
+        chapter: "Lab",
+        title: "Hands-On HTML Practice Lab",
+        desc: "Practice what you just read by writing code in the interactive HTML Playground."
       };
 
       const labCallout = document.createElement('div');
@@ -656,10 +637,10 @@
         <h3>Chapter ${lab.chapter} Lab: ${lab.title}</h3>
         <p>${lab.desc}</p>
         <div class="lab-callout-actions">
-          <button type="button" class="btn-launch-playground" onclick="launchLabChallenge('${chKey || 'ch1'}')">
-            <span>🚀</span> <span>Launch Challenge in CSS Playground</span>
+          <button type="button" class="btn-launch-playground" onclick="launchLabChallenge('${chKey || 'ch3'}')">
+            <span>🚀</span> <span>Launch Challenge in HTML Playground</span>
           </button>
-          <a href="../master-playground.html" class="btn-launch-ide" onclick="launchLabIDE('${chKey || 'ch1'}')">
+          <a href="../master-playground.html" class="btn-launch-ide" onclick="launchLabIDE('${chKey || 'ch3'}')">
             <span>💻</span> <span>Open in Master IDE</span>
           </a>
         </div>
@@ -667,42 +648,41 @@
 
       container.appendChild(labCallout);
 
-      // Update URL hash without jumping
       if (chKey && window.location.hash !== `#${chKey}`) {
         history.replaceState(null, null, `#${chKey}`);
       }
     }
 
     function launchLabChallenge(key) {
-      const lab = CSS_CHAPTER_LABS[key];
-      const title = lab ? `Ch ${lab.chapter}: ${lab.title}` : `CSS Chapter Lab`;
+      const lab = HTML_CHAPTER_LABS[key];
+      const title = lab ? `Ch ${lab.chapter}: ${lab.title}` : `HTML Chapter Lab`;
       const desc = lab ? lab.desc : `Practice chapter concepts in the interactive playground.`;
 
       const exercise = {
         title: title,
-        level: `Class 7 CSS Lab`,
+        level: `Class 6-7 HTML Lab`,
         instructions: desc,
-        sourceUrl: `../book-css/index.html#${key}`,
+        sourceUrl: `../book-html/index.html#${key}`,
         sourceTitle: title,
-        type: 'css'
+        type: 'html'
       };
 
       localStorage.setItem('pendingExercise', JSON.stringify(exercise));
-      window.location.href = `../Learning CSS/playground.html#${key}`;
+      window.location.href = `../Learning HTML/playground.html#${key}`;
     }
 
     function launchLabIDE(key) {
-      const lab = CSS_CHAPTER_LABS[key];
-      const title = lab ? `Ch ${lab.chapter}: ${lab.title}` : `CSS Chapter Lab`;
+      const lab = HTML_CHAPTER_LABS[key];
+      const title = lab ? `Ch ${lab.chapter}: ${lab.title}` : `HTML Chapter Lab`;
       const desc = lab ? lab.desc : `Practice chapter concepts in the Master IDE.`;
 
       const exercise = {
         title: title,
-        level: `Class 7 CSS Lab`,
+        level: `Class 6-7 HTML Lab`,
         instructions: desc,
-        sourceUrl: `../book-css/index.html#${key}`,
+        sourceUrl: `../book-html/index.html#${key}`,
         sourceTitle: title,
-        type: 'css'
+        type: 'html'
       };
 
       localStorage.setItem('pendingExercise', JSON.stringify(exercise));
@@ -725,34 +705,31 @@
       }, 2500);
     }
 
-    // Wrap pre code blocks with headers containing Copy and Try in Code Lab buttons
+    // Wrap pre code blocks with Copy & Try buttons
     function enhanceCodeBlocks(container) {
       if (!container) return;
       const preElements = container.querySelectorAll('pre');
-      preElements.forEach((pre, index) => {
+      preElements.forEach((pre) => {
         if (pre.parentElement.classList.contains('code-wrapper')) return;
 
         const codeEl = pre.querySelector('code');
         const rawCode = codeEl ? codeEl.innerText : pre.innerText;
 
-        // Detect language from class (e.g. language-css, language-html)
-        let lang = 'Code';
+        let lang = 'HTML';
         if (codeEl && codeEl.className) {
           const match = codeEl.className.match(/language-([a-zA-Z0-9_-]+)/);
           if (match && match[1]) {
             lang = match[1].toUpperCase();
           }
-        } else if (rawCode.includes('{') && rawCode.includes('}') && (rawCode.includes(':') || rawCode.includes('px') || rawCode.includes('color'))) {
-          lang = 'CSS';
         } else if (rawCode.includes('<') && rawCode.includes('>')) {
           lang = 'HTML';
+        } else if (rawCode.includes('{') && rawCode.includes('}')) {
+          lang = 'CSS';
         }
 
-        // Create wrapper container
         const wrapper = document.createElement('div');
         wrapper.className = 'code-wrapper';
 
-        // Header bar with language tag and actions
         const header = document.createElement('div');
         header.className = 'code-wrapper-header';
 
@@ -763,7 +740,6 @@
         const actions = document.createElement('div');
         actions.className = 'code-actions';
 
-        // Copy Button
         const copyBtn = document.createElement('button');
         copyBtn.type = 'button';
         copyBtn.className = 'btn-copy-code';
@@ -775,7 +751,6 @@
             if (navigator.clipboard && window.isSecureContext) {
               await navigator.clipboard.writeText(rawCode);
             } else {
-              // Fallback for non-https or older browsers
               const textarea = document.createElement('textarea');
               textarea.value = rawCode;
               textarea.style.position = 'fixed';
@@ -789,7 +764,7 @@
             }
             copyBtn.classList.add('copied');
             copyBtn.innerHTML = '<span>✅</span> <span>Copied!</span>';
-            showCopyToast('Code copied! Paste it into your project or Code Lab.');
+            showCopyToast('Code copied! Paste it into your HTML Playground or IDE.');
             setTimeout(() => {
               copyBtn.classList.remove('copied');
               copyBtn.innerHTML = '<span>📋</span> <span>Copy</span>';
@@ -800,7 +775,6 @@
           }
         });
 
-        // Try in Code Lab Button
         const tryBtn = document.createElement('a');
         tryBtn.className = 'btn-try-code';
         tryBtn.title = 'Open and test this code in Code Lab IDE';
@@ -810,13 +784,11 @@
         tryBtn.rel = 'noopener noreferrer';
 
         tryBtn.addEventListener('click', () => {
-          // Pre-populate playground if relevant
           try {
-            const isCss = lang === 'CSS' || rawCode.includes('{') || rawCode.includes('color:');
             const exercise = {
-              title: `CSS Book Snippet (${lang})`,
+              title: `HTML Book Snippet (${lang})`,
               starterCode: rawCode,
-              type: isCss ? 'css' : 'html'
+              type: lang.toLowerCase() === 'css' ? 'css' : 'html'
             };
             localStorage.setItem('pendingExercise', JSON.stringify(exercise));
           } catch (e) {}
@@ -828,14 +800,13 @@
         header.appendChild(langBadge);
         header.appendChild(actions);
 
-        // Replace pre with wrapper containing header and pre
         pre.parentNode.insertBefore(wrapper, pre);
         wrapper.appendChild(header);
         wrapper.appendChild(pre);
       });
     }
 
-    // Filter chapters in sidebar
+    // Filter chapters in sidebar by text
     document.getElementById('chapterFilter').addEventListener('input', function(e) {
       const query = e.target.value.toLowerCase();
       document.querySelectorAll('.chapter-nav-item').forEach(item => {
@@ -845,7 +816,7 @@
     });
 
     // Subject switcher filter
-    function filterCssGroup(group, btn) {
+    function filterHtmlGroup(group, btn) {
       document.querySelectorAll('.subject-tab').forEach(t => t.classList.remove('active'));
       if (btn) btn.classList.add('active');
 
@@ -880,7 +851,7 @@
     // Auto-detect hash on load
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.toLowerCase();
-      if (hash.startsWith('#ch') || hash === '#ref' || hash === '#teacher') {
+      if (hash.startsWith('#ch')) {
         const targetLink = document.querySelector(`a[href="${hash}"]`);
         if (targetLink) {
           targetLink.click();
