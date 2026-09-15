@@ -3,85 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 1: Intro to HTML | Junior Coders</title>
+    <meta name="description" content="Module 1: Introduction to HTML and the essential HTML5 boilerplate skeleton. Official Class 6 & 7 curriculum.">
+    <title>Module 1: Welcome to HTML &amp; Page Anatomy | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="module-container">
+        <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: white; color: var(--primary);">Level 1</span>
-            <h1>Welcome to HTML!</h1>
-            <p>Learn how to build the skeleton of the internet! 🚀</p>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 1: Fundamentals</span>
+            <h1>Module 1: Welcome to HTML!</h1>
+            <p>Learn how the World Wide Web is architected and write your very first HTML5 web page.</p>
         </header>
 
-        <section class="content-section">
-            <h2>What is HTML?</h2>
-            <p>HTML stands for <strong>HyperText Markup Language</strong>. Imagine you are building a house. HTML is the <strong>wood and bricks</strong>. It doesn't have paint yet, but it holds everything together!</p>
-        </section>
+        <!-- Official Textbook Companion Connection -->
+        <div class="book-companion-card">
+            <div class="book-companion-left">
+                <span class="book-companion-icon">📖</span>
+                <div class="book-companion-text">
+                    <span>Official Single Source of Truth</span>
+                    <strong>Book Chapter 1–3: What is a Website &amp; Your First Web Page</strong>
+                </div>
+            </div>
+            <a href="../book-html/index.html#ch3" target="_blank" class="btn-read-book">
+                <span>Read in Textbook</span> <span>↗</span>
+            </a>
+        </div>
 
+        <!-- Section 1: Concept Breakdown -->
         <section class="content-section">
-            <h2>The Magic Tags</h2>
-            <p>We use "Tags" to tell the computer what to show. Most tags come in pairs like a sandwich:</p>
-            <div class="code-block" style="text-align: center;">
-                <code style="color: #6366f1; font-size: 1.5rem;">&lt;tag&gt;</code>
-                <span style="color: white; margin: 0 1rem;">Hello!</span>
-                <code style="color: #6366f1; font-size: 1.5rem;">&lt;/tag&gt;</code>
+            <h2>🌍 What is HTML? (From the Textbook)</h2>
+            <p><strong>HTML</strong> stands for <strong>HyperText Markup Language</strong>. It is the code that powers 100% of websites across the globe. As explained in Chapter 1 of the textbook:</p>
+            <ul>
+                <li><strong>HyperText</strong>: Text that links to other documents with a click.</li>
+                <li><strong>Markup</strong>: Using special labels called <strong>tags</strong> to mark up plain words into headings, paragraphs, images, and links.</li>
+                <li><strong>Language</strong>: The computer code that browsers (like Chrome, Edge, and Safari) understand.</li>
+            </ul>
+            <div class="comparison" style="margin-top: 1.5rem;">
+                <div class="good">
+                    <h4>🏗️ Think Like an Architect</h4>
+                    <p>HTML is the <strong>wood, bricks, and steel skeleton</strong> of a house. CSS provides the paint and furniture. JavaScript powers the lights and elevators!</p>
+                </div>
+                <div class="bad">
+                    <h4>⚠️ Common Beginner Mistake</h4>
+                    <p>HTML is NOT a programming language with math algorithms—it is a <strong>structural markup language</strong> designed to organize content cleanly.</p>
+                </div>
             </div>
         </section>
 
+        <!-- Section 2: Anatomy of a Tag -->
         <section class="content-section">
-            <h2>Your First Mission</h2>
-            <p>Look at the code below. This is the <strong>Boilerplate</strong>—the essential stuff every page needs. Can you change the title inside the <code>&lt;h1&gt;</code> tag?</p>
+            <h2>🏷️ The Tag Sandwich Rule</h2>
+            <p>Most HTML elements work like a sandwich with an opening tag, the content, and a closing tag with a forward slash (<code>/</code>):</p>
+            <div class="code-block" style="text-align: center; padding: 1.5rem; background: #0f172a; border-radius: 8px; margin: 1rem 0;">
+                <code style="color: #ea580c; font-size: 1.3rem;">&lt;h1&gt;</code>
+                <span style="color: #f8fafc; font-size: 1.3rem; margin: 0 1rem; font-weight: 700;">Hello World!</span>
+                <code style="color: #ea580c; font-size: 1.3rem;">&lt;/h1&gt;</code>
+            </div>
+            <p>The forward slash <code>/</code> signals to the browser: <em>"Stop styling this text as a heading now!"</em></p>
+        </section>
+
+        <!-- Section 3: The HTML5 Boilerplate -->
+        <section class="content-section">
+            <h2>🦴 The Essential HTML5 Boilerplate</h2>
+            <p>Every single web page ever created requires 5 core structural parts:</p>
+            <ol>
+                <li><code>&lt;!DOCTYPE html&gt;</code>: Announces modern HTML5 rendering standard.</li>
+                <li><code>&lt;html lang="en"&gt;</code>: The root envelope enclosing all page code.</li>
+                <li><code>&lt;head&gt;</code>: The backstage "brain" holding settings, charset, and the tab title.</li>
+                <li><code>&lt;title&gt;</code>: The title text displayed on the browser tab.</li>
+                <li><code>&lt;body&gt;</code>: The visible stage where all your headings, paragraphs, and media live!</li>
+            </ol>
+        </section>
+
+        <!-- Section 4: Live Interactive Coding Playground -->
+        <section class="content-section">
+            <h2>💻 Interactive Lab: Code Your First Web Page</h2>
+            <p>Try modifying the code below in real time. Watch the live preview update instantly!</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false">
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My Cool Page</title>
-</head>
-<body>
-    <h1>Welcome to my website!</h1>
-    <p>I am a Junior Coder now.</p>
-</body>
-</html></textarea>
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Alex's Coding Workshop&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My First Website! 🚀&lt;/h1&gt;
+    &lt;p&gt;I am officially a Junior Coder building on the open web.&lt;/p&gt;
+    &lt;p&gt;My favorite coding project is creating interactive games!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" style="border-top: 5px solid #6366f1;">
-            <h2>Quick Quiz!</h2>
-            <div id="quiz-form-1" class="quiz-section">
-                <div class="quiz-question" data-answer="b">
-                    <p>Q1: What tag do we use to show the main content of the page?</p>
-                    <label><input type="radio" name="q1" value="a"> &lt;head&gt;</label>
-                    <label><input type="radio" name="q1" value="b"> &lt;body&gt;</label>
-                    <label><input type="radio" name="q1" value="c"> &lt;skeleton&gt;</label>
-                    <div class="quiz-feedback"></div>
+        <!-- Section 5: Official Book Practice Exercises -->
+        <section class="content-section">
+            <h2>🏆 Official Book Practice Exercises</h2>
+            <div class="practice-section">
+                <!-- Easy -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                    <p>What file extension must every HTML document be saved with? Where does the text inside <code>&lt;title&gt;</code> appear?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            Every HTML file must end with <code>.html</code> (e.g. <code>index.html</code>). The <code>&lt;title&gt;</code> text appears on the browser's top tab, not in the main page body.
+                        </div>
+                    </details>
                 </div>
-                <div class="quiz-question" data-answer="b">
-                    <p>Q2: Which tag makes the BIGGEST heading?</p>
-                    <label><input type="radio" name="q2" value="a"> &lt;h6&gt;</label>
-                    <label><input type="radio" name="q2" value="b"> &lt;h1&gt;</label>
-                    <label><input type="radio" name="q2" value="c"> &lt;big&gt;</label>
-                    <div class="quiz-feedback"></div>
+
+                <!-- Medium -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟡 Level 2: Application (Medium)</h4>
+                    <p>Why is <code>my new webpage.html</code> a bad choice for a file name? What is the standard convention recommended by developers?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            File names with spaces can break on web servers (converting to <code>my%20new%20webpage.html</code>). Always use lowercase letters, no spaces, and hyphens: <code>index.html</code> or <code>my-new-webpage.html</code>.
+                        </div>
+                    </details>
                 </div>
-                <div class="quiz-question" data-answer="a">
-                    <p>Q3: What does HTML stand for?</p>
-                    <label><input type="radio" name="q3" value="a"> HyperText Markup Language</label>
-                    <label><input type="radio" name="q3" value="b"> HyperText Making Language</label>
-                    <label><input type="radio" name="q3" value="c"> Home Tool Markup Language</label>
-                    <div class="quiz-feedback"></div>
+
+                <!-- Challenge -->
+                <div>
+                    <h4>🔴 Level 3: Textbook Challenge — Your School ID Card</h4>
+                    <p><strong>Chapter 3 Real-World Mission:</strong> In the editor above, build a <strong>digital Student ID Card</strong> as a full HTML5 page. Your ID card must include:</p>
+                    <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
+                        <li>A <code>&lt;title&gt;</code> that says <em>"[Your Name] — Student ID"</em></li>
+                        <li>A large <code>&lt;h1&gt;</code> with your full name</li>
+                        <li>A <code>&lt;p&gt;</code> with your class and school name (e.g. <em>Class 7 — Junior Coders Academy</em>)</li>
+                        <li>A <code>&lt;p&gt;</code> listing your top 3 subjects separated by <code>&lt;br&gt;</code> tags</li>
+                        <li>An <code>&lt;hr&gt;</code> divider, then a footer <code>&lt;p&gt;</code> with <em>"Student since 2026"</em></li>
+                    </ol>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answers</button>
             </div>
         </section>
 
-        
+        <!-- Section 6: Interactive Quiz -->
+        <section class="content-section" style="border-top: 4px solid #ea580c;">
+            <h2>⚡ Quick Knowledge Check</h2>
+            <div id="quiz-form-1" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Which HTML tag holds all the visible content that visitors see on screen?</p>
+                    <label><input type="radio" name="q1" value="a"> &lt;head&gt;</label>
+                    <label><input type="radio" name="q1" value="b"> &lt;body&gt;</label>
+                    <label><input type="radio" name="q1" value="c"> &lt;meta&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: What is the purpose of &lt;!DOCTYPE html&gt; at line 1?</p>
+                    <label><input type="radio" name="q2" value="a"> It tells the browser to render standard modern HTML5 mode</label>
+                    <label><input type="radio" name="q2" value="b"> It creates a primary bold headline</label>
+                    <label><input type="radio" name="q2" value="c"> It connects the page to the internet</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: Where does the text inside the &lt;title&gt; tag appear?</p>
+                    <label><input type="radio" name="q3" value="a"> At the very bottom footer of the page</label>
+                    <label><input type="radio" name="q3" value="b"> In large bold letters on the screen</label>
+                    <label><input type="radio" name="q3" value="c"> On the top browser window tab</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(1)" style="background: #ea580c; border: none; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; cursor: pointer; color: white;">Check Answers</button>
+            </div>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <div class="module-nav-bar">
+            <a href="learninghtml.html" class="btn-nav-action">
+                <span>←</span> <span>HTML Syllabus</span>
+            </a>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../book-html/index.html#ch3" target="_blank" class="btn-nav-action">
+                    <span>📖</span> <span>Open Book Ch 3</span>
+                </a>
+                <a href="module2.html" class="btn-nav-action primary">
+                    <span>Next: Module 2 (Attributes)</span> <span>→</span>
+                </a>
+            </div>
+        </div>
     </main>
+
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
 </body>

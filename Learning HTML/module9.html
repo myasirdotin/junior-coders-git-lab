@@ -3,64 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 9: Invisible Boxes | Junior Coders</title>
+    <meta name="description" content="Module 9: Block vs Inline Elements and Layout Containers. Official Class 6 & 7 curriculum.">
+    <title>Module 9: Block vs Inline | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="module-container">
+        <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: white; color: var(--primary);">Level 9</span>
-            <h1>Invisible Boxes!</h1>
-            <p>Understanding Block vs. Inline elements. 📦</p>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 3: Architecture &amp; Forms</span>
+            <h1>Module 9: Block vs Inline Elements</h1>
+            <p>Master how browsers position content on screen: full-width block boxes versus text-flowing inline elements.</p>
         </header>
 
+        <!-- Official Textbook Companion Connection -->
+        <div class="book-companion-card">
+            <div class="book-companion-left">
+                <span class="book-companion-icon">📖</span>
+                <div class="book-companion-text">
+                    <span>Official Single Source of Truth</span>
+                    <strong>Book Chapter 12: Divs &amp; Semantic Sections</strong>
+                </div>
+            </div>
+            <a href="../book-html/index.html#ch12" target="_blank" class="btn-read-book">
+                <span>Read in Textbook</span> <span>↗</span>
+            </a>
+        </div>
+
+        <!-- Section 1: The Core Distinction -->
         <section class="content-section">
-            <h2>The Secret Boxes</h2>
-            <p>Every element in HTML is actually a **box**! There are two main types:</p>
+            <h2>📦 The Two Display Behaviors of HTML</h2>
+            <p>Every element in HTML belongs to one of two fundamental display categories:</p>
+            <div class="comparison">
+                <div class="good">
+                    <h4>🧱 Block-Level Elements</h4>
+                    <ul>
+                        <li>Always starts on a <strong>brand new line</strong>.</li>
+                        <li>Automatically stretches <strong>100% full width</strong> across the available screen.</li>
+                        <li>Examples: <code>&lt;div&gt;</code>, <code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;section&gt;</code>.</li>
+                    </ul>
+                </div>
+                <div class="good">
+                    <h4>🏷️ Inline Elements</h4>
+                    <ul>
+                        <li>Does <strong>NOT start on a new line</strong>; it sits right inside the sentence flow.</li>
+                        <li>Only takes up as much width as its actual content text.</li>
+                        <li>Examples: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>, <code>&lt;em&gt;</code>, <code>&lt;mark&gt;</code>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Div and Span -->
+        <section class="content-section">
+            <h2>🎁 &lt;div&gt; and &lt;span&gt;: The Universal Containers</h2>
+            <p>When you want to bundle multiple elements together into a card or highlight a single phrase inside a paragraph:</p>
             <ul>
-                <li><strong>Block Elements:</strong> These take up the whole line. Like <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, and <code>&lt;div&gt;</code>.</li>
-                <li><strong>Inline Elements:</strong> These only take as much space as they need. Like <code>&lt;span&gt;</code>, <code>&lt;strong&gt;</code>, and <code>&lt;a&gt;</code>.</li>
+                <li><code>&lt;div&gt;</code> (Division): The universal <strong>block-level container</strong>. Used to wrap cards, sidebars, and hero banners.</li>
+                <li><code>&lt;span&gt;</code>: The universal <strong>inline container</strong>. Used to wrap a few words so you can color or style them with CSS without breaking the sentence!</li>
             </ul>
         </section>
 
+        <!-- Section 3: Live Interactive Coding Playground -->
         <section class="content-section">
-            <h2>The "Div" Container</h2>
-            <p>The <code>&lt;div&gt;</code> tag is one of the most used tags. It's a big, invisible block box used to group things together!</p>
-        </section>
-
-        <section class="content-section">
-            <h2>Mission: Spot the Blocks</h2>
-            <p>Try putting two <code>&lt;span&gt;</code> tags next to each other, and then two <code>&lt;div&gt;</code> tags. See the difference?</p>
+            <h2>💻 Interactive Lab: Visualizing Block &amp; Inline Boxes</h2>
+            <p>Notice how the colored borders behave differently for block divs versus inline spans:</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false">
-<span>Inline 1</span> <span>Inline 2</span>
-
-<div style="background: #6366f1;">Block 1</div>
-<div style="background: #f43f5e;">Block 2</div></textarea>
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Box Model Inspection&lt;/title&gt;
+    &lt;style&gt;
+        .block-box {
+            background: rgba(234, 88, 12, 0.15);
+            border: 2px dashed #ea580c;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .inline-pill {
+            background: #38bdf8;
+            color: #0f172a;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Block vs Inline Visualizer&lt;/h1&gt;
+    
+    &lt;div class="block-box"&gt;
+        &lt;h3&gt;I am a &lt;div&gt; (Block Element)&lt;/h3&gt;
+        &lt;p&gt;I stretch across the whole width of the window!&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;p&gt;Here is a sentence with an &lt;span class="inline-pill"&gt;inline span pill&lt;/span&gt; flowing naturally inside the words!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" style="border-top: 5px solid #10b981;">
-            <h2>Quick Quiz!</h2>
-            <div id="quiz-form-9" class="quiz-section">
-                <div class="quiz-question" data-answer="b">
-                    <p>Which type of element takes up the full width of the page?</p>
-                    <label><input type="radio" name="q1" value="a"> Inline</label>
-                    <label><input type="radio" name="q1" value="b"> Block</label>
-                    <label><input type="radio" name="q1" value="c"> Invisible</label>
-                    <div class="quiz-feedback"></div>
+        <!-- Section 4: Official Book Practice Exercises -->
+        <section class="content-section">
+            <h2>🏆 Official Book Practice Exercises</h2>
+            <div class="practice-section">
+                <!-- Easy -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                    <p>Name three block elements and three inline elements. Which tag starts on a new line: <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code>?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            Block elements: <code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>. Inline elements: <code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code>. <code>&lt;div&gt;</code> starts on a new line.
+                        </div>
+                    </details>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(9)">Check Answer</button>
+
+                <!-- Medium -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟡 Level 2: Application (Medium)</h4>
+                    <p>If you want to change the color of just one word inside a heading without breaking the heading into two lines, should you wrap it in a <code>&lt;div&gt;</code> or a <code>&lt;span&gt;</code>?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            Use a <code>&lt;span&gt;</code>. Wrapping in a <code>&lt;div&gt;</code> would force the word onto its own line because divs are block-level!
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Challenge -->
+                <div>
+                    <h4>🔴 Level 3: Textbook Challenge — Student Profile Card</h4>
+                    <p><strong>Chapter 12 Real-World Mission:</strong> In the editor above, build a <strong>Student Profile Card</strong> using block and inline elements as taught in the textbook:</p>
+                    <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
+                        <li>An outer <code>&lt;div&gt;</code> as the card container (the "block box")</li>
+                        <li>Inside it, an <code>&lt;h2&gt;</code> block for the student's name</li>
+                        <li>A <code>&lt;p&gt;</code> for the bio with inline <code>&lt;span&gt;</code> badges for Class, School, and Rank</li>
+                        <li>A second <code>&lt;div&gt;</code> inside the card for a "Skills" section with 3 inline <code>&lt;span&gt;</code> skill tags (HTML, CSS, JavaScript)</li>
+                        <li>A <code>&lt;p&gt;</code> for contact info using an inline <code>&lt;a&gt;</code> mailto link</li>
+                        <li>A final block-level <code>&lt;p&gt;</code> as a footer with <em>"Junior Coders Academy — Class 2026"</em></li>
+                    </ol>
+                    <p style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">Challenge bonus: Make the card work entirely without CSS — content hierarchy should be clear from HTML structure alone!</p>
+                </div>
             </div>
         </section>
 
-        
+        <!-- Section 5: Interactive Quiz -->
+        <section class="content-section" style="border-top: 4px solid #ea580c;">
+            <h2>⚡ Quick Knowledge Check</h2>
+            <div id="quiz-form-9" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: How much horizontal width does a block-level element take up by default?</p>
+                    <label><input type="radio" name="q1" value="a"> 100% full width of its parent container</label>
+                    <label><input type="radio" name="q1" value="b"> Exactly the width of its text content</label>
+                    <label><input type="radio" name="q1" value="c"> 50% width</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q2: Which tag is the universal inline container used for styling words inside a paragraph?</p>
+                    <label><input type="radio" name="q2" value="a"> &lt;div&gt;</label>
+                    <label><input type="radio" name="q2" value="b"> &lt;section&gt;</label>
+                    <label><input type="radio" name="q2" value="c"> &lt;span&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q3: Which of the following is an inline element?</p>
+                    <label><input type="radio" name="q3" value="a"> &lt;h2&gt;</label>
+                    <label><input type="radio" name="q3" value="b"> &lt;a&gt;</label>
+                    <label><input type="radio" name="q3" value="c"> &lt;ul&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(9)" style="background: #ea580c; border: none; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; cursor: pointer; color: white;">Check Answers</button>
+            </div>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <div class="module-nav-bar">
+            <a href="module8.html" class="btn-nav-action">
+                <span>←</span> <span>Module 8</span>
+            </a>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="learninghtml.html" class="btn-nav-action">
+                    <span>📚</span> <span>Syllabus</span>
+                </a>
+                <a href="../book-html/index.html#ch12" target="_blank" class="btn-nav-action">
+                    <span>📖</span> <span>Open Book Ch 12</span>
+                </a>
+                <a href="module10.html" class="btn-nav-action primary">
+                    <span>Next: Module 10 (Classes &amp; IDs)</span> <span>→</span>
+                </a>
+            </div>
+        </div>
     </main>
+
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
 </body>

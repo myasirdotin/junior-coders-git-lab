@@ -3,63 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 3: Big Headings | Junior Coders</title>
+    <meta name="description" content="Module 3: Headings and Paragraphs hierarchy. Official Class 6 & 7 curriculum.">
+    <title>Module 3: Headings &amp; Paragraphs | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="module-container">
+        <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: white; color: var(--primary);">Level 3</span>
-            <h1>Big Headings!</h1>
-            <p>Learn how to make titles and stories. 📖</p>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 1: Fundamentals</span>
+            <h1>Module 3: Headings &amp; Paragraphs</h1>
+            <p>Structure your content with clean visual hierarchy from main titles down to subheadings.</p>
         </header>
 
+        <!-- Official Textbook Companion Connection -->
+        <div class="book-companion-card">
+            <div class="book-companion-left">
+                <span class="book-companion-icon">📖</span>
+                <div class="book-companion-text">
+                    <span>Official Single Source of Truth</span>
+                    <strong>Book Chapter 5: Headings &amp; Paragraphs</strong>
+                </div>
+            </div>
+            <a href="../book-html/index.html#ch5" target="_blank" class="btn-read-book">
+                <span>Read in Textbook</span> <span>↗</span>
+            </a>
+        </div>
+
+        <!-- Section 1: The 6 Heading Levels -->
         <section class="content-section">
-            <h2>The Heading Hierarchy</h2>
-            <p>HTML has 6 sizes of headings! <code>&lt;h1&gt;</code> is the biggest, and <code>&lt;h6&gt;</code> is the smallest. It's like a family of titles!</p>
-            <div style="background: white; padding: 2rem; border-radius: 1rem; color: #1e293b; margin: 1.5rem 0;">
-                <h1 style="margin: 0; color: #1e293b; -webkit-text-fill-color: #1e293b;">h1: Big Title</h1>
-                <h2 style="margin: 0; color: #1e293b; -webkit-text-fill-color: #1e293b;">h2: Smaller Title</h2>
-                <h3 style="margin: 0; color: #1e293b; -webkit-text-fill-color: #1e293b;">h3: Even Smaller</h3>
+            <h2>📰 The 6 Heading Levels (h1 through h6)</h2>
+            <p>HTML provides exactly 6 levels of section headings. Think of them like a newspaper or textbook table of contents:</p>
+            <ul>
+                <li><code>&lt;h1&gt;</code>: <strong>The Main Title</strong> of the entire page. Only use ONE per page for optimal SEO!</li>
+                <li><code>&lt;h2&gt;</code>: <strong>Major Section Topics</strong> (e.g. Chapter titles or main sections).</li>
+                <li><code>&lt;h3&gt;</code>: <strong>Sub-sections</strong> inside an <code>&lt;h2&gt;</code>.</li>
+                <li><code>&lt;h4&gt;</code>, <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code>: Minor subheadings for deep outlines.</li>
+            </ul>
+            <div class="comparison" style="margin-top: 1.5rem;">
+                <div class="good">
+                    <h4>✅ Professional Best Practice</h4>
+                    <p>Always maintain a logical step-by-step ladder: <code>&lt;h1&gt;</code> $\rightarrow$ <code>&lt;h2&gt;</code> $\rightarrow$ <code>&lt;h3&gt;</code>. Never skip from <code>&lt;h1&gt;</code> straight to <code>&lt;h4&gt;</code>!</p>
+                </div>
+                <div class="bad">
+                    <h4>❌ Accessibility Mistake</h4>
+                    <p>Never choose a heading tag just because you want text to look big or small. Use CSS for font sizes, and headings for structural meaning.</p>
+                </div>
             </div>
         </section>
 
+        <!-- Section 2: Paragraphs and Breaks -->
         <section class="content-section">
-            <h2>Paragraphs</h2>
-            <p>For normal text, we use the <code>&lt;p&gt;</code> tag. It stands for "Paragraph". It's perfect for writing your stories or descriptions.</p>
+            <h2>📝 Paragraphs vs Line Breaks</h2>
+            <p>When you press Enter in an HTML file, the browser ignores multiple spaces and newlines (called <em>whitespace collapse</em>). To create clean spacing:</p>
+            <ul>
+                <li><code>&lt;p&gt;...&lt;/p&gt;</code>: Groups a block of sentences and automatically adds comfortable margin above and below.</li>
+                <li><code>&lt;br&gt;</code>: Breaks to the next line immediately (ideal for poems, postal addresses, or lyrics).</li>
+                <li><code>&lt;hr&gt;</code>: Draws a horizontal thematic divider line between major topic changes.</li>
+            </ul>
         </section>
 
+        <!-- Section 3: Live Interactive Coding Playground -->
         <section class="content-section">
-            <h2>Mission: Write a Story</h2>
-            <p>Try making a big title for your story and write a short paragraph below it!</p>
+            <h2>💻 Interactive Lab: Build a Space News Article</h2>
+            <p>Organize the space report below using proper heading hierarchy and paragraphs:</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false">
-<h1>The Amazing Cat</h1>
-<p>Once upon a time, there was a cat who could code in HTML. He was very smart!</p></textarea>
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;The Cosmic Times&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;The Cosmic Times 🚀&lt;/h1&gt;
+    &lt;p&gt;Your #1 source for astronomical discoveries across the galaxy.&lt;/p&gt;
+    &lt;hr&gt;
+    
+    &lt;h2&gt;Water Ice Discovered on Mars!&lt;/h2&gt;
+    &lt;p&gt;Robotic rovers exploring the southern polar cap have confirmed vast underground reservoirs of pure water ice.&lt;/p&gt;
+    
+    &lt;h3&gt;Rover Equipment Insights&lt;/h3&gt;
+    &lt;p&gt;The ground-penetrating radar operated flawlessly across 40 square kilometers.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" style="border-top: 5px solid #10b981;">
-            <h2>Pop Quiz!</h2>
-            <div id="quiz-form-3" class="quiz-section">
-                <div class="quiz-question" data-answer="a">
-                    <p>Which heading tag is the biggest?</p>
-                    <label><input type="radio" name="q1" value="a"> &lt;h1&gt;</label>
-                    <label><input type="radio" name="q1" value="b"> &lt;h6&gt;</label>
-                    <label><input type="radio" name="q1" value="c"> &lt;p&gt;</label>
-                    <div class="quiz-feedback"></div>
+        <!-- Section 4: Official Book Practice Exercises -->
+        <section class="content-section">
+            <h2>🏆 Official Book Practice Exercises</h2>
+            <div class="practice-section">
+                <!-- Easy -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                    <p>How many heading levels exist in HTML? Which heading tag represents the largest and most important title?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            There are 6 heading levels (<code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>). <code>&lt;h1&gt;</code> is the highest, most important title.
+                        </div>
+                    </details>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(3)">Check Answer</button>
+
+                <!-- Medium -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟡 Level 2: Application (Medium)</h4>
+                    <p>Why should you have only ONE <code>&lt;h1&gt;</code> on a standard web page, even if the browser lets you put multiple?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            Search engines (Google) use <code>&lt;h1&gt;</code> to index what the whole page is about. Screen readers for blind users also announce the <code>&lt;h1&gt;</code> first. Multiple <code>&lt;h1&gt;</code> tags create confusion.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Challenge -->
+                <div>
+                    <h4>🔴 Level 3: Textbook Challenge — Class Newspaper Front Page</h4>
+                    <p><strong>Chapter 5 Real-World Mission:</strong> In the editor above, build the front page of the <strong>"Junior Coders Gazette"</strong> — your class newspaper. Your newspaper must use the full heading hierarchy from the textbook:</p>
+                    <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
+                        <li>An <code>&lt;h1&gt;</code> for the newspaper name: <em>"Junior Coders Gazette"</em></li>
+                        <li>An <code>&lt;h2&gt;</code> for the top story section: <em>"Breaking News"</em></li>
+                        <li>An <code>&lt;h3&gt;</code> for the article headline with today's date</li>
+                        <li>A <code>&lt;p&gt;</code> with the article body text (3+ sentences)</li>
+                        <li>An <code>&lt;h2&gt;</code> for a second section: <em>"Sports &amp; Clubs"</em></li>
+                        <li>An <code>&lt;h3&gt;</code> + <code>&lt;p&gt;</code> for a short sports match result</li>
+                        <li>An <code>&lt;h4&gt;</code> inside a sports sub-story with match statistics</li>
+                    </ol>
+                </div>
             </div>
         </section>
 
-        
+        <!-- Section 5: Interactive Quiz -->
+        <section class="content-section" style="border-top: 4px solid #ea580c;">
+            <h2>⚡ Quick Knowledge Check</h2>
+            <div id="quiz-form-3" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Which heading tag represents the smallest, lowest-ranked heading?</p>
+                    <label><input type="radio" name="q1" value="a"> &lt;h1&gt;</label>
+                    <label><input type="radio" name="q1" value="b"> &lt;h6&gt;</label>
+                    <label><input type="radio" name="q1" value="c"> &lt;h10&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: What happens if you type 5 spaces or 3 enters between words in HTML?</p>
+                    <label><input type="radio" name="q2" value="a"> The browser collapses them into a single space</label>
+                    <label><input type="radio" name="q2" value="b"> The browser generates an error</label>
+                    <label><input type="radio" name="q2" value="c"> The browser creates 3 blank paragraphs</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: Which tag creates a horizontal line across the page to visually separate topics?</p>
+                    <label><input type="radio" name="q3" value="a"> &lt;line&gt;</label>
+                    <label><input type="radio" name="q3" value="b"> &lt;br&gt;</label>
+                    <label><input type="radio" name="q3" value="c"> &lt;hr&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(3)" style="background: #ea580c; border: none; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; cursor: pointer; color: white;">Check Answers</button>
+            </div>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <div class="module-nav-bar">
+            <a href="module2.html" class="btn-nav-action">
+                <span>←</span> <span>Module 2</span>
+            </a>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="learninghtml.html" class="btn-nav-action">
+                    <span>📚</span> <span>Syllabus</span>
+                </a>
+                <a href="../book-html/index.html#ch5" target="_blank" class="btn-nav-action">
+                    <span>📖</span> <span>Open Book Ch 5</span>
+                </a>
+                <a href="module4.html" class="btn-nav-action primary">
+                    <span>Next: Module 4 (Formatting)</span> <span>→</span>
+                </a>
+            </div>
+        </div>
     </main>
+
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
 </body>

@@ -3,59 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 4: Text Style | Junior Coders</title>
+    <meta name="description" content="Module 4: Text Formatting and Semantic Emphases. Official Class 6 & 7 curriculum.">
+    <title>Module 4: Text Formatting | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="module-container">
+        <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: white; color: var(--primary);">Level 1</span>
-            <h1>Text Formatting</h1>
-            <p>Learn how to make your text bold, italic, and stylish! ✍️</p>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 1: Fundamentals</span>
+            <h1>Module 4: Text Formatting</h1>
+            <p>Add semantic power and visual emphasis to words using bold, italics, highlights, and math notations.</p>
         </header>
 
+        <!-- Official Textbook Companion Connection -->
+        <div class="book-companion-card">
+            <div class="book-companion-left">
+                <span class="book-companion-icon">📖</span>
+                <div class="book-companion-text">
+                    <span>Official Single Source of Truth</span>
+                    <strong>Book Chapter 6: Text Formatting &amp; Semantic Emphasis</strong>
+                </div>
+            </div>
+            <a href="../book-html/index.html#ch6" target="_blank" class="btn-read-book">
+                <span>Read in Textbook</span> <span>↗</span>
+            </a>
+        </div>
 
+        <!-- Section 1: Semantic Formatting Tags -->
         <section class="content-section">
-            <h2>Special Formatting Tags</h2>
-            <p>Sometimes you want to make a word special. We have tags for that!</p>
+            <h2>✨ Semantic Formatting Tags (From Chapter 6)</h2>
+            <p>In modern web standards, formatting tags do more than just change the appearance—they announce emotional tone and importance to search engines and screen readers:</p>
             <ul>
-                <li><code>&lt;strong&gt;</code>: Makes text <strong>bold</strong> and tells the computer it is important.</li>
-                <li><code>&lt;em&gt;</code>: Makes text <em>italic</em> and adds emphasis.</li>
-                <li><code>&lt;mark&gt;</code>: <mark>Highlights</mark> your text like a marker!</li>
+                <li><code>&lt;strong&gt;</code>: Indicates <strong>critical importance or urgency</strong>. Rendered bold by default.</li>
+                <li><code>&lt;em&gt;</code>: Adds <em>verbal stress or emphasis</em> to a word. Rendered italic by default.</li>
+                <li><code>&lt;mark&gt;</code>: Highlights text with a bright yellow background marker pen.</li>
+                <li><code>&lt;del&gt;</code>: Strikes through text to show removed content (great for sale prices!).</li>
+                <li><code>&lt;ins&gt;</code>: Underlines text to show newly inserted content.</li>
             </ul>
         </section>
 
+        <!-- Section 2: Subscript, Superscript & Quotes -->
         <section class="content-section">
-            <h2>Mission: Style Your Name</h2>
-            <p>Try using the <code>&lt;strong&gt;</code> and <code>&lt;mark&gt;</code> tags to make your name look cool!</p>
+            <h2>🔬 Science, Math &amp; Quotes</h2>
+            <p>You can write scientific formulas and mathematical powers natively in HTML:</p>
+            <ul>
+                <li><code>&lt;sub&gt;</code>: <strong>Subscript</strong> (drops below the baseline): <code>H&lt;sub&gt;2&lt;/sub&gt;O</code> $\rightarrow$ H<sub>2</sub>O</li>
+                <li><code>&lt;sup&gt;</code>: <strong>Superscript</strong> (floats above the baseline): <code>E = mc&lt;sup&gt;2&lt;/sup&gt;</code> $\rightarrow$ E = mc<sup>2</sup></li>
+                <li><code>&lt;blockquote&gt;</code>: Large indented block quotation for famous quotes.</li>
+                <li><code>&lt;code&gt;</code>: Monospaced font for displaying programming code snippets.</li>
+            </ul>
+        </section>
+
+        <!-- Section 3: Live Interactive Coding Playground -->
+        <section class="content-section">
+            <h2>💻 Interactive Lab: Science Lab &amp; Store Sale</h2>
+            <p>Combine formatting tags in the editor below to format a scientific discovery and an e-commerce sale price:</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false">
-<p>My name is <mark><strong>Junior Coder</strong></mark>!</p>
-<p>I am <em>very</em> excited to learn HTML.</p></textarea>
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Formatting Showcase&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Chemistry &amp; Physics Report&lt;/h1&gt;
+    &lt;p&gt;Water is formed by combining &lt;strong&gt;Hydrogen&lt;/strong&gt; and &lt;strong&gt;Oxygen&lt;/strong&gt;: H&lt;sub&gt;2&lt;/sub&gt;O.&lt;/p&gt;
+    &lt;p&gt;Einstein's famous mass-energy equivalence equation is &lt;em&gt;E = mc&lt;sup&gt;2&lt;/sup&gt;&lt;/em&gt;.&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;h2&gt;Flash Gaming Sale!&lt;/h2&gt;
+    &lt;p&gt;Original Price: &lt;del&gt;$59.99&lt;/del&gt;&lt;/p&gt;
+    &lt;p&gt;Sale Price: &lt;ins&gt;&lt;strong&gt;$19.99&lt;/strong&gt;&lt;/ins&gt; (&lt;mark&gt;Save 66% Today!&lt;/mark&gt;)&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" style="border-top: 5px solid #f59e0b;">
-            <h2>Quick Question!</h2>
-            <div id="quiz-form-4" class="quiz-section">
-                <div class="quiz-question" data-answer="c">
-                    <p>Which tag makes text look like it was highlighted with a marker?</p>
-                    <label><input type="radio" name="q1" value="a"> &lt;strong&gt;</label>
-                    <label><input type="radio" name="q1" value="b"> &lt;em&gt;</label>
-                    <label><input type="radio" name="q1" value="c"> &lt;mark&gt;</label>
-                    <div class="quiz-feedback"></div>
+        <!-- Section 4: Official Book Practice Exercises -->
+        <section class="content-section">
+            <h2>🏆 Official Book Practice Exercises</h2>
+            <div class="practice-section">
+                <!-- Easy -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                    <p>What is the difference between <code>&lt;sub&gt;</code> and <code>&lt;sup&gt;</code>? What color does <code>&lt;mark&gt;</code> highlight by default?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            <code>&lt;sub&gt;</code> is subscript (drops down, e.g. CO<sub>2</sub>). <code>&lt;sup&gt;</code> is superscript (floats up, e.g. 10<sup>th</sup>). <code>&lt;mark&gt;</code> highlights with yellow.
+                        </div>
+                    </details>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(4)">Check Answer</button>
+
+                <!-- Medium -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟡 Level 2: Application (Medium)</h4>
+                    <p>Why do modern developers prefer <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code> instead of the older <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code>?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            <code>&lt;strong&gt;</code> and <code>&lt;em&gt;</code> are <strong>semantic tags</strong>. They tell screen readers to emphasize speech acoustically, and help search engines understand key concepts. <code>&lt;b&gt;</code> and <code>&lt;i&gt;</code> only change visuals with no meaning.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Challenge -->
+                <div>
+                    <h4>🔴 Level 3: Textbook Challenge — History Facts Bulletin</h4>
+                    <p><strong>Chapter 6 Real-World Mission:</strong> In the editor above, build a <strong>History Class Facts Bulletin</strong> about a famous historical event. Use every text formatting tag from the chapter:</p>
+                    <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
+                        <li>An <code>&lt;h1&gt;</code> for the event title</li>
+                        <li><code>&lt;strong&gt;</code> for 3 key dates in your article</li>
+                        <li><code>&lt;em&gt;</code> for a famous quote from a historical figure</li>
+                        <li><code>&lt;mark&gt;</code> to highlight the most important fact</li>
+                        <li><code>&lt;del&gt;</code> to cross out a common myth, then <code>&lt;ins&gt;</code> with the correct fact</li>
+                        <li>A footnote number using <code>&lt;sup&gt;</code> (e.g. <em>Source<sup>1</sup></em>)</li>
+                        <li>A chemical or mathematical expression using <code>&lt;sub&gt;</code> and <code>&lt;sup&gt;</code></li>
+                    </ol>
+                </div>
             </div>
         </section>
 
-        
+        <!-- Section 5: Interactive Quiz -->
+        <section class="content-section" style="border-top: 4px solid #ea580c;">
+            <h2>⚡ Quick Knowledge Check</h2>
+            <div id="quiz-form-4" class="quiz-section">
+                <div class="quiz-question" data-answer="a">
+                    <p>Q1: Which tag is used to mark text as urgently important?</p>
+                    <label><input type="radio" name="q1" value="a"> &lt;strong&gt;</label>
+                    <label><input type="radio" name="q1" value="b"> &lt;big&gt;</label>
+                    <label><input type="radio" name="q1" value="c"> &lt;highlight&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q2: Which tag makes the number '2' float higher as an exponent in 10²?</p>
+                    <label><input type="radio" name="q2" value="a"> &lt;sub&gt;</label>
+                    <label><input type="radio" name="q2" value="b"> &lt;high&gt;</label>
+                    <label><input type="radio" name="q2" value="c"> &lt;sup&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q3: Which tag creates a highlighted yellow background behind words?</p>
+                    <label><input type="radio" name="q3" value="a"> &lt;color&gt;</label>
+                    <label><input type="radio" name="q3" value="b"> &lt;mark&gt;</label>
+                    <label><input type="radio" name="q3" value="c"> &lt;yellow&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(4)" style="background: #ea580c; border: none; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; cursor: pointer; color: white;">Check Answers</button>
+            </div>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <div class="module-nav-bar">
+            <a href="module3.html" class="btn-nav-action">
+                <span>←</span> <span>Module 3</span>
+            </a>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="learninghtml.html" class="btn-nav-action">
+                    <span>📚</span> <span>Syllabus</span>
+                </a>
+                <a href="../book-html/index.html#ch6" target="_blank" class="btn-nav-action">
+                    <span>📖</span> <span>Open Book Ch 6</span>
+                </a>
+                <a href="module5.html" class="btn-nav-action primary">
+                    <span>Next: Module 5 (Links)</span> <span>→</span>
+                </a>
+            </div>
+        </div>
     </main>
+
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
 </body>

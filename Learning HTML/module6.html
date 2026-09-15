@@ -3,63 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 6: Cool Pictures | Junior Coders</title>
+    <meta name="description" content="Module 6: Images and Multimedia Accessibility. Official Class 6 & 7 curriculum.">
+    <title>Module 6: Images &amp; Media | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="module-container">
+        <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: white; color: var(--primary);">Level 2</span>
-            <h1>Vibrant Images</h1>
-            <p>Bring your website to life with photos and illustrations! 🖼️</p>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 2: Content &amp; Media</span>
+            <h1>Module 6: Images &amp; Media</h1>
+            <p>Bring pages to life with images, photos, and accessibility best practices.</p>
         </header>
 
+        <!-- Official Textbook Companion Connection -->
+        <div class="book-companion-card">
+            <div class="book-companion-left">
+                <span class="book-companion-icon">📖</span>
+                <div class="book-companion-text">
+                    <span>Official Single Source of Truth</span>
+                    <strong>Book Chapter 8: Images &amp; Media</strong>
+                </div>
+            </div>
+            <a href="../book-html/index.html#ch8" target="_blank" class="btn-read-book">
+                <span>Read in Textbook</span> <span>↗</span>
+            </a>
+        </div>
 
+        <!-- Section 1: The Image Element -->
         <section class="content-section">
-            <h2>Embedding Images</h2>
-            <p>A website without pictures is boring! We use the <code>&lt;img&gt;</code> tag to show images. It doesn't have a closing tag!</p>
-            <div style="background: #1e293b; padding: 2rem; border-radius: 1rem; text-align: center; margin: 1.5rem 0;">
-                <code style="color: #a78bfa; font-size: 1.3rem;">&lt;img src="pic.jpg" alt="Description"&gt;</code>
+            <h2>🖼️ The &lt;img&gt; Element &amp; Mandatory Attributes</h2>
+            <p>The <code>&lt;img&gt;</code> tag is a <strong>void (empty) tag</strong>. It does not enclose words; instead, it points to an image file using two critical attributes:</p>
+            <div class="code-block" style="background: #0f172a; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                <code style="color: #ea580c; font-size: 1.2rem;">&lt;img <span style="color: #38bdf8;">src</span>="<span style="color: #a3e635;">astronaut.jpg</span>" <span style="color: #38bdf8;">alt</span>="<span style="color: #a3e635;">Astronaut floating near Saturn rings</span>" <span style="color: #38bdf8;">width</span>="<span style="color: #a3e635;">400</span>"&gt;</code>
+            </div>
+            <ul style="margin-top: 1.25rem;">
+                <li><code>src</code> (Source): The file path or web URL where the image is stored.</li>
+                <li><code>alt</code> (Alternative Text): Descriptive words explaining the image. If the connection fails or if a visually impaired student uses a screen reader, the browser reads this exact text!</li>
+            </ul>
+        </section>
+
+        <!-- Section 2: Image Formats & Dimensions -->
+        <section class="content-section">
+            <h2>🎨 Image Formats &amp; Dimensions</h2>
+            <div class="comparison">
+                <div class="good">
+                    <h4>📸 Modern Formats</h4>
+                    <ul>
+                        <li><strong>WebP</strong>: Google's ultra-light modern format with tiny file sizes.</li>
+                        <li><strong>PNG</strong>: Sharp graphics with transparent backgrounds.</li>
+                        <li><strong>SVG</strong>: Vector graphics that stay crystal-clear at any zoom level!</li>
+                        <li><strong>JPG / JPEG</strong>: Best for rich photographs with many natural colors.</li>
+                    </ul>
+                </div>
+                <div class="good">
+                    <h4>📐 Width &amp; Height</h4>
+                    <p>Always specify <code>width</code> or <code>height</code> so the browser reserves layout space before the image downloads, preventing jarring screen jumps (CLS layout shift).</p>
+                </div>
             </div>
         </section>
 
+        <!-- Section 3: Clickable Image Links -->
         <section class="content-section">
-            <h2>The Alt Text Power</h2>
-            <p>The <code>alt</code> attribute is <strong>super important</strong>. It describes the picture for people who cannot see it (like screen readers). It also shows up if the picture breaks!</p>
+            <h2>🖱️ Clickable Image Banners</h2>
+            <p>Wrap any <code>&lt;img&gt;</code> inside an anchor tag <code>&lt;a&gt;</code> to transform the picture into a clickable button or portal:</p>
+            <div class="code-block" style="background: #0f172a; padding: 1rem; border-radius: 8px;">
+                <code style="color: #38bdf8;">&lt;a href="https://nasa.gov" target="_blank"&gt;</code><br>
+                &nbsp;&nbsp;<code style="color: #ea580c;">&lt;img src="logo.png" alt="NASA Logo" width="120"&gt;</code><br>
+                <code style="color: #38bdf8;">&lt;/a&gt;</code>
+            </div>
         </section>
 
+        <!-- Section 4: Live Interactive Coding Playground -->
         <section class="content-section">
-            <h2>Mission: Add a Photo</h2>
-            <p>Try adding an image and give it a cool description in the <code>alt</code> attribute!</p>
+            <h2>💻 Interactive Lab: Photo Card with Image Link</h2>
+            <p>Customize the image source and dimensions below to see the rendered image update live:</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false">
-<h2>My Cool Image</h2>
-<img src="https://images.unsplash.com/photo-1587620962725-abab7fe55159?w=300" alt="A laptop with code on the screen">
-<p>Coding is like magic!</p></textarea>
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Photo Showcase&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Cosmic Gallery 🌌&lt;/h1&gt;
+    &lt;p&gt;Click the badge below to visit Junior Coders:&lt;/p&gt;
+    
+    &lt;a href="https://example.com" target="_blank"&gt;
+        &lt;img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&amp;auto=format&amp;fit=crop" 
+             alt="Planet Earth viewed from deep space with glowing atmosphere" 
+             width="320" 
+             style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);"&gt;
+    &lt;/a&gt;
+    
+    &lt;p&gt;&lt;em&gt;Photograph: Planet Earth from orbit.&lt;/em&gt;&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" style="border-top: 5px solid #8b5cf6;">
-            <h2>Quick Quiz!</h2>
-            <div id="quiz-form-6" class="quiz-section">
-                <div class="quiz-question" data-answer="a">
-                    <p>Which attribute is used to describe an image for accessibility?</p>
-                    <label><input type="radio" name="q1" value="a"> alt</label>
-                    <label><input type="radio" name="q1" value="b"> src</label>
-                    <label><input type="radio" name="q1" value="c"> description</label>
-                    <div class="quiz-feedback"></div>
+        <!-- Section 5: Official Book Practice Exercises -->
+        <section class="content-section">
+            <h2>🏆 Official Book Practice Exercises</h2>
+            <div class="practice-section">
+                <!-- Easy -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                    <p>Which two attributes are strictly necessary for every standard image tag? Is <code>&lt;img&gt;</code> a container or void tag?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            <code>src</code> (the image file path) and <code>alt</code> (the description for accessibility). <code>&lt;img&gt;</code> is a void tag (no closing tag).
+                        </div>
+                    </details>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(6)">Check Answer</button>
+
+                <!-- Medium -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟡 Level 2: Application (Medium)</h4>
+                    <p>Why is writing <code>alt="photo"</code> or <code>alt="image.jpg"</code> considered bad practice by professional web developers?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            The <code>alt</code> attribute must describe the actual subject and context of the image so a blind student using a screen reader understands what is on the screen (e.g. <code>alt="Brown puppy running on green grass"</code>).
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Challenge -->
+                <div>
+                    <h4>🔴 Level 3: Textbook Challenge — School Photo Gallery</h4>
+                    <p><strong>Chapter 8 Real-World Mission:</strong> In the editor above, build a <strong>School Events Photo Gallery</strong> with 3 photo cards. Each card must follow the textbook's best practices:</p>
+                    <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
+                        <li>Use <code>&lt;figure&gt;</code> as the card wrapper for each photo</li>
+                        <li>An <code>&lt;img&gt;</code> with a real URL (e.g. from <code>picsum.photos</code>), a <code>width</code>, and a descriptive <code>alt</code> text</li>
+                        <li>A <code>&lt;figcaption&gt;</code> with the event name and date</li>
+                        <li>Wrap the image in an <code>&lt;a&gt;</code> that opens a full-size version in a new tab</li>
+                        <li>An <code>&lt;h1&gt;</code> at the top: <em>"Junior Coders Academy — 2026 Events"</em></li>
+                    </ol>
+                    <p style="margin-top: 0.75rem; font-size: 0.88rem; color: var(--text-muted);">Image URL tip: <code>https://picsum.photos/300/200?random=1</code> gives you a random placeholder photo.</p>
+                </div>
             </div>
         </section>
 
-        
+        <!-- Section 6: Interactive Quiz -->
+        <section class="content-section" style="border-top: 4px solid #ea580c;">
+            <h2>⚡ Quick Knowledge Check</h2>
+            <div id="quiz-form-6" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Which attribute tells the browser where the image file is saved?</p>
+                    <label><input type="radio" name="q1" value="a"> href</label>
+                    <label><input type="radio" name="q1" value="b"> src</label>
+                    <label><input type="radio" name="q1" value="c"> link</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: What is the main purpose of the alt attribute?</p>
+                    <label><input type="radio" name="q2" value="a"> Provides a text description for screen readers and broken image fallback</label>
+                    <label><input type="radio" name="q2" value="b"> Changes the border color of the picture</label>
+                    <label><input type="radio" name="q2" value="c"> Increases the download speed</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: How do you turn an image into a clickable link?</p>
+                    <label><input type="radio" name="q3" value="a"> Add click="true" inside &lt;img&gt;</label>
+                    <label><input type="radio" name="q3" value="b"> Place &lt;img&gt; inside &lt;button&gt; only</label>
+                    <label><input type="radio" name="q3" value="c"> Wrap &lt;img&gt; inside an &lt;a href="..."&gt; tag</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(6)" style="background: #ea580c; border: none; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; cursor: pointer; color: white;">Check Answers</button>
+            </div>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <div class="module-nav-bar">
+            <a href="module5.html" class="btn-nav-action">
+                <span>←</span> <span>Module 5</span>
+            </a>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="learninghtml.html" class="btn-nav-action">
+                    <span>📚</span> <span>Syllabus</span>
+                </a>
+                <a href="../book-html/index.html#ch8" target="_blank" class="btn-nav-action">
+                    <span>📖</span> <span>Open Book Ch 8</span>
+                </a>
+                <a href="module7.html" class="btn-nav-action primary">
+                    <span>Next: Module 7 (Tables)</span> <span>→</span>
+                </a>
+            </div>
+        </div>
     </main>
+
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
 </body>

@@ -3,65 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 2: Power-up Attributes | Junior Coders</title>
+    <meta name="description" content="Module 2: HTML Tags, Elements, and Attribute Superpowers. Official Class 6 & 7 curriculum.">
+    <title>Module 2: Tags &amp; Attribute Superpowers | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="module-container">
+        <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: white; color: var(--primary);">Level 2</span>
-            <h1>Power-up Attributes</h1>
-            <p>Learn how to give your tags extra information! 💎</p>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 1: Fundamentals</span>
+            <h1>Module 2: Tags &amp; Attribute Superpowers</h1>
+            <p>Master how tags, elements, and attributes work together to give HTML elements superpowers.</p>
         </header>
 
-        <section class="content-section">
-            <h2>What are Attributes?</h2>
-            <p>Attributes are like <strong>settings</strong> for your tags. They always live inside the opening tag. For example, if you have a tag for a link, the attribute tells the computer <strong>where</strong> the link goes!</p>
-        </section>
-
-        <section class="content-section">
-            <h2>How to write them</h2>
-            <p>We write attributes like this: <code>name="value"</code>. Look at this example:</p>
-            <div style="background: #1e293b; padding: 2rem; border-radius: 1rem; text-align: center; margin: 1.5rem 0;">
-                <code style="color: #fb7185; font-size: 1.3rem;">&lt;p class="super-text" lang="en"&gt;Hello!&lt;/p&gt;</code>
+        <!-- Official Textbook Companion Connection -->
+        <div class="book-companion-card">
+            <div class="book-companion-left">
+                <span class="book-companion-icon">📖</span>
+                <div class="book-companion-text">
+                    <span>Official Single Source of Truth</span>
+                    <strong>Book Chapter 4: Understanding HTML Tags &amp; Attributes</strong>
+                </div>
             </div>
-            <p>Here, <code>class</code> and <code>lang</code> are attributes. They help us group things or tell the computer what language we are using.</p>
+            <a href="../book-html/index.html#ch4" target="_blank" class="btn-read-book">
+                <span>Read in Textbook</span> <span>↗</span>
+            </a>
+        </div>
+
+        <!-- Section 1: Tags vs Elements -->
+        <section class="content-section">
+            <h2>🧩 Tags vs. Elements (From Chapter 4)</h2>
+            <p>In web development, people often say "tag" and "element" interchangeably, but as our textbook clarifies, there is a clear distinction:</p>
+            <ul>
+                <li><strong>HTML Tag</strong>: The angle brackets code alone, such as <code>&lt;p&gt;</code> or <code>&lt;/p&gt;</code>.</li>
+                <li><strong>HTML Element</strong>: The entire complete sandwich from the opening tag, through the content, to the closing tag!</li>
+            </ul>
+            <div class="code-block" style="background: #0f172a; padding: 1.25rem; border-radius: 8px; margin-top: 1rem;">
+                <code style="color: #38bdf8;">&lt;p&gt;</code><span style="color: #fff;">This whole package is the Element</span><code style="color: #38bdf8;">&lt;/p&gt;</code>
+            </div>
         </section>
 
+        <!-- Section 2: Void / Self-Closing Tags -->
         <section class="content-section">
-            <h2>Your Power-up Mission</h2>
-            <p>Try adding an attribute to the tag below! Try setting the <code>lang</code> attribute to "en" for English.</p>
+            <h2>⚡ Normal vs. Void (Empty) Tags</h2>
+            <p>Most tags enclose content, but some tags stand completely alone because they don't contain any text. These are called <strong>Void Tags</strong>:</p>
+            <ul>
+                <li><code>&lt;hr&gt;</code>: Creates a thematic horizontal dividing line.</li>
+                <li><code>&lt;br&gt;</code>: Drops the text down to a new line without a paragraph gap.</li>
+                <li><code>&lt;img&gt;</code>: Displays an image loaded from a source file.</li>
+            </ul>
+            <p>Void tags never have a closing <code>&lt;/tag&gt;</code>.</p>
+        </section>
+
+        <!-- Section 3: Attributes Syntax -->
+        <section class="content-section">
+            <h2>💎 How Attributes Work: name="value"</h2>
+            <p><strong>Attributes</strong> are modifier keywords placed <em>inside the opening tag</em> that provide extra configuration settings:</p>
+            <div class="code-block" style="background: #0f172a; padding: 1.5rem; border-radius: 8px; text-align: center;">
+                <code style="color: #ea580c; font-size: 1.2rem;">&lt;p <span style="color: #38bdf8;">title</span>="<span style="color: #a3e635;">Hover over me for a tooltip!</span>"&gt;</code>
+                <span style="color: white; font-size: 1.2rem;">Hello!</span>
+                <code style="color: #ea580c; font-size: 1.2rem;">&lt;/p&gt;</code>
+            </div>
+            <p style="margin-top: 1rem;">Common universal attributes include:</p>
+            <ul>
+                <li><code>title</code>: Displays a helpful hover tooltip when a user places their mouse cursor over the element.</li>
+                <li><code>lang</code>: Tells search engines and screen readers what language the content is in (e.g. <code>lang="en"</code>).</li>
+                <li><code>id</code> &amp; <code>class</code>: Label elements for CSS styling and scripting.</li>
+            </ul>
+        </section>
+
+        <!-- Section 4: Live Interactive Coding Playground -->
+        <section class="content-section">
+            <h2>💻 Interactive Lab: Test Attributes in Action</h2>
+            <p>Add a <code>title</code> attribute to the heading and paragraphs below. Hover your mouse over the rendered preview to see your tooltips appear!</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false">
-<html lang="en">
-<body>
-    <p>This page is in English!</p>
-</body>
-</html></textarea>
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Attribute Superpowers&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1 title="Awesome Heading Tooltip!"&gt;Hover Over Me! 🎯&lt;/h1&gt;
+    &lt;p title="This is a secret message from Alex"&gt;Move your mouse cursor right here to reveal my secret tooltip.&lt;/p&gt;
+    &lt;hr&gt;
+    &lt;p&gt;Line 1 of my story.&lt;br&gt;Line 2 jumps down immediately with a line break!&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" style="border-top: 5px solid #f43f5e;">
-            <h2>Challenge!</h2>
-            <div id="quiz-form-2" class="quiz-section">
-                <div class="quiz-question" data-answer="c">
-                    <p>Where do we always put attributes?</p>
-                    <label><input type="radio" name="q1" value="a"> Inside the closing tag</label>
-                    <label><input type="radio" name="q1" value="b"> After the closing tag</label>
-                    <label><input type="radio" name="q1" value="c"> Inside the opening tag</label>
-                    <div class="quiz-feedback"></div>
+        <!-- Section 5: Official Book Practice Exercises -->
+        <section class="content-section">
+            <h2>🏆 Official Book Practice Exercises</h2>
+            <div class="practice-section">
+                <!-- Easy -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                    <p>Where are attributes always written—in the opening tag, closing tag, or between the tags? Give an example of a void tag.</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            Attributes are always written <strong>inside the opening tag</strong>. Void tags include <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>, and <code>&lt;img&gt;</code>.
+                        </div>
+                    </details>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(2)">Check Answer</button>
+
+                <!-- Medium -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟡 Level 2: Application (Medium)</h4>
+                    <p>Identify the syntax error in this code: <code>&lt;p title=Secret Mission&gt;Click me&lt;/p&gt;</code>. How should it be written?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            Attribute values must always be enclosed in quotes: <code>&lt;p title="Secret Mission"&gt;Click me&lt;/p&gt;</code>. Without quotes, spaces break attribute parsing.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Challenge -->
+                <div>
+                    <h4>🔴 Level 3: Textbook Challenge — Science Lab Specimen Tag</h4>
+                    <p><strong>Chapter 4 Real-World Mission:</strong> In the editor above, build a <strong>Science Lab Specimen Tag</strong> for a newly discovered species. Your specimen tag must include:</p>
+                    <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
+                        <li>An <code>&lt;h1&gt;</code> with the species name AND a <code>title</code> attribute (hover tooltip) showing the Latin scientific name</li>
+                        <li>An <code>&lt;h2&gt;</code> reading "Discovery Location" with a <code>title</code> showing GPS coordinates</li>
+                        <li>A 3-line <code>&lt;p&gt;</code> description of the species separated by <code>&lt;br&gt;</code> tags</li>
+                        <li>A <code>&lt;p&gt;</code> with the <code>lang</code> attribute set to the country of discovery</li>
+                        <li>An <code>&lt;hr&gt;</code> divider, then a <code>&lt;p&gt;</code> reading <em>"Classified: Top Secret 🔒"</em></li>
+                    </ol>
+                </div>
             </div>
         </section>
 
-        
+        <!-- Section 6: Interactive Quiz -->
+        <section class="content-section" style="border-top: 4px solid #ea580c;">
+            <h2>⚡ Quick Knowledge Check</h2>
+            <div id="quiz-form-2" class="quiz-section">
+                <div class="quiz-question" data-answer="c">
+                    <p>Q1: Where do HTML attributes always belong?</p>
+                    <label><input type="radio" name="q1" value="a"> Inside the closing tag (&lt;/p&gt;)</label>
+                    <label><input type="radio" name="q1" value="b"> Between the tags as regular text</label>
+                    <label><input type="radio" name="q1" value="c"> Inside the opening tag (&lt;p ...&gt;)</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q2: Which of the following is a Void (empty) tag that requires no closing tag?</p>
+                    <label><input type="radio" name="q2" value="a"> &lt;title&gt;</label>
+                    <label><input type="radio" name="q2" value="b"> &lt;hr&gt;</label>
+                    <label><input type="radio" name="q2" value="c"> &lt;body&gt;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: What does the title attribute do on standard text tags?</p>
+                    <label><input type="radio" name="q3" value="a"> Displays a hover tooltip when mouse cursor hovers over it</label>
+                    <label><input type="radio" name="q3" value="b"> Changes the browser tab name</label>
+                    <label><input type="radio" name="q3" value="c"> Makes text bold and uppercase</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(2)" style="background: #ea580c; border: none; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; cursor: pointer; color: white;">Check Answers</button>
+            </div>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <div class="module-nav-bar">
+            <a href="module1.html" class="btn-nav-action">
+                <span>←</span> <span>Module 1</span>
+            </a>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="learninghtml.html" class="btn-nav-action">
+                    <span>📚</span> <span>Syllabus</span>
+                </a>
+                <a href="../book-html/index.html#ch4" target="_blank" class="btn-nav-action">
+                    <span>📖</span> <span>Open Book Ch 4</span>
+                </a>
+                <a href="module3.html" class="btn-nav-action primary">
+                    <span>Next: Module 3 (Headings)</span> <span>→</span>
+                </a>
+            </div>
+        </div>
     </main>
+
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
 </body>

@@ -3,80 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 12: Smart Semantics | Junior Coders</title>
+    <meta name="description" content="Module 12: Semantic HTML5 & Modern Layout Architecture. Learn header, nav, main, article, section, aside, footer — write code that Google and screen readers love. Official Class 6 & 7 curriculum.">
+    <title>Module 12: Semantic HTML5 &amp; Modern Layout | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="module-container">
+        <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: white; color: var(--primary);">Level 12</span>
-            <h1>Smart Semantics!</h1>
-            <p>Write code that the whole world can understand. 🧠</p>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 3: Architecture &amp; Forms</span>
+            <h1>Module 12: Semantic HTML5 &amp; Modern Layout</h1>
+            <p>Write code that both Google and humans understand. Use meaningful tags that describe <em>what</em> content is, not just where it sits.</p>
         </header>
 
+        <!-- Official Textbook Companion Connection -->
+        <div class="book-companion-card">
+            <div class="book-companion-left">
+                <span class="book-companion-icon">📖</span>
+                <div class="book-companion-text">
+                    <span>Official Single Source of Truth</span>
+                    <strong>Book Chapter 12: Semantic HTML5 &amp; Modern Layout Architecture</strong>
+                </div>
+            </div>
+            <a href="../book-html/index.html#ch12" target="_blank" class="btn-read-book">
+                <span>Read in Textbook</span> <span>↗</span>
+            </a>
+        </div>
+
+        <!-- Section 1: What is Semantic HTML? -->
         <section class="content-section">
-            <h2>What is Semantic HTML?</h2>
-            <p>Semantic HTML means using tags that describe their **meaning**. Instead of just using a generic <code>&lt;div&gt;</code> for everything, we use specific tags!</p>
-            <ul>
-                <li><code>&lt;header&gt;</code>: For the top part of your site.</li>
-                <li><code>&lt;nav&gt;</code>: For your navigation links.</li>
-                <li><code>&lt;main&gt;</code>: For the most important content.</li>
-                <li><code>&lt;footer&gt;</code>: For the bottom part.</li>
-            </ul>
+            <h2>🧠 What is Semantic HTML? (From Chapter 12)</h2>
+            <p>Every HTML tag is either <strong>semantic</strong> or <strong>generic</strong>. A semantic tag carries <em>meaning</em> about the content it wraps — not just its visual position on screen.</p>
+            <div class="comparison">
+                <div class="bad">
+                    <h4>❌ Non-Semantic (Generic)</h4>
+                    <p>Using <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> for everything. Browsers, Google, and screen readers cannot understand <em>what</em> the content is — they just see boxes.</p>
+                    <pre style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.82rem; color: #fda4af; background: rgba(244,63,94,0.08); border-radius: 6px; padding: 0.65rem; overflow-x:auto;">&lt;div id="header"&gt;...&lt;/div&gt;
+&lt;div id="nav"&gt;...&lt;/div&gt;
+&lt;div id="main"&gt;...&lt;/div&gt;
+&lt;div id="footer"&gt;...&lt;/div&gt;</pre>
+                </div>
+                <div class="good">
+                    <h4>✅ Semantic (Meaningful)</h4>
+                    <p>Using purpose-built HTML5 tags. Google boosts SEO rankings, screen readers announce "Navigation region" or "Main content" — everyone wins.</p>
+                    <pre style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.82rem; color: #6ee7b7; background: rgba(16,185,129,0.08); border-radius: 6px; padding: 0.65rem; overflow-x:auto;">&lt;header&gt;...&lt;/header&gt;
+&lt;nav&gt;...&lt;/nav&gt;
+&lt;main&gt;...&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</pre>
+                </div>
+            </div>
         </section>
 
+        <!-- Section 2: The 7 Semantic Landmarks -->
         <section class="content-section">
-            <h2>Why is it smart?</h2>
-            <p>It helps <strong>Google</strong> understand your site better (SEO) and it helps <strong>Screen Readers</strong> describe the page to people who are blind. It's the mark of a pro coder!</p>
+            <h2>🗺️ The 7 Semantic Landmark Tags (Ch 12)</h2>
+            <p>These are the building blocks of every modern, professional web page:</p>
+            <table style="width:100%; border-collapse:collapse; margin-top: 1rem; font-size: 0.9rem;">
+                <thead>
+                    <tr style="background: rgba(234,88,12,0.15); color: #ea580c; text-align:left;">
+                        <th style="padding: 0.65rem 0.85rem; border-bottom: 2px solid rgba(234,88,12,0.3);">Tag</th>
+                        <th style="padding: 0.65rem 0.85rem; border-bottom: 2px solid rgba(234,88,12,0.3);">Its Meaning</th>
+                        <th style="padding: 0.65rem 0.85rem; border-bottom: 2px solid rgba(234,88,12,0.3);">Real Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-dim);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>&lt;header&gt;</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Site or section's top area</td>
+                        <td style="padding: 0.55rem 0.85rem;">Logo, site name, top navigation</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-dim); background: rgba(255,255,255,0.02);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>&lt;nav&gt;</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Navigation links group</td>
+                        <td style="padding: 0.55rem 0.85rem;">Home / About / Contact links</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-dim);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>&lt;main&gt;</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Primary, unique page content</td>
+                        <td style="padding: 0.55rem 0.85rem;">The article, product, or lesson content</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-dim); background: rgba(255,255,255,0.02);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>&lt;article&gt;</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Self-contained, standalone piece</td>
+                        <td style="padding: 0.55rem 0.85rem;">News article, blog post, product card</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-dim);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>&lt;section&gt;</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Thematic group within content</td>
+                        <td style="padding: 0.55rem 0.85rem;">Chapters, feature groups, team bios</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-dim); background: rgba(255,255,255,0.02);">
+                        <td style="padding: 0.55rem 0.85rem;"><code>&lt;aside&gt;</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Related but secondary content</td>
+                        <td style="padding: 0.55rem 0.85rem;">Sidebar, related links, quick facts box</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.55rem 0.85rem;"><code>&lt;footer&gt;</code></td>
+                        <td style="padding: 0.55rem 0.85rem;">Bottom area of site or section</td>
+                        <td style="padding: 0.55rem 0.85rem;">Copyright, social links, contact info</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 1rem; font-size: 0.88rem; color: var(--text-muted);">💡 <strong>Rule:</strong> There should be only <strong>ONE</strong> <code>&lt;main&gt;</code> per page. All others can be used multiple times.</p>
         </section>
 
+        <!-- Section 3: Live Interactive Coding Playground -->
         <section class="content-section">
-            <h2>Mission: Be a Pro</h2>
-            <p>Try structuring a simple page using only semantic tags!</p>
+            <h2>💻 Interactive Lab: Junior Coders News Portal</h2>
+            <p>Read the semantic layout below. Try replacing the <code>&lt;div&gt;</code> wrappers with proper semantic tags, or add an <code>&lt;aside&gt;</code> with "Related Articles":</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false">
-<header>
-    <h1>The Smart Page</h1>
-</header>
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;&lt;title&gt;Junior Coders News&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
 
-<nav>
-    <a href="#">Home</a> | <a href="#">About</a>
-</nav>
+&lt;header&gt;
+  &lt;h1&gt;🚀 Junior Coders Daily&lt;/h1&gt;
+  &lt;nav&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt; |
+    &lt;a href="#"&gt;Tutorials&lt;/a&gt; |
+    &lt;a href="#"&gt;Projects&lt;/a&gt; |
+    &lt;a href="#"&gt;Contact&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/header&gt;
 
-<main>
-    <article>
-        <h2>My First Pro Article</h2>
-        <p>This page uses smart semantics!</p>
-    </article>
-</main>
+&lt;main&gt;
+  &lt;article&gt;
+    &lt;h2&gt;HTML Forms: The Ultimate Guide&lt;/h2&gt;
+    &lt;p&gt;Published: 15 September 2026 | Author: Yasir Rasool&lt;/p&gt;
 
-<footer>
-    <p>© 2026 Junior Coders</p>
-</footer></textarea>
+    &lt;section&gt;
+      &lt;h3&gt;What is a Form?&lt;/h3&gt;
+      &lt;p&gt;HTML forms collect user data
+         and send it to a server...&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+      &lt;h3&gt;Types of Inputs&lt;/h3&gt;
+      &lt;p&gt;Text, email, password, radio,
+         checkbox, select, textarea...&lt;/p&gt;
+    &lt;/section&gt;
+  &lt;/article&gt;
+
+  &lt;aside&gt;
+    &lt;h3&gt;📌 Related Articles&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#"&gt;CSS Flexbox Guide&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;JavaScript Basics&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;Building Your Portfolio&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/aside&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+  &lt;p&gt;&amp;copy; 2026 Junior Coders — All Rights Reserved&lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" style="border-top: 5px solid #f43f5e;">
-            <h2>Final Graduation Question!</h2>
-            <div id="quiz-form-12" class="quiz-section">
-                <div class="quiz-question" data-answer="b">
-                    <p>Which tag should you use for the main, unique content of your page?</p>
-                    <label><input type="radio" name="q1" value="a"> &lt;div&gt;</label>
-                    <label><input type="radio" name="q1" value="b"> &lt;main&gt;</label>
-                    <label><input type="radio" name="q1" value="c"> &lt;section&gt;</label>
-                    <div class="quiz-feedback"></div>
+        <!-- Section 4: Official Book Practice Exercises -->
+        <section class="content-section">
+            <h2>🏆 Official Book Practice Exercises</h2>
+            <div class="practice-section">
+                <!-- Easy -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                    <p>A page has one <code>&lt;header&gt;</code>, one <code>&lt;nav&gt;</code>, and two <code>&lt;section&gt;</code> elements. Is this valid semantic HTML? How many <code>&lt;main&gt;</code> elements are allowed per page?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary>Show Answer</summary>
+                        <div class="hint-block-content">
+                            Yes — the structure is valid. <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code> and others can appear multiple times. However, there must be exactly <strong>ONE</strong> <code>&lt;main&gt;</code> element per page. It marks the primary, unique content and must not appear inside <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;nav&gt;</code>, or <code>&lt;aside&gt;</code>.
+                        </div>
+                    </details>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(12)">Check Answer</button>
+
+                <!-- Medium -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟡 Level 2: Application — Div Soup Rescue (Medium)</h4>
+                    <p>A junior developer wrote this non-semantic code. Rewrite it using the correct semantic tags:</p>
+                    <pre style="background: rgba(244,63,94,0.08); border: 1px solid rgba(244,63,94,0.3); border-radius: 8px; padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.85rem; color: #fda4af; overflow-x: auto;">&lt;div class="top"&gt;
+  &lt;div class="logo"&gt;My School&lt;/div&gt;
+  &lt;div class="menu"&gt;
+    &lt;a href="#"&gt;Home&lt;/a&gt;
+    &lt;a href="#"&gt;About&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="content"&gt;
+  &lt;div class="article"&gt;Today's News...&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="bottom"&gt;© 2026&lt;/div&gt;</pre>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary>Show Answer</summary>
+                        <div class="hint-block-content">
+                            <code>&lt;header&gt;</code> replaces <code>div.top</code> — no class needed!<br>
+                            <code>&lt;nav&gt;</code> replaces <code>div.menu</code> — it wraps the navigation links.<br>
+                            <code>&lt;main&gt;</code> replaces <code>div.content</code> — for the primary page content.<br>
+                            <code>&lt;article&gt;</code> replaces <code>div.article</code> — the news item is self-contained.<br>
+                            <code>&lt;footer&gt;</code> replaces <code>div.bottom</code> — for the copyright info.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Challenge -->
+                <div>
+                    <h4>🔴 Level 3: Textbook Challenge — Junior Coders School Portal</h4>
+                    <p><strong>Chapter 12 Real-World Mission:</strong> In the editor above, build a complete <strong>Junior Coders School Portal page</strong> using only semantic HTML5 tags. Your page must include:</p>
+                    <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
+                        <li>A <code>&lt;header&gt;</code> with your school name as <code>&lt;h1&gt;</code> and a tagline <code>&lt;p&gt;</code></li>
+                        <li>A <code>&lt;nav&gt;</code> with at least 4 working page links (Home, Courses, About, Contact)</li>
+                        <li>A <code>&lt;main&gt;</code> containing:
+                            <ul style="margin: 0.25rem 0 0 1.25rem; line-height: 2;">
+                                <li>An <code>&lt;article&gt;</code> for the "Featured Course of the Week"</li>
+                                <li>A <code>&lt;section&gt;</code> listing 3 upcoming school events as an <code>&lt;ol&gt;</code></li>
+                                <li>An <code>&lt;aside&gt;</code> with a "Quick Fact" about HTML</li>
+                            </ul>
+                        </li>
+                        <li>A <code>&lt;footer&gt;</code> with your school name, year, and a contact email link</li>
+                    </ol>
+                    <p style="margin-top: 0.85rem; font-size: 0.88rem; color: var(--text-muted);">🏆 <strong>Pro tip:</strong> Zero <code>&lt;div&gt;</code> elements allowed in your final solution!</p>
+                </div>
             </div>
         </section>
 
-        
+        <!-- Section 5: Interactive Quiz -->
+        <section class="content-section" style="border-top: 4px solid #ea580c;">
+            <h2>⚡ Quick Knowledge Check</h2>
+            <div id="quiz-form-12" class="quiz-section">
+                <div class="quiz-question" data-answer="c">
+                    <p>Q1: Which semantic tag should wrap the primary, unique content of a web page — used only once per page?</p>
+                    <label><input type="radio" name="q1" value="a"> <code>&lt;section&gt;</code></label>
+                    <label><input type="radio" name="q1" value="b"> <code>&lt;article&gt;</code></label>
+                    <label><input type="radio" name="q1" value="c"> <code>&lt;main&gt;</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q2: A blog post with its own title, author, and date is best wrapped in which semantic tag?</p>
+                    <label><input type="radio" name="q2" value="a"> <code>&lt;section&gt;</code></label>
+                    <label><input type="radio" name="q2" value="b"> <code>&lt;article&gt;</code></label>
+                    <label><input type="radio" name="q2" value="c"> <code>&lt;aside&gt;</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: Why does Google's search algorithm prefer semantic HTML over div-soup layouts?</p>
+                    <label><input type="radio" name="q3" value="a"> Semantic tags describe what the content <em>is</em>, helping Google rank and index it more accurately</label>
+                    <label><input type="radio" name="q3" value="b"> Semantic tags load faster because they have shorter names than class attributes</label>
+                    <label><input type="radio" name="q3" value="c"> Google specifically designed its crawler to only read semantic tags and ignores divs</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(12)" style="background: #ea580c; border: none; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; cursor: pointer; color: white;">Check Answers</button>
+            </div>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <div class="module-nav-bar">
+            <a href="module11.html" class="btn-nav-action">
+                <span>←</span> <span>Module 11</span>
+            </a>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="learninghtml.html" class="btn-nav-action">
+                    <span>📚</span> <span>Syllabus</span>
+                </a>
+                <a href="../book-html/index.html#ch12" target="_blank" class="btn-nav-action">
+                    <span>📖</span> <span>Open Book Ch 12</span>
+                </a>
+                <a href="module13.html" class="btn-nav-action primary">
+                    <span>Next: Capstone Lab 🏆</span> <span>→</span>
+                </a>
+            </div>
+        </div>
     </main>
+
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
 </body>

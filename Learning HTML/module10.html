@@ -1,61 +1,203 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Module 10: Naming Elements | Junior Coders</title>
+    <meta name="description" content="Module 10: Classes, IDs, and Element Selectors. Official Class 6 & 7 curriculum.">
+    <title>Module 10: Classes &amp; IDs | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="module-container">
+        <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: white; color: var(--primary);">Level 10</span>
-            <h1>Naming Elements!</h1>
-            <p>Learn how to give tags names with Class and ID. 🏷️</p>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 3: Architecture &amp; Forms</span>
+            <h1>Module 10: Classes &amp; IDs</h1>
+            <p>Target and style elements with precision using reusable classes and unique IDs.</p>
         </header>
 
+        <!-- Official Textbook Companion Connection -->
+        <div class="book-companion-card">
+            <div class="book-companion-left">
+                <span class="book-companion-icon">📖</span>
+                <div class="book-companion-text">
+                    <span>Official Single Source of Truth</span>
+                    <strong>Book Chapter 12: Divs, Classes &amp; Semantic Sections</strong>
+                </div>
+            </div>
+            <a href="../book-html/index.html#ch12" target="_blank" class="btn-read-book">
+                <span>Read in Textbook</span> <span>↗</span>
+            </a>
+        </div>
+
+        <!-- Section 1: The Difference Between Class and ID -->
         <section class="content-section">
-            <h2>Why give names?</h2>
-            <p>Imagine you have 10 paragraphs, but you only want ONE to be red. How do you tell the computer which one? We use <strong>names</strong>!</p>
-            <ul>
-                <li><strong>Class:</strong> Like a team name. Many elements can have the same class. (e.g., <code>class="team-red"</code>)</li>
-                <li><strong>ID:</strong> Like a social security number or your name. It MUST be unique! (e.g., <code>id="main-title"</code>)</li>
-            </ul>
+            <h2>🏷️ Class vs ID: The Golden Rules</h2>
+            <div class="comparison">
+                <div class="good">
+                    <h4>🔄 class="..." (Reusable Grouping)</h4>
+                    <ul>
+                        <li>Can be shared by <strong>multiple elements</strong> across the entire page.</li>
+                        <li>An element can have <strong>multiple classes</strong> separated by a space: <code>class="btn btn-primary active"</code>.</li>
+                        <li>Targeted in CSS using a dot: <code>.btn { ... }</code>.</li>
+                    </ul>
+                </div>
+                <div class="good">
+                    <h4>🆔 id="..." (Unique Fingerprint)</h4>
+                    <ul>
+                        <li>Must be <strong>strictly unique</strong>—only ONE element per page can carry that ID.</li>
+                        <li>Used for in-page jump bookmarks (<code>#header</code>) and JavaScript scripting.</li>
+                        <li>Targeted in CSS using a hash: <code>#header { ... }</code>.</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
+        <!-- Section 2: Developer Naming Rules -->
         <section class="content-section">
-            <h2>Mission: Name Your Tags</h2>
-            <p>Try giving a unique ID to the heading and a shared class to the paragraphs!</p>
+            <h2>📋 Standard Naming Conventions</h2>
+            <p>To avoid bugs across different web browsers, follow these 4 developer rules:</p>
+            <ol>
+                <li>Use all <strong>lowercase letters</strong> (e.g. <code>hero-banner</code>).</li>
+                <li>Use hyphens to separate words (kebab-case): <code>product-card</code>.</li>
+                <li>Never use spaces inside class or ID names (spaces mean multiple classes!).</li>
+                <li>Never begin a class or ID name with a number.</li>
+            </ol>
+        </section>
+
+        <!-- Section 3: Live Interactive Coding Playground -->
+        <section class="content-section">
+            <h2>💻 Interactive Lab: Card Deck with Shared Classes</h2>
+            <p>See how sharing the <code>feature-card</code> class gives both cards identical styling, while unique IDs identify them:</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <textarea id="code-editor" spellcheck="false">
-<h1 id="hero-title">I have a unique name!</h1>
-
-<p class="cool-text">We are in the same team.</p>
-<p class="cool-text">We share the same class.</p></textarea>
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;title&gt;Class and ID Demo&lt;/title&gt;
+    &lt;style&gt;
+        .feature-card {
+            background: #1e293b;
+            color: #f8fafc;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+        .highlight { border-color: #ea580c; }
+        #gold-card { background: #451a03; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Card Deck Showcase&lt;/h1&gt;
+    
+    &lt;div class="feature-card highlight" id="silver-card"&gt;
+        &lt;h3&gt;Silver Membership&lt;/h3&gt;
+        &lt;p&gt;Standard coding lab access.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="feature-card highlight" id="gold-card"&gt;
+        &lt;h3&gt;Gold Membership 👑&lt;/h3&gt;
+        &lt;p&gt;Full access + AI code reviews!&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
+                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
         </section>
 
-        <section class="content-section" style="border-top: 5px solid #f59e0b;">
-            <h2>Quick Challenge!</h2>
-            <div id="quiz-form-10" class="quiz-section">
-                <div class="quiz-question" data-answer="a">
-                    <p>Which attribute should only be used ONCE per page for a specific name?</p>
-                    <label><input type="radio" name="q1" value="a"> id</label>
-                    <label><input type="radio" name="q1" value="b"> class</label>
-                    <label><input type="radio" name="q1" value="c"> name</label>
-                    <div class="quiz-feedback"></div>
+        <!-- Section 4: Official Book Practice Exercises -->
+        <section class="content-section">
+            <h2>🏆 Official Book Practice Exercises</h2>
+            <div class="practice-section">
+                <!-- Easy -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                    <p>Can two elements on the same page share the same <code>id</code>? Can two elements share the same <code>class</code>?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            No, an <code>id</code> must be 100% unique per page. Yes, multiple elements can share the same <code>class</code>.
+                        </div>
+                    </details>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(10)">Check Answer</button>
+
+                <!-- Medium -->
+                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
+                    <h4>🟡 Level 2: Application (Medium)</h4>
+                    <p>How do you assign three different classes (e.g. <code>btn</code>, <code>large</code>, <code>primary</code>) to a single button tag?</p>
+                    <details class="hint-block" style="margin-top: 0.5rem;">
+                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
+                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                            Separate each class name with a space inside the quotes: <code>&lt;button class="btn large primary"&gt;Click Me&lt;/button&gt;</code>.
+                        </div>
+                    </details>
+                </div>
+
+                <!-- Challenge -->
+                <div>
+                    <h4>🔴 Level 3: Textbook Challenge (Problem Solving)</h4>
+                    <p><strong>Chapter 12 Pricing Table:</strong> In the editor above, create three pricing cards (Basic, Pro, Enterprise) sharing the class <code>pricing-card</code>, but give the Pro card a special second class <code>featured</code> with an orange border!</p>
+                </div>
             </div>
         </section>
 
-        
+        <!-- Section 5: Interactive Quiz -->
+        <section class="content-section" style="border-top: 4px solid #ea580c;">
+            <h2>⚡ Quick Knowledge Check</h2>
+            <div id="quiz-form-10" class="quiz-section">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: How many times can a specific ID be used on a single web page?</p>
+                    <label><input type="radio" name="q1" value="a"> As many times as you like</label>
+                    <label><input type="radio" name="q1" value="b"> Only once</label>
+                    <label><input type="radio" name="q1" value="c"> Maximum 5 times</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q2: Which character is used in CSS stylesheets to select a class?</p>
+                    <label><input type="radio" name="q2" value="a"> # (Hash)</label>
+                    <label><input type="radio" name="q2" value="b"> @ (At symbol)</label>
+                    <label><input type="radio" name="q2" value="c"> . (Period / Dot)</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: Which of these class names follows modern developer naming conventions?</p>
+                    <label><input type="radio" name="q3" value="a"> news-article-header</label>
+                    <label><input type="radio" name="q3" value="b"> news article header</label>
+                    <label><input type="radio" name="q3" value="c"> 1stNewsHeader</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="button" class="btn-primary" onclick="checkQuiz(10)" style="background: #ea580c; border: none; font-weight: 700; padding: 0.65rem 1.5rem; border-radius: 8px; cursor: pointer; color: white;">Check Answers</button>
+            </div>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <div class="module-nav-bar">
+            <a href="module9.html" class="btn-nav-action">
+                <span>←</span> <span>Module 9</span>
+            </a>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="learninghtml.html" class="btn-nav-action">
+                    <span>📚</span> <span>Syllabus</span>
+                </a>
+                <a href="../book-html/index.html#ch12" target="_blank" class="btn-nav-action">
+                    <span>📖</span> <span>Open Book Ch 12</span>
+                </a>
+                <a href="module11.html" class="btn-nav-action primary">
+                    <span>Next: Module 11 (Forms)</span> <span>→</span>
+                </a>
+            </div>
+        </div>
     </main>
+
     <script src="../js/core.js"></script>
     <script src="../js/playground.js"></script>
 </body>
