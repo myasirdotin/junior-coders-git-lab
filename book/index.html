@@ -3,508 +3,226 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML and CSS for Class 7: Learn to Build Beautiful Websites</title>
-  <link rel="stylesheet" href="../styles/main.css">
-  <link rel="stylesheet" href="styles/book-theme.css">
+  <title>Official Textbooks Directory | Junior Coders</title>
+  <meta name="description" content="HTML and CSS textbooks are now separated into dedicated, comprehensive interactive textbooks. Choose your subject to begin reading.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/main.css">
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, rgba(15, 23, 42, 0) 70%), var(--bg-dark);
+    }
+    .bridge-container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+    .badge-notice {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      color: #a5b4fc;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+    .bridge-title {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+      background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .bridge-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 650px;
+      margin: 0 auto 2.5rem auto;
+      line-height: 1.6;
+    }
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+      text-align: left;
+    }
+    .book-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .book-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    }
+    .book-card.html-choice:hover {
+      border-color: rgba(234, 88, 12, 0.6);
+      background: linear-gradient(135deg, rgba(234, 88, 12, 0.08) 0%, var(--bg-card) 100%);
+    }
+    .book-card.css-choice:hover {
+      border-color: rgba(124, 58, 237, 0.6);
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.08) 0%, var(--bg-card) 100%);
+    }
+    .card-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+    .html-badge {
+      background: rgba(234, 88, 12, 0.15);
+      color: #fb923c;
+      border: 1px solid rgba(234, 88, 12, 0.3);
+    }
+    .css-badge {
+      background: rgba(124, 58, 237, 0.15);
+      color: #c084fc;
+      border: 1px solid rgba(124, 58, 237, 0.3);
+    }
+    .book-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .book-heading {
+      font-size: 1.35rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    .book-desc {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    .launch-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: opacity 0.2s ease;
+    }
+    .html-btn {
+      background: #ea580c;
+      color: #ffffff;
+    }
+    .css-btn {
+      background: #7c3aed;
+      color: #ffffff;
+    }
+    .back-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 2.5rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s ease;
+    }
+    .back-home-link:hover {
+      color: #ffffff;
+    }
+  </style>
 </head>
 <body>
-  <!-- Mobile Navigation Bar -->
-  <div class="book-mobile-bar" id="bookMobileBar">
-    <button type="button" class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Open Chapters Menu">
-      <span class="toggle-icon">☰</span>
-      <span class="toggle-text">Chapters</span>
-    </button>
-    <div class="mobile-brand-title">HTML & CSS for Class 7</div>
-    <a href="../index.html" class="mobile-home-link" title="Platform Home">🏠</a>
-  </div>
+  <div class="bridge-container">
+    <div>
+      <span class="badge-notice">✨ Single Source of Truth Upgrade</span>
+      <h1 class="bridge-title">Choose Your Dedicated Textbook</h1>
+      <p class="bridge-subtitle">
+        To provide a focused, clutter-free learning experience, HTML and CSS are now organized into two dedicated, full-length interactive textbooks with built-in voice narration, code labs, and capstones.
+      </p>
+    </div>
 
-  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
-
-  <div class="book-layout">
-    <!-- Sidebar Navigation -->
-    <aside class="book-sidebar" id="bookSidebar">
-      <div class="book-return-bar">
-        <a href="../index.html" class="book-back-home" title="Return to Junior Coders Home">
-          <span class="back-icon">←</span>
-          <span>Return Home</span>
-        </a>
-        <a href="../Learning HTML/learninghtml.html" class="book-back-home" title="HTML Course Modules">
-          <span>HTML Modules</span>
-        </a>
-      </div>
-      <div class="book-brand">
+    <div class="books-grid">
+      <!-- HTML Textbook Card -->
+      <a href="../book-html/index.html" class="book-card html-choice">
         <div>
-          <h1>Class 7 Web Academy</h1>
-          <span>HTML & CSS Textbook & Lab</span>
-        </div>
-        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close chapters menu">✕</button>
-      </div>
-
-      <!-- Subject Quick Switcher Tabs -->
-      <div class="book-subject-tabs" id="bookSubjectTabs">
-        <button type="button" class="subject-tab active" data-filter="all" onclick="filterSubject('all', this)">All (34)</button>
-        <button type="button" class="subject-tab" data-filter="html" onclick="filterSubject('html', this)">HTML (12)</button>
-        <button type="button" class="subject-tab" data-filter="css" onclick="filterSubject('css', this)">🎨 CSS (17)</button>
-        <button type="button" class="subject-tab" data-filter="projects" onclick="filterSubject('projects', this)">Projects (5)</button>
-      </div>
-
-      <div class="sidebar-search" style="margin-bottom: 1rem;">
-        <input type="text" id="chapterFilter" placeholder="Search chapters..." style="width: 100%; padding: 0.5rem 0.75rem; border: 1px solid var(--border-color); border-radius: var(--radius-sm); font-size: 0.85rem;">
-      </div>
-
-      <nav id="sidebarNav">
-        <div class="part-group" data-subject="html">
-          <div class="part-title">Part 1: Getting Started</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-1-getting-started/ch01-what-is-a-website.md', this)">1. What Is a Website?</a></li>
-            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-1-getting-started/ch02-how-websites-are-built.md', this)">2. How Websites Are Built</a></li>
-            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-1-getting-started/ch03-your-first-web-page.md', this)">3. Your First Web Page</a></li>
-          </ul>
-        </div>
-
-        <div class="part-group" data-subject="html">
-          <div class="part-title">Part 2: HTML Fundamentals</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-2-html-fundamentals/ch04-understanding-html-tags.md', this)">4. Understanding HTML Tags</a></li>
-            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-2-html-fundamentals/ch05-headings-and-paragraphs.md', this)">5. Headings and Paragraphs</a></li>
-            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-2-html-fundamentals/ch06-text-formatting.md', this)">6. Text Formatting</a></li>
-            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-2-html-fundamentals/ch07-links.md', this)">7. Links</a></li>
-            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-2-html-fundamentals/ch08-images.md', this)">8. Images</a></li>
-            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-2-html-fundamentals/ch09-lists.md', this)">9. Lists</a></li>
-            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-2-html-fundamentals/ch10-tables.md', this)">10. Tables</a></li>
-            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-2-html-fundamentals/ch11-forms.md', this)">11. Forms</a></li>
-            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-2-html-fundamentals/ch12-divs-and-page-sections.md', this)">12. Divs and Page Sections</a></li>
-          </ul>
-        </div>
-
-        <div class="part-group" data-subject="css">
-          <div class="part-title">Part 3: Introduction to CSS</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-3-intro-to-css/ch13-what-is-css.md', this)">13. What Is CSS?</a></li>
-            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-3-intro-to-css/ch14-adding-css.md', this)">14. Adding CSS</a></li>
-            <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-3-intro-to-css/ch15-css-colors.md', this)">15. CSS Colors</a></li>
-            <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('part-3-intro-to-css/ch16-fonts-and-text-styling.md', this)">16. Fonts and Text Styling</a></li>
-            <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('part-3-intro-to-css/ch17-backgrounds.md', this)">17. Backgrounds</a></li>
-            <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('part-3-intro-to-css/ch18-css-box-model.md', this)">18. CSS Box Model</a></li>
-            <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('part-3-intro-to-css/ch19-borders-and-rounded-corners.md', this)">19. Borders & Rounded Corners</a></li>
-          </ul>
-        </div>
-
-        <div class="part-group" data-subject="css">
-          <div class="part-title">Part 4: Layout and Design</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch20" onclick="loadChapter('part-4-layout-and-design/ch20-display-property.md', this)">20. Display Property</a></li>
-            <li class="chapter-nav-item"><a href="#ch21" onclick="loadChapter('part-4-layout-and-design/ch21-flexbox.md', this)">21. Flexbox</a></li>
-            <li class="chapter-nav-item"><a href="#ch22" onclick="loadChapter('part-4-layout-and-design/ch22-css-grid.md', this)">22. CSS Grid</a></li>
-            <li class="chapter-nav-item"><a href="#ch23" onclick="loadChapter('part-4-layout-and-design/ch23-positioning.md', this)">23. Positioning</a></li>
-            <li class="chapter-nav-item"><a href="#ch24" onclick="loadChapter('part-4-layout-and-design/ch24-responsive-web-design.md', this)">24. Responsive Web Design</a></li>
-          </ul>
-        </div>
-
-        <div class="part-group" data-subject="css">
-          <div class="part-title">Part 5: Making Websites Beautiful</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch25" onclick="loadChapter('part-5-making-websites-beautiful/ch25-buttons.md', this)">25. Buttons</a></li>
-            <li class="chapter-nav-item"><a href="#ch26" onclick="loadChapter('part-5-making-websites-beautiful/ch26-hover-effects.md', this)">26. Hover Effects</a></li>
-            <li class="chapter-nav-item"><a href="#ch27" onclick="loadChapter('part-5-making-websites-beautiful/ch27-css-transitions.md', this)">27. CSS Transitions</a></li>
-            <li class="chapter-nav-item"><a href="#ch28" onclick="loadChapter('part-5-making-websites-beautiful/ch28-website-cards.md', this)">28. Website Cards</a></li>
-            <li class="chapter-nav-item"><a href="#ch29" onclick="loadChapter('part-5-making-websites-beautiful/ch29-navigation-bars.md', this)">29. Navigation Bars</a></li>
-          </ul>
-        </div>
-
-        <div class="part-group" data-subject="projects">
-          <div class="part-title">Part 6: Complete Website Projects</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch30" onclick="loadChapter('part-6-complete-website-projects/ch30-personal-profile-website.md', this)">30. Personal Profile Website</a></li>
-            <li class="chapter-nav-item"><a href="#ch31" onclick="loadChapter('part-6-complete-website-projects/ch31-school-website.md', this)">31. School Website</a></li>
-            <li class="chapter-nav-item"><a href="#ch32" onclick="loadChapter('part-6-complete-website-projects/ch32-restaurant-website.md', this)">32. Restaurant Website</a></li>
-            <li class="chapter-nav-item"><a href="#ch33" onclick="loadChapter('part-6-complete-website-projects/ch33-portfolio-website.md', this)">33. Portfolio Website</a></li>
-            <li class="chapter-nav-item"><a href="#ch34" onclick="loadChapter('part-6-complete-website-projects/ch34-final-project-guide.md', this)">34. Final Project Planning</a></li>
-          </ul>
-        </div>
-      </nav>
-    </aside>
-
-    <!-- Main Content Reader -->
-    <main class="book-content">
-      <!-- Reader Top Navigation Bar -->
-      <nav class="reader-top-nav" aria-label="Breadcrumb and quick navigation">
-        <div class="reader-breadcrumb">
-          <a href="../index.html"><span>🏠</span> Home</a>
-          <span>/</span>
-          <a href="../Learning HTML/learninghtml.html">HTML Track</a>
-          <span>/</span>
-          <span class="active-book">HTML & CSS Textbook</span>
-        </div>
-        <div class="reader-top-links">
-          <a href="../index.html" class="reader-nav-btn"><span>🏠</span> Home</a>
-          <a href="../book-html/index.html" class="reader-nav-btn"><span>🌐</span> HTML Book</a>
-          <a href="../book-css/index.html" class="reader-nav-btn"><span>🎨</span> CSS Book</a>
-          <a href="../book-js/index.html" class="reader-nav-btn"><span>⚡</span> JS Book</a>
-          <a href="../book-php/index.html" class="reader-nav-btn"><span>🐘</span> PHP Book</a>
-          <a href="../master-playground.html" class="reader-nav-btn primary-btn"><span>💻</span> Code Lab</a>
-        </div>
-      </nav>
-
-      <!-- Permanent Floating / Sticky Reader Top Bar with Audio Speaker & Reading Mode -->
-      <header class="book-reader-header" id="bookReaderHeader" role="region" aria-label="Book Reader Controls">
-        <div class="reader-header-main">
-          <!-- Left: Audio controls -->
-          <div class="reader-controls-left">
-            <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read entire chapter aloud">
-              <span class="btn-icon">🔊</span>
-              <span class="btn-text">Read Chapter</span>
-            </button>
-            <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop audio narration">
-              <span class="btn-icon">⏹️</span>
-              <span class="btn-text">Stop</span>
-            </button>
-            <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
-            </div>
-          </div>
-
-          <!-- Divider -->
-          <div class="reader-divider" aria-hidden="true"></div>
-
-          <!-- Center: Chapter status badge -->
-          <div class="reader-status-center">
-            <div class="reader-chapter-badge">
-              <span class="status-dot"></span>
-              <span class="status-text" id="book-speaker-status-text">HTML and CSS for Class 7</span>
-            </div>
-          </div>
-
-          <!-- Divider -->
-          <div class="reader-divider" aria-hidden="true"></div>
-
-          <!-- Right: Speed + Reading Mode -->
-          <div class="reader-controls-right">
-            <div class="reader-speed-pill">
-              <span class="speed-caption">Speed</span>
-              <select class="book-speaker-speed-select" id="book-speaker-speed-select" aria-label="Narration speed">
-                <option value="0.85">0.85x</option>
-                <option value="1.0" selected>1.0x</option>
-                <option value="1.25">1.25x</option>
-                <option value="1.5">1.5x</option>
-              </select>
-            </div>
-            <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn" title="Toggle Distraction-Free Reading Mode">
-              <span class="btn-icon">📖</span>
-              <span class="btn-text">Reading Mode</span>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <!-- Dynamic Chapter Content Area -->
-      <article class="book-article" id="chapterContent">
-        <div style="text-align: center; padding: 3rem 1rem;">
-          <span class="chapter-badge">Official Class 7 Textbook</span>
-          <h1 class="chapter-title" style="margin-top: 0.5rem;">HTML and CSS for Class 7</h1>
-          <p style="font-size: 1.15rem; color: var(--text-secondary); max-width: 650px; margin: 0 auto 2rem auto;">
-            Learn to Build and Style Beautiful Websites! Choose whether you want to learn HTML building blocks or dive directly into styling with CSS.
+          <span class="card-badge html-badge">Class 6 &amp; 7 Official Textbook</span>
+          <div class="book-icon">🌐</div>
+          <h2 class="book-heading">HTML: Learn to Structure the Web</h2>
+          <p class="book-desc">
+            17 chapters covering tags, text hierarchy, links, images, tables, forms, semantic layout, and 5 capstone projects.
           </p>
-          <div style="display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap;">
-            <a href="#ch1" onclick="loadChapter('part-1-getting-started/ch01-what-is-a-website.md', document.querySelector('.chapter-nav-item a'))" class="btn-nav" style="background: var(--primary-blue); color: #fff; padding: 0.85rem 1.6rem; font-size: 0.95rem; text-decoration: none; border-radius: var(--radius-sm); font-weight: 700; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);">
-              Start HTML (Chapter 1) 🚀
-            </a>
-            <a href="#ch13" onclick="filterSubject('css'); loadChapter('part-3-intro-to-css/ch13-what-is-css.md', document.querySelectorAll('.chapter-nav-item a')[12]);" class="btn-nav" style="background: linear-gradient(135deg, #7c3aed, #6d28d9); color: #fff; padding: 0.85rem 1.6rem; font-size: 0.95rem; text-decoration: none; border-radius: var(--radius-sm); font-weight: 700; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);">
-              🎨 Jump to CSS (Chapter 13) ➔
-            </a>
-          </div>
         </div>
-      </article>
-    </main>
+        <div class="launch-btn html-btn">
+          <span>Open HTML Textbook</span>
+          <span>→</span>
+        </div>
+      </a>
+
+      <!-- CSS Textbook Card -->
+      <a href="../book-css/index.html" class="book-card css-choice">
+        <div>
+          <span class="card-badge css-badge">Class 7 Official Textbook</span>
+          <div class="book-icon">🎨</div>
+          <h2 class="book-heading">CSS: Styling &amp; Designing Websites</h2>
+          <p class="book-desc">
+            22 chapters covering colors, Box Model, Flexbox, Grid, animations, transitions, responsive UI, and 5 capstone projects.
+          </p>
+        </div>
+        <div class="launch-btn css-btn">
+          <span>Open CSS Textbook</span>
+          <span>→</span>
+        </div>
+      </a>
+    </div>
+
+    <div>
+      <a href="../index.html" class="back-home-link">← Return to Main Campus</a>
+    </div>
   </div>
 
-  <!-- Core platform state and XP engine -->
-  <script src="../js/core.js"></script>
-  <!-- Offline chapters bundle for 100% offline & local file:// support -->
-  <script src="chapters-bundle.js"></script>
-  <!-- Marked library for on-the-fly markdown rendering in the browser -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    async function loadChapter(path, element) {
-      if (element) {
-        document.querySelectorAll('.chapter-nav-item').forEach(el => el.classList.remove('active'));
-        element.parentElement.classList.add('active');
-      }
-
-      const contentArea = document.getElementById('chapterContent');
-      contentArea.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--text-muted);">Loading Chapter...</div>';
-
-      let markdown = '';
-      // 1. Check pre-bundled offline cache (works 100% locally with file:// and offline!)
-      if (window.BOOK_CHAPTERS && window.BOOK_CHAPTERS[path]) {
-        markdown = window.BOOK_CHAPTERS[path];
-      } else {
-        // 2. Fallback to HTTP fetch if running under a web server
-        try {
-          const response = await fetch(path);
-          if (response.ok) {
-            markdown = await response.text();
-          }
-        } catch (err) {
-          console.warn('HTTP fetch failed, offline bundle unavailable for:', path, err);
-        }
-      }
-
-      if (markdown) {
-        const chapterId = path.split('/').pop().replace('.md', '');
-        const completedChapters = JSON.parse(localStorage.getItem('jc_completed_chapters') || '[]');
-        const isDone = completedChapters.includes(chapterId);
-
-        const completionHtml = `
-          <div class="chapter-completion-card" style="margin-top: 3.5rem; padding: 2rem; background: var(--bg-card, #1e293b); border: 2px solid var(--border-color, #334155); border-radius: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
-            <div>
-              <span style="background: rgba(99,102,241,0.2); color: #818cf8; font-size: 0.8rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 9999px; text-transform: uppercase;">Chapter Checkpoint</span>
-              <h3 style="margin: 0.5rem 0 0.25rem 0; font-size: 1.25rem; color: #fff;">Finished Reading This Chapter?</h3>
-              <p style="margin: 0; color: #94a3b8; font-size: 0.95rem;">Mark as complete to add +25 XP to your Mission Control stats and keep your learning streak burning! 🔥</p>
-            </div>
-            <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
-              <a href="../master-playground.html" target="_blank" style="text-decoration: none; padding: 0.75rem 1.4rem; background: #334155; color: #fff; border-radius: 8px; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem;">
-                <span>🧪</span> Open Code Lab
-              </a>
-              <button type="button" id="btn-complete-${chapterId}" onclick="completeChapterAction('${chapterId}')" style="padding: 0.75rem 1.6rem; background: ${isDone ? '#10b981' : '#4f46e5'}; color: white; border: none; border-radius: 8px; font-weight: 700; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem; box-shadow: 0 4px 14px rgba(79,70,229,0.35); transition: all 0.2s ease;">
-                ${isDone ? '✅ Chapter Completed (+25 XP)' : 'Mark Completed (+25 XP) 🚀'}
-              </button>
-            </div>
-          </div>
-        `;
-
-        contentArea.innerHTML = marked.parse(markdown) + completionHtml;
-        enhanceCodeBlocks(contentArea);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        if (window.initBookSpeaker) window.initBookSpeaker();
-      } else {
-        contentArea.innerHTML = `
-          <div class="pedagogy-section">
-            <h2>📖 Chapter Notice</h2>
-            <p>Could not load markdown for <code>${path}</code>.</p>
-          </div>
-        `;
-        if (window.initBookSpeaker) window.initBookSpeaker();
-      }
-    }
-
-    function completeChapterAction(chapterId) {
-      if (window.markChapterComplete) {
-        window.markChapterComplete(chapterId, 25);
-      } else {
-        const completed = JSON.parse(localStorage.getItem('jc_completed_chapters') || '[]');
-        if (!completed.includes(chapterId)) {
-          completed.push(chapterId);
-          localStorage.setItem('jc_completed_chapters', JSON.stringify(completed));
-        }
-      }
-      const btn = document.getElementById('btn-complete-' + chapterId);
-      if (btn) {
-        btn.style.background = '#10b981';
-        btn.innerHTML = '✅ Chapter Completed (+25 XP)';
-      }
-      updateSidebarCheckmarks();
-    }
-
-    function updateSidebarCheckmarks() {
-      const completed = JSON.parse(localStorage.getItem('jc_completed_chapters') || '[]');
-      document.querySelectorAll('.chapter-nav-item a').forEach(link => {
-        const onclickAttr = link.getAttribute('onclick') || '';
-        const match = onclickAttr.match(/loadChapter\('([^']+)'/);
-        if (match && match[1]) {
-          const chapId = match[1].split('/').pop().replace('.md', '');
-          let checkSpan = link.querySelector('.chap-done-check');
-          if (completed.includes(chapId)) {
-            if (!checkSpan) {
-              checkSpan = document.createElement('span');
-              checkSpan.className = 'chap-done-check';
-              checkSpan.textContent = ' ✅';
-              checkSpan.style.marginLeft = 'auto';
-              checkSpan.style.fontSize = '0.85rem';
-              link.appendChild(checkSpan);
-            }
-          } else if (checkSpan) {
-            checkSpan.remove();
-          }
-        }
-      });
-    }
-
-    // Toast notification for copying code
-    function showCopyToast(message) {
-      let toast = document.getElementById('copyToast');
-      if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'copyToast';
-        toast.className = 'copy-toast';
-        document.body.appendChild(toast);
-      }
-      toast.innerHTML = `<span>📋</span> <span>${message || 'Code copied to clipboard!'}</span>`;
-      toast.classList.add('show');
-      clearTimeout(window.copyToastTimer);
-      window.copyToastTimer = setTimeout(() => {
-        toast.classList.remove('show');
-      }, 2500);
-    }
-
-    // Wrap pre code blocks with headers containing Copy and Try in Code Lab buttons
-    function enhanceCodeBlocks(container) {
-      if (!container) return;
-      const preElements = container.querySelectorAll('pre');
-      preElements.forEach((pre) => {
-        if (pre.parentElement.classList.contains('code-wrapper')) return;
-
-        const codeEl = pre.querySelector('code');
-        const rawCode = codeEl ? codeEl.innerText : pre.innerText;
-
-        // Detect language from class (e.g. language-css, language-html)
-        let lang = 'Code';
-        if (codeEl && codeEl.className) {
-          const match = codeEl.className.match(/language-([a-zA-Z0-9_-]+)/);
-          if (match && match[1]) {
-            lang = match[1].toUpperCase();
-          }
-        } else if (rawCode.includes('{') && rawCode.includes('}') && (rawCode.includes(':') || rawCode.includes('px') || rawCode.includes('color'))) {
-          lang = 'CSS';
-        } else if (rawCode.includes('<') && rawCode.includes('>')) {
-          lang = 'HTML';
-        }
-
-        // Create wrapper container
-        const wrapper = document.createElement('div');
-        wrapper.className = 'code-wrapper';
-
-        // Header bar with language tag and actions
-        const header = document.createElement('div');
-        header.className = 'code-wrapper-header';
-
-        const langBadge = document.createElement('span');
-        langBadge.className = 'code-lang-label';
-        langBadge.textContent = lang;
-
-        const actions = document.createElement('div');
-        actions.className = 'code-actions';
-
-        // Copy Button
-        const copyBtn = document.createElement('button');
-        copyBtn.type = 'button';
-        copyBtn.className = 'btn-copy-code';
-        copyBtn.title = 'Copy code snippet to clipboard';
-        copyBtn.innerHTML = '<span>📋</span> <span>Copy</span>';
-
-        copyBtn.addEventListener('click', async () => {
-          try {
-            if (navigator.clipboard && window.isSecureContext) {
-              await navigator.clipboard.writeText(rawCode);
-            } else {
-              const textarea = document.createElement('textarea');
-              textarea.value = rawCode;
-              textarea.style.position = 'fixed';
-              textarea.style.left = '-999999px';
-              textarea.style.top = '-999999px';
-              document.body.appendChild(textarea);
-              textarea.focus();
-              textarea.select();
-              document.execCommand('copy');
-              textarea.remove();
-            }
-            copyBtn.classList.add('copied');
-            copyBtn.innerHTML = '<span>✅</span> <span>Copied!</span>';
-            showCopyToast('Code copied! Paste it into your project or Code Lab.');
-            setTimeout(() => {
-              copyBtn.classList.remove('copied');
-              copyBtn.innerHTML = '<span>📋</span> <span>Copy</span>';
-            }, 2000);
-          } catch (err) {
-            console.error('Failed to copy text: ', err);
-            showCopyToast('Failed to copy automatically. Please select and copy.');
-          }
-        });
-
-        // Try in Code Lab Button
-        const tryBtn = document.createElement('a');
-        tryBtn.className = 'btn-try-code';
-        tryBtn.title = 'Open and test this code in Code Lab IDE';
-        tryBtn.innerHTML = '<span>🧪</span> <span>Try in Code Lab</span>';
-        tryBtn.href = '../master-playground.html';
-        tryBtn.target = '_blank';
-        tryBtn.rel = 'noopener noreferrer';
-
-        tryBtn.addEventListener('click', () => {
-          try {
-            const isCss = lang === 'CSS' || rawCode.includes('{') || rawCode.includes('color:');
-            const exercise = {
-              title: `Book Snippet (${lang})`,
-              starterCode: rawCode,
-              type: isCss ? 'css' : 'html'
-            };
-            localStorage.setItem('pendingExercise', JSON.stringify(exercise));
-          } catch (e) {}
-        });
-
-        actions.appendChild(copyBtn);
-        actions.appendChild(tryBtn);
-
-        header.appendChild(langBadge);
-        header.appendChild(actions);
-
-        // Replace pre with wrapper containing header and pre
-        pre.parentNode.insertBefore(wrapper, pre);
-        wrapper.appendChild(header);
-        wrapper.appendChild(pre);
-      });
-    }
-
-    function filterSubject(subject, btn) {
-      const tabs = document.querySelectorAll('.subject-tab');
-      tabs.forEach(t => {
-        if (btn) {
-          t.classList.toggle('active', t === btn);
-        } else {
-          t.classList.toggle('active', t.getAttribute('data-filter') === subject);
-        }
-      });
-
-      const partGroups = document.querySelectorAll('.part-group');
-      partGroups.forEach(group => {
-        const groupSubject = group.getAttribute('data-subject');
-        if (subject === 'all' || groupSubject === subject) {
-          group.style.display = '';
-        } else {
-          group.style.display = 'none';
-        }
-      });
-    }
-
-    // Filter chapters in sidebar
-    document.getElementById('chapterFilter').addEventListener('input', function(e) {
-      const query = e.target.value.toLowerCase();
-      document.querySelectorAll('.chapter-nav-item').forEach(item => {
-        const text = item.textContent.toLowerCase();
-        item.style.display = text.includes(query) ? '' : 'none';
-      });
-    });
-
-    // Auto-detect hash or subject URL param (e.g. #css or ?subject=css)
-    window.addEventListener('DOMContentLoaded', () => {
-      updateSidebarCheckmarks();
-      const urlParams = new URLSearchParams(window.location.search);
+    // Intelligent redirect for legacy chapter anchors
+    (function() {
       const hash = window.location.hash.toLowerCase();
-      
-      if (urlParams.get('subject') === 'css' || hash === '#css') {
-        filterSubject('css');
-      } else if (hash.startsWith('#ch')) {
-        const targetLink = document.querySelector(`a[href="${hash}"]`);
-        if (targetLink) {
-          targetLink.click();
+      if (!hash) return;
+      // If someone arrived with #ch01 .. #ch12 -> redirect to book-html
+      const match = hash.match(/#ch0?(\d+)/);
+      if (match) {
+        const num = parseInt(match[1], 10);
+        if (num <= 12) {
+          window.location.replace('../book-html/index.html' + hash);
+        } else if (num >= 13) {
+          window.location.replace('../book-css/index.html' + hash);
         }
       }
-    });
+    })();
   </script>
-  <script src="../js/book-speaker.js"></script>
 </body>
 </html>
-

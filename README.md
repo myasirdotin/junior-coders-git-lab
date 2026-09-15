@@ -19,21 +19,21 @@
 
 ---
 
-## 📖 Official Textbooks for Class 7
+## 📖 Official Interactive Textbooks
 
-### 1. “HTML and CSS for Class 7: Learn to Build Beautiful Websites”
-A complete 34-chapter, visual, project-based educational textbook designed for Grade 7 learners and beginners:
-- 🚀 **[Launch Interactive Web Reader](book/index.html)**
-- 📚 **[Browse Chapters & Curriculum Guide](book/README.md)**
-- **Curriculum Highlights**:
-  - **Part 1: Getting Started** (Ch 1–3: How websites work, browsers, first page)
-  - **Part 2: HTML Fundamentals** (Ch 4–12: Tags, text, links, photos, lists, tables, forms, semantic layout)
-  - **Part 3: Introduction to CSS** (Ch 13–19: Colors, fonts, backgrounds, Box Model, rounded borders)
-  - **Part 4: Layout & Design** (Ch 20–24: Display, Flexbox, 2D Grid, positioning, responsive mobile design)
-  - **Part 5: Making Websites Beautiful** (Ch 25–29: Buttons, hover states, transitions, cards, sticky navigation)
-  - **Part 6: Capstone Projects** (Ch 30–34: Personal Profile, School Portal, Restaurant Website, Developer Portfolio, Final Project)
+### 1. “HTML for Class 6 & 7: Learn to Structure the Web”
+A complete 17-chapter visual, project-based educational textbook:
+- 🚀 **[Launch Interactive HTML Reader](book-html/index.html)**
+- 📚 **[Browse HTML Chapters & Curriculum Guide](book-html/README.md)**
+- **Curriculum Highlights**: Tags, headings, text formatting, links, images, tables, forms, semantic layout, and 5 capstone projects.
 
-### 2. “JavaScript for Class 7: Learn, Think, Create”
+### 2. “CSS for Class 7: Styling & Designing Websites”
+A dedicated 22-chapter styling and design textbook:
+- 🎨 **[Launch Interactive CSS Reader](book-css/index.html)**
+- 📚 **[Browse CSS Chapters & Curriculum Guide](book-css/README.md)**
+- **Curriculum Highlights**: Colors, fonts, backgrounds, Box Model, Flexbox, CSS Grid, positioning, responsive mobile design, animations, transitions, and 5 capstone projects.
+
+### 3. “JavaScript for Class 7: Learn, Think, Create”
 A complete beginner's textbook and coding workbook with in-browser code runner:
 - ⚡ **[Launch Interactive JavaScript Reader & Runner](book-js/index.html)**
 - 📚 **[Browse Chapters & Curriculum Guide](book-js/README.md)**

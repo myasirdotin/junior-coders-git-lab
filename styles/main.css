@@ -3487,4 +3487,145 @@ body.reading-mode.font-serif {
 body.reading-mode.font-sans {
     font-family: 'Outfit', 'Inter', system-ui, sans-serif !important;
 }
+
+/* ==========================================================================
+   Shared Educational UI Components (Practices, Tips, Quizzes)
+   ========================================================================== */
+
+.practice-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dim);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(12px);
+}
+
+.practice-section h2 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
+}
+
+.comparison {
+    display: flex;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.comparison > div {
+    flex: 1;
+    min-width: 280px;
+}
+
+.good, .bad {
+    padding: 1.25rem;
+    border-radius: var(--radius-sm, 8px);
+    margin: 0.75rem 0;
+    line-height: 1.6;
+}
+
+.good {
+    background: rgba(16, 185, 129, 0.1);
+    border-left: 4px solid var(--accent);
+    color: var(--text-primary);
+}
+
+.good h3 {
+    color: var(--accent);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.bad {
+    background: rgba(244, 63, 94, 0.1);
+    border-left: 4px solid var(--secondary);
+    color: var(--text-primary);
+}
+
+.bad h3 {
+    color: var(--secondary);
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.tip-box {
+    background: rgba(245, 158, 11, 0.1);
+    border-left: 4px solid var(--warning);
+    padding: 1.25rem;
+    margin: 1rem 0;
+    border-radius: var(--radius-sm, 8px);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+/* Quiz Containers & Option Cards */
+.quiz-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-dim);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    margin: 1.5rem 0;
+    box-shadow: var(--shadow-md);
+    backdrop-filter: blur(12px);
+}
+
+.quiz-container h2 {
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+}
+
+.question {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+}
+
+.option {
+    padding: 0.85rem 1.15rem;
+    border: 1px solid var(--border-dim);
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.option:hover {
+    background: rgba(99, 102, 241, 0.15);
+    border-color: var(--primary);
+    transform: translateX(4px);
+}
+
+.option.correct {
+    background: rgba(16, 185, 129, 0.18) !important;
+    border-color: var(--accent) !important;
+    color: #34d399 !important;
+}
+
+.option.wrong {
+    background: rgba(244, 63, 94, 0.18) !important;
+    border-color: var(--secondary) !important;
+    color: #f87171 !important;
+}
+
+.score {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-top: 1.5rem;
+}
+
 

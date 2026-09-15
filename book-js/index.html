@@ -4,11 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JavaScript for Class 7: Learn, Think, Create</title>
-  <link rel="stylesheet" href="../styles/main.css">
-  <link rel="stylesheet" href="styles/book-theme.css">
+  <link rel="stylesheet" href="../styles/book-theme.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-blue: #f59e0b;
+      --primary-blue-light: #fffbeb;
+      --book-accent: #f59e0b;
+      --book-accent-light: #fffbeb;
+    }
+  </style>
 </head>
 <body>
   <!-- Mobile Navigation Bar -->
@@ -121,7 +128,7 @@
     </aside>
 
     <!-- Main Content Reader -->
-    <main class="book-content">
+    <main class="book-reader book-content">
       <!-- Reader Top Navigation Bar -->
       <nav class="reader-top-nav" aria-label="Breadcrumb and quick navigation">
         <div class="reader-breadcrumb">
@@ -419,6 +426,20 @@
         item.style.display = text.includes(query) ? '' : 'none';
       });
     });
+
+    // Auto-detect hash on load & on hashchange
+    function handleHashLoad() {
+      const hash = window.location.hash.toLowerCase();
+      if (hash) {
+        const targetLink = document.querySelector(`a[href="${hash}"]`);
+        if (targetLink) {
+          targetLink.click();
+          return;
+        }
+      }
+    }
+    window.addEventListener('DOMContentLoaded', handleHashLoad);
+    window.addEventListener('hashchange', handleHashLoad);
   </script>
   <script src="../js/book-speaker.js"></script>
 </body>
