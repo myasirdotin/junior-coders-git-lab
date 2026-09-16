@@ -3,35 +3,1900 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Playground | Junior Coders</title>
+    <title>HTML Interactive Lab & Playground | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --html-orange: #ea580c;
+            --html-amber: #f97316;
+            --html-glow: rgba(234, 88, 12, 0.35);
+            --lab-bg: #0b0f19;
+            --lab-card: #111827;
+            --lab-border: #1f2937;
+            --lab-header: #0f172a;
+        }
+
+        body {
+            background: var(--lab-bg);
+            color: #f3f4f6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* Lab Top Navbar */
+        .lab-navbar {
+            background: #0f172a;
+            border-bottom: 1px solid #1e293b;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .lab-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .lab-brand a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: color 0.2s;
+        }
+
+        .lab-brand a:hover {
+            color: #fb923c;
+        }
+
+        .lab-brand h1 {
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fb923c, #ea580c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lab-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .lab-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.45rem 0.85rem;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+            font-family: inherit;
+        }
+
+        .lab-btn-outline {
+            background: #1e293b;
+            color: #cbd5e1;
+            border-color: #334155;
+        }
+
+        .lab-btn-outline:hover {
+            background: #334155;
+            color: #fff;
+            border-color: #64748b;
+        }
+
+        .lab-btn-primary {
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            color: white;
+            box-shadow: 0 2px 10px var(--html-glow);
+        }
+
+        .lab-btn-primary:hover {
+            background: linear-gradient(135deg, #ea580c, #c2410c);
+            transform: translateY(-1px);
+        }
+
+        /* Challenge Selector Toolbar */
+        .challenge-toolbar {
+            background: #131d33;
+            border-bottom: 1px solid #1e293b;
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .challenge-selector-group {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .challenge-selector-group label {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        .challenge-select {
+            background: #0f172a;
+            color: #f8fafc;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 0.5rem 0.85rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            outline: none;
+            cursor: pointer;
+            width: 100%;
+            max-width: 460px;
+            transition: border-color 0.2s;
+        }
+
+        .challenge-select:focus {
+            border-color: #f97316;
+            box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.25);
+        }
+
+        .toolbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        /* Mission Directive Banner */
+        .mission-banner {
+            background: linear-gradient(90deg, #2b1406, #0f172a);
+            border-bottom: 1px solid #7c2d12;
+            padding: 0.85rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .mission-content {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+        }
+
+        .mission-badge {
+            background: #ea580c;
+            color: white;
+            font-weight: 800;
+            font-size: 0.72rem;
+            padding: 0.25rem 0.65rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .mission-title {
+            font-weight: 700;
+            color: #f8fafc;
+            font-size: 0.95rem;
+        }
+
+        .mission-desc {
+            color: #cbd5e1;
+            font-size: 0.88rem;
+        }
+
+        /* Tag Quick-Palette Toolbar */
+        .tag-ribbon-bar {
+            background: #0f172a;
+            border-bottom: 1px solid #1e293b;
+            padding: 0.45rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: thin;
+        }
+
+        .tag-ribbon-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-right: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .tag-btn {
+            background: #1e293b;
+            color: #cbd5e1;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 0.25rem 0.6rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .tag-btn:hover {
+            background: #ea580c;
+            color: #ffffff;
+            border-color: #f97316;
+            transform: translateY(-1px);
+        }
+
+        .tag-btn-special {
+            background: rgba(234, 88, 12, 0.15);
+            color: #fb923c;
+            border-color: rgba(234, 88, 12, 0.4);
+        }
+
+        .tag-btn-special:hover {
+            background: #ea580c;
+            color: #ffffff;
+        }
+
+        /* Split Studio Workspace */
+        .lab-workspace {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            min-height: calc(100vh - 225px);
+        }
+
+        @media (max-width: 960px) {
+            .lab-workspace {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Editor Section */
+        .editor-section {
+            border-right: 1px solid #1e293b;
+            display: flex;
+            flex-direction: column;
+            background: #0d1322;
+        }
+
+        .editor-header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #0f172a;
+            border-bottom: 1px solid #1e293b;
+            padding: 0.4rem 1rem;
+        }
+
+        .editor-tab-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #fb923c;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            background: rgba(251, 146, 60, 0.08);
+            border: 1px solid rgba(251, 146, 60, 0.2);
+        }
+
+        .editor-quick-tools {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .editor-mini-btn {
+            background: #1e293b;
+            color: #cbd5e1;
+            border: 1px solid #334155;
+            border-radius: 6px;
+            padding: 0.25rem 0.55rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s ease;
+        }
+
+        .editor-mini-btn:hover {
+            background: #334155;
+            color: #fff;
+            border-color: #64748b;
+        }
+
+        .editor-pane-container {
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .code-textarea {
+            width: 100%;
+            height: 100%;
+            min-height: 420px;
+            background: #0b0f19;
+            color: #f1f5f9;
+            border: none;
+            padding: 1.25rem;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.65;
+            resize: none;
+            outline: none;
+            box-sizing: border-box;
+            tab-size: 2;
+        }
+
+        .code-textarea::selection {
+            background: rgba(249, 115, 22, 0.3);
+        }
+
+        /* Status & Doctor Bar */
+        .editor-status-bar {
+            background: #0f172a;
+            border-top: 1px solid #1e293b;
+            padding: 0.4rem 1rem;
+            font-size: 0.78rem;
+            color: #64748b;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .html-doctor-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(34, 197, 94, 0.12);
+            color: #4ade80;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .html-doctor-pill.warning {
+            background: rgba(245, 158, 11, 0.12);
+            color: #fbbf24;
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        /* Preview Section */
+        .preview-section {
+            background: #111827;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-header {
+            background: #0f172a;
+            border-bottom: 1px solid #1e293b;
+            padding: 0.55rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .viewport-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .viewport-btn {
+            background: #1e293b;
+            border: 1px solid #334155;
+            color: #cbd5e1;
+            padding: 0.25rem 0.65rem;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .viewport-btn:hover {
+            color: #fff;
+            border-color: #64748b;
+        }
+
+        .viewport-btn.active {
+            background: #ea580c;
+            border-color: #f97316;
+            color: #ffffff;
+            box-shadow: 0 0 8px rgba(234, 88, 12, 0.4);
+        }
+
+        .preview-frame-container {
+            flex: 1;
+            padding: 1.25rem;
+            background: #080c14;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .preview-box {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            min-height: 480px;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .preview-box iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #ffffff;
+            display: block;
+        }
+
+        /* Modals */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 1.5rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-card {
+            background: #111827;
+            border: 1px solid #1e293b;
+            border-radius: 14px;
+            width: 100%;
+            max-width: 680px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes modalPop {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-header {
+            padding: 1rem 1.5rem;
+            background: #0f172a;
+            border-bottom: 1px solid #1e293b;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #f8fafc;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.25rem;
+            cursor: pointer;
+            padding: 0.25rem;
+            border-radius: 4px;
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: #f8fafc;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            color: #cbd5e1;
+            font-size: 0.92rem;
+            line-height: 1.65;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .modal-body pre {
+            background: #0b0f19;
+            padding: 1.25rem;
+            border-radius: 8px;
+            border: 1px solid #1e293b;
+            overflow-x: auto;
+            color: #f1f5f9;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.86rem;
+            line-height: 1.6;
+        }
+
+        /* Fullscreen Viewport Modal */
+        .fullscreen-modal-content {
+            width: 95vw;
+            height: 92vh;
+            max-width: 1400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fullscreen-frame {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: #ffffff;
+        }
+
+        /* Toast notification */
+        .lab-toast {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #1e293b;
+            color: #f8fafc;
+            border: 1px solid #ea580c;
+            padding: 0.75rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 2000;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .lab-toast.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
 <body>
 
-    <main class="module-container">
-        <header class="module-header">
-            <h1>HTML Playground</h1>
-            <p>Write code, see results, and experiment freely.</p>
-        </header>
+    <!-- Lab Top Navbar -->
+    <header class="lab-navbar">
+        <div class="lab-brand">
+            <a href="learninghtml.html">
+                <span>←</span> <span>Modules</span>
+            </a>
+            <span style="color: #475569;">|</span>
+            <h1>HTML Interactive Lab & Studio</h1>
+        </div>
 
-        <section class="content-section">
-            <div class="playground-container">
-                <div class="editor-area">
-                    <label>Code Editor</label>
-                    <textarea id="code-editor" spellcheck="false" placeholder="<h1>Hello!</h1>"></textarea>
+        <nav class="lab-nav-links">
+            <a href="../book-html/index.html" class="lab-btn lab-btn-outline" title="Open official HTML Textbook">
+                <span>📖</span> <span>HTML Book</span>
+            </a>
+            <a href="exercises.html" class="lab-btn lab-btn-outline" title="Practice HTML Challenges">
+                <span>🎯</span> <span>Exercises</span>
+            </a>
+            <a href="quiz.html" class="lab-btn lab-btn-outline" title="Take Master Quiz">
+                <span>🏆</span> <span>Quiz</span>
+            </a>
+            <a href="glossary.html" class="lab-btn lab-btn-outline" title="View Tag Glossary">
+                <span>📋</span> <span>Glossary</span>
+            </a>
+            <a href="../master-playground.html" class="lab-btn lab-btn-primary" title="Integrated HTML + CSS + JS Studio">
+                <span>💻</span> <span>Master IDE</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Challenge Selector Toolbar -->
+    <section class="challenge-toolbar">
+        <div class="challenge-selector-group">
+            <label for="challengeSelect">🎯 Mission:</label>
+            <select id="challengeSelect" class="challenge-select" onchange="onSelectChallenge(this.value)">
+                <optgroup label="Part 1: Getting Started">
+                    <option value="ch1">Ch 1: What is a Website? (Structure Inspection)</option>
+                    <option value="ch2">Ch 2: How Websites are Built (HTML Skeleton)</option>
+                    <option value="ch3" selected>Ch 3: Your First Web Page (Boilerplate Lab)</option>
+                </optgroup>
+                <optgroup label="Part 2: Headings & Text">
+                    <option value="ch4">Ch 4: HTML Tags & Attributes</option>
+                    <option value="ch5">Ch 5: Headings & Paragraphs Hierarchy</option>
+                    <option value="ch6">Ch 6: Text Formatting (Bold, Italic, Mark)</option>
+                </optgroup>
+                <optgroup label="Part 3: Links & Media">
+                    <option value="ch7">Ch 7: Hyperlinks & Navigation</option>
+                    <option value="ch8">Ch 8: Images & Multimedia Embeds</option>
+                </optgroup>
+                <optgroup label="Part 4: Lists & Tables">
+                    <option value="ch9">Ch 9: Ordered & Unordered Lists</option>
+                    <option value="ch10">Ch 10: Tables & Student Marksheet</option>
+                </optgroup>
+                <optgroup label="Part 5: Forms & User Input">
+                    <option value="ch11">Ch 11: Interactive User Registration Form</option>
+                </optgroup>
+                <optgroup label="Part 6: Layout & Semantics">
+                    <option value="ch12">Ch 12: Semantic Sections (<header>, <main>, <footer>)</option>
+                </optgroup>
+                <optgroup label="Part 7 & 8: Capstone Projects">
+                    <option value="ch13">Ch 13: Capstone: Personal Bio Website</option>
+                    <option value="ch14">Ch 14: Capstone: School Portal Announcement Page</option>
+                    <option value="ch15">Ch 15: Capstone: Restaurant Menu & Pricing Card</option>
+                    <option value="ch16">Ch 16: Capstone: Junior Developer Portfolio</option>
+                    <option value="ch17">Ch 17: Capstone: Final Website Masterpiece</option>
+                </optgroup>
+                <optgroup label="Freeform Sandbox">
+                    <option value="sandbox">🧪 Freeform Scratchpad (Blank Canvas)</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="toolbar-actions">
+            <a id="review-book-btn" href="../book-html/index.html#ch3" class="lab-btn lab-btn-outline" target="_blank" title="Read corresponding chapter theory in textbook">
+                <span>📖</span> <span>Read in Book</span>
+            </a>
+            <button type="button" class="lab-btn lab-btn-outline" onclick="openModal('hintModal')" title="Get a hint for this challenge">
+                <span>💡</span> <span>Hint</span>
+            </button>
+            <button type="button" class="lab-btn lab-btn-outline" onclick="openModal('solutionModal')" title="Inspect model solution">
+                <span>📝</span> <span>Solution</span>
+            </button>
+            <button type="button" class="lab-btn lab-btn-outline" onclick="resetActiveChallenge()" title="Reset to starter code">
+                <span>🔄</span> <span>Reset</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- Mission Directive Banner -->
+    <section class="mission-banner" id="lab-mission-banner">
+        <div class="mission-content">
+            <span class="mission-badge" id="missionBadge">Chapter 3 Lab</span>
+            <span class="mission-title" id="missionTitle">Your First Web Page</span>
+            <span class="mission-desc" id="missionDesc">Assemble a complete HTML5 document with doctype, head, title, and body elements.</span>
+        </div>
+    </section>
+
+    <!-- Quick Tag Ribbon -->
+    <section class="tag-ribbon-bar">
+        <span class="tag-ribbon-label">🏷️ Quick Tags:</span>
+        <button type="button" class="tag-btn tag-btn-special" onclick="insertTagTemplate('boilerplate')" title="Insert full HTML5 Starter Skeleton">⚡ Boilerplate</button>
+        <button type="button" class="tag-btn" onclick="wrapTag('h1')" title="Insert Top-Level Heading <h1>">&lt;h1&gt;</button>
+        <button type="button" class="tag-btn" onclick="wrapTag('h2')" title="Insert Subheading <h2>">&lt;h2&gt;</button>
+        <button type="button" class="tag-btn" onclick="wrapTag('p')" title="Insert Paragraph <p>">&lt;p&gt;</button>
+        <button type="button" class="tag-btn" onclick="wrapTag('strong')" title="Insert Bold Text <strong>">&lt;strong&gt;</button>
+        <button type="button" class="tag-btn" onclick="wrapTag('em')" title="Insert Italic Text <em>">&lt;em&gt;</button>
+        <button type="button" class="tag-btn" onclick="insertTagTemplate('link')" title="Insert Link Anchor <a href>">&lt;a href&gt;</button>
+        <button type="button" class="tag-btn" onclick="insertTagTemplate('image')" title="Insert Image Tag <img src>">&lt;img src&gt;</button>
+        <button type="button" class="tag-btn" onclick="insertTagTemplate('list')" title="Insert Bullet List <ul>">&lt;ul&gt;&lt;li&gt;</button>
+        <button type="button" class="tag-btn" onclick="insertTagTemplate('table')" title="Insert Simple Table <table>">&lt;table&gt;</button>
+        <button type="button" class="tag-btn" onclick="insertTagTemplate('form')" title="Insert Form & Input">&lt;form&gt;</button>
+        <button type="button" class="tag-btn" onclick="wrapTag('button')" title="Insert Button">&lt;button&gt;</button>
+        <button type="button" class="tag-btn" onclick="wrapTag('section')" title="Insert Semantic Section">&lt;section&gt;</button>
+    </section>
+
+    <!-- Split Studio Workspace -->
+    <main class="lab-workspace">
+        <!-- Editor Section -->
+        <section class="editor-section">
+            <div class="editor-header-bar">
+                <span class="editor-tab-pill">
+                    <span>📄</span> <span>index.html</span>
+                </span>
+                <div class="editor-quick-tools">
+                    <button type="button" class="editor-mini-btn" onclick="formatHTML()" title="Format and auto-indent HTML code">🧹 Format</button>
+                    <button type="button" class="editor-mini-btn" onclick="copyCode()" title="Copy code to clipboard">📋 Copy</button>
+                    <button type="button" class="editor-mini-btn" onclick="downloadHTML()" title="Download file to computer">💾 Download</button>
+                    <button type="button" class="editor-mini-btn" onclick="clearEditor()" title="Clear editor content">🗑️ Clear</button>
                 </div>
-                <div class="preview-area">
-                    <label>Live Output</label>
-                    <div id="preview"></div>
+            </div>
+
+            <div class="editor-pane-container">
+                <textarea id="code-editor" class="code-textarea" spellcheck="false" placeholder="<!-- Write your HTML code here -->"></textarea>
+            </div>
+
+            <div class="editor-status-bar">
+                <div id="htmlDoctor" class="html-doctor-pill">
+                    <span>🩺</span> <span id="doctorMsg">HTML Healthy: All tags closed</span>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <span id="lineColStatus">Lines: 1 | Chars: 0</span>
+                    <span style="color: #475569;">UTF-8</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section class="preview-section">
+            <div class="preview-header">
+                <div class="viewport-controls">
+                    <button type="button" class="viewport-btn active" onclick="setViewport('100%', this)">💻 Desktop</button>
+                    <button type="button" class="viewport-btn" onclick="setViewport('768px', this)">📟 Tablet</button>
+                    <button type="button" class="viewport-btn" onclick="setViewport('375px', this)">📱 Mobile</button>
+                </div>
+                <div style="display: flex; gap: 0.4rem;">
+                    <button type="button" class="lab-btn lab-btn-outline" style="padding: 0.25rem 0.6rem;" onclick="openFullscreenPreview()" title="View in Fullscreen Mode">
+                        <span>⛶</span> Fullscreen
+                    </button>
+                    <button type="button" class="lab-btn lab-btn-outline" style="padding: 0.25rem 0.6rem;" onclick="refreshPreview()" title="Refresh live preview">
+                        <span>🔄</span> Refresh
+                    </button>
+                </div>
+            </div>
+
+            <div class="preview-frame-container">
+                <div id="preview" class="preview-box">
+                    <!-- Live sandboxed iframe generated here -->
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Hint Modal -->
+    <div class="modal-overlay" id="hintModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>💡 Challenge Hint</h3>
+                <button type="button" class="modal-close" onclick="closeModal('hintModal')">✕</button>
+            </div>
+            <div class="modal-body" id="hintModalContent">
+                <p>Remember to always wrap visible content inside the <code>&lt;body&gt;</code> tag.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solution Modal -->
+    <div class="modal-overlay" id="solutionModal">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h3>📝 Challenge Solution</h3>
+                <button type="button" class="modal-close" onclick="closeModal('solutionModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>Here is the recommended solution code for this challenge:</p>
+                <pre id="solutionModalCode">&lt;!-- Solution HTML will appear here --&gt;</pre>
+                <div style="margin-top: 1.25rem; display: flex; justify-content: flex-end; gap: 0.5rem;">
+                    <button type="button" class="lab-btn lab-btn-outline" onclick="closeModal('solutionModal')">Close</button>
+                    <button type="button" class="lab-btn lab-btn-primary" onclick="loadSolutionToEditor()">Load Solution Into Editor</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Preview Modal -->
+    <div class="modal-overlay" id="fullscreenModal">
+        <div class="modal-card fullscreen-modal-content">
+            <div class="modal-header">
+                <h3>⛶ Fullscreen Live View</h3>
+                <button type="button" class="modal-close" onclick="closeModal('fullscreenModal')">✕</button>
+            </div>
+            <div style="flex: 1; position: relative;">
+                <iframe id="fullscreenIframe" class="fullscreen-frame" title="Fullscreen live preview" sandbox="allow-scripts"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="labToast" class="lab-toast">
+        <span id="toastIcon">📋</span>
+        <span id="toastMsg">Code copied to clipboard!</span>
+    </div>
+
+    <!-- Core Platform & Lab Challenges Engine -->
     <script src="../js/core.js"></script>
-    <script src="../js/playground.js"></script>
+    <script>
+        // HTML Companion Lab Database (17 Chapters aligned with book-html/)
+        const HTML_CHALLENGES = {
+            ch1: {
+                chapter: "1",
+                title: "What is a Website? (Structure Inspection)",
+                level: "Beginner",
+                desc: "Every website has visible content wrapped inside tags. Inspect and edit this simple web greeting.",
+                bookUrl: "../book-html/index.html#ch1",
+                starterCode: `<h1>Welcome to Junior Coders!</h1>
+<p>This is my first step into the world of web development.</p>
+<p>Websites are built with HTML tags that tell the browser what to display.</p>`,
+                hint: "Try changing the text inside the <h1> and <p> tags to write your own personalized greeting!",
+                solution: `<h1>Hello World! I am a Web Developer</h1>
+<p>Welcome to my very first web creation with Junior Coders.</p>
+<p>I am learning how tags organize text, headings, and multimedia.</p>`
+            },
+            ch2: {
+                chapter: "2",
+                title: "How Websites are Built (HTML Skeleton)",
+                level: "Beginner",
+                desc: "Understand how HTML provides structure, CSS provides styling, and JS brings interactivity.",
+                bookUrl: "../book-html/index.html#ch2",
+                starterCode: `<div style="font-family: sans-serif; padding: 20px; background: #f0fdf4; border: 2px dashed #22c55e; border-radius: 8px;">
+  <h2>The Three Pillars of the Web</h2>
+  <p><strong>HTML:</strong> The skeleton and structure.</p>
+  <p><strong>CSS:</strong> The clothes, colors, and layout.</p>
+  <p><strong>JavaScript:</strong> The brain and interactivity.</p>
+</div>`,
+                hint: "HTML tags like <div>, <h2>, and <p> define what each piece of information represents.",
+                solution: `<div style="font-family: sans-serif; padding: 20px; background: #f0fdf4; border: 2px dashed #22c55e; border-radius: 8px;">
+  <h2>The Three Pillars of the Web</h2>
+  <p><strong>HTML:</strong> The skeleton and structure.</p>
+  <p><strong>CSS:</strong> The clothes, colors, and layout.</p>
+  <p><strong>JavaScript:</strong> The brain and interactivity.</p>
+  <hr>
+  <p style="color: #166534;"><em>Ready to master all three!</em></p>
+</div>`
+            },
+            ch3: {
+                chapter: "3",
+                title: "Your First Web Page (HTML Boilerplate)",
+                level: "Essential",
+                desc: "Assemble a standard <!DOCTYPE html> document with <html>, <head>, <title>, and <body>.",
+                bookUrl: "../book-html/index.html#ch3",
+                starterCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My First Web Page</title>
+</head>
+<body>
+    <h1>My Journey Begins!</h1>
+    <p>Written by a future software engineer.</p>
+</body>
+</html>`,
+                hint: "Always place content visible to users inside <body>...</body>. The <head> tag holds metadata.",
+                solution: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Junior Coders - My First Page</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <p>This is a complete, standards-compliant HTML5 document.</p>
+    <p>All human-visible content lives securely between the opening and closing body tags.</p>
+</body>
+</html>`
+            },
+            ch4: {
+                chapter: "4",
+                title: "HTML Tags & Attributes",
+                level: "Beginner",
+                desc: "Attributes provide additional instructions to tags (e.g. id, class, title, hidden).",
+                bookUrl: "../book-html/index.html#ch4",
+                starterCode: `<!-- Add a 'title' attribute to the paragraph for a hover tooltip -->
+<h1 id="main-heading">Exploring HTML Attributes</h1>
+
+<p>Hover over this text to see a hidden tooltip!</p>
+
+<button disabled>You Cannot Click Me Yet</button>`,
+                hint: "Add title='Helpful explanation' inside the opening <p> tag: <p title='...'>.",
+                solution: `<h1 id="main-heading" class="hero-title">Exploring HTML Attributes</h1>
+
+<p title="Awesome! You hovered over this paragraph attribute!">Hover over this text to see a hidden tooltip!</p>
+
+<button class="primary-btn">Active Button</button>`
+            },
+            ch5: {
+                chapter: "5",
+                title: "Headings & Paragraphs Hierarchy",
+                level: "Core",
+                desc: "Build a news report using proper heading hierarchy from <h1> through <h6>.",
+                bookUrl: "../book-html/index.html#ch5",
+                starterCode: `<!-- Create an organized hierarchy of headings and paragraphs -->
+<h1>Tech News Daily</h1>
+
+<h2>Mars Rover Discovers Water Ice</h2>
+<p>NASA's rover recorded new ice formations in the northern crater.</p>
+
+<!-- Add an h3 subheading and a paragraph below -->
+`,
+                hint: "Use <h1> for the main topic, <h2> for major sections, and <h3> for sub-points.",
+                solution: `<h1>Tech News Daily</h1>
+
+<h2>Mars Rover Discovers Water Ice</h2>
+<p>NASA's rover recorded new ice formations in the northern crater.</p>
+
+<h3>Excavation Team Findings</h3>
+<p>Sub-surface radar confirmed crystalline deposits measuring over 50 meters wide.</p>
+
+<hr>
+<p><small>Published by Junior Science Gazette</small></p>`
+            },
+            ch6: {
+                chapter: "6",
+                title: "Text Formatting (Bold, Italic, Mark)",
+                level: "Core",
+                desc: "Use <strong>, <em>, <mark>, <del>, <ins>, and <code> to style and highlight textual meaning.",
+                bookUrl: "../book-html/index.html#ch6",
+                starterCode: `<h2>Important Announcement</h2>
+
+<p>Special Offer: Old price was $50, new price is $25!</p>
+<p>Notice: Bring your laptop and charger to class tomorrow.</p>`,
+                hint: "Use <del>$50</del> for strikethrough, <mark>$25</mark> for highlight, and <strong> for bold.",
+                solution: `<h2>Important Announcement</h2>
+
+<p>Special Offer: Old price was <del>$50</del>, new price is <ins><mark>$25</mark></ins>!</p>
+<p><strong>Notice:</strong> Please remember to bring your <em>laptop</em> and <code>charger</code> to class tomorrow.</p>`
+            },
+            ch7: {
+                chapter: "7",
+                title: "Hyperlinks & Navigation",
+                level: "Core",
+                desc: "Connect web pages with <a href> anchors, external links with target='_blank', and page jumps.",
+                bookUrl: "../book-html/index.html#ch7",
+                starterCode: `<h2>Useful Developer Resources</h2>
+
+<!-- Add links with href and target='_blank' -->
+<p>Visit Wikipedia: (Add link here)</p>
+<p>Send an Email: (Add mailto link here)</p>`,
+                hint: "Syntax: <a href='https://example.com' target='_blank'>Link Text</a> and mailto:teacher@school.com.",
+                solution: `<h2>Useful Developer Resources</h2>
+
+<p>Learn more on <a href="https://en.wikipedia.org" target="_blank" rel="noopener">Wikipedia 🌐</a></p>
+<p>Have questions? <a href="mailto:support@juniorcoders.org">Email the Mentor ✉️</a></p>
+<p><a href="#bottom">Jump to Bottom ↓</a></p>
+<div style="height: 300px; background: #f8fafc; border: 1px dashed #cbd5e1; margin: 15px 0; padding: 15px;">(Scrollable Content Area)</div>
+<p id="bottom"><strong>You reached the bottom!</strong> <a href="#">Back to Top ↑</a></p>`
+            },
+            ch8: {
+                chapter: "8",
+                title: "Images & Multimedia Embeds",
+                level: "Core",
+                desc: "Embed pictures with accessible alt descriptions, figures, and audio/video controls.",
+                bookUrl: "../book-html/index.html#ch8",
+                starterCode: `<h2>Featured Animal: Arctic Fox</h2>
+
+<!-- Embed an image with src, alt, width, and height -->
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=500" alt="" width="350">
+
+<p>The Arctic Fox is adapted to live in freezing cold environments.</p>`,
+                hint: "Never leave alt='' blank! Screen readers and search engines rely on descriptive alt text.",
+                solution: `<figure style="margin: 0; text-align: center;">
+  <img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=500" 
+       alt="A fluffy white Arctic fox sitting on snow" 
+       width="360" 
+       style="border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.15);">
+  <figcaption style="font-size: 0.85rem; color: #64748b; margin-top: 8px;">
+    Fig. 1 — The Arctic Fox in its winter white camouflage.
+  </figcaption>
+</figure>`
+            },
+            ch9: {
+                chapter: "9",
+                title: "Ordered & Unordered Lists",
+                level: "Core",
+                desc: "Construct recipes and directories using ordered <ol> steps and bulleted <ul> ingredients.",
+                bookUrl: "../book-html/index.html#ch9",
+                starterCode: `<h2>Homemade Lemonade Recipe</h2>
+
+<h3>Ingredients:</h3>
+<!-- Create an unordered list for ingredients -->
+
+<h3>Directions:</h3>
+<!-- Create an ordered list for recipe steps -->
+`,
+                hint: "Use <ul> with <li> for items where order doesn't matter, and <ol> with <li> for numbered steps.",
+                solution: `<h2>Homemade Lemonade Recipe 🍋</h2>
+
+<h3>Ingredients (Bulleted):</h3>
+<ul>
+  <li>4 large fresh lemons (squeezed)</li>
+  <li>3 tablespoons natural honey or cane sugar</li>
+  <li>3 cups cold filtered water</li>
+  <li>Handful of fresh mint leaves</li>
+</ul>
+
+<h3>Preparation Steps (Numbered):</h3>
+<ol>
+  <li>Squeeze the juice from the lemons into a glass pitcher.</li>
+  <li>Stir in the honey until completely dissolved.</li>
+  <li>Pour in cold water and mix thoroughly.</li>
+  <li>Garnish with mint leaves and serve over ice cubes.</li>
+</ol>`
+            },
+            ch10: {
+                chapter: "10",
+                title: "Tables & Student Marksheet",
+                level: "Intermediate",
+                desc: "Format tabular data with <table>, <thead>, <tbody>, <tr>, <th>, and <td>.",
+                bookUrl: "../book-html/index.html#ch10",
+                starterCode: `<h2>Grade 7 Science Marksheet</h2>
+
+<table border="1" cellpadding="8" style="border-collapse: collapse; width: 100%;">
+  <!-- Add table header (th) and data rows (td) -->
+</table>`,
+                hint: "Use <th> for header titles (bold and centered) and <td> for ordinary data values.",
+                solution: `<h2 style="font-family: sans-serif;">Grade 7 Science Marksheet 📊</h2>
+
+<table border="1" cellpadding="10" style="border-collapse: collapse; width: 100%; font-family: sans-serif; text-align: left;">
+  <thead style="background-color: #f1f5f9;">
+    <tr>
+      <th>Student Name</th>
+      <th>Theory (70)</th>
+      <th>Practical (30)</th>
+      <th>Total Score</th>
+      <th>Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Aaliyah Khan</td>
+      <td>68</td>
+      <td>29</td>
+      <td><strong>97</strong></td>
+      <td>A+</td>
+    </tr>
+    <tr>
+      <td>Devin Vance</td>
+      <td>62</td>
+      <td>28</td>
+      <td><strong>90</strong></td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Maya Sharma</td>
+      <td>65</td>
+      <td>30</td>
+      <td><strong>95</strong></td>
+      <td>A+</td>
+    </tr>
+  </tbody>
+</table>`
+            },
+            ch11: {
+                chapter: "11",
+                title: "Interactive User Registration Form",
+                level: "Intermediate",
+                desc: "Build a form with <label>, <input type='text|email|password'>, <select>, and a submit button.",
+                bookUrl: "../book-html/index.html#ch11",
+                starterCode: `<h2>Club Membership Sign Up</h2>
+
+<form action="#" method="GET" style="display: flex; flex-direction: column; gap: 12px; max-width: 320px;">
+  <!-- Add name input, email input, track selector, and submit button -->
+</form>`,
+                hint: "Connect each <label for='id'> with its matching <input id='id'> so clicking the label focuses the input.",
+                solution: `<h2>Coder Club Registration 🚀</h2>
+
+<form action="#" method="GET" style="display: flex; flex-direction: column; gap: 12px; max-width: 360px; font-family: sans-serif;">
+  <div>
+    <label for="fullName">Full Name:</label><br>
+    <input type="text" id="fullName" name="name" placeholder="e.g. Maya Patel" required style="width: 100%; padding: 6px; box-sizing: border-box;">
+  </div>
+
+  <div>
+    <label for="userEmail">School Email:</label><br>
+    <input type="email" id="userEmail" name="email" placeholder="student@school.edu" required style="width: 100%; padding: 6px; box-sizing: border-box;">
+  </div>
+
+  <div>
+    <label for="trackSelect">Choose Coding Track:</label><br>
+    <select id="trackSelect" name="track" style="width: 100%; padding: 6px;">
+      <option value="web">Web Development (HTML/CSS)</option>
+      <option value="game">Game Design with JavaScript</option>
+      <option value="ai">Intro to Artificial Intelligence</option>
+    </select>
+  </div>
+
+  <div>
+    <input type="checkbox" id="terms" required>
+    <label for="terms">I agree to follow the Code of Conduct</label>
+  </div>
+
+  <button type="submit" style="padding: 10px; background: #ea580c; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+    Complete Registration
+  </button>
+</form>`
+            },
+            ch12: {
+                chapter: "12",
+                title: "Semantic Sections & Divs",
+                level: "Intermediate",
+                desc: "Construct a clean semantic website skeleton using <header>, <nav>, <main>, <article>, and <footer>.",
+                bookUrl: "../book-html/index.html#ch12",
+                starterCode: `<!-- Structure this webpage using HTML5 Semantic tags -->
+<header>
+  <h1>The Daily Spark</h1>
+  <nav>Home | About | Articles | Contact</nav>
+</header>
+
+<main>
+  <article>
+    <h2>Understanding Space Exploration</h2>
+    <p>New missions are venturing further than ever before.</p>
+  </article>
+</main>
+
+<footer>
+  <p>&copy; 2026 The Daily Spark</p>
+</footer>`,
+                hint: "Semantic tags give meaningful structure to search engines, screen readers, and developers.",
+                solution: `<!DOCTYPE html>
+<html lang="en">
+<body style="font-family: sans-serif; margin: 0; line-height: 1.6;">
+  <header style="background: #0f172a; color: white; padding: 1.5rem; text-align: center;">
+    <h1 style="margin: 0;">The Daily Spark ⚡</h1>
+    <nav style="margin-top: 0.5rem;">
+      <a href="#" style="color: #38bdf8; margin: 0 10px; text-decoration: none;">Home</a>
+      <a href="#" style="color: #38bdf8; margin: 0 10px; text-decoration: none;">Science</a>
+      <a href="#" style="color: #38bdf8; margin: 0 10px; text-decoration: none;">Robotics</a>
+      <a href="#" style="color: #38bdf8; margin: 0 10px; text-decoration: none;">Contact</a>
+    </nav>
+  </header>
+
+  <main style="max-width: 750px; margin: 2rem auto; padding: 0 1.5rem;">
+    <article style="border-bottom: 1px solid #e2e8f0; padding-bottom: 1.5rem;">
+      <h2 style="color: #ea580c;">Mars Rover Discovers Subsurface Ice</h2>
+      <p>Scientists announced compelling radar scans confirming frozen reservoirs beneath the polar ice caps.</p>
+    </article>
+  </main>
+
+  <footer style="background: #f1f5f9; text-align: center; padding: 1.5rem; font-size: 0.85rem; color: #64748b;">
+    <p>&copy; 2026 Junior Coders Educational Platform. Built with HTML5 Semantics.</p>
+  </footer>
+</body>
+</html>`
+            },
+            ch13: {
+                chapter: "13",
+                title: "Capstone: Personal Bio Website",
+                level: "Capstone",
+                desc: "Craft your personal developer biography with avatar, hobbies list, and social links.",
+                bookUrl: "../book-html/index.html#ch13",
+                starterCode: `<header>
+  <h1>Your Name Here</h1>
+  <p>Junior Web Developer & Technology Enthusiast</p>
+</header>
+
+<section>
+  <h2>About Me</h2>
+  <p>Share two sentences about your favorite hobbies and goals!</p>
+</section>`,
+                hint: "Include an <img> with alt text, an <ul> for your hobbies, and contact links with mailto:.",
+                solution: `<div style="max-width: 500px; margin: 2rem auto; font-family: sans-serif; text-align: center; padding: 2rem; border: 1px solid #e2e8f0; border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.05);">
+  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300" 
+       alt="Portrait of Alex Jordan" 
+       width="140" height="140" 
+       style="border-radius: 50%; object-fit: cover; border: 4px solid #ea580c;">
+
+  <h1 style="margin-top: 1rem; color: #0f172a;">Alex Jordan</h1>
+  <p style="color: #ea580c; font-weight: bold; margin-top: -8px;">Junior Web Engineer</p>
+
+  <p style="color: #475569; line-height: 1.6;">
+    Hi! I am a 7th grade coder passionate about building interactive websites and web games with HTML, CSS, and JavaScript.
+  </p>
+
+  <div style="text-align: left; background: #f8fafc; padding: 1rem 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+    <h3 style="margin-top: 0; color: #1e293b;">My Core Skills:</h3>
+    <ul style="margin-bottom: 0; color: #334155;">
+      <li>Semantic HTML5 Document Architecture</li>
+      <li>Responsive CSS Layouts</li>
+      <li>Creative Problem Solving</li>
+    </ul>
+  </div>
+
+  <a href="mailto:alex@juniorcoders.org" style="display: inline-block; background: #ea580c; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold;">
+    Get in Touch ✉️
+  </a>
+</div>`
+            },
+            ch14: {
+                chapter: "14",
+                title: "Capstone: School Portal Announcement Page",
+                level: "Capstone",
+                desc: "Build a school homepage with announcements, event calendar table, and student handbook link.",
+                bookUrl: "../book-html/index.html#ch14",
+                starterCode: `<h1>Riverdale Middle School Portal</h1>
+<h2>Weekly Announcements</h2>
+<!-- Add announcement list and upcoming event schedule -->`,
+                hint: "Use <section> for Announcements and <table> for the Weekly Event Calendar.",
+                solution: `<div style="font-family: sans-serif; max-width: 700px; margin: 0 auto; padding: 1.5rem;">
+  <header style="border-bottom: 2px solid #ea580c; padding-bottom: 1rem;">
+    <h1 style="color: #1e293b; margin: 0;">🏫 Riverdale Academy Portal</h1>
+    <p style="color: #64748b; margin: 4px 0 0;">Inspiring Leaders & Innovators of Tomorrow</p>
+  </header>
+
+  <section style="margin: 1.5rem 0; background: #fff7ed; border-left: 4px solid #ea580c; padding: 1rem;">
+    <h3 style="margin-top: 0; color: #c2410c;">📢 Notice: Annual Science Fair Next Friday</h3>
+    <p style="margin: 0; color: #431407;">All students must submit their robotics and science project summaries to Room 204 before Wednesday noon.</p>
+  </section>
+
+  <h3>Upcoming Schedule</h3>
+  <table border="1" cellpadding="8" style="border-collapse: collapse; width: 100%; text-align: left;">
+    <tr style="background: #f1f5f9;">
+      <th>Day</th>
+      <th>Event</th>
+      <th>Location</th>
+    </tr>
+    <tr>
+      <td>Tuesday</td>
+      <td>Robotics Club Practice</td>
+      <td>Lab B</td>
+    </tr>
+    <tr>
+      <td>Thursday</td>
+      <td>Basketball Semi-Finals</td>
+      <td>Gymnasium</td>
+    </tr>
+  </table>
+</div>`
+            },
+            ch15: {
+                chapter: "15",
+                title: "Capstone: Restaurant Menu & Pricing Card",
+                level: "Capstone",
+                desc: "Create a mouth-watering Italian bistro menu card with categories, descriptions, and prices.",
+                bookUrl: "../book-html/index.html#ch15",
+                starterCode: `<h1>Luigi's Pizza & Pasta</h1>
+<h2>Menu</h2>
+<!-- Add menu categories, dishes, prices, and special dietary tags -->`,
+                hint: "Use <article> for each dish and <mark> or <strong> for prices.",
+                solution: `<div style="font-family: Georgia, serif; max-width: 550px; margin: 2rem auto; padding: 2rem; border: 2px solid #ea580c; border-radius: 12px; background: #fffdfa;">
+  <div style="text-align: center; border-bottom: 1px dashed #d97706; padding-bottom: 1rem;">
+    <h1 style="margin: 0; color: #9a3412;">🍕 Luigi's Wood-Fired Bistro</h1>
+    <p style="font-style: italic; color: #78350f;">Authentic Neapolitan Hearth Recipes Since 1994</p>
+  </div>
+
+  <h2 style="color: #ea580c; border-bottom: 1px solid #fed7aa; padding-bottom: 4px; margin-top: 1.5rem;">Artisan Pizzas</h2>
+  
+  <div style="display: flex; justify-content: space-between; align-items: baseline;">
+    <strong>Margherita Classica</strong>
+    <span style="font-weight: bold; color: #ea580c;">$14.50</span>
+  </div>
+  <p style="font-size: 0.88rem; color: #71717a; margin-top: 2px;">San Marzano tomatoes, fresh buffalo mozzarella, fresh basil, extra virgin olive oil.</p>
+
+  <div style="display: flex; justify-content: space-between; align-items: baseline; margin-top: 1rem;">
+    <strong>Quattro Formaggi</strong>
+    <span style="font-weight: bold; color: #ea580c;">$16.00</span>
+  </div>
+  <p style="font-size: 0.88rem; color: #71717a; margin-top: 2px;">Gorgonzola, fontina, parmigiano reggiano, and fior di latte.</p>
+
+  <div style="text-align: center; margin-top: 2rem; font-size: 0.85rem; color: #a1a1aa;">
+    <p>Call (555) 019-2834 for Reservations • Open Daily 11am - 10pm</p>
+  </div>
+</div>`
+            },
+            ch16: {
+                chapter: "16",
+                title: "Capstone: Junior Developer Portfolio",
+                level: "Advanced",
+                desc: "Design a full multi-section portfolio showcasing your achievements, code samples, and contact form.",
+                bookUrl: "../book-html/index.html#ch16",
+                starterCode: `<!DOCTYPE html>
+<html>
+<head><title>Portfolio</title></head>
+<body>
+  <!-- Header, Hero, Projects Gallery, Skills Table, Contact Form -->
+</body>
+</html>`,
+                hint: "Combine all major HTML concepts: semantics, tables, lists, media, and interactive forms.",
+                solution: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sarah Chen - Junior Web Developer</title>
+</head>
+<body style="font-family: sans-serif; margin: 0; line-height: 1.6; color: #1e293b;">
+
+  <!-- Navigation -->
+  <header style="background: #0f172a; color: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;">
+    <h2 style="margin: 0; font-size: 1.25rem; color: #fb923c;">Sarah Chen</h2>
+    <nav>
+      <a href="#about" style="color: #cbd5e1; margin-left: 15px; text-decoration: none;">About</a>
+      <a href="#projects" style="color: #cbd5e1; margin-left: 15px; text-decoration: none;">Projects</a>
+      <a href="#contact" style="color: #cbd5e1; margin-left: 15px; text-decoration: none;">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Showcase -->
+  <main style="max-width: 800px; margin: 2rem auto; padding: 0 1rem;">
+    <section id="about" style="text-align: center; margin-bottom: 3rem;">
+      <h1>Hello, I'm Sarah! 👋</h1>
+      <p style="font-size: 1.1rem; color: #475569;">I build fast, accessible, and responsive websites for school clubs and non-profits.</p>
+    </section>
+
+    <section id="projects" style="margin-bottom: 3rem;">
+      <h2 style="border-bottom: 2px solid #ea580c; padding-bottom: 6px;">Featured Projects</h2>
+      <article style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; margin-top: 1rem;">
+        <h3 style="margin-top: 0;">Science Fair Interactive Website</h3>
+        <p>A multi-page educational site detailing astronomy discoveries with interactive quiz widgets.</p>
+        <span style="background: #e0f2fe; color: #0369a1; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">HTML5</span>
+        <span style="background: #fef3c7; color: #b45309; padding: 3px 8px; border-radius: 4px; font-size: 0.8rem; font-weight: bold;">CSS3</span>
+      </article>
+    </section>
+
+    <section id="contact" style="background: #f1f5f9; padding: 1.5rem; border-radius: 8px;">
+      <h2>Send a Message</h2>
+      <form action="#" method="GET">
+        <label for="cname">Name:</label><br>
+        <input type="text" id="cname" style="width: 100%; padding: 8px; margin: 6px 0 12px; box-sizing: border-box;" required><br>
+        <label for="cmsg">Message:</label><br>
+        <textarea id="cmsg" rows="4" style="width: 100%; padding: 8px; margin: 6px 0 12px; box-sizing: border-box;" required></textarea><br>
+        <button type="submit" style="background: #ea580c; color: white; border: none; padding: 10px 20px; font-weight: bold; border-radius: 6px; cursor: pointer;">Send Note</button>
+      </form>
+    </section>
+  </main>
+
+  <footer style="text-align: center; padding: 2rem; background: #0f172a; color: #94a3b8; font-size: 0.85rem;">
+    &copy; 2026 Sarah Chen • Proudly built with pure HTML
+  </footer>
+</body>
+</html>`
+            },
+            ch17: {
+                chapter: "17",
+                title: "Final Capstone Project Planning & Assembling",
+                level: "Mastery",
+                desc: "Synthesize all HTML concepts into your official graduation capstone project.",
+                bookUrl: "../book-html/index.html#ch17",
+                starterCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Master Capstone Web Project</title>
+</head>
+<body>
+  <!-- Your Grand Masterpiece Starts Here! -->
+  <h1>My Graduation Project</h1>
+</body>
+</html>`,
+                hint: "Remember to plan your semantic hierarchy: Header, Nav, Main, Sections, Articles, Aside, and Footer!",
+                solution: `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GreenEarth Initiative - Capstone Project</title>
+</head>
+<body style="font-family: sans-serif; margin: 0; line-height: 1.6; color: #1e293b;">
+
+  <header style="background: linear-gradient(135deg, #15803d, #166534); color: white; padding: 2rem; text-align: center;">
+    <h1 style="margin: 0; font-size: 2rem;">🌱 GreenEarth Initiative</h1>
+    <p style="margin-top: 8px; font-size: 1.1rem; color: #bbf7d0;">Empowering Youth to Protect Our Oceans and Forests</p>
+  </header>
+
+  <main style="max-width: 850px; margin: 2rem auto; padding: 0 1.5rem;">
+    <section>
+      <h2>Our Three Core Missions</h2>
+      <ol style="font-size: 1.05rem; padding-left: 20px;">
+        <li><strong>Reforestation:</strong> Plant 10,000 native tree saplings by 2027.</li>
+        <li><strong>Ocean Cleanup:</strong> Organize monthly community coastline trash removals.</li>
+        <li><strong>Renewable Education:</strong> Provide free clean energy workshops for schools.</li>
+      </ol>
+    </section>
+
+    <section style="background: #f0fdf4; border: 1px solid #86efac; border-radius: 8px; padding: 1.5rem; margin: 2rem 0;">
+      <h3 style="margin-top: 0; color: #166534;">Join the Volunteer Team</h3>
+      <p>Fill out the volunteer pledge to receive your welcome kit!</p>
+      <form action="#" method="GET" style="display: flex; flex-wrap: wrap; gap: 10px;">
+        <input type="text" placeholder="Your Full Name" required style="padding: 8px; flex: 1; min-width: 200px;">
+        <input type="email" placeholder="Your Email Address" required style="padding: 8px; flex: 1; min-width: 200px;">
+        <button type="submit" style="background: #15803d; color: white; border: none; padding: 8px 18px; border-radius: 6px; font-weight: bold; cursor: pointer;">Pledge Today</button>
+      </form>
+    </section>
+  </main>
+
+  <footer style="background: #0f172a; color: #94a3b8; text-align: center; padding: 1.5rem;">
+    <p>&copy; 2026 Junior Coders Capstone Project. Valid HTML5 & Accessible Structure.</p>
+  </footer>
+</body>
+</html>`
+            },
+            sandbox: {
+                chapter: "Lab",
+                title: "Freeform HTML Scratchpad",
+                level: "Creative",
+                desc: "An open canvas with zero constraints. Create whatever you imagine!",
+                bookUrl: "../book-html/index.html",
+                starterCode: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Creative Experiment</title>
+</head>
+<body>
+    <h1>Welcome to My Creative Sandbox 🎨</h1>
+    <p>Type any HTML tags here to see them render instantly on the right.</p>
+</body>
+</html>`,
+                hint: "Use the Quick Tag buttons above the editor to insert headings, links, images, and tables with one click.",
+                solution: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Creative Showcase</title>
+</head>
+<body style="font-family: sans-serif; text-align: center; padding: 2rem;">
+    <h1>Coding is My Superpower! 🚀</h1>
+    <p>Practice makes permanent. Keep experimenting with new tags!</p>
+</body>
+</html>`
+            }
+        };
+
+        // Active State
+        let activeChallengeKey = 'ch3';
+        const editor = document.getElementById('code-editor');
+        const previewContainer = document.getElementById('preview');
+        const doctorEl = document.getElementById('htmlDoctor');
+        const doctorMsg = document.getElementById('doctorMsg');
+        const lineColStatus = document.getElementById('lineColStatus');
+
+        // Initialize Playground
+        function initPlayground() {
+            // Check hash in URL (e.g. #ch7 or #ch07)
+            let hash = window.location.hash.replace('#', '').toLowerCase();
+            if (hash) {
+                // Normalize e.g. ch07 -> ch7
+                const normalized = hash.replace(/^ch0+(\d+)/, 'ch$1');
+                if (HTML_CHALLENGES[normalized]) {
+                    activeChallengeKey = normalized;
+                } else if (HTML_CHALLENGES[hash]) {
+                    activeChallengeKey = hash;
+                }
+            }
+
+            // Sync dropdown
+            const selector = document.getElementById('challengeSelect');
+            if (selector && selector.querySelector(`option[value="${activeChallengeKey}"]`)) {
+                selector.value = activeChallengeKey;
+            }
+
+            loadChallenge(activeChallengeKey);
+
+            // Check if there was a pendingExercise in localStorage (e.g. sent from textbook)
+            checkPendingExercise();
+
+            // Setup Editor Listeners
+            editor.addEventListener('input', () => {
+                updateLivePreview();
+                runHtmlDoctor();
+                updateLineStatus();
+            });
+
+            editor.addEventListener('keydown', handleEditorKeydown);
+            editor.addEventListener('click', updateLineStatus);
+            editor.addEventListener('keyup', updateLineStatus);
+
+            // Initial render
+            updateLivePreview();
+            runHtmlDoctor();
+            updateLineStatus();
+        }
+
+        // Switch Challenge
+        function onSelectChallenge(key) {
+            activeChallengeKey = key;
+            window.location.hash = key;
+            loadChallenge(key);
+        }
+
+        function loadChallenge(key) {
+            const ch = HTML_CHALLENGES[key] || HTML_CHALLENGES['ch3'];
+            
+            // Update Banner
+            document.getElementById('missionBadge').textContent = `Chapter ${ch.chapter} Lab`;
+            document.getElementById('missionTitle').textContent = ch.title;
+            document.getElementById('missionDesc').textContent = ch.desc;
+
+            const reviewBtn = document.getElementById('review-book-btn');
+            if (reviewBtn && ch.bookUrl) {
+                reviewBtn.href = ch.bookUrl;
+            }
+
+            // Update Hint & Solution modals
+            document.getElementById('hintModalContent').innerHTML = `<p>${ch.hint}</p>`;
+            document.getElementById('solutionModalCode').textContent = ch.solution;
+
+            // Load starter code
+            editor.value = ch.starterCode;
+            updateLivePreview();
+            runHtmlDoctor();
+            updateLineStatus();
+        }
+
+        function resetActiveChallenge() {
+            const ch = HTML_CHALLENGES[activeChallengeKey] || HTML_CHALLENGES['ch3'];
+            editor.value = ch.starterCode;
+            updateLivePreview();
+            runHtmlDoctor();
+            updateLineStatus();
+            showToast('🔄 Code reset to original starter mission!');
+        }
+
+        // Live Preview Renderer
+        function updateLivePreview() {
+            const content = editor.value;
+            let iframe = previewContainer.querySelector('iframe');
+            if (!iframe) {
+                iframe = document.createElement('iframe');
+                iframe.title = 'HTML Live Preview';
+                iframe.setAttribute('sandbox', 'allow-scripts');
+                previewContainer.innerHTML = '';
+                previewContainer.appendChild(iframe);
+            }
+            iframe.srcdoc = content;
+
+            // Also update fullscreen iframe if active
+            const fsIframe = document.getElementById('fullscreenIframe');
+            if (fsIframe) {
+                fsIframe.srcdoc = content;
+            }
+        }
+
+        function refreshPreview() {
+            updateLivePreview();
+            showToast('🔄 Live preview refreshed!');
+        }
+
+        // HTML Doctor (Linter / Syntax Assistant)
+        function runHtmlDoctor() {
+            const code = editor.value;
+            const voidTags = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr', '!doctype']);
+
+            // Simple tag stack analysis for non-void tags
+            const tagRegex = /<\/?([a-zA-Z0-9]+)(?:\s+[^>]*)?>/g;
+            let match;
+            const stack = [];
+            let unclosedError = null;
+
+            while ((match = tagRegex.exec(code)) !== null) {
+                const fullTag = match[0];
+                const tagName = match[1].toLowerCase();
+
+                if (fullTag.endsWith('/>') || voidTags.has(tagName)) {
+                    continue;
+                }
+
+                if (!fullTag.startsWith('</')) {
+                    // Opening tag
+                    stack.push(tagName);
+                } else {
+                    // Closing tag
+                    if (stack.length > 0) {
+                        const last = stack[stack.length - 1];
+                        if (last === tagName) {
+                            stack.pop();
+                        } else {
+                            // Mismatched
+                            unclosedError = `Mismatched </${tagName}> (expected </${last}>)`;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (!unclosedError && stack.length > 0) {
+                const unclosed = stack.pop();
+                unclosedError = `Unclosed tag <${unclosed}> detected`;
+            }
+
+            if (unclosedError) {
+                doctorEl.className = 'html-doctor-pill warning';
+                doctorMsg.textContent = `Tip: ${unclosedError}`;
+            } else {
+                doctorEl.className = 'html-doctor-pill';
+                doctorMsg.textContent = 'HTML Healthy: All tags closed';
+            }
+        }
+
+        // Line and Character Status
+        function updateLineStatus() {
+            const val = editor.value;
+            const lines = val.split('\n').length;
+            const chars = val.length;
+            lineColStatus.textContent = `Lines: ${lines} | Chars: ${chars}`;
+        }
+
+        // Tab Key Indentation & Auto-Close support
+        function handleEditorKeydown(e) {
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                const start = this.selectionStart;
+                const end = this.selectionEnd;
+                const value = this.value;
+
+                this.value = value.substring(0, start) + '  ' + value.substring(end);
+                this.selectionStart = this.selectionEnd = start + 2;
+                updateLivePreview();
+                runHtmlDoctor();
+                updateLineStatus();
+            }
+        }
+
+        // Tag Ribbon Actions
+        function wrapTag(tagName) {
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+            const text = editor.value;
+            const selected = text.substring(start, end) || 'Text here';
+            const wrapped = `<${tagName}>${selected}</${tagName}>`;
+
+            editor.value = text.substring(0, start) + wrapped + text.substring(end);
+            editor.focus();
+            editor.selectionStart = start + tagName.length + 2;
+            editor.selectionEnd = editor.selectionStart + selected.length;
+            updateLivePreview();
+            runHtmlDoctor();
+            updateLineStatus();
+        }
+
+        function insertTagTemplate(type) {
+            let snippet = '';
+            switch (type) {
+                case 'boilerplate':
+                    snippet = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Web Page</title>
+</head>
+<body>
+    <h1>Welcome to My Page</h1>
+    <p>Write your content here...</p>
+</body>
+</html>`;
+                    break;
+                case 'link':
+                    snippet = `<a href="https://example.com" target="_blank">Visit Website</a>`;
+                    break;
+                case 'image':
+                    snippet = `<img src="https://images.unsplash.com/photo-1579546929518-9e396f3cc809?w=500" alt="Colorful gradient background" width="400">`;
+                    break;
+                case 'list':
+                    snippet = `<ul>
+  <li>First Item</li>
+  <li>Second Item</li>
+  <li>Third Item</li>
+</ul>`;
+                    break;
+                case 'table':
+                    snippet = `<table border="1" cellpadding="6" style="border-collapse: collapse;">
+  <tr>
+    <th>Item</th>
+    <th>Qty</th>
+  </tr>
+  <tr>
+    <td>Apples</td>
+    <td>5</td>
+  </tr>
+</table>`;
+                    break;
+                case 'form':
+                    snippet = `<form action="#" method="GET">
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="user" required><br><br>
+  <button type="submit">Submit</button>
+</form>`;
+                    break;
+            }
+
+            const start = editor.selectionStart;
+            const end = editor.selectionEnd;
+            const text = editor.value;
+
+            if (type === 'boilerplate' && text.trim().length === 0) {
+                editor.value = snippet;
+            } else {
+                editor.value = text.substring(0, start) + snippet + text.substring(end);
+            }
+
+            editor.focus();
+            updateLivePreview();
+            runHtmlDoctor();
+            updateLineStatus();
+        }
+
+        // Viewport Resizing
+        function setViewport(width, btn) {
+            document.querySelectorAll('.viewport-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            const box = document.getElementById('preview');
+            if (box) {
+                box.style.width = width;
+            }
+        }
+
+        // Editor Utilities
+        function copyCode() {
+            navigator.clipboard.writeText(editor.value).then(() => {
+                showToast('📋 HTML code copied to clipboard!');
+            }).catch(() => {
+                // Fallback
+                editor.select();
+                document.execCommand('copy');
+                showToast('📋 HTML code copied!');
+            });
+        }
+
+        function clearEditor() {
+            if (confirm('Clear the code editor?')) {
+                editor.value = '';
+                updateLivePreview();
+                runHtmlDoctor();
+                updateLineStatus();
+                showToast('🗑️ Editor cleared!');
+            }
+        }
+
+        function downloadHTML() {
+            const blob = new Blob([editor.value], { type: 'text/html;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = `${activeChallengeKey}-project.html`;
+            link.click();
+            URL.revokeObjectURL(link.href);
+            showToast(`💾 Downloaded ${activeChallengeKey}-project.html!`);
+        }
+
+        function formatHTML() {
+            let html = editor.value;
+            let tab = '  ';
+            let result = '';
+            let indent = '';
+
+            html.split(/>\s*</).forEach(element => {
+                if (element.match(/^\/\w/)) {
+                    indent = indent.substring(tab.length);
+                }
+                result += indent + '<' + element + '>\r\n';
+                if (element.match(/^<?\w[^>]*[^\/]$/) && !element.startsWith("input") && !element.startsWith("img") && !element.startsWith("br") && !element.startsWith("hr") && !element.startsWith("meta") && !element.startsWith("link")) {
+                    indent += tab;
+                }
+            });
+
+            const cleaned = result.substring(1, result.length - 3);
+            if (cleaned.trim().length > 10) {
+                editor.value = cleaned;
+                updateLivePreview();
+                runHtmlDoctor();
+                updateLineStatus();
+                showToast('🧹 HTML formatted cleanly!');
+            }
+        }
+
+        // Modal Controls
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.classList.add('active');
+        }
+
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (modal) modal.classList.remove('active');
+        }
+
+        function loadSolutionToEditor() {
+            const ch = HTML_CHALLENGES[activeChallengeKey] || HTML_CHALLENGES['ch3'];
+            editor.value = ch.solution;
+            updateLivePreview();
+            runHtmlDoctor();
+            updateLineStatus();
+            closeModal('solutionModal');
+            showToast('📝 Solution loaded into editor!');
+        }
+
+        function openFullscreenPreview() {
+            const fsIframe = document.getElementById('fullscreenIframe');
+            if (fsIframe) fsIframe.srcdoc = editor.value;
+            openModal('fullscreenModal');
+        }
+
+        // Toast Helper
+        function showToast(message) {
+            const toast = document.getElementById('labToast');
+            const msg = document.getElementById('toastMsg');
+            if (toast && msg) {
+                msg.textContent = message;
+                toast.classList.add('show');
+                clearTimeout(window.toastTimer);
+                window.toastTimer = setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2600);
+            }
+        }
+
+        // Integration with textbook and global exercise handoffs
+        function checkPendingExercise() {
+            const pending = localStorage.getItem('pendingExercise');
+            if (!pending) return;
+
+            try {
+                const exercise = JSON.parse(pending);
+                if (exercise && exercise.type === 'html' || exercise.starterCode) {
+                    if (exercise.starterCode) {
+                        editor.value = exercise.starterCode;
+                    }
+                    if (exercise.title) {
+                        document.getElementById('missionTitle').textContent = exercise.title;
+                    }
+                    if (exercise.instructions) {
+                        document.getElementById('missionDesc').textContent = exercise.instructions;
+                    }
+                    if (exercise.level) {
+                        document.getElementById('missionBadge').textContent = exercise.level;
+                    }
+                    if (exercise.sourceUrl) {
+                        const reviewBtn = document.getElementById('review-book-btn');
+                        if (reviewBtn) reviewBtn.href = exercise.sourceUrl;
+                    }
+                    updateLivePreview();
+                    runHtmlDoctor();
+                    updateLineStatus();
+                    showToast(`🎯 Loaded mission: ${exercise.title || 'Chapter Practice'}`);
+                }
+            } catch (e) {
+                console.warn('Pending exercise load error:', e);
+            } finally {
+                localStorage.removeItem('pendingExercise');
+            }
+        }
+
+        // Initialize on DOM Ready
+        window.addEventListener('DOMContentLoaded', initPlayground);
+
+        // Listen for hash change if student switches challenge from URL
+        window.addEventListener('hashchange', () => {
+            const hash = window.location.hash.replace('#', '').toLowerCase();
+            const normalized = hash.replace(/^ch0+(\d+)/, 'ch$1');
+            if (HTML_CHALLENGES[normalized]) {
+                onSelectChallenge(normalized);
+            }
+        });
+    </script>
 </body>
 </html>
