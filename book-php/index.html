@@ -86,7 +86,7 @@
     <aside class="book-sidebar" id="bookSidebar">
       <div class="book-return-bar">
         <a href="../index.html" class="book-back-home" title="Return to Junior Coders Home">
-          <span class="back-icon">←</span>
+          <span class="back-icon">&larr;</span>
           <span>Return Home</span>
         </a>
         <a href="../Learning PHP/learningphp.html" class="book-back-home" title="PHP Course Track">
@@ -94,7 +94,7 @@
         </a>
       </div>
       <div class="book-brand">
-        <div class="book-brand-icon">🐘</div>
+        <div class="book-brand-icon">&#128024;</div>
         <div>
           <span class="php-brand-badge">Official Textbook</span>
           <h1 style="color: #7c3aed;">Class 9 PHP</h1>
@@ -102,67 +102,115 @@
         </div>
         <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close chapters menu">&#10005;</button>
       </div>
-      <div class="sidebar-search" style="margin-bottom:1rem;">
-        <input type="text" id="chapterFilter" placeholder="Search PHP chapters..." style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);font-size:0.85rem;">
+
+      <!-- Quick Subject Tabs -->
+      <div class="book-subject-tabs" id="bookSubjectTabs">
+        <button type="button" class="subject-tab active" data-filter="all" onclick="filterPhpGroup('all', this)">All (31)</button>
+        <button type="button" class="subject-tab" data-filter="basics" onclick="filterPhpGroup('basics', this)">Basics (7)</button>
+        <button type="button" class="subject-tab" data-filter="logic" onclick="filterPhpGroup('logic', this)">Logic (6)</button>
+        <button type="button" class="subject-tab" data-filter="data" onclick="filterPhpGroup('data', this)">Data &amp; Files (9)</button>
+        <button type="button" class="subject-tab" data-filter="oop" onclick="filterPhpGroup('oop', this)">OOP (4)</button>
+        <button type="button" class="subject-tab" data-filter="projects" onclick="filterPhpGroup('projects', this)">Projects (5)</button>
       </div>
+
+      <div class="sidebar-search" style="margin-bottom:1rem;">
+        <input type="text" id="chapterFilter" placeholder="Search PHP chapters &amp; topics..." style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);font-size:0.85rem;">
+      </div>
+
       <nav id="sidebarNav">
-        <div class="part-group"><div class="part-title">Part 1: Introduction to PHP</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('ch1',this)">1. What is PHP?</a></li>
-          <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('ch2',this)">2. Your First PHP Script</a></li>
-          <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('ch3',this)">3. PHP in HTML</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 2: Variables &amp; Data Types</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('ch4',this)">4. Variables</a></li>
-          <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('ch5',this)">5. Data Types</a></li>
-          <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('ch6',this)">6. Strings &amp; Operations</a></li>
-          <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('ch7',this)">7. Math &amp; Numbers</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 3: Control Flow</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('ch8',this)">8. If / Else Statements</a></li>
-          <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('ch9',this)">9. Switch Statement</a></li>
-          <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('ch10',this)">10. Loops</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 4: Functions</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('ch11',this)">11. Defining Functions</a></li>
-          <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('ch12',this)">12. Parameters &amp; Return</a></li>
-          <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('ch13',this)">13. Built-in PHP Functions</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 5: Arrays</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('ch14',this)">14. Indexed Arrays</a></li>
-          <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('ch15',this)">15. Associative Arrays</a></li>
-          <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('ch16',this)">16. Array Functions</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 6: Forms &amp; User Input</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('ch17',this)">17. HTML Forms &amp; PHP</a></li>
-          <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('ch18',this)">18. GET &amp; POST</a></li>
-          <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('ch19',this)">19. Form Validation</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 7: File I/O</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch20" onclick="loadChapter('ch20',this)">20. Reading Files</a></li>
-          <li class="chapter-nav-item"><a href="#ch21" onclick="loadChapter('ch21',this)">21. Writing Files</a></li>
-          <li class="chapter-nav-item"><a href="#ch22" onclick="loadChapter('ch22',this)">22. File Uploads</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 8: Object-Oriented PHP</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch23" onclick="loadChapter('ch23',this)">23. Classes &amp; Objects</a></li>
-          <li class="chapter-nav-item"><a href="#ch24" onclick="loadChapter('ch24',this)">24. Properties &amp; Methods</a></li>
-          <li class="chapter-nav-item"><a href="#ch25" onclick="loadChapter('ch25',this)">25. Inheritance</a></li>
-          <li class="chapter-nav-item"><a href="#ch26" onclick="loadChapter('ch26',this)">26. Constructors</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Projects &amp; Reference</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#proj1" onclick="loadChapter('proj1',this)">&#127959; Project 1: Contact Form</a></li>
-          <li class="chapter-nav-item"><a href="#proj2" onclick="loadChapter('proj2',this)">&#127959; Project 2: Simple Blog</a></li>
-          <li class="chapter-nav-item"><a href="#proj3" onclick="loadChapter('proj3',this)">&#127959; Project 3: Login System</a></li>
-          <li class="chapter-nav-item"><a href="#ref" onclick="loadChapter('ref',this)">&#128203; PHP Quick Reference</a></li>
-        </ul></div>
+        <!-- Part 1 -->
+        <div class="part-group" data-group="basics">
+          <div class="part-title">Part 1: Introduction to PHP</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-01-introduction/ch01-what-is-php.md', this)">1. What is PHP?</a></li>
+            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-01-introduction/ch02-your-first-php-script.md', this)">2. Your First PHP Script</a></li>
+            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-01-introduction/ch03-php-in-html.md', this)">3. PHP in HTML Templates</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 2 -->
+        <div class="part-group" data-group="basics">
+          <div class="part-title">Part 2: Variables &amp; Data Types</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-02-variables-and-data-types/ch04-variables.md', this)">4. Variables &amp; Naming Rules</a></li>
+            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-02-variables-and-data-types/ch05-data-types.md', this)">5. Data Types &amp; Inspection</a></li>
+            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-02-variables-and-data-types/ch06-strings.md', this)">6. Strings &amp; Operations</a></li>
+            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-02-variables-and-data-types/ch07-math-and-numbers.md', this)">7. Math &amp; Numbers in PHP</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 3 -->
+        <div class="part-group" data-group="logic">
+          <div class="part-title">Part 3: Control Flow</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-03-control-flow/ch08-if-else.md', this)">8. If / Else Decisions</a></li>
+            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-03-control-flow/ch09-switch.md', this)">9. The Switch Statement</a></li>
+            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-03-control-flow/ch10-loops.md', this)">10. Loops in PHP</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 4 -->
+        <div class="part-group" data-group="logic">
+          <div class="part-title">Part 4: Functions</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-04-functions/ch11-defining-functions.md', this)">11. Defining Custom Functions</a></li>
+            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-04-functions/ch12-parameters-and-return.md', this)">12. Parameters &amp; Return Values</a></li>
+            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-04-functions/ch13-builtin-functions.md', this)">13. Top Built-in PHP Functions</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 5 -->
+        <div class="part-group" data-group="data">
+          <div class="part-title">Part 5: Arrays</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-05-arrays/ch14-indexed-arrays.md', this)">14. Indexed Arrays</a></li>
+            <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-05-arrays/ch15-associative-arrays.md', this)">15. Associative Arrays</a></li>
+            <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('part-05-arrays/ch16-array-functions.md', this)">16. Essential Array Functions</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 6 -->
+        <div class="part-group" data-group="data">
+          <div class="part-title">Part 6: Forms &amp; User Input</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('part-06-forms-and-input/ch17-html-forms-and-php.md', this)">17. HTML Forms &amp; PHP Processing</a></li>
+            <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('part-06-forms-and-input/ch18-get-and-post.md', this)">18. Superglobals: GET vs POST</a></li>
+            <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('part-06-forms-and-input/ch19-form-validation.md', this)">19. Form Validation &amp; Security</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 7 -->
+        <div class="part-group" data-group="data">
+          <div class="part-title">Part 7: File I/O</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch20" onclick="loadChapter('part-07-file-io/ch20-reading-files.md', this)">20. Reading Files in PHP</a></li>
+            <li class="chapter-nav-item"><a href="#ch21" onclick="loadChapter('part-07-file-io/ch21-writing-files.md', this)">21. Writing &amp; Appending Files</a></li>
+            <li class="chapter-nav-item"><a href="#ch22" onclick="loadChapter('part-07-file-io/ch22-file-uploads.md', this)">22. File Uploads in PHP</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 8 -->
+        <div class="part-group" data-group="oop">
+          <div class="part-title">Part 8: Object-Oriented PHP</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch23" onclick="loadChapter('part-08-oop/ch23-classes-and-objects.md', this)">23. Classes &amp; Objects (OOP)</a></li>
+            <li class="chapter-nav-item"><a href="#ch24" onclick="loadChapter('part-08-oop/ch24-properties-and-methods.md', this)">24. Properties &amp; Encapsulation</a></li>
+            <li class="chapter-nav-item"><a href="#ch25" onclick="loadChapter('part-08-oop/ch25-inheritance.md', this)">25. Class Inheritance (Extends)</a></li>
+            <li class="chapter-nav-item"><a href="#ch26" onclick="loadChapter('part-08-oop/ch26-constructors.md', this)">26. Constructors &amp; Destructors</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 9: Projects & Reference -->
+        <div class="part-group" data-group="projects">
+          <div class="part-title">Part 9: Capstone Projects &amp; Reference</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch27" onclick="loadChapter('part-09-projects/ch27-project-contact-form.md', this)">&#127959; Project 1: Dynamic Contact Form</a></li>
+            <li class="chapter-nav-item"><a href="#ch28" onclick="loadChapter('part-09-projects/ch28-project-simple-blog.md', this)">&#127959; Project 2: JSON Mini Blog</a></li>
+            <li class="chapter-nav-item"><a href="#ch29" onclick="loadChapter('part-09-projects/ch29-project-login-system.md', this)">&#127959; Project 3: Login &amp; Sessions</a></li>
+            <li class="chapter-nav-item"><a href="#ref" onclick="loadChapter('reference/quick-reference-and-glossary.md', this)">&#128214; Quick Reference &amp; Glossary</a></li>
+            <li class="chapter-nav-item"><a href="#teacher" onclick="loadChapter('teacher-guide/teachers-guide-and-rubrics.md', this)">&#127822; Teacher's Guide &amp; Rubrics</a></li>
+          </ul>
+        </div>
       </nav>
     </aside>
 
@@ -171,39 +219,57 @@
       <!-- Reader Top Navigation Bar -->
       <nav class="reader-top-nav" aria-label="Breadcrumb and quick navigation">
         <div class="reader-breadcrumb">
-          <a href="../index.html"><span>🏠</span> Home</a>
+          <a href="../index.html"><span>&#127968;</span> Home</a>
           <span>/</span>
           <a href="../Learning PHP/learningphp.html">PHP Track</a>
           <span>/</span>
           <span class="active-book" style="color: #7c3aed;">Class 9 PHP Textbook</span>
         </div>
         <div class="reader-top-links">
-          <a href="../index.html" class="reader-nav-btn"><span>🏠</span> Home</a>
-          <a href="../Learning PHP/learningphp.html" class="reader-nav-btn"><span>📚</span> PHP Modules</a>
-          <a href="../book-html/index.html" class="reader-nav-btn"><span>🌐</span> HTML Book</a>
-          <a href="../book-css/index.html" class="reader-nav-btn"><span>🎨</span> CSS Book</a>
-          <a href="../book-js/index.html" class="reader-nav-btn"><span>⚡</span> JS Book</a>
-          <a href="../master-playground.html" class="reader-nav-btn primary-btn" style="background: #7c3aed; border-color: #7c3aed;"><span>💻</span> Code Lab</a>
+          <a href="../index.html" class="reader-nav-btn"><span>&#127968;</span> Home</a>
+          <a href="../Learning PHP/learningphp.html" class="reader-nav-btn"><span>&#128218;</span> PHP Track</a>
+          <a href="../book-html/index.html" class="reader-nav-btn"><span>&#127760;</span> HTML Book</a>
+          <a href="../book-css/index.html" class="reader-nav-btn"><span>&#127912;</span> CSS Book</a>
+          <a href="../book-js/index.html" class="reader-nav-btn"><span>&#9889;</span> JS Book</a>
+          <a href="../master-playground.html" class="reader-nav-btn primary-btn" style="background: #7c3aed; border-color: #7c3aed;"><span>&#128187;</span> Code Lab</a>
         </div>
       </nav>
 
-      <!-- Permanent Floating / Sticky Reader Top Bar with Audio Speaker & Reading Mode -->
+      <!-- Sticky Audio Speaker & Reading Mode Bar -->
       <header class="book-reader-header" id="bookReaderHeader" role="region" aria-label="Book Reader Controls">
         <div class="reader-header-main">
           <div class="reader-controls-left">
-            <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read chapter aloud"><span class="btn-icon">&#128266;</span><span class="btn-text">Read Chapter</span></button>
-            <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop audio"><span class="btn-icon">&#9209;&#65039;</span><span class="btn-text">Stop</span></button>
-            <div class="reader-speed-pill"><span class="speed-caption">Speed</span>
+            <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read chapter aloud">
+              <span class="btn-icon">&#128266;</span><span class="btn-text">Read Chapter</span>
+            </button>
+            <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop audio narration">
+              <span class="btn-icon">&#9209;&#65039;</span><span class="btn-text">Stop</span>
+            </button>
+            <div class="reader-speed-pill">
+              <span class="speed-caption">Speed</span>
               <select class="book-speaker-speed-select" id="book-speaker-speed-select" aria-label="Narration speed">
-                <option value="0.85">0.85x</option><option value="1.0" selected>1.0x</option>
-                <option value="1.25">1.25x</option><option value="1.5">1.5x</option>
+                <option value="0.85">0.85x</option>
+                <option value="1.0" selected>1.0x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
               </select>
             </div>
-            <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+            <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
           </div>
-          <div class="reader-status-center"><div class="reader-chapter-badge"><span class="status-dot" style="background: #7c3aed;"></span><span class="status-text" id="book-speaker-status-text">PHP for Class 9</span></div></div>
+
+          <div class="reader-status-center">
+            <div class="reader-chapter-badge">
+              <span class="status-dot" style="background: #7c3aed;"></span>
+              <span class="status-text" id="book-speaker-status-text">PHP for Class 9</span>
+            </div>
+          </div>
+
           <div class="reader-controls-right">
-            <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn" title="Reading Mode"><span class="btn-icon">&#128214;</span><span class="btn-text">Reading Mode</span></button>
+            <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn" title="Reading Mode">
+              <span class="btn-icon">&#128214;</span><span class="btn-text">Reading Mode</span>
+            </button>
           </div>
         </div>
       </header>
@@ -216,723 +282,34 @@
             Master server-side programming. Build dynamic websites, process user forms, manage sessions, handle file uploads, and create real web applications from scratch.
           </p>
           <div style="display:flex;gap:0.85rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
-            <a href="#ch1" onclick="loadChapter('ch1',document.querySelector('.chapter-nav-item a'))" style="background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;padding:0.85rem 1.6rem;font-size:0.95rem;text-decoration:none;border-radius:8px;font-weight:700;box-shadow:0 4px 12px rgba(124,58,237,0.3);">
+            <a href="#ch1" onclick="loadChapter('part-01-introduction/ch01-what-is-php.md', document.querySelector('.chapter-nav-item a'))" style="background:linear-gradient(135deg,#7c3aed,#6d28d9);color:#fff;padding:0.85rem 1.6rem;font-size:0.95rem;text-decoration:none;border-radius:8px;font-weight:700;box-shadow:0 4px 12px rgba(124,58,237,0.3);">
               Start Chapter 1: Intro to PHP &#128024;
             </a>
             <a href="../Learning PHP/learningphp.html" style="background:rgba(124,58,237,0.1);color:#7c3aed;border:2px solid #7c3aed;padding:0.85rem 1.6rem;font-size:0.95rem;text-decoration:none;border-radius:8px;font-weight:700;">
               &#128218; Interactive PHP Modules
             </a>
           </div>
-          <div class="pedagogy-box" style="text-align:left;max-width:650px;margin:0 auto;">
-            <h3>&#128218; Complete Course Curriculum</h3>
-            <ul style="list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 1rem;">
-              <li>&#9989; Part 1: PHP Syntax &amp; Scripts</li><li>&#9989; Part 2: Variables &amp; Types</li>
-              <li>&#9989; Part 3: Control Flow &amp; Loops</li><li>&#9989; Part 4: Functions &amp; Scope</li>
-              <li>&#9989; Part 5: Indexed &amp; Associative Arrays</li><li>&#9989; Part 6: Forms &amp; POST/GET</li>
-              <li>&#9989; Part 7: File I/O &amp; Uploads</li><li>&#9989; Part 8: OOP &amp; Classes</li>
-            </ul>
-          </div>
         </div>
       </article>
     </main>
   </div>
 
+  <!-- Markdown Engine & Offline Chapter Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    const CHAPTERS = {
-      ch1: {
-        content: `<span class="chapter-badge">Chapter 1</span><h1 class="chapter-title">What is PHP?</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Understand what PHP is and why it powers the modern web</li><li>Know the crucial difference between server-side and client-side code</li></ul></div><h2>&#127757; What is PHP?</h2><p><strong>PHP</strong> stands for <strong>PHP: Hypertext Preprocessor</strong>. It is an open-source, <strong>server-side scripting language</strong> specifically designed for web development. When a user requests a PHP page, the web server runs the code and outputs clean HTML to the browser.</p><div class="fun-fact-box"><span class="fun-fact-label">&#128161; Did You Know?</span><p>PHP was created in <strong>1994</strong> by Rasmus Lerdorf. Over <strong>77% of all dynamic websites</strong> worldwide use PHP — including WordPress, Wikipedia, and parts of Facebook!</p></div><h2>&#128421;&#65039; Client-Side vs Server-Side</h2><table class="data-table"><thead><tr><th>Feature</th><th>Client-Side (HTML / CSS / JS)</th><th>Server-Side (PHP)</th></tr></thead><tbody><tr><td>Execution Location</td><td>Runs inside the visitor's browser</td><td>Runs securely on the web server</td></tr><tr><td>Source Code Visibility</td><td>Anyone can right-click and "View Source"</td><td>Completely hidden from the visitor</td></tr><tr><td>Database Access</td><td>Cannot directly connect to databases</td><td>Can safely query MySQL databases</td></tr><tr><td>Security Role</td><td>User Interface &amp; client interactions</td><td>Authentication, payment, business logic</td></tr></tbody></table><h2>&#127959;&#65039; What Can PHP Do?</h2><ul><li>&#128221; Process HTML forms and validate user data</li><li>&#128451;&#65039; Read, insert, update, and delete database records</li><li>&#128193; Create, open, read, write, and close files on the server</li><li>&#128274; Manage user sessions, cookies, and login systems</li><li>&#128272; Restrict unauthorized users from viewing private pages</li></ul><div class="challenge-box"><h3>&#127942; Quick Check</h3><ol><li>What does the acronym PHP stand for?</li><li>Why can't visitors view your PHP code by right-clicking "View Source"?</li><li>Name three things PHP can do that HTML and CSS cannot.</li></ol></div>`
-      },
-      ch2: {
-        content: `<span class="chapter-badge">Chapter 2</span><h1 class="chapter-title">Your First PHP Script</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Write, save, and execute your first PHP script</li><li>Understand PHP tags <code>&lt;?php ... ?&gt;</code> and the <code>echo</code> command</li><li>Write single-line and multi-line comments</li></ul></div><h2>&#128221; PHP Tags &amp; The Echo Statement</h2><p>Every PHP script starts with <code>&lt;?php</code> and ends with <code>?&gt;</code>. Statements in PHP must always end with a semicolon (<code>;</code>).</p><pre><code class="language-php">&lt;?php
-  // Print text to the screen
-  echo "Hello, Class 9 Coders!";
-  
-  // Output HTML tags directly from PHP
-  echo "&lt;h2&gt;Welcome to Backend Development&lt;/h2&gt;";
-  
-  // Print numbers
-  echo 42;
-?&gt;</code></pre><h2>&#128172; Comments in PHP</h2><p>Comments are ignored by the server and exist only for humans:</p><pre><code class="language-php">&lt;?php
-  // This is a single-line comment
-  # This is also a single-line comment
-  
-  /*
-    This is a multi-line comment.
-    Use it for paragraphs of developer documentation!
-  */
-  echo "Comments keep your code readable!";
-?&gt;</code></pre><div class="challenge-box"><h3>&#127942; Practice</h3><p>Write a PHP script that outputs your name, school, and current grade using three separate <code>echo</code> statements.</p></div>`
-      },
-      ch3: {
-        content: `<span class="chapter-badge">Chapter 3</span><h1 class="chapter-title">PHP in HTML</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Seamlessly mix PHP code inside standard HTML documents</li><li>Use shorthand PHP echo tags <code>&lt;?= ... ?&gt;</code></li></ul></div><h2>&#128260; Blending PHP with HTML Markup</h2><p>Because PHP files end with the <code>.php</code> extension, you can embed PHP blocks anywhere inside ordinary HTML code:</p><pre><code class="language-php">&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;My Dynamic Webpage&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;Welcome to Student Portal&lt;/h1&gt;
-  &lt;?php
-    $studentName = "Zainab Ali";
-    $today = date("l, F j, Y");
-    echo "&lt;p&gt;Logged in as: &lt;strong&gt;$studentName&lt;/strong&gt;&lt;/p&gt;";
-    echo "&lt;p&gt;Today's Date: $today&lt;/p&gt;";
-  ?&gt;
-  &lt;footer&gt;
-    &lt;p&gt;&copy; &lt;?= date("Y") ?&gt; Junior Coders Academy&lt;/p&gt;
-  &lt;/footer&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><div class="fun-fact-box"><span class="fun-fact-label">&#128273; Shorthand Tag</span><p><code>&lt;?= $variable ?&gt;</code> is equivalent to writing <code>&lt;?php echo $variable; ?&gt;</code>. It is perfect for injecting variables into HTML attributes and headers!</p></div>`
-      },
-      ch4: {
-        content: `<span class="chapter-badge">Chapter 4</span><h1 class="chapter-title">Variables in PHP</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Declare and assign variables using the dollar sign (<code>$</code>)</li><li>Follow official PHP naming conventions and variable assignment rules</li></ul></div><h2>&#128226; Variable Rules in PHP</h2><ul><li>Every variable name MUST start with a dollar sign: <code>$variableName</code></li><li>Must start with a letter or an underscore: <code>$age</code>, <code>$_count</code></li><li>Cannot start with a number: <code>$1stPlace</code> is invalid ❌</li><li>Case-sensitive: <code>$score</code> and <code>$Score</code> are two distinct variables!</li><li>No spaces allowed: Use camelCase (<code>$studentAge</code>) or snake_case (<code>$student_age</code>).</li></ul><pre><code class="language-php">&lt;?php
-  $studentName = "Farhan";
-  $studentAge = 15;
-  $gpa = 3.85;
-  $isEnrolled = true;
-  
-  echo "Student: " . $studentName . "&lt;br&gt;";
-  echo "Age: " . $studentAge . "&lt;br&gt;";
-  
-  // Updating a variable
-  $studentAge = $studentAge + 1;
-  echo "Next year age will be: " . $studentAge;
-?&gt;</code></pre>`
-      },
-      ch5: {
-        content: `<span class="chapter-badge">Chapter 5</span><h1 class="chapter-title">Data Types in PHP</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Master the 8 standard data types in PHP</li><li>Use <code>var_dump()</code> to inspect types and values</li><li>Understand loose typing and type casting</li></ul></div><h2>&#128202; The 8 Core Data Types</h2><table class="data-table"><thead><tr><th>Data Type</th><th>Description</th><th>Example</th></tr></thead><tbody><tr><td><strong>String</strong></td><td>Sequence of characters in quotes</td><td><code>"Hello"</code>, <code>'Class 9'</code></td></tr><tr><td><strong>Integer</strong></td><td>Non-decimal whole numbers</td><td><code>42</code>, <code>-15</code>, <code>2026</code></td></tr><tr><td><strong>Float (Double)</strong></td><td>Numbers with decimal points</td><td><code>3.14159</code>, <code>99.95</code></td></tr><tr><td><strong>Boolean</strong></td><td>Only two states: true or false</td><td><code>true</code>, <code>false</code></td></tr><tr><td><strong>Array</strong></td><td>Stores multiple values in one container</td><td><code>["HTML", "CSS", "PHP"]</code></td></tr><tr><td><strong>Object</strong></td><td>Instance of a defined class</td><td><code>new Student()</code></td></tr><tr><td><strong>NULL</strong></td><td>Variable with no value assigned</td><td><code>null</code></td></tr><tr><td><strong>Resource</strong></td><td>Reference to an external resource</td><td>Database connection / file handle</td></tr></tbody></table><h2>&#128269; Inspecting Variables with <code>var_dump()</code></h2><pre><code class="language-php">&lt;?php
-  $name = "Bilal";
-  $age = 16;
-  $price = 24.50;
-  $hasPaid = false;
-
-  var_dump($name);   // string(5) "Bilal"
-  var_dump($age);    // int(16)
-  var_dump($price);  // float(24.5)
-  var_dump($hasPaid);// bool(false)
-?&gt;</code></pre><div class="challenge-box"><h3>&#127942; Practice</h3><p>Create 4 variables representing a book: title, page count, price, and isAvailable. Run <code>var_dump()</code> on each.</p></div>`
-      },
-      ch6: {
-        content: `<span class="chapter-badge">Chapter 6</span><h1 class="chapter-title">Strings &amp; Operations</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Join strings with the concatenation operator (<code>.</code>)</li><li>Understand double quotes vs single quotes</li><li>Use essential built-in string functions</li></ul></div><h2>&#128279; String Concatenation</h2><p>In PHP, we connect two strings using the period (<code>.</code>) operator, NOT the plus sign (<code>+</code>):</p><pre><code class="language-php">&lt;?php
-  $firstName = "Sara";
-  $lastName = "Khan";
-  
-  // Concatenation
-  $fullName = $firstName . " " . $lastName;
-  echo $fullName; // Outputs: Sara Khan
-?&gt;</code></pre><h2>&#128172; Double vs Single Quotes</h2><ul><li><strong>Double Quotes (<code>"..."</code>)</strong>: Variables inside are automatically evaluated (interpolated).</li><li><strong>Single Quotes (<code>'...'</code>)</strong>: Treated as literal text characters.</li></ul><pre><code class="language-php">&lt;?php
-  $course = "PHP";
-  echo "I love $course!"; // I love PHP!
-  echo 'I love $course!'; // I love $course!
-?&gt;</code></pre><h2>&#128295; Top String Functions</h2><table class="data-table"><thead><tr><th>Function</th><th>Purpose</th><th>Example</th></tr></thead><tbody><tr><td><code>strlen($str)</code></td><td>Counts total characters</td><td><code>strlen("Code") // 4</code></td></tr><tr><td><code>str_word_count($str)</code></td><td>Counts total words</td><td><code>str_word_count("Hi there") // 2</code></td></tr><tr><td><code>strrev($str)</code></td><td>Reverses string</td><td><code>strrev("PHP") // PHP</code></td></tr><tr><td><code>str_replace($search, $replace, $str)</code></td><td>Replaces matching text</td><td><code>str_replace("World", "Class", "Hello World")</code></td></tr><tr><td><code>strtoupper($str)</code> / <code>strtolower()</code></td><td>Converts text case</td><td><code>strtoupper("junior") // JUNIOR</code></td></tr></tbody></table>`
-      },
-      ch7: {
-        content: `<span class="chapter-badge">Chapter 7</span><h1 class="chapter-title">Math &amp; Numbers in PHP</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Perform arithmetic operations (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>**</code>)</li><li>Use built-in mathematical functions like <code>round()</code>, <code>rand()</code>, <code>min()</code>, and <code>max()</code></li></ul></div><h2>&#9874;&#65039; Arithmetic Operators</h2><pre><code class="language-php">&lt;?php
-  $a = 20;
-  $b = 6;
-
-  echo $a + $b;  // 26 (Addition)
-  echo $a - $b;  // 14 (Subtraction)
-  echo $a * $b;  // 120 (Multiplication)
-  echo $a / $b;  // 3.3333... (Division)
-  echo $a % $b;  // 2 (Modulus / Remainder)
-  echo 2 ** 3;   // 8 (Exponentiation: 2^3)
-?&gt;</code></pre><h2>&#127922; Handy Math Functions</h2><pre><code class="language-php">&lt;?php
-  echo round(3.7);      // 4 (Rounds to nearest integer)
-  echo ceil(4.1);       // 5 (Rounds UP)
-  echo floor(4.9);      // 4 (Rounds DOWN)
-  echo rand(1, 100);    // Random number between 1 and 100!
-  echo max(10, 5, 80);  // 80
-  echo min(10, 5, 80);  // 5
-  echo abs(-45);        // 45 (Absolute value)
-?&gt;</code></pre><div class="challenge-box"><h3>&#127942; Practice</h3><p>Write a script to simulate rolling two 6-sided dice. Print each die and the total sum.</p></div>`
-      },
-      ch8: {
-        content: `<span class="chapter-badge">Chapter 8</span><h1 class="chapter-title">If / Else Statements</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Make decisions in PHP code using <code>if</code>, <code>else</code>, and <code>elseif</code></li><li>Master comparison and logical operators (<code>===</code>, <code>&&</code>, <code>||</code>, <code>!</code>)</li></ul></div><h2>&#129300; Making Decisions</h2><pre><code class="language-php">&lt;?php
-  $score = 85;
-
-  if ($score >= 90) {
-    echo "Grade: A+ (Outstanding!)";
-  } elseif ($score >= 75) {
-    echo "Grade: A (Well done!)";
-  } elseif ($score >= 50) {
-    echo "Grade: B (Passed)";
-  } else {
-    echo "Grade: Needs Improvement";
-  }
-?&gt;</code></pre><h2>&#128065;&#65039; Comparison Operators</h2><table class="data-table"><thead><tr><th>Operator</th><th>Meaning</th><th>Example</th></tr></thead><tbody><tr><td><code>==</code></td><td>Equal value (loose)</td><td><code>5 == "5" // true</code></td></tr><tr><td><code>===</code></td><td>Identical (value AND data type)</td><td><code>5 === "5" // false</code></td></tr><tr><td><code>!=</code> or <code>!==</code></td><td>Not equal / Not identical</td><td><code>$a !== $b</code></td></tr><tr><td><code>&gt;</code>, <code>&gt;=</code></td><td>Greater than / Greater than or equal</td><td><code>$age &gt;= 18</code></td></tr><tr><td><code>&lt;</code>, <code>&lt;=</code></td><td>Less than / Less than or equal</td><td><code>$score &lt;= 50</code></td></tr></tbody></table><h2>&#9889; Logical Operators</h2><ul><li><code>&&</code> (AND): Both conditions must be true: <code>if ($age &gt;= 13 && $age &lt;= 19)</code></li><li><code>||</code> (OR): At least one condition must be true: <code>if ($isWeekend || $isHoliday)</code></li><li><code>!</code> (NOT): Reverses the truth value: <code>if (!$isLoggedIn)</code></li></ul>`
-      },
-      ch9: {
-        content: `<span class="chapter-badge">Chapter 9</span><h1 class="chapter-title">The Switch Statement</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Use <code>switch</code> as a clean alternative to long <code>if / elseif</code> chains</li><li>Understand the role of <code>case</code>, <code>break</code>, and <code>default</code></li></ul></div><h2>&#128260; How Switch Works</h2><p>When you have a single variable comparing against many possible specific values, a <code>switch</code> block is much cleaner:</p><pre><code class="language-php">&lt;?php
-  $dayOfWeek = "Tuesday";
-
-  switch ($dayOfWeek) {
-    case "Monday":
-      echo "Start of the school week!";
-      break;
-    case "Tuesday":
-    case "Wednesday":
-    case "Thursday":
-      echo "Midweek coding sessions!";
-      break;
-    case "Friday":
-      echo "Weekend is almost here!";
-      break;
-    case "Saturday":
-    case "Sunday":
-      echo "Weekend hacking &amp; relax!";
-      break;
-    default:
-      echo "Invalid day specified!";
-      break;
-  }
-?&gt;</code></pre><div class="fun-fact-box"><span class="fun-fact-label">&#9888;&#65039; Remember Break</span><p>Always include <code>break;</code> at the end of each case, otherwise PHP will continue executing into the next case below it!</p></div>`
-      },
-      ch10: {
-        content: `<span class="chapter-badge">Chapter 10</span><h1 class="chapter-title">Loops in PHP</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Master the 4 loops in PHP: <code>while</code>, <code>do-while</code>, <code>for</code>, and <code>foreach</code></li><li>Use <code>break</code> to stop early and <code>continue</code> to skip iterations</li></ul></div><h2>&#128257; 1. The While Loop</h2><pre><code class="language-php">&lt;?php
-  $i = 1;
-  while ($i &lt;= 5) {
-    echo "Count: $i &lt;br&gt;";
-    $i++;
-  }
-?&gt;</code></pre><h2>&#128257; 2. The For Loop</h2><pre><code class="language-php">&lt;?php
-  // Prints times table for 7
-  for ($n = 1; $n &lt;= 10; $n++) {
-    echo "7 x $n = " . (7 * $n) . "&lt;br&gt;";
-  }
-?&gt;</code></pre><h2>&#128257; 3. The Foreach Loop (Array Iterator)</h2><pre><code class="language-php">&lt;?php
-  $languages = ["HTML", "CSS", "JavaScript", "PHP", "MySQL"];
-
-  echo "&lt;ul&gt;";
-  foreach ($languages as $lang) {
-    echo "&lt;li&gt;$lang&lt;/li&gt;";
-  }
-  echo "&lt;/ul&gt;";
-?&gt;</code></pre><div class="challenge-box"><h3>&#127942; Practice</h3><p>Write a <code>for</code> loop that calculates the sum of all numbers from 1 to 100.</p></div>`
-      },
-      ch11: {
-        content: `<span class="chapter-badge">Chapter 11</span><h1 class="chapter-title">Defining Functions</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Declare and invoke custom functions in PHP</li><li>Understand variable scope: Local vs Global</li></ul></div><h2>&#129513; Creating Functions</h2><p>A function is a reusable block of code that only runs when called:</p><pre><code class="language-php">&lt;?php
-  // Declare function
-  function sayWelcome() {
-    echo "&lt;p&gt;Welcome to Class 9 Computer Science!&lt;/p&gt;";
-  }
-
-  // Call the function
-  sayWelcome();
-  sayWelcome();
-?&gt;</code></pre><h2>&#128737;&#65039; Variable Scope: Local vs Global</h2><p>Variables declared inside a function are <strong>local</strong> to that function. To access a variable declared outside, use the <code>global</code> keyword:</p><pre><code class="language-php">&lt;?php
-  $siteTitle = "Junior Coders Academy"; // Global scope
-
-  function showHeader() {
-    global $siteTitle; // Import global variable
-    echo "&lt;h1&gt;$siteTitle&lt;/h1&gt;";
-  }
-
-  showHeader();
-?&gt;</code></pre>`
-      },
-      ch12: {
-        content: `<span class="chapter-badge">Chapter 12</span><h1 class="chapter-title">Parameters &amp; Return Values</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Pass arguments into functions and set default parameter values</li><li>Return computed values using the <code>return</code> keyword</li><li>Use PHP type declarations</li></ul></div><h2>&#128229; Parameters &amp; Return</h2><pre><code class="language-php">&lt;?php
-  // Function with parameters and return value
-  function calculateTotal($price, $taxRate = 0.05) {
-    $tax = $price * $taxRate;
-    $total = $price + $tax;
-    return $total;
-  }
-
-  $finalBill = calculateTotal(100); // uses default tax 5%
-  echo "Total bill: $" . $finalBill; // $105
-
-  $customBill = calculateTotal(100, 0.10); // uses 10% tax
-  echo "Custom bill: $" . $customBill; // $110
-?&gt;</code></pre><div class="challenge-box"><h3>&#127942; Practice</h3><p>Write a function <code>calculateAverage($num1, $num2, $num3)</code> that returns the mathematical average of three numbers.</p></div>`
-      },
-      ch13: {
-        content: `<span class="chapter-badge">Chapter 13</span><h1 class="chapter-title">Top Built-in PHP Functions</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Know the most frequently used built-in functions in production PHP</li><li>Work with dates, time, and headers</li></ul></div><h2>&#128343; Working with Dates &amp; Time</h2><pre><code class="language-php">&lt;?php
-  // Format current date and time
-  echo date("Y-m-d");       // e.g. 2026-09-15
-  echo date("l, F j, Y");   // e.g. Tuesday, September 15, 2026
-  echo date("h:i:s A");     // e.g. 08:30:00 AM
-
-  // Calculate timestamp
-  $nextWeek = time() + (7 * 24 * 60 * 60);
-  echo "Next week: " . date("Y-m-d", $nextWeek);
-?&gt;</code></pre><h2>&#128203; Utility Functions</h2><table class="data-table"><thead><tr><th>Function</th><th>Description</th></tr></thead><tbody><tr><td><code>isset($var)</code></td><td>Checks if variable exists and is not null</td></tr><tr><td><code>empty($var)</code></td><td>Checks if variable is empty (0, "", null, false)</td></tr><tr><td><code>header("Location: url")</code></td><td>Redirects visitor to another web page</td></tr><tr><td><code>die()</code> / <code>exit()</code></td><td>Terminates script execution immediately</td></tr></tbody></table>`
-      },
-      ch14: {
-        content: `<span class="chapter-badge">Chapter 14</span><h1 class="chapter-title">Indexed Arrays</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Create and read indexed arrays with 0-based indices</li><li>Add, update, and remove items from arrays</li><li>Count total array elements with <code>count()</code></li></ul></div><h2>&#128230; Creating Indexed Arrays</h2><pre><code class="language-php">&lt;?php
-  // Modern bracket syntax
-  $fruits = ["Apple", "Banana", "Cherry", "Mango"];
-
-  // Accessing elements (0-indexed!)
-  echo $fruits[0]; // Apple
-  echo $fruits[2]; // Cherry
-
-  // Updating an element
-  $fruits[1] = "Blueberry";
-
-  // Appending a new element to the end
-  $fruits[] = "Orange";
-
-  // Total count
-  echo "Total items: " . count($fruits); // 5
-?&gt;</code></pre><div class="fun-fact-box"><span class="fun-fact-label">&#128161; Index Rule</span><p>Computer scientists always start counting at <code>0</code>! The last item in a 4-item array is at index <code>3</code>.</p></div>`
-      },
-      ch15: {
-        content: `<span class="chapter-badge">Chapter 15</span><h1 class="chapter-title">Associative Arrays</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Create key-value paired dictionaries using the <code>=></code> operator</li><li>Access and update values by custom key names</li><li>Loop over associative arrays with <code>foreach ($arr as $key => $val)</code></li></ul></div><h2>&#128477;&#65039; Key-Value Pairs</h2><pre><code class="language-php">&lt;?php
-  // Associative array: custom named keys
-  $student = [
-    "name"    => "Hamza Khan",
-    "grade"   => 9,
-    "city"    => "Karachi",
-    "gpa"     => 3.92,
-    "isHonor" => true
-  ];
-
-  echo "Student Name: " . $student["name"] . "&lt;br&gt;";
-  echo "Grade Level: " . $student["grade"] . "&lt;br&gt;";
-
-  // Loop through all keys and values
-  echo "&lt;ul&gt;";
-  foreach ($student as $key => $value) {
-    echo "&lt;li&gt;&lt;strong&gt;$key:&lt;/strong&gt; $value&lt;/li&gt;";
-  }
-  echo "&lt;/ul&gt;";
-?&gt;</code></pre>`
-      },
-      ch16: {
-        content: `<span class="chapter-badge">Chapter 16</span><h1 class="chapter-title">Essential Array Functions</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Sort arrays alphabetically and numerically</li><li>Add and remove elements with stack/queue functions</li><li>Search arrays with <code>in_array()</code> and <code>array_key_exists()</code></li></ul></div><h2>&#129520; Array Toolbox</h2><pre><code class="language-php">&lt;?php
-  $scores = [88, 45, 92, 70, 99];
-
-  // Sorting
-  sort($scores);  // Ascending: 45, 70, 88, 92, 99
-  rsort($scores); // Descending: 99, 92, 88, 70, 45
-
-  // Searching
-  if (in_array(99, $scores)) {
-    echo "Top score 99 found!&lt;br&gt;";
-  }
-
-  // Adding & Removing
-  array_push($scores, 100); // Add to end
-  $last = array_pop($scores); // Remove from end (returns 100)
-
-  // Merging two arrays
-  $teamA = ["Sara", "Ali"];
-  $teamB = ["Zainab", "Omar"];
-  $allStudents = array_merge($teamA, $teamB);
-?&gt;</code></pre>`
-      },
-      ch17: {
-        content: `<span class="chapter-badge">Chapter 17</span><h1 class="chapter-title">HTML Forms &amp; PHP</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Connect an HTML <code>&lt;form&gt;</code> to a PHP backend handler</li><li>Understand the <code>action</code> and <code>method</code> attributes</li></ul></div><h2>&#128221; The HTML Form</h2><pre><code class="language-html">&lt;!-- feedback.html --&gt;
-&lt;form action="process.php" method="POST"&gt;
-  &lt;label for="username"&gt;Your Name:&lt;/label&gt;
-  &lt;input type="text" id="username" name="user_name" required&gt;
-
-  &lt;label for="comment"&gt;Comment:&lt;/label&gt;
-  &lt;textarea id="comment" name="user_comment"&gt;&lt;/textarea&gt;
-
-  &lt;button type="submit"&gt;Submit Feedback&lt;/button&gt;
-&lt;/form&gt;</code></pre><h2>&#128640; The PHP Handler (process.php)</h2><pre><code class="language-php">&lt;?php
-  // Read submitted form data
-  $name = $_POST['user_name'];
-  $comment = $_POST['user_comment'];
-
-  echo "&lt;h2&gt;Thank you, $name!&lt;/h2&gt;";
-  echo "&lt;p&gt;Your feedback: $comment&lt;/p&gt;";
-?&gt;</code></pre>`
-      },
-      ch18: {
-        content: `<span class="chapter-badge">Chapter 18</span><h1 class="chapter-title">GET vs POST Superglobals</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Understand how <code>$_GET</code> passes data in URL parameters</li><li>Understand why <code>$_POST</code> is essential for passwords and forms</li><li>Choose the correct HTTP method for every scenario</li></ul></div><h2>&#9878;&#65039; Comparison Table</h2><table class="data-table"><thead><tr><th>Criteria</th><th>$_GET</th><th>$_POST</th></tr></thead><tbody><tr><td>Data Transmission</td><td>Appended to URL: <code>search.php?q=php</code></td><td>Sent inside the HTTP request body</td></tr><tr><td>Visibility</td><td>Visible in browser address bar</td><td>Completely invisible in URL</td></tr><tr><td>Data Limit</td><td>Limited (approx. 2000 chars)</td><td>Large (8MB+ by default)</td></tr><tr><td>Security</td><td>NEVER use for passwords or sensitive data</td><td>Secure for passwords, logins &amp; transactions</td></tr><tr><td>Best Used For</td><td>Search queries, page filters, sharing links</td><td>Login forms, credit cards, creating posts</td></tr></tbody></table><pre><code class="language-php">&lt;?php
-  // Reading GET search query: index.php?query=robotics
-  if (isset($_GET['query'])) {
-    $search = $_GET['query'];
-    echo "Searching for: " . htmlspecialchars($search);
-  }
-?&gt;</code></pre>`
-      },
-      ch19: {
-        content: `<span class="chapter-badge">Chapter 19</span><h1 class="chapter-title">Form Validation &amp; Security</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Prevent Cross-Site Scripting (XSS) with <code>htmlspecialchars()</code></li><li>Clean input with <code>trim()</code> and <code>stripslashes()</code></li><li>Validate emails with <code>filter_var()</code></li></ul></div><h2>&#128737;&#65039; Never Trust User Input!</h2><p>Malicious users might type <code>&lt;script&gt;alert('hacked')&lt;/script&gt;</code> into your form. Always sanitize input before printing it back to the page:</p><pre><code class="language-php">&lt;?php
-  $errors = [];
-  $email = "";
-
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // 1. Sanitize text
-    $name = trim(htmlspecialchars($_POST["name"] ?? ""));
-    $email = trim($_POST["email"] ?? "");
-
-    // 2. Validate required fields
-    if (empty($name)) {
-      $errors[] = "Name is required!";
+    if (typeof marked === 'undefined') {
+      window.marked = {
+        parse: function(text) {
+          return '<pre style="white-space: pre-wrap; font-family: inherit;">' + 
+                 text.replace(/</g, '&lt;').replace(/>/g, '&gt;') + 
+                 '</pre>';
+        }
+      };
     }
+  </script>
+  <script src="chapters-bundle.js"></script>
 
-    // 3. Validate email format
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $errors[] = "Please enter a valid email address!";
-    }
-
-    // 4. Success handling
-    if (empty($errors)) {
-      echo "&lt;p style='color:green;'&gt;Success! Welcome, $name!&lt;/p&gt;";
-    }
-  }
-?&gt;</code></pre>`
-      },
-      ch20: {
-        content: `<span class="chapter-badge">Chapter 20</span><h1 class="chapter-title">Reading Files in PHP</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Read whole files with <code>file_get_contents()</code></li><li>Verify file existence with <code>file_exists()</code></li><li>Read line-by-line using <code>fopen()</code> and <code>fgets()</code></li></ul></div><h2>&#128196; Quick Reading: <code>file_get_contents()</code></h2><pre><code class="language-php">&lt;?php
-  $filePath = "notes.txt";
-
-  if (file_exists($filePath)) {
-    $content = file_get_contents($filePath);
-    echo nl2br(htmlspecialchars($content));
-  } else {
-    echo "Error: File does not exist!";
-  }
-?&gt;</code></pre><h2>&#128220; Line-by-Line Reading</h2><pre><code class="language-php">&lt;?php
-  $file = fopen("students.csv", "r");
-  if ($file) {
-    while (($line = fgets($file)) !== false) {
-      echo htmlspecialchars($line) . "&lt;br&gt;";
-    }
-    fclose($file);
-  }
-?&gt;</code></pre>`
-      },
-      ch21: {
-        content: `<span class="chapter-badge">Chapter 21</span><h1 class="chapter-title">Writing Files in PHP</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Write content with <code>file_put_contents()</code></li><li>Append new lines using <code>FILE_APPEND</code> flag</li><li>Understand file permission safety</li></ul></div><h2>&#9997;&#65039; Writing &amp; Appending Data</h2><pre><code class="language-php">&lt;?php
-  // Overwrites the file completely
-  file_put_contents("log.txt", "First log entry.\n");
-
-  // Appends to the end of the file without deleting previous content
-  $newEntry = "User logged in at " . date("H:i:s") . "\n";
-  file_put_contents("log.txt", $newEntry, FILE_APPEND | LOCK_EX);
-
-  echo "Log updated successfully!";
-?&gt;</code></pre><div class="challenge-box"><h3>&#127942; Practice</h3><p>Create a simple guestbook script that appends visitor names and timestamps to <code>guestbook.txt</code>.</p></div>`
-      },
-      ch22: {
-        content: `<span class="chapter-badge">Chapter 22</span><h1 class="chapter-title">File Uploads in PHP</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Configure HTML forms with <code>enctype="multipart/form-data"</code></li><li>Inspect uploaded files with the <code>$_FILES</code> superglobal</li><li>Save uploads securely with <code>move_uploaded_file()</code></li></ul></div><h2>&#128228; File Upload Form</h2><pre><code class="language-html">&lt;form action="upload.php" method="POST" enctype="multipart/form-data"&gt;
-  &lt;label&gt;Choose Profile Picture (PNG/JPG only):&lt;/label&gt;
-  &lt;input type="file" name="profile_pic" required&gt;
-  &lt;button type="submit"&gt;Upload Image&lt;/button&gt;
-&lt;/form&gt;</code></pre><h2>&#128737;&#65039; Processing the Upload (upload.php)</h2><pre><code class="language-php">&lt;?php
-  if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_FILES["profile_pic"])) {
-    $file = $_FILES["profile_pic"];
-    $fileName = basename($file["name"]);
-    $fileSize = $file["size"];
-    $tempPath = $file["tmp_name"];
-    
-    // Check file size (max 2MB)
-    if ($fileSize > 2 * 1024 * 1024) {
-      die("Error: File exceeds 2MB limit!");
-    }
-
-    $targetDir = "uploads/";
-    $targetFile = $targetDir . time() . "_" . $fileName;
-
-    if (move_uploaded_file($tempPath, $targetFile)) {
-      echo "File uploaded successfully: " . htmlspecialchars($fileName);
-    } else {
-      echo "Upload failed!";
-    }
-  }
-?&gt;</code></pre>`
-      },
-      ch23: {
-        content: `<span class="chapter-badge">Chapter 23</span><h1 class="chapter-title">Classes &amp; Objects (OOP)</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Understand Object-Oriented Programming (OOP) concepts</li><li>Declare classes as blueprints and instantiate objects with <code>new</code></li></ul></div><h2>&#127959; The Blueprint Concept</h2><p>A <strong>Class</strong> is an architectural blueprint. An <strong>Object</strong> is a real, functional instance built from that blueprint:</p><pre><code class="language-php">&lt;?php
-  // The Blueprint (Class)
-  class Student {
-    public $name;
-    public $grade;
-
-    public function introduce() {
-      return "Hi, my name is " . $this->name . " from Grade " . $this->grade . "!";
-    }
-  }
-
-  // Instantiating Objects
-  $student1 = new Student();
-  $student1->name = "Amina";
-  $student1->grade = 9;
-
-  $student2 = new Student();
-  $student2->name = "Bilal";
-  $student2->grade = 9;
-
-  echo $student1->introduce(); // Hi, my name is Amina from Grade 9!
-?&gt;</code></pre>`
-      },
-      ch24: {
-        content: `<span class="chapter-badge">Chapter 24</span><h1 class="chapter-title">Properties &amp; Methods</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Understand Access Modifiers: <code>public</code>, <code>private</code>, and <code>protected</code></li><li>Use the <code>$this</code> pseudo-variable inside member methods</li><li>Implement Getters and Setters for Encapsulation</li></ul></div><h2>&#128274; Encapsulation &amp; Access Modifiers</h2><ul><li><strong>public</strong>: Property can be accessed and modified from anywhere outside the class.</li><li><strong>private</strong>: Property can ONLY be accessed within the class itself (prevents accidental tampering!).</li><li><strong>protected</strong>: Accessible inside the class and its child subclasses.</li></ul><pre><code class="language-php">&lt;?php
-  class BankAccount {
-    public $accountHolder;
-    private $balance = 0.0; // Protected from direct modification
-
-    public function deposit($amount) {
-      if ($amount > 0) {
-        $this->balance += $amount;
-      }
-    }
-
-    public function getBalance() {
-      return "$" . number_format($this->balance, 2);
-    }
-  }
-
-  $account = new BankAccount();
-  $account->accountHolder = "Sara Khan";
-  $account->deposit(250.75);
-  echo $account->getBalance(); // $250.75
-?&gt;</code></pre>`
-      },
-      ch25: {
-        content: `<span class="chapter-badge">Chapter 25</span><h1 class="chapter-title">Class Inheritance</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Inherit methods and properties using the <code>extends</code> keyword</li><li>Override parent methods in child classes</li><li>Promote DRY (Don't Repeat Yourself) code reuse</li></ul></div><h2>&#128106; The Extends Keyword</h2><pre><code class="language-php">&lt;?php
-  // Parent Class
-  class Person {
-    public $name;
-    public $email;
-
-    public function getInfo() {
-      return $this->name . " (" . $this->email . ")";
-    }
-  }
-
-  // Child Class inherits from Person
-  class Teacher extends Person {
-    public $subject;
-
-    public function teach() {
-      return $this->name . " is teaching " . $this->subject . ".";
-    }
-  }
-
-  $teacher = new Teacher();
-  $teacher->name = "Mr. Rasool";
-  $teacher->email = "y.rasool@school.edu";
-  $teacher->subject = "Web Development";
-
-  echo $teacher->getInfo(); // Uses inherited Person method!
-  echo $teacher->teach();   // Uses Teacher method!
-?&gt;</code></pre>`
-      },
-      ch26: {
-        content: `<span class="chapter-badge">Chapter 26</span><h1 class="chapter-title">Constructors &amp; Destructors</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Use <code>__construct()</code> to initialize objects with values immediately</li><li>Understand the <code>__destruct()</code> lifecycle method</li></ul></div><h2>&#9881;&#65039; The Magic Constructor</h2><p>A constructor is executed automatically as soon as an object is instantiated with <code>new</code>:</p><pre><code class="language-php">&lt;?php
-  class Book {
-    public $title;
-    public $author;
-    public $pages;
-
-    // Magic Constructor
-    public function __construct($title, $author, $pages) {
-      $this->title = $title;
-      $this->author = $author;
-      $this->pages = $pages;
-    }
-
-    public function summary() {
-      return "{$this->title} by {$this->author} ({$this->pages} pages)";
-    }
-  }
-
-  // Instantiate with initial parameters in 1 clean line!
-  $book1 = new Book("PHP for Class 9", "Junior Coders", 320);
-  echo $book1->summary();
-?&gt;</code></pre>`
-      },
-      proj1: {
-        content: `<span class="chapter-badge">Capstone Project 1</span><h1 class="chapter-title">Project 1: Dynamic Contact Form</h1><div class="pedagogy-box"><h3>&#127919; Project Goals</h3><ul><li>Build an all-in-one PHP &amp; HTML contact form</li><li>Validate user inputs, protect against XSS, and show personalized success messages</li></ul></div><h2>&#128221; Complete Project Code</h2><pre><code class="language-php">&lt;?php
-  $successMsg = "";
-  $errorMsg = "";
-
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $name = trim(htmlspecialchars($_POST["name"] ?? ""));
-    $email = trim($_POST["email"] ?? "");
-    $message = trim(htmlspecialchars($_POST["message"] ?? ""));
-
-    if (empty($name) || empty($email) || empty($message)) {
-      $errorMsg = "Please fill in all required fields!";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $errorMsg = "Please provide a valid email address!";
-    } else {
-      $successMsg = "Thank you, $name! Your message has been received.";
-      // In production, mail($to, $subject, $message) would be called here!
-    }
-  }
-?&gt;
-
-&lt;!DOCTYPE html&gt;
-&lt;html lang="en"&gt;
-&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Contact Us&lt;/title&gt;
-  &lt;style&gt;
-    body { font-family: sans-serif; max-width: 500px; margin: 40px auto; padding: 20px; }
-    .alert-success { background: #dcfce7; color: #166534; padding: 12px; border-radius: 6px; }
-    .alert-error { background: #fee2e2; color: #991b1b; padding: 12px; border-radius: 6px; }
-    input, textarea { width: 100%; padding: 8px; margin: 8px 0 16px; border: 1px solid #ccc; border-radius: 4px; }
-    button { background: #7c3aed; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h2&gt;Get In Touch&lt;/h2&gt;
-  &lt;?php if ($successMsg): ?&gt;
-    &lt;div class="alert-success"&gt;&lt;?= $successMsg ?&gt;&lt;/div&gt;
-  &lt;?php elseif ($errorMsg): ?&gt;
-    &lt;div class="alert-error"&gt;&lt;?= $errorMsg ?&gt;&lt;/div&gt;
-  &lt;?php endif; ?&gt;
-
-  &lt;form method="POST"&gt;
-    &lt;label&gt;Name:&lt;/label&gt;
-    &lt;input type="text" name="name" required&gt;
-
-    &lt;label&gt;Email:&lt;/label&gt;
-    &lt;input type="email" name="email" required&gt;
-
-    &lt;label&gt;Message:&lt;/label&gt;
-    &lt;textarea name="message" rows="4" required&gt;&lt;/textarea&gt;
-
-    &lt;button type="submit"&gt;Send Message&lt;/button&gt;
-  &lt;/form&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>`
-      },
-      proj2: {
-        content: `<span class="chapter-badge">Capstone Project 2</span><h1 class="chapter-title">Project 2: File-Based Mini Blog</h1><div class="pedagogy-box"><h3>&#127919; Project Goals</h3><ul><li>Store blog articles in a local JSON text file</li><li>Submit new posts and display existing articles in chronological order</li></ul></div><h2>&#128221; The Blog Engine (`blog.php`)</h2><pre><code class="language-php">&lt;?php
-  $dataFile = "posts.json";
-
-  // Load existing posts
-  $posts = file_exists($dataFile) ? json_decode(file_get_contents($dataFile), true) : [];
-
-  // Handle new post submission
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $title = trim(htmlspecialchars($_POST["title"] ?? ""));
-    $author = trim(htmlspecialchars($_POST["author"] ?? ""));
-    $content = trim(htmlspecialchars($_POST["content"] ?? ""));
-
-    if ($title && $author && $content) {
-      $newPost = [
-        "title"   => $title,
-        "author"  => $author,
-        "content" => $content,
-        "date"    => date("M j, Y h:i A")
-      ];
-      array_unshift($posts, $newPost); // Add newest to top
-      file_put_contents($dataFile, json_encode($posts, JSON_PRETTY_PRINT));
-      header("Location: blog.php");
-      exit;
-    }
-  }
-?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;head&gt;
-  &lt;title&gt;Class 9 Coding Blog&lt;/title&gt;
-  &lt;style&gt;
-    body { font-family: system-ui, sans-serif; max-width: 650px; margin: 40px auto; padding: 20px; line-height: 1.6; }
-    .post-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 18px; margin-bottom: 20px; }
-    .post-meta { color: #64748b; font-size: 0.85rem; }
-  &lt;/style&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  &lt;h1&gt;🚀 Junior Coders Blog&lt;/h1&gt;
-  &lt;form method="POST" style="margin-bottom: 40px; background: #f1f5f9; padding: 20px; border-radius: 8px;"&gt;
-    &lt;h3&gt;Write a New Post&lt;/h3&gt;
-    &lt;input type="text" name="title" placeholder="Post Title" required style="width:100%;margin-bottom:10px;padding:8px;"&gt;
-    &lt;input type="text" name="author" placeholder="Author Name" required style="width:100%;margin-bottom:10px;padding:8px;"&gt;
-    &lt;textarea name="content" placeholder="Article content..." rows="4" required style="width:100%;margin-bottom:10px;padding:8px;"&gt;&lt;/textarea&gt;
-    &lt;button type="submit" style="background:#7c3aed;color:#fff;border:none;padding:10px 20px;border-radius:6px;cursor:pointer;"&gt;Publish Post&lt;/button&gt;
-  &lt;/form&gt;
-
-  &lt;h2&gt;Recent Articles (&lt;?= count($posts) ?&gt;)&lt;/h2&gt;
-  &lt;?php foreach ($posts as $p): ?&gt;
-    &lt;article class="post-card"&gt;
-      &lt;h3 style="margin-top:0;"&gt;&lt;?= $p['title'] ?&gt;&lt;/h3&gt;
-      &lt;p class="post-meta"&gt;By &lt;strong&gt;&lt;?= $p['author'] ?&gt;&lt;/strong&gt; on &lt;?= $p['date'] ?&gt;&lt;/p&gt;
-      &lt;p&gt;&lt;?= nl2br($p['content']) ?&gt;&lt;/p&gt;
-    &lt;/article&gt;
-  &lt;?php endforeach; ?&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>`
-      },
-      proj3: {
-        content: `<span class="chapter-badge">Capstone Project 3</span><h1 class="chapter-title">Project 3: User Authentication &amp; Sessions</h1><div class="pedagogy-box"><h3>&#127919; Project Goals</h3><ul><li>Implement session management using <code>session_start()</code></li><li>Build secure login and logout workflows protecting a dashboard page</li></ul></div><h2>&#128274; Understanding Sessions</h2><p>HTTP is stateless. To remember a logged-in user across multiple pages, PHP uses sessions backed by an encrypted session cookie:</p><pre><code class="language-php">&lt;?php
-  // 1. MUST be the very first line of your PHP script
-  session_start();
-
-  $validUser = "admin";
-  $validPass = "Class9Coder!";
-
-  $error = "";
-
-  if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $username = $_POST["username"] ?? "";
-    $password = $_POST["password"] ?? "";
-
-    if ($username === $validUser && $password === $validPass) {
-      $_SESSION["user"] = $username;
-      $_SESSION["loggedIn"] = true;
-      header("Location: dashboard.php");
-      exit;
-    } else {
-      $error = "Invalid username or password!";
-    }
-  }
-?&gt;</code></pre><h2>&#127968; The Protected Dashboard (`dashboard.php`)</h2><pre><code class="language-php">&lt;?php
-  session_start();
-
-  // Guard: Redirect unauthorized users back to login
-  if (!isset($_SESSION["loggedIn"]) || $_SESSION["loggedIn"] !== true) {
-    header("Location: login.php");
-    exit;
-  }
-?&gt;
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;body&gt;
-  &lt;h1&gt;Welcome to Member Dashboard, &lt;?= htmlspecialchars($_SESSION["user"]) ?&gt;!&lt;/h1&gt;
-  &lt;p&gt;This secret content is only visible to authenticated students.&lt;/p&gt;
-  &lt;a href="logout.php"&gt;Logout &amp; Destroy Session&lt;/a&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><h2>&#128682; The Logout Script (`logout.php`)</h2><pre><code class="language-php">&lt;?php
-  session_start();
-  session_unset();   // Remove all session variables
-  session_destroy(); // Destroy session file on server
-  header("Location: login.php");
-  exit;
-?&gt;</code></pre>`
-      },
-      ref: {
-        content: `<span class="chapter-badge">Quick Reference</span><h1 class="chapter-title">PHP Quick Reference &amp; Cheat Sheet</h1><h2>&#128221; Syntax &amp; Tags</h2><pre><code class="language-php">&lt;?php
-$name = "Ahmed";
-$age = 15;
-echo "Hello, $name!";
-?&gt;</code></pre><h2>&#128260; Control Flow</h2><pre><code class="language-php">if ($age >= 18) {
-  echo "Adult";
-} elseif ($age >= 13) {
-  echo "Teen";
-} else {
-  echo "Child";
-}
-
-for ($i = 1; $i <= 5; $i++) {
-  echo $i;
-}
-
-foreach ($fruits as $f) {
-  echo $f;
-}</code></pre><h2>&#128295; Custom Functions</h2><pre><code class="language-php">function greet($name, $greeting = "Hello") {
-  return "$greeting, $name!";
-}
-echo greet("Sara"); // Hello, Sara!</code></pre><h2>&#128218; Arrays</h2><pre><code class="language-php">// Indexed
-$colors = ["red", "green", "blue"];
-echo $colors[0]; // red
-
-// Associative
-$student = ["name" => "Ali", "age" => 15];
-echo $student["name"]; // Ali</code></pre><h2>&#128202; Frequently Used Built-in Functions</h2><table class="data-table"><thead><tr><th>Function</th><th>Purpose</th></tr></thead><tbody><tr><td><code>strlen($str)</code></td><td>String length in characters</td></tr><tr><td><code>strpos($haystack, $needle)</code></td><td>Finds character position</td></tr><tr><td><code>count($arr)</code></td><td>Counts elements in an array</td></tr><tr><td><code>in_array($val, $arr)</code></td><td>Checks if value exists in array</td></tr><tr><td><code>isset($var)</code></td><td>Checks if variable exists and is not null</td></tr><tr><td><code>empty($var)</code></td><td>Checks if variable is empty</td></tr><tr><td><code>htmlspecialchars($str)</code></td><td>Sanitizes HTML against XSS attacks</td></tr><tr><td><code>file_get_contents($path)</code></td><td>Reads file to string</td></tr><tr><td><code>file_put_contents($path, $data)</code></td><td>Writes data to file</td></tr><tr><td><code>session_start()</code></td><td>Initializes or resumes user session</td></tr></tbody></table>`
-      }
-    };
-
+  <script>
     // Companion Lab Challenge Database for PHP
     const PHP_CHAPTER_LABS = {
       ch1: { chapter: "1", title: "Client vs Server-Side Architecture", desc: "Understand how PHP executes on the server and delivers rendered HTML." },
@@ -961,17 +338,27 @@ echo $student["name"]; // Ali</code></pre><h2>&#128202; Frequently Used Built-in
       ch24: { chapter: "24", title: "Properties, Methods & $this", desc: "Encapsulate class state using public and private access modifiers." },
       ch25: { chapter: "25", title: "Class Inheritance (Extends)", desc: "Build hierarchical class models inheriting methods from parent classes." },
       ch26: { chapter: "26", title: "Constructors (__construct)", desc: "Automate object initialization with parameter-driven constructors." },
-      proj1: { chapter: "P1", title: "Capstone: Dynamic Contact Form", desc: "Complete interactive contact form with validation and feedback." },
-      proj2: { chapter: "P2", title: "Capstone: File-Based Blog Engine", desc: "Persist articles to a JSON database file and render chronological feeds." },
-      proj3: { chapter: "P3", title: "Capstone: Authentication & Sessions", desc: "Implement login guard, session tracking, and secure logout." }
+      ch27: { chapter: "P1", title: "Capstone: Dynamic Contact Form", desc: "Complete interactive contact form with validation, flash alerts, and feedback." },
+      ch28: { chapter: "P2", title: "Capstone: JSON Mini Blog Engine", desc: "Persist articles to a JSON database file and render chronological feeds." },
+      ch29: { chapter: "P3", title: "Capstone: Authentication & Sessions", desc: "Implement login guard, session tracking, and secure logout workflow." },
+      ref: { chapter: "Reference", title: "PHP Quick Reference & Cheatsheet", desc: "Fast lookup for PHP syntax, control flow, functions, arrays, and OOP." },
+      teacher: { chapter: "Teacher", title: "Teacher Curriculum Guide & Rubrics", desc: "12-week lesson pacing guide, assessment rubrics, and teaching suggestions." }
     };
 
-    function attachChapterLab(container, id) {
-      if (!container || !id) return;
+    function attachChapterLab(container, path) {
+      if (!container || !path) return;
       
-      const lab = PHP_CHAPTER_LABS[id] || {
-        chapter: id.toUpperCase(),
-        title: "PHP Hands-On Chapter Lab",
+      let chKey = null;
+      if (path.includes('reference/')) chKey = 'ref';
+      else if (path.includes('teacher-guide/')) chKey = 'teacher';
+      else {
+        const match = path.match(/ch0*(\d+)/i);
+        if (match) chKey = `ch${parseInt(match[1], 10)}`;
+      }
+
+      const lab = chKey && PHP_CHAPTER_LABS[chKey] ? PHP_CHAPTER_LABS[chKey] : {
+        chapter: chKey || "",
+        title: "Hands-On PHP Chapter Lab",
         desc: "Practice what you just read in the interactive code sandbox."
       };
 
@@ -979,50 +366,80 @@ echo $student["name"]; // Ali</code></pre><h2>&#128202; Frequently Used Built-in
       labCallout.className = 'chapter-lab-callout';
       labCallout.innerHTML = `
         <div class="lab-callout-header">
-          <span class="lab-badge">🎯 Chapter Practice Lab</span>
+          <span class="lab-badge">&#127919; Chapter Practice Lab</span>
           <span class="lab-module-tag">Theory + Lab Companion</span>
         </div>
         <h3>Chapter ${lab.chapter} Lab: ${lab.title}</h3>
         <p>${lab.desc}</p>
         <div class="lab-callout-actions">
-          <a href="../Learning PHP/learningphp.html#${id}" class="btn-launch-playground">
-            <span>🚀</span> <span>Launch Challenge in PHP Track</span>
+          <a href="../Learning PHP/learningphp.html#${chKey || 'ch1'}" class="btn-launch-playground">
+            <span>&#128640;</span> <span>Launch Challenge in PHP Track</span>
           </a>
           <a href="../master-playground.html" class="btn-launch-ide">
-            <span>💻</span> <span>Open in Master IDE</span>
+            <span>&#128187;</span> <span>Open in Master IDE</span>
           </a>
         </div>
       `;
       container.appendChild(labCallout);
 
-      if (id && window.location.hash !== `#${id}`) {
-        history.replaceState(null, null, `#${id}`);
+      if (chKey && window.location.hash !== `#${chKey}`) {
+        history.replaceState(null, null, `#${chKey}`);
       }
     }
 
-    function loadChapter(id, el) {
-      if (el) {
-        document.querySelectorAll('.chapter-nav-item').forEach(e => e.classList.remove('active'));
-        el.parentElement.classList.add('active');
+    async function loadChapter(path, element) {
+      if (element) {
+        document.querySelectorAll('.chapter-nav-item').forEach(el => el.classList.remove('active'));
+        element.parentElement.classList.add('active');
       }
-      const area = document.getElementById('chapterContent');
-      const ch = CHAPTERS[id];
-      if (ch) {
-        area.innerHTML = ch.content;
-        enhanceCodeBlocks(area);
-        attachChapterLab(area, id);
+
+      const contentArea = document.getElementById('chapterContent');
+      contentArea.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--text-muted);">Loading Chapter...</div>';
+
+      let markdown = '';
+      const cache = window.BOOK_PHP_CHAPTERS || window.BOOK_CHAPTERS;
+      if (cache && cache[path]) {
+        markdown = cache[path];
+      } else {
+        try {
+          const response = await fetch(path);
+          if (response.ok) {
+            markdown = await response.text();
+          }
+        } catch (err) {
+          console.warn('Offline cache used, fetch fallback failed for:', path, err);
+        }
+      }
+
+      if (markdown) {
+        contentArea.innerHTML = marked.parse(markdown);
+        enhanceCodeBlocks(contentArea);
+        attachChapterLab(contentArea, path);
         window.scrollTo({ top: 0, behavior: 'smooth' });
         if (window.initBookSpeaker) window.initBookSpeaker();
       } else {
-        area.innerHTML = `
+        contentArea.innerHTML = `
           <div class="pedagogy-box" style="text-align:center;padding:3rem 1rem;">
-            <h2>&#128679; Chapter Under Review</h2>
-            <p>Select any chapter from the sidebar navigation.</p>
-            <p style="margin-top:1rem;"><a href="../Learning PHP/learningphp.html" style="color:#7c3aed;font-weight:700;">&#128218; Visit Interactive PHP Modules &#8594;</a></p>
+            <h2>&#128679; Chapter Notice</h2>
+            <p>Could not load markdown for <code>${path}</code>.</p>
+            <p style="margin-top:1rem;"><a href="../Learning PHP/learningphp.html" style="color:#7c3aed;font-weight:700;">&#128218; Visit Interactive PHP Modules &rarr;</a></p>
           </div>
         `;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.initBookSpeaker) window.initBookSpeaker();
       }
+    }
+
+    function filterPhpGroup(group, btn) {
+      document.querySelectorAll('.subject-tab').forEach(t => t.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      document.querySelectorAll('.part-group').forEach(part => {
+        if (group === 'all' || part.getAttribute('data-group') === group) {
+          part.style.display = '';
+        } else {
+          part.style.display = 'none';
+        }
+      });
     }
 
     function showCopyToast(msg) {
@@ -1088,7 +505,7 @@ echo $student["name"]; // Ali</code></pre><h2>&#128202; Frequently Used Built-in
 
         const tryBtn = document.createElement('a');
         tryBtn.className = 'btn-try-code';
-        tryBtn.innerHTML = '<span>🧪</span> <span>Try in Code Lab</span>';
+        tryBtn.innerHTML = '<span>&#129514;</span> <span>Try in Code Lab</span>';
         tryBtn.href = '../master-playground.html';
         tryBtn.target = '_blank';
         tryBtn.rel = 'noopener noreferrer';
@@ -1125,17 +542,49 @@ echo $student["name"]; // Ali</code></pre><h2>&#128202; Frequently Used Built-in
       });
     });
 
-    // Auto-detect hash on load
+    // Hash navigation mapping
+    const HASH_MAP = {
+      'ch1': 'part-01-introduction/ch01-what-is-php.md',
+      'ch2': 'part-01-introduction/ch02-your-first-php-script.md',
+      'ch3': 'part-01-introduction/ch03-php-in-html.md',
+      'ch4': 'part-02-variables-and-data-types/ch04-variables.md',
+      'ch5': 'part-02-variables-and-data-types/ch05-data-types.md',
+      'ch6': 'part-02-variables-and-data-types/ch06-strings.md',
+      'ch7': 'part-02-variables-and-data-types/ch07-math-and-numbers.md',
+      'ch8': 'part-03-control-flow/ch08-if-else.md',
+      'ch9': 'part-03-control-flow/ch09-switch.md',
+      'ch10': 'part-03-control-flow/ch10-loops.md',
+      'ch11': 'part-04-functions/ch11-defining-functions.md',
+      'ch12': 'part-04-functions/ch12-parameters-and-return.md',
+      'ch13': 'part-04-functions/ch13-builtin-functions.md',
+      'ch14': 'part-05-arrays/ch14-indexed-arrays.md',
+      'ch15': 'part-05-arrays/ch15-associative-arrays.md',
+      'ch16': 'part-05-arrays/ch16-array-functions.md',
+      'ch17': 'part-06-forms-and-input/ch17-html-forms-and-php.md',
+      'ch18': 'part-06-forms-and-input/ch18-get-and-post.md',
+      'ch19': 'part-06-forms-and-input/ch19-form-validation.md',
+      'ch20': 'part-07-file-io/ch20-reading-files.md',
+      'ch21': 'part-07-file-io/ch21-writing-files.md',
+      'ch22': 'part-07-file-io/ch22-file-uploads.md',
+      'ch23': 'part-08-oop/ch23-classes-and-objects.md',
+      'ch24': 'part-08-oop/ch24-properties-and-methods.md',
+      'ch25': 'part-08-oop/ch25-inheritance.md',
+      'ch26': 'part-08-oop/ch26-constructors.md',
+      'ch27': 'part-09-projects/ch27-project-contact-form.md',
+      'ch28': 'part-09-projects/ch28-project-simple-blog.md',
+      'ch29': 'part-09-projects/ch29-project-login-system.md',
+      'ref': 'reference/quick-reference-and-glossary.md',
+      'teacher': 'teacher-guide/teachers-guide-and-rubrics.md'
+    };
+
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.toLowerCase().replace('#', '');
-      if (hash && CHAPTERS[hash]) {
+      if (hash && HASH_MAP[hash]) {
         const targetLink = document.querySelector(`a[href="#${hash}"]`);
-        if (targetLink) {
-          targetLink.click();
-          return;
-        }
+        loadChapter(HASH_MAP[hash], targetLink);
+        return;
       }
-      // Default: auto-load Chapter 1
+      // Default auto-load Chapter 1
       const firstLink = document.querySelector('.chapter-nav-item a');
       if (firstLink) {
         firstLink.click();
@@ -1144,4 +593,4 @@ echo $student["name"]; // Ali</code></pre><h2>&#128202; Frequently Used Built-in
   </script>
   <script src="../js/book-speaker.js"></script>
 </body>
-</html>
+</html>\n
