@@ -554,6 +554,8 @@
         // ── Scroll shadow on nav ──
         window.addEventListener('scroll', () => {
             nav.classList.toggle('scrolled', window.scrollY > 10);
+            nav.querySelectorAll('.nav-dropdown.active').forEach(d => d.classList.remove('active'));
+            document.querySelectorAll('.nav-search-results.open').forEach(r => r.classList.remove('open'));
         }, { passive: true });
 
         // ── Mobile menu logic ──
@@ -778,6 +780,22 @@
             { label: 'PHP Cheat Sheet',     sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-php.html`     },
             { label: 'MySQL Cheat Sheet',   sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-mysql.html`   },
             { label: 'Laravel Cheat Sheet', sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-laravel.html` },
+        ].forEach(item => index.push(item));
+
+        // Textbooks & Interactive Playgrounds
+        [
+            { label: 'HTML Interactive Lab (17 Chapters)', sub: 'Playground', icon: '🧪', url: `${baseUrl}Learning%20HTML/playground.html` },
+            { label: 'CSS Interactive Studio',            sub: 'Playground', icon: '🎨', url: `${baseUrl}Learning%20CSS/playground.html` },
+            { label: 'JavaScript Playground',              sub: 'Playground', icon: '⚡', url: `${baseUrl}Learning%20JS/playground.html` },
+            { label: 'Code Lab (Master IDE)',              sub: 'Playground', icon: '💻', url: `${baseUrl}master-playground.html` },
+            { label: 'HTML for Class 6 & 7 (Textbook)',    sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-html/index.html` },
+            { label: 'CSS for Class 7 (Textbook)',         sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-css/index.html` },
+            { label: 'JavaScript for Class 7 (Textbook)',  sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-js/index.html` },
+            { label: 'PHP for Class 9 (Textbook)',         sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-php/index.html` },
+            { label: 'MySQL for Class 9 (Textbook)',       sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-mysql/index.html` },
+            { label: 'Laravel for Class 9 (Textbook)',     sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-laravel/index.html` },
+            { label: 'HTML Master Quiz',                   sub: 'Quiz',       icon: '🏆', url: `${baseUrl}Learning%20HTML/quiz.html` },
+            { label: 'CSS Master Quiz',                    sub: 'Quiz',       icon: '🏆', url: `${baseUrl}Learning%20CSS/quiz.html` },
         ].forEach(item => index.push(item));
 
         [

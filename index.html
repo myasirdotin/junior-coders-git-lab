@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junior Coders | Master Web Development</title>
+    <title>Junior Coders | Master Web Development (Grades 6–9)</title>
     
-    <meta name="description" content="Junior Coders - A premium interactive learning platform for aspiring web developers.">
+    <meta name="description" content="Junior Coders - The premier interactive learning platform for young developers. Official textbooks, live code playgrounds, and step-by-step tracks.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="styles/main.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
@@ -16,20 +16,22 @@
 <body>
 
     <div class="container">
-        <header class="hero cover-photo">
+        <!-- Hero Section -->
+        <header class="hero">
             <div class="hero-pill-badge">
-                <span>✨</span> Interactive Coding Platform for Grades 6–9
+                <span>✨</span> The Interactive Coding Academy for Grades 6–9
             </div>
             <h1>Master Web Development</h1>
-            <p>Your interactive journey to becoming a confident full-stack creator starts here. Simple, visual, and effective.</p>
+            <p>Your interactive journey to becoming a confident full-stack creator starts here. Practice with official textbooks, interactive studios, and step-by-step missions.</p>
+            
             <div class="hero-quick-tags">
+                <a href="#interactive-labs" class="hero-tag">🧪 Interactive Labs</a>
                 <a href="#frontend-paths" class="hero-tag">🌐 Frontend (Class 6–8)</a>
                 <a href="#backend-paths" class="hero-tag">🗄️ Backend (Class 9)</a>
-                <a href="#official-books" class="hero-tag">📖 Class 7 Textbooks</a>
-                <a href="master-playground.html" class="hero-tag">🧪 Code Lab IDE</a>
+                <a href="#textbooks-section" class="hero-tag">📖 Textbooks</a>
+                <a href="#quick-resources" class="hero-tag">📋 Cheat Sheets</a>
             </div>
         </header>
-
 
         <main>
             <!-- Mission Control Dashboard -->
@@ -37,7 +39,7 @@
                 <div class="mission-card">
                     <span class="rank-badge" id="user-rank">Recruit</span>
                     <h2 style="color: white; margin-bottom: 0.5rem;">Mission Control</h2>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Your personal progress and active goals.</p>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Track your coding journey, earned experience, and streaks.</p>
                     
                     <div class="stats-row">
                         <div class="stat-item">
@@ -55,206 +57,329 @@
                     </div>
 
                     <a href="getting-started.html" class="continue-btn" id="continue-mission">
-                        🚀 Continue Mission
+                        🚀 Getting Started Guide
                     </a>
                 </div>
 
                 <div class="mission-card" style="background: var(--bg-card); border-style: dashed;">
-                    <h3 style="color: var(--primary); margin-bottom: 1rem;">Daily Goal</h3>
-                    <p style="font-size: 0.85rem; color: var(--text-secondary);">Complete 1 module today to keep your streak alive! 🔥</p>
-                    <div style="margin-top: 1.5rem; height: 8px; background: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden;">
-                        <div id="daily-goal-fill" style="width: 0%; height: 100%; background: var(--accent); transition: width 0.8s ease;"></div>
+                    <h3 style="color: var(--primary); margin-bottom: 0.5rem;">Daily Mission</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5;">Practice in any of our 4 Interactive Code Labs or read a chapter today to level up!</p>
+                    <div style="margin-top: 1.5rem; height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden;">
+                        <div id="daily-goal-fill" style="width: 25%; height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent));"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 0.75rem; font-size: 0.78rem; color: var(--text-muted);">
+                        <span>Status: Active</span>
+                        <span>Level 1 Developer</span>
                     </div>
                 </div>
             </section>
 
-            <section class="course-grid" aria-label="Available Learning Paths" id="frontend-paths">
-                
-                <!-- Class 6 & 7 Complete Textbook Card (HTML) -->
-                <a href="book-html/index.html" class="course-card pro-card textbook-card html-book" id="official-books">
-                    <div class="icon-wrapper book-icon-orange">🌐</div>
-                    <div class="pro-card-content">
-                        <span class="course-level book-badge-orange">Class 6 &amp; 7 Official Textbook</span>
-                        <h2>HTML for Class 6 &amp; 7: Learn to Structure the Web</h2>
-                        <p>The dedicated beginner textbook: semantic elements, tags, forms, tables, accessibility, and 5 capstone web projects.</p>
+            <!-- ═══════════════════════════════════════════════════════════════
+                 INTERACTIVE STUDIOS & CODE LABS (FLAGSHIP SHOWCASE)
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section style="margin-top: 3.5rem;" id="interactive-labs">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
+                    <div>
+                        <h2 style="font-size: 1.75rem; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>🧪</span> Interactive Studios &amp; Playgrounds
+                        </h2>
+                        <p style="color: var(--text-secondary); margin: 0.35rem 0 0; font-size: 0.95rem;">Live, zero-setup environments designed specifically for hands-on student practice.</p>
                     </div>
-                    <div class="badge book-btn-orange">17 Chapters + Projects • Open Book 🚀</div>
-                </a>
+                </div>
 
-                <!-- Class 7 Complete Textbook Card (CSS) -->
-                <a href="book-css/index.html" class="course-card pro-card textbook-card css-book">
-                    <div class="icon-wrapper book-icon-purple">🎨</div>
-                    <div class="pro-card-content">
-                        <span class="course-level book-badge-purple">Class 7 Official Textbook</span>
-                        <h2>CSS for Class 7: Styling &amp; Designing Websites</h2>
-                        <p>The dedicated styling textbook: Flexbox, CSS Grid, animations, responsive design, and companion playground labs.</p>
-                    </div>
-                    <div class="badge book-btn-purple">17 Chapters + Projects • Open Book 🎨</div>
-                </a>
+                <div class="lab-studios-grid">
+                    <!-- HTML Lab -->
+                    <a href="Learning HTML/playground.html" class="lab-studio-card html-lab">
+                        <span class="studio-badge">17 Chapters • Live Studio</span>
+                        <div class="studio-header">
+                            <span class="studio-icon">🌐</span>
+                            <div>
+                                <h3>HTML Lab</h3>
+                                <span style="font-size: 0.78rem; color: #ea580c; font-weight: 600;">Structure Studio</span>
+                            </div>
+                        </div>
+                        <p class="studio-desc">Write HTML with our Quick-Tag ribbon, instant browser live preview, HTML Doctor linter, and 17 textbook companion missions.</p>
+                        <span class="studio-btn">Launch HTML Lab 🚀</span>
+                    </a>
 
-                <!-- Class 7 Complete Textbook Card (JavaScript) -->
-                <a href="book-js/index.html" class="course-card pro-card textbook-card js-book">
-                    <div class="icon-wrapper book-icon-amber">⚡</div>
-                    <div class="pro-card-content">
-                        <span class="course-level book-badge-amber">Class 7 Official Textbook</span>
-                        <h2>JavaScript for Class 7: Learn, Think, Create</h2>
-                        <p>The complete beginner's textbook and coding workbook: 17 core chapters, 21 mini projects, live scratchpad, and Capstone Quiz Arena.</p>
-                    </div>
-                    <div class="badge book-btn-amber">17 Chapters + 21 Projects • Open Book ⚡</div>
-                </a>
+                    <!-- CSS Lab -->
+                    <a href="Learning CSS/playground.html" class="lab-studio-card css-lab">
+                        <span class="studio-badge">Visual Lab • Flex &amp; Grid</span>
+                        <div class="studio-header">
+                            <span class="studio-icon">🎨</span>
+                            <div>
+                                <h3>CSS Studio</h3>
+                                <span style="font-size: 0.78rem; color: #a78bfa; font-weight: 600;">Styling Playground</span>
+                            </div>
+                        </div>
+                        <p class="studio-desc">Master colors, fonts, Flexbox, and CSS Grid with live device viewports (Desktop, Tablet, Mobile) and interactive hints.</p>
+                        <span class="studio-btn">Launch CSS Studio 🎨</span>
+                    </a>
 
+                    <!-- JS Lab -->
+                    <a href="Learning JS/playground.html" class="lab-studio-card js-lab">
+                        <span class="studio-badge">Logic • Console Runner</span>
+                        <div class="studio-header">
+                            <span class="studio-icon">⚡</span>
+                            <div>
+                                <h3>JS Playground</h3>
+                                <span style="font-size: 0.78rem; color: #facc15; font-weight: 600;">Logic &amp; DOM</span>
+                            </div>
+                        </div>
+                        <p class="studio-desc">Experiment with variables, loops, functions, and real-time JavaScript console execution. Master coding logic visually.</p>
+                        <span class="studio-btn">Launch JS Console ⚡</span>
+                    </a>
 
-                <!-- Master Playground Card -->
-                <a href="master-playground.html" class="course-card pro-card playground-banner">
-                    <div class="icon-wrapper playground-icon">🧪</div>
-                    <div class="pro-card-content">
-                        <span class="course-level" style="background: rgba(99,102,241,0.25); color: #a5b4fc; font-weight: 700;">Integrated Sandbox</span>
-                        <h2>Code Lab (All-in-One IDE)</h2>
-                        <p>Build whole web projects with HTML, CSS, and JS all in one place with real-time preview and console! Perfect for experiments.</p>
-                    </div>
-                    <div class="badge playground-badge">Pro Tool • Launch IDE 🚀</div>
-                </a>
-
-                <a href="Learning HTML/learninghtml.html" class="course-card html">
-                    <span class="course-level html-level">Class 6</span>
-                    <div class="icon-wrapper">🌐</div>
-                    <h2>HTML5</h2>
-                    <p>Master the structure of the web. Learn semantic tags, accessibility, and modern document architecture.</p>
-                    <div class="badge">12 Modules</div>
-                </a>
-
-                <a href="Learning CSS/learningcss.html" class="course-card css">
-                    <span class="course-level css-level">Class 7</span>
-                    <div class="icon-wrapper">🎨</div>
-                    <h2>Modern CSS</h2>
-                    <p>Bring your sites to life with Flexbox, Grid, and beautiful animations. Style like a pro.</p>
-                    <div class="badge">8 Modules</div>
-                </a>
-
-                <a href="Learning JS/learningjs.html" class="course-card js">
-                    <span class="course-level js-level">Class 8</span>
-                    <div class="icon-wrapper">⚡</div>
-                    <h2>JavaScript</h2>
-                    <p>Add logic and interactivity. Learn DOM manipulation, events, and modern ES6+ features.</p>
-                    <div class="badge">9 Modules</div>
-                </a>
-
+                    <!-- Master IDE -->
+                    <a href="master-playground.html" class="lab-studio-card master-lab">
+                        <span class="studio-badge">All-in-One • Pro Tool</span>
+                        <div class="studio-header">
+                            <span class="studio-icon">💻</span>
+                            <div>
+                                <h3>Code Lab Master IDE</h3>
+                                <span style="font-size: 0.78rem; color: #22d3ee; font-weight: 600;">Full-Stack Sandbox</span>
+                            </div>
+                        </div>
+                        <p class="studio-desc">Build complete web apps with HTML, CSS, and JS simultaneously with multi-tabs, mobile viewport toggles, and console output.</p>
+                        <span class="studio-btn">Open Master IDE 💻</span>
+                    </a>
+                </div>
             </section>
 
-            <!-- Backend Track -->
-            <section style="margin-top: 3.5rem;" id="backend-paths">
-                <div class="fullstack-bridge">
-                    <span style="font-size: 2rem;">🏗️</span>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 FRONTEND TRACK (GRADES 6–8)
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section style="margin-top: 3.5rem;" id="frontend-paths">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
                     <div>
-                        <h3 style="margin: 0 0 0.25rem;">Ready for the Full-Stack Journey?</h3>
-                        <p style="margin: 0; opacity: 0.85; font-size: 0.9rem;">You've mastered HTML, CSS &amp; JavaScript — now go backend! Learn PHP, MySQL &amp; Laravel to build real web applications with databases and login systems.</p>
+                        <h2 style="font-size: 1.75rem; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>🌐</span> Frontend Development (Classes 6–8)
+                        </h2>
+                        <p style="color: var(--text-secondary); margin: 0.35rem 0 0; font-size: 0.95rem;">Step-by-step curriculum with official textbooks, lessons, and practice labs.</p>
+                    </div>
+                </div>
+
+                <div class="course-grid">
+                    <!-- HTML5 Card -->
+                    <div class="course-card html" style="display: flex; flex-direction: column;">
+                        <span class="course-level html-level">Class 6 Core</span>
+                        <div class="icon-wrapper">🌐</div>
+                        <h2>HTML5 Architecture</h2>
+                        <p>Master the skeleton of the web. Learn semantic tags, page anatomy, accessibility, tables, and multimedia forms.</p>
+                        
+                        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.5rem; width: 100%;">
+                            <a href="book-html/index.html" class="badge" style="background: rgba(234,88,12,0.18); color: #ea580c; border: 1px solid rgba(234,88,12,0.35); text-decoration: none; text-align: center;">
+                                📖 Class 6 &amp; 7 Textbook (17 Ch)
+                            </a>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem;">
+                                <a href="Learning HTML/learninghtml.html" class="badge" style="text-decoration: none; text-align: center;">
+                                    📚 12 Lessons
+                                </a>
+                                <a href="Learning HTML/playground.html" class="badge" style="background: rgba(234,88,12,0.25); color: #fff; text-decoration: none; text-align: center;">
+                                    🧪 Lab Studio
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CSS3 Card -->
+                    <div class="course-card css" style="display: flex; flex-direction: column;">
+                        <span class="course-level css-level">Class 7 Styling</span>
+                        <div class="icon-wrapper">🎨</div>
+                        <h2>Modern CSS &amp; Layouts</h2>
+                        <p>Bring websites to life with colors, gradients, Flexbox, CSS Grid, and fluid responsive design for phones and laptops.</p>
+                        
+                        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.5rem; width: 100%;">
+                            <a href="book-css/index.html" class="badge" style="background: rgba(99,102,241,0.18); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.35); text-decoration: none; text-align: center;">
+                                📖 Class 7 Textbook (17 Ch)
+                            </a>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem;">
+                                <a href="Learning CSS/learningcss.html" class="badge" style="text-decoration: none; text-align: center;">
+                                    📚 8 Lessons
+                                </a>
+                                <a href="Learning CSS/playground.html" class="badge" style="background: rgba(99,102,241,0.25); color: #fff; text-decoration: none; text-align: center;">
+                                    🎨 Lab Studio
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- JavaScript Card -->
+                    <div class="course-card js" style="display: flex; flex-direction: column;">
+                        <span class="course-level js-level">Class 8 Logic</span>
+                        <div class="icon-wrapper">⚡</div>
+                        <h2>JavaScript &amp; DOM</h2>
+                        <p>Add logic, dynamic events, and interactivity. Learn variables, conditional thinking, functions, and web games.</p>
+                        
+                        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.5rem; width: 100%;">
+                            <a href="book-js/index.html" class="badge" style="background: rgba(234,179,8,0.18); color: #fde047; border: 1px solid rgba(234,179,8,0.35); text-decoration: none; text-align: center;">
+                                📖 Class 7 &amp; 8 Textbook (17 Ch)
+                            </a>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem;">
+                                <a href="Learning JS/learningjs.html" class="badge" style="text-decoration: none; text-align: center;">
+                                    📚 9 Lessons
+                                </a>
+                                <a href="Learning JS/playground.html" class="badge" style="background: rgba(234,179,8,0.25); color: #fff; text-decoration: none; text-align: center;">
+                                    ⚡ Lab Console
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 BACKEND TRACK (CLASS 9)
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section style="margin-top: 4rem;" id="backend-paths">
+                <div class="fullstack-bridge">
+                    <span style="font-size: 2.2rem;">🏗️</span>
+                    <div>
+                        <h3 style="margin: 0 0 0.35rem; font-size: 1.25rem;">Ready for Backend &amp; Databases?</h3>
+                        <p style="margin: 0; opacity: 0.88; font-size: 0.92rem; line-height: 1.55;">You've mastered HTML, CSS &amp; JavaScript — now graduate to backend engineering! Learn PHP, MySQL databases &amp; Laravel to build real full-stack web applications with authentication.</p>
                     </div>
                 </div>
 
                 <div class="course-grid" aria-label="Backend Learning Paths" style="margin-top: 1.5rem;">
-                    <a href="Learning PHP/learningphp.html" class="course-card php">
-                        <span class="course-level php-level">Class 9</span>
+                    <div class="course-card php" style="display: flex; flex-direction: column;">
+                        <span class="course-level php-level">Class 9 Server</span>
                         <div class="icon-wrapper">🐘</div>
-                        <h2>PHP</h2>
-                        <p>The language behind 80% of the web. Variables, functions, OOP, and connecting to databases.</p>
-                        <div class="badge">8 Modules</div>
-                    </a>
+                        <h2>PHP Scripting</h2>
+                        <p>Server-side programming: variables, arrays, GET/POST forms, superglobals, and object-oriented programming.</p>
+                        <div style="margin-top: auto; display: flex; gap: 0.4rem; width: 100%;">
+                            <a href="book-php/index.html" class="badge" style="flex: 1; text-decoration: none; text-align: center; background: rgba(124,58,237,0.2); color: #c4b5fd;">📖 26 Ch Book</a>
+                            <a href="Learning PHP/learningphp.html" class="badge" style="flex: 1; text-decoration: none; text-align: center;">📚 8 Lessons</a>
+                        </div>
+                    </div>
 
-                    <a href="Learning MySQL/learningmysql.html" class="course-card mysql">
-                        <span class="course-level mysql-level">Class 9</span>
+                    <div class="course-card mysql" style="display: flex; flex-direction: column;">
+                        <span class="course-level mysql-level">Class 9 Data</span>
                         <div class="icon-wrapper">🗄️</div>
-                        <h2>MySQL</h2>
-                        <p>Store and retrieve data. Master SELECT, INSERT, JOINs and build real database schemas.</p>
-                        <div class="badge">6 Modules</div>
-                    </a>
+                        <h2>MySQL Databases</h2>
+                        <p>Store, organize, and query relational data. Master CREATE, SELECT, UPDATE, DELETE, and relational JOINs.</p>
+                        <div style="margin-top: auto; display: flex; gap: 0.4rem; width: 100%;">
+                            <a href="book-mysql/index.html" class="badge" style="flex: 1; text-decoration: none; text-align: center; background: rgba(14,165,233,0.2); color: #7dd3fc;">📖 22 Ch Book</a>
+                            <a href="Learning MySQL/learningmysql.html" class="badge" style="flex: 1; text-decoration: none; text-align: center;">📚 6 Lessons</a>
+                        </div>
+                    </div>
 
-                    <a href="Learning Laravel/learninglaravel.html" class="course-card laravel">
-                        <span class="course-level laravel-level">Class 9</span>
+                    <div class="course-card laravel" style="display: flex; flex-direction: column;">
+                        <span class="course-level laravel-level">Class 9 Full-Stack</span>
                         <div class="icon-wrapper">🔥</div>
-                        <h2>Laravel</h2>
-                        <p>The #1 PHP framework. Build complete web apps with routing, Eloquent ORM, and auth in days.</p>
-                        <div class="badge">8 Modules</div>
-                    </a>
-                </div>
-
-                <!-- Class 9 Official Textbooks -->
-                <div style="margin-top: 2rem;">
-                    <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem;">
-                        <h3 style="margin: 0; font-size: 1.15rem; color: var(--text-secondary);">📖 Class 9 Official Textbooks</h3>
-                        <span style="font-size: 0.8rem; color: var(--text-muted); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 0.2rem 0.65rem;">Interactive Book Readers</span>
-                    </div>
-                    <div class="course-grid" style="margin-top: 0;">
-                        <a href="book-php/index.html" class="course-card php" style="border-color: rgba(124,58,237,0.4); background: linear-gradient(135deg, rgba(124,58,237,0.12) 0%, rgba(109,40,217,0.06) 100%);">
-                            <span class="course-level" style="background: rgba(124,58,237,0.2); color: #a78bfa; border: 1px solid rgba(124,58,237,0.35);">Class 9 Textbook</span>
-                            <div class="icon-wrapper" style="background: rgba(124,58,237,0.15); font-size: 2rem;">🐘</div>
-                            <h2>PHP for Class 9</h2>
-                            <p>Server-side programming: variables, functions, arrays, forms, OOP &amp; 3 projects.</p>
-                            <div class="badge" style="background: rgba(124,58,237,0.18); color: #a78bfa; border: 1px solid rgba(124,58,237,0.35);">26 Chapters • Open Book</div>
-                        </a>
-                        <a href="book-mysql/index.html" class="course-card mysql" style="border-color: rgba(14,165,233,0.4); background: linear-gradient(135deg, rgba(14,165,233,0.12) 0%, rgba(2,132,199,0.06) 100%);">
-                            <span class="course-level" style="background: rgba(14,165,233,0.2); color: #38bdf8; border: 1px solid rgba(14,165,233,0.35);">Class 9 Textbook</span>
-                            <div class="icon-wrapper" style="background: rgba(14,165,233,0.15); font-size: 2rem;">🗄️</div>
-                            <h2>MySQL for Class 9</h2>
-                            <p>Databases &amp; queries: CREATE, SELECT, JOINs, aggregate functions &amp; 2 projects.</p>
-                            <div class="badge" style="background: rgba(14,165,233,0.18); color: #38bdf8; border: 1px solid rgba(14,165,233,0.35);">22 Chapters • Open Book</div>
-                        </a>
-                        <a href="book-laravel/index.html" class="course-card laravel" style="border-color: rgba(239,68,68,0.4); background: linear-gradient(135deg, rgba(239,68,68,0.12) 0%, rgba(220,38,38,0.06) 100%);">
-                            <span class="course-level" style="background: rgba(239,68,68,0.2); color: #f87171; border: 1px solid rgba(239,68,68,0.35);">Class 9 Textbook</span>
-                            <div class="icon-wrapper" style="background: rgba(239,68,68,0.15); font-size: 2rem;">🔥</div>
-                            <h2>Laravel for Class 9</h2>
-                            <p>PHP framework: routing, Blade, Eloquent ORM, migrations, auth &amp; 2 web apps.</p>
-                            <div class="badge" style="background: rgba(239,68,68,0.18); color: #f87171; border: 1px solid rgba(239,68,68,0.35);">24 Chapters • Open Book</div>
-                        </a>
+                        <h2>Laravel Framework</h2>
+                        <p>The industry's leading PHP framework. Build production web applications with routing, Blade templates, and Eloquent ORM.</p>
+                        <div style="margin-top: auto; display: flex; gap: 0.4rem; width: 100%;">
+                            <a href="book-laravel/index.html" class="badge" style="flex: 1; text-decoration: none; text-align: center; background: rgba(239,68,68,0.2); color: #fca5a5;">📖 24 Ch Book</a>
+                            <a href="Learning Laravel/learninglaravel.html" class="badge" style="flex: 1; text-decoration: none; text-align: center;">📚 8 Lessons</a>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Cheat Sheets & AI Roadmap -->
-            <section style="margin-top: 3.5rem;" id="quick-resources">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 1.5rem;">
-                    <h2 style="font-size: 1.6rem; margin: 0;">Quick Resources &amp; Cheat Sheets</h2>
-                    <span style="font-size: 0.9rem; color: var(--text-muted);">Fast syntax references &amp; future paths</span>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 OFFICIAL TEXTBOOKS SECTION
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section style="margin-top: 4rem;" id="textbooks-section">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <h2 style="font-size: 1.75rem; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>📖</span> Official Textbooks &amp; Reading Guides
+                        </h2>
+                        <p style="color: var(--text-secondary); margin: 0.35rem 0 0; font-size: 0.95rem;">Curated textbooks aligned with school curriculum standards. Read online with built-in TTS audio speech and chapter companion labs.</p>
+                    </div>
                 </div>
-                <div class="course-grid" style="gap: 1.5rem;">
-                    <a href="cheatsheet-html.html" class="course-card html" style="padding: 2rem 1.5rem;">
-                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
-                        <h3 style="margin-bottom: 0.5rem;">HTML Cheat Sheet</h3>
-                        <p style="font-size: 0.9rem;">Every tag you need, organized on one page.</p>
+
+                <div class="course-grid">
+                    <!-- HTML Book -->
+                    <a href="book-html/index.html" class="course-card pro-card textbook-card html-book">
+                        <div class="icon-wrapper book-icon-orange">🌐</div>
+                        <div class="pro-card-content">
+                            <span class="course-level book-badge-orange">Class 6 &amp; 7 Official Textbook</span>
+                            <h2>HTML: Structure the Web</h2>
+                            <p>17 comprehensive chapters, accessible semantics, forms, tables, and 5 capstone web projects with audio speech.</p>
+                        </div>
+                        <div class="badge book-btn-orange">17 Chapters • Read Textbook 🚀</div>
                     </a>
-                    <a href="cheatsheet-css.html" class="course-card css" style="padding: 2rem 1.5rem;">
-                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
-                        <h3 style="margin-bottom: 0.5rem;">CSS Cheat Sheet</h3>
-                        <p style="font-size: 0.9rem;">Every selector, flexbox, and grid property fast.</p>
+
+                    <!-- CSS Book -->
+                    <a href="book-css/index.html" class="course-card pro-card textbook-card css-book">
+                        <div class="icon-wrapper book-icon-purple">🎨</div>
+                        <div class="pro-card-content">
+                            <span class="course-level book-badge-purple">Class 7 Official Textbook</span>
+                            <h2>CSS: Styling &amp; Designing Websites</h2>
+                            <p>17 chapters on modern CSS: Box Model, Flexbox layouts, CSS Grid, keyframe animations, and companion labs.</p>
+                        </div>
+                        <div class="badge book-btn-purple">17 Chapters • Read Textbook 🎨</div>
                     </a>
-                    <a href="cheatsheet-js.html" class="course-card js" style="padding: 2rem 1.5rem;">
-                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
-                        <h3 style="margin-bottom: 0.5rem;">JS Cheat Sheet</h3>
-                        <p style="font-size: 0.9rem;">Syntax, functions, arrays &amp; DOM cheatsheet.</p>
-                    </a>
-                    <a href="cheatsheet-php.html" class="course-card php" style="padding: 2rem 1.5rem;">
-                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
-                        <h3 style="margin-bottom: 0.5rem;">PHP Cheat Sheet</h3>
-                        <p style="font-size: 0.9rem;">Variables, arrays, superglobals &amp; OOP.</p>
-                    </a>
-                    <a href="cheatsheet-mysql.html" class="course-card mysql" style="padding: 2rem 1.5rem;">
-                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
-                        <h3 style="margin-bottom: 0.5rem;">MySQL Cheat Sheet</h3>
-                        <p style="font-size: 0.9rem;">SELECT, JOINs, clauses, and aggregations.</p>
-                    </a>
-                    <a href="cheatsheet-laravel.html" class="course-card laravel" style="padding: 2rem 1.5rem;">
-                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">📋</div>
-                        <h3 style="margin-bottom: 0.5rem;">Laravel Cheat Sheet</h3>
-                        <p style="font-size: 0.9rem;">Routing, Blade, Eloquent ORM &amp; Artisan CLI.</p>
-                    </a>
-                    <a href="ai-roadmap.html" class="course-card" style="padding: 2rem 1.5rem; border-color: rgba(236,72,153,0.4);">
-                        <div class="icon-wrapper" style="font-size: 2.5rem; margin-bottom: 1rem;">🤖</div>
-                        <h3 style="margin-bottom: 0.5rem;">AI Roadmap</h3>
-                        <p style="font-size: 0.9rem;">From coder to AI creator — your path forward.</p>
-                        <div class="badge" style="background: rgba(236,72,153,0.15); color: #ec4899; border: 1px solid rgba(236,72,153,0.3);">New</div>
+
+                    <!-- JS Book -->
+                    <a href="book-js/index.html" class="course-card pro-card textbook-card js-book">
+                        <div class="icon-wrapper book-icon-amber">⚡</div>
+                        <div class="pro-card-content">
+                            <span class="course-level book-badge-amber">Class 7 &amp; 8 Official Textbook</span>
+                            <h2>JavaScript: Learn, Think, Create</h2>
+                            <p>17 core chapters, 21 mini projects, DOM programming workbook, and Capstone Quiz Arena.</p>
+                        </div>
+                        <div class="badge book-btn-amber">17 Chapters • Read Textbook ⚡</div>
                     </a>
                 </div>
             </section>
 
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 CHEAT SHEETS & AI ROADMAP
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section style="margin-top: 4rem;" id="quick-resources">
+                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
+                    <div>
+                        <h2 style="font-size: 1.75rem; margin: 0; display: flex; align-items: center; gap: 0.5rem;">
+                            <span>📋</span> Quick Resources &amp; Cheat Sheets
+                        </h2>
+                        <p style="color: var(--text-secondary); margin: 0.35rem 0 0; font-size: 0.95rem;">Rapid syntax lookups and learning maps for quick revision before exams or project builds.</p>
+                    </div>
+                </div>
+
+                <div class="course-grid" style="gap: 1.25rem;">
+                    <a href="cheatsheet-html.html" class="course-card html" style="padding: 1.5rem;">
+                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">📋</div>
+                        <h3 style="margin-bottom: 0.35rem;">HTML Cheat Sheet</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Every tag, semantic element, and form attribute on one page.</p>
+                    </a>
+
+                    <a href="cheatsheet-css.html" class="course-card css" style="padding: 1.5rem;">
+                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">📋</div>
+                        <h3 style="margin-bottom: 0.35rem;">CSS Cheat Sheet</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Selectors, Flexbox alignment, and CSS Grid quick rules.</p>
+                    </a>
+
+                    <a href="cheatsheet-js.html" class="course-card js" style="padding: 1.5rem;">
+                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">📋</div>
+                        <h3 style="margin-bottom: 0.35rem;">JS Cheat Sheet</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Syntax, array methods, DOM functions, and event handlers.</p>
+                    </a>
+
+                    <a href="cheatsheet-php.html" class="course-card php" style="padding: 1.5rem;">
+                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">📋</div>
+                        <h3 style="margin-bottom: 0.35rem;">PHP Cheat Sheet</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Syntax, arrays, superglobals, and OOP essentials.</p>
+                    </a>
+
+                    <a href="cheatsheet-mysql.html" class="course-card mysql" style="padding: 1.5rem;">
+                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">📋</div>
+                        <h3 style="margin-bottom: 0.35rem;">MySQL Cheat Sheet</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">SELECT, JOINs, clauses, aggregations, and table queries.</p>
+                    </a>
+
+                    <a href="ai-roadmap.html" class="course-card" style="padding: 1.5rem; border-color: rgba(236,72,153,0.4);">
+                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">🤖</div>
+                        <h3 style="margin-bottom: 0.35rem;">AI Creator Roadmap</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Your step-by-step roadmap from student coder to AI builder.</p>
+                    </a>
+                </div>
+            </section>
         </main>
     </div>
 
@@ -271,26 +396,17 @@
             </div>
 
             <div class="footer-column">
-                <h4>Frontend Track</h4>
+                <h4>Interactive Code Labs</h4>
                 <ul>
-                    <li><a href="Learning HTML/learninghtml.html">HTML5 (Class 6)</a></li>
-                    <li><a href="Learning CSS/learningcss.html">Modern CSS (Class 7)</a></li>
-                    <li><a href="Learning JS/learningjs.html">JavaScript (Class 8)</a></li>
-                    <li><a href="master-playground.html">Code Lab (Live IDE)</a></li>
+                    <li><a href="Learning HTML/playground.html">🌐 HTML Interactive Lab</a></li>
+                    <li><a href="Learning CSS/playground.html">🎨 CSS Styling Studio</a></li>
+                    <li><a href="Learning JS/playground.html">⚡ JS Code Runner</a></li>
+                    <li><a href="master-playground.html">💻 Code Lab Master IDE</a></li>
                 </ul>
             </div>
 
             <div class="footer-column">
-                <h4>Backend Track</h4>
-                <ul>
-                    <li><a href="Learning PHP/learningphp.html">PHP Scripting (Class 9)</a></li>
-                    <li><a href="Learning MySQL/learningmysql.html">MySQL Databases (Class 9)</a></li>
-                    <li><a href="Learning Laravel/learninglaravel.html">Laravel Framework (Class 9)</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-column">
-                <h4>Textbooks &amp; Guides</h4>
+                <h4>Official Textbooks</h4>
                 <ul>
                     <li><a href="book-html/index.html">Class 6 &amp; 7 HTML Book</a></li>
                     <li><a href="book-css/index.html">Class 7 CSS Book</a></li>
@@ -298,19 +414,29 @@
                     <li><a href="book-php/index.html">Class 9 PHP Book</a></li>
                     <li><a href="book-mysql/index.html">Class 9 MySQL Book</a></li>
                     <li><a href="book-laravel/index.html">Class 9 Laravel Book</a></li>
-                    <li><a href="ai-roadmap.html">AI Creator Roadmap</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-column">
+                <h4>Platform Navigation</h4>
+                <ul>
                     <li><a href="getting-started.html">Getting Started Guide</a></li>
+                    <li><a href="ai-roadmap.html">AI Creator Roadmap</a></li>
+                    <li><a href="cheatsheet-html.html">HTML Cheat Sheet</a></li>
+                    <li><a href="cheatsheet-css.html">CSS Cheat Sheet</a></li>
+                    <li><a href="cheatsheet-js.html">JS Cheat Sheet</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
             <div class="footer-bottom-inner">
-                <p>&copy; 2026 Junior Coders Platform. Crafted with ❤️ for future developers.</p>
+                <p>&copy; 2026 Junior Coders Educational Platform. Crafted with ❤️ for future developers.</p>
                 <div class="footer-bottom-links">
-                    <a href="cheatsheet-html.html">HTML Cheat Sheet</a>
-                    <a href="cheatsheet-css.html">CSS Cheat Sheet</a>
-                    <a href="cheatsheet-js.html">JS Cheat Sheet</a>
+                    <a href="cheatsheet-html.html">HTML</a>
+                    <a href="cheatsheet-css.html">CSS</a>
+                    <a href="cheatsheet-js.html">JavaScript</a>
+                    <a href="master-playground.html">Code Lab IDE</a>
                 </div>
             </div>
         </div>
@@ -318,4 +444,4 @@
 
     <script src="js/core.js"></script>
 </body>
-</html>
+</html>
