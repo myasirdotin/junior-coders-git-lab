@@ -27,6 +27,10 @@ By the end of this chapter, you will be able to:
 
 ## 3. 👁️ Visual Concept Explanation
 
+### The Web Anatomy Architecture
+
+![Web Anatomy Diagram](../assets/diagrams/html/web-anatomy.svg)
+
 ### The Web Development Trio
 
 ```text

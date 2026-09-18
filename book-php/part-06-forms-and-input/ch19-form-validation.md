@@ -84,7 +84,7 @@ The browser displays harmless text on screen! The attack is completely neutraliz
     if (empty($email)) {
       $errors["email"] = "Email address is required.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $errors["email"] = "Please provide a valid email format (e.g. user@domain.com).";
+      $errors["email"] = "Please provide a valid email format (e.g. student@srinagar.edu.in).";
     }
 
     // 4. Validate Age

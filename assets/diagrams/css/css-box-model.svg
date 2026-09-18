@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 17px; fill: #1e293b; }
+      .hdr-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; fill: #1d4ed8; }
+      .layer-badge { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+      .code-tag { font-family: 'Fira Code', Consolas, monospace; font-size: 11px; font-weight: 700; }
+      .legend-lbl { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; font-weight: 600; fill: #334155; }
+    </style>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="880" height="500" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Top Title Banner -->
+  <g transform="translate(30, 20)">
+    <rect width="820" height="42" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1" />
+    <circle cx="24" cy="21" r="10" fill="#2563eb" />
+    <text x="24" y="25" font-family="-apple-system, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle">📦</text>
+    <text x="44" y="27" class="hdr-title">The CSS Box Model: 4 Concentric Spatial Layers</text>
+    <text x="800" y="26" class="hdr-sub" text-anchor="end">Every Element is a Box</text>
+  </g>
+
+  <!-- Concentric Box Diagram -->
+  <g transform="translate(50, 75)">
+    <!-- 1. MARGIN (Outer) -->
+    <rect x="0" y="0" width="780" height="340" rx="14" fill="#fff7ed" stroke="#ea580c" stroke-width="2" stroke-dasharray="6,4" />
+    <rect x="20" y="12" width="160" height="22" rx="4" fill="#ea580c" />
+    <text x="100" y="27" class="layer-badge" fill="#ffffff" text-anchor="middle">Margin (Outer Space)</text>
+    <text x="760" y="27" class="code-tag" fill="#c2410c" text-anchor="end">margin: 24px;</text>
+
+    <!-- 2. BORDER -->
+    <rect x="35" y="42" width="710" height="255" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="3" />
+    <rect x="55" y="54" width="150" height="22" rx="4" fill="#d97706" />
+    <text x="130" y="69" class="layer-badge" fill="#ffffff" text-anchor="middle">Border (The Wall)</text>
+    <text x="725" y="69" class="code-tag" fill="#b45309" text-anchor="end">border: 4px solid #d97706;</text>
+
+    <!-- 3. PADDING -->
+    <rect x="75" y="84" width="630" height="170" rx="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2" />
+    <rect x="95" y="96" width="160" height="22" rx="4" fill="#16a34a" />
+    <text x="175" y="111" class="layer-badge" fill="#ffffff" text-anchor="middle">Padding (Cushion)</text>
+    <text x="685" y="111" class="code-tag" fill="#15803d" text-anchor="end">padding: 20px;</text>
+
+    <!-- 4. CONTENT -->
+    <rect x="135" y="126" width="510" height="85" rx="6" fill="#2563eb" />
+    <text x="390" y="158" font-family="-apple-system, sans-serif" font-weight="800" font-size="15" fill="#ffffff" text-anchor="middle">CONTENT BOX</text>
+    <text x="390" y="178" font-family="-apple-system, sans-serif" font-size="12" fill="#eff6ff" text-anchor="middle">Text, Heading, Images, or Nested Child Elements</text>
+    <text x="390" y="196" class="code-tag" fill="#bfdbfe" text-anchor="middle">width: 510px; height: 85px;</text>
+  </g>
+
+  <!-- Bottom Legend Bar -->
+  <g transform="translate(50, 440)">
+    <rect width="780" height="40" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
+    
+    <!-- Legend Margin -->
+    <rect x="30" y="14" width="14" height="14" rx="3" fill="#ffedd5" stroke="#ea580c" />
+    <text x="52" y="25" class="legend-lbl">Margin (Pushes neighbors away)</text>
+
+    <!-- Legend Border -->
+    <rect x="255" y="14" width="14" height="14" rx="3" fill="#fef3c7" stroke="#d97706" />
+    <text x="277" y="25" class="legend-lbl">Border (Visible edge)</text>
+
+    <!-- Legend Padding -->
+    <rect x="435" y="14" width="14" height="14" rx="3" fill="#dcfce7" stroke="#16a34a" />
+    <text x="457" y="25" class="legend-lbl">Padding (Breathing space)</text>
+
+    <!-- Legend Content -->
+    <rect x="635" y="14" width="14" height="14" rx="3" fill="#2563eb" />
+    <text x="657" y="25" class="legend-lbl">Content (Actual data)</text>
+  </g>
+</svg>

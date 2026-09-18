@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 17px; fill: #1e293b; }
+      .hdr-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; fill: #b45309; }
+      .box-label { font-family: 'Fira Code', Consolas, monospace; font-weight: 700; font-size: 15px; fill: #d97706; text-anchor: middle; }
+      .box-value { font-family: 'Fira Code', Consolas, monospace; font-weight: 700; font-size: 20px; text-anchor: middle; }
+      .type-badge { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 11px; fill: #ffffff; text-anchor: middle; }
+      .desc-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #64748b; text-anchor: middle; }
+      .code-line { font-family: 'Fira Code', Consolas, monospace; font-size: 12px; font-weight: 600; text-anchor: middle; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="460" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Top Title Banner -->
+  <g transform="translate(30, 20)">
+    <rect width="820" height="42" rx="8" fill="#fef3c7" stroke="#fde68a" stroke-width="1" />
+    <circle cx="24" cy="21" r="10" fill="#f59e0b" />
+    <text x="24" y="25" font-family="-apple-system, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle">📦</text>
+    <text x="44" y="27" class="hdr-title">Variables in Memory: Labeled Storage Containers</text>
+    <text x="800" y="26" class="hdr-sub" text-anchor="end">let name = "Value";</text>
+  </g>
+
+  <!-- 3 Memory Box Cards -->
+  <g transform="translate(30, 80)">
+    <!-- CARD 1: String -->
+    <g transform="translate(15, 0)">
+      <rect width="250" height="340" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+      <rect x="20" y="16" width="90" height="24" rx="6" fill="#0284c7" />
+      <text x="65" y="32" class="type-badge">String</text>
+
+      <!-- Label Handle -->
+      <rect x="25" y="55" width="200" height="40" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5" />
+      <text x="125" y="80" class="box-label">studentName</text>
+      <text x="125" y="112" class="desc-text">Variable Name (Memory Address)</text>
+
+      <!-- Value Vault -->
+      <rect x="25" y="130" width="200" height="110" rx="8" fill="#0f172a" />
+      <text x="125" y="182" class="box-value" fill="#38bdf8">"Zayd"</text>
+      <text x="125" y="212" class="desc-text" fill="#94a3b8">Text wrapped in quotes</text>
+
+      <!-- Declaration Syntax -->
+      <rect x="20" y="265" width="210" height="45" rx="6" fill="#f0f9ff" stroke="#bae6fd" />
+      <text x="125" y="292" class="code-line" fill="#0369a1">let studentName = "Zayd";</text>
+    </g>
+
+    <!-- CARD 2: Number -->
+    <g transform="translate(285, 0)">
+      <rect width="250" height="340" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+      <rect x="20" y="16" width="90" height="24" rx="6" fill="#16a34a" />
+      <text x="65" y="32" class="type-badge">Number</text>
+
+      <!-- Label Handle -->
+      <rect x="25" y="55" width="200" height="40" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5" />
+      <text x="125" y="80" class="box-label">score</text>
+      <text x="125" y="112" class="desc-text">Variable Name (Memory Address)</text>
+
+      <!-- Value Vault -->
+      <rect x="25" y="130" width="200" height="110" rx="8" fill="#0f172a" />
+      <text x="125" y="182" class="box-value" fill="#4ade80">98</text>
+      <text x="125" y="212" class="desc-text" fill="#94a3b8">Numeric integer / float</text>
+
+      <!-- Declaration Syntax -->
+      <rect x="20" y="265" width="210" height="45" rx="6" fill="#f0fdf4" stroke="#bbf7d0" />
+      <text x="125" y="292" class="code-line" fill="#15803d">let score = 98;</text>
+    </g>
+
+    <!-- CARD 3: Boolean -->
+    <g transform="translate(555, 0)">
+      <rect width="250" height="340" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+      <rect x="20" y="16" width="90" height="24" rx="6" fill="#9333ea" />
+      <text x="65" y="32" class="type-badge">Boolean</text>
+
+      <!-- Label Handle -->
+      <rect x="25" y="55" width="200" height="40" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5" />
+      <text x="125" y="80" class="box-label">isPassed</text>
+      <text x="125" y="112" class="desc-text">Variable Name (Memory Address)</text>
+
+      <!-- Value Vault -->
+      <rect x="25" y="130" width="200" height="110" rx="8" fill="#0f172a" />
+      <text x="125" y="182" class="box-value" fill="#c084fc">true</text>
+      <text x="125" y="212" class="desc-text" fill="#94a3b8">Two states: true / false</text>
+
+      <!-- Declaration Syntax -->
+      <rect x="20" y="265" width="210" height="45" rx="6" fill="#faf5ff" stroke="#e9d5ff" />
+      <text x="125" y="292" class="code-line" fill="#7e22ce">let isPassed = true;</text>
+    </g>
+  </g>
+</svg>

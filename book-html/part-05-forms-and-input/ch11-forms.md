@@ -40,7 +40,7 @@ By the end of this chapter, you will be able to:
  │ <form> Container                                            │
  │                                                             │
  │  Text Input:      [ John Doe                  ]             │
- │  Email Input:     [ student@school.edu        ]             │
+ │  Email Input:     [ student@srinagar.edu.in   ]             │
  │                                                             │
  │  Checkboxes:      [✓] Coding   [ ] Robotics   [✓] Gaming    │
  │                   (Can pick multiple options!)              │
@@ -85,7 +85,7 @@ Type this into your editor and save it as `registration.html`:
       <!-- 2. Email Field -->
       <p>
         <label for="studentEmail">Parent / Student Email:</label><br>
-        <input type="email" id="studentEmail" placeholder="name@example.com" required>
+        <input type="email" id="studentEmail" placeholder="student@srinagar.edu.in" required>
       </p>
 
       <!-- 3. Radio Buttons (Select ONLY ONE grade) -->

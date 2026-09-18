@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 800; font-size: 16.5px; fill: #1e293b; }
+      .badge-code { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #0e7490; }
+      .th-txt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 12px; fill: #ffffff; text-anchor: middle; }
+      .th-type { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 9.5px; fill: #bae6fd; text-anchor: middle; }
+      .cell-txt { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 11px; fill: #334155; text-anchor: middle; }
+      .anno-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 12px; }
+      .anno-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10.5px; fill: #475569; }
+    </style>
+  </defs>
+
+  <rect width="880" height="480" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Top Title Bar -->
+  <rect x="25" y="16" width="830" height="44" rx="8" fill="#ecfeff" stroke="#a5f3fc" stroke-width="1" />
+  <circle cx="50" cy="38" r="12" fill="#0891b2" />
+  <text x="50" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="bold" font-size="12" fill="#ffffff" text-anchor="middle">🗄️</text>
+  <text x="72" y="43" class="hdr">Anatomy of a Relational Database Table: Fields, Records &amp; Types</text>
+  
+  <rect x="680" y="25" width="160" height="26" rx="6" fill="#ffffff" stroke="#a5f3fc" />
+  <text x="760" y="42" class="badge-code" text-anchor="middle">Entity Blueprint</text>
+
+  <!-- Table Visualization Canvas -->
+  <g transform="translate(30, 80)">
+    <!-- Table Container -->
+    <rect x="15" y="20" width="580" height="230" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="2" />
+    
+    <!-- Table Header Bar -->
+    <rect x="15" y="20" width="580" height="48" rx="10" fill="#0284c7" />
+    <rect x="15" y="55" width="580" height="13" fill="#0284c7" />
+
+    <!-- Table Columns -->
+    <!-- Col 1: id (PK) -->
+    <text x="55" y="40" class="th-txt">id 🔑</text>
+    <text x="55" y="56" class="th-type">INT (PK)</text>
+
+    <!-- Col 2: full_name -->
+    <text x="180" y="40" class="th-txt">full_name</text>
+    <text x="180" y="56" class="th-type">VARCHAR(100)</text>
+
+    <!-- Col 3: email -->
+    <text x="320" y="40" class="th-txt">email</text>
+    <text x="320" y="56" class="th-type">VARCHAR UNIQUE</text>
+
+    <!-- Col 4: grade -->
+    <text x="440" y="40" class="th-txt">grade_level</text>
+    <text x="440" y="56" class="th-type">INT</text>
+
+    <!-- Col 5: enrolled -->
+    <text x="540" y="40" class="th-txt">enrolled</text>
+    <text x="540" y="56" class="th-type">DATE</text>
+
+    <!-- Row 1 -->
+    <rect x="15" y="68" width="580" height="42" fill="#f8fafc" />
+    <text x="55" y="93" class="cell-txt" font-weight="bold" fill="#0284c7">1</text>
+    <text x="180" y="93" class="cell-txt">"Aisha Siddiq"</text>
+    <text x="320" y="93" class="cell-txt">"aisha@srinagar.edu.in"</text>
+    <text x="440" y="93" class="cell-txt">9</text>
+    <text x="540" y="93" class="cell-txt">2025-08-15</text>
+    <line x1="15" y1="110" x2="595" y2="110" stroke="#e2e8f0" />
+
+    <!-- Row 2 (Highlighted Cell Target) -->
+    <rect x="15" y="110" width="580" height="42" fill="#ffffff" />
+    <text x="55" y="135" class="cell-txt" font-weight="bold" fill="#0284c7">2</text>
+    <text x="180" y="135" class="cell-txt">"Bilal Mansoor"</text>
+    
+    <!-- Focus Box on Cell: "bilal@srinagar.edu.in" -->
+    <rect x="235" y="114" width="170" height="34" rx="5" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.8" />
+    <text x="320" y="135" class="cell-txt" font-weight="bold" fill="#b45309">"bilal@srinagar.edu.in"</text>
+    
+    <text x="440" y="135" class="cell-txt">9</text>
+    <text x="540" y="135" class="cell-txt">2025-08-15</text>
+    <line x1="15" y1="152" x2="595" y2="152" stroke="#e2e8f0" />
+
+    <!-- Row 3 -->
+    <rect x="15" y="152" width="580" height="42" fill="#f8fafc" />
+    <text x="55" y="177" class="cell-txt" font-weight="bold" fill="#0284c7">3</text>
+    <text x="180" y="177" class="cell-txt">"Fatima Zahra"</text>
+    <text x="320" y="177" class="cell-txt">"fatima@srinagar.edu.in"</text>
+    <text x="440" y="177" class="cell-txt">10</text>
+    <text x="540" y="177" class="cell-txt">2025-08-16</text>
+    <line x1="15" y1="194" x2="595" y2="194" stroke="#e2e8f0" />
+
+    <!-- Row 4 -->
+    <rect x="15" y="194" width="580" height="42" fill="#ffffff" />
+    <text x="55" y="219" class="cell-txt" font-weight="bold" fill="#0284c7">4</text>
+    <text x="180" y="219" class="cell-txt">"Hamza Tariq"</text>
+    <text x="320" y="219" class="cell-txt">"hamza@srinagar.edu.in"</text>
+
+    <text x="440" y="219" class="cell-txt">9</text>
+    <text x="540" y="219" class="cell-txt">2025-08-17</text>
+
+    <!-- Table Name Badge at top-left -->
+    <rect x="15" y="-3" width="130" height="20" rx="4" fill="#0f172a" />
+    <text x="80" y="11" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="bold" fill="#38bdf8" text-anchor="middle">TABLE: students</text>
+
+    <!-- Side Callouts / Annotations (Right side, w=220) -->
+    <g transform="translate(615, 10)">
+      <!-- Callout 1: Columns / Attributes -->
+      <rect width="205" height="65" rx="8" fill="#f0f9ff" stroke="#7dd3fc" />
+      <text x="15" y="22" class="anno-title" fill="#0369a1">1. Columns (Attributes)</text>
+      <text x="15" y="40" class="anno-sub">
+        <tspan x="15" dy="0">Vertical partitions defining the</tspan>
+        <tspan x="15" dy="15">property name and data type.</tspan>
+      </text>
+
+      <!-- Callout 2: Rows / Records -->
+      <g transform="translate(0, 75)">
+        <rect width="205" height="65" rx="8" fill="#f8fafc" stroke="#cbd5e1" />
+        <text x="15" y="22" class="anno-title" fill="#1e293b">2. Rows (Records / Tuples)</text>
+        <text x="15" y="40" class="anno-sub">
+          <tspan x="15" dy="0">Horizontal entries representing</tspan>
+          <tspan x="15" dy="15">one single entity instance.</tspan>
+        </text>
+      </g>
+
+      <!-- Callout 3: Cell / Field Value -->
+      <g transform="translate(0, 150)">
+        <rect width="205" height="65" rx="8" fill="#fffbeb" stroke="#fde68a" />
+        <text x="15" y="22" class="anno-title" fill="#b45309">3. Field Value (Cell)</text>
+        <text x="15" y="40" class="anno-sub">
+          <tspan x="15" dy="0">Atomic piece of data stored at</tspan>
+          <tspan x="15" dy="15">the row &amp; column intersection.</tspan>
+        </text>
+      </g>
+    </g>
+
+    <!-- Bottom Legend Banner -->
+    <g transform="translate(15, 265)">
+      <rect width="805" height="65" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
+      <text x="20" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="12" fill="#0f172a">Three Fundamental Invariants of Table Design:</text>
+      <text x="20" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#475569">
+        • <tspan font-weight="bold" fill="#0284c7">Primary Key</tspan> (id) guarantees unique identification. • Every column must hold <tspan font-weight="bold" fill="#0f172a">atomic values</tspan> (never comma-separated lists). • Adding data adds <tspan font-weight="bold" fill="#16a34a">rows</tspan>, not columns.
+      </text>
+    </g>
+  </g>
+</svg>

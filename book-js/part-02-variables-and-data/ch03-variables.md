@@ -27,6 +27,10 @@ A variable is simply a named storage box in your computer's RAM memory where you
 
 ## 3. 💡 Concept Explanation
 
+### The Memory Box Mental Model
+
+![Variables in Memory: Storage Containers](../assets/diagrams/js/variable-memory-box.svg)
+
 ### `let` vs. `const`: The Golden Rule
 In modern JavaScript, there are two primary keywords used to declare variables:
 

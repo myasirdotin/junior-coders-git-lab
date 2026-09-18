@@ -179,4 +179,5 @@ When you sign up on Instagram or Discord:
 7. If you assign `$a = 10; $b = &$a;`, what does the `&` symbol do, and what happens to `$b` if you change `$a = 25`?
 
 ### 🟣 Level 5: Create & Build
-8. Write a currency converter script `converter.php` with variables for `$usdAmount` and `$exchangeRate`. Calculate and print the equivalent in Euros, British Pounds, and Pakistani Rupees in an HTML table.
+8. Write a currency converter script `converter.php` with variables for `$usdAmount` and `$exchangeRate`. Calculate and print the equivalent in Euros, British Pounds, and Indian Rupees (INR) in an HTML table.
+

@@ -1,0 +1,158 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 500" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 800; font-size: 16.5px; fill: #1e293b; }
+      .badge-code { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #b91c1c; }
+      .step-hdr { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 12px; text-anchor: middle; fill: #ffffff; }
+      .step-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 13.5px; text-anchor: middle; }
+      .step-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10.5px; fill: #64748b; text-anchor: middle; }
+      .code-lbl { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 10px; font-weight: 600; }
+    </style>
+    <marker id="larRedArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#ef4444" />
+    </marker>
+    <marker id="larCyanArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#0891b2" />
+    </marker>
+    <marker id="larGreenArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#16a34a" />
+    </marker>
+  </defs>
+
+  <rect width="880" height="500" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Top Title Bar -->
+  <rect x="25" y="16" width="830" height="44" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1" />
+  <circle cx="50" cy="38" r="12" fill="#ef4444" />
+  <text x="50" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="bold" font-size="12" fill="#ffffff" text-anchor="middle">🔺</text>
+  <text x="72" y="43" class="hdr">Laravel MVC Request Lifecycle: From Route to Blade</text>
+  
+  <rect x="580" y="25" width="260" height="26" rx="6" fill="#ffffff" stroke="#fecaca" />
+  <text x="710" y="42" class="badge-code" text-anchor="middle">Browser ➔ Route ➔ Controller ➔ Blade</text>
+
+  <!-- Flow Lifecycle Diagram -->
+  <g transform="translate(25, 75)">
+    <!-- 1. Browser Request (w=140) -->
+    <g transform="translate(0, 15)">
+      <rect width="140" height="185" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+      <rect x="10" y="10" width="120" height="24" rx="5" fill="#64748b" />
+      <text x="70" y="26" class="step-hdr">1. Browser</text>
+      
+      <text x="70" y="58" class="step-title" fill="#1e293b">User Visits</text>
+      
+      <rect x="12" y="70" width="116" height="26" rx="4" fill="#fee2e2" />
+      <text x="70" y="87" class="code-lbl" fill="#b91c1c" text-anchor="middle">GET /posts</text>
+      
+      <text x="70" y="122" class="step-sub">
+        <tspan x="70" dy="0">User clicks link</tspan>
+        <tspan x="70" dy="14">or types URL in</tspan>
+        <tspan x="70" dy="14">the address bar.</tspan>
+      </text>
+    </g>
+
+    <!-- Arrow 1 to 2 -->
+    <g transform="translate(140, 15)">
+      <line x1="8" y1="92" x2="32" y2="92" stroke="#ef4444" stroke-width="2.5" marker-end="url(#larRedArrow)" />
+    </g>
+
+    <!-- 2. Router (w=165) -->
+    <g transform="translate(178, 15)">
+      <rect width="165" height="185" rx="10" fill="#fff1f2" stroke="#fecdd3" stroke-width="1.5" />
+      <rect x="10" y="10" width="145" height="24" rx="5" fill="#e11d48" />
+      <text x="82" y="26" class="step-hdr">2. routes/web.php</text>
+      
+      <text x="82" y="58" class="step-title" fill="#9f1239">The Traffic Cop</text>
+      
+      <!-- Code box -->
+      <rect x="10" y="70" width="145" height="52" rx="5" fill="#0f172a" />
+      <text x="18" y="88" class="code-lbl" fill="#fca5a5">Route::get('/posts',</text>
+      <text x="18" y="106" class="code-lbl" fill="#38bdf8"> [PostCtrl::class]);</text>
+      
+      <text x="82" y="145" class="step-sub">
+        <tspan x="82" dy="0">Matches URL to</tspan>
+        <tspan x="82" dy="14">Controller action.</tspan>
+      </text>
+    </g>
+
+    <!-- Arrow 2 to 3 -->
+    <g transform="translate(343, 15)">
+      <line x1="8" y1="92" x2="32" y2="92" stroke="#ef4444" stroke-width="2.5" marker-end="url(#larRedArrow)" />
+    </g>
+
+    <!-- 3. Controller (w=225, h=330) -->
+    <g transform="translate(382, 0)">
+      <rect width="225" height="335" rx="12" fill="#fef2f2" stroke="#f87171" stroke-width="2" />
+      <rect x="12" y="10" width="201" height="26" rx="6" fill="#ef4444" />
+      <text x="112" y="27" class="step-hdr">3. Controller (Brain)</text>
+      
+      <text x="112" y="58" class="step-title" fill="#991b1b">PostController.php</text>
+      
+      <!-- Controller Code Box -->
+      <rect x="12" y="70" width="201" height="150" rx="8" fill="#0f172a" />
+      <text x="20" y="92" class="code-lbl" fill="#fca5a5">public function index() {</text>
+      <text x="28" y="112" class="code-lbl" fill="#94a3b8">// 1. Fetch data</text>
+      <text x="28" y="128" class="code-lbl" fill="#38bdf8">$posts = Post::all();</text>
+      <text x="28" y="152" class="code-lbl" fill="#94a3b8">// 2. Return View</text>
+      <text x="28" y="168" class="code-lbl" fill="#4ade80">return view('posts',</text>
+      <text x="36" y="184" class="code-lbl" fill="#4ade80">  compact('posts'));</text>
+      <text x="20" y="206" class="code-lbl" fill="#fca5a5">}</text>
+
+      <rect x="12" y="232" width="201" height="88" rx="6" fill="#ffffff" stroke="#fca5a5" />
+      <text x="112" y="252" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#b91c1c" text-anchor="middle">Orchestration Role:</text>
+      <text x="112" y="272" class="step-sub">
+        <tspan x="112" dy="0">Coordinates between database</tspan>
+        <tspan x="112" dy="14">models and display templates.</tspan>
+        <tspan x="112" dy="14">Never writes raw HTML!</tspan>
+      </text>
+    </g>
+
+    <!-- Branch A: Controller to View (Top Right Arrow) -->
+    <path d="M 607,95 L 635,95" stroke="#16a34a" stroke-width="2.5" marker-end="url(#larGreenArrow)" />
+
+    <!-- 5. View: Blade Template (w=215, h=160) -->
+    <g transform="translate(640, 0)">
+      <rect width="215" height="160" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5" />
+      <rect x="10" y="10" width="195" height="24" rx="5" fill="#16a34a" />
+      <text x="107" y="26" class="step-hdr">5. View (Blade Template)</text>
+      
+      <text x="107" y="54" class="step-title" fill="#14532d">posts.blade.php</text>
+      
+      <!-- View Code Box -->
+      <rect x="10" y="65" width="195" height="65" rx="6" fill="#0f172a" />
+      <text x="18" y="84" class="code-lbl" fill="#86efac">@foreach($posts as $p)</text>
+      <text x="24" y="100" class="code-lbl" fill="#f8fafc">&lt;h2&gt;{{ $p-&gt;title }}&lt;/h2&gt;</text>
+      <text x="18" y="118" class="code-lbl" fill="#86efac">@endforeach</text>
+      
+      <text x="107" y="148" class="step-sub">Generates final HTML for browser</text>
+    </g>
+
+    <!-- Branch B: Controller to Model (Bottom Right Arrow) -->
+    <path d="M 607,245 L 635,245" stroke="#0891b2" stroke-width="2.5" marker-end="url(#larCyanArrow)" />
+
+    <!-- 4. Model: Eloquent ORM (w=215, h=165) -->
+    <g transform="translate(640, 175)">
+      <rect width="215" height="160" rx="10" fill="#ecfeff" stroke="#67e8f9" stroke-width="1.5" />
+      <rect x="10" y="10" width="195" height="24" rx="5" fill="#0891b2" />
+      <text x="107" y="26" class="step-hdr">4. Model (Eloquent ORM)</text>
+      
+      <text x="107" y="54" class="step-title" fill="#0e7490">Post extends Model</text>
+      
+      <!-- Model Code Box -->
+      <rect x="10" y="65" width="195" height="65" rx="6" fill="#0f172a" />
+      <text x="18" y="84" class="code-lbl" fill="#67e8f9">// Communicates with DB</text>
+      <text x="18" y="100" class="code-lbl" fill="#fde047">SELECT * FROM `posts`;</text>
+      <text x="18" y="118" class="code-lbl" fill="#94a3b8">// Returns Eloquent Collection</text>
+      
+      <text x="107" y="148" class="step-sub">Handles business data &amp; schema</text>
+    </g>
+  </g>
+
+  <!-- Bottom Takeaway Bar -->
+  <g transform="translate(25, 430)">
+    <rect width="830" height="52" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
+    <text x="20" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="12" fill="#0f172a">Separation of Concerns in MVC:</text>
+    <text x="20" y="41" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#475569">
+      Route points the way ➔ Controller makes the decisions ➔ Model speaks to the database ➔ Blade renders beautiful, safe HTML.
+    </text>
+  </g>
+</svg>

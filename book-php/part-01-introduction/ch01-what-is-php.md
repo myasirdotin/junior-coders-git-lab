@@ -30,6 +30,10 @@ By the end of this chapter, you will be able to:
 
 ## 3. 👁️ Visual Concept Explanation
 
+### The Client-Server Architecture
+
+![The PHP Client-Server Request Lifecycle](../assets/diagrams/php/client-server-cycle.svg)
+
 ### The Journey of a PHP Page Request
 
 ```text
@@ -37,7 +41,7 @@ By the end of this chapter, you will be able to:
 |    1. VISITOR     |  "I want to view my profile page!"
 |  (Web Browser)    |
 +---------+---------+
-          |  1. Sends HTTP Request: https://school.edu/profile.php
+          |  1. Sends HTTP Request: https://srinagar.edu.in/profile.php
           v
 +---------+---------+
 |    2. WEB SERVER  |  Apache / Nginx: "Hey! This is a .php file,
@@ -169,7 +173,7 @@ A junior coder created a file named `contact.html` and typed:
 
 ```html
 <h1>Contact Us</h1>
-<p><?php echo "Email us at support@school.edu"; ?></p>
+<p><?php echo "Email us at support@srinagar.edu.in"; ?></p>
 ```
 
 When they viewed the page in their browser, the email address was completely invisible, or showed as raw code!

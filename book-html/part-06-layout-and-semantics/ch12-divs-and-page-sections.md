@@ -164,7 +164,7 @@ Open `website-layout.html` and add a new section inside the `<main>` element:
 ```html
 <section id="contact">
   <h2>Get In Touch</h2>
-  <p>Send me an email at: <em>maya@juniorcoders.com</em></p>
+  <p>Send me an email at: <em>maya@srinagar.edu.in</em></p>
 </section>
 ```
 Preview it in your browser! Notice how it creates a clean new chapter on your page.

@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 520" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 17px; fill: #1e293b; }
+      .hdr-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; fill: #9a3412; }
+      .tag-code { font-family: 'Fira Code', Consolas, monospace; font-size: 13px; font-weight: 700; }
+      .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 13px; fill: #0f172a; }
+      .body-txt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #64748b; line-height: 1.4; }
+      .pill-txt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #ffffff; }
+    </style>
+    <filter id="softShadow" x="-4%" y="-4%" width="108%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.06" />
+    </filter>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="880" height="520" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Top Title Banner -->
+  <g transform="translate(30, 20)">
+    <rect width="820" height="42" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1" />
+    <circle cx="24" cy="21" r="10" fill="#ea580c" />
+    <text x="24" y="25" font-family="-apple-system, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle">5</text>
+    <text x="44" y="27" class="hdr-title">Anatomy of an HTML Webpage: &lt;head&gt; vs &lt;body&gt;</text>
+    <text x="800" y="26" class="hdr-sub" text-anchor="end">Document Structure</text>
+  </g>
+
+  <!-- Outer HTML Frame -->
+  <g transform="translate(30, 75)">
+    <rect width="820" height="420" rx="12" fill="#fafafa" stroke="#ea580c" stroke-width="2" stroke-dasharray="6,4" />
+    
+    <!-- Root Tag Badge -->
+    <rect x="16" y="-12" width="180" height="24" rx="6" fill="#ea580c" />
+    <text x="106" y="4" font-family="'Fira Code', Consolas, monospace" font-size="12" font-weight="700" fill="#ffffff" text-anchor="middle">&lt;html lang="en"&gt;</text>
+
+    <!-- SECTION 1: <head> (The Brain) -->
+    <g transform="translate(20, 25)">
+      <rect width="780" height="150" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" filter="url(#softShadow)" />
+      
+      <!-- Head Header -->
+      <rect x="15" y="12" width="140" height="22" rx="4" fill="#475569" />
+      <text x="85" y="27" class="pill-txt" text-anchor="middle">&lt;head&gt; (The Brain)</text>
+      <text x="165" y="28" class="card-title">Settings &amp; Metadata</text>
+      <text x="310" y="28" class="body-txt">— Invisible configuration read by the browser</text>
+
+      <!-- Head 3 Cards -->
+      <g transform="translate(15, 45)">
+        <!-- Card 1: Charset -->
+        <rect x="0" y="0" width="240" height="85" rx="8" fill="#ffffff" stroke="#e2e8f0" />
+        <text x="15" y="24" class="tag-code" fill="#ea580c">&lt;meta charset="UTF-8"&gt;</text>
+        <text x="15" y="46" class="body-txt">
+          <tspan x="15" dy="0">Character encoding rule.</tspan>
+          <tspan x="15" dy="16">Enables emojis (🚀, 🌟) &amp; text.</tspan>
+        </text>
+
+        <!-- Card 2: Title -->
+        <rect x="255" y="0" width="240" height="85" rx="8" fill="#ffffff" stroke="#e2e8f0" />
+        <text x="270" y="24" class="tag-code" fill="#ea580c">&lt;title&gt;Page Title&lt;/title&gt;</text>
+        <text x="270" y="46" class="body-txt">
+          <tspan x="270" dy="0">The tab headline shown</tspan>
+          <tspan x="270" dy="16">at the top of the browser.</tspan>
+        </text>
+
+        <!-- Card 3: Stylesheet Link -->
+        <rect x="510" y="0" width="240" height="85" rx="8" fill="#ffffff" stroke="#e2e8f0" />
+        <text x="525" y="24" class="tag-code" fill="#ea580c">&lt;link rel="stylesheet"&gt;</text>
+        <text x="525" y="46" class="body-txt">
+          <tspan x="525" dy="0">Connects external CSS files</tspan>
+          <tspan x="525" dy="16">and web fonts for styling.</tspan>
+        </text>
+      </g>
+    </g>
+
+    <!-- SECTION 2: <body> (The Visible Stage) -->
+    <g transform="translate(20, 190)">
+      <rect width="780" height="210" rx="10" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" filter="url(#softShadow)" />
+      
+      <!-- Body Header -->
+      <rect x="15" y="12" width="140" height="22" rx="4" fill="#2563eb" />
+      <text x="85" y="27" class="pill-txt" text-anchor="middle">&lt;body&gt; (The Stage)</text>
+      <text x="165" y="28" class="card-title" fill="#1d4ed8">Visible Webpage Content</text>
+      <text x="330" y="28" class="body-txt" fill="#3b82f6">— Everything here renders directly inside the window</text>
+
+      <!-- Layout Blocks -->
+      <g transform="translate(15, 45)">
+        <!-- Header -->
+        <rect x="0" y="0" width="750" height="36" rx="6" fill="#ffffff" stroke="#bfdbfe" />
+        <text x="16" y="23" class="tag-code" fill="#1d4ed8">&lt;header&gt;</text>
+        <text x="110" y="23" class="body-txt" font-weight="600" fill="#334155">Logo, Navigation Bar (&lt;nav&gt;), Site Title</text>
+        <text x="730" y="23" class="body-txt" font-weight="700" fill="#2563eb" text-anchor="end">Top Bar</text>
+
+        <!-- Main Content Area + Sidebar -->
+        <g transform="translate(0, 44)">
+          <!-- <main> -->
+          <rect x="0" y="0" width="510" height="65" rx="6" fill="#ffffff" stroke="#bfdbfe" />
+          <text x="16" y="24" class="tag-code" fill="#1d4ed8">&lt;main&gt;</text>
+          <text x="90" y="24" class="card-title" font-size="12">Primary Content Canvas</text>
+          <text x="16" y="46" class="body-txt">
+            <tspan x="16" dy="0">Articles, Headings &lt;h1&gt;, Paragraphs &lt;p&gt;, Photos &lt;img&gt;</tspan>
+          </text>
+
+          <!-- <aside> -->
+          <rect x="522" y="0" width="228" height="65" rx="6" fill="#ffffff" stroke="#bfdbfe" />
+          <text x="536" y="24" class="tag-code" fill="#1d4ed8">&lt;aside&gt;</text>
+          <text x="605" y="24" class="card-title" font-size="12">Sidebar</text>
+          <text x="536" y="46" class="body-txt">
+            <tspan x="536" dy="0">Links, widgets, search</tspan>
+          </text>
+        </g>
+
+        <!-- Footer -->
+        <rect x="0" y="117" width="750" height="34" rx="6" fill="#ffffff" stroke="#bfdbfe" />
+        <text x="16" y="22" class="tag-code" fill="#1d4ed8">&lt;footer&gt;</text>
+        <text x="110" y="22" class="body-txt" font-weight="600" fill="#334155">Copyright notice, contact information, social media links</text>
+        <text x="730" y="22" class="body-txt" font-weight="700" fill="#2563eb" text-anchor="end">Bottom</text>
+      </g>
+    </g>
+  </g>
+</svg>

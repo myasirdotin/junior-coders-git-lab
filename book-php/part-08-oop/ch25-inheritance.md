@@ -106,8 +106,8 @@ By the end of this chapter, you will be able to:
   }
 
   // Creating instances
-  $student = new Student("Zainab Ali", "z.ali@school.edu", 9, 3.95);
-  $teacher = new Teacher("Mr. Yasir Rasool", "y.rasool@school.edu", "Computer Science");
+  $student = new Student("Zainab Ali", "z.ali@srinagar.edu.in", 9, 3.95);
+  $teacher = new Teacher("Mr. Yasir Rasool", "y.rasool@srinagar.edu.in", "Computer Science");
 
   echo "<h2>School Directory</h2>";
   echo "<p><strong>Student:</strong> " . $student->getDetails() . "</p>";

@@ -38,14 +38,14 @@ By the end of this chapter, you will be able to:
 ```text
 +-----------------------------------------------------------------------------+
 |                                 $_GET                                       |
-|  URL: https://school.edu/search.php?query=robotics&grade=9                  |
+|  URL: https://srinagar.edu.in/search.php?query=robotics&grade=9             |
 |  • Data visible to everyone in address bar                                   |
 |  • Can be bookmarked & shared with friends                                  |
 |  • Size limit: ~2,048 characters                                            |
 |  • NEVER use for passwords or credit cards!                                 |
 +-----------------------------------------------------------------------------+
 |                                 $_POST                                      |
-|  URL: https://school.edu/login.php                                          |
+|  URL: https://srinagar.edu.in/login.php                                     |
 |  • Data hidden inside HTTP Request Body                                     |
 |  • Cannot be bookmarked directly                                            |
 |  • Size limit: Large (default 8MB to 40MB+)                                 |
@@ -94,7 +94,7 @@ Examples: `$_GET`, `$_POST`, `$_SERVER`, `$_SESSION`, `$_COOKIE`, `$_FILES`.
     $password = $_POST["user_password"] ?? "";
 
     // Secure authentication check
-    if ($email === "student@school.edu" && $password === "SecretPass2026!") {
+    if ($email === "student@srinagar.edu.in" && $password === "SecretPass2026!") {
       echo "<p style='color:green;'>✅ Access Granted! Welcome to your student portal.</p>";
     } else {
       echo "<p style='color:red;'>❌ Invalid credentials.</p>";

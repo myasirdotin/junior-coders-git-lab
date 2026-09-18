@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 17px; fill: #1e293b; }
+      .hdr-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; fill: #1d4ed8; }
+      .axis-lbl { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 13px; fill: #ffffff; }
+      .code-tag { font-family: 'Fira Code', Consolas, monospace; font-size: 12px; font-weight: 700; }
+      .item-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 15px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+    </style>
+    <marker id="arrowMain" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#2563eb" />
+    </marker>
+    <marker id="arrowCross" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#16a34a" />
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="480" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Top Title Banner -->
+  <g transform="translate(30, 20)">
+    <rect width="820" height="42" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1" />
+    <circle cx="24" cy="21" r="10" fill="#2563eb" />
+    <text x="24" y="25" font-family="-apple-system, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle">↔️</text>
+    <text x="44" y="27" class="hdr-title">Flexbox 1D Axes: Main Axis vs Cross Axis</text>
+    <text x="800" y="26" class="hdr-sub" text-anchor="end">flex-direction: row (Default)</text>
+  </g>
+
+  <!-- Main Axis Indicator (Horizontal) -->
+  <g transform="translate(140, 75)">
+    <line x1="0" y1="18" x2="680" y2="18" stroke="#2563eb" stroke-width="3" marker-end="url(#arrowMain)" />
+    <rect x="230" y="4" width="220" height="28" rx="6" fill="#2563eb" />
+    <text x="340" y="23" class="axis-lbl" text-anchor="middle">MAIN AXIS (Horizontal)</text>
+    <text x="465" y="23" class="code-tag" fill="#1d4ed8">justify-content: ...</text>
+  </g>
+
+  <!-- Cross Axis Indicator (Vertical Left) -->
+  <g transform="translate(50, 115)">
+    <line x1="30" y1="0" x2="30" y2="280" stroke="#16a34a" stroke-width="3" marker-end="url(#arrowCross)" />
+    
+    <g transform="translate(16, 140) rotate(-90)">
+      <rect x="-75" y="-14" width="150" height="28" rx="6" fill="#16a34a" />
+      <text x="0" y="5" class="axis-lbl" text-anchor="middle">CROSS AXIS</text>
+    </g>
+    <text x="30" y="325" class="code-tag" fill="#15803d" text-anchor="middle">align-items: ...</text>
+  </g>
+
+  <!-- Flex Container Canvas -->
+  <g transform="translate(140, 115)">
+    <rect width="700" height="280" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="6,4" />
+    
+    <!-- Container Badge -->
+    <rect x="20" y="16" width="200" height="26" rx="6" fill="#475569" />
+    <text x="120" y="33" class="code-tag" fill="#ffffff" text-anchor="middle">display: flex;</text>
+
+    <!-- 3 Flex Items -->
+    <g transform="translate(45, 65)">
+      <!-- Item 1 -->
+      <rect x="0" y="0" width="170" height="150" rx="10" fill="#3b82f6" />
+      <text x="85" y="65" class="item-title">Flex Item 1</text>
+      <text x="85" y="95" font-family="'Fira Code', Consolas, monospace" font-size="12" fill="#bfdbfe" text-anchor="middle">order: 1</text>
+
+      <!-- Item 2 -->
+      <rect x="220" y="0" width="170" height="150" rx="10" fill="#2563eb" />
+      <text x="305" y="65" class="item-title">Flex Item 2</text>
+      <text x="305" y="95" font-family="'Fira Code', Consolas, monospace" font-size="12" fill="#bfdbfe" text-anchor="middle">order: 2</text>
+
+      <!-- Item 3 -->
+      <rect x="440" y="0" width="170" height="150" rx="10" fill="#1d4ed8" />
+      <text x="525" y="65" class="item-title">Flex Item 3</text>
+      <text x="525" y="95" font-family="'Fira Code', Consolas, monospace" font-size="12" fill="#bfdbfe" text-anchor="middle">order: 3</text>
+    </g>
+
+    <!-- Gap Indicator -->
+    <path d="M 215,190 L 265,190" stroke="#f59e0b" stroke-width="2" />
+    <rect x="210" y="235" width="110" height="24" rx="4" fill="#fef3c7" stroke="#fde68a" />
+    <text x="265" y="251" class="code-tag" fill="#b45309" text-anchor="middle">gap: 50px;</text>
+  </g>
+
+  <!-- Bottom Explanatory Bar -->
+  <g transform="translate(140, 415)">
+    <rect width="700" height="45" rx="8" fill="#eff6ff" stroke="#bfdbfe" />
+    <text x="20" y="27" font-family="-apple-system, sans-serif" font-size="12" fill="#1e293b">
+      <tspan font-weight="bold" fill="#2563eb">Rule to Remember:</tspan>
+      <tspan fill="#475569"> Main Axis controls horizontal alignment (left, center, right, space-between). Cross Axis controls vertical alignment.</tspan>
+    </text>
+  </g>
+</svg>

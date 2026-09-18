@@ -30,6 +30,8 @@ By the end of this chapter, you will be able to:
 
 ### The Universal Box Model Diagram
 
+![The CSS Box Model](../assets/diagrams/css/css-box-model.svg)
+
 ```text
  ┌─────────────────────────────────────────────────────────────┐
  │                         MARGIN                              │

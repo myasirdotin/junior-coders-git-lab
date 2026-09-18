@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 800; font-size: 17px; fill: #1e293b; }
+      .badge-code { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 11px; font-weight: 700; fill: #b45309; }
+      .ruler-num { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-weight: 800; font-size: 17px; fill: #c2410c; text-anchor: middle; }
+      .elem-val { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-weight: 800; font-size: 16px; fill: #0369a1; text-anchor: middle; }
+      .elem-acc { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 12px; font-weight: 700; fill: #475569; text-anchor: middle; }
+      .lbl-card { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 700; font-size: 11px; text-anchor: middle; }
+      .tag-row { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-size: 12px; font-weight: 800; }
+    </style>
+  </defs>
+
+  <rect width="880" height="440" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Top Title Bar -->
+  <rect x="25" y="18" width="830" height="44" rx="8" fill="#fef3c7" stroke="#fde68a" stroke-width="1" />
+  <circle cx="50" cy="40" r="12" fill="#f59e0b" />
+  <text x="50" y="44" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="bold" font-size="12" fill="#ffffff" text-anchor="middle">📏</text>
+  <text x="72" y="45" class="hdr">Zero-Based Array Indexing</text>
+
+  <!-- Right Code Badge -->
+  <rect x="560" y="27" width="280" height="26" rx="6" fill="#ffffff" stroke="#fde68a" />
+  <text x="700" y="44" class="badge-code" text-anchor="middle">let fruits = ["Mango", "Apple", "Date", "Fig"];</text>
+
+  <!-- Array Visualization Canvas -->
+  <g transform="translate(30, 80)">
+    <!-- Row 1: Index Ruler Row -->
+    <text x="10" y="32" class="tag-row" fill="#ea580c">INDEX</text>
+    <text x="10" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#94a3b8">(Address)</text>
+
+    <!-- 4 Index Boxes -->
+    <!-- Index 0 -->
+    <g transform="translate(100, 8)">
+      <text x="80" y="-3" class="lbl-card" fill="#16a34a">FIRST ITEM</text>
+      <rect width="160" height="38" rx="7" fill="#ffedd5" stroke="#ea580c" stroke-width="2" />
+      <text x="80" y="25" class="ruler-num">[ 0 ]</text>
+    </g>
+
+    <!-- Index 1 -->
+    <g transform="translate(280, 8)">
+      <rect width="160" height="38" rx="7" fill="#ffedd5" stroke="#fdba74" stroke-width="1.5" />
+      <text x="80" y="25" class="ruler-num" fill="#ea580c">[ 1 ]</text>
+    </g>
+
+    <!-- Index 2 -->
+    <g transform="translate(460, 8)">
+      <rect width="160" height="38" rx="7" fill="#ffedd5" stroke="#fdba74" stroke-width="1.5" />
+      <text x="80" y="25" class="ruler-num" fill="#ea580c">[ 2 ]</text>
+    </g>
+
+    <!-- Index 3 -->
+    <g transform="translate(640, 8)">
+      <text x="80" y="-3" class="lbl-card" fill="#c2410c">LAST: length - 1</text>
+      <rect width="160" height="38" rx="7" fill="#ffedd5" stroke="#ea580c" stroke-width="2" />
+      <text x="80" y="25" class="ruler-num">[ 3 ]</text>
+    </g>
+
+    <!-- Row 2: Value Boxes -->
+    <text x="10" y="112" class="tag-row" fill="#0284c7">VALUE</text>
+    <text x="10" y="126" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#94a3b8">(Data stored)</text>
+
+    <!-- Value 0: Mango -->
+    <g transform="translate(100, 68)">
+      <rect width="160" height="92" rx="10" fill="#f0f9ff" stroke="#38bdf8" stroke-width="1.5" />
+      <text x="80" y="38" class="elem-val">"Mango"</text>
+      <rect x="25" y="54" width="110" height="24" rx="5" fill="#e0f2fe" />
+      <text x="80" y="70" class="elem-acc">fruits[0]</text>
+    </g>
+
+    <!-- Value 1: Apple -->
+    <g transform="translate(280, 68)">
+      <rect width="160" height="92" rx="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.5" />
+      <text x="80" y="38" class="elem-val">"Apple"</text>
+      <rect x="25" y="54" width="110" height="24" rx="5" fill="#e0f2fe" />
+      <text x="80" y="70" class="elem-acc">fruits[1]</text>
+    </g>
+
+    <!-- Value 2: Date -->
+    <g transform="translate(460, 68)">
+      <rect width="160" height="92" rx="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.5" />
+      <text x="80" y="38" class="elem-val">"Date"</text>
+      <rect x="25" y="54" width="110" height="24" rx="5" fill="#e0f2fe" />
+      <text x="80" y="70" class="elem-acc">fruits[2]</text>
+    </g>
+
+    <!-- Value 3: Fig -->
+    <g transform="translate(640, 68)">
+      <rect width="160" height="92" rx="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.5" />
+      <text x="80" y="38" class="elem-val">"Fig"</text>
+      <rect x="25" y="54" width="110" height="24" rx="5" fill="#e0f2fe" />
+      <text x="80" y="70" class="elem-acc">fruits[3]</text>
+    </g>
+
+    <!-- Row 3: Length Dimension Ruler Bar -->
+    <g transform="translate(100, 180)">
+      <line x1="0" y1="16" x2="700" y2="16" stroke="#16a34a" stroke-width="2" />
+      <line x1="0" y1="6" x2="0" y2="26" stroke="#16a34a" stroke-width="2.5" />
+      <line x1="700" y1="6" x2="700" y2="26" stroke="#16a34a" stroke-width="2.5" />
+      <rect x="260" y="2" width="180" height="28" rx="6" fill="#dcfce7" stroke="#86efac" />
+      <text x="350" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="700" font-size="13" fill="#15803d" text-anchor="middle">fruits.length = 4</text>
+    </g>
+
+    <!-- Row 4: Summary Box with Clean Multi-line Formatting -->
+    <g transform="translate(10, 230)">
+      <rect width="800" height="96" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.2" />
+      
+      <!-- Left icon / tag -->
+      <rect x="18" y="16" width="6" height="64" rx="3" fill="#f59e0b" />
+      
+      <text x="36" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="13" fill="#0f172a">Key Rules to Remember in Programming:</text>
+      
+      <circle cx="44" cy="55" r="3" fill="#ea580c" />
+      <text x="56" y="59" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#334155">
+        Always starts at 0: The first element is always accessed with <tspan font-family="'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#ea580c">array[0]</tspan>, not index 1.
+      </text>
+
+      <circle cx="44" cy="77" r="3" fill="#ea580c" />
+      <text x="56" y="81" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#334155">
+        Off-by-one boundary: The last valid element is at index <tspan font-family="'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#ea580c">length - 1</tspan> (here: <tspan font-family="'SFMono-Regular', Consolas, monospace" font-weight="bold" fill="#ea580c">4 - 1 = 3</tspan>). <tspan font-family="'SFMono-Regular', Consolas, monospace" fill="#dc2626">fruits[4]</tspan> is undefined!
+      </text>
+    </g>
+  </g>
+</svg>

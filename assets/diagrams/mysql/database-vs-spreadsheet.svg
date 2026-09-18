@@ -1,0 +1,135 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 800; font-size: 16.5px; fill: #1e293b; }
+      .badge-code { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #0e7490; }
+      .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 15px; text-anchor: middle; }
+      .card-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #64748b; text-anchor: middle; }
+      .point-txt { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11.5px; fill: #334155; }
+      .code-lbl { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 10px; font-weight: 700; }
+    </style>
+  </defs>
+
+  <rect width="880" height="480" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Top Title Bar -->
+  <rect x="25" y="16" width="830" height="44" rx="8" fill="#ecfeff" stroke="#a5f3fc" stroke-width="1" />
+  <circle cx="50" cy="38" r="12" fill="#0891b2" />
+  <text x="50" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="bold" font-size="12" fill="#ffffff" text-anchor="middle">📊</text>
+  <text x="72" y="43" class="hdr">Spreadsheet vs. Relational Database: Why Applications Need an RDBMS</text>
+  
+  <rect x="670" y="25" width="170" height="26" rx="6" fill="#ffffff" stroke="#a5f3fc" />
+  <text x="755" y="42" class="badge-code" text-anchor="middle">Flat Files vs. MySQL</text>
+
+  <!-- Content Columns -->
+  <g transform="translate(25, 75)">
+    <!-- Left Column: Spreadsheet (w=390) -->
+    <g transform="translate(0, 0)">
+      <rect width="395" height="330" rx="12" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5" />
+      <rect x="15" y="14" width="365" height="28" rx="6" fill="#ea580c" />
+      <text x="197" y="33" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle">Spreadsheet (Excel / Sheets)</text>
+
+      <text x="197" y="68" class="card-title" fill="#c2410c">Flat File Format</text>
+      <text x="197" y="85" class="card-sub">Great for single-user personal sheets</text>
+
+      <!-- Spreadsheet Mini Graphic Grid -->
+      <g transform="translate(20, 100)">
+        <rect width="355" height="75" rx="6" fill="#ffffff" stroke="#fed7aa" />
+        <line x1="0" y1="25" x2="355" y2="25" stroke="#fed7aa" stroke-width="1" />
+        <line x1="0" y1="50" x2="355" y2="50" stroke="#fed7aa" stroke-width="1" />
+        <line x1="85" y1="0" x2="85" y2="75" stroke="#fed7aa" stroke-width="1" />
+        <line x1="210" y1="0" x2="210" y2="75" stroke="#fed7aa" stroke-width="1" />
+        
+        <text x="42" y="17" class="code-lbl" fill="#9a3412" text-anchor="middle">A: Name</text>
+        <text x="147" y="17" class="code-lbl" fill="#9a3412" text-anchor="middle">B: Phone</text>
+        <text x="282" y="17" class="code-lbl" fill="#9a3412" text-anchor="middle">C: Fee Paid</text>
+
+        <text x="42" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#475569" text-anchor="middle">Aisha</text>
+        <text x="147" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#475569" text-anchor="middle">0300-111</text>
+        <text x="282" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#475569" text-anchor="middle">Rs 1,500</text>
+
+        <text x="42" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#475569" text-anchor="middle">Bilal</text>
+        <text x="147" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#dc2626" text-anchor="middle">"N/A" (Type error!)</text>
+        <text x="282" y="66" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" fill="#475569" text-anchor="middle">1500</text>
+      </g>
+
+      <!-- Bullet Points -->
+      <g transform="translate(25, 195)">
+        <circle cx="6" cy="6" r="3.5" fill="#ea580c" />
+        <text x="18" y="10" class="point-txt">Limited scale: Slows down after a few thousand rows</text>
+
+        <circle cx="6" cy="30" r="3.5" fill="#ea580c" />
+        <text x="18" y="34" class="point-txt">No concurrent multi-user editing safety (file lock conflicts)</text>
+
+        <circle cx="6" cy="54" r="3.5" fill="#ea580c" />
+        <text x="18" y="58" class="point-txt">No strict schema: Text can be typed into number cells</text>
+
+        <circle cx="6" cy="78" r="3.5" fill="#ea580c" />
+        <text x="18" y="82" class="point-txt">All-or-nothing security: Users see the whole sheet</text>
+      </g>
+    </g>
+
+    <!-- Center VS Badge -->
+    <g transform="translate(415, 145)">
+      <circle cx="0" cy="0" r="18" fill="#0f172a" />
+      <text x="0" y="5" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="12" fill="#ffffff" text-anchor="middle">VS</text>
+    </g>
+
+    <!-- Right Column: MySQL Database (w=395) -->
+    <g transform="translate(435, 0)">
+      <rect width="395" height="330" rx="12" fill="#f0fdf4" stroke="#86efac" stroke-width="2" />
+      <rect x="15" y="14" width="365" height="28" rx="6" fill="#16a34a" />
+      <text x="197" y="33" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="13" fill="#ffffff" text-anchor="middle">Relational Database (MySQL)</text>
+
+      <text x="197" y="68" class="card-title" fill="#15803d">Multi-User RDBMS Engine</text>
+      <text x="197" y="85" class="card-sub">Architected for production web &amp; mobile software</text>
+
+      <!-- Database Mini Graphic Schema -->
+      <g transform="translate(20, 100)">
+        <rect width="355" height="75" rx="6" fill="#ffffff" stroke="#bbf7d0" />
+        
+        <!-- Table 1 -->
+        <rect x="12" y="10" width="150" height="55" rx="4" fill="#f8fafc" stroke="#cbd5e1" />
+        <rect x="12" y="10" width="150" height="16" rx="3" fill="#0284c7" />
+        <text x="87" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">students (PK: id)</text>
+        <text x="20" y="38" class="code-lbl" fill="#334155">1 | Aisha | 9</text>
+        <text x="20" y="52" class="code-lbl" fill="#334155">2 | Bilal | 9</text>
+
+        <!-- Connector Arrow -->
+        <path d="M 162,37 L 192,37" stroke="#16a34a" stroke-width="2" />
+        <polygon points="192,34 198,37 192,40" fill="#16a34a" />
+
+        <!-- Table 2 -->
+        <rect x="198" y="10" width="145" height="55" rx="4" fill="#f8fafc" stroke="#cbd5e1" />
+        <rect x="198" y="10" width="145" height="16" rx="3" fill="#0891b2" />
+        <text x="270" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9" font-weight="700" fill="#ffffff" text-anchor="middle">courses (FK: crs_id)</text>
+        <text x="206" y="38" class="code-lbl" fill="#334155">10 | Web Engineering</text>
+        <text x="206" y="52" class="code-lbl" fill="#334155">20 | Database Systems</text>
+      </g>
+
+      <!-- Bullet Points -->
+      <g transform="translate(25, 195)">
+        <circle cx="6" cy="6" r="3.5" fill="#16a34a" />
+        <text x="18" y="10" class="point-txt">Massive scale: Queries millions of records in milliseconds</text>
+
+        <circle cx="6" cy="30" r="3.5" fill="#16a34a" />
+        <text x="18" y="34" class="point-txt">Thousands of simultaneous users reading &amp; writing safely</text>
+
+        <circle cx="6" cy="54" r="3.5" fill="#16a34a" />
+        <text x="18" y="58" class="point-txt">Strict constraints (NOT NULL, CHECK) prevent data corruption</text>
+
+        <circle cx="6" cy="78" r="3.5" fill="#16a34a" />
+        <text x="18" y="82" class="point-txt">Granular access security &amp; privacy protection (Amānah)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom Takeaway Bar -->
+  <g transform="translate(25, 420)">
+    <rect width="830" height="46" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
+    <text x="20" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="12" fill="#0f172a">Summary for Junior Engineers:</text>
+    <text x="20" y="37" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#475569">
+      Spreadsheets are built for personal calculations; Relational Databases are built to power multi-user software applications reliably.
+    </text>
+  </g>
+</svg>

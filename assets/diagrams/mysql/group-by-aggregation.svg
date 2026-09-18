@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 800; font-size: 16.5px; fill: #1e293b; }
+      .badge-code { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #0e7490; }
+      .step-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 12.5px; fill: #0f172a; text-anchor: middle; }
+      .step-tag { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 10px; font-weight: 700; fill: #0284c7; text-anchor: middle; }
+      .row-txt { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 10px; fill: #334155; }
+      .bkt-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 11px; fill: #ffffff; text-anchor: middle; }
+      .bkt-res { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 10px; font-weight: 700; fill: #15803d; }
+    </style>
+    <marker id="grpArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M 0 0 L 8 4 L 0 8 z" fill="#0284c7" />
+    </marker>
+  </defs>
+
+  <rect width="880" height="480" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Top Title Bar -->
+  <rect x="25" y="16" width="830" height="44" rx="8" fill="#ecfeff" stroke="#a5f3fc" stroke-width="1" />
+  <circle cx="50" cy="38" r="12" fill="#0891b2" />
+  <text x="50" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="bold" font-size="12" fill="#ffffff" text-anchor="middle">📈</text>
+  <text x="72" y="43" class="hdr">How GROUP BY &amp; Aggregations Work: From Raw Rows to Buckets</text>
+  
+  <rect x="660" y="25" width="180" height="26" rx="6" fill="#ffffff" stroke="#a5f3fc" />
+  <text x="750" y="42" class="badge-code" text-anchor="middle">GROUP BY + HAVING</text>
+
+  <!-- Flow Steps Pipeline -->
+  <g transform="translate(25, 75)">
+    <!-- Stage 1: Raw Table Rows (w=220) -->
+    <g transform="translate(0, 0)">
+      <rect width="225" height="325" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+      <rect x="15" y="12" width="195" height="24" rx="5" fill="#64748b" />
+      <text x="112" y="28" class="bkt-title">1. Raw Table Records</text>
+
+      <text x="112" y="58" class="step-title">Individual Rows</text>
+      <text x="112" y="74" class="step-tag">FROM students</text>
+
+      <!-- Raw Rows Cards -->
+      <g transform="translate(15, 85)">
+        <rect width="195" height="34" rx="4" fill="#ffffff" stroke="#e2e8f0" />
+        <text x="10" y="21" class="row-txt">Aisha | Grade 9 | 94%</text>
+
+        <rect y="40" width="195" height="34" rx="4" fill="#ffffff" stroke="#e2e8f0" />
+        <text x="10" y="61" class="row-txt">Bilal | Grade 9 | 86%</text>
+
+        <rect y="80" width="195" height="34" rx="4" fill="#ffffff" stroke="#e2e8f0" />
+        <text x="10" y="101" class="row-txt">Fatima | Grade 10 | 92%</text>
+
+        <rect y="120" width="195" height="34" rx="4" fill="#ffffff" stroke="#e2e8f0" />
+        <text x="10" y="141" class="row-txt">Hamza | Grade 9 | 78%</text>
+
+        <rect y="160" width="195" height="34" rx="4" fill="#ffffff" stroke="#e2e8f0" />
+        <text x="10" y="181" class="row-txt">Zayd | Grade 10 | 88%</text>
+
+        <rect y="200" width="195" height="24" rx="4" fill="#fee2e2" />
+        <text x="10" y="216" class="row-txt" fill="#b91c1c">Tariq (Inactive: Dropped by WHERE)</text>
+      </g>
+    </g>
+
+    <!-- Arrow 1 to 2 -->
+    <path d="M 230,165 L 265,165" stroke="#0284c7" stroke-width="2.5" marker-end="url(#grpArrow)" />
+
+    <!-- Stage 2: Grouping Buckets (w=260) -->
+    <g transform="translate(270, 0)">
+      <rect width="260" height="325" rx="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="2" />
+      <rect x="15" y="12" width="230" height="24" rx="5" fill="#0284c7" />
+      <text x="130" y="28" class="bkt-title">2. GROUP BY grade_level</text>
+
+      <text x="130" y="58" class="step-title" fill="#0369a1">Partition into Buckets</text>
+      <text x="130" y="74" class="step-tag">Collapsed into Groups</text>
+
+      <!-- Bucket A: Grade 9 -->
+      <g transform="translate(15, 85)">
+        <rect width="230" height="95" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5" />
+        <rect width="230" height="22" rx="6" fill="#0284c7" />
+        <text x="115" y="16" class="bkt-title">Bucket: grade_level = 9</text>
+        <text x="10" y="38" class="row-txt">• Aisha (94%)</text>
+        <text x="10" y="54" class="row-txt">• Bilal (86%)</text>
+        <text x="10" y="70" class="row-txt">• Hamza (78%)</text>
+        <rect x="10" y="76" width="210" height="14" rx="3" fill="#dcfce7" />
+        <text x="15" y="87" class="bkt-res">COUNT = 3 | AVG = 86.0%</text>
+      </g>
+
+      <!-- Bucket B: Grade 10 -->
+      <g transform="translate(15, 195)">
+        <rect width="230" height="95" rx="6" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5" />
+        <rect width="230" height="22" rx="6" fill="#0369a1" />
+        <text x="115" y="16" class="bkt-title">Bucket: grade_level = 10</text>
+        <text x="10" y="38" class="row-txt">• Fatima (92%)</text>
+        <text x="10" y="54" class="row-txt">• Zayd (88%)</text>
+        <rect x="10" y="68" width="210" height="18" rx="3" fill="#dcfce7" />
+        <text x="15" y="81" class="bkt-res">COUNT = 2 | AVG = 90.0%</text>
+      </g>
+    </g>
+
+    <!-- Arrow 2 to 3 -->
+    <path d="M 535,165 L 570,165" stroke="#0284c7" stroke-width="2.5" marker-end="url(#grpArrow)" />
+
+    <!-- Stage 3: Summary Output + HAVING Filter (w=250) -->
+    <g transform="translate(575, 0)">
+      <rect width="255" height="325" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5" />
+      <rect x="15" y="12" width="225" height="24" rx="5" fill="#16a34a" />
+      <text x="127" y="28" class="bkt-title">3. Aggregate Result Table</text>
+
+      <text x="127" y="58" class="step-title" fill="#15803d">Calculated Metric Rows</text>
+      <text x="127" y="74" class="step-tag" fill="#16a34a">HAVING COUNT(*) &gt;= 2</text>
+
+      <!-- Final Output Table -->
+      <g transform="translate(15, 88)">
+        <rect width="225" height="110" rx="6" fill="#ffffff" stroke="#bbf7d0" />
+        <!-- Table Header -->
+        <rect width="225" height="26" rx="6" fill="#16a34a" />
+        <text x="45" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="bold" fill="#ffffff" text-anchor="middle">grade</text>
+        <text x="110" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="bold" fill="#ffffff" text-anchor="middle">total_stds</text>
+        <text x="180" y="17" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="9.5" font-weight="bold" fill="#ffffff" text-anchor="middle">class_avg</text>
+
+        <!-- Result Row 1 -->
+        <rect y="28" width="225" height="36" fill="#ffffff" />
+        <text x="45" y="50" class="row-txt" font-weight="bold" fill="#0f172a" text-anchor="middle">9</text>
+        <text x="110" y="50" class="row-txt" fill="#0f172a" text-anchor="middle">3</text>
+        <text x="180" y="50" class="row-txt" font-weight="bold" fill="#16a34a" text-anchor="middle">86.0%</text>
+        <line x1="0" y1="64" x2="225" y2="64" stroke="#f1f5f9" />
+
+        <!-- Result Row 2 -->
+        <rect y="64" width="225" height="36" fill="#f8fafc" />
+        <text x="45" y="86" class="row-txt" font-weight="bold" fill="#0f172a" text-anchor="middle">10</text>
+        <text x="110" y="86" class="row-txt" fill="#0f172a" text-anchor="middle">2</text>
+        <text x="180" y="86" class="row-txt" font-weight="bold" fill="#16a34a" text-anchor="middle">90.0%</text>
+      </g>
+
+      <rect x="15" y="215" width="225" height="95" rx="6" fill="#ffffff" stroke="#bbf7d0" />
+      <text x="25" y="235" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="bold" fill="#15803d">Execution Rule:</text>
+      <text x="25" y="254" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10.5" fill="#334155">
+        <tspan x="25" dy="0">• WHERE filters raw rows first.</tspan>
+        <tspan x="25" dy="16">• GROUP BY sorts into buckets.</tspan>
+        <tspan x="25" dy="16">• Aggregates run per bucket.</tspan>
+        <tspan x="25" dy="16">• HAVING filters final groups.</tspan>
+      </text>
+    </g>
+  </g>
+
+  <!-- Bottom Takeaway Bar -->
+  <g transform="translate(25, 415)">
+    <rect width="830" height="48" rx="8" fill="#f8fafc" stroke="#e2e8f0" />
+    <text x="20" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="12" fill="#0f172a">Mental Model for Junior Coders:</text>
+    <text x="20" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11.5" fill="#475569">
+      Think of GROUP BY as sorting items into distinct colored boxes. Then, COUNT(), AVG(), or SUM() calculates the summary statistic for each box individually!
+    </text>
+  </g>
+</svg>

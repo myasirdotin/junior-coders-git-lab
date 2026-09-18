@@ -315,7 +315,7 @@ Type this into your editor and save it as `restaurant.html`:
     <section class="hero">
       <h1>Handmade Italian Tradition</h1>
       <p>Wood-fired artisan pizzas, hand-rolled pasta, and organic ingredients from sunny Tuscany.</p>
-      <a href="#book" class="btn-cta">Reserve Your Table 🍷</a>
+      <a href="#book" class="btn-cta">Reserve Your Table 🍽️</a>
     </section>
 
     <!-- Main Menu -->
@@ -379,7 +379,7 @@ Type this into your editor and save it as `restaurant.html`:
               </div>
               <div class="form-field">
                 <label for="bookPhone">Phone Number</label>
-                <input type="tel" id="bookPhone" placeholder="(555) 000-0000" required>
+                <input type="tel" id="bookPhone" placeholder="+91-94190-00000" required>
               </div>
             </div>
 
@@ -410,7 +410,7 @@ Type this into your editor and save it as `restaurant.html`:
     <!-- Footer -->
     <footer id="contact">
       <p style="font-weight: bold; margin-bottom: 6px;">Bella Vista Trattoria</p>
-      <p style="margin-bottom: 12px;">88 Vineyard Road, Little Italy • Open Daily 11:30 AM - 10:00 PM</p>
+      <p style="margin-bottom: 12px;">Boulevard Road, Dal Lake, Srinagar • Open Daily 11:30 AM - 10:00 PM</p>
       <p>&copy; 2026 Bella Vista. Authentic Hospitality & Passion.</p>
     </footer>
 

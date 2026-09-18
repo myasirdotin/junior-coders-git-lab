@@ -40,8 +40,8 @@ HTTP is a stateless protocol: it forgets who you are the moment a new page loads
 
   // Pre-registered student credentials (in real life: verified against MySQL DB)
   $validCredentials = [
-    "admin@school.edu"   => "Class9Admin!",
-    "student@school.edu" => "JuniorCoder2026"
+    "admin@srinagar.edu.in"   => "Class9Admin!",
+    "student@srinagar.edu.in" => "JuniorCoder2026"
   ];
 
   $error = "";
@@ -83,7 +83,7 @@ HTTP is a stateless protocol: it forgets who you are the moment a new page loads
     <?php endif; ?>
     <form action="login.php" method="POST">
       <label>Email:</label>
-      <input type="email" name="email" value="student@school.edu" required>
+      <input type="email" name="email" value="student@srinagar.edu.in" required>
       <label>Password:</label>
       <input type="password" name="password" value="JuniorCoder2026" required>
       <button type="submit">Sign In</button>
@@ -164,5 +164,5 @@ HTTP is a stateless protocol: it forgets who you are the moment a new page loads
 ## 4. 🧪 Project Verification Checklist
 
 - [ ] Try opening `dashboard.php` directly in an incognito window: verify you are instantly bounced back to `login.php`.
-- [ ] Log in with `student@school.edu` and `JuniorCoder2026`: verify you are welcomed into `dashboard.php`.
+- [ ] Log in with `student@srinagar.edu.in` and `JuniorCoder2026`: verify you are welcomed into `dashboard.php`.
 - [ ] Click **Sign Out**: verify your session is erased and you return to `login.php`.

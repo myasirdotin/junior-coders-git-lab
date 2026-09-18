@@ -48,6 +48,9 @@ let backpack = ["Math textbook", "Pencil case", "Lunchbox", "Water bottle", "Not
 ```
 
 ### Zero-Based Indexing (The Secret Rule!):
+
+![Zero-Based Array Indexing Ruler](../assets/diagrams/js/array-indexing-ruler.svg)
+
 In computer science, counting almost always starts at **0**, not 1!
 - Index 0: First item
 - Index 1: Second item

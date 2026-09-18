@@ -68,7 +68,7 @@ echo $student["name"]; // Outputs: Zainab Ali
 
   // 2. Modifying and Adding Keys
   $teacher["room"] = "Advanced Tech Lab 1"; // Update
-  $teacher["email"] = "y.rasool@school.edu"; // Add new key
+  $teacher["email"] = "y.rasool@srinagar.edu.in"; // Add new key
 
   // 3. Iterating through all Keys and Values
   echo "<h3>Teacher Information Card</h3>";
@@ -136,11 +136,12 @@ When a backend server queries a MySQL database:
 
 ```php
 <?php
-  $profile = ["city" => "Lahore"];
-  $profile["city"] = "Karachi";
-  $profile["country"] = "Pakistan";
+  $profile = ["city" => "Jammu"];
+  $profile["city"] = "Srinagar";
+  $profile["country"] = "India";
   echo count($profile);
 ?>
+
 ```
 
 <details>

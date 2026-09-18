@@ -350,7 +350,7 @@ Create a file named `personal-profile.html` and write the complete production co
             </div>
             <div class="form-group">
               <label for="email">Your Email</label>
-              <input type="email" id="email" placeholder="maya@example.com" required>
+              <input type="email" id="email" placeholder="maya@srinagar.edu.in" required>
             </div>
             <div class="form-group">
               <label for="msg">Message</label>

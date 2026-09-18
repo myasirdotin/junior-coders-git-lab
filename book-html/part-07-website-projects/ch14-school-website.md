@@ -354,7 +354,7 @@ Type this code into an editor and save it as `school-website.html`:
     <!-- Footer -->
     <footer id="contact">
       <p style="font-weight: 700; margin-bottom: 8px;">Greenwood Junior Academy</p>
-      <p style="margin-bottom: 16px;">124 Forest Valley Lane • (555) 321-9876 • admissions@greenwood.edu</p>
+      <p style="margin-bottom: 16px;">Rajbagh, Srinagar, Jammu and Kashmir • +91-94190-12345 • admissions@greenwood.edu.in</p>
       <p>&copy; 2026 Greenwood Academy. All rights reserved.</p>
     </footer>
 
@@ -473,7 +473,7 @@ Add a floating school mascot crest in the top right corner:
 3. Which HTML tag wraps the contact and copyright details at the bottom of the page?
 
 ### 🟡 Medium (Application)
-4. Write the HTML link to make the school phone number `(555) 321-9876` immediately dialable when tapped on a smartphone.
+4. Write the HTML link to make the school phone number `+91-94190-12345` immediately dialable when tapped on a smartphone.
 5. Why is a dark overlay recommended when placing white text on top of photography?
 
 ### 🔴 Challenge (Creative Problem-Solving)

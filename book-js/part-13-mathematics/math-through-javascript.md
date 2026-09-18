@@ -6,7 +6,7 @@
 ## 1. Introduction: Math + Coding = Superpowers! ⚡
 
 Do you find math formulas in textbooks dry or difficult to picture? 
-When you learn math through JavaScript, math suddenly becomes **interactive, visual, and alive**! You can simulate dice rolls, find prime numbers in a split second, calculate geometry areas dynamically, and test financial math formulas with real code.
+When you learn math through JavaScript, math suddenly becomes **interactive, visual, and alive**! You can simulate weather forecasts, calculate charitable contributions (*Zakat*), find prime numbers in a split second, and test geometry formulas with real code.
 
 ---
 
@@ -36,7 +36,7 @@ Math.abs(-25);    // 25
 console.log(Math.PI); // 3.141592653589793
 ```
 
-### The Random Number Generator Recipe 🎲:
+### The Random Number Generator Recipe 🎯:
 `Math.random()` generates a floating-point number between `0` (inclusive) and `1` (exclusive).
 To generate a random whole integer between `min` and `max`:
 ```javascript
@@ -44,9 +44,9 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Roll a standard 6-sided die:
-let diceRoll = getRandomInt(1, 6);
-console.log(`You rolled a: ${diceRoll} 🎲`);
+// Pick a random team captain or mystery quiz question (from 1 to 10):
+let selectedQuestion = getRandomInt(1, 10);
+console.log(`Question of the Day: #${selectedQuestion} 🎯`);
 ```
 
 ---
@@ -97,20 +97,30 @@ function calculateHypotenuse(base, height) {
 console.log("Hypotenuse of 3 and 4:", calculateHypotenuse(3, 4)); // 5.00
 ```
 
-### Topic 4: Simple Interest & Banking Formula
-Formula: $I = \frac{P \times R \times T}{100}$
+### Topic 4: Ethical Finance — Annual Zakat & Charity Calculation
+Formula: $\text{Zakat} = \text{Net Wealth} \times 0.025 \quad (2.5\%)$
 ```javascript
-function calculateSimpleInterest(principal, ratePercent, timeYears) {
-    let interest = (principal * ratePercent * timeYears) / 100;
-    let totalAmount = principal + interest;
+// Calculates annual Zakat contribution if wealth exceeds Nisab threshold
+function calculateZakat(netSavings, goldNisabThreshold) {
+    if (netSavings < goldNisabThreshold) {
+        return {
+            isPayable: false,
+            zakatAmount: 0,
+            message: "Savings are below the Nisab threshold. No Zakat due."
+        };
+    }
+    
+    let zakat = netSavings * 0.025; // 2.5% contribution for community care
     return {
-        interestEarned: interest,
-        totalBalance: totalAmount
+        isPayable: true,
+        zakatAmount: zakat.toFixed(2),
+        remainingWealth: (netSavings - zakat).toFixed(2),
+        message: "Zakat successfully calculated to support those in need."
     };
 }
 
-let bank = calculateSimpleInterest(10000, 7.5, 3);
-console.log(`Principal: Rs 10000 | Interest: Rs ${bank.interestEarned} | Total: Rs ${bank.totalBalance}`);
+let report = calculateZakat(150000, 100000);
+console.log(`Zakat Due: Rs ${report.zakatAmount} | Remaining: Rs ${report.remainingWealth}`);
 ```
 
 ---

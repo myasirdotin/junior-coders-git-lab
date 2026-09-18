@@ -62,8 +62,8 @@ When you sit at your computer and type `www.wikipedia.org` or `www.youtube.com`,
 
 | Concept | Library Analogy | Digital Web Example |
 | :--- | :--- | :--- |
-| **Website** | The entire book (e.g., *The Science Encyclopedia*) | `www.yourschool.edu` (the whole collection) |
-| **Web Page** | Page 42 in the book (the chapter on Mars) | `www.yourschool.edu/contact.html` (one single screen) |
+| **Website** | The entire book (e.g., *The Science Encyclopedia*) | `www.yourschool.edu.in` (the whole collection) |
+| **Web Page** | Page 42 in the book (the chapter on Mars) | `www.yourschool.edu.in/contact.html` (one single screen) |
 | **Home Page** | The book cover & introduction | The main page you see first when opening the address |
 
 ---

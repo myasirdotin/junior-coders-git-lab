@@ -30,5 +30,22 @@ function bundleDir(baseDir, outputFile, varName) {
 }
 
 const root = path.resolve(__dirname, '..');
-bundleDir(path.join(root, 'book'), path.join(root, 'book', 'chapters-bundle.js'), 'BOOK_CHAPTERS');
-bundleDir(path.join(root, 'book-js'), path.join(root, 'book-js', 'chapters-bundle.js'), 'BOOK_JS_CHAPTERS');
+if (fs.existsSync(path.join(root, 'book'))) {
+  bundleDir(path.join(root, 'book'), path.join(root, 'book', 'chapters-bundle.js'), 'BOOK_CHAPTERS');
+}
+if (fs.existsSync(path.join(root, 'book-html'))) {
+  bundleDir(path.join(root, 'book-html'), path.join(root, 'book-html', 'chapters-bundle.js'), 'BOOK_HTML_CHAPTERS');
+}
+if (fs.existsSync(path.join(root, 'book-css'))) {
+  bundleDir(path.join(root, 'book-css'), path.join(root, 'book-css', 'chapters-bundle.js'), 'BOOK_CSS_CHAPTERS');
+}
+if (fs.existsSync(path.join(root, 'book-js'))) {
+  bundleDir(path.join(root, 'book-js'), path.join(root, 'book-js', 'chapters-bundle.js'), 'BOOK_JS_CHAPTERS');
+}
+if (fs.existsSync(path.join(root, 'book-php'))) {
+  bundleDir(path.join(root, 'book-php'), path.join(root, 'book-php', 'chapters-bundle.js'), 'BOOK_PHP_CHAPTERS');
+}
+if (fs.existsSync(path.join(root, 'book-mysql'))) {
+  bundleDir(path.join(root, 'book-mysql'), path.join(root, 'book-mysql', 'chapters-bundle.js'), 'BOOK_MYSQL_CHAPTERS');
+}
+

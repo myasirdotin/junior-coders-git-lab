@@ -259,7 +259,7 @@ Create a funny story game:
 
 1. Write a program that asks for the user's birth year and calculates their approximate age.
 2. Ask the user for their favorite pizza topping. If they enter `"pineapple"`, make a funny alert!
-3. Build a simple currency converter (e.g., USD to PKR or INR).
+3. Build a simple currency converter (e.g., USD to INR - Indian Rupees).
 
 ---
 

@@ -125,7 +125,7 @@ Let's dissect every piece of this code so there are no mysteries:
 
 Why do professional web developers almost always name their main home page `index.html`?
 
-- When someone visits `www.google.com` or `www.yourschool.edu`, they don't type `www.google.com/home.html`.
+- When someone visits `www.google.com` or `www.yourschool.edu.in`, they don't type `www.google.com/home.html`.
 - Web servers are programmed automatically to search for a file called **`index.html`** whenever a visitor arrives at a folder.
 - If your file is named `index.html`, the server greets the visitor instantly with your home page!
 

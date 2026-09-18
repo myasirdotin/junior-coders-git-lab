@@ -27,7 +27,13 @@ By the end of this chapter, you will be able to:
 
 ## 3. 👁️ Visual Concept Explanation
 
-### Anatomy of an HTML Element
+### Anatomy of an HTML Element & Attribute
+
+![HTML Tag & Attribute Anatomy](../assets/diagrams/html/tag-anatomy.svg)
+
+### The Document Object Model Tree (Hierarchy)
+
+![HTML DOM Tree](../assets/diagrams/html/dom-tree.svg)
 
 An HTML element is usually made of three parts:
 

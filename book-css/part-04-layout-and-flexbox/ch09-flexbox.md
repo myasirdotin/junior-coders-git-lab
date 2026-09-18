@@ -31,6 +31,10 @@ By the end of this chapter, you will be able to:
 
 ## 3. 👁️ Visual Concept Explanation
 
+### The Flexbox Axes Architecture
+
+![Flexbox Axes Diagram](../assets/diagrams/css/flexbox-axes.svg)
+
 ### The Flexbox Parent-Child Relationship
 
 ```text

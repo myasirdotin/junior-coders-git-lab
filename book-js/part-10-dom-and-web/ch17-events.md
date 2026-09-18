@@ -29,6 +29,10 @@ In the browser, your code can install "doorbell listeners" on buttons, keys, tex
 
 ## 3. Concept Explanation 💡
 
+### The Event-Driven Architecture
+
+![The Event-Driven Lifecycle: Listen, Trigger, and React](../assets/diagrams/js/event-listener-cycle.svg)
+
 An **Event** is an action that happens in the browser that your program can detect:
 - A user clicks a button (`click`)
 - A user types into a text box (`input`)
@@ -241,7 +245,7 @@ Build a "Color Palette Generator":
 Create an interactive mini-app:
 - HTML inputs:
   - Input field for Amount (USD).
-  - Select dropdown for Currency (EUR, GBP, PKR, INR, JPY).
+  - Select dropdown for Currency (EUR, GBP, INR, AED, JPY).
   - Convert Button.
   - Result paragraph `<p id="conversion-result"></p>`.
 - JavaScript holds an exchange rate object:
@@ -249,8 +253,8 @@ Create an interactive mini-app:
   const rates = {
       EUR: 0.92,
       GBP: 0.79,
-      PKR: 278.50,
       INR: 83.20,
+      AED: 3.67,
       JPY: 154.60
   };
   ```
@@ -289,7 +293,7 @@ Create an interactive mini-app:
 ## 17. Homework 📚
 
 1. Build a "Show / Hide Password" toggle checkbox.
-2. Create a "Dice Roller" button that generates a random number between 1 and 6 and updates an `<h1>`.
+2. Create a "Daily Wisdom & Proverb" button that picks an inspiring educational quote from an array and updates an `<h1>`.
 3. Create a dark mode toggle button that toggles a `.dark-theme` CSS class on `document.body`.
 
 ---

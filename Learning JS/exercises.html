@@ -200,15 +200,15 @@ console.log(car.brand);</code></pre>
                     <button class="solution-btn" onclick="toggleSolution('objects')">Solution</button>
                     <div id="hint-objects-1" class="hint-content">Add methods using <code>methodName() { ... }</code> syntax. Use <code>this</code> to reference the object inside methods.</div>
                     <div id="solution-objects" class="solution-content"><pre><code>let person = {
-    name: "John",
-    age: 30,
-    address: { street: "123 Main St", zip: "10001" },
+    name: "Zainab",
+    age: 16,
+    address: { street: "Boulevard Road", city: "Srinagar", zip: "190001" },
     getInfo() {
-        return `${this.name}, ${this.age}, ${this.address.street}`;
+        return `${this.name}, ${this.age}, ${this.address.street}, ${this.address.city}`;
     }
 };
 console.log(person.getInfo());
-person.email = "john@example.com";
+person.email = "zainab@srinagar.edu.in";
 console.log("Email:", person.email);</code></pre></div>
                 </div>
                 <button class="btn-practice" onclick="loadExercise('objects')">Start</button>

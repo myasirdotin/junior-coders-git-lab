@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 460" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; font-weight: 800; font-size: 16.5px; fill: #1e293b; }
+      .badge-code { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #0e7490; }
+      .crud-letter { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 16px; fill: #ffffff; text-anchor: middle; }
+      .crud-word { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 14px; text-anchor: middle; }
+      .sql-cmd { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 11px; font-weight: 800; text-anchor: middle; }
+      .crud-p { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #475569; text-anchor: middle; }
+      .code-term { font-family: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", monospace; font-size: 10px; }
+    </style>
+  </defs>
+
+  <rect width="880" height="460" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Top Title Bar -->
+  <rect x="25" y="16" width="830" height="44" rx="8" fill="#ecfeff" stroke="#a5f3fc" stroke-width="1" />
+  <circle cx="50" cy="38" r="12" fill="#0891b2" />
+  <text x="50" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="bold" font-size="12" fill="#ffffff" text-anchor="middle">⚡</text>
+  <text x="72" y="43" class="hdr">The 4 CRUD Operations in SQL: Create, Read, Update, Delete</text>
+  
+  <rect x="660" y="25" width="180" height="26" rx="6" fill="#ffffff" stroke="#a5f3fc" />
+  <text x="750" y="42" class="badge-code" text-anchor="middle">DML Data Manipulation</text>
+
+  <!-- 4 CRUD Cards Across (w=195 each) -->
+  <g transform="translate(25, 75)">
+    <!-- 1. CREATE (INSERT) -->
+    <g transform="translate(0, 0)">
+      <rect width="195" height="275" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5" />
+      <circle cx="97" cy="32" r="16" fill="#16a34a" />
+      <text x="97" y="38" class="crud-letter">C</text>
+      
+      <text x="97" y="72" class="crud-word" fill="#15803d">CREATE</text>
+      <text x="97" y="90" class="sql-cmd" fill="#16a34a">INSERT INTO</text>
+
+      <text x="97" y="115" class="crud-p">
+        <tspan x="97" dy="0">Appends brand new</tspan>
+        <tspan x="97" dy="16">records to the table</tspan>
+        <tspan x="97" dy="16">on permanent storage.</tspan>
+      </text>
+
+      <!-- Code box -->
+      <rect x="10" y="170" width="175" height="85" rx="6" fill="#0f172a" />
+      <text x="18" y="192" class="code-term" fill="#86efac">INSERT INTO</text>
+      <text x="18" y="208" class="code-term" fill="#f8fafc">  students (name)</text>
+      <text x="18" y="226" class="code-term" fill="#86efac">VALUES</text>
+      <text x="18" y="242" class="code-term" fill="#fde047">  ('Aisha');</text>
+    </g>
+
+    <!-- 2. READ (SELECT) -->
+    <g transform="translate(210, 0)">
+      <rect width="195" height="275" rx="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.5" />
+      <circle cx="97" cy="32" r="16" fill="#0284c7" />
+      <text x="97" y="38" class="crud-letter">R</text>
+      
+      <text x="97" y="72" class="crud-word" fill="#0369a1">READ</text>
+      <text x="97" y="90" class="sql-cmd" fill="#0284c7">SELECT</text>
+
+      <text x="97" y="115" class="crud-p">
+        <tspan x="97" dy="0">Fetches and filters</tspan>
+        <tspan x="97" dy="16">data into a result set</tspan>
+        <tspan x="97" dy="16">without modifying it.</tspan>
+      </text>
+
+      <!-- Code box -->
+      <rect x="10" y="170" width="175" height="85" rx="6" fill="#0f172a" />
+      <text x="18" y="192" class="code-term" fill="#38bdf8">SELECT</text>
+      <text x="18" y="208" class="code-term" fill="#f8fafc">  name, grade</text>
+      <text x="18" y="226" class="code-term" fill="#38bdf8">FROM students</text>
+      <text x="18" y="242" class="code-term" fill="#fed7aa">WHERE grade = 9;</text>
+    </g>
+
+    <!-- 3. UPDATE (UPDATE) -->
+    <g transform="translate(420, 0)">
+      <rect width="195" height="275" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5" />
+      <circle cx="97" cy="32" r="16" fill="#d97706" />
+      <text x="97" y="38" class="crud-letter">U</text>
+      
+      <text x="97" y="72" class="crud-word" fill="#b45309">UPDATE</text>
+      <text x="97" y="90" class="sql-cmd" fill="#d97706">UPDATE ... SET</text>
+
+      <text x="97" y="115" class="crud-p">
+        <tspan x="97" dy="0">Modifies values in</tspan>
+        <tspan x="97" dy="16">existing table rows.</tspan>
+        <tspan x="97" dy="16">Requires WHERE!</tspan>
+      </text>
+
+      <!-- Code box -->
+      <rect x="10" y="170" width="175" height="85" rx="6" fill="#0f172a" />
+      <text x="18" y="192" class="code-term" fill="#fbbf24">UPDATE students</text>
+      <text x="18" y="208" class="code-term" fill="#fbbf24">SET grade = 10</text>
+      <text x="18" y="228" class="code-term" fill="#f87171">WHERE id = 1;</text>
+      <text x="18" y="244" class="code-term" fill="#94a3b8">// Safe target</text>
+    </g>
+
+    <!-- 4. DELETE (DELETE) -->
+    <g transform="translate(630, 0)">
+      <rect width="195" height="275" rx="10" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5" />
+      <circle cx="97" cy="32" r="16" fill="#dc2626" />
+      <text x="97" y="38" class="crud-letter">D</text>
+      
+      <text x="97" y="72" class="crud-word" fill="#b91c1c">DELETE</text>
+      <text x="97" y="90" class="sql-cmd" fill="#dc2626">DELETE FROM</text>
+
+      <text x="97" y="115" class="crud-p">
+        <tspan x="97" dy="0">Removes targeted</tspan>
+        <tspan x="97" dy="16">rows permanently.</tspan>
+        <tspan x="97" dy="16">Always use WHERE!</tspan>
+      </text>
+
+      <!-- Code box -->
+      <rect x="10" y="170" width="175" height="85" rx="6" fill="#0f172a" />
+      <text x="18" y="192" class="code-term" fill="#f87171">DELETE FROM</text>
+      <text x="18" y="208" class="code-term" fill="#f8fafc">  students</text>
+      <text x="18" y="228" class="code-term" fill="#f87171">WHERE id = 5;</text>
+      <text x="18" y="244" class="code-term" fill="#94a3b8">// Never omit!</text>
+    </g>
+  </g>
+
+  <!-- Bottom Golden Warning Banner -->
+  <g transform="translate(25, 365)">
+    <rect width="830" height="75" rx="8" fill="#fff1f2" stroke="#fecdd3" stroke-width="1.5" />
+    <circle cx="45" cy="38" r="14" fill="#ef4444" />
+    <text x="45" y="43" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="bold" font-size="14" fill="#ffffff" text-anchor="middle">⚠️</text>
+    
+    <text x="72" y="30" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="13" fill="#9f1239">
+      The Cardinal Rule of Database Engineering:
+    </text>
+    <text x="72" y="52" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" fill="#881337">
+      Never run an <tspan font-family="'SFMono-Regular', Consolas, monospace" font-weight="bold">UPDATE</tspan> or <tspan font-family="'SFMono-Regular', Consolas, monospace" font-weight="bold">DELETE</tspan> statement without a <tspan font-family="'SFMono-Regular', Consolas, monospace" font-weight="bold">WHERE</tspan> clause, unless you intentionally wish to alter or wipe every single record in the entire table!
+    </text>
+  </g>
+</svg>

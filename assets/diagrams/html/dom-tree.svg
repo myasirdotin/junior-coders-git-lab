@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 480" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 17px; fill: #1e293b; }
+      .hdr-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; fill: #9a3412; }
+      .node-text { font-family: 'Fira Code', Consolas, monospace; font-size: 13px; font-weight: 700; text-anchor: middle; }
+      .node-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 10px; text-anchor: middle; }
+      .tree-line { stroke: #94a3b8; stroke-width: 2; stroke-linecap: round; }
+    </style>
+    <filter id="nodeShadow" x="-8%" y="-8%" width="116%" height="116%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.08" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="480" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Top Title Banner -->
+  <g transform="translate(30, 20)">
+    <rect width="820" height="42" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1" />
+    <circle cx="24" cy="21" r="10" fill="#ea580c" />
+    <text x="24" y="25" font-family="-apple-system, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle">🌳</text>
+    <text x="44" y="27" class="hdr-title">The HTML DOM Tree: Hierarchical Parent &amp; Child Nodes</text>
+    <text x="800" y="26" class="hdr-sub" text-anchor="end">Document Object Model</text>
+  </g>
+
+  <!-- Connective Branch Lines -->
+  <!-- Document to html -->
+  <line x1="440" y1="115" x2="440" y2="140" class="tree-line" />
+  
+  <!-- html to head (left) and body (right) -->
+  <path d="M 440,185 L 440,205 M 240,205 L 640,205 M 240,205 L 240,230 M 640,205 L 640,230" class="tree-line" />
+  
+  <!-- head to meta and title -->
+  <path d="M 240,275 L 240,295 M 150,295 L 330,295 M 150,295 L 150,320 M 330,295 L 330,320" class="tree-line" />
+  
+  <!-- body to header, main, footer -->
+  <path d="M 640,275 L 640,295 M 500,295 L 780,295 M 500,295 L 500,320 M 640,295 L 640,320 M 780,295 L 780,320" class="tree-line" />
+  
+  <!-- main to h1 and p -->
+  <path d="M 640,365 L 640,385 M 580,385 L 700,385 M 580,385 L 580,410 M 700,385 L 700,410" class="tree-line" />
+
+  <!-- Level 0: Document -->
+  <g transform="translate(365, 80)" filter="url(#nodeShadow)">
+    <rect width="150" height="35" rx="8" fill="#0f172a" />
+    <text x="75" y="22" class="node-text" fill="#ffffff">Document</text>
+  </g>
+
+  <!-- Level 1: <html> Root Node -->
+  <g transform="translate(350, 140)" filter="url(#nodeShadow)">
+    <rect width="180" height="45" rx="8" fill="#ea580c" />
+    <text x="90" y="25" class="node-text" fill="#ffffff">&lt;html&gt;</text>
+    <text x="90" y="38" class="node-sub" fill="#ffedd5">Root Container Element</text>
+  </g>
+
+  <!-- Level 2: <head> -->
+  <g transform="translate(150, 230)" filter="url(#nodeShadow)">
+    <rect width="180" height="45" rx="8" fill="#475569" />
+    <text x="90" y="25" class="node-text" fill="#ffffff">&lt;head&gt;</text>
+    <text x="90" y="38" class="node-sub" fill="#cbd5e1">Document Metadata &amp; Config</text>
+  </g>
+
+  <!-- Level 2: <body> -->
+  <g transform="translate(550, 230)" filter="url(#nodeShadow)">
+    <rect width="180" height="45" rx="8" fill="#2563eb" />
+    <text x="90" y="25" class="node-text" fill="#ffffff">&lt;body&gt;</text>
+    <text x="90" y="38" class="node-sub" fill="#bfdbfe">Visible Content Body</text>
+  </g>
+
+  <!-- Level 3: Children of <head> -->
+  <g transform="translate(90, 320)" filter="url(#nodeShadow)">
+    <rect width="120" height="38" rx="6" fill="#f8fafc" stroke="#94a3b8" />
+    <text x="60" y="24" class="node-text" fill="#334155">&lt;meta&gt;</text>
+  </g>
+  <g transform="translate(270, 320)" filter="url(#nodeShadow)">
+    <rect width="120" height="38" rx="6" fill="#f8fafc" stroke="#94a3b8" />
+    <text x="60" y="24" class="node-text" fill="#334155">&lt;title&gt;</text>
+  </g>
+
+  <!-- Level 3: Children of <body> -->
+  <g transform="translate(440, 320)" filter="url(#nodeShadow)">
+    <rect width="120" height="38" rx="6" fill="#eff6ff" stroke="#60a5fa" />
+    <text x="60" y="24" class="node-text" fill="#1d4ed8">&lt;header&gt;</text>
+  </g>
+  <g transform="translate(580, 320)" filter="url(#nodeShadow)">
+    <rect width="120" height="38" rx="6" fill="#eff6ff" stroke="#2563eb" stroke-width="2" />
+    <text x="60" y="24" class="node-text" fill="#1d4ed8">&lt;main&gt;</text>
+  </g>
+  <g transform="translate(720, 320)" filter="url(#nodeShadow)">
+    <rect width="120" height="38" rx="6" fill="#eff6ff" stroke="#60a5fa" />
+    <text x="60" y="24" class="node-text" fill="#1d4ed8">&lt;footer&gt;</text>
+  </g>
+
+  <!-- Level 4: Children of <main> -->
+  <g transform="translate(530, 410)" filter="url(#nodeShadow)">
+    <rect width="100" height="34" rx="5" fill="#ffffff" stroke="#cbd5e1" />
+    <text x="50" y="21" class="node-text" font-size="12" fill="#475569">&lt;h1&gt;</text>
+  </g>
+  <g transform="translate(650, 410)" filter="url(#nodeShadow)">
+    <rect width="100" height="34" rx="5" fill="#ffffff" stroke="#cbd5e1" />
+    <text x="50" y="21" class="node-text" font-size="12" fill="#475569">&lt;p&gt;</text>
+  </g>
+</svg>

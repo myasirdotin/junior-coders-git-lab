@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 440" width="100%" height="100%">
+  <defs>
+    <style>
+      .hdr-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 800; font-size: 17px; fill: #1e293b; }
+      .hdr-sub { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 12px; fill: #9a3412; }
+      .code-line { font-family: 'Fira Code', Consolas, monospace; font-size: 22px; font-weight: 700; }
+      .card-title { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-weight: 700; font-size: 13px; }
+      .card-desc { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; fill: #475569; }
+      .pill-text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; font-size: 11px; font-weight: 700; fill: #ffffff; text-anchor: middle; }
+    </style>
+    <filter id="cardShadow" x="-3%" y="-3%" width="106%" height="108%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.06" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="880" height="440" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+
+  <!-- Top Title Banner -->
+  <g transform="translate(30, 20)">
+    <rect width="820" height="42" rx="8" fill="#fff7ed" stroke="#fed7aa" stroke-width="1" />
+    <circle cx="24" cy="21" r="10" fill="#ea580c" />
+    <text x="24" y="25" font-family="-apple-system, sans-serif" font-weight="bold" font-size="11" fill="#ffffff" text-anchor="middle">🏷️</text>
+    <text x="44" y="27" class="hdr-title">Anatomy of an HTML Element &amp; Attribute</text>
+    <text x="800" y="26" class="hdr-sub" text-anchor="end">Building Blocks of the Web</text>
+  </g>
+
+  <!-- Dark Code Showcase Block -->
+  <g transform="translate(30, 75)" filter="url(#cardShadow)">
+    <rect width="820" height="95" rx="10" fill="#0f172a" />
+    <text x="40" y="55" class="code-line">
+      <tspan fill="#94a3b8">&lt;</tspan><tspan fill="#f97316">a</tspan> <tspan fill="#38bdf8">href</tspan><tspan fill="#94a3b8">=</tspan><tspan fill="#4ade80">"https://code.org"</tspan><tspan fill="#94a3b8">&gt;</tspan><tspan fill="#ffffff">Learn to Code</tspan><tspan fill="#94a3b8">&lt;/</tspan><tspan fill="#f97316">a</tspan><tspan fill="#94a3b8">&gt;</tspan>
+    </text>
+  </g>
+
+  <!-- 4 Explanatory Cards with Multi-line Wrapped Text -->
+  <g transform="translate(30, 190)">
+    <!-- 1. Opening Tag -->
+    <g transform="translate(0, 0)">
+      <rect width="195" height="215" rx="10" fill="#fff7ed" stroke="#fdba74" stroke-width="1.5" />
+      <rect x="15" y="15" width="115" height="22" rx="4" fill="#ea580c" />
+      <text x="72" y="30" class="pill-text">Opening Tag</text>
+      
+      <text x="15" y="60" class="card-title" fill="#9a3412">&lt;a ...&gt;</text>
+      <text x="15" y="85" class="card-desc">
+        <tspan x="15" dy="0">Marks where the element</tspan>
+        <tspan x="15" dy="18">begins.</tspan>
+        <tspan x="15" dy="24">Houses optional attributes</tspan>
+        <tspan x="15" dy="18">that configure settings</tspan>
+        <tspan x="15" dy="18">and superpowers.</tspan>
+      </text>
+      <path d="M 97,-18 L 97,0" stroke="#ea580c" stroke-width="2" stroke-dasharray="3,3" />
+    </g>
+
+    <!-- 2. Attribute Name & Value -->
+    <g transform="translate(208, 0)">
+      <rect width="215" height="215" rx="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="1.5" />
+      <rect x="15" y="15" width="145" height="22" rx="4" fill="#0284c7" />
+      <text x="87" y="30" class="pill-text">Attribute Name &amp; Value</text>
+      
+      <text x="15" y="60" class="card-title" fill="#0369a1">name="value"</text>
+      <text x="15" y="85" class="card-desc">
+        <tspan x="15" dy="0">Provides extra instructions</tspan>
+        <tspan x="15" dy="18">to the browser.</tspan>
+        <tspan x="15" dy="24">• <tspan font-weight="bold" fill="#0284c7">href</tspan>: link destination</tspan>
+        <tspan x="15" dy="18">• <tspan font-weight="bold" fill="#0284c7">src</tspan>: image file path</tspan>
+        <tspan x="15" dy="18">• <tspan font-weight="bold" fill="#0284c7">class</tspan>: style label</tspan>
+      </text>
+      <path d="M 107,-18 L 107,0" stroke="#0284c7" stroke-width="2" stroke-dasharray="3,3" />
+    </g>
+
+    <!-- 3. Content -->
+    <g transform="translate(433, 0)">
+      <rect width="200" height="215" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
+      <rect x="15" y="15" width="125" height="22" rx="4" fill="#475569" />
+      <text x="77" y="30" class="pill-text">Enclosed Content</text>
+      
+      <text x="15" y="60" class="card-title" fill="#334155">What Users See</text>
+      <text x="15" y="85" class="card-desc">
+        <tspan x="15" dy="0">The human-readable</tspan>
+        <tspan x="15" dy="18">text, headline, or image</tspan>
+        <tspan x="15" dy="18">displayed on the page.</tspan>
+        <tspan x="15" dy="24">This is the heart of the</tspan>
+        <tspan x="15" dy="18">element sandwich.</tspan>
+      </text>
+      <path d="M 100,-18 L 100,0" stroke="#475569" stroke-width="2" stroke-dasharray="3,3" />
+    </g>
+
+    <!-- 4. Closing Tag -->
+    <g transform="translate(643, 0)">
+      <rect width="177" height="215" rx="10" fill="#fff1f2" stroke="#fecdd3" stroke-width="1.5" />
+      <rect x="15" y="15" width="105" height="22" rx="4" fill="#e11d48" />
+      <text x="67" y="30" class="pill-text">Closing Tag</text>
+      
+      <text x="15" y="60" class="card-title" fill="#be123c">&lt;/a&gt;</text>
+      <text x="15" y="85" class="card-desc">
+        <tspan x="15" dy="0">Signals the browser that</tspan>
+        <tspan x="15" dy="18">the element has ended.</tspan>
+        <tspan x="15" dy="24">Always features a</tspan>
+        <tspan x="15" dy="18">forward slash (<tspan font-weight="bold">/</tspan>).</tspan>
+      </text>
+      <path d="M 88,-18 L 88,0" stroke="#e11d48" stroke-width="2" stroke-dasharray="3,3" />
+    </g>
+  </g>
+</svg>

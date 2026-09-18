@@ -33,6 +33,10 @@ By the end of this chapter, you will be able to:
 
 ## 3. 👁️ Visual Concept Explanation
 
+### CSS Grid 2D Track System
+
+![CSS Grid 2D Architecture](../assets/diagrams/css/css-grid-2d.svg)
+
 ### Flexbox (1D) vs. CSS Grid (2D)
 
 ```text
