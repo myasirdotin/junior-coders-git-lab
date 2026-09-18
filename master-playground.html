@@ -15,9 +15,22 @@
         <!-- Sidebar / Editor Section -->
         <section class="ide-editor-panel">
             <div class="ide-tabs">
-                <button class="ide-tab active" data-tab="html">index.html</button>
-                <button class="ide-tab" data-tab="css">style.css</button>
-                <button class="ide-tab" data-tab="js">script.js</button>
+                <div class="ide-tabs-group">
+                    <button class="ide-tab active" data-tab="html">index.html</button>
+                    <button class="ide-tab" data-tab="css">style.css</button>
+                    <button class="ide-tab" data-tab="js">script.js</button>
+                </div>
+                <div class="ide-actions-group">
+                    <select id="ide-template-select" class="ide-template-select" aria-label="Choose Starter Template">
+                        <option value="default">⚡ Template: Welcome</option>
+                        <option value="profile">👤 Template: Profile Card</option>
+                        <option value="counter">🔢 Template: Interactive Counter</option>
+                        <option value="blank">📄 Template: Blank Canvas</option>
+                    </select>
+                    <button id="export-project-btn" class="ide-btn-export" title="Download standalone HTML file">
+                        <span>💾</span> <span>Export .html</span>
+                    </button>
+                </div>
             </div>
             <div class="ide-content-area">
                 <textarea id="master-html" class="ide-textarea active" spellcheck="false" placeholder="<!-- Write your HTML here -->

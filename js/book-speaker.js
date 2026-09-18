@@ -517,6 +517,28 @@
     window.exitReadingMode = exitReadingMode;
   }
 
+  // Reading Scroll Progress Bar
+  function initReadingProgressBar() {
+    let progressBar = document.getElementById('bookReadingProgressBar');
+    if (!progressBar) {
+      progressBar = document.createElement('div');
+      progressBar.id = 'bookReadingProgressBar';
+      progressBar.className = 'book-reading-progress';
+      document.body.prepend(progressBar);
+    }
+
+    const updateProgress = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrollY / docHeight) * 100)) : 0;
+      progressBar.style.width = pct + '%';
+    };
+
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress, { passive: true });
+    updateProgress();
+  }
+
   // Cleanup on page unload
   window.addEventListener('beforeunload', () => {
     if ('speechSynthesis' in window) window.speechSynthesis.cancel();
@@ -527,9 +549,11 @@
     document.addEventListener('DOMContentLoaded', () => {
       window.initBookSpeaker();
       initBookReadingMode();
+      initReadingProgressBar();
     });
   } else {
     window.initBookSpeaker();
     initBookReadingMode();
+    initReadingProgressBar();
   }
 })();

@@ -1826,5 +1826,18 @@ body.reading-mode .reading-mode-bar {
   }
 }
 
-
-
+/* ==========================================================================
+   Reading Scroll Progress Bar (Top of Viewport)
+   ========================================================================== */
+.book-reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3.5px;
+  background: linear-gradient(90deg, var(--book-accent, #2563eb), #10b981);
+  z-index: 99999;
+  transition: width 0.1s ease-out;
+  pointer-events: none;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.4);
+}

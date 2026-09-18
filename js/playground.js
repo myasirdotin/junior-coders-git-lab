@@ -7,11 +7,29 @@
     'use strict';
 
     const Playground = {
+        // Helper: Tab Indentation (2 spaces) without losing focus
+        enableTabIndentation: function(textarea) {
+            if (!textarea) return;
+            textarea.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    e.preventDefault();
+                    const start = this.selectionStart;
+                    const end = this.selectionEnd;
+                    const val = this.value;
+                    this.value = val.substring(0, start) + '  ' + val.substring(end);
+                    this.selectionStart = this.selectionEnd = start + 2;
+                    this.dispatchEvent(new Event('input'));
+                }
+            });
+        },
+
         // --- HTML Playground ---
         initHTML: function() {
             const editor = document.getElementById('code-editor');
             const preview = document.getElementById('preview');
             if (!editor || !preview) return;
+
+            this.enableTabIndentation(editor);
 
             const update = () => {
                 const content = editor.value;
@@ -36,6 +54,9 @@
             const preview = document.getElementById('preview');
             if (!htmlEditor || !cssEditor || !preview) return;
 
+            this.enableTabIndentation(htmlEditor);
+            this.enableTabIndentation(cssEditor);
+
             const update = () => {
                 const html = htmlEditor.value;
                 const css = cssEditor.value;
@@ -58,6 +79,8 @@
             const editor = document.getElementById('code-editor');
             const consoleEl = document.getElementById('console');
             if (!editor || !consoleEl) return;
+
+            this.enableTabIndentation(editor);
 
             const runner = document.createElement('iframe');
             runner.hidden = true;
@@ -306,12 +329,102 @@
 
             // 6. Setup Live Update
             [htmlEditor, cssEditor, jsEditor].forEach(ed => {
+                this.enableTabIndentation(ed);
                 ed.addEventListener('input', () => {
                     // Debounce update to avoid lag
                     clearTimeout(window.previewTimeout);
-                    window.previewTimeout = setTimeout(updatePreview, 500);
+                    window.previewTimeout = setTimeout(updatePreview, 400);
                 });
             });
+
+            // 7. Starter Templates
+            const STARTER_TEMPLATES = {
+                default: {
+                    html: `<h1>My Awesome Project</h1>\n<p>Type something to see it update live!</p>\n<button id="demo-btn">Click Me 🚀</button>`,
+                    css: `body {\n  font-family: 'Outfit', sans-serif;\n  background: #0f172a;\n  color: #f8fafc;\n  text-align: center;\n  padding: 3rem 1rem;\n}\n\nh1 {\n  color: #6366f1;\n  margin-bottom: 0.5rem;\n}\n\nbutton {\n  background: #6366f1;\n  color: white;\n  border: none;\n  padding: 0.75rem 1.5rem;\n  border-radius: 8px;\n  font-size: 1rem;\n  font-weight: 700;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n\nbutton:hover {\n  background: #4f46e5;\n  transform: scale(1.05);\n}`,
+                    js: `const btn = document.getElementById('demo-btn');\nbtn.addEventListener('click', () => {\n  console.log('Button clicked! Great job! 🚀');\n  alert('Hello Junior Coder! 🚀');\n});`
+                },
+                profile: {
+                    html: `<div class="profile-card">\n  <div class="avatar">👨‍💻</div>\n  <h2>Junior Coder</h2>\n  <p class="tagline">Future Full-Stack Web Engineer</p>\n  <div class="skills">\n    <span>HTML5</span>\n    <span>CSS3</span>\n    <span>JavaScript</span>\n  </div>\n  <button id="like-btn">❤️ Applaud Profile (<span id="likes">0</span>)</button>\n</div>`,
+                    css: `body {\n  font-family: 'Outfit', sans-serif;\n  background: #0f172a;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 100vh;\n  margin: 0;\n}\n\n.profile-card {\n  background: #1e293b;\n  border: 1px solid rgba(255,255,255,0.1);\n  border-radius: 16px;\n  padding: 2.5rem 2rem;\n  text-align: center;\n  color: #f8fafc;\n  width: 290px;\n  box-shadow: 0 10px 30px rgba(0,0,0,0.5);\n}\n\n.avatar {\n  font-size: 3.5rem;\n  margin-bottom: 0.5rem;\n}\n\n.tagline {\n  color: #94a3b8;\n  font-size: 0.9rem;\n  margin-bottom: 1.25rem;\n}\n\n.skills {\n  display: flex;\n  gap: 0.5rem;\n  justify-content: center;\n  margin-bottom: 1.5rem;\n}\n\n.skills span {\n  background: rgba(99,102,241,0.2);\n  color: #818cf8;\n  border: 1px solid rgba(99,102,241,0.3);\n  padding: 0.25rem 0.6rem;\n  border-radius: 6px;\n  font-size: 0.8rem;\n  font-weight: 600;\n}\n\nbutton {\n  background: #f43f5e;\n  color: white;\n  border: none;\n  padding: 0.65rem 1.25rem;\n  border-radius: 8px;\n  font-weight: 700;\n  cursor: pointer;\n  transition: transform 0.15s;\n}\n\nbutton:active {\n  transform: scale(0.95);\n}`,
+                    js: `let count = 0;\nconst likeBtn = document.getElementById('like-btn');\nconst likesSpan = document.getElementById('likes');\n\nlikeBtn.addEventListener('click', () => {\n  count++;\n  likesSpan.textContent = count;\n  console.log('Profile applauded! Total count:', count);\n});`
+                },
+                counter: {
+                    html: `<div class="counter-box">\n  <h1>Interactive Counter</h1>\n  <div id="counter-value">0</div>\n  <div class="controls">\n    <button id="dec-btn">- Decrement</button>\n    <button id="reset-btn">Reset</button>\n    <button id="inc-btn">+ Increment</button>\n  </div>\n</div>`,
+                    css: `body {\n  font-family: 'Outfit', sans-serif;\n  background: #0f172a;\n  color: white;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  min-height: 100vh;\n  margin: 0;\n}\n\n.counter-box {\n  text-align: center;\n  background: #1e293b;\n  padding: 2.5rem 3rem;\n  border-radius: 16px;\n  border: 1px solid rgba(255,255,255,0.1);\n  box-shadow: 0 10px 25px rgba(0,0,0,0.5);\n}\n\n#counter-value {\n  font-size: 4.5rem;\n  font-weight: 800;\n  color: #38bdf8;\n  margin: 1rem 0;\n}\n\n.controls {\n  display: flex;\n  gap: 0.75rem;\n}\n\nbutton {\n  background: #334155;\n  color: white;\n  border: none;\n  padding: 0.65rem 1rem;\n  border-radius: 8px;\n  font-weight: 700;\n  cursor: pointer;\n  transition: 0.2s;\n}\n\nbutton:hover {\n  background: #475569;\n}\n\n#inc-btn {\n  background: #10b981;\n}\n#inc-btn:hover {\n  background: #059669;\n}\n\n#dec-btn {\n  background: #ef4444;\n}\n#dec-btn:hover {\n  background: #dc2626;\n}`,
+                    js: `let value = 0;\nconst display = document.getElementById('counter-value');\n\ndocument.getElementById('inc-btn').addEventListener('click', () => {\n  value++;\n  display.textContent = value;\n  console.log('Incremented to', value);\n});\n\ndocument.getElementById('dec-btn').addEventListener('click', () => {\n  value--;\n  display.textContent = value;\n  console.log('Decremented to', value);\n});\n\ndocument.getElementById('reset-btn').addEventListener('click', () => {\n  value = 0;\n  display.textContent = value;\n  console.log('Reset counter');\n});`
+                },
+                blank: {
+                    html: `<!DOCTYPE html>\n<html>\n<head>\n  <title>My Project</title>\n</head>\n<body>\n  <!-- Start building your creation -->\n  <h1>Clean Slate</h1>\n</body>\n</html>`,
+                    css: `/* Add your custom styles here */\nbody {\n  margin: 0;\n  padding: 2rem;\n  font-family: 'Outfit', sans-serif;\n  background: #0f172a;\n  color: white;\n}`,
+                    js: `// Add your logic here\nconsole.log('Clean slate ready! Happy building!');`
+                }
+            };
+
+            const templateSelect = document.getElementById('ide-template-select');
+            if (templateSelect) {
+                templateSelect.addEventListener('change', (e) => {
+                    const chosen = STARTER_TEMPLATES[e.target.value];
+                    if (chosen) {
+                        htmlEditor.value = chosen.html;
+                        cssEditor.value = chosen.css;
+                        jsEditor.value = chosen.js;
+                        updatePreview();
+                        logToIDE(`Loaded ${e.target.options[e.target.selectedIndex].text}`);
+                        if (window.showToast) {
+                            window.showToast('Starter template loaded! 🎨');
+                        }
+                    }
+                });
+            }
+
+            // 8. Standalone Project Exporter
+            const exportBtn = document.getElementById('export-project-btn');
+            if (exportBtn) {
+                exportBtn.addEventListener('click', () => {
+                    const html = htmlEditor.value;
+                    const css = cssEditor.value;
+                    const js = jsEditor.value;
+
+                    const standalone = `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junior Coders Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+${css}
+  </style>
+</head>
+<body>
+${html}
+
+  <script>
+${js}
+  <\/script>
+</body>
+</html>`;
+
+                    const blob = new Blob([standalone], { type: 'text/html;charset=utf-8' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'my-junior-coders-project.html';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+
+                    if (window.showToast) {
+                        window.showToast('Project downloaded! Open it directly in your browser 🚀', 'success');
+                    } else {
+                        logToIDE('Project downloaded as my-junior-coders-project.html!');
+                    }
+                });
+            }
 
             updatePreview();
         }

@@ -427,7 +427,36 @@ p {
     width: 200px;
     background: rgba(255, 255, 255, 0.11);
     border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.18);
+.nav-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.nav-search-kbd {
+    position: absolute;
+    right: 8px;
+    font-size: 0.65rem;
+    padding: 0.15rem 0.35rem;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    pointer-events: none;
+    font-family: var(--font-mono);
+    line-height: 1;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
+
+.nav-search-input:focus ~ .nav-search-kbd {
+    opacity: 0;
+}
+
+[data-theme="light"] .nav-search-kbd {
+    background: rgba(0, 0, 0, 0.06);
+    border-color: rgba(0, 0, 0, 0.12);
+    color: var(--text-secondary);
 }
 
 .nav-search-results {
@@ -435,19 +464,24 @@ p {
     position: absolute;
     top: calc(100% + 8px);
     right: 0;
-    min-width: 290px;
+    min-width: 310px;
     background: #131d31;
     border: 1px solid var(--border-dim);
     border-radius: 1rem;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
-    padding: 0.4rem;
+    padding: 0.5rem;
     z-index: 1300;
     max-height: 420px;
     overflow-y: auto;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-search-results.open {
     display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 [data-theme="light"] .nav-search-results {
@@ -468,9 +502,11 @@ p {
     font-weight: 500;
 }
 
-.search-result-item:hover {
-    background: rgba(99, 102, 241, 0.12);
+.search-result-item:hover,
+.search-result-item.selected {
+    background: rgba(99, 102, 241, 0.22);
     color: white;
+    outline: none;
 }
 
 .search-result-icon {
@@ -1322,6 +1358,121 @@ p {
     font-weight: 800;
 }
 
+.course-card.textbook-card.js-book {
+    background: linear-gradient(135deg, #422006 0%, #0f172a 100%);
+    border: 2px solid #eab308;
+}
+
+.course-card.textbook-card.js-book .book-icon-amber {
+    background: #eab308;
+    color: #1e1b4b;
+}
+
+.course-card.textbook-card.js-book .book-badge-amber {
+    background: #eab308;
+    color: #1e1b4b;
+    font-weight: 700;
+}
+
+.course-card.textbook-card.js-book .book-btn-amber {
+    background: #eab308;
+    color: #1e1b4b;
+    font-weight: 800;
+}
+
+.course-card.textbook-card.git-book {
+    background: linear-gradient(135deg, #431407 0%, #0f172a 100%);
+    border: 2px solid #f05032;
+}
+
+.course-card.textbook-card.git-book .book-icon-git {
+    background: #f05032;
+    color: white;
+}
+
+.course-card.textbook-card.git-book .book-badge-git {
+    background: #f05032;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.course-card.textbook-card.git-book .book-btn-git {
+    background: #f05032;
+    color: white;
+    font-weight: 800;
+}
+
+.course-card.textbook-card.php-book {
+    background: linear-gradient(135deg, #3b0764 0%, #0f172a 100%);
+    border: 2px solid #a855f7;
+}
+
+.course-card.textbook-card.php-book .book-icon-violet {
+    background: #a855f7;
+    color: white;
+}
+
+.course-card.textbook-card.php-book .book-badge-violet {
+    background: #a855f7;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.course-card.textbook-card.php-book .book-btn-violet {
+    background: #a855f7;
+    color: white;
+    font-weight: 800;
+}
+
+.course-card.textbook-card.mysql-book {
+    background: linear-gradient(135deg, #082f49 0%, #0f172a 100%);
+    border: 2px solid #0284c7;
+}
+
+.course-card.textbook-card.mysql-book .book-icon-cyan {
+    background: #0284c7;
+    color: white;
+}
+
+.course-card.textbook-card.mysql-book .book-badge-cyan {
+    background: #0284c7;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.course-card.textbook-card.mysql-book .book-btn-cyan {
+    background: #0284c7;
+    color: white;
+    font-weight: 800;
+}
+
+.course-card.textbook-card.laravel-book {
+    background: linear-gradient(135deg, #450a0a 0%, #0f172a 100%);
+    border: 2px solid #ef4444;
+}
+
+.course-card.textbook-card.laravel-book .book-icon-red {
+    background: #ef4444;
+    color: white;
+}
+
+.course-card.textbook-card.laravel-book .book-badge-red {
+    background: #ef4444;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.course-card.textbook-card.laravel-book .book-btn-red {
+    background: #ef4444;
+    color: white;
+    font-weight: 800;
+}
+
+[data-theme="light"] .course-card.textbook-card {
+    background: #ffffff !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
 .course-card.playground-banner {
     background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
     border: 2px solid var(--primary);
@@ -1734,7 +1885,7 @@ textarea {
     box-shadow: 0 0 8px var(--primary);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
     .bottom-nav {
         display: block !important;
     }
@@ -2131,10 +2282,65 @@ textarea {
 
 .ide-tabs {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     background: #0f172a;
-    padding: 0.5rem;
+    padding: 0.5rem 0.75rem;
     gap: 0.5rem;
     border-bottom: 1px solid var(--border-dim);
+    flex-wrap: wrap;
+}
+
+.ide-tabs-group {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.ide-actions-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ide-template-select {
+    background: #1e293b;
+    color: #e2e8f0;
+    border: 1px solid var(--border-dim);
+    padding: 0.4rem 0.65rem;
+    border-radius: 0.45rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+
+.ide-template-select:hover,
+.ide-template-select:focus {
+    border-color: var(--primary);
+}
+
+.ide-btn-export {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: white;
+    border: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 0.45rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.ide-btn-export:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.45);
 }
 
 .ide-tab {

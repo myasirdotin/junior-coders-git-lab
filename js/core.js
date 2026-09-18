@@ -491,6 +491,7 @@
                 <div class="nav-right">
                     <div class="nav-search" id="nav-search-desktop">
                         <input type="text" placeholder="🔍 Search…" class="nav-search-input" id="nav-search-input-desktop" autocomplete="off" aria-label="Search courses and modules">
+                        <kbd class="nav-search-kbd" id="nav-search-kbd">Ctrl K</kbd>
                         <div class="nav-search-results" id="nav-search-results-desktop"></div>
                     </div>
                     <button class="reading-mode-toggle" type="button" aria-label="Toggle reading mode" title="Distraction-Free Reading Mode">📖 Read Mode</button>
@@ -822,10 +823,25 @@
         const results = document.getElementById(resultsId);
         if (!input || !results) return;
 
+        const isMac = typeof navigator !== 'undefined' && /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+        const kbd = document.getElementById('nav-search-kbd');
+        if (kbd && isMac) kbd.textContent = '⌘K';
+
         const index = buildSearchIndex(baseUrl);
+        let selectedIndex = -1;
+
+        const updateSelection = (items) => {
+            items.forEach((el, idx) => {
+                el.classList.toggle('selected', idx === selectedIndex);
+                if (idx === selectedIndex) {
+                    el.scrollIntoView({ block: 'nearest' });
+                }
+            });
+        };
 
         const render = (q) => {
             const term = q.trim().toLowerCase();
+            selectedIndex = -1;
             if (!term) { results.classList.remove('open'); results.innerHTML = ''; return; }
             const hits = index.filter(item =>
                 item.label.toLowerCase().includes(term) || item.sub.toLowerCase().includes(term)
@@ -833,8 +849,8 @@
             if (hits.length === 0) {
                 results.innerHTML = '<div class="search-no-results">No results found 😕</div>';
             } else {
-                results.innerHTML = hits.map(item => `
-                    <a href="${item.url}" class="search-result-item">
+                results.innerHTML = hits.map((item, idx) => `
+                    <a href="${item.url}" class="search-result-item" data-index="${idx}">
                         <span class="search-result-icon">${item.icon}</span>
                         <span class="search-result-label">${item.label}</span>
                         <span class="search-result-sub">${item.sub}</span>
@@ -846,10 +862,31 @@
 
         input.addEventListener('input', () => render(input.value));
         input.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') { results.classList.remove('open'); input.value = ''; input.blur(); }
-            if (e.key === 'Enter') {
-                const first = results.querySelector('a.search-result-item');
-                if (first) first.click();
+            const items = results.querySelectorAll('a.search-result-item');
+            if (e.key === 'Escape') { 
+                results.classList.remove('open'); 
+                input.value = ''; 
+                input.blur(); 
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (items.length > 0) {
+                    selectedIndex = (selectedIndex + 1) % items.length;
+                    updateSelection(items);
+                }
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (items.length > 0) {
+                    selectedIndex = (selectedIndex - 1 + items.length) % items.length;
+                    updateSelection(items);
+                }
+            } else if (e.key === 'Enter') {
+                if (selectedIndex >= 0 && items[selectedIndex]) {
+                    e.preventDefault();
+                    items[selectedIndex].click();
+                } else {
+                    const first = results.querySelector('a.search-result-item');
+                    if (first) first.click();
+                }
             }
         });
 
@@ -859,6 +896,25 @@
             }
         });
     }
+
+    // Global shortcut Ctrl+K / Cmd+K and /
+    document.addEventListener('keydown', (e) => {
+        const isMac = typeof navigator !== 'undefined' && /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+        const isModifier = isMac ? e.metaKey : e.ctrlKey;
+        const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+        const isTyping = activeTag === 'input' || activeTag === 'textarea' || document.activeElement.isContentEditable;
+
+        if ((isModifier && e.key.toLowerCase() === 'k') || (!isTyping && e.key === '/')) {
+            e.preventDefault();
+            const desktopInput = document.getElementById('nav-search-input-desktop');
+            const mobileInput = document.getElementById('nav-search-input');
+            const target = (desktopInput && window.innerWidth > 900) ? desktopInput : mobileInput;
+            if (target) {
+                target.focus();
+                target.select();
+            }
+        }
+    });
 
     function injectModuleNavigator() {
         const currentModule = getCurrentModule();
