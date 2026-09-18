@@ -362,7 +362,7 @@
 
         // Active-section detection for dropdown highlight
         const cheatPaths = ['cheatsheet-html.html','cheatsheet-css.html','cheatsheet-js.html',
-                            'cheatsheet-php.html','cheatsheet-mysql.html','cheatsheet-laravel.html'];
+                            'cheatsheet-git.html','cheatsheet-php.html','cheatsheet-mysql.html','cheatsheet-laravel.html'];
         const isResources = currentPath === 'ai-roadmap.html' || currentPath === 'getting-started.html' || cheatPaths.includes(currentPath);
         const isBackend   = currentModule === 'Learning PHP' || currentModule === 'Learning MySQL' || currentModule === 'Learning Laravel';
         const isFrontend  = !isBackend && !isResources && currentModule !== null && (
@@ -418,7 +418,7 @@
                 </div>
                 <div class="nav-dropdown">
                     <button class="nav-dropdown-btn ${isBackend ? 'active-parent' : ''}" id="backend-dropdown-btn" aria-haspopup="true" aria-expanded="false">
-                        🗄️ Backend <span class="dropdown-arrow">▾</span>
+                        🗄️ Backend &amp; Tools <span class="dropdown-arrow">▾</span>
                     </button>
                     <div class="nav-dropdown-content nav-dropdown-rich">
                         <div class="dropdown-section-label">Server-Side</div>
@@ -433,6 +433,12 @@
                         <a href="${baseUrl}Learning%20Laravel/learninglaravel.html">
                             <span class="dd-icon" style="background:rgba(255,45,32,0.15);">🔥</span>
                             <span class="dd-text"><strong>Laravel</strong><small>PHP framework</small></span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-section-label">Developer Tools</div>
+                        <a href="${baseUrl}book-git/index.html">
+                            <span class="dd-icon" style="background:rgba(240,80,50,0.15);">🐙</span>
+                            <span class="dd-text"><strong>Git &amp; GitHub</strong><small>Version control &amp; teamwork</small></span>
                         </a>
                     </div>
                 </div>
@@ -455,6 +461,7 @@
                         <a href="${baseUrl}cheatsheet-html.html" class="${currentPath === 'cheatsheet-html.html' ? 'active' : ''}">🌐 HTML</a>
                         <a href="${baseUrl}cheatsheet-css.html" class="${currentPath === 'cheatsheet-css.html' ? 'active' : ''}">🎨 CSS</a>
                         <a href="${baseUrl}cheatsheet-js.html" class="${currentPath === 'cheatsheet-js.html' ? 'active' : ''}">⚡ JS</a>
+                        <a href="${baseUrl}cheatsheet-git.html" class="${currentPath === 'cheatsheet-git.html' ? 'active' : ''}">🐙 Git &amp; GitHub</a>
                         <a href="${baseUrl}cheatsheet-php.html" class="${currentPath === 'cheatsheet-php.html' ? 'active' : ''}">🐘 PHP</a>
                         <a href="${baseUrl}cheatsheet-mysql.html" class="${currentPath === 'cheatsheet-mysql.html' ? 'active' : ''}">🗄️ MySQL</a>
                         <a href="${baseUrl}cheatsheet-laravel.html" class="${currentPath === 'cheatsheet-laravel.html' ? 'active' : ''}">🔥 Laravel</a>
@@ -774,12 +781,13 @@
         });
 
         [
-            { label: 'HTML Cheat Sheet',    sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-html.html`    },
-            { label: 'CSS Cheat Sheet',     sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-css.html`     },
-            { label: 'JS Cheat Sheet',      sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-js.html`      },
-            { label: 'PHP Cheat Sheet',     sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-php.html`     },
-            { label: 'MySQL Cheat Sheet',   sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-mysql.html`   },
-            { label: 'Laravel Cheat Sheet', sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-laravel.html` },
+            { label: 'HTML Cheat Sheet',         sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-html.html`    },
+            { label: 'CSS Cheat Sheet',          sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-css.html`     },
+            { label: 'JS Cheat Sheet',           sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-js.html`      },
+            { label: 'Git & GitHub Cheat Sheet', sub: 'Cheat Sheets', icon: '🐙', url: `${baseUrl}cheatsheet-git.html`     },
+            { label: 'PHP Cheat Sheet',          sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-php.html`     },
+            { label: 'MySQL Cheat Sheet',        sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-mysql.html`   },
+            { label: 'Laravel Cheat Sheet',      sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-laravel.html` },
         ].forEach(item => index.push(item));
 
         // Textbooks & Interactive Playgrounds
@@ -791,6 +799,7 @@
             { label: 'HTML for Class 6 & 7 (Textbook)',    sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-html/index.html` },
             { label: 'CSS for Class 7 (Textbook)',         sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-css/index.html` },
             { label: 'JavaScript for Class 7 (Textbook)',  sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-js/index.html` },
+            { label: 'Git & GitHub Version Control (Textbook)', sub: 'Textbook', icon: '🐙', url: `${baseUrl}book-git/index.html` },
             { label: 'PHP for Class 9 (Textbook)',         sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-php/index.html` },
             { label: 'MySQL for Class 9 (Textbook)',       sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-mysql/index.html` },
             { label: 'Laravel for Class 9 (Textbook)',     sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-laravel/index.html` },

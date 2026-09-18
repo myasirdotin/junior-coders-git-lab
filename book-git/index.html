@@ -146,8 +146,8 @@
           <span class="back-icon">←</span>
           <span>Home</span>
         </a>
-        <a href="../getting-started.html" class="book-back-home" title="Getting Started">
-          <span>Getting Started</span>
+        <a href="../cheatsheet-git.html" class="book-back-home" title="Git Cheat Sheet">
+          <span>Git Cheat Sheet</span>
         </a>
       </div>
 
@@ -251,7 +251,26 @@
     </aside>
 
     <!-- Main Content Reader -->
-    <main class="book-main">
+    <main class="book-main book-reader book-content">
+      <nav class="reader-top-nav" aria-label="Breadcrumb and quick navigation" style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: var(--bg-card); border-bottom: 1px solid var(--border-color, rgba(255,255,255,0.08)); flex-wrap: wrap; gap: 0.5rem;">
+        <div class="reader-breadcrumb">
+          <a href="../index.html"><span>🏠</span> Home</a>
+          <span>/</span>
+          <a href="../cheatsheet-git.html">Git Cheat Sheet</a>
+          <span>/</span>
+          <span class="active-book" style="color: #f05032; font-weight: 600;">Git &amp; GitHub Textbook</span>
+        </div>
+        <div class="reader-top-links" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <a href="../index.html" class="reader-nav-btn"><span>🏠</span> Home</a>
+          <a href="../book-html/index.html" class="reader-nav-btn"><span>🌐</span> HTML</a>
+          <a href="../book-css/index.html" class="reader-nav-btn"><span>🎨</span> CSS</a>
+          <a href="../book-js/index.html" class="reader-nav-btn"><span>⚡</span> JS</a>
+          <a href="../book-php/index.html" class="reader-nav-btn"><span>🐘</span> PHP</a>
+          <a href="../book-mysql/index.html" class="reader-nav-btn"><span>🗄️</span> MySQL</a>
+          <a href="../cheatsheet-git.html" class="reader-nav-btn" style="background: rgba(240,80,50,0.15); color: #f05032;"><span>📋</span> Cheat Sheet</a>
+        </div>
+      </nav>
+
       <div class="book-content-wrapper">
         <header class="chapter-header">
           <div class="chapter-breadcrumb">

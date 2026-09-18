@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git &amp; GitHub Cheat Sheet | Junior Coders</title>
+    <meta name="description" content="A complete Git & GitHub cheat sheet for junior coders and Class 8–9 students. Terminal commands, branching, remotes, and pull requests — one page.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .git-hero {
+            background: linear-gradient(135deg, rgba(240, 80, 50, 0.25) 0%, rgba(30, 41, 59, 0.9) 100%);
+            border-bottom: 2px solid #f05032;
+        }
+        .git-hdr {
+            background: linear-gradient(135deg, rgba(240, 80, 50, 0.2), rgba(240, 80, 50, 0.05));
+            color: #f05032;
+            border-bottom: 1px solid rgba(240, 80, 50, 0.3);
+        }
+        .git-table td:first-child {
+            font-family: var(--font-mono);
+            color: #fb923c;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+<div class="cheatsheet-container">
+
+    <header class="cheat-hero git-hero">
+        <span class="course-level" style="background:rgba(240,80,50,0.25); color:#f05032; border: 1px solid rgba(240,80,50,0.4);">Class 8 &amp; 9 Version Control</span>
+        <h1>🐙 Git &amp; GitHub Cheat Sheet</h1>
+        <p>Every essential version control command — staging, branching, conflict resolution &amp; remotes on one quick-reference page!</p>
+    </header>
+
+    <div class="cheat-tip">
+        <strong>The 3 Git States:</strong> Working Tree (files you edit) ➔ Staging Area (<code>git add</code>) ➔ Local Repository (<code>git commit</code>) ➔ Remote (<code>git push origin main</code>).
+    </div>
+
+    <div class="cheat-grid">
+
+        <!-- 1. Initial Setup -->
+        <div class="cheat-card">
+            <div class="cheat-card-header git-hdr">⚙️ 1. Setup &amp; Configuration</div>
+            <table class="cheat-table git-table">
+                <tr><td>git --version</td><td>Verify Git installation</td></tr>
+                <tr><td>git config --global user.name "Name"</td><td>Set your global username</td></tr>
+                <tr><td>git config --global user.email "name@srinagar.edu.in"</td><td>Set your global email address</td></tr>
+                <tr><td>git config --global init.defaultBranch main</td><td>Set standard default branch name</td></tr>
+                <tr><td>git config --list</td><td>List all active configurations</td></tr>
+            </table>
+        </div>
+
+        <!-- 2. Creating & Inspecting -->
+        <div class="cheat-card">
+            <div class="cheat-card-header git-hdr">📁 2. Starting &amp; Status</div>
+            <table class="cheat-table git-table">
+                <tr><td>git init</td><td>Initialize a new local repo in current folder</td></tr>
+                <tr><td>git clone &lt;url&gt;</td><td>Download a remote repo onto your computer</td></tr>
+                <tr><td>git status</td><td>Check modified, staged, and untracked files</td></tr>
+                <tr><td>git log --oneline</td><td>View compact one-line commit history</td></tr>
+                <tr><td>git log --oneline --graph --all</td><td>Visual ASCII branch tree of history</td></tr>
+            </table>
+        </div>
+
+        <!-- 3. Staging & Committing -->
+        <div class="cheat-card">
+            <div class="cheat-card-header git-hdr">💾 3. Staging &amp; Commits</div>
+            <table class="cheat-table git-table">
+                <tr><td>git add index.html</td><td>Stage a single file for next commit</td></tr>
+                <tr><td>git add .</td><td>Stage all modified and created files</td></tr>
+                <tr><td>git diff</td><td>Show unstaged changes in working tree</td></tr>
+                <tr><td>git diff --staged</td><td>Show changes staged for next commit</td></tr>
+                <tr><td>git commit -m "feat: msg"</td><td>Save staged changes as a snapshot</td></tr>
+                <tr><td>git commit --amend -m "new"</td><td>Fix the message of the last commit</td></tr>
+            </table>
+        </div>
+
+        <!-- 4. Branching & Switching -->
+        <div class="cheat-card">
+            <div class="cheat-card-header git-hdr">🌿 4. Branching &amp; Switching</div>
+            <table class="cheat-table git-table">
+                <tr><td>git branch</td><td>List all local branches</td></tr>
+                <tr><td>git switch -c &lt;branch-name&gt;</td><td>Create and jump into a new branch</td></tr>
+                <tr><td>git switch main</td><td>Switch back to the main branch</td></tr>
+                <tr><td>git merge &lt;feature-branch&gt;</td><td>Merge feature into current active branch</td></tr>
+                <tr><td>git branch -d &lt;branch-name&gt;</td><td>Delete a merged local branch safely</td></tr>
+                <tr><td>git merge --abort</td><td>Abort an active merge conflict cleanly</td></tr>
+            </table>
+        </div>
+
+        <!-- 5. Undoing & Safety -->
+        <div class="cheat-card">
+            <div class="cheat-card-header git-hdr">🛟 5. Undoing &amp; Safety Nets</div>
+            <table class="cheat-table git-table">
+                <tr><td>git restore &lt;file&gt;</td><td>Discard unstaged edits in a file</td></tr>
+                <tr><td>git restore --staged &lt;file&gt;</td><td>Unstage a file back to working tree</td></tr>
+                <tr><td>git stash</td><td>Shelve unfinished work temporarily</td></tr>
+                <tr><td>git stash pop</td><td>Restore shelved work back to files</td></tr>
+                <tr><td>git revert &lt;commit-hash&gt;</td><td>Safely undo a published commit with a new commit</td></tr>
+            </table>
+        </div>
+
+        <!-- 6. Remote & GitHub -->
+        <div class="cheat-card">
+            <div class="cheat-card-header git-hdr">☁️ 6. Remotes &amp; GitHub</div>
+            <table class="cheat-table git-table">
+                <tr><td>git remote add origin &lt;url&gt;</td><td>Link local repo to GitHub remote</td></tr>
+                <tr><td>git remote -v</td><td>View configured remote URLs</td></tr>
+                <tr><td>git push -u origin main</td><td>First push and set upstream tracking</td></tr>
+                <tr><td>git push</td><td>Push local commits to remote repo</td></tr>
+                <tr><td>git fetch origin</td><td>Download remote changes without merging</td></tr>
+                <tr><td>git pull origin main</td><td>Fetch and merge remote commits into branch</td></tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="cheat-tip" style="margin-top: 2rem;">
+        <strong>Ethical &amp; Clean Git Rule:</strong> Never commit passwords, API tokens, or <code>.env</code> files! Always add private configuration files to your <code>.gitignore</code> file before running <code>git add .</code>.
+    </div>
+
+    <div style="text-align:center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="book-git/index.html" class="btn-primary" style="background: linear-gradient(135deg, #f05032, #c2410c); color: white;">📖 Read Git &amp; GitHub Textbook (20 Ch)</a>
+        <a href="index.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">🏠 Return Home</a>
+    </div>
+
+</div>
+<script src="js/core.js"></script>
+</body>
+</html>
