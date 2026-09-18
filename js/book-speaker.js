@@ -11,13 +11,50 @@
   let currentRate = 1.0;
   let preferredVoice = null;
 
-  // Voice Loading
+  // Intelligent Neural Voice Scoring & Selection
+  const scoreVoice = (voice) => {
+    if (!voice.lang || !voice.lang.toLowerCase().startsWith('en')) return -100;
+    let score = 10;
+    const name = (voice.name || '').toLowerCase();
+    const uri = (voice.voiceURI || '').toLowerCase();
+
+    // Heavy penalty for mechanical / robotic legacy voices
+    if (name.includes('espeak') || uri.includes('espeak')) score -= 80;
+    if (name.includes('desktop') || uri.includes('desktop')) score -= 40;
+
+    // Premium Neural / Natural voices get top priority
+    if (name.includes('natural') || uri.includes('natural')) score += 75;
+    if (name.includes('neural') || uri.includes('neural')) score += 75;
+    if (name.includes('online') || uri.includes('online')) score += 45;
+    if (name.includes('enhanced') || uri.includes('enhanced')) score += 50;
+    if (name.includes('premium') || uri.includes('premium')) score += 50;
+
+    // Top-rated human narrator profiles across platforms
+    if (name.includes('jenny') || name.includes('guy') || name.includes('aria')) score += 40;
+    if (name.includes('google us english') || name.includes('google uk english female')) score += 35;
+    if (name.includes('samantha') || name.includes('siri') || name.includes('daniel')) score += 30;
+
+    // Cloud / network synthesized voice over low-bitrate local synth
+    if (voice.localService === false) score += 25;
+
+    // Favor standard English accents for clarity
+    if (voice.lang.startsWith('en-US') || voice.lang.startsWith('en_US')) score += 10;
+    if (voice.lang.startsWith('en-GB') || voice.lang.startsWith('en_GB')) score += 8;
+
+    return score;
+  };
+
   const loadVoices = () => {
     if (!('speechSynthesis' in window)) return;
     const voices = window.speechSynthesis.getVoices();
-    preferredVoice = voices.find(v => v.lang && v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Online') || v.name.includes('Jenny') || v.name.includes('Guy'))) ||
-                     voices.find(v => v.lang && v.lang.startsWith('en')) ||
-                     voices[0] || null;
+    if (!voices || voices.length === 0) return;
+
+    // Sort voices by quality score descending
+    const englishVoices = voices
+      .filter(v => v.lang && v.lang.toLowerCase().startsWith('en'))
+      .sort((a, b) => scoreVoice(b) - scoreVoice(a));
+
+    preferredVoice = englishVoices[0] || voices[0] || null;
   };
 
   if ('speechSynthesis' in window) {
@@ -40,6 +77,18 @@
       .replace(/&quot;/g, '"')
       .replace(/&apos;/g, "'")
       .replace(EMOJI_REGEX, '')
+      // Remove markdown heading hashes (e.g. "### 1. Title" -> "1. Title")
+      .replace(/^#{1,6}\s+/gm, '')
+      // Strip markdown bold/italic decorators
+      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/\*([^*]+)\*/g, '$1')
+      .replace(/__([^_]+)__/g, '$1')
+      .replace(/_([^_]+)_/g, '$1')
+      // Strip inline backticks from code so speech flows naturally
+      .replace(/`([^`]+)`/g, '$1')
+      // Strip leading bullet markers
+      .replace(/^\s*[-*+]\s+/gm, '')
+      // Smooth punctuation spacing for natural breathing pauses
       .replace(/\s+([,.:;!?])/g, '$1')
       .replace(/\(\s+/g, '(')
       .replace(/\s+\)/g, ')')
@@ -120,12 +169,20 @@
     updateToolbarUI('speaking', snippet);
 
     const utterance = new SpeechSynthesisUtterance(spokenText);
-    utterance.rate = currentRate;
+    // 0.94 rate gives a warm, calm, human instructional pace rather than a rushed robot
+    utterance.rate = Math.min(2.0, Math.max(0.5, currentRate * 0.94));
+    utterance.pitch = 1.02; // Warm, natural human pitch
+    utterance.volume = 1.0;
     if (preferredVoice) utterance.voice = preferredVoice;
 
     utterance.onend = () => {
       if (queue.length > 0 && !isPaused) {
-        playNextInQueue();
+        // 90ms breathing pause between sentences for realistic human pacing
+        setTimeout(() => {
+          if (queue.length > 0 && !isPaused) {
+            playNextInQueue();
+          }
+        }, 90);
       }
     };
 
