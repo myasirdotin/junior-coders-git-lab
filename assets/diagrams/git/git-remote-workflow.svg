@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: 'Outfit', -apple-system, sans-serif; font-weight: 800; font-size: 20px; fill: #0f172a; }
+      .subtitle { font-family: 'Outfit', -apple-system, sans-serif; font-weight: 500; font-size: 13px; fill: #64748b; }
+      .panel-title { font-family: 'Outfit', -apple-system, sans-serif; font-weight: 700; font-size: 16px; }
+      .cmd { font-family: 'Fira Code', monospace; font-size: 12px; font-weight: 700; }
+      .desc { font-family: 'Outfit', -apple-system, sans-serif; font-size: 11px; fill: #64748b; }
+    </style>
+    <linearGradient id="bg3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <filter id="shadow3" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+    <marker id="pushArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#10b981" />
+    </marker>
+    <marker id="pullArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#0284c7" />
+    </marker>
+    <marker id="fetchArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M 0 1 L 8 5 L 0 9 z" fill="#8b5cf6" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bg3)" rx="16"/>
+  <rect width="100%" height="100%" fill="none" stroke="#e2e8f0" stroke-width="1.5" rx="16"/>
+
+  <text x="460" y="38" text-anchor="middle" class="title">Remote Synchronization: Local Machine ⟷ GitHub</text>
+  <text x="460" y="60" text-anchor="middle" class="subtitle">Pushing code, fetching upstream updates, and pulling fresh team commits</text>
+
+  <!-- Left: Developer Laptop -->
+  <g transform="translate(60, 95)" filter="url(#shadow3)">
+    <rect width="250" height="230" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <rect width="250" height="42" rx="12" fill="#f8fafc"/>
+    <rect width="250" height="12" y="30" fill="#f8fafc"/>
+    <text x="125" y="27" text-anchor="middle" class="panel-title" fill="#1e293b">💻 Developer Laptop (Local)</text>
+    
+    <rect x="25" y="60" width="200" height="42" rx="6" fill="#f1f5f9" stroke="#e2e8f0"/>
+    <text x="35" y="78" font-family="'Outfit', sans-serif" font-weight="600" font-size="12px" fill="#334155">Working Directory</text>
+    <text x="35" y="93" class="desc">Where you write code</text>
+
+    <rect x="25" y="112" width="200" height="42" rx="6" fill="#ffedd5" stroke="#fed7aa"/>
+    <text x="35" y="130" font-family="'Outfit', sans-serif" font-weight="600" font-size="12px" fill="#c2410c">Local Branch: main</text>
+    <text x="35" y="145" class="desc">Where commits are made</text>
+
+    <rect x="25" y="164" width="200" height="46" rx="6" fill="#f5f3ff" stroke="#ddd6fe"/>
+    <text x="35" y="182" font-family="'Outfit', sans-serif" font-weight="600" font-size="12px" fill="#6d28d9">Remote Tracking: origin/main</text>
+    <text x="35" y="198" class="desc">Bookmark of what GitHub has</text>
+  </g>
+
+  <!-- Center Arrow 1: git push -->
+  <g transform="translate(340, 115)">
+    <path d="M 0 15 L 210 15" fill="none" stroke="#10b981" stroke-width="3" marker-end="url(#pushArrow)"/>
+    <rect x="55" y="-5" width="105" height="24" rx="6" fill="#dcfce7" stroke="#86efac"/>
+    <text x="107" y="11" text-anchor="middle" class="cmd" fill="#166534">git push ⬆</text>
+    <text x="107" y="32" text-anchor="middle" class="desc">Uploads local commits</text>
+  </g>
+
+  <!-- Center Arrow 2: git fetch -->
+  <g transform="translate(340, 180)">
+    <path d="M 210 15 L 0 15" fill="none" stroke="#8b5cf6" stroke-width="3" marker-end="url(#fetchArrow)"/>
+    <rect x="55" y="-5" width="105" height="24" rx="6" fill="#ede9fe" stroke="#c4b5fd"/>
+    <text x="107" y="11" text-anchor="middle" class="cmd" fill="#5b21b6">git fetch ⬇</text>
+    <text x="107" y="32" text-anchor="middle" class="desc">Downloads info (no merge)</text>
+  </g>
+
+  <!-- Center Arrow 3: git pull -->
+  <g transform="translate(340, 245)">
+    <path d="M 210 15 L 0 15" fill="none" stroke="#0284c7" stroke-width="3" marker-end="url(#pullArrow)"/>
+    <rect x="40" y="-5" width="135" height="24" rx="6" fill="#e0f2fe" stroke="#7dd3fc"/>
+    <text x="107" y="11" text-anchor="middle" class="cmd" fill="#0369a1">git pull ⬇ (Fetch + Merge)</text>
+    <text x="107" y="32" text-anchor="middle" class="desc">Downloads &amp; updates files</text>
+  </g>
+
+  <!-- Right: GitHub Cloud -->
+  <g transform="translate(590, 95)" filter="url(#shadow3)">
+    <rect width="270" height="230" rx="12" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
+    <rect width="270" height="42" rx="12" fill="#f0f9ff"/>
+    <rect width="270" height="12" y="30" fill="#f0f9ff"/>
+    <text x="135" y="27" text-anchor="middle" class="panel-title" fill="#0369a1">☁️ GitHub.com (Remote)</text>
+    
+    <rect x="25" y="60" width="220" height="42" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="35" y="78" font-family="'Outfit', sans-serif" font-weight="600" font-size="12px" fill="#334155">Remote Name: origin</text>
+    <text x="35" y="93" class="desc">https://github.com/user/repo.git</text>
+
+    <rect x="25" y="112" width="220" height="42" rx="6" fill="#e0f2fe" stroke="#bae6fd"/>
+    <text x="35" y="130" font-family="'Outfit', sans-serif" font-weight="600" font-size="12px" fill="#0284c7">Branch: main (Cloud)</text>
+    <text x="35" y="145" class="desc">Visible to teammates &amp; CI/CD</text>
+
+    <rect x="25" y="164" width="220" height="46" rx="6" fill="#f0fdf4" stroke="#bbf7d0"/>
+    <text x="35" y="182" font-family="'Outfit', sans-serif" font-weight="600" font-size="12px" fill="#15803d">Features</text>
+    <text x="35" y="198" class="desc">Pull Requests • Issues • GitHub Pages</text>
+  </g>
+
+  <!-- Summary Footnote -->
+  <text x="460" y="355" text-anchor="middle" class="desc" font-size="12px">
+    💡 <tspan font-weight="700">Golden Rule:</tspan> Always run <tspan font-family="monospace">git pull</tspan> before starting work so you never build on outdated code!
+  </text>
+</svg>

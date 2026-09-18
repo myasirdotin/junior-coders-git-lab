@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git &amp; GitHub for Junior Coders | Version Control Mastery</title>
+  <meta name="description" content="Official Git & GitHub Textbook: Master version control, commits, branches, merge conflicts, pull requests, and GitHub Pages.">
+  <link rel="stylesheet" href="../styles/book-theme.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { 
+      --primary-blue: #f05032; 
+      --primary-accent: #ea580c;
+      --git-badge: #c2410c;
+    }
+    .book-brand-icon { 
+      background: linear-gradient(135deg, #f05032, #c2410c) !important; 
+      color: #fff; 
+      font-weight: 800; 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      width: 42px; 
+      height: 42px; 
+      border-radius: 10px; 
+      flex-shrink: 0; 
+      font-size: 20px;
+    }
+    .git-brand-badge {
+      display: inline-block;
+      background: rgba(240, 80, 50, 0.12);
+      color: #c2410c;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .chapter-nav-item.active a { 
+      background: #fff7ed; 
+      color: #c2410c; 
+      border-left: 3px solid #f05032; 
+      font-weight: 700;
+    }
+    .chapter-nav-item a:hover { 
+      color: #c2410c; 
+      background: #ffedd5; 
+    }
+    .book-subject-tabs {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .subject-tab {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 0.28rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+    .subject-tab:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .subject-tab.active {
+      background: #f05032;
+      color: #ffffff;
+      border-color: #f05032;
+    }
+    .code-wrapper { 
+      position: relative; 
+      background: #0f172a; 
+      border: 1px solid #334155; 
+      border-radius: 10px; 
+      margin: 1.5rem 0; 
+      overflow: hidden; 
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25); 
+    }
+    .code-wrapper-header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      background: #1e293b; 
+      padding: 0.5rem 1rem; 
+      border-bottom: 1px solid #334155; 
+      font-size: 0.8rem; 
+    }
+    .code-lang-label { 
+      font-family: var(--font-mono, monospace); 
+      font-weight: 700; 
+      color: #fb923c; 
+      text-transform: uppercase; 
+      letter-spacing: 0.05em; 
+    }
+    .code-actions { 
+      display: flex; 
+      align-items: center; 
+      gap: 0.5rem; 
+    }
+    .btn-copy-code { 
+      display: inline-flex; 
+      align-items: center; 
+      gap: 0.35rem; 
+      padding: 0.3rem 0.65rem; 
+      font-size: 0.78rem; 
+      font-weight: 600; 
+      font-family: inherit; 
+      border-radius: 6px; 
+      cursor: pointer; 
+      background: #334155; 
+      color: #cbd5e1; 
+      border: 1px solid #475569; 
+      transition: background 0.15s; 
+    }
+    .btn-copy-code:hover { background: #475569; }
+    .btn-copy-code.copied { background: #059669; color: #fff; border-color: #059669; }
+  </style>
+</head>
+<body>
+  <!-- Mobile Navigation Bar -->
+  <div class="book-mobile-bar" id="bookMobileBar">
+    <button type="button" class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Open Chapters Menu">
+      <span class="toggle-icon">&#9776;</span><span class="toggle-text">Chapters</span>
+    </button>
+    <div class="mobile-brand-title">Git &amp; GitHub</div>
+    <a href="../index.html" class="mobile-home-link" title="Platform Home">&#127968;</a>
+  </div>
+
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="book-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="book-sidebar" id="bookSidebar">
+      <div class="book-return-bar">
+        <a href="../index.html" class="book-back-home" title="Return to Junior Coders Home">
+          <span class="back-icon">←</span>
+          <span>Home</span>
+        </a>
+        <a href="../getting-started.html" class="book-back-home" title="Getting Started">
+          <span>Getting Started</span>
+        </a>
+      </div>
+
+      <div class="book-brand">
+        <div class="book-brand-icon">🐙</div>
+        <div>
+          <span class="git-brand-badge">Official Textbook</span>
+          <h1 style="color: #f05032;">Git &amp; GitHub</h1>
+          <span>Version Control &amp; Teamwork</span>
+        </div>
+        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close chapters menu">&#10005;</button>
+      </div>
+
+      <!-- Quick Subject Category Tabs -->
+      <div class="book-subject-tabs" id="bookSubjectTabs">
+        <button type="button" class="subject-tab active" data-filter="all" onclick="filterGitGroup('all', this)">All (20)</button>
+        <button type="button" class="subject-tab" data-filter="basics" onclick="filterGitGroup('basics', this)">Basics (3)</button>
+        <button type="button" class="subject-tab" data-filter="workflow" onclick="filterGitGroup('workflow', this)">Workflow (4)</button>
+        <button type="button" class="subject-tab" data-filter="undoing" onclick="filterGitGroup('undoing', this)">Safety (2)</button>
+        <button type="button" class="subject-tab" data-filter="branching" onclick="filterGitGroup('branching', this)">Branching (3)</button>
+        <button type="button" class="subject-tab" data-filter="github" onclick="filterGitGroup('github', this)">GitHub (4)</button>
+        <button type="button" class="subject-tab" data-filter="collab" onclick="filterGitGroup('collab', this)">Collab (4)</button>
+      </div>
+
+      <div class="sidebar-search" style="margin-bottom:1rem;">
+        <input type="text" id="chapterFilter" placeholder="Search Git chapters &amp; commands..." style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);font-size:0.85rem;">
+      </div>
+
+      <nav id="sidebarNav">
+        <!-- Part 1: Foundations -->
+        <div class="part-group" data-group="basics">
+          <div class="part-title">Part 1: Foundations of Version Control</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-01-introduction/ch01-why-version-control.md', this)">1. Why Version Control Matters</a></li>
+            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-01-introduction/ch02-how-git-works.md', this)">2. How Git Works: Three Trees</a></li>
+            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-01-introduction/ch03-setting-up-git.md', this)">3. Setting Up Git &amp; Identity</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 2: Essential Workflow -->
+        <div class="part-group" data-group="workflow">
+          <div class="part-title">Part 2: Essential Day-to-Day Workflow</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-02-essential-workflow/ch04-git-init-and-status.md', this)">4. git init &amp; git status</a></li>
+            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-02-essential-workflow/ch05-staging-and-gitignore.md', this)">5. git add &amp; .gitignore Shield</a></li>
+            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-02-essential-workflow/ch06-git-commit.md', this)">6. Crafting Meaningful Commits</a></li>
+            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-02-essential-workflow/ch07-git-log-and-diff.md', this)">7. git log &amp; git diff</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 3: Undoing & Stashing -->
+        <div class="part-group" data-group="undoing">
+          <div class="part-title">Part 3: Time Travel &amp; Safety Nets</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-03-undoing-and-stashing/ch08-undoing-changes.md', this)">8. Undoing Changes Safely</a></li>
+            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-03-undoing-and-stashing/ch09-git-stash.md', this)">9. Shelving Work: git stash</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 4: Branching & Merging -->
+        <div class="part-group" data-group="branching">
+          <div class="part-title">Part 4: Branching &amp; Merging</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-04-branching-and-merging/ch10-understanding-branches.md', this)">10. Understanding Branches</a></li>
+            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-04-branching-and-merging/ch11-merging-branches.md', this)">11. Merging Branches</a></li>
+            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-04-branching-and-merging/ch12-resolving-conflicts.md', this)">12. Resolving Merge Conflicts</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 5: GitHub & Remotes -->
+        <div class="part-group" data-group="github">
+          <div class="part-title">Part 5: GitHub &amp; Remote Repositories</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-05-github-and-remotes/ch13-what-is-github.md', this)">13. What is GitHub? &amp; SSH Keys</a></li>
+            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-05-github-and-remotes/ch14-push-and-remotes.md', this)">14. Linking Remotes &amp; git push</a></li>
+            <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-05-github-and-remotes/ch15-pull-and-fetch.md', this)">15. Staying in Sync: fetch &amp; pull</a></li>
+            <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('part-05-github-and-remotes/ch16-cloning-and-forking.md', this)">16. Cloning &amp; Forking Open Source</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 6: Collaboration & Publishing -->
+        <div class="part-group" data-group="collab">
+          <div class="part-title">Part 6: Collaboration &amp; Publishing</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('part-06-collaboration-and-pages/ch17-pull-requests.md', this)">17. Pull Requests &amp; Code Review</a></li>
+            <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('part-06-collaboration-and-pages/ch18-issues-and-projects.md', this)">18. Issues, Milestones &amp; Boards</a></li>
+            <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('part-06-collaboration-and-pages/ch19-github-pages.md', this)">19. Deploying on GitHub Pages</a></li>
+            <li class="chapter-nav-item"><a href="#ref" onclick="loadChapter('reference/git-cheatsheet.md', this)">📖 Git Command Cheatsheet</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 7: Capstones -->
+        <div class="part-group" data-group="collab">
+          <div class="part-title">Part 7: Capstone Projects</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#proj1" onclick="loadChapter('part-07-capstone-projects/proj01-solo-portfolio-repo.md', this)">Project 1: Portfolio Repository</a></li>
+            <li class="chapter-nav-item"><a href="#proj2" onclick="loadChapter('part-07-capstone-projects/proj02-team-collaboration-lab.md', this)">Project 2: Team Collaboration Lab</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content Reader -->
+    <main class="book-main">
+      <div class="book-content-wrapper">
+        <header class="chapter-header">
+          <div class="chapter-breadcrumb">
+            <a href="../index.html">Junior Coders</a>
+            <span class="sep">/</span>
+            <a href="#">Git &amp; GitHub</a>
+            <span class="sep">/</span>
+            <span id="breadcrumbCurrent">Part 1</span>
+          </div>
+          <div class="chapter-meta">
+            <span class="read-time" id="readTime">⏱️ 8 min read</span>
+            <span class="status-badge">Beginner to Intermediate</span>
+          </div>
+        </header>
+
+        <article class="chapter-body" id="chapterBody">
+          <!-- Loaded dynamically -->
+          <div style="text-align: center; padding: 4rem 2rem; color: #64748b;">
+            <p>Loading chapter content...</p>
+          </div>
+        </article>
+
+        <div class="chapter-footer-nav" id="chapterFooterNav">
+          <button type="button" class="btn-prev" id="btnPrev">← Previous Chapter</button>
+          <button type="button" class="btn-next" id="btnNext">Next Chapter →</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Markdown Parser & Bundle Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="chapters-bundle.js"></script>
+  <script>
+    let currentChapterPath = '';
+
+    function filterGitGroup(group, el) {
+      document.querySelectorAll('.subject-tab').forEach(b => b.classList.remove('active'));
+      if (el) el.classList.add('active');
+
+      document.querySelectorAll('.part-group').forEach(pg => {
+        if (group === 'all' || pg.getAttribute('data-group') === group) {
+          pg.style.display = '';
+        } else {
+          pg.style.display = 'none';
+        }
+      });
+    }
+
+    async function loadChapter(path, navElement) {
+      currentChapterPath = path;
+
+      // Update navigation active state
+      document.querySelectorAll('.chapter-nav-item').forEach(i => i.classList.remove('active'));
+      if (navElement) {
+        const item = navElement.closest('.chapter-nav-item');
+        if (item) item.classList.add('active');
+      }
+
+      const chapterBody = document.getElementById('chapterBody');
+      chapterBody.innerHTML = '<div style="text-align:center;padding:3rem;color:#64748b;">Loading chapter...</div>';
+
+      try {
+        let md = '';
+        if (window.BOOK_GIT_CHAPTERS && window.BOOK_GIT_CHAPTERS[path]) {
+          md = window.BOOK_GIT_CHAPTERS[path];
+        } else {
+          const resp = await fetch(path);
+          if (!resp.ok) throw new Error('Failed to fetch chapter file');
+          md = await resp.text();
+        }
+
+        // Render Markdown
+        chapterBody.innerHTML = marked.parse(md);
+
+        // Adjust image paths
+        chapterBody.querySelectorAll('img').forEach(img => {
+          const src = img.getAttribute('src');
+          if (src && src.startsWith('../../assets/')) {
+            img.src = '../' + src.replace('../../', '');
+          } else if (src && src.startsWith('../assets/')) {
+            img.src = '../' + src.replace('../', '');
+          }
+        });
+
+        // Enhance code blocks with copy button
+        enhanceCodeBlocks();
+
+        // Update read time estimate
+        const wordCount = md.split(/\s+/).length;
+        document.getElementById('readTime').textContent = `⏱️ ${Math.ceil(wordCount / 180)} min read`;
+
+        // Update breadcrumb
+        const partGroup = navElement ? navElement.closest('.part-group') : null;
+        if (partGroup) {
+          const partTitle = partGroup.querySelector('.part-title').textContent;
+          document.getElementById('breadcrumbCurrent').textContent = partTitle;
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Close mobile sidebar if open
+        document.getElementById('bookSidebar').classList.remove('open');
+        document.getElementById('sidebarBackdrop').classList.remove('visible');
+
+      } catch (err) {
+        console.error(err);
+        chapterBody.innerHTML = `
+          <div style="background: #fef2f2; border: 1px solid #f87171; padding: 2rem; border-radius: 12px; color: #991b1b;">
+            <h3>⚠️ Unable to Load Chapter</h3>
+            <p>Could not load: <code>${path}</code></p>
+            <p style="font-size: 0.9rem; color: #b91c1c;">If viewing via file:///, ensure chapters-bundle.js exists by running <code>node scripts/bundle-books.js</code>.</p>
+          </div>
+        `;
+      }
+    }
+
+    function enhanceCodeBlocks() {
+      document.querySelectorAll('#chapterBody pre').forEach(pre => {
+        if (pre.parentNode.classList.contains('code-wrapper')) return;
+        const code = pre.querySelector('code');
+        const raw = code ? code.innerText : pre.innerText;
+        let lang = 'CODE';
+        if (code) {
+          const m = (code.className || '').match(/language-([a-zA-Z0-9_-]+)/);
+          if (m) lang = m[1].toUpperCase();
+        }
+        const w = document.createElement('div');
+        w.className = 'code-wrapper';
+        const h = document.createElement('div');
+        h.className = 'code-wrapper-header';
+        const lb = document.createElement('span');
+        lb.className = 'code-lang-label';
+        lb.textContent = lang;
+        const ac = document.createElement('div');
+        ac.className = 'code-actions';
+        const cb = document.createElement('button');
+        cb.type = 'button';
+        cb.className = 'btn-copy-code';
+        cb.innerHTML = '<span>📋</span> <span>Copy</span>';
+        cb.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText(raw);
+          } catch (e) {
+            const ta = document.createElement('textarea');
+            ta.value = raw;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand('copy');
+            ta.remove();
+          }
+          cb.classList.add('copied');
+          cb.innerHTML = '<span>✅</span> <span>Copied!</span>';
+          setTimeout(() => {
+            cb.classList.remove('copied');
+            cb.innerHTML = '<span>📋</span> <span>Copy</span>';
+          }, 2000);
+        });
+        ac.appendChild(cb);
+        h.appendChild(lb);
+        h.appendChild(ac);
+        pre.parentNode.insertBefore(w, pre);
+        w.appendChild(h);
+        w.appendChild(pre);
+      });
+    }
+
+    // Mobile triggers
+    document.getElementById('mobileSidebarToggle').addEventListener('click', () => {
+      document.getElementById('bookSidebar').classList.add('open');
+      document.getElementById('sidebarBackdrop').classList.add('visible');
+    });
+    document.getElementById('sidebarCloseBtn').addEventListener('click', () => {
+      document.getElementById('bookSidebar').classList.remove('open');
+      document.getElementById('sidebarBackdrop').classList.remove('visible');
+    });
+    document.getElementById('sidebarBackdrop').addEventListener('click', () => {
+      document.getElementById('bookSidebar').classList.remove('open');
+      document.getElementById('sidebarBackdrop').classList.remove('visible');
+    });
+
+    // Sidebar search
+    document.getElementById('chapterFilter').addEventListener('input', function(e) {
+      const q = e.target.value.toLowerCase();
+      document.querySelectorAll('.chapter-nav-item').forEach(i => {
+        i.style.display = i.textContent.toLowerCase().includes(q) ? '' : 'none';
+      });
+    });
+
+    // Auto-load first chapter or hash
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const targetLink = document.querySelector(`.chapter-nav-item a[href="${hash}"]`);
+        if (targetLink) {
+          targetLink.click();
+          return;
+        }
+      }
+      const firstLink = document.querySelector('.chapter-nav-item a');
+      if (firstLink) firstLink.click();
+    });
+  </script>
+  <script src="../js/book-speaker.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" width="100%" height="100%">
+  <defs>
+    <style>
+      .title { font-family: 'Outfit', -apple-system, sans-serif; font-weight: 800; font-size: 20px; fill: #0f172a; }
+      .subtitle { font-family: 'Outfit', -apple-system, sans-serif; font-weight: 500; font-size: 13px; fill: #64748b; }
+      .code-line { font-family: 'Fira Code', monospace; font-size: 12px; }
+      .marker-label { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 12px; }
+      .explanation { font-family: 'Outfit', sans-serif; font-size: 13px; fill: #334155; }
+    </style>
+    <filter id="shadow4" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#ffffff" rx="16"/>
+  <rect width="100%" height="100%" fill="none" stroke="#e2e8f0" stroke-width="1.5" rx="16"/>
+
+  <text x="460" y="38" text-anchor="middle" class="title">Anatomy of a Git Merge Conflict</text>
+  <text x="460" y="60" text-anchor="middle" class="subtitle">Understanding conflict markers when two teammates edit the exact same line</text>
+
+  <!-- Left: Conflict Code Box -->
+  <g transform="translate(60, 85)" filter="url(#shadow4)">
+    <rect width="460" height="260" rx="10" fill="#1e293b"/>
+    
+    <!-- Top Terminal bar -->
+    <rect width="460" height="30" rx="10" fill="#0f172a"/>
+    <circle cx="20" cy="15" r="5" fill="#ef4444"/>
+    <circle cx="36" cy="15" r="5" fill="#eab308"/>
+    <circle cx="52" cy="15" r="5" fill="#22c55e"/>
+    <text x="230" y="19" text-anchor="middle" font-family="'Fira Code', monospace" font-size="11px" fill="#94a3b8">index.html (Merge Conflict)</text>
+
+    <!-- Content Lines -->
+    <g transform="translate(20, 50)">
+      <!-- Line 1: Normal -->
+      <text x="0" y="15" class="code-line" fill="#94a3b8">1  &lt;h1&gt;Welcome to Junior Coders&lt;/h1&gt;</text>
+      
+      <!-- Line 2: Conflict Start -->
+      <rect x="-6" y="26" width="430" height="22" fill="#334155"/>
+      <text x="0" y="42" class="code-line" fill="#38bdf8" font-weight="700">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (Current Change)</text>
+
+      <!-- Line 3: Local line -->
+      <rect x="-6" y="48" width="430" height="22" fill="#1e3a8a" fill-opacity="0.4"/>
+      <text x="0" y="64" class="code-line" fill="#93c5fd">2    &lt;p&gt;Learn Web Development in Srinagar!&lt;/p&gt;</text>
+
+      <!-- Line 4: Divider -->
+      <rect x="-6" y="70" width="430" height="22" fill="#475569"/>
+      <text x="0" y="86" class="code-line" fill="#e2e8f0" font-weight="700">=======</text>
+
+      <!-- Line 5: Incoming line -->
+      <rect x="-6" y="92" width="430" height="22" fill="#065f46" fill-opacity="0.4"/>
+      <text x="0" y="108" class="code-line" fill="#6ee7b7">3    &lt;p&gt;Master Full-Stack Coding in Srinagar!&lt;/p&gt;</text>
+
+      <!-- Line 6: Conflict End -->
+      <rect x="-6" y="114" width="430" height="22" fill="#334155"/>
+      <text x="0" y="130" class="code-line" fill="#34d399" font-weight="700">&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/header (Incoming Change)</text>
+
+      <!-- Line 7: Normal -->
+      <text x="0" y="160" class="code-line" fill="#94a3b8">4  &lt;footer&gt;&copy; 2026 Junior Coders&lt;/footer&gt;</text>
+    </g>
+  </g>
+
+  <!-- Right: Explanations Box -->
+  <g transform="translate(550, 85)" filter="url(#shadow4)">
+    <rect width="310" height="260" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+    
+    <text x="20" y="32" font-family="'Outfit', sans-serif" font-weight="700" font-size="15px" fill="#0f172a">How to Fix a Conflict:</text>
+
+    <g transform="translate(20, 50)">
+      <circle cx="10" cy="10" r="10" fill="#e0f2fe"/>
+      <text x="10" y="14" text-anchor="middle" font-size="11px" font-weight="700" fill="#0284c7">1</text>
+      <text x="30" y="14" class="explanation">Inspect what your teammate wrote.</text>
+    </g>
+
+    <g transform="translate(20, 90)">
+      <circle cx="10" cy="10" r="10" fill="#ffedd5"/>
+      <text x="10" y="14" text-anchor="middle" font-size="11px" font-weight="700" fill="#c2410c">2</text>
+      <text x="30" y="14" class="explanation">Decide: Keep yours, theirs, or BOTH!</text>
+    </g>
+
+    <g transform="translate(20, 130)">
+      <circle cx="10" cy="10" r="10" fill="#fee2e2"/>
+      <text x="10" y="14" text-anchor="middle" font-size="11px" font-weight="700" fill="#dc2626">3</text>
+      <text x="30" y="14" class="explanation">Delete <tspan font-family="monospace">&lt;&lt;&lt;&lt;</tspan>, <tspan font-family="monospace">====</tspan>, and <tspan font-family="monospace">&gt;&gt;&gt;&gt;</tspan> symbols.</text>
+    </g>
+
+    <g transform="translate(20, 170)">
+      <circle cx="10" cy="10" r="10" fill="#dcfce7"/>
+      <text x="10" y="14" text-anchor="middle" font-size="11px" font-weight="700" fill="#15803d">4</text>
+      <text x="30" y="14" class="explanation">Save file, then finish merge:</text>
+      <text x="30" y="32" font-family="'Fira Code', monospace" font-size="11px" fill="#15803d">git add . &amp;&amp; git commit</text>
+    </g>
+  </g>
+</svg>

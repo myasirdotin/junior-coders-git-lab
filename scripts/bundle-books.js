@@ -48,4 +48,7 @@ if (fs.existsSync(path.join(root, 'book-php'))) {
 if (fs.existsSync(path.join(root, 'book-mysql'))) {
   bundleDir(path.join(root, 'book-mysql'), path.join(root, 'book-mysql', 'chapters-bundle.js'), 'BOOK_MYSQL_CHAPTERS');
 }
+if (fs.existsSync(path.join(root, 'book-git'))) {
+  bundleDir(path.join(root, 'book-git'), path.join(root, 'book-git', 'chapters-bundle.js'), 'BOOK_GIT_CHAPTERS');
+}
 
