@@ -483,9 +483,17 @@
                         <div class="nav-search-results" id="nav-search-results"></div>
                     </div>
                     <div class="nav-mobile-actions" style="display:none;">
-                        <span style="font-size:0.85rem; color:var(--text-muted); font-weight:600;">Switch Theme</span>
-                        <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle Theme">🌓</button>
-                        <button class="reading-mode-toggle" type="button" aria-label="Toggle reading mode" title="Reading Mode">📖 Read Mode</button>
+                        <span style="font-size:0.85rem; color:var(--text-muted); font-weight:600;">Page Audio &amp; Settings</span>
+                        <div style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
+                            <button class="page-speaker-toggle" type="button" onclick="window.togglePageSpeaker()" aria-label="Listen to page aloud" title="Listen to this page">
+                                <span class="speaker-icon">🔊</span>
+                                <span class="speaker-text">Listen</span>
+                                <div class="speaker-wave" aria-hidden="true"><span></span><span></span><span></span></div>
+                            </button>
+                            <button class="page-speaker-stop-btn" type="button" onclick="window.stopPageSpeaker()" aria-label="Stop audio narration" title="Stop Reading">⏹️</button>
+                            <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle Theme">🌓</button>
+                            <button class="reading-mode-toggle" type="button" aria-label="Toggle reading mode" title="Reading Mode">📖 Read Mode</button>
+                        </div>
                     </div>
                 </div>
                 <div class="nav-right">
@@ -494,6 +502,12 @@
                         <kbd class="nav-search-kbd" id="nav-search-kbd">Ctrl K</kbd>
                         <div class="nav-search-results" id="nav-search-results-desktop"></div>
                     </div>
+                    <button class="page-speaker-toggle" id="page-speaker-toggle" type="button" onclick="window.togglePageSpeaker()" aria-label="Listen to page aloud" title="Listen to this page (Alt+S)">
+                        <span class="speaker-icon">🔊</span>
+                        <span class="speaker-text">Listen</span>
+                        <div class="speaker-wave" aria-hidden="true"><span></span><span></span><span></span></div>
+                    </button>
+                    <button class="page-speaker-stop-btn" id="page-speaker-stop-btn" type="button" onclick="window.stopPageSpeaker()" aria-label="Stop audio narration" title="Stop Reading">⏹️</button>
                     <button class="reading-mode-toggle" type="button" aria-label="Toggle reading mode" title="Distraction-Free Reading Mode">📖 Read Mode</button>
                     <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle Theme">🌓</button>
                 </div>
@@ -956,13 +970,12 @@
         container.appendChild(nav);
     }
 
-    // --- Text-to-Speech Engine for Lessons ---
-    function injectLessonSpeaker() {
+    // --- Universal Text-to-Speech Engine for Pages & Lessons ---
+    function initPageSpeaker() {
         if (!('speechSynthesis' in window)) return;
 
         const header = document.querySelector('.module-header');
         const sections = document.querySelectorAll('.content-section');
-        if (!header && sections.length === 0) return;
 
         // Speaker Engine State
         let queue = [];
@@ -973,7 +986,7 @@
 
         const loadVoices = () => {
             const voices = window.speechSynthesis.getVoices();
-            preferredVoice = voices.find(v => v.lang && v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Online'))) ||
+            preferredVoice = voices.find(v => v.lang && v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Online') || v.name.includes('Jenny') || v.name.includes('Guy'))) ||
                              voices.find(v => v.lang && v.lang.startsWith('en')) ||
                              voices[0] || null;
         };
@@ -982,8 +995,6 @@
             window.speechSynthesis.onvoiceschanged = loadVoices;
         }
 
-        // Comprehensive Unicode Emoji and Pictograph Regular Expression
-        // Matches emoji sequences, presentation forms, skin tone modifiers, regional flags, keycaps, and variation selectors
         const EMOJI_REGEX = /(?:\p{Extended_Pictographic}|\p{Emoji_Presentation}|\p{Emoji_Modifier_Base}|\p{Emoji_Modifier}|[\u{1F1E6}-\u{1F1FF}\u{200D}\u{FE0E}\u{FE0F}\u{20E3}])/gu;
 
         const cleanText = (text) => {
@@ -1010,7 +1021,9 @@
         };
 
         const clearHighlights = () => {
-            document.querySelectorAll('.tts-highlight').forEach(el => el.classList.remove('tts-highlight'));
+            document.querySelectorAll('.tts-highlight, .tts-page-highlight').forEach(el => {
+                el.classList.remove('tts-highlight', 'tts-page-highlight');
+            });
             document.querySelectorAll('.section-speaker-btn.active').forEach(b => b.classList.remove('active'));
         };
 
@@ -1024,30 +1037,60 @@
         };
 
         const updateToolbarUI = (state, label = '') => {
+            // 1. Update lesson toolbar if present
             const bar = document.getElementById('lesson-speaker-bar');
             const mainBtn = document.getElementById('speaker-main-btn');
             const statusEl = document.getElementById('speaker-status-text');
-            if (!bar || !mainBtn) return;
-
-            if (state === 'speaking') {
-                bar.classList.add('is-speaking');
-                mainBtn.innerHTML = `<span>⏸️</span> Pause`;
-                if (statusEl) statusEl.textContent = label ? `Reading: "${label}"` : 'Reading lesson...';
-            } else if (state === 'paused') {
-                bar.classList.remove('is-speaking');
-                mainBtn.innerHTML = `<span>▶️</span> Resume`;
-                if (statusEl) statusEl.textContent = 'Paused';
-            } else {
-                bar.classList.remove('is-speaking');
-                mainBtn.innerHTML = `<span>🔊</span> Read Lesson`;
-                if (statusEl) statusEl.textContent = label || 'Listen to this lesson';
+            if (bar && mainBtn) {
+                if (state === 'speaking') {
+                    bar.classList.add('is-speaking');
+                    mainBtn.innerHTML = `<span>⏸️</span> Pause`;
+                    if (statusEl) statusEl.textContent = label ? `Reading: "${label}"` : 'Reading lesson...';
+                } else if (state === 'paused') {
+                    bar.classList.remove('is-speaking');
+                    mainBtn.innerHTML = `<span>▶️</span> Resume`;
+                    if (statusEl) statusEl.textContent = 'Paused';
+                } else {
+                    bar.classList.remove('is-speaking');
+                    mainBtn.innerHTML = `<span>🔊</span> Read Lesson`;
+                    if (statusEl) statusEl.textContent = label || 'Listen to this lesson';
+                }
             }
+
+            // 2. Update global nav speaker buttons
+            document.querySelectorAll('.page-speaker-toggle').forEach(btn => {
+                const textEl = btn.querySelector('.speaker-text');
+                const iconEl = btn.querySelector('.speaker-icon');
+                btn.classList.remove('is-speaking', 'is-paused');
+
+                if (state === 'speaking') {
+                    btn.classList.add('is-speaking');
+                    if (textEl) textEl.textContent = 'Pause';
+                    if (iconEl) iconEl.textContent = '⏸️';
+                    btn.title = 'Pause narration';
+                } else if (state === 'paused') {
+                    btn.classList.add('is-paused');
+                    if (textEl) textEl.textContent = 'Resume';
+                    if (iconEl) iconEl.textContent = '▶️';
+                    btn.title = 'Resume narration';
+                } else {
+                    if (textEl) textEl.textContent = 'Listen';
+                    if (iconEl) iconEl.textContent = '🔊';
+                    btn.title = 'Listen to this page aloud (Alt+S)';
+                }
+            });
+
+            // 3. Update global nav stop buttons
+            document.querySelectorAll('.page-speaker-stop-btn').forEach(btn => {
+                btn.style.display = (state === 'speaking' || state === 'paused') ? 'inline-grid' : 'none';
+            });
         };
 
         const playNextInQueue = () => {
             if (currentIndex >= queue.length - 1) {
                 stopSpeech();
                 updateToolbarUI('idle', 'Finished reading 🎉');
+                if (window.showToast) window.showToast('Finished reading page 🎉', 'success');
                 return;
             }
 
@@ -1056,8 +1099,9 @@
 
             clearHighlights();
             if (item.el) {
-                item.el.classList.add('tts-highlight');
-                item.el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                const highlightClass = sections.length > 0 ? 'tts-highlight' : 'tts-page-highlight';
+                item.el.classList.add(highlightClass);
+                item.el.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
 
             const spokenText = cleanText(item.text);
@@ -1126,14 +1170,69 @@
             return items;
         };
 
-        const startLessonSpeech = () => {
+        const buildGeneralPageQueue = () => {
+            const items = [];
+            const root = document.querySelector('main') || document.querySelector('.container') || document.body;
+            if (!root) return items;
+
+            const candidates = root.querySelectorAll('h1, h2, h3, h4, p, li, blockquote');
+            const visited = new Set();
+
+            const isExcluded = (el) => {
+                return el.closest('nav') || el.closest('#main-nav') || el.closest('.top-nav') ||
+                       el.closest('footer') || el.closest('.site-footer') || el.closest('.bottom-nav') ||
+                       el.closest('.nav-search') || el.closest('pre') || el.closest('code') ||
+                       el.closest('script') || el.closest('style') || el.closest('.ide-editor-panel');
+            };
+
+            candidates.forEach(el => {
+                if (isExcluded(el) || visited.has(el)) return;
+                visited.add(el);
+
+                const txt = getCleanElementText(el);
+                if (txt.length > 2 && !txt.startsWith('http')) {
+                    items.push({ el, text: txt });
+                }
+            });
+
+            return items;
+        };
+
+        const startSpeech = () => {
             window.speechSynthesis.cancel();
-            queue = buildLessonQueue();
-            if (queue.length === 0) return;
+            queue = (sections.length > 0) ? buildLessonQueue() : buildGeneralPageQueue();
+
+            if (queue.length === 0) {
+                if (window.showToast) window.showToast('No readable text found on this page 😕', 'info');
+                return;
+            }
             currentIndex = -1;
             isPaused = false;
+            updateToolbarUI('speaking');
+            if (window.showToast) window.showToast('Listening to page aloud 🔊 (Press Esc to stop)', 'success');
             playNextInQueue();
         };
+
+        const toggleSpeech = () => {
+            if (queue.length > 0) {
+                if (isPaused) {
+                    window.speechSynthesis.resume();
+                    isPaused = false;
+                    updateToolbarUI('speaking');
+                    if (window.showToast) window.showToast('Speech resumed 🔊', 'success');
+                } else {
+                    window.speechSynthesis.pause();
+                    isPaused = true;
+                    updateToolbarUI('paused');
+                    if (window.showToast) window.showToast('Speech paused ⏸️', 'info');
+                }
+            } else {
+                startSpeech();
+            }
+        };
+
+        window.togglePageSpeaker = toggleSpeech;
+        window.stopPageSpeaker = stopSpeech;
 
         const startSectionSpeech = (sectionEl, btnEl) => {
             stopSpeech();
@@ -1161,103 +1260,86 @@
             playNextInQueue();
         };
 
-        // Create Toolbar
-        const toolbar = document.createElement('div');
-        toolbar.className = 'lesson-speaker-bar';
-        toolbar.id = 'lesson-speaker-bar';
-        toolbar.setAttribute('role', 'region');
-        toolbar.setAttribute('aria-label', 'Lesson audio speaker');
-        toolbar.innerHTML = `
-            <button type="button" class="speaker-btn-main" id="speaker-main-btn" title="Read this lesson aloud">
-                <span>🔊</span> Read Lesson
-            </button>
-            <button type="button" class="speaker-btn-stop" id="speaker-stop-btn" title="Stop audio">
-                <span>⏹️</span> Stop
-            </button>
-            <select class="speaker-speed-select" id="speaker-speed-select" title="Voice speed" aria-label="Reading Speed">
-                <option value="0.85">0.85x</option>
-                <option value="1.0" selected>1.0x</option>
-                <option value="1.25">1.25x</option>
-            </select>
-            <div class="speaker-waveform" aria-hidden="true">
-                <span></span><span></span><span></span>
-            </div>
-            <span class="speaker-status" id="speaker-status-text">Listen to this lesson</span>
-            <button type="button" class="reading-mode-btn" id="speaker-read-mode-btn" title="Toggle Distraction-Free Reading Mode">
-                <span>📖</span> Reading Mode
-            </button>
-        `;
+        // Create Lesson Toolbar only if on a structured lesson page
+        if (header || sections.length > 0) {
+            const toolbar = document.createElement('div');
+            toolbar.className = 'lesson-speaker-bar';
+            toolbar.id = 'lesson-speaker-bar';
+            toolbar.setAttribute('role', 'region');
+            toolbar.setAttribute('aria-label', 'Lesson audio speaker');
+            toolbar.innerHTML = `
+                <button type="button" class="speaker-btn-main" id="speaker-main-btn" title="Read this lesson aloud">
+                    <span>🔊</span> Read Lesson
+                </button>
+                <button type="button" class="speaker-btn-stop" id="speaker-stop-btn" title="Stop audio">
+                    <span>⏹️</span> Stop
+                </button>
+                <select class="speaker-speed-select" id="speaker-speed-select" title="Voice speed" aria-label="Reading Speed">
+                    <option value="0.85">0.85x</option>
+                    <option value="1.0" selected>1.0x</option>
+                    <option value="1.25">1.25x</option>
+                    <option value="1.5">1.5x</option>
+                </select>
+                <div class="speaker-status">
+                    <span class="speaker-status-dot"></span>
+                    <span class="speaker-status-text" id="speaker-status-text">Listen to this lesson</span>
+                </div>
+            `;
 
-
-        if (header) {
-            header.appendChild(toolbar);
-        } else {
-            const container = document.querySelector('.module-container') || document.querySelector('main');
-            if (container) container.prepend(toolbar);
-        }
-
-        // Add events to toolbar
-        const mainBtn = toolbar.querySelector('#speaker-main-btn');
-        const stopBtn = toolbar.querySelector('#speaker-stop-btn');
-        const speedSelect = toolbar.querySelector('#speaker-speed-select');
-
-        mainBtn.addEventListener('click', () => {
-            if (window.speechSynthesis.speaking && !isPaused) {
-                window.speechSynthesis.pause();
-                isPaused = true;
-                updateToolbarUI('paused');
-            } else if (isPaused) {
-                window.speechSynthesis.resume();
-                isPaused = false;
-                updateToolbarUI('speaking');
-            } else {
-                startLessonSpeech();
+            if (header) {
+                header.parentNode.insertBefore(toolbar, header.nextSibling);
+            } else if (sections[0]) {
+                sections[0].parentNode.insertBefore(toolbar, sections[0]);
             }
-        });
 
-        stopBtn.addEventListener('click', () => {
-            stopSpeech();
-        });
+            const mainBtn = toolbar.querySelector('#speaker-main-btn');
+            const stopBtn = toolbar.querySelector('#speaker-stop-btn');
+            const speedSelect = toolbar.querySelector('#speaker-speed-select');
 
-        speedSelect.addEventListener('change', (e) => {
-            currentRate = parseFloat(e.target.value) || 1.0;
-            if (window.speechSynthesis.speaking && !isPaused) {
-                if (queue[currentIndex]) {
-                    window.speechSynthesis.cancel();
-                    currentIndex--;
-                    playNextInQueue();
-                }
-            }
-        });
+            mainBtn.addEventListener('click', toggleSpeech);
+            stopBtn.addEventListener('click', stopSpeech);
 
-        // Add mini speaker buttons next to every section h2
-        sections.forEach(sec => {
-            const h2 = sec.querySelector('h2');
-            if (!h2 || sec.querySelector('.section-speaker-btn')) return;
-
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.className = 'section-speaker-btn';
-            btn.title = 'Listen to this section';
-            btn.setAttribute('aria-label', `Listen to section: ${getCleanElementText(h2)}`);
-            btn.innerHTML = '🔊';
-
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if (btn.classList.contains('active') && window.speechSynthesis.speaking) {
-                    stopSpeech();
-                } else {
-                    startSectionSpeech(sec, btn);
+            speedSelect.addEventListener('change', (e) => {
+                currentRate = parseFloat(e.target.value) || 1.0;
+                if (window.speechSynthesis.speaking && !isPaused) {
+                    if (queue[currentIndex]) {
+                        window.speechSynthesis.cancel();
+                        currentIndex--;
+                        playNextInQueue();
+                    }
                 }
             });
 
-            h2.appendChild(btn);
-        });
+            // Add mini speaker buttons next to every section h2
+            sections.forEach(sec => {
+                const h2 = sec.querySelector('h2');
+                if (!h2 || sec.querySelector('.section-speaker-btn')) return;
 
-        // Stop speech on navigation or Escape key
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'section-speaker-btn';
+                btn.title = 'Listen to this section';
+                btn.setAttribute('aria-label', `Listen to section: ${getCleanElementText(h2)}`);
+                btn.innerHTML = '🔊';
+
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (btn.classList.contains('active') && window.speechSynthesis.speaking) {
+                        stopSpeech();
+                    } else {
+                        startSectionSpeech(sec, btn);
+                    }
+                });
+
+                h2.appendChild(btn);
+            });
+        }
+
+        // Stop speech on navigation or Escape key; toggle with Alt+S
         window.addEventListener('beforeunload', () => {
             window.speechSynthesis.cancel();
         });
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && window.speechSynthesis.speaking) {
                 stopSpeech();
@@ -1438,7 +1520,7 @@
         updateStreak();
         injectNavigation();
         injectModuleNavigator();
-        injectLessonSpeaker();
+        initPageSpeaker();
         initReadingMode();
         injectFooter();
 
