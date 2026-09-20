@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Git &amp; GitHub for Junior Coders | Version Control Mastery</title>
-  <meta name="description" content="Official Git & GitHub Textbook: Master version control, commits, branches, merge conflicts, pull requests, and GitHub Pages.">
+  <title>Terminal &amp; Command Line Mastery for Junior Coders | LearnCode</title>
+  <meta name="description" content="Official Command Line Interface (CLI) Textbook: Master Windows CMD, Git Bash, terminal navigation, file management, and developer workflows.">
   <link rel="stylesheet" href="../styles/book-theme.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root { 
-      --primary-blue: #f05032; 
-      --primary-accent: #ea580c;
-      --git-badge: #c2410c;
+      --primary-blue: #10b981; 
+      --primary-accent: #059669;
+      --cmd-badge: #047857;
     }
     .book-brand-icon { 
-      background: linear-gradient(135deg, #f05032, #c2410c) !important; 
+      background: linear-gradient(135deg, #10b981, #047857) !important; 
       color: #fff; 
       font-weight: 800; 
       display: inline-flex; 
@@ -27,11 +27,12 @@
       border-radius: 10px; 
       flex-shrink: 0; 
       font-size: 20px;
+      font-family: var(--font-mono, monospace);
     }
-    .git-brand-badge {
+    .cmd-brand-badge {
       display: inline-block;
-      background: rgba(240, 80, 50, 0.12);
-      color: #c2410c;
+      background: rgba(16, 185, 129, 0.12);
+      color: #047857;
       font-size: 0.75rem;
       font-weight: 800;
       padding: 0.25rem 0.65rem;
@@ -41,14 +42,14 @@
       margin-bottom: 0.5rem;
     }
     .chapter-nav-item.active a { 
-      background: #fff7ed; 
-      color: #c2410c; 
-      border-left: 3px solid #f05032; 
+      background: #ecfdf5; 
+      color: #047857; 
+      border-left: 3px solid #10b981; 
       font-weight: 700;
     }
     .chapter-nav-item a:hover { 
-      color: #c2410c; 
-      background: #ffedd5; 
+      color: #047857; 
+      background: #d1fae5; 
     }
     .book-subject-tabs {
       display: flex;
@@ -73,9 +74,9 @@
       color: #0f172a;
     }
     .subject-tab.active {
-      background: #f05032;
+      background: #10b981;
       color: #ffffff;
-      border-color: #f05032;
+      border-color: #10b981;
     }
     .code-wrapper { 
       position: relative; 
@@ -98,7 +99,7 @@
     .code-lang-label { 
       font-family: var(--font-mono, monospace); 
       font-weight: 700; 
-      color: #fb923c; 
+      color: #34d399; 
       text-transform: uppercase; 
       letter-spacing: 0.05em; 
     }
@@ -132,7 +133,7 @@
     <button type="button" class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Open Chapters Menu">
       <span class="toggle-icon">&#9776;</span><span class="toggle-text">Chapters</span>
     </button>
-    <div class="mobile-brand-title">Git &amp; GitHub</div>
+    <div class="mobile-brand-title">Terminal &amp; CMD</div>
     <a href="../index.html" class="mobile-home-link" title="Platform Home">&#127968;</a>
   </div>
 
@@ -146,160 +147,151 @@
           <span class="back-icon">←</span>
           <span>Home</span>
         </a>
-        <a href="../cheatsheet-git.html" class="book-back-home" title="Git Cheat Sheet">
-          <span>Git Cheat Sheet</span>
-        </a>
-        <a href="../book-cmd/index.html" class="book-back-home" title="Terminal &amp; CMD Textbook">
-          <span>&gt;_ CMD Book</span>
+        <a href="../cheatsheet-cmd.html" class="book-back-home" title="Terminal Cheat Sheet">
+          <span>CMD Cheatsheet</span>
         </a>
       </div>
 
       <div class="book-brand">
-        <div class="book-brand-icon">🐙</div>
+        <div class="book-brand-icon">&gt;_</div>
         <div>
-          <span class="git-brand-badge">Official Textbook</span>
-          <h1 style="color: #f05032;">Git &amp; GitHub</h1>
-          <span>Version Control &amp; Teamwork</span>
+          <span class="cmd-brand-badge">Foundations Textbook</span>
+          <h1 style="color: #047857;">Terminal &amp; CMD</h1>
+          <span>Command Line Mastery</span>
         </div>
         <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close chapters menu">&#10005;</button>
       </div>
 
-      <!-- Quick Subject Category Tabs -->
+      <!-- Quick Category Tabs -->
       <div class="book-subject-tabs" id="bookSubjectTabs">
-        <button type="button" class="subject-tab active" data-filter="all" onclick="filterGitGroup('all', this)">All (20)</button>
-        <button type="button" class="subject-tab" data-filter="basics" onclick="filterGitGroup('basics', this)">Basics (3)</button>
-        <button type="button" class="subject-tab" data-filter="workflow" onclick="filterGitGroup('workflow', this)">Workflow (4)</button>
-        <button type="button" class="subject-tab" data-filter="undoing" onclick="filterGitGroup('undoing', this)">Safety (2)</button>
-        <button type="button" class="subject-tab" data-filter="branching" onclick="filterGitGroup('branching', this)">Branching (3)</button>
-        <button type="button" class="subject-tab" data-filter="github" onclick="filterGitGroup('github', this)">GitHub (4)</button>
-        <button type="button" class="subject-tab" data-filter="collab" onclick="filterGitGroup('collab', this)">Collab (4)</button>
+        <button type="button" class="subject-tab active" data-filter="all" onclick="filterCmdGroup('all', this)">All (14)</button>
+        <button type="button" class="subject-tab" data-filter="foundations" onclick="filterCmdGroup('foundations', this)">Foundations (3)</button>
+        <button type="button" class="subject-tab" data-filter="nav" onclick="filterCmdGroup('nav', this)">Navigation (3)</button>
+        <button type="button" class="subject-tab" data-filter="files" onclick="filterCmdGroup('files', this)">Files (3)</button>
+        <button type="button" class="subject-tab" data-filter="workflow" onclick="filterCmdGroup('workflow', this)">Workflow (3)</button>
+        <button type="button" class="subject-tab" data-filter="capstones" onclick="filterCmdGroup('capstones', this)">Capstones (2)</button>
       </div>
 
       <div class="sidebar-search" style="margin-bottom:1rem;">
-        <input type="text" id="chapterFilter" placeholder="Search Git chapters &amp; commands..." style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);font-size:0.85rem;">
+        <input type="text" id="chapterFilter" placeholder="Search commands (cd, dir, mkdir, cls)..." style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);font-size:0.85rem;">
       </div>
 
       <nav id="sidebarNav">
         <!-- Part 1: Foundations -->
-        <div class="part-group" data-group="basics">
-          <div class="part-title">Part 1: Foundations of Version Control</div>
+        <div class="part-group" data-group="foundations">
+          <div class="part-title">Part 1: Foundations &amp; Orientation</div>
           <ul class="chapter-nav-list">
-            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-01-introduction/ch01-why-version-control.md', this)">1. Why Version Control Matters</a></li>
-            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-01-introduction/ch02-how-git-works.md', this)">2. How Git Works: Three Trees</a></li>
-            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-01-introduction/ch03-setting-up-git.md', this)">3. Setting Up Git &amp; Identity</a></li>
+            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-01-foundations/ch01-what-is-the-terminal.md', this)">1. What is the Terminal?</a></li>
+            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-01-foundations/ch02-anatomy-of-a-prompt.md', this)">2. Anatomy of a Prompt</a></li>
+            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-01-foundations/ch03-where-am-i-and-whats-here.md', this)">3. Where Am I? &amp; What's Here?</a></li>
           </ul>
         </div>
 
-        <!-- Part 2: Essential Workflow -->
+        <!-- Part 2: Navigation Mastery -->
+        <div class="part-group" data-group="nav">
+          <div class="part-title">Part 2: Spatial Navigation Mastery</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-02-navigation-mastery/ch04-moving-between-folders.md', this)">4. Moving Between Folders (`cd`)</a></li>
+            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-02-navigation-mastery/ch05-paths-relative-vs-absolute.md', this)">5. Relative vs. Absolute Paths</a></li>
+            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-02-navigation-mastery/ch06-tab-completion-and-history.md', this)">6. Tab Completion &amp; History</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 3: Managing Files & Folders -->
+        <div class="part-group" data-group="files">
+          <div class="part-title">Part 3: Managing Files &amp; Folders</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-03-managing-files-and-folders/ch07-creating-folders-and-files.md', this)">7. Creating Folders &amp; Files</a></li>
+            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-03-managing-files-and-folders/ch08-renaming-moving-and-copying.md', this)">8. Renaming, Moving &amp; Copying</a></li>
+            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-03-managing-files-and-folders/ch09-safe-deletion-and-amanah.md', this)">9. Safe Deletion &amp; Amānah</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 4: The Web Developer Workflow -->
         <div class="part-group" data-group="workflow">
-          <div class="part-title">Part 2: Essential Day-to-Day Workflow</div>
+          <div class="part-title">Part 4: Web Developer Workflow</div>
           <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-02-essential-workflow/ch04-git-init-and-status.md', this)">4. git init &amp; git status</a></li>
-            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-02-essential-workflow/ch05-staging-and-gitignore.md', this)">5. git add &amp; .gitignore Shield</a></li>
-            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-02-essential-workflow/ch06-git-commit.md', this)">6. Crafting Meaningful Commits</a></li>
-            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-02-essential-workflow/ch07-git-log-and-diff.md', this)">7. git log &amp; git diff</a></li>
+            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-04-the-web-developer-workflow/ch10-launching-vs-code-and-tools.md', this)">10. Launching VS Code (`code .`)</a></li>
+            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-04-the-web-developer-workflow/ch11-local-servers-and-ctrl-c.md', this)">11. Local Web Servers &amp; Ctrl+C</a></li>
+            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-04-the-web-developer-workflow/ch12-reading-and-piping-basics.md', this)">12. Reading Files &amp; Redirection</a></li>
           </ul>
         </div>
 
-        <!-- Part 3: Undoing & Stashing -->
-        <div class="part-group" data-group="undoing">
-          <div class="part-title">Part 3: Time Travel &amp; Safety Nets</div>
+        <!-- Part 5: Capstone Scaffolding Challenges -->
+        <div class="part-group" data-group="capstones">
+          <div class="part-title">Part 5: Capstone Challenges</div>
           <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-03-undoing-and-stashing/ch08-undoing-changes.md', this)">8. Undoing Changes Safely</a></li>
-            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-03-undoing-and-stashing/ch09-git-stash.md', this)">9. Shelving Work: git stash</a></li>
-          </ul>
-        </div>
-
-        <!-- Part 4: Branching & Merging -->
-        <div class="part-group" data-group="branching">
-          <div class="part-title">Part 4: Branching &amp; Merging</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-04-branching-and-merging/ch10-understanding-branches.md', this)">10. Understanding Branches</a></li>
-            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-04-branching-and-merging/ch11-merging-branches.md', this)">11. Merging Branches</a></li>
-            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-04-branching-and-merging/ch12-resolving-conflicts.md', this)">12. Resolving Merge Conflicts</a></li>
-          </ul>
-        </div>
-
-        <!-- Part 5: GitHub & Remotes -->
-        <div class="part-group" data-group="github">
-          <div class="part-title">Part 5: GitHub &amp; Remote Repositories</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-05-github-and-remotes/ch13-what-is-github.md', this)">13. What is GitHub? &amp; SSH Keys</a></li>
-            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-05-github-and-remotes/ch14-push-and-remotes.md', this)">14. Linking Remotes &amp; git push</a></li>
-            <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-05-github-and-remotes/ch15-pull-and-fetch.md', this)">15. Staying in Sync: fetch &amp; pull</a></li>
-            <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('part-05-github-and-remotes/ch16-cloning-and-forking.md', this)">16. Cloning &amp; Forking Open Source</a></li>
-          </ul>
-        </div>
-
-        <!-- Part 6: Collaboration & Publishing -->
-        <div class="part-group" data-group="collab">
-          <div class="part-title">Part 6: Collaboration &amp; Publishing</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('part-06-collaboration-and-pages/ch17-pull-requests.md', this)">17. Pull Requests &amp; Code Review</a></li>
-            <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('part-06-collaboration-and-pages/ch18-issues-and-projects.md', this)">18. Issues, Milestones &amp; Boards</a></li>
-            <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('part-06-collaboration-and-pages/ch19-github-pages.md', this)">19. Deploying on GitHub Pages</a></li>
-            <li class="chapter-nav-item"><a href="#ref" onclick="loadChapter('reference/git-cheatsheet.md', this)">📖 Git Command Cheatsheet</a></li>
-          </ul>
-        </div>
-
-        <!-- Part 7: Capstones -->
-        <div class="part-group" data-group="collab">
-          <div class="part-title">Part 7: Capstone Projects</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#proj1" onclick="loadChapter('part-07-capstone-projects/proj01-solo-portfolio-repo.md', this)">Project 1: Portfolio Repository</a></li>
-            <li class="chapter-nav-item"><a href="#proj2" onclick="loadChapter('part-07-capstone-projects/proj02-team-collaboration-lab.md', this)">Project 2: Team Collaboration Lab</a></li>
+            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-05-capstone-challenges/ch13-scaffolding-capstone.md', this)">13. 60-Second Full-Stack Scaffolder</a></li>
+            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-05-capstone-challenges/ch14-detective-troubleshooting.md', this)">14. Broken Asset Path Detective</a></li>
           </ul>
         </div>
       </nav>
     </aside>
 
     <!-- Main Content Reader -->
-    <main class="book-main book-reader book-content">
-      <nav class="reader-top-nav" aria-label="Breadcrumb and quick navigation" style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background: var(--bg-card); border-bottom: 1px solid var(--border-color, rgba(255,255,255,0.08)); flex-wrap: wrap; gap: 0.5rem;">
+    <main class="book-reader book-content">
+      <div class="reader-top-nav">
         <div class="reader-breadcrumb">
-          <a href="../index.html"><span>🏠</span> Home</a>
-          <span>/</span>
-          <a href="../cheatsheet-git.html">Git Cheat Sheet</a>
-          <span>/</span>
-          <span class="active-book" style="color: #f05032; font-weight: 600;">Git &amp; GitHub Textbook</span>
+          <a href="../index.html">LearnCode</a>
+          <span class="sep">/</span>
+          <span class="current" id="breadcrumbCurrent">Part 1: Foundations</span>
         </div>
-        <div class="reader-top-links" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-          <a href="../index.html" class="reader-nav-btn"><span>🏠</span> Home</a>
-          <a href="../book-html/index.html" class="reader-nav-btn"><span>🌐</span> HTML</a>
-          <a href="../book-css/index.html" class="reader-nav-btn"><span>🎨</span> CSS</a>
-          <a href="../book-js/index.html" class="reader-nav-btn"><span>⚡</span> JS</a>
-          <a href="../book-php/index.html" class="reader-nav-btn"><span>🐘</span> PHP</a>
-          <a href="../book-mysql/index.html" class="reader-nav-btn"><span>🗄️</span> MySQL</a>
-          <a href="../cheatsheet-git.html" class="reader-nav-btn" style="background: rgba(240,80,50,0.15); color: #f05032;"><span>📋</span> Cheat Sheet</a>
+        <div class="reader-quick-actions">
+          <a href="../cheatsheet-cmd.html" class="reader-nav-btn"><span>⚡</span> CMD Cheatsheet</a>
+          <a href="../book-git/index.html" class="reader-nav-btn"><span>🐙</span> Git Book</a>
+          <a href="../book-html/index.html" class="reader-nav-btn"><span>🌐</span> HTML Book</a>
         </div>
-      </nav>
+      </div>
 
-      <div class="book-content-wrapper">
-        <header class="chapter-header">
-          <div class="chapter-breadcrumb">
-            <a href="../index.html">Junior Coders</a>
-            <span class="sep">/</span>
-            <a href="#">Git &amp; GitHub</a>
-            <span class="sep">/</span>
-            <span id="breadcrumbCurrent">Part 1</span>
+      <!-- Speaker Bar & Reader Controls -->
+      <header class="book-reader-header" id="bookReaderHeader" role="region" aria-label="Book Reader Controls">
+        <div class="book-speaker-panel" id="book-speaker-bar">
+          <div class="book-speaker-left">
+            <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read chapter aloud">
+              <span class="btn-icon">&#128266;</span>
+              <span class="btn-text">Read Chapter</span>
+            </button>
+            <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop reading">
+              <span class="btn-icon">&#9209;&#65039;</span>
+              <span class="btn-text">Stop</span>
+            </button>
+            <div class="book-speaker-speed-wrap">
+              <label for="book-speaker-speed-select" class="book-speaker-speed-label">Speed:</label>
+              <select class="book-speaker-speed-select" id="book-speaker-speed-select">
+                <option value="0.75">0.75x</option>
+                <option value="1" selected>1.0x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+              </select>
+            </div>
+            <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
           </div>
-          <div class="chapter-meta">
-            <span class="read-time" id="readTime">⏱️ 8 min read</span>
-            <span class="status-badge">Beginner to Intermediate</span>
+          <div class="reader-status-center">
+            <div class="reader-chapter-badge">
+              <span class="status-dot"></span>
+              <span class="status-text" id="book-speaker-status-text">Ready to read</span>
+            </div>
           </div>
-        </header>
-
-        <article class="chapter-body" id="chapterBody">
-          <!-- Loaded dynamically -->
-          <div style="text-align: center; padding: 4rem 2rem; color: #64748b;">
-            <p>Loading chapter content...</p>
+          <div class="book-speaker-right">
+            <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn">
+              <span class="btn-icon">&#128214;</span>
+              <span class="btn-text">Reading Mode</span>
+            </button>
+            <span class="reader-meta-item" id="readTime">⏱️ 4 min read</span>
           </div>
-        </article>
-
-        <div class="chapter-footer-nav" id="chapterFooterNav">
-          <button type="button" class="btn-prev" id="btnPrev">← Previous Chapter</button>
-          <button type="button" class="btn-next" id="btnNext">Next Chapter →</button>
         </div>
+      </header>
+
+      <article class="book-article" id="chapterContent">
+        <div id="chapterBody">
+          <!-- Chapter content dynamically rendered here -->
+        </div>
+      </article>
+
+      <div class="chapter-footer-nav" id="chapterFooterNav">
+        <!-- Previous / Next links dynamically inserted here -->
       </div>
     </main>
   </div>
@@ -310,7 +302,7 @@
   <script>
     let currentChapterPath = '';
 
-    function filterGitGroup(group, el) {
+    function filterCmdGroup(group, el) {
       document.querySelectorAll('.subject-tab').forEach(b => b.classList.remove('active'));
       if (el) el.classList.add('active');
 
@@ -338,8 +330,8 @@
 
       try {
         let md = '';
-        if (window.BOOK_GIT_CHAPTERS && window.BOOK_GIT_CHAPTERS[path]) {
-          md = window.BOOK_GIT_CHAPTERS[path];
+        if (window.BOOK_CMD_CHAPTERS && window.BOOK_CMD_CHAPTERS[path]) {
+          md = window.BOOK_CMD_CHAPTERS[path];
         } else {
           const resp = await fetch(path);
           if (!resp.ok) throw new Error('Failed to fetch chapter file');
@@ -348,16 +340,6 @@
 
         // Render Markdown
         chapterBody.innerHTML = marked.parse(md);
-
-        // Adjust image paths
-        chapterBody.querySelectorAll('img').forEach(img => {
-          const src = img.getAttribute('src');
-          if (src && src.startsWith('../../assets/')) {
-            img.src = '../' + src.replace('../../', '');
-          } else if (src && src.startsWith('../assets/')) {
-            img.src = '../' + src.replace('../', '');
-          }
-        });
 
         // Enhance code blocks with copy button
         enhanceCodeBlocks();
@@ -396,7 +378,7 @@
         if (pre.parentNode.classList.contains('code-wrapper')) return;
         const code = pre.querySelector('code');
         const raw = code ? code.innerText : pre.innerText;
-        let lang = 'CODE';
+        let lang = 'TERMINAL';
         if (code) {
           const m = (code.className || '').match(/language-([a-zA-Z0-9_-]+)/);
           if (m) lang = m[1].toUpperCase();
@@ -463,6 +445,11 @@
       document.querySelectorAll('.chapter-nav-item').forEach(i => {
         i.style.display = i.textContent.toLowerCase().includes(q) ? '' : 'none';
       });
+    });
+
+    // Reading mode toggle
+    document.getElementById('book-reading-mode-btn').addEventListener('click', () => {
+      document.body.classList.toggle('reading-mode-active');
     });
 
     // Auto-load first chapter or hash

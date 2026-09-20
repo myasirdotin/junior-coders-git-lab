@@ -15,6 +15,8 @@
 
 For other official textbooks in this series:
 - **JavaScript for Class 7**: [book-js](../book-js/README.md)
+- **Terminal & Command Prompt**: [book-cmd](../book-cmd/index.html)
+- **Git & GitHub for Class 8 & 9**: [book-git](../book-git/index.html)
 - **PHP for Class 9**: [book-php](../book-php/index.html)
 - **MySQL for Class 9**: [book-mysql](../book-mysql/index.html)
 - **Laravel for Class 9**: [book-laravel](../book-laravel/index.html)

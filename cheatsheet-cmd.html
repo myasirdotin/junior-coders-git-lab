@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Command Line &amp; Terminal Cheat Sheet | Junior Coders</title>
+    <meta name="description" content="A complete Command Prompt (CMD) and Git Bash / Linux terminal cheat sheet for junior coders and web developers. Navigation, file operations, developer shortcuts on one page.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .cmd-hero {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(15, 23, 42, 0.95) 100%);
+            border-bottom: 2px solid #10b981;
+        }
+        .cmd-hdr {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(16, 185, 129, 0.05));
+            color: #10b981;
+            border-bottom: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        .cmd-table td:first-child {
+            font-family: var(--font-mono, monospace);
+            color: #34d399;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .rosetta-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            margin-top: 1rem;
+        }
+        .rosetta-table th {
+            background: rgba(16, 185, 129, 0.15);
+            color: #34d399;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            border-bottom: 2px solid #10b981;
+        }
+        .rosetta-table td {
+            padding: 0.55rem 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .rosetta-table tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .cmd-pill {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.15);
+            color: #10b981;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: var(--font-mono, monospace);
+        }
+        .bash-pill {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.15);
+            color: #60a5fa;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: var(--font-mono, monospace);
+        }
+    </style>
+</head>
+<body>
+<div class="cheatsheet-container">
+
+    <header class="cheat-hero cmd-hero">
+        <span class="course-level" style="background:rgba(16,185,129,0.25); color:#10b981; border: 1px solid rgba(16,185,129,0.4);">Core Developer Foundations</span>
+        <h1>💻 Command Line &amp; Terminal Cheat Sheet</h1>
+        <p>Windows Command Prompt (CMD) &amp; Git Bash side-by-side — navigation, project scaffolding, file management, and developer tools on one page!</p>
+    </header>
+
+    <div class="cheat-tip">
+        <strong>The 3 Superpowers:</strong> 
+        1. Press <kbd>Tab</kbd> to auto-complete file names. 
+        2. Press <kbd>↑</kbd> (Up Arrow) to replay previous commands. 
+        3. Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to immediately stop any stuck command or local server!
+    </div>
+
+    <div class="cheat-grid">
+
+        <!-- 1. Orientation & Location -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cmd-hdr">🧭 1. Orientation &amp; Location</div>
+            <table class="cheat-table cmd-table">
+                <tr><td>cd (CMD) / pwd (Bash)</td><td>Print current working directory</td></tr>
+                <tr><td>dir (CMD) / ls (Bash)</td><td>List files and folders in directory</td></tr>
+                <tr><td>dir /a:h / ls -a</td><td>Show hidden files (e.g. .git)</td></tr>
+                <tr><td>cls (CMD) / clear (Bash)</td><td>Clear the terminal screen</td></tr>
+                <tr><td>Ctrl + L</td><td>Clear screen shortcut (PowerShell &amp; Git Bash)</td></tr>
+            </table>
+        </div>
+
+        <!-- 2. Navigation -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cmd-hdr">🚶 2. Navigation &amp; Moving</div>
+            <table class="cheat-table cmd-table">
+                <tr><td>cd &lt;folder&gt;</td><td>Step inside a subfolder</td></tr>
+                <tr><td>cd ..</td><td>Step back one level (Parent directory)</td></tr>
+                <tr><td>cd ../..</td><td>Step back two levels at once</td></tr>
+                <tr><td>cd \ (CMD) / cd / (Bash)</td><td>Jump straight to root directory</td></tr>
+                <tr><td>D: (CMD)</td><td>Switch to Drive D (Windows CMD)</td></tr>
+                <tr><td>cd ~ (Bash)</td><td>Jump directly to user home folder</td></tr>
+            </table>
+        </div>
+
+        <!-- 3. Creating & Scaffolding -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cmd-hdr">⚡ 3. Creation &amp; Scaffolding</div>
+            <table class="cheat-table cmd-table">
+                <tr><td>mkdir &lt;folder&gt;</td><td>Create a new directory</td></tr>
+                <tr><td>mkdir css js assets</td><td>Create multiple directories at once</td></tr>
+                <tr><td>mkdir -p a/b/c (Bash)</td><td>Create nested folder hierarchy</td></tr>
+                <tr><td>type nul &gt; index.html</td><td>Create empty file (Windows CMD)</td></tr>
+                <tr><td>touch index.html</td><td>Create empty file (Git Bash / Linux)</td></tr>
+                <tr><td>echo hello &gt; file.txt</td><td>Create file with text content</td></tr>
+            </table>
+        </div>
+
+        <!-- 4. Moving, Renaming & Copying -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cmd-hdr">📦 4. Moving, Renaming &amp; Copying</div>
+            <table class="cheat-table cmd-table">
+                <tr><td>ren old.txt new.txt</td><td>Rename a file (Windows CMD)</td></tr>
+                <tr><td>mv old.txt new.txt</td><td>Rename or move file (Git Bash / Linux)</td></tr>
+                <tr><td>move script.js js\</td><td>Move file into subfolder (Windows CMD)</td></tr>
+                <tr><td>mv script.js js/</td><td>Move file into subfolder (Git Bash)</td></tr>
+                <tr><td>copy a.txt b.txt</td><td>Duplicate/backup a file (Windows CMD)</td></tr>
+                <tr><td>cp a.txt b.txt</td><td>Duplicate/backup a file (Git Bash)</td></tr>
+            </table>
+        </div>
+
+        <!-- 5. Deletion & Safety Nets -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cmd-hdr">🛑 5. Deletion &amp; Safety Nets</div>
+            <table class="cheat-table cmd-table">
+                <tr><td>del file.txt (CMD)</td><td>Delete a single file (No Recycle Bin!)</td></tr>
+                <tr><td>rm file.txt (Bash)</td><td>Delete a single file (Permanent!)</td></tr>
+                <tr><td>rmdir &lt;empty-folder&gt;</td><td>Delete an empty directory</td></tr>
+                <tr><td>rmdir /s /q &lt;folder&gt;</td><td>Force delete folder and contents (CMD)</td></tr>
+                <tr><td>rm -rf &lt;folder&gt;</td><td>Force delete folder and contents (Bash)</td></tr>
+                <tr><td>Ctrl + C</td><td>Emergency Brake: Stop stuck program</td></tr>
+            </table>
+        </div>
+
+        <!-- 6. Developer Workflow -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cmd-hdr">🛠️ 6. Web Developer Workflow</div>
+            <table class="cheat-table cmd-table">
+                <tr><td>code .</td><td>Open current folder in VS Code</td></tr>
+                <tr><td>php -S localhost:8000</td><td>Start local PHP development server</td></tr>
+                <tr><td>git --version</td><td>Verify Git installation &amp; version</td></tr>
+                <tr><td>node -v / npm -v</td><td>Verify Node.js &amp; npm package manager</td></tr>
+                <tr><td>php -v / composer -v</td><td>Verify PHP interpreter &amp; Composer</td></tr>
+                <tr><td>type f.txt / cat f.txt</td><td>Print file contents to terminal</td></tr>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- Side-by-Side Rosetta Stone Comparison Table -->
+    <div class="cheat-card" style="margin-top: 2rem;">
+        <div class="cheat-card-header cmd-hdr">🔄 Rosetta Stone: Windows CMD vs. Git Bash / Linux</div>
+        <div style="overflow-x: auto; padding: 0.5rem 1rem 1.5rem;">
+            <table class="rosetta-table">
+                <thead>
+                    <tr>
+                        <th>Action</th>
+                        <th>Windows CMD</th>
+                        <th>Git Bash / macOS / Linux</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Current Directory</td>
+                        <td><span class="cmd-pill">cd</span></td>
+                        <td><span class="bash-pill">pwd</span></td>
+                        <td>Print Working Directory</td>
+                    </tr>
+                    <tr>
+                        <td>List Files</td>
+                        <td><span class="cmd-pill">dir</span></td>
+                        <td><span class="bash-pill">ls</span></td>
+                        <td>Use <kbd>ls -la</kbd> for hidden files</td>
+                    </tr>
+                    <tr>
+                        <td>Clear Screen</td>
+                        <td><span class="cmd-pill">cls</span></td>
+                        <td><span class="bash-pill">clear</span></td>
+                        <td>Both support <kbd>Ctrl + L</kbd></td>
+                    </tr>
+                    <tr>
+                        <td>Create Empty File</td>
+                        <td><span class="cmd-pill">type nul &gt; file</span></td>
+                        <td><span class="bash-pill">touch file</span></td>
+                        <td>Instant 0-byte file creation</td>
+                    </tr>
+                    <tr>
+                        <td>Rename File</td>
+                        <td><span class="cmd-pill">ren old new</span></td>
+                        <td><span class="bash-pill">mv old new</span></td>
+                        <td>Bash uses move to rename</td>
+                    </tr>
+                    <tr>
+                        <td>Copy File</td>
+                        <td><span class="cmd-pill">copy a b</span></td>
+                        <td><span class="bash-pill">cp a b</span></td>
+                        <td>Duplicate file</td>
+                    </tr>
+                    <tr>
+                        <td>Delete File</td>
+                        <td><span class="cmd-pill">del file</span></td>
+                        <td><span class="bash-pill">rm file</span></td>
+                        <td>⚠️ Bypasses Recycle Bin!</td>
+                    </tr>
+                    <tr>
+                        <td>Read File Content</td>
+                        <td><span class="cmd-pill">type file</span></td>
+                        <td><span class="bash-pill">cat file</span></td>
+                        <td>Print text to console</td>
+                    </tr>
+                    <tr>
+                        <td>Search inside files</td>
+                        <td><span class="cmd-pill">findstr "key"</span></td>
+                        <td><span class="bash-pill">grep "key"</span></td>
+                        <td>Filter text lines</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="cheat-tip" style="margin-top: 2rem;">
+        <strong>Moral Stewardship (*Amānah*):</strong> Your command line is a high-speed tool. Always confirm where you are standing before deleting files, and never execute scripts pasted from unknown websites.
+    </div>
+
+    <div style="text-align:center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="book-cmd/index.html" class="btn-primary" style="background: linear-gradient(135deg, #10b981, #047857); color: white;">📖 Read Terminal Textbook (14 Ch)</a>
+        <a href="cheatsheet-git.html" class="btn-primary" style="background: linear-gradient(135deg, #f05032, #c2410c); color: white;">🐙 Git &amp; GitHub Cheatsheet</a>
+        <a href="index.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">🏠 Return Home</a>
+    </div>
+
+</div>
+<script src="js/core.js"></script>
+</body>
+</html>
