@@ -666,66 +666,211 @@
     <!-- ═══════════════════════════════════════════════════════════════
          SITE FOOTER
          ═══════════════════════════════════════════════════════════════ -->
+    <!-- ═══════════════════════════════════════════════════════════════
+         SITE FOOTER (ENHANCED MODERN CAMPUS FOOTER)
+         ═══════════════════════════════════════════════════════════════ -->
     <footer class="site-footer">
+        <div class="footer-top-gradient" aria-hidden="true"></div>
+
+        <!-- Pre-Footer Quick Launch CTA Card -->
+        <div class="footer-cta-container">
+            <div class="footer-cta-card">
+                <div class="footer-cta-info">
+                    <div class="footer-cta-badge">
+                        <span>🚀</span> Ready to Start Coding?
+                    </div>
+                    <h3 class="footer-cta-title">Build Real Projects with Live Feedback</h3>
+                    <p class="footer-cta-desc">Launch our full-featured Master IDE or learn chapter-by-chapter with voice-narrated textbooks and hands-on exercises.</p>
+                </div>
+                <div class="footer-cta-actions">
+                    <a href="master-playground.html" class="btn-footer-cta primary">
+                        <span>⚡</span> Launch Master IDE
+                    </a>
+                    <a href="#textbooks-section" class="btn-footer-cta secondary">
+                        <span>📖</span> Browse 8 Textbooks
+                    </a>
+                    <button type="button" class="btn-footer-cta back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Scroll back to top">
+                        <span>↑</span> Top
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Footer Links & Meta Grid -->
         <div class="footer-container">
+            <!-- Brand Column -->
             <div class="footer-brand">
-                <a href="index.html" class="footer-logo">🚀 Junior Coders</a>
-                <p>Empowering students from Class 6 to 9 with practical, visual, and ethically grounded programming mastery.</p>
-                <div class="footer-meta">
-                    <span class="footer-badge">Version 1.0.0</span>
-                    <span class="footer-badge">MIT License</span>
-                    <span class="footer-badge">8 Official Books</span>
+                <a href="index.html" class="footer-logo">
+                    <span class="footer-logo-icon">🚀</span> Junior Coders
+                </a>
+                <p class="footer-brand-desc">
+                    The interactive full-stack coding campus for Grades 6–9. Inspiring students through visual learning, spatial mental models, and ethically grounded engineering mastery.
+                </p>
+
+                <div class="footer-trust-pills">
+                    <span class="trust-pill"><span>🟢</span> Offline Ready</span>
+                    <span class="trust-pill"><span>✨</span> Ethical &amp; Modest</span>
+                    <span class="trust-pill"><span>🎙️</span> 150+ Audio Chapters</span>
+                    <span class="trust-pill"><span>⚖️</span> MIT Licensed</span>
+                </div>
+
+                <div class="footer-author-note">
+                    Crafted with excellence (*Iḥsān*) by <strong>Yasir Rasool</strong>
                 </div>
             </div>
 
+            <!-- Column 1: Interactive Studios -->
             <div class="footer-column">
-                <h4>Interactive Studios</h4>
-                <ul>
-                    <li><a href="Learning HTML/playground.html">🌐 HTML Structure Studio</a></li>
-                    <li><a href="Learning CSS/playground.html">🎨 CSS Styling Studio</a></li>
-                    <li><a href="Learning JS/playground.html">⚡ JS Logic Runner</a></li>
-                    <li><a href="master-playground.html">💻 Code Lab Master IDE</a></li>
+                <h4>
+                    <span class="col-icon">🧪</span> Interactive Studios
+                </h4>
+                <ul class="footer-nav-list">
+                    <li>
+                        <a href="Learning HTML/playground.html">
+                            <span class="nav-item-icon">🌐</span> HTML Structure Studio
+                            <span class="footer-mini-tag">Visual</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Learning CSS/playground.html">
+                            <span class="nav-item-icon">🎨</span> CSS Styling Studio
+                            <span class="footer-mini-tag">Live</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="Learning JS/playground.html">
+                            <span class="nav-item-icon">⚡</span> JS Logic Runner
+                            <span class="footer-mini-tag">Logic</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="master-playground.html">
+                            <span class="nav-item-icon">💻</span> Code Lab Master IDE
+                            <span class="footer-mini-tag hot">Pro</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ai-roadmap.html">
+                            <span class="nav-item-icon">🧭</span> AI Creator Roadmap
+                            <span class="footer-mini-tag">Guide</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 
+            <!-- Column 2: Official Textbooks -->
             <div class="footer-column">
-                <h4>Official Textbooks</h4>
-                <ul>
-                    <li><a href="book-html/index.html">Class 6 &amp; 7 HTML Book</a></li>
-                    <li><a href="book-css/index.html">Class 7 CSS Book</a></li>
-                    <li><a href="book-js/index.html">Class 7 JavaScript Book</a></li>
-                    <li><a href="book-cmd/index.html">Terminal &amp; CMD Book</a></li>
-                    <li><a href="book-git/index.html">Git &amp; GitHub Book</a></li>
-                    <li><a href="book-php/index.html">Class 9 PHP Book</a></li>
-                    <li><a href="book-mysql/index.html">Class 9 MySQL Book</a></li>
-                    <li><a href="book-laravel/index.html">Class 9 Laravel Book</a></li>
+                <h4>
+                    <span class="col-icon">📚</span> Textbooks (Audio TTS)
+                </h4>
+                <ul class="footer-nav-list textbooks-list">
+                    <li>
+                        <a href="book-html/index.html">
+                            <span class="nav-item-icon">🌐</span> HTML5: Structure
+                            <span class="footer-ch-count">17 Ch</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="book-css/index.html">
+                            <span class="nav-item-icon">🎨</span> CSS3: Modern Layouts
+                            <span class="footer-ch-count">22 Ch</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="book-js/index.html">
+                            <span class="nav-item-icon">⚡</span> JS: Learn &amp; Create
+                            <span class="footer-ch-count">17 Ch</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="book-cmd/index.html">
+                            <span class="nav-item-icon">&gt;_</span> Terminal &amp; CMD
+                            <span class="footer-ch-count">14 Ch</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="book-git/index.html">
+                            <span class="nav-item-icon">🐙</span> Git &amp; GitHub
+                            <span class="footer-ch-count">20 Ch</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="book-php/index.html">
+                            <span class="nav-item-icon">🐘</span> PHP Server Scripting
+                            <span class="footer-ch-count">29 Ch</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="book-mysql/index.html">
+                            <span class="nav-item-icon">🗄️</span> MySQL Databases
+                            <span class="footer-ch-count">22 Ch</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="book-laravel/index.html">
+                            <span class="nav-item-icon">🔥</span> Laravel Framework
+                            <span class="footer-ch-count">24 Ch</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
 
+            <!-- Column 3: Quick Resources & Cheatsheets -->
             <div class="footer-column">
-                <h4>Platform Navigation</h4>
-                <ul>
-                    <li><a href="getting-started.html">Getting Started Guide</a></li>
-                    <li><a href="ai-roadmap.html">AI Creator Roadmap</a></li>
-                    <li><a href="cheatsheet-cmd.html">Terminal &amp; CMD Cheat Sheet</a></li>
-                    <li><a href="cheatsheet-git.html">Git &amp; GitHub Cheat Sheet</a></li>
-                    <li><a href="cheatsheet-html.html">HTML Cheat Sheet</a></li>
-                    <li><a href="cheatsheet-css.html">CSS Cheat Sheet</a></li>
-                    <li><a href="cheatsheet-js.html">JS Cheat Sheet</a></li>
+                <h4>
+                    <span class="col-icon">📋</span> Quick Reference
+                </h4>
+                <ul class="footer-nav-list">
+                    <li>
+                        <a href="cheatsheet-cmd.html">
+                            <span class="nav-item-icon">&gt;_</span> Terminal &amp; CMD Sheet
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cheatsheet-git.html">
+                            <span class="nav-item-icon">🐙</span> Git &amp; GitHub Sheet
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cheatsheet-html.html">
+                            <span class="nav-item-icon">🌐</span> HTML Tag Reference
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cheatsheet-css.html">
+                            <span class="nav-item-icon">🎨</span> CSS Layout Cheat Sheet
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cheatsheet-js.html">
+                            <span class="nav-item-icon">⚡</span> JavaScript Cheat Sheet
+                        </a>
+                    </li>
+                    <li>
+                        <a href="getting-started.html">
+                            <span class="nav-item-icon">🚀</span> Student Onboarding Guide
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
 
+        <!-- Footer Bottom Bar -->
         <div class="footer-bottom">
             <div class="footer-bottom-inner">
-                <p>&copy; 2026 Junior Coders Educational Platform. Crafted with excellence for future software engineers.</p>
+                <div class="footer-copyright-wrap">
+                    <p>&copy; 2026 Junior Coders Educational Platform. Dedicated to <em>'Ilm Nāfi'</em> (Beneficial Knowledge), Digital Trust &amp; Craftsmanship.</p>
+                </div>
                 <div class="footer-bottom-links">
                     <a href="cheatsheet-html.html">HTML</a>
                     <a href="cheatsheet-css.html">CSS</a>
-                    <a href="cheatsheet-js.html">JavaScript</a>
-                    <a href="cheatsheet-cmd.html">Terminal</a>
+                    <a href="cheatsheet-js.html">JS</a>
+                    <a href="cheatsheet-cmd.html">CMD</a>
                     <a href="cheatsheet-git.html">Git</a>
-                    <a href="master-playground.html">Master IDE</a>
+                    <a href="book-php/index.html">PHP</a>
+                    <a href="book-mysql/index.html">MySQL</a>
+                    <a href="book-laravel/index.html">Laravel</a>
+                    <a href="master-playground.html" class="footer-highlight-link">⚡ Master IDE</a>
                 </div>
             </div>
         </div>

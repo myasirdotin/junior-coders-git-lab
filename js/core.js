@@ -661,14 +661,16 @@
         const footer = document.createElement('footer');
         footer.className = 'site-footer';
         footer.innerHTML = `
+            <div class="footer-top-gradient" aria-hidden="true"></div>
             <div class="footer-content">
                 <div class="footer-links">
                     <a href="${getBaseUrl()}index.html">Home</a>
                     <a href="${getBaseUrl()}getting-started.html">Getting Started</a>
+                    <a href="${getBaseUrl()}master-playground.html">Master IDE</a>
                     <a href="${getBaseUrl()}contact.html">Contact Us</a>
                 </div>
-                <div class="credits">Created with ❤️ by <strong>Yasir Rasool</strong></div>
-                <p>&copy; ${new Date().getFullYear()} Junior Coders platform. All rights reserved.</p>
+                <div class="credits">Crafted with excellence (<em>Iḥsān</em>) by <strong>Yasir Rasool</strong></div>
+                <p>&copy; ${new Date().getFullYear()} Junior Coders Educational Platform. Dedicated to <em>'Ilm Nāfi'</em> (Beneficial Knowledge).</p>
             </div>
         `;
         document.body.appendChild(footer);
