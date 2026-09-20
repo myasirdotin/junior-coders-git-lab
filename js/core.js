@@ -362,7 +362,7 @@
 
         // Active-section detection for dropdown highlight
         const cheatPaths = ['cheatsheet-html.html','cheatsheet-css.html','cheatsheet-js.html',
-                            'cheatsheet-git.html','cheatsheet-php.html','cheatsheet-mysql.html','cheatsheet-laravel.html'];
+                            'cheatsheet-cmd.html','cheatsheet-git.html','cheatsheet-php.html','cheatsheet-mysql.html','cheatsheet-laravel.html'];
         const isResources = currentPath === 'ai-roadmap.html' || currentPath === 'getting-started.html' || cheatPaths.includes(currentPath);
         const isBackend   = currentModule === 'Learning PHP' || currentModule === 'Learning MySQL' || currentModule === 'Learning Laravel';
         const isFrontend  = !isBackend && !isResources && currentModule !== null && (
@@ -436,6 +436,10 @@
                         </a>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown-section-label">Developer Tools</div>
+                        <a href="${baseUrl}book-cmd/index.html">
+                            <span class="dd-icon" style="background:rgba(16,185,129,0.15);">💻</span>
+                            <span class="dd-text"><strong>Terminal &amp; CMD</strong><small>Command prompt &amp; Git Bash</small></span>
+                        </a>
                         <a href="${baseUrl}book-git/index.html">
                             <span class="dd-icon" style="background:rgba(240,80,50,0.15);">🐙</span>
                             <span class="dd-text"><strong>Git &amp; GitHub</strong><small>Version control &amp; teamwork</small></span>
@@ -461,6 +465,7 @@
                         <a href="${baseUrl}cheatsheet-html.html" class="${currentPath === 'cheatsheet-html.html' ? 'active' : ''}">🌐 HTML</a>
                         <a href="${baseUrl}cheatsheet-css.html" class="${currentPath === 'cheatsheet-css.html' ? 'active' : ''}">🎨 CSS</a>
                         <a href="${baseUrl}cheatsheet-js.html" class="${currentPath === 'cheatsheet-js.html' ? 'active' : ''}">⚡ JS</a>
+                        <a href="${baseUrl}cheatsheet-cmd.html" class="${currentPath === 'cheatsheet-cmd.html' ? 'active' : ''}">💻 Terminal &amp; CMD</a>
                         <a href="${baseUrl}cheatsheet-git.html" class="${currentPath === 'cheatsheet-git.html' ? 'active' : ''}">🐙 Git &amp; GitHub</a>
                         <a href="${baseUrl}cheatsheet-php.html" class="${currentPath === 'cheatsheet-php.html' ? 'active' : ''}">🐘 PHP</a>
                         <a href="${baseUrl}cheatsheet-mysql.html" class="${currentPath === 'cheatsheet-mysql.html' ? 'active' : ''}">🗄️ MySQL</a>
@@ -1536,6 +1541,32 @@
             }
         });
     });
+
+    // --- Homepage Textbook Shelf Utilities ---
+    window.scrollBookShelf = function(offset) {
+        const track = document.getElementById('bookShelfTrack');
+        if (track) {
+            track.scrollBy({ left: offset, behavior: 'smooth' });
+        }
+    };
+
+    window.filterTextbooks = function(category, btnElement) {
+        const tabs = document.querySelectorAll('.shelf-tab-btn');
+        tabs.forEach(tab => tab.classList.remove('active'));
+        if (btnElement) {
+            btnElement.classList.add('active');
+        }
+
+        const cards = document.querySelectorAll('.compact-book-card');
+        cards.forEach(card => {
+            const cardCat = card.getAttribute('data-category');
+            if (category === 'all' || cardCat === category) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    };
 
 })();
 
