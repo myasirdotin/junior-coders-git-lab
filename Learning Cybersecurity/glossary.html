@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cybersecurity & Digital Hygiene Glossary: Complete definitions for defense in depth, encryption, OWASP Top 10 vulnerabilities, authentication, and digital stewardship.">
+    <title>Cybersecurity &amp; Digital Hygiene Glossary | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        .glossary-term {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .glossary-term:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+        }
+        .glossary-term h3 {
+            margin: 0 0 0.4rem;
+            color: #059669;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .glossary-term p {
+            margin: 0;
+            color: #475569;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="syllabus-container">
+        <header class="syllabus-header" style="background: linear-gradient(135deg, #059669, #0f766e); color: white; padding: 2.5rem 2rem; border-radius: 20px; margin-bottom: 2rem;">
+            <a href="learningcybersecurity.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem;">← Back to Cybersecurity Syllabus</a>
+            <h1 style="color: white; margin: 0.5rem 0 0.2rem;">Cybersecurity Glossary 🛡️</h1>
+            <p style="margin: 0; opacity: 0.9;">Essential terminology for ethical software engineers, defensive developers, and digital stewards.</p>
+        </header>
+
+        <section>
+            <div class="glossary-term">
+                <h3>Amānah (Digital Stewardship / Sacred Trust) 🤲</h3>
+                <p>The moral mandate that user credentials, private correspondence, financial data, and personal records entrusted to a developer must be safeguarded with maximum technical care, never misused, and never exposed.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>Authentication vs. Authorization 🔑</h3>
+                <p><strong>Authentication (AuthN)</strong> verifies <em>who</em> a user is (e.g. through passwords, passkeys, TOTP). <strong>Authorization (AuthZ)</strong> verifies <em>what permissions</em> that verified identity has (e.g. role-based access control, admin privileges).</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>Brute-Force Attack 🔨</h3>
+                <p>A trial-and-error method where an attacker systematically attempts every possible password combination until finding the correct one. Mitigated via rate-limiting, account lockouts, and Argon2/bcrypt key derivation.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>CIA Triad 🔺</h3>
+                <p>The three cornerstones of information security: <strong>Confidentiality</strong> (privacy against unauthorized reading), <strong>Integrity</strong> (accuracy against unauthorized tampering), and <strong>Availability</strong> (timely access for authorized users).</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>CSRF (Cross-Site Request Forgery) 🎭</h3>
+                <p>An attack that tricks a victim's authenticated browser into executing unwanted actions on a trusted web application using existing session cookies. Defended by unpredictable anti-CSRF tokens and <code>SameSite=Strict</code> cookie attributes.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>Defense in Depth 🏰</h3>
+                <p>A layered security strategy where multiple concentric defense mechanisms (firewalls, rate limiters, input validation, least-privilege databases, encryption at rest) are employed so the failure of any single layer does not compromise the system.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>Entropy (Password Strength) 🎲</h3>
+                <p>A mathematical measurement in bits ($E = L \times \log_2(N)$) of the unpredictability and randomness of a secret string, determining how many guesses an attacker would need in the worst case to crack it.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>EXIF Metadata 📷</h3>
+                <p>Hidden data automatically embedded in photos taken by smartphones and cameras, frequently containing precise GPS coordinates, device serial numbers, and timestamps that leak user location unless stripped prior to storage.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>Hash Function (Cryptographic) 🥩</h3>
+                <p>A one-way mathematical algorithm (e.g. SHA-256) that maps arbitrary data into a fixed-length string. It is deterministic, computationally irreversible, and exhibits an avalanche effect (any 1-bit input change alters ~50% of output bits).</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>HSTS (HTTP Strict Transport Security) 🔒</h3>
+                <p>A response header (<code>Strict-Transport-Security: max-age=31536000; includeSubDomains; preload</code>) instructing browsers to exclusively communicate with a site over HTTPS, eliminating SSL-stripping man-in-the-middle attacks.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>IDOR (Insecure Direct Object Reference) 🗂️</h3>
+                <p>A broken access control vulnerability where an application exposes a direct database key or record ID in URLs or payloads (e.g., <code>/invoice?id=1042</code>) without verifying if the requesting user actually owns that resource.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>MFA (Multi-Factor Authentication) 📱</h3>
+                <p>An authentication technique requiring two or more distinct evidence factors: something you know (password), something you have (hardware key / TOTP app), or something you are (biometrics).</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>MitM (Man-in-the-Middle) 🕵️</h3>
+                <p>An attack where an adversary secretly intercepts and relays communications between two parties who believe they are communicating directly, prevented by mutual TLS and certificate verification.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>Phishing 🎣</h3>
+                <p>Social engineering deceptive attempts—often via fraudulent emails, spoofed domains, or lookalike portals—to manipulate individuals into surrendering passwords, financial tokens, or confidential data.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>Prepared Statement (Parameterized Query) 🛡️</h3>
+                <p>A database query design where SQL code structure is pre-compiled and transmitted separately from user input parameters, rendering SQL injection technically impossible.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>Principle of Least Privilege (PoLP) 🗝️</h3>
+                <p>The foundational security rule that any user account, database connection, API token, or background process must possess only the bare minimum set of permissions necessary to execute its legitimate task.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>Ransomware ☣️</h3>
+                <p>Extortion malware that encrypts files on a victim's machine or network, demanding payment for decryption keys. Mitigated through the 3-2-1 backup rule, network segmentation, and disciplined patch management.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>Salt (Cryptographic) 🧂</h3>
+                <p>A unique, cryptographically random string generated per user and concatenated with their password before hashing, defeating precomputed rainbow table attacks and preventing identical passwords from producing identical hashes.</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>XSS (Cross-Site Scripting) ⚡</h3>
+                <p>A security vulnerability allowing attackers to inject malicious JavaScript into web pages viewed by other users. Defended by contextual output encoding (e.g. <code>htmlspecialchars()</code>) and Content Security Policy (CSP).</p>
+            </div>
+
+            <div class="glossary-term">
+                <h3>Zero-Day Vulnerability ⏳</h3>
+                <p>A software vulnerability that is discovered and exploited by adversaries before the vendor or developer is aware of it or has released an official patch.</p>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin: 3rem 0 2rem;">
+            <a href="best-practices.html" class="course-btn" style="background: #059669; color: white; padding: 0.8rem 1.8rem; border-radius: 10px; text-decoration: none; font-weight: 600; margin-right: 0.8rem;">Explore Defensive Best Practices →</a>
+            <a href="learningcybersecurity.html" style="color: #64748b; text-decoration: none; font-weight: 500;">Back to Syllabus</a>
+        </div>
+    </div>
+</body>
+</html>

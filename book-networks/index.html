@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Computer Networking &amp; Web Protocols for Junior Coders | LearnCode</title>
+  <meta name="description" content="Official Computer Networking & Web Protocols Textbook: Master the Internet highway, OSI & TCP/IP models, IP subnetting, TCP/UDP, DNS, HTTP/3, and TLS cryptography.">
+  <link rel="stylesheet" href="../styles/book-theme.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { 
+      --primary-blue: #0284c7; 
+      --primary-accent: #0ea5e9;
+      --networks-badge: #0369a1;
+    }
+    .book-brand-icon { 
+      background: linear-gradient(135deg, #0284c7, #0d9488) !important; 
+      color: #fff; 
+      font-weight: 800; 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      width: 42px; 
+      height: 42px; 
+      border-radius: 10px; 
+      flex-shrink: 0; 
+      font-size: 20px;
+      font-family: var(--font-mono, monospace);
+    }
+    .networks-brand-badge {
+      display: inline-block;
+      background: rgba(2, 132, 199, 0.12);
+      color: #0284c7;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .chapter-nav-item.active a { 
+      background: #f0f9ff; 
+      color: #0369a1; 
+      border-left: 3px solid #0284c7; 
+      font-weight: 700;
+    }
+    .chapter-nav-item a:hover { 
+      color: #0369a1; 
+      background: #e0f2fe; 
+    }
+    .book-subject-tabs {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .subject-tab {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 0.28rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+    .subject-tab:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .subject-tab.active {
+      background: #0284c7;
+      color: #ffffff;
+      border-color: #0284c7;
+    }
+    .code-wrapper { 
+      position: relative; 
+      background: #0f172a; 
+      border: 1px solid #334155; 
+      border-radius: 10px; 
+      margin: 1.5rem 0; 
+      overflow: hidden; 
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25); 
+    }
+    .code-wrapper-header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      background: #1e293b; 
+      padding: 0.5rem 1rem; 
+      border-bottom: 1px solid #334155; 
+      font-size: 0.8rem; 
+    }
+    .code-lang-label { 
+      font-family: var(--font-mono, monospace); 
+      color: #38bdf8; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      font-size: 0.75rem; 
+    }
+    .copy-btn { 
+      background: #334155; 
+      color: #cbd5e1; 
+      border: none; 
+      padding: 0.25rem 0.65rem; 
+      border-radius: 5px; 
+      font-size: 0.75rem; 
+      cursor: pointer; 
+      font-family: inherit; 
+      transition: all 0.15s; 
+    }
+    .copy-btn:hover { 
+      background: #0284c7; 
+      color: #fff; 
+    }
+    .copy-btn.copied { 
+      background: #10b981; 
+      color: #fff; 
+    }
+    .code-wrapper pre { 
+      margin: 0; 
+      padding: 1.25rem; 
+      overflow-x: auto; 
+      background: transparent; 
+      border: none; 
+    }
+    .code-wrapper pre code { 
+      font-family: var(--font-mono, 'Fira Code', monospace); 
+      font-size: 0.9rem; 
+      line-height: 1.6; 
+      color: #e2e8f0; 
+      background: transparent; 
+      padding: 0; 
+      border: none; 
+    }
+    .reader-header {
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .reader-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .reader-meta-item {
+      font-size: 0.82rem;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .reading-mode-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .reading-mode-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .reading-mode-active .book-sidebar {
+      display: none !important;
+    }
+    .reading-mode-active .book-reader {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+  </style>
+</head>
+<body class="book-theme-body">
+  <!-- Mobile Navigation Header -->
+  <header class="book-mobile-header">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Table of Contents">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="mobile-book-title">
+      <span class="book-badge" style="background:#0284c7; color:#fff;">NETWORKING</span>
+      <span>Junior Coders</span>
+    </div>
+    <a href="../index.html" class="mobile-home-btn" title="Back to Main Hub">🏠</a>
+  </header>
+
+  <div class="book-layout">
+    <!-- Sidebar / Table of Contents -->
+    <aside class="book-sidebar" id="bookSidebar">
+      <div class="book-sidebar-header">
+        <a href="../index.html" class="book-back-link">← Back to Hub</a>
+        <div class="book-brand">
+          <div class="book-brand-icon">🌐</div>
+          <div>
+            <div class="networks-brand-badge">Core Systems Track</div>
+            <h1 class="book-main-title">Networking</h1>
+            <p class="book-subtitle">14 Chapters • Web Protocols</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-sidebar-search">
+        <input type="text" id="chapterSearch" placeholder="🔍 Search chapters..." aria-label="Search chapters">
+      </div>
+
+      <!-- Subject / Section filter tabs -->
+      <div style="padding: 0 1rem;">
+        <div class="book-subject-tabs" role="tablist" aria-label="Filter parts">
+          <button type="button" class="subject-tab active" onclick="filterNetworksGroup('all', this)">All</button>
+          <button type="button" class="subject-tab" onclick="filterNetworksGroup('foundations', this)">Layers &amp; IP</button>
+          <button type="button" class="subject-tab" onclick="filterNetworksGroup('transport', this)">Transport</button>
+          <button type="button" class="subject-tab" onclick="filterNetworksGroup('web', this)">HTTP &amp; Web</button>
+          <button type="button" class="subject-tab" onclick="filterNetworksGroup('security', this)">Security</button>
+        </div>
+      </div>
+
+      <nav class="book-nav" id="bookNav">
+        <!-- Part 1: Foundations & Models -->
+        <div class="part-group" data-group="foundations">
+          <div class="part-title">Part 1: Foundations &amp; Layer Models</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-01-network-foundations/ch01-how-the-internet-works.md', this)">1. How the Internet Works</a></li>
+            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-01-network-foundations/ch02-osi-and-tcpip-models.md', this)">2. OSI &amp; TCP/IP Models</a></li>
+            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-01-network-foundations/ch03-ip-addresses-and-subnets.md', this)">3. IP Addresses &amp; CIDR</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 2: Transport Layer & Ports -->
+        <div class="part-group" data-group="transport">
+          <div class="part-title">Part 2: Transport &amp; Sockets</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-02-transport-and-ports/ch04-tcp-vs-udp.md', this)">4. TCP vs UDP Protocols</a></li>
+            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-02-transport-and-ports/ch05-ports-and-sockets.md', this)">5. Ports &amp; Network Sockets</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 3: The Domain System -->
+        <div class="part-group" data-group="foundations">
+          <div class="part-title">Part 3: The Domain System</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-03-the-domain-system/ch06-dns-the-internets-phonebook.md', this)">6. DNS: The Global Phonebook</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 4: HTTP Evolution -->
+        <div class="part-group" data-group="web">
+          <div class="part-title">Part 4: HTTP &amp; The Web</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-04-http-and-the-web/ch07-anatomy-of-http-request-and-response.md', this)">7. HTTP Request &amp; Response</a></li>
+            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-04-http-and-the-web/ch08-http-evolution-http1-http2-http3.md', this)">8. HTTP/1.1, HTTP/2 &amp; HTTP/3</a></li>
+            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-04-http-and-the-web/ch09-cookies-sessions-and-caching.md', this)">9. Cookies, State &amp; Caching</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 5: Securing the Wire -->
+        <div class="part-group" data-group="security">
+          <div class="part-title">Part 5: Securing the Wire</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-05-securing-the-wire/ch10-tls-ssl-and-https.md', this)">10. TLS, HTTPS &amp; Amānah</a></li>
+            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-05-securing-the-wire/ch11-cors-and-web-security.md', this)">11. CORS &amp; Web Security</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 6: Modern Web & Capstone -->
+        <div class="part-group" data-group="web">
+          <div class="part-title">Part 6: Modern Web &amp; Capstone</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-06-modern-web-and-diagnostics/ch12-rest-apis-and-realtime-websockets.md', this)">12. REST APIs &amp; WebSockets</a></li>
+            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-06-modern-web-and-diagnostics/ch13-network-diagnostics-and-devtools.md', this)">13. Diagnostics &amp; DevTools</a></li>
+            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-06-modern-web-and-diagnostics/ch14-capstone-resilient-community-network.md', this)">14. Capstone: Resilient Network</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content Reader -->
+    <main class="book-reader book-content">
+      <div class="reader-top-nav">
+        <div class="reader-breadcrumb">
+          <a href="../index.html">LearnCode</a>
+          <span class="sep">/</span>
+          <span class="current" id="breadcrumbCurrent">Part 1: Foundations &amp; Layer Models</span>
+        </div>
+        <div class="reader-quick-actions">
+          <a href="../cheatsheet-networks.html" class="reader-nav-btn"><span>⚡</span> Networks Cheatsheet</a>
+          <a href="../Learning Networks/learningnetworks.html" class="reader-nav-btn"><span>📚</span> Networks Studio</a>
+          <a href="../Learning Networks/playground.html" class="reader-nav-btn"><span>🧪</span> Protocol Lab</a>
+        </div>
+      </div>
+
+      <!-- Neural Speaker Control Bar -->
+      <div class="book-speaker-panel" id="book-speaker-bar">
+        <div class="book-speaker-left">
+          <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read chapter aloud">
+            <span class="speaker-icon" id="book-speaker-icon">🔊</span>
+            <span class="speaker-label" id="book-speaker-label">Listen to Chapter</span>
+          </button>
+          <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop reading" style="display:none;">
+            ⏹️ Stop
+          </button>
+          <div class="book-speaker-speed-wrap">
+            <label for="book-speaker-speed-select" class="book-speaker-speed-label">Speed:</label>
+            <select class="book-speaker-speed-select" id="book-speaker-speed-select">
+              <option value="0.8">0.8×</option>
+              <option value="0.95" selected>1.0×</option>
+              <option value="1.15">1.15×</option>
+              <option value="1.3">1.3×</option>
+            </select>
+          </div>
+          <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true">
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+            <span class="bar bar-4"></span>
+          </div>
+          <div class="book-speaker-status" id="book-speaker-status">
+            <span class="status-dot" id="book-speaker-dot"></span>
+            <span class="status-text" id="book-speaker-status-text">Ready to read</span>
+          </div>
+        </div>
+        <div class="book-speaker-right">
+          <span class="speaker-voice-name" id="book-speaker-voice-name">Natural Voice</span>
+        </div>
+      </div>
+
+      <header class="reader-header">
+        <div class="reader-meta">
+          <div class="font-size-controls">
+            <button type="button" class="font-size-btn" onclick="adjustFontSize(-1)" title="Decrease font size">A-</button>
+            <button type="button" class="font-size-btn" onclick="adjustFontSize(1)" title="Increase font size">A+</button>
+            <button type="button" class="reading-mode-btn" onclick="toggleReadingMode()" title="Toggle focused reading mode">
+              <span>📖</span>
+              <span class="btn-text">Reading Mode</span>
+            </button>
+            <span class="reader-meta-item" id="readTime">⏱️ 4 min read</span>
+          </div>
+        </div>
+      </header>
+
+      <article class="book-article" id="chapterContent">
+        <div id="chapterBody">
+          <!-- Chapter content dynamically rendered here -->
+        </div>
+      </article>
+
+      <div class="chapter-footer-nav" id="chapterFooterNav">
+        <!-- Previous / Next links dynamically inserted here -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Markdown Parser & Bundle Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="chapters-bundle.js"></script>
+  <script>
+    let currentChapterPath = '';
+
+    function filterNetworksGroup(group, el) {
+      document.querySelectorAll('.subject-tab').forEach(b => b.classList.remove('active'));
+      if (el) el.classList.add('active');
+
+      document.querySelectorAll('.part-group').forEach(pg => {
+        if (group === 'all' || pg.getAttribute('data-group') === group) {
+          pg.style.display = '';
+        } else {
+          pg.style.display = 'none';
+        }
+      });
+    }
+
+    async function loadChapter(path, navElement) {
+      currentChapterPath = path;
+
+      // Update navigation active state
+      document.querySelectorAll('.chapter-nav-item').forEach(i => i.classList.remove('active'));
+      if (navElement) {
+        const item = navElement.closest('.chapter-nav-item');
+        if (item) item.classList.add('active');
+      }
+
+      const chapterBody = document.getElementById('chapterBody');
+      chapterBody.innerHTML = '<div style="text-align:center;padding:3rem;color:#64748b;">Loading chapter...</div>';
+
+      try {
+        let md = '';
+        if (window.BOOK_NETWORKS_CHAPTERS && window.BOOK_NETWORKS_CHAPTERS[path]) {
+          md = window.BOOK_NETWORKS_CHAPTERS[path];
+        } else {
+          const resp = await fetch(path);
+          if (!resp.ok) throw new Error('Failed to fetch chapter file');
+          md = await resp.text();
+        }
+
+        // Render Markdown
+        chapterBody.innerHTML = marked.parse(md);
+
+        // Enhance code blocks with copy button
+        enhanceCodeBlocks();
+
+        // Update read time estimate
+        const wordCount = md.split(/\s+/).length;
+        document.getElementById('readTime').textContent = `⏱️ ${Math.ceil(wordCount / 180)} min read`;
+
+        // Update breadcrumb
+        const partGroup = navElement ? navElement.closest('.part-group') : null;
+        if (partGroup) {
+          const partTitle = partGroup.querySelector('.part-title').textContent;
+          document.getElementById('breadcrumbCurrent').textContent = partTitle;
+        }
+
+        // Build Prev / Next footer navigation
+        buildFooterNav(path);
+
+        // Scroll to top of content
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Update speaker content if active
+        if (window.BookSpeaker && typeof window.BookSpeaker.onChapterChange === 'function') {
+          window.BookSpeaker.onChapterChange();
+        }
+      } catch (err) {
+        chapterBody.innerHTML = `
+          <div style="padding: 2rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; color: #991b1b;">
+            <h3>Error Loading Chapter</h3>
+            <p>${err.message}</p>
+            <p>If reading locally, please run <code>node scripts/bundle-books.js</code> to generate the offline chapter bundle.</p>
+          </div>
+        `;
+      }
+    }
+
+    function enhanceCodeBlocks() {
+      document.querySelectorAll('#chapterBody pre').forEach(pre => {
+        if (pre.closest('.code-wrapper')) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-wrapper';
+
+        const codeEl = pre.querySelector('code');
+        const lang = codeEl ? (codeEl.className.match(/language-(\w+)/) || [, 'bash'])[1] : 'bash';
+
+        const header = document.createElement('div');
+        header.className = 'code-wrapper-header';
+        header.innerHTML = `
+          <span class="code-lang-label">${lang}</span>
+          <button type="button" class="copy-btn" onclick="copySnippet(this)">Copy</button>
+        `;
+
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(header);
+        wrapper.appendChild(pre);
+      });
+    }
+
+    function copySnippet(btn) {
+      const code = btn.closest('.code-wrapper').querySelector('code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = 'Copied! ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    function buildFooterNav(currentPath) {
+      const allLinks = Array.from(document.querySelectorAll('.chapter-nav-item a'));
+      const currentIndex = allLinks.findIndex(a => {
+        const onclick = a.getAttribute('onclick') || '';
+        return onclick.includes(currentPath);
+      });
+
+      const footer = document.getElementById('chapterFooterNav');
+      footer.innerHTML = '';
+
+      if (currentIndex > 0) {
+        const prevLink = allLinks[currentIndex - 1];
+        const prevBtn = document.createElement('a');
+        prevBtn.className = 'chapter-footer-btn prev';
+        prevBtn.innerHTML = `← Previous: ${prevLink.textContent}`;
+        prevBtn.onclick = (e) => { e.preventDefault(); prevLink.click(); };
+        footer.appendChild(prevBtn);
+      }
+
+      if (currentIndex >= 0 && currentIndex < allLinks.length - 1) {
+        const nextLink = allLinks[currentIndex + 1];
+        const nextBtn = document.createElement('a');
+        nextBtn.className = 'chapter-footer-btn next';
+        nextBtn.innerHTML = `Next: ${nextLink.textContent} →`;
+        nextBtn.onclick = (e) => { e.preventDefault(); nextLink.click(); };
+        footer.appendChild(nextBtn);
+      }
+    }
+
+    let currentFontSize = 16;
+    function adjustFontSize(delta) {
+      currentFontSize = Math.min(22, Math.max(13, currentFontSize + delta));
+      document.getElementById('chapterBody').style.fontSize = `${currentFontSize}px`;
+    }
+
+    function toggleReadingMode() {
+      document.body.classList.toggle('reading-mode-active');
+    }
+
+    // Filter search box
+    document.getElementById('chapterSearch').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.chapter-nav-item').forEach(item => {
+        const txt = item.textContent.toLowerCase();
+        item.style.display = txt.includes(q) ? '' : 'none';
+      });
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        document.getElementById('bookSidebar').classList.toggle('open');
+      });
+    }
+
+    // Initial Load: Chapter 1
+    window.addEventListener('DOMContentLoaded', () => {
+      loadChapter('part-01-network-foundations/ch01-how-the-internet-works.md', document.querySelector('.chapter-nav-item a'));
+    });
+  </script>
+  <script src="../js/book-speaker.js"></script>
+</body>
+</html>

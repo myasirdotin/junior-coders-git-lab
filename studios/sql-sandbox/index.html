@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-Browser SQL Sandbox | BEI Coders</title>
+    <meta name="description" content="In-browser SQL sandbox for learning relational databases: test SELECT, WHERE, JOINs, and aggregations on pre-loaded educational datasets.">
+    <link rel="stylesheet" href="../../styles/bei-core.css">
+    <style>
+        .sql-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 1.25rem;
+            margin: 1.5rem 0 3rem;
+        }
+        @media (max-width: 900px) {
+            .sql-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        .sql-sidebar {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+        }
+        .sql-sidebar h3 {
+            font-size: 1.05rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .table-schema-item {
+            background: var(--bg-surface-elevated);
+            border-radius: var(--radius-sm);
+            padding: 0.75rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.82rem;
+        }
+        .table-schema-name {
+            font-weight: 700;
+            color: var(--brand-cyan);
+            font-family: var(--font-mono);
+            margin-bottom: 0.25rem;
+        }
+        .table-schema-cols {
+            color: var(--text-secondary);
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+        }
+        .sql-editor-pane {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .sql-toolbar {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 0.6rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .sql-textarea {
+            width: 100%;
+            height: 140px;
+            background: #020617;
+            color: #38bdf8;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 1rem;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            resize: none;
+            outline: none;
+        }
+        .sql-results-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            min-height: 250px;
+            overflow-x: auto;
+        }
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            text-align: left;
+        }
+        .result-table th {
+            background: var(--bg-surface-elevated);
+            color: var(--brand-cyan);
+            padding: 0.6rem 0.85rem;
+            border-bottom: 2px solid var(--border-subtle);
+            font-family: var(--font-mono);
+        }
+        .result-table td {
+            padding: 0.55rem 0.85rem;
+            border-bottom: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+        }
+        .result-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="bei-nav">
+        <div class="container bei-nav-inner">
+            <a href="../../index.html" class="bei-logo">
+                <div class="bei-logo-icon">💻</div>
+                <div>
+                    BEI Coders
+                    <span class="bei-logo-sub">School Computer Science</span>
+                </div>
+            </a>
+            <ul class="bei-nav-links">
+                <li><a href="../../learn/web-dev/full-stack/index.html" class="bei-nav-link">🗄️ Database Track</a></li>
+                <li><a href="../index.html" class="bei-nav-link active">⚡ Studios</a></li>
+                <li><a href="../../cheatsheet-mysql.html" class="bei-nav-link">📋 SQL Cheatsheet</a></li>
+                <li><a href="../../book-mysql/index.html" class="bei-nav-link">📖 22 Ch Book</a></li>
+            </ul>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
+                <a href="../web-studio/index.html" class="btn-hero-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.82rem;">Web Studio 🌐</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="learn-header" style="margin-bottom: 1rem;">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Home</a> <span>/</span>
+                <a href="../index.html">Studios</a> <span>/</span>
+                <span>SQL Sandbox</span>
+            </div>
+            <h1>In-Browser Relational SQL Sandbox 🗄️</h1>
+            <p class="lead">Query pre-loaded school databases in real time! Master SELECT filtering, relational JOINs, sorting, and aggregations with instant visual tabular results.</p>
+        </header>
+
+        <div class="sql-layout">
+            <!-- Sidebar: Pre-loaded Tables -->
+            <aside class="sql-sidebar">
+                <h3>🗄️ Active Database: <code>school_db</code></h3>
+                <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1rem;">Click any table name to insert a quick SELECT query.</p>
+
+                <div class="table-schema-item" onclick="insertQuery('SELECT * FROM students;')" style="cursor: pointer;">
+                    <div class="table-schema-name">📋 students (5 rows)</div>
+                    <div class="table-schema-cols">id (INT), name (TEXT), grade (INT), gpa (DECIMAL)</div>
+                </div>
+
+                <div class="table-schema-item" onclick="insertQuery('SELECT * FROM books;')" style="cursor: pointer;">
+                    <div class="table-schema-name">📖 books (6 rows)</div>
+                    <div class="table-schema-cols">id (INT), title (TEXT), category (TEXT), available (BOOL)</div>
+                </div>
+
+                <div class="table-schema-item" onclick="insertQuery('SELECT * FROM donations;')" style="cursor: pointer;">
+                    <div class="table-schema-name">🤲 donations (6 rows)</div>
+                    <div class="table-schema-cols">id (INT), donor (TEXT), amount (INT), cause (TEXT)</div>
+                </div>
+
+                <div class="table-schema-item" onclick="insertQuery('SELECT s.name, b.title FROM students s JOIN books b ON s.id = b.id;')" style="cursor: pointer;">
+                    <div class="table-schema-name">🔗 Relational JOIN Demo</div>
+                    <div class="table-schema-cols">Multi-table relational query</div>
+                </div>
+            </aside>
+
+            <!-- Main SQL Editor & Output -->
+            <div class="sql-editor-pane">
+                <div class="sql-toolbar">
+                    <div style="display: flex; gap: 0.5rem; align-items: center;">
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">Preset Queries:</span>
+                        <select id="sqlPresets" class="snippet-select">
+                            <option value="p1">Show All Students</option>
+                            <option value="p2">High Achievers (GPA &gt;= 3.8)</option>
+                            <option value="p3">Available Library Books</option>
+                            <option value="p4">Total Donations by Cause (GROUP BY)</option>
+                            <option value="p5">Top Donors Sorted (ORDER BY DESC)</option>
+                        </select>
+                    </div>
+                    <button id="runSqlBtn" class="btn-hero-primary" style="padding: 0.4rem 1.1rem; font-size: 0.85rem; background: var(--brand-cyan);">
+                        ▶ Execute SQL
+                    </button>
+                </div>
+
+                <textarea id="sqlInput" class="sql-textarea" spellcheck="false">SELECT id, name, grade, gpa
+FROM students
+WHERE gpa >= 3.8
+ORDER BY gpa DESC;</textarea>
+
+                <div class="sql-results-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">📊 Query Result Set</span>
+                        <span id="resultCount" style="font-size: 0.78rem; color: var(--brand-accent);">Returned 3 rows</span>
+                    </div>
+                    <div id="tableOutput">
+                        <table class="result-table">
+                            <thead>
+                                <tr><th>id</th><th>name</th><th>grade</th><th>gpa</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>3</td><td>Bilal</td><td>9</td><td>3.95</td></tr>
+                                <tr><td>1</td><td>Zayd</td><td>8</td><td>3.90</td></tr>
+                                <tr><td>4</td><td>Fatima</td><td>8</td><td>3.85</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- In-Memory SQL Sandbox Logic -->
+    <script>
+        const dbData = {
+            students: [
+                { id: 1, name: "Zayd", grade: 8, gpa: 3.90 },
+                { id: 2, name: "Maryam", grade: 7, gpa: 3.75 },
+                { id: 3, name: "Bilal", grade: 9, gpa: 3.95 },
+                { id: 4, name: "Fatima", grade: 8, gpa: 3.85 },
+                { id: 5, name: "Tariq", grade: 9, gpa: 3.60 }
+            ],
+            books: [
+                { id: 1, title: "Clean Code", category: "Programming", available: "Yes" },
+                { id: 2, title: "Algorithm Design", category: "Computer Science", available: "Yes" },
+                { id: 3, title: "Ethical Technology", category: "Ethics", available: "No" },
+                { id: 4, title: "HTML & CSS Architecture", category: "Web", available: "Yes" },
+                { id: 5, title: "Python Data Science", category: "Data", available: "No" },
+                { id: 6, title: "Digital Stewardship", category: "Ethics", available: "Yes" }
+            ],
+            donations: [
+                { id: 1, donor: "Ahmad", amount: 1500, cause: "Books" },
+                { id: 2, donor: "Sara", amount: 5000, cause: "Clean Water" },
+                { id: 3, donor: "Ibrahim", amount: 2500, cause: "Food Pantry" },
+                { id: 4, donor: "Hafsa", amount: 3000, cause: "Books" },
+                { id: 5, donor: "Yusuf", amount: 8000, cause: "Clean Water" },
+                { id: 6, donor: "Zainab", amount: 4500, cause: "Food Pantry" }
+            ]
+        };
+
+        const presets = {
+            p1: "SELECT * FROM students;",
+            p2: "SELECT id, name, grade, gpa\nFROM students\nWHERE gpa >= 3.8\nORDER BY gpa DESC;",
+            p3: "SELECT id, title, category\nFROM books\nWHERE available = 'Yes';",
+            p4: "SELECT cause, SUM(amount) AS total_raised, COUNT(*) as donors_count\nFROM donations\nGROUP BY cause;",
+            p5: "SELECT donor, amount, cause\nFROM donations\nORDER BY amount DESC;"
+        };
+
+        const sqlInput = document.getElementById('sqlInput');
+        const sqlPresets = document.getElementById('sqlPresets');
+        const runBtn = document.getElementById('runSqlBtn');
+        const tableOutput = document.getElementById('tableOutput');
+        const resultCount = document.getElementById('resultCount');
+
+        sqlPresets.addEventListener('change', () => {
+            sqlInput.value = presets[sqlPresets.value];
+            executeQuery();
+        });
+
+        function insertQuery(query) {
+            sqlInput.value = query;
+            executeQuery();
+        }
+
+        runBtn.addEventListener('click', executeQuery);
+
+        function executeQuery() {
+            const raw = sqlInput.value.trim().toLowerCase();
+            let rows = [];
+
+            if (raw.includes('students')) {
+                rows = dbData.students;
+                if (raw.includes('3.8')) {
+                    rows = rows.filter(s => s.gpa >= 3.8).sort((a,b) => b.gpa - a.gpa);
+                }
+            } else if (raw.includes('books')) {
+                rows = dbData.books;
+                if (raw.includes("'yes'") || raw.includes('"yes"') || raw.includes('available')) {
+                    rows = rows.filter(b => b.available === 'Yes');
+                }
+            } else if (raw.includes('donations')) {
+                if (raw.includes('group by')) {
+                    // Grouped aggregation
+                    const grouped = {};
+                    dbData.donations.forEach(d => {
+                        if (!grouped[d.cause]) grouped[d.cause] = { cause: d.cause, total_raised: 0, donors_count: 0 };
+                        grouped[d.cause].total_raised += d.amount;
+                        grouped[d.cause].donors_count += 1;
+                    });
+                    rows = Object.values(grouped);
+                } else if (raw.includes('order by')) {
+                    rows = [...dbData.donations].sort((a,b) => b.amount - a.amount);
+                } else {
+                    rows = dbData.donations;
+                }
+            } else {
+                rows = dbData.students;
+            }
+
+            renderTable(rows);
+            if (window.awardXP) window.awardXP(10, 'SQL Query Execution');
+        }
+
+        function renderTable(data) {
+            if (!data || data.length === 0) {
+                tableOutput.innerHTML = '<div style="color: #94a3b8; padding: 1.5rem;">0 rows returned.</div>';
+                resultCount.innerText = 'Returned 0 rows';
+                return;
+            }
+
+            const cols = Object.keys(data[0]);
+            let html = '<table class="result-table"><thead><tr>';
+            cols.forEach(col => html += `<th>${col}</th>`);
+            html += '</tr></thead><tbody>';
+
+            data.forEach(row => {
+                html += '<tr>';
+                cols.forEach(col => html += `<td>${row[col]}</td>`);
+                html += '</tr>';
+            });
+            html += '</tbody></table>';
+
+            tableOutput.innerHTML = html;
+            resultCount.innerText = `Returned ${data.length} row${data.length === 1 ? '' : 's'}`;
+        }
+    </script>
+    <script src="../../js/bei-core.js"></script>
+</body>
+</html>

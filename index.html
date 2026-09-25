@@ -1,933 +1,375 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junior Coders | The Interactive Full-Stack Coding Campus (Grades 6–9)</title>
-    
-    <meta name="description" content="Junior Coders - The premier interactive learning platform for young developers. Official textbooks with voice narration, live code studios, and step-by-step full-stack tracks.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles/main.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <title>BEI Coders | School Computer Science for Grades 6–10</title>
+    <meta name="description" content="BEI Coders: Modern, ethical school computer science platform for Grades 6–10. Python, Web Development, AI Literacy, zero-setup interactive code studios, and textbooks.">
+    <link rel="stylesheet" href="styles/bei-core.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
 </head>
 <body>
 
-    <div class="container">
-        <!-- ═══════════════════════════════════════════════════════════════
-             HERO V2 SECTION (MODERN 2-COLUMN WITH INTERACTIVE PREVIEW)
-             ═══════════════════════════════════════════════════════════════ -->
-        <header class="hero-v2">
-            <div class="hero-v2-content">
-                <div class="hero-v2-badge">
-                    <span>✨</span> Version 1.0.0 • The Ethical Full-Stack Campus
-                </div>
-                <h1 class="hero-v2-title">
-                    Where Young Coders Become <span class="hero-gradient-text">Full-Stack Architects</span>
-                </h1>
-                <p class="hero-v2-subtitle">
-                    Journey from writing your very first HTML tag to mastering CSS layout, JavaScript logic, Terminal navigation, Git teamwork, and real-world PHP &amp; Laravel applications.
-                </p>
-                
-                <div class="hero-v2-actions">
-                    <a href="master-playground.html" class="btn-hero-primary">
-                        <span>⚡</span> Launch Master IDE
-                    </a>
-                    <a href="#textbooks-section" class="btn-hero-secondary">
-                        <span>📖</span> 9 Textbooks (Audio TTS)
-                    </a>
-                    <a href="getting-started.html" class="btn-hero-secondary">
-                        <span>🚀</span> Beginner Guide
-                    </a>
-                </div>
-
-                <div class="hero-v2-tags">
-                    <a href="#interactive-labs" class="hero-v2-tag">🧪 4 Code Studios</a>
-                    <a href="#frontend-paths" class="hero-v2-tag">🌐 Frontend (Grades 6–8)</a>
-                    <a href="#tooling-bridge" class="hero-v2-tag">💻 CLI &amp; Git Tooling</a>
-                    <a href="#backend-paths" class="hero-v2-tag">🗄️ Backend (Grade 9)</a>
-                    <a href="#ai-paths" class="hero-v2-tag">🤖 Python &amp; AI (Grades 8–10)</a>
-                    <a href="#textbooks-section" class="hero-v2-tag">📚 9 Official Books</a>
-                    <a href="#quick-resources" class="hero-v2-tag">📋 Cheat Sheets</a>
-                </div>
-            </div>
-
-            <!-- Interactive Simulated Terminal Window -->
-            <div class="hero-window-card" aria-hidden="true">
-                <div class="hero-window-header">
-                    <div class="hero-window-controls">
-                        <span class="hero-window-dot red"></span>
-                        <span class="hero-window-dot yellow"></span>
-                        <span class="hero-window-dot green"></span>
-                        <div class="hero-window-tabs">
-                            <span class="hero-tab-item active" id="tab-term">terminal.cmd</span>
-                            <span class="hero-tab-item" id="tab-html">index.html</span>
-                            <span class="hero-tab-item" id="tab-css">style.css</span>
-                        </div>
-                    </div>
-                    <span style="font-size:0.75rem; color:#64748b; font-family:var(--font-mono);">bash / cmd.exe</span>
-                </div>
-                <div class="hero-window-body">
-                    <div class="term-comment">:: 1. Fast web scaffolding with Terminal commands</div>
-                    <div class="terminal-prompt-line">
-                        <span class="term-path">C:\projects&gt;</span>
-                        <span class="term-cmd">mkdir kindness-pantry &amp;&amp; cd kindness-pantry</span>
-                    </div>
-                    <div class="terminal-prompt-line">
-                        <span class="term-path">C:\projects\kindness-pantry&gt;</span>
-                        <span class="term-cmd">mkdir css js assets</span>
-                    </div>
-                    <div class="terminal-prompt-line">
-                        <span class="term-path">C:\projects\kindness-pantry&gt;</span>
-                        <span class="term-cmd">type nul &gt; index.html</span>
-                    </div>
-                    <div class="term-output">✓ Created structure in 0.28s [index.html, css/, js/]</div>
-
-                    <div class="term-comment">:: 2. Launching developer environment</div>
-                    <div class="terminal-prompt-line">
-                        <span class="term-path">C:\projects\kindness-pantry&gt;</span>
-                        <span class="term-cmd">code .</span>
-                    </div>
-                    <div class="terminal-prompt-line">
-                        <span class="term-path">C:\projects\kindness-pantry&gt;</span>
-                        <span class="term-cmd">php -S localhost:8000</span>
-                    </div>
-                    <div class="term-output" style="border-color: rgba(56, 189, 248, 0.4); color: #38bdf8;">
-                        [Server] PHP Live Dev Server running on http://localhost:8000
-                    </div>
-                    <div class="terminal-prompt-line" style="margin-top: 0.5rem;">
-                        <span class="term-path">C:\projects\kindness-pantry&gt;</span>
-                        <span class="term-cursor"></span>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <main>
-            <!-- ═══════════════════════════════════════════════════════════════
-                 MISSION CONTROL HUD (PROGRESS & DAILY QUESTS)
-                 ═══════════════════════════════════════════════════════════════ -->
-            <section class="dashboard-grid" id="mission-control">
-                <div class="mission-card">
-                    <span class="rank-badge" id="user-rank">Recruit</span>
-                    <h2 style="color: white; margin-bottom: 0.5rem; font-size: 1.5rem;">Mission Control</h2>
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">Track your coding journey, earned experience, completed modules, and learning streaks.</p>
-                    
-                    <div class="stats-row">
-                        <div class="stat-item">
-                            <span class="stat-label">Total XP</span>
-                            <span class="stat-value" id="user-xp">0</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Modules</span>
-                            <span class="stat-value" id="user-completed">0</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-label">Streak 🔥</span>
-                            <span class="stat-value" id="user-streak">1</span>
-                        </div>
-                    </div>
-
-                    <a href="getting-started.html" class="continue-btn" id="continue-mission">
-                        🚀 Continue Mission
-                    </a>
-                </div>
-
-                <div class="mission-card" style="background: var(--bg-card); border-style: dashed;">
-                    <h3 style="color: var(--primary); margin-bottom: 0.5rem; font-size: 1.15rem;">Daily Practice Goal</h3>
-                    <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.55;">Practice in any of our 4 Interactive Code Studios or read an official chapter today to level up!</p>
-                    <div style="margin-top: 1.5rem; height: 8px; background: rgba(255,255,255,0.08); border-radius: 4px; overflow: hidden;">
-                        <div id="daily-goal-fill" style="width: 25%; height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent));"></div>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-top: 0.75rem; font-size: 0.78rem; color: var(--text-muted);">
-                        <span>Status: Active</span>
-                        <span>Level 1 Developer</span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ═══════════════════════════════════════════════════════════════
-                 INTERACTIVE STUDIOS & CODE LABS (FLAGSHIP SHOWCASE)
-                 ═══════════════════════════════════════════════════════════════ -->
-            <section style="margin-top: 4rem;" id="interactive-labs">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
-                    <div>
-                        <h2 style="font-size: 1.85rem; margin: 0; display: flex; align-items: center; gap: 0.6rem;">
-                            <span>🧪</span> Interactive Studios &amp; Playgrounds
-                        </h2>
-                        <p style="color: var(--text-secondary); margin: 0.4rem 0 0; font-size: 0.98rem;">Live, zero-setup developer sandboxes designed specifically for student practice.</p>
-                    </div>
-                </div>
-
-                <div class="lab-studios-grid">
-                    <!-- HTML Lab -->
-                    <a href="Learning HTML/playground.html" class="lab-studio-card html-lab">
-                        <span class="studio-badge">17 Chapters • Live Studio</span>
-                        <div class="studio-header">
-                            <span class="studio-icon">🌐</span>
-                            <div>
-                                <h3>HTML Lab</h3>
-                                <span style="font-size: 0.78rem; color: #ea580c; font-weight: 700;">Structure Studio</span>
-                            </div>
-                        </div>
-                        <p class="studio-desc">Write HTML with our Quick-Tag ribbon, instant browser live preview, HTML Doctor syntax assistant, and companion exercises.</p>
-                        <span class="studio-btn">Launch HTML Lab 🚀</span>
-                    </a>
-
-                    <!-- CSS Lab -->
-                    <a href="Learning CSS/playground.html" class="lab-studio-card css-lab">
-                        <span class="studio-badge">Visual Lab • Flex &amp; Grid</span>
-                        <div class="studio-header">
-                            <span class="studio-icon">🎨</span>
-                            <div>
-                                <h3>CSS Studio</h3>
-                                <span style="font-size: 0.78rem; color: #a78bfa; font-weight: 700;">Styling Playground</span>
-                            </div>
-                        </div>
-                        <p class="studio-desc">Master colors, typography, Flexbox, and CSS Grid with live device viewports (Desktop, Tablet, Mobile) and interactive hints.</p>
-                        <span class="studio-btn">Launch CSS Studio 🎨</span>
-                    </a>
-
-                    <!-- JS Lab -->
-                    <a href="Learning JS/playground.html" class="lab-studio-card js-lab">
-                        <span class="studio-badge">Logic • Console Runner</span>
-                        <div class="studio-header">
-                            <span class="studio-icon">⚡</span>
-                            <div>
-                                <h3>JS Playground</h3>
-                                <span style="font-size: 0.78rem; color: #facc15; font-weight: 700;">Logic &amp; DOM</span>
-                            </div>
-                        </div>
-                        <p class="studio-desc">Experiment with variables, loops, conditionals, functions, and real-time JavaScript console execution. Master coding logic visually.</p>
-                        <span class="studio-btn">Launch JS Console ⚡</span>
-                    </a>
-
-                    <!-- Master IDE -->
-                    <a href="master-playground.html" class="lab-studio-card master-lab">
-                        <span class="studio-badge">All-in-One • Full-Stack</span>
-                        <div class="studio-header">
-                            <span class="studio-icon">💻</span>
-                            <div>
-                                <h3>Master Code Lab</h3>
-                                <span style="font-size: 0.78rem; color: #22d3ee; font-weight: 700;">Full-Stack IDE</span>
-                            </div>
-                        </div>
-                        <p class="studio-desc">Build complete web apps with HTML, CSS, and JS simultaneously with multi-tabs, mobile viewport toggles, and console output.</p>
-                        <span class="studio-btn">Open Master IDE 💻</span>
-                    </a>
-                </div>
-            </section>
-
-            <!-- ═══════════════════════════════════════════════════════════════
-                 FRONTEND TRACK (GRADES 6–8)
-                 ═══════════════════════════════════════════════════════════════ -->
-            <section style="margin-top: 4rem;" id="frontend-paths">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                    <div>
-                        <h2 style="font-size: 1.85rem; margin: 0; display: flex; align-items: center; gap: 0.6rem;">
-                            <span>🌐</span> Phase 1: Frontend Architecture (Classes 6–8)
-                        </h2>
-                        <p style="color: var(--text-secondary); margin: 0.4rem 0 0; font-size: 0.98rem;">The foundational building blocks of the web: semantic structure, visual styling, and interactive logic.</p>
-                    </div>
-                </div>
-
-                <div class="course-grid">
-                    <!-- HTML5 Card -->
-                    <div class="course-card html" style="display: flex; flex-direction: column;">
-                        <span class="course-level html-level">Class 6 Core</span>
-                        <div class="icon-wrapper">🌐</div>
-                        <h2>HTML5 Architecture</h2>
-                        <p>Master the skeleton of the web. Learn semantic tags, page anatomy, accessibility, tables, and multimedia forms.</p>
-                        
-                        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.5rem; width: 100%;">
-                            <a href="book-html/index.html" class="badge" style="background: rgba(234,88,12,0.18); color: #ea580c; border: 1px solid rgba(234,88,12,0.35); text-decoration: none; text-align: center;">
-                                📖 Class 6 &amp; 7 Textbook (17 Ch)
-                            </a>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem;">
-                                <a href="Learning HTML/learninghtml.html" class="badge" style="text-decoration: none; text-align: center;">
-                                    📚 12 Lessons
-                                </a>
-                                <a href="Learning HTML/playground.html" class="badge" style="background: rgba(234,88,12,0.25); color: #fff; text-decoration: none; text-align: center;">
-                                    🧪 Lab Studio
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- CSS3 Card -->
-                    <div class="course-card css" style="display: flex; flex-direction: column;">
-                        <span class="course-level css-level">Class 7 Styling</span>
-                        <div class="icon-wrapper">🎨</div>
-                        <h2>Modern CSS &amp; Layouts</h2>
-                        <p>Bring websites to life with colors, typography, Flexbox, CSS Grid, animations, and fluid responsive design for phones and laptops.</p>
-                        
-                        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.5rem; width: 100%;">
-                            <a href="book-css/index.html" class="badge" style="background: rgba(99,102,241,0.18); color: #a5b4fc; border: 1px solid rgba(99,102,241,0.35); text-decoration: none; text-align: center;">
-                                📖 Class 7 Textbook (22 Ch)
-                            </a>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem;">
-                                <a href="Learning CSS/learningcss.html" class="badge" style="text-decoration: none; text-align: center;">
-                                    📚 8 Lessons
-                                </a>
-                                <a href="Learning CSS/playground.html" class="badge" style="background: rgba(99,102,241,0.25); color: #fff; text-decoration: none; text-align: center;">
-                                    🎨 Lab Studio
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- JavaScript Card -->
-                    <div class="course-card js" style="display: flex; flex-direction: column;">
-                        <span class="course-level js-level">Class 8 Logic</span>
-                        <div class="icon-wrapper">⚡</div>
-                        <h2>JavaScript &amp; DOM</h2>
-                        <p>Add dynamic interactivity, event listeners, and algorithmic logic. Learn variables, conditional thinking, functions, and web apps.</p>
-                        
-                        <div style="margin-top: auto; display: flex; flex-direction: column; gap: 0.5rem; width: 100%;">
-                            <a href="book-js/index.html" class="badge" style="background: rgba(234,179,8,0.18); color: #fde047; border: 1px solid rgba(234,179,8,0.35); text-decoration: none; text-align: center;">
-                                📖 Class 7 &amp; 8 Textbook (17 Ch)
-                            </a>
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.4rem;">
-                                <a href="Learning JS/learningjs.html" class="badge" style="text-decoration: none; text-align: center;">
-                                    📚 9 Lessons
-                                </a>
-                                <a href="Learning JS/playground.html" class="badge" style="background: rgba(234,179,8,0.25); color: #fff; text-decoration: none; text-align: center;">
-                                    ⚡ Lab Console
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ═══════════════════════════════════════════════════════════════
-                 DEVELOPER TOOLING & VERSION CONTROL (BRIDGE)
-                 ═══════════════════════════════════════════════════════════════ -->
-            <section class="tooling-bridge-section" id="tooling-bridge">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
-                    <div>
-                        <h2 style="font-size: 1.85rem; margin: 0; display: flex; align-items: center; gap: 0.6rem;">
-                            <span>🛠️</span> Phase 2: Developer Tooling &amp; Version Control (Bridge)
-                        </h2>
-                        <p style="color: var(--text-secondary); margin: 0.4rem 0 0; font-size: 0.98rem;">The essential workflows every professional uses daily: navigating the operating system and collaborating with Git.</p>
-                    </div>
-                </div>
-
-                <div class="tooling-grid">
-                    <!-- Terminal & Command Prompt -->
-                    <div class="tooling-card cmd-card">
-                        <div class="tooling-header">
-                            <div class="tooling-icon cmd">&gt;_</div>
-                            <div>
-                                <span class="course-level" style="background: rgba(16,185,129,0.15); color: #10b981; font-weight: 800; font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 9999px;">Core Foundation</span>
-                                <h3 style="color: #ffffff; margin: 0.25rem 0 0; font-size: 1.3rem;">Terminal &amp; Command Prompt</h3>
-                            </div>
-                        </div>
-                        <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
-                            Master File Explorer without a mouse! Navigate directory trees, create folders &amp; files in bulk, start local PHP servers, and run developer tools with dual-shell fluency (Windows CMD &amp; Git Bash).
-                        </p>
-                        <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                            <a href="book-cmd/index.html" class="btn-hero-primary" style="background: linear-gradient(135deg, #10b981, #047857); padding: 0.65rem 1.25rem; font-size: 0.88rem;">
-                                📖 14 Ch Textbook
-                            </a>
-                            <a href="cheatsheet-cmd.html" class="btn-hero-secondary" style="padding: 0.65rem 1.15rem; font-size: 0.88rem;">
-                                ⚡ CMD Cheatsheet
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Git & GitHub -->
-                    <div class="tooling-card git-card">
-                        <div class="tooling-header">
-                            <div class="tooling-icon git">🐙</div>
-                            <div>
-                                <span class="course-level" style="background: rgba(240,80,50,0.15); color: #f05032; font-weight: 800; font-size: 0.72rem; padding: 0.2rem 0.6rem; border-radius: 9999px;">Classes 8 &amp; 9</span>
-                                <h3 style="color: #ffffff; margin: 0.25rem 0 0; font-size: 1.3rem;">Git &amp; GitHub Mastery</h3>
-                            </div>
-                        </div>
-                        <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6; margin-bottom: 1.25rem;">
-                            Save project milestones, rewind mistakes, branch off to test wild features without breaking the main code, resolve merge conflicts, and deploy websites live on GitHub Pages.
-                        </p>
-                        <div style="margin-top: auto; display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                            <a href="book-git/index.html" class="btn-hero-primary" style="background: linear-gradient(135deg, #f05032, #c2410c); padding: 0.65rem 1.25rem; font-size: 0.88rem;">
-                                📖 20 Ch Textbook
-                            </a>
-                            <a href="cheatsheet-git.html" class="btn-hero-secondary" style="padding: 0.65rem 1.15rem; font-size: 0.88rem;">
-                                🐙 Git Cheatsheet
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ═══════════════════════════════════════════════════════════════
-                 BACKEND TRACK (CLASS 9)
-                 ═══════════════════════════════════════════════════════════════ -->
-            <section style="margin-top: 4rem;" id="backend-paths">
-                <div class="fullstack-bridge">
-                    <span style="font-size: 2.2rem;">🏗️</span>
-                    <div>
-                        <h3 style="margin: 0 0 0.35rem; font-size: 1.35rem;">Phase 3: Backend &amp; Enterprise Engineering (Class 9)</h3>
-                        <p style="margin: 0; opacity: 0.88; font-size: 0.94rem; line-height: 1.6;">Graduate from client-side interfaces to server-side engineering! Learn server scripting with PHP, database normalization with MySQL, and full-stack MVC architecture with Laravel.</p>
-                    </div>
-                </div>
-
-                <div class="course-grid" aria-label="Backend Learning Paths" style="margin-top: 1.5rem;">
-                    <div class="course-card php" style="display: flex; flex-direction: column;">
-                        <span class="course-level php-level">Class 9 Server</span>
-                        <div class="icon-wrapper">🐘</div>
-                        <h2>PHP Scripting</h2>
-                        <p>Server-side programming: variables, arrays, GET/POST forms, superglobals, security sanitization, file I/O, and object-oriented programming.</p>
-                        <div style="margin-top: auto; display: flex; gap: 0.4rem; width: 100%;">
-                            <a href="book-php/index.html" class="badge" style="flex: 1; text-decoration: none; text-align: center; background: rgba(124,58,237,0.2); color: #c4b5fd;">📖 29 Ch Book</a>
-                            <a href="Learning PHP/learningphp.html" class="badge" style="flex: 1; text-decoration: none; text-align: center;">📚 8 Lessons</a>
-                        </div>
-                    </div>
-
-                    <div class="course-card mysql" style="display: flex; flex-direction: column;">
-                        <span class="course-level mysql-level">Class 9 Data</span>
-                        <div class="icon-wrapper">🗄️</div>
-                        <h2>MySQL Databases</h2>
-                        <p>Store, organize, and query relational data. Master table creation, CRUD operations, transactions, and relational JOINs.</p>
-                        <div style="margin-top: auto; display: flex; gap: 0.4rem; width: 100%;">
-                            <a href="book-mysql/index.html" class="badge" style="flex: 1; text-decoration: none; text-align: center; background: rgba(14,165,233,0.2); color: #7dd3fc;">📖 22 Ch Book</a>
-                            <a href="Learning MySQL/learningmysql.html" class="badge" style="flex: 1; text-decoration: none; text-align: center;">📚 6 Lessons</a>
-                        </div>
-                    </div>
-
-                    <div class="course-card laravel" style="display: flex; flex-direction: column;">
-                        <span class="course-level laravel-level">Class 9 Full-Stack</span>
-                        <div class="icon-wrapper">🔥</div>
-                        <h2>Laravel Framework</h2>
-                        <p>The industry's leading PHP web framework. Build production web applications with MVC routing, Blade templates, migrations, and Eloquent ORM.</p>
-                        <div style="margin-top: auto; display: flex; gap: 0.4rem; width: 100%;">
-                            <a href="book-laravel/index.html" class="badge" style="flex: 1; text-decoration: none; text-align: center; background: rgba(239,68,68,0.2); color: #fca5a5;">📖 24 Ch Book</a>
-                            <a href="Learning Laravel/learninglaravel.html" class="badge" style="flex: 1; text-decoration: none; text-align: center;">📚 8 Lessons</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ═══════════════════════════════════════════════════════════════
-                 PHASE 4: APPLIED AI & MACHINE LEARNING (CLASSES 8–10)
-                 ═══════════════════════════════════════════════════════════════ -->
-            <section style="margin-top: 4rem;" id="ai-paths">
-                <div class="fullstack-bridge" style="background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(2,132,199,0.08)); border-color: rgba(37,99,235,0.3);">
-                    <span style="font-size: 2.2rem;">🤖</span>
-                    <div>
-                        <h3 style="margin: 0 0 0.35rem; font-size: 1.35rem;">Phase 4: Applied AI, Python &amp; Machine Learning (Classes 8–10)</h3>
-                        <p style="margin: 0; opacity: 0.88; font-size: 0.94rem; line-height: 1.6;">Graduate from traditional coding to intelligent systems that learn from data! Master Python syntax, structured datasets (CSV &amp; JSON), supervised classification, and Islamic AI ethics (<em>Amānah &amp; Iḥsān</em>).</p>
-                    </div>
-                </div>
-
-                <div class="course-grid" aria-label="AI and Python Learning Paths" style="margin-top: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-                    <div class="course-card python" style="display: flex; flex-direction: column;">
-                        <span class="course-level python-level">Class 8–10 AI Track</span>
-                        <div class="icon-wrapper">🐍</div>
-                        <h2>Python &amp; Machine Learning</h2>
-                        <p>From algorithmic programming to intelligent systems: variables, loops, collections, file I/O, tabular datasets, supervised learning, and ethical AI stewardship.</p>
-                        <div style="margin-top: auto; display: flex; gap: 0.4rem; width: 100%; flex-wrap: wrap;">
-                            <a href="book-python/index.html" class="badge" style="flex: 1; text-decoration: none; text-align: center; background: rgba(37,99,235,0.2); color: #93c5fd;">📖 15 Ch Book</a>
-                            <a href="Learning Python/learningpython.html" class="badge" style="flex: 1; text-decoration: none; text-align: center;">📚 8 Lessons</a>
-                            <a href="Learning Python/playground.html" class="badge" style="flex: 1; text-decoration: none; text-align: center; background: rgba(16,185,129,0.2); color: #6ee7b7;">🧪 Lab Studio</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ═══════════════════════════════════════════════════════════════
-                 THE 9 OFFICIAL TEXTBOOKS SECTION (COMPACT CAROUSEL SHELF)
-                 ═══════════════════════════════════════════════════════════════ -->
-            <section style="margin-top: 4.5rem;" id="textbooks-section">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
-                    <div>
-                        <h2 style="font-size: 1.85rem; margin: 0; display: flex; align-items: center; gap: 0.6rem;">
-                            <span>📖</span> 9 Official Textbooks &amp; Reading Guides
-                        </h2>
-                        <p style="color: var(--text-secondary); margin: 0.4rem 0 0; font-size: 0.98rem;">Complete school-aligned curriculum with built-in Web Speech audio narration, reading mode, and companion exercises.</p>
-                    </div>
-                </div>
-
-                <div class="book-shelf-wrapper">
-                    <!-- Shelf Toolbar: Filter Tabs & Scroll Arrows -->
-                    <div class="shelf-toolbar">
-                        <div class="shelf-filter-tabs" role="tablist" aria-label="Filter textbooks by subject">
-                            <button type="button" class="shelf-tab-btn active" data-category="all" onclick="filterTextbooks('all', this)">All (9)</button>
-                            <button type="button" class="shelf-tab-btn" data-category="frontend" onclick="filterTextbooks('frontend', this)">Frontend (3)</button>
-                            <button type="button" class="shelf-tab-btn" data-category="tools" onclick="filterTextbooks('tools', this)">Developer Tools (2)</button>
-                            <button type="button" class="shelf-tab-btn" data-category="backend" onclick="filterTextbooks('backend', this)">Backend (3)</button>
-                            <button type="button" class="shelf-tab-btn" data-category="ai" onclick="filterTextbooks('ai', this)">Python &amp; AI (1)</button>
-                        </div>
-                        <div class="shelf-nav-arrows">
-                            <button type="button" class="shelf-scroll-btn" onclick="scrollBookShelf(-340)" aria-label="Scroll left" title="Previous books">‹</button>
-                            <button type="button" class="shelf-scroll-btn" onclick="scrollBookShelf(340)" aria-label="Scroll right" title="Next books">›</button>
-                        </div>
-                    </div>
-
-                    <!-- Horizontal Scrolling Shelf Track -->
-                    <div class="book-shelf-track" id="bookShelfTrack">
-                        <!-- 1. HTML Book -->
-                        <div class="compact-book-card theme-html" data-category="frontend">
-                            <div class="compact-card-top">
-                                <div class="compact-card-icon-wrap">
-                                    <div class="compact-card-icon">🌐</div>
-                                    <span class="compact-card-level">Class 6 &amp; 7</span>
-                                </div>
-                                <span class="compact-card-badge">17 Ch • 🎙️ Audio</span>
-                            </div>
-                            <h3 class="compact-card-title">HTML: Structure the Web</h3>
-                            <p class="compact-card-desc">Master the semantic skeleton: tags, accessible page layout, tables, forms, and capstones.</p>
-                            <div class="compact-card-actions">
-                                <a href="book-html/index.html" class="btn-card-read">📖 Read Book</a>
-                                <a href="Learning HTML/learninghtml.html" class="btn-card-exercise">🧪 Exercises</a>
-                            </div>
-                        </div>
-
-                        <!-- 2. CSS Book -->
-                        <div class="compact-book-card theme-css" data-category="frontend">
-                            <div class="compact-card-top">
-                                <div class="compact-card-icon-wrap">
-                                    <div class="compact-card-icon">🎨</div>
-                                    <span class="compact-card-level">Class 7 Styling</span>
-                                </div>
-                                <span class="compact-card-badge">22 Ch • 🎙️ Audio</span>
-                            </div>
-                            <h3 class="compact-card-title">CSS: Styling &amp; Layouts</h3>
-                            <p class="compact-card-desc">Box Model, Flexbox alignment, CSS Grid, keyframe animations, and responsive UI.</p>
-                            <div class="compact-card-actions">
-                                <a href="book-css/index.html" class="btn-card-read">📖 Read Book</a>
-                                <a href="Learning CSS/exercises.html" class="btn-card-exercise">🧪 Exercises</a>
-                            </div>
-                        </div>
-
-                        <!-- 3. JS Book -->
-                        <div class="compact-book-card theme-js" data-category="frontend">
-                            <div class="compact-card-top">
-                                <div class="compact-card-icon-wrap">
-                                    <div class="compact-card-icon">⚡</div>
-                                    <span class="compact-card-level">Class 8 Logic</span>
-                                </div>
-                                <span class="compact-card-badge">17 Ch • 🎙️ Audio</span>
-                            </div>
-                            <h3 class="compact-card-title">JavaScript: Learn &amp; Create</h3>
-                            <p class="compact-card-desc">Variables, functions, conditionals, DOM events, web games, and Capstone Quiz Arena.</p>
-                            <div class="compact-card-actions">
-                                <a href="book-js/index.html" class="btn-card-read">📖 Read Book</a>
-                                <a href="Learning JS/exercises.html" class="btn-card-exercise">🧪 Exercises</a>
-                            </div>
-                        </div>
-
-                        <!-- 4. Terminal & CMD Book -->
-                        <div class="compact-book-card theme-cmd" data-category="tools">
-                            <div class="compact-card-top">
-                                <div class="compact-card-icon-wrap">
-                                    <div class="compact-card-icon">&gt;_</div>
-                                    <span class="compact-card-level">Developer Tools</span>
-                                </div>
-                                <span class="compact-card-badge">14 Ch • 🎙️ Audio</span>
-                            </div>
-                            <h3 class="compact-card-title">Terminal &amp; Command Line</h3>
-                            <p class="compact-card-desc">Spatial navigation (`cd`), bulk scaffolding (`mkdir`), Windows CMD &amp; Git Bash, and servers.</p>
-                            <div class="compact-card-actions">
-                                <a href="book-cmd/index.html" class="btn-card-read">📖 Read Book</a>
-                                <a href="cheatsheet-cmd.html" class="btn-card-exercise">⚡ Cheatsheet</a>
-                            </div>
-                        </div>
-
-                        <!-- 5. Git & GitHub Book -->
-                        <div class="compact-book-card theme-git" data-category="tools">
-                            <div class="compact-card-top">
-                                <div class="compact-card-icon-wrap">
-                                    <div class="compact-card-icon">🐙</div>
-                                    <span class="compact-card-level">Class 8 &amp; 9</span>
-                                </div>
-                                <span class="compact-card-badge">20 Ch • 🎙️ Audio</span>
-                            </div>
-                            <h3 class="compact-card-title">Git &amp; GitHub Mastery</h3>
-                            <p class="compact-card-desc">Save milestones, branch cleanly, resolve conflicts, collaborate, and deploy on GitHub Pages.</p>
-                            <div class="compact-card-actions">
-                                <a href="book-git/index.html" class="btn-card-read">📖 Read Book</a>
-                                <a href="cheatsheet-git.html" class="btn-card-exercise">🐙 Cheatsheet</a>
-                            </div>
-                        </div>
-
-                        <!-- 6. PHP Book -->
-                        <div class="compact-book-card theme-php" data-category="backend">
-                            <div class="compact-card-top">
-                                <div class="compact-card-icon-wrap">
-                                    <div class="compact-card-icon">🐘</div>
-                                    <span class="compact-card-level">Class 9 Server</span>
-                                </div>
-                                <span class="compact-card-badge">29 Ch • 🎙️ Audio</span>
-                            </div>
-                            <h3 class="compact-card-title">PHP: Server Engineering</h3>
-                            <p class="compact-card-desc">Variables, arrays, form processing, secure sessions, file I/O, and OOP architecture.</p>
-                            <div class="compact-card-actions">
-                                <a href="book-php/index.html" class="btn-card-read">📖 Read Book</a>
-                                <a href="Learning PHP/learningphp.html" class="btn-card-exercise">🧪 Lessons</a>
-                            </div>
-                        </div>
-
-                        <!-- 7. MySQL Book -->
-                        <div class="compact-book-card theme-mysql" data-category="backend">
-                            <div class="compact-card-top">
-                                <div class="compact-card-icon-wrap">
-                                    <div class="compact-card-icon">🗄️</div>
-                                    <span class="compact-card-level">Class 9 Data</span>
-                                </div>
-                                <span class="compact-card-badge">22 Ch • 🎙️ Audio</span>
-                            </div>
-                            <h3 class="compact-card-title">MySQL: Relational Data</h3>
-                            <p class="compact-card-desc">Table schemas, CRUD queries, relational JOINs, aggregations, and data trust.</p>
-                            <div class="compact-card-actions">
-                                <a href="book-mysql/index.html" class="btn-card-read">📖 Read Book</a>
-                                <a href="Learning MySQL/learningmysql.html" class="btn-card-exercise">🧪 Lessons</a>
-                            </div>
-                        </div>
-
-                        <!-- 8. Laravel Book -->
-                        <div class="compact-book-card theme-laravel" data-category="backend">
-                            <div class="compact-card-top">
-                                <div class="compact-card-icon-wrap">
-                                    <div class="compact-card-icon">🔥</div>
-                                    <span class="compact-card-level">Class 9 Full-Stack</span>
-                                </div>
-                                <span class="compact-card-badge">24 Ch • 🎙️ Audio</span>
-                            </div>
-                            <h3 class="compact-card-title">Laravel: Modern PHP MVC</h3>
-                            <p class="compact-card-desc">Production MVC architecture, routing, Blade templates, migrations, and Eloquent ORM.</p>
-                            <div class="compact-card-actions">
-                                <a href="book-laravel/index.html" class="btn-card-read">📖 Read Book</a>
-                                <a href="Learning Laravel/learninglaravel.html" class="btn-card-exercise">🧪 Lessons</a>
-                            </div>
-                        </div>
-
-                        <!-- 9. Python & ML Book -->
-                        <div class="compact-book-card theme-python" data-category="ai">
-                            <div class="compact-card-top">
-                                <div class="compact-card-icon-wrap">
-                                    <div class="compact-card-icon">🐍</div>
-                                    <span class="compact-card-level">Class 8–10 AI</span>
-                                </div>
-                                <span class="compact-card-badge">15 Ch • 🎙️ Audio</span>
-                            </div>
-                            <h3 class="compact-card-title">Python &amp; Machine Learning</h3>
-                            <p class="compact-card-desc">Syntax foundations, tabular data, datasets, supervised classification, and Islamic AI ethics (Amānah).</p>
-                            <div class="compact-card-actions">
-                                <a href="book-python/index.html" class="btn-card-read">📖 Read Book</a>
-                                <a href="Learning Python/learningpython.html" class="btn-card-exercise">🧪 Lessons</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ═══════════════════════════════════════════════════════════════
-                 CHEAT SHEETS & RAPID LOOKUP HUB
-                 ═══════════════════════════════════════════════════════════════ -->
-            <section style="margin-top: 4.5rem;" id="quick-resources">
-                <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem;">
-                    <div>
-                        <h2 style="font-size: 1.85rem; margin: 0; display: flex; align-items: center; gap: 0.6rem;">
-                            <span>📋</span> Quick Resources &amp; Cheat Sheets
-                        </h2>
-                        <p style="color: var(--text-secondary); margin: 0.4rem 0 0; font-size: 0.98rem;">Rapid syntax lookups and learning maps for quick revision before exams, hackathons, or project builds.</p>
-                    </div>
-                </div>
-
-                <div class="course-grid" style="gap: 1.25rem;">
-                    <a href="cheatsheet-html.html" class="course-card html" style="padding: 1.5rem;">
-                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">🌐</div>
-                        <h3 style="margin-bottom: 0.35rem;">HTML Cheat Sheet</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Every tag, semantic element, and form attribute on one page.</p>
-                    </a>
-
-                    <a href="cheatsheet-css.html" class="course-card css" style="padding: 1.5rem;">
-                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">🎨</div>
-                        <h3 style="margin-bottom: 0.35rem;">CSS Cheat Sheet</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Selectors, Flexbox alignment, and CSS Grid quick rules.</p>
-                    </a>
-
-                    <a href="cheatsheet-js.html" class="course-card js" style="padding: 1.5rem;">
-                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">⚡</div>
-                        <h3 style="margin-bottom: 0.35rem;">JS Cheat Sheet</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Syntax, array methods, DOM functions, and event handlers.</p>
-                    </a>
-
-                    <a href="cheatsheet-cmd.html" class="course-card" style="padding: 1.5rem; border-color: rgba(16,185,129,0.35);">
-                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">💻</div>
-                        <h3 style="margin-bottom: 0.35rem; color: #10b981;">Terminal &amp; CMD Cheat Sheet</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Navigation, scaffolding, and Rosetta stone comparison table.</p>
-                    </a>
-
-                    <a href="cheatsheet-git.html" class="course-card" style="padding: 1.5rem; border-color: rgba(240,80,50,0.35);">
-                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">🐙</div>
-                        <h3 style="margin-bottom: 0.35rem; color: #f97316;">Git &amp; GitHub Cheat Sheet</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Terminal commands, commits, branches, PRs &amp; remotes.</p>
-                    </a>
-
-                    <a href="cheatsheet-php.html" class="course-card php" style="padding: 1.5rem;">
-                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">🐘</div>
-                        <h3 style="margin-bottom: 0.35rem;">PHP Cheat Sheet</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Syntax, arrays, superglobals, and OOP essentials.</p>
-                    </a>
-
-                    <a href="cheatsheet-mysql.html" class="course-card mysql" style="padding: 1.5rem;">
-                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">🗄️</div>
-                        <h3 style="margin-bottom: 0.35rem;">MySQL Cheat Sheet</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">SELECT, JOINs, clauses, aggregations, and table queries.</p>
-                    </a>
-
-                    <a href="cheatsheet-python.html" class="course-card python" style="padding: 1.5rem; border-color: rgba(37,99,235,0.4);">
-                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">🐍</div>
-                        <h3 style="margin-bottom: 0.35rem; color: #60a5fa;">Python &amp; ML Cheat Sheet</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Syntax, dictionaries, file I/O, ML pipelines, and ethical AI.</p>
-                    </a>
-
-                    <a href="ai-roadmap.html" class="course-card" style="padding: 1.5rem; border-color: rgba(236,72,153,0.4);">
-                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">🤖</div>
-                        <h3 style="margin-bottom: 0.35rem;">AI Creator Roadmap</h3>
-                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Your step-by-step roadmap from student coder to AI builder.</p>
-                    </a>
-                </div>
-            </section>
-
-            <!-- ═══════════════════════════════════════════════════════════════
-                 ETHICAL TECHNOLOGY & DIGITAL STEWARDSHIP PLEDGE
-                 ═══════════════════════════════════════════════════════════════ -->
-            <section class="ethical-pledge-card" aria-label="Ethical Framework Pledge">
-                <div class="ethical-pledge-icon">🌟</div>
+    <!-- ═════════════════════════════════════════════════════════════════
+         TOP NAVIGATION BAR
+         ═════════════════════════════════════════════════════════════════ -->
+    <nav class="bei-nav">
+        <div class="container bei-nav-inner">
+            <a href="index.html" class="bei-logo">
+                <div class="bei-logo-icon">💻</div>
                 <div>
-                    <h3 class="ethical-pledge-title">Grounded in Moral Excellence &amp; Digital Stewardship</h3>
-                    <p class="ethical-pledge-desc">
-                        At Junior Coders, programming is framed as an instrument for positive contribution to society. Every lesson, exercise, and project instills <strong>beneficial knowledge (*'Ilm Nāfi'*)</strong>, protects user data as a sacred trust <strong>(*Amānah*)</strong>, and pursues craftsmanship and excellence <strong>(*Iḥsān*)</strong> without addictive tricks or deceptive patterns.
-                    </p>
-                    <div class="ethical-pills">
-                        <span class="ethical-pill">🛡️ Data Privacy by Design</span>
-                        <span class="ethical-pill">🤝 Fair &amp; Transparent Technology</span>
-                        <span class="ethical-pill">✨ Dignified Communication</span>
-                        <span class="ethical-pill">🌱 Environmental &amp; Community Care</span>
-                    </div>
+                    BEI Coders
+                    <span class="bei-logo-sub">School Computer Science</span>
                 </div>
-            </section>
-        </main>
-    </div>
+            </a>
 
-    <!-- ═══════════════════════════════════════════════════════════════
-         SITE FOOTER
-         ═══════════════════════════════════════════════════════════════ -->
-    <!-- ═══════════════════════════════════════════════════════════════
-         SITE FOOTER (ENHANCED MODERN CAMPUS FOOTER)
-         ═══════════════════════════════════════════════════════════════ -->
-    <footer class="site-footer">
-        <div class="footer-top-gradient" aria-hidden="true"></div>
+            <ul class="bei-nav-links">
+                <li><a href="learn/index.html" class="bei-nav-link">📚 Learn</a></li>
+                <li><a href="studios/index.html" class="bei-nav-link">⚡ Studios</a></li>
+                <li><a href="library/books/index.html" class="bei-nav-link">📖 Textbooks</a></li>
+                <li><a href="library/cheatsheets/index.html" class="bei-nav-link">📋 Cheatsheets</a></li>
+                <li><a href="projects/index.html" class="bei-nav-link">🏆 Projects</a></li>
+                <li><a href="paths/index.html" class="bei-nav-link">🗺️ Pathways</a></li>
+                <li><a href="teacher-hub/index.html" class="bei-nav-link">🍎 Teachers</a></li>
+            </ul>
 
-        <!-- Pre-Footer Quick Launch CTA Card -->
-        <div class="footer-cta-container">
-            <div class="footer-cta-card">
-                <div class="footer-cta-info">
-                    <div class="footer-cta-badge">
-                        <span>🚀</span> Ready to Start Coding?
-                    </div>
-                    <h3 class="footer-cta-title">Build Real Projects with Live Feedback</h3>
-                    <p class="footer-cta-desc">Launch our full-featured Master IDE or learn chapter-by-chapter with voice-narrated textbooks and hands-on exercises.</p>
-                </div>
-                <div class="footer-cta-actions">
-                    <a href="master-playground.html" class="btn-footer-cta primary">
-                        <span>⚡</span> Launch Master IDE
-                    </a>
-                    <a href="#textbooks-section" class="btn-footer-cta secondary">
-                        <span>📖</span> Browse 8 Textbooks
-                    </a>
-                    <button type="button" class="btn-footer-cta back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Scroll back to top">
-                        <span>↑</span> Top
-                    </button>
-                </div>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Toggle theme">☀️</button>
+                <span class="placement-badge" id="studentXP" style="background: rgba(79,70,229,0.15); color: #818cf8; font-family: var(--font-mono); font-weight: 700;">120 XP</span>
+                <a href="studios/web-studio/index.html" class="btn-nav-primary">Launch Studio ⚡</a>
+                <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
             </div>
         </div>
+    </nav>
 
-        <!-- Main Footer Links & Meta Grid -->
-        <div class="footer-container">
-            <!-- Brand Column -->
-            <div class="footer-brand">
-                <a href="index.html" class="footer-logo">
-                    <span class="footer-logo-icon">🚀</span> Junior Coders
+    <!-- ═════════════════════════════════════════════════════════════════
+         UNIFIED HERO SECTION
+         ═════════════════════════════════════════════════════════════════ -->
+    <header class="bei-hero">
+        <div class="container">
+            <div class="hero-badge-pill">
+                <span>✨</span> School Computer Science for Grades 6–10
+            </div>
+            <h1>Code with Purpose. Create with Excellence (<em>Iḥsān</em>).</h1>
+            <p class="hero-subtitle">
+                A modern, zero-setup computer science learning platform for school students and educators. Journey from your first terminal command to real-world Python algorithms, creative web engineering, and ethical AI stewardship (*Amānah*).
+            </p>
+
+            <div class="hero-actions">
+                <a href="#placement" class="btn-hero-primary">
+                    <span>🧭</span> Start Placement Diagnostic
                 </a>
-                <p class="footer-brand-desc">
-                    The interactive full-stack coding campus for Grades 6–9. Inspiring students through visual learning, spatial mental models, and ethically grounded engineering mastery.
+                <a href="studios/web-studio/index.html" class="btn-hero-secondary">
+                    <span>⚡</span> Open Web Studio
+                </a>
+                <a href="teacher-hub/index.html" class="btn-hero-secondary">
+                    <span>🍎</span> Educator Portal
+                </a>
+            </div>
+
+            <!-- ═════════════════════════════════════════════════════════════
+                 INTERACTIVE PLACEMENT DIAGNOSTIC
+                 ═════════════════════════════════════════════════════════════ -->
+            <div class="placement-widget" id="placement">
+                <div class="placement-header">
+                    <h2><span>🧭</span> Not sure where to begin? Answer in 1 click:</h2>
+                    <p>Select your background and interest to get an instant recommended starting point.</p>
+                </div>
+
+                <div class="placement-choices" id="placementDiagnostic">
+                    <!-- Choice 1: Foundations -->
+                    <div class="placement-card" data-path="foundations">
+                        <div class="placement-icon">🌱</div>
+                        <h3>“I’m completely new to coding”</h3>
+                        <p>Best for Grades 6–7. Learn how computer files work, master the terminal without a mouse, and write your first lines safely.</p>
+                        <span class="placement-badge badge-foundations">Foundations &amp; CLI</span>
+                    </div>
+
+                    <!-- Choice 2: Web Dev -->
+                    <div class="placement-card" data-path="web">
+                        <div class="placement-icon">🌐</div>
+                        <h3>“I want to build interactive websites”</h3>
+                        <p>Best for Grades 7–9. Learn semantic HTML5 structure, modern CSS (Flexbox &amp; Grid) styling, and JavaScript logic.</p>
+                        <span class="placement-badge badge-web">Web Development</span>
+                    </div>
+
+                    <!-- Choice 3: Python & AI -->
+                    <div class="placement-card" data-path="python">
+                        <div class="placement-icon">🤖</div>
+                        <h3>“I want to learn Python &amp; explore AI”</h3>
+                        <p>Best for Grades 8–10. Master Python 3 algorithmic logic, data processing, prompt engineering, and ethical AI verification.</p>
+                        <span class="placement-badge badge-ai">Python &amp; AI Lab</span>
+                    </div>
+                </div>
+
+                <!-- Dynamic Outcome Box -->
+                <div id="placementResult" style="display: none;"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- ═════════════════════════════════════════════════════════════
+             3 PRIMARY GATEWAYS
+             ═════════════════════════════════════════════════════════════ -->
+        <section class="gateways-section">
+            <div class="section-head">
+                <span class="eyebrow">Direct Gateways</span>
+                <h2>Three Primary Pathways</h2>
+                <p>Choose your pathway to access structured prerequisites, progress steppers, modular lessons, and capstone projects.</p>
+            </div>
+
+            <div class="gateways-grid">
+                <!-- Gateway 1: Foundations -->
+                <div class="gateway-card foundations">
+                    <div class="gateway-header">
+                        <div class="gateway-icon">📁</div>
+                        <div>
+                            <span class="gateway-meta" style="color: var(--brand-accent);">Gateway 1 • Grades 6–7</span>
+                            <h3 class="gateway-title">“I’m Completely New”</h3>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">Computer Foundations: understand the file hierarchy, control your operating system via Terminal commands, and save code milestones with Git.</p>
+                    <ul class="gateway-topics">
+                        <li>Computer anatomy: CPU, RAM &amp; Disks</li>
+                        <li>Navigating file trees &amp; relative path addresses</li>
+                        <li>Terminal scaffolding (`cd`, `mkdir`, `type`)</li>
+                        <li>Git checkpoints, commits, and history tracking</li>
+                    </ul>
+                    <a href="learn/foundations/index.html" class="btn-gateway">Enter Foundations Gateway →</a>
+                </div>
+
+                <!-- Gateway 2: Web Dev -->
+                <div class="gateway-card web">
+                    <div class="gateway-header">
+                        <div class="gateway-icon">🌐</div>
+                        <div>
+                            <span class="gateway-meta" style="color: var(--brand-cyan);">Gateway 2 • Grades 7–9</span>
+                            <h3 class="gateway-title">“I Want to Build Websites”</h3>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">Creative Web Engineering: master HTML5 semantic structure, modern CSS styling with Flexbox &amp; Grid, and dynamic JavaScript interactivity.</p>
+                    <ul class="gateway-topics">
+                        <li>HTML5 semantics, accessible forms &amp; tables</li>
+                        <li>CSS Box Model, Flexbox alignment &amp; CSS Grid</li>
+                        <li>JavaScript DOM selection &amp; click/input events</li>
+                        <li>Advanced option: Full-Stack PHP &amp; Laravel track</li>
+                    </ul>
+                    <a href="learn/web-dev/index.html" class="btn-gateway">Enter Web Dev Gateway →</a>
+                </div>
+
+                <!-- Gateway 3: Python & AI -->
+                <div class="gateway-card ai">
+                    <div class="gateway-header">
+                        <div class="gateway-icon">🤖</div>
+                        <div>
+                            <span class="gateway-meta" style="color: var(--brand-purple);">Gateway 3 • Grades 8–10</span>
+                            <h3 class="gateway-title">“I Want Python &amp; AI”</h3>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">Algorithmic Logic &amp; Machine Learning: write clean Python 3 scripts, automate data parsing, master prompt engineering, and uphold AI ethics.</p>
+                    <ul class="gateway-topics">
+                        <li>Python syntax, loops, and modular functions</li>
+                        <li>Tabular datasets, lists, and dictionary modeling</li>
+                        <li>How LLMs work: token prediction &amp; context windows</li>
+                        <li>Fact-checking, avoiding hallucinations &amp; AI trust (*Amānah*)</li>
+                    </ul>
+                    <a href="learn/python/index.html" class="btn-gateway">Enter Python &amp; AI Gateway →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═════════════════════════════════════════════════════════════
+             ZERO-SETUP INTERACTIVE STUDIOS SHOWCASE
+             ═════════════════════════════════════════════════════════════ -->
+        <section style="margin: 4.5rem 0 3.5rem;">
+            <div class="section-head">
+                <span class="eyebrow">Hands-On Practice</span>
+                <h2>Zero-Setup Interactive Code Studios</h2>
+                <p>No downloads. No software setup. Instant browser code execution with live preview and console diagnostics.</p>
+            </div>
+
+            <div class="gateways-grid">
+                <!-- Studio 1: Web Studio -->
+                <div class="gateway-card" style="border-top: 5px solid var(--brand-cyan);">
+                    <div class="gateway-header">
+                        <div class="gateway-icon">⚡</div>
+                        <div>
+                            <span class="gateway-meta" style="color: var(--brand-cyan);">HTML • CSS • JS</span>
+                            <h3 class="gateway-title">Consolidated Web Studio</h3>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">Edit HTML, CSS, and JS side-by-side with instantaneous live preview, desktop/tablet/mobile toggles, starter templates, and export.</p>
+                    <a href="studios/web-studio/index.html" class="btn-gateway">Launch Web Studio 🚀</a>
+                </div>
+
+                <!-- Studio 2: Python Console -->
+                <div class="gateway-card" style="border-top: 5px solid var(--brand-purple);">
+                    <div class="gateway-header">
+                        <div class="gateway-icon">🐍</div>
+                        <div>
+                            <span class="gateway-meta" style="color: var(--brand-purple);">Python 3 In-Browser</span>
+                            <h3 class="gateway-title">Python Console (Wasm)</h3>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">Execute real Python scripts in your browser powered by WebAssembly. Includes preset algorithms, stdout capture, and error highlights.</p>
+                    <a href="studios/python-console/index.html" class="btn-gateway">Open Python Console 🐍</a>
+                </div>
+
+                <!-- Studio 3: SQL Sandbox -->
+                <div class="gateway-card" style="border-top: 5px solid #0284c7;">
+                    <div class="gateway-header">
+                        <div class="gateway-icon">🗄️</div>
+                        <div>
+                            <span class="gateway-meta" style="color: #0284c7;">Relational Database</span>
+                            <h3 class="gateway-title">SQL Database Sandbox</h3>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">Query relational tables in memory with SELECT, WHERE, JOINs, and GROUP BY on pre-loaded educational datasets.</p>
+                    <a href="studios/sql-sandbox/index.html" class="btn-gateway">Open SQL Sandbox 🗄️</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═════════════════════════════════════════════════════════════
+             VISIBLE ETHICAL MISSION STATEMENT (AMĀNAH & IḤSĀN)
+             ═════════════════════════════════════════════════════════════ -->
+        <section class="ethical-mission-card">
+            <div class="ethical-mission-inner">
+                <div class="ethical-icon-badge">🤲</div>
+                <div class="ethical-content">
+                    <h2>Our Ethical Foundation: Technology as a Sacred Trust (*Amānah*)</h2>
+                    <p>
+                        At <strong>BEI Coders</strong>, we believe engineering skills must be paired with moral integrity. Code is an instrument for beneficial knowledge (*'Ilm Nāfi'*) that solves genuine human problems, protects families and communities, respects user data as an inviolable trust (*Amānah*), and reflects craftsmanship and thoroughness (*Iḥsān*).
+                    </p>
+                    <div class="ethical-pillars">
+                        <span class="ethical-pill">🛡️ Data Privacy as a Sacred Trust (*Amānah*)</span>
+                        <span class="ethical-pill">✨ Striving for Craftsmanship (*Iḥsān*)</span>
+                        <span class="ethical-pill">🌱 Beneficial Community Service (*'Ilm Nāfi'*)</span>
+                        <span class="ethical-pill">🚫 No Deceptive Patterns, Usury or Spyware</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═════════════════════════════════════════════════════════════
+             QUICK ACCESS: TEXTBOOKS, PROJECTS & TEACHER HUB
+             ═════════════════════════════════════════════════════════════ -->
+        <section style="margin: 4.5rem 0 2rem;">
+            <div class="section-head">
+                <span class="eyebrow">Curriculum Resources</span>
+                <h2>Textbooks, Projects &amp; Teacher Hub</h2>
+                <p>Everything needed for self-paced students and classroom teachers.</p>
+            </div>
+
+            <div class="gateways-grid">
+                <!-- Textbooks -->
+                <div class="gateway-card" style="border-top: 5px solid var(--brand-primary);">
+                    <div class="gateway-header">
+                        <div class="gateway-icon">📖</div>
+                        <div>
+                            <span class="gateway-meta" style="color: var(--brand-primary);">11 Audio Textbooks</span>
+                            <h3 class="gateway-title">Official Textbooks</h3>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">Complete curriculum textbooks with Web Speech narration, reading mode, and code practice buttons.</p>
+                    <a href="library/books/index.html" class="btn-gateway">Browse 11 Textbooks 📚</a>
+                </div>
+
+                <!-- Projects -->
+                <div class="gateway-card" style="border-top: 5px solid #f59e0b;">
+                    <div class="gateway-header">
+                        <div class="gateway-icon">🏆</div>
+                        <div>
+                            <span class="gateway-meta" style="color: #f59e0b;">Bronze, Silver, Gold</span>
+                            <h3 class="gateway-title">Graded Project Catalog</h3>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">Real-world milestone starter kits: Community Food Pantry, Neighborhood Library Hub, and Zakat Engine.</p>
+                    <a href="projects/index.html" class="btn-gateway">View Project Catalog 🏆</a>
+                </div>
+
+                <!-- Teacher Hub -->
+                <div class="gateway-card" style="border-top: 5px solid var(--brand-accent);">
+                    <div class="gateway-header">
+                        <div class="gateway-icon">🍎</div>
+                        <div>
+                            <span class="gateway-meta" style="color: var(--brand-accent);">Educator Support</span>
+                            <h3 class="gateway-title">Teacher Hub &amp; Rubrics</h3>
+                        </div>
+                    </div>
+                    <p class="gateway-desc">45-minute lesson plans, presentation slide blueprints, and AI-era student code assessment guidance.</p>
+                    <a href="teacher-hub/index.html" class="btn-gateway">Open Teacher Hub 🍎</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═════════════════════════════════════════════════════════════════
+         FOOTER
+         ═════════════════════════════════════════════════════════════════ -->
+    <footer class="bei-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="bei-logo">
+                    <div class="bei-logo-icon">💻</div>
+                    <span>BEI Coders</span>
+                </div>
+                <p>
+                    A school computer science curriculum and interactive platform for Grades 6–10. Dedicated to beneficial knowledge (*'Ilm Nāfi'*), digital trust, and engineering craftsmanship.
                 </p>
-
-                <div class="footer-trust-pills">
-                    <span class="trust-pill"><span>🟢</span> Offline Ready</span>
-                    <span class="trust-pill"><span>✨</span> Ethical &amp; Modest</span>
-                    <span class="trust-pill"><span>🎙️</span> 150+ Audio Chapters</span>
-                    <span class="trust-pill"><span>⚖️</span> MIT Licensed</span>
-                </div>
-
-                <div class="footer-author-note">
-                    Crafted with excellence (*Iḥsān*) by <strong>Yasir Rasool</strong>
-                </div>
             </div>
 
-            <!-- Column 1: Interactive Studios -->
-            <div class="footer-column">
-                <h4>
-                    <span class="col-icon">🧪</span> Interactive Studios
-                </h4>
-                <ul class="footer-nav-list">
-                    <li>
-                        <a href="Learning HTML/playground.html">
-                            <span class="nav-item-icon">🌐</span> HTML Structure Studio
-                            <span class="footer-mini-tag">Visual</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Learning CSS/playground.html">
-                            <span class="nav-item-icon">🎨</span> CSS Styling Studio
-                            <span class="footer-mini-tag">Live</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Learning JS/playground.html">
-                            <span class="nav-item-icon">⚡</span> JS Logic Runner
-                            <span class="footer-mini-tag">Logic</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="master-playground.html">
-                            <span class="nav-item-icon">💻</span> Code Lab Master IDE
-                            <span class="footer-mini-tag hot">Pro</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="ai-roadmap.html">
-                            <span class="nav-item-icon">🧭</span> AI Creator Roadmap
-                            <span class="footer-mini-tag">Guide</span>
-                        </a>
-                    </li>
+            <div class="footer-col">
+                <h4>Learn</h4>
+                <ul class="footer-links">
+                    <li><a href="learn/foundations/index.html">Foundations (Grades 6–7)</a></li>
+                    <li><a href="learn/web-dev/index.html">Web Development</a></li>
+                    <li><a href="learn/web-dev/full-stack/index.html">Full-Stack (PHP/Laravel)</a></li>
+                    <li><a href="learn/python/index.html">Python &amp; Data Logic</a></li>
+                    <li><a href="learn/ai-lab/index.html">AI Literacy &amp; Ethics</a></li>
+                    <li><a href="learn/cybersecurity/index.html">Cybersecurity &amp; Safety</a></li>
                 </ul>
             </div>
 
-            <!-- Column 2: Official Textbooks -->
-            <div class="footer-column">
-                <h4>
-                    <span class="col-icon">📚</span> Textbooks (Audio TTS)
-                </h4>
-                <ul class="footer-nav-list textbooks-list">
-                    <li>
-                        <a href="book-html/index.html">
-                            <span class="nav-item-icon">🌐</span> HTML5: Structure
-                            <span class="footer-ch-count">17 Ch</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="book-css/index.html">
-                            <span class="nav-item-icon">🎨</span> CSS3: Modern Layouts
-                            <span class="footer-ch-count">22 Ch</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="book-js/index.html">
-                            <span class="nav-item-icon">⚡</span> JS: Learn &amp; Create
-                            <span class="footer-ch-count">17 Ch</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="book-cmd/index.html">
-                            <span class="nav-item-icon">&gt;_</span> Terminal &amp; CMD
-                            <span class="footer-ch-count">14 Ch</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="book-git/index.html">
-                            <span class="nav-item-icon">🐙</span> Git &amp; GitHub
-                            <span class="footer-ch-count">20 Ch</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="book-php/index.html">
-                            <span class="nav-item-icon">🐘</span> PHP Server Scripting
-                            <span class="footer-ch-count">29 Ch</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="book-mysql/index.html">
-                            <span class="nav-item-icon">🗄️</span> MySQL Databases
-                            <span class="footer-ch-count">22 Ch</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="book-laravel/index.html">
-                            <span class="nav-item-icon">🔥</span> Laravel Framework
-                            <span class="footer-ch-count">24 Ch</span>
-                        </a>
-                    </li>
+            <div class="footer-col">
+                <h4>Studios</h4>
+                <ul class="footer-links">
+                    <li><a href="studios/web-studio/index.html">Web Studio (HTML/CSS/JS)</a></li>
+                    <li><a href="studios/python-console/index.html">Python Console (Wasm)</a></li>
+                    <li><a href="studios/sql-sandbox/index.html">SQL Database Sandbox</a></li>
+                    <li><a href="Learning Cybersecurity/playground.html">Cyber Defense Studio</a></li>
                 </ul>
             </div>
 
-            <!-- Column 3: Quick Resources & Cheatsheets -->
-            <div class="footer-column">
-                <h4>
-                    <span class="col-icon">📋</span> Quick Reference
-                </h4>
-                <ul class="footer-nav-list">
-                    <li>
-                        <a href="cheatsheet-cmd.html">
-                            <span class="nav-item-icon">&gt;_</span> Terminal &amp; CMD Sheet
-                        </a>
-                    </li>
-                    <li>
-                        <a href="cheatsheet-git.html">
-                            <span class="nav-item-icon">🐙</span> Git &amp; GitHub Sheet
-                        </a>
-                    </li>
-                    <li>
-                        <a href="cheatsheet-html.html">
-                            <span class="nav-item-icon">🌐</span> HTML Tag Reference
-                        </a>
-                    </li>
-                    <li>
-                        <a href="cheatsheet-css.html">
-                            <span class="nav-item-icon">🎨</span> CSS Layout Cheat Sheet
-                        </a>
-                    </li>
-                    <li>
-                        <a href="cheatsheet-js.html">
-                            <span class="nav-item-icon">⚡</span> JavaScript Cheat Sheet
-                        </a>
-                    </li>
-                    <li>
-                        <a href="getting-started.html">
-                            <span class="nav-item-icon">🚀</span> Student Onboarding Guide
-                        </a>
-                    </li>
+            <div class="footer-col">
+                <h4>Library</h4>
+                <ul class="footer-links">
+                    <li><a href="library/books/index.html">11 Official Textbooks</a></li>
+                    <li><a href="library/cheatsheets/index.html">Cheat Sheets Hub</a></li>
+                    <li><a href="projects/index.html">Graded Projects Catalog</a></li>
+                    <li><a href="paths/index.html">Guided Pathways</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Teachers &amp; Ethics</h4>
+                <ul class="footer-links">
+                    <li><a href="teacher-hub/index.html">Teacher Hub &amp; Plans</a></li>
+                    <li><a href="teacher-hub/index.html#rubrics">Evaluation Rubrics</a></li>
+                    <li><a href="ai-roadmap.html">AI Creator Roadmap</a></li>
+                    <li><a href="contact.html">Support &amp; Feedback</a></li>
                 </ul>
             </div>
         </div>
 
-        <!-- Footer Bottom Bar -->
-        <div class="footer-bottom">
-            <div class="footer-bottom-inner">
-                <div class="footer-copyright-wrap">
-                    <p>&copy; 2026 Junior Coders Educational Platform. Dedicated to <em>'Ilm Nāfi'</em> (Beneficial Knowledge), Digital Trust &amp; Craftsmanship.</p>
-                </div>
-                <div class="footer-bottom-links">
-                    <a href="cheatsheet-html.html">HTML</a>
-                    <a href="cheatsheet-css.html">CSS</a>
-                    <a href="cheatsheet-js.html">JS</a>
-                    <a href="cheatsheet-cmd.html">CMD</a>
-                    <a href="cheatsheet-git.html">Git</a>
-                    <a href="book-php/index.html">PHP</a>
-                    <a href="book-mysql/index.html">MySQL</a>
-                    <a href="book-laravel/index.html">Laravel</a>
-                    <a href="master-playground.html" class="footer-highlight-link">⚡ Master IDE</a>
-                </div>
-            </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 BEI Coders (Junior Coders). Dedicated to Beneficial Knowledge (*'Ilm Nāfi'*), Digital Stewardship &amp; Craftsmanship.</div>
+            <div>beicoders.vercel.app</div>
         </div>
     </footer>
 
-    <script src="js/core.js"></script>
+    <!-- Core Scripts -->
+    <script src="js/bei-core.js"></script>
 </body>
 </html>

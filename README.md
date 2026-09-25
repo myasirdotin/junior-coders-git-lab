@@ -50,6 +50,18 @@ A complete beginner's textbook and coding workbook with in-browser code runner:
   - **Part 10: DOM & Web** (Ch 16–17: JavaScript in a Web Page, Events)
   - **Special Workshops**: Computational Thinking, Debugging Playbook, Math through JS, 21 Mini Projects Collection, Creative Canvas Coding, and Capstone Quiz Arena.
 
+### 4. “Computer Networking & Web Protocols for Junior Coders”
+A complete 14-chapter systems and protocol textbook with interactive protocol workbench:
+- 🌐 **[Launch Interactive Networking Reader](book-networks/index.html)**
+- 📚 **[Browse Networking Chapters & Curriculum Guide](book-networks/README.md)**
+- **Curriculum Highlights**: OSI 7-Layer and TCP/IP models, packet encapsulation, IP addressing, CIDR subnetting, TCP 3-way handshakes, DNS hierarchy, HTTP/1.1 vs HTTP/2 vs HTTP/3 (QUIC), TLS 1.3 cryptography (*Amānah*), CORS, REST APIs, WebSockets, and CLI diagnostics.
+
+### 5. “Cybersecurity & Digital Hygiene for Junior Coders”
+A dedicated 14-chapter defensive security and privacy textbook with built-in defense studio:
+- 🛡️ **[Launch Interactive Cybersecurity Reader](book-cybersecurity/index.html)**
+- 📚 **[Browse Cybersecurity Chapters & Curriculum Guide](book-cybersecurity/README.md)**
+- **Curriculum Highlights**: The CIA Triad, threat modeling, cryptographic hashing (SHA-256) vs encryption, password entropy math, Argon2id/bcrypt key derivation, OWASP Top 10 web vulnerabilities (SQLi, XSS, CSRF, IDOR, SSRF), HTTP security headers, anti-phishing hygiene, and the 3-2-1 backup resiliency rule (*Amānah & Iḥsān*).
+
 ---
 
 ## 🗺️ Learning Roadmap

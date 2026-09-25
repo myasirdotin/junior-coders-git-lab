@@ -14,6 +14,8 @@
     --mysql-brand: #00b4d8;
     --laravel-brand: #ff2d20;
     --python-brand: #2563eb;
+    --networks-brand: #0284c7;
+    --cyber-brand: #059669;
 
     --bg-main: #0f172a;
     --bg-card: rgba(30, 41, 59, 0.7);
@@ -3516,10 +3518,20 @@ select:focus-visible {
     background: var(--python-brand);
 }
 
+.course-card.networks::before {
+    background: var(--networks-brand);
+}
+
 .course-level.python-level {
     background: rgba(37, 99, 235, 0.15);
     color: var(--python-brand);
     border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.course-level.networks-level {
+    background: rgba(2, 132, 199, 0.15);
+    color: var(--networks-brand);
+    border: 1px solid rgba(2, 132, 199, 0.3);
 }
 
 /* Module header gradients */
@@ -3539,6 +3551,10 @@ select:focus-visible {
     background: linear-gradient(135deg, #2563eb, #0284c7);
 }
 
+.module-header.path-networks {
+    background: linear-gradient(135deg, #0284c7, #0d9488);
+}
+
 /* Cheat sheet hero headers */
 .cheat-hero.php-hero {
     background: linear-gradient(135deg, #7c3aed, #6d28d9);
@@ -3554,6 +3570,10 @@ select:focus-visible {
 
 .cheat-hero.python-hero {
     background: linear-gradient(135deg, #2563eb, #0284c7);
+}
+
+.cheat-hero.networks-hero {
+    background: linear-gradient(135deg, #0284c7, #0d9488);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -5475,6 +5495,27 @@ body:not([data-theme="light"]) .book-companion-text span {
     --card-accent: #2563eb;
     --card-accent-bg: linear-gradient(135deg, #2563eb, #0284c7);
     --card-glow: rgba(37, 99, 235, 0.25);
+}
+
+.compact-book-card.theme-networks {
+    --card-accent: #0284c7;
+    --card-accent-bg: linear-gradient(135deg, #0284c7, #0d9488);
+    --card-glow: rgba(2, 132, 199, 0.25);
+}
+
+.compact-book-card.theme-cyber {
+    --card-accent: #059669;
+    --card-accent-bg: linear-gradient(135deg, #059669, #0f766e);
+    --card-glow: rgba(5, 150, 105, 0.25);
+}
+
+.course-card.cyber::before {
+    background: var(--cyber-brand);
+}
+
+.course-level.cyber-level {
+    background: rgba(5, 150, 105, 0.15);
+    color: #10b981;
 }
 
 /* Light Mode Overrides for Textbook Shelf */

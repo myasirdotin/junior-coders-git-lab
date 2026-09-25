@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Stack Web Engineering (PHP &amp; Laravel) | BEI Coders</title>
+    <meta name="description" content="Advanced Full-Stack Engineering track for Grades 9–10: PHP server scripting, MySQL relational databases, and Laravel MVC architecture.">
+    <link rel="stylesheet" href="../../../styles/bei-core.css">
+</head>
+<body>
+
+    <nav class="bei-nav">
+        <div class="container bei-nav-inner">
+            <a href="../../../index.html" class="bei-logo">
+                <div class="bei-logo-icon">💻</div>
+                <div>
+                    BEI Coders
+                    <span class="bei-logo-sub">School Computer Science</span>
+                </div>
+            </a>
+            <ul class="bei-nav-links">
+                <li><a href="../../index.html" class="bei-nav-link active">📚 Learn</a></li>
+                <li><a href="../../../studios/index.html" class="bei-nav-link">⚡ Studios</a></li>
+                <li><a href="../../../library/books/index.html" class="bei-nav-link">📖 Textbooks</a></li>
+                <li><a href="../../../projects/index.html" class="bei-nav-link">🏆 Projects</a></li>
+                <li><a href="../../../paths/index.html" class="bei-nav-link">🗺️ Pathways</a></li>
+                <li><a href="../../../teacher-hub/index.html" class="bei-nav-link">🍎 Teachers</a></li>
+            </ul>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
+                <span class="placement-badge" id="studentXP" style="background: rgba(79,70,229,0.15); color: #818cf8; font-family: var(--font-mono);">120 XP</span>
+                <a href="../../../studios/sql-sandbox/index.html" class="btn-nav-primary">SQL Sandbox 🗄️</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- 1. Header with Breadcrumbs -->
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../../../index.html">Home</a> <span>/</span>
+                <a href="../../index.html">Learn</a> <span>/</span>
+                <a href="../index.html">Web Dev</a> <span>/</span>
+                <span>Full-Stack</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                <span class="placement-badge" style="background: rgba(239,68,68,0.15); color: #f87171;">Grades 9–10</span>
+                <span class="placement-badge" style="background: rgba(124,58,237,0.15); color: #c4b5fd;">PHP 8 • MySQL • Laravel 11</span>
+            </div>
+            <h1>Full-Stack Web Engineering 🏗️</h1>
+            <p class="lead">Graduate from static frontend pages to dynamic, database-backed enterprise applications. Learn server-side programming with modern PHP, database normalization with MySQL, and production MVC architecture with Laravel.</p>
+        </header>
+
+        <!-- 2. Prerequisites & What You Will Learn -->
+        <section class="curriculum-meta-grid">
+            <div class="meta-box">
+                <h3 style="color: var(--brand-accent);">📋 Prerequisites</h3>
+                <ul>
+                    <li>Solid grasp of HTML structure, CSS layouts, and basic JavaScript.</li>
+                    <li>Comfort with Terminal commands (`cd`, `mkdir`, `php -S`).</li>
+                    <li>Understanding of how client-server requests travel over the Internet.</li>
+                    <li>Commitment to user data privacy as a sacred trust (*Amānah*).</li>
+                </ul>
+            </div>
+            <div class="meta-box">
+                <h3 style="color: var(--brand-rose);">🎯 What You Will Learn</h3>
+                <ul>
+                    <li>Server-side request lifecycles: HTTP GET/POST forms and superglobals.</li>
+                    <li>Relational schema design, primary/foreign keys, and SQL JOINs.</li>
+                    <li>Database security: eliminating SQL injection with 100% prepared statements (PDO).</li>
+                    <li>Laravel MVC: routes, controllers, Blade templates, migrations, and Eloquent ORM.</li>
+                    <li>Authentication, session management, and password hashing (`password_hash`).</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 3. Progression Stepper -->
+        <section class="progression-stepper">
+            <div class="stepper-head">
+                <h2>🗺️ Clear Progression Map</h2>
+                <p style="color: var(--text-secondary); font-size: 0.92rem;">The complete server-side roadmap from raw PHP scripts to production MVC frameworks.</p>
+            </div>
+            <div class="steps-flow">
+                <div class="step-item" style="border-left-color: #a855f7;">
+                    <div class="step-num" style="color: #a855f7;">Step 01</div>
+                    <div class="step-title">PHP Fundamentals</div>
+                    <div class="step-desc">Syntax, associative arrays, form processing, sanitation, and OOP.</div>
+                </div>
+                <div class="step-item" style="border-left-color: #0284c7;">
+                    <div class="step-num" style="color: #0284c7;">Step 02</div>
+                    <div class="step-title">MySQL Relational Data</div>
+                    <div class="step-desc">CREATE TABLE, CRUD queries, relational JOINs, and indexes.</div>
+                </div>
+                <div class="step-item" style="border-left-color: #10b981;">
+                    <div class="step-num" style="color: #10b981;">Step 03</div>
+                    <div class="step-title">Database Defense (PDO)</div>
+                    <div class="step-desc">Parameterized queries, prepared statements, and session security.</div>
+                </div>
+                <div class="step-item" style="border-left-color: #ef4444;">
+                    <div class="step-num" style="color: #ef4444;">Step 04</div>
+                    <div class="step-title">Laravel MVC Enterprise</div>
+                    <div class="step-desc">Artisan CLI, Blade components, database migrations, and Eloquent relationships.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Modules Breakdown -->
+        <section class="modules-container">
+            <div class="section-head" style="text-align: left; margin-bottom: 1.75rem;">
+                <span class="eyebrow">Curriculum Roadmap</span>
+                <h2>Course Modules</h2>
+            </div>
+
+            <div class="modules-list">
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx" style="background: rgba(168,85,247,0.15); color: #a855f7;">PHP Module 1</span>
+                        <span class="module-time">50 mins</span>
+                    </div>
+                    <h3>PHP Server Fundamentals &amp; Forms</h3>
+                    <p>Understanding the server-side lifecycle. Processing GET/POST requests, sanitizing user inputs, and managing sessions.</p>
+                    <div class="module-footer">
+                        <a href="../../../book-php/index.html" class="module-link">Read PHP Textbook (29 Ch) →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx" style="background: rgba(2,132,199,0.15); color: #0284c7;">MySQL Module 2</span>
+                        <span class="module-time">60 mins</span>
+                    </div>
+                    <h3>Relational Schemas &amp; SQL Queries</h3>
+                    <p>Designing normalized tables, primary and foreign keys, INNER/LEFT JOINs, and aggregates (`COUNT`, `SUM`, `AVG`).</p>
+                    <div class="module-footer">
+                        <a href="../../../book-mysql/index.html" class="module-link">Read MySQL Textbook (22 Ch) →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx" style="background: rgba(16,185,129,0.15); color: #10b981;">Security Module 3</span>
+                        <span class="module-time">50 mins</span>
+                    </div>
+                    <h3>Secure PDO &amp; Password Cryptography</h3>
+                    <p>Eliminate SQL injection forever with PDO prepared statements. Hash passwords properly with Argon2id / bcrypt.</p>
+                    <div class="module-footer">
+                        <a href="../../../cheatsheet-cybersecurity.html" class="module-link">View Security Hardening Guide →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx" style="background: rgba(239,68,68,0.15); color: #ef4444;">Laravel Module 4</span>
+                        <span class="module-time">75 mins</span>
+                    </div>
+                    <h3>Laravel MVC Architecture &amp; Blade</h3>
+                    <p>Separation of concerns: Routes (`web.php`), Controllers, Blade views, and template layouts.</p>
+                    <div class="module-footer">
+                        <a href="../../../book-laravel/index.html" class="module-link">Read Laravel Textbook (24 Ch) →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx" style="background: rgba(239,68,68,0.15); color: #ef4444;">Laravel Module 5</span>
+                        <span class="module-time">80 mins</span>
+                    </div>
+                    <h3>Migrations, Eloquent ORM &amp; Relations</h3>
+                    <p>Version control for databases with migrations. Query records elegantly using Active Record Eloquent models.</p>
+                    <div class="module-footer">
+                        <a href="../../../cheatsheet-laravel.html" class="module-link">Open Laravel Cheatsheet →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx" style="background: rgba(239,68,68,0.15); color: #ef4444;">Full-Stack Module 6</span>
+                        <span class="module-time">90 mins</span>
+                    </div>
+                    <h3>Authentication &amp; Production Deployment</h3>
+                    <p>Role-based access control, CSRF tokens, database seeding, environment configs (`.env`), and Apache/Nginx deployment.</p>
+                    <div class="module-footer">
+                        <a href="../../../Learning Laravel/learninglaravel.html" class="module-link">Open 8 Laravel Lessons →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Interactive Practice & Cheatsheets -->
+        <section class="curriculum-action-banner">
+            <div class="action-banner-text">
+                <span class="placement-badge" style="background: rgba(239,68,68,0.15); color: #f87171; margin-bottom: 0.5rem;">Backend Practice</span>
+                <h3>SQL Sandbox &amp; Rapid Syntax References</h3>
+                <p>Experiment with real SQL queries in our browser-based database sandbox, or review comprehensive syntax cheat sheets for PHP, MySQL, and Laravel.</p>
+            </div>
+            <div class="action-banner-btns">
+                <a href="../../../studios/sql-sandbox/index.html" class="btn-hero-primary" style="background: var(--brand-rose);">🗄️ Open SQL Sandbox</a>
+                <a href="../../../cheatsheet-php.html" class="btn-hero-secondary">🐘 PHP Sheet</a>
+                <a href="../../../cheatsheet-mysql.html" class="btn-hero-secondary">🗄️ MySQL Sheet</a>
+                <a href="../../../cheatsheet-laravel.html" class="btn-hero-secondary">🔥 Laravel Sheet</a>
+            </div>
+        </section>
+
+        <!-- 6. Capstone Project -->
+        <section class="meta-box" style="border: 2px solid #ef4444; background: linear-gradient(135deg, rgba(239,68,68,0.06), transparent);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                <h3 style="color: #f87171; font-size: 1.35rem; margin: 0;">🏆 Enterprise Capstone: "Student Aid &amp; Scholarship Portal"</h3>
+                <span class="placement-badge" style="background: rgba(239,68,68,0.2); color: #fca5a5;">Gold Level Project</span>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+                Build an end-to-end full-stack web application using PHP/Laravel and MySQL. Features student registration, income verification document uploads, application status review dashboards, parameterized query security, and anti-CSRF token verification.
+            </p>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../../../projects/index.html" class="btn-gateway" style="background: #ef4444; color: white;">View Gold Project Rubric →</a>
+                <a href="../../../book-laravel/index.html" class="btn-gateway">Open 24-Chapter Laravel Book 📖</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bei-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="bei-logo">
+                    <div class="bei-logo-icon">💻</div>
+                    <span>BEI Coders</span>
+                </div>
+                <p>Empowering school students with foundational computing, creative web engineering, and ethical AI stewardship.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Learn Tracks</h4>
+                <ul class="footer-links">
+                    <li><a href="../../foundations/index.html">Foundations</a></li>
+                    <li><a href="../index.html">Web Development</a></li>
+                    <li><a href="index.html">Full-Stack (PHP/Laravel)</a></li>
+                    <li><a href="../../python/index.html">Python &amp; Data</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Studios</h4>
+                <ul class="footer-links">
+                    <li><a href="../../../studios/web-studio/index.html">Web Studio</a></li>
+                    <li><a href="../../../studios/python-console/index.html">Python Console</a></li>
+                    <li><a href="../../../studios/sql-sandbox/index.html">SQL Sandbox</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Library</h4>
+                <ul class="footer-links">
+                    <li><a href="../../../library/books/index.html">All 11 Textbooks</a></li>
+                    <li><a href="../../../library/cheatsheets/index.html">Cheat Sheets Hub</a></li>
+                    <li><a href="../../../projects/index.html">Project Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Teacher Hub</h4>
+                <ul class="footer-links">
+                    <li><a href="../../../teacher-hub/index.html">Lesson Plans</a></li>
+                    <li><a href="../../../paths/index.html">Curriculum Maps</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 BEI Coders. Dedicated to Beneficial Knowledge &amp; Digital Stewardship.</div>
+            <div>beicoders.vercel.app</div>
+        </div>
+    </footer>
+
+    <script src="../../../js/bei-core.js"></script>
+</body>
+</html>

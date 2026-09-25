@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Modular Textbooks (Audio TTS) | BEI Coders</title>
+    <meta name="description" content="All 11 official school computer science textbooks with Web Speech audio narration, reading mode, and code lab buttons.">
+    <link rel="stylesheet" href="../../styles/bei-core.css">
+    <style>
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+        .book-item-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+        }
+        .book-item-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-card);
+        }
+        .book-item-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        .book-item-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            background: var(--bg-surface-elevated);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+        }
+        .book-item-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.25rem 0.6rem;
+            border-radius: var(--radius-sm);
+            background: var(--brand-primary-light);
+            color: #a5b4fc;
+        }
+        .book-item-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.4rem;
+        }
+        .book-item-card p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.55;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        .book-item-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="bei-nav">
+        <div class="container bei-nav-inner">
+            <a href="../../index.html" class="bei-logo">
+                <div class="bei-logo-icon">💻</div>
+                <div>
+                    BEI Coders
+                    <span class="bei-logo-sub">School Computer Science</span>
+                </div>
+            </a>
+            <ul class="bei-nav-links">
+                <li><a href="../../learn/index.html" class="bei-nav-link">📚 Learn</a></li>
+                <li><a href="../../studios/index.html" class="bei-nav-link">⚡ Studios</a></li>
+                <li><a href="index.html" class="bei-nav-link active">📖 Textbooks</a></li>
+                <li><a href="../cheatsheets/index.html" class="bei-nav-link">📋 Cheatsheets</a></li>
+                <li><a href="../../projects/index.html" class="bei-nav-link">🏆 Projects</a></li>
+                <li><a href="../../teacher-hub/index.html" class="bei-nav-link">🍎 Teachers</a></li>
+            </ul>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
+                <a href="../../studios/web-studio/index.html" class="btn-nav-primary">Launch Studio ⚡</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Home</a> <span>/</span>
+                <a href="../index.html">Library</a> <span>/</span>
+                <span>Textbooks</span>
+            </div>
+            <h1>11 Official Modular Textbooks 📖</h1>
+            <p class="lead">Complete, project-based educational textbooks with built-in Web Speech audio narration (Text-to-Speech), distraction-free reading mode, syntax-highlighted code examples, and companion exercises.</p>
+        </header>
+
+        <div class="books-grid">
+            <!-- 1. HTML -->
+            <div class="book-item-card">
+                <div class="book-item-top">
+                    <div class="book-item-icon">🌐</div>
+                    <span class="book-item-badge">17 Ch • 🎙️ Audio</span>
+                </div>
+                <h3>HTML: Structure the Web</h3>
+                <p>Master the semantic skeleton: tags, headings, accessible forms, tables, SEO, and 5 capstone projects for Classes 6 &amp; 7.</p>
+                <div class="book-item-actions">
+                    <a href="../../book-html/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
+                    <a href="../../Learning HTML/learninghtml.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 12 Lessons</a>
+                </div>
+            </div>
+
+            <!-- 2. CSS -->
+            <div class="book-item-card">
+                <div class="book-item-top">
+                    <div class="book-item-icon">🎨</div>
+                    <span class="book-item-badge">22 Ch • 🎙️ Audio</span>
+                </div>
+                <h3>CSS: Styling &amp; Layouts</h3>
+                <p>Colors, typography, Box Model, Flexbox alignment, CSS Grid, animations, and responsive mobile design for Class 7.</p>
+                <div class="book-item-actions">
+                    <a href="../../book-css/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
+                    <a href="../../Learning CSS/learningcss.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 8 Lessons</a>
+                </div>
+            </div>
+
+            <!-- 3. JavaScript -->
+            <div class="book-item-card">
+                <div class="book-item-top">
+                    <div class="book-item-icon">⚡</div>
+                    <span class="book-item-badge">26 Ch • 🎙️ Audio</span>
+                </div>
+                <h3>JavaScript: Learn, Think, Create</h3>
+                <p>Variables, control flow, loops, functions, array methods, DOM manipulation, and interactive game projects for Class 7.</p>
+                <div class="book-item-actions">
+                    <a href="../../book-js/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
+                    <a href="../../Learning JS/learningjs.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 9 Lessons</a>
+                </div>
+            </div>
+
+            <!-- 4. Terminal CMD -->
+            <div class="book-item-card">
+                <div class="book-item-top">
+                    <div class="book-item-icon">&gt;_</div>
+                    <span class="book-item-badge">14 Ch • 🎙️ Audio</span>
+                </div>
+                <h3>Terminal &amp; Command Prompt</h3>
+                <p>Master File Explorer without a mouse: file hierarchies, batch folder creation, local PHP servers, and dual-shell fluency.</p>
+                <div class="book-item-actions">
+                    <a href="../../book-cmd/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
+                    <a href="../../cheatsheet-cmd.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">💻 Cheatsheet</a>
+                </div>
+            </div>
+
+            <!-- 5. Git & GitHub -->
+            <div class="book-item-card">
+                <div class="book-item-top">
+                    <div class="book-item-icon">🐙</div>
+                    <span class="book-item-badge">20 Ch • 🎙️ Audio</span>
+                </div>
+                <h3>Git &amp; GitHub Mastery</h3>
+                <p>Milestone checkpoints, diff inspections, branch isolation, conflict resolution, Pull Requests, and GitHub Pages deployment.</p>
+                <div class="book-item-actions">
+                    <a href="../../book-git/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
+                    <a href="../../cheatsheet-git.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🐙 Cheatsheet</a>
+                </div>
+            </div>
+
+            <!-- 6. Python & Machine Learning -->
+            <div class="book-item-card">
+                <div class="book-item-top">
+                    <div class="book-item-icon">🐍</div>
+                    <span class="book-item-badge">15 Ch • 🎙️ Audio</span>
+                </div>
+                <h3>Python &amp; Machine Learning</h3>
+                <p>Clean Python syntax, data collections, file automation, supervised machine learning, and Islamic AI ethics (*Amānah*).</p>
+                <div class="book-item-actions">
+                    <a href="../../book-python/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
+                    <a href="../../Learning Python/learningpython.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 8 Lessons</a>
+                </div>
+            </div>
+
+            <!-- 7. PHP Server Scripting -->
+            <div class="book-item-card">
+                <div class="book-item-top">
+                    <div class="book-item-icon">🐘</div>
+                    <span class="book-item-badge">29 Ch • 🎙️ Audio</span>
+                </div>
+                <h3>PHP Server Scripting</h3>
+                <p>Server-side programming: associative arrays, GET/POST forms, superglobals, security sanitization, and OOP architecture.</p>
+                <div class="book-item-actions">
+                    <a href="../../book-php/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
+                    <a href="../../Learning PHP/learningphp.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 8 Lessons</a>
+                </div>
+            </div>
+
+            <!-- 8. MySQL Databases -->
+            <div class="book-item-card">
+                <div class="book-item-top">
+                    <div class="book-item-icon">🗄️</div>
+                    <span class="book-item-badge">22 Ch • 🎙️ Audio</span>
+                </div>
+                <h3>MySQL Relational Databases</h3>
+                <p>Relational table schemas, CRUD queries, foreign key relationships, multi-table JOINs, aggregations, and data trust.</p>
+                <div class="book-item-actions">
+                    <a href="../../book-mysql/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
+                    <a href="../../Learning MySQL/learningmysql.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 6 Lessons</a>
+                </div>
+            </div>
+
+            <!-- 9. Laravel Framework -->
+            <div class="book-item-card">
+                <div class="book-item-top">
+                    <div class="book-item-icon">🔥</div>
+                    <span class="book-item-badge">24 Ch • 🎙️ Audio</span>
+                </div>
+                <h3>Laravel Modern PHP MVC</h3>
+                <p>Production MVC architecture, routing, Blade templates, database migrations, Eloquent ORM, and secure authentication.</p>
+                <div class="book-item-actions">
+                    <a href="../../book-laravel/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
+                    <a href="../../Learning Laravel/learninglaravel.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 8 Lessons</a>
+                </div>
+            </div>
+
+            <!-- 10. Computer Networking & Protocols -->
+            <div class="book-item-card">
+                <div class="book-item-top">
+                    <div class="book-item-icon">🌐</div>
+                    <span class="book-item-badge">14 Ch • 🎙️ Audio</span>
+                </div>
+                <h3>Networking &amp; Web Protocols</h3>
+                <p>OSI 7-layer and TCP/IP models, IP addressing, CIDR subnetting, TCP/UDP, DNS resolution, HTTP/3, and TLS 1.3 cryptography.</p>
+                <div class="book-item-actions">
+                    <a href="../../book-networks/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
+                    <a href="../../Learning Networks/learningnetworks.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 8 Lessons</a>
+                </div>
+            </div>
+
+            <!-- 11. Cybersecurity & Digital Hygiene -->
+            <div class="book-item-card">
+                <div class="book-item-top">
+                    <div class="book-item-icon">🛡️</div>
+                    <span class="book-item-badge">14 Ch • 🎙️ Audio</span>
+                </div>
+                <h3>Cybersecurity &amp; Digital Hygiene</h3>
+                <p>The CIA Triad, password entropy math, OWASP web defenses (SQLi &amp; XSS), HTTP security headers, anti-phishing, and 3-2-1 backups.</p>
+                <div class="book-item-actions">
+                    <a href="../../book-cybersecurity/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
+                    <a href="../../Learning Cybersecurity/learningcybersecurity.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 8 Lessons</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bei-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="bei-logo">
+                    <div class="bei-logo-icon">💻</div>
+                    <span>BEI Coders</span>
+                </div>
+                <p>Empowering school students with foundational computing, creative web engineering, and ethical AI stewardship.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Library</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">All 11 Textbooks</a></li>
+                    <li><a href="../cheatsheets/index.html">Cheat Sheets Hub</a></li>
+                    <li><a href="../../projects/index.html">Project Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Learn</h4>
+                <ul class="footer-links">
+                    <li><a href="../../learn/foundations/index.html">Foundations</a></li>
+                    <li><a href="../../learn/web-dev/index.html">Web Development</a></li>
+                    <li><a href="../../learn/python/index.html">Python &amp; Data</a></li>
+                    <li><a href="../../learn/cybersecurity/index.html">Cybersecurity</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Studios</h4>
+                <ul class="footer-links">
+                    <li><a href="../../studios/web-studio/index.html">Web Studio</a></li>
+                    <li><a href="../../studios/python-console/index.html">Python Console</a></li>
+                    <li><a href="../../studios/sql-sandbox/index.html">SQL Sandbox</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Teachers</h4>
+                <ul class="footer-links">
+                    <li><a href="../../teacher-hub/index.html">Lesson Plans</a></li>
+                    <li><a href="../../paths/index.html">Curriculum Maps</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 BEI Coders. Dedicated to Beneficial Knowledge &amp; Digital Stewardship.</div>
+            <div>beicoders.vercel.app</div>
+        </div>
+    </footer>
+
+    <script src="../../js/bei-core.js"></script>
+</body>
+</html>

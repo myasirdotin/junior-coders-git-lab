@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 1: Discover how packets, routers, switches, and fiber-optic cables connect the global Internet.">
+    <title>Module 1: The Internet Highway &amp; Packets | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 1</span>
+            <h1 style="color: white; margin: 0.5rem 0;">The Internet Highway &amp; Packets 🌐📦</h1>
+            <p>Welcome to Computer Networking! Learn how physical light, electricity, and digital packets connect humanity across oceans.</p>
+        </header>
+
+        <!-- The Mental Model -->
+        <section class="content-section">
+            <h2>The "Postcard Network" Analogy</h2>
+            <p>Computers do not send entire video files or web pages as one massive uninterrupted stream. Instead, they slice data into thousands of tiny, numbered chunks called <strong>packets</strong>.</p>
+            
+            <div class="analogy-grid">
+                <div class="analogy-card active">
+                    <span class="analogy-icon">✉️</span>
+                    <h3>The Postcard (Packet)</h3>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Contains source IP, destination IP, sequence number, and up to 1,500 bytes of payload data.</p>
+                </div>
+                <div class="analogy-card active" style="border-color: #059669;">
+                    <span class="analogy-icon">🚦</span>
+                    <h3 style="color: #059669;">The Switch &amp; Router</h3>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Switches forward packets inside your local room (LAN); routers direct packets across international highways (WAN).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Components Grid -->
+        <section class="content-section">
+            <h2>The Four Physical Media of Networking</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
+                    <h3>Fiber-Optic Cables 💡</h3>
+                    <p>Flashes of laser light traveling inside glass strands across ocean floors at 200,000 km/s.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3>Copper Ethernet (Cat6) ⚡</h3>
+                    <p>Electrical voltage pulses for short, high-speed connections inside schools, offices, and homes.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
+                    <h3>Wi-Fi &amp; Radio Waves 📡</h3>
+                    <p>High-frequency radio waves (2.4 GHz &amp; 5 GHz) carrying data through the air without physical cords.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
+                    <h3>Cellular (4G / 5G) 📱</h3>
+                    <p>Long-range tower antennas providing mobile connectivity across towns and transit highways.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bandwidth vs Latency -->
+        <section class="content-section">
+            <h2>Bandwidth vs. Latency: The Water Pipe</h2>
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
+                <strong>Bandwidth (Width of Pipe):</strong> How much water can flow per second (e.g. 100 Mbps).<br>
+                <strong>Latency (Delay of Pipe):</strong> How many milliseconds it takes for the first drop to arrive (e.g. 24 ms ping).
+            </div>
+        </section>
+
+        <!-- Interactive Practice Challenge -->
+        <section class="content-section" style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #0369a1; margin-top: 0;">🧪 Your Turn: Ping the Wire</h2>
+            <p>Open your local terminal or prompt and run a reachability test to an open educational DNS server:</p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Run ping to test round-trip latency
+ping 1.1.1.1</code></pre>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #475569;">Notice the average round-trip time in milliseconds (ms). That is the speed of light bouncing across your local fiber!</p>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="learningnetworks.html" class="btn-hero-secondary">← Course Overview</a>
+            <a href="module2.html" class="btn-hero-primary">Next: Module 2 (OSI Layers) →</a>
+        </footer>
+    </main>
+</body>
+</html>

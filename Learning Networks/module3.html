@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 3: Learn IPv4, IPv6, subnetting, CIDR prefix notation, and Network Address Translation (NAT).">
+    <title>Module 3: IP Addressing, CIDR &amp; NAT | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 1</span>
+            <h1 style="color: white; margin: 0.5rem 0;">IP Addressing, CIDR &amp; NAT 🗺️</h1>
+            <p>Every device on the Internet needs an address. Master IPv4 octets, CIDR prefixes, and private home networks.</p>
+        </header>
+
+        <!-- IPv4 Anatomy -->
+        <section class="content-section">
+            <h2>The Anatomy of an IPv4 Address</h2>
+            <p>An IPv4 address consists of <strong>32 binary bits</strong> broken into <strong>four 8-bit octets</strong> (ranging from 0 to 255):</p>
+            
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
+                Decimal:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;192&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;168&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;100<br>
+                Binary:&nbsp;&nbsp;&nbsp;11000000 . 10101000 . 00000001 . 01100100
+            </div>
+        </section>
+
+        <!-- Private IP Ranges & NAT -->
+        <section class="content-section">
+            <h2>Private Networks &amp; NAT: Saving the IPv4 Web</h2>
+            <p>Because IPv4 ran out of its 4.3 billion public addresses, RFC 1918 reserved special <strong>Private IP Ranges</strong> that can never be routed directly on the public Internet:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
+                    <h3>10.0.0.0/8</h3>
+                    <p>Large enterprise campus networks (up to 16 million devices).</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3>172.16.0.0/12</h3>
+                    <p>Mid-sized corporate and university networks.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
+                    <h3>192.168.0.0/16</h3>
+                    <p>Standard home Wi-Fi routers and small classroom LANs.</p>
+                </div>
+            </div>
+            <p style="margin-top: 1rem; color: #475569; font-size: 0.95rem;">
+                <strong>Network Address Translation (NAT)</strong> in your home router maps your 15 internal devices to <strong>one single public IP</strong> assigned by your ISP!
+            </p>
+        </section>
+
+        <!-- CIDR Breakdown -->
+        <section class="content-section">
+            <h2>CIDR Subnet Math: The Slash Notation</h2>
+            <p>The prefix <code>/24</code> means the first 24 bits belong to the <strong>Network</strong>, leaving $32 - 24 = 8$ bits for <strong>Hosts</strong>:</p>
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
+                Total Addresses = 2^HostBits = 2^8 = 256<br>
+                Usable Devices = 256 - 2 = <span style="color: #34d399;">254 usable hosts</span><br>
+                (Address 0 is the Network ID, Address 255 is the Broadcast Address)
+            </div>
+        </section>
+
+        <!-- Interactive Practice Challenge -->
+        <section class="content-section" style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #0369a1; margin-top: 0;">🧪 Your Turn: Test Your Local Gateway</h2>
+            <p>Find out what private IP your local device was assigned by running:</p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Windows:
+ipconfig | findstr /i "IPv4"
+
+# Linux / Mac:
+ip route get 1.1.1.1</code></pre>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #475569;">You will likely see an address like <code>192.168.1.x</code> or <code>10.0.0.x</code>!</p>
+        </section>
+
+        <!-- Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module2.html" class="btn-hero-secondary">← Module 2</a>
+            <a href="module4.html" class="btn-hero-primary">Next: Module 4 (TCP vs UDP) →</a>
+        </footer>
+    </main>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Hub &amp; Educator Resources | BEI Coders</title>
+    <meta name="description" content="Dedicated Teacher Hub for school computer science educators: syllabus maps, 45-minute lesson plans, slide decks, grading rubrics, and AI-era assessment guidelines.">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+    <style>
+        .teacher-resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+        .resource-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+        }
+        .resource-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--brand-primary);
+            box-shadow: var(--shadow-card);
+        }
+        .resource-card h3 {
+            font-size: 1.2rem;
+            margin: 0.5rem 0 0.4rem;
+        }
+        .resource-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.55;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="bei-nav">
+        <div class="container bei-nav-inner">
+            <a href="../index.html" class="bei-logo">
+                <div class="bei-logo-icon">💻</div>
+                <div>
+                    BEI Coders
+                    <span class="bei-logo-sub">School Computer Science</span>
+                </div>
+            </a>
+            <ul class="bei-nav-links">
+                <li><a href="../learn/index.html" class="bei-nav-link">📚 Learn</a></li>
+                <li><a href="../studios/index.html" class="bei-nav-link">⚡ Studios</a></li>
+                <li><a href="../library/books/index.html" class="bei-nav-link">📖 Textbooks</a></li>
+                <li><a href="../projects/index.html" class="bei-nav-link">🏆 Projects</a></li>
+                <li><a href="../paths/index.html" class="bei-nav-link">🗺️ Pathways</a></li>
+                <li><a href="index.html" class="bei-nav-link active">🍎 Teachers</a></li>
+            </ul>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
+                <a href="#rubrics" class="btn-nav-primary">Grading Rubrics 📋</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">Home</a> <span>/</span>
+                <span>Teacher Hub</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                <span class="placement-badge" style="background: rgba(217,119,6,0.15); color: #f59e0b;">Educator Portal</span>
+                <span class="placement-badge" style="background: rgba(79,70,229,0.15); color: #818cf8;">Grades 6–10 Curriculum</span>
+            </div>
+            <h1>Teacher Hub &amp; Lesson Blueprints 🍎📚</h1>
+            <p class="lead">Built to support computer teachers in primary and secondary schools. Download structured 45-minute lesson plans, slide presentation outlines, competency rubrics, and guidance for assessing code in the era of generative AI.</p>
+        </header>
+
+        <!-- Ethical Framing for Educators -->
+        <section class="ethical-mission-card" style="margin-top: 0;">
+            <div class="ethical-mission-inner">
+                <div class="ethical-icon-badge">🤲</div>
+                <div class="ethical-content">
+                    <h2>Pedagogical Philosophy: Cultivating *Amānah*, *Ṣidq* &amp; *Iḥsān*</h2>
+                    <p>Teachers bear the sacred trust (*Amānah*) of shaping how young minds interact with powerful technology. We encourage educators to emphasize that digital skills are not for vanity, cheating, or exploitative monetization, but instruments for beneficial community service (*'Ilm Nāfi'*), privacy protection, and craftsmanship (*Iḥsān*).</p>
+                    <div class="ethical-pillars">
+                        <span class="ethical-pill">🌱 Beneficial Knowledge (*'Ilm Nāfi'*)</span>
+                        <span class="ethical-pill">🛡️ Data Privacy as a Sacred Trust (*Amānah*)</span>
+                        <span class="ethical-pill">✨ Craftsmanship &amp; Care (*Iḥsān*)</span>
+                        <span class="ethical-pill">⚖️ Academic Truthfulness (*Ṣidq*)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI-Era Assessment Guidance Banner -->
+        <section class="meta-box" style="border: 2px solid #ec4899; background: linear-gradient(135deg, rgba(236,72,153,0.06), transparent); margin-bottom: 3.5rem;">
+            <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.5rem;">
+                <span style="font-size: 1.8rem;">🤖</span>
+                <div>
+                    <h3 style="color: #ec4899; margin: 0; font-size: 1.35rem;">AI-Era Assessment Guidance for Teachers</h3>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">How to evaluate student coding when LLMs can generate solutions in seconds</span>
+                </div>
+            </div>
+            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0.75rem 0 1.25rem;">
+                In the generative AI era, assessing syntax output alone is obsolete. Shift focus from *code generation* to *code comprehension, oral defense, and architectural reasoning*:
+            </p>
+            <ul style="color: var(--text-secondary); font-size: 0.92rem; margin-left: 1.25rem; line-height: 1.7; margin-bottom: 1.25rem;">
+                <li><strong>1. Oral Code Defense (Viva Voce):</strong> Ask students to explain line-by-line what their logic does and why they chose a specific data structure.</li>
+                <li><strong>2. In-Class Refactoring Challenges:</strong> Present a working code snippet and ask students to modify variable constraints or swap a loop for a function without AI assistance.</li>
+                <li><strong>3. Error Injection &amp; Debugging:</strong> Give students subtly broken code and evaluate their systematic diagnostic reasoning.</li>
+                <li><strong>4. Ethical Verification (*Tabayyun*):</strong> Grade students on their ability to fact-check AI-generated explanations and detect subtle hallucinations.</li>
+            </ul>
+        </section>
+
+        <!-- Teaching Resources Grid -->
+        <section id="rubrics">
+            <div class="section-head" style="text-align: left; margin-bottom: 1.75rem;">
+                <span class="eyebrow">Classroom Ready</span>
+                <h2>Teaching Kits &amp; Evaluation Rubrics</h2>
+            </div>
+
+            <div class="teacher-resource-grid">
+                <!-- 1. Lesson Plans -->
+                <div class="resource-card">
+                    <span style="font-size: 2rem;">📝</span>
+                    <h3>45-Minute Lesson Plans</h3>
+                    <p>Scaffolded lesson plans aligned with 40–50 minute school timetable blocks. Each includes a Warm-up (5 min), Concept Breakdown (15 min), Live Studio Practice (20 min), and Wrap-up reflection (5 min).</p>
+                    <a href="../paths/index.html" class="btn-gateway">Browse Lesson Roadmap →</a>
+                </div>
+
+                <!-- 2. Presentation Slide Outlines -->
+                <div class="resource-card">
+                    <span style="font-size: 2rem;">📊</span>
+                    <h3>Slide Presentation Outlines</h3>
+                    <p>Visual presentation blueprints covering mental models: the file tree analogy, the HTML skeleton, the CSS Box Model, and Python loops. Optimized for smartboards and projectors.</p>
+                    <a href="../library/books/index.html" class="btn-gateway">Use Textbook Illustrations →</a>
+                </div>
+
+                <!-- 3. Project Grading Rubrics -->
+                <div class="resource-card">
+                    <span style="font-size: 2rem;">📋</span>
+                    <h3>Project Evaluation Rubrics</h3>
+                    <p>Standardized 4-category grading sheets: Functional Correctness (40%), Clean Code &amp; Indentation (20%), User Accessibility &amp; Design (20%), and Oral Defense / Comprehension (20%).</p>
+                    <a href="../projects/index.html" class="btn-gateway">Review Graded Projects →</a>
+                </div>
+
+                <!-- 4. Zero-Setup Lab Management -->
+                <div class="resource-card">
+                    <span style="font-size: 2rem;">⚡</span>
+                    <h3>Computer Lab Setup Guide</h3>
+                    <p>Our studios run 100% in the browser (Chrome, Firefox, Edge, Safari). No admin rights, Python installers, or Apache server configurations needed on school machines.</p>
+                    <a href="../studios/index.html" class="btn-gateway">Explore In-Browser Studios →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bei-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="bei-logo">
+                    <div class="bei-logo-icon">💻</div>
+                    <span>BEI Coders</span>
+                </div>
+                <p>Empowering school students with foundational computing, creative web engineering, and ethical AI stewardship.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Teacher Hub</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Lesson Plans</a></li>
+                    <li><a href="index.html#rubrics">Grading Rubrics</a></li>
+                    <li><a href="../paths/index.html">Curriculum Maps</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Learn</h4>
+                <ul class="footer-links">
+                    <li><a href="../learn/foundations/index.html">Foundations</a></li>
+                    <li><a href="../learn/web-dev/index.html">Web Development</a></li>
+                    <li><a href="../learn/python/index.html">Python &amp; Data</a></li>
+                    <li><a href="../learn/ai-lab/index.html">AI Literacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Studios</h4>
+                <ul class="footer-links">
+                    <li><a href="../studios/web-studio/index.html">Web Studio</a></li>
+                    <li><a href="../studios/python-console/index.html">Python Console</a></li>
+                    <li><a href="../studios/sql-sandbox/index.html">SQL Sandbox</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Library</h4>
+                <ul class="footer-links">
+                    <li><a href="../library/books/index.html">All 11 Textbooks</a></li>
+                    <li><a href="../library/cheatsheets/index.html">Cheat Sheets Hub</a></li>
+                    <li><a href="../projects/index.html">Project Catalog</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 BEI Coders. Dedicated to Beneficial Knowledge &amp; Digital Stewardship.</div>
+            <div>beicoders.vercel.app</div>
+        </div>
+    </footer>
+
+    <script src="../js/bei-core.js"></script>
+</body>
+</html>

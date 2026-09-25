@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Protocol Studio | Junior Coders Lab</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .lab-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+        .lab-tabs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 0.75rem;
+        }
+        .lab-tab-btn {
+            background: #1e293b;
+            color: #94a3b8;
+            border: 1px solid #334155;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .lab-tab-btn:hover {
+            background: #334155;
+            color: #f8fafc;
+        }
+        .lab-tab-btn.active {
+            background: #0284c7;
+            color: #ffffff;
+            border-color: #0284c7;
+            box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
+        }
+        .studio-card {
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 2rem;
+        }
+        .studio-card-header {
+            background: #1e293b;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+        .studio-card-body {
+            padding: 1.5rem;
+        }
+        .method-badge {
+            font-family: var(--font-mono, monospace);
+            font-weight: 800;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        .method-get { background: #065f46; color: #34d399; }
+        .method-post { background: #1e40af; color: #93c5fd; }
+        .method-put { background: #854d0e; color: #fde047; }
+        .method-delete { background: #991b1b; color: #fca5a5; }
+        .method-options { background: #4c1d95; color: #d8b4fe; }
+
+        .wire-box {
+            background: #020617;
+            border: 1px solid #1e293b;
+            border-radius: 10px;
+            padding: 1.25rem;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.88rem;
+            color: #38bdf8;
+            line-height: 1.6;
+            overflow-x: auto;
+            white-space: pre-wrap;
+        }
+        .form-row {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        .form-input {
+            background: #090d16;
+            border: 1px solid #334155;
+            color: #f8fafc;
+            padding: 0.65rem 1rem;
+            border-radius: 8px;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.9rem;
+            outline: none;
+            flex: 1;
+        }
+        .form-input:focus {
+            border-color: #0284c7;
+            box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.25);
+        }
+        .form-select {
+            background: #090d16;
+            border: 1px solid #334155;
+            color: #f8fafc;
+            padding: 0.65rem 1rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-family: var(--font-mono, monospace);
+            outline: none;
+            cursor: pointer;
+        }
+        .btn-action {
+            background: #0284c7;
+            color: white;
+            border: none;
+            padding: 0.65rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-action:hover {
+            background: #0369a1;
+            transform: translateY(-1px);
+        }
+        .handshake-stage {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 1rem;
+            background: #020617;
+            border-radius: 12px;
+            position: relative;
+            min-height: 240px;
+        }
+        .host-node {
+            background: #1e293b;
+            border: 2px solid #38bdf8;
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            width: 180px;
+            color: white;
+            box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2);
+            z-index: 2;
+        }
+        .packet-flight {
+            position: absolute;
+            background: #f59e0b;
+            color: #0f172a;
+            font-family: var(--font-mono, monospace);
+            font-size: 0.78rem;
+            font-weight: 800;
+            padding: 0.35rem 0.75rem;
+            border-radius: 9999px;
+            box-shadow: 0 0 15px rgba(245, 158, 11, 0.6);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            top: 50%;
+            transform: translateY(-50%);
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body style="background: #090d16; color: #f8fafc; font-family: 'Outfit', sans-serif;">
+
+    <header style="background: #0f172a; border-bottom: 1px solid #1e293b; padding: 1.25rem 2rem;">
+        <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <span style="font-size: 2rem;">🌐</span>
+                <div>
+                    <h1 style="margin: 0; font-size: 1.35rem; color: #fff;">Network Protocol Studio &amp; Wire Lab</h1>
+                    <p style="margin: 0; font-size: 0.82rem; color: #94a3b8;">Interactive simulation workbench for HTTP, DNS, TCP handshakes, and CIDR.</p>
+                </div>
+            </div>
+            <div style="display: flex; gap: 0.6rem;">
+                <a href="../book-networks/index.html" class="lab-tab-btn" style="text-decoration: none;">📖 Textbook</a>
+                <a href="learningnetworks.html" class="lab-tab-btn" style="text-decoration: none;">📚 Syllabus</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="lab-container">
+        <!-- Studio Navigation Tabs -->
+        <div class="lab-tabs" role="tablist">
+            <button type="button" class="lab-tab-btn active" onclick="switchLabTab('http', this)">📬 HTTP Request/Response &amp; Wire</button>
+            <button type="button" class="lab-tab-btn" onclick="switchLabTab('dns', this)">🔍 DNS Recursive Resolver</button>
+            <button type="button" class="lab-tab-btn" onclick="switchLabTab('tcp', this)">🤝 TCP 3-Way Handshake</button>
+            <button type="button" class="lab-tab-btn" onclick="switchLabTab('cidr', this)">✂️ CIDR Subnet Calculator</button>
+        </div>
+
+        <!-- 1. HTTP REQUEST / RESPONSE WORKBENCH -->
+        <section id="tab-http" class="studio-card">
+            <div class="studio-card-header">
+                <div>
+                    <h2 style="margin: 0; font-size: 1.2rem; color: #38bdf8;">HTTP Client &amp; Wire Protocol Inspector</h2>
+                    <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: #94a3b8;">Construct requests, inspect real RFC 7230 wire formatting, and simulate live server replies.</p>
+                </div>
+                <div>
+                    <label for="httpPresets" style="font-size: 0.8rem; color: #cbd5e1; margin-right: 0.5rem;">Presets:</label>
+                    <select id="httpPresets" class="form-select" onchange="loadHttpPreset(this.value)">
+                        <option value="getCamps">GET /api/v1/relief-camps (200 OK)</option>
+                        <option value="postDonation">POST /api/v1/donations (201 Created)</option>
+                        <option value="notFound">GET /api/v1/unknown-path (404 Not Found)</option>
+                        <option value="unauthorized">GET /api/v1/volunteer-vault (401 Unauthorized)</option>
+                        <option value="preflight">OPTIONS /api/v1/water-wells (204 CORS Preflight)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="studio-card-body">
+                <div class="form-row">
+                    <select id="httpMethod" class="form-select" onchange="updateWirePreview()">
+                        <option value="GET">GET</option>
+                        <option value="POST">POST</option>
+                        <option value="PUT">PUT</option>
+                        <option value="DELETE">DELETE</option>
+                        <option value="OPTIONS">OPTIONS</option>
+                    </select>
+                    <input type="text" id="httpUrl" class="form-input" value="https://api.oasis-aid.org/v1/relief-camps" oninput="updateWirePreview()">
+                    <button type="button" class="btn-action" onclick="executeHttpRequest()">Send Request 🚀</button>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                    <div>
+                        <h3 style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 0.5rem;">Headers &amp; Request Body</h3>
+                        <textarea id="httpHeaders" class="form-input" style="width: 100%; height: 90px; margin-bottom: 0.75rem;" oninput="updateWirePreview()">Host: api.oasis-aid.org
+User-Agent: JuniorCoders-Lab/1.0
+Accept: application/json
+Authorization: Bearer token_amanah_786</textarea>
+                        
+                        <label for="httpBody" style="font-size: 0.82rem; color: #94a3b8; display: block; margin-bottom: 0.35rem;">JSON Body (for POST/PUT):</label>
+                        <textarea id="httpBody" class="form-input" style="width: 100%; height: 110px;" oninput="updateWirePreview()">{"camp_id": "CAMP-04", "location": "Daraa Valley", "water_liters_needed": 12000}</textarea>
+                    </div>
+
+                    <div>
+                        <h3 style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 0.5rem;">📡 Raw HTTP Wire Format (What goes onto the cable)</h3>
+                        <div id="rawWirePreview" class="wire-box" style="height: 220px; overflow-y: auto;"></div>
+                    </div>
+                </div>
+
+                <!-- Response Panel -->
+                <div style="margin-top: 1.5rem; border-top: 1px solid #334155; padding-top: 1.25rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="margin: 0; font-size: 1rem; color: #38bdf8;">📥 Server Response</h3>
+                        <div id="responseMetrics" style="display: flex; gap: 0.75rem; align-items: center;">
+                            <span id="resStatusBadge" class="method-badge method-get">200 OK</span>
+                            <span id="resLatency" style="font-size: 0.82rem; color: #94a3b8;">⏱️ 38 ms</span>
+                            <span id="resSize" style="font-size: 0.82rem; color: #94a3b8;">📦 420 bytes</span>
+                        </div>
+                    </div>
+                    <div id="responseOutput" class="wire-box" style="height: 180px; overflow-y: auto;">
+HTTP/1.1 200 OK
+Date: Fri, 25 Sep 2026 14:00:00 GMT
+Server: Nginx/1.24 (Ubuntu)
+Content-Type: application/json; charset=utf-8
+Content-Length: 174
+Cache-Control: public, max-age=300
+
+{
+  "status": "success",
+  "data": [
+    { "id": 1, "name": "Al-Amal Oasis Clinic", "capacity": 250, "status": "operational" },
+    { "id": 2, "name": "Bismillah Spring Well", "capacity": 600, "status": "operational" }
+  ]
+}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. DNS RECURSIVE RESOLVER -->
+        <section id="tab-dns" class="studio-card" style="display:none;">
+            <div class="studio-card-header">
+                <div>
+                    <h2 style="margin: 0; font-size: 1.2rem; color: #38bdf8;">DNS Recursive Resolver Simulator</h2>
+                    <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: #94a3b8;">Trace how a domain name travels from your browser to Root (.), TLD (.org), and Authoritative nameservers.</p>
+                </div>
+            </div>
+            <div class="studio-card-body">
+                <div class="form-row">
+                    <input type="text" id="dnsDomainInput" class="form-input" value="relief.oasis-aid.org" placeholder="Enter domain name...">
+                    <button type="button" class="btn-action" onclick="simulateDnsResolution()">Resolve Domain 🔍</button>
+                </div>
+
+                <div id="dnsTraceSteps" style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+                    <!-- Dynamically generated DNS steps -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. TCP 3-WAY HANDSHAKE -->
+        <section id="tab-tcp" class="studio-card" style="display:none;">
+            <div class="studio-card-header">
+                <div>
+                    <h2 style="margin: 0; font-size: 1.2rem; color: #38bdf8;">TCP 3-Way Handshake &amp; Flow Control Simulator</h2>
+                    <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: #94a3b8;">Visualize SYN, SYN-ACK, ACK, data transmission, and FIN teardown with sequence numbers.</p>
+                </div>
+                <div style="display: flex; gap: 0.5rem;">
+                    <button type="button" class="btn-action" onclick="runTcpHandshake()">1. Start Handshake (SYN) 🚀</button>
+                    <button type="button" class="btn-action" style="background: #059669;" onclick="sendTcpData()">2. Send 1500b Data 📦</button>
+                    <button type="button" class="btn-action" style="background: #dc2626;" onclick="closeTcpConnection()">3. Close (FIN) ⏹️</button>
+                </div>
+            </div>
+            <div class="studio-card-body">
+                <div class="handshake-stage">
+                    <div class="host-node">
+                        <div style="font-size: 2rem;">💻</div>
+                        <div style="font-weight: 700; margin-top: 0.25rem;">Client Browser</div>
+                        <div style="font-size: 0.75rem; color: #94a3b8;">192.168.1.15:52341</div>
+                        <div id="clientTcpState" style="margin-top: 0.5rem; font-size: 0.8rem; font-weight: 800; color: #cbd5e1;">CLOSED</div>
+                    </div>
+
+                    <div id="flightPacket" class="packet-flight" style="display:none; left: 20%;">SYN (Seq=1000)</div>
+
+                    <div class="host-node">
+                        <div style="font-size: 2rem;">🖥️</div>
+                        <div style="font-weight: 700; margin-top: 0.25rem;">Web Server</div>
+                        <div style="font-size: 0.75rem; color: #94a3b8;">198.51.100.4:443</div>
+                        <div id="serverTcpState" style="margin-top: 0.5rem; font-size: 0.8rem; font-weight: 800; color: #34d399;">LISTEN</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.25rem;">
+                    <h3 style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 0.5rem;">📜 TCP Packet Event Log</h3>
+                    <div id="tcpEventLog" class="wire-box" style="height: 160px; overflow-y: auto;">[Ready to establish TCP connection...]</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. CIDR SUBNET CALCULATOR -->
+        <section id="tab-cidr" class="studio-card" style="display:none;">
+            <div class="studio-card-header">
+                <div>
+                    <h2 style="margin: 0; font-size: 1.2rem; color: #38bdf8;">Interactive CIDR &amp; IPv4 Subnet Calculator</h2>
+                    <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: #94a3b8;">Calculate subnet masks, usable host ranges, broadcast addresses, and binary breakdown.</p>
+                </div>
+            </div>
+            <div class="studio-card-body">
+                <div class="form-row">
+                    <input type="text" id="cidrIpInput" class="form-input" value="192.168.10.0" placeholder="IP Address">
+                    <select id="cidrPrefixSelect" class="form-select" onchange="calculateSubnet()">
+                        <option value="24">/24 (255.255.255.0 - 254 hosts)</option>
+                        <option value="25">/25 (255.255.255.128 - 126 hosts)</option>
+                        <option value="26" selected>/26 (255.255.255.192 - 62 hosts)</option>
+                        <option value="27">/27 (255.255.255.224 - 30 hosts)</option>
+                        <option value="28">/28 (255.255.255.240 - 14 hosts)</option>
+                        <option value="29">/29 (255.255.255.248 - 6 hosts)</option>
+                        <option value="30">/30 (255.255.255.252 - 2 hosts)</option>
+                    </select>
+                    <button type="button" class="btn-action" onclick="calculateSubnet()">Calculate Subnet ⚡</button>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                    <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem;">
+                        <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">Subnet Mask</span>
+                        <div id="resSubnetMask" style="font-size: 1.15rem; font-weight: 700; color: #38bdf8; font-family: monospace;">255.255.255.192</div>
+                    </div>
+                    <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem;">
+                        <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">Network Address</span>
+                        <div id="resNetworkId" style="font-size: 1.15rem; font-weight: 700; color: #34d399; font-family: monospace;">192.168.10.0</div>
+                    </div>
+                    <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem;">
+                        <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">First Usable Host</span>
+                        <div id="resFirstHost" style="font-size: 1.15rem; font-weight: 700; color: #cbd5e1; font-family: monospace;">192.168.10.1</div>
+                    </div>
+                    <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem;">
+                        <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">Last Usable Host</span>
+                        <div id="resLastHost" style="font-size: 1.15rem; font-weight: 700; color: #cbd5e1; font-family: monospace;">192.168.10.62</div>
+                    </div>
+                    <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem;">
+                        <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">Broadcast Address</span>
+                        <div id="resBroadcast" style="font-size: 1.15rem; font-weight: 700; color: #f87171; font-family: monospace;">192.168.10.63</div>
+                    </div>
+                    <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem;">
+                        <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">Usable Hosts</span>
+                        <div id="resUsableHosts" style="font-size: 1.15rem; font-weight: 700; color: #fbbf24; font-family: monospace;">62</div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem;">
+                    <h3 style="font-size: 0.95rem; color: #cbd5e1; margin-bottom: 0.5rem;">🧬 32-Bit Binary Anatomy</h3>
+                    <div id="binaryBreakdown" class="wire-box">11000000.10101000.00001010.00 [Network 26 bits] | 000000 [Host 6 bits]</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function switchLabTab(tabId, btn) {
+            document.querySelectorAll('.lab-tab-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+
+            ['http', 'dns', 'tcp', 'cidr'].forEach(id => {
+                const el = document.getElementById(`tab-${id}`);
+                if (el) el.style.display = (id === tabId) ? 'block' : 'none';
+            });
+
+            if (tabId === 'dns') simulateDnsResolution();
+            if (tabId === 'cidr') calculateSubnet();
+        }
+
+        // HTTP Workbench Logic
+        function updateWirePreview() {
+            const method = document.getElementById('httpMethod').value;
+            const fullUrl = document.getElementById('httpUrl').value;
+            let path = '/';
+            try {
+                const u = new URL(fullUrl);
+                path = u.pathname + (u.search || '');
+            } catch(e) {
+                path = fullUrl;
+            }
+
+            const headers = document.getElementById('httpHeaders').value.trim();
+            const body = (method === 'POST' || method === 'PUT') ? document.getElementById('httpBody').value.trim() : '';
+
+            let wire = `${method} ${path} HTTP/1.1\r\n`;
+            wire += `${headers}\r\n`;
+            if (body) {
+                wire += `Content-Length: ${new Blob([body]).size}\r\n`;
+            }
+            wire += `\r\n`; // Empty line
+            if (body) {
+                wire += body;
+            }
+
+            document.getElementById('rawWirePreview').textContent = wire;
+        }
+
+        function loadHttpPreset(preset) {
+            const methodSelect = document.getElementById('httpMethod');
+            const urlInput = document.getElementById('httpUrl');
+            const headersArea = document.getElementById('httpHeaders');
+            const bodyArea = document.getElementById('httpBody');
+
+            if (preset === 'getCamps') {
+                methodSelect.value = 'GET';
+                urlInput.value = 'https://api.oasis-aid.org/v1/relief-camps';
+                headersArea.value = 'Host: api.oasis-aid.org\nUser-Agent: JuniorCoders-Lab/1.0\nAccept: application/json';
+                bodyArea.value = '';
+            } else if (preset === 'postDonation') {
+                methodSelect.value = 'POST';
+                urlInput.value = 'https://api.oasis-aid.org/v1/donations';
+                headersArea.value = 'Host: api.oasis-aid.org\nContent-Type: application/json\nAuthorization: Bearer token_amanah_786';
+                bodyArea.value = '{"project": "Clean Well 12", "amount": 150.00, "currency": "USD"}';
+            } else if (preset === 'notFound') {
+                methodSelect.value = 'GET';
+                urlInput.value = 'https://api.oasis-aid.org/v1/unknown-path';
+                headersArea.value = 'Host: api.oasis-aid.org\nUser-Agent: JuniorCoders-Lab/1.0';
+                bodyArea.value = '';
+            } else if (preset === 'unauthorized') {
+                methodSelect.value = 'GET';
+                urlInput.value = 'https://api.oasis-aid.org/v1/volunteer-vault';
+                headersArea.value = 'Host: api.oasis-aid.org\nUser-Agent: JuniorCoders-Lab/1.0';
+                bodyArea.value = '';
+            } else if (preset === 'preflight') {
+                methodSelect.value = 'OPTIONS';
+                urlInput.value = 'https://api.oasis-aid.org/v1/water-wells';
+                headersArea.value = 'Host: api.oasis-aid.org\nOrigin: https://app.oasis-aid.org\nAccess-Control-Request-Method: POST\nAccess-Control-Request-Headers: Content-Type, Authorization';
+                bodyArea.value = '';
+            }
+            updateWirePreview();
+            executeHttpRequest();
+        }
+
+        function executeHttpRequest() {
+            const method = document.getElementById('httpMethod').value;
+            const fullUrl = document.getElementById('httpUrl').value;
+            const statusBadge = document.getElementById('resStatusBadge');
+            const outputBox = document.getElementById('responseOutput');
+            const latencyBox = document.getElementById('resLatency');
+
+            const ms = Math.floor(Math.random() * 35) + 20;
+            latencyBox.textContent = `⏱️ ${ms} ms`;
+
+            if (fullUrl.includes('unknown-path')) {
+                statusBadge.className = 'method-badge method-delete';
+                statusBadge.textContent = '404 Not Found';
+                outputBox.textContent = `HTTP/1.1 404 Not Found\r\nDate: ${new Date().toUTCString()}\r\nContent-Type: application/json\r\nContent-Length: 52\r\n\r\n{\n  "error": "ResourceNotFound",\n  "message": "The requested endpoint does not exist."\n}`;
+            } else if (fullUrl.includes('volunteer-vault')) {
+                statusBadge.className = 'method-badge method-put';
+                statusBadge.textContent = '401 Unauthorized';
+                outputBox.textContent = `HTTP/1.1 401 Unauthorized\r\nDate: ${new Date().toUTCString()}\r\nWWW-Authenticate: Bearer realm="Access to Volunteer Vault"\r\nContent-Type: application/json\r\n\r\n{\n  "error": "Unauthorized",\n  "message": "Valid Bearer token required."\n}`;
+            } else if (method === 'OPTIONS') {
+                statusBadge.className = 'method-badge method-options';
+                statusBadge.textContent = '204 No Content';
+                outputBox.textContent = `HTTP/1.1 204 No Content\r\nDate: ${new Date().toUTCString()}\r\nAccess-Control-Allow-Origin: https://app.oasis-aid.org\r\nAccess-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS\r\nAccess-Control-Allow-Headers: Content-Type, Authorization\r\nAccess-Control-Max-Age: 86400\r\n\r\n(Empty Body)`;
+            } else if (method === 'POST') {
+                statusBadge.className = 'method-badge method-post';
+                statusBadge.textContent = '201 Created';
+                outputBox.textContent = `HTTP/1.1 201 Created\r\nDate: ${new Date().toUTCString()}\r\nContent-Type: application/json\r\nLocation: /api/v1/donations/REC-901\r\n\r\n{\n  "status": "success",\n  "receipt_id": "REC-901",\n  "allocated_project": "Clean Well 12",\n  "barakah_notes": "May your charity be multiplied and accepted."\n}`;
+            } else {
+                statusBadge.className = 'method-badge method-get';
+                statusBadge.textContent = '200 OK';
+                outputBox.textContent = `HTTP/1.1 200 OK\r\nDate: ${new Date().toUTCString()}\r\nContent-Type: application/json\r\nCache-Control: public, max-age=300\r\n\r\n{\n  "camps": [\n    {"id": 1, "name": "Al-Amal Oasis", "water_status": "Good"},\n    {"id": 2, "name": "Bismillah Spring", "water_status": "Optimal"}\n  ]\n}`;
+            }
+        }
+
+        // DNS Resolver Simulation
+        function simulateDnsResolution() {
+            const domain = document.getElementById('dnsDomainInput').value.trim() || 'relief.oasis-aid.org';
+            const container = document.getElementById('dnsTraceSteps');
+            container.innerHTML = '';
+
+            const steps = [
+                { title: '1. Local Browser Cache & OS Hosts File', desc: `Checking local memory for "${domain}"... [MISS - Not Cached]`, color: '#64748b' },
+                { title: '2. Recursive Resolver (1.1.1.1 / ISP)', desc: `Resolver accepts query. Queries Root Cluster for authoritative pointers.`, color: '#0284c7' },
+                { title: '3. Root Nameserver (.)', desc: `Root replies: "I do not own this domain, but here are the authoritative servers for the .org TLD."`, color: '#0d9488' },
+                { title: '4. TLD Nameserver (.org)', desc: `TLD replies: "oasis-aid.org is delegated to Cloudflare Nameservers: ns1.cloudflare.com."`, color: '#d97706' },
+                { title: '5. Authoritative Nameserver (ns1.cloudflare.com)', desc: `Final Authority: "Found A Record! relief.oasis-aid.org ➔ 104.21.55.2 (TTL: 300s)"`, color: '#10b981' }
+            ];
+
+            steps.forEach((s, idx) => {
+                setTimeout(() => {
+                    const stepEl = document.createElement('div');
+                    stepEl.style.cssText = `background:#020617; border-left: 4px solid ${s.color}; border-radius: 8px; padding: 1rem; border-top: 1px solid #1e293b; border-right: 1px solid #1e293b; border-bottom: 1px solid #1e293b;`;
+                    stepEl.innerHTML = `<div style="font-weight:700; color:${s.color}; font-size:0.95rem;">${s.title}</div><div style="font-size:0.85rem; color:#cbd5e1; margin-top:0.25rem;">${s.desc}</div>`;
+                    container.appendChild(stepEl);
+                }, idx * 180);
+            });
+        }
+
+        // TCP Handshake Animation
+        let tcpState = 'CLOSED';
+        function runTcpHandshake() {
+            const packet = document.getElementById('flightPacket');
+            const clientState = document.getElementById('clientTcpState');
+            const serverState = document.getElementById('serverTcpState');
+            const log = document.getElementById('tcpEventLog');
+
+            log.textContent = '';
+            packet.style.display = 'block';
+            packet.textContent = '1. SYN (Seq=1000)';
+            packet.style.left = '25%';
+            clientState.textContent = 'SYN_SENT';
+            log.textContent += `[0.00ms] CLIENT ➔ SERVER : [SYN] Seq=1000, Win=65535, MSS=1460\n`;
+
+            setTimeout(() => {
+                packet.style.left = '65%';
+                serverState.textContent = 'SYN_RECEIVED';
+            }, 300);
+
+            setTimeout(() => {
+                packet.textContent = '2. SYN-ACK (Seq=5000, Ack=1001)';
+                packet.style.left = '25%';
+                log.textContent += `[18.5ms] SERVER ➔ CLIENT : [SYN-ACK] Seq=5000, Ack=1001, Win=65535\n`;
+            }, 1200);
+
+            setTimeout(() => {
+                clientState.textContent = 'ESTABLISHED';
+                clientState.style.color = '#34d399';
+                packet.textContent = '3. ACK (Seq=1001, Ack=5001)';
+                packet.style.left = '65%';
+                log.textContent += `[35.2ms] CLIENT ➔ SERVER : [ACK] Seq=1001, Ack=5001\n`;
+            }, 2100);
+
+            setTimeout(() => {
+                serverState.textContent = 'ESTABLISHED';
+                serverState.style.color = '#34d399';
+                packet.style.display = 'none';
+                log.textContent += `[42.0ms] *** TCP CONNECTION ESTABLISHED (Virtual Wire Ready) ***\n`;
+                tcpState = 'ESTABLISHED';
+            }, 2900);
+        }
+
+        function sendTcpData() {
+            const log = document.getElementById('tcpEventLog');
+            if (tcpState !== 'ESTABLISHED') {
+                alert('Please establish the connection with Step 1 (Handshake) first!');
+                return;
+            }
+            const packet = document.getElementById('flightPacket');
+            packet.style.display = 'block';
+            packet.textContent = 'DATA (1500 bytes)';
+            packet.style.left = '65%';
+            log.textContent += `[+50ms] CLIENT ➔ SERVER : [PSH, ACK] Seq=1001, Ack=5001, Len=1500 (HTTP GET /)\n`;
+
+            setTimeout(() => {
+                packet.textContent = 'ACK (Ack=2501)';
+                packet.style.left = '25%';
+                log.textContent += `[+68ms] SERVER ➔ CLIENT : [ACK] Seq=5001, Ack=2501 (Payload verified)\n`;
+            }, 800);
+
+            setTimeout(() => {
+                packet.style.display = 'none';
+            }, 1500);
+        }
+
+        function closeTcpConnection() {
+            const log = document.getElementById('tcpEventLog');
+            const clientState = document.getElementById('clientTcpState');
+            const serverState = document.getElementById('serverTcpState');
+            const packet = document.getElementById('flightPacket');
+
+            packet.style.display = 'block';
+            packet.textContent = 'FIN (Seq=2501)';
+            packet.style.left = '65%';
+            clientState.textContent = 'FIN_WAIT_1';
+            log.textContent += `[+100ms] CLIENT ➔ SERVER : [FIN, ACK] (Closing Connection)\n`;
+
+            setTimeout(() => {
+                serverState.textContent = 'CLOSE_WAIT';
+                packet.textContent = 'ACK (Ack=2502)';
+                packet.style.left = '25%';
+                log.textContent += `[+118ms] SERVER ➔ CLIENT : [ACK] Acknowledging teardown\n`;
+            }, 800);
+
+            setTimeout(() => {
+                packet.style.display = 'none';
+                clientState.textContent = 'CLOSED';
+                clientState.style.color = '#cbd5e1';
+                serverState.textContent = 'LISTEN';
+                serverState.style.color = '#34d399';
+                log.textContent += `[+140ms] *** TCP CONNECTION CLOSED ***\n`;
+                tcpState = 'CLOSED';
+            }, 1600);
+        }
+
+        // Subnet Calculator Logic
+        function calculateSubnet() {
+            const baseIp = document.getElementById('cidrIpInput').value.trim() || '192.168.10.0';
+            const prefix = parseInt(document.getElementById('cidrPrefixSelect').value, 10);
+
+            const parts = baseIp.split('.').map(p => parseInt(p, 10));
+            if (parts.length !== 4 || parts.some(isNaN)) return;
+
+            const totalHosts = Math.pow(2, 32 - prefix);
+            const usableHosts = Math.max(0, totalHosts - 2);
+
+            // Subnet mask
+            let maskNum = 0;
+            for (let i = 0; i < prefix; i++) {
+                maskNum |= (1 << (31 - i));
+            }
+            const maskParts = [
+                (maskNum >>> 24) & 255,
+                (maskNum >>> 16) & 255,
+                (maskNum >>> 8) & 255,
+                maskNum & 255
+            ];
+
+            const ipNum = (parts[0] << 24) | (parts[1] << 16) | (parts[2] << 8) | parts[3];
+            const netNum = ipNum & maskNum;
+            const bcastNum = netNum | (~maskNum >>> 0);
+
+            function toDotted(n) {
+                return [
+                    (n >>> 24) & 255,
+                    (n >>> 16) & 255,
+                    (n >>> 8) & 255,
+                    n & 255
+                ].join('.');
+            }
+
+            document.getElementById('resSubnetMask').textContent = maskParts.join('.');
+            document.getElementById('resNetworkId').textContent = toDotted(netNum);
+            document.getElementById('resFirstHost').textContent = toDotted(netNum + 1);
+            document.getElementById('resLastHost').textContent = toDotted(bcastNum - 1);
+            document.getElementById('resBroadcast').textContent = toDotted(bcastNum);
+            document.getElementById('resUsableHosts').textContent = usableHosts.toLocaleString();
+
+            // Binary Breakdown
+            let bin = '';
+            for (let i = 0; i < 32; i++) {
+                bin += ((netNum >>> (31 - i)) & 1);
+                if ((i + 1) % 8 === 0 && i !== 31) bin += '.';
+            }
+            document.getElementById('binaryBreakdown').textContent = `Binary IP: ${bin}\nNetwork bits (Prefix /${prefix}): 1s in mask | Host bits (${32 - prefix} bits): 0s in mask`;
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            updateWirePreview();
+            calculateSubnet();
+        });
+    </script>
+</body>
+</html>

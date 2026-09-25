@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Cheat Sheets Hub | BEI Coders</title>
+    <meta name="description" content="Complete set of school computer science cheat sheets: HTML, CSS, JS, Python, Git, Terminal, SQL, PHP, Laravel, Networks, and Cybersecurity.">
+    <link rel="stylesheet" href="../../styles/bei-core.css">
+    <style>
+        .cheats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+        }
+        .cheat-link-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        .cheat-link-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--brand-primary);
+            box-shadow: var(--shadow-card);
+        }
+        .cheat-card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.75rem;
+        }
+        .cheat-link-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.4rem;
+        }
+        .cheat-link-card p {
+            color: var(--text-secondary);
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .cheat-link-arrow {
+            color: var(--brand-primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="bei-nav">
+        <div class="container bei-nav-inner">
+            <a href="../../index.html" class="bei-logo">
+                <div class="bei-logo-icon">💻</div>
+                <div>
+                    BEI Coders
+                    <span class="bei-logo-sub">School Computer Science</span>
+                </div>
+            </a>
+            <ul class="bei-nav-links">
+                <li><a href="../../learn/index.html" class="bei-nav-link">📚 Learn</a></li>
+                <li><a href="../../studios/index.html" class="bei-nav-link">⚡ Studios</a></li>
+                <li><a href="../books/index.html" class="bei-nav-link">📖 Textbooks</a></li>
+                <li><a href="index.html" class="bei-nav-link active">📋 Cheatsheets</a></li>
+                <li><a href="../../projects/index.html" class="bei-nav-link">🏆 Projects</a></li>
+                <li><a href="../../teacher-hub/index.html" class="bei-nav-link">🍎 Teachers</a></li>
+            </ul>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
+                <a href="../../studios/web-studio/index.html" class="btn-nav-primary">Launch Studio ⚡</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Home</a> <span>/</span>
+                <a href="../index.html">Library</a> <span>/</span>
+                <span>Cheat Sheets</span>
+            </div>
+            <h1>Developer Cheat Sheets Hub 📋⚡</h1>
+            <p class="lead">Instant syntax lookups, command references, and architecture cheat sheets. Cleanly organized on single printable pages for rapid revision during lab sessions and project builds.</p>
+        </header>
+
+        <div class="cheats-grid">
+            <!-- 1. HTML -->
+            <a href="../../cheatsheet-html.html" class="cheat-link-card">
+                <div class="cheat-card-icon">🌐</div>
+                <h3 style="color: #ff6b35;">HTML Cheat Sheet</h3>
+                <p>Semantic tags, headings, text formatting, hyperlinks, images, accessible forms, and table attributes.</p>
+                <span class="cheat-link-arrow" style="color: #ff6b35;">Open HTML Sheet →</span>
+            </a>
+
+            <!-- 2. CSS -->
+            <a href="../../cheatsheet-css.html" class="cheat-link-card">
+                <div class="cheat-card-icon">🎨</div>
+                <h3 style="color: #3b82f6;">CSS Layout Cheat Sheet</h3>
+                <p>Selectors, typography, colors, the Box Model, Flexbox container/item rules, and CSS Grid quick formulas.</p>
+                <span class="cheat-link-arrow" style="color: #3b82f6;">Open CSS Sheet →</span>
+            </a>
+
+            <!-- 3. JS -->
+            <a href="../../cheatsheet-js.html" class="cheat-link-card">
+                <div class="cheat-card-icon">⚡</div>
+                <h3 style="color: #eab308;">JavaScript Cheat Sheet</h3>
+                <p>Variables (`const`/`let`), conditionals, loops, array methods (map, filter), and DOM event listeners.</p>
+                <span class="cheat-link-arrow" style="color: #eab308;">Open JS Sheet →</span>
+            </a>
+
+            <!-- 4. Python -->
+            <a href="../../cheatsheet-python.html" class="cheat-link-card">
+                <div class="cheat-card-icon">🐍</div>
+                <h3 style="color: #60a5fa;">Python 3 Cheat Sheet</h3>
+                <p>Syntax, data types, list comprehensions, dictionary operations, file parsing, and clean coding rules.</p>
+                <span class="cheat-link-arrow" style="color: #60a5fa;">Open Python Sheet →</span>
+            </a>
+
+            <!-- 5. Terminal CMD -->
+            <a href="../../cheatsheet-cmd.html" class="cheat-link-card">
+                <div class="cheat-card-icon">💻</div>
+                <h3 style="color: #10b981;">Terminal &amp; CMD Sheet</h3>
+                <p>Dual-shell navigation (`cd`, `mkdir`), file commands, and the Windows CMD vs Bash Rosetta Stone.</p>
+                <span class="cheat-link-arrow" style="color: #10b981;">Open CMD Sheet →</span>
+            </a>
+
+            <!-- 6. Git -->
+            <a href="../../cheatsheet-git.html" class="cheat-link-card">
+                <div class="cheat-card-icon">🐙</div>
+                <h3 style="color: #f97316;">Git &amp; GitHub Cheat Sheet</h3>
+                <p>Commits, staging, feature branches, diffs, merge conflicts, pull requests, and remote repositories.</p>
+                <span class="cheat-link-arrow" style="color: #f97316;">Open Git Sheet →</span>
+            </a>
+
+            <!-- 7. SQL & MySQL -->
+            <a href="../../cheatsheet-mysql.html" class="cheat-link-card">
+                <div class="cheat-card-icon">🗄️</div>
+                <h3 style="color: #0284c7;">SQL &amp; MySQL Cheat Sheet</h3>
+                <p>SELECT queries, WHERE filtering, INNER/LEFT JOINs, GROUP BY aggregations, and table indexes.</p>
+                <span class="cheat-link-arrow" style="color: #0284c7;">Open SQL Sheet →</span>
+            </a>
+
+            <!-- 8. PHP -->
+            <a href="../../cheatsheet-php.html" class="cheat-link-card">
+                <div class="cheat-card-icon">🐘</div>
+                <h3 style="color: #a855f7;">PHP Server Scripting Sheet</h3>
+                <p>Syntax, superglobals (`$_POST`, `$_GET`, `$_SESSION`), input sanitization, and OOP classes.</p>
+                <span class="cheat-link-arrow" style="color: #a855f7;">Open PHP Sheet →</span>
+            </a>
+
+            <!-- 9. Laravel -->
+            <a href="../../cheatsheet-laravel.html" class="cheat-link-card">
+                <div class="cheat-card-icon">🔥</div>
+                <h3 style="color: #ef4444;">Laravel MVC Cheat Sheet</h3>
+                <p>Artisan CLI commands, routing, Blade template directives, migrations, and Eloquent relationships.</p>
+                <span class="cheat-link-arrow" style="color: #ef4444;">Open Laravel Sheet →</span>
+            </a>
+
+            <!-- 10. Networks -->
+            <a href="../../cheatsheet-networks.html" class="cheat-link-card">
+                <div class="cheat-card-icon">🌐</div>
+                <h3 style="color: #38bdf8;">Networks &amp; Protocols Sheet</h3>
+                <p>OSI 7 layers, port numbers, CIDR subnets, DNS records, HTTP status codes, and CLI diagnostic tools.</p>
+                <span class="cheat-link-arrow" style="color: #38bdf8;">Open Networks Sheet →</span>
+            </a>
+
+            <!-- 11. Cybersecurity -->
+            <a href="../../cheatsheet-cybersecurity.html" class="cheat-link-card">
+                <div class="cheat-card-icon">🛡️</div>
+                <h3 style="color: #34d399;">Cybersecurity &amp; Hygiene Sheet</h3>
+                <p>CIA Triad, password entropy table, OWASP defenses, prepared statements, and cookie hardening.</p>
+                <span class="cheat-link-arrow" style="color: #34d399;">Open Security Sheet →</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bei-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="bei-logo">
+                    <div class="bei-logo-icon">💻</div>
+                    <span>BEI Coders</span>
+                </div>
+                <p>Empowering school students with foundational computing, creative web engineering, and ethical AI stewardship.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Cheatsheets</h4>
+                <ul class="footer-links">
+                    <li><a href="../../cheatsheet-html.html">HTML</a></li>
+                    <li><a href="../../cheatsheet-css.html">CSS</a></li>
+                    <li><a href="../../cheatsheet-js.html">JS</a></li>
+                    <li><a href="../../cheatsheet-python.html">Python</a></li>
+                    <li><a href="../../cheatsheet-git.html">Git</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Learn</h4>
+                <ul class="footer-links">
+                    <li><a href="../../learn/foundations/index.html">Foundations</a></li>
+                    <li><a href="../../learn/web-dev/index.html">Web Development</a></li>
+                    <li><a href="../../learn/python/index.html">Python &amp; Data</a></li>
+                    <li><a href="../../learn/cybersecurity/index.html">Cybersecurity</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Studios</h4>
+                <ul class="footer-links">
+                    <li><a href="../../studios/web-studio/index.html">Web Studio</a></li>
+                    <li><a href="../../studios/python-console/index.html">Python Console</a></li>
+                    <li><a href="../../studios/sql-sandbox/index.html">SQL Sandbox</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Teacher Hub</h4>
+                <ul class="footer-links">
+                    <li><a href="../../teacher-hub/index.html">Lesson Plans</a></li>
+                    <li><a href="../../paths/index.html">Curriculum Maps</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 BEI Coders. Dedicated to Beneficial Knowledge &amp; Digital Stewardship.</div>
+            <div>beicoders.vercel.app</div>
+        </div>
+    </footer>
+
+    <script src="../../js/bei-core.js"></script>
+</body>
+</html>

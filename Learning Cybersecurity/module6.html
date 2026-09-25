@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 6: Master Broken Access Control (OWASP #1), Insecure Direct Object References (IDOR), and Cross-Site Request Forgery (CSRF).">
+    <title>Module 6: Broken Access Control &amp; CSRF | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 3</span>
+            <h1 style="color: white; margin: 0.5rem 0;">Broken Access Control &amp; CSRF 🚪🎭</h1>
+            <p>OWASP #1 vulnerability. Learn how to enforce ownership boundaries, prevent IDOR, and defeat request forgery.</p>
+        </header>
+
+        <!-- Broken Access Control & IDOR -->
+        <section class="content-section">
+            <h2>Broken Access Control &amp; IDOR Flaws</h2>
+            <p>An **Insecure Direct Object Reference (IDOR)** occurs when an application provides direct access to records based on user-supplied input (like an ID in the URL) without checking whether the logged-in user owns that record:</p>
+            
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
+                // ❌ VULNERABLE: Anyone can change ?id=50 to ?id=51 and view other students' records!<br>
+                $report = $db-&gt;query("SELECT * FROM grades WHERE id = " . $_GET['id']);<br><br>
+                // ✅ SECURE ACCESS CONTROL: Enforce ownership with session verification!<br>
+                $stmt = $pdo-&gt;prepare("SELECT * FROM grades WHERE id = :id AND student_id = :session_user");<br>
+                $stmt-&gt;execute([':id' => $_GET['id'], ':session_user' => $_SESSION['user_id']]);
+            </div>
+        </section>
+
+        <!-- CSRF Defense -->
+        <section class="content-section">
+            <h2>Cross-Site Request Forgery (CSRF)</h2>
+            <p>CSRF tricks an authenticated victim into executing unwanted actions on a trusted web application where they are currently logged in:</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3>1. Anti-CSRF Synchronizer Tokens</h3>
+                    <p>Insert a secret, random token into every form. External sites cannot read this token due to the Same-Origin Policy.</p>
+                    <code style="font-size: 0.8rem;">&lt;input type="hidden" name="csrf" value="token_xyz"&gt;</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
+                    <h3>2. SameSite Cookie Attributes</h3>
+                    <p>Tell the browser not to attach session cookies to requests originating from external third-party domains.</p>
+                    <code style="font-size: 0.8rem;">Set-Cookie: session=123; SameSite=Strict; Secure</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Practice Challenge -->
+        <section class="content-section" style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #047857; margin-top: 0;">🧪 Your Turn: Audit URL Parameters</h2>
+            <p>Review this route: <code>GET /account/delete?user_id=15</code>. Why is this flawed in two separate ways?</p>
+            <ul style="color: #334155; line-height: 1.8;">
+                <li>1. <strong>State change on GET:</strong> Dangerous actions like deleting must always use <code>POST</code> or <code>DELETE</code> with CSRF tokens.</li>
+                <li>2. <strong>IDOR parameter:</strong> The server should delete the account belonging to <code>$_SESSION['user_id']</code> rather than trusting a user-supplied ID in the URL!</li>
+            </ul>
+        </section>
+
+        <!-- Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module5.html" class="btn-hero-secondary">← Module 5</a>
+            <a href="module7.html" class="btn-hero-primary">Next: Module 7 (Crypto &amp; Wi-Fi) →</a>
+        </footer>
+    </main>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foundations &amp; Digital Literacy | BEI Coders</title>
+    <meta name="description" content="Master computing foundations: file systems, terminal navigation, Git basics, and digital ethics for Grades 6–7.">
+    <link rel="stylesheet" href="../../styles/bei-core.css">
+</head>
+<body>
+
+    <nav class="bei-nav">
+        <div class="container bei-nav-inner">
+            <a href="../../index.html" class="bei-logo">
+                <div class="bei-logo-icon">💻</div>
+                <div>
+                    BEI Coders
+                    <span class="bei-logo-sub">School Computer Science</span>
+                </div>
+            </a>
+            <ul class="bei-nav-links">
+                <li><a href="../index.html" class="bei-nav-link active">📚 Learn</a></li>
+                <li><a href="../../studios/index.html" class="bei-nav-link">⚡ Studios</a></li>
+                <li><a href="../../library/books/index.html" class="bei-nav-link">📖 Textbooks</a></li>
+                <li><a href="../../projects/index.html" class="bei-nav-link">🏆 Projects</a></li>
+                <li><a href="../../paths/index.html" class="bei-nav-link">🗺️ Pathways</a></li>
+                <li><a href="../../teacher-hub/index.html" class="bei-nav-link">🍎 Teachers</a></li>
+            </ul>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
+                <span class="placement-badge" id="studentXP" style="background: rgba(79,70,229,0.15); color: #818cf8; font-family: var(--font-mono);">120 XP</span>
+                <a href="../../studios/web-studio/index.html" class="btn-nav-primary">Launch Studio ⚡</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- 1. Header with Breadcrumbs -->
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Home</a> <span>/</span>
+                <a href="../index.html">Learn</a> <span>/</span>
+                <span>Foundations</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                <span class="placement-badge badge-foundations">Grades 6–7</span>
+                <span class="placement-badge" style="background: rgba(255,255,255,0.08); color: var(--text-secondary);">Core Starting Point</span>
+            </div>
+            <h1>Computer Foundations &amp; Digital Literacy 📁</h1>
+            <p class="lead">Before writing complex code, every great developer understands how computers organize information. Learn to navigate directories without a mouse, manage files cleanly, use dual-shell terminals, and save code milestones with Git.</p>
+        </header>
+
+        <!-- 2. Prerequisites & What You Will Learn -->
+        <section class="curriculum-meta-grid">
+            <div class="meta-box">
+                <h3 style="color: var(--brand-accent);">📋 Prerequisites</h3>
+                <ul>
+                    <li>No previous programming experience required!</li>
+                    <li>Basic typing and mouse skills on Windows, Mac, or Linux.</li>
+                    <li>Curiosity to understand how files and computers actually work.</li>
+                    <li>Commitment to honest, respectful digital communication (*Adab*).</li>
+                </ul>
+            </div>
+            <div class="meta-box">
+                <h3 style="color: var(--brand-primary);">🎯 What You Will Learn</h3>
+                <ul>
+                    <li>The mental model of the computer file tree and path addresses.</li>
+                    <li>Navigating folders &amp; creating project structures via Terminal (CMD/Bash).</li>
+                    <li>Understanding text files, file extensions (.html, .css, .py), and encodings.</li>
+                    <li>Fundamental Git version control: checkpoints, commits, and rollbacks.</li>
+                    <li>Digital stewardship (*Amānah*): keeping data tidy, safe, and backed up.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 3. Clear Progression Map (Stepper) -->
+        <section class="progression-stepper">
+            <div class="stepper-head">
+                <h2>🗺️ Clear Progression Map</h2>
+                <p style="color: var(--text-secondary); font-size: 0.92rem;">Follow this step-by-step route to progress from beginner to confident system user.</p>
+            </div>
+            <div class="steps-flow">
+                <div class="step-item" style="border-left-color: #10b981;">
+                    <div class="step-num" style="color: #10b981;">Step 01</div>
+                    <div class="step-title">File Systems &amp; Paths</div>
+                    <div class="step-desc">Drives, folders, absolute vs relative paths, and naming conventions.</div>
+                </div>
+                <div class="step-item" style="border-left-color: #059669;">
+                    <div class="step-num" style="color: #059669;">Step 02</div>
+                    <div class="step-title">Terminal Power</div>
+                    <div class="step-desc">cd, dir/ls, mkdir, touch/type, and building project scaffolding in seconds.</div>
+                </div>
+                <div class="step-item" style="border-left-color: #0284c7;">
+                    <div class="step-num" style="color: #0284c7;">Step 03</div>
+                    <div class="step-title">Git Version Control</div>
+                    <div class="step-desc">Snapshots, staging area, commit messages, and history inspection.</div>
+                </div>
+                <div class="step-item" style="border-left-color: #6366f1;">
+                    <div class="step-num" style="color: #6366f1;">Step 04</div>
+                    <div class="step-title">Digital Hygiene &amp; OpSec</div>
+                    <div class="step-desc">Strong passwords, backup routines (3-2-1 rule), and ethical computing.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Modules Breakdown -->
+        <section class="modules-container">
+            <div class="section-head" style="text-align: left; margin-bottom: 1.75rem;">
+                <span class="eyebrow">Curriculum Roadmap</span>
+                <h2>Course Modules</h2>
+            </div>
+
+            <div class="modules-list">
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx">Module 1</span>
+                        <span class="module-time">30 mins</span>
+                    </div>
+                    <h3>The Anatomy of a Computer</h3>
+                    <p>CPUs, RAM, storage disks, input/output devices, and operating systems. Understand how code executes in memory.</p>
+                    <div class="module-footer">
+                        <a href="../../book-cmd/index.html" class="module-link">Read Textbook Ch 1 →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx">Module 2</span>
+                        <span class="module-time">45 mins</span>
+                    </div>
+                    <h3>Files, Folders &amp; Path Navigation</h3>
+                    <p>Demystifying directories, root folders, file extensions, and navigating absolute (`C:\`) and relative (`../`) paths.</p>
+                    <div class="module-footer">
+                        <a href="../../book-cmd/index.html" class="module-link">Read Textbook Ch 2–3 →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx">Module 3</span>
+                        <span class="module-time">50 mins</span>
+                    </div>
+                    <h3>Dual-Shell Terminal Scaffolding</h3>
+                    <p>Navigate File Explorer like a pro! Learn `cd`, `mkdir`, `rmdir`, `cat`/`type`, and how to start local dev servers in CMD and Git Bash.</p>
+                    <div class="module-footer">
+                        <a href="../../cheatsheet-cmd.html" class="module-link">Open CMD Cheatsheet →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx">Module 4</span>
+                        <span class="module-time">60 mins</span>
+                    </div>
+                    <h3>Git Basics &amp; Milestone Snapshots</h3>
+                    <p>Save project checkpoints (`git commit`), compare changes (`git diff`), rewind mistakes, and collaborate responsibly.</p>
+                    <div class="module-footer">
+                        <a href="../../book-git/index.html" class="module-link">Read Git Textbook Ch 1–5 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Zero-Setup Interactive Practice -->
+        <section class="curriculum-action-banner">
+            <div class="action-banner-text">
+                <span class="placement-badge badge-foundations" style="margin-bottom: 0.5rem;">Interactive Practice</span>
+                <h3>Practice Terminal &amp; Git in Browser</h3>
+                <p>Test your knowledge with our instant Terminal diagnostic exercises, quick-reference command sheets, and school project starter templates.</p>
+            </div>
+            <div class="action-banner-btns">
+                <a href="../../cheatsheet-cmd.html" class="btn-hero-primary" style="background: var(--brand-accent);">⚡ CMD Quick Reference</a>
+                <a href="../../cheatsheet-git.html" class="btn-hero-secondary">🐙 Git Cheatsheet</a>
+            </div>
+        </section>
+
+        <!-- 6. Capstone Project -->
+        <section class="meta-box" style="border: 2px solid var(--brand-accent); background: linear-gradient(135deg, rgba(5,150,105,0.06), transparent);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                <h3 style="color: var(--brand-accent); font-size: 1.35rem; margin: 0;">🏆 Milestone Capstone: "My Digital Portfolio Scaffold"</h3>
+                <span class="placement-badge badge-foundations">Bronze Level Project</span>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+                Using purely the command line and Git, create a multi-folder project directory (`portfolio/`, `css/`, `js/`, `assets/`, `docs/`), initialize a Git repository, make 3 distinct semantic commits, and verify clean tree history.
+            </p>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../../projects/index.html" class="btn-gateway" style="background: var(--brand-accent); color: white;">View Project Rubric &amp; Guide →</a>
+                <a href="../../library/books/index.html" class="btn-gateway">Read 14-Chapter Terminal Book 📖</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bei-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="bei-logo">
+                    <div class="bei-logo-icon">💻</div>
+                    <span>BEI Coders</span>
+                </div>
+                <p>Empowering school students with foundational computing, creative web engineering, and ethical AI stewardship.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Learn Tracks</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Foundations</a></li>
+                    <li><a href="../web-dev/index.html">Web Development</a></li>
+                    <li><a href="../python/index.html">Python &amp; Data</a></li>
+                    <li><a href="../ai-lab/index.html">AI Literacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Studios</h4>
+                <ul class="footer-links">
+                    <li><a href="../../studios/web-studio/index.html">Web Studio</a></li>
+                    <li><a href="../../studios/python-console/index.html">Python Console</a></li>
+                    <li><a href="../../studios/sql-sandbox/index.html">SQL Sandbox</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Library</h4>
+                <ul class="footer-links">
+                    <li><a href="../../library/books/index.html">All 11 Textbooks</a></li>
+                    <li><a href="../../library/cheatsheets/index.html">Cheat Sheets Hub</a></li>
+                    <li><a href="../../projects/index.html">Project Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Teacher Hub</h4>
+                <ul class="footer-links">
+                    <li><a href="../../teacher-hub/index.html">Lesson Plans</a></li>
+                    <li><a href="../../paths/index.html">Curriculum Maps</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 BEI Coders. Dedicated to Beneficial Knowledge &amp; Digital Stewardship.</div>
+            <div>beicoders.vercel.app</div>
+        </div>
+    </footer>
+
+    <script src="../../js/bei-core.js"></script>
+</body>
+</html>

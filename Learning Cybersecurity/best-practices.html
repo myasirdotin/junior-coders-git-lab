@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cybersecurity & Digital Hygiene Best Practices: Core engineering rules for defensible code, password hashing, SQL injection prevention, XSS mitigation, and digital stewardship.">
+    <title>Cybersecurity Best Practices &amp; Defensive Coding | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        .rule-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .rule-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+        }
+        .rule-card h3 {
+            margin: 0 0 0.5rem;
+            color: #0f172a;
+            font-size: 1.15rem;
+        }
+        .code-good {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            font-family: monospace;
+            font-size: 0.88rem;
+            overflow-x: auto;
+        }
+        .code-bad {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            font-family: monospace;
+            font-size: 0.88rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="syllabus-container">
+        <header class="syllabus-header" style="background: linear-gradient(135deg, #059669, #0f766e); color: white; padding: 2.5rem 2rem; border-radius: 20px; margin-bottom: 2rem;">
+            <a href="learningcybersecurity.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem;">← Back to Cybersecurity Syllabus</a>
+            <h1 style="color: white; margin: 0.5rem 0 0.2rem;">Cybersecurity Best Practices 🛡️✨</h1>
+            <p style="margin: 0; opacity: 0.9;">Engineering systems with rigorous defense in depth, zero-trust architecture, and sacred stewardship (*Amānah* &amp; *Iḥsān*).</p>
+        </header>
+
+        <section>
+            <div class="rule-card">
+                <h3>1. 100% Prepared Statements for Every Database Interaction</h3>
+                <p style="color: #64748b; font-size: 0.92rem;">Never concatenate raw strings or untrusted variables into SQL statements. Parameter binding completely segregates SQL code logic from data input.</p>
+                <div class="code-good">✅ Good: $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?"); $stmt->execute([$email]);</div>
+                <div class="code-bad">❌ Bad: $db->query("SELECT id FROM users WHERE email = '$email'"); // Vulnerable to SQLi</div>
+            </div>
+
+            <div class="rule-card">
+                <h3>2. Contextual Output Encoding for Every Rendered Variable</h3>
+                <p style="color: #64748b; font-size: 0.92rem;">Input sanitization alone is insufficient; context matters. Always encode special HTML characters before rendering dynamic variables to prevent stored and reflected XSS.</p>
+                <div class="code-good">✅ Good: &lt;span&gt;&lt;?= htmlspecialchars($name, ENT_QUOTES, 'UTF-8') ?&gt;&lt;/span&gt;</div>
+                <div class="code-bad">❌ Bad: &lt;span&gt;&lt;?= $name ?&gt;&lt;/span&gt; // Direct execution of script payloads</div>
+            </div>
+
+            <div class="rule-card">
+                <h3>3. Use Modern Adaptive Key Derivation for Password Storage</h3>
+                <p style="color: #64748b; font-size: 0.92rem;">Never use fast general-purpose hashes (MD5, SHA-1, raw SHA-256) for passwords. Employ slow, salted, memory-hard algorithms such as Argon2id or bcrypt.</p>
+                <div class="code-good">✅ Good: $hash = password_hash($password, PASSWORD_ARGON2ID); // Salt & work factor included</div>
+                <div class="code-bad">❌ Bad: $hash = hash('sha256', $password); // Crackable at billions of guesses/sec on GPUs</div>
+            </div>
+
+            <div class="rule-card">
+                <h3>4. Fortify Session Cookies with Triple Defense Flags</h3>
+                <p style="color: #64748b; font-size: 0.92rem;">Set <code>HttpOnly</code> to stop JavaScript theft, <code>Secure</code> to guarantee transit over TLS, and <code>SameSite=Strict</code> to prevent CSRF attacks.</p>
+                <div class="code-good">✅ Good: Set-Cookie: sid=abc123xyz; Secure; HttpOnly; SameSite=Strict; Path=/</div>
+                <div class="code-bad">❌ Bad: Set-Cookie: sid=abc123xyz; Path=/ // Readable via document.cookie</div>
+            </div>
+
+            <div class="rule-card">
+                <h3>5. Strip Image EXIF Metadata Before Storage (*Ḥayā'* &amp; Privacy)</h3>
+                <p style="color: #64748b; font-size: 0.92rem;">User uploads frequently harbor GPS coordinates, home addresses, camera models, and timestamps. Always re-encode or strip EXIF metadata immediately upon receipt.</p>
+                <div class="code-good">✅ Good: Re-encode image through GD/Imagick or run exif_read_data / strip metadata before saving.</div>
+                <div class="code-bad">❌ Bad: Saving raw user smartphone camera photos directly to a public media bucket.</div>
+            </div>
+
+            <div class="rule-card">
+                <h3>6. Practice the 3-2-1 Backup Rule for System Resiliency</h3>
+                <p style="color: #64748b; font-size: 0.92rem;">Maintain at least 3 total copies of critical data, on 2 distinct media types, with 1 copy stored securely offsite and offline (immutable air-gap against ransomware).</p>
+                <div class="code-good">✅ Good: Primary DB + Local encrypted NAS backup + Encrypted off-site cloud storage.</div>
+                <div class="code-bad">❌ Bad: Database running without automated snapshots or stored on the same virtual disk.</div>
+            </div>
+
+            <div class="rule-card">
+                <h3>7. Adopt the Principle of Least Privilege (PoLP)</h3>
+                <p style="color: #64748b; font-size: 0.92rem;">Web applications should never connect to databases using the `root` administrative account. Create a dedicated application user granted only `SELECT`, `INSERT`, `UPDATE`, and `DELETE` on specific tables.</p>
+                <div class="code-good">✅ Good: GRANT SELECT, INSERT, UPDATE ON portal_db.* TO 'web_app'@'localhost';</div>
+                <div class="code-bad">❌ Bad: GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;</div>
+            </div>
+        </section>
+
+        <div style="text-align: center; margin: 3rem 0 2rem;">
+            <a href="playground.html" class="course-btn" style="background: #059669; color: white; padding: 0.8rem 1.8rem; border-radius: 10px; text-decoration: none; font-weight: 600; margin-right: 0.8rem;">Launch Cyber Defense Studio 🛡️</a>
+            <a href="learningcybersecurity.html" style="color: #64748b; text-decoration: none; font-weight: 500;">Back to Syllabus</a>
+        </div>
+    </div>
+</body>
+</html>

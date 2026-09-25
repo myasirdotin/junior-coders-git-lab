@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 5: Demystify the Domain Name System (DNS), recursive queries, root servers, TLDs, and DNS record types.">
+    <title>Module 5: DNS: The Global Phonebook | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 2</span>
+            <h1 style="color: white; margin: 0.5rem 0;">DNS: The Global Phonebook 📖🔍</h1>
+            <p>How human-friendly domain names like <code>juniorcoders.org</code> become machine-routable IP addresses in milliseconds.</p>
+        </header>
+
+        <!-- Recursive Query Flow -->
+        <section class="content-section">
+            <h2>The 4 Steps of a DNS Recursive Query</h2>
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
+                1. <strong>Local Cache:</strong> Checks browser and OS memory.<br>
+                2. <strong>Recursive Resolver (1.1.1.1):</strong> Queries the Root cluster on your behalf.<br>
+                3. <strong>Root Nameserver (.):</strong> Directs to the Top-Level Domain (TLD) server (e.g. <code>.org</code>).<br>
+                4. <strong>TLD Nameserver (.org):</strong> Directs to the domain's Authoritative Nameserver.<br>
+                5. <strong>Authoritative Nameserver:</strong> Delivers the definitive <span style="color: #34d399;">A Record (IP Address)</span>!
+            </div>
+        </section>
+
+        <!-- Common Record Types -->
+        <section class="content-section">
+            <h2>Essential DNS Record Types</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
+                    <h3>A Record</h3>
+                    <p>Maps a hostname to an <strong>IPv4</strong> address (e.g. <code>104.21.55.2</code>).</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3>AAAA Record</h3>
+                    <p>Maps a hostname to an <strong>IPv6</strong> address (128-bit).</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
+                    <h3>CNAME Record</h3>
+                    <p>Canonical Name: aliases <code>www.site.com</code> to <code>site.com</code>.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
+                    <h3>MX Record</h3>
+                    <p>Mail Exchanger: specifies the servers that accept incoming emails.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TTL & Caching -->
+        <section class="content-section">
+            <h2>Time To Live (TTL): Caching Efficiency</h2>
+            <p>Every DNS record has a TTL value (in seconds). A TTL of <code>3600</code> instructs resolvers to store the answer in cache for 1 hour. This eliminates redundant queries and keeps the Internet lightning fast!</p>
+        </section>
+
+        <!-- Interactive Practice Challenge -->
+        <section class="content-section" style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #0369a1; margin-top: 0;">🧪 Your Turn: CLI DNS Investigation</h2>
+            <p>Perform a live DNS query using your command line:</p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Query the IPv4 address of an educational site
+nslookup wikipedia.org</code></pre>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #475569;">Notice the Address line returned by your local DNS resolver!</p>
+        </section>
+
+        <!-- Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module4.html" class="btn-hero-secondary">← Module 4</a>
+            <a href="module6.html" class="btn-hero-primary">Next: Module 6 (HTTP Deep Dive) →</a>
+        </footer>
+    </main>
+</body>
+</html>

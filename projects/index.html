@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graded Project Catalog | BEI Coders</title>
+    <meta name="description" content="Graded computer science project catalog for school students in Grades 6–10. Starter kits, downloadable briefs, rubrics, and difficulty tiers (Bronze, Silver, Gold).">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+    <style>
+        .projects-filter-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        .filter-pills {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .filter-pill {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            padding: 0.4rem 0.9rem;
+            border-radius: 9999px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-pill.active, .filter-pill:hover {
+            background: var(--brand-primary);
+            color: white;
+            border-color: var(--brand-primary);
+        }
+        .project-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+            margin-bottom: 1.5rem;
+        }
+        .project-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-hover);
+            box-shadow: var(--shadow-card);
+        }
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+        .project-meta-row {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        .tier-badge {
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.25rem 0.65rem;
+            border-radius: var(--radius-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .tier-bronze { background: rgba(217, 119, 6, 0.15); color: #f59e0b; border: 1px solid rgba(217, 119, 6, 0.3); }
+        .tier-silver { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.3); }
+        .tier-gold { background: rgba(234, 179, 8, 0.2); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4); }
+        .project-specs {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            background: var(--bg-surface-elevated);
+            padding: 1.25rem;
+            border-radius: var(--radius-md);
+            margin: 1.25rem 0;
+            font-size: 0.85rem;
+        }
+        .spec-item strong {
+            display: block;
+            color: var(--text-primary);
+            margin-bottom: 0.2rem;
+        }
+        .spec-item span {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="bei-nav">
+        <div class="container bei-nav-inner">
+            <a href="../index.html" class="bei-logo">
+                <div class="bei-logo-icon">💻</div>
+                <div>
+                    BEI Coders
+                    <span class="bei-logo-sub">School Computer Science</span>
+                </div>
+            </a>
+            <ul class="bei-nav-links">
+                <li><a href="../learn/index.html" class="bei-nav-link">📚 Learn</a></li>
+                <li><a href="../studios/index.html" class="bei-nav-link">⚡ Studios</a></li>
+                <li><a href="../library/books/index.html" class="bei-nav-link">📖 Textbooks</a></li>
+                <li><a href="index.html" class="bei-nav-link active">🏆 Projects</a></li>
+                <li><a href="../paths/index.html" class="bei-nav-link">🗺️ Pathways</a></li>
+                <li><a href="../teacher-hub/index.html" class="bei-nav-link">🍎 Teachers</a></li>
+            </ul>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
+                <a href="../studios/web-studio/index.html" class="btn-nav-primary">Build in Studio ⚡</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">Home</a> <span>/</span>
+                <span>Projects</span>
+            </div>
+            <h1>Graded Project Catalog 🏆</h1>
+            <p class="lead">Hands-on milestone projects with starter kits, rubrics, and difficulty tiers. Designed to build an impressive portfolio while solving genuine real-world community problems.</p>
+        </header>
+
+        <!-- Filter Bar -->
+        <div class="projects-filter-bar">
+            <div class="filter-pills" id="projectPills">
+                <button class="filter-pill active" onclick="filterProjects('all', this)">All Projects (6)</button>
+                <button class="filter-pill" onclick="filterProjects('bronze', this)">🥉 Bronze (Grades 6–7)</button>
+                <button class="filter-pill" onclick="filterProjects('silver', this)">🥈 Silver (Grades 7–9)</button>
+                <button class="filter-pill" onclick="filterProjects('gold', this)">🥇 Gold (Grades 9–10)</button>
+            </div>
+            <div style="font-size: 0.85rem; color: var(--text-muted);">
+                Grading Rubric included with every project
+            </div>
+        </div>
+
+        <!-- Project 1: Portfolio Scaffold (Bronze) -->
+        <div class="project-card" data-tier="bronze">
+            <div class="project-top">
+                <div class="project-meta-row">
+                    <span class="tier-badge tier-bronze">Bronze Level</span>
+                    <span class="placement-badge badge-foundations">Foundations &amp; CLI</span>
+                    <span style="font-size: 0.82rem; color: var(--text-muted);">Grade 6–7</span>
+                </div>
+                <span style="font-size: 0.85rem; color: var(--brand-accent); font-weight: 700;">+100 XP</span>
+            </div>
+            <h2>1. My Digital Portfolio Scaffold &amp; Git History</h2>
+            <p style="color: var(--text-secondary); margin-top: 0.4rem;">
+                Construct a clean web project repository without using a mouse. Scaffold directories using dual-shell Terminal commands, create semantic placeholder files, initialize Git, and document your milestones with three atomic commits.
+            </p>
+            <div class="project-specs">
+                <div class="spec-item">
+                    <strong>Tech Stack</strong>
+                    <span>Terminal (CMD / Bash), Git CLI</span>
+                </div>
+                <div class="spec-item">
+                    <strong>Key Skills</strong>
+                    <span>Path addressing, bulk folder creation, commit history</span>
+                </div>
+                <div class="spec-item">
+                    <strong>Deliverable</strong>
+                    <span>Git log screenshot + structured folder zip</span>
+                </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../cheatsheet-cmd.html" class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; background: var(--brand-accent);">View Starter Kit 📁</a>
+                <a href="../teacher-hub/index.html" class="btn-hero-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">Teacher Rubric 📋</a>
+            </div>
+        </div>
+
+        <!-- Project 2: Community Food Pantry Website (Bronze) -->
+        <div class="project-card" data-tier="bronze">
+            <div class="project-top">
+                <div class="project-meta-row">
+                    <span class="tier-badge tier-bronze">Bronze Level</span>
+                    <span class="placement-badge badge-web">HTML &amp; CSS</span>
+                    <span style="font-size: 0.82rem; color: var(--text-muted);">Grade 7</span>
+                </div>
+                <span style="font-size: 0.85rem; color: var(--brand-accent); font-weight: 700;">+150 XP</span>
+            </div>
+            <h2>2. Ethical Food Pantry Landing Page</h2>
+            <p style="color: var(--text-secondary); margin-top: 0.4rem;">
+                Build an accessible, semantic HTML5 landing page for a local neighborhood food bank. Include an interactive food pledge donation form, operational hours table, and modern CSS card styling.
+            </p>
+            <div class="project-specs">
+                <div class="spec-item">
+                    <strong>Tech Stack</strong>
+                    <span>HTML5, CSS3 (Box Model &amp; Flexbox)</span>
+                </div>
+                <div class="spec-item">
+                    <strong>Key Skills</strong>
+                    <span>Semantic tags, accessible forms, color contrast</span>
+                </div>
+                <div class="spec-item">
+                    <strong>Deliverable</strong>
+                    <span>Live site in Web Studio + single-file export</span>
+                </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../studios/web-studio/index.html" class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; background: var(--brand-cyan);">Open in Web Studio ⚡</a>
+                <a href="../teacher-hub/index.html" class="btn-hero-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">Teacher Rubric 📋</a>
+            </div>
+        </div>
+
+        <!-- Project 3: Library & Book Exchange (Silver) -->
+        <div class="project-card" data-tier="silver">
+            <div class="project-top">
+                <div class="project-meta-row">
+                    <span class="tier-badge tier-silver">Silver Level</span>
+                    <span class="placement-badge badge-web">HTML • CSS • JS</span>
+                    <span style="font-size: 0.82rem; color: var(--text-muted);">Grade 8</span>
+                </div>
+                <span style="font-size: 0.85rem; color: #818cf8; font-weight: 700;">+250 XP</span>
+            </div>
+            <h2>3. Neighborhood Library &amp; Book Exchange Hub</h2>
+            <p style="color: var(--text-secondary); margin-top: 0.4rem;">
+                A complete dynamic web application for a local library. Features a responsive CSS Grid book catalog, interactive category filter tabs, search query input, and persistent user bookmarks saved in browser `localStorage`.
+            </p>
+            <div class="project-specs">
+                <div class="spec-item">
+                    <strong>Tech Stack</strong>
+                    <span>HTML5, CSS Grid, JavaScript ES6+</span>
+                </div>
+                <div class="spec-item">
+                    <strong>Key Skills</strong>
+                    <span>DOM manipulation, event delegation, LocalStorage state</span>
+                </div>
+                <div class="spec-item">
+                    <strong>Deliverable</strong>
+                    <span>Interactive web application with README</span>
+                </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../studios/web-studio/index.html" class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; background: var(--brand-primary);">Open in Web Studio ⚡</a>
+                <a href="../teacher-hub/index.html" class="btn-hero-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">Teacher Rubric 📋</a>
+            </div>
+        </div>
+
+        <!-- Project 4: Python Zakat & Community Pantry (Silver) -->
+        <div class="project-card" data-tier="silver">
+            <div class="project-top">
+                <div class="project-meta-row">
+                    <span class="tier-badge tier-silver">Silver Level</span>
+                    <span class="placement-badge badge-ai">Python 3 Data</span>
+                    <span style="font-size: 0.82rem; color: var(--text-muted);">Grade 8–9</span>
+                </div>
+                <span style="font-size: 0.85rem; color: #818cf8; font-weight: 700;">+250 XP</span>
+            </div>
+            <h2>4. Python Community Pantry &amp; Zakat Calculator</h2>
+            <p style="color: var(--text-secondary); margin-top: 0.4rem;">
+                Write an automated command-line Python application that reads item inventories from a CSV file, calculates category statistics using dictionaries and lists, and computes accurate 2.5% charitable zakat allocation reports.
+            </p>
+            <div class="project-specs">
+                <div class="spec-item">
+                    <strong>Tech Stack</strong>
+                    <span>Python 3, CSV module, modular functions</span>
+                </div>
+                <div class="spec-item">
+                    <strong>Key Skills</strong>
+                    <span>File I/O, dictionary data modeling, mathematical accuracy</span>
+                </div>
+                <div class="spec-item">
+                    <strong>Deliverable</strong>
+                    <span>`pantry.py` script + sample CSV audit report</span>
+                </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../studios/python-console/index.html" class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; background: var(--brand-purple);">Open in Python Console 🐍</a>
+                <a href="../teacher-hub/index.html" class="btn-hero-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">Teacher Rubric 📋</a>
+            </div>
+        </div>
+
+        <!-- Project 5: Student Aid & Scholarship Portal (Gold) -->
+        <div class="project-card" data-tier="gold">
+            <div class="project-top">
+                <div class="project-meta-row">
+                    <span class="tier-badge tier-gold">Gold Level</span>
+                    <span class="placement-badge" style="background: rgba(239,68,68,0.15); color: #f87171;">Full-Stack Track</span>
+                    <span style="font-size: 0.82rem; color: var(--text-muted);">Grade 9–10</span>
+                </div>
+                <span style="font-size: 0.85rem; color: #facc15; font-weight: 700;">+400 XP</span>
+            </div>
+            <h2>5. Student Aid &amp; Scholarship Portal</h2>
+            <p style="color: var(--text-secondary); margin-top: 0.4rem;">
+                An enterprise-level full-stack web application built with PHP/Laravel and MySQL. Includes student authentication, application form submissions, relational database schemas, secure PDO prepared statements, and role-based staff review.
+            </p>
+            <div class="project-specs">
+                <div class="spec-item">
+                    <strong>Tech Stack</strong>
+                    <span>PHP 8, MySQL, Laravel 11, Blade, PDO</span>
+                </div>
+                <div class="spec-item">
+                    <strong>Key Skills</strong>
+                    <span>MVC architecture, database normalization, auth &amp; CSRF protection</span>
+                </div>
+                <div class="spec-item">
+                    <strong>Deliverable</strong>
+                    <span>Full-stack GitHub repository + database migration scripts</span>
+                </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../learn/web-dev/full-stack/index.html" class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; background: #ef4444;">Full-Stack Guide 🏗️</a>
+                <a href="../teacher-hub/index.html" class="btn-hero-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">Teacher Rubric 📋</a>
+            </div>
+        </div>
+
+        <!-- Project 6: Security Audit & Hardening Lab (Gold) -->
+        <div class="project-card" data-tier="gold">
+            <div class="project-top">
+                <div class="project-meta-row">
+                    <span class="tier-badge tier-gold">Gold Level</span>
+                    <span class="placement-badge" style="background: rgba(16,185,129,0.15); color: #10b981;">Cybersecurity</span>
+                    <span style="font-size: 0.82rem; color: var(--text-muted);">Grade 9–10</span>
+                </div>
+                <span style="font-size: 0.85rem; color: #facc15; font-weight: 700;">+400 XP</span>
+            </div>
+            <h2>6. Web Application Hardening &amp; Threat Audit</h2>
+            <p style="color: var(--text-secondary); margin-top: 0.4rem;">
+                Take an intentionally vulnerable charity donation web app and eliminate all critical vulnerabilities: convert SQL concatenations into PDO prepared statements, implement contextual output encoding, inject CSP and HSTS headers, and configure cookie flags.
+            </p>
+            <div class="project-specs">
+                <div class="spec-item">
+                    <strong>Tech Stack</strong>
+                    <span>PHP, MySQL, HTTP Headers, Argon2id</span>
+                </div>
+                <div class="spec-item">
+                    <strong>Key Skills</strong>
+                    <span>OWASP Top 10 remediation, defense-in-depth, security auditing</span>
+                </div>
+                <div class="spec-item">
+                    <strong>Deliverable</strong>
+                    <span>Hardened source code + formal threat remediation audit</span>
+                </div>
+            </div>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../Learning Cybersecurity/playground.html" class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; background: var(--brand-accent);">Open Defense Studio 🧪</a>
+                <a href="../teacher-hub/index.html" class="btn-hero-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">Teacher Rubric 📋</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Project Filtering Script -->
+    <script>
+        function filterProjects(tier, btn) {
+            document.querySelectorAll('#projectPills .filter-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (tier === 'all' || card.getAttribute('data-tier') === tier) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="bei-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="bei-logo">
+                    <div class="bei-logo-icon">💻</div>
+                    <span>BEI Coders</span>
+                </div>
+                <p>Empowering school students with foundational computing, creative web engineering, and ethical AI stewardship.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Projects</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Bronze Projects (Grades 6–7)</a></li>
+                    <li><a href="index.html">Silver Projects (Grades 7–9)</a></li>
+                    <li><a href="index.html">Gold Projects (Grades 9–10)</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Learn</h4>
+                <ul class="footer-links">
+                    <li><a href="../learn/foundations/index.html">Foundations</a></li>
+                    <li><a href="../learn/web-dev/index.html">Web Development</a></li>
+                    <li><a href="../learn/python/index.html">Python &amp; Data</a></li>
+                    <li><a href="../learn/cybersecurity/index.html">Cybersecurity</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Studios</h4>
+                <ul class="footer-links">
+                    <li><a href="../studios/web-studio/index.html">Web Studio</a></li>
+                    <li><a href="../studios/python-console/index.html">Python Console</a></li>
+                    <li><a href="../studios/sql-sandbox/index.html">SQL Sandbox</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Teachers</h4>
+                <ul class="footer-links">
+                    <li><a href="../teacher-hub/index.html">Lesson Plans</a></li>
+                    <li><a href="../paths/index.html">Curriculum Maps</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 BEI Coders. Dedicated to Beneficial Knowledge &amp; Digital Stewardship.</div>
+            <div>beicoders.vercel.app</div>
+        </div>
+    </footer>
+
+    <script src="../js/bei-core.js"></script>
+</body>
+</html>

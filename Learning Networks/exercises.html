@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mastery exercises for Computer Networking & Web Protocols. Three-tier scaffolded challenges: Recall, Application, and Real-World Architecture.">
+    <title>Networking Mastery Exercises | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .tier-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.25rem 0.65rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .tier-1 { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+        .tier-2 { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+        .tier-3 { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+        .exercise-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+    </style>
+</head>
+<body>
+    <div class="syllabus-container">
+        <header class="syllabus-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem 2rem; border-radius: 20px; margin-bottom: 2rem;">
+            <a href="learningnetworks.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem;">← Back to Networks Syllabus</a>
+            <h1 style="color: white; margin: 0.5rem 0 0.2rem;">Networking &amp; Protocols Mastery Exercises 🎯</h1>
+            <p style="margin: 0; opacity: 0.9;">Three tiers of deliberate practice to cement your computer networking fluency.</p>
+        </header>
+
+        <!-- Tier 1: Recall & Warmup -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; color: #15803d;">
+                <span>🟢</span> Tier 1: Syntax Recall &amp; Warmup
+            </h2>
+            <p style="color: #64748b; margin-bottom: 1.25rem;">Simple protocol reproduction and standard port identification.</p>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-1">Tier 1 • Exercise 1</span>
+                <h3 style="margin: 0 0 0.5rem;">Well-Known Port Matching</h3>
+                <p>Identify the default port numbers for: HTTP, HTTPS, SSH, DNS, and MySQL.</p>
+                <details style="margin-top: 1rem; color: #0284c7; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>HTTP  ➔ Port 80
+HTTPS ➔ Port 443
+SSH   ➔ Port 22
+DNS   ➔ Port 53
+MySQL ➔ Port 3306</code></pre>
+                </details>
+            </div>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-1">Tier 1 • Exercise 2</span>
+                <h3 style="margin: 0 0 0.5rem;">HTTP Status Code Categorization</h3>
+                <p>What do the status codes 201, 301, 401, 403, and 502 represent?</p>
+                <details style="margin-top: 1rem; color: #0284c7; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>201 ➔ Created (Resource created successfully via POST)
+301 ➔ Moved Permanently (Permanent redirection)
+401 ➔ Unauthorized (Authentication required)
+403 ➔ Forbidden (Authenticated, but permission denied)
+502 ➔ Bad Gateway (Reverse proxy received invalid response)</code></pre>
+                </details>
+            </div>
+        </section>
+
+        <!-- Tier 2: Application & Modification -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; color: #b45309;">
+                <span>🟡</span> Tier 2: Application &amp; Modification
+            </h2>
+            <p style="color: #64748b; margin-bottom: 1.25rem;">Extending concepts and calculating network parameters.</p>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-2">Tier 2 • Exercise 3</span>
+                <h3 style="margin: 0 0 0.5rem;">CIDR Subnet Math for a Medical Clinic</h3>
+                <p>A regional healthcare clinic is given the subnet <code>192.168.10.0/26</code>. Calculate:</p>
+                <ol style="margin-left: 1.2rem; color: #334155;">
+                    <li>Subnet mask</li>
+                    <li>Total IP addresses</li>
+                    <li>Number of usable client devices</li>
+                    <li>Broadcast address</li>
+                </ol>
+                <details style="margin-top: 1rem; color: #0284c7; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>1. Subnet mask: 255.255.255.192
+2. Total IP addresses: 2^(32 - 26) = 2^6 = 64
+3. Usable devices: 64 - 2 = 62 usable hosts (192.168.10.1 to 192.168.10.62)
+4. Broadcast address: 192.168.10.63</code></pre>
+                </details>
+            </div>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-2">Tier 2 • Exercise 4</span>
+                <h3 style="margin: 0 0 0.5rem;">Constructing a Secure Curl Request</h3>
+                <p>Write a <code>curl</code> command that sends a <code>POST</code> request to <code>https://api.oasis-aid.org/v1/water-wells</code> with JSON body <code>{"village": "Zaytuna"}</code>, a Bearer token header, and prints response headers.</p>
+                <details style="margin-top: 1rem; color: #0284c7; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>curl -i -X POST https://api.oasis-aid.org/v1/water-wells \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer token_amanah_786" \
+     -d '{"village": "Zaytuna"}'</code></pre>
+                </details>
+            </div>
+        </section>
+
+        <!-- Tier 3: Independent Problem-Solving -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; color: #b91c1c;">
+                <span>🔴</span> Tier 3: Independent Architecture &amp; Security
+            </h2>
+            <p style="color: #64748b; margin-bottom: 1.25rem;">Designing resilient systems and solving CORS security problems.</p>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-3">Tier 3 • Exercise 5</span>
+                <h3 style="margin: 0 0 0.5rem;">Debugging a Cross-Origin Preflight Failure</h3>
+                <p>Your frontend running on <code>https://portal.charity.org</code> receives a CORS error when calling <code>POST https://api.charity.org/v1/donations</code> with an <code>Authorization</code> header. Explain why the preflight occurs and write the exact HTTP response headers your backend server must return for the preflight <code>OPTIONS</code> request.</p>
+                <details style="margin-top: 1rem; color: #0284c7; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>Why preflight occurs:
+The request uses custom headers (Authorization) and is cross-origin 
+(portal.charity.org vs api.charity.org). The browser must verify permissions first!
+
+Backend Preflight Response Headers:
+HTTP/1.1 204 No Content
+Access-Control-Allow-Origin: https://portal.charity.org
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Access-Control-Allow-Headers: Content-Type, Authorization
+Access-Control-Max-Age: 86400</code></pre>
+                </details>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

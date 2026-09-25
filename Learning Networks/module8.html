@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 8: Master real-time WebSockets, RESTful API design, DevTools Network panel, and CLI diagnostic tools.">
+    <title>Module 8: WebSockets, REST &amp; Diagnostics | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 3</span>
+            <h1 style="color: white; margin: 0.5rem 0;">WebSockets, REST &amp; Diagnostics ⚡🛠️</h1>
+            <p>Full-duplex real-time sockets, clean API architecture, and developer network debugging tools.</p>
+        </header>
+
+        <!-- REST vs WebSockets -->
+        <section class="content-section">
+            <h2>REST vs. WebSockets: When to Use Which</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
+                    <h3>REST (Request / Response)</h3>
+                    <p>Client requests data, server responds and closes connection. Ideal for standard CRUD, form submissions, and database records.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0d9488;">
+                    <h3>WebSockets (Persistent Duplex)</h3>
+                    <p>Connection upgrades via <code>101 Switching Protocols</code> and stays open indefinitely. Either side can send messages with only 2 bytes of overhead!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Essential CLI Diagnostic Suite -->
+        <section class="content-section">
+            <h2>The Developer's Network Diagnostic Toolkit</h2>
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
+                # 1. Test ping and packet latency<br>
+                <span style="color: #38bdf8;">ping cloudflare.com</span><br><br>
+                # 2. Map every intermediate router hop across the globe<br>
+                <span style="color: #34d399;">tracert oasis-aid.org</span> (Windows) or <span style="color: #34d399;">traceroute</span> (Linux/Mac)<br><br>
+                # 3. Send custom HTTP requests with headers<br>
+                <span style="color: #fbbf24;">curl -i -X GET https://api.oasis-aid.org/v1/relief-camps</span><br><br>
+                # 4. View active open sockets and listening ports<br>
+                <span style="color: #f87171;">netstat -ano</span> (Windows) or <span style="color: #f87171;">ss -tulpn</span> (Linux)
+            </div>
+        </section>
+
+        <!-- Browser DevTools -->
+        <section class="content-section">
+            <h2>Mastering DevTools Network Waterfall</h2>
+            <p>Open DevTools (<code>F12</code>) and click the <strong>Network</strong> tab. Inspect:</p>
+            <ul style="line-height: 1.8; color: #334155;">
+                <li><strong>Queueing &amp; Stalled:</strong> Browser waiting for available TCP connection slots.</li>
+                <li><strong>DNS Lookup:</strong> Time spent translating the hostname into an IP address.</li>
+                <li><strong>Initial Connection &amp; SSL:</strong> TCP 3-way handshake + TLS 1.3 key exchange.</li>
+                <li><strong>TTFB (Time to First Byte):</strong> Backend server calculation latency.</li>
+                <li><strong>Content Download:</strong> Network bandwidth speed transferring the payload.</li>
+            </ul>
+        </section>
+
+        <!-- Course Completion -->
+        <section class="content-section" style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #166534; margin-top: 0;">🎉 Curriculum Modules Complete!</h2>
+            <p style="color: #1e293b;">You have mastered all 8 modules of Computer Networking &amp; Web Protocols! Ready to test your skills? Complete the <a href="exercises.html" style="color: #059669; font-weight: 700;">Mastery Exercises</a> or explore the <a href="playground.html" style="color: #059669; font-weight: 700;">Protocol Lab Studio</a>.</p>
+        </section>
+
+        <!-- Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module7.html" class="btn-hero-secondary">← Module 7</a>
+            <a href="exercises.html" class="btn-hero-primary">Mastery Exercises 🎯 →</a>
+        </footer>
+    </main>
+</body>
+</html>

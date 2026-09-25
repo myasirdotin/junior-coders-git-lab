@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tooling &amp; Git Collaboration Mastery | BEI Coders</title>
+    <meta name="description" content="School curriculum for Git version control and developer workflows: branching, merging, GitHub Pages deployment, and teamwork for Grades 8–10.">
+    <link rel="stylesheet" href="../../styles/bei-core.css">
+</head>
+<body>
+
+    <nav class="bei-nav">
+        <div class="container bei-nav-inner">
+            <a href="../../index.html" class="bei-logo">
+                <div class="bei-logo-icon">💻</div>
+                <div>
+                    BEI Coders
+                    <span class="bei-logo-sub">School Computer Science</span>
+                </div>
+            </a>
+            <ul class="bei-nav-links">
+                <li><a href="../index.html" class="bei-nav-link active">📚 Learn</a></li>
+                <li><a href="../../studios/index.html" class="bei-nav-link">⚡ Studios</a></li>
+                <li><a href="../../library/books/index.html" class="bei-nav-link">📖 Textbooks</a></li>
+                <li><a href="../../projects/index.html" class="bei-nav-link">🏆 Projects</a></li>
+                <li><a href="../../paths/index.html" class="bei-nav-link">🗺️ Pathways</a></li>
+                <li><a href="../../teacher-hub/index.html" class="bei-nav-link">🍎 Teachers</a></li>
+            </ul>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
+                <span class="placement-badge" id="studentXP" style="background: rgba(79,70,229,0.15); color: #818cf8; font-family: var(--font-mono);">120 XP</span>
+                <a href="../../cheatsheet-git.html" class="btn-nav-primary">Git Cheatsheet 🐙</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- 1. Header with Breadcrumbs -->
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Home</a> <span>/</span>
+                <a href="../index.html">Learn</a> <span>/</span>
+                <span>Tooling</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                <span class="placement-badge" style="background: rgba(240,80,50,0.15); color: #f97316;">Grades 8–10</span>
+                <span class="placement-badge" style="background: rgba(255,255,255,0.08); color: var(--text-secondary);">Pro Collaboration Track</span>
+            </div>
+            <h1>Tooling, Git &amp; GitHub Mastery 🐙🛠️</h1>
+            <p class="lead">Software is rarely built by one person alone. Master the professional collaboration tools that power modern engineering: Git branches, commit history, merge conflict resolution, pull request etiquette, and continuous deployment.</p>
+        </header>
+
+        <!-- 2. Prerequisites & What You Will Learn -->
+        <section class="curriculum-meta-grid">
+            <div class="meta-box">
+                <h3 style="color: var(--brand-accent);">📋 Prerequisites</h3>
+                <ul>
+                    <li>Basic familiarity with Terminal commands (`cd`, `mkdir`, `dir`/`ls`).</li>
+                    <li>Understanding of files and text editors (VS Code recommended).</li>
+                    <li>Foundations track completed or equivalent comfort with file trees.</li>
+                    <li>Commitment to respectful peer code reviews and honesty (*Ṣidq*).</li>
+                </ul>
+            </div>
+            <div class="meta-box">
+                <h3 style="color: #f97316;">🎯 What You Will Learn</h3>
+                <ul>
+                    <li>The 3 Git trees: Working Directory, Staging Index, and Commit History.</li>
+                    <li>Atomic commits, meaningful semantic messages, and diff comparisons.</li>
+                    <li>Feature branching workflows: creating, switching, and merging branches.</li>
+                    <li>Resolving merge conflicts calmly and methodically without data loss.</li>
+                    <li>Remote repositories on GitHub: clones, pushes, pulls, PRs, and GitHub Pages.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 3. Progression Stepper -->
+        <section class="progression-stepper">
+            <div class="stepper-head">
+                <h2>🗺️ Clear Progression Map</h2>
+                <p style="color: var(--text-secondary); font-size: 0.92rem;">From local snapshot tracking to collaborative open-source team workflows.</p>
+            </div>
+            <div class="steps-flow">
+                <div class="step-item" style="border-left-color: #f05032;">
+                    <div class="step-num" style="color: #f05032;">Step 01</div>
+                    <div class="step-title">Local Snapshots</div>
+                    <div class="step-desc">git init, git add, git commit -m, git status, and inspecting git log.</div>
+                </div>
+                <div class="step-item" style="border-left-color: #ea580c;">
+                    <div class="step-num" style="color: #ea580c;">Step 02</div>
+                    <div class="step-title">Branches &amp; Isolation</div>
+                    <div class="step-desc">Creating feature branches, testing safely, switching contexts, and fast-forward merges.</div>
+                </div>
+                <div class="step-item" style="border-left-color: #f59e0b;">
+                    <div class="step-num" style="color: #f59e0b;">Step 03</div>
+                    <div class="step-title">Conflict Resolution</div>
+                    <div class="step-desc">Understanding conflict markers, comparing three-way diffs, and completing merges.</div>
+                </div>
+                <div class="step-item" style="border-left-color: #10b981;">
+                    <div class="step-num" style="color: #10b981;">Step 04</div>
+                    <div class="step-title">GitHub &amp; Deploy</div>
+                    <div class="step-desc">SSH keys, pushing remotes, pull requests, peer review, and hosting on GitHub Pages.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Modules Breakdown -->
+        <section class="modules-container">
+            <div class="section-head" style="text-align: left; margin-bottom: 1.75rem;">
+                <span class="eyebrow">Curriculum Roadmap</span>
+                <h2>Course Modules</h2>
+            </div>
+
+            <div class="modules-list">
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx" style="background: rgba(240,80,50,0.15); color: #f05032;">Module 1</span>
+                        <span class="module-time">45 mins</span>
+                    </div>
+                    <h3>Why Version Control Matters: Time Travel for Code</h3>
+                    <p>The nightmare of `final_v2_really_final.zip`. How Git records cryptographic SHA-1 hashes of project states.</p>
+                    <div class="module-footer">
+                        <a href="../../book-git/index.html" class="module-link">Read Git Textbook Ch 1–4 →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx" style="background: rgba(240,80,50,0.15); color: #f05032;">Module 2</span>
+                        <span class="module-time">50 mins</span>
+                    </div>
+                    <h3>The Staging Area &amp; Atomic Commits</h3>
+                    <p>Why we don't commit everything at once. Crafting small, focused commits with descriptive, helpful messages.</p>
+                    <div class="module-footer">
+                        <a href="../../book-git/index.html" class="module-link">Read Git Textbook Ch 5–8 →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx" style="background: rgba(240,80,50,0.15); color: #f05032;">Module 3</span>
+                        <span class="module-time">60 mins</span>
+                    </div>
+                    <h3>Feature Branching &amp; Clean Merging</h3>
+                    <p>Never break the `main` branch. Experiment with crazy ideas on feature branches, and merge back cleanly.</p>
+                    <div class="module-footer">
+                        <a href="../../book-git/index.html" class="module-link">Read Git Textbook Ch 9–13 →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx" style="background: rgba(240,80,50,0.15); color: #f05032;">Module 4</span>
+                        <span class="module-time">55 mins</span>
+                    </div>
+                    <h3>Demystifying Merge Conflicts</h3>
+                    <p>What happens when two teammates edit the same line? Reading `<<<<<<< HEAD` markers and resolving calmly.</p>
+                    <div class="module-footer">
+                        <a href="../../book-git/index.html" class="module-link">Read Git Textbook Ch 14–16 →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx" style="background: rgba(240,80,50,0.15); color: #f05032;">Module 5</span>
+                        <span class="module-time">60 mins</span>
+                    </div>
+                    <h3>GitHub Collaboration &amp; Pull Requests</h3>
+                    <p>Pushing to cloud remotes, opening Pull Requests, code review etiquette, and publishing websites on GitHub Pages.</p>
+                    <div class="module-footer">
+                        <a href="../../book-git/index.html" class="module-link">Read Git Textbook Ch 17–20 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Interactive Practice & Cheatsheets -->
+        <section class="curriculum-action-banner">
+            <div class="action-banner-text">
+                <span class="placement-badge" style="background: rgba(240,80,50,0.15); color: #f97316; margin-bottom: 0.5rem;">Quick Lookup</span>
+                <h3>Git &amp; Terminal Cheat Sheets</h3>
+                <p>Keep the most essential Git and command-line instructions at your fingertips with our one-page rapid reference cards.</p>
+            </div>
+            <div class="action-banner-btns">
+                <a href="../../cheatsheet-git.html" class="btn-hero-primary" style="background: #f05032;">🐙 Git Cheatsheet</a>
+                <a href="../../cheatsheet-cmd.html" class="btn-hero-secondary">💻 Terminal Cheatsheet</a>
+            </div>
+        </section>
+
+        <!-- 6. Capstone Project -->
+        <section class="meta-box" style="border: 2px solid #f05032; background: linear-gradient(135deg, rgba(240,80,50,0.06), transparent);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                <h3 style="color: #f97316; font-size: 1.35rem; margin: 0;">🏆 Milestone Capstone: "Open Source Collaboration Simulation"</h3>
+                <span class="placement-badge" style="background: rgba(240,80,50,0.2); color: #fdba74;">Silver Level Project</span>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+                Fork a mock community charity website repo on GitHub. Create a feature branch, fix a broken CSS layout bug, write a semantic commit message, open a simulated Pull Request, resolve a merge conflict, and enable GitHub Pages live hosting.
+            </p>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../../projects/index.html" class="btn-gateway" style="background: #f05032; color: white;">View Collaboration Rubric →</a>
+                <a href="../../book-git/index.html" class="btn-gateway">Open 20-Chapter Git Book 📖</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bei-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="bei-logo">
+                    <div class="bei-logo-icon">💻</div>
+                    <span>BEI Coders</span>
+                </div>
+                <p>Empowering school students with foundational computing, creative web engineering, and ethical AI stewardship.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Learn Tracks</h4>
+                <ul class="footer-links">
+                    <li><a href="../foundations/index.html">Foundations</a></li>
+                    <li><a href="../web-dev/index.html">Web Development</a></li>
+                    <li><a href="../python/index.html">Python &amp; Data</a></li>
+                    <li><a href="index.html">Tooling &amp; Git</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Studios</h4>
+                <ul class="footer-links">
+                    <li><a href="../../studios/web-studio/index.html">Web Studio</a></li>
+                    <li><a href="../../studios/python-console/index.html">Python Console</a></li>
+                    <li><a href="../../studios/sql-sandbox/index.html">SQL Sandbox</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Library</h4>
+                <ul class="footer-links">
+                    <li><a href="../../library/books/index.html">All 11 Textbooks</a></li>
+                    <li><a href="../../library/cheatsheets/index.html">Cheat Sheets Hub</a></li>
+                    <li><a href="../../projects/index.html">Project Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Teacher Hub</h4>
+                <ul class="footer-links">
+                    <li><a href="../../teacher-hub/index.html">Lesson Plans</a></li>
+                    <li><a href="../../paths/index.html">Curriculum Maps</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 BEI Coders. Dedicated to Beneficial Knowledge &amp; Digital Stewardship.</div>
+            <div>beicoders.vercel.app</div>
+        </div>
+    </footer>
+
+    <script src="../../js/bei-core.js"></script>
+</body>
+</html>

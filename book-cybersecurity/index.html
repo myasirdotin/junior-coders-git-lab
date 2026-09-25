@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cybersecurity &amp; Digital Hygiene for Junior Coders | LearnCode</title>
+  <meta name="description" content="Official Cybersecurity & Digital Hygiene Textbook: Master the CIA triad, password entropy, anti-phishing, OWASP Top 10 web defenses, XSS, SQL injection prevention, and cryptography.">
+  <link rel="stylesheet" href="../styles/book-theme.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { 
+      --primary-blue: #059669; 
+      --primary-accent: #10b981;
+      --cyber-badge: #047857;
+    }
+    .book-brand-icon { 
+      background: linear-gradient(135deg, #059669, #0d9488) !important; 
+      color: #fff; 
+      font-weight: 800; 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      width: 42px; 
+      height: 42px; 
+      border-radius: 10px; 
+      flex-shrink: 0; 
+      font-size: 20px;
+      font-family: var(--font-mono, monospace);
+    }
+    .cyber-brand-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.12);
+      color: #059669;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .chapter-nav-item.active a { 
+      background: #ecfdf5; 
+      color: #047857; 
+      border-left: 3px solid #059669; 
+      font-weight: 700;
+    }
+    .chapter-nav-item a:hover { 
+      color: #047857; 
+      background: #d1fae5; 
+    }
+    .book-subject-tabs {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .subject-tab {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 0.28rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+    .subject-tab:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .subject-tab.active {
+      background: #059669;
+      color: #ffffff;
+      border-color: #059669;
+    }
+    .code-wrapper { 
+      position: relative; 
+      background: #0f172a; 
+      border: 1px solid #334155; 
+      border-radius: 10px; 
+      margin: 1.5rem 0; 
+      overflow: hidden; 
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25); 
+    }
+    .code-wrapper-header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      background: #1e293b; 
+      padding: 0.5rem 1rem; 
+      border-bottom: 1px solid #334155; 
+      font-size: 0.8rem; 
+    }
+    .code-lang-label { 
+      font-family: var(--font-mono, monospace); 
+      color: #34d399; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      font-size: 0.75rem; 
+    }
+    .copy-btn { 
+      background: #334155; 
+      color: #cbd5e1; 
+      border: none; 
+      padding: 0.25rem 0.65rem; 
+      border-radius: 5px; 
+      font-size: 0.75rem; 
+      cursor: pointer; 
+      font-family: inherit; 
+      transition: all 0.15s; 
+    }
+    .copy-btn:hover { 
+      background: #059669; 
+      color: #fff; 
+    }
+    .copy-btn.copied { 
+      background: #10b981; 
+      color: #fff; 
+    }
+    .code-wrapper pre { 
+      margin: 0; 
+      padding: 1.25rem; 
+      overflow-x: auto; 
+      background: transparent; 
+      border: none; 
+    }
+    .code-wrapper pre code { 
+      font-family: var(--font-mono, 'Fira Code', monospace); 
+      font-size: 0.9rem; 
+      line-height: 1.6; 
+      color: #e2e8f0; 
+      background: transparent; 
+      padding: 0; 
+      border: none; 
+    }
+    .reader-header {
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .reader-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .reader-meta-item {
+      font-size: 0.82rem;
+      color: #64748b;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .reading-mode-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .reading-mode-btn:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .reading-mode-active .book-sidebar {
+      display: none !important;
+    }
+    .reading-mode-active .book-reader {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+  </style>
+</head>
+<body class="book-theme-body">
+  <!-- Mobile Navigation Header -->
+  <header class="book-mobile-header">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Table of Contents">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="mobile-book-title">
+      <span class="book-badge" style="background:#059669; color:#fff;">CYBERSECURITY</span>
+      <span>Junior Coders</span>
+    </div>
+    <a href="../index.html" class="mobile-home-btn" title="Back to Main Hub">🏠</a>
+  </header>
+
+  <div class="book-layout">
+    <!-- Sidebar / Table of Contents -->
+    <aside class="book-sidebar" id="bookSidebar">
+      <div class="book-sidebar-header">
+        <a href="../index.html" class="book-back-link">← Back to Hub</a>
+        <div class="book-brand">
+          <div class="book-brand-icon">🛡️</div>
+          <div>
+            <div class="cyber-brand-badge">Defense &amp; Trust Track</div>
+            <h1 class="book-main-title">Cybersecurity</h1>
+            <p class="book-subtitle">14 Chapters • Digital Hygiene</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-sidebar-search">
+        <input type="text" id="chapterSearch" placeholder="🔍 Search chapters..." aria-label="Search chapters">
+      </div>
+
+      <!-- Subject / Section filter tabs -->
+      <div style="padding: 0 1rem;">
+        <div class="book-subject-tabs" role="tablist" aria-label="Filter parts">
+          <button type="button" class="subject-tab active" onclick="filterCyberGroup('all', this)">All</button>
+          <button type="button" class="subject-tab" onclick="filterCyberGroup('foundations', this)">Foundations</button>
+          <button type="button" class="subject-tab" onclick="filterCyberGroup('phishing', this)">Phishing</button>
+          <button type="button" class="subject-tab" onclick="filterCyberGroup('owasp', this)">OWASP Web</button>
+          <button type="button" class="subject-tab" onclick="filterCyberGroup('hygiene', this)">Hygiene</button>
+        </div>
+      </div>
+
+      <nav class="book-nav" id="bookNav">
+        <!-- Part 1: Foundations of Security -->
+        <div class="part-group" data-group="foundations">
+          <div class="part-title">Part 1: Foundations of Security</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-01-foundations-of-security/ch01-the-mindset-of-digital-defense.md', this)">1. Mindset of Digital Defense</a></li>
+            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-01-foundations-of-security/ch02-authentication-passwords-and-mfa.md', this)">2. Passwords, Entropy &amp; MFA</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 2: Social Engineering & Phishing -->
+        <div class="part-group" data-group="phishing">
+          <div class="part-title">Part 2: Social Engineering &amp; Phishing</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-02-social-engineering-and-phishing/ch03-social-engineering-the-human-hack.md', this)">3. The Human Hack</a></li>
+            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-02-social-engineering-and-phishing/ch04-spotting-phishing-and-fraud.md', this)">4. Spotting Phishing &amp; Fraud</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 3: Web Application Vulnerabilities -->
+        <div class="part-group" data-group="owasp">
+          <div class="part-title">Part 3: Web Defense &amp; OWASP</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-03-web-application-vulnerabilities/ch05-owasp-top-10-overview.md', this)">5. The OWASP Top 10</a></li>
+            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-03-web-application-vulnerabilities/ch06-cross-site-scripting-xss.md', this)">6. Cross-Site Scripting (XSS)</a></li>
+            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-03-web-application-vulnerabilities/ch07-sql-injection-and-parameterized-queries.md', this)">7. SQL Injection Defense</a></li>
+            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-03-web-application-vulnerabilities/ch08-csrf-and-broken-access-control.md', this)">8. CSRF &amp; Broken Access</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 4: Cryptography & Secure Channels -->
+        <div class="part-group" data-group="foundations">
+          <div class="part-title">Part 4: Cryptography &amp; Channels</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-04-cryptography-and-secure-channels/ch09-hashing-vs-encryption-vs-encoding.md', this)">9. Hashing vs Encryption</a></li>
+            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-04-cryptography-and-secure-channels/ch10-vpn-public-wifi-and-traffic-sniffing.md', this)">10. Public Wi-Fi &amp; VPNs</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 5: Digital Hygiene & Privacy -->
+        <div class="part-group" data-group="hygiene">
+          <div class="part-title">Part 5: Digital Hygiene &amp; Privacy</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-05-digital-hygiene-and-privacy/ch11-device-hygiene-malware-and-updates.md', this)">11. Malware &amp; 3-2-1 Backups</a></li>
+            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-05-digital-hygiene-and-privacy/ch12-privacy-metadata-and-digital-footprints.md', this)">12. Metadata &amp; Privacy Hygiene</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 6: Incident Response & Capstone -->
+        <div class="part-group" data-group="hygiene">
+          <div class="part-title">Part 6: Forensics &amp; Capstone</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-06-incident-response-and-capstone/ch13-incident-response-and-forensics.md', this)">13. Incident Response &amp; Forensics</a></li>
+            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-06-incident-response-and-capstone/ch14-capstone-building-an-impenetrable-community-portal.md', this)">14. Capstone: Impenetrable Portal</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content Reader -->
+    <main class="book-reader book-content">
+      <div class="reader-top-nav">
+        <div class="reader-breadcrumb">
+          <a href="../index.html">LearnCode</a>
+          <span class="sep">/</span>
+          <span class="current" id="breadcrumbCurrent">Part 1: Foundations of Security</span>
+        </div>
+        <div class="reader-quick-actions">
+          <a href="../cheatsheet-cybersecurity.html" class="reader-nav-btn"><span>⚡</span> Cyber Cheatsheet</a>
+          <a href="../Learning Cybersecurity/learningcybersecurity.html" class="reader-nav-btn"><span>📚</span> Defense Studio</a>
+          <a href="../Learning Cybersecurity/playground.html" class="reader-nav-btn"><span>🧪</span> Security Lab</a>
+        </div>
+      </div>
+
+      <!-- Neural Speaker Control Bar -->
+      <div class="book-speaker-panel" id="book-speaker-bar">
+        <div class="book-speaker-left">
+          <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read chapter aloud">
+            <span class="speaker-icon" id="book-speaker-icon">🔊</span>
+            <span class="speaker-label" id="book-speaker-label">Listen to Chapter</span>
+          </button>
+          <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop reading" style="display:none;">
+            ⏹️ Stop
+          </button>
+          <div class="book-speaker-speed-wrap">
+            <label for="book-speaker-speed-select" class="book-speaker-speed-label">Speed:</label>
+            <select class="book-speaker-speed-select" id="book-speaker-speed-select">
+              <option value="0.8">0.8×</option>
+              <option value="0.95" selected>1.0×</option>
+              <option value="1.15">1.15×</option>
+              <option value="1.3">1.3×</option>
+            </select>
+          </div>
+          <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true">
+            <span class="bar bar-1"></span>
+            <span class="bar bar-2"></span>
+            <span class="bar bar-3"></span>
+            <span class="bar bar-4"></span>
+          </div>
+          <div class="book-speaker-status" id="book-speaker-status">
+            <span class="status-dot" id="book-speaker-dot"></span>
+            <span class="status-text" id="book-speaker-status-text">Ready to read</span>
+          </div>
+        </div>
+        <div class="book-speaker-right">
+          <span class="speaker-voice-name" id="book-speaker-voice-name">Natural Voice</span>
+        </div>
+      </div>
+
+      <header class="reader-header">
+        <div class="reader-meta">
+          <div class="font-size-controls">
+            <button type="button" class="font-size-btn" onclick="adjustFontSize(-1)" title="Decrease font size">A-</button>
+            <button type="button" class="font-size-btn" onclick="adjustFontSize(1)" title="Increase font size">A+</button>
+            <button type="button" class="reading-mode-btn" onclick="toggleReadingMode()" title="Toggle focused reading mode">
+              <span>📖</span>
+              <span class="btn-text">Reading Mode</span>
+            </button>
+            <span class="reader-meta-item" id="readTime">⏱️ 4 min read</span>
+          </div>
+        </div>
+      </header>
+
+      <article class="book-article" id="chapterContent">
+        <div id="chapterBody">
+          <!-- Chapter content dynamically rendered here -->
+        </div>
+      </article>
+
+      <div class="chapter-footer-nav" id="chapterFooterNav">
+        <!-- Previous / Next links dynamically inserted here -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Markdown Parser & Bundle Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="chapters-bundle.js"></script>
+  <script>
+    let currentChapterPath = '';
+
+    function filterCyberGroup(group, el) {
+      document.querySelectorAll('.subject-tab').forEach(b => b.classList.remove('active'));
+      if (el) el.classList.add('active');
+
+      document.querySelectorAll('.part-group').forEach(pg => {
+        if (group === 'all' || pg.getAttribute('data-group') === group) {
+          pg.style.display = '';
+        } else {
+          pg.style.display = 'none';
+        }
+      });
+    }
+
+    async function loadChapter(path, navElement) {
+      currentChapterPath = path;
+
+      document.querySelectorAll('.chapter-nav-item').forEach(i => i.classList.remove('active'));
+      if (navElement) {
+        const item = navElement.closest('.chapter-nav-item');
+        if (item) item.classList.add('active');
+      }
+
+      const chapterBody = document.getElementById('chapterBody');
+      chapterBody.innerHTML = '<div style="text-align:center;padding:3rem;color:#64748b;">Loading chapter...</div>';
+
+      try {
+        let md = '';
+        if (window.BOOK_CYBERSECURITY_CHAPTERS && window.BOOK_CYBERSECURITY_CHAPTERS[path]) {
+          md = window.BOOK_CYBERSECURITY_CHAPTERS[path];
+        } else {
+          const resp = await fetch(path);
+          if (!resp.ok) throw new Error('Failed to fetch chapter file');
+          md = await resp.text();
+        }
+
+        chapterBody.innerHTML = marked.parse(md);
+        enhanceCodeBlocks();
+
+        const wordCount = md.split(/\s+/).length;
+        document.getElementById('readTime').textContent = `⏱️ ${Math.ceil(wordCount / 180)} min read`;
+
+        const partGroup = navElement ? navElement.closest('.part-group') : null;
+        if (partGroup) {
+          const partTitle = partGroup.querySelector('.part-title').textContent;
+          document.getElementById('breadcrumbCurrent').textContent = partTitle;
+        }
+
+        buildFooterNav(path);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        if (window.BookSpeaker && typeof window.BookSpeaker.onChapterChange === 'function') {
+          window.BookSpeaker.onChapterChange();
+        }
+      } catch (err) {
+        chapterBody.innerHTML = `
+          <div style="padding: 2rem; background: #fef2f2; border: 1px solid #fecaca; border-radius: 12px; color: #991b1b;">
+            <h3>Error Loading Chapter</h3>
+            <p>${err.message}</p>
+            <p>If reading locally, please run <code>node scripts/bundle-books.js</code> to generate the offline chapter bundle.</p>
+          </div>
+        `;
+      }
+    }
+
+    function enhanceCodeBlocks() {
+      document.querySelectorAll('#chapterBody pre').forEach(pre => {
+        if (pre.closest('.code-wrapper')) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-wrapper';
+
+        const codeEl = pre.querySelector('code');
+        const lang = codeEl ? (codeEl.className.match(/language-(\w+)/) || [, 'bash'])[1] : 'bash';
+
+        const header = document.createElement('div');
+        header.className = 'code-wrapper-header';
+        header.innerHTML = `
+          <span class="code-lang-label">${lang}</span>
+          <button type="button" class="copy-btn" onclick="copySnippet(this)">Copy</button>
+        `;
+
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(header);
+        wrapper.appendChild(pre);
+      });
+    }
+
+    function copySnippet(btn) {
+      const code = btn.closest('.code-wrapper').querySelector('code').textContent;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = 'Copied! ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    function buildFooterNav(currentPath) {
+      const allLinks = Array.from(document.querySelectorAll('.chapter-nav-item a'));
+      const currentIndex = allLinks.findIndex(a => {
+        const onclick = a.getAttribute('onclick') || '';
+        return onclick.includes(currentPath);
+      });
+
+      const footer = document.getElementById('chapterFooterNav');
+      footer.innerHTML = '';
+
+      if (currentIndex > 0) {
+        const prevLink = allLinks[currentIndex - 1];
+        const prevBtn = document.createElement('a');
+        prevBtn.className = 'chapter-footer-btn prev';
+        prevBtn.innerHTML = `← Previous: ${prevLink.textContent}`;
+        prevBtn.onclick = (e) => { e.preventDefault(); prevLink.click(); };
+        footer.appendChild(prevBtn);
+      }
+
+      if (currentIndex >= 0 && currentIndex < allLinks.length - 1) {
+        const nextLink = allLinks[currentIndex + 1];
+        const nextBtn = document.createElement('a');
+        nextBtn.className = 'chapter-footer-btn next';
+        nextBtn.innerHTML = `Next: ${nextLink.textContent} →`;
+        nextBtn.onclick = (e) => { e.preventDefault(); nextLink.click(); };
+        footer.appendChild(nextBtn);
+      }
+    }
+
+    let currentFontSize = 16;
+    function adjustFontSize(delta) {
+      currentFontSize = Math.min(22, Math.max(13, currentFontSize + delta));
+      document.getElementById('chapterBody').style.fontSize = `${currentFontSize}px`;
+    }
+
+    function toggleReadingMode() {
+      document.body.classList.toggle('reading-mode-active');
+    }
+
+    document.getElementById('chapterSearch').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase().trim();
+      document.querySelectorAll('.chapter-nav-item').forEach(item => {
+        const txt = item.textContent.toLowerCase();
+        item.style.display = txt.includes(q) ? '' : 'none';
+      });
+    });
+
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', () => {
+        document.getElementById('bookSidebar').classList.toggle('open');
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      loadChapter('part-01-foundations-of-security/ch01-the-mindset-of-digital-defense.md', document.querySelector('.chapter-nav-item a'));
+    });
+  </script>
+  <script src="../js/book-speaker.js"></script>
+</body>
+</html>

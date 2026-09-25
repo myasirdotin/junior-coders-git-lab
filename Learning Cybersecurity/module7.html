@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 7: Master the distinctions between Encoding, Encryption, and Hashing, the Avalanche Effect, packet sniffing, and VPN security.">
+    <title>Module 7: Cryptography &amp; Secure Channels | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 3</span>
+            <h1 style="color: white; margin: 0.5rem 0;">Cryptography &amp; Secure Channels 🔐📡</h1>
+            <p>Differentiate encoding, encryption, and hashing. Protect communications on hostile public networks.</p>
+        </header>
+
+        <!-- Core Triad Comparison -->
+        <section class="content-section">
+            <h2>Encoding vs. Encryption vs. Hashing</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #64748b;">
+                    <h3>1. Encoding (Base64)</h3>
+                    <p>Changes data format for safe transport. <strong>NOT security!</strong> Anyone can reverse it instantly without a key.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3>2. Encryption (AES / RSA)</h3>
+                    <p>Scrambles data for secrecy. <strong>Reversible with the correct mathematical key.</strong></p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
+                    <h3>3. Hashing (SHA-256)</h3>
+                    <p>Fixed-size digital fingerprint. <strong>Strictly one-way. Impossible to reverse.</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Avalanche Effect -->
+        <section class="content-section">
+            <h2>The Cryptographic Avalanche Effect</h2>
+            <p>In secure cryptographic hash functions (like SHA-256), changing a single letter flips more than 50% of the output bits completely, preventing attackers from guessing patterns:</p>
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; font-size: 0.88rem; line-height: 1.8;">
+                "Salam" &nbsp;➔ <span style="color: #34d399;">a9f2bc88d74e...</span><br>
+                "Salam!" ➔ <span style="color: #38bdf8;">1b045e2c349a...</span> (Completely different 256-bit output!)
+            </div>
+        </section>
+
+        <!-- Public Wi-Fi & VPNs -->
+        <section class="content-section">
+            <h2>Public Wi-Fi Hazards &amp; VPN Protection</h2>
+            <p>On open coffee shop or airport Wi-Fi, malicious actors can sniff radio packets or launch "Evil Twin" rogue access points. Protect yourself with:</p>
+            <ul style="line-height: 1.8; color: #334155;">
+                <li><strong>HTTPS (TLS 1.3):</strong> Encrypts payload data so eavesdroppers only see garbled ciphertext.</li>
+                <li><strong>Virtual Private Network (VPN):</strong> Creates an encrypted tunnel that shields DNS queries and destination IPs from the local router.</li>
+            </ul>
+        </section>
+
+        <!-- Interactive Practice Challenge -->
+        <section class="content-section" style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #047857; margin-top: 0;">🧪 Your Turn: Live Hash Avalanche</h2>
+            <p>Go to the <a href="playground.html" style="color: #059669; font-weight: 700;">Cyber Defense Studio</a> tab <strong>SHA-256 Avalanche Lab</strong> and observe the real-time mathematical digest as you type!</p>
+        </section>
+
+        <!-- Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module6.html" class="btn-hero-secondary">← Module 6</a>
+            <a href="module8.html" class="btn-hero-primary">Next: Module 8 (Digital Hygiene &amp; Backups) →</a>
+        </footer>
+    </main>
+</body>
+</html>

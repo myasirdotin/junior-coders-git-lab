@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity &amp; Digital Hygiene Cheat Sheet | Junior Coders</title>
+    <meta name="description" content="A comprehensive Cybersecurity & Digital Hygiene cheat sheet for developers: CIA Triad, password entropy, modern hashing, OWASP defenses, prepared statements, HTTP headers, and cookie flags on one page.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .cyber-hero {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.25) 0%, rgba(15, 23, 42, 0.95) 100%);
+            border-bottom: 2px solid #059669;
+        }
+        .cyber-hdr {
+            background: linear-gradient(135deg, rgba(5, 150, 105, 0.2), rgba(15, 118, 110, 0.08));
+            color: #34d399;
+            border-bottom: 1px solid rgba(5, 150, 105, 0.3);
+        }
+        .cyber-table td:first-child {
+            font-family: var(--font-mono, monospace);
+            color: #34d399;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .code-box {
+            font-family: var(--font-mono, monospace);
+            background: #0f172a;
+            color: #e2e8f0;
+            padding: 0.6rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.82rem;
+            margin-top: 0.4rem;
+            line-height: 1.4;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="cheatsheet-hero cyber-hero">
+        <div class="cheatsheet-nav">
+            <a href="index.html" class="nav-back">← Back to Hub</a>
+            <span class="nav-tag">Security &amp; Hygiene • Quick Reference</span>
+        </div>
+        <h1>Cybersecurity &amp; Digital Hygiene Cheat Sheet 🛡️🔐</h1>
+        <p>Essential defense-in-depth reference: CIA triad, password entropy, OWASP web vulnerabilities, parameterized queries, HTTP security headers, and digital stewardship.</p>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+            <a href="book-cybersecurity/index.html" class="btn-hero-primary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem; background: #059669;">📖 14 Ch Textbook</a>
+            <a href="Learning Cybersecurity/learningcybersecurity.html" class="btn-hero-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">📚 8 Lessons Portal</a>
+            <a href="Learning Cybersecurity/playground.html" class="btn-hero-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">🧪 Defense Studio</a>
+        </div>
+    </header>
+
+    <main class="cheatsheet-grid">
+
+        <!-- 1. The CIA Triad & Core Principles -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cyber-hdr">
+                <span>🔺</span> The CIA Triad &amp; Ethics
+            </div>
+            <table class="cheat-table cyber-table">
+                <tr><td><code>Confidentiality</code></td><td>Data readable only by authorized entities (TLS, AES-256).</td></tr>
+                <tr><td><code>Integrity</code></td><td>Data cannot be tampered with or corrupted (SHA-256 HMAC).</td></tr>
+                <tr><td><code>Availability</code></td><td>Services operational when needed (DDoS mitigation, backups).</td></tr>
+                <tr><td><code>Amānah</code></td><td>Sacred trust: customer data must be actively defended.</td></tr>
+                <tr><td><code>Least Privilege</code></td><td>Grant entities only the minimum required access rights.</td></tr>
+                <tr><td><code>Defense in Depth</code></td><td>Concentric security rings; failure of one layer is survivable.</td></tr>
+            </table>
+        </div>
+
+        <!-- 2. Cryptography: Categories Compared -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cyber-hdr">
+                <span>🥩</span> Cryptography Categorization
+            </div>
+            <table class="cheat-table cyber-table">
+                <tr><td><code>Encoding</code></td><td>Representation transform (Base64, URL). <strong>Zero security.</strong></td></tr>
+                <tr><td><code>One-Way Hash</code></td><td>Irreversible checksum (SHA-256). Used for integrity &amp; signatures.</td></tr>
+                <tr><td><code>Key Derivation</code></td><td>Slow, memory-hard hashing for passwords (Argon2id, bcrypt).</td></tr>
+                <tr><td><code>Symmetric Enc</code></td><td>Single shared secret for encrypt &amp; decrypt (AES-256-GCM).</td></tr>
+                <tr><td><code>Asymmetric Enc</code></td><td>Public key encrypts, private key decrypts (RSA-4096, ECC/Ed25519).</td></tr>
+            </table>
+        </div>
+
+        <!-- 3. Password Entropy & Strength -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cyber-hdr">
+                <span>🎲</span> Password Entropy ($E = L \times \log_2(N)$)
+            </div>
+            <table class="cheat-table cyber-table">
+                <tr><td><code>&lt; 40 bits</code></td><td>Very Weak ➔ Cracked in seconds on consumer GPU.</td></tr>
+                <tr><td><code>40 – 60 bits</code></td><td>Moderate ➔ Cracked in hours to days by hash rigs.</td></tr>
+                <tr><td><code>60 – 80 bits</code></td><td>Strong ➔ Resistant to online and offline attacks (decades).</td></tr>
+                <tr><td><code>80+ bits</code></td><td>Military/Fortress ➔ 4+ random words passphrase (millennia).</td></tr>
+                <tr><td><code>Passphrase Rule</code></td><td>Length beats complexity: <code>correct-horse-battery-staple</code></td></tr>
+            </table>
+        </div>
+
+        <!-- 4. OWASP Top Web Defenses -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cyber-hdr">
+                <span>🛡️</span> OWASP Top Vulnerabilities &amp; Fixes
+            </div>
+            <table class="cheat-table cyber-table">
+                <tr><td><code>SQL Injection</code></td><td>Fix: 100% Prepared Statements / Parameterized Queries.</td></tr>
+                <tr><td><code>Cross-Site Scripting</code></td><td>Fix: Contextual HTML entity encoding + strict CSP.</td></tr>
+                <tr><td><code>CSRF</code></td><td>Fix: Synchronizer tokens + <code>SameSite=Strict</code> cookies.</td></tr>
+                <tr><td><code>Broken Auth</code></td><td>Fix: Argon2id hashing, rate limiting, and MFA/TOTP.</td></tr>
+                <tr><td><code>IDOR</code></td><td>Fix: Authorize tenant ownership on every database fetch.</td></tr>
+                <tr><td><code>Security Misconfig</code></td><td>Fix: Disable debug displays, close unused ports, enforce HTTPS.</td></tr>
+            </table>
+        </div>
+
+        <!-- 5. Defensive Prepared Statements Code -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cyber-hdr">
+                <span>💻</span> Safe SQL Prepared Statements
+            </div>
+            <div style="padding: 1rem;">
+                <p style="margin: 0 0 0.2rem; font-size: 0.85rem; color: #94a3b8; font-weight: 600;">PHP PDO (Safe)</p>
+                <div class="code-box">
+$stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");<br>
+$stmt->execute([$email]);<br>
+$user = $stmt->fetch();
+                </div>
+                <p style="margin: 0.75rem 0 0.2rem; font-size: 0.85rem; color: #94a3b8; font-weight: 600;">Node.js mysql2 (Safe)</p>
+                <div class="code-box">
+const [rows] = await db.execute(<br>
+&nbsp;&nbsp;'SELECT * FROM users WHERE email = ?',<br>
+&nbsp;&nbsp;[email]<br>
+);
+                </div>
+                <p style="margin: 0.75rem 0 0.2rem; font-size: 0.85rem; color: #94a3b8; font-weight: 600;">Python sqlite3 (Safe)</p>
+                <div class="code-box">
+cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. Password Hashing Implementation -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cyber-hdr">
+                <span>🔑</span> Proper Password Hashing
+            </div>
+            <div style="padding: 1rem;">
+                <p style="margin: 0 0 0.2rem; font-size: 0.85rem; color: #94a3b8; font-weight: 600;">PHP Argon2id Storage &amp; Verification</p>
+                <div class="code-box">
+// Secure registration hash:<br>
+$hash = password_hash($password, PASSWORD_ARGON2ID);<br><br>
+// Secure login verification:<br>
+if (password_verify($inputPassword, $hash)) {<br>
+&nbsp;&nbsp;// Identity authenticated<br>
+}
+                </div>
+                <div style="margin-top: 0.75rem; color: #ef4444; font-size: 0.82rem; font-weight: 600;">
+                    ❌ NEVER: <code>md5($pwd)</code> or <code>sha1($pwd)</code> or <code>hash('sha256', $pwd)</code>
+                </div>
+            </div>
+        </div>
+
+        <!-- 7. HTTP Security Headers -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cyber-hdr">
+                <span>🌐</span> HTTP Defensive Headers
+            </div>
+            <table class="cheat-table cyber-table">
+                <tr><td><code>Strict-Transport-Security</code></td><td><code>max-age=31536000; includeSubDomains</code></td></tr>
+                <tr><td><code>Content-Security-Policy</code></td><td><code>default-src 'self'; script-src 'self'</code></td></tr>
+                <tr><td><code>X-Frame-Options</code></td><td><code>DENY</code> (Prevents iframe clickjacking)</td></tr>
+                <tr><td><code>X-Content-Type-Options</code></td><td><code>nosniff</code> (Blocks MIME sniffing attacks)</td></tr>
+                <tr><td><code>Referrer-Policy</code></td><td><code>strict-origin-when-cross-origin</code></td></tr>
+                <tr><td><code>Permissions-Policy</code></td><td><code>camera=(), microphone=(), geolocation=()</code></td></tr>
+            </table>
+        </div>
+
+        <!-- 8. Cookie Security Flags -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cyber-hdr">
+                <span>🍪</span> Session Cookie Fortification
+            </div>
+            <table class="cheat-table cyber-table">
+                <tr><td><code>HttpOnly</code></td><td>Inaccessible to JavaScript; prevents XSS session theft.</td></tr>
+                <tr><td><code>Secure</code></td><td>Cookie transmitted exclusively over encrypted HTTPS/TLS.</td></tr>
+                <tr><td><code>SameSite=Strict</code></td><td>Blocked on cross-site requests; immune to CSRF exploits.</td></tr>
+                <tr><td><code>Path=/</code></td><td>Restricts cookie scope to intended application path.</td></tr>
+                <tr><td><code>Max-Age=3600</code></td><td>Explicit session expiration duration in seconds.</td></tr>
+            </table>
+        </div>
+
+        <!-- 9. Digital Hygiene & OpSec Checklist -->
+        <div class="cheat-card">
+            <div class="cheat-card-header cyber-hdr">
+                <span>🧼</span> Digital Hygiene Checklist
+            </div>
+            <table class="cheat-table cyber-table">
+                <tr><td><code>Password Manager</code></td><td>Unique 20+ character passwords for every single service.</td></tr>
+                <tr><td><code>MFA / TOTP</code></td><td>Authenticator apps or FIDO2 hardware keys on all core accounts.</td></tr>
+                <tr><td><code>3-2-1 Backups</code></td><td>3 copies, 2 media types, 1 offsite encrypted cold-storage copy.</td></tr>
+                <tr><td><code>EXIF Scrubbing</code></td><td>Strip GPS coordinates &amp; camera metadata from image uploads.</td></tr>
+                <tr><td><code>Public Wi-Fi</code></td><td>Never browse sensitive services on unencrypted public Wi-Fi without VPN.</td></tr>
+                <tr><td><code>Software Updates</code></td><td>Apply operating system and browser security patches immediately.</td></tr>
+            </table>
+        </div>
+
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: #64748b; font-size: 0.88rem; border-top: 1px solid #1e293b; margin-top: 3rem;">
+        LearnCode • Cybersecurity &amp; Digital Hygiene • Sacred Stewardship (*Amānah* &amp; *Iḥsān*)
+    </footer>
+
+</body>
+</html>

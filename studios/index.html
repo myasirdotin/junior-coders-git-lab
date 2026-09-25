@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Code Studios &amp; Sandboxes | BEI Coders</title>
+    <meta name="description" content="Zero-setup interactive coding sandboxes for school students: Web Studio (HTML/CSS/JS), Python in-browser console, and SQL playground.">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+</head>
+<body>
+
+    <nav class="bei-nav">
+        <div class="container bei-nav-inner">
+            <a href="../index.html" class="bei-logo">
+                <div class="bei-logo-icon">💻</div>
+                <div>
+                    BEI Coders
+                    <span class="bei-logo-sub">School Computer Science</span>
+                </div>
+            </a>
+            <ul class="bei-nav-links">
+                <li><a href="../learn/index.html" class="bei-nav-link">📚 Learn</a></li>
+                <li><a href="index.html" class="bei-nav-link active">⚡ Studios</a></li>
+                <li><a href="../library/books/index.html" class="bei-nav-link">📖 Textbooks</a></li>
+                <li><a href="../projects/index.html" class="bei-nav-link">🏆 Projects</a></li>
+                <li><a href="../paths/index.html" class="bei-nav-link">🗺️ Pathways</a></li>
+                <li><a href="../teacher-hub/index.html" class="bei-nav-link">🍎 Teachers</a></li>
+            </ul>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
+                <span class="placement-badge" id="studentXP" style="background: rgba(79,70,229,0.15); color: #818cf8; font-family: var(--font-mono);">120 XP</span>
+                <a href="web-studio/index.html" class="btn-nav-primary">Launch Web Studio ⚡</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">Home</a> <span>/</span>
+                <span>Studios</span>
+            </div>
+            <h1>Interactive Code Studios &amp; Sandboxes ⚡</h1>
+            <p class="lead">Zero setup. No software installs. Instant feedback. Test concepts immediately in your browser with live syntax validation and educational templates.</p>
+        </header>
+
+        <div class="gateways-grid">
+            <!-- 1. Web Studio -->
+            <div class="gateway-card web">
+                <div class="gateway-header">
+                    <div class="gateway-icon">🌐</div>
+                    <div>
+                        <span class="gateway-meta" style="color: var(--brand-cyan);">HTML • CSS • JS</span>
+                        <h3 class="gateway-title">Web Studio</h3>
+                    </div>
+                </div>
+                <p class="gateway-desc">A full-featured multi-tab code editor with instant live browser preview, desktop/tablet/mobile viewport toggles, and console output.</p>
+                <ul class="gateway-topics">
+                    <li>Side-by-side HTML, CSS &amp; JavaScript editing</li>
+                    <li>Preset starter templates (Charity, Portfolio, Game)</li>
+                    <li>Built-in live console and device simulation</li>
+                    <li>Export project as single-file bundle or zip</li>
+                </ul>
+                <a href="web-studio/index.html" class="btn-gateway">Launch Web Studio 🚀</a>
+            </div>
+
+            <!-- 2. Python Console -->
+            <div class="gateway-card ai">
+                <div class="gateway-header">
+                    <div class="gateway-icon">🐍</div>
+                    <div>
+                        <span class="gateway-meta" style="color: var(--brand-purple);">Python 3 In-Browser</span>
+                        <h3 class="gateway-title">Python Console</h3>
+                    </div>
+                </div>
+                <p class="gateway-desc">Run real Python algorithms, data structures, and math scripts directly in your browser with zero terminal installations.</p>
+                <ul class="gateway-topics">
+                    <li>Instant Python 3 syntax execution</li>
+                    <li>Preset algorithms (Sorting, Zakat math, Text analysis)</li>
+                    <li>Interactive standard input/output simulation</li>
+                    <li>Clear execution metrics and error highlights</li>
+                </ul>
+                <a href="python-console/index.html" class="btn-gateway">Open Python Console 🐍</a>
+            </div>
+
+            <!-- 3. SQL Sandbox -->
+            <div class="gateway-card" style="border-top: 5px solid #0284c7;">
+                <div class="gateway-header">
+                    <div class="gateway-icon">🗄️</div>
+                    <div>
+                        <span class="gateway-meta" style="color: #0284c7;">Relational Database</span>
+                        <h3 class="gateway-title">SQL Sandbox</h3>
+                    </div>
+                </div>
+                <p class="gateway-desc">Query relational database tables in memory. Test `SELECT`, `WHERE`, `JOIN`, and `GROUP BY` on pre-loaded educational datasets.</p>
+                <ul class="gateway-topics">
+                    <li>Pre-loaded tables: Students, Courses, Books, Donations</li>
+                    <li>Instant tabular query result rendering</li>
+                    <li>Visual table schema inspector</li>
+                    <li>Safe playground: reset database in 1 click</li>
+                </ul>
+                <a href="sql-sandbox/index.html" class="btn-gateway">Open SQL Sandbox 🗄️</a>
+            </div>
+
+            <!-- 4. Cyber Defense Studio -->
+            <div class="gateway-card foundations">
+                <div class="gateway-header">
+                    <div class="gateway-icon">🛡️</div>
+                    <div>
+                        <span class="gateway-meta" style="color: var(--brand-accent);">Security &amp; Hygiene</span>
+                        <h3 class="gateway-title">Cyber Defense Studio</h3>
+                    </div>
+                </div>
+                <p class="gateway-desc">5 interactive defensive tools: Password Entropy Calculator, XSS Sanitizer Sandbox, SQLi Visualizer, Phishing Detective, and SHA-256 Avalanche.</p>
+                <ul class="gateway-topics">
+                    <li>Password strength &amp; GPU cracking estimator</li>
+                    <li>Contextual HTML entity sanitization</li>
+                    <li>SQL injection exploit vs prepared statement</li>
+                    <li>Email header inspection for phishing detection</li>
+                </ul>
+                <a href="../Learning Cybersecurity/playground.html" class="btn-gateway">Open Defense Studio 🛡️</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bei-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="bei-logo">
+                    <div class="bei-logo-icon">💻</div>
+                    <span>BEI Coders</span>
+                </div>
+                <p>Empowering school students with foundational computing, creative web engineering, and ethical AI stewardship.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Studios</h4>
+                <ul class="footer-links">
+                    <li><a href="web-studio/index.html">Web Studio</a></li>
+                    <li><a href="python-console/index.html">Python Console</a></li>
+                    <li><a href="sql-sandbox/index.html">SQL Sandbox</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Learn</h4>
+                <ul class="footer-links">
+                    <li><a href="../learn/foundations/index.html">Foundations</a></li>
+                    <li><a href="../learn/web-dev/index.html">Web Development</a></li>
+                    <li><a href="../learn/python/index.html">Python &amp; Data</a></li>
+                    <li><a href="../learn/ai-lab/index.html">AI Literacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Library</h4>
+                <ul class="footer-links">
+                    <li><a href="../library/books/index.html">All 11 Textbooks</a></li>
+                    <li><a href="../library/cheatsheets/index.html">Cheat Sheets Hub</a></li>
+                    <li><a href="../projects/index.html">Project Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Teachers</h4>
+                <ul class="footer-links">
+                    <li><a href="../teacher-hub/index.html">Lesson Plans</a></li>
+                    <li><a href="../paths/index.html">Curriculum Maps</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 BEI Coders. Dedicated to Beneficial Knowledge &amp; Digital Stewardship.</div>
+            <div>beicoders.vercel.app</div>
+        </div>
+    </footer>
+
+    <script src="../js/bei-core.js"></script>
+</body>
+</html>

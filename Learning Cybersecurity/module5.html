@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 5: Defeat SQL Injection vulnerabilities. Learn how string concatenation breaks queries and how PDO Prepared Statements guarantee immunity.">
+    <title>Module 5: Database Defense &amp; SQLi | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 2</span>
+            <h1 style="color: white; margin: 0.5rem 0;">Database Defense: Defeating SQLi 💉🗄️</h1>
+            <p>Guarding the data vault. Discover how query concatenation creates vulnerabilities and how Prepared Statements eliminate them.</p>
+        </header>
+
+        <!-- Anatomy of SQL Injection -->
+        <section class="content-section">
+            <h2>How SQL Injection Works</h2>
+            <p>When user input is directly glued into an SQL command string, special characters like single quotes <code>'</code> allow an attacker to escape the data field and inject new SQL instructions:</p>
+            
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
+                // Vulnerable query template:<br>
+                $sql = "SELECT * FROM users WHERE user = '$username' AND pass = '$password'";<br><br>
+                // Attacker inputs username: <span style="color: #f87171;">admin' OR '1'='1' --</span><br><br>
+                // Constructed SQL command executed by database:<br>
+                SELECT * FROM users WHERE user = '<span style="color: #f87171;">admin' OR '1'='1' --</span>' AND pass = '...'<br>
+                <span style="color: #f59e0b;">(The '--' comments out the password check! The attacker is logged in as admin!)</span>
+            </div>
+        </section>
+
+        <!-- The Prepared Statement Shield -->
+        <section class="content-section">
+            <h2>The Silver Bullet: Prepared Statements (PDO)</h2>
+            <p>Prepared statements separate the <strong>SQL command structure</strong> from the <strong>user data</strong>. The database compiles the SQL logic first, ensuring user input is strictly treated as inert literal values:</p>
+
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
+                // ✅ 100% SECURE: Prepared Statement in PHP PDO<br>
+                $stmt = $pdo-&gt;prepare("SELECT id, password_hash FROM users WHERE username = :user");<br><br>
+                // Safely bind the parameter (immune to injection!)<br>
+                $stmt-&gt;execute([':user' => $_POST['username']]);<br>
+                $row = $stmt-&gt;fetch();<br><br>
+                if ($row &amp;&amp; password_verify($_POST['password'], $row['password_hash'])) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;// Welcome authorized user!<br>
+                }
+            </div>
+        </section>
+
+        <!-- Golden Rules -->
+        <section class="content-section">
+            <h2>The Three Database Security Rules (*Iḥsān*)</h2>
+            <ol style="line-height: 1.8; color: #334155; padding-left: 1.2rem;">
+                <li><strong>100% Parameterization:</strong> Never concatenate variables into SQL strings. Use prepared statements for every query.</li>
+                <li><strong>Principle of Least Privilege:</strong> The database account used by your web server should never have `DROP DATABASE` or superuser privileges.</li>
+                <li><strong>Never Expose Raw DB Errors:</strong> Catch PDO exceptions and log them internally. Never output raw database error messages to public web users!</li>
+            </ol>
+        </section>
+
+        <!-- Interactive Practice Challenge -->
+        <section class="content-section" style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #047857; margin-top: 0;">🧪 Your Turn: Live Query Visualizer</h2>
+            <p>Open the <a href="playground.html" style="color: #059669; font-weight: 700;">Cyber Defense Studio</a> tab <strong>SQL Injection Visualizer</strong> and test how prepared statements safely neutralize malicious input strings!</p>
+        </section>
+
+        <!-- Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module4.html" class="btn-hero-secondary">← Module 4</a>
+            <a href="module6.html" class="btn-hero-primary">Next: Module 6 (Access Control &amp; CSRF) →</a>
+        </footer>
+    </main>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 4: Master TCP handshakes, sequence numbers, UDP datagrams, port numbers, and network sockets.">
+    <title>Module 4: Transport Layer: TCP vs. UDP | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 2</span>
+            <h1 style="color: white; margin: 0.5rem 0;">Transport Layer: TCP vs. UDP 🚚⚡</h1>
+            <p>Guaranteed reliability vs. lightning-fast speed. Understand handshakes, sockets, and ports.</p>
+        </header>
+
+        <!-- TCP 3-Way Handshake -->
+        <section class="content-section">
+            <h2>The TCP 3-Way Handshake</h2>
+            <p>Before TCP transfers a single byte of data, it establishes an synchronized connection between client and server:</p>
+            
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
+                1. <strong>Client ➔ Server:</strong> <span style="color: #38bdf8;">[SYN]</span> (Seq=1000) "Let's connect! My sequence starts at 1000."<br>
+                2. <strong>Server ➔ Client:</strong> <span style="color: #34d399;">[SYN-ACK]</span> (Seq=5000, Ack=1001) "Got it! My sequence is 5000."<br>
+                3. <strong>Client ➔ Server:</strong> <span style="color: #fbbf24;">[ACK]</span> (Seq=1001, Ack=5001) "Acknowledged! Connection ESTABLISHED."
+            </div>
+        </section>
+
+        <!-- Comparison Table -->
+        <section class="content-section">
+            <h2>TCP vs. UDP Breakdown</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
+                    <h3>TCP (Transmission Control Protocol)</h3>
+                    <p>Guarantees delivery, preserves packet order, and handles retransmission.</p>
+                    <strong>Best for:</strong> Web pages (HTTP/HTTPS), email, banking, and file downloads.
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3>UDP (User Datagram Protocol)</h3>
+                    <p>Connectionless, ultra-low 8-byte header, zero handshake latency.</p>
+                    <strong>Best for:</strong> Live streaming, online multiplayer games, VoIP calls, and DNS queries.
+                </div>
+            </div>
+        </section>
+
+        <!-- Ports & Sockets -->
+        <section class="content-section">
+            <h2>Sockets = IP Address + Port Number</h2>
+            <p>Every network connection binds to a specific port on your operating system:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin-top: 1rem;">
+                <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
+                    <span style="color: #38bdf8; font-weight: 800; font-size: 1.2rem;">80</span><br>HTTP Web
+                </div>
+                <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
+                    <span style="color: #34d399; font-weight: 800; font-size: 1.2rem;">443</span><br>HTTPS Web
+                </div>
+                <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
+                    <span style="color: #fbbf24; font-weight: 800; font-size: 1.2rem;">22</span><br>SSH Shell
+                </div>
+                <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
+                    <span style="color: #f87171; font-weight: 800; font-size: 1.2rem;">53</span><br>DNS Queries
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Practice Challenge -->
+        <section class="content-section" style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #0369a1; margin-top: 0;">🧪 Your Turn: Test the Lab Handshake</h2>
+            <p>Visit the interactive <a href="playground.html" style="color: #0284c7; font-weight: 700;">Protocol Lab Studio</a> and click <strong>Start Handshake</strong> to watch SYN, SYN-ACK, and ACK packets fly between nodes in real time!</p>
+        </section>
+
+        <!-- Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module3.html" class="btn-hero-secondary">← Module 3</a>
+            <a href="module5.html" class="btn-hero-primary">Next: Module 5 (DNS) →</a>
+        </footer>
+    </main>
+</body>
+</html>

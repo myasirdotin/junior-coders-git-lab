@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mastery exercises for Cybersecurity & Digital Hygiene. Three-tier scaffolded challenges: Recall, Application, and Independent Security Architecture.">
+    <title>Cybersecurity Mastery Exercises | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .tier-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.25rem 0.65rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .tier-1 { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+        .tier-2 { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+        .tier-3 { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+        .exercise-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+    </style>
+</head>
+<body>
+    <div class="syllabus-container">
+        <header class="syllabus-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem 2rem; border-radius: 20px; margin-bottom: 2rem;">
+            <a href="learningcybersecurity.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem;">← Back to Cybersecurity Syllabus</a>
+            <h1 style="color: white; margin: 0.5rem 0 0.2rem;">Cybersecurity Mastery Exercises 🎯🛡️</h1>
+            <p style="margin: 0; opacity: 0.9;">Three tiers of deliberate practice to cement your defensive software engineering fluency.</p>
+        </header>
+
+        <!-- Tier 1: Recall & Warmup -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; color: #15803d;">
+                <span>🟢</span> Tier 1: Security Recall &amp; Warmup
+            </h2>
+            <p style="color: #64748b; margin-bottom: 1.25rem;">Core principles, CIA triad, and encoding vs hashing recognition.</p>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-1">Tier 1 • Exercise 1</span>
+                <h3 style="margin: 0 0 0.5rem;">The CIA Triad Classification</h3>
+                <p>Categorize the following three security incidents into Confidentiality, Integrity, or Availability:</p>
+                <ol style="margin-left: 1.2rem; color: #334155;">
+                    <li>A DDoS attack floods a school web server with junk traffic, taking it offline during exams.</li>
+                    <li>An unauthenticated visitor reads confidential donor names and private phone numbers from an API.</li>
+                    <li>An attacker modifies the account balance in a charity database from $10 to $10,000.</li>
+                </ol>
+                <details style="margin-top: 1rem; color: #059669; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>1. DDoS taking server offline ➔ Availability failure
+2. Unauthorized reading of donor names ➔ Confidentiality breach
+3. Tampering with account balances ➔ Integrity compromise</code></pre>
+                </details>
+            </div>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-1">Tier 1 • Exercise 2</span>
+                <h3 style="margin: 0 0 0.5rem;">Encoding vs. Encryption vs. Hashing</h3>
+                <p>Which transformation should you use for: (a) Storing a user's password, (b) Sending binary image data over a JSON REST API, and (c) Sending a confidential message across public Wi-Fi?</p>
+                <details style="margin-top: 1rem; color: #059669; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>(a) Storing a password ➔ Cryptographic Salted Hashing (Argon2id / bcrypt)
+(b) Sending binary image data in JSON ➔ Encoding (Base64)
+(c) Sending a confidential message over Wi-Fi ➔ Encryption (AES-256 / TLS 1.3)</code></pre>
+                </details>
+            </div>
+        </section>
+
+        <!-- Tier 2: Application & Modification -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; color: #b45309;">
+                <span>🟡</span> Tier 2: Application &amp; Modification
+            </h2>
+            <p style="color: #64748b; margin-bottom: 1.25rem;">Refactoring vulnerable code and parameterizing queries.</p>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-2">Tier 2 • Exercise 3</span>
+                <h3 style="margin: 0 0 0.5rem;">Refactoring Vulnerable SQL to PDO Prepared Statements</h3>
+                <p>Refactor this dangerous PHP code into a secure Prepared Statement that is immune to SQL injection:</p>
+                <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>// Vulnerable Code:
+$email = $_POST['email'];
+$query = "SELECT * FROM donors WHERE email = '" . $email . "'";
+$res = $db->query($query);</code></pre>
+                <details style="margin-top: 1rem; color: #059669; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>// Secure Refactored Code:
+$stmt = $pdo->prepare("SELECT * FROM donors WHERE email = :email");
+$stmt->execute([':email' => $_POST['email']]);
+$donor = $stmt->fetch();</code></pre>
+                </details>
+            </div>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-2">Tier 2 • Exercise 4</span>
+                <h3 style="margin: 0 0 0.5rem;">XSS Output Sanitization in PHP &amp; JavaScript</h3>
+                <p>Explain how to safely render a user-submitted greeting in both PHP (server-side) and vanilla JavaScript (DOM client-side).</p>
+                <details style="margin-top: 1rem; color: #059669; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>// In PHP:
+echo htmlspecialchars($greeting, ENT_QUOTES, 'UTF-8');
+
+// In JavaScript DOM:
+const greetingDiv = document.getElementById('greeting');
+greetingDiv.textContent = greeting; // (Never assign raw user data to innerHTML!)</code></pre>
+                </details>
+            </div>
+        </section>
+
+        <!-- Tier 3: Independent Security Architecture -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; color: #b91c1c;">
+                <span>🔴</span> Tier 3: Independent Security Architecture
+            </h2>
+            <p style="color: #64748b; margin-bottom: 1.25rem;">Designing defense-in-depth protection and solving authorization flaws.</p>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-3">Tier 3 • Exercise 5</span>
+                <h3 style="margin: 0 0 0.5rem;">Hardening an Online Exam Submission Endpoint</h3>
+                <p>Design the complete security checklist for a student exam submission form: protect against CSRF, rate-limit brute force submissions, validate file mime-types, and enforce ownership to prevent IDOR viewing of other students' exams.</p>
+                <details style="margin-top: 1rem; color: #059669; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>1. CSRF Defense: Include a cryptographically random session token in the form.
+2. HTTP Method: Use POST only with SameSite=Strict cookies.
+3. Access Control (IDOR): Check $_SESSION['student_id'] against the exam record.
+4. Input & File Validation: Verify file extension, check real MIME-type (finfo),
+   and re-encode file names (never use original user filename).
+5. Rate Limiting: Restrict submission attempts to 5 per minute per IP.
+6. Headers: Inject Content-Security-Policy, HSTS, and X-Content-Type-Options: nosniff.</code></pre>
+                </details>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

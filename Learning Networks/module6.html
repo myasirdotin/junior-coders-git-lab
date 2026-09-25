@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 6: Deep dive into HTTP requests, responses, status codes, headers, and the evolution to HTTP/2 and HTTP/3.">
+    <title>Module 6: HTTP Deep Dive &amp; Wire Format | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 2</span>
+            <h1 style="color: white; margin: 0.5rem 0;">HTTP Deep Dive &amp; Wire Format 📬</h1>
+            <p>The core protocol of the World Wide Web. Learn what travels through the wire when you click a button or fetch an API.</p>
+        </header>
+
+        <!-- Anatomy of Request & Response -->
+        <section class="content-section">
+            <h2>The RFC 7230 Wire Format</h2>
+            <p>Under the hood, HTTP/1.1 is plain text structured into three clean parts:</p>
+            
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
+                <span style="color: #38bdf8;">POST /api/v1/relief-supplies HTTP/1.1</span> &nbsp;&lt;-- Request Line<br>
+                Host: api.oasis-aid.org<br>
+                User-Agent: Mozilla/5.0<br>
+                Content-Type: application/json<br>
+                Content-Length: 42<br>
+                <br>
+                &lt;-- Empty Line (\r\n) separates headers from body<br>
+                <span style="color: #34d399;">{"item": "Blankets", "quantity": 500}</span> &nbsp;&lt;-- Request Body
+            </div>
+        </section>
+
+        <!-- Status Codes Classes -->
+        <section class="content-section">
+            <h2>The 5 HTTP Status Code Classes</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
+                    <h3>1xx Informational</h3>
+                    <p><code>101 Switching Protocols</code> (WebSocket handshake).</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3>2xx Success ✅</h3>
+                    <p><code>200 OK</code>, <code>201 Created</code>, <code>204 No Content</code>.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
+                    <h3>3xx Redirection 🔀</h3>
+                    <p><code>301 Moved Permanently</code>, <code>304 Not Modified</code>.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #dc2626;">
+                    <h3>4xx Client Error ⚠️</h3>
+                    <p><code>400 Bad Request</code>, <code>401 Unauthorized</code>, <code>404 Not Found</code>.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
+                    <h3>5xx Server Error 💥</h3>
+                    <p><code>500 Server Error</code>, <code>502 Bad Gateway</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTTP Evolution -->
+        <section class="content-section">
+            <h2>From HTTP/1.1 to HTTP/2 and HTTP/3</h2>
+            <ul style="line-height: 1.8; color: #334155;">
+                <li><strong>HTTP/1.1:</strong> Sequential text pipeline with Head-of-Line blocking.</li>
+                <li><strong>HTTP/2:</strong> Multiplexed binary streams over a single TCP connection with HPACK header compression.</li>
+                <li><strong>HTTP/3 (QUIC):</strong> Built on <strong>UDP</strong> with zero Head-of-Line blocking and seamless Wi-Fi-to-cellular connection migration!</li>
+            </ul>
+        </section>
+
+        <!-- Interactive Practice Challenge -->
+        <section class="content-section" style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #0369a1; margin-top: 0;">🧪 Your Turn: Curl Response Headers</h2>
+            <p>Use <code>curl</code> with the <code>-i</code> flag to inspect both the status line and headers:</p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># View raw headers from httpbin
+curl -i https://httpbin.org/status/200</code></pre>
+        </section>
+
+        <!-- Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module5.html" class="btn-hero-secondary">← Module 5</a>
+            <a href="module7.html" class="btn-hero-primary">Next: Module 7 (HTTPS &amp; TLS) →</a>
+        </footer>
+    </main>
+</body>
+</html>

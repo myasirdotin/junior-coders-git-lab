@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Computer Networking & Web Protocol Best Practices: Security guidelines, TLS configuration, CORS rules, and ethical stewardship (Amānah & Iḥsān).">
+    <title>Networking Best Practices &amp; Security | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <style>
+        .rule-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+        .rule-card h3 {
+            margin: 0 0 0.5rem;
+            color: #0f172a;
+            font-size: 1.15rem;
+        }
+        .code-good {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            font-family: monospace;
+            font-size: 0.88rem;
+        }
+        .code-bad {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+            font-family: monospace;
+            font-size: 0.88rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="syllabus-container">
+        <header class="syllabus-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem 2rem; border-radius: 20px; margin-bottom: 2rem;">
+            <a href="learningnetworks.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem;">← Back to Networks Syllabus</a>
+            <h1 style="color: white; margin: 0.5rem 0 0.2rem;">Networking Best Practices &amp; Security 🛡️✨</h1>
+            <p style="margin: 0; opacity: 0.9;">Building communication networks with diligence, integrity, and sacred trust (Amānah &amp; Iḥsān).</p>
+        </header>
+
+        <section>
+            <div class="rule-card">
+                <h3>1. Never Transmit Passwords or Secrets in Plaintext HTTP</h3>
+                <p style="color: #64748b; font-size: 0.92rem;">Plaintext HTTP passes through coffee shop routers, public proxies, and ISPs in readable form. Always enforce HTTPS with HSTS headers.</p>
+                <div class="code-good">✅ Good: https://api.oasis-aid.org (Encrypted with TLS 1.3)</div>
+                <div class="code-bad">❌ Bad: http://api.oasis-aid.org (Exposes passwords and tokens)</div>
+            </div>
+
+            <div class="rule-card">
+                <h3>2. Restrict CORS to Explicit, Trusted Origins</h3>
+                <p style="color: #64748b; font-size: 0.92rem;">Never use wildcard origins (<code>*</code>) for APIs that handle authentication tokens or user credentials.</p>
+                <div class="code-good">✅ Good: Access-Control-Allow-Origin: https://app.oasis-aid.org</div>
+                <div class="code-bad">❌ Bad: Access-Control-Allow-Origin: * (on authenticated endpoints)</div>
+            </div>
+
+            <div class="rule-card">
+                <h3>3. Protect Authentication Cookies with Secure &amp; HttpOnly</h3>
+                <p style="color: #64748b; font-size: 0.92rem;">Prevent cross-site script theft and ensure cookies only travel over encrypted channels.</p>
+                <div class="code-good">✅ Good: Set-Cookie: session=xyz; Secure; HttpOnly; SameSite=Strict</div>
+                <div class="code-bad">❌ Bad: Set-Cookie: session=xyz (Vulnerable to XSS theft)</div>
+            </div>
+
+            <div class="rule-card">
+                <h3>4. Respect Bandwidth &amp; Enable Compression (*Iḥsān*)</h3>
+                <p style="color: #64748b; font-size: 0.92rem;">Many students and communities in developing regions pay per megabyte on mobile connections. Enable Gzip or Brotli compression on all text responses to reduce size by 70–80%.</p>
+                <div class="code-good">✅ Good: Content-Encoding: br (or gzip)</div>
+                <div class="code-bad">❌ Bad: Serving raw uncompressed 5MB JSON dumps</div>
+            </div>
+
+            <div class="rule-card">
+                <h3>5. Firewall Unnecessary Open Ports</h3>
+                <p style="color: #64748b; font-size: 0.92rem;">Never expose database ports (e.g. 3306 for MySQL, 6379 for Redis) directly to the public Internet. Keep them strictly isolated in private VPC subnets.</p>
+                <div class="code-good">✅ Good: Port 443 public, Port 3306 bound to 127.0.0.1 or private subnet</div>
+                <div class="code-bad">❌ Bad: Binding MySQL to 0.0.0.0:3306 with no firewall</div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -65,12 +65,14 @@ The following custom subagents are configured to assist across each domain:
 - `@laravel-tutor`: Expert in MVC architecture, Eloquent ORM, Blade templating, migrations, and robust web applications.
 - `@python-tutor`: Expert in Python syntax, data structures, scripting, clean OOP, and data handling.
 - `@ml-tutor`: Expert in machine learning fundamentals, dataset curation, supervised algorithms, and ethical AI stewardship (*Amānah*).
+- `@network-tutor`: Expert in OSI & TCP/IP models, packet analysis, IP subnetting & CIDR, DNS hierarchy, HTTP/3, TLS cryptography, and web diagnostics.
+- `@security-tutor`: Expert in defensive cybersecurity, threat modeling, cryptographic hashing & key derivation, OWASP Top 10 mitigation (SQLi, XSS, CSRF, IDOR), HTTP security headers, and digital stewardship (*Amānah*).
 
 ---
 
 ## 3. Educational Priorities & Pedagogical Architecture
 
-1. **Textbooks as Single Source of Truth**: The interactive textbooks (`book-html/`, `book-css/`, `book-js/`, `book-cmd/`, `book-git/`, `book-php/`, `book-mysql/`, `book-laravel/`, `book-python/`) define the curriculum, mental models, code examples, and mastery questions. Interactive learning pages (`Learning HTML/`, `Learning CSS/`, `Learning Python/`, etc.) directly mirror textbook chapters.
+1. **Textbooks as Single Source of Truth**: The interactive textbooks (`book-html/`, `book-css/`, `book-js/`, `book-cmd/`, `book-git/`, `book-php/`, `book-mysql/`, `book-laravel/`, `book-python/`, `book-networks/`, `book-cybersecurity/`) define the curriculum, mental models, code examples, and mastery questions. Interactive learning pages (`Learning HTML/`, `Learning CSS/`, `Learning Python/`, `Learning Networks/`, `Learning Cybersecurity/`, etc.) directly mirror textbook chapters.
 2. **Scaffolded Learning Flow (No Leaps, No Premature Concepts)**:
    - Concepts must be taught in strict prerequisite order. Never use a concept, syntax, or method before it has been formally introduced.
    - Always bridge the gap from *mental analogy* $\rightarrow$ *syntax breakdown* $\rightarrow$ *isolated example* $\rightarrow$ *interactive practice* $\rightarrow$ *real-world application*.
@@ -80,7 +82,7 @@ The following custom subagents are configured to assist across each domain:
      - 🟡 **Level 2 (Application / Modification)**: Extending code and combining two concepts.
      - 🔴 **Level 3 (Creative Challenge / Problem-Solving)**: Building a complete miniature feature independently.
 4. **Offline-First Interactive Readers**: Every textbook contains pre-compiled `chapters-bundle.js` for instant local offline reading, Web Speech narration (`book-speaker.js`), reading mode, and code lab launch buttons.
-5. **Security & Ethical Stewardship by Design**: Server-side and AI modules enforce input sanitization, data privacy (*Amānah*), transparent decision-making, and parameterized statements from the very first lesson.
+5. **Security & Ethical Stewardship by Design**: Server-side, AI, networking, and security modules enforce input sanitization, data privacy (*Amānah*), transparent decision-making, and cryptographic security from the very first lesson.
 
 ---
 
@@ -95,6 +97,8 @@ The following custom subagents are configured to assist across each domain:
 - **Learning MySQL**: 6 modules covering database fundamentals, schemas, queries, joins, and relationships aligned with `book-mysql/`.
 - **Learning Laravel**: 8 modules covering MVC, routing, controllers, Blade, migrations, Eloquent, validation, and authentication aligned with `book-laravel/`.
 - **Learning Python & Machine Learning**: 8 core modules + 15 textbook chapters covering Python foundations, data processing, machine learning concepts, ethical AI stewardship (*Amānah*), and capstone classifiers aligned with `book-python/`.
+- **Computer Networking & Web Protocols**: 8 interactive modules + 14 textbook chapters covering OSI/TCP-IP models, IP subnetting, TCP/UDP, DNS, HTTP/3, TLS 1.3 encryption, and diagnostic tools aligned with `book-networks/`.
+- **Cybersecurity & Digital Hygiene**: 8 interactive modules + 14 textbook chapters covering CIA Triad, cryptographic primitives, authentication & password derivation, OWASP Top 10 web defenses, security headers, anti-phishing hygiene, and 3-2-1 backup resilience aligned with `book-cybersecurity/`.
 
 ---
 

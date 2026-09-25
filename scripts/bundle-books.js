@@ -57,4 +57,10 @@ if (fs.existsSync(path.join(root, 'book-cmd'))) {
 if (fs.existsSync(path.join(root, 'book-python'))) {
   bundleDir(path.join(root, 'book-python'), path.join(root, 'book-python', 'chapters-bundle.js'), 'BOOK_PYTHON_CHAPTERS');
 }
+if (fs.existsSync(path.join(root, 'book-networks'))) {
+  bundleDir(path.join(root, 'book-networks'), path.join(root, 'book-networks', 'chapters-bundle.js'), 'BOOK_NETWORKS_CHAPTERS');
+}
+if (fs.existsSync(path.join(root, 'book-cybersecurity'))) {
+  bundleDir(path.join(root, 'book-cybersecurity'), path.join(root, 'book-cybersecurity', 'chapters-bundle.js'), 'BOOK_CYBERSECURITY_CHAPTERS');
+}
 

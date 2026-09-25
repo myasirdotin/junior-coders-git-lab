@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Networking &amp; Web Protocols Cheat Sheet | Junior Coders</title>
+    <meta name="description" content="A complete Computer Networking & Web Protocols cheat sheet for junior coders. OSI layers, TCP/UDP, CIDR subnets, DNS records, HTTP status codes, TLS, and CLI diagnostics on one page.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .networks-hero {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(15, 23, 42, 0.95) 100%);
+            border-bottom: 2px solid #0284c7;
+        }
+        .networks-hdr {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.2), rgba(13, 148, 136, 0.08));
+            color: #38bdf8;
+            border-bottom: 1px solid rgba(2, 132, 199, 0.3);
+        }
+        .networks-table td:first-child {
+            font-family: var(--font-mono, monospace);
+            color: #38bdf8;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .pill-badge {
+            display: inline-block;
+            background: rgba(2, 132, 199, 0.15);
+            color: #38bdf8;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: var(--font-mono, monospace);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="cheatsheet-hero networks-hero">
+        <div class="cheatsheet-nav">
+            <a href="index.html" class="nav-back">← Back to Hub</a>
+            <span class="nav-tag">Core Systems • Quick Reference</span>
+        </div>
+        <h1>Computer Networking &amp; Web Protocols Cheat Sheet 🌐⚡</h1>
+        <p>Everything you need on one page: OSI layers, IP subnets, TCP/UDP, DNS records, HTTP status codes, TLS cryptography, and network diagnostics.</p>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+            <a href="book-networks/index.html" class="btn-hero-primary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">📖 14 Ch Textbook</a>
+            <a href="Learning Networks/learningnetworks.html" class="btn-hero-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">📚 8 Lessons Portal</a>
+            <a href="Learning Networks/playground.html" class="btn-hero-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">🧪 Protocol Studio</a>
+        </div>
+    </header>
+
+    <main class="cheatsheet-grid">
+
+        <!-- 1. The OSI & TCP/IP Layer Stack -->
+        <div class="cheat-card">
+            <div class="cheat-card-header networks-hdr">
+                <span>🧱</span> OSI &amp; TCP/IP Models
+            </div>
+            <table class="cheat-table networks-table">
+                <tr><td><code>7. Application</code></td><td>User software: HTTP, HTTPS, DNS, SSH, SMTP</td></tr>
+                <tr><td><code>6. Presentation</code></td><td>Encoding, TLS/SSL encryption, JSON, gzip</td></tr>
+                <tr><td><code>5. Session</code></td><td>Connection sessions, RPC, NetBIOS</td></tr>
+                <tr><td><code>4. Transport</code></td><td>End-to-end reliability: TCP (segments), UDP (datagrams)</td></tr>
+                <tr><td><code>3. Network</code></td><td>Logical routing: IP packets, ICMP, Routers</td></tr>
+                <tr><td><code>2. Data Link</code></td><td>Local physical hop: Ethernet frames, MAC addresses</td></tr>
+                <tr><td><code>1. Physical</code></td><td>Raw bits (0s &amp; 1s): Fiber cables, Cat6, Wi-Fi radio</td></tr>
+            </table>
+        </div>
+
+        <!-- 2. Essential Port Numbers -->
+        <div class="cheat-card">
+            <div class="cheat-card-header networks-hdr">
+                <span>🚪</span> Common Port Numbers
+            </div>
+            <table class="cheat-table networks-table">
+                <tr><td><code>Port 20, 21</code></td><td>FTP (File Transfer Protocol)</td></tr>
+                <tr><td><code>Port 22</code></td><td>SSH (Secure Shell encrypted terminal)</td></tr>
+                <tr><td><code>Port 25</code></td><td>SMTP (Outgoing email delivery)</td></tr>
+                <tr><td><code>Port 53</code></td><td>DNS (Domain Name queries via UDP/TCP)</td></tr>
+                <tr><td><code>Port 80</code></td><td>HTTP (Standard unencrypted web)</td></tr>
+                <tr><td><code>Port 443</code></td><td>HTTPS (Encrypted TLS web traffic)</td></tr>
+                <tr><td><code>Port 3306</code></td><td>MySQL Database service</td></tr>
+                <tr><td><code>Port 5432</code></td><td>PostgreSQL Database service</td></tr>
+                <tr><td><code>Port 6379</code></td><td>Redis In-Memory Data Store</td></tr>
+                <tr><td><code>Port 8080</code></td><td>Alternative HTTP / Local Web Development</td></tr>
+            </table>
+        </div>
+
+        <!-- 3. IPv4 CIDR Subnetting Matrix -->
+        <div class="cheat-card">
+            <div class="cheat-card-header networks-hdr">
+                <span>✂️</span> CIDR Subnetting Matrix
+            </div>
+            <table class="cheat-table networks-table">
+                <tr><td><code>/24</code></td><td>255.255.255.0 ➔ 256 total ➔ <strong>254 usable hosts</strong></td></tr>
+                <tr><td><code>/25</code></td><td>255.255.255.128 ➔ 128 total ➔ <strong>126 usable hosts</strong></td></tr>
+                <tr><td><code>/26</code></td><td>255.255.255.192 ➔ 64 total ➔ <strong>62 usable hosts</strong></td></tr>
+                <tr><td><code>/27</code></td><td>255.255.255.224 ➔ 32 total ➔ <strong>30 usable hosts</strong></td></tr>
+                <tr><td><code>/28</code></td><td>255.255.255.240 ➔ 16 total ➔ <strong>14 usable hosts</strong></td></tr>
+                <tr><td><code>/30</code></td><td>255.255.255.252 ➔ 4 total ➔ <strong>2 point-to-point hosts</strong></td></tr>
+                <tr><td><code>/32</code></td><td>255.255.255.255 ➔ <strong>Single host address</strong></td></tr>
+            </table>
+        </div>
+
+        <!-- 4. Private IP Ranges (RFC 1918) -->
+        <div class="cheat-card">
+            <div class="cheat-card-header networks-hdr">
+                <span>🏠</span> Special IP Address Ranges
+            </div>
+            <table class="cheat-table networks-table">
+                <tr><td><code>10.0.0.0/8</code></td><td>Class A Private: <code>10.0.0.0</code> – <code>10.255.255.255</code></td></tr>
+                <tr><td><code>172.16.0.0/12</code></td><td>Class B Private: <code>172.16.0.0</code> – <code>172.31.255.255</code></td></tr>
+                <tr><td><code>192.168.0.0/16</code></td><td>Class C Private: <code>192.168.0.0</code> – <code>192.168.255.255</code></td></tr>
+                <tr><td><code>127.0.0.1</code></td><td>Loopback / Localhost (your current machine)</td></tr>
+                <tr><td><code>0.0.0.0</code></td><td>All interfaces / Default route wildcard</td></tr>
+                <tr><td><code>::1</code></td><td>IPv6 Loopback equivalent of 127.0.0.1</td></tr>
+            </table>
+        </div>
+
+        <!-- 5. HTTP Methods -->
+        <div class="cheat-card">
+            <div class="cheat-card-header networks-hdr">
+                <span>🏷️</span> HTTP Methods (Verbs)
+            </div>
+            <table class="cheat-table networks-table">
+                <tr><td><code>GET</code></td><td>Retrieve resource (Safe &amp; Idempotent)</td></tr>
+                <tr><td><code>POST</code></td><td>Create resource / trigger action (Not Idempotent)</td></tr>
+                <tr><td><code>PUT</code></td><td>Replace resource completely (Idempotent)</td></tr>
+                <tr><td><code>PATCH</code></td><td>Partial update of resource fields</td></tr>
+                <tr><td><code>DELETE</code></td><td>Remove resource (Idempotent)</td></tr>
+                <tr><td><code>OPTIONS</code></td><td>CORS Preflight: check permitted methods/headers</td></tr>
+                <tr><td><code>HEAD</code></td><td>Same as GET, returns headers only (no body)</td></tr>
+            </table>
+        </div>
+
+        <!-- 6. HTTP Status Codes -->
+        <div class="cheat-card">
+            <div class="cheat-card-header networks-hdr">
+                <span>🚦</span> Common HTTP Status Codes
+            </div>
+            <table class="cheat-table networks-table">
+                <tr><td><code>200 OK</code></td><td>Successful request with body</td></tr>
+                <tr><td><code>201 Created</code></td><td>Resource successfully created (POST)</td></tr>
+                <tr><td><code>204 No Content</code></td><td>Action succeeded, no response body (DELETE)</td></tr>
+                <tr><td><code>301 Moved</code></td><td>Permanent redirect (updates SEO index)</td></tr>
+                <tr><td><code>304 Not Modified</code></td><td>Cached version is valid, zero body transferred</td></tr>
+                <tr><td><code>400 Bad Request</code></td><td>Malformed syntax or invalid input</td></tr>
+                <tr><td><code>401 Unauthorized</code></td><td>Authentication missing (login required)</td></tr>
+                <tr><td><code>403 Forbidden</code></td><td>Authenticated, but lacks permission</td></tr>
+                <tr><td><code>404 Not Found</code></td><td>Requested URL does not exist</td></tr>
+                <tr><td><code>429 Rate Limit</code></td><td>Too Many Requests sent in short window</td></tr>
+                <tr><td><code>500 Server Error</code></td><td>Crash or unhandled exception in backend code</td></tr>
+                <tr><td><code>502 Bad Gateway</code></td><td>Reverse proxy received invalid upstream reply</td></tr>
+            </table>
+        </div>
+
+        <!-- 7. DNS Record Types -->
+        <div class="cheat-card">
+            <div class="cheat-card-header networks-hdr">
+                <span>📖</span> DNS Record Types
+            </div>
+            <table class="cheat-table networks-table">
+                <tr><td><code>A</code></td><td>Domain name ➔ IPv4 Address (32-bit)</td></tr>
+                <tr><td><code>AAAA</code></td><td>Domain name ➔ IPv6 Address (128-bit)</td></tr>
+                <tr><td><code>CNAME</code></td><td>Canonical Name: alias pointing to another domain</td></tr>
+                <tr><td><code>MX</code></td><td>Mail Exchanger server and delivery priority</td></tr>
+                <tr><td><code>TXT</code></td><td>Text strings (SPF, DKIM, site ownership verification)</td></tr>
+                <tr><td><code>NS</code></td><td>Authoritative Name Server for the zone</td></tr>
+                <tr><td><code>PTR</code></td><td>Pointer record for Reverse DNS (IP ➔ Hostname)</td></tr>
+                <tr><td><code>TTL</code></td><td>Time To Live: seconds resolvers may cache record</td></tr>
+            </table>
+        </div>
+
+        <!-- 8. Web Security & Headers -->
+        <div class="cheat-card">
+            <div class="cheat-card-header networks-hdr">
+                <span>🛡️</span> Security &amp; CORS Headers
+            </div>
+            <table class="cheat-table networks-table">
+                <tr><td><code>Strict-Transport-Security</code></td><td>HSTS: Enforce HTTPS connections exclusively</td></tr>
+                <tr><td><code>Access-Control-Allow-Origin</code></td><td>CORS: Designate permitted client origins</td></tr>
+                <tr><td><code>Content-Security-Policy</code></td><td>CSP: Restrict authorized sources for scripts/media</td></tr>
+                <tr><td><code>Set-Cookie: HttpOnly</code></td><td>Blocks JavaScript from reading session cookies</td></tr>
+                <tr><td><code>Set-Cookie: Secure</code></td><td>Ensures cookies only transmit over encrypted TLS</td></tr>
+                <tr><td><code>Cache-Control: max-age</code></td><td>Specifies caching duration in seconds</td></tr>
+            </table>
+        </div>
+
+        <!-- 9. Essential Diagnostic Commands -->
+        <div class="cheat-card">
+            <div class="cheat-card-header networks-hdr">
+                <span>💻</span> CLI Diagnostic Commands
+            </div>
+            <table class="cheat-table networks-table">
+                <tr><td><code>ping &lt;host&gt;</code></td><td>Test ICMP reachability and round-trip latency</td></tr>
+                <tr><td><code>tracert / traceroute</code></td><td>Trace every intermediate router hop across the globe</td></tr>
+                <tr><td><code>curl -i &lt;url&gt;</code></td><td>Fetch URL and display status line &amp; HTTP headers</td></tr>
+                <tr><td><code>curl -X POST -d '{}'</code></td><td>Send custom HTTP POST request with JSON payload</td></tr>
+                <tr><td><code>nslookup &lt;domain&gt;</code></td><td>Query DNS records from local or remote resolver</td></tr>
+                <tr><td><code>netstat -ano</code></td><td>List active network sockets, PIDs, and listening ports</td></tr>
+                <tr><td><code>ipconfig / ip addr</code></td><td>Display local IP addresses, subnet masks, and gateway</td></tr>
+            </table>
+        </div>
+
+    </main>
+
+    <footer style="text-align: center; padding: 2rem; color: #64748b; font-size: 0.88rem; border-top: 1px solid #1e293b; margin-top: 3rem;">
+        LearnCode • Computer Networking &amp; Web Protocols • Digital Stewardship (Amānah &amp; Iḥsān)
+    </footer>
+
+</body>
+</html>

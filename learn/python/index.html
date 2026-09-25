@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python &amp; Data Logic Curriculum | BEI Coders</title>
+    <meta name="description" content="Python Programming Fundamentals and Data Logic curriculum for Grades 8–10: variables, loops, collections, file parsing, and zero-setup browser coding.">
+    <link rel="stylesheet" href="../../styles/bei-core.css">
+</head>
+<body>
+
+    <nav class="bei-nav">
+        <div class="container bei-nav-inner">
+            <a href="../../index.html" class="bei-logo">
+                <div class="bei-logo-icon">💻</div>
+                <div>
+                    BEI Coders
+                    <span class="bei-logo-sub">School Computer Science</span>
+                </div>
+            </a>
+            <ul class="bei-nav-links">
+                <li><a href="../index.html" class="bei-nav-link active">📚 Learn</a></li>
+                <li><a href="../../studios/index.html" class="bei-nav-link">⚡ Studios</a></li>
+                <li><a href="../../library/books/index.html" class="bei-nav-link">📖 Textbooks</a></li>
+                <li><a href="../../projects/index.html" class="bei-nav-link">🏆 Projects</a></li>
+                <li><a href="../../paths/index.html" class="bei-nav-link">🗺️ Pathways</a></li>
+                <li><a href="../../teacher-hub/index.html" class="bei-nav-link">🍎 Teachers</a></li>
+            </ul>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
+                <span class="placement-badge" id="studentXP" style="background: rgba(79,70,229,0.15); color: #818cf8; font-family: var(--font-mono);">120 XP</span>
+                <a href="../../studios/python-console/index.html" class="btn-nav-primary">Python Console 🐍</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- 1. Header with Breadcrumbs -->
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Home</a> <span>/</span>
+                <a href="../index.html">Learn</a> <span>/</span>
+                <span>Python</span>
+            </div>
+            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
+                <span class="placement-badge badge-ai">Grades 8–10</span>
+                <span class="placement-badge" style="background: rgba(37,99,235,0.15); color: #60a5fa;">Python 3 + Data Logic</span>
+            </div>
+            <h1>Python Programming &amp; Data Logic 🐍</h1>
+            <p class="lead">Python is the world’s most versatile programming language for school learners, scientific computing, and artificial intelligence. Learn algorithmic problem-solving with clean syntax, structured collections, file automation, and ethical data handling (*Amānah*).</p>
+        </header>
+
+        <!-- 2. Prerequisites & What You Will Learn -->
+        <section class="curriculum-meta-grid">
+            <div class="meta-box">
+                <h3 style="color: var(--brand-accent);">📋 Prerequisites</h3>
+                <ul>
+                    <li>Basic arithmetic (addition, subtraction, multiplication, division, modulo).</li>
+                    <li>Familiarity with files and typing (Foundations track recommended).</li>
+                    <li>No prior software installation needed—practice directly in our browser console.</li>
+                </ul>
+            </div>
+            <div class="meta-box">
+                <h3 style="color: var(--brand-primary);">🎯 What You Will Learn</h3>
+                <ul>
+                    <li>Variables, primitive types (int, float, str, bool), and expressions.</li>
+                    <li>Decision making: `if`, `elif`, `else`, comparison &amp; logical operators.</li>
+                    <li>Repetition and loops: `for` item loops, `range()`, and `while` logic.</li>
+                    <li>Data collections: Lists, tuples, sets, and key-value Dictionaries.</li>
+                    <li>Functions, modular code reuse, and reading/writing CSV &amp; JSON files.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 3. Clear Progression Map (Stepper) -->
+        <section class="progression-stepper">
+            <div class="stepper-head">
+                <h2>🗺️ Clear Progression Map</h2>
+                <p style="color: var(--text-secondary); font-size: 0.92rem;">A carefully scaffolded four-stage ascent from first print statement to independent data pipelines.</p>
+            </div>
+            <div class="steps-flow">
+                <div class="step-item" style="border-left-color: #3b82f6;">
+                    <div class="step-num" style="color: #3b82f6;">Step 01</div>
+                    <div class="step-title">Syntax &amp; Flow</div>
+                    <div class="step-desc">Input/output, variables, mathematical operators, and conditional branches.</div>
+                </div>
+                <div class="step-item" style="border-left-color: #6366f1;">
+                    <div class="step-num" style="color: #6366f1;">Step 02</div>
+                    <div class="step-title">Loops &amp; Functions</div>
+                    <div class="step-desc">For/while loops, accumulator patterns, parameter passing, and return values.</div>
+                </div>
+                <div class="step-item" style="border-left-color: #8b5cf6;">
+                    <div class="step-num" style="color: #8b5cf6;">Step 03</div>
+                    <div class="step-title">Collections &amp; Dicts</div>
+                    <div class="step-desc">List slicing, indexing, sorting, key-value mappings, and data filtering.</div>
+                </div>
+                <div class="step-item" style="border-left-color: #a855f7;">
+                    <div class="step-num" style="color: #a855f7;">Step 04</div>
+                    <div class="step-title">Files &amp; Automation</div>
+                    <div class="step-desc">Parsing CSV tables, JSON records, error handling (`try/except`), and ethics.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Modules Breakdown -->
+        <section class="modules-container">
+            <div class="section-head" style="text-align: left; margin-bottom: 1.75rem;">
+                <span class="eyebrow">Curriculum Roadmap</span>
+                <h2>Course Modules</h2>
+            </div>
+
+            <div class="modules-list">
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx">Module 1</span>
+                        <span class="module-time">40 mins</span>
+                    </div>
+                    <h3>Python Basics: Variables &amp; Data Types</h3>
+                    <p>Strings, integers, floats, booleans, and type conversion. Write interactive terminal prompts with `input()`.</p>
+                    <div class="module-footer">
+                        <a href="../../book-python/index.html" class="module-link">Read Textbook Ch 1–2 →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx">Module 2</span>
+                        <span class="module-time">45 mins</span>
+                    </div>
+                    <h3>Conditional Logic &amp; Truth Tables</h3>
+                    <p>Make algorithmic decisions using `if`, `elif`, `else`, `and`, `or`, and `not`. Build ethical grade and score calculators.</p>
+                    <div class="module-footer">
+                        <a href="../../book-python/index.html" class="module-link">Read Textbook Ch 3–4 →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx">Module 3</span>
+                        <span class="module-time">50 mins</span>
+                    </div>
+                    <h3>Loops &amp; Iteration</h3>
+                    <p>Automate repetitive tasks with `for item in sequence` and `while` loops. Master accumulators, running totals, and break conditions.</p>
+                    <div class="module-footer">
+                        <a href="../../book-python/index.html" class="module-link">Read Textbook Ch 5–6 →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx">Module 4</span>
+                        <span class="module-time">55 mins</span>
+                    </div>
+                    <h3>Lists &amp; Data Structures</h3>
+                    <p>Create, append, insert, pop, slice, and sort lists. Process batches of real-world measurements and student records.</p>
+                    <div class="module-footer">
+                        <a href="../../book-python/index.html" class="module-link">Read Textbook Ch 7–8 →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx">Module 5</span>
+                        <span class="module-time">50 mins</span>
+                    </div>
+                    <h3>Modular Functions &amp; Scope</h3>
+                    <p>Write clean, reusable functions with parameters, default arguments, and return values. Follow craftsmanship (*Iḥsān*).</p>
+                    <div class="module-footer">
+                        <a href="../../book-python/index.html" class="module-link">Read Textbook Ch 9–10 →</a>
+                    </div>
+                </div>
+
+                <div class="module-card">
+                    <div class="module-top">
+                        <span class="module-idx">Module 6</span>
+                        <span class="module-time">60 mins</span>
+                    </div>
+                    <h3>Dictionaries, CSV &amp; File I/O</h3>
+                    <p>Model real-world entities with key-value dictionaries. Read and write tabular CSV datasets without external libraries.</p>
+                    <div class="module-footer">
+                        <a href="../../book-python/index.html" class="module-link">Read Textbook Ch 11–12 →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Zero-Setup Interactive Practice -->
+        <section class="curriculum-action-banner">
+            <div class="action-banner-text">
+                <span class="placement-badge badge-ai" style="margin-bottom: 0.5rem;">Zero-Setup Practice</span>
+                <h3>Code Python Directly in Your Browser ⚡</h3>
+                <p>Run Python code instantly using our in-browser console. No installations, terminal setups, or environment headaches required.</p>
+            </div>
+            <div class="action-banner-btns">
+                <a href="../../studios/python-console/index.html" class="btn-hero-primary" style="background: var(--brand-purple);">🐍 Open Python Console</a>
+                <a href="../../cheatsheet-python.html" class="btn-hero-secondary">📄 Python Cheat Sheet</a>
+            </div>
+        </section>
+
+        <!-- 6. Capstone Project -->
+        <section class="meta-box" style="border: 2px solid var(--brand-purple); background: linear-gradient(135deg, rgba(124,58,237,0.06), transparent);">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem;">
+                <h3 style="color: #a855f7; font-size: 1.35rem; margin: 0;">🏆 Milestone Capstone: "Community Pantry Inventory &amp; Zakat Calculator"</h3>
+                <span class="placement-badge badge-ai">Silver Level Project</span>
+            </div>
+            <p style="color: var(--text-secondary); margin-bottom: 1.25rem;">
+                Build an automated command-line Python system that reads food donations from a CSV file, stores items in nested dictionaries, computes category totals, calculates charitable zakat distribution allocations, and outputs an audit report.
+            </p>
+            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                <a href="../../projects/index.html" class="btn-gateway" style="background: var(--brand-purple); color: white;">View Project Starter Kit &amp; Rubric →</a>
+                <a href="../../book-python/index.html" class="btn-gateway">Open 15-Chapter Python Textbook 📖</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bei-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="bei-logo">
+                    <div class="bei-logo-icon">💻</div>
+                    <span>BEI Coders</span>
+                </div>
+                <p>Empowering school students with foundational computing, creative web engineering, and ethical AI stewardship.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Learn Tracks</h4>
+                <ul class="footer-links">
+                    <li><a href="../foundations/index.html">Foundations</a></li>
+                    <li><a href="../web-dev/index.html">Web Development</a></li>
+                    <li><a href="index.html">Python &amp; Data</a></li>
+                    <li><a href="../ai-lab/index.html">AI Literacy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Studios</h4>
+                <ul class="footer-links">
+                    <li><a href="../../studios/web-studio/index.html">Web Studio</a></li>
+                    <li><a href="../../studios/python-console/index.html">Python Console</a></li>
+                    <li><a href="../../studios/sql-sandbox/index.html">SQL Sandbox</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Library</h4>
+                <ul class="footer-links">
+                    <li><a href="../../library/books/index.html">All 11 Textbooks</a></li>
+                    <li><a href="../../library/cheatsheets/index.html">Cheat Sheets Hub</a></li>
+                    <li><a href="../../projects/index.html">Project Catalog</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Teacher Hub</h4>
+                <ul class="footer-links">
+                    <li><a href="../../teacher-hub/index.html">Lesson Plans</a></li>
+                    <li><a href="../../paths/index.html">Curriculum Maps</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <div>&copy; 2026 BEI Coders. Dedicated to Beneficial Knowledge &amp; Digital Stewardship.</div>
+            <div>beicoders.vercel.app</div>
+        </div>
+    </footer>
+
+    <script src="../../js/bei-core.js"></script>
+</body>
+</html>

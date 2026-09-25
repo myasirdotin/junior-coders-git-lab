@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Studio (HTML, CSS &amp; JS Lab) | BEI Coders</title>
+    <meta name="description" content="Consolidated live Web Studio: edit HTML5, CSS3, and JavaScript side-by-side with instantaneous live preview and responsive device viewports.">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/bei-core.css">
+    <style>
+        .web-studio-page {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: var(--bg-page);
+        }
+        .studio-top-bar {
+            background: var(--bg-surface);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 0.6rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .studio-breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .studio-breadcrumbs a {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body class="web-studio-page ide-mode">
+
+    <!-- Top Bar Navigation -->
+    <header class="studio-top-bar">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <a href="../../index.html" class="bei-logo" style="font-size: 1.1rem;">
+                <div class="bei-logo-icon" style="width: 32px; height: 32px; font-size: 1rem;">💻</div>
+                <span>BEI Coders</span>
+            </a>
+            <div class="studio-breadcrumbs">
+                <span>/</span> <a href="../index.html">Studios</a>
+                <span>/</span> <span style="color: var(--text-primary); font-weight: 600;">Web Studio</span>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
+            <a href="../../learn/web-dev/index.html" class="btn-hero-secondary" style="padding: 0.4rem 0.85rem; font-size: 0.82rem;">📖 Web Curriculum</a>
+            <a href="../../library/cheatsheets/index.html" class="btn-hero-secondary" style="padding: 0.4rem 0.85rem; font-size: 0.82rem;">📋 Cheat Sheets</a>
+        </div>
+    </header>
+
+    <!-- Master Playground IDE -->
+    <div class="master-playground-container" style="height: calc(100vh - 80px); margin: 0.75rem 1rem;">
+        <!-- Editor Panel -->
+        <section class="ide-editor-panel">
+            <div class="ide-tabs">
+                <div class="ide-tabs-group">
+                    <button class="ide-tab active" data-tab="html">index.html</button>
+                    <button class="ide-tab" data-tab="css">style.css</button>
+                    <button class="ide-tab" data-tab="js">script.js</button>
+                </div>
+                <div class="ide-actions-group">
+                    <select id="ide-template-select" class="ide-template-select" aria-label="Choose Starter Template">
+                        <option value="default">⚡ Template: Welcome</option>
+                        <option value="profile">👤 Template: Profile Card</option>
+                        <option value="counter">🔢 Template: Interactive Counter</option>
+                        <option value="blank">📄 Template: Blank Canvas</option>
+                    </select>
+                    <button id="export-project-btn" class="ide-btn-export" title="Download standalone HTML file">
+                        <span>💾</span> <span>Export .html</span>
+                    </button>
+                </div>
+            </div>
+            <div class="ide-content-area">
+                <textarea id="master-html" class="ide-textarea active" spellcheck="false" placeholder="<!-- Write your HTML here -->
+<h1>My School Project</h1>
+<p>Edit HTML, CSS, and JS to see updates instantly!</p>"></textarea>
+                <textarea id="master-css" class="ide-textarea" spellcheck="false" placeholder="/* Write your CSS here */
+h1 {
+    color: #4f46e5;
+    font-family: sans-serif;
+}"></textarea>
+                <textarea id="master-js" class="ide-textarea" spellcheck="false" placeholder="// Write your JavaScript here
+console.log('Web Studio initialized. Ready to create!');"></textarea>
+            </div>
+            <!-- Console -->
+            <div class="ide-console" id="master-console">
+                <div class="console-entry">--- System Ready. Happy Coding! ---</div>
+            </div>
+        </section>
+
+        <!-- Preview Panel -->
+        <section class="ide-preview-panel">
+            <div class="preview-header">
+                <span class="preview-badge">Live Preview</span>
+                <div class="viewport-controls">
+                    <button class="viewport-btn active" data-width="100%">💻 Desktop</button>
+                    <button class="viewport-btn" data-width="768px">📟 Tablet</button>
+                    <button class="viewport-btn" data-width="375px">📱 Mobile</button>
+                </div>
+                <button class="btn-icon" onclick="window.location.reload()" title="Refresh Preview">🔄</button>
+            </div>
+            <iframe id="master-preview" title="Live code preview" sandbox="allow-scripts"></iframe>
+        </section>
+    </div>
+
+    <!-- Core Scripts -->
+    <script src="../../js/bei-core.js"></script>
+    <script src="../../js/core.js"></script>
+    <script src="../../js/playground.js"></script>
+</body>
+</html>

