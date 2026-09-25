@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BEI Coders | School Computer Science for Grades 6–10</title>
     <meta name="description" content="BEI Coders: Modern, ethical school computer science platform for Grades 6–10. Python, Web Development, AI Literacy, zero-setup interactive code studios, and textbooks.">
+    <!-- Social & Open Graph Cover Image -->
+    <meta property="og:title" content="BEI Coders | School Computer Science for Grades 6–10">
+    <meta property="og:description" content="Explore Python algorithms, Web Development, ethical AI, and zero-setup interactive coding studios for Grades 6–10.">
+    <meta property="og:image" content="assets/img/code-cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="assets/img/code-cover.jpg">
     <link rel="stylesheet" href="styles/bei-core.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
 </head>
@@ -17,27 +23,27 @@
         <div class="container bei-nav-inner">
             <a href="index.html" class="bei-logo">
                 <div class="bei-logo-icon">💻</div>
-                <div>
-                    BEI Coders
+                <div class="bei-logo-text">
+                    <span class="bei-brand-name">BEI Coders</span>
                     <span class="bei-logo-sub">School Computer Science</span>
                 </div>
             </a>
 
             <ul class="bei-nav-links">
-                <li><a href="learn/index.html" class="bei-nav-link">📚 Learn</a></li>
-                <li><a href="studios/index.html" class="bei-nav-link">⚡ Studios</a></li>
-                <li><a href="library/books/index.html" class="bei-nav-link">📖 Textbooks</a></li>
-                <li><a href="library/cheatsheets/index.html" class="bei-nav-link">📋 Cheatsheets</a></li>
-                <li><a href="projects/index.html" class="bei-nav-link">🏆 Projects</a></li>
-                <li><a href="paths/index.html" class="bei-nav-link">🗺️ Pathways</a></li>
-                <li><a href="teacher-hub/index.html" class="bei-nav-link">🍎 Teachers</a></li>
+                <li><a href="learn/index.html" class="bei-nav-link"><span class="nav-icon">📚</span><span>Learn</span></a></li>
+                <li><a href="studios/index.html" class="bei-nav-link"><span class="nav-icon">⚡</span><span>Studios</span></a></li>
+                <li><a href="library/books/index.html" class="bei-nav-link"><span class="nav-icon">📖</span><span>Textbooks</span></a></li>
+                <li><a href="library/cheatsheets/index.html" class="bei-nav-link"><span class="nav-icon">📋</span><span>Cheatsheets</span></a></li>
+                <li><a href="projects/index.html" class="bei-nav-link"><span class="nav-icon">🏆</span><span>Projects</span></a></li>
+                <li><a href="paths/index.html" class="bei-nav-link"><span class="nav-icon">🗺️</span><span>Pathways</span></a></li>
+                <li><a href="teacher-hub/index.html" class="bei-nav-link"><span class="nav-icon">🍎</span><span>Teachers</span></a></li>
             </ul>
 
             <div class="bei-nav-actions">
                 <button class="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Toggle theme">☀️</button>
-                <span class="placement-badge" id="studentXP" style="background: rgba(79,70,229,0.15); color: #818cf8; font-family: var(--font-mono); font-weight: 700;">120 XP</span>
+                <div class="nav-xp-badge" id="studentXP" title="Student Experience Points">⚡ 120 XP</div>
                 <a href="studios/web-studio/index.html" class="btn-nav-primary">Launch Studio ⚡</a>
-                <button class="mobile-toggle" aria-label="Toggle menu">☰</button>
+                <button class="mobile-toggle" aria-label="Toggle navigation menu">☰</button>
             </div>
         </div>
     </nav>
@@ -65,6 +71,38 @@
                 <a href="teacher-hub/index.html" class="btn-hero-secondary">
                     <span>🍎</span> Educator Portal
                 </a>
+            </div>
+
+            <!-- ═════════════════════════════════════════════════════════
+                 HERO CODE VISUAL SHOWCASE (IDE WINDOW)
+                 ═════════════════════════════════════════════════════════ -->
+            <div class="hero-visual-container">
+                <div class="hero-visual-frame">
+                    <div class="hero-window-header">
+                        <div class="window-controls">
+                            <span class="ctrl-dot red" title="Close"></span>
+                            <span class="ctrl-dot yellow" title="Minimize"></span>
+                            <span class="ctrl-dot green" title="Expand"></span>
+                        </div>
+                        <div class="window-tabs">
+                            <span class="window-tab active"><span>🐍</span> main.py</span>
+                            <span class="window-tab"><span>🌐</span> index.html</span>
+                            <span class="window-tab"><span>🎨</span> styles.css</span>
+                            <span class="window-tab"><span>🗄️</span> schema.sql</span>
+                        </div>
+                        <div class="window-badge">
+                            <span class="live-dot"></span> Interactive Studio
+                        </div>
+                    </div>
+                    <div class="hero-image-wrapper">
+                        <img src="assets/img/code-cover.jpg" alt="BEI Coders Creative Coding, Python and Web Development Showcase" class="hero-cover-img" loading="eager">
+                        <div class="hero-image-overlay">
+                            <div class="overlay-pill">
+                                <span>🚀</span> Zero-setup Interactive Practice in Your Browser
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- ═════════════════════════════════════════════════════════════
