@@ -85,45 +85,59 @@ function initPlacementWidget() {
     });
 }
 
-// Mobile Nav Toggle
+// Mobile Nav Toggle & Responsive Drawer
 function initMobileNav() {
+    const nav = document.querySelector('.bei-nav');
     const toggle = document.querySelector('.mobile-toggle');
-    const links = document.querySelector('.bei-nav-links');
-    if (toggle && links) {
-        toggle.addEventListener('click', () => {
-            const isVisible = links.style.display === 'flex';
-            links.style.display = isVisible ? 'none' : 'flex';
-            if (!isVisible) {
-                links.style.flexDirection = 'column';
-                links.style.position = 'absolute';
-                links.style.top = '70px';
-                links.style.left = '0';
-                links.style.right = '0';
-                links.style.background = 'var(--bg-surface)';
-                links.style.padding = '1.5rem';
-                links.style.borderBottom = '1px solid var(--border-subtle)';
-            }
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = nav.classList.toggle('mobile-active');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        toggle.innerHTML = isOpen ? '✕' : '☰';
+    });
+
+    // Close when clicking any nav link
+    const links = nav.querySelectorAll('.bei-nav-link');
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('mobile-active');
+            toggle.innerHTML = '☰';
+            toggle.setAttribute('aria-expanded', 'false');
         });
-    }
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target)) {
+            nav.classList.remove('mobile-active');
+            toggle.innerHTML = '☰';
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+    });
 }
 
 // Student Progress / XP Feeling
 function initStudentXP() {
     let xp = parseInt(localStorage.getItem('bei_student_xp') || '120', 10);
-    const xpBadge = document.getElementById('studentXP');
-    if (xpBadge) {
-        xpBadge.innerText = `${xp} XP`;
-    }
+    const xpBadges = document.querySelectorAll('#studentXP, .nav-xp-badge');
+    xpBadges.forEach(badge => {
+        badge.innerHTML = `<span class="xp-icon">⚡</span> ${xp} XP`;
+    });
 }
 
 function awardXP(points, reason) {
     let xp = parseInt(localStorage.getItem('bei_student_xp') || '120', 10) + points;
     localStorage.setItem('bei_student_xp', xp.toString());
-    const xpBadge = document.getElementById('studentXP');
-    if (xpBadge) {
-        xpBadge.innerText = `${xp} XP`;
-    }
+    const xpBadges = document.querySelectorAll('#studentXP, .nav-xp-badge');
+    xpBadges.forEach(badge => {
+        badge.innerHTML = `<span class="xp-icon">⚡</span> ${xp} XP`;
+        badge.classList.add('xp-pulse');
+        setTimeout(() => badge.classList.remove('xp-pulse'), 800);
+    });
     console.log(`Earned ${points} XP for: ${reason}`);
 }
 
 window.awardXP = awardXP;
+
