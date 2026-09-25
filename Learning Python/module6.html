@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 6: Learn file handling in Python, context managers (with open), CSV and JSON parsing.">
+    <title>Module 6: Files &amp; Datasets | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #2563eb, #0284c7); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #2563eb; font-weight: 800;">Level 6</span>
+            <h1 style="color: white; margin: 0.5rem 0;">The Persistent Archive 📁📊</h1>
+            <p>Save information permanently to disk. Read and write text files, CSV tables, and JSON datasets.</p>
+        </header>
+
+        <!-- Concept -->
+        <section class="content-section">
+            <h2>Context Managers: <code>with open(...)</code></h2>
+            <p>Always use the <code>with</code> statement when working with files in Python. It guarantees that the file is safely closed when you are finished, preventing data corruption.</p>
+            
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
+                <span style="color: #60a5fa;">with</span> open(<span style="color: #34d399;">"solar_log.txt"</span>, <span style="color: #34d399;">"w"</span>, encoding=<span style="color: #34d399;">"utf-8"</span>) <span style="color: #60a5fa;">as</span> file:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;file.write(<span style="color: #34d399;">"Harvested 45.2 kWh today\n"</span>)
+            </div>
+        </section>
+
+        <!-- CSV & JSON -->
+        <section class="content-section">
+            <h2>CSV vs JSON Formats</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3>CSV (Spreadsheet Rows)</h3>
+                    <p>Comma-separated text table. Use Python's <code>csv.DictReader</code> to process rows as dictionaries.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #2563eb;">
+                    <h3>JSON (Web Data &amp; APIs)</h3>
+                    <p>Hierarchical key-value structures. Directly converts to Python dictionaries with <code>json.load()</code>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Challenge -->
+        <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Logging Science Lab Observations</h2>
+            <p>Write an entry to an experimental observation log:</p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Append a new observation to log
+observation = "Sample #4: Olive seedling growth +1.2 cm under morning sunlight.\n"
+
+with open("seedling_journal.txt", "a", encoding="utf-8") as journal:
+    journal.write(observation)
+
+print("Observation safely recorded in seedling_journal.txt!")</code></pre>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module5.html" class="btn-hero-secondary">← Module 5 (Functions)</a>
+            <a href="module7.html" class="btn-hero-primary">Next: Module 7 (What is ML?) →</a>
+        </footer>
+    </main>
+</body>
+</html>

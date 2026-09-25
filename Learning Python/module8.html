@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 8: Supervised Learning, decision boundaries, accuracy evaluation, and Islamic AI ethics (Amānah & Iḥsān).">
+    <title>Module 8: Supervised AI &amp; Ethical Stewardship | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #2563eb, #0284c7); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #2563eb; font-weight: 800;">Level 8</span>
+            <h1 style="color: white; margin: 0.5rem 0;">The Ethical Intelligence Builder 🛡️🌟</h1>
+            <p>Build real classification logic and anchor machine learning in moral stewardship (Amānah and Iḥsān).</p>
+        </header>
+
+        <!-- Concept -->
+        <section class="content-section">
+            <h2>Classification: Sorting with Intelligence</h2>
+            <p>A classifier takes input features and assigns them to a discrete class. For example, sorting water samples into <em>Safe Drinkable Water</em> or <em>Needs Filtration</em>.</p>
+            
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
+                <span style="color: #60a5fa;">def</span> <span style="color: #34d399;">evaluate_water_safety</span>(turbidity, ph_level):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">if</span> turbidity &lt; <span style="color: #eab308;">5.0</span> <span style="color: #60a5fa;">and</span> <span style="color: #eab308;">6.5</span> &lt;= ph_level &lt;= <span style="color: #eab308;">8.5</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">return</span> <span style="color: #34d399;">"Safe Potable Water 💧"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">return</span> <span style="color: #f87171;">"Filter Required ⚠️"</span>
+            </div>
+        </section>
+
+        <!-- Ethical AI Principles -->
+        <section class="content-section">
+            <h2>The Islamic AI Ethics Framework</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3>1. Digital Trust (*Amānah*)</h3>
+                    <p>User privacy is a sacred trust. Never scrape or train models on personal data without permission.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #2563eb;">
+                    <h3>2. Beneficial Knowledge (*'Ilm Nāfi'*)</h3>
+                    <p>Channel AI toward positive human challenges: health, clean water, education, and community solidarity.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #dc2626;">
+                    <h3>3. Strictly Prohibited (*Ḥarām*)</h3>
+                    <p>No interest/usury models (*Ribā*), gambling prediction (*Maysir*), deepfake deception, or predatory algorithms.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Challenge -->
+        <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Test Set Accuracy Calculator</h2>
+            <p>Calculate the accuracy of a disease prediction model across 5 test samples:</p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>actual = ["Safe", "Contaminated", "Safe", "Safe", "Contaminated"]
+predicted = ["Safe", "Contaminated", "Safe", "Safe", "Safe"] # 1 error on last sample
+
+correct = sum(1 for a, p in zip(actual, predicted) if a == p)
+accuracy = (correct / len(actual)) * 100
+
+print(f"Accuracy: {accuracy:.1f}% ({correct}/{len(actual)} correct)")</code></pre>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module7.html" class="btn-hero-secondary">← Module 7 (What is ML?)</a>
+            <a href="exercises.html" class="btn-hero-primary">Practice: Mastery Exercises →</a>
+        </footer>
+    </main>
+</body>
+</html>

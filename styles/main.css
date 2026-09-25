@@ -13,6 +13,7 @@
     --php-brand: #7c3aed;
     --mysql-brand: #00b4d8;
     --laravel-brand: #ff2d20;
+    --python-brand: #2563eb;
 
     --bg-main: #0f172a;
     --bg-card: rgba(30, 41, 59, 0.7);
@@ -3511,6 +3512,16 @@ select:focus-visible {
     border: 1px solid rgba(255, 45, 32, 0.3);
 }
 
+.course-card.python::before {
+    background: var(--python-brand);
+}
+
+.course-level.python-level {
+    background: rgba(37, 99, 235, 0.15);
+    color: var(--python-brand);
+    border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
 /* Module header gradients */
 .module-header.path-php {
     background: linear-gradient(135deg, #7c3aed, #6d28d9);
@@ -3524,6 +3535,10 @@ select:focus-visible {
     background: linear-gradient(135deg, #ff2d20, #dc2626);
 }
 
+.module-header.path-python {
+    background: linear-gradient(135deg, #2563eb, #0284c7);
+}
+
 /* Cheat sheet hero headers */
 .cheat-hero.php-hero {
     background: linear-gradient(135deg, #7c3aed, #6d28d9);
@@ -3535,6 +3550,10 @@ select:focus-visible {
 
 .cheat-hero.laravel-hero {
     background: linear-gradient(135deg, #ff2d20, #dc2626);
+}
+
+.cheat-hero.python-hero {
+    background: linear-gradient(135deg, #2563eb, #0284c7);
 }
 
 /* ═══════════════════════════════════════════════════════════════
@@ -5450,6 +5469,12 @@ body:not([data-theme="light"]) .book-companion-text span {
     --card-accent: #ef4444;
     --card-accent-bg: linear-gradient(135deg, #ef4444, #dc2626);
     --card-glow: rgba(239, 68, 68, 0.25);
+}
+
+.compact-book-card.theme-python {
+    --card-accent: #2563eb;
+    --card-accent-bg: linear-gradient(135deg, #2563eb, #0284c7);
+    --card-glow: rgba(37, 99, 235, 0.25);
 }
 
 /* Light Mode Overrides for Textbook Shelf */

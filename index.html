@@ -36,7 +36,7 @@
                         <span>⚡</span> Launch Master IDE
                     </a>
                     <a href="#textbooks-section" class="btn-hero-secondary">
-                        <span>📖</span> 8 Textbooks (Audio TTS)
+                        <span>📖</span> 9 Textbooks (Audio TTS)
                     </a>
                     <a href="getting-started.html" class="btn-hero-secondary">
                         <span>🚀</span> Beginner Guide
@@ -48,7 +48,8 @@
                     <a href="#frontend-paths" class="hero-v2-tag">🌐 Frontend (Grades 6–8)</a>
                     <a href="#tooling-bridge" class="hero-v2-tag">💻 CLI &amp; Git Tooling</a>
                     <a href="#backend-paths" class="hero-v2-tag">🗄️ Backend (Grade 9)</a>
-                    <a href="#textbooks-section" class="hero-v2-tag">📚 8 Official Books</a>
+                    <a href="#ai-paths" class="hero-v2-tag">🤖 Python &amp; AI (Grades 8–10)</a>
+                    <a href="#textbooks-section" class="hero-v2-tag">📚 9 Official Books</a>
                     <a href="#quick-resources" class="hero-v2-tag">📋 Cheat Sheets</a>
                 </div>
             </div>
@@ -410,13 +411,40 @@
             </section>
 
             <!-- ═══════════════════════════════════════════════════════════════
-                 THE 8 OFFICIAL TEXTBOOKS SECTION (COMPACT CAROUSEL SHELF)
+                 PHASE 4: APPLIED AI & MACHINE LEARNING (CLASSES 8–10)
+                 ═══════════════════════════════════════════════════════════════ -->
+            <section style="margin-top: 4rem;" id="ai-paths">
+                <div class="fullstack-bridge" style="background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(2,132,199,0.08)); border-color: rgba(37,99,235,0.3);">
+                    <span style="font-size: 2.2rem;">🤖</span>
+                    <div>
+                        <h3 style="margin: 0 0 0.35rem; font-size: 1.35rem;">Phase 4: Applied AI, Python &amp; Machine Learning (Classes 8–10)</h3>
+                        <p style="margin: 0; opacity: 0.88; font-size: 0.94rem; line-height: 1.6;">Graduate from traditional coding to intelligent systems that learn from data! Master Python syntax, structured datasets (CSV &amp; JSON), supervised classification, and Islamic AI ethics (<em>Amānah &amp; Iḥsān</em>).</p>
+                    </div>
+                </div>
+
+                <div class="course-grid" aria-label="AI and Python Learning Paths" style="margin-top: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+                    <div class="course-card python" style="display: flex; flex-direction: column;">
+                        <span class="course-level python-level">Class 8–10 AI Track</span>
+                        <div class="icon-wrapper">🐍</div>
+                        <h2>Python &amp; Machine Learning</h2>
+                        <p>From algorithmic programming to intelligent systems: variables, loops, collections, file I/O, tabular datasets, supervised learning, and ethical AI stewardship.</p>
+                        <div style="margin-top: auto; display: flex; gap: 0.4rem; width: 100%; flex-wrap: wrap;">
+                            <a href="book-python/index.html" class="badge" style="flex: 1; text-decoration: none; text-align: center; background: rgba(37,99,235,0.2); color: #93c5fd;">📖 15 Ch Book</a>
+                            <a href="Learning Python/learningpython.html" class="badge" style="flex: 1; text-decoration: none; text-align: center;">📚 8 Lessons</a>
+                            <a href="Learning Python/playground.html" class="badge" style="flex: 1; text-decoration: none; text-align: center; background: rgba(16,185,129,0.2); color: #6ee7b7;">🧪 Lab Studio</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ═══════════════════════════════════════════════════════════════
+                 THE 9 OFFICIAL TEXTBOOKS SECTION (COMPACT CAROUSEL SHELF)
                  ═══════════════════════════════════════════════════════════════ -->
             <section style="margin-top: 4.5rem;" id="textbooks-section">
                 <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.5rem;">
                     <div>
                         <h2 style="font-size: 1.85rem; margin: 0; display: flex; align-items: center; gap: 0.6rem;">
-                            <span>📖</span> 8 Official Textbooks &amp; Reading Guides
+                            <span>📖</span> 9 Official Textbooks &amp; Reading Guides
                         </h2>
                         <p style="color: var(--text-secondary); margin: 0.4rem 0 0; font-size: 0.98rem;">Complete school-aligned curriculum with built-in Web Speech audio narration, reading mode, and companion exercises.</p>
                     </div>
@@ -426,10 +454,11 @@
                     <!-- Shelf Toolbar: Filter Tabs & Scroll Arrows -->
                     <div class="shelf-toolbar">
                         <div class="shelf-filter-tabs" role="tablist" aria-label="Filter textbooks by subject">
-                            <button type="button" class="shelf-tab-btn active" data-category="all" onclick="filterTextbooks('all', this)">All (8)</button>
+                            <button type="button" class="shelf-tab-btn active" data-category="all" onclick="filterTextbooks('all', this)">All (9)</button>
                             <button type="button" class="shelf-tab-btn" data-category="frontend" onclick="filterTextbooks('frontend', this)">Frontend (3)</button>
                             <button type="button" class="shelf-tab-btn" data-category="tools" onclick="filterTextbooks('tools', this)">Developer Tools (2)</button>
                             <button type="button" class="shelf-tab-btn" data-category="backend" onclick="filterTextbooks('backend', this)">Backend (3)</button>
+                            <button type="button" class="shelf-tab-btn" data-category="ai" onclick="filterTextbooks('ai', this)">Python &amp; AI (1)</button>
                         </div>
                         <div class="shelf-nav-arrows">
                             <button type="button" class="shelf-scroll-btn" onclick="scrollBookShelf(-340)" aria-label="Scroll left" title="Previous books">‹</button>
@@ -574,6 +603,23 @@
                                 <a href="Learning Laravel/learninglaravel.html" class="btn-card-exercise">🧪 Lessons</a>
                             </div>
                         </div>
+
+                        <!-- 9. Python & ML Book -->
+                        <div class="compact-book-card theme-python" data-category="ai">
+                            <div class="compact-card-top">
+                                <div class="compact-card-icon-wrap">
+                                    <div class="compact-card-icon">🐍</div>
+                                    <span class="compact-card-level">Class 8–10 AI</span>
+                                </div>
+                                <span class="compact-card-badge">15 Ch • 🎙️ Audio</span>
+                            </div>
+                            <h3 class="compact-card-title">Python &amp; Machine Learning</h3>
+                            <p class="compact-card-desc">Syntax foundations, tabular data, datasets, supervised classification, and Islamic AI ethics (Amānah).</p>
+                            <div class="compact-card-actions">
+                                <a href="book-python/index.html" class="btn-card-read">📖 Read Book</a>
+                                <a href="Learning Python/learningpython.html" class="btn-card-exercise">🧪 Lessons</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -632,6 +678,12 @@
                         <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">🗄️</div>
                         <h3 style="margin-bottom: 0.35rem;">MySQL Cheat Sheet</h3>
                         <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">SELECT, JOINs, clauses, aggregations, and table queries.</p>
+                    </a>
+
+                    <a href="cheatsheet-python.html" class="course-card python" style="padding: 1.5rem; border-color: rgba(37,99,235,0.4);">
+                        <div class="icon-wrapper" style="font-size: 2rem; margin-bottom: 0.75rem;">🐍</div>
+                        <h3 style="margin-bottom: 0.35rem; color: #60a5fa;">Python &amp; ML Cheat Sheet</h3>
+                        <p style="font-size: 0.88rem; color: var(--text-secondary); margin: 0;">Syntax, dictionaries, file I/O, ML pipelines, and ethical AI.</p>
                     </a>
 
                     <a href="ai-roadmap.html" class="course-card" style="padding: 1.5rem; border-color: rgba(236,72,153,0.4);">

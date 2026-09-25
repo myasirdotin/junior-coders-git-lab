@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python &amp; Machine Learning Cheat Sheet | Junior Coders</title>
+    <meta name="description" content="A complete Python & Machine Learning cheat sheet for junior coders. Syntax, data types, lists, dictionaries, file I/O, ML workflow, and ethical AI on one page.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .python-hero {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(15, 23, 42, 0.95) 100%);
+            border-bottom: 2px solid #2563eb;
+        }
+        .python-hdr {
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(37, 99, 235, 0.05));
+            color: #60a5fa;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.3);
+        }
+        .python-table td:first-child {
+            font-family: var(--font-mono, monospace);
+            color: #38bdf8;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .rosetta-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88rem;
+            margin-top: 1rem;
+        }
+        .rosetta-table th {
+            background: rgba(37, 99, 235, 0.15);
+            color: #93c5fd;
+            padding: 0.6rem 0.8rem;
+            text-align: left;
+            border-bottom: 2px solid #2563eb;
+        }
+        .rosetta-table td {
+            padding: 0.55rem 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+        .rosetta-table tr:hover {
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .pill-badge {
+            display: inline-block;
+            background: rgba(37, 99, 235, 0.15);
+            color: #60a5fa;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: var(--font-mono, monospace);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="cheatsheet-hero python-hero">
+        <div class="cheatsheet-nav">
+            <a href="index.html" class="nav-back">← Back to Hub</a>
+            <span class="nav-tag">Class 8-10 • Quick Reference</span>
+        </div>
+        <h1>Python &amp; Machine Learning Cheat Sheet 🐍🤖</h1>
+        <p>Everything you need on one page: syntax, data structures, loops, file I/O, ML pipelines, and ethical AI stewardship.</p>
+        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
+            <a href="book-python/index.html" class="btn-hero-primary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">📖 15 Ch Textbook</a>
+            <a href="Learning Python/learningpython.html" class="btn-hero-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">📚 8 Lessons Portal</a>
+            <a href="Learning Python/playground.html" class="btn-hero-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">🧪 Python Studio</a>
+        </div>
+    </header>
+
+    <main class="cheatsheet-grid">
+
+        <!-- 1. Variables & Data Types -->
+        <div class="cheat-card">
+            <div class="cheat-card-header python-hdr">
+                <span>📦</span> Variables &amp; Core Types
+            </div>
+            <table class="cheat-table python-table">
+                <tr><td><code>x = 42</code></td><td>Integer (<code>int</code>): whole numbers</td></tr>
+                <tr><td><code>pi = 3.14</code></td><td>Float (<code>float</code>): decimal precision</td></tr>
+                <tr><td><code>msg = "Peace"</code></td><td>String (<code>str</code>): text in quotes</td></tr>
+                <tr><td><code>active = True</code></td><td>Boolean (<code>bool</code>): <code>True</code> or <code>False</code></td></tr>
+                <tr><td><code>type(var)</code></td><td>Check variable data type</td></tr>
+                <tr><td><code>int("10")</code></td><td>Type casting: text to integer</td></tr>
+                <tr><td><code>str(50)</code></td><td>Type casting: number to text</td></tr>
+            </table>
+        </div>
+
+        <!-- 2. Modern F-Strings & Output -->
+        <div class="cheat-card">
+            <div class="cheat-card-header python-hdr">
+                <span>✨</span> F-Strings &amp; Formatting
+            </div>
+            <table class="cheat-table python-table">
+                <tr><td><code>print(val)</code></td><td>Display output in terminal</td></tr>
+                <tr><td><code>input("Prompt: ")</code></td><td>Capture user string input</td></tr>
+                <tr><td><code>f"Hello {name}"</code></td><td>F-String variable interpolation</td></tr>
+                <tr><td><code>f"{price:.2f}"</code></td><td>Round float to 2 decimal places</td></tr>
+                <tr><td><code>f"{val:,}"</code></td><td>Format number with comma separators</td></tr>
+                <tr><td><code>s.strip()</code></td><td>Remove leading &amp; trailing whitespace</td></tr>
+                <tr><td><code>s.lower() / s.upper()</code></td><td>Convert case</td></tr>
+            </table>
+        </div>
+
+        <!-- 3. Logic & Conditionals -->
+        <div class="cheat-card">
+            <div class="cheat-card-header python-hdr">
+                <span>🚦</span> Decision Logic
+            </div>
+            <table class="cheat-table python-table">
+                <tr><td><code>if condition:</code></td><td>Execute block if True (indented 4 spaces)</td></tr>
+                <tr><td><code>elif condition:</code></td><td>Alternative check if previous was False</td></tr>
+                <tr><td><code>else:</code></td><td>Default fallback if all were False</td></tr>
+                <tr><td><code>==  !=</code></td><td>Equal to / Not equal to</td></tr>
+                <tr><td><code>&gt;  &lt;  &gt;=  &lt;=</code></td><td>Comparison operators</td></tr>
+                <tr><td><code>and / or / not</code></td><td>Logical connectors</td></tr>
+            </table>
+        </div>
+
+        <!-- 4. Loops & Repetition -->
+        <div class="cheat-card">
+            <div class="cheat-card-header python-hdr">
+                <span>🔁</span> Loops &amp; Sequences
+            </div>
+            <table class="cheat-table python-table">
+                <tr><td><code>for i in range(5):</code></td><td>Loops 5 times (0, 1, 2, 3, 4)</td></tr>
+                <tr><td><code>for x in collection:</code></td><td>Iterate through items in sequence</td></tr>
+                <tr><td><code>while condition:</code></td><td>Repeat as long as condition is True</td></tr>
+                <tr><td><code>break</code></td><td>Exit the loop immediately</td></tr>
+                <tr><td><code>continue</code></td><td>Skip to the next loop iteration</td></tr>
+                <tr><td><code>len(sequence)</code></td><td>Returns count of elements</td></tr>
+            </table>
+        </div>
+
+        <!-- 5. Collections -->
+        <div class="cheat-card">
+            <div class="cheat-card-header python-hdr">
+                <span>📋</span> Lists &amp; Dictionaries
+            </div>
+            <table class="cheat-table python-table">
+                <tr><td><code>lst = [1, 2, 3]</code></td><td>Ordered, mutable list (0-indexed)</td></tr>
+                <tr><td><code>lst.append(item)</code></td><td>Add item to end of list</td></tr>
+                <tr><td><code>lst.pop(0)</code></td><td>Remove and return item at index</td></tr>
+                <tr><td><code>lst[start:stop]</code></td><td>Slice list elements</td></tr>
+                <tr><td><code>d = {"k": "v"}</code></td><td>Dictionary: key-value mapping</td></tr>
+                <tr><td><code>d["key"]</code></td><td>Access value by key</td></tr>
+                <tr><td><code>d.get("key", default)</code></td><td>Safe access avoiding KeyError</td></tr>
+                <tr><td><code>s = {1, 2, 2, 3}</code></td><td>Set: unique unordered items (yields {1,2,3})</td></tr>
+            </table>
+        </div>
+
+        <!-- 6. Functions & Files -->
+        <div class="cheat-card">
+            <div class="cheat-card-header python-hdr">
+                <span>🧩</span> Functions &amp; Context Managers
+            </div>
+            <table class="cheat-table python-table">
+                <tr><td><code>def func(param):</code></td><td>Define reusable function</td></tr>
+                <tr><td><code>return result</code></td><td>Hand back value to caller</td></tr>
+                <tr><td><code>with open("f.txt", "r") as f:</code></td><td>Safe context manager for reading</td></tr>
+                <tr><td><code>with open("f.txt", "w") as f:</code></td><td>Safe context manager for writing</td></tr>
+                <tr><td><code>import csv</code></td><td>Work with comma-separated tables</td></tr>
+                <tr><td><code>import json</code></td><td>Work with JSON APIs &amp; datasets</td></tr>
+            </table>
+        </div>
+
+        <!-- 7. Machine Learning Pipeline -->
+        <div class="cheat-card">
+            <div class="cheat-card-header python-hdr">
+                <span>🧠</span> Machine Learning Essentials
+            </div>
+            <table class="cheat-table python-table">
+                <tr><td><code>Features (X)</code></td><td>Input data measurements (e.g. humidity, spots)</td></tr>
+                <tr><td><code>Label (y)</code></td><td>Target ground-truth answer (e.g. "Healthy")</td></tr>
+                <tr><td><code>Train / Test Split</code></td><td>80% training / 20% independent testing</td></tr>
+                <tr><td><code>Classification</code></td><td>Predicting discrete categories</td></tr>
+                <tr><td><code>Regression</code></td><td>Predicting continuous numbers (kWh, rainfall)</td></tr>
+                <tr><td><code>Accuracy</code></td><td>(Correct Predictions / Total) * 100%</td></tr>
+                <tr><td><code>Overfitting</code></td><td>Memorizing data rather than generalizing</td></tr>
+            </table>
+        </div>
+
+        <!-- 8. Islamic Ethical AI Framework -->
+        <div class="cheat-card">
+            <div class="cheat-card-header python-hdr">
+                <span>🛡️</span> AI Ethics &amp; Digital Trust (Amānah)
+            </div>
+            <table class="cheat-table python-table">
+                <tr><td><code>Amānah</code></td><td>Data privacy as a sacred trust; no data leaks</td></tr>
+                <tr><td><code>'Ilm Nāfi'</code></td><td>Beneficial knowledge: clean water, health, charity</td></tr>
+                <tr><td><code>No Ribā</code></td><td>Strictly no algorithmic interest/usury simulators</td></tr>
+                <tr><td><code>No Maysir</code></td><td>No gambling, betting odds, or lottery models</td></tr>
+                <tr><td><code>Bias Auditing</code></td><td>Test datasets for balanced representation</td></tr>
+                <tr><td><code>Iḥsān</code></td><td>Excellence, clean code, and transparent decisions</td></tr>
+            </table>
+        </div>
+
+    </main>
+
+    <footer class="cheatsheet-footer">
+        <p>Junior Coders Educational Platform • Dedicated to Ethical Engineering</p>
+        <p><a href="index.html">Back to Home</a> • <a href="book-python/index.html">Python Textbook</a> • <a href="Learning Python/learningpython.html">Python Lessons</a></p>
+    </footer>
+
+</body>
+</html>

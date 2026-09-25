@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 7: Introduction to Machine Learning. Features, labels, datasets, training vs test sets, and loss.">
+    <title>Module 7: What is Machine Learning? | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #2563eb, #0284c7); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #2563eb; font-weight: 800;">Level 7</span>
+            <h1 style="color: white; margin: 0.5rem 0;">From Rules to Patterns 🧠🤖</h1>
+            <p>Step into Artificial Intelligence! Discover how computers learn mathematical models from data without hardcoded rules.</p>
+        </header>
+
+        <!-- Concept -->
+        <section class="content-section">
+            <h2>The Great Paradigm Shift</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #64748b;">
+                    <h3>Classical Programming</h3>
+                    <p><strong>Input Data + Human Rules ➔ Answers</strong></p>
+                    <p style="font-size: 0.88rem; color: #64748b;">You explicitly write every single <code>if-else</code> condition.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #2563eb;">
+                    <h3>Machine Learning</h3>
+                    <p><strong>Input Data + Answers ➔ Model (Discovered Rules!)</strong></p>
+                    <p style="font-size: 0.88rem; color: #2563eb;">The computer finds the mathematical patterns automatically.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ML Vocabulary -->
+        <section class="content-section">
+            <h2>The 4 Essential ML Terms</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem;">
+                    <h3>1. Dataset 📚</h3>
+                    <p style="font-size: 0.9rem;">Historical collection of recorded examples.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem;">
+                    <h3>2. Features (X) 🔍</h3>
+                    <p style="font-size: 0.9rem;">The measurable inputs (e.g. leaf spots, temperature).</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem;">
+                    <h3>3. Label (y) 🎯</h3>
+                    <p style="font-size: 0.9rem;">The target answer we want to predict (e.g. "Healthy").</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem;">
+                    <h3>4. Model 🧠</h3>
+                    <p style="font-size: 0.9rem;">The trained mathematical function that makes predictions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Train vs Test Split -->
+        <section class="content-section">
+            <h2>The Golden Rule: Never Test on Training Data</h2>
+            <p>To avoid <strong>overfitting</strong> (memorizing answers without real understanding), we split data into:</p>
+            <ul>
+                <li><strong>Training Set (80%)</strong>: Given to the model to learn relationships.</li>
+                <li><strong>Testing Set (20%)</strong>: Kept secret to honestly evaluate model performance on unseen data.</li>
+            </ul>
+        </section>
+
+        <!-- Practice Challenge -->
+        <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Feature &amp; Label Detective</h2>
+            <p>Write a Python list of sample feature dictionaries and print their labels:</p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Plant Disease Dataset Sample
+dataset = [
+    {"humidity": 85, "leaf_spots": 12, "label": "Blight Infection"},
+    {"humidity": 40, "leaf_spots": 0,  "label": "Healthy"},
+    {"humidity": 55, "leaf_spots": 1,  "label": "Healthy"}
+]
+
+for sample in dataset:
+    print(f"Features: Humidity={sample['humidity']}%, Spots={sample['leaf_spots']} -> Label: {sample['label']}")</code></pre>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module6.html" class="btn-hero-secondary">← Module 6 (Files & Data)</a>
+            <a href="module8.html" class="btn-hero-primary">Next: Module 8 (Supervised AI & Ethics) →</a>
+        </footer>
+    </main>
+</body>
+</html>

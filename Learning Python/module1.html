@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 1: Learn Python variables, dynamic data types, and clean formatting with f-strings.">
+    <title>Module 1: Python Foundations &amp; Variables | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #2563eb, #0284c7); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #2563eb; font-weight: 800;">Level 1</span>
+            <h1 style="color: white; margin: 0.5rem 0;">The Digital Memory Vault! 🐍📦</h1>
+            <p>Welcome to Python! Learn how computers store and remember values using variables and types.</p>
+        </header>
+
+        <!-- Variable Concept -->
+        <section class="content-section">
+            <h2>The "Sticky Label" Analogy</h2>
+            <p>In Python, a <strong>variable</strong> is like a sticky label attached to a piece of data stored in computer memory. You assign the label using the single equals sign <code>=</code>.</p>
+            
+            <div class="analogy-grid">
+                <div class="analogy-card active">
+                    <span class="analogy-icon">🏷️</span>
+                    <h3>student_name = "Amina"</h3>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Stores text (string) in memory with the tag <code>student_name</code>.</p>
+                </div>
+                <div class="analogy-card active" style="border-color: #059669;">
+                    <span class="analogy-icon">🔢</span>
+                    <h3 style="color: #059669;">books_donated = 15</h3>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Stores a whole number (integer) ready for math.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Types Section -->
+        <section class="content-section">
+            <h2>The Four Core Data Types</h2>
+            <p>Python automatically understands what kind of data you give it:</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #2563eb;">
+                    <h3>Strings (str) 🧵</h3>
+                    <p>Text wrapped in quotes.</p>
+                    <code>"Al-Khwarizmi"</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3>Integers (int) 🔢</h3>
+                    <p>Whole numbers, positive or negative.</p>
+                    <code>42</code> or <code>-7</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
+                    <h3>Floats (float) ⚖️</h3>
+                    <p>Decimals for measurements.</p>
+                    <code>3.14159</code> or <code>19.50</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
+                    <h3>Booleans (bool) ✅</h3>
+                    <p>True or False binary truth states.</p>
+                    <code>True</code> or <code>False</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Syntax Formula -->
+        <section class="content-section">
+            <h2>The F-String Formula</h2>
+            <p>Combine text and variables cleanly without clumsy plus signs:</p>
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
+                name = <span style="color: #34d399;">"Tariq"</span><br>
+                xp = <span style="color: #eab308;">150</span><br>
+                print(<span style="color: #60a5fa;">f"Coder {name} has earned {xp} XP!"</span>)
+            </div>
+        </section>
+
+        <!-- Interactive Practice Challenge -->
+        <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Sincere Intention Logger</h2>
+            <p>Write a Python script that stores your coding goal in a variable and displays a formatted announcement using an f-string:</p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Step 1: Create your variables
+coder_name = "Zayd"
+project_goal = "Building a clean water sensor classifier"
+
+# Step 2: Print using f-string
+print(f"Bismillah! Coder {coder_name} is dedicated to: {project_goal}")</code></pre>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="learningpython.html" class="btn-hero-secondary">← Course Overview</a>
+            <a href="module2.html" class="btn-hero-primary">Next: Module 2 (Decisions) →</a>
+        </footer>
+    </main>
+</body>
+</html>

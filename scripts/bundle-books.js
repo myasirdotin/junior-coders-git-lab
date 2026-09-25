@@ -54,4 +54,7 @@ if (fs.existsSync(path.join(root, 'book-git'))) {
 if (fs.existsSync(path.join(root, 'book-cmd'))) {
   bundleDir(path.join(root, 'book-cmd'), path.join(root, 'book-cmd', 'chapters-bundle.js'), 'BOOK_CMD_CHAPTERS');
 }
+if (fs.existsSync(path.join(root, 'book-python'))) {
+  bundleDir(path.join(root, 'book-python'), path.join(root, 'book-python', 'chapters-bundle.js'), 'BOOK_PYTHON_CHAPTERS');
+}
 

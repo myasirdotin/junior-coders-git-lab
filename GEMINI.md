@@ -63,12 +63,14 @@ The following custom subagents are configured to assist across each domain:
 - `@php-tutor`: Expert in server-side PHP, form processing, file I/O, security (XSS/CSRF/sessions), and OOP.
 - `@mysql-tutor`: Expert in relational schema design, data normalization, SQL queries, indexing, and data integrity.
 - `@laravel-tutor`: Expert in MVC architecture, Eloquent ORM, Blade templating, migrations, and robust web applications.
+- `@python-tutor`: Expert in Python syntax, data structures, scripting, clean OOP, and data handling.
+- `@ml-tutor`: Expert in machine learning fundamentals, dataset curation, supervised algorithms, and ethical AI stewardship (*Amānah*).
 
 ---
 
 ## 3. Educational Priorities & Pedagogical Architecture
 
-1. **Textbooks as Single Source of Truth**: The interactive textbooks (`book-html/`, `book-css/`, `book-js/`, `book-php/`, `book-mysql/`, `book-laravel/`) define the curriculum, mental models, code examples, and mastery questions. Interactive learning pages (`Learning HTML/`, `Learning CSS/`, etc.) must directly mirror textbook chapters.
+1. **Textbooks as Single Source of Truth**: The interactive textbooks (`book-html/`, `book-css/`, `book-js/`, `book-cmd/`, `book-git/`, `book-php/`, `book-mysql/`, `book-laravel/`, `book-python/`) define the curriculum, mental models, code examples, and mastery questions. Interactive learning pages (`Learning HTML/`, `Learning CSS/`, `Learning Python/`, etc.) directly mirror textbook chapters.
 2. **Scaffolded Learning Flow (No Leaps, No Premature Concepts)**:
    - Concepts must be taught in strict prerequisite order. Never use a concept, syntax, or method before it has been formally introduced.
    - Always bridge the gap from *mental analogy* $\rightarrow$ *syntax breakdown* $\rightarrow$ *isolated example* $\rightarrow$ *interactive practice* $\rightarrow$ *real-world application*.
@@ -78,7 +80,7 @@ The following custom subagents are configured to assist across each domain:
      - 🟡 **Level 2 (Application / Modification)**: Extending code and combining two concepts.
      - 🔴 **Level 3 (Creative Challenge / Problem-Solving)**: Building a complete miniature feature independently.
 4. **Offline-First Interactive Readers**: Every textbook contains pre-compiled `chapters-bundle.js` for instant local offline reading, Web Speech narration (`book-speaker.js`), reading mode, and code lab launch buttons.
-5. **Security by Design**: Server-side modules enforce input sanitization (`htmlspecialchars`), parameter validation (`filter_var`), parameterized SQL statements (`PDO`), and secure session management from the very first lesson.
+5. **Security & Ethical Stewardship by Design**: Server-side and AI modules enforce input sanitization, data privacy (*Amānah*), transparent decision-making, and parameterized statements from the very first lesson.
 
 ---
 
@@ -87,9 +89,12 @@ The following custom subagents are configured to assist across each domain:
 - **Learning HTML**: 12 core modules + capstone projects aligned with `book-html/`.
 - **Learning CSS**: 8 modules covering styling to Grid/Responsive design aligned with `book-css/`.
 - **Learning JS**: 9 core modules covering variables to DOM/Events aligned with `book-js/`.
+- **Terminal & Command Prompt**: 14 chapters covering dual-shell navigation, file operations, and developer workflows aligned with `book-cmd/`.
+- **Git & Version Control**: 20 chapters covering version tracking, branching, and team collaboration aligned with `book-git/`.
 - **Learning PHP**: 8 advanced modules (Intro, Variables, Control Flow, Functions, Arrays, Forms, Files, OOP) aligned with `book-php/`.
 - **Learning MySQL**: 6 modules covering database fundamentals, schemas, queries, joins, and relationships aligned with `book-mysql/`.
 - **Learning Laravel**: 8 modules covering MVC, routing, controllers, Blade, migrations, Eloquent, validation, and authentication aligned with `book-laravel/`.
+- **Learning Python & Machine Learning**: 8 core modules + 15 textbook chapters covering Python foundations, data processing, machine learning concepts, ethical AI stewardship (*Amānah*), and capstone classifiers aligned with `book-python/`.
 
 ---
 

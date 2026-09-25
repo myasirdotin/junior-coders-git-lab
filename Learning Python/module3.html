@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Module 3: Master Python loops, range iteration, while cycles, and loop controls.">
+    <title>Module 3: Loops &amp; Sequences | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+</head>
+<body>
+    <main class="module-container">
+        <!-- Hero Header -->
+        <header class="module-header" style="background: linear-gradient(135deg, #2563eb, #0284c7); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #2563eb; font-weight: 800;">Level 3</span>
+            <h1 style="color: white; margin: 0.5rem 0;">The Infinite Engine 🔁⚡</h1>
+            <p>Harness the tireless power of repetition. Learn how for and while loops process thousands of tasks effortlessly.</p>
+        </header>
+
+        <!-- Concept -->
+        <section class="content-section">
+            <h2>The Conveyor Belt Analogy</h2>
+            <p>A factory conveyor belt delivers boxes one by one. For each box that arrives, the robotic arm performs a specific inspection. When the belt stops, the job is complete.</p>
+            
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
+                <span style="color: #60a5fa;">for</span> day <span style="color: #60a5fa;">in</span> range(<span style="color: #eab308;">1</span>, <span style="color: #eab308;">8</span>):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(<span style="color: #34d399;">f"Day {day}: Striving in coding practice!"</span>)
+            </div>
+        </section>
+
+        <!-- while vs for -->
+        <section class="content-section">
+            <h2>Two Types of Loops</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; margin-top: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #2563eb;">
+                    <h3><code>for</code> Loop</h3>
+                    <p>Use when you know in advance how many times to repeat (or iterating through a collection).</p>
+                    <code>for item in items:</code>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3><code>while</code> Loop</h3>
+                    <p>Use when repeating until an unknown future event occurs (repeats while condition is True).</p>
+                    <code>while battery &gt; 10:</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practice Challenge -->
+        <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
+            <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Daily Water Consumption Tracker</h2>
+            <p>Calculate the total water collected across 5 rainfall events:</p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>rain_readings = [12.5, 0.0, 18.2, 5.4, 22.0]
+total_water = 0
+
+for reading in rain_readings:
+    total_water += reading
+    print(f"Recorded +{reading} mm -> Total: {total_water:.1f} mm")
+
+print(f"Summary: Harvested {total_water} mm of clean rain!")</code></pre>
+        </section>
+
+        <!-- Module Navigation Footer -->
+        <footer style="display: flex; justify-content: space-between; align-items: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="module2.html" class="btn-hero-secondary">← Module 2 (Decisions)</a>
+            <a href="module4.html" class="btn-hero-primary">Next: Module 4 (Collections) →</a>
+        </footer>
+    </main>
+</body>
+</html>

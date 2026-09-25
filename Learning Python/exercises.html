@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mastery exercises for Python & Machine Learning. Three-tier scaffolded challenges: Recall, Application, and Independent Problem Solving.">
+    <title>Python Mastery Exercises | Junior Coders</title>
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .tier-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.25rem 0.65rem;
+            border-radius: 9999px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+        .tier-1 { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+        .tier-2 { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+        .tier-3 { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+        .exercise-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+    </style>
+</head>
+<body>
+    <div class="syllabus-container">
+        <header class="syllabus-header" style="background: linear-gradient(135deg, #2563eb, #0284c7); color: white; padding: 2.5rem 2rem; border-radius: 20px; margin-bottom: 2rem;">
+            <a href="learningpython.html" style="color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem;">← Back to Python Syllabus</a>
+            <h1 style="color: white; margin: 0.5rem 0 0.2rem;">Python &amp; ML Mastery Exercises 🎯</h1>
+            <p style="margin: 0; opacity: 0.9;">Three tiers of deliberate practice to cement your coding and AI fluency.</p>
+        </header>
+
+        <!-- Tier 1: Recall & Warmup -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; color: #15803d;">
+                <span>🟢</span> Tier 1: Syntax Recall &amp; Warmup
+            </h2>
+            <p style="color: #64748b; margin-bottom: 1.25rem;">Simple syntax reproduction and fill-in-the-blanks.</p>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-1">Tier 1 • Exercise 1</span>
+                <h3 style="margin: 0 0 0.5rem;">F-String Salutation</h3>
+                <p>Create variables <code>student_name = "Khadija"</code> and <code>city = "Fas"</code>. Use an f-string to output: <code>Welcome Khadija from Fas! May your studies be blessed.</code></p>
+                <details style="margin-top: 1rem; color: #2563eb; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>student_name = "Khadija"
+city = "Fas"
+print(f"Welcome {student_name} from {city}! May your studies be blessed.")</code></pre>
+                </details>
+            </div>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-1">Tier 1 • Exercise 2</span>
+                <h3 style="margin: 0 0 0.5rem;">List Append and Pop</h3>
+                <p>Create a list of 3 fruits: <code>["Date", "Fig", "Olive"]</code>. Append <code>"Pomegranate"</code> to the end, then pop the first item. Print the resulting list.</p>
+                <details style="margin-top: 1rem; color: #2563eb; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>fruits = ["Date", "Fig", "Olive"]
+fruits.append("Pomegranate")
+fruits.pop(0)
+print(fruits)  # ['Fig', 'Olive', 'Pomegranate']</code></pre>
+                </details>
+            </div>
+        </section>
+
+        <!-- Tier 2: Application & Combination -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; color: #b45309;">
+                <span>🟡</span> Tier 2: Application &amp; Modification
+            </h2>
+            <p style="color: #64748b; margin-bottom: 1.25rem;">Combine multiple concepts to solve structured challenges.</p>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-2">Tier 2 • Exercise 3</span>
+                <h3 style="margin: 0 0 0.5rem;">Zakat Eligibility &amp; Calculation Function</h3>
+                <p>Write a function <code>compute_zakat(cash, gold_value, liabilities)</code>. Net wealth is <code>cash + gold_value - liabilities</code>. If net wealth $\ge 5000$, return 2.5% of net wealth; otherwise return 0.0.</p>
+                <details style="margin-top: 1rem; color: #2563eb; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>def compute_zakat(cash, gold_value, liabilities):
+    net_wealth = (cash + gold_value) - liabilities
+    if net_wealth >= 5000:
+        return net_wealth * 0.025
+    return 0.0
+
+print(f"Zakat Due: ${compute_zakat(6000, 2000, 1000):.2f}")  # $175.00</code></pre>
+                </details>
+            </div>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-2">Tier 2 • Exercise 4</span>
+                <h3 style="margin: 0 0 0.5rem;">Solar Microgrid Averaging</h3>
+                <p>Given a dictionary of 5 community solar arrays with their daily kWh generation, use a <code>for</code> loop to calculate total generation, average generation, and identify the highest performing array.</p>
+                <details style="margin-top: 1rem; color: #2563eb; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>arrays = {"Array-North": 42.5, "Array-East": 38.0, "Array-South": 55.2, "Array-West": 48.1}
+total = sum(arrays.values())
+average = total / len(arrays)
+best = max(arrays, key=arrays.get)
+
+print(f"Total: {total:.1f} kWh | Average: {average:.1f} kWh | Top Array: {best} ({arrays[best]} kWh)")</code></pre>
+                </details>
+            </div>
+        </section>
+
+        <!-- Tier 3: Creative Challenge -->
+        <section style="margin-bottom: 3rem;">
+            <h2 style="display: flex; align-items: center; gap: 0.5rem; color: #b91c1c;">
+                <span>🔴</span> Tier 3: Creative Challenge &amp; Problem Solving
+            </h2>
+            <p style="color: #64748b; margin-bottom: 1.25rem;">Independent feature development and machine learning logic.</p>
+
+            <div class="exercise-card">
+                <span class="tier-badge tier-3">Tier 3 • Exercise 5</span>
+                <h3 style="margin: 0 0 0.5rem;">The Clean Water Guardian Classifier</h3>
+                <p>Build an end-to-end classifier that evaluates 6 water well sensor records (features: turbidity, pH, dissolved solids) and returns safety classifications while generating an audit log file on disk.</p>
+                <details style="margin-top: 1rem; color: #2563eb; cursor: pointer;">
+                    <summary>View Solution</summary>
+                    <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px; margin-top: 0.5rem;"><code>def classify_water(sample):
+    if sample["turbidity"] < 5.0 and 6.5 <= sample["ph"] <= 8.5 and sample["tds"] < 500:
+        return "Safe Potable 💧"
+    return "Needs Filtration ⚠️"
+
+wells = [
+    {"id": "W-1", "turbidity": 2.1, "ph": 7.2, "tds": 320},
+    {"id": "W-2", "turbidity": 8.4, "ph": 6.1, "tds": 650},
+    {"id": "W-3", "turbidity": 1.5, "ph": 7.8, "tds": 280}
+]
+
+for w in wells:
+    status = classify_water(w)
+    print(f"Well {w['id']}: {status}")</code></pre>
+                </details>
+            </div>
+        </section>
+
+        <footer style="text-align: center; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #e2e8f0;">
+            <a href="learningpython.html" class="btn-hero-primary">← Return to Syllabus</a>
+        </footer>
+    </div>
+</body>
+</html>

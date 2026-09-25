@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Python &amp; Machine Learning for Junior Coders | LearnCode</title>
+  <meta name="description" content="Official Python & Machine Learning Textbook: Master Python syntax, data structures, datasets, supervised learning, and ethical AI stewardship.">
+  <link rel="stylesheet" href="../styles/book-theme.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root { 
+      --primary-blue: #2563eb; 
+      --primary-accent: #0284c7;
+      --python-badge: #1d4ed8;
+    }
+    .book-brand-icon { 
+      background: linear-gradient(135deg, #2563eb, #0284c7) !important; 
+      color: #fff; 
+      font-weight: 800; 
+      display: inline-flex; 
+      align-items: center; 
+      justify-content: center; 
+      width: 42px; 
+      height: 42px; 
+      border-radius: 10px; 
+      flex-shrink: 0; 
+      font-size: 20px;
+      font-family: var(--font-mono, monospace);
+    }
+    .python-brand-badge {
+      display: inline-block;
+      background: rgba(37, 99, 235, 0.12);
+      color: #1d4ed8;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .chapter-nav-item.active a { 
+      background: #eff6ff; 
+      color: #1d4ed8; 
+      border-left: 3px solid #2563eb; 
+      font-weight: 700;
+    }
+    .chapter-nav-item a:hover { 
+      color: #1d4ed8; 
+      background: #dbeafe; 
+    }
+    .book-subject-tabs {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .subject-tab {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 0.28rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+    .subject-tab:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .subject-tab.active {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #2563eb;
+    }
+    .code-wrapper { 
+      position: relative; 
+      background: #0f172a; 
+      border: 1px solid #334155; 
+      border-radius: 10px; 
+      margin: 1.5rem 0; 
+      overflow: hidden; 
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25); 
+    }
+    .code-wrapper-header { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      background: #1e293b; 
+      padding: 0.5rem 1rem; 
+      border-bottom: 1px solid #334155; 
+      font-size: 0.8rem; 
+    }
+    .code-lang-label { 
+      font-family: var(--font-mono, monospace); 
+      color: #94a3b8; 
+      font-weight: 600; 
+      text-transform: uppercase; 
+      font-size: 0.75rem; 
+    }
+    .copy-btn { 
+      background: #334155; 
+      color: #cbd5e1; 
+      border: none; 
+      border-radius: 4px; 
+      padding: 0.25rem 0.6rem; 
+      font-size: 0.75rem; 
+      cursor: pointer; 
+      transition: all 0.15s; 
+    }
+    .copy-btn:hover { 
+      background: #475569; 
+      color: #fff; 
+    }
+    .copy-btn.copied { 
+      background: #059669; 
+      color: #fff; 
+    }
+    pre code { 
+      display: block; 
+      padding: 1.25rem; 
+      overflow-x: auto; 
+      font-family: var(--font-mono, monospace); 
+      font-size: 0.88rem; 
+      line-height: 1.6; 
+      color: #f8fafc; 
+    }
+    .reading-mode-active #bookSidebar,
+    .reading-mode-active .reader-top-nav {
+      display: none !important;
+    }
+    .reading-mode-active .book-reader {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+  </style>
+</head>
+<body class="book-theme-body">
+  <!-- Mobile Navigation Header -->
+  <header class="book-mobile-header">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Table of Contents">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="mobile-book-title">
+      <span class="book-badge" style="background:#2563eb; color:#fff;">PYTHON &amp; ML</span>
+      <span>Junior Coders</span>
+    </div>
+    <a href="../index.html" class="mobile-home-btn" title="Back to Main Hub">🏠</a>
+  </header>
+
+  <div class="book-layout">
+    <!-- Sidebar / Table of Contents -->
+    <aside class="book-sidebar" id="bookSidebar">
+      <div class="book-sidebar-header">
+        <a href="../index.html" class="book-back-link">← Back to Hub</a>
+        <div class="book-brand">
+          <div class="book-brand-icon">🐍</div>
+          <div>
+            <div class="python-brand-badge">Class 8-10 Track</div>
+            <h1 class="book-main-title">Python &amp; ML</h1>
+            <p class="book-subtitle">15 Chapters • AI Foundations</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-sidebar-search">
+        <input type="text" id="chapterSearch" placeholder="🔍 Search chapters..." aria-label="Search chapters">
+      </div>
+
+      <!-- Subject / Section filter tabs -->
+      <div style="padding: 0 1rem;">
+        <div class="book-subject-tabs" role="tablist" aria-label="Filter parts">
+          <button type="button" class="subject-tab active" onclick="filterPythonGroup('all', this)">All</button>
+          <button type="button" class="subject-tab" onclick="filterPythonGroup('foundations', this)">Python</button>
+          <button type="button" class="subject-tab" onclick="filterPythonGroup('data', this)">Data</button>
+          <button type="button" class="subject-tab" onclick="filterPythonGroup('ml', this)">ML &amp; AI</button>
+        </div>
+      </div>
+
+      <nav class="book-nav" id="bookNav">
+        <!-- Part 1: Python Foundations -->
+        <div class="part-group" data-group="foundations">
+          <div class="part-title">Part 1: Python Foundations</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-01-python-foundations/ch01-welcome-to-python.md', this)">1. Welcome to Python &amp; AI</a></li>
+            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-01-python-foundations/ch02-variables-and-data-types.md', this)">2. Variables &amp; Data Types</a></li>
+            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-01-python-foundations/ch03-user-input-and-formatting.md', this)">3. User Input &amp; F-Strings</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 2: Control Flow & Logic -->
+        <div class="part-group" data-group="foundations">
+          <div class="part-title">Part 2: Logic &amp; Loops</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-02-control-flow-and-logic/ch04-conditional-branching.md', this)">4. Conditional Branching</a></li>
+            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-02-control-flow-and-logic/ch05-loops-and-sequences.md', this)">5. Loops &amp; Sequences</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 3: Data Structures & Functions -->
+        <div class="part-group" data-group="data">
+          <div class="part-title">Part 3: Structures &amp; Functions</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-03-data-structures-and-functions/ch06-lists-and-tuples.md', this)">6. Lists &amp; Tuples</a></li>
+            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-03-data-structures-and-functions/ch07-dictionaries-and-sets.md', this)">7. Dictionaries &amp; Sets</a></li>
+            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-03-data-structures-and-functions/ch08-functions-and-modularity.md', this)">8. Functions &amp; Modules</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 4: Data Processing & Files -->
+        <div class="part-group" data-group="data">
+          <div class="part-title">Part 4: Data &amp; File Systems</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-04-data-and-files/ch09-working-with-files.md', this)">9. Working with Files</a></li>
+            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-04-data-and-files/ch10-tabular-data-csv-and-json.md', this)">10. Tabular Data (CSV &amp; JSON)</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 5: Machine Learning Foundations -->
+        <div class="part-group" data-group="ml">
+          <div class="part-title">Part 5: Machine Learning</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-05-machine-learning-foundations/ch11-what-is-machine-learning.md', this)">11. What is Machine Learning?</a></li>
+            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-05-machine-learning-foundations/ch12-supervised-vs-unsupervised.md', this)">12. Supervised vs Unsupervised</a></li>
+            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-05-machine-learning-foundations/ch13-the-ml-pipeline-and-evaluation.md', this)">13. ML Pipeline &amp; Evaluation</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 6: Ethical AI & Capstone -->
+        <div class="part-group" data-group="ml">
+          <div class="part-title">Part 6: Ethical AI &amp; Capstone</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-06-ethical-ai-and-capstones/ch14-ai-ethics-and-amanah.md', this)">14. AI Ethics &amp; Amānah</a></li>
+            <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-06-ethical-ai-and-capstones/ch15-capstone-community-predictor.md', this)">15. Capstone: Aid Predictor</a></li>
+          </ul>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Main Content Reader -->
+    <main class="book-reader book-content">
+      <div class="reader-top-nav">
+        <div class="reader-breadcrumb">
+          <a href="../index.html">LearnCode</a>
+          <span class="sep">/</span>
+          <span class="current" id="breadcrumbCurrent">Part 1: Python Foundations</span>
+        </div>
+        <div class="reader-quick-actions">
+          <a href="../cheatsheet-python.html" class="reader-nav-btn"><span>⚡</span> Python Cheatsheet</a>
+          <a href="../Learning Python/learningpython.html" class="reader-nav-btn"><span>📚</span> Python Studio</a>
+          <a href="../ai-roadmap.html" class="reader-nav-btn"><span>🤖</span> AI Roadmap</a>
+        </div>
+      </div>
+
+      <!-- Speaker Bar & Reader Controls -->
+      <header class="book-reader-header" id="bookReaderHeader" role="region" aria-label="Book Reader Controls">
+        <div class="book-speaker-panel" id="book-speaker-bar">
+          <div class="book-speaker-left">
+            <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read chapter aloud">
+              <span class="btn-icon">&#128266;</span>
+              <span class="btn-text">Read Chapter</span>
+            </button>
+            <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop reading">
+              <span class="btn-icon">&#9209;&#65039;</span>
+              <span class="btn-text">Stop</span>
+            </button>
+            <div class="book-speaker-speed-wrap">
+              <label for="book-speaker-speed-select" class="book-speaker-speed-label">Speed:</label>
+              <select class="book-speaker-speed-select" id="book-speaker-speed-select">
+                <option value="0.75">0.75x</option>
+                <option value="1" selected>1.0x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+              </select>
+            </div>
+            <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="reader-status-center">
+            <div class="reader-chapter-badge">
+              <span class="status-dot"></span>
+              <span class="status-text" id="book-speaker-status-text">Ready to read</span>
+            </div>
+          </div>
+          <div class="book-speaker-right">
+            <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn">
+              <span class="btn-icon">&#128214;</span>
+              <span class="btn-text">Reading Mode</span>
+            </button>
+            <span class="reader-meta-item" id="readTime">⏱️ 4 min read</span>
+          </div>
+        </div>
+      </header>
+
+      <article class="book-article" id="chapterContent">
+        <div id="chapterBody">
+          <!-- Chapter content dynamically rendered here -->
+        </div>
+      </article>
+
+      <div class="chapter-footer-nav" id="chapterFooterNav">
+        <!-- Previous / Next links dynamically inserted here -->
+      </div>
+    </main>
+  </div>
+
+  <!-- Markdown Parser & Bundle Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="chapters-bundle.js"></script>
+  <script>
+    let currentChapterPath = '';
+
+    function filterPythonGroup(group, el) {
+      document.querySelectorAll('.subject-tab').forEach(b => b.classList.remove('active'));
+      if (el) el.classList.add('active');
+
+      document.querySelectorAll('.part-group').forEach(pg => {
+        if (group === 'all' || pg.getAttribute('data-group') === group) {
+          pg.style.display = '';
+        } else {
+          pg.style.display = 'none';
+        }
+      });
+    }
+
+    async function loadChapter(path, navElement) {
+      currentChapterPath = path;
+
+      // Update navigation active state
+      document.querySelectorAll('.chapter-nav-item').forEach(i => i.classList.remove('active'));
+      if (navElement) {
+        const item = navElement.closest('.chapter-nav-item');
+        if (item) item.classList.add('active');
+      }
+
+      const chapterBody = document.getElementById('chapterBody');
+      chapterBody.innerHTML = '<div style="text-align:center;padding:3rem;color:#64748b;">Loading chapter...</div>';
+
+      try {
+        let md = '';
+        if (window.BOOK_PYTHON_CHAPTERS && window.BOOK_PYTHON_CHAPTERS[path]) {
+          md = window.BOOK_PYTHON_CHAPTERS[path];
+        } else {
+          const resp = await fetch(path);
+          if (!resp.ok) throw new Error('Failed to fetch chapter file');
+          md = await resp.text();
+        }
+
+        // Render Markdown
+        chapterBody.innerHTML = marked.parse(md);
+
+        // Enhance code blocks with copy button
+        enhanceCodeBlocks();
+
+        // Update read time estimate
+        const wordCount = md.split(/\s+/).length;
+        document.getElementById('readTime').textContent = `⏱️ ${Math.ceil(wordCount / 180)} min read`;
+
+        // Update breadcrumb
+        const partGroup = navElement ? navElement.closest('.part-group') : null;
+        if (partGroup) {
+          const partTitle = partGroup.querySelector('.part-title').textContent;
+          document.getElementById('breadcrumbCurrent').textContent = partTitle;
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Close mobile sidebar if open
+        document.getElementById('bookSidebar').classList.remove('open');
+
+      } catch (err) {
+        console.error(err);
+        chapterBody.innerHTML = `
+          <div style="background: #fef2f2; border: 1px solid #f87171; padding: 2rem; border-radius: 12px; color: #991b1b;">
+            <h3>⚠️ Unable to Load Chapter</h3>
+            <p>Could not load: <code>${path}</code></p>
+            <p style="font-size: 0.9rem; color: #b91c1c;">If viewing via file:///, ensure chapters-bundle.js exists by running <code>node scripts/bundle-books.js</code>.</p>
+          </div>
+        `;
+      }
+    }
+
+    function enhanceCodeBlocks() {
+      document.querySelectorAll('#chapterBody pre').forEach(pre => {
+        if (pre.closest('.code-wrapper')) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-wrapper';
+
+        const header = document.createElement('div');
+        header.className = 'code-wrapper-header';
+
+        const codeEl = pre.querySelector('code');
+        const lang = codeEl ? (codeEl.className.match(/language-(\w+)/) || [, 'python'])[1] : 'python';
+
+        header.innerHTML = `
+          <span class="code-lang-label">${lang}</span>
+          <button type="button" class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+        `;
+
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(header);
+        wrapper.appendChild(pre);
+      });
+    }
+
+    function copyCode(btn) {
+      const code = btn.closest('.code-wrapper').querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = 'Copied! ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy Code';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Reading Mode toggle
+    document.getElementById('book-reading-mode-btn').addEventListener('click', function() {
+      document.body.classList.toggle('reading-mode-active');
+      this.classList.toggle('active');
+    });
+
+    // Mobile sidebar toggle
+    document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+      document.getElementById('bookSidebar').classList.toggle('open');
+    });
+
+    // Search filter
+    document.getElementById('chapterSearch').addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase();
+      document.querySelectorAll('.chapter-nav-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+
+    // Initial load of first chapter
+    document.addEventListener('DOMContentLoaded', () => {
+      loadChapter('part-01-python-foundations/ch01-welcome-to-python.md', document.querySelector('.chapter-nav-item a'));
+    });
+  </script>
+  <script src="../js/book-speaker.js"></script>
+</body>
+</html>
