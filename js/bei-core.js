@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initPlacementWidget();
     initMobileNav();
     initStudentXP();
+    initTypewriter();
 });
 
 // Theme Management
@@ -141,3 +142,52 @@ function awardXP(points, reason) {
 
 window.awardXP = awardXP;
 
+// ═════════════════════════════════════════════════════════════════════
+// DYNAMIC TYPEWRITER EFFECT FOR HERO HEADLINE
+// ═════════════════════════════════════════════════════════════════════
+function initTypewriter() {
+    const target = document.getElementById('typewriterTarget');
+    const cursor = document.getElementById('typingCursor');
+    if (!target) return;
+
+    const phrases = [
+        "Create with Excellence (Iḥsān).",
+        "Engineer with Integrity (Amānah).",
+        "Build Beneficial Knowledge ('Ilm Nāfi').",
+        "Master Python, Web & Ethical AI.",
+        "Craft with Purpose & Discipline."
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = phrases[0].length; // initial text is already loaded for instant SEO & zero CLS
+    let isDeleting = true;
+    const holdTime = 2800; // time to read the completed phrase
+
+    function tick() {
+        const fullPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+            charIndex--;
+            target.textContent = fullPhrase.substring(0, charIndex);
+        } else {
+            charIndex++;
+            target.textContent = fullPhrase.substring(0, charIndex);
+        }
+
+        let speed = isDeleting ? 28 : 55;
+
+        if (!isDeleting && charIndex === fullPhrase.length) {
+            speed = holdTime;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            speed = 450; // pause before typing next phrase
+        }
+
+        setTimeout(tick, speed);
+    }
+
+    // Start typing cycle after initial 2.6s reading pause
+    setTimeout(tick, 2600);
+}
