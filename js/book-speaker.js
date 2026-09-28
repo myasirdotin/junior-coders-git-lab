@@ -305,6 +305,26 @@
       });
     }
 
+    const pdfBtn = document.getElementById('book-download-pdf-btn');
+    if (pdfBtn && !pdfBtn.dataset.bound) {
+      pdfBtn.dataset.bound = 'true';
+      pdfBtn.addEventListener('click', () => {
+        if (window.downloadLessonPDF) {
+          window.downloadLessonPDF({ button: pdfBtn });
+        } else {
+          window.print();
+        }
+      });
+    }
+
+    // Ensure PDF Download Engine is active
+    if (!window.downloadLessonPDF) {
+      const s = document.createElement('script');
+      s.src = '../js/pdf-download.js';
+      s.async = true;
+      document.head.appendChild(s);
+    }
+
     setupMobileDrawer();
   };
 
@@ -407,6 +427,24 @@
     const rmTimeEl = document.getElementById('rm-read-time');
     if (rmTimeEl) {
       rmTimeEl.textContent = `⏱️ ${minutes} min read`;
+    }
+
+    // Attach inline "Download Chapter PDF" button inside lab-callout-actions
+    const labCalloutActions = contentArea.querySelector('.chapter-lab-callout .lab-callout-actions');
+    if (labCalloutActions && !labCalloutActions.querySelector('.btn-download-chapter-pdf')) {
+      const inlinePdfBtn = document.createElement('button');
+      inlinePdfBtn.type = 'button';
+      inlinePdfBtn.className = 'btn-download-chapter-pdf';
+      inlinePdfBtn.title = 'Save this chapter as an offline PDF study guide';
+      inlinePdfBtn.innerHTML = '<span>📥</span> <span>Download Chapter PDF</span>';
+      inlinePdfBtn.addEventListener('click', () => {
+        if (window.downloadLessonPDF) {
+          window.downloadLessonPDF({ button: inlinePdfBtn });
+        } else {
+          window.print();
+        }
+      });
+      labCalloutActions.appendChild(inlinePdfBtn);
     }
   };
 

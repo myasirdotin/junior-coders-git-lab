@@ -144,6 +144,10 @@
           <div class="reader-status-center"><div class="reader-chapter-badge"><span class="status-dot"></span><span class="status-text" id="book-speaker-status-text">Ready to read</span></div></div>
           <div class="reader-controls-right">
             <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn"><span class="btn-icon">&#128214;</span><span class="btn-text">Reading Mode</span></button>
+            <button type="button" class="book-download-pdf-btn" id="book-download-pdf-btn" title="Download current chapter as PDF">
+              <span class="btn-icon">⬇️</span>
+              <span class="btn-text">Download PDF</span>
+            </button>
           </div>
         </div>
       </header>
@@ -290,6 +294,7 @@ php artisan db:seed           # Seed database</code></pre>` }
     document.getElementById('sidebarBackdrop').addEventListener('click',()=>{document.getElementById('bookSidebar').classList.remove('open');document.getElementById('sidebarBackdrop').classList.remove('visible');});
     document.getElementById('chapterFilter').addEventListener('input',function(e){const q=e.target.value.toLowerCase();document.querySelectorAll('.chapter-nav-item').forEach(i=>{i.style.display=i.textContent.toLowerCase().includes(q)?'':'none';});});
   </script>
+  <script src="../js/pdf-download.js"></script>
   <script src="../js/book-speaker.js"></script>
 </body>
 </html>

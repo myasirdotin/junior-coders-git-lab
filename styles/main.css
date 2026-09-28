@@ -5581,7 +5581,37 @@ body:not([data-theme="light"]) .book-companion-text span {
     border-color: var(--card-accent, var(--primary));
 }
 
+/* ── Lesson PDF Download Button ── */
+.module-header .module-pdf-btn,
+.speaker-btn-pdf {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: rgba(255, 255, 255, 0.14);
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0.45rem 1rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(6px);
+    margin-top: 0.5rem;
+}
 
+.module-header .module-pdf-btn:hover,
+.speaker-btn-pdf:hover {
+    background: #ffffff;
+    color: #0f172a !important;
+    border-color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
 
-
+.module-header .module-pdf-btn:active,
+.speaker-btn-pdf:active {
+    transform: scale(0.97);
+}
 

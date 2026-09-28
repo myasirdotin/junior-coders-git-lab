@@ -279,6 +279,10 @@
               <span class="btn-icon">&#128214;</span>
               <span class="btn-text">Reading Mode</span>
             </button>
+            <button type="button" class="book-download-pdf-btn" id="book-download-pdf-btn" title="Download current chapter as PDF">
+              <span class="btn-icon">⬇️</span>
+              <span class="btn-text">Download PDF</span>
+            </button>
             <span class="reader-meta-item" id="readTime">⏱️ 4 min read</span>
           </div>
         </div>
@@ -466,6 +470,7 @@
       if (firstLink) firstLink.click();
     });
   </script>
+  <script src="../js/pdf-download.js"></script>
   <script src="../js/book-speaker.js"></script>
 </body>
 </html>

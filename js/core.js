@@ -1281,6 +1281,9 @@
                 <button type="button" class="speaker-btn-stop" id="speaker-stop-btn" title="Stop audio">
                     <span>⏹️</span> Stop
                 </button>
+                <button type="button" class="speaker-btn-pdf" id="speaker-download-pdf-btn" title="Download this lesson as PDF">
+                    <span>⬇️</span> Download PDF
+                </button>
                 <select class="speaker-speed-select" id="speaker-speed-select" title="Voice speed" aria-label="Reading Speed">
                     <option value="0.85">0.85x</option>
                     <option value="1.0" selected>1.0x</option>
@@ -1302,9 +1305,19 @@
             const mainBtn = toolbar.querySelector('#speaker-main-btn');
             const stopBtn = toolbar.querySelector('#speaker-stop-btn');
             const speedSelect = toolbar.querySelector('#speaker-speed-select');
+            const pdfBtn = toolbar.querySelector('#speaker-download-pdf-btn');
 
             mainBtn.addEventListener('click', toggleSpeech);
             stopBtn.addEventListener('click', stopSpeech);
+            if (pdfBtn) {
+                pdfBtn.addEventListener('click', () => {
+                    if (window.downloadLessonPDF) {
+                        window.downloadLessonPDF({ button: pdfBtn });
+                    } else {
+                        window.print();
+                    }
+                });
+            }
 
             speedSelect.addEventListener('change', (e) => {
                 currentRate = parseFloat(e.target.value) || 1.0;
@@ -1530,6 +1543,15 @@
         initPageSpeaker();
         initReadingMode();
         injectFooter();
+
+        // Ensure PDF Download Engine is active
+        if (!window.downloadLessonPDF) {
+            const prefix = getBaseUrl();
+            const pdfScript = document.createElement('script');
+            pdfScript.src = `${prefix}js/pdf-download.js`;
+            pdfScript.async = true;
+            document.head.appendChild(pdfScript);
+        }
 
         trackVisit();
 

@@ -196,6 +196,10 @@
               <span class="btn-icon">📖</span>
               <span class="btn-text">Reading Mode</span>
             </button>
+            <button type="button" class="book-download-pdf-btn" id="book-download-pdf-btn" title="Download current chapter as PDF">
+              <span class="btn-icon">⬇️</span>
+              <span class="btn-text">Download PDF</span>
+            </button>
           </div>
         </div>
       </header>
@@ -442,6 +446,7 @@
     window.addEventListener('DOMContentLoaded', handleHashLoad);
     window.addEventListener('hashchange', handleHashLoad);
   </script>
+  <script src="../js/pdf-download.js"></script>
   <script src="../js/book-speaker.js"></script>
 </body>
 </html>

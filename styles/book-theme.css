@@ -1106,6 +1106,63 @@ body::before {
   border-color: #059669;
 }
 
+/* Download Lesson PDF — pill button in header */
+.book-download-pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
+  background: rgba(37, 99, 235, 0.08);
+  color: #2563eb;
+  border: 1px solid rgba(37, 99, 235, 0.28);
+  padding: 0.38rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.book-download-pdf-btn .btn-icon { font-size: 0.9rem; }
+
+.book-download-pdf-btn:hover {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.3);
+}
+
+.book-download-pdf-btn:active {
+  transform: scale(0.97);
+}
+
+/* Inline Chapter Download Card & Button */
+.btn-download-chapter-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #ffffff !important;
+  border: 1px solid #334155;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-sm, 8px);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+}
+
+.btn-download-chapter-pdf:hover {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border-color: #2563eb;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+
 .book-speaker-status {
   font-size: 0.82rem;
   font-weight: 600;
@@ -1851,7 +1908,8 @@ body.reading-mode .reading-mode-bar {
     cursor: pointer !important;
   }
 
-  .book-reading-mode-toggle-btn {
+  .book-reading-mode-toggle-btn,
+  .book-download-pdf-btn {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -1865,11 +1923,13 @@ body.reading-mode .reading-mode-bar {
     white-space: nowrap !important;
   }
 
-  .book-reading-mode-toggle-btn .btn-text {
+  .book-reading-mode-toggle-btn .btn-text,
+  .book-download-pdf-btn .btn-text {
     display: none !important;
   }
 
-  .book-reading-mode-toggle-btn .btn-icon {
+  .book-reading-mode-toggle-btn .btn-icon,
+  .book-download-pdf-btn .btn-icon {
     margin: 0 !important;
     font-size: 0.95rem !important;
   }
