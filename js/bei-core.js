@@ -89,12 +89,28 @@ function initPlacementWidget() {
 // Mobile Nav Toggle & Responsive Drawer
 function initMobileNav() {
     const nav = document.querySelector('.bei-nav');
-    const toggle = document.querySelector('.mobile-toggle');
-    if (!toggle || !nav) return;
+    if (!nav) return;
+
+    let toggle = nav.querySelector('.mobile-toggle');
+    if (!toggle) {
+        toggle = document.createElement('button');
+        toggle.className = 'mobile-toggle';
+        toggle.setAttribute('aria-label', 'Toggle navigation menu');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.innerHTML = '☰';
+        const actions = nav.querySelector('.bei-nav-actions');
+        if (actions) {
+            actions.appendChild(toggle);
+        } else {
+            const inner = nav.querySelector('.bei-nav-inner');
+            if (inner) inner.appendChild(toggle);
+        }
+    }
 
     toggle.addEventListener('click', (e) => {
         e.stopPropagation();
         const isOpen = nav.classList.toggle('mobile-active');
+        toggle.classList.toggle('active', isOpen);
         toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         toggle.innerHTML = isOpen ? '✕' : '☰';
     });
@@ -104,6 +120,7 @@ function initMobileNav() {
     links.forEach(link => {
         link.addEventListener('click', () => {
             nav.classList.remove('mobile-active');
+            toggle.classList.remove('active');
             toggle.innerHTML = '☰';
             toggle.setAttribute('aria-expanded', 'false');
         });
@@ -113,30 +130,32 @@ function initMobileNav() {
     document.addEventListener('click', (e) => {
         if (!nav.contains(e.target)) {
             nav.classList.remove('mobile-active');
+            toggle.classList.remove('active');
+            toggle.innerHTML = '☰';
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('mobile-active')) {
+            nav.classList.remove('mobile-active');
+            toggle.classList.remove('active');
             toggle.innerHTML = '☰';
             toggle.setAttribute('aria-expanded', 'false');
         }
     });
 }
 
-// Student Progress / XP Feeling
+// Student Progress / XP - Removed from navbar to save navigation space
 function initStudentXP() {
-    let xp = parseInt(localStorage.getItem('bei_student_xp') || '120', 10);
     const xpBadges = document.querySelectorAll('#studentXP, .nav-xp-badge');
-    xpBadges.forEach(badge => {
-        badge.innerHTML = `<span class="xp-icon">⚡</span> ${xp} XP`;
-    });
+    xpBadges.forEach(badge => badge.remove());
 }
 
 function awardXP(points, reason) {
     let xp = parseInt(localStorage.getItem('bei_student_xp') || '120', 10) + points;
     localStorage.setItem('bei_student_xp', xp.toString());
-    const xpBadges = document.querySelectorAll('#studentXP, .nav-xp-badge');
-    xpBadges.forEach(badge => {
-        badge.innerHTML = `<span class="xp-icon">⚡</span> ${xp} XP`;
-        badge.classList.add('xp-pulse');
-        setTimeout(() => badge.classList.remove('xp-pulse'), 800);
-    });
     console.log(`Earned ${points} XP for: ${reason}`);
 }
 
