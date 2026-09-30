@@ -2,7 +2,27 @@
 
 The single source of truth for all PHP concepts, terminology, syntax, exercises, and capstone projects is the official textbook in `book-php/` (**PHP for Class 9: Server-Side Programming**).
 
-## Curriculum & Module Mapping
+---
+
+## 1. Ethical Alignment (*'Ilm Nāfi'* & *Amānah*)
+
+All modules, code demonstrations, forms, exercise prompts, and projects in this track must strictly follow our Islamic ethical foundation:
+- **Beneficial Web Systems (*'Ilm Nāfi'*)**: Teach backend engineering as an instrument for community empowerment, fair commerce, charity (*Sadaqah* & *Zakat*), healthcare, and wholesome education.
+- **Strictly Prohibited Domains**:
+  - **No Entertainment / Movie Streaming**: Absolutely no references to commercial streaming portals (e.g., Netflix, Hulu), cinema ticketing engines, celebrity fandoms, or unwholesome media entertainment.
+  - **No Usury / Interest (*Ribā*)**: Do not build loan interest calculators or conventional debt mechanisms.
+  - **No Gambling (*Maysir*)**: No lottery drawings, random chance betting, or casino games.
+  - **No Prohibited Commerce (*Ḥarām*)**: No alcohol, intoxicants, or illicit goods.
+- **Encouraged Wholesome Scenarios**:
+  - Educational learning portals, digital research libraries, student gradebooks, and teacher dashboards.
+  - Halal e-commerce (organic produce, ethical bookshops, artisan crafts).
+  - Science discovery centers, planetarium admissions, community seminar registries, or public transit ticketing.
+  - Charity donation portals, humanitarian disaster relief logs, and community welfare registries.
+- **Sacred Trust (*Amānah*)**: User passwords must be securely hashed with `password_hash()`, inputs sanitized with `htmlspecialchars()`, and user data safeguarded against leaks.
+
+---
+
+## 2. Curriculum & Module Mapping
 All learning modules and practice pages in `Learning PHP/` maintain direct alignment with the 26 chapters and 3 capstone projects in `book-php/`:
 - **Module 1**: Introduction, Web Architecture, PHP Tags & Echo (Book Part 1: Ch 1–3)
 - **Module 2**: Variables, Naming Rules, 8 Data Types, Strings & Math (Book Part 2: Ch 4–7)
@@ -14,7 +34,9 @@ All learning modules and practice pages in `Learning PHP/` maintain direct align
 - **Module 8**: Object-Oriented PHP (Classes, Objects, Encapsulation, Inheritance, Constructors) (Book Part 8: Ch 23–26)
 - **Capstone Projects**: Dynamic Contact Form, JSON Mini Blog, and Authentication Session System (Book Part 9: Ch 27–29)
 
-## Educational Priorities
+---
+
+## 3. Educational Priorities
 When developing or modifying pages in this directory:
 1. **Source of Truth**: Draw code examples, mental models, and terminology directly from `book-php/`.
 2. **Security by Design**: Always demonstrate input sanitization with `htmlspecialchars()`, data validation with `filter_var()`, and secure session handling.
@@ -24,4 +46,4 @@ When developing or modifying pages in this directory:
    - Multi-tier exercises: 🟢 Easy (Recall), 🟡 Medium (Application), 🔴 Challenge (Creative Problem-Solving).
    - Instant-feedback comprehension quiz.
    - Direct link to corresponding textbook chapter (`../book-php/#ch*`).
-4. **Theme Consistency**: Inherit centralized platform styling and typography from `../styles/main.css` and `../styles/book-theme.css`.\n
+4. **Theme Consistency**: Inherit centralized platform styling and typography from `../styles/main.css` and `../styles/book-theme.css`.

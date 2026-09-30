@@ -21,7 +21,7 @@ Teaching computer science to 11–13 year-olds (Grade 7) requires balancing **co
 | **Week 3** | Ch 3: Variables | `let`, `const`, memory boxes | Build Mad Libs story generator |
 | **Week 4** | Ch 4: Data Types | Strings, Numbers, Booleans, `typeof` | Data Type Scavenger Hunt |
 | **Week 5** | Ch 5: Operators | Math, string concatenation, modulo | Shopping discount calculator |
-| **Week 6** | Ch 6: Conditions | `if...else`, decision trees | Movie ticket age gatekeeper |
+| **Week 6** | Ch 6: Conditions | `if...else`, decision trees | Science museum ticket age gatekeeper |
 | **Week 7** | Ch 7: Boolean Logic | `&&`, `||`, `!`, compound rules | Rollercoaster admission simulator |
 | **Week 8** | Ch 8: Loops | `for` and `while` loops | Multiplication table printer |
 | **Week 9** | Ch 9: Nested Loops | 2D coordinates & patterns | Drawing star and emoji grids |

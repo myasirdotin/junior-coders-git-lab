@@ -10,9 +10,12 @@ All modules in this track must strictly follow our core ethical foundation:
 - **Beneficial AI**: Frame machine learning as a tool to solve real human problems (e.g., healthcare diagnostics, environmental monitoring, agricultural yield prediction, humanitarian relief logistics).
 - **Digital Trust (*Amānah*)**: User privacy is paramount. Teach data security, consent, and ethical data collection from day one.
 - **Strictly Prohibited Topics**:
-  - No interest or loan models (*Ribā*).
-  - No gambling, betting, or lottery algorithms (*Maysir*).
-  - No deceptive patterns, deepfakes, voice spoofing, or unethical surveillance.
+  - **No Interest or Loan Models (*Ribā*)**: No compound interest calculators or debt engines.
+  - **No Gambling, Betting, or Lottery Algorithms (*Maysir*)**: No games of chance or loot drop generators.
+  - **No Commercial Movie / Entertainment Streaming Platforms**: Never build movie recommendation engines (e.g., Netflix clone recommenders), cinema ticket calculators, pop media scrapers, or sentiment analysis on inappropriate films.
+  - **No Deceptive Patterns or Harms**: No deepfakes, voice spoofing, invasive surveillance, or dark UX patterns.
+- **Encouraged Beneficial Datasets & Algorithms**:
+  - Healthcare and medical diagnostics, agricultural crop yield & irrigation optimization, clean energy and solar monitoring, educational student assistance engines, disaster relief logistics, and community library catalog recommendation.
 
 ---
 

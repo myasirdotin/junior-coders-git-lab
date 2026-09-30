@@ -75,9 +75,9 @@ if (isNaN(score)) {
 
 ---
 
-## 4. Real-World Example ✈️
+## 4. Real-World Example 🚆
 
-Think about booking a flight or cinema ticket:
+Think about booking a high-speed train pass or science center ticket:
 1. The site asks: "How many tickets would you like to purchase?"
 2. The user types `"3"`.
 3. If the user accidentally typed `"abc"`, the system immediately shows an alert: "Please enter a valid number of passengers."
@@ -265,5 +265,5 @@ Create a funny story game:
 
 ## 18. Teacher Discussion Questions 💬
 
-1. Why are browser alerts and prompts rarely used in modern consumer web apps like Facebook or Netflix, and what do developers use instead?
+1. Why are browser alerts and prompts rarely used in modern professional web apps like GitHub, Wikipedia, or educational portals, and what do developers use instead?
 2. What happens if a malicious user types code into an input field? (Introduction to cybersecurity awareness).

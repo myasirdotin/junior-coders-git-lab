@@ -147,8 +147,8 @@ Type this into your editor and save it as `hero-banner.html`:
 
 ## 6. 🌍 Real-World Connection: Website Hero Sections
 
-Visit **Airbnb**, **National Geographic**, or **Nike**:
-- The very first thing you see at the top of their home page is a huge, cinematic, full-width photo or video banner.
+Visit **National Geographic**, **Khan Academy**, or **Wikimedia**:
+- The very first thing you see at the top of their home page is a huge, high-resolution, full-width photo banner.
 - Web designers call this the **Hero Section** because it is the "hero" of the page that captures your attention and sets the mood within two seconds!
 
 ---

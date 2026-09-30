@@ -13,6 +13,7 @@ All modules in this track must strictly follow our core ethical foundation:
 - **Strictly Prohibited Topics**:
   - No black-hat malware writing, keylogger creation, ransomware development, or botnet tutorials.
   - No unauthorized penetration testing guides or credential stuffing scripts.
+  - No piracy tools, illicit movie/entertainment streaming scrapers (e.g., Netflix rippers), or cinema credential cracking examples. All defensive threat models and audit scenarios must protect educational, civic, healthcare, or ethical business platforms.
   - No usury/interest calculators (*Ribā*), gambling simulations (*Maysir*), or deceptive dark patterns (*Gharar*).
 
 ---

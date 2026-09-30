@@ -110,7 +110,7 @@ By the end of this chapter, you will be able to:
 
 ## 6. 🌍 Real-World Connection: The DRY Principle in Tech
 
-At Google and Spotify, engineering teams enforce **DRY**: *Don't Repeat Yourself*.
+At Google and GitHub, engineering teams enforce **DRY**: *Don't Repeat Yourself*.
 - If you copy and paste the same 10 lines of code in 5 different files, you introduce 5 places where a future bug can hide.
 - If you wrap those 10 lines into a function `calculateTax()`, and tax rates change next year, you only update **one single place**!
 

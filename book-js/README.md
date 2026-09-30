@@ -67,7 +67,7 @@ Every single chapter in this textbook follows an 18-step pedagogical sequence:
 1. **Learning Objectives** (Clear, action-oriented outcomes)
 2. **Warm-Up Activity** (Relatable unplugged thinking prompt)
 3. **Concept Explanation** (Crystal-clear definitions without jargon)
-4. **Real-World Example** (Everyday tech parallels like Netflix, Spotify, or doorbells)
+4. **Real-World Example** (Everyday tech parallels like digital libraries, weather dashboards, or smart sensors)
 5. **Code Example** (Clean, runnable modern JavaScript)
 6. **Line-by-Line Explanation** (Detailed inspection of syntax)
 7. **Try It Yourself** (Immediate hands-on task)

@@ -13,6 +13,7 @@ All modules in this track must strictly follow our core ethical foundation:
   - No packet sniffing tutorials designed for spying or eavesdropping.
   - No DDoS scripts or botnet tutorials.
   - No interest or loan models (*Ribā*), gambling tools (*Maysir*), or deceptive dark patterns.
+  - No commercial entertainment/movie streaming scenarios (e.g., Netflix, cinema CDN traffic). When teaching streaming protocols (HLS, DASH, WebRTC, HTTP range requests), frame them exclusively around educational lectures, university webinars, medical telemetry, or interactive remote classrooms.
 
 ---
 

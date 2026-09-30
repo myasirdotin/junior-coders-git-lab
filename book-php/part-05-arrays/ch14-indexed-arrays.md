@@ -96,11 +96,11 @@ LAST ITEM:    $fruits[count($fruits) - 1] --> "Date"
 
 ---
 
-## 6. 🌍 Real-World Connection: Playlists & Search Results
+## 6. 🌍 Real-World Connection: Lecture Playlists & Audio Archives
 
-Look at **Spotify**:
-- When you click on a playlist with 50 songs, Spotify stores those song tracks in an indexed array: `[$track0, $track1, $track2, ...]`.
-- When you tap "Next Track", the player simply increments the current index: `currentIndex++`!
+Look at a **Digital Audio Archive or Educational Course**:
+- When you open a playlist with 50 recorded lectures or audio lessons, the web app stores those tracks in an indexed array: `[$lecture0, $lecture1, $lecture2, ...]`.
+- When you tap "Next Lesson", the audio player simply increments the current index: `$currentIndex++`!
 
 ---
 

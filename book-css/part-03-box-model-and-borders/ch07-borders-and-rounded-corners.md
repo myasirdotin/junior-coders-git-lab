@@ -222,7 +222,7 @@ img {
 
 ## 10. 🎨 Think Like a Web Designer: Border Consistency
 
-Look across professional websites like Stripe or Spotify:
+Look across professional websites like Stripe or GitHub:
 - Notice that they don't mix `0px` sharp corners on one card, `30px` round corners on another, and `8px` on a third.
 - They pick a **Consistent Corner Radius Rule**:
   - Small elements (buttons, badges): `6px` or `8px`

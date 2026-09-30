@@ -143,7 +143,7 @@ Open your console:
    - `}`
 
 ### 🔴 Level 5 – Create ⭐ (Challenge)
-7. Write a movie theater ticket pricing program:
+7. Write a Science Discovery Center & Planetarium ticket pricing program:
    - If age is under 5: Free ($0).
    - If age is between 5 and 12: Child ticket ($8).
    - If age is 65 or older: Senior discount ($10).

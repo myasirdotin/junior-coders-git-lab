@@ -193,11 +193,11 @@ Type this into your editor and save it as `gallery-grid.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: Pinterest and Netflix
+## 6. 🌍 Real-World Connection: Digital Libraries & Specimen Galleries
 
-Open **Netflix** or **Pinterest**:
-- The endless grid of movie posters on Netflix or photo pins on Pinterest is built using CSS Grid!
-- With Grid, no matter how many movies are in a category, they line up in crisp columns and rows with uniform gaps.
+Open a modern **Digital Library Catalog** or **Wikimedia Commons**:
+- The clean, responsive grid of book covers, historic manuscripts, or nature photos is built using CSS Grid!
+- With Grid, no matter how many books or items exist in a collection, they line up in crisp columns and rows with uniform gaps.
 
 ---
 

@@ -108,13 +108,13 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 6. 🌍 Real-World Connection: User Permissions & Paywalls
+## 6. 🌍 Real-World Connection: Student Access & Educational Portals
 
-Websites like Netflix and YouTube use conditionals on every single click:
-- `if (!$user->isSubscribed()) { showPaywall(); }`
-- `if ($user->role === 'admin') { showAdminPanel(); }`
+Educational platforms and online academies (like university portals and research archives) use conditionals on every single click:
+- `if (!$student->isEnrolled()) { showEnrollmentPrompt(); }`
+- `if ($user->role === 'teacher') { showTeacherDashboard(); }`
 
-Conditionals are the digital security guards protecting private areas of websites!
+Conditionals are the digital security guards protecting private learning materials and student dashboards!
 
 ---
 
@@ -190,4 +190,4 @@ Conditionals are the digital security guards protecting private areas of website
 7. How does **short-circuit evaluation** work in PHP when using `&&` and `||`?
 
 ### 🟣 Level 5: Create & Build
-8. Build a Movie Ticket Pricing Calculator: Adult ticket is $12, Child (under 12) is $8, Senior (65+) is $9. On Tuesdays, everyone gets a $2 discount! Output a personalized ticket summary.
+8. Build a Science Museum & Planetarium Ticket Pricing Calculator: Adult ticket is $12, Child (under 12) is $8, Senior (65+) is $9. On Community Discovery Tuesdays, everyone gets a $2 educational discount! Output a personalized ticket summary.

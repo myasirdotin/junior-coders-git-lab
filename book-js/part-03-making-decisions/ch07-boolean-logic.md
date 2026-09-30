@@ -191,11 +191,11 @@ Write the boolean expression for this rule before writing any JavaScript:
 
 ---
 
-## 12. 🚀 Coding Challenge ⭐: The Movie Ticket Rating Check
+## 12. 🚀 Coding Challenge ⭐: Robotics Lab Access Safety Check
 
-Write a program that checks whether a user can purchase a ticket for a PG-13 film:
-- Can enter if `age >= 13` OR `hasParentWithThem === true`.
-- Print a clear message explaining why they were admitted or turned away.
+Write a program that checks whether a student can operate high-precision robotics lab equipment:
+- Can operate if `age >= 14` OR `hasSafetySupervisorWithThem === true`.
+- Print a clear message explaining why they were granted access or advised to wait for certified supervision.
 
 ---
 

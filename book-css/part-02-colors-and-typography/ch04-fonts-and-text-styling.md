@@ -146,7 +146,7 @@ Type this into your editor and save it as `quote.html`:
 
 ## 6. 🌍 Real-World Connection: Google Fonts
 
-Open modern websites like **Medium**, **Spotify**, or **Apple**:
+Open modern websites like **Wikipedia**, **GitHub**, or **Apple**:
 - They don't use boring default fonts.
 - They load custom web fonts using services like **Google Fonts** (such as *Inter*, *Roboto*, *Poppins*, or *Outfit*).
 - Typography gives a brand its entire visual identity!

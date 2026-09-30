@@ -13,7 +13,7 @@ Think about physical collector cards—like Pokémon cards, baseball cards, or M
 - You can shuffle them, place three of them side-by-side on your desk, or browse through a binder of dozens.
 
 In modern web design, **The Card Pattern** is the undisputed king of user interfaces!
-Whether you are browsing products on Amazon, videos on YouTube, posts on Twitter, or playlists on Spotify, almost everything you click on is a **Card**!
+Whether you are browsing products on an online bookstore, research articles in a digital library, or courses in an academy portal, almost everything you click on is a **Card**!
 
 ---
 

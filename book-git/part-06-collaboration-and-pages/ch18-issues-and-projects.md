@@ -100,7 +100,7 @@ The modal should appear with a high `z-index` in the center of the viewport abov
 
 ## 6. 🌍 Real-World Connection: Agile Software Development
 
-- Top software organizations (like Spotify, Airbnb, and Uber) organize their engineering sprints around task boards like this.
+- Top software organizations and open-source foundations (like Mozilla, Wikipedia, and the Linux Foundation) organize their engineering sprints around task boards like this.
 - Teams hold daily 10-minute "Standup" meetings where every developer points to the board and answers 3 questions:
   1. *What did I complete yesterday?*
   2. *What will I work on today?*

@@ -158,11 +158,11 @@ Create an object `smartphone` with keys `brand`, `model`, `batteryPercent`, and 
 What is the difference between an Array of Objects `[{...}, {...}]` versus an Object with Arrays `{ friends: [...] }`? Give a real-life example of each.
 
 ### Level 5: Create ⭐
-Create a `bankAccount` object with:
-- `accountHolder: "Your Name"`
+Create a `charityFund` object with:
+- `fundName: "Clean Water Initiative"`
 - `balance: 1000`
-- `deposit: function(amount)` (adds to balance)
-- `withdraw: function(amount)` (subtracts from balance if enough funds exist)
+- `deposit: function(amount)` (adds donation to balance)
+- `withdraw: function(amount)` (subtracts relief spending if enough funds exist)
 Test depositing 500 and withdrawing 200.
 
 ---
@@ -170,17 +170,17 @@ Test depositing 500 and withdrawing 200.
 ## 9. Predict the Output 🔮
 
 ```javascript
-let movie = {
-    title: "Spider-Man",
-    year: 2002,
-    rating: 8.5
+let documentary = {
+    title: "Wonders of the Ocean",
+    year: 2022,
+    rating: 9.2
 };
 
 let propertyToLookUp = "year";
-console.log(movie.propertyToLookUp);
-console.log(movie[propertyToLookUp]);
+console.log(documentary.propertyToLookUp);
+console.log(documentary[propertyToLookUp]);
 ```
-*What will the two console logs show? (Hint: does `movie` have a key named literal "propertyToLookUp"?)*
+*What will the two console logs show? (Hint: does `documentary` have a key named literal "propertyToLookUp"?)*
 
 ---
 

@@ -138,7 +138,7 @@ Type this into your editor and save it as `colors.html`:
 ## 6. 🌍 Real-World Connection: Brand Identity
 
 Every major brand in the world has a signature Hex code:
-- **Spotify Green**: `#1db954`
+- **WhatsApp Green**: `#25d366`
 - **YouTube Red**: `#ff0000`
 - **Twitter / X Blue**: `#1da1f2`
 - **McDonald's Golden Yellow**: `#ffc72c`

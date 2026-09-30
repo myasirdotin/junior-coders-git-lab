@@ -31,10 +31,13 @@ When teaching database schemas, forms, arithmetic logic, e-commerce, APIs, or bu
   - **No Gambling or Games of Chance (*Maysir*)**: Do not create casino games, lottery pickers, betting platforms, dice gambling, or loot box mechanics.
   - **No Prohibited Goods (*Ḥarām*)**: Do not use examples involving alcohol, intoxicants, pork/illicit foods, night clubs, or unethical entertainment venues.
   - **No Deceptive Patterns (*Gharar* & Fraud)**: No fake countdown timers, hidden checkout fees, deceptive popups, or privacy-invading spyware techniques.
+  - **No Entertainment Media Streaming or Cinema Themes**: Do not reference commercial movie/series streaming platforms (such as Netflix, Hulu, or film streaming portals), movie theaters, cinema box offices, movie ticket pricing, celebrity gossip, or pop music streaming. Entertainment media containing unwholesome themes, immodesty, or music/film consumption contrary to Islamic modesty (*Ḥayā'*) must never be normalized or used as teaching examples.
 - **Encouraged Real-World Scenarios**:
-  - Ethical e-commerce (halal bakeries, bookshops, artisan crafts, organic farms).
+  - Educational knowledge platforms (online academies, digital research libraries, university portals, Quran/tafsir lecture archives, educational science documentaries).
+  - Ethical e-commerce (halal bakeries, bookshops, artisan crafts, organic farms, educational software).
   - Charitable giving, *Zakat* calculators, and humanitarian donation trackers.
   - Community service portals, student study organizers, prayer time / calendar apps, hospital appointment schedulers, and clean energy monitors.
+  - Wholesome admission & ticketing: Science exhibition passes, planetarium tickets, botanical garden admissions, community educational conference registrations, or public transit passes (instead of movie/cinema tickets).
   - Transparent pricing, fair trade inventory management, and partnership-based profit/loss sharing models.
 
 ### 1.4 Truthfulness, Trust & Digital Stewardship (*Ṣidq & Amānah*)
@@ -49,7 +52,8 @@ When teaching database schemas, forms, arithmetic logic, e-commerce, APIs, or bu
 ### AI Compliance Checklist Before Writing or Modifying Any Lesson:
 - [ ] Is the theme, narrative, or scenario clean, modest, and ethically sound?
 - [ ] Is it free of *Ribā* (interest), *Maysir* (gambling), *Ḥarām* substances, and deceptive mechanics?
-- [ ] Does the project cultivate beneficial skills that serve people and communities?
+- [ ] Is it free of commercial movie/series streaming (e.g., Netflix), cinema ticket sales, or unwholesome media entertainment?
+- [ ] Does the project cultivate beneficial skills that serve people and communities (*'Ilm Nāfi'*)?
 - [ ] Are digital trust (*Amānah*), privacy, security, and data protection upheld?
 - [ ] Is the language respectful, constructive, and pedagogical?
 

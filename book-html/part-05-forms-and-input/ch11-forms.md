@@ -152,10 +152,10 @@ Type this into your editor and save it as `registration.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: How Google & Netflix Use Forms
+## 6. 🌍 Real-World Connection: How Google & GitHub Use Forms
 
 - **Google Search**: The giant search bar on `google.com` is simply an `<input type="text">` inside a `<form>`! When you press Enter, the form submits your query to Google's server.
-- **Netflix & Disney+**: The login screen is an `<input type="email">` and an `<input type="password">`! The password input hides characters as black dots (••••••) so nobody standing behind you can steal your password!
+- **GitHub & University Portals**: The login screen is an `<input type="email">` and an `<input type="password">`! The password input hides characters as black dots (••••••) so nobody standing behind you can steal your password!
 
 ---
 
