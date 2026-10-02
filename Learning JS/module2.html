@@ -3,131 +3,656 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 2: Learn about JavaScript operators including arithmetic, assignment, and comparison.">
-    <title>Module 2: Operators | Junior Coders</title>
+    <meta name="description" content="Module 2: Master JavaScript Operators, Arithmetic, Comparison, and Logic through the 7-Step Learning Cycle with interactive auto-evaluation.">
+    <title>Module 2: Operators &amp; Expressions | BEI Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+    <link rel="stylesheet" href="../styles/bei-learning-system.css">
 </head>
 <body>
-    <main class="module-container">
-        <!-- Hero Header -->
-        <header class="module-header path-js">
-            <span class="badge" style="background: white; color: var(--primary);">Level 1</span>
-            <h1>The Magical Calculator!</h1>
-            <p>Learn how to do math and make comparisons in JavaScript! ➕➖✖️➗</p>
+    <!-- Top Navigation Bar -->
+    <header class="bei-nav">
+        <div class="bei-nav-inner">
+            <a href="../index.html" class="bei-logo">
+                <span class="bei-logo-icon">💻</span>
+                <span>BEI Coders <span style="font-size: 0.75rem; color: var(--brand-amber); font-weight: 700; margin-left: 4px;">LEARN</span></span>
+            </a>
+            <div class="bei-nav-links">
+                <a href="../paths/web-developer/index.html" class="bei-nav-link">Web Pathway</a>
+                <a href="learningjs.html" class="bei-nav-link">All JS Modules</a>
+                <a href="../master-playground.html" class="bei-nav-link">Playground</a>
+                <a href="../teacher-hub/index.html" class="bei-nav-link">Teacher Hub</a>
+            </div>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-container" style="max-width: 1040px; margin: 0 auto; padding: 2rem 1.25rem;">
+        
+        <!-- Breadcrumbs & Module Hero -->
+        <div style="margin-bottom: 1.5rem;">
+            <a href="learningjs.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.88rem;">← Back to JavaScript Journey</a>
+        </div>
+
+        <header class="module-header path-js" style="background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-xl); padding: 2.5rem 2rem; margin-bottom: 2rem; box-shadow: 0 12px 30px rgba(0,0,0,0.3);">
+            <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                <span class="badge" style="background: var(--brand-primary); color: white; padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Class 7 &amp; 8 Computer Science</span>
+                <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Module 2 of 9</span>
+                <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">+290 Total XP Available</span>
+            </div>
+            <h1 style="font-size: 2.4rem; font-weight: 800; color: #fff; margin-bottom: 0.65rem;">JavaScript Operators: The Magical Computational Engine ⚡</h1>
+            <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; max-width: 820px; margin: 0;">
+                Learn how to calculate numbers, compare values with strict precision (<code>===</code>), and combine logical decisions using <code>&amp;&amp;</code>, <code>||</code>, and <code>!</code>.
+            </p>
         </header>
 
-        <!-- Arithmetic Section -->
-        <section class="content-section">
-            <h2>Math Monsters 👾</h2>
-            <p>JavaScript can do math faster than any human. We use these symbols to talk to the computer:</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 2rem; text-align: center;">
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f59e0b;">
-                    <span style="font-size: 2rem;">➕</span>
-                    <p>Addition</p>
-                    <code>5 + 5 = 10</code>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- THE FIXED 7-STEP CYCLE NAVIGATION BAR                          -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <nav class="cycle-nav-container" aria-label="7-Step Learning Cycle">
+            <div class="cycle-steps-wrapper">
+                <a href="#step-learn" class="cycle-step-item active" data-target="step-learn">
+                    <span class="step-num">1</span>
+                    <span>Learn</span>
+                </a>
+                <a href="#step-see" class="cycle-step-item" data-target="step-see">
+                    <span class="step-num">2</span>
+                    <span>See</span>
+                </a>
+                <a href="#step-try" class="cycle-step-item" data-target="step-try">
+                    <span class="step-num">3</span>
+                    <span>Try</span>
+                </a>
+                <a href="#step-practice" class="cycle-step-item" data-target="step-practice">
+                    <span class="step-num">4</span>
+                    <span>Practice</span>
+                </a>
+                <a href="#step-challenge" class="cycle-step-item" data-target="step-challenge">
+                    <span class="step-num">5</span>
+                    <span>Challenge</span>
+                </a>
+                <a href="#step-quiz" class="cycle-step-item" data-target="step-quiz">
+                    <span class="step-num">6</span>
+                    <span>Quiz</span>
+                </a>
+                <a href="#step-project" class="cycle-step-item" data-target="step-project">
+                    <span class="step-num">7</span>
+                    <span>Project</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 1: LEARN (Conceptual Categories of Operators)            -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-learn" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(79, 70, 229, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">1</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 1: Learn — The 3 Families of Operators</h2>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary);">
+                In mathematics and programming, an <strong>Operator</strong> is a special character or keyword that takes one or more values (called <em>operands</em>) and computes a result.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin: 1.5rem 0;">
+                <!-- 1. Arithmetic -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">➕</div>
+                    <h3 style="color: #60a5fa; margin-bottom: 0.5rem;">1. Arithmetic Operators</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+                        Used to perform calculations:
+                    </p>
+                    <ul style="color: #cbd5e1; font-size: 0.88rem; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+                        <li><code>+</code> Addition (and string joining!)</li>
+                        <li><code>-</code> Subtraction</li>
+                        <li><code>*</code> Multiplication</li>
+                        <li><code>/</code> Division</li>
+                        <li><code>%</code> Modulo (remainder after division: <code>10 % 3 = 1</code>)</li>
+                    </ul>
                 </div>
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f59e0b;">
-                    <span style="font-size: 2rem;">➖</span>
-                    <p>Subtraction</p>
-                    <code>10 - 4 = 6</code>
+
+                <!-- 2. Comparison -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">⚖️</div>
+                    <h3 style="color: #34d399; margin-bottom: 0.5rem;">2. Comparison Operators</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+                        Compares two values and always evaluates to <code>true</code> or <code>false</code>:
+                    </p>
+                    <ul style="color: #cbd5e1; font-size: 0.88rem; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+                        <li><code>===</code> Strict equality (checks value AND type!)</li>
+                        <li><code>!==</code> Strict inequality (not equal)</li>
+                        <li><code>&gt;</code> Greater than &bull; <code>&lt;</code> Less than</li>
+                        <li><code>&gt;=</code> Greater than or equal &bull; <code>&lt;=</code> Less or equal</li>
+                    </ul>
                 </div>
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f59e0b;">
-                    <span style="font-size: 2rem;">✖️</span>
-                    <p>Multiply</p>
-                    <code>2 * 3 = 6</code>
+
+                <!-- 3. Logical -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🧩</div>
+                    <h3 style="color: #f59e0b; margin-bottom: 0.5rem;">3. Logical Operators</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+                        Combines multiple Boolean conditions:
+                    </p>
+                    <ul style="color: #cbd5e1; font-size: 0.88rem; line-height: 1.6; padding-left: 1.2rem; margin: 0;">
+                        <li><code>&amp;&amp;</code> <strong>AND</strong>: True only if BOTH conditions are true</li>
+                        <li><code>||</code> <strong>OR</strong>: True if AT LEAST ONE condition is true</li>
+                        <li><code>!</code> <strong>NOT</strong>: Flips true to false, or false to true</li>
+                    </ul>
                 </div>
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border: 2px solid #f59e0b;">
-                    <span style="font-size: 2rem;">➗</span>
-                    <p>Divide</p>
-                    <code>8 / 2 = 4</code>
+            </div>
+
+            <!-- Golden Rule Alert -->
+            <div style="background: rgba(99, 102, 241, 0.1); border-left: 4px solid #6366f1; border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-top: 1.5rem;">
+                <strong style="color: #818cf8; display: block; margin-bottom: 0.25rem;">💡 Junior Coders Golden Rule: Always Use === Instead of ==</strong>
+                <span style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6;">
+                    In JavaScript, loose equality (<code>==</code>) tries to secretly convert types (e.g. <code>5 == "5"</code> is true). Strict equality (<code>===</code>) does honest, accurate comparisons without sneaky conversion. Craftsmen always use <code>===</code>!
+                </span>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 2: SEE (Worked Code Examples)                            -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-see" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">2</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 2: See — Concrete Code Examples</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                <!-- Example A -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="background: var(--bg-surface-elevated); padding: 0.75rem 1.25rem; font-weight: 700; color: #818cf8; border-bottom: 1px solid var(--border-subtle);">
+                        <span>Example A: Arithmetic &amp; Modulo Even/Odd Checker</span>
+                    </div>
+                    <pre style="margin: 0; padding: 1.25rem; background: #020617; color: #f8fafc; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; overflow-x: auto;"><code><span style="color: #64748b;">// Modulo (%) gives the remainder of division</span>
+<span style="color: #fbbf24;">const</span> rollNumber = <span style="color: #f43f5e;">14</span>;
+<span style="color: #fbbf24;">const</span> isEven = (rollNumber % <span style="color: #f43f5e;">2</span>) === <span style="color: #f43f5e;">0</span>;
+
+console.log(<span style="color: #38bdf8;">"Remainder when divided by 2:"</span>, rollNumber % <span style="color: #f43f5e;">2</span>); <span style="color: #64748b;">// 0</span>
+console.log(<span style="color: #38bdf8;">"Is roll number even?"</span>, isEven);                 <span style="color: #64748b;">// true</span></code></pre>
+                </div>
+
+                <!-- Example B -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="background: var(--bg-surface-elevated); padding: 0.75rem 1.25rem; font-weight: 700; color: #34d399; border-bottom: 1px solid var(--border-subtle);">
+                        <span>Example B: Strict Equality vs Loose Equality</span>
+                    </div>
+                    <pre style="margin: 0; padding: 1.25rem; background: #020617; color: #f8fafc; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; overflow-x: auto;"><code><span style="color: #fbbf24;">const</span> userPIN = <span style="color: #f43f5e;">1234</span>;
+<span style="color: #fbbf24;">const</span> inputStr = <span style="color: #38bdf8;">"1234"</span>;
+
+console.log(userPIN === inputStr); <span style="color: #64748b;">// false (one is number, one is string!)</span>
+console.log(userPIN === <span style="color: #f43f5e;">1234</span>);     <span style="color: #64748b;">// true (both are identical numbers)</span></code></pre>
+                </div>
+
+                <!-- Example C -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="background: var(--bg-surface-elevated); padding: 0.75rem 1.25rem; font-weight: 700; color: #f59e0b; border-bottom: 1px solid var(--border-subtle);">
+                        <span>Example C: Science Fair Admission Criteria (Logical AND / OR)</span>
+                    </div>
+                    <pre style="margin: 0; padding: 1.25rem; background: #020617; color: #f8fafc; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; overflow-x: auto;"><code><span style="color: #fbbf24;">const</span> hasParentPermission = <span style="color: #34d399;">true</span>;
+<span style="color: #fbbf24;">const</span> hasCompletedProject = <span style="color: #34d399;">true</span>;
+<span style="color: #fbbf24;">const</span> hasOverdueFines = <span style="color: #f43f5e;">false</span>;
+
+<span style="color: #64748b;">// Must have permission AND project completed AND no overdue fines:</span>
+<span style="color: #fbbf24;">const</span> canParticipate = hasParentPermission &amp;&amp; hasCompletedProject &amp;&amp; !hasOverdueFines;
+
+console.log(<span style="color: #38bdf8;">"Student cleared for Science Fair:"</span>, canParticipate); <span style="color: #64748b;">// true</span></code></pre>
                 </div>
             </div>
         </section>
 
-        <!-- Comparison Section -->
-        <section class="content-section">
-            <h2>The Comparison Test ⚖️</h2>
-            <p>Sometimes we need to ask questions like "Is this bigger than that?" or "Is this the same?". The answer is always <strong>true</strong> or <strong>false</strong>.</p>
-            <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; display: flex; justify-content: space-between; align-items: center;">
-                    <span>Is 10 greater than 5?</span>
-                    <code>10 > 5 <span style="color: #10b981;">// true</span></code>
-                </div>
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; display: flex; justify-content: space-between; align-items: center;">
-                    <span>Is 3 less than 1?</span>
-                    <code>3 < 1 <span style="color: #f43f5e;">// false</span></code>
-                </div>
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; display: flex; justify-content: space-between; align-items: center; border: 2px solid #3b82f6;">
-                    <span>Is it exactly the same?</span>
-                    <code>"Apple" === "Apple" <span style="color: #10b981;">// true</span></code>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 3: TRY (Interactive Hands-on Scratchpad)                  -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-try" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">3</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 3: Try — Operator Lab Scratchpad</h2>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Test expressions right now. Modify the numbers, click <strong>Run Code</strong>, and see the logical outcome immediately.
+            </p>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Test Logic</span>
+                            <button id="btn-reset-try" style="background: transparent; border: none; color: #818cf8; font-size: 0.8rem; cursor: pointer;">↺ Reset</button>
+                        </div>
+                        <textarea id="try-code-editor" spellcheck="false" style="width: 100%; height: 210px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem; font-family: var(--font-mono); font-size: 0.88rem; resize: none; outline: none; line-height: 1.5;">let booksCollected = 45;
+let targetGoal = 50;
+
+let remaining = targetGoal - booksCollected;
+let isGoalReached = booksCollected >= targetGoal;
+
+console.log("Books still needed:", remaining);
+console.log("Goal achieved:", isGoalReached);
+console.log("Is 45 divisible by 5?", (booksCollected % 5) === 0);</textarea>
+                        <button id="btn-run-try" class="btn-hero-primary" style="margin-top: 0.75rem; width: 100%; justify-content: center; padding: 0.65rem;">
+                            ⚡ Run Code
+                        </button>
+                    </div>
+
+                    <div>
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Console Output</span>
+                        <div id="try-console-output" style="width: 100%; height: 210px; background: #020617; color: #34d399; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem; font-family: var(--font-mono); font-size: 0.88rem; overflow-y: auto;">
+                            <span style="color: #64748b;">Click "Run Code" above to see the output...</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Logical Operators -->
-        <section class="content-section">
-            <h2>Super Logic! 🧠</h2>
-            <p>We can combine questions using <strong>AND</strong> and <strong>OR</strong>.</p>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
-                <div style="background: #020617; padding: 2rem; border-radius: 1.5rem; border-left: 5px solid #3b82f6;">
-                    <h3>&& (AND)</h3>
-                    <p style="font-size: 0.9rem;">Both MUST be true. <br> "I want pizza AND ice cream."</p>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 4: PRACTICE (3 Auto-Evaluated Drills)                      -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-practice" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(99, 102, 241, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">4</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 4: Practice — Auto-Evaluated Coding Drills</h2>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+                
+                <!-- Drill 1 -->
+                <div class="drill-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="font-size: 1.15rem; color: #f8fafc; margin: 0;">🟢 Drill 1: School Bag Total Weight</h3>
+                        <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.75rem;">+20 XP</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Given <code>mathWeight = 450</code> and <code>scienceWeight = 600</code>, declare a variable <code>totalWeight</code> containing their sum.
+                    </p>
+                    <div class="bei-evaluator-widget" data-spec-id="js-m2-drill-easy">
+                        <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 110px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">const mathWeight = 450;
+const scienceWeight = 600;
+
+// Declare totalWeight below:
+</textarea>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">🚀 Test My Code</button>
+                            <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">💡 Hint</button>
+                        </div>
+                        <div class="evaluator-feedback-area" style="margin-top: 0.75rem;"></div>
+                    </div>
                 </div>
-                <div style="background: #020617; padding: 2rem; border-radius: 1.5rem; border-left: 5px solid #ec4899;">
-                    <h3>|| (OR)</h3>
-                    <p style="font-size: 0.9rem;">Only one needs to be true. <br> "I want pizza OR burgers."</p>
+
+                <!-- Drill 2 -->
+                <div class="drill-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="font-size: 1.15rem; color: #f8fafc; margin: 0;">🟡 Drill 2: 75% Attendance Check</h3>
+                        <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.75rem;">+25 XP</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Declare <code>attendancePercent = 82</code>. Then declare a boolean variable <code>isEligible</code> that checks if <code>attendancePercent &gt;= 75</code>.
+                    </p>
+                    <div class="bei-evaluator-widget" data-spec-id="js-m2-drill-med">
+                        <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 110px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">const attendancePercent = 82;
+
+// Declare isEligible using >= comparison:
+</textarea>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">🚀 Test My Code</button>
+                            <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">💡 Hint</button>
+                        </div>
+                        <div class="evaluator-feedback-area" style="margin-top: 0.75rem;"></div>
+                    </div>
+                </div>
+
+                <!-- Drill 3 -->
+                <div class="drill-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="font-size: 1.15rem; color: #f8fafc; margin: 0;">🔴 Drill 3: Logical AND Scholarship Award</h3>
+                        <span class="badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.75rem;">+25 XP</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                        A student qualifies for the Academy Honor Scholarship if both <code>hasHighGrades</code> is <code>true</code> AND <code>hasVolunteerHours</code> is <code>true</code>. Declare <code>isScholarshipAwarded</code> using <code>&amp;&amp;</code>.
+                    </p>
+                    <div class="bei-evaluator-widget" data-spec-id="js-m2-drill-hard">
+                        <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 120px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">const hasHighGrades = true;
+const hasVolunteerHours = true;
+
+// Declare isScholarshipAwarded using &&:
+</textarea>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">🚀 Test My Code</button>
+                            <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">💡 Hint</button>
+                        </div>
+                        <div class="evaluator-feedback-area" style="margin-top: 0.75rem;"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 5: CHALLENGE (Library Borrowing Eligibility Engine)      -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-challenge" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(239, 68, 68, 0.2); color: #f87171; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">5</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 5: Challenge — Library Loan Eligibility Engine</h2>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(30, 27, 75, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%); border: 1px solid rgba(99, 102, 241, 0.4); border-radius: var(--radius-lg); padding: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <div>
+                        <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem;">Mastery Challenge</span>
+                        <h3 style="font-size: 1.35rem; color: #fff; margin: 0.5rem 0 0.25rem;">Multi-Condition Borrowing Gatekeeper</h3>
+                    </div>
+                    <span style="font-size: 1.1rem; font-weight: 800; color: #fbbf24;">+50 XP</span>
+                </div>
+
+                <p style="color: #cbd5e1; font-size: 0.98rem; line-height: 1.6; margin-bottom: 1rem;">
+                    You are coding the automated borrowing check for the community science library. A student is permitted to check out a new book if and only if:
+                </p>
+
+                <ol style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+                    <li>Their current <code>booksCheckedOut</code> is strictly less than <code>maxAllowed</code> (which is <code>5</code>).</li>
+                    <li>They have NO overdue return holds (<code>hasOverdueHold === false</code>).</li>
+                    <li>They have an active membership (<code>isMember === true</code>).</li>
+                </ol>
+
+                <div class="bei-evaluator-widget" data-spec-id="js-m2-challenge">
+                    <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 160px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">const booksCheckedOut = 3;
+const maxAllowed = 5;
+const hasOverdueHold = false;
+const isMember = true;
+
+// Build canBorrowNewBook combining all 3 conditions:
+const canBorrowNewBook = (booksCheckedOut < maxAllowed) && (!hasOverdueHold) && (isMember);
+</textarea>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">
+                            🚀 Test Gatekeeper Logic
+                        </button>
+                        <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.9rem;">
+                            💡 Need a Hint?
+                        </button>
+                    </div>
+                    <div class="evaluator-feedback-area" style="margin-top: 1rem;"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Sandbox Section -->
-        <section class="content-section">
-            <h2>Your Magic Calculator Sandbox ➕➖✖️➗</h2>
-            <p>Try doing math and using comparison operators! Run the code below to see the calculator in action.</p>
-            <div class="playground-container" style="margin-top: 1.5rem;">
-                <div class="editor-area">
-                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">JavaScript Editor</label>
-                    <textarea id="code-editor" spellcheck="false" style="width: 100%; height: 180px; background: #020617; color: #f8fafc; border: 2px solid var(--border-dim); border-radius: 1rem; padding: 1rem; font-family: var(--font-mono); font-size: 0.95rem; resize: none; outline: none; margin-bottom: 1rem;">let itemsCount = 10;
-let pricePerItem = 5;
-let totalPrice = itemsCount * pricePerItem;
-
-console.log("Total price is: $", totalPrice);
-
-let isExpensive = totalPrice > 40;
-console.log("Is total price greater than $40?", isExpensive);</textarea>
-                    <button class="btn-primary" onclick="runJS()" style="padding: 0.5rem 1.5rem; font-size: 0.85rem; border-radius: 0.75rem;">⚡ Run Code</button>
-                </div>
-                <div class="preview-area">
-                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Console Output</label>
-                    <div id="console" style="width: 100%; height: 180px; background: #020617; border-radius: 1rem; border: 2px solid var(--border-dim); overflow: auto; padding: 1rem; color: #34d399; font-family: var(--font-mono); font-size: 0.9rem;"></div>
-                </div>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 6: QUIZ (5 Multiple Choice Concept Questions)             -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-quiz" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(168, 85, 247, 0.2); color: #c084fc; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">6</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 6: Quiz — Operator Logic Mastery</h2>
             </div>
-        </section>
 
-        <!-- Quiz Section -->
-        <section class="content-section">
-            <h2>Math & Logic Quiz!</h2>
-            <form id="quiz-form-2" class="quiz-section">
-                <div class="quiz-question" data-answer="b">
-                    <p>Q1: What is the result of 10 * 2?</p>
-                    <label><input type="radio" name="q2-1" value="a"> 12</label>
-                    <label><input type="radio" name="q2-1" value="b"> 20</label>
-                    <label><input type="radio" name="q2-1" value="c"> 5</label>
-                    <div class="quiz-feedback"></div>
+            <form id="quiz-form-2" class="quiz-section" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <!-- Q1 -->
+                <div class="quiz-question" data-answer="b" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">1. What is the result of <code>15 % 4</code> in JavaScript?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q1" value="a"> <code>3.75</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q1" value="b"> <code>3</code> (remainder: 15 = 4*3 + 3)</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q1" value="c"> <code>0</code></label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
                 </div>
-                <div class="quiz-question" data-answer="a">
-                    <p>Q2: What does (5 > 3 && 10 > 2) return?</p>
-                    <label><input type="radio" name="q2-2" value="a"> true (both are true)</label>
-                    <label><input type="radio" name="q2-2" value="b"> false (one is wrong)</label>
-                    <div class="quiz-feedback"></div>
+
+                <!-- Q2 -->
+                <div class="quiz-question" data-answer="b" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">2. What will <code>10 === "10"</code> evaluate to?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q2" value="a"> <code>true</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q2" value="b"> <code>false</code> (different data types: number vs string)</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q2" value="c"> <code>undefined</code></label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(2)">Check Answers</button>
+
+                <!-- Q3 -->
+                <div class="quiz-question" data-answer="a" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">3. When does <code>A &amp;&amp; B</code> evaluate to <code>true</code>?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q3" value="a"> Only when both A and B are true</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q3" value="b"> When either A or B is true</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q3" value="c"> Whenever A is false</label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="quiz-question" data-answer="c" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">4. What is the result of <code>!false</code>?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q4" value="a"> <code>false</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q4" value="b"> <code>0</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q4" value="c"> <code>true</code></label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="quiz-question" data-answer="b" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">5. Which expression correctly checks if a score is between 80 and 100 inclusive?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q5" value="a"> <code>80 &lt;= score &lt;= 100</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q5" value="b"> <code>score &gt;= 80 &amp;&amp; score &lt;= 100</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q5" value="c"> <code>score &gt;= 80 || score &lt;= 100</code></label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
+
+                <button type="button" class="btn-hero-primary" onclick="checkQuiz(2)" style="align-self: flex-start; padding: 0.65rem 1.75rem;">
+                    Check Quiz Answers
+                </button>
             </form>
         </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 7: PROJECT (Fair Bookshop Checkout Total Calculator)      -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-project" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">7</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 7: Project — Fair Trade Bookshop Register</h2>
+            </div>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2rem;">
+                <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem;">Mini Project • Ethical Commerce</span>
+                <h3 style="color: #fff; font-size: 1.3rem; margin: 0.5rem 0 0.5rem;">Transparent Point-of-Sale Calculator</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    Experience arithmetic in an ethical setting: calculate book subtotals, apply student discounts without hidden checkout tricks or deceitful countdowns.
+                </p>
+
+                <!-- Interactive App Demo -->
+                <div style="background: #020617; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem; max-width: 480px; margin: 0 auto 1.5rem;">
+                    <div style="border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem; margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                        <h4 style="margin: 0; color: #f8fafc; font-size: 1.05rem;">📚 Al-Qalam Bookshop</h4>
+                        <span style="font-size: 0.75rem; color: #34d399; background: rgba(16, 185, 129, 0.15); padding: 0.2rem 0.5rem; border-radius: 4px;">Zero Hidden Fees</span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 1.25rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                            <span style="color: var(--text-secondary);">Book Price:</span>
+                            <span style="color: #fff; font-family: var(--font-mono);">$15.00 each</span>
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <span style="color: var(--text-secondary); font-size: 0.9rem;">Quantity:</span>
+                            <input type="number" id="calc-qty" value="2" min="1" max="20" style="width: 70px; background: #0f172a; border: 1px solid var(--border-subtle); color: #fff; padding: 0.35rem; border-radius: 4px; text-align: center;">
+                        </div>
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <label style="color: var(--text-secondary); font-size: 0.88rem; cursor: pointer;">
+                                <input type="checkbox" id="calc-discount"> Student Discount (10% off)
+                            </label>
+                        </div>
+                        <div style="border-top: 1px dashed var(--border-subtle); padding-top: 0.75rem; display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 700;">
+                            <span style="color: #f8fafc;">Total Payable:</span>
+                            <span id="calc-total" style="color: #34d399; font-family: var(--font-mono);">$30.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
+    <!-- Core Scripts -->
+    <script src="../js/bei-evaluator.js"></script>
+    <script src="../js/bei-core.js"></script>
     <script src="../js/core.js"></script>
-    <script src="../js/playground.js"></script>
+    <script src="../js/bei-learning-cycle.js"></script>
     <script src="../js/pdf-download.js"></script>
+
+    <!-- Specific Test Suites for Module 2 -->
+    <script>
+        window.BEI_TEST_SPECS = {
+            'js-m2-drill-easy': {
+                id: 'js-m2-drill-easy',
+                title: 'Drill 1: Total Weight Sum',
+                xpReward: 20,
+                tests: [
+                    {
+                        description: 'Variable "totalWeight" is declared',
+                        hint: 'const totalWeight = mathWeight + scienceWeight;',
+                        expected: true,
+                        run: function() {
+                            return { passed: typeof totalWeight !== 'undefined', message: 'totalWeight exists' };
+                        }
+                    },
+                    {
+                        description: 'totalWeight equals exactly 1050',
+                        hint: '450 + 600 = 1050',
+                        expected: 1050,
+                        run: function() {
+                            return { passed: totalWeight === 1050, message: 'Current value: ' + totalWeight };
+                        }
+                    }
+                ]
+            },
+            'js-m2-drill-med': {
+                id: 'js-m2-drill-med',
+                title: 'Drill 2: Attendance Eligibility Check',
+                xpReward: 25,
+                tests: [
+                    {
+                        description: 'attendancePercent is 82',
+                        hint: 'const attendancePercent = 82;',
+                        expected: 82,
+                        run: function() {
+                            return { passed: typeof attendancePercent === 'number' && attendancePercent === 82 };
+                        }
+                    },
+                    {
+                        description: 'isEligible is a boolean equal to true',
+                        hint: 'const isEligible = attendancePercent >= 75;',
+                        expected: true,
+                        run: function() {
+                            return { passed: typeof isEligible === 'boolean' && isEligible === true, message: 'isEligible: ' + isEligible };
+                        }
+                    }
+                ]
+            },
+            'js-m2-drill-hard': {
+                id: 'js-m2-drill-hard',
+                title: 'Drill 3: Scholarship Logical AND',
+                xpReward: 25,
+                tests: [
+                    {
+                        description: 'isScholarshipAwarded is true using && operator',
+                        hint: 'const isScholarshipAwarded = hasHighGrades && hasVolunteerHours;',
+                        expected: true,
+                        run: function() {
+                            return { passed: typeof isScholarshipAwarded === 'boolean' && isScholarshipAwarded === true };
+                        }
+                    }
+                ]
+            },
+            'js-m2-challenge': {
+                id: 'js-m2-challenge',
+                title: 'Module 2 Challenge: Library Gatekeeper Logic',
+                xpReward: 50,
+                tests: [
+                    {
+                        description: 'canBorrowNewBook evaluates to a boolean',
+                        hint: 'Check that canBorrowNewBook is declared with logical expressions',
+                        expected: true,
+                        run: function() {
+                            return { passed: typeof canBorrowNewBook === 'boolean', message: 'Type: ' + typeof canBorrowNewBook };
+                        }
+                    },
+                    {
+                        description: 'Evaluates to true under current valid parameters',
+                        hint: 'With booksCheckedOut=3, max=5, no holds, and active membership -> true',
+                        expected: true,
+                        run: function() {
+                            return { passed: canBorrowNewBook === true, message: 'Result: ' + canBorrowNewBook };
+                        }
+                    }
+                ]
+            }
+        };
+
+        // Mini Step 3 Try Runner Script
+        const runTryBtn = document.getElementById('btn-run-try');
+        const resetTryBtn = document.getElementById('btn-reset-try');
+        const defaultTryCode = `let booksCollected = 45;
+let targetGoal = 50;
+
+let remaining = targetGoal - booksCollected;
+let isGoalReached = booksCollected >= targetGoal;
+
+console.log("Books still needed:", remaining);
+console.log("Goal achieved:", isGoalReached);
+console.log("Is 45 divisible by 5?", (booksCollected % 5) === 0);`;
+
+        if (runTryBtn) {
+            runTryBtn.addEventListener('click', () => {
+                const code = document.getElementById('try-code-editor').value;
+                const out = document.getElementById('try-console-output');
+                out.innerHTML = '<span style="color:#64748b;">--- Running... ---</span><br>';
+                try {
+                    const logs = [];
+                    const fakeConsole = {
+                        log: (...args) => logs.push(args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' '))
+                    };
+                    const fn = new Function('console', code);
+                    fn(fakeConsole);
+                    out.innerHTML = logs.map(l => `<div style="margin-bottom:0.25rem;">> ${l}</div>`).join('');
+                } catch (e) {
+                    out.innerHTML = `<span style="color:#f87171;">Error: ${e.message}</span>`;
+                }
+            });
+        }
+
+        if (resetTryBtn) {
+            resetTryBtn.addEventListener('click', () => {
+                document.getElementById('try-code-editor').value = defaultTryCode;
+            });
+        }
+
+        // Live Demo Project App Logic (Point of sale)
+        (function() {
+            const qtyInput = document.getElementById('calc-qty');
+            const discCheck = document.getElementById('calc-discount');
+            const totalEl = document.getElementById('calc-total');
+
+            function updatePrice() {
+                if (!qtyInput || !totalEl) return;
+                const qty = parseInt(qtyInput.value) || 1;
+                let subtotal = qty * 15;
+                if (discCheck && discCheck.checked) {
+                    subtotal = subtotal * 0.90;
+                }
+                totalEl.textContent = `$${subtotal.toFixed(2)}`;
+            }
+
+            if (qtyInput) qtyInput.addEventListener('input', updatePrice);
+            if (discCheck) discCheck.addEventListener('change', updatePrice);
+        })();
+    </script>
 </body>
 </html>

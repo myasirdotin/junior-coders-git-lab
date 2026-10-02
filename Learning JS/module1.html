@@ -3,125 +3,691 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 1: Learn about JavaScript variables and data types including let, const, strings, numbers, booleans, and typeof.">
-    <title>Module 1: Variables | Junior Coders</title>
+    <meta name="description" content="Module 1: Master JavaScript Variables, Constants, and Data Types through the 7-Step Learning Cycle with interactive auto-evaluation.">
+    <title>Module 1: Variables & Data Types | BEI Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+    <link rel="stylesheet" href="../styles/bei-learning-system.css">
 </head>
 <body>
-    <main class="module-container">
-        <!-- Hero Header -->
-        <header class="module-header path-js">
-            <span class="badge" style="background: white; color: var(--primary);">Level 1</span>
-            <h1>The Memory Vault!</h1>
-            <p>JavaScript is the brain! Let's learn how to remember things using variables. 🧠</p>
+    <!-- Top Navigation Bar -->
+    <header class="bei-nav">
+        <div class="bei-nav-inner">
+            <a href="../index.html" class="bei-logo">
+                <span class="bei-logo-icon">💻</span>
+                <span>BEI Coders <span style="font-size: 0.75rem; color: var(--brand-amber); font-weight: 700; margin-left: 4px;">LEARN</span></span>
+            </a>
+            <div class="bei-nav-links">
+                <a href="../paths/web-developer/index.html" class="bei-nav-link">Web Pathway</a>
+                <a href="learningjs.html" class="bei-nav-link">All JS Modules</a>
+                <a href="../master-playground.html" class="bei-nav-link">Playground</a>
+                <a href="../teacher-hub/index.html" class="bei-nav-link">Teacher Hub</a>
+            </div>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-container" style="max-width: 1040px; margin: 0 auto; padding: 2rem 1.25rem;">
+        
+        <!-- Breadcrumbs & Module Hero -->
+        <div style="margin-bottom: 1.5rem;">
+            <a href="learningjs.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.88rem;">← Back to JavaScript Journey</a>
+        </div>
+
+        <header class="module-header path-js" style="background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-xl); padding: 2.5rem 2rem; margin-bottom: 2rem; box-shadow: 0 12px 30px rgba(0,0,0,0.3);">
+            <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                <span class="badge" style="background: var(--brand-primary); color: white; padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Class 7 &amp; 8 Computer Science</span>
+                <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Module 1 of 9</span>
+                <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">+280 Total XP Available</span>
+            </div>
+            <h1 style="font-size: 2.4rem; font-weight: 800; color: #fff; margin-bottom: 0.65rem;">JavaScript Variables: The Memory Vault 🧠</h1>
+            <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; max-width: 820px; margin: 0;">
+                Discover how computers store, remember, and label information in memory. Master <code>let</code>, <code>const</code>, and core primitive data types through hands-on practice.
+            </p>
         </header>
 
-        <!-- Variable Concept -->
-        <section class="content-section">
-            <h2>The "Labeled Box" Analogy</h2>
-            <p>A **Variable** is like a box with a label. You put something inside (data), and give the box a name (label) so you can find it later!</p>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- THE FIXED 7-STEP CYCLE NAVIGATION BAR                          -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <nav class="cycle-nav-container" aria-label="7-Step Learning Cycle">
+            <div class="cycle-steps-wrapper">
+                <a href="#step-learn" class="cycle-step-item active" data-target="step-learn">
+                    <span class="step-num">1</span>
+                    <span>Learn</span>
+                </a>
+                <a href="#step-see" class="cycle-step-item" data-target="step-see">
+                    <span class="step-num">2</span>
+                    <span>See</span>
+                </a>
+                <a href="#step-try" class="cycle-step-item" data-target="step-try">
+                    <span class="step-num">3</span>
+                    <span>Try</span>
+                </a>
+                <a href="#step-practice" class="cycle-step-item" data-target="step-practice">
+                    <span class="step-num">4</span>
+                    <span>Practice</span>
+                </a>
+                <a href="#step-challenge" class="cycle-step-item" data-target="step-challenge">
+                    <span class="step-num">5</span>
+                    <span>Challenge</span>
+                </a>
+                <a href="#step-quiz" class="cycle-step-item" data-target="step-quiz">
+                    <span class="step-num">6</span>
+                    <span>Quiz</span>
+                </a>
+                <a href="#step-project" class="cycle-step-item" data-target="step-project">
+                    <span class="step-num">7</span>
+                    <span>Project</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 1: LEARN (Conceptual Mental Model & Labeled Box Analogy)   -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-learn" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(79, 70, 229, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">1</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 1: Learn — What is a Variable?</h2>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary);">
+                When you play a math game, the computer needs to remember your score. When you register at a school library, the system needs to remember your name. In computer science, a <strong>Variable</strong> is a labeled storage container inside computer memory (RAM).
+            </p>
+
+            <!-- Memory Box Analogy Graphic -->
             <div style="text-align: center; margin: 1.5rem 0;">
-                <img src="../assets/diagrams/js/variable-memory-box.svg" alt="Variables in Memory Architecture" style="width: 100%; max-width: 780px; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); display: block; margin: 0 auto;">
+                <img src="../assets/diagrams/js/variable-memory-box.svg" alt="Variables in Memory Architecture" style="width: 100%; max-width: 780px; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); display: block; margin: 0 auto;" onerror="this.style.display='none'">
             </div>
-            <div class="analogy-grid">
-                <div class="analogy-card active">
-                    <span class="analogy-icon">📦</span>
-                    <h3>let name = "Ali";</h3>
-                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">The "let" box can be opened and changed later.</p>
-                </div>
-                <div class="analogy-card active" style="border-color: var(--secondary);">
-                    <span class="analogy-icon">🔒</span>
-                    <h3 style="color: var(--secondary);">const age = 12;</h3>
-                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">The "const" vault is locked! It never changes.</p>
-                </div>
-            </div>
-        </section>
 
-        <!-- Data Types Section -->
-        <section class="content-section">
-            <h2>What's Inside the Box?</h2>
-            <p>JavaScript can store different kinds of "stuff". These are called **Data Types**.</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #eab308;">
-                    <h3>Strings 🧵</h3>
-                    <p>Just text! Always goes inside quotes.</p>
-                    <code>"Hello Junior Coders!"</code>
+            <div class="analogy-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin: 1.5rem 0;">
+                <div class="analogy-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">📦</div>
+                    <h3 style="color: #60a5fa; margin-bottom: 0.5rem;">The Reopenable Box: <code>let</code></h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                        Use <code>let</code> when the value is expected to change over time — like a student's age, a book checkout counter, or today's temperature.
+                    </p>
+                    <div style="background: #020617; border-radius: var(--radius-sm); padding: 0.75rem; margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.85rem; color: #38bdf8;">
+                        let age = 13;<br>
+                        age = 14; // Allowed!
+                    </div>
                 </div>
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #10b981;">
-                    <h3>Numbers 🔢</h3>
-                    <p>Whole numbers or decimals. No quotes needed!</p>
-                    <code>42</code> or <code>19.99</code>
-                </div>
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #f43f5e;">
-                    <h3>Booleans ✅</h3>
-                    <p>Simple Yes/No or True/False. </p>
-                    <code>true</code> or <code>false</code>
+
+                <div class="analogy-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="font-size: 2.2rem; margin-bottom: 0.5rem;">🔒</div>
+                    <h3 style="color: #fbbf24; margin-bottom: 0.5rem;">The Sealed Vault: <code>const</code></h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                        Use <code>const</code> for values that must remain fixed forever — like your national ID, the speed of light, or the annual Zakat rate (2.5%).
+                    </p>
+                    <div style="background: #020617; border-radius: var(--radius-sm); padding: 0.75rem; margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.85rem; color: #fbbf24;">
+                        const zakatRate = 0.025;<br>
+                        // zakatRate = 0.05; ❌ Error!
+                    </div>
                 </div>
             </div>
-        </section>
 
-        <!-- Syntax Section -->
-        <section class="content-section">
-            <h2>The Variable Formula</h2>
-            <div style="background: #020617; padding: 2rem; border-radius: 1.5rem; margin: 1.5rem 0;">
-                <code style="color: #f8fafc; font-size: 1.2rem;">
-                    <span style="color: #4f46e5;">let</span> <span style="color: #34d399;">score</span> = <span style="color: #eab308;">10</span>;
-                </code>
-            </div>
-            <ol>
-                <li><strong>Keyword (let/const):</strong> Are we making a box or a vault?</li>
-                <li><strong>Name (score):</strong> The label on our box.</li>
-                <li><strong>Assignment (=):</strong> Put the stuff inside!</li>
-                <li><strong>Value (10):</strong> The actual data we are storing.</li>
-            </ol>
-        </section>
-
-        <!-- Sandbox Section -->
-        <section class="content-section">
-            <h2>Your Memory Sandbox 📦</h2>
-            <p>Try creating a variable called <code>myName</code>, store your name in it, and print it using <code>console.log(myName);</code>! Click run below to see your results.</p>
-            <div class="playground-container" style="margin-top: 1.5rem;">
-                <div class="editor-area">
-                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">JavaScript Editor</label>
-                    <textarea id="code-editor" spellcheck="false" style="width: 100%; height: 180px; background: #020617; color: #f8fafc; border: 2px solid var(--border-dim); border-radius: 1rem; padding: 1rem; font-family: var(--font-mono); font-size: 0.95rem; resize: none; outline: none; margin-bottom: 1rem;">let myName = "Yasir";
-const myAge = 12;
-
-console.log("Hello, my name is", myName);
-console.log("I am", myAge, "years old!");</textarea>
-                    <button class="btn-primary" onclick="runJS()" style="padding: 0.5rem 1.5rem; font-size: 0.85rem; border-radius: 0.75rem;">⚡ Run Code</button>
+            <!-- Data Types Overview Cards -->
+            <h3 style="color: #f8fafc; font-size: 1.25rem; margin-top: 2rem; margin-bottom: 0.75rem;">Fundamental JavaScript Data Types</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+                <div style="background: rgba(234, 179, 8, 0.08); border: 1px solid rgba(234, 179, 8, 0.25); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="color: #facc15; margin: 0 0 0.35rem;">🧵 String (Text)</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Enclosed in single or double quotes.</p>
+                    <code style="color: #fef08a; font-family: var(--font-mono); font-size: 0.82rem;">"Al-Hikmah School"</code>
                 </div>
-                <div class="preview-area">
-                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Console Output</label>
-                    <div id="console" style="width: 100%; height: 180px; background: #020617; border-radius: 1rem; border: 2px solid var(--border-dim); overflow: auto; padding: 1rem; color: #34d399; font-family: var(--font-mono); font-size: 0.9rem;"></div>
+                <div style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.25); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="color: #34d399; margin: 0 0 0.35rem;">🔢 Number</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Integers or decimals. Never in quotes.</p>
+                    <code style="color: #a7f3d0; font-family: var(--font-mono); font-size: 0.82rem;">42 &bull; 99.50</code>
+                </div>
+                <div style="background: rgba(244, 63, 94, 0.08); border: 1px solid rgba(244, 63, 94, 0.25); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="color: #fb7185; margin: 0 0 0.35rem;">✅ Boolean (Logic)</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.5rem;">True or False flag.</p>
+                    <code style="color: #fecdd3; font-family: var(--font-mono); font-size: 0.82rem;">true &bull; false</code>
+                </div>
+                <div style="background: rgba(168, 85, 247, 0.08); border: 1px solid rgba(168, 85, 247, 0.25); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <h4 style="color: #c084fc; margin: 0 0 0.35rem;">🔍 typeof Inspector</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 0.5rem;">Checks the type of any variable.</p>
+                    <code style="color: #e9d5ff; font-family: var(--font-mono); font-size: 0.82rem;">typeof "Ali" // "string"</code>
                 </div>
             </div>
         </section>
 
-        <!-- Quiz Section -->
-        <section class="content-section">
-            <h2>JS Logic Quiz!</h2>
-            <form id="quiz-form-1" class="quiz-section">
-                <div class="quiz-question" data-answer="c">
-                    <p>Q1: Which keyword should you use for a variable that will NEVER change?</p>
-                    <label><input type="radio" name="q1" value="a"> var</label>
-                    <label><input type="radio" name="q1" value="b"> let</label>
-                    <label><input type="radio" name="q1" value="c"> const</label>
-                    <div class="quiz-feedback"></div>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 2: SEE (Concrete Real-World Code Examples)                -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-see" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">2</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 2: See — Worked Examples in Action</h2>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Study these 3 clear examples showing variable declaration, mathematical computation, and data type inspection.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                <!-- Example 1 -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="background: var(--bg-surface-elevated); padding: 0.75rem 1.25rem; font-weight: 700; color: #818cf8; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>📋 Example A: Student Admission Record</span>
+                    </div>
+                    <pre style="margin: 0; padding: 1.25rem; background: #020617; color: #f8fafc; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; overflow-x: auto;"><code><span style="color: #64748b;">// 1. Declare fixed school details with const</span>
+<span style="color: #fbbf24;">const</span> schoolName = <span style="color: #38bdf8;">"Al-Hikmah Academy"</span>;
+<span style="color: #fbbf24;">const</span> studentId = <span style="color: #f43f5e;">10482</span>;
+
+<span style="color: #64748b;">// 2. Declare editable student status with let</span>
+<span style="color: #38bdf8;">let</span> studentName = <span style="color: #38bdf8;">"Amina Rasool"</span>;
+<span style="color: #38bdf8;">let</span> gradeLevel = <span style="color: #f43f5e;">8</span>;
+<span style="color: #38bdf8;">let</span> isEnrolled = <span style="color: #34d399;">true</span>;
+
+console.log(<span style="color: #38bdf8;">"School:"</span>, schoolName);
+console.log(<span style="color: #38bdf8;">"Student:"</span>, studentName, <span style="color: #38bdf8;">"| Grade:"</span>, gradeLevel);</code></pre>
                 </div>
-                <div class="quiz-question" data-answer="a">
-                    <p>Q2: Which data type is used for text like "Hello"?</p>
-                    <label><input type="radio" name="q2" value="a"> String</label>
-                    <label><input type="radio" name="q2" value="b"> Number</label>
-                    <label><input type="radio" name="q2" value="c"> Boolean</label>
-                    <div class="quiz-feedback"></div>
+
+                <!-- Example 2 -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="background: var(--bg-surface-elevated); padding: 0.75rem 1.25rem; font-weight: 700; color: #34d399; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>💰 Example B: Ethical Charity &amp; Zakat Calculation</span>
+                    </div>
+                    <pre style="margin: 0; padding: 1.25rem; background: #020617; color: #f8fafc; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; overflow-x: auto;"><code><span style="color: #64748b;">// Zakat rate is a fixed ethical principle: 2.5%</span>
+<span style="color: #fbbf24;">const</span> zakatRate = <span style="color: #f43f5e;">0.025</span>;
+
+<span style="color: #38bdf8;">let</span> annualSavings = <span style="color: #f43f5e;">4000</span>; <span style="color: #64748b;">// in dollars or local currency</span>
+<span style="color: #38bdf8;">let</span> zakatDue = annualSavings * zakatRate;
+
+console.log(<span style="color: #38bdf8;">"Total Savings:"</span>, annualSavings);
+console.log(<span style="color: #38bdf8;">"Zakat Due (2.5%):"</span>, zakatDue); <span style="color: #64748b;">// Output: 100</span></code></pre>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(1)">Check Answers</button>
+
+                <!-- Example 3 -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="background: var(--bg-surface-elevated); padding: 0.75rem 1.25rem; font-weight: 700; color: #f59e0b; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 0.5rem;">
+                        <span>🔍 Example C: Verifying Types with typeof</span>
+                    </div>
+                    <pre style="margin: 0; padding: 1.25rem; background: #020617; color: #f8fafc; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; overflow-x: auto;"><code>console.log(<span style="color: #fbbf24;">typeof</span> <span style="color: #38bdf8;">"Junior Coders"</span>); <span style="color: #64748b;">// "string"</span>
+console.log(<span style="color: #fbbf24;">typeof</span> <span style="color: #f43f5e;">250</span>);             <span style="color: #64748b;">// "number"</span>
+console.log(<span style="color: #fbbf24;">typeof</span> <span style="color: #34d399;">true</span>);            <span style="color: #64748b;">// "boolean"</span>
+console.log(<span style="color: #fbbf24;">typeof</span> (<span style="color: #f43f5e;">10</span> &gt; <span style="color: #f43f5e;">5</span>));         <span style="color: #64748b;">// "boolean"</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 3: TRY (Interactive Hands-on Scratchpad)                  -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-try" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">3</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 3: Try — Interactive Memory Scratchpad</h2>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Change <code>schoolName</code> to your own school or academy, update <code>booksDonated</code>, and hit <strong>Run Code</strong> to watch the live output update instantly!
+            </p>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Editable JavaScript</span>
+                            <button id="btn-reset-try" style="background: transparent; border: none; color: #818cf8; font-size: 0.8rem; cursor: pointer;">↺ Reset Template</button>
+                        </div>
+                        <textarea id="try-code-editor" spellcheck="false" style="width: 100%; height: 210px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem; font-family: var(--font-mono); font-size: 0.88rem; resize: none; outline: none; line-height: 1.5;">// Try changing these values:
+const academy = "Bait-ul-Ilm Academy";
+let studentName = "Zayd";
+let booksDonated = 12;
+
+console.log("Welcome to:", academy);
+console.log("Donor:", studentName);
+console.log("Books Contributed:", booksDonated);
+console.log("Data type of books:", typeof booksDonated);</textarea>
+                        <button id="btn-run-try" class="btn-hero-primary" style="margin-top: 0.75rem; width: 100%; justify-content: center; padding: 0.65rem;">
+                            ⚡ Run Code
+                        </button>
+                    </div>
+
+                    <div>
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Console Output</span>
+                        <div id="try-console-output" style="width: 100%; height: 210px; background: #020617; color: #34d399; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem; font-family: var(--font-mono); font-size: 0.88rem; overflow-y: auto;">
+                            <span style="color: #64748b;">Click "Run Code" above to see the output...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 4: PRACTICE (3 Graded Auto-Evaluated Drills)              -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-practice" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(99, 102, 241, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">4</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 4: Practice — Auto-Evaluated Coding Drills</h2>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Every drill runs against real automated unit tests. If your code is not quite right, the Socratic tutor provides hints without spoiling the answer!
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+                
+                <!-- Drill 1 -->
+                <div class="drill-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="font-size: 1.15rem; color: #f8fafc; margin: 0;">🟢 Drill 1: The School Name Constant</h3>
+                        <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.75rem;">+20 XP</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Declare a <code>const</code> variable named <code>schoolName</code> with the value <code>"Al-Hikmah Academy"</code>.
+                    </p>
+                    <div class="bei-evaluator-widget" data-spec-id="js-m1-drill-easy">
+                        <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 95px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">// Write your const declaration below:
+</textarea>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">🚀 Test My Code</button>
+                            <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">💡 Hint</button>
+                        </div>
+                        <div class="evaluator-feedback-area" style="margin-top: 0.75rem;"></div>
+                    </div>
+                </div>
+
+                <!-- Drill 2 -->
+                <div class="drill-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="font-size: 1.15rem; color: #f8fafc; margin: 0;">🟡 Drill 2: Age Increment with let</h3>
+                        <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.75rem;">+20 XP</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Declare a <code>let</code> variable named <code>studentAge</code> with the initial number <code>13</code>. On the next line, reassign <code>studentAge</code> to <code>14</code>.
+                    </p>
+                    <div class="bei-evaluator-widget" data-spec-id="js-m1-drill-med">
+                        <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 110px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">// 1. Declare studentAge with 13 using let
+// 2. Reassign studentAge to 14
+</textarea>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">🚀 Test My Code</button>
+                            <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">💡 Hint</button>
+                        </div>
+                        <div class="evaluator-feedback-area" style="margin-top: 0.75rem;"></div>
+                    </div>
+                </div>
+
+                <!-- Drill 3 -->
+                <div class="drill-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="font-size: 1.15rem; color: #f8fafc; margin: 0;">🔴 Drill 3: Ethical Donation &amp; Enrollment Booleans</h3>
+                        <span class="badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.75rem;">+25 XP</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Declare a variable <code>donationAmount</code> with the number <code>250</code>, and a variable <code>isEnrolled</code> set to the boolean <code>true</code>.
+                    </p>
+                    <div class="bei-evaluator-widget" data-spec-id="js-m1-drill-hard">
+                        <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 110px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">// Declare donationAmount (number) and isEnrolled (boolean):
+</textarea>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">🚀 Test My Code</button>
+                            <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">💡 Hint</button>
+                        </div>
+                        <div class="evaluator-feedback-area" style="margin-top: 0.75rem;"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 5: CHALLENGE (Synthesizing Multi-Concept Problem)         -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-challenge" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(239, 68, 68, 0.2); color: #f87171; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">5</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 5: Challenge — Student ID Card Generator</h2>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(30, 27, 75, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%); border: 1px solid rgba(99, 102, 241, 0.4); border-radius: var(--radius-lg); padding: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <div>
+                        <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem;">Mastery Challenge</span>
+                        <h3 style="font-size: 1.35rem; color: #fff; margin: 0.5rem 0 0.25rem;">Build a Complete Student ID Profile</h3>
+                    </div>
+                    <span style="font-size: 1.1rem; font-weight: 800; color: #fbbf24;">+50 XP</span>
+                </div>
+
+                <p style="color: #cbd5e1; font-size: 0.98rem; line-height: 1.6; margin-bottom: 1rem;">
+                    You are building the enrollment system for <strong>Al-Hikmah Academy</strong>. You must declare four variables with exact types:
+                </p>
+
+                <ul style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+                    <li><code>studentName</code>: A non-empty string (e.g. <code>"Fatima"</code>).</li>
+                    <li><code>gradeLevel</code>: A number representing the grade (e.g. <code>8</code>).</li>
+                    <li><code>rollNumber</code>: A number representing the roll number (e.g. <code>101</code>).</li>
+                    <li><code>isRegistered</code>: A boolean set to <code>true</code>.</li>
+                </ul>
+
+                <div class="bei-evaluator-widget" data-spec-id="js-m1-challenge">
+                    <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 160px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">// Declare your 4 variables here:
+const studentName = "Fatima";
+let gradeLevel = 8;
+const rollNumber = 101;
+const isRegistered = true;
+</textarea>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">
+                            🚀 Validate ID Card
+                        </button>
+                        <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.9rem;">
+                            💡 Need a Hint?
+                        </button>
+                    </div>
+                    <div class="evaluator-feedback-area" style="margin-top: 1rem;"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 6: QUIZ (5 Self-Check Multiple Choice Questions)           -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-quiz" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(168, 85, 247, 0.2); color: #c084fc; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">6</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 6: Quiz — Concept Mastery Check</h2>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Verify your mental models. Complete all 5 questions to earn +50 XP and unlock the capstone project.
+            </p>
+
+            <form id="quiz-form-1" class="quiz-section" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <!-- Q1 -->
+                <div class="quiz-question" data-answer="c" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">1. Which keyword should you use for a value that should NEVER be reassigned?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q1" value="a"> <code>var</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q1" value="b"> <code>let</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q1" value="c"> <code>const</code></label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
+
+                <!-- Q2 -->
+                <div class="quiz-question" data-answer="a" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">2. What is the data type of the value <code>"Al-Hikmah"</code>?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q2" value="a"> String</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q2" value="b"> Number</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q2" value="c"> Boolean</label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="quiz-question" data-answer="b" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">3. What will <code>typeof 42.5</code> return in JavaScript?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q3" value="a"> <code>"decimal"</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q3" value="b"> <code>"number"</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q3" value="c"> <code>"float"</code></label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="quiz-question" data-answer="b" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">4. What happens if you try to reassign a <code>const</code> variable?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q4" value="a"> It changes silently</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q4" value="b"> A <code>TypeError: Assignment to constant variable</code> is thrown</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q4" value="c"> The browser converts it to <code>let</code></label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="quiz-question" data-answer="c" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">5. Which of the following is a valid Boolean literal?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q5" value="a"> <code>"true"</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q5" value="b"> <code>YES</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q5" value="c"> <code>true</code> (no quotes)</label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
+
+                <button type="button" class="btn-hero-primary" onclick="checkQuiz(1)" style="align-self: flex-start; padding: 0.65rem 1.75rem;">
+                    Check Quiz Answers
+                </button>
             </form>
         </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 7: PROJECT (Real-World Applied Mini-App)                   -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-project" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">7</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 7: Project — Food Pantry Ledger Card</h2>
+            </div>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2rem;">
+                <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem;">Mini Project • Community Service</span>
+                <h3 style="color: #fff; font-size: 1.3rem; margin: 0.5rem 0 0.5rem;">Neighborhood Charity Inventory Tracker</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    Use your variable skills to display and manage a live food pantry inventory card. Type in grain donations and volunteer counts to see the memory variables update the display in real-time.
+                </p>
+
+                <!-- Interactive App Demo -->
+                <div style="background: #020617; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem; max-width: 500px; margin: 0 auto 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 0.75rem; margin-bottom: 1rem;">
+                        <h4 style="margin: 0; color: #f8fafc; font-size: 1.05rem;">🌾 Al-Ihsan Food Pantry</h4>
+                        <span id="pantry-status" style="font-size: 0.75rem; color: #34d399; background: rgba(16, 185, 129, 0.15); padding: 0.2rem 0.5rem; border-radius: 4px;">Open</span>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 1.25rem;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                            <span style="color: var(--text-secondary);">Grain Bags in Storage:</span>
+                            <span id="pantry-bags" style="font-weight: 700; color: #facc15; font-family: var(--font-mono);">150 bags</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                            <span style="color: var(--text-secondary);">Active Volunteers:</span>
+                            <span id="pantry-volunteers" style="font-weight: 700; color: #60a5fa; font-family: var(--font-mono);">8 people</span>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; gap: 0.5rem;">
+                        <input type="number" id="pantry-input-add" placeholder="New Bags (e.g. 25)" style="flex: 1; background: #0f172a; border: 1px solid var(--border-subtle); color: #fff; padding: 0.5rem 0.75rem; border-radius: 6px; font-size: 0.88rem; outline: none;">
+                        <button id="pantry-btn-add" class="btn-hero-primary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">+ Add Bags</button>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="../master-playground.html" class="btn-hero-secondary" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; padding: 0.6rem 1.25rem;">
+                        <span>🧪 Open Full IDE to Build Custom Web Apps</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
+    <!-- Core Scripts -->
+    <script src="../js/bei-evaluator.js"></script>
+    <script src="../js/bei-core.js"></script>
     <script src="../js/core.js"></script>
-    <script src="../js/playground.js"></script>
+    <script src="../js/bei-learning-cycle.js"></script>
     <script src="../js/pdf-download.js"></script>
+
+    <!-- Specific Test Suites for Module 1 -->
+    <script>
+        window.BEI_TEST_SPECS = {
+            'js-m1-drill-easy': {
+                id: 'js-m1-drill-easy',
+                title: 'Drill 1: School Name Constant',
+                xpReward: 20,
+                tests: [
+                    {
+                        description: 'Variable "schoolName" is declared',
+                        hint: 'Write: const schoolName = "Al-Hikmah Academy";',
+                        expected: true,
+                        run: function() {
+                            return { passed: typeof schoolName !== 'undefined', message: typeof schoolName !== 'undefined' ? 'Found schoolName' : 'schoolName is not declared' };
+                        }
+                    },
+                    {
+                        description: 'Value is exactly "Al-Hikmah Academy"',
+                        hint: 'Check spelling and quotes: "Al-Hikmah Academy"',
+                        expected: "Al-Hikmah Academy",
+                        run: function() {
+                            return { passed: schoolName === "Al-Hikmah Academy", message: 'Current value: ' + schoolName };
+                        }
+                    }
+                ]
+            },
+            'js-m1-drill-med': {
+                id: 'js-m1-drill-med',
+                title: 'Drill 2: Age Increment with let',
+                xpReward: 20,
+                tests: [
+                    {
+                        description: 'Variable "studentAge" is declared with a number',
+                        hint: 'Use let studentAge = 13; then studentAge = 14;',
+                        expected: true,
+                        run: function() {
+                            return { passed: typeof studentAge === 'number', message: typeof studentAge === 'number' ? 'Is a number' : 'studentAge is not a number' };
+                        }
+                    },
+                    {
+                        description: 'Final value of "studentAge" is 14',
+                        hint: 'Reassign studentAge = 14 on a second line.',
+                        expected: 14,
+                        run: function() {
+                            return { passed: studentAge === 14, message: 'Current studentAge: ' + studentAge };
+                        }
+                    }
+                ]
+            },
+            'js-m1-drill-hard': {
+                id: 'js-m1-drill-hard',
+                title: 'Drill 3: Ethical Donation & Booleans',
+                xpReward: 25,
+                tests: [
+                    {
+                        description: 'donationAmount is a number equal to 250',
+                        hint: 'let donationAmount = 250;',
+                        expected: 250,
+                        run: function() {
+                            return { passed: typeof donationAmount === 'number' && donationAmount === 250 };
+                        }
+                    },
+                    {
+                        description: 'isEnrolled is a boolean set to true',
+                        hint: 'let isEnrolled = true; (no quotes around true)',
+                        expected: true,
+                        run: function() {
+                            return { passed: typeof isEnrolled === 'boolean' && isEnrolled === true };
+                        }
+                    }
+                ]
+            },
+            'js-m1-challenge': {
+                id: 'js-m1-challenge',
+                title: 'Module 1 Challenge: Student ID Card Generator',
+                xpReward: 50,
+                tests: [
+                    {
+                        description: 'studentName is a non-empty string',
+                        hint: 'const studentName = "Fatima";',
+                        expected: true,
+                        run: function() {
+                            return { passed: typeof studentName === 'string' && studentName.trim().length > 0, message: 'studentName: ' + typeof studentName };
+                        }
+                    },
+                    {
+                        description: 'gradeLevel is a valid number',
+                        hint: 'let gradeLevel = 8;',
+                        expected: true,
+                        run: function() {
+                            return { passed: typeof gradeLevel === 'number' && !isNaN(gradeLevel), message: 'gradeLevel: ' + typeof gradeLevel };
+                        }
+                    },
+                    {
+                        description: 'rollNumber is a valid number',
+                        hint: 'const rollNumber = 101;',
+                        expected: true,
+                        run: function() {
+                            return { passed: typeof rollNumber === 'number' && !isNaN(rollNumber), message: 'rollNumber: ' + typeof rollNumber };
+                        }
+                    },
+                    {
+                        description: 'isRegistered is exactly boolean true',
+                        hint: 'const isRegistered = true;',
+                        expected: true,
+                        run: function() {
+                            return { passed: typeof isRegistered === 'boolean' && isRegistered === true, message: 'isRegistered: ' + isRegistered };
+                        }
+                    }
+                ]
+            }
+        };
+
+        // Mini Step 3 Try Runner Script
+        const runTryBtn = document.getElementById('btn-run-try');
+        const resetTryBtn = document.getElementById('btn-reset-try');
+        const defaultTryCode = `// Try changing these values:
+const academy = "Bait-ul-Ilm Academy";
+let studentName = "Zayd";
+let booksDonated = 12;
+
+console.log("Welcome to:", academy);
+console.log("Donor:", studentName);
+console.log("Books Contributed:", booksDonated);
+console.log("Data type of books:", typeof booksDonated);`;
+
+        if (runTryBtn) {
+            runTryBtn.addEventListener('click', () => {
+                const code = document.getElementById('try-code-editor').value;
+                const out = document.getElementById('try-console-output');
+                out.innerHTML = '<span style="color:#64748b;">--- Running... ---</span><br>';
+                try {
+                    const logs = [];
+                    const fakeConsole = {
+                        log: (...args) => logs.push(args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' '))
+                    };
+                    const fn = new Function('console', code);
+                    fn(fakeConsole);
+                    out.innerHTML = logs.map(l => `<div style="margin-bottom:0.25rem;">> ${l}</div>`).join('');
+                } catch (e) {
+                    out.innerHTML = `<span style="color:#f87171;">Error: ${e.message}</span>`;
+                }
+            });
+        }
+
+        if (resetTryBtn) {
+            resetTryBtn.addEventListener('click', () => {
+                document.getElementById('try-code-editor').value = defaultTryCode;
+            });
+        }
+
+        // Live Demo Project App Logic (Food Pantry)
+        (function() {
+            let totalBags = 150;
+            const bagsEl = document.getElementById('pantry-bags');
+            const addInput = document.getElementById('pantry-input-add');
+            const addBtn = document.getElementById('pantry-btn-add');
+
+            if (addBtn && addInput) {
+                addBtn.addEventListener('click', () => {
+                    const val = parseInt(addInput.value);
+                    if (!isNaN(val) && val > 0) {
+                        totalBags += val;
+                        bagsEl.textContent = `${totalBags} bags`;
+                        addInput.value = '';
+                        if (window.awardXP) window.awardXP(10, 'Pantry inventory recorded');
+                    }
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
