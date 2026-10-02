@@ -77,21 +77,33 @@ All educational content, interactive studios, textbook chapters, and milestone c
 
 ---
 
-### ⏳ Version 1.1.0 (Target: Q2 2026) — Interactive Assessment & Lab Simulators
-- [ ] **Interactive Code Evaluator (Auto-Grader)**:
-  - Client-side unit test runners inside Web Studio and Python Console to validate student solutions against exercise requirements.
+### ✅ Version 1.1.0 (Current Release) — The School Learning Operating System
+- [x] **Interactive Code Evaluator (Auto-Grader Engine)**:
+  - Client-side unit test runner (`js/bei-evaluator.js`) validating function existence, parameter arity, and assertions in real time with Web Audio API sound feedback.
+- [x] **The Fixed 7-Step Learning Cycle**:
+  - Implemented across core modules (`Learn ➔ See ➔ Try ➔ Practice ➔ Challenge ➔ Quiz ➔ Project`) with 3 difficulty tiers (🟢 Easy, 🟡 Medium, 🔴 Hard).
+- [x] **"Why Did My Code Fail?" Socratic Debugger**:
+  - Empathetic error translator turning cryptic browser errors into actionable student diagnostic checklists.
+- [x] **Practice Arena (`practice-arena.html`)**:
+  - Standalone multi-tier challenge hub with random challenge rolling, hints, code breakdowns, and XP rewards.
+- [x] **Interactive Visual Skill Trees & Gamified Progression**:
+  - Prerequisite flowchart trees (`js/bei-skill-tree.js`), 5-tier level ranks (*Code Explorer* to *Young Programmer*), and 9 milestone badges.
+- [x] **Verifiable Technical Mastery Certificates**:
+  - Criteria-locked certificate generator modal with verification serial numbers and PDF printing.
+- [x] **Teacher LMS Cockpit & Diagnostic Radar (`teacher-hub/index.html`)**:
+  - Classroom cohort metrics (Class 7A, 8B, 9C), weak-area alerts, student rosters, and homework dispatchers.
+- [x] **8-Stage Sequential Project Pathway & Student Showcase (`projects/index.html`)**:
+  - Step-by-step unlocked project journey, peer project showcase, and teacher code review feedback.
+- [x] **Controlled Socratic AI Coding Tutor (`js/bei-tutor.js`)**:
+  - Integrated in Web Studio IDE providing guided inquiry without dumping direct solution code.
+
+---
+
+### ⏳ Version 1.2.0 (Target: Q3 2026) — Classroom Tooling, Simulators & Multilingual Glossaries
 - [ ] **Visual Network Packet Simulator**:
   - Interactive packet tracer illustrating TCP 3-way handshakes, DNS hierarchy lookups, and CIDR subnet masking visually in the browser.
 - [ ] **Cybersecurity Defense Sandbox**:
   - Interactive input sanitization and password entropy visualizer demonstrating how bcrypt/Argon2id stretch against dictionary attacks.
-- [ ] **Unified Guided Pathway Navigation**:
-  - Dedicated interactive pathway pages for all 5 tracks including the newly finalized Cybersecurity & Network Defender track.
-- [ ] **Theme Preference Persistence**:
-  - Global `localStorage` synchronization for dark/light themes and textbook font size adjustments across all learning pages.
-
----
-
-### ⏳ Version 1.2.0 (Target: Q3 2026) — Classroom Tooling & Multilingual Glossaries
 - [ ] **Teacher Presentation Mode**:
   - Fullscreen slide deck mode for textbook chapters to enable frictionless classroom projector display without internet access.
 - [ ] **Printable Pocket Cheatsheets**:
