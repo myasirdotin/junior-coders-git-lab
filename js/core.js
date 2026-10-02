@@ -96,16 +96,33 @@
 
     // --- Utility Functions ---
     const getBaseUrl = () => {
-        const path = decodeURIComponent(window.location.pathname);
-        if (path.includes('Learning HTML/') ||
-            path.includes('Learning CSS/') ||
-            path.includes('Learning JS/') ||
-            path.includes('Learning PHP/') ||
-            path.includes('Learning MySQL/') ||
-            path.includes('Learning Laravel/')) {
-            return '../';
+        // 1. Inspect existing scripts or stylesheets loaded into the DOM
+        try {
+            const localTag = document.querySelector('script[src*="js/core.js"], script[src*="js/bei-"], link[href*="styles/main.css"], link[href*="styles/bei-"]');
+            if (localTag) {
+                const attr = localTag.getAttribute('src') || localTag.getAttribute('href') || '';
+                if (!attr.startsWith('http://') && !attr.startsWith('https://') && !attr.startsWith('//')) {
+                    const match = attr.match(/^(.*\/)?(?:js|styles)\//);
+                    if (match) {
+                        return match[1] || './';
+                    }
+                }
+            }
+        } catch (e) {
+            // fallback to pathname calculation
         }
-        return './';
+
+        // 2. Fallback to path depth calculation from window.location.pathname
+        let r = decodeURIComponent(window.location.pathname);
+        if (r.includes('junior-coders-git-lab')) {
+            r = r.substring(r.indexOf('junior-coders-git-lab') + 'junior-coders-git-lab'.length);
+        }
+        const parts = r.split('/').filter(Boolean);
+        if (parts.length > 0 && parts[parts.length - 1].includes('.')) {
+            parts.pop();
+        }
+        const depth = parts.length;
+        return depth === 0 ? './' : '../'.repeat(depth);
     };
 
     const getCurrentModule = () => {
