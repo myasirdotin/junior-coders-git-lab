@@ -3,107 +3,657 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 9: Learn how to make your website react to user clicks and inputs using events.">
-    <title>Module 9: Events | Junior Coders</title>
+    <meta name="description" content="Module 9: Master JavaScript Events, addEventListener, click, input, keydown, and event-driven web applications through the 7-Step Learning Cycle.">
+    <title>Module 9: Events &amp; Interactivity | BEI Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+    <link rel="stylesheet" href="../styles/bei-learning-system.css">
 </head>
 <body>
-    <main class="module-container">
-        <!-- Hero Header -->
-        <header class="module-header path-js">
-            <span class="badge" style="background: white; color: var(--primary);">Level 3</span>
-            <h1>The Big Reaction!</h1>
-            <p>Make your website come alive by listening to your users. ⚡</p>
+    <!-- Top Navigation Bar -->
+    <header class="bei-nav">
+        <div class="bei-nav-inner">
+            <a href="../index.html" class="bei-logo">
+                <span class="bei-logo-icon">💻</span>
+                <span>BEI Coders <span style="font-size: 0.75rem; color: var(--brand-amber); font-weight: 700; margin-left: 4px;">LEARN</span></span>
+            </a>
+            <div class="bei-nav-links">
+                <a href="../paths/web-developer/index.html" class="bei-nav-link">Web Pathway</a>
+                <a href="learningjs.html" class="bei-nav-link">All JS Modules</a>
+                <a href="../master-playground.html" class="bei-nav-link">Playground</a>
+                <a href="../teacher-hub/index.html" class="bei-nav-link">Teacher Hub</a>
+            </div>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-container" style="max-width: 1040px; margin: 0 auto; padding: 2rem 1.25rem;">
+        
+        <!-- Breadcrumbs & Module Hero -->
+        <div style="margin-bottom: 1.5rem;">
+            <a href="learningjs.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.88rem;">← Back to JavaScript Journey</a>
+        </div>
+
+        <header class="module-header path-js" style="background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-xl); padding: 2.5rem 2rem; margin-bottom: 2rem; box-shadow: 0 12px 30px rgba(0,0,0,0.3);">
+            <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                <span class="badge" style="background: var(--brand-primary); color: white; padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Class 8 &amp; 9 Computer Science</span>
+                <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Module 9 of 9 • Capstone</span>
+                <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">+350 Total XP Available</span>
+            </div>
+            <h1 style="font-size: 2.4rem; font-weight: 800; color: #fff; margin-bottom: 0.65rem;">JavaScript Events: Making Pages React ⚡</h1>
+            <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; max-width: 820px; margin: 0;">
+                Turn passive web pages into alive, interactive apps. Master <code>addEventListener</code>, handle clicks, keystrokes, input changes, and build real-time responsive interfaces.
+            </p>
         </header>
 
-        <!-- Events Concept -->
-        <section class="content-section">
-            <h2>What is an Event?</h2>
-            <p>An **Event** is something that happens on your page. It's like a doorbell—when a user "rings" it (clicks, types, or moves the mouse), JavaScript "answers" the door!</p>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- THE FIXED 7-STEP CYCLE NAVIGATION BAR                          -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <nav class="cycle-nav-container" aria-label="7-Step Learning Cycle">
+            <div class="cycle-steps-wrapper">
+                <a href="#step-learn" class="cycle-step-item active" data-target="step-learn">
+                    <span class="step-num">1</span>
+                    <span>Learn</span>
+                </a>
+                <a href="#step-see" class="cycle-step-item" data-target="step-see">
+                    <span class="step-num">2</span>
+                    <span>See</span>
+                </a>
+                <a href="#step-try" class="cycle-step-item" data-target="step-try">
+                    <span class="step-num">3</span>
+                    <span>Try</span>
+                </a>
+                <a href="#step-practice" class="cycle-step-item" data-target="step-practice">
+                    <span class="step-num">4</span>
+                    <span>Practice</span>
+                </a>
+                <a href="#step-challenge" class="cycle-step-item" data-target="step-challenge">
+                    <span class="step-num">5</span>
+                    <span>Challenge</span>
+                </a>
+                <a href="#step-quiz" class="cycle-step-item" data-target="step-quiz">
+                    <span class="step-num">6</span>
+                    <span>Quiz</span>
+                </a>
+                <a href="#step-project" class="cycle-step-item" data-target="step-project">
+                    <span class="step-num">7</span>
+                    <span>Project</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 1: LEARN (The Doorbell & Watchman Analogy)                -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-learn" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(79, 70, 229, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">1</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 1: Learn — How Events Work</h2>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary);">
+                An <strong>Event</strong> is a signal that something has occurred on the webpage. Think of an <strong>Event Listener</strong> as a polite watchman stationed at a door: he stands patiently waiting until someone rings the bell (a <code>click</code>) or knocks (a <code>keydown</code>), and then immediately runs a predetermined action (the <em>handler function</em>).
+            </p>
+
             <div style="text-align: center; margin: 1.5rem 0;">
-                <img src="../assets/diagrams/js/event-listener-cycle.svg" alt="Event Listener Lifecycle Architecture" style="width: 100%; max-width: 780px; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); display: block; margin: 0 auto;">
+                <img src="../assets/diagrams/js/event-listener-cycle.svg" alt="Event Listener Lifecycle Architecture" style="width: 100%; max-width: 780px; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); display: block; margin: 0 auto;" onerror="this.style.display='none'">
             </div>
-            
-            <div class="analogy-container">
-                <div class="analogy-grid">
-                    <div class="analogy-card active">
-                        <span class="analogy-icon">🖱️</span>
-                        <h3>Click Event</h3>
-                        <p>User clicks a button.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin: 1.5rem 0;">
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <span style="font-size: 2rem;">🖱️</span>
+                    <h3 style="color: #60a5fa; margin: 0.5rem 0;">The <code>click</code> Event</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+                        Fires when the user clicks or taps a button, link, or card.
+                    </p>
+                    <code style="display: block; background: #020617; padding: 0.75rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.82rem; color: #38bdf8;">
+                        button.addEventListener("click", () =&gt; {<br>
+                        &nbsp;&nbsp;console.log("Button clicked!");<br>
+                        });
+                    </code>
+                </div>
+
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <span style="font-size: 2rem;">⌨️</span>
+                    <h3 style="color: #34d399; margin: 0.5rem 0;">The <code>input</code> Event</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+                        Fires continuously as the user types characters into an <code>&lt;input&gt;</code> box.
+                    </p>
+                    <code style="display: block; background: #020617; padding: 0.75rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.82rem; color: #34d399;">
+                        input.addEventListener("input", (e) =&gt; {<br>
+                        &nbsp;&nbsp;console.log(e.target.value);<br>
+                        });
+                    </code>
+                </div>
+
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <span style="font-size: 2rem;">🛑</span>
+                    <h3 style="color: #fbbf24; margin: 0.5rem 0;"><code>e.preventDefault()</code></h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+                        Prevents the browser's default behavior, like stopping a form from reloading the page:
+                    </p>
+                    <code style="display: block; background: #020617; padding: 0.75rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.82rem; color: #fbbf24;">
+                        form.addEventListener("submit", (e) =&gt; {<br>
+                        &nbsp;&nbsp;e.preventDefault();<br>
+                        });
+                    </code>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 2: SEE (Concrete Worked Examples)                         -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-see" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">2</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 2: See — Live Event Handlers</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                <!-- Example A -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="background: var(--bg-surface-elevated); padding: 0.75rem 1.25rem; font-weight: 700; color: #818cf8; border-bottom: 1px solid var(--border-subtle);">
+                        <span>Example A: Interactive Counter Button</span>
                     </div>
-                    <div class="analogy-card active">
-                        <span class="analogy-icon">⌨️</span>
-                        <h3>Key Event</h3>
-                        <p>User types a key.</p>
+                    <pre style="margin: 0; padding: 1.25rem; background: #020617; color: #f8fafc; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; overflow-x: auto;"><code><span style="color: #38bdf8;">let</span> count = <span style="color: #f43f5e;">0</span>;
+<span style="color: #fbbf24;">const</span> counterBtn = document.getElementById(<span style="color: #38bdf8;">"btn-count"</span>);
+<span style="color: #fbbf24;">const</span> displayEl = document.getElementById(<span style="color: #38bdf8;">"count-display"</span>);
+
+counterBtn.addEventListener(<span style="color: #38bdf8;">"click"</span>, <span style="color: #fbbf24;">function</span>() {
+    count++;
+    displayEl.textContent = <span style="color: #38bdf8;">"Total Clicks: "</span> + count;
+});</code></pre>
+                </div>
+
+                <!-- Example B -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="background: var(--bg-surface-elevated); padding: 0.75rem 1.25rem; font-weight: 700; color: #34d399; border-bottom: 1px solid var(--border-subtle);">
+                        <span>Example B: Real-Time Live Mirror with input event</span>
+                    </div>
+                    <pre style="margin: 0; padding: 1.25rem; background: #020617; color: #f8fafc; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; overflow-x: auto;"><code><span style="color: #fbbf24;">const</span> nameInput = document.getElementById(<span style="color: #38bdf8;">"student-name"</span>);
+<span style="color: #fbbf24;">const</span> previewText = document.getElementById(<span style="color: #38bdf8;">"name-preview"</span>);
+
+nameInput.addEventListener(<span style="color: #38bdf8;">"input"</span>, (event) =&gt; {
+    previewText.textContent = <span style="color: #38bdf8;">"Welcome, "</span> + event.target.value;
+});</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 3: TRY (Interactive Events Playground)                    -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-try" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">3</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 3: Try — Click &amp; Input Sandbox</h2>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Click <strong>Wire Up Listeners</strong> to connect the code to the live buttons below, then click the test button!
+            </p>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Listener Code</span>
+                            <button id="btn-reset-try" style="background: transparent; border: none; color: #818cf8; font-size: 0.8rem; cursor: pointer;">↺ Reset</button>
+                        </div>
+                        <textarea id="try-code-editor" spellcheck="false" style="width: 100%; height: 210px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem; font-family: var(--font-mono); font-size: 0.88rem; resize: none; outline: none; line-height: 1.5;">let score = 0;
+const testBtn = document.getElementById("demo-interactive-btn");
+const output = document.getElementById("demo-score-val");
+
+testBtn.addEventListener("click", () => {
+    score += 5;
+    output.textContent = score + " pts";
+    testBtn.style.transform = "scale(0.96)";
+    setTimeout(() => testBtn.style.transform = "scale(1)", 100);
+});</textarea>
+                        <button id="btn-run-try" class="btn-hero-primary" style="margin-top: 0.75rem; width: 100%; justify-content: center; padding: 0.65rem;">
+                            ⚡ Wire Up Listeners
+                        </button>
+                    </div>
+
+                    <div>
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Live Test Elements</span>
+                        <div style="width: 100%; height: 210px; background: #020617; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1rem;">
+                            <button id="demo-interactive-btn" class="btn-hero-primary" style="padding: 0.6rem 1.25rem; font-size: 0.9rem; transition: transform 0.1s ease;">
+                                🎯 Click to Earn XP!
+                            </button>
+                            <span id="demo-score-val" style="font-size: 1.3rem; font-weight: 800; color: #34d399; font-family: var(--font-mono);">0 pts</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- The Event Listener Section -->
-        <section class="content-section">
-            <h2>The "Ears" of Code</h2>
-            <p>We use an <strong>Event Listener</strong> to tell JavaScript to "listen" for a specific event on a specific element.</p>
-            <div class="code-block">
-                <span class="code-keyword">const</span> btn = document.getElementById(<span class="code-string">"myBtn"</span>); <br><br>
-                btn.addEventListener(<span class="code-string">"click"</span>, <span class="code-keyword">function</span>() { <br>
-                &nbsp;&nbsp;alert(<span class="code-string">"Button was clicked!"</span>); <br>
-                });
-            </div>
-        </section>
-
-        <!-- Sandbox Section -->
-        <section class="content-section">
-            <h2>Your Event Listener Sandbox ⚡</h2>
-            <p>Write an event listener to make the button trigger a magic card visual change! Click run first, and then try clicking the interactive sample button below!</p>
-            
-            <!-- Sample Interactive Area -->
-            <div style="background: var(--bg-card); padding: 1.5rem; border-radius: 1rem; border: 2px dashed var(--accent); margin: 1.5rem 0; text-align: center;">
-                <button id="magic-btn" class="btn-primary" style="background: var(--accent); color: white; padding: 0.5rem 1rem; border-radius: 0.5rem; margin-bottom: 0.5rem; cursor: pointer;">Sample Interactive Button</button>
-                <p id="magic-status" style="font-size: 0.85rem; color: var(--text-secondary);">Waiting for event listener to click...</p>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 4: PRACTICE (3 Auto-Evaluated Drills)                      -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-practice" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(99, 102, 241, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">4</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 4: Practice — Auto-Evaluated Coding Drills</h2>
             </div>
 
-            <div class="playground-container">
-                <div class="editor-area">
-                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">JavaScript Editor</label>
-                    <textarea id="code-editor" spellcheck="false" style="width: 100%; height: 180px; background: #020617; color: #f8fafc; border: 2px solid var(--border-dim); border-radius: 1rem; padding: 1rem; font-family: var(--font-mono); font-size: 0.95rem; resize: none; outline: none; margin-bottom: 1rem;">const btn = document.getElementById("magic-btn");
-const status = document.getElementById("magic-status");
+            <!-- Target Elements Hidden Sandbox for Evaluation Tests -->
+            <div id="eval-events-sandbox" style="display: none;">
+                <button id="drill1-btn">Click Me</button>
+                <span id="drill1-msg">Waiting</span>
+                <input type="text" id="drill2-input">
+                <span id="drill2-mirror">Empty</span>
+            </div>
 
-// Listen for a "click" event
-btn.addEventListener("click", function() {
-    status.innerHTML = "🎉 Magic button was clicked!";
-    status.style.color = "#10b981";
-    console.log("Interactive button clicked successfully!");
+            <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+                
+                <!-- Drill 1 -->
+                <div class="drill-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="font-size: 1.15rem; color: #f8fafc; margin: 0;">🟢 Drill 1: Click Listener</h3>
+                        <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.75rem;">+20 XP</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Attach a <code>"click"</code> event listener to <code>#drill1-btn</code>. When clicked, set <code>#drill1-msg.textContent = "Clicked Successfully"</code>.
+                    </p>
+                    <div class="bei-evaluator-widget" data-spec-id="js-m9-drill-easy">
+                        <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 120px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">const btn = document.getElementById("drill1-btn");
+const msg = document.getElementById("drill1-msg");
+
+// Add your click event listener below:
+</textarea>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">🚀 Test My Code</button>
+                            <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">💡 Hint</button>
+                        </div>
+                        <div class="evaluator-feedback-area" style="margin-top: 0.75rem;"></div>
+                    </div>
+                </div>
+
+                <!-- Drill 2 -->
+                <div class="drill-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="font-size: 1.15rem; color: #f8fafc; margin: 0;">🟡 Drill 2: Input Event Mirror</h3>
+                        <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.75rem;">+25 XP</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Attach an <code>"input"</code> event listener to <code>#drill2-input</code>. In the handler, set <code>#drill2-mirror.textContent = e.target.value</code>.
+                    </p>
+                    <div class="bei-evaluator-widget" data-spec-id="js-m9-drill-med">
+                        <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 120px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">const inputEl = document.getElementById("drill2-input");
+const mirrorEl = document.getElementById("drill2-mirror");
+
+// Add your input event listener below:
+</textarea>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">🚀 Test My Code</button>
+                            <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">💡 Hint</button>
+                        </div>
+                        <div class="evaluator-feedback-area" style="margin-top: 0.75rem;"></div>
+                    </div>
+                </div>
+
+                <!-- Drill 3 -->
+                <div class="drill-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="font-size: 1.15rem; color: #f8fafc; margin: 0;">🔴 Drill 3: Toggle Style on Click</h3>
+                        <span class="badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.75rem;">+25 XP</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Add a <code>"click"</code> listener to <code>#drill1-btn</code> that changes <code>#drill1-btn.style.backgroundColor = "green"</code>.
+                    </p>
+                    <div class="bei-evaluator-widget" data-spec-id="js-m9-drill-hard">
+                        <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 120px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">const btn = document.getElementById("drill1-btn");
+
+btn.addEventListener("click", () => {
+    btn.style.backgroundColor = "green";
 });
-
-console.log("Event listener registered! Try clicking the button above!");</textarea>
-                    <button class="btn-primary" onclick="runJS()" style="padding: 0.5rem 1.5rem; font-size: 0.85rem; border-radius: 0.75rem;">⚡ Run Code</button>
+</textarea>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">🚀 Test My Code</button>
+                            <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">💡 Hint</button>
+                        </div>
+                        <div class="evaluator-feedback-area" style="margin-top: 0.75rem;"></div>
+                    </div>
                 </div>
-                <div class="preview-area">
-                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Console Output</label>
-                    <div id="console" style="width: 100%; height: 180px; background: #020617; border-radius: 1rem; border: 2px solid var(--border-dim); overflow: auto; padding: 1rem; color: #34d399; font-family: var(--font-mono); font-size: 0.9rem;"></div>
+
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 5: CHALLENGE (Charity Donation Goal Meter)                -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-challenge" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(239, 68, 68, 0.2); color: #f87171; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">5</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 5: Challenge — Charity Drive Goal Meter</h2>
+            </div>
+
+            <!-- Target Sandbox for Challenge Tests -->
+            <div id="challenge-donation-sandbox" style="display: none;">
+                <span id="ch-total-display">$0</span>
+                <button id="ch-donate-10">Donate $10</button>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(30, 27, 75, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%); border: 1px solid rgba(99, 102, 241, 0.4); border-radius: var(--radius-lg); padding: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <div>
+                        <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem;">Mastery Challenge</span>
+                        <h3 style="font-size: 1.35rem; color: #fff; margin: 0.5rem 0 0.25rem;">Interactive Fundraiser Button</h3>
+                    </div>
+                    <span style="font-size: 1.1rem; font-weight: 800; color: #fbbf24;">+50 XP</span>
+                </div>
+
+                <p style="color: #cbd5e1; font-size: 0.98rem; line-height: 1.6; margin-bottom: 1rem;">
+                    Wire up an event listener to <code>#ch-donate-10</code>:
+                </p>
+
+                <ol style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+                    <li>Keep track of <code>totalDonated</code> in memory (starting at <code>0</code>).</li>
+                    <li>Each time <code>#ch-donate-10</code> is clicked, increment <code>totalDonated += 10</code>.</li>
+                    <li>Update <code>#ch-total-display.textContent = "$" + totalDonated</code>.</li>
+                </ol>
+
+                <div class="bei-evaluator-widget" data-spec-id="js-m9-challenge">
+                    <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 160px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">let totalDonated = 0;
+const donateBtn = document.getElementById("ch-donate-10");
+const totalEl = document.getElementById("ch-total-display");
+
+donateBtn.addEventListener("click", () => {
+    totalDonated += 10;
+    totalEl.textContent = "$" + totalDonated;
+});
+</textarea>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">
+                            🚀 Validate Event Listener
+                        </button>
+                        <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.9rem;">
+                            💡 Need a Hint?
+                        </button>
+                    </div>
+                    <div class="evaluator-feedback-area" style="margin-top: 1rem;"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Quiz Section -->
-        <section class="content-section">
-            <h2>Events Quiz!</h2>
-            <form id="quiz-form-9" class="quiz-section">
-                <div class="quiz-question" data-answer="a">
-                    <p>Q1: Which method is used to wait for an action like a "click"?</p>
-                    <label><input type="radio" name="q9-1" value="a"> addEventListener</label>
-                    <label><input type="radio" name="q9-1" value="b"> waitForAction</label>
-                    <label><input type="radio" name="q9-1" value="c"> listenToUser</label>
-                    <div class="quiz-feedback"></div>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 6: QUIZ (5 Multiple Choice Concept Questions)             -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-quiz" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(168, 85, 247, 0.2); color: #c084fc; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">6</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 6: Quiz — Events Mastery</h2>
+            </div>
+
+            <form id="quiz-form-9" class="quiz-section" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <!-- Q1 -->
+                <div class="quiz-question" data-answer="b" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">1. Which method is the modern standard for listening to web events?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q1" value="a"> <code>attachEvent()</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q1" value="b"> <code>addEventListener()</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q1" value="c"> <code>listen()</code></label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(9)">Check Answers</button>
+
+                <!-- Q2 -->
+                <div class="quiz-question" data-answer="a" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">2. What does <code>event.target</code> refer to inside an event handler?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q2" value="a"> The specific HTML element that triggered the event</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q2" value="b"> The entire server</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q2" value="c"> The CSS file</label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
+
+                <!-- Q3 -->
+                <div class="quiz-question" data-answer="c" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">3. Why do we call <code>e.preventDefault()</code> on form submissions?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q3" value="a"> To erase the inputs</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q3" value="b"> To close the browser tab</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q3" value="c"> To stop the browser from automatically refreshing the entire page</label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
+
+                <!-- Q4 -->
+                <div class="quiz-question" data-answer="b" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">4. Which event fires immediately as text is typed into an input field?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q4" value="a"> <code>"hover"</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q4" value="b"> <code>"input"</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q4" value="c"> <code>"load"</code></label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
+
+                <!-- Q5 -->
+                <div class="quiz-question" data-answer="b" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">5. Can you attach multiple different event listeners to the same element?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q5" value="a"> No, only one is allowed per tag</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q5" value="b"> Yes, you can attach click, mouseenter, keydown, etc. to one element</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q5" value="c"> Only if they share the same function</label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
+
+                <button type="button" class="btn-hero-primary" onclick="checkQuiz(9)" style="align-self: flex-start; padding: 0.65rem 1.75rem;">
+                    Check Quiz Answers
+                </button>
             </form>
         </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 7: PROJECT (Classroom Academic Buzzer App)                -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-project" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">7</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 7: Project — Academic Quiz Buzzer &amp; Scoreboard</h2>
+            </div>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2rem;">
+                <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem;">Capstone Project • Educational Interactivity</span>
+                <h3 style="color: #fff; font-size: 1.3rem; margin: 0.5rem 0 0.5rem;">Classroom Team Academic Challenge Buzzer</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    A complete event-driven school application: two teams buzz in to answer science and history questions. Test the live score increment and reset mechanics!
+                </p>
+
+                <!-- Interactive App Demo -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; max-width: 600px; margin: 0 auto 1.5rem;">
+                    <!-- Team A -->
+                    <div style="background: #020617; border: 1px solid rgba(59, 130, 246, 0.3); border-radius: var(--radius-md); padding: 1.25rem; text-align: center;">
+                        <h4 style="color: #60a5fa; margin: 0 0 0.5rem;">Team Al-Khwarizmi</h4>
+                        <div id="score-team-a" style="font-size: 2.2rem; font-weight: 800; color: #fff; font-family: var(--font-mono); margin-bottom: 0.75rem;">0</div>
+                        <button id="btn-buzz-a" class="btn-hero-primary" style="width: 100%; justify-content: center; padding: 0.5rem; font-size: 0.85rem;">
+                            🔔 Team A Score (+10)
+                        </button>
+                    </div>
+
+                    <!-- Team B -->
+                    <div style="background: #020617; border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-md); padding: 1.25rem; text-align: center;">
+                        <h4 style="color: #34d399; margin: 0 0 0.5rem;">Team Ibn Sina</h4>
+                        <div id="score-team-b" style="font-size: 2.2rem; font-weight: 800; color: #fff; font-family: var(--font-mono); margin-bottom: 0.75rem;">0</div>
+                        <button id="btn-buzz-b" class="btn-hero-primary" style="width: 100%; justify-content: center; padding: 0.5rem; font-size: 0.85rem; background: linear-gradient(135deg, #059669, #10b981);">
+                            🔔 Team B Score (+10)
+                        </button>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <button id="btn-reset-scores" class="btn-hero-secondary" style="font-size: 0.85rem; padding: 0.4rem 1rem;">
+                        ↺ Reset Scoreboard
+                    </button>
+                </div>
+            </div>
+        </section>
+
     </main>
 
+    <!-- Core Scripts -->
+    <script src="../js/bei-evaluator.js"></script>
+    <script src="../js/bei-core.js"></script>
     <script src="../js/core.js"></script>
-    <script src="../js/playground.js"></script>
+    <script src="../js/bei-learning-cycle.js"></script>
     <script src="../js/pdf-download.js"></script>
+
+    <!-- Specific Test Suites for Module 9 -->
+    <script>
+        window.BEI_TEST_SPECS = {
+            'js-m9-drill-easy': {
+                id: 'js-m9-drill-easy',
+                title: 'Drill 1: Button Click Event',
+                xpReward: 20,
+                tests: [
+                    {
+                        description: 'Clicking #drill1-btn sets #drill1-msg to "Clicked Successfully"',
+                        hint: 'btn.addEventListener("click", () => msg.textContent = "Clicked Successfully");',
+                        expected: "Clicked Successfully",
+                        run: function() {
+                            const btn = document.getElementById("drill1-btn");
+                            const msg = document.getElementById("drill1-msg");
+                            if (btn) btn.click();
+                            return { passed: msg && msg.textContent === "Clicked Successfully", message: msg ? msg.textContent : 'Missing' };
+                        }
+                    }
+                ]
+            },
+            'js-m9-drill-med': {
+                id: 'js-m9-drill-med',
+                title: 'Drill 2: Input Event Mirror',
+                xpReward: 25,
+                tests: [
+                    {
+                        description: 'Input event on #drill2-input updates #drill2-mirror textContent',
+                        hint: 'inputEl.addEventListener("input", (e) => mirrorEl.textContent = e.target.value);',
+                        expected: "Salam",
+                        run: function() {
+                            const inputEl = document.getElementById("drill2-input");
+                            const mirrorEl = document.getElementById("drill2-mirror");
+                            if (inputEl) {
+                                inputEl.value = "Salam";
+                                inputEl.dispatchEvent(new Event("input"));
+                            }
+                            return { passed: mirrorEl && mirrorEl.textContent === "Salam", message: mirrorEl ? mirrorEl.textContent : 'Missing' };
+                        }
+                    }
+                ]
+            },
+            'js-m9-drill-hard': {
+                id: 'js-m9-drill-hard',
+                title: 'Drill 3: Toggle Style on Click',
+                xpReward: 25,
+                tests: [
+                    {
+                        description: 'Clicking #drill1-btn sets style.backgroundColor to "green"',
+                        hint: 'btn.addEventListener("click", () => btn.style.backgroundColor = "green");',
+                        expected: "green",
+                        run: function() {
+                            const btn = document.getElementById("drill1-btn");
+                            if (btn) btn.click();
+                            return { passed: btn && (btn.style.backgroundColor === "green" || btn.style.backgroundColor === "rgb(0, 128, 0)") };
+                        }
+                    }
+                ]
+            },
+            'js-m9-challenge': {
+                id: 'js-m9-challenge',
+                title: 'Module 9 Challenge: Donation Goal Meter',
+                xpReward: 50,
+                tests: [
+                    {
+                        description: 'Clicking #ch-donate-10 updates #ch-total-display with incremented dollars',
+                        hint: 'Each click adds 10 to totalDonated and sets "$" + totalDonated',
+                        expected: "$10",
+                        run: function() {
+                            const btn = document.getElementById("ch-donate-10");
+                            const total = document.getElementById("ch-total-display");
+                            if (btn) btn.click();
+                            return { passed: total && total.textContent.includes("$"), message: total ? total.textContent : 'Missing' };
+                        }
+                    }
+                ]
+            }
+        };
+
+        // Mini Step 3 Try Runner Script
+        const runTryBtn = document.getElementById('btn-run-try');
+        const resetTryBtn = document.getElementById('btn-reset-try');
+        const defaultTryCode = `let score = 0;
+const testBtn = document.getElementById("demo-interactive-btn");
+const output = document.getElementById("demo-score-val");
+
+testBtn.addEventListener("click", () => {
+    score += 5;
+    output.textContent = score + " pts";
+    testBtn.style.transform = "scale(0.96)";
+    setTimeout(() => testBtn.style.transform = "scale(1)", 100);
+});`;
+
+        if (runTryBtn) {
+            runTryBtn.addEventListener('click', () => {
+                const code = document.getElementById('try-code-editor').value;
+                try {
+                    const fn = new Function(code);
+                    fn();
+                    alert("Listeners attached! Now click the 'Click to Earn XP' button.");
+                } catch (e) {
+                    alert("Event Error: " + e.message);
+                }
+            });
+        }
+
+        if (resetTryBtn) {
+            resetTryBtn.addEventListener('click', () => {
+                document.getElementById('try-code-editor').value = defaultTryCode;
+                document.getElementById('demo-score-val').textContent = '0 pts';
+            });
+        }
+
+        // Live Demo Project App Logic (Academic Buzzer)
+        (function() {
+            let scoreA = 0;
+            let scoreB = 0;
+
+            const dispA = document.getElementById('score-team-a');
+            const dispB = document.getElementById('score-team-b');
+            const buzzA = document.getElementById('btn-buzz-a');
+            const buzzB = document.getElementById('btn-buzz-b');
+            const resetBtn = document.getElementById('btn-reset-scores');
+
+            if (buzzA && dispA) {
+                buzzA.addEventListener('click', () => {
+                    scoreA += 10;
+                    dispA.textContent = scoreA;
+                    if (window.awardXP) window.awardXP(10, 'Team A Scored');
+                });
+            }
+
+            if (buzzB && dispB) {
+                buzzB.addEventListener('click', () => {
+                    scoreB += 10;
+                    dispB.textContent = scoreB;
+                    if (window.awardXP) window.awardXP(10, 'Team B Scored');
+                });
+            }
+
+            if (resetBtn && dispA && dispB) {
+                resetBtn.addEventListener('click', () => {
+                    scoreA = 0;
+                    scoreB = 0;
+                    dispA.textContent = '0';
+                    dispB.textContent = '0';
+                });
+            }
+        })();
+    </script>
 </body>
 </html>

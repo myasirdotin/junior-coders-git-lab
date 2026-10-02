@@ -3,131 +3,640 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 7: Learn how to connect JavaScript to your HTML to change content and styles live.">
-    <title>Module 7: DOM Intro | Junior Coders</title>
+    <meta name="description" content="Module 7: Master the JavaScript DOM (Document Object Model), element selection, textContent, and live styling through the 7-Step Learning Cycle with auto-evaluation.">
+    <title>Module 7: Introduction to the DOM | BEI Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+    <link rel="stylesheet" href="../styles/bei-learning-system.css">
 </head>
 <body>
-    <main class="module-container">
-        <!-- Hero Header -->
-        <header class="module-header path-js">
-            <span class="badge" style="background: white; color: var(--primary);">Level 3</span>
-            <h1>The Page Controller!</h1>
-            <p>Connect your JavaScript "Brain" to your HTML "Skeleton"! 🎮</p>
+    <!-- Top Navigation Bar -->
+    <header class="bei-nav">
+        <div class="bei-nav-inner">
+            <a href="../index.html" class="bei-logo">
+                <span class="bei-logo-icon">💻</span>
+                <span>BEI Coders <span style="font-size: 0.75rem; color: var(--brand-amber); font-weight: 700; margin-left: 4px;">LEARN</span></span>
+            </a>
+            <div class="bei-nav-links">
+                <a href="../paths/web-developer/index.html" class="bei-nav-link">Web Pathway</a>
+                <a href="learningjs.html" class="bei-nav-link">All JS Modules</a>
+                <a href="../master-playground.html" class="bei-nav-link">Playground</a>
+                <a href="../teacher-hub/index.html" class="bei-nav-link">Teacher Hub</a>
+            </div>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-container" style="max-width: 1040px; margin: 0 auto; padding: 2rem 1.25rem;">
+        
+        <!-- Breadcrumbs & Module Hero -->
+        <div style="margin-bottom: 1.5rem;">
+            <a href="learningjs.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.88rem;">← Back to JavaScript Journey</a>
+        </div>
+
+        <header class="module-header path-js" style="background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-xl); padding: 2.5rem 2rem; margin-bottom: 2rem; box-shadow: 0 12px 30px rgba(0,0,0,0.3);">
+            <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                <span class="badge" style="background: var(--brand-primary); color: white; padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Class 8 Computer Science</span>
+                <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Module 7 of 9</span>
+                <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">+320 Total XP Available</span>
+            </div>
+            <h1 style="font-size: 2.4rem; font-weight: 800; color: #fff; margin-bottom: 0.65rem;">The DOM: Connecting JavaScript to the Webpage 🌐</h1>
+            <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; max-width: 820px; margin: 0;">
+                Learn how JavaScript controls HTML elements live on screen. Select elements by ID, dynamically change text content, update styles, and toggle CSS classes.
+            </p>
         </header>
 
-        <!-- DOM Concept -->
-        <section class="content-section">
-            <h2>What is the DOM?</h2>
-            <p>The **DOM (Document Object Model)** is like a map of your website. It turns every tag into an object that JavaScript can talk to!</p>
-            
-            <div style="background: #0f172a; padding: 2rem; border-radius: 2rem; border: 3px solid #3b82f6; margin-top: 2rem; text-align: center;">
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                    <div style="background: white; color: #3b82f6; padding: 1rem 2rem; border-radius: 0.5rem; font-weight: 900; border: 3px solid #3b82f6;">DOCUMENT</div>
-                    <div style="width: 2px; height: 20px; background: #3b82f6;"></div>
-                    <div style="background: white; color: #3b82f6; padding: 1rem 2rem; border-radius: 0.5rem; font-weight: 900; border: 3px solid #3b82f6;">&lt;body&gt;</div>
-                    <div style="display: flex; gap: 2rem; margin-top: 1rem;">
-                        <div style="display: flex; flex-direction: column; align-items: center;">
-                            <div style="width: 2px; height: 20px; background: #3b82f6;"></div>
-                            <div style="background: #eff6ff; color: #3b82f6; padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 800; border: 1px solid #3b82f6;">&lt;h1&gt;</div>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- THE FIXED 7-STEP CYCLE NAVIGATION BAR                          -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <nav class="cycle-nav-container" aria-label="7-Step Learning Cycle">
+            <div class="cycle-steps-wrapper">
+                <a href="#step-learn" class="cycle-step-item active" data-target="step-learn">
+                    <span class="step-num">1</span>
+                    <span>Learn</span>
+                </a>
+                <a href="#step-see" class="cycle-step-item" data-target="step-see">
+                    <span class="step-num">2</span>
+                    <span>See</span>
+                </a>
+                <a href="#step-try" class="cycle-step-item" data-target="step-try">
+                    <span class="step-num">3</span>
+                    <span>Try</span>
+                </a>
+                <a href="#step-practice" class="cycle-step-item" data-target="step-practice">
+                    <span class="step-num">4</span>
+                    <span>Practice</span>
+                </a>
+                <a href="#step-challenge" class="cycle-step-item" data-target="step-challenge">
+                    <span class="step-num">5</span>
+                    <span>Challenge</span>
+                </a>
+                <a href="#step-quiz" class="cycle-step-item" data-target="step-quiz">
+                    <span class="step-num">6</span>
+                    <span>Quiz</span>
+                </a>
+                <a href="#step-project" class="cycle-step-item" data-target="step-project">
+                    <span class="step-num">7</span>
+                    <span>Project</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 1: LEARN (The DOM Tree Mental Model)                      -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-learn" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(79, 70, 229, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">1</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 1: Learn — What is the DOM?</h2>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary);">
+                When a browser loads an HTML file, it transforms the code into a live hierarchy of JavaScript objects called the <strong>Document Object Model (DOM)</strong>. Think of HTML as the skeleton and JavaScript as the muscle: JavaScript reaches into the DOM tree to move, re-color, and update elements instantaneously without reloading the page.
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin: 1.5rem 0;">
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <span style="font-size: 2rem;">🎯</span>
+                    <h3 style="color: #60a5fa; margin: 0.5rem 0;">1. Target (Selection)</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+                        Find the HTML element you want to control:
+                    </p>
+                    <code style="display: block; background: #020617; padding: 0.65rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.82rem; color: #38bdf8;">
+                        document.getElementById("title");<br>
+                        document.querySelector(".badge");
+                    </code>
+                </div>
+
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <span style="font-size: 2rem;">✏️</span>
+                    <h3 style="color: #34d399; margin: 0.5rem 0;">2. Change Content</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+                        Use <code>textContent</code> to update words securely:
+                    </p>
+                    <code style="display: block; background: #020617; padding: 0.65rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.82rem; color: #34d399;">
+                        el.textContent = "New Heading";
+                    </code>
+                </div>
+
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <span style="font-size: 2rem;">🎨</span>
+                    <h3 style="color: #f59e0b; margin: 0.5rem 0;">3. Restyle &amp; Toggle</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.92rem; line-height: 1.6;">
+                        Update colors or add/remove CSS classes:
+                    </p>
+                    <code style="display: block; background: #020617; padding: 0.65rem; border-radius: 6px; font-family: var(--font-mono); font-size: 0.82rem; color: #fbbf24;">
+                        el.style.color = "#10b981";<br>
+                        el.classList.add("active");
+                    </code>
+                </div>
+            </div>
+
+            <!-- Security Note -->
+            <div style="background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-top: 1rem;">
+                <strong style="color: #34d399; display: block; margin-bottom: 0.25rem;">🛡️ Ethical Security: textContent vs innerHTML</strong>
+                <span style="color: #cbd5e1; font-size: 0.92rem; line-height: 1.6;">
+                    Always prefer <code>textContent</code> over <code>innerHTML</code> when displaying user input. <code>textContent</code> treats text strictly as plain characters, shielding your application against Cross-Site Scripting (XSS) injection attacks (*Amānah*).
+                </span>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 2: SEE (Worked Code Examples)                            -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-see" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">2</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 2: See — Live DOM Operations</h2>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem;">
+                <!-- Example A -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="background: var(--bg-surface-elevated); padding: 0.75rem 1.25rem; font-weight: 700; color: #818cf8; border-bottom: 1px solid var(--border-subtle);">
+                        <span>Example A: Updating a Live Announcement Banner</span>
+                    </div>
+                    <pre style="margin: 0; padding: 1.25rem; background: #020617; color: #f8fafc; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; overflow-x: auto;"><code><span style="color: #64748b;">// 1. Select the element from the DOM tree</span>
+<span style="color: #fbbf24;">const</span> banner = document.getElementById(<span style="color: #38bdf8;">"school-banner"</span>);
+
+<span style="color: #64748b;">// 2. Change its text</span>
+banner.textContent = <span style="color: #38bdf8;">"Notice: Science Lab opens tomorrow at 8:00 AM."</span>;
+
+<span style="color: #64748b;">// 3. Change its color</span>
+banner.style.color = <span style="color: #38bdf8;">"#34d399"</span>;</code></pre>
+                </div>
+
+                <!-- Example B -->
+                <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); overflow: hidden;">
+                    <div style="background: var(--bg-surface-elevated); padding: 0.75rem 1.25rem; font-weight: 700; color: #34d399; border-bottom: 1px solid var(--border-subtle);">
+                        <span>Example B: Toggling CSS Classes with classList</span>
+                    </div>
+                    <pre style="margin: 0; padding: 1.25rem; background: #020617; color: #f8fafc; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6; overflow-x: auto;"><code><span style="color: #fbbf24;">const</span> badge = document.querySelector(<span style="color: #38bdf8;">".attendance-badge"</span>);
+
+<span style="color: #64748b;">// Add the class 'present'</span>
+badge.classList.add(<span style="color: #38bdf8;">"present"</span>);
+
+<span style="color: #64748b;">// Check if it has a class</span>
+console.log(badge.classList.contains(<span style="color: #38bdf8;">"present"</span>)); <span style="color: #64748b;">// true</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 3: TRY (Interactive DOM Scratchpad)                       -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-try" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">3</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 3: Try — Live DOM Modifier</h2>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Execute code below to see the preview box on the right change live right before your eyes!
+            </p>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">DOM Code</span>
+                            <button id="btn-reset-try" style="background: transparent; border: none; color: #818cf8; font-size: 0.8rem; cursor: pointer;">↺ Reset</button>
                         </div>
-                        <div style="display: flex; flex-direction: column; align-items: center;">
-                            <div style="width: 2px; height: 20px; background: #3b82f6;"></div>
-                            <div style="background: #eff6ff; color: #3b82f6; padding: 0.8rem 1.5rem; border-radius: 0.5rem; font-weight: 800; border: 1px solid #3b82f6;">&lt;p&gt;</div>
+                        <textarea id="try-code-editor" spellcheck="false" style="width: 100%; height: 210px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem; font-family: var(--font-mono); font-size: 0.88rem; resize: none; outline: none; line-height: 1.5;">const target = document.getElementById("demo-card-title");
+const status = document.getElementById("demo-card-status");
+
+target.textContent = "Al-Hikmah Robotics Club";
+target.style.color = "#38bdf8";
+
+status.textContent = "Status: 18 Active Members";
+status.style.color = "#34d399";</textarea>
+                        <button id="btn-run-try" class="btn-hero-primary" style="margin-top: 0.75rem; width: 100%; justify-content: center; padding: 0.65rem;">
+                            ⚡ Apply to Live Preview
+                        </button>
+                    </div>
+
+                    <div>
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Live HTML Target Preview</span>
+                        <div style="width: 100%; height: 210px; background: #020617; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                            <h3 id="demo-card-title" style="color: #cbd5e1; margin-bottom: 0.5rem; font-size: 1.2rem;">Sample Club Header</h3>
+                            <p id="demo-card-status" style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Status: Pending</p>
                         </div>
                     </div>
                 </div>
-                <p style="margin-top: 1.5rem; font-size: 0.8rem; color: #3b82f6;">JavaScript can "Select" and "Change" any of these!</p>
             </div>
         </section>
 
-        <!-- Selection Section -->
-        <section class="content-section">
-            <h2>Finding Elements</h2>
-            <p>Before you can change something, you have to **find** it. We use <code>document.getElementById</code> to grab a specific item.</p>
-            <div style="background: #020617; padding: 2rem; border-radius: 1.5rem; margin: 1.5rem 0;">
-                <code style="color: #f8fafc; font-size: 1.1rem; line-height: 1.6;">
-                    <span style="color: #64748b;">// 1. Find the title</span> <br>
-                    <span style="color: #4f46e5;">const</span> <span style="color: #34d399;">myTitle</span> = document.getElementById(<span style="color: #eab308;">"main-header"</span>); <br><br>
-                    <span style="color: #64748b;">// 2. Change its text!</span> <br>
-                    myTitle.innerHTML = <span style="color: #eab308;">"JS is Awesome!"</span>;
-                </code>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 4: PRACTICE (3 Auto-Evaluated Drills)                      -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-practice" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(99, 102, 241, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">4</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 4: Practice — Auto-Evaluated Coding Drills</h2>
+            </div>
+
+            <!-- Target Elements Hidden Sandbox for Evaluation Tests -->
+            <div id="eval-sandbox" style="display: none;">
+                <h1 id="drill1-banner">Old Banner</h1>
+                <div id="drill2-box" style="color: black;">Content</div>
+                <div id="drill3-badge" class="badge-base">Student</div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+                
+                <!-- Drill 1 -->
+                <div class="drill-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="font-size: 1.15rem; color: #f8fafc; margin: 0;">🟢 Drill 1: Change Banner textContent</h3>
+                        <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.75rem;">+20 XP</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Select element with ID <code>"drill1-banner"</code> and change its <code>textContent</code> to <code>"Al-Hikmah Welcome"</code>.
+                    </p>
+                    <div class="bei-evaluator-widget" data-spec-id="js-m7-drill-easy">
+                        <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 110px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">// Select #drill1-banner and set textContent to "Al-Hikmah Welcome":
+</textarea>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">🚀 Test My Code</button>
+                            <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">💡 Hint</button>
+                        </div>
+                        <div class="evaluator-feedback-area" style="margin-top: 0.75rem;"></div>
+                    </div>
+                </div>
+
+                <!-- Drill 2 -->
+                <div class="drill-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="font-size: 1.15rem; color: #f8fafc; margin: 0;">🟡 Drill 2: Modify Style Property</h3>
+                        <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.75rem;">+25 XP</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Select element with ID <code>"drill2-box"</code> and set its <code>style.color</code> to <code>"green"</code>.
+                    </p>
+                    <div class="bei-evaluator-widget" data-spec-id="js-m7-drill-med">
+                        <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 110px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">// Select #drill2-box and change its style.color to "green":
+</textarea>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">🚀 Test My Code</button>
+                            <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">💡 Hint</button>
+                        </div>
+                        <div class="evaluator-feedback-area" style="margin-top: 0.75rem;"></div>
+                    </div>
+                </div>
+
+                <!-- Drill 3 -->
+                <div class="drill-card" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <h3 style="font-size: 1.15rem; color: #f8fafc; margin: 0;">🔴 Drill 3: Add Class with classList</h3>
+                        <span class="badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 999px; font-size: 0.75rem;">+25 XP</span>
+                    </div>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1rem;">
+                        Select element with ID <code>"drill3-badge"</code> and add the class <code>"verified"</code> using <code>.classList.add()</code>.
+                    </p>
+                    <div class="bei-evaluator-widget" data-spec-id="js-m7-drill-hard">
+                        <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 110px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">// Select #drill3-badge and add class "verified":
+</textarea>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">🚀 Test My Code</button>
+                            <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">💡 Hint</button>
+                        </div>
+                        <div class="evaluator-feedback-area" style="margin-top: 0.75rem;"></div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- What can we change? -->
-        <section class="content-section" style="border-left: 8px solid #10b981;">
-            <h2>The Magic Wand 🪄</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
-                    <strong>innerHTML</strong> <br> Change the text or HTML inside.
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 5: CHALLENGE (Library Book Status Live Controller)        -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-challenge" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(239, 68, 68, 0.2); color: #f87171; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">5</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 5: Challenge — Library Loan Status Controller</h2>
+            </div>
+
+            <!-- Target element for challenge evaluation -->
+            <div id="challenge-card-sandbox" style="display: none;">
+                <div id="ch-book-status">Available</div>
+                <div id="ch-borrower-name">None</div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, rgba(30, 27, 75, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%); border: 1px solid rgba(99, 102, 241, 0.4); border-radius: var(--radius-lg); padding: 2rem;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                    <div>
+                        <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem;">Mastery Challenge</span>
+                        <h3 style="font-size: 1.35rem; color: #fff; margin: 0.5rem 0 0.25rem;">Live DOM Book Checkout</h3>
+                    </div>
+                    <span style="font-size: 1.1rem; font-weight: 800; color: #fbbf24;">+50 XP</span>
                 </div>
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
-                    <strong>style</strong> <br> Change colors, fonts, or sizes.
-                </div>
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem;">
-                    <strong>src</strong> <br> Change an image to a new one!
+
+                <p style="color: #cbd5e1; font-size: 0.98rem; line-height: 1.6; margin-bottom: 1rem;">
+                    When student <em>"Tariq"</em> checks out <em>"Introduction to Algorithms"</em> from the library, write JavaScript to update two DOM elements:
+                </p>
+
+                <ol style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+                    <li>Select <code>#ch-book-status</code>, change its <code>textContent</code> to <code>"Checked Out"</code>, and set its <code>style.color</code> to <code>"orange"</code>.</li>
+                    <li>Select <code>#ch-borrower-name</code> and change its <code>textContent</code> to <code>"Tariq"</code>.</li>
+                </ol>
+
+                <div class="bei-evaluator-widget" data-spec-id="js-m7-challenge">
+                    <textarea class="evaluator-code-input" spellcheck="false" style="width: 100%; height: 160px; background: #020617; color: #f8fafc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.9rem; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 0.75rem;">const statusEl = document.getElementById("ch-book-status");
+const borrowerEl = document.getElementById("ch-borrower-name");
+
+statusEl.textContent = "Checked Out";
+statusEl.style.color = "orange";
+borrowerEl.textContent = "Tariq";
+</textarea>
+                    <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button class="evaluator-submit-btn btn-hero-primary" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">
+                            🚀 Validate DOM Code
+                        </button>
+                        <button class="evaluator-hint-btn btn-hero-secondary" style="padding: 0.6rem 1.25rem; font-size: 0.9rem;">
+                            💡 Need a Hint?
+                        </button>
+                    </div>
+                    <div class="evaluator-feedback-area" style="margin-top: 1rem;"></div>
                 </div>
             </div>
         </section>
 
-        <!-- Sandbox Section -->
-        <section class="content-section">
-            <h2>Your DOM Magic Wand Sandbox 🪄</h2>
-            <p>Write JavaScript to select the magic title below and change its style or text contents! Click run to see the changes live on the page!</p>
-            
-            <!-- Sample Card for students to manipulate -->
-            <div id="magic-card" style="background: var(--bg-card); padding: 1.5rem; border-radius: 1rem; border: 2px solid var(--border-dim); margin: 1.5rem 0; text-align: center; transition: all 0.3s ease;">
-                <h3 id="magic-title" style="color: var(--primary); margin-bottom: 0.5rem; font-size: 1.5rem;">The Sleeping Giant 😴</h3>
-                <p id="magic-text" style="font-size: 0.85rem; color: var(--text-secondary);">This card is waiting for your JS code magic to wake it up!</p>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 6: QUIZ (5 Multiple Choice Concept Questions)             -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-quiz" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(168, 85, 247, 0.2); color: #c084fc; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">6</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 6: Quiz — DOM Fundamentals</h2>
             </div>
 
-            <div class="playground-container">
-                <div class="editor-area">
-                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">JavaScript Editor</label>
-                    <textarea id="code-editor" spellcheck="false" style="width: 100%; height: 180px; background: #020617; color: #f8fafc; border: 2px solid var(--border-dim); border-radius: 1rem; padding: 1rem; font-family: var(--font-mono); font-size: 0.95rem; resize: none; outline: none; margin-bottom: 1rem;">// 1. Find the title element
-const title = document.getElementById("magic-title");
+            <form id="quiz-form-7" class="quiz-section" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <!-- Q1 -->
+                <div class="quiz-question" data-answer="b" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">1. What does DOM stand for?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q1" value="a"> Digital Order Mechanism</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q1" value="b"> Document Object Model</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q1" value="c"> Direct Output Method</label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
 
-// 2. Wake it up by changing its text and color!
-title.innerHTML = "Woken Up Giant! ⚡🧙‍♂️";
-title.style.color = "#10b981";
+                <!-- Q2 -->
+                <div class="quiz-question" data-answer="c" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">2. Why is <code>textContent</code> safer than <code>innerHTML</code> for inserting user messages?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q2" value="a"> It makes the text italic</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q2" value="b"> It deletes CSS files</label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q2" value="c"> It prevents XSS script injection attacks by escaping HTML tags</label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
+                </div>
 
-// 3. Change card border
-document.getElementById("magic-card").style.borderColor = "#10b981";</textarea>
-                    <button class="btn-primary" onclick="runJS()" style="padding: 0.5rem 1.5rem; font-size: 0.85rem; border-radius: 0.75rem;">⚡ Run Code</button>
+                <!-- Q3 -->
+                <div class="quiz-question" data-answer="b" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">3. Which method selects the FIRST element in the document matching a CSS selector?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q3" value="a"> <code>document.findFirst()</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q3" value="b"> <code>document.querySelector()</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q3" value="c"> <code>document.getElementById()</code></label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
                 </div>
-                <div class="preview-area">
-                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Console Output</label>
-                    <div id="console" style="width: 100%; height: 180px; background: #020617; border-radius: 1rem; border: 2px solid var(--border-dim); overflow: auto; padding: 1rem; color: #34d399; font-family: var(--font-mono); font-size: 0.9rem;"></div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Quiz Section -->
-        <section class="content-section">
-            <h2>DOM Quiz!</h2>
-            <form id="quiz-form-7" class="quiz-section">
-                <div class="quiz-question" data-answer="b">
-                    <p>Q1: What does DOM stand for?</p>
-                    <label><input type="radio" name="q7-1" value="a"> Digital Object Memory</label>
-                    <label><input type="radio" name="q7-1" value="b"> Document Object Model</label>
-                    <label><input type="radio" name="q7-1" value="c"> Data Only Management</label>
-                    <div class="quiz-feedback"></div>
+                <!-- Q4 -->
+                <div class="quiz-question" data-answer="a" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">4. How do you add a CSS class named <code>"active"</code> to an element <code>btn</code>?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q4" value="a"> <code>btn.classList.add("active")</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q4" value="b"> <code>btn.class = "active"</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q4" value="c"> <code>btn.setStyle("active")</code></label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
                 </div>
-                <div class="quiz-question" data-answer="a">
-                    <p>Q2: Which command is used to find an element by its ID name?</p>
-                    <label><input type="radio" name="q7-2" value="a"> getElementById</label>
-                    <label><input type="radio" name="q7-2" value="b"> findMyTag</label>
-                    <label><input type="radio" name="q7-2" value="c"> selectId</label>
-                    <div class="quiz-feedback"></div>
+
+                <!-- Q5 -->
+                <div class="quiz-question" data-answer="c" style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                    <p style="font-weight: 700; color: #fff; margin-bottom: 0.75rem;">5. How do you change an element's background color in JavaScript?</p>
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q5" value="a"> <code>el.color = "blue"</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q5" value="b"> <code>el.style.background-color = "blue"</code></label>
+                        <label style="display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); cursor: pointer;"><input type="radio" name="q5" value="c"> <code>el.style.backgroundColor = "blue"</code> (camelCase)</label>
+                    </div>
+                    <div class="quiz-feedback" style="margin-top: 0.5rem; font-size: 0.85rem;"></div>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(7)">Check Answers</button>
+
+                <button type="button" class="btn-hero-primary" onclick="checkQuiz(7)" style="align-self: flex-start; padding: 0.65rem 1.75rem;">
+                    Check Quiz Answers
+                </button>
             </form>
         </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 7: PROJECT (Daily Wisdom & Gratitude Board)               -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-project" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(16, 185, 129, 0.2); color: #34d399; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">7</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 7: Project — Daily Wisdom &amp; Reflection Board</h2>
+            </div>
+
+            <div style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 2rem;">
+                <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; font-weight: 700; padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem;">Mini Project • Digital Stewardship</span>
+                <h3 style="color: #fff; font-size: 1.3rem; margin: 0.5rem 0 0.5rem;">Interactive Moral Quote Board</h3>
+                <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    Use DOM manipulation to rotate through uplifting moral reflections, toggle theme color accents, and copy quotes live to clipboard.
+                </p>
+
+                <!-- Interactive App Demo -->
+                <div style="background: #020617; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.75rem; max-width: 520px; margin: 0 auto 1.5rem; text-align: center;">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">📜</div>
+                    <blockquote id="wisdom-quote-text" style="color: #f8fafc; font-size: 1.05rem; line-height: 1.6; font-style: italic; margin: 0 0 0.75rem;">
+                        "The best of people are those that bring the most benefit to the rest of mankind."
+                    </blockquote>
+                    <p id="wisdom-quote-source" style="color: #818cf8; font-size: 0.88rem; font-weight: 600; margin-bottom: 1.25rem;">
+                        — Prophet Muhammad ﷺ (Al-Mu'jam al-Awsat)
+                    </p>
+
+                    <div style="display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap;">
+                        <button id="btn-next-wisdom" class="btn-hero-primary" style="padding: 0.5rem 1.25rem; font-size: 0.88rem;">
+                            ✨ Next Reflection
+                        </button>
+                        <button id="btn-accent-toggle" class="btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.88rem;">
+                            🎨 Change Theme
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
+    <!-- Core Scripts -->
+    <script src="../js/bei-evaluator.js"></script>
+    <script src="../js/bei-core.js"></script>
     <script src="../js/core.js"></script>
-    <script src="../js/playground.js"></script>
+    <script src="../js/bei-learning-cycle.js"></script>
     <script src="../js/pdf-download.js"></script>
+
+    <!-- Specific Test Suites for Module 7 -->
+    <script>
+        window.BEI_TEST_SPECS = {
+            'js-m7-drill-easy': {
+                id: 'js-m7-drill-easy',
+                title: 'Drill 1: Change Banner textContent',
+                xpReward: 20,
+                tests: [
+                    {
+                        description: '#drill1-banner has textContent "Al-Hikmah Welcome"',
+                        hint: 'document.getElementById("drill1-banner").textContent = "Al-Hikmah Welcome";',
+                        expected: "Al-Hikmah Welcome",
+                        run: function() {
+                            const el = document.getElementById("drill1-banner");
+                            return { passed: el && el.textContent === "Al-Hikmah Welcome", message: el ? el.textContent : 'Element missing' };
+                        }
+                    }
+                ]
+            },
+            'js-m7-drill-med': {
+                id: 'js-m7-drill-med',
+                title: 'Drill 2: Modify Style Property',
+                xpReward: 25,
+                tests: [
+                    {
+                        description: '#drill2-box has style.color equal to "green"',
+                        hint: 'document.getElementById("drill2-box").style.color = "green";',
+                        expected: "green",
+                        run: function() {
+                            const el = document.getElementById("drill2-box");
+                            return { passed: el && (el.style.color === "green" || el.style.color === "rgb(0, 128, 0)"), message: el ? el.style.color : 'Element missing' };
+                        }
+                    }
+                ]
+            },
+            'js-m7-drill-hard': {
+                id: 'js-m7-drill-hard',
+                title: 'Drill 3: Add Class with classList',
+                xpReward: 25,
+                tests: [
+                    {
+                        description: '#drill3-badge contains class "verified"',
+                        hint: 'document.getElementById("drill3-badge").classList.add("verified");',
+                        expected: true,
+                        run: function() {
+                            const el = document.getElementById("drill3-badge");
+                            return { passed: el && el.classList.contains("verified") };
+                        }
+                    }
+                ]
+            },
+            'js-m7-challenge': {
+                id: 'js-m7-challenge',
+                title: 'Module 7 Challenge: Library Loan Status Controller',
+                xpReward: 50,
+                tests: [
+                    {
+                        description: '#ch-book-status has textContent "Checked Out"',
+                        hint: 'Check spelling and capitalization: "Checked Out"',
+                        expected: "Checked Out",
+                        run: function() {
+                            const el = document.getElementById("ch-book-status");
+                            return { passed: el && el.textContent === "Checked Out", message: el ? el.textContent : 'Missing' };
+                        }
+                    },
+                    {
+                        description: '#ch-book-status has style.color set to "orange"',
+                        hint: 'statusEl.style.color = "orange";',
+                        expected: "orange",
+                        run: function() {
+                            const el = document.getElementById("ch-book-status");
+                            return { passed: el && (el.style.color === "orange" || el.style.color === "rgb(255, 165, 0)") };
+                        }
+                    },
+                    {
+                        description: '#ch-borrower-name has textContent "Tariq"',
+                        hint: 'borrowerEl.textContent = "Tariq";',
+                        expected: "Tariq",
+                        run: function() {
+                            const el = document.getElementById("ch-borrower-name");
+                            return { passed: el && el.textContent === "Tariq" };
+                        }
+                    }
+                ]
+            }
+        };
+
+        // Mini Step 3 Try Runner Script
+        const runTryBtn = document.getElementById('btn-run-try');
+        const resetTryBtn = document.getElementById('btn-reset-try');
+        const defaultTryCode = `const target = document.getElementById("demo-card-title");
+const status = document.getElementById("demo-card-status");
+
+target.textContent = "Al-Hikmah Robotics Club";
+target.style.color = "#38bdf8";
+
+status.textContent = "Status: 18 Active Members";
+status.style.color = "#34d399";`;
+
+        if (runTryBtn) {
+            runTryBtn.addEventListener('click', () => {
+                const code = document.getElementById('try-code-editor').value;
+                try {
+                    const fn = new Function(code);
+                    fn();
+                } catch (e) {
+                    alert("DOM Error: " + e.message);
+                }
+            });
+        }
+
+        if (resetTryBtn) {
+            resetTryBtn.addEventListener('click', () => {
+                document.getElementById('try-code-editor').value = defaultTryCode;
+                document.getElementById("demo-card-title").textContent = "Sample Club Header";
+                document.getElementById("demo-card-title").style.color = "#cbd5e1";
+                document.getElementById("demo-card-status").textContent = "Status: Pending";
+                document.getElementById("demo-card-status").style.color = "var(--text-muted)";
+            });
+        }
+
+        // Live Demo Project App Logic (Wisdom Board)
+        (function() {
+            const wisdomList = [
+                { quote: "The best of people are those that bring the most benefit to the rest of mankind.", source: "— Prophet Muhammad ﷺ (Al-Mu'jam al-Awsat)" },
+                { quote: "God loves that when any one of you does a job, he performs it with thoroughness and excellence (Ihsan).", source: "— Hadith (Bayhaqi)" },
+                { quote: "Acquire knowledge: it enables its possessor to distinguish right from wrong.", source: "— Classical Wisdom" },
+                { quote: "Kindness is a mark of faith, and whoever is not kind has no faith.", source: "— Hadith (Muslim)" },
+                { quote: "He who follows a path in pursuit of knowledge, God makes the path to paradise easy for him.", source: "— Hadith (Tirmidhi)" }
+            ];
+
+            let currIdx = 0;
+            const quoteEl = document.getElementById('wisdom-quote-text');
+            const sourceEl = document.getElementById('wisdom-quote-source');
+            const nextBtn = document.getElementById('btn-next-wisdom');
+            const themeBtn = document.getElementById('btn-accent-toggle');
+
+            const themes = ['#818cf8', '#34d399', '#fbbf24', '#f43f5e', '#38bdf8'];
+            let themeIdx = 0;
+
+            if (nextBtn && quoteEl && sourceEl) {
+                nextBtn.addEventListener('click', () => {
+                    currIdx = (currIdx + 1) % wisdomList.length;
+                    quoteEl.textContent = `"${wisdomList[currIdx].quote}"`;
+                    sourceEl.textContent = wisdomList[currIdx].source;
+                    if (window.awardXP) window.awardXP(10, 'Reflection rotated');
+                });
+            }
+
+            if (themeBtn && sourceEl) {
+                themeBtn.addEventListener('click', () => {
+                    themeIdx = (themeIdx + 1) % themes.length;
+                    sourceEl.style.color = themes[themeIdx];
+                });
+            }
+        })();
+    </script>
 </body>
 </html>
