@@ -3,127 +3,753 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Module 5: Manage lists of data effectively using array methods.">
-    <title>Module 5: Arrays | Junior Coders</title>
+    <meta name="description" content="Module 5: Master JavaScript Arrays through the 7-Step Learning Cycle with interactive auto-evaluation.">
+    <title>Module 5: JavaScript Arrays | BEI Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+    <link rel="stylesheet" href="../styles/bei-learning-system.css">
 </head>
 <body>
-    <main class="module-container">
-        <!-- Hero Header -->
-        <header class="module-header path-js">
-            <span class="badge" style="background: white; color: var(--primary);">Level 2</span>
-            <h1>The Treasure Chest!</h1>
-            <p>Learn how to store a whole collection of items in a single variable! 💎</p>
+    <!-- Top Navigation Bar -->
+    <header class="bei-nav">
+        <div class="bei-nav-inner">
+            <a href="index.html" class="bei-logo">
+                <span class="bei-logo-icon">💻</span>
+                <span>BEI Coders <span style="font-size: 0.75rem; color: var(--brand-amber); font-weight: 700; margin-left: 4px;">LEARN</span></span>
+            </a>
+            <div class="bei-nav-links">
+                <a href="../paths/web-developer/index.html" class="bei-nav-link">Web Pathway</a>
+                <a href="learningjs.html" class="bei-nav-link">All JS Modules</a>
+                <a href="../master-playground.html" class="bei-nav-link">Playground</a>
+                <a href="../teacher-hub/index.html" class="bei-nav-link">Teacher Hub</a>
+            </div>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-container" style="max-width: 1040px; margin: 0 auto; padding: 2rem 1.25rem;">
+        
+        <!-- Breadcrumbs & Module Hero -->
+        <div style="margin-bottom: 1.5rem;">
+            <a href="learningjs.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.88rem;">← Back to JavaScript Journey</a>
+        </div>
+
+        <header class="module-header path-js" style="background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: var(--radius-xl); padding: 2.5rem 2rem; margin-bottom: 2rem; box-shadow: 0 12px 30px rgba(0,0,0,0.3);">
+            <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap;">
+                <span class="badge" style="background: var(--brand-primary); color: white; padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Class 8 Computer Science</span>
+                <span class="badge" style="background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Module 5 of 9</span>
+                <span class="badge" style="background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">+320 Total XP Available</span>
+            </div>
+            <h1 style="font-size: 2.4rem; font-weight: 800; color: #fff; margin-bottom: 0.65rem;">JavaScript Arrays: The Organized Treasure Chest 💎</h1>
+            <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.6; max-width: 820px; margin: 0;">
+                Learn how to store multiple pieces of information inside a single variable, access items by index numbers, and manipulate lists using built-in methods.
+            </p>
         </header>
 
-        <!-- Array Concept -->
-        <section class="content-section">
-            <h2>What is an Array?</h2>
-            <p>An **Array** is like a treasure chest with different compartments. Instead of having 5 separate boxes for your toys, you have one big chest with 5 slots!</p>
-            <div style="text-align: center; margin: 1.5rem 0;">
-                <img src="../assets/diagrams/js/array-indexing-ruler.svg" alt="Array Indexing Architecture" style="width: 100%; max-width: 780px; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.06); display: block; margin: 0 auto;">
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- THE FIXED 7-STEP CYCLE NAVIGATION BAR                          -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <nav class="cycle-nav-container" aria-label="7-Step Learning Cycle">
+            <div class="cycle-steps-wrapper">
+                <a href="#step-learn" class="cycle-step-item active" data-target="step-learn">
+                    <span class="step-num">1</span>
+                    <span>Learn</span>
+                </a>
+                <a href="#step-see" class="cycle-step-item" data-target="step-see">
+                    <span class="step-num">2</span>
+                    <span>See</span>
+                </a>
+                <a href="#step-try" class="cycle-step-item" data-target="step-try">
+                    <span class="step-num">3</span>
+                    <span>Try</span>
+                </a>
+                <a href="#step-practice" class="cycle-step-item" data-target="step-practice">
+                    <span class="step-num">4</span>
+                    <span>Practice</span>
+                </a>
+                <a href="#step-challenge" class="cycle-step-item" data-target="step-challenge">
+                    <span class="step-num">5</span>
+                    <span>Challenge</span>
+                </a>
+                <a href="#step-quiz" class="cycle-step-item" data-target="step-quiz">
+                    <span class="step-num">6</span>
+                    <span>Quiz</span>
+                </a>
+                <a href="#step-project" class="cycle-step-item" data-target="step-project">
+                    <span class="step-num">7</span>
+                    <span>Project</span>
+                </a>
             </div>
-            
-            <div style="background: #0f172a; padding: 2rem; border-radius: 2rem; border: 3px solid #eab308; margin-top: 2rem;">
-                <div style="display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
-                    <!-- Index 0 -->
-                    <div style="background: white; border: 2px solid #eab308; padding: 1rem; border-radius: 0.5rem; text-align: center; width: 80px;">
-                        <span style="font-size: 2rem;">🍎</span>
-                        <p style="color: #64748b; font-size: 0.7rem; font-weight: 800; margin-top: 0.5rem;">[ 0 ]</p>
+        </nav>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 1: LEARN (Conceptual Mental Model & Zero-Index Analogy)   -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-learn" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(79, 70, 229, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">1</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 1: Learn — What is an Array?</h2>
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary);">
+                Imagine you are the teacher of a classroom with 30 students. If you had to create a separate variable for every single child:
+            </p>
+
+            <div style="background: #020617; border-radius: var(--radius-md); padding: 1.25rem; font-family: var(--font-mono); font-size: 0.9rem; color: #f87171; border: 1px solid rgba(239, 68, 68, 0.25); margin: 1rem 0;">
+                let student1 = "Ali";<br>
+                let student2 = "Sara";<br>
+                let student3 = "Zayd";<br>
+                // ... 30 separate variables! That gets messy very quickly. 😫
+            </div>
+
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-secondary);">
+                Instead, JavaScript gives us a special container called an <strong>Array</strong>. Think of an array like a <em>numbered locker row</em> or an <em>organized treasure chest</em> with compartments. One variable holds the whole list!
+            </p>
+
+            <!-- Visual Diagram -->
+            <div style="text-align: center; margin: 2rem 0;">
+                <img src="../assets/diagrams/js/array-indexing-ruler.svg" alt="Array Indexing Ruler" style="width: 100%; max-width: 760px; height: auto; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.4); display: block; margin: 0 auto;">
+            </div>
+
+            <!-- Zero-Indexing Callout -->
+            <div style="background: rgba(245, 158, 11, 0.1); border: 2px solid #f59e0b; border-radius: var(--radius-md); padding: 1.5rem; margin-top: 1.5rem;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                    <span style="font-size: 1.4rem;">⚠️</span>
+                    <h3 style="color: #fbbf24; margin: 0; font-size: 1.15rem;">The Golden Rule: Computers Start Counting at Zero (0)!</h3>
+                </div>
+                <p style="color: #cbd5e1; font-size: 0.95rem; line-height: 1.6; margin: 0;">
+                    Humans usually count <code>1, 2, 3...</code>. But JavaScript starts array indexes at <strong>0</strong>!
+                    The first item is always at slot <code>[0]</code>, the second item is at slot <code>[1]</code>, and so on.
+                </p>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 2: SEE (2-3 Curated Real-World Examples)                  -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-see" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(79, 70, 229, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">2</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 2: See — Code in Action</h2>
+            </div>
+            <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Study these 3 standard patterns for creating, accessing, and growing arrays:
+            </p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.25rem;">
+                <!-- Example 1 -->
+                <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem;">
+                    <span style="color: #34d399; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Example A</span>
+                    <h3 style="color: #fff; margin: 0.35rem 0 0.75rem; font-size: 1.1rem;">Creating an Array</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1rem;">
+                        We use square brackets <code>[ ]</code> and separate items with commas:
+                    </p>
+                    <pre style="background: #020617; padding: 1rem; border-radius: 8px; font-family: var(--font-mono); font-size: 0.85rem; color: #f8fafc; overflow-x: auto;"><code><span style="color:#818cf8;">let</span> students = [<span style="color:#fde047;">"Ali"</span>, <span style="color:#fde047;">"Sara"</span>, <span style="color:#fde047;">"Zayd"</span>];
+console.log(students);</code></pre>
+                </div>
+
+                <!-- Example 2 -->
+                <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem;">
+                    <span style="color: #38bdf8; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Example B</span>
+                    <h3 style="color: #fff; margin: 0.35rem 0 0.75rem; font-size: 1.1rem;">Reading by Index</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1rem;">
+                        Put the index number inside <code>[ ]</code> to fetch a specific item:
+                    </p>
+                    <pre style="background: #020617; padding: 1rem; border-radius: 8px; font-family: var(--font-mono); font-size: 0.85rem; color: #f8fafc; overflow-x: auto;"><code>console.log(students[<span style="color:#f59e0b;">0</span>]); <span style="color:#64748b;">// "Ali" (first item!)</span>
+console.log(students[<span style="color:#f59e0b;">1</span>]); <span style="color:#64748b;">// "Sara" (second item!)</span>
+console.log(students.length); <span style="color:#64748b;">// 3 (total count!)</span></code></pre>
+                </div>
+
+                <!-- Example 3 -->
+                <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem;">
+                    <span style="color: #c084fc; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Example C</span>
+                    <h3 style="color: #fff; margin: 0.35rem 0 0.75rem; font-size: 1.1rem;">Adding & Removing</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1rem;">
+                        Use <code>.push()</code> to add to the end, or <code>.pop()</code> to remove:
+                    </p>
+                    <pre style="background: #020617; padding: 1rem; border-radius: 8px; font-family: var(--font-mono); font-size: 0.85rem; color: #f8fafc; overflow-x: auto;"><code>students.push(<span style="color:#fde047;">"Fatima"</span>); <span style="color:#64748b;">// Adds to the end</span>
+console.log(students.length); <span style="color:#64748b;">// Now 4!</span>
+students.pop(); <span style="color:#64748b;">// Removes "Fatima"</span></code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 3: TRY (Interactive Micro-Sandbox)                        -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-try" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(79, 70, 229, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">3</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 3: Try — Your Turn to Experiment</h2>
+            </div>
+            <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 1rem;">
+                Modify the starter code below. Try adding your own favorite fruit to the array using <code>.push()</code> and run it to see what happens in the console!
+            </p>
+
+            <div class="playground-container" style="background: #020617; border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.25rem;">
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <label style="font-weight: 700; color: var(--text-secondary); font-size: 0.85rem;">JavaScript Editor</label>
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Editable</span>
+                        </div>
+                        <textarea id="try-code-editor" spellcheck="false" style="width: 100%; height: 200px; background: #090e1a; color: #f8fafc; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-md); padding: 1rem; font-family: var(--font-mono); font-size: 0.95rem; resize: vertical; outline: none; line-height: 1.5;">// 1. Create a fruit box
+let fruits = ["🍎 Apple", "🍌 Banana", "🍇 Grape"];
+console.log("Original list:", fruits);
+
+// 2. Add your favorite fruit below:
+fruits.push("🥭 Mango");
+
+// 3. Inspect the updated list
+console.log("Updated list:", fruits);
+console.log("Total items:", fruits.length);</textarea>
+                        <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem;">
+                            <button class="btn-primary" id="btn-run-try" style="padding: 0.55rem 1.4rem; font-size: 0.88rem; border-radius: var(--radius-sm);">⚡ Run Code</button>
+                        </div>
                     </div>
-                    <!-- Index 1 -->
-                    <div style="background: white; border: 2px solid #eab308; padding: 1rem; border-radius: 0.5rem; text-align: center; width: 80px;">
-                        <span style="font-size: 2rem;">🍌</span>
-                        <p style="color: #64748b; font-size: 0.7rem; font-weight: 800; margin-top: 0.5rem;">[ 1 ]</p>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                            <label style="font-weight: 700; color: var(--text-secondary); font-size: 0.85rem;">Console Output</label>
+                            <span style="font-size: 0.75rem; color: #34d399;">Live Console</span>
+                        </div>
+                        <div id="try-console-output" style="width: 100%; height: 200px; background: #090e1a; border-radius: var(--radius-md); border: 1px solid rgba(255, 255, 255, 0.1); overflow-y: auto; padding: 1rem; color: #34d399; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6;">
+                            Click "⚡ Run Code" to see the output here...
+                        </div>
                     </div>
-                    <!-- Index 2 -->
-                    <div style="background: white; border: 2px solid #eab308; padding: 1rem; border-radius: 0.5rem; text-align: center; width: 80px;">
-                        <span style="font-size: 2rem;">🍇</span>
-                        <p style="color: #64748b; font-size: 0.7rem; font-weight: 800; margin-top: 0.5rem;">[ 2 ]</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 4: PRACTICE (3 Tiers of Exercises)                        -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-practice" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(79, 70, 229, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">4</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 4: Practice — 3 Levels of Drills</h2>
+            </div>
+            <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Pick your difficulty level. Teachers can easily differentiate assignments using these three tiers:
+            </p>
+
+            <div class="tier-exercises-wrapper">
+                <div class="tier-tabs-bar">
+                    <button class="tier-tab-btn active tier-easy" data-tier="easy">
+                        <span class="tier-badge">Level 1</span>
+                        <span>🟢 Beginner (Recall & Warmup)</span>
+                    </button>
+                    <button class="tier-tab-btn tier-med" data-tier="medium">
+                        <span class="tier-badge">Level 2</span>
+                        <span>🟡 Intermediate (Application)</span>
+                    </button>
+                    <button class="tier-tab-btn tier-hard" data-tier="hard">
+                        <span class="tier-badge">Level 3</span>
+                        <span>🔴 Advanced (Challenge)</span>
+                    </button>
+                </div>
+
+                <!-- Pane 1: Easy -->
+                <div class="tier-exercise-pane" data-tier="easy">
+                    <div style="background: var(--bg-surface-elevated); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <h3 style="color: #34d399; margin-top: 0;">Drill 1: Pick the First Book</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Given the array <code>let library = ["Quran Stories", "Science Almanac", "Math Atlas"];</code>, print the <strong>first</strong> book to the console using its index.
+                        </p>
+                        <div class="evaluator-box" data-spec="js-m5-drill-easy">
+                            <div class="evaluator-toolbar">
+                                <span style="font-size: 0.85rem; font-weight: 700; color: #cbd5e1;">Target: <code>library[0]</code></span>
+                                <div class="evaluator-actions">
+                                    <button class="btn-eval-action btn-eval-run">⚡ Run Automatic Tests</button>
+                                </div>
+                            </div>
+                            <div class="eval-editor-area">
+                                <textarea class="eval-code-input" spellcheck="false" style="min-height: 140px;">let library = ["Quran Stories", "Science Almanac", "Math Atlas"];
+
+// Your code here: print the first book to the console!
+console.log(library[0]);</textarea>
+                            </div>
+                            <div class="eval-results-container" style="display: none;">
+                                <div class="eval-summary-header">
+                                    <span class="eval-score-badge">Checking...</span>
+                                </div>
+                                <div class="test-checkpoint-list"></div>
+                                <div class="diagnostic-callout" style="display: none;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pane 2: Medium -->
+                <div class="tier-exercise-pane" data-tier="medium" style="display: none;">
+                    <div style="background: var(--bg-surface-elevated); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <h3 style="color: #fbbf24; margin-top: 0;">Drill 2: Add New Supplies</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            Start with <code>let supplies = ["Pencil", "Notebook"];</code>. Use <code>.push()</code> to add <code>"Ruler"</code> and <code>"Eraser"</code> to the supplies list.
+                        </p>
+                        <div class="evaluator-box" data-spec="js-m5-drill-med">
+                            <div class="evaluator-toolbar">
+                                <span style="font-size: 0.85rem; font-weight: 700; color: #cbd5e1;">Target: <code>supplies.length === 4</code></span>
+                                <div class="evaluator-actions">
+                                    <button class="btn-eval-action btn-eval-run">⚡ Run Automatic Tests</button>
+                                </div>
+                            </div>
+                            <div class="eval-editor-area">
+                                <textarea class="eval-code-input" spellcheck="false" style="min-height: 140px;">let supplies = ["Pencil", "Notebook"];
+
+// Your code here: push "Ruler" and "Eraser"!
+supplies.push("Ruler");
+supplies.push("Eraser");
+
+console.log(supplies);</textarea>
+                            </div>
+                            <div class="eval-results-container" style="display: none;">
+                                <div class="eval-summary-header">
+                                    <span class="eval-score-badge">Checking...</span>
+                                </div>
+                                <div class="test-checkpoint-list"></div>
+                                <div class="diagnostic-callout" style="display: none;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pane 3: Hard -->
+                <div class="tier-exercise-pane" data-tier="hard" style="display: none;">
+                    <div style="background: var(--bg-surface-elevated); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: var(--radius-lg); padding: 1.5rem;">
+                        <h3 style="color: #f87171; margin-top: 0;">Drill 3: The Inventory Fixer</h3>
+                        <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                            A shipment has arrived with one damaged box at the end. Given <code>let boxes = ["Box A", "Box B", "Box C", "Damaged Box"];</code>, remove the last item using <code>.pop()</code> and print the remaining count!
+                        </p>
+                        <div class="evaluator-box" data-spec="js-m5-drill-hard">
+                            <div class="evaluator-toolbar">
+                                <span style="font-size: 0.85rem; font-weight: 700; color: #cbd5e1;">Target: <code>boxes.length === 3</code></span>
+                                <div class="evaluator-actions">
+                                    <button class="btn-eval-action btn-eval-run">⚡ Run Automatic Tests</button>
+                                </div>
+                            </div>
+                            <div class="eval-editor-area">
+                                <textarea class="eval-code-input" spellcheck="false" style="min-height: 140px;">let boxes = ["Box A", "Box B", "Box C", "Damaged Box"];
+
+// Your code here: remove the last damaged box!
+boxes.pop();
+console.log("Remaining boxes:", boxes.length);</textarea>
+                            </div>
+                            <div class="eval-results-container" style="display: none;">
+                                <div class="eval-summary-header">
+                                    <span class="eval-score-badge">Checking...</span>
+                                </div>
+                                <div class="test-checkpoint-list"></div>
+                                <div class="diagnostic-callout" style="display: none;"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <p style="text-align: center; margin-top: 1rem; font-weight: 800; color: #eab308;">⚠️ Warning: Computers start counting at ZERO!</p>
         </section>
 
-        <!-- Syntax Section -->
-        <section class="content-section">
-            <h2>How to write a List</h2>
-            <p>We use square brackets <code>[ ]</code> and separate items with commas.</p>
-            <div style="background: #020617; padding: 2rem; border-radius: 1.5rem; margin: 1.5rem 0;">
-                <code style="color: #f8fafc; font-size: 1.1rem;">
-                    <span style="color: #4f46e5;">let</span> <span style="color: #34d399;">fruits</span> = [<span style="color: #eab308;">"Apple"</span>, <span style="color: #eab308;">"Banana"</span>, <span style="color: #eab308;">"Grape"</span>]; <br><br>
-                    <span style="color: #64748b;">// Get the first item</span> <br>
-                    console.log(fruits[<span style="color: #eab308;">0</span>]); <span style="color: #10b981;">// Returns "Apple"</span>
-                </code>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 5: CHALLENGE (With Automatic Test Grader & Friendly Hints) -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-challenge" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(79, 70, 229, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">5</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 5: Challenge — Student Roster Builder</h2>
+            </div>
+
+            <div style="background: rgba(79, 70, 229, 0.08); border-left: 4px solid var(--brand-primary); padding: 1.25rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: 1.5rem;">
+                <h4 style="color: #fff; margin: 0 0 0.5rem; font-size: 1.1rem;">🎯 Mission Task:</h4>
+                <p style="color: var(--text-secondary); margin: 0 0 0.5rem; font-size: 0.95rem; line-height: 1.6;">
+                    Create an array variable called <code>students</code> containing at least <strong>5 student names</strong>. Then, use <code>.push()</code> to add a 6th student to the end of the list.
+                </p>
+                <div style="display: flex; gap: 1.5rem; font-size: 0.85rem; color: #94a3b8; margin-top: 0.5rem;">
+                    <span>✓ Variable: <code>students</code></span>
+                    <span>✓ Type: <code>Array</code></span>
+                    <span>✓ Min count: <code>6 names</code></span>
+                    <span>⭐ Reward: <strong>+50 XP</strong></span>
+                </div>
+            </div>
+
+            <!-- Automatic Evaluator Engine -->
+            <div class="evaluator-box" data-spec="js-m5-challenge">
+                <div class="evaluator-toolbar">
+                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                        <span style="color: #10b981; font-weight: 700; font-size: 0.88rem;">⚡ BEI Auto-Grader</span>
+                        <span style="font-size: 0.78rem; color: var(--text-muted);">Instant Client-Side Verification</span>
+                    </div>
+                    <div class="evaluator-actions">
+                        <button class="btn-eval-action btn-toggle-hints">💡 Hints</button>
+                        <button class="btn-eval-action btn-explain-code">📖 Explain Code</button>
+                        <button class="btn-eval-action btn-eval-run">⚡ Run Automatic Tests</button>
+                    </div>
+                </div>
+
+                <div class="eval-editor-area">
+                    <textarea class="eval-code-input" spellcheck="false">// 1. Create an array called 'students' with 5 names
+let students = ["Ali", "Sara", "Zayd", "Fatima", "Bilal"];
+
+// 2. Add a 6th student to the end of the list using .push()
+students.push("Maryam");
+
+// 3. Inspect the roster in the console
+console.log("Total students enrolled:", students.length);
+console.log("Student roster:", students);</textarea>
+                </div>
+
+                <!-- Progressive Multi-Tier Hints -->
+                <div class="hints-container" style="display: none;">
+                    <div class="hints-header">
+                        <span>Scaffolded Hints</span>
+                        <div class="hint-pill-selector">
+                            <button class="btn-hint-pill active" data-hint-text="Remember to use square brackets <code>[ ]</code> when creating your array, and separate each student name with a comma.">Hint 1: Concept</button>
+                            <button class="btn-hint-pill" data-hint-text="Make sure the variable is spelled exactly <code>students</code> (all lowercase). JavaScript is case-sensitive!">Hint 2: Variable Name</button>
+                            <button class="btn-hint-pill" data-hint-text="Use <code>students.push('NewStudent');</code> to add the 6th student without replacing the existing list.">Hint 3: Code Scaffold</button>
+                        </div>
+                    </div>
+                    <div class="hint-body">
+                        Remember to use square brackets <code>[ ]</code> when creating your array, and separate each student name with a comma.
+                    </div>
+                </div>
+
+                <!-- Explain This Code Panel -->
+                <div class="explain-panel" style="display: none;"></div>
+
+                <!-- Evaluation Results Drawer -->
+                <div class="eval-results-container" style="display: none;">
+                    <div class="eval-summary-header">
+                        <span class="eval-score-badge">Evaluating code...</span>
+                    </div>
+                    <div class="test-checkpoint-list"></div>
+                    <div class="diagnostic-callout" style="display: none;"></div>
+                </div>
             </div>
         </section>
 
-        <!-- Methods Section -->
-        <section class="content-section">
-            <h2>Managing your Chest</h2>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #10b981;">
-                    <h3>Push ➕</h3>
-                    <p>Add an item to the **end** of the list.</p>
-                    <code>fruits.push("Orange");</code>
-                </div>
-                <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #f43f5e;">
-                    <h3>Pop ➖</h3>
-                    <p>Remove the **last** item from the list.</p>
-                    <code>fruits.pop();</code>
-                </div>
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 6: QUIZ (5 Concept Checkpoint Questions)                  -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-quiz" class="content-section" style="margin-bottom: 3.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(79, 70, 229, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">6</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 6: Quiz — 5 Checkpoint Questions</h2>
             </div>
-        </section>
+            <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                Score 80% or higher to earn the <strong>Array Master</strong> quiz badge (+30 XP)!
+            </p>
 
-        <!-- Sandbox Section -->
-        <section class="content-section">
-            <h2>Your Treasure Chest Sandbox 💎</h2>
-            <p>Try pushing or popping items into your array box! Run the code below to see how arrays grow and shrink.</p>
-            <div class="playground-container" style="margin-top: 1.5rem;">
-                <div class="editor-area">
-                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">JavaScript Editor</label>
-                    <textarea id="code-editor" spellcheck="false" style="width: 100%; height: 180px; background: #020617; color: #f8fafc; border: 2px solid var(--border-dim); border-radius: 1rem; padding: 1rem; font-family: var(--font-mono); font-size: 0.95rem; resize: none; outline: none; margin-bottom: 1rem;">let chest = ["🍎", "🍌", "🍇"];
-console.log("Original Chest:", chest);
+            <form id="bei-module-quiz" class="bei-quiz-container">
+                <!-- Question 1 -->
+                <div class="quiz-card" data-correct="b">
+                    <div class="quiz-q-title">Q1: What index number does JavaScript assign to the FIRST item in an array?</div>
+                    <label class="quiz-option-label"><input type="radio" name="q1" value="a"> 1</label>
+                    <label class="quiz-option-label"><input type="radio" name="q1" value="b"> 0</label>
+                    <label class="quiz-option-label"><input type="radio" name="q1" value="c"> -1</label>
+                    <label class="quiz-option-label"><input type="radio" name="q1" value="d"> It depends on how many items there are</label>
+                    <div class="quiz-answer-explainer">Correct! In JavaScript, array indexing is zero-based: the first item is always at index [0].</div>
+                </div>
 
-// Let's add a new treasure!
-chest.push("💎");
-console.log("After pushing gem:", chest);
-console.log("Total items count:", chest.length);</textarea>
-                    <button class="btn-primary" onclick="runJS()" style="padding: 0.5rem 1.5rem; font-size: 0.85rem; border-radius: 0.75rem;">⚡ Run Code</button>
+                <!-- Question 2 -->
+                <div class="quiz-card" data-correct="c">
+                    <div class="quiz-q-title">Q2: Which array method adds a new item to the very END of an array?</div>
+                    <label class="quiz-option-label"><input type="radio" name="q2" value="a"> .append()</label>
+                    <label class="quiz-option-label"><input type="radio" name="q2" value="b"> .insert()</label>
+                    <label class="quiz-option-label"><input type="radio" name="q2" value="c"> .push()</label>
+                    <label class="quiz-option-label"><input type="radio" name="q2" value="d"> .add()</label>
+                    <div class="quiz-answer-explainer">Correct! <code>.push()</code> places the new element into the next available slot at the end.</div>
                 </div>
-                <div class="preview-area">
-                    <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Console Output</label>
-                    <div id="console" style="width: 100%; height: 180px; background: #020617; border-radius: 1rem; border: 2px solid var(--border-dim); overflow: auto; padding: 1rem; color: #34d399; font-family: var(--font-mono); font-size: 0.9rem;"></div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Quiz Section -->
-        <section class="content-section">
-            <h2>Chest Quiz!</h2>
-            <form id="quiz-form-5" class="quiz-section">
-                <div class="quiz-question" data-answer="b">
-                    <p>Q1: What number does a computer use for the FIRST item in an array?</p>
-                    <label><input type="radio" name="q5-1" value="a"> 1</label>
-                    <label><input type="radio" name="q5-1" value="b"> 0</label>
-                    <label><input type="radio" name="q5-1" value="c"> -1</label>
-                    <div class="quiz-feedback"></div>
+                <!-- Question 3 -->
+                <div class="quiz-card" data-correct="a">
+                    <div class="quiz-q-title">Q3: If <code>let colors = ["Red", "Green", "Blue"];</code>, what does <code>colors[1]</code> return?</div>
+                    <label class="quiz-option-label"><input type="radio" name="q3" value="a"> "Green"</label>
+                    <label class="quiz-option-label"><input type="radio" name="q3" value="b"> "Red"</label>
+                    <label class="quiz-option-label"><input type="radio" name="q3" value="c"> "Blue"</label>
+                    <label class="quiz-option-label"><input type="radio" name="q3" value="d"> undefined</label>
+                    <div class="quiz-answer-explainer">Correct! Index 0 is "Red", and index 1 is "Green".</div>
                 </div>
-                <div class="quiz-question" data-answer="c">
-                    <p>Q2: Which method adds a new item to the END of your list?</p>
-                    <label><input type="radio" name="q5-2" value="a"> add()</label>
-                    <label><input type="radio" name="q5-2" value="b"> pop()</label>
-                    <label><input type="radio" name="q5-2" value="c"> push()</label>
-                    <div class="quiz-feedback"></div>
+
+                <!-- Question 4 -->
+                <div class="quiz-card" data-correct="d">
+                    <div class="quiz-q-title">Q4: Which property tells you how many items are stored inside an array?</div>
+                    <label class="quiz-option-label"><input type="radio" name="q4" value="a"> .count</label>
+                    <label class="quiz-option-label"><input type="radio" name="q4" value="b"> .size</label>
+                    <label class="quiz-option-label"><input type="radio" name="q4" value="c"> .total()</label>
+                    <label class="quiz-option-label"><input type="radio" name="q4" value="d"> .length</label>
+                    <div class="quiz-answer-explainer">Correct! <code>.length</code> is a built-in property that returns the total count of elements.</div>
                 </div>
-                <button type="button" class="btn-primary" onclick="checkQuiz(5)">Check Answers</button>
+
+                <!-- Question 5 -->
+                <div class="quiz-card" data-correct="b">
+                    <div class="quiz-q-title">Q5: What is the final value of <code>list.length</code> after running: <code>let list = []; list.push("A"); list.pop();</code>?</div>
+                    <label class="quiz-option-label"><input type="radio" name="q5" value="a"> 1</label>
+                    <label class="quiz-option-label"><input type="radio" name="q5" value="b"> 0</label>
+                    <label class="quiz-option-label"><input type="radio" name="q5" value="c"> undefined</label>
+                    <label class="quiz-option-label"><input type="radio" name="q5" value="d"> -1</label>
+                    <div class="quiz-answer-explainer">Correct! You pushed 1 item, and then popped it right back off, leaving an empty array with length 0.</div>
+                </div>
+
+                <div style="margin-top: 1.5rem; text-align: center;">
+                    <button type="button" id="btn-check-quiz" class="btn-primary" style="padding: 0.75rem 2rem; font-size: 1rem; border-radius: var(--radius-md);">Submit & Check Quiz Answers</button>
+                </div>
+                <div id="quiz-score-summary" style="margin-top: 1.5rem; display: none;"></div>
             </form>
         </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <!-- STEP 7: PROJECT (End-of-Module Capstone Mission)               -->
+        <!-- ═══════════════════════════════════════════════════════════════ -->
+        <section id="step-project" class="content-section" style="margin-bottom: 4rem;">
+            <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+                <span style="background: rgba(79, 70, 229, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">7</span>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 7: Project — Student Roster Management App</h2>
+            </div>
+
+            <div class="mission-card">
+                <span class="mission-badge">Real-World School Mission</span>
+                <h3 class="mission-title">🏫 Build the Classroom Student Roster App</h3>
+                <p class="mission-desc">
+                    Your school needs a lightweight digital check-in roster. Using JavaScript arrays, connect an input field to dynamically add new students to a displayed list and remove the last entry when needed!
+                </p>
+
+                <!-- Acceptance Criteria Checklist -->
+                <div class="mission-criteria-list">
+                    <h4 style="color: #fff; margin: 0 0 0.75rem; font-size: 0.95rem;">Milestone Acceptance Criteria:</h4>
+                    <label class="mission-criteria-item">
+                        <input type="checkbox" id="crit-1">
+                        <span>An array initialized to store student names (e.g., <code>let roster = [];</code>)</span>
+                    </label>
+                    <label class="mission-criteria-item">
+                        <input type="checkbox" id="crit-2">
+                        <span>A function that reads input text and uses <code>.push()</code> to add the student</span>
+                    </label>
+                    <label class="mission-criteria-item">
+                        <input type="checkbox" id="crit-3">
+                        <span>A function that uses <code>.pop()</code> to remove the last added student</span>
+                    </label>
+                    <label class="mission-criteria-item">
+                        <input type="checkbox" id="crit-4">
+                        <span>Displays each student's slot number alongside their name (e.g. <code>[0] Ali</code>)</span>
+                    </label>
+                </div>
+
+                <!-- Interactive Live Demo of the Project -->
+                <div style="background: #090e1a; border: 1px solid rgba(255, 255, 255, 0.12); border-radius: var(--radius-lg); padding: 1.5rem;">
+                    <div style="display: flex; gap: 0.75rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+                        <input type="text" id="project-student-name" placeholder="Enter student name (e.g. Tariq)" style="flex: 1; min-width: 200px; padding: 0.7rem 1rem; background: #020617; border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #fff; outline: none; font-size: 0.92rem;">
+                        <button id="project-add-btn" class="btn-primary" style="padding: 0.7rem 1.4rem; font-size: 0.9rem; border-radius: 8px;">➕ Add Student</button>
+                        <button id="project-remove-btn" style="padding: 0.7rem 1.2rem; font-size: 0.9rem; border-radius: 8px; background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.4); color: #f87171; cursor: pointer; font-weight: 600;">➖ Remove Last</button>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <strong style="color: var(--text-secondary); font-size: 0.88rem;">Current Roster View:</strong>
+                        <span id="project-roster-count" style="font-size: 0.85rem; color: #34d399; font-weight: 700;">Enrolled: 3</span>
+                    </div>
+
+                    <div id="project-roster-display" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <!-- Dynamically populated by JS demo below -->
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; text-align: right;">
+                    <button id="btn-save-project" class="btn-eval-action" style="padding: 0.75rem 1.75rem; font-size: 0.95rem; border-radius: var(--radius-md);" disabled>
+                        🏆 Mark Project Completed (+200 XP)
+                    </button>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <script src="../js/core.js"></script>
-    <script src="../js/playground.js"></script>
-    <script src="../js/pdf-download.js"></script>
+    <!-- Core Scripts -->
+    <script src="../js/bei-evaluator.js"></script>
+    <script src="../js/bei-core.js"></script>
+    <script src="../js/bei-learning-cycle.js"></script>
+
+    <!-- Specific Test Suites for Module 5 -->
+    <script>
+        window.BEI_TEST_SPECS = {
+            'js-m5-drill-easy': {
+                id: 'js-m5-drill-easy',
+                title: 'Drill 1: First Book',
+                xpReward: 20,
+                tests: [
+                    {
+                        description: 'Variable "library" is an array',
+                        hint: 'Keep the original library array declaration.',
+                        expected: true,
+                        run: function() {
+                            return { passed: Array.isArray(library) && library.length === 3 };
+                        }
+                    },
+                    {
+                        description: 'First book is "Quran Stories"',
+                        hint: 'Access library[0].',
+                        expected: "Quran Stories",
+                        run: function() {
+                            return { passed: library[0] === "Quran Stories" };
+                        }
+                    }
+                ]
+            },
+            'js-m5-drill-med': {
+                id: 'js-m5-drill-med',
+                title: 'Drill 2: Supplies Push',
+                xpReward: 20,
+                tests: [
+                    {
+                        description: 'Supplies array has 4 items',
+                        hint: 'Use supplies.push("Ruler") and supplies.push("Eraser").',
+                        expected: 4,
+                        run: function() {
+                            return { passed: Array.isArray(supplies) && supplies.length === 4 };
+                        }
+                    },
+                    {
+                        description: '"Ruler" and "Eraser" were appended to the end',
+                        hint: 'Check that supplies[2] is "Ruler" and supplies[3] is "Eraser".',
+                        run: function() {
+                            return { passed: supplies[2] === "Ruler" && supplies[3] === "Eraser" };
+                        }
+                    }
+                ]
+            },
+            'js-m5-drill-hard': {
+                id: 'js-m5-drill-hard',
+                title: 'Drill 3: Damaged Box Pop',
+                xpReward: 20,
+                tests: [
+                    {
+                        description: 'Boxes array has length 3',
+                        hint: 'Use boxes.pop() once.',
+                        expected: 3,
+                        run: function() {
+                            return { passed: Array.isArray(boxes) && boxes.length === 3 };
+                        }
+                    },
+                    {
+                        description: '"Damaged Box" is no longer present',
+                        hint: 'Make sure boxes does not contain "Damaged Box".',
+                        run: function() {
+                            return { passed: !boxes.includes("Damaged Box") };
+                        }
+                    }
+                ]
+            },
+            'js-m5-challenge': {
+                id: 'js-m5-challenge',
+                title: 'Module 5 Challenge: Student List Builder',
+                xpReward: 50,
+                tests: [
+                    {
+                        description: 'Variable "students" is created',
+                        hint: 'Check: did you write `let students = [...]`?',
+                        expected: true,
+                        run: function() {
+                            return { passed: typeof students !== 'undefined', message: typeof students !== 'undefined' ? 'Variable exists' : 'Variable students not found' };
+                        }
+                    },
+                    {
+                        description: '"students" is a valid JavaScript Array',
+                        hint: 'Wrap your items with square brackets [ ]',
+                        expected: true,
+                        run: function() {
+                            return { passed: Array.isArray(students), message: Array.isArray(students) ? 'Is an array' : 'students is not an array' };
+                        }
+                    },
+                    {
+                        description: 'Contains at least 6 student names',
+                        hint: 'Start with 5 names, then use .push() to add a 6th!',
+                        expected: 6,
+                        run: function() {
+                            return { passed: students.length >= 6, message: 'Current length: ' + students.length };
+                        }
+                    },
+                    {
+                        description: 'All items inside the array are non-empty strings',
+                        hint: 'Make sure each student name is enclosed in quotes "Name"',
+                        expected: true,
+                        run: function() {
+                            const valid = students.every(s => typeof s === 'string' && s.trim().length > 0);
+                            return { passed: valid, message: valid ? 'All valid names' : 'Some items are not strings' };
+                        }
+                    }
+                ]
+            }
+        };
+
+        // Mini Step 3 Try Runner Script
+        const runTryBtn = document.getElementById('btn-run-try');
+        if (runTryBtn) {
+            runTryBtn.addEventListener('click', () => {
+                const code = document.getElementById('try-code-editor').value;
+                const out = document.getElementById('try-console-output');
+                out.innerHTML = '<span style="color:#64748b;">--- Running... ---</span><br>';
+                try {
+                    const logs = [];
+                    const fakeConsole = {
+                        log: (...args) => logs.push(args.map(a => typeof a === 'object' ? JSON.stringify(a) : String(a)).join(' '))
+                    };
+                    const fn = new Function('console', code);
+                    fn(fakeConsole);
+                    out.innerHTML = logs.map(l => `<div style="margin-bottom:0.25rem;">> ${l}</div>`).join('');
+                } catch (e) {
+                    out.innerHTML = `<span style="color:#f87171;">Error: ${e.message}</span>`;
+                }
+            });
+        }
+
+        // Live Demo Project App Logic
+        (function() {
+            let demoRoster = ["Ali", "Sara", "Zayd"];
+            const displayEl = document.getElementById('project-roster-display');
+            const countEl = document.getElementById('project-roster-count');
+            const inputEl = document.getElementById('project-student-name');
+            const addBtn = document.getElementById('project-add-btn');
+            const removeBtn = document.getElementById('project-remove-btn');
+
+            function render() {
+                if (!displayEl) return;
+                countEl.textContent = `Enrolled: ${demoRoster.length}`;
+                if (demoRoster.length === 0) {
+                    displayEl.innerHTML = '<div style="color:var(--text-muted); font-size:0.88rem; padding:0.5rem 0;">No students enrolled yet. Add one above!</div>';
+                    return;
+                }
+                displayEl.innerHTML = demoRoster.map((name, idx) => `
+                    <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(255,255,255,0.03); padding:0.55rem 0.9rem; border-radius:6px; border:1px solid rgba(255,255,255,0.06);">
+                        <div style="display:flex; align-items:center; gap:0.65rem;">
+                            <span style="font-family:var(--font-mono); font-size:0.75rem; color:#818cf8; background:rgba(99,102,241,0.15); padding:0.2rem 0.5rem; border-radius:4px;">[ ${idx} ]</span>
+                            <span style="color:#f8fafc; font-weight:600; font-size:0.9rem;">${name}</span>
+                        </div>
+                        <span style="font-size:0.75rem; color:#34d399;">Active</span>
+                    </div>
+                `).join('');
+            }
+
+            if (addBtn && inputEl) {
+                addBtn.addEventListener('click', () => {
+                    const name = inputEl.value.trim();
+                    if (!name) return;
+                    demoRoster.push(name);
+                    inputEl.value = '';
+                    render();
+                });
+                inputEl.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') addBtn.click();
+                });
+            }
+
+            if (removeBtn) {
+                removeBtn.addEventListener('click', () => {
+                    if (demoRoster.length > 0) {
+                        demoRoster.pop();
+                        render();
+                    }
+                });
+            }
+
+            render();
+        })();
+    </script>
 </body>
 </html>

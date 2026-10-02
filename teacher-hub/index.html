@@ -60,6 +60,7 @@
                 <li><a href="index.html" class="bei-nav-link active">🍎 Teachers</a></li>
             </ul>
             <div class="bei-nav-actions">
+                <span style="background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 999px;">🍎 Teacher Mode Active</span>
                 <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
                 <a href="#rubrics" class="btn-nav-primary">Grading Rubrics 📋</a>
                 <button class="mobile-toggle" aria-label="Toggle navigation menu">☰</button>
@@ -94,6 +95,131 @@
                         <span class="ethical-pill">✨ Craftsmanship &amp; Care (*Iḥsān*)</span>
                         <span class="ethical-pill">⚖️ Academic Truthfulness (*Ṣidq*)</span>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═════════════════════════════════════════════════════════════
+             INTERACTIVE TEACHER DASHBOARD & CLASSROOM DIAGNOSTIC RADAR
+             ═════════════════════════════════════════════════════════════ -->
+        <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 2rem; margin-bottom: 3.5rem; box-shadow: var(--shadow-card);">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1.25rem;">
+                <div>
+                    <span class="placement-badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">Live LMS Radar</span>
+                    <h2 style="font-size: 1.8rem; margin: 0.35rem 0 0.2rem; color: #fff;">Classroom Analytics &amp; Student Diagnostics 📊</h2>
+                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">Monitor student progress, track weak areas, and manage weekly assignments.</p>
+                </div>
+                <div style="display: flex; gap: 0.75rem; align-items: center;">
+                    <label style="font-size: 0.88rem; color: var(--text-muted); font-weight: 600;">Active Class:</label>
+                    <select id="teacherClassSelect" style="background: #020617; color: #f8fafc; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.9rem; outline: none; font-weight: 700;">
+                        <option value="class-8b">Class 8B (JavaScript Logic • 32 Students)</option>
+                        <option value="class-7a">Class 7A (HTML &amp; CSS Web • 28 Students)</option>
+                        <option value="class-9c">Class 9C (PHP &amp; MySQL Full Stack • 24 Students)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- KPI Tiles Row -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Weekly Engagement</span>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: #fff; margin: 0.25rem 0;">27 / 32</div>
+                    <span style="font-size: 0.82rem; color: #34d399; font-weight: 600;">84% active this week</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Average Progress</span>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: #38bdf8; margin: 0.25rem 0;">68%</div>
+                    <span style="font-size: 0.82rem; color: var(--text-secondary);">Course completion rate</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Average Quiz Score</span>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: #fbbf24; margin: 0.25rem 0;">81%</div>
+                    <span style="font-size: 0.82rem; color: #34d399; font-weight: 600;">Above 75% target</span>
+                </div>
+                <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: var(--radius-md); padding: 1.25rem;">
+                    <span style="font-size: 0.8rem; color: #f87171; font-weight: 700; text-transform: uppercase;">Requires Teacher Help</span>
+                    <div style="font-size: 1.8rem; font-weight: 800; color: #ef4444; margin: 0.25rem 0;">4 Students</div>
+                    <span style="font-size: 0.82rem; color: #fca5a5;">Struggling with loops/scope</span>
+                </div>
+            </div>
+
+            <!-- Weak Areas Diagnostic Callout -->
+            <div style="background: rgba(99, 102, 241, 0.08); border-left: 4px solid var(--brand-primary); padding: 1.25rem 1.5rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: 2rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+                    <div>
+                        <strong style="color: #fff; font-size: 1rem;">🎯 Curriculum Diagnostic Alert:</strong>
+                        <p style="color: var(--text-secondary); margin: 0.25rem 0 0; font-size: 0.92rem;">
+                            <strong>38% of students</strong> in Class 8B failed their first 2 attempts on <em>Module 6: For Loops</em> and <em>Module 5: Array Zero-Indexing</em>.
+                        </p>
+                    </div>
+                    <a href="../practice-arena.html" class="btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.82rem;">Dispatch Loop Drill to Class →</a>
+                </div>
+            </div>
+
+            <!-- Student Roster Table -->
+            <h3 style="color: #fff; font-size: 1.2rem; margin: 0 0 1rem;">Student Performance Roster</h3>
+            <div style="overflow-x: auto; border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
+                <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+                    <thead>
+                        <tr style="background: rgba(255,255,255,0.03); color: var(--text-muted); border-bottom: 1px solid var(--border-subtle);">
+                            <th style="padding: 0.9rem 1rem;">Student Name</th>
+                            <th style="padding: 0.9rem 1rem;">HTML</th>
+                            <th style="padding: 0.9rem 1rem;">CSS</th>
+                            <th style="padding: 0.9rem 1rem;">JavaScript</th>
+                            <th style="padding: 0.9rem 1rem;">Weak Areas</th>
+                            <th style="padding: 0.9rem 1rem; text-align: right;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentRosterBody">
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                            <td style="padding: 0.9rem 1rem; font-weight: 700; color: #fff;">Ahmed Rasool</td>
+                            <td style="padding: 0.9rem 1rem; color: #34d399;">100%</td>
+                            <td style="padding: 0.9rem 1rem; color: #34d399;">92%</td>
+                            <td style="padding: 0.9rem 1rem; color: #f87171;">64%</td>
+                            <td style="padding: 0.9rem 1rem;"><span style="background:rgba(239,68,68,0.15); color:#f87171; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.78rem;">Loops, Functions</span></td>
+                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" onclick="alert('Viewing Ahmed\'s Code History: 4 attempts on Module 6 loops.')">Inspect Code</button></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                            <td style="padding: 0.9rem 1rem; font-weight: 700; color: #fff;">Sara Al-Mansoor</td>
+                            <td style="padding: 0.9rem 1rem; color: #34d399;">100%</td>
+                            <td style="padding: 0.9rem 1rem; color: #34d399;">96%</td>
+                            <td style="padding: 0.9rem 1rem; color: #34d399;">88%</td>
+                            <td style="padding: 0.9rem 1rem;"><span style="color:#34d399; font-size:0.8rem;">None (On Track)</span></td>
+                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" onclick="alert('Sara is eligible for JavaScript Mastery Certificate!')">Certify</button></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
+                            <td style="padding: 0.9rem 1rem; font-weight: 700; color: #fff;">Bilal Tariq</td>
+                            <td style="padding: 0.9rem 1rem; color: #34d399;">95%</td>
+                            <td style="padding: 0.9rem 1rem; color: #fbbf24;">80%</td>
+                            <td style="padding: 0.9rem 1rem; color: #fbbf24;">72%</td>
+                            <td style="padding: 0.9rem 1rem;"><span style="background:rgba(245,158,11,0.15); color:#fbbf24; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.78rem;">DOM Events</span></td>
+                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" onclick="alert('Bilal completed 3 exercises this week.')">Inspect Code</button></td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.9rem 1rem; font-weight: 700; color: #fff;">Maryam Zayd</td>
+                            <td style="padding: 0.9rem 1rem; color: #34d399;">100%</td>
+                            <td style="padding: 0.9rem 1rem; color: #34d399;">94%</td>
+                            <td style="padding: 0.9rem 1rem; color: #f87171;">58%</td>
+                            <td style="padding: 0.9rem 1rem;"><span style="background:rgba(239,68,68,0.15); color:#f87171; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.78rem;">Array Indexing</span></td>
+                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" onclick="alert('Maryam has unsubmitted assignment for Module 5.')">Inspect Code</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Assignment Dispatcher Sub-Box -->
+            <div style="margin-top: 2rem; background: rgba(0,0,0,0.25); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+                    <div>
+                        <h4 style="color: #fff; margin: 0 0 0.25rem; font-size: 1.1rem;">📝 Active Homework Assignment</h4>
+                        <span style="font-size: 0.85rem; color: var(--text-muted);">Assigned to Class 8B: <strong>Module 5 JavaScript Arrays &amp; Challenge</strong></span>
+                    </div>
+                    <span style="background: rgba(245,158,11,0.2); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700;">Deadline: 10 October</span>
+                </div>
+                <div style="display: flex; gap: 1.5rem; font-size: 0.88rem; color: var(--text-secondary); flex-wrap: wrap;">
+                    <span>✓ <strong>21 / 32 Submitted</strong></span>
+                    <span>⏱️ Avg. Time Spent: <strong>28 minutes</strong></span>
+                    <span>🔄 Avg. Attempts: <strong>2.3 attempts</strong></span>
                 </div>
             </div>
         </section>

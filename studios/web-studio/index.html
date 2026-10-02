@@ -112,9 +112,24 @@ console.log('Web Studio initialized. Ready to create!');"></textarea>
         </section>
     </div>
 
+    <!-- Socratic AI Tutor Drawer Container -->
+    <div id="socraticTutorContainer"></div>
+
     <!-- Core Scripts -->
     <script src="../../js/bei-core.js"></script>
     <script src="../../js/core.js"></script>
     <script src="../../js/playground.js"></script>
+    <script src="../../js/bei-tutor.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (window.BeiTutor) {
+                window.BeiTutor.initTutor('socraticTutorContainer', () => {
+                    const jsEl = document.getElementById('master-js');
+                    const htmlEl = document.getElementById('master-html');
+                    return (jsEl ? jsEl.value : '') || (htmlEl ? htmlEl.value : '');
+                });
+            }
+        });
+    </script>
 </body>
 </html>

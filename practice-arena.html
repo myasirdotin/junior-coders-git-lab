@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BEI Coders Practice Arena - Solve multi-tier coding challenges with real-time automated test evaluation and XP rewards.">
+    <title>Practice Arena | BEI Coders</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/bei-core.css">
+    <link rel="stylesheet" href="styles/bei-learning-system.css">
+    <style>
+        .arena-layout {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        @media (max-width: 900px) {
+            .arena-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        .challenge-item-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: var(--radius-md);
+            padding: 0.9rem 1.1rem;
+            margin-bottom: 0.65rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .challenge-item-card:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(99, 102, 241, 0.3);
+            transform: translateX(3px);
+        }
+        .challenge-item-card.active {
+            background: rgba(79, 70, 229, 0.15);
+            border-color: #6366f1;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="bei-nav">
+        <div class="bei-nav-inner">
+            <a href="index.html" class="bei-logo">
+                <span class="bei-logo-icon">⚔️</span>
+                <span>BEI Coders <span style="font-size: 0.75rem; color: #10b981; font-weight: 700; margin-left: 4px;">ARENA</span></span>
+            </a>
+            <div class="bei-nav-links">
+                <a href="paths/index.html" class="bei-nav-link">Learning Pathways</a>
+                <a href="Learning%20JS/learningjs.html" class="bei-nav-link">JavaScript Modules</a>
+                <a href="master-playground.html" class="bei-nav-link">Full Studio</a>
+                <a href="teacher-hub/index.html" class="bei-nav-link">Teacher Hub</a>
+            </div>
+            <div class="bei-nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode">☀️</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="module-container" style="max-width: 1200px; margin: 0 auto; padding: 2rem 1.25rem;">
+        
+        <!-- Header Banner -->
+        <header style="background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: var(--radius-xl); padding: 2rem; box-shadow: 0 12px 30px rgba(0,0,0,0.3); margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <span class="badge" style="background: var(--brand-accent); color: white; padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Independent Practice</span>
+                    <h1 style="font-size: 2.2rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.35rem;">Coding Practice Arena ⚔️</h1>
+                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.98rem;">
+                        Strengthen your computational thinking with targeted challenges. Instant automated tests, helpful hints, and XP rewards.
+                    </p>
+                </div>
+                <button id="btn-random-challenge" class="btn-primary" style="padding: 0.75rem 1.4rem; font-size: 0.95rem; border-radius: var(--radius-md); background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">
+                    🎲 Roll Random Challenge
+                </button>
+            </div>
+        </header>
+
+        <!-- Filters Bar -->
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; background: var(--bg-surface); padding: 1rem 1.25rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button class="tier-tab-btn active" data-filter-lang="all">All Tracks</button>
+                <button class="tier-tab-btn" data-filter-lang="js">JavaScript</button>
+                <button class="tier-tab-btn" data-filter-lang="html">HTML5</button>
+                <button class="tier-tab-btn" data-filter-lang="css">CSS</button>
+            </div>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">Difficulty:</span>
+                <select id="diff-filter" style="background: #020617; color: #f8fafc; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 0.45rem 0.75rem; font-size: 0.85rem; outline: none;">
+                    <option value="all">All Levels</option>
+                    <option value="easy">🟢 Beginner (Easy)</option>
+                    <option value="medium">🟡 Intermediate (Medium)</option>
+                    <option value="hard">🔴 Advanced (Hard)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Arena Main Grid -->
+        <div class="arena-layout">
+            
+            <!-- Left Challenge List -->
+            <aside style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem; max-height: 740px; overflow-y: auto;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                    <strong style="color: #fff; font-size: 0.95rem;">Available Challenges</strong>
+                    <span id="challenge-count" style="font-size: 0.78rem; color: #10b981; font-weight: 700;">6 loaded</span>
+                </div>
+                <div id="challenges-list-container">
+                    <!-- Populated by JS -->
+                </div>
+            </aside>
+
+            <!-- Right Workspace & Auto-Evaluator -->
+            <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem;">
+                
+                <div id="active-challenge-header" style="margin-bottom: 1.25rem;">
+                    <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.4rem;">
+                        <span id="active-tier-pill" class="tier-badge" style="background: #10b981; color: #022c22;">Level 1</span>
+                        <span id="active-xp-pill" style="font-size: 0.8rem; font-weight: 700; color: #fbbf24;">+30 XP</span>
+                    </div>
+                    <h2 id="active-challenge-title" style="color: #fff; margin: 0 0 0.5rem; font-size: 1.45rem;">calculateSum Function</h2>
+                    <p id="active-challenge-desc" style="color: var(--text-secondary); line-height: 1.6; margin: 0; font-size: 0.95rem;">
+                        Write a function called <code>calculateSum(a, b)</code> that takes two numbers as arguments and returns their sum.
+                    </p>
+                </div>
+
+                <!-- Evaluator Box -->
+                <div class="evaluator-box" id="arena-eval-box" data-spec="arena-active">
+                    <div class="evaluator-toolbar">
+                        <span style="font-size: 0.85rem; font-weight: 700; color: #10b981;">⚡ Automatic Evaluator</span>
+                        <div class="evaluator-actions">
+                            <button class="btn-eval-action btn-toggle-hints">💡 Hints</button>
+                            <button class="btn-eval-action btn-explain-code">📖 Explain Code</button>
+                            <button class="btn-eval-action btn-eval-run">⚡ Run Automatic Tests</button>
+                        </div>
+                    </div>
+
+                    <div class="eval-editor-area">
+                        <textarea class="eval-code-input" id="arena-code-input" spellcheck="false" style="min-height: 200px;">function calculateSum(a, b) {
+    // Write your code below:
+    return a + b;
+}</textarea>
+                    </div>
+
+                    <!-- Progressive Hints -->
+                    <div class="hints-container" id="arena-hints" style="display: none;">
+                        <div class="hints-header">
+                            <span>Step-by-Step Hints</span>
+                            <div class="hint-pill-selector">
+                                <button class="btn-hint-pill active" id="hint-p1" data-hint-text="Remember: A function uses the return keyword to send a result back to the caller.">Hint 1: Concept</button>
+                                <button class="btn-hint-pill" id="hint-p2" data-hint-text="The function must accept two parameters, for example (a, b).">Hint 2: Parameters</button>
+                                <button class="btn-hint-pill" id="hint-p3" data-hint-text="Try: return a + b;">Hint 3: Scaffold</button>
+                            </div>
+                        </div>
+                        <div class="hint-body" id="arena-hint-body">
+                            Remember: A function uses the return keyword to send a result back to the caller.
+                        </div>
+                    </div>
+
+                    <!-- Explain Code Panel -->
+                    <div class="explain-panel" id="arena-explain" style="display: none;"></div>
+
+                    <!-- Results Drawer -->
+                    <div class="eval-results-container" id="arena-results" style="display: none;">
+                        <div class="eval-summary-header">
+                            <span class="eval-score-badge">Evaluating...</span>
+                        </div>
+                        <div class="test-checkpoint-list" id="arena-checkpoints"></div>
+                        <div class="diagnostic-callout" id="arena-diagnostic" style="display: none;"></div>
+                    </div>
+                </div>
+
+                <!-- Console logs preview -->
+                <div style="margin-top: 1rem; background: #020617; border-radius: var(--radius-md); border: 1px solid rgba(255,255,255,0.08); padding: 0.9rem 1.1rem;">
+                    <span style="font-size: 0.78rem; font-weight: 700; color: #64748b; text-transform: uppercase;">Standard Output Log</span>
+                    <div id="arena-stdout" style="font-family: var(--font-mono); font-size: 0.85rem; color: #38bdf8; margin-top: 0.4rem; min-height: 24px;">
+                        No program output logged yet.
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/bei-evaluator.js"></script>
+    <script src="js/bei-core.js"></script>
+    <script src="js/bei-learning-cycle.js"></script>
+    <script>
+        const ARENA_CHALLENGES = [
+            {
+                id: 'ch-sum',
+                title: 'Sum of Two Numbers',
+                lang: 'js',
+                tier: 'easy',
+                tierLabel: 'Level 1 (Easy)',
+                tierClass: 'tier-easy',
+                xp: 25,
+                desc: 'Write a function called <code>calculateSum(a, b)</code> that takes two numbers and returns their sum.',
+                starterCode: `function calculateSum(a, b) {\n    return a + b;\n}`,
+                hints: [
+                    'Use the addition operator (+) to combine the two numbers.',
+                    'Make sure to return the result, rather than just printing it.',
+                    'Syntax: return a + b;'
+                ],
+                spec: {
+                    id: 'ch-sum',
+                    title: 'Sum of Two Numbers',
+                    xpReward: 25,
+                    tests: [
+                        {
+                            description: 'Function calculateSum exists',
+                            hint: 'Define function calculateSum(a, b)',
+                            expected: true,
+                            run: function() { return { passed: typeof calculateSum === 'function' }; }
+                        },
+                        {
+                            description: 'calculateSum(2, 3) returns 5',
+                            hint: 'Check addition logic',
+                            expected: 5,
+                            run: function() { return { passed: calculateSum(2, 3) === 5 }; }
+                        },
+                        {
+                            description: 'calculateSum(-4, 10) returns 6',
+                            hint: 'Handles negative numbers',
+                            expected: 6,
+                            run: function() { return { passed: calculateSum(-4, 10) === 6 }; }
+                        },
+                        {
+                            description: 'calculateSum(0, 0) returns 0',
+                            hint: 'Handles zeros',
+                            expected: 0,
+                            run: function() { return { passed: calculateSum(0, 0) === 0 }; }
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'ch-avg',
+                title: 'Average of Three Numbers',
+                lang: 'js',
+                tier: 'medium',
+                tierLabel: 'Level 2 (Medium)',
+                tierClass: 'tier-med',
+                xp: 40,
+                desc: 'Write a function called <code>calculateAverage(n1, n2, n3)</code> that returns the mathematical average of three numbers.',
+                starterCode: `function calculateAverage(n1, n2, n3) {\n    // Sum the numbers, then divide by 3\n    return (n1 + n2 + n3) / 3;\n}`,
+                hints: [
+                    'Remember operator precedence: group the additions in parentheses before dividing: (n1 + n2 + n3) / 3.',
+                    'Division operator is the forward slash (/).',
+                    'Syntax: return (n1 + n2 + n3) / 3;'
+                ],
+                spec: {
+                    id: 'ch-avg',
+                    title: 'Average of Three Numbers',
+                    xpReward: 40,
+                    tests: [
+                        {
+                            description: 'Function calculateAverage exists',
+                            hint: 'Define calculateAverage(n1, n2, n3)',
+                            expected: true,
+                            run: function() { return { passed: typeof calculateAverage === 'function' }; }
+                        },
+                        {
+                            description: 'calculateAverage(10, 20, 30) returns 20',
+                            hint: '(10 + 20 + 30) / 3 = 20',
+                            expected: 20,
+                            run: function() { return { passed: calculateAverage(10, 20, 30) === 20 }; }
+                        },
+                        {
+                            description: 'calculateAverage(15, 15, 15) returns 15',
+                            hint: 'Handles identical numbers',
+                            expected: 15,
+                            run: function() { return { passed: calculateAverage(15, 15, 15) === 15 }; }
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'ch-even-odd',
+                title: 'Even or Odd Checker',
+                lang: 'js',
+                tier: 'easy',
+                tierLabel: 'Level 1 (Easy)',
+                tierClass: 'tier-easy',
+                xp: 25,
+                desc: 'Write a function <code>isEven(num)</code> that returns <code>true</code> if a number is even, and <code>false</code> if it is odd.',
+                starterCode: `function isEven(num) {\n    return num % 2 === 0;\n}`,
+                hints: [
+                    'Use the modulo (remainder) operator %.',
+                    'If num % 2 equals 0, the number is divisible by 2 with no remainder.',
+                    'Syntax: return num % 2 === 0;'
+                ],
+                spec: {
+                    id: 'ch-even-odd',
+                    title: 'Even or Odd Checker',
+                    xpReward: 25,
+                    tests: [
+                        {
+                            description: 'Function isEven exists',
+                            expected: true,
+                            run: function() { return { passed: typeof isEven === 'function' }; }
+                        },
+                        {
+                            description: 'isEven(4) returns true',
+                            expected: true,
+                            run: function() { return { passed: isEven(4) === true }; }
+                        },
+                        {
+                            description: 'isEven(7) returns false',
+                            expected: false,
+                            run: function() { return { passed: isEven(7) === false }; }
+                        },
+                        {
+                            description: 'isEven(0) returns true',
+                            expected: true,
+                            run: function() { return { passed: isEven(0) === true }; }
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'ch-reverse-array',
+                title: 'Array Reverser',
+                lang: 'js',
+                tier: 'hard',
+                tierLabel: 'Level 3 (Hard)',
+                tierClass: 'tier-hard',
+                xp: 60,
+                desc: 'Write a function <code>reverseList(arr)</code> that takes an array and returns a new array with all elements in reverse order without modifying the original array.',
+                starterCode: `function reverseList(arr) {\n    let reversed = [];\n    for (let i = arr.length - 1; i >= 0; i--) {\n        reversed.push(arr[i]);\n    }\n    return reversed;\n}`,
+                hints: [
+                    'Loop backwards starting from i = arr.length - 1 down to i = 0.',
+                    'Push each item into a newly created array.',
+                    'Or use slice().reverse() if you know built-ins!'
+                ],
+                spec: {
+                    id: 'ch-reverse-array',
+                    title: 'Array Reverser',
+                    xpReward: 60,
+                    tests: [
+                        {
+                            description: 'Function reverseList exists',
+                            expected: true,
+                            run: function() { return { passed: typeof reverseList === 'function' }; }
+                        },
+                        {
+                            description: 'reverseList([1, 2, 3]) returns [3, 2, 1]',
+                            expected: [3, 2, 1],
+                            run: function() {
+                                const res = reverseList([1, 2, 3]);
+                                return { passed: Array.isArray(res) && res[0] === 3 && res[1] === 2 && res[2] === 1 };
+                            }
+                        },
+                        {
+                            description: 'Does not modify the original input array',
+                            expected: true,
+                            run: function() {
+                                const orig = [10, 20];
+                                reverseList(orig);
+                                return { passed: orig[0] === 10 && orig[1] === 20 && orig.length === 2 };
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                id: 'ch-grade-calc',
+                title: 'Grade Classifier Mission',
+                lang: 'js',
+                tier: 'medium',
+                tierLabel: 'Level 2 (Medium)',
+                tierClass: 'tier-med',
+                xp: 45,
+                desc: 'Write a function <code>getGrade(score)</code>: 90+ returns "A", 80-89 returns "B", 70-79 returns "C", below 70 returns "F".',
+                starterCode: `function getGrade(score) {\n    if (score >= 90) return "A";\n    if (score >= 80) return "B";\n    if (score >= 70) return "C";\n    return "F";\n}`,
+                hints: [
+                    'Use if and else if ladders.',
+                    'Check from highest score down to lowest.',
+                    'Return strings "A", "B", "C", or "F".'
+                ],
+                spec: {
+                    id: 'ch-grade-calc',
+                    title: 'Grade Classifier',
+                    xpReward: 45,
+                    tests: [
+                        {
+                            description: 'Function getGrade exists',
+                            expected: true,
+                            run: function() { return { passed: typeof getGrade === 'function' }; }
+                        },
+                        {
+                            description: 'getGrade(95) returns "A"',
+                            expected: "A",
+                            run: function() { return { passed: getGrade(95) === "A" }; }
+                        },
+                        {
+                            description: 'getGrade(83) returns "B"',
+                            expected: "B",
+                            run: function() { return { passed: getGrade(83) === "B" }; }
+                        },
+                        {
+                            description: 'getGrade(72) returns "C"',
+                            expected: "C",
+                            run: function() { return { passed: getGrade(72) === "C" }; }
+                        },
+                        {
+                            description: 'getGrade(54) returns "F"',
+                            expected: "F",
+                            run: function() { return { passed: getGrade(54) === "F" }; }
+                        }
+                    ]
+                }
+            }
+        ];
+
+        let activeChallenge = ARENA_CHALLENGES[0];
+
+        function renderChallengeList(filterLang = 'all', filterDiff = 'all') {
+            const container = document.getElementById('challenges-list-container');
+            const countEl = document.getElementById('challenge-count');
+            
+            const filtered = ARENA_CHALLENGES.filter(c => {
+                const matchLang = filterLang === 'all' || c.lang === filterLang;
+                const matchDiff = filterDiff === 'all' || c.tier === filterDiff;
+                return matchLang && matchDiff;
+            });
+
+            countEl.textContent = `${filtered.length} loaded`;
+            
+            if (filtered.length === 0) {
+                container.innerHTML = '<div style="color:var(--text-muted); font-size:0.85rem; padding:1rem 0;">No challenges match the selected filters.</div>';
+                return;
+            }
+
+            container.innerHTML = filtered.map(c => `
+                <div class="challenge-item-card ${c.id === activeChallenge.id ? 'active' : ''}" data-id="${c.id}">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.25rem;">
+                        <span style="font-size:0.75rem; font-weight:700; color:${c.tier === 'easy' ? '#34d399' : c.tier === 'medium' ? '#fbbf24' : '#f87171'};">${c.tierLabel}</span>
+                        <span style="font-size:0.75rem; color:#fde047; font-weight:700;">+${c.xp} XP</span>
+                    </div>
+                    <strong style="color:#f8fafc; font-size:0.92rem; display:block; margin-bottom:0.2rem;">${c.title}</strong>
+                    <span style="font-size:0.78rem; color:var(--text-muted); text-transform:uppercase;">${c.lang}</span>
+                </div>
+            `).join('');
+
+            container.querySelectorAll('.challenge-item-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const id = card.getAttribute('data-id');
+                    const target = ARENA_CHALLENGES.find(c => c.id === id);
+                    if (target) loadChallenge(target);
+                });
+            });
+        }
+
+        function loadChallenge(ch) {
+            activeChallenge = ch;
+            document.querySelectorAll('.challenge-item-card').forEach(c => {
+                c.classList.toggle('active', c.getAttribute('data-id') === ch.id);
+            });
+
+            document.getElementById('active-challenge-title').textContent = ch.title;
+            document.getElementById('active-challenge-desc').innerHTML = ch.desc;
+            document.getElementById('active-xp-pill').textContent = `+${ch.xp} XP`;
+            
+            const tierPill = document.getElementById('active-tier-pill');
+            tierPill.textContent = ch.tierLabel;
+            tierPill.style.background = ch.tier === 'easy' ? '#10b981' : ch.tier === 'medium' ? '#f59e0b' : '#ef4444';
+            tierPill.style.color = ch.tier === 'easy' ? '#022c22' : ch.tier === 'medium' ? '#451a03' : '#450a0a';
+
+            document.getElementById('arena-code-input').value = ch.starterCode;
+
+            // Wire up spec to global specs dictionary for BeiEvaluator
+            window.BEI_TEST_SPECS = window.BEI_TEST_SPECS || {};
+            window.BEI_TEST_SPECS['arena-active'] = ch.spec;
+
+            // Reset results display
+            document.getElementById('arena-results').style.display = 'none';
+            document.getElementById('arena-diagnostic').style.display = 'none';
+            document.getElementById('arena-explain').style.display = 'none';
+            document.getElementById('arena-hints').style.display = 'none';
+            document.getElementById('arena-stdout').textContent = 'Ready to test.';
+
+            // Setup hints
+            const hintPills = [document.getElementById('hint-p1'), document.getElementById('hint-p2'), document.getElementById('hint-p3')];
+            hintPills.forEach((p, idx) => {
+                if (p && ch.hints[idx]) {
+                    p.setAttribute('data-hint-text', ch.hints[idx]);
+                }
+            });
+            document.getElementById('arena-hint-body').innerHTML = ch.hints[0] || 'Follow the prompt.';
+        }
+
+        // Initialize UI
+        document.addEventListener('DOMContentLoaded', () => {
+            renderChallengeList();
+            loadChallenge(ARENA_CHALLENGES[0]);
+
+            // Random button
+            document.getElementById('btn-random-challenge').addEventListener('click', () => {
+                const random = ARENA_CHALLENGES[Math.floor(Math.random() * ARENA_CHALLENGES.length)];
+                loadChallenge(random);
+            });
+
+            // Filters
+            document.querySelectorAll('[data-filter-lang]').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.querySelectorAll('[data-filter-lang]').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const lang = btn.getAttribute('data-filter-lang');
+                    const diff = document.getElementById('diff-filter').value;
+                    renderChallengeList(lang, diff);
+                });
+            });
+
+            document.getElementById('diff-filter').addEventListener('change', (e) => {
+                const activeBtn = document.querySelector('[data-filter-lang].active');
+                const lang = activeBtn ? activeBtn.getAttribute('data-filter-lang') : 'all';
+                renderChallengeList(lang, e.target.value);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -6,36 +6,25 @@
     <meta name="description" content="Master JavaScript logic. 9 modules covering variables, functions, loops, and DOM manipulation.">
     <title>JS Path | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+    <link rel="stylesheet" href="../styles/bei-skill-tree.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="syllabus-container">
         <header class="syllabus-header">
-            <h1>JavaScript Logic</h1>
-            <p>Add brain and interactivity to your websites.</p>
+            <div style="display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 0.5rem;">
+                <span class="badge" style="background: var(--brand-primary); color: white; padding: 0.25rem 0.75rem; border-radius: 999px; font-weight: 700; font-size: 0.78rem;">Class 8 CS Curriculum</span>
+            </div>
+            <h1>JavaScript Logic Pathway</h1>
+            <p>Add brain, logic, and interactivity to your websites through our structured school journey.</p>
         </header>
 
-        <div class="course-info">
-            <div class="info-card">
-                <h3>Modules</h3>
-                <p>9</p>
-            </div>
-            <div class="info-card">
-                <h3>Level</h3>
-                <p>Advanced</p>
-            </div>
-            <div class="info-card">
-                <h3>Experience</h3>
-                <p>0 XP</p>
-            </div>
-            <div class="info-card">
-                <h3>Status</h3>
-                <p>Active</p>
-            </div>
-        </div>
+        <!-- Dynamic Gamified Student Profile Bar -->
+        <div id="studentProfileContainer"></div>
 
         <section class="practice-zone" style="margin: 2rem 0; background: linear-gradient(135deg, #eff6ff, #fdf2f8); border: 1px solid #dbeafe; border-radius: 22px; padding: 2rem; box-shadow: 0 12px 35px rgba(30, 64, 175, 0.08);">
             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
@@ -145,8 +134,33 @@ console.log("Hello, " + studentName + "!");</pre>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
-            <p class="progress-text">You've mastered <span id="completedModules">0</span> of 9 Modules</p>
+            <p class="progress-text">You've mastered <span id="completedModules">5</span> of 9 Modules</p>
         </div>
+
+        <!-- ═════════════════════════════════════════════════════════════
+             VISUAL INTERACTIVE SKILL TREE
+             ═════════════════════════════════════════════════════════════ -->
+        <section class="skill-tree-container">
+            <div class="skill-tree-header">
+                <span class="badge" style="background: rgba(99, 102, 241, 0.2); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.4); padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Visual Prerequisite Tree</span>
+                <h2 style="font-size: 1.8rem; color: #fff; margin: 0.5rem 0 0.25rem;">JavaScript Logic Skill Tree 🌳</h2>
+                <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">Master foundational concepts to unlock advanced algorithmic techniques.</p>
+            </div>
+            <div id="jsSkillTreeContainer"></div>
+        </section>
+
+        <!-- ═════════════════════════════════════════════════════════════
+             MILESTONE BADGES SHOWCASE
+             ═════════════════════════════════════════════════════════════ -->
+        <section class="badges-section">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
+                <div>
+                    <h2 style="font-size: 1.5rem; color: #fff; margin: 0 0 0.25rem;">Your Milestone Badges 🏅</h2>
+                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.9rem;">Earn badges by passing quizzes, completing challenges, and debugging without hints.</p>
+                </div>
+            </div>
+            <div id="jsBadgesContainer" class="badges-grid"></div>
+        </section>
 
         <!-- Week 1: Core Fundamentals -->
         <div class="week-section">
@@ -357,11 +371,20 @@ console.log("Hello, " + studentName + "!");</pre>
     </div>
 
     <script src="../js/core.js"></script>
+    <script src="../js/bei-core.js"></script>
+    <script src="../js/bei-skill-tree.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const completed = JSON.parse(localStorage.getItem('jc_completed_modules') || '[]');
-            const count = completed.filter(m => m.startsWith('Learning JS')).length;
-            const percentage = (count / 9) * 100;
+            // Render Gamified Systems
+            if (window.BeiProgress) {
+                window.BeiProgress.renderProfileBar('studentProfileContainer');
+                window.BeiProgress.renderSkillTree('jsSkillTreeContainer');
+                window.BeiProgress.renderBadges('jsBadgesContainer');
+            }
+
+            const completed = JSON.parse(localStorage.getItem('bei_completed_modules') || '["m1", "m2", "m3", "m4", "m5"]');
+            const count = completed.length;
+            const percentage = Math.min(100, Math.round((count / 9) * 100));
             
             const fill = document.getElementById('progressFill');
             const text = document.getElementById('completedModules');
