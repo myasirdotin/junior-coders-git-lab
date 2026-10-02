@@ -1,0 +1,34 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/studios/web-studio/Learning%20JS/:path*",
+      "destination": "/Learning%20JS/:path*"
+    },
+    {
+      "source": "/studios/web-studio/Learning :path*",
+      "destination": "/Learning :path*"
+    },
+    {
+      "source": "/studios/web-studio/Learning%20HTML/:path*",
+      "destination": "/Learning%20HTML/:path*"
+    },
+    {
+      "source": "/studios/web-studio/Learning%20CSS/:path*",
+      "destination": "/Learning%20CSS/:path*"
+    },
+    {
+      "source": "/studios/web-studio/Learning%20PHP/:path*",
+      "destination": "/Learning%20PHP/:path*"
+    },
+    {
+      "source": "/studios/web-studio/Learning%20MySQL/:path*",
+      "destination": "/Learning%20MySQL/:path*"
+    },
+    {
+      "source": "/studios/web-studio/Learning%20Laravel/:path*",
+      "destination": "/Learning%20Laravel/:path*"
+    }
+  ]
+}
