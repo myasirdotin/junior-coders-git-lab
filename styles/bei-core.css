@@ -65,10 +65,16 @@
 }
 
 /* Base Styles */
-* {
+*, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+html {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
 }
 
 body {
@@ -78,6 +84,9 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    position: relative;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -99,8 +108,10 @@ code, pre {
 /* Container */
 .container {
     max-width: 1240px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 1.5rem;
+    box-sizing: border-box;
 }
 
 /* ═════════════════════════════════════════════════════════════════════
@@ -871,8 +882,299 @@ code, pre {
 .badge-ai { background: rgba(124, 58, 237, 0.15); color: #c4b5fd; }
 
 /* ═════════════════════════════════════════════════════════════════════
-   3 PRIMARY GATEWAYS
+   MISSION & SCHOOL ROADMAP SECTION
    ═════════════════════════════════════════════════════════════════════ */
+.mission-roadmap-section {
+    background: linear-gradient(135deg, #090e1a 0%, #131d32 100%);
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    border-radius: var(--radius-xl);
+    padding: 2.75rem 2.25rem;
+    margin: 2.5rem 0 3.5rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+[data-theme="light"] .mission-roadmap-section {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border-color: rgba(99, 102, 241, 0.2);
+    box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+}
+
+.mission-head {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 2.5rem;
+}
+
+.mission-badge {
+    background: rgba(16, 185, 129, 0.15) !important;
+    color: #34d399 !important;
+    font-size: 0.8rem !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    margin-bottom: 0.75rem;
+    white-space: normal !important;
+    line-height: 1.35 !important;
+    max-width: 100%;
+    text-align: center;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+[data-theme="light"] .mission-badge {
+    background: rgba(16, 185, 129, 0.12) !important;
+    color: #059669 !important;
+}
+
+.mission-title {
+    font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin: 0.5rem 0 0.65rem;
+    line-height: 1.25;
+    word-break: break-word;
+}
+
+[data-theme="light"] .mission-title {
+    color: #0f172a;
+}
+
+.mission-desc {
+    color: var(--text-secondary);
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.mission-progress-box {
+    margin-bottom: 2.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+[data-theme="light"] .mission-progress-box {
+    background: rgba(15, 23, 42, 0.03);
+    border-color: #e2e8f0;
+}
+
+.mission-progress-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.mission-progress-title {
+    color: #ffffff;
+    font-size: 1.1rem;
+    display: block;
+}
+
+[data-theme="light"] .mission-progress-title {
+    color: #0f172a;
+}
+
+.mission-progress-sub {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.mission-standards-tag {
+    font-size: 0.82rem;
+    background: rgba(99, 102, 241, 0.15);
+    color: #818cf8;
+    padding: 0.25rem 0.75rem;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+[data-theme="light"] .mission-standards-tag {
+    background: rgba(79, 70, 229, 0.1);
+    color: #4f46e5;
+}
+
+.mission-progress-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.progress-track-item {
+    width: 100%;
+}
+
+.progress-track-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.88rem;
+    margin-bottom: 0.35rem;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.track-name {
+    font-weight: 700;
+}
+
+.track-status {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.c-emerald { color: #34d399; }
+.c-sky { color: #38bdf8; }
+.c-amber { color: #fbbf24; }
+.c-purple { color: #c084fc; }
+.c-slate { color: #94a3b8; }
+.c-muted { color: #64748b; }
+
+[data-theme="light"] .c-emerald { color: #059669; }
+[data-theme="light"] .c-sky { color: #0284c7; }
+[data-theme="light"] .c-amber { color: #d97706; }
+[data-theme="light"] .c-purple { color: #7c3aed; }
+[data-theme="light"] .c-slate { color: #475569; }
+
+.progress-bar-track {
+    background: rgba(255, 255, 255, 0.06);
+    height: 10px;
+    border-radius: 999px;
+    overflow: hidden;
+    width: 100%;
+}
+
+[data-theme="light"] .progress-bar-track {
+    background: rgba(15, 23, 42, 0.08);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    border-radius: 999px;
+    transition: width 0.5s ease;
+}
+
+.fill-emerald { background: #10b981; }
+.fill-sky { background: #0284c7; }
+.fill-amber { background: #d97706; }
+.fill-purple { background: #7c3aed; }
+.fill-slate { background: #475569; }
+
+.mission-answers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+}
+
+.mission-answer-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    padding: 1.35rem;
+    transition: all 0.2s ease;
+}
+
+[data-theme="light"] .mission-answer-card {
+    background: #ffffff;
+    border-color: #e2e8f0;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.mission-answer-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(99, 102, 241, 0.35);
+}
+
+.answer-icon {
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+}
+
+.mission-answer-card strong {
+    color: #ffffff;
+    display: block;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+}
+
+[data-theme="light"] .mission-answer-card strong {
+    color: #0f172a;
+}
+
+.mission-answer-card p {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.mission-badge .badge-text-short {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .mission-roadmap-section {
+        padding: 1.75rem 1.15rem !important;
+        margin: 1.75rem 0 2.5rem !important;
+        border-radius: var(--radius-lg) !important;
+    }
+
+    .mission-badge {
+        font-size: 0.74rem !important;
+        padding: 0.35rem 0.75rem !important;
+    }
+
+    .mission-badge .badge-text-full {
+        display: none !important;
+    }
+
+    .mission-badge .badge-text-short {
+        display: inline !important;
+    }
+
+    .mission-progress-box {
+        padding: 1.15rem 1rem !important;
+    }
+
+    .progress-track-info {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        gap: 0.5rem !important;
+    }
+
+    .track-name {
+        flex: 1 !important;
+        min-width: 0 !important;
+        line-height: 1.35 !important;
+        font-size: 0.84rem !important;
+    }
+
+    .track-status {
+        flex-shrink: 0 !important;
+        font-size: 0.78rem !important;
+        line-height: 1.35 !important;
+    }
+
+    .mission-answers-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+}
+
+/* ═════════════════════════════════════════════════════════════════
+   3 PRIMARY GATEWAYS
+   ═════════════════════════════════════════════════════════════════ */
 .gateways-section {
     padding: 3.5rem 0;
 }
