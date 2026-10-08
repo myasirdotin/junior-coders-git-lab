@@ -173,8 +173,9 @@
   }
 
   function updateHeaderQuickNav(currentIndex, allLinks) {
+    const center = document.querySelector('.reader-status-center');
     const headerRight = document.querySelector('.reader-controls-right') || document.querySelector('.reader-header-main');
-    if (!headerRight) return;
+    if (!center && !headerRight) return;
 
     let quickNav = document.getElementById('headerQuickNav');
     if (!quickNav) {
@@ -182,11 +183,15 @@
       quickNav.id = 'headerQuickNav';
       quickNav.className = 'header-quick-nav';
 
-      const speedPill = headerRight.querySelector('.reader-speed-pill');
-      if (speedPill) {
-        headerRight.insertBefore(quickNav, speedPill);
-      } else {
-        headerRight.insertBefore(quickNav, headerRight.firstChild);
+      if (center) {
+        center.insertBefore(quickNav, center.firstChild);
+      } else if (headerRight) {
+        const speedPill = headerRight.querySelector('.reader-speed-pill');
+        if (speedPill) {
+          headerRight.insertBefore(quickNav, speedPill);
+        } else {
+          headerRight.insertBefore(quickNav, headerRight.firstChild);
+        }
       }
     }
 

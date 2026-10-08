@@ -151,13 +151,12 @@
           <span class="active-book">JavaScript Textbook</span>
         </div>
         <div class="reader-top-links">
-          <a href="../index.html" class="reader-nav-btn"><span>🏠</span> Home</a>
           <a href="../Learning JS/learningjs.html" class="reader-nav-btn"><span>📚</span> JS Modules</a>
           <a href="../book-html/index.html" class="reader-nav-btn"><span>🌐</span> HTML Book</a>
           <a href="../book-css/index.html" class="reader-nav-btn"><span>🎨</span> CSS Book</a>
           <a href="../book-git/index.html" class="reader-nav-btn"><span>🐙</span> Git Book</a>
           <a href="../book-php/index.html" class="reader-nav-btn"><span>🐘</span> PHP Book</a>
-          <a href="../master-playground.html" class="reader-nav-btn primary-btn"><span>💻</span> Code Lab</a>
+          <a href="../master-playground.html" class="reader-nav-btn primary-btn code-lab-btn"><span>💻</span> Code Lab</a>
         </div>
       </nav>
 
@@ -210,21 +209,45 @@
             </button>
             <button type="button" class="book-download-pdf-btn" id="book-download-pdf-btn" title="Download current chapter as PDF">
               <span class="btn-icon">⬇️</span>
-              <span class="btn-text">Download PDF</span>
+              <span class="btn-text">PDF</span>
             </button>
           </div>
         </div>
       </header>
 
       <!-- Live Interactive JavaScript Scratchpad on top -->
-      <div class="js-runner-widget">
+      <div class="js-runner-widget" id="jsScratchpad">
         <div class="js-runner-header">
-          <span style="font-weight: 700; font-size: 0.9rem; color: #f59e0b;">⚡ Live JavaScript Scratchpad</span>
-          <button class="btn-run" onclick="runScratchpad()">Run Code ▶</button>
+          <div class="js-runner-title-group">
+            <div class="ide-window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <span class="js-runner-title">⚡ Live JavaScript Scratchpad</span>
+            <span class="js-runner-badge">Interactive Lab</span>
+          </div>
+          <div class="js-runner-actions">
+            <button type="button" class="btn-scratchpad-clear" onclick="clearScratchpad()" title="Clear editor & output">
+              🧹 Clear
+            </button>
+            <button type="button" class="btn-scratchpad-run" onclick="runScratchpad()" title="Execute JavaScript (Ctrl+Enter)">
+              <span class="run-icon">▶</span>
+              <span>Run Code</span>
+              <span class="shortcut-hint">Ctrl+↵</span>
+            </button>
+          </div>
         </div>
-        <textarea id="jsCodeInput" style="width: 100%; height: 80px; background: #0f172a; color: #f8fafc; border: 1px solid #334155; border-radius: 6px; padding: 8px; font-family: var(--font-mono); font-size: 0.85rem;" placeholder="// Type any JavaScript code here to test it live!&#10;console.log('Hello from Class 7!');">console.log("Hello, World! I am learning JavaScript!");</textarea>
-        <div style="margin-top: 8px; font-size: 0.75rem; color: #94a3b8;">Console Output:</div>
-        <div class="js-runner-output" id="jsConsoleOutput">Hello, World! I am learning JavaScript!</div>
+        <div class="js-editor-container">
+          <textarea id="jsCodeInput" spellcheck="false" placeholder="// Type JavaScript here or click 'Test in Scratchpad' on any lesson snippet...&#10;console.log('Hello from Class 7!');">console.log("Hello, World! I am learning JavaScript!");</textarea>
+        </div>
+        <div class="js-console-wrapper">
+          <div class="js-console-bar">
+            <span class="console-label">Console Terminal</span>
+            <span class="console-status" id="jsConsoleStatus">Ready</span>
+          </div>
+          <div class="js-runner-output" id="jsConsoleOutput">Hello, World! I am learning JavaScript!</div>
+        </div>
       </div>
 
       <article class="book-article" id="chapterContent">
@@ -311,6 +334,7 @@
     function runScratchpad() {
       const code = document.getElementById('jsCodeInput').value;
       const outputEl = document.getElementById('jsConsoleOutput');
+      const statusEl = document.getElementById('jsConsoleStatus');
       outputEl.textContent = '';
 
       const originalLog = console.log;
@@ -329,12 +353,45 @@
         } else {
           outputEl.textContent = '(Code ran successfully with no output)';
         }
+        if (statusEl) {
+          statusEl.textContent = 'Executed ✓';
+          statusEl.className = 'console-status status-success';
+        }
       } catch (err) {
         outputEl.textContent = '❌ Error: ' + err.message;
+        if (statusEl) {
+          statusEl.textContent = 'Error ✗';
+          statusEl.className = 'console-status status-error';
+        }
       } finally {
         console.log = originalLog;
       }
     }
+
+    function clearScratchpad() {
+      const input = document.getElementById('jsCodeInput');
+      const output = document.getElementById('jsConsoleOutput');
+      const status = document.getElementById('jsConsoleStatus');
+      if (input) input.value = '';
+      if (output) output.textContent = 'Console ready.';
+      if (status) {
+        status.textContent = 'Cleared';
+        status.className = 'console-status';
+      }
+    }
+
+    // Bind Ctrl+Enter shortcut on scratchpad editor
+    document.addEventListener('DOMContentLoaded', () => {
+      const editor = document.getElementById('jsCodeInput');
+      if (editor) {
+        editor.addEventListener('keydown', (e) => {
+          if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+            e.preventDefault();
+            runScratchpad();
+          }
+        });
+      }
+    });
 
     async function loadChapter(path, element) {
       if (element) {
