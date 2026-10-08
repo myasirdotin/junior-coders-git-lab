@@ -252,14 +252,62 @@
   <!-- Markdown Engine & Offline Chapter Bundle -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
+    // Offline fallback: robust markdown parser if CDN unavailable (e.g. local XAMPP)
     if (typeof marked === 'undefined') {
-      window.marked = {
-        parse: function(text) {
-          return '<pre style="white-space: pre-wrap; font-family: inherit;">' + 
-                 text.replace(/</g, '&lt;').replace(/>/g, '&gt;') + 
-                 '</pre>';
-        }
-      };
+      window.marked = { parse: function(md) {
+        var h = (md || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n'), cb = [], ic = [];
+        h = h.replace(/```([\s\S]*?)```/g, function(_, c) {
+          var lm = c.match(/^([a-zA-Z0-9_-]+)\n/), lang = lm ? lm[1] : '', body = lm ? c.slice(lang.length + 1) : c;
+          cb.push('<pre><code class="language-' + lang + '">' + body.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code></pre>');
+          return '\x00CB' + (cb.length - 1) + '\x00';
+        });
+        h = h.replace(/`([^`\n]+)`/g, function(_, c) {
+          ic.push('<code>' + c.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code>');
+          return '\x00IC' + (ic.length - 1) + '\x00';
+        });
+        h = h.replace(/^([*-]|\d+\.)\s+\[([ xX])\]\s+(.+)$/gm, function(_, bullet, checked, text) {
+          var isChecked = checked.toLowerCase() === 'x' ? ' checked' : '';
+          return bullet + ' <label class="task-list-item"><input type="checkbox" disabled' + isChecked + '> ' + text + '</label>';
+        });
+        h = h.replace(/((?:\|[^\n]+\|\n?)+)/g, function(block) {
+          var rows = block.trim().split('\n').filter(function(r) { return r.trim().length > 0; });
+          if (rows.length < 2 || !/^\|[-|: ]+\|/.test(rows[1])) return block;
+          var hdr = rows[0].trim().split('|').slice(1, -1).map(function(c) { return '<th>' + c.trim() + '</th>'; }).join('');
+          var bdy = rows.slice(2).map(function(r) {
+            return '<tr>' + r.trim().split('|').slice(1, -1).map(function(c) { return '<td>' + c.trim() + '</td>'; }).join('') + '</tr>';
+          }).join('');
+          return '<table><thead><tr>' + hdr + '</tr></thead><tbody>' + bdy + '</tbody></table>\n';
+        });
+        h = h.replace(/^(#{1,6})\s+(.+)$/gm, function(_, s, t) { return '<h' + s.length + '>' + t + '</h' + s.length + '>'; });
+        h = h.replace(/^[-*_]{3,}$/gm, '<hr>');
+        h = h.replace(/((?:^>\s?.*$\n?)+)/gm, function(b) {
+          var inner = b.trim().split('\n').map(function(l) { return l.replace(/^>\s?/, ''); }).join('<br>');
+          return '<blockquote>' + inner + '</blockquote>\n';
+        });
+        h = h.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+             .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+             .replace(/\*(.+?)\*/g, '<em>$1</em>')
+             .replace(/___(.+?)___/g, '<strong><em>$1</em></strong>')
+             .replace(/__(.+?)__/g, '<strong>$1</strong>')
+             .replace(/~~(.+?)~~/g, '<del>$1</del>');
+        h = h.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
+             .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+        h = h.replace(/((?:^[*-]\s+.+$\n?)+)/gm, function(b) {
+          return '<ul>' + b.trim().split('\n').map(function(l) { return '<li>' + l.replace(/^[*-]\s+/, '') + '</li>'; }).join('') + '</ul>\n';
+        });
+        h = h.replace(/((?:^\d+\.\s+.+$\n?)+)/gm, function(b) {
+          return '<ol>' + b.trim().split('\n').map(function(l) { return '<li>' + l.replace(/^\d+\.\s+/, '') + '</li>'; }).join('') + '</ol>\n';
+        });
+        h = h.split(/\n{2,}/).map(function(b) {
+          b = b.trim();
+          if (!b) return '';
+          if (/^<(h[1-6]|ul|ol|blockquote|pre|table|hr|details|summary|div)/i.test(b) || b.indexOf('\x00CB') !== -1) return b;
+          return '<p>' + b.replace(/\n/g, '<br>') + '</p>';
+        }).join('\n');
+        ic.forEach(function(c, i) { h = h.split('\x00IC' + i + '\x00').join(c); });
+        cb.forEach(function(c, i) { h = h.split('\x00CB' + i + '\x00').join(c); });
+        return h;
+      }};
     }
   </script>
   <script src="chapters-bundle.js"></script>
