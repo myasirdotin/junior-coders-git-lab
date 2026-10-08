@@ -236,6 +236,40 @@
   <!-- Marked library for on-the-fly markdown rendering in the browser -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
+    // Offline fallback: robust markdown parser if CDN unavailable (e.g. local XAMPP)
+    if (typeof marked === 'undefined') {
+      window.marked = { parse: function(md) {
+        var h = md, cb = [], ic = [];
+        h = h.replace(/```([\s\S]*?)```/g, function(_, c) {
+          var lm = c.match(/^([a-zA-Z0-9]+)\n/), lang = lm ? lm[1] : '', body = lm ? c.slice(lang.length+1) : c;
+          cb.push('<pre><code class="language-'+lang+'">' + body.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') + '</code></pre>');
+          return '\x00CB'+(cb.length-1)+'\x00';
+        });
+        h = h.replace(/`([^`\n]+)`/g, function(_, c) {
+          ic.push('<code>'+c.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</code>');
+          return '\x00IC'+(ic.length-1)+'\x00';
+        });
+        h = h.replace(/((?:\|[^\n]+\|\n)+)/g, function(block) {
+          var rows = block.trim().split('\n');
+          if (rows.length < 2 || !/^\|[-|: ]+\|/.test(rows[1])) return block;
+          var hdr = rows[0].trim().split('|').slice(1,-1).map(function(c){return '<th>'+c.trim()+'</th>';}).join('');
+          var bdy = rows.slice(2).map(function(r){ return '<tr>'+r.trim().split('|').slice(1,-1).map(function(c){return '<td>'+c.trim()+'</td>';}).join('')+'</tr>'; }).join('');
+          return '<table><thead><tr>'+hdr+'</tr></thead><tbody>'+bdy+'</tbody></table>\n';
+        });
+        h = h.replace(/^(#{1,6})\s+(.+)$/gm, function(_, s, t){ return '<h'+s.length+'>'+t+'</h'+s.length+'>'; });
+        h = h.replace(/^[-*]{3,}$/gm,'<hr>').replace(/^>\s?(.*)$/gm,'<blockquote>$1</blockquote>');
+        h = h.replace(/\*\*\*(.+?)\*\*\*/g,'<strong><em>$1</em></strong>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>').replace(/\*(.+?)\*/g,'<em>$1</em>').replace(/__(.+?)__/g,'<strong>$1</strong>').replace(/_(.+?)_/g,'<em>$1</em>');
+        h = h.replace(/!\[([^\]]*)\]\(([^)]+)\)/g,'<img src="$2" alt="$1">').replace(/\[([^\]]+)\]\(([^)]+)\)/g,'<a href="$2">$1</a>');
+        h = h.replace(/((?:^[*-]\s+.+$\n?)+)/gm, function(b){ return '<ul>'+b.trim().split('\n').map(function(l){return '<li>'+l.replace(/^[*-]\s+/,'')+'</li>';}).join('')+'</ul>\n'; });
+        h = h.replace(/((?:^\d+\.\s+.+$\n?)+)/gm, function(b){ return '<ol>'+b.trim().split('\n').map(function(l){return '<li>'+l.replace(/^\d+\.\s+/,'')+'</li>';}).join('')+'</ol>\n'; });
+        h = h.split(/\n{2,}/).map(function(b){ b=b.trim(); if(!b)return ''; if(/^<(h[1-6]|ul|ol|blockquote|pre|table|hr|details|summary|div)/.test(b)||b.indexOf('\x00CB')!==-1)return b; return '<p>'+b.replace(/\n/g,'<br>')+'</p>'; }).join('\n');
+        ic.forEach(function(c,i){ h=h.split('\x00IC'+i+'\x00').join(c); });
+        cb.forEach(function(c,i){ h=h.split('\x00CB'+i+'\x00').join(c); });
+        return h;
+      }};
+    }
+  </script>
+  <script>
     // Live runner execution
     function runScratchpad() {
       const code = document.getElementById('jsCodeInput').value;
