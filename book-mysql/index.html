@@ -601,6 +601,7 @@
         attachChapterLab(contentArea, path);
         window.scrollTo({ top: 0, behavior: 'smooth' });
         if (window.initBookSpeaker) window.initBookSpeaker();
+        if (window.renderChapterPagination) window.renderChapterPagination();
       } else {
         contentArea.innerHTML = `
           <div class="pedagogy-section" style="text-align:center;padding:3rem 1rem;">
@@ -610,6 +611,7 @@
           </div>
         `;
         if (window.initBookSpeaker) window.initBookSpeaker();
+        if (window.renderChapterPagination) window.renderChapterPagination();
       }
     }
 
@@ -727,5 +729,6 @@
   </script>
   <script src="../js/pdf-download.js"></script>
   <script src="../js/book-speaker.js"></script>
+  <script src="../js/book-pagination.js"></script>
 </body>
 </html>

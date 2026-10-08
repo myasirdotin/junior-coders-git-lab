@@ -278,7 +278,8 @@ php artisan db:seed           # Seed database</code></pre>` }
       if(el){document.querySelectorAll('.chapter-nav-item').forEach(e=>e.classList.remove('active'));el.parentElement.classList.add('active');}
       const area=document.getElementById('chapterContent');
       const ch=CHAPTERS[id];
-      if(ch){area.innerHTML=ch.content;enhanceCodeBlocks(area);window.scrollTo({top:0,behavior:'smooth'});if(window.initBookSpeaker)window.initBookSpeaker();}
+      if(ch){area.innerHTML=ch.content;enhanceCodeBlocks(area);window.scrollTo({top:0,behavior:'smooth'});if (window.initBookSpeaker) window.initBookSpeaker();
+        if (window.renderChapterPagination) window.renderChapterPagination();}
       else{area.innerHTML=`<div class="pedagogy-box" style="text-align:center;padding:3rem 1rem;"><h2>&#128679; Chapter Coming Soon</h2><p>This chapter is being prepared. Check back soon!</p><p style="margin-top:1rem;"><a href="../Learning Laravel/learninglaravel.html" style="color:#ef4444;font-weight:700;">&#128218; Visit Interactive Laravel Modules &#8594;</a></p></div>`;window.scrollTo({top:0,behavior:'smooth'});}
     }
 
@@ -308,5 +309,6 @@ php artisan db:seed           # Seed database</code></pre>` }
   </script>
   <script src="../js/pdf-download.js"></script>
   <script src="../js/book-speaker.js"></script>
+  <script src="../js/book-pagination.js"></script>
 </body>
 </html>

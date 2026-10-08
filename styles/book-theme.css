@@ -2117,3 +2117,183 @@ body.reading-mode .reading-mode-bar {
   }
 }
 
+/* ==========================================================================
+   Chapter Pagination Cards (Previous Lesson & Next Lesson)
+   Modern Glass & Gradient Pill Aesthetic
+   ========================================================================== */
+.chapter-pagination-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border-color);
+  width: 100%;
+}
+
+.chapter-page-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.15rem 1.35rem;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: var(--radius-md, 14px);
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.chapter-page-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+.chapter-page-card.prev::before {
+  background: linear-gradient(90deg, #94a3b8, transparent);
+}
+
+.chapter-page-card.next::before {
+  background: linear-gradient(90deg, transparent, var(--book-accent, var(--primary-blue)));
+}
+
+.chapter-page-card.next {
+  text-align: right;
+  margin-left: auto;
+}
+
+.chapter-page-card.prev {
+  text-align: left;
+}
+
+.chapter-page-card:hover {
+  background: linear-gradient(135deg, #ffffff, var(--book-accent-light, #eff6ff));
+  border-color: var(--book-accent, var(--primary-blue));
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -4px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--book-accent, rgba(37, 99, 235, 0.2));
+}
+
+.chapter-page-card.next:hover::before {
+  background: linear-gradient(90deg, transparent, var(--book-accent, var(--primary-blue)));
+  height: 4px;
+}
+
+.chapter-page-card.prev:hover::before {
+  background: linear-gradient(90deg, var(--book-accent, var(--primary-blue)), transparent);
+  height: 4px;
+}
+
+.chapter-page-card:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.chapter-page-spacer {
+  display: block;
+}
+
+.page-direction-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 0.45rem;
+  transition: color 0.2s ease;
+}
+
+.chapter-page-card.next .page-direction-badge {
+  justify-content: flex-end;
+}
+
+.chapter-page-card:hover .page-direction-badge {
+  color: var(--book-accent, var(--primary-blue));
+}
+
+.dir-arrow {
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.chapter-page-card.prev:hover .dir-arrow {
+  transform: translateX(-4px);
+}
+
+.chapter-page-card.next:hover .dir-arrow {
+  transform: translateX(4px);
+}
+
+.page-title-text {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.chapter-page-card:hover .page-title-text {
+  color: var(--book-accent, var(--primary-blue));
+}
+
+/* Header quick prev/next buttons */
+.header-quick-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+.header-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.38rem 0.82rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.header-nav-btn:hover:not([disabled]) {
+  background: linear-gradient(135deg, #ffffff, var(--book-accent-light, #eff6ff));
+  color: var(--book-accent, var(--primary-blue));
+  border-color: var(--book-accent, var(--primary-blue));
+  transform: translateY(-1.5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.header-nav-btn:active:not([disabled]) {
+  transform: translateY(0) scale(0.98);
+}
+
+.header-nav-btn[disabled] {
+  opacity: 0.38;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+
