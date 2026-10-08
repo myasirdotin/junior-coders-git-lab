@@ -106,6 +106,23 @@ The following custom subagents are configured to assist across each domain:
 
 ---
 
-## 5. Directory Instructions
+## 5. Hosting, URL Resolution & Offline Reader Architecture
+
+1. **Vercel Routing & Trailing Slashes**:
+   - Do NOT set `"trailingSlash": false` in `vercel.json`. Forcing `trailingSlash: false` strips slashes from directory paths (`/book-xyz/` -> `/book-xyz`), breaking browser relative asset resolution (`<script src="chapters-bundle.js">` and chapter fetches resolve to domain root `/` resulting in `404 Not Found`).
+   - Clean URLs (`"cleanUrls": true`) should remain enabled for extensionless `.html` pages.
+2. **Textbook Base URI Resilience**:
+   - Every textbook reader (`book-*/index.html`) must include the dynamic `<base>` tag injector in `<head>` so that relative assets resolve to the book folder under any server configuration or iframe embedding.
+3. **Dual-Tier Chapter Loading Fallback**:
+   - Textbooks must load from pre-bundled offline cache (`chapters-bundle.js` / `window.BOOK_<NAME>_CHAPTERS`) first.
+   - If offline cache is unavailable, readers execute directory-resilient network fetch (`fetch(path)`, with fallback to `folder + '/' + path`).
+4. **Maintenance & Verification Commands**:
+   - Run `node scripts/bundle-books.js` whenever markdown chapters are edited or added to keep offline bundles in sync.
+   - Run `powershell .\audit.ps1` to verify chapter integrity, bundle coverage, and parser health across all 11 books.
+
+---
+
+## 6. Directory Instructions
 Each learning folder contains a `GEMINI.md` file with specific coding standards and curriculum mappings for that domain. All sub-guidelines inherit and adhere to this root document.
+
 

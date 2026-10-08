@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function() {
+      try {
+        var p = window.location.pathname;
+        if (window.location.protocol !== 'file:' && !p.endsWith('/') && !p.endsWith('.html')) {
+          var b = document.createElement('base');
+          b.href = window.location.origin + p + '/';
+          document.head.appendChild(b);
+        }
+      } catch(e) {}
+    })();
+  </script>
   <title>PHP for Class 9: Server-Side Programming | Junior Coders</title>
   <meta name="description" content="Official Class 9 PHP Textbook: Learn variables, control flow, functions, arrays, forms, file I/O, OOP, and complete dynamic web projects.">
   <link rel="stylesheet" href="../styles/book-theme.css">
@@ -454,9 +466,20 @@
       if (cache && cache[path]) {
         markdown = cache[path];
       } else {
+        // 2. Fallback to HTTP fetch with directory resilience
         try {
-          const response = await fetch(path);
-          if (response.ok) {
+          let response = await fetch(path);
+          if (!response.ok && !path.startsWith('/') && !path.startsWith('http')) {
+            const segs = window.location.pathname.split('/').filter(Boolean);
+            const folder = segs.length ? segs[segs.length - 1] : '';
+            if (folder && folder.startsWith('book-') && !path.startsWith(folder)) {
+              try {
+                const alt = await fetch(folder + '/' + path);
+                if (alt.ok) response = alt;
+              } catch (_) {}
+            }
+          }
+          if (response && response.ok) {
             markdown = await response.text();
           }
         } catch (err) {

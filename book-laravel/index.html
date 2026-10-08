@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function() {
+      try {
+        var p = window.location.pathname;
+        if (window.location.protocol !== 'file:' && !p.endsWith('/') && !p.endsWith('.html')) {
+          var b = document.createElement('base');
+          b.href = window.location.origin + p + '/';
+          document.head.appendChild(b);
+        }
+      } catch(e) {}
+    })();
+  </script>
   <title>Laravel for Class 9: PHP Framework | BEI Coders</title>
   <meta name="description" content="Official Class 9 Laravel Textbook: Learn routing, controllers, Blade templates, Eloquent ORM, migrations, forms, and authentication.">
   <link rel="stylesheet" href="../styles/book-theme.css">

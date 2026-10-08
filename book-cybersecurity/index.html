@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function() {
+      try {
+        var p = window.location.pathname;
+        if (window.location.protocol !== 'file:' && !p.endsWith('/') && !p.endsWith('.html')) {
+          var b = document.createElement('base');
+          b.href = window.location.origin + p + '/';
+          document.head.appendChild(b);
+        }
+      } catch(e) {}
+    })();
+  </script>
   <title>Cybersecurity &amp; Digital Hygiene for Junior Coders | LearnCode</title>
   <meta name="description" content="Official Cybersecurity & Digital Hygiene Textbook: Master the CIA triad, password entropy, anti-phishing, OWASP Top 10 web defenses, XSS, SQL injection prevention, and cryptography.">
   <link rel="stylesheet" href="../styles/book-theme.css">
@@ -466,9 +478,24 @@
         if (window.BOOK_CYBERSECURITY_CHAPTERS && window.BOOK_CYBERSECURITY_CHAPTERS[path]) {
           md = window.BOOK_CYBERSECURITY_CHAPTERS[path];
         } else {
-          const resp = await fetch(path);
-          if (!resp.ok) throw new Error('Failed to fetch chapter file');
-          md = await resp.text();
+          let resp = null;
+          try {
+            resp = await fetch(path);
+          } catch (_) {}
+          if (!resp || !resp.ok) {
+            const segs = window.location.pathname.split('/').filter(Boolean);
+            const folder = segs.length ? segs[segs.length - 1] : '';
+            if (folder && folder.startsWith('book-') && !path.startsWith(folder)) {
+              try {
+                resp = await fetch(folder + '/' + path);
+              } catch (_) {}
+            }
+          }
+          if (resp && resp.ok) {
+            md = await resp.text();
+          } else {
+            throw new Error('Failed to fetch chapter file: ' + path);
+          }
         }
 
         chapterBody.innerHTML = marked.parse(md);

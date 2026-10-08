@@ -83,6 +83,9 @@ foreach ($book in $books) {
         }
     }
 
+    # Base URI resilience check
+    $hasBaseResilience = if ($hasIndex -and $indexContent -match "document\.createElement\('base'\)") { $true } else { $false }
+
     # Extract chapters from index
     $indexChapters = @()
     if ($hasIndex) {
@@ -129,7 +132,8 @@ foreach ($book in $books) {
     # Console output for book
     $statusSymbol = if ($missingFromDisk.Count -eq 0 -and $bundleGaps.Count -eq 0) { "[PASS]" } else { "[WARN]" }
     $fg = if ($statusSymbol -eq "[PASS]") { "Green" } else { "Yellow" }
-    Write-Host "$statusSymbol $book - Chapters: $($diskChapters.Count), Missing: $($missingFromDisk.Count), Bundle Gaps: $($bundleGaps.Count), Parser: $parserStatus" -ForegroundColor $fg
+    $baseStr = if ($hasBaseResilience) { "ok" } else { "missing" }
+    Write-Host "$statusSymbol $book - Chapters: $($diskChapters.Count), Missing: $($missingFromDisk.Count), Bundle Gaps: $($bundleGaps.Count), Parser: $parserStatus, BaseURI: $baseStr" -ForegroundColor $fg
 
     $bookSummaryRows += "| $book | $(if ($hasIndex) { 'Yes' } else { 'No' }) | $($diskChapters.Count) | $($missingFromDisk.Count) | $($bundleGaps.Count) | $parserStatus |"
 

@@ -3,6 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function() {
+      try {
+        var p = window.location.pathname;
+        if (window.location.protocol !== 'file:' && !p.endsWith('/') && !p.endsWith('.html')) {
+          var b = document.createElement('base');
+          b.href = window.location.origin + p + '/';
+          document.head.appendChild(b);
+        }
+      } catch(e) {}
+    })();
+  </script>
   <title>MySQL for Class 9: Databases &amp; Queries | Junior Coders</title>
   <meta name="description" content="Official Class 9 MySQL Textbook: Master relational databases, SQL queries, DDL, DML, JOINs, aggregations, and data architecture.">
   <link rel="stylesheet" href="../styles/book-theme.css">
@@ -562,13 +574,24 @@
         markdown = cache[path];
       } else {
         // 2. Fallback to HTTP fetch if running under a local server
+        // 2. Fallback to HTTP fetch with directory resilience
         try {
-          const response = await fetch(path);
-          if (response.ok) {
+          let response = await fetch(path);
+          if (!response.ok && !path.startsWith('/') && !path.startsWith('http')) {
+            const segs = window.location.pathname.split('/').filter(Boolean);
+            const folder = segs.length ? segs[segs.length - 1] : '';
+            if (folder && folder.startsWith('book-') && !path.startsWith(folder)) {
+              try {
+                const alt = await fetch(folder + '/' + path);
+                if (alt.ok) response = alt;
+              } catch (_) {}
+            }
+          }
+          if (response && response.ok) {
             markdown = await response.text();
           }
         } catch (err) {
-          console.warn('HTTP fetch failed, offline bundle unavailable for:', path, err);
+          console.warn('Offline cache used, fetch fallback failed for:', path, err);
         }
       }
 
