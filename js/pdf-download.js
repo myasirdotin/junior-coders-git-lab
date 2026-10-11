@@ -7,6 +7,12 @@
 (function () {
     'use strict';
 
+    // Site root = the folder above /js/, taken from this script's own URL, so it works
+    // at a domain root (Vercel) and in a subfolder (http://localhost/junior-coders-git-lab/).
+    const SITE_ROOT = document.currentScript && document.currentScript.src
+        ? new URL('../', document.currentScript.src).href
+        : null;
+
     /* ── Subject Configurations ── */
     const CONFIG = {
         subjects: {
@@ -42,6 +48,7 @@
 
     /* ── Get relative root prefix ── */
     function getAssetPrefix() {
+        if (SITE_ROOT) return SITE_ROOT;
         const link = document.querySelector('link[href*="styles/"], script[src*="js/"]');
         if (link) {
             const href = link.getAttribute('href') || link.getAttribute('src') || '';

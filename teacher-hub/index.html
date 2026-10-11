@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Hub &amp; Educator Resources | BEI Coders</title>
+    <title>Teacher Hub &amp; Educator Resources | Junior Coders</title>
     <meta name="description" content="Dedicated Teacher Hub for school computer science educators: syllabus maps, 45-minute lesson plans, slide decks, grading rubrics, and AI-era assessment guidelines.">
     <link rel="stylesheet" href="../styles/bei-core.css">
     <style>
@@ -47,7 +47,7 @@
             <a href="../index.html" class="bei-logo">
                 <div class="bei-logo-icon">💻</div>
                 <div>
-                    BEI Coders
+                    Junior Coders
                     <span class="bei-logo-sub">School Computer Science</span>
                 </div>
             </a>
@@ -60,7 +60,7 @@
                 <li><a href="index.html" class="bei-nav-link active">🍎 Teachers</a></li>
             </ul>
             <div class="bei-nav-actions">
-                <span style="background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 999px;">🍎 Teacher Mode Active</span>
+                <span class="teacher-mode-pill" style="background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 999px;">🍎 Teacher Mode Active</span>
                 <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
                 <a href="#rubrics" class="btn-nav-primary">Grading Rubrics 📋</a>
                 <button class="mobile-toggle" aria-label="Toggle navigation menu">☰</button>
@@ -87,13 +87,13 @@
             <div class="ethical-mission-inner">
                 <div class="ethical-icon-badge">🤲</div>
                 <div class="ethical-content">
-                    <h2>Pedagogical Philosophy: Cultivating *Amānah*, *Ṣidq* &amp; *Iḥsān*</h2>
-                    <p>Teachers bear the sacred trust (*Amānah*) of shaping how young minds interact with powerful technology. We encourage educators to emphasize that digital skills are not for vanity, cheating, or exploitative monetization, but instruments for beneficial community service (*'Ilm Nāfi'*), privacy protection, and craftsmanship (*Iḥsān*).</p>
+                    <h2>Pedagogical Philosophy: Cultivating <em>Amānah</em>, <em>Ṣidq</em> &amp; <em>Iḥsān</em></h2>
+                    <p>Teachers bear the sacred trust (<em>Amānah</em>) of shaping how young minds interact with powerful technology. We encourage educators to emphasize that digital skills are not for vanity, cheating, or exploitative monetization, but instruments for beneficial community service (<em>'Ilm Nāfi'</em>), privacy protection, and craftsmanship (<em>Iḥsān</em>).</p>
                     <div class="ethical-pillars">
-                        <span class="ethical-pill">🌱 Beneficial Knowledge (*'Ilm Nāfi'*)</span>
-                        <span class="ethical-pill">🛡️ Data Privacy as a Sacred Trust (*Amānah*)</span>
-                        <span class="ethical-pill">✨ Craftsmanship &amp; Care (*Iḥsān*)</span>
-                        <span class="ethical-pill">⚖️ Academic Truthfulness (*Ṣidq*)</span>
+                        <span class="ethical-pill">🌱 Beneficial Knowledge (<em>'Ilm Nāfi'</em>)</span>
+                        <span class="ethical-pill">🛡️ Data Privacy as a Sacred Trust (<em>Amānah</em>)</span>
+                        <span class="ethical-pill">✨ Craftsmanship &amp; Care (<em>Iḥsān</em>)</span>
+                        <span class="ethical-pill">⚖️ Academic Truthfulness (<em>Ṣidq</em>)</span>
                     </div>
                 </div>
             </div>
@@ -109,9 +109,9 @@
                     <h2 style="font-size: 1.8rem; margin: 0.35rem 0 0.2rem; color: #fff;">Classroom Analytics &amp; Student Diagnostics 📊</h2>
                     <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">Monitor student progress, track weak areas, and manage weekly assignments.</p>
                 </div>
-                <div style="display: flex; gap: 0.75rem; align-items: center;">
-                    <label style="font-size: 0.88rem; color: var(--text-muted); font-weight: 600;">Active Class:</label>
-                    <select id="teacherClassSelect" style="background: #020617; color: #f8fafc; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.9rem; outline: none; font-weight: 700;">
+                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; align-items: center; max-width: 100%; min-width: 0;">
+                    <label for="teacherClassSelect" style="font-size: 0.88rem; color: var(--text-muted); font-weight: 600;">Active Class:</label>
+                    <select id="teacherClassSelect" style="max-width: 100%; min-width: 0; background: #020617; color: #f8fafc; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.9rem; outline: none; font-weight: 700;">
                         <option value="class-8b">Class 8B (JavaScript Logic • 32 Students)</option>
                         <option value="class-7a">Class 7A (HTML &amp; CSS Web • 28 Students)</option>
                         <option value="class-9c">Class 9C (PHP &amp; MySQL Full Stack • 24 Students)</option>
@@ -293,7 +293,7 @@
             <div class="footer-brand">
                 <div class="bei-logo">
                     <div class="bei-logo-icon">💻</div>
-                    <span>BEI Coders</span>
+                    <span>Junior Coders</span>
                 </div>
                 <p>Empowering school students with foundational computing, creative web engineering, and ethical AI stewardship.</p>
             </div>
@@ -333,7 +333,7 @@
         </div>
         <div class="container footer-bottom">
             <div class="footer-copyright">
-                &copy; 2026 BEI Coders (Junior Coders). Dedicated to Beneficial Knowledge (<em>'Ilm N&#257;fi'</em>), Digital Stewardship &amp; Craftsmanship.
+                &copy; 2026 Junior Coders (Junior Coders). Dedicated to Beneficial Knowledge (<em>'Ilm N&#257;fi'</em>), Digital Stewardship &amp; Craftsmanship.
             </div>
             <div class="footer-dedication-badge">
                 <span class="heart-symbol">✦</span> Designed with <em>Iḥsān</em> for <strong>Yasir Rasool</strong>

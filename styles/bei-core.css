@@ -1,5 +1,5 @@
 /* ═════════════════════════════════════════════════════════════════════
-   BEI CODERS (JUNIOR CODERS) DESIGN SYSTEM & CORE STYLES
+   JUNIOR CODERS DESIGN SYSTEM & CORE STYLES
    Ethical, Student-Centric, Modern School Computer Science Platform
    ═════════════════════════════════════════════════════════════════════ */
 
@@ -2498,3 +2498,8 @@ code, pre {
 }
 
 
+
+/* Teacher Hub: the "Teacher Mode Active" pill does not fit beside the menu button on phones */
+@media (max-width: 640px) {
+    .teacher-mode-pill { display: none; }
+}
