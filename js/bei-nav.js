@@ -743,6 +743,9 @@
                 </ul>
 
                 <div class="bei-nav-actions">
+                    <button type="button" class="bei-search-btn" aria-label="Search the site" title="Search (Ctrl+K)">
+                        <span class="bei-search-ico" aria-hidden="true">🔍</span><span class="bei-search-text">Search</span><kbd class="bei-search-kbd">Ctrl K</kbd>
+                    </button>
                     <button class="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Toggle theme">☀️</button>
                     <a href="${ROOT}studios/web-studio/index.html" class="btn-nav-primary">Launch Studio ⚡</a>
                     <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
@@ -1026,10 +1029,135 @@
         });
     }
 
+    // ═════════════════════════════════════════════════════════════════
+    // 5.6 SITE SEARCH (Ctrl+K or "/"): tracks, modules, practice pages,
+    //     textbooks, cheatsheets, studios and hub pages
+    // ═════════════════════════════════════════════════════════════════
+    const SEARCH_PAGES = [
+        ['book-html/index.html', '📖', 'HTML for Class 6 & 7: Structure the Web', 'Textbook', 'html website tags'],
+        ['book-css/index.html', '📖', 'CSS for Class 7: Styling & Designing Websites', 'Textbook', 'css style design'],
+        ['book-js/index.html', '📖', 'JavaScript for Class 7: Learn, Think, Create', 'Textbook', 'javascript js'],
+        ['book-cmd/index.html', '📖', 'Terminal & Command Line Mastery', 'Textbook', 'cmd terminal powershell bash shell'],
+        ['book-git/index.html', '📖', 'Git & GitHub: Version Control', 'Textbook', 'git github commit branch'],
+        ['book-php/index.html', '📖', 'PHP for Class 9: Server-Side Programming', 'Textbook', 'php server'],
+        ['book-mysql/index.html', '📖', 'MySQL for Class 9: Databases & Queries', 'Textbook', 'mysql sql database'],
+        ['book-laravel/index.html', '📖', 'Laravel for Class 9: PHP Framework', 'Textbook', 'laravel framework'],
+        ['book-python/index.html', '📖', 'Python & Machine Learning', 'Textbook', 'python ml ai'],
+        ['book-networks/index.html', '📖', 'Computer Networking & Web Protocols', 'Textbook', 'network internet dns http tcp'],
+        ['book-cybersecurity/index.html', '📖', 'Cybersecurity & Digital Hygiene', 'Textbook', 'security password phishing'],
+        ['cheatsheet-html.html', '📋', 'HTML Cheat Sheet', 'Cheat sheet', 'html'],
+        ['cheatsheet-css.html', '📋', 'CSS Cheat Sheet', 'Cheat sheet', 'css'],
+        ['cheatsheet-js.html', '📋', 'JavaScript Cheat Sheet', 'Cheat sheet', 'javascript js'],
+        ['cheatsheet-cmd.html', '📋', 'Command Line & Terminal Cheat Sheet', 'Cheat sheet', 'cmd terminal'],
+        ['cheatsheet-git.html', '📋', 'Git & GitHub Cheat Sheet', 'Cheat sheet', 'git'],
+        ['cheatsheet-php.html', '📋', 'PHP Cheat Sheet', 'Cheat sheet', 'php'],
+        ['cheatsheet-mysql.html', '📋', 'MySQL Cheat Sheet', 'Cheat sheet', 'mysql sql'],
+        ['cheatsheet-laravel.html', '📋', 'Laravel Cheat Sheet', 'Cheat sheet', 'laravel'],
+        ['cheatsheet-python.html', '📋', 'Python & Machine Learning Cheat Sheet', 'Cheat sheet', 'python'],
+        ['cheatsheet-networks.html', '📋', 'Networking & Web Protocols Cheat Sheet', 'Cheat sheet', 'network'],
+        ['cheatsheet-cybersecurity.html', '📋', 'Cybersecurity & Digital Hygiene Cheat Sheet', 'Cheat sheet', 'security'],
+        ['studios/web-studio/index.html', '⚡', 'Web Studio (HTML, CSS & JS Lab)', 'Studio', 'playground ide code'],
+        ['studios/sql-sandbox/index.html', '🗄️', 'SQL Sandbox', 'Studio', 'mysql database query'],
+        ['studios/python-console/index.html', '🐍', 'Python Console', 'Studio', 'python run'],
+        ['master-playground.html', '💻', 'Master Playground IDE', 'Studio', 'code lab ide'],
+        ['practice-arena.html', '⚔️', 'Practice Arena', 'Practice', 'challenges exercises xp'],
+        ['learn/index.html', '📚', 'Learn: Curriculum & Pathways', 'Page', 'courses tracks'],
+        ['paths/index.html', '🗺️', 'Guided Learning Pathways', 'Page', 'beginner web developer full stack'],
+        ['library/books/index.html', '📖', 'All Textbooks', 'Page', 'books library'],
+        ['library/cheatsheets/index.html', '📋', 'All Cheat Sheets', 'Page', 'reference'],
+        ['projects/index.html', '🏆', 'Graded Project Catalog', 'Page', 'projects capstone'],
+        ['teacher-hub/index.html', '🍎', 'Teacher Hub & Educator Resources', 'Page', 'teachers lesson plans rubrics'],
+        ['ai-roadmap.html', '🤖', 'AI Roadmap', 'Page', 'ai machine learning'],
+        ['getting-started.html', '🚀', 'Getting Started', 'Page', 'start setup']
+    ];
+    const TRACK_ICONS = { html: '🌐', css: '🎨', js: '⚡', php: '🐘', mysql: '🗄️', laravel: '🔥', python: '🐍', networks: '🌍', cybersecurity: '🛡️' };
+
+    function buildSearchIndex() {
+        const items = [];
+        Object.keys(CURRICULUM).forEach(key => {
+            const t = CURRICULUM[key], icon = TRACK_ICONS[key] || '📚', dir = encodeURI(t.dir) + '/';
+            items.push({ url: ROOT + dir + t.syllabus, icon, label: t.name + ': all modules', sub: 'Course', keys: key + ' ' + t.dir });
+            t.modules.forEach(m => items.push({ url: ROOT + dir + m.file, icon, label: 'Module ' + m.num + ': ' + m.title, sub: t.shortName, keys: key + ' ' + t.dir }));
+            (t.extras || []).forEach(x => items.push({ url: ROOT + dir + x.file, icon: x.icon, label: t.shortName + ' ' + x.title, sub: t.shortName, keys: key + ' ' + t.dir + ' practice' }));
+        });
+        SEARCH_PAGES.forEach(([href, icon, label, sub, keys]) => items.push({ url: ROOT + href, icon, label, sub, keys }));
+        items.forEach(i => { i.hay = (i.label + ' ' + i.sub + ' ' + (i.keys || '')).toLowerCase(); i.lab = i.label.toLowerCase(); });
+        return items;
+    }
+
+    function renderSearch() {
+        if (document.getElementById('beiSearch')) return;
+        const overlay = document.createElement('div');
+        overlay.className = 'bei-search-overlay';
+        overlay.id = 'beiSearch';
+        overlay.hidden = true;
+        overlay.innerHTML = `
+            <div class="bei-search-panel" role="dialog" aria-modal="true" aria-label="Search the site">
+                <div class="bei-search-row">
+                    <span aria-hidden="true">🔍</span>
+                    <input type="search" id="beiSearchInput" class="bei-search-input" placeholder="Search lessons, textbooks, cheat sheets..." autocomplete="off" spellcheck="false">
+                    <button type="button" class="bei-search-close" aria-label="Close search">✕</button>
+                </div>
+                <div class="bei-search-results" id="beiSearchResults" role="listbox"></div>
+                <div class="bei-search-foot">↑ ↓ to move · Enter to open · Esc to close</div>
+            </div>`;
+        document.body.appendChild(overlay);
+
+        const input = overlay.querySelector('#beiSearchInput');
+        const results = overlay.querySelector('#beiSearchResults');
+        let index = null, selected = -1;
+        const esc = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+        const open = () => { overlay.hidden = false; document.body.classList.add('bei-search-open'); input.value = ''; render(''); setTimeout(() => input.focus(), 30); };
+        const close = () => { overlay.hidden = true; document.body.classList.remove('bei-search-open'); };
+
+        const render = (q) => {
+            if (!index) index = buildSearchIndex();
+            const term = q.trim().toLowerCase();
+            selected = -1;
+            if (!term) {
+                results.innerHTML = '<div class="bei-search-hint">Try "loops", "forms", "sql", "git" or a module number.</div>';
+                return;
+            }
+            const words = term.split(/\s+/);
+            const hits = index
+                .map(i => { let sc = 0; for (const w of words) { if (!i.hay.includes(w)) return null; sc += i.lab.startsWith(w) ? 3 : i.lab.includes(w) ? 2 : 1; } return { i, sc }; })
+                .filter(Boolean).sort((a, b) => b.sc - a.sc).slice(0, 10);
+            results.innerHTML = hits.length
+                ? hits.map((h, n) => `<a href="${h.i.url}" class="bei-search-item" role="option" data-n="${n}"><span class="bei-search-item-ico">${h.i.icon}</span><span class="bei-search-item-label">${esc(h.i.label)}</span><span class="bei-search-item-sub">${esc(h.i.sub)}</span></a>`).join('')
+                : '<div class="bei-search-hint">No results. Try another word.</div>';
+        };
+        const move = (d) => {
+            const items = results.querySelectorAll('.bei-search-item');
+            if (!items.length) return;
+            selected = (selected + d + items.length) % items.length;
+            items.forEach((el, n) => el.classList.toggle('selected', n === selected));
+            items[selected].scrollIntoView({ block: 'nearest' });
+        };
+
+        input.addEventListener('input', () => render(input.value));
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowDown') { e.preventDefault(); move(1); }
+            else if (e.key === 'ArrowUp') { e.preventDefault(); move(-1); }
+            else if (e.key === 'Enter') { const el = results.querySelector('.bei-search-item.selected') || results.querySelector('.bei-search-item'); if (el) { e.preventDefault(); el.click(); } }
+        });
+        overlay.querySelector('.bei-search-close').addEventListener('click', close);
+        overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+        document.querySelectorAll('.bei-search-btn').forEach(b => b.addEventListener('click', (e) => { e.stopPropagation(); open(); }));
+        document.addEventListener('keydown', (e) => {
+            if (!overlay.hidden && e.key === 'Escape') { close(); return; }
+            const tag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
+            const typing = tag === 'input' || tag === 'textarea' || tag === 'select' || (document.activeElement && document.activeElement.isContentEditable);
+            if (((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') || (!typing && e.key === '/')) { e.preventDefault(); open(); }
+        });
+        if (/Mac|iPhone|iPad/.test(navigator.platform)) document.querySelectorAll('.bei-search-kbd').forEach(k => k.textContent = '⌘ K');
+    }
+
     function init() {
         renderGlobalNav();
         setupModuleNavigation();
         renderTabBar();
+        renderSearch();
     }
 
     if (document.readyState === 'loading') {

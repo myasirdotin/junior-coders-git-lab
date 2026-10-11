@@ -943,8 +943,9 @@
         });
     }
 
-    // Global shortcut Ctrl+K / Cmd+K and /
+    // Global shortcut Ctrl+K / Cmd+K and /  (legacy header only; the shared nav has its own search)
     document.addEventListener('keydown', (e) => {
+        if (hasSharedNav()) return;
         const isMac = typeof navigator !== 'undefined' && /Mac|iPod|iPhone|iPad/.test(navigator.platform);
         const isModifier = isMac ? e.metaKey : e.ctrlKey;
         const activeTag = document.activeElement ? document.activeElement.tagName.toLowerCase() : '';
