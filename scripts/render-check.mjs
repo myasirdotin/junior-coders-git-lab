@@ -5,6 +5,7 @@
 //   e.g. node scripts/render-check.mjs .render 390 844 1 "http://localhost/junior-coders-git-lab/Learning%20JS/module1.html"
 // env:  PORT=9333 (devtools port)  THEME=dark|light  CHROME=<path to chrome.exe>
 //       CLICK=<css selector>  click this element after load (e.g. open the phone menu) before measuring/screenshotting
+//       SETUP=<js>  run once after the first load (e.g. set localStorage), then reload the page before measuring
 // Prints JSON per page, then a summary line listing pages with horizontal scroll or errors.
 // Needs Chrome installed and the site served (XAMPP Apache). Keep <outDir> out of git (.render/ is ignored).
 import { spawn } from 'node:child_process';
@@ -75,6 +76,11 @@ try {
     await cdp.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-color-scheme', value: process.env.THEME || 'light' }] });
     await cdp.send('Page.navigate', { url });
     await sleep(1800);
+    if (process.env.SETUP) {   // e.g. SETUP='localStorage.setItem("bei_theme","light")' — runs once, then the page is loaded again
+      await cdp.send('Runtime.evaluate', { expression: process.env.SETUP });
+      await cdp.send('Page.navigate', { url });
+      await sleep(1800);
+    }
 
     if (process.env.CLICK) {
       await cdp.send('Runtime.evaluate', { expression: `(() => { const el = document.querySelector(${JSON.stringify(process.env.CLICK)}); if (el) el.click(); return !!el; })()` });

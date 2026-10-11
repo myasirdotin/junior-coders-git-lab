@@ -2610,3 +2610,37 @@ code, pre {
     .hero-teacher-link { display: none !important; }      /* Teachers link is in the menu; keep the first screen for students */
     .hero-visual-container { display: none !important; }  /* decorative IDE mock-up: the real content comes sooner */
 }
+
+/* ═════════════════════════════════════════════════════════════════════
+   ONE PALETTE: lesson pages (styles/main.css) adopt the site design system.
+   main.css loads first and paints a purple radial gradient with its own
+   --primary / --bg-main / --bg-card variables; this block (loaded after it on
+   every lesson page) maps those variables onto the navy palette so hub pages,
+   lessons, cheatsheets and playgrounds look like one site in both themes.
+   ═════════════════════════════════════════════════════════════════════ */
+:root {
+    --primary: var(--brand-primary);
+    --primary-hover: var(--brand-primary-hover);
+    --bg-main: var(--bg-page);
+    --bg-card: var(--bg-surface);
+    --border-dim: var(--border-subtle);
+    --shadow-glow: 0 0 20px var(--border-glow);
+}
+body {
+    background-image: none;                 /* remove main.css's purple radial gradient */
+    background-color: var(--bg-page);
+}
+[data-theme="light"] body {
+    background-image: none;
+    background-color: var(--bg-page);
+}
+/* Lesson "Listen" panel: the PDF button had white text on a white pill in light mode */
+[data-theme="light"] .speaker-btn-pdf {
+    color: var(--text-primary);
+    background: rgba(15, 23, 42, 0.06);
+    border: 1px solid var(--border-subtle);
+}
+[data-theme="light"] .speaker-btn-pdf:hover { background: rgba(79, 70, 229, 0.1); color: var(--brand-primary); }
+/* main.css paints a fixed purple radial glow via body::before; the site palette has no glow */
+body::before { background-image: none !important; }
+[data-theme="light"] .speaker-btn-pdf { color: var(--text-primary) !important; }

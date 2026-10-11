@@ -40,5 +40,7 @@ _Last updated 2026-10-11._
   textbook order on purpose. See each folder's `GEMINI.md` §2.
 - Home page (2026-10-11): one main "Start Learning" button, compact secondary buttons, a "Continue where you left off"
   card built from `jc_last_module_path` + `window.BEI_CURRICULUM`; on phones the decorative IDE mock-up is hidden.
-- **Open — visual style:** hub pages (navy, `bei-core.css`) vs lesson pages (purple, `main.css`) vs textbooks (light).
+- One palette (2026-10-11): lesson pages, cheatsheets and playgrounds now use the navy design system in both themes via
+  the bridge block at the end of `bei-core.css` (see `GEMINI.md` §7c); also fixed a white-on-white PDF button in light
+  mode. Textbooks stay light by design.
 - **Open — not yet checked:** narration audio playback in a real browser (headless tests cannot play sound).

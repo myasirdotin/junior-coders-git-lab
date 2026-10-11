@@ -162,6 +162,13 @@ These rules come from real bugs found in this site. Follow them for every change
    in a page, and do not re-enable the old header in `js/core.js` (`injectNavigation`, `injectModuleNavigator`, the
    `.bottom-nav`): it is kept only as a fallback for pages without the shared nav. To add a menu item, edit
    `renderGlobalNav()` / `renderTabBar()` in `js/bei-nav.js` once.
+7c. **One palette.** `styles/bei-core.css` is the design system (navy, dark by default, light via `data-theme`). Lesson
+   pages still load the older `styles/main.css` for their content layout, but a bridge block at the end of
+   `bei-core.css` maps its variables (`--primary`, `--bg-main`, `--bg-card`, `--border-dim`) onto the system palette
+   and removes its purple page gradient and `body::before` glow. Use the `--brand-*`, `--bg-*`, `--text-*` and
+   `--border-*` variables for anything new; do not add page-level gradients or hard-coded purples. Per-track colours
+   on lesson hero cards (PHP purple, Security green, JS yellow...) are intended and stay. The textbook readers
+   (`book-*/`, `styles/book-theme.css`) are deliberately light, like paper, and are the one exception.
 8. **Check before you finish:**
    ```bash
    node scripts/bundle-books.js          # after editing textbook chapters (.md)
