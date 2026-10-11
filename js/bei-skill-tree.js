@@ -1,5 +1,5 @@
 /**
- * BEI Coders - Skill Tree, Progression & Certificate Engine
+ * Junior Coders - Skill Tree, Progression & Certificate Engine
  * Manages gamified student levels, visual prerequisite trees, milestone badges,
  * and verifiable certificate generation.
  */
@@ -272,7 +272,7 @@
 
         const state = getStudentState();
         const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-        const serial = 'BEI-JS-' + Math.abs(hashCode(state.studentName + dateStr)).toString(16).toUpperCase().padStart(8, '0');
+        const serial = 'JC-JS-' + Math.abs(hashCode(state.studentName + dateStr)).toString(16).toUpperCase().padStart(8, '0');
 
         modal.innerHTML = `
             <div class="cert-paper">
@@ -280,7 +280,7 @@
                 <div class="cert-watermark">📜</div>
                 
                 <div class="cert-header">
-                    <div style="font-size: 0.95rem; font-weight: 800; letter-spacing: 0.15em; color: #f59e0b; margin-bottom: 0.25rem;">BEI CODERS ACADEMY</div>
+                    <div style="font-size: 0.95rem; font-weight: 800; letter-spacing: 0.15em; color: #f59e0b; margin-bottom: 0.25rem;">JUNIOR CODERS ACADEMY</div>
                     <h2>Certificate of Technical Mastery</h2>
                     <p style="color: #64748b; font-size: 0.9rem; margin: 0;">Verified School Computer Science Pathway</p>
                 </div>
@@ -302,7 +302,7 @@
                     <div>
                         <div class="cert-sign-line"></div>
                         <strong style="display:block; font-size:0.95rem; color:#0f172a;">Lead Computer Science Instructor</strong>
-                        <span style="font-size:0.8rem; color:#64748b;">BEI Coders Curriculum Board</span>
+                        <span style="font-size:0.8rem; color:#64748b;">Junior Coders Curriculum Board</span>
                     </div>
                     <div>
                         <div class="cert-sign-line"></div>

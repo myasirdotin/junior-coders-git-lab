@@ -1,10 +1,10 @@
-# LearnCode V-01 🚀
+# Junior Coders 🚀
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)]()
 [![Platform](https://img.shields.io/badge/platform-Web-orange.svg)]()
 
-**LearnCode V-01** is a premium, interactive learning platform designed to take aspiring developers from zero to full-stack hero. It provides a structured, visual, and gamified experience for mastering the core pillars of web development.
+**Junior Coders** is a premium, interactive learning platform designed to take aspiring developers from zero to full-stack hero. It provides a structured, visual, and gamified experience for mastering the core pillars of web development.
 
 ---
 

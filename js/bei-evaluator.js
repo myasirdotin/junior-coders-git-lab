@@ -1,5 +1,5 @@
 /**
- * BEI Coders - In-Browser Automatic Code Evaluator & Diagnostic Engine
+ * Junior Coders - In-Browser Automatic Code Evaluator & Diagnostic Engine
  * Provides client-side unit test runners, friendly error translation ("Why did my code fail?"),
  * multi-tier hint scaffolding, code explanation, and gamified XP rewards.
  */

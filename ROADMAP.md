@@ -1,6 +1,6 @@
-# 🗺️ LearnCode / BEI Coders — Curriculum & Development Roadmap
+# 🗺️ Junior Coders — Curriculum & Development Roadmap
 
-Welcome to the **LearnCode / BEI Coders** official project roadmap. This document outlines our curriculum progression, current release milestones, and forward-looking developmental roadmap for school students, educators, and open-source contributors.
+Welcome to the **Junior Coders** official project roadmap. This document outlines our curriculum progression, current release milestones, and forward-looking developmental roadmap for school students, educators, and open-source contributors.
 
 ---
 

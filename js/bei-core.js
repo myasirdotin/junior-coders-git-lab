@@ -1,5 +1,5 @@
 /**
- * BEI Coders (Junior Coders) Core Platform Interactive Logic
+ * Junior Coders (Junior Coders) Core Platform Interactive Logic
  * Handles placement diagnostic, theme toggling, interactive sandboxes, and student progress.
  */
 

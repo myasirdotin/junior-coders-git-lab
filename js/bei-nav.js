@@ -1,5 +1,5 @@
 /**
- * BEI Coders - Unified Navigation System (bei-nav.js)
+ * Junior Coders - Unified Navigation System (bei-nav.js)
  * Provides global navigation standardization, mobile drawer toggle, theme management,
  * track-aware quick module switcher, and responsive bottom lesson pagers.
  */
@@ -167,7 +167,7 @@
                 <a href="${ROOT}index.html" class="bei-logo">
                     <div class="bei-logo-icon">💻</div>
                     <div class="bei-logo-text">
-                        <span class="bei-brand-name">BEI Coders</span>
+                        <span class="bei-brand-name">Junior Coders</span>
                         <span class="bei-logo-sub">School Computer Science</span>
                     </div>
                 </a>

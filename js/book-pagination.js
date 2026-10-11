@@ -152,7 +152,7 @@
           <span class="dedication-sparkle">✦</span> Designed with <em>Iḥsān</em> for <strong>Yasir Rasool</strong> &bull; Lead Developer &amp; Educator
         </div>
         <div class="reader-footer-copyright">
-          &copy; 2026 BEI Coders (Junior Coders). Dedicated to Beneficial Knowledge (<em>'Ilm N&#257;fi'</em>), Digital Stewardship &amp; Craftsmanship.
+          &copy; 2026 Junior Coders (Junior Coders). Dedicated to Beneficial Knowledge (<em>'Ilm N&#257;fi'</em>), Digital Stewardship &amp; Craftsmanship.
         </div>
         <div class="reader-footer-pills">
           <a href="https://github.com/myasirdotin/" target="_blank" rel="noopener noreferrer" class="reader-footer-pill" title="GitHub Profile - Yasir Rasool">

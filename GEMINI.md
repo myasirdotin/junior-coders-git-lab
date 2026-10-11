@@ -1,6 +1,6 @@
-# LearnCode V-01 - Project Instructions & Core Guidelines
+# Junior Coders - Project Instructions & Core Guidelines
 
-This project is an interactive educational platform for mastering full-stack web development: HTML, CSS, JavaScript, PHP, MySQL, and Laravel. It has been formalized as the **LearnCode V-01** package for GitHub release.
+This project is an interactive educational platform for mastering full-stack web development: HTML, CSS, JavaScript, PHP, MySQL, and Laravel. It has been formalized as the **Junior Coders** package for GitHub release.
 
 ## Project Identity
 - **Version**: 1.0.0

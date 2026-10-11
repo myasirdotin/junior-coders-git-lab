@@ -1,5 +1,5 @@
 /**
- * BEI Coders - Learning Cycle Controller
+ * Junior Coders - Learning Cycle Controller
  * Manages the 7-Step Cycle (Learn -> See -> Try -> Practice -> Challenge -> Quiz -> Project),
  * 3-Tier Exercises, Auto-Evaluator integration, Hints, Quiz, and Project checkpoints.
  */

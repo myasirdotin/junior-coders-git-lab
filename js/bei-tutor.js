@@ -1,5 +1,5 @@
 /**
- * BEI Coders - Socratic AI Coding Tutor
+ * Junior Coders - Socratic AI Coding Tutor
  * A controlled educational mentor that guides students without giving away
  * the direct solution code, turning errors into teaching opportunities.
  */
@@ -36,7 +36,7 @@
                 <!-- Chat Messages Body -->
                 <div id="tutorChatBody" style="flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; line-height: 1.55;">
                     <div style="background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 12px; padding: 0.85rem; color: #e2e8f0;">
-                        👋 <strong>Assalamu Alaikum! I am your BEI Coding Guide.</strong>
+                        👋 <strong>Assalamu Alaikum! I am your Junior Coders Guide.</strong>
                         <p style="margin: 0.4rem 0 0; color: #cbd5e1; font-size: 0.83rem;">
                             I won't just do your homework for you, but I will help you reason through bugs, understand syntax, and discover the solution yourself!
                         </p>

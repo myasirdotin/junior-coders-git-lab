@@ -1,6 +1,6 @@
 # Class 9 MySQL: Databases & SQL Queries — Textbook Curriculum
 
-The official, production-grade digital textbook for mastering relational databases and SQL queries, formalized under the **Junior Coders / LearnCode V-01** package.
+The official, production-grade digital textbook for mastering relational databases and SQL queries, formalized under the **Junior Coders** package.
 
 ---
 
