@@ -2999,3 +2999,42 @@ body.dark .concept-figure {
   }
   .reader-header-main .reader-chapter-badge { max-width: 60% !important; }
 }
+
+/* ==========================================================================
+   Sidebar header used by the Cybersecurity, Networks and Python books
+   (.book-sidebar-header / .book-back-link / .book-main-title / .book-subtitle /
+   .book-sidebar-search). These classes had no styles: the back link rendered as a
+   raw underlined link and the search box as an unstyled input.
+   ========================================================================== */
+.book-sidebar-header { margin-bottom: 0.25rem; }
+.book-sidebar-header .book-brand { margin-bottom: 1rem; }
+.book-back-link {
+  display: inline-flex; align-items: center; gap: 0.35rem;
+  margin-bottom: 1rem; padding: 0.35rem 0.65rem;
+  font-size: 0.8rem; font-weight: 600; text-decoration: none;
+  color: var(--text-secondary); background: #ffffff;
+  border: 1px solid var(--border-color); border-radius: 6px;
+  transition: all 0.2s ease;
+}
+.book-back-link:hover { color: var(--primary-blue); border-color: var(--primary-blue); background: #eff6ff; transform: translateX(-2px); }
+.book-main-title { font-size: 1.15rem; font-weight: 800; line-height: 1.25; margin: 0.15rem 0 0; color: var(--text-primary); }
+.book-subtitle { display: block; font-size: 0.8rem; color: var(--text-muted); margin: 0.1rem 0 0; }
+.book-sidebar-search { margin-bottom: 0.85rem; }
+.book-sidebar-search input {
+  width: 100%; padding: 0.5rem 0.75rem; font-size: 0.85rem; font-family: inherit;
+  color: var(--text-primary); background: #ffffff;
+  border: 1px solid var(--border-color); border-radius: 8px; outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.book-sidebar-search input:focus { border-color: var(--primary-blue); box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12); }
+.book-sidebar-header + .book-sidebar-search + div .book-subject-tabs { flex-wrap: wrap; }
+
+/* Track badges above the book title (same look as the HTML book's .html-brand-badge) */
+.cyber-brand-badge, .networks-brand-badge, .python-brand-badge {
+  display: inline-block; padding: 0.2rem 0.6rem; margin-bottom: 0.25rem;
+  font-size: 0.72rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;
+  color: #ffffff; border-radius: 999px;
+}
+.cyber-brand-badge    { background: linear-gradient(135deg, #10b981, #047857); }
+.networks-brand-badge { background: linear-gradient(135deg, #0ea5e9, #0369a1); }
+.python-brand-badge   { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
