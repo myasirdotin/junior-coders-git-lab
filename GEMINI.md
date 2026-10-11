@@ -169,6 +169,12 @@ These rules come from real bugs found in this site. Follow them for every change
    `--border-*` variables for anything new; do not add page-level gradients or hard-coded purples. Per-track colours
    on lesson hero cards (PHP purple, Security green, JS yellow...) are intended and stay. The textbook readers
    (`book-*/`, `styles/book-theme.css`) are deliberately light, like paper, and are the one exception.
+7d. **Narration voices.** Both narrators (`js/book-speaker.js` for textbooks, the lesson speaker in `js/core.js`) use
+   the browser's Web Speech voices through `js/tts-voices.js`, which ranks them, remembers the reader's choice
+   (`bei_tts_voice`), renders the voice picker and shows the "open in Microsoft Edge" tip when only basic voices exist.
+   Voice quality is decided by the browser, not by our code: Windows Chrome = flat Google/Microsoft voices, Edge = free
+   neural "Natural" voices, Android/iOS = system voices. Pre-recorded MP3 narration (neural TTS generated once per chapter)
+   is the only way to guarantee the same voice everywhere; if added, play it when present and fall back to Web Speech.
 8. **Check before you finish:**
    ```bash
    node scripts/bundle-books.js          # after editing textbook chapters (.md)

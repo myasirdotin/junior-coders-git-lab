@@ -2720,3 +2720,17 @@ body.bei-search-open { overflow: hidden; }
 @media (max-width: 640px) {
     .bei-module-switcher-menu { left: 0; right: auto; width: min(330px, calc(100vw - 48px)); }
 }
+
+/* Narrator voice picker on lesson pages (js/tts-voices.js) */
+.speaker-voice-select {
+    max-width: 170px; padding: 0.35rem 0.5rem; border-radius: 8px;
+    border: 1px solid var(--border-subtle); background: var(--bg-input); color: var(--text-primary);
+    font: inherit; font-size: 0.8rem; font-weight: 600;
+}
+.speaker-voice-hint {
+    flex: 1 0 100%; margin: 0.35rem 0 0; padding: 0.4rem 0.7rem; border-radius: 8px;
+    background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.4); color: #fcd34d;
+    font-size: 0.78rem; line-height: 1.4;
+}
+[data-theme="light"] .speaker-voice-hint { background: #fffbeb; border-color: #fcd34d; color: #92400e; }
+@media (max-width: 640px) { .speaker-voice-select { display: none; } }

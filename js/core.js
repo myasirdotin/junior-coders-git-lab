@@ -1033,7 +1033,8 @@
 
         const loadVoices = () => {
             const voices = window.speechSynthesis.getVoices();
-            preferredVoice = voices.find(v => v.lang && v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Online') || v.name.includes('Jenny') || v.name.includes('Guy'))) ||
+            preferredVoice = (window.JCVoices && window.JCVoices.best()) ||
+                             voices.find(v => v.lang && v.lang.startsWith('en') && (v.name.includes('Natural') || v.name.includes('Google') || v.name.includes('Online') || v.name.includes('Jenny') || v.name.includes('Guy'))) ||
                              voices.find(v => v.lang && v.lang.startsWith('en')) ||
                              voices[0] || null;
         };
@@ -1345,6 +1346,19 @@
             const mainBtn = toolbar.querySelector('#speaker-main-btn');
             const stopBtn = toolbar.querySelector('#speaker-stop-btn');
             const speedSelect = toolbar.querySelector('#speaker-speed-select');
+            // Voice picker + "basic voices" hint (needs js/tts-voices.js)
+            if (window.JCVoices) {
+                const voiceSelect = window.JCVoices.picker(() => { loadVoices(); });
+                voiceSelect.classList.add('speaker-voice-select');
+                speedSelect.insertAdjacentElement('afterend', voiceSelect);
+                const tip = window.JCVoices.hint();
+                if (tip) {
+                    const note = document.createElement('p');
+                    note.className = 'speaker-voice-hint';
+                    note.textContent = '🎙️ ' + tip;
+                    toolbar.appendChild(note);
+                }
+            }
             const pdfBtn = toolbar.querySelector('#speaker-download-pdf-btn');
 
             mainBtn.addEventListener('click', toggleSpeech);

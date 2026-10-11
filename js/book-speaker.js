@@ -54,7 +54,30 @@
       .filter(v => v.lang && v.lang.toLowerCase().startsWith('en'))
       .sort((a, b) => scoreVoice(b) - scoreVoice(a));
 
-    preferredVoice = englishVoices[0] || voices[0] || null;
+    preferredVoice = (window.JCVoices && window.JCVoices.best()) || englishVoices[0] || voices[0] || null;
+  };
+
+  // Voice picker + "basic voices" hint, next to the speed control (needs js/tts-voices.js)
+  const setupVoicePicker = () => {
+    if (!window.JCVoices || document.querySelector('.reader-voice-pill')) return;
+    const speedPill = document.querySelector('.reader-speed-pill');
+    if (!speedPill) return;
+    const pill = document.createElement('div');
+    pill.className = 'reader-voice-pill';
+    pill.innerHTML = '<span class="speed-caption">Voice</span>';
+    pill.appendChild(window.JCVoices.picker(() => {
+      preferredVoice = window.JCVoices.best();
+      if (window.speechSynthesis && window.speechSynthesis.speaking && queue[currentIndex]) { currentIndex--; stopSpeech(); playNextInQueue(); }
+    }));
+    speedPill.insertAdjacentElement('afterend', pill);
+    const tip = window.JCVoices.hint();
+    const header = document.getElementById('bookReaderHeader');
+    if (tip && header && !document.querySelector('.reader-voice-hint')) {
+      const note = document.createElement('p');
+      note.className = 'reader-voice-hint';
+      note.textContent = '🎙️ ' + tip;
+      header.appendChild(note);
+    }
   };
 
   if ('speechSynthesis' in window) {
@@ -258,6 +281,7 @@
     const stopBtn = document.getElementById('book-speaker-stop-btn');
     const speedSelect = document.getElementById('book-speaker-speed-select');
     const readingBtn = document.getElementById('book-reading-mode-btn');
+    setupVoicePicker();
 
     if (mainBtn && !mainBtn.dataset.bound) {
       mainBtn.dataset.bound = 'true';

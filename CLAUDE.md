@@ -49,4 +49,7 @@ _Last updated 2026-10-11._
   for all 9 tracks, in the same `jc_user_state` format `core.js` uses; `core.js` also learns the extra tracks from
   `window.BEI_CURRICULUM`. Progress is per device (localStorage). No page currently shows the XP dashboard, and the
   skill tree (`js/bei-skill-tree.js`) runs on demo data.
+- Narrator voices (2026-10-11): `js/tts-voices.js` + voice picker in both narrators; Edge tip on Windows Chrome
+  (see `GEMINI.md` §7d). Owner finds the default Windows Chrome voice flat; pre-recorded neural narration for key
+  chapters is the next step if wanted.
 - **Open — not yet checked:** narration audio playback in a real browser (headless tests cannot play sound).

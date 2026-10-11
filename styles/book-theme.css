@@ -3038,3 +3038,21 @@ body.dark .concept-figure {
 .cyber-brand-badge    { background: linear-gradient(135deg, #10b981, #047857); }
 .networks-brand-badge { background: linear-gradient(135deg, #0ea5e9, #0369a1); }
 .python-brand-badge   { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+
+/* Narrator voice picker (js/tts-voices.js) in the reader controls */
+.reader-voice-pill {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  padding: 0.25rem 0.5rem; border-radius: 999px;
+  background: var(--bg-sidebar, #f8fafc); border: 1px solid var(--border-color);
+}
+.reader-voice-pill .tts-voice-select {
+  max-width: 150px; border: 0; background: transparent; outline: 0;
+  font: inherit; font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); cursor: pointer;
+}
+.reader-voice-hint {
+  margin: 0.4rem 0 0; padding: 0.4rem 0.7rem; border-radius: 8px;
+  background: #fffbeb; border: 1px solid #fcd34d; color: #92400e; font-size: 0.78rem; line-height: 1.4;
+}
+@media (max-width: 640px) {
+  .reader-voice-pill { display: none !important; }   /* phones: system voices are fine; keep the bar to one row */
+}
