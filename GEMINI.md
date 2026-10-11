@@ -195,6 +195,9 @@ These rules come from real bugs found in this site. Follow them for every change
    ```
    Open the screenshots in `.render/` and look at them. `audit.ps1` rewrites `book-audit-report.md` with a new date;
    do not commit that file if nothing else in it changed.
-9. **Commits:** clear conventional messages (`fix:`, `feat:`, `docs:`...). Push to `main` only when the owner asks;
-   `main` deploys to Vercel.
+9. **Commits:** clear conventional messages (`fix:`, `feat:`, `docs:`...). Push only when the owner asks, and then push
+   **both** branches: `git push origin main && git push origin main:master` (`master` is GitHub's default and deploys to Vercel).
+10. **Session handoff.** `docs/BACKLOG.md` is the work log (Now / Next / Decisions / Done). Read it at the start of a
+   session and report the state in three or four lines; update it at the end of a session as described in
+   `docs/SESSION-HANDOFF.md`, so the next session (with any tool) continues without losing anything.
 

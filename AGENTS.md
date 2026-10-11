@@ -10,4 +10,6 @@ Instructions for AI coding agents (Codex, Copilot, Cursor and others) working on
    `.gemini/agents/<subject>-tutor.md` as the subject expert's brief.
 4. Before you finish, run the checks in `GEMINI.md` §7.8, including
    `node scripts/render-check.mjs .render 390 844 1 <page urls>` and a look at the screenshots.
-5. Commit and push only when the owner asks; `main` deploys to Vercel.
+5. **Start of a session:** read `docs/BACKLOG.md` and tell the owner what was last done, what is in progress and what
+   is next. **End of a session:** update `docs/BACKLOG.md` as described in `docs/SESSION-HANDOFF.md`.
+6. Commit and push only when the owner asks, and then push **both** `main` and `master` (`master` deploys to Vercel).
