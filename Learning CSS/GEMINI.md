@@ -32,9 +32,10 @@ Module pages as they are on the site (`Learning CSS/moduleN.html`), with the tex
 - **Module 7**: CSS Grid (Book Part 7: Ch 14–15)
 - **Module 8**: Responsive Design (Book Part 8: Ch 16–18)
 
-**Differences from the textbook (owner to decide; checked 2026-10-11):** there is no module page for
-**Selectors, Specificity & the Cascade** (Book Part 2: Ch 4–5), and Flexbox has two modules. Either add a selectors
-module or record the current set as official, and update this list and `.gemini/agents/css-tutor.md` in the same change.
+**The page list above is the official module set (decided 2026-10-11).** Selectors, specificity and the cascade
+(Book Part 2: Ch 4–5) are covered inside Modules 1–2 and the textbook rather than a separate module; a dedicated
+selectors module is a welcome future addition (insert it as Module 3 and renumber, updating this list and
+`.gemini/agents/css-tutor.md` in the same change).
 
 ---
 

@@ -39,10 +39,9 @@ Module pages as they are on the site (`Learning HTML/moduleN.html`), with the te
 - **Module 12**: Semantic HTML5 & Modern Layout (Book Part 6: Ch 12)
 - **Module 13 / Lab Projects**: Real-World Website Projects & Capstone (Book Part 7 & 8: Ch 13–17)
 
-**Differences from the textbook (owner to decide; checked 2026-10-11):** Tables (Module 7) come before Lists (Module 8),
-while the book teaches lists first (Ch 9, then Ch 10). Forms (Module 11) come after Block/Inline and Classes & IDs,
-while the book teaches forms (Ch 11) before the layout chapter (Ch 12). Either reorder the pages or record the page
-order as official, and update this list and `.gemini/agents/html-tutor.md` in the same change.
+**The page order above is the official module order (decided 2026-10-11).** It differs from the textbook in two places
+(Tables before Lists; Forms after Block/Inline and Classes & IDs); that is intended. The textbook keeps its own chapter
+order. Keep module pages free of concepts not yet taught in *page* order.
 
 ---
 

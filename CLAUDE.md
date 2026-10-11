@@ -31,7 +31,6 @@ _Last updated 2026-10-11._
 - All 11 textbooks share one reader control bar (see `GEMINI.md` §7.5–7.6); chapter text starts about 260–310px down on
   phones; the Cybersecurity/Networks/Python phone menu and chapter drawer work; Git gained chapter narration.
 - `scripts/render-check.mjs` added (phone-width checks + screenshots; output in git-ignored `.render/`).
-- **Open — curriculum order (owner to decide):** in HTML, CSS and JS the module pages are in a different order from the
-  textbooks. Details are in each folder's `GEMINI.md` under "Differences from the textbook". Either reorder the pages or
-  accept the page order as the official one.
+- Curriculum order: the module *page* order is official for HTML, CSS and JS (decided 2026-10-11); it differs from the
+  textbook order on purpose. See each folder's `GEMINI.md` §2.
 - **Open — not yet checked:** narration audio playback in a real browser (headless tests cannot play sound).

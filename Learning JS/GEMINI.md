@@ -34,12 +34,10 @@ Module pages as they are on the site (`Learning JS/moduleN.html`), with the text
 - **Module 8**: Objects & Data Structures (Book Part 7: Ch 14)
 - **Module 9**: Events & Interactivity (Book Part 8: Ch 15–16)
 
-**Differences from the textbook (owner to decide; checked 2026-10-11):** the book order is Loops → Functions → Arrays →
-Objects → Input/Events → DOM. The pages teach Functions and Arrays **before** Loops, and the DOM **before** Objects and
-Events. A check on 2026-10-11 found no student-facing loops or objects in Modules 4, 5 and 7 (only in the pages' own
-grading scripts), so this is an order difference, not a broken lesson. Keep it that way: under the "no premature concepts"
-rule (root `GEMINI.md` §3) those modules must not use loops or objects in examples. Either reorder the pages or record the
-page order as official, then update this list and `.gemini/agents/js-tutor.md` in the same change.
+**The page order above is the official module order (decided 2026-10-11).** It differs from the textbook (which goes
+Loops → Functions → Arrays → Objects → Input/Events → DOM); that is intended. A check on 2026-10-11 found no
+student-facing loops or objects in Modules 4, 5 and 7, so the "no premature concepts" rule (root `GEMINI.md` §3) holds in
+page order. Keep it that way: Modules 4–5 must not use loops, and Module 7 must not use object literals, in examples.
 
 ---
 
