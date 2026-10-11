@@ -262,7 +262,7 @@
     if (mainBtn && !mainBtn.dataset.bound) {
       mainBtn.dataset.bound = 'true';
       mainBtn.addEventListener('click', () => {
-        const contentArea = document.getElementById('chapterContent');
+        const contentArea = document.getElementById('chapterContent') || document.getElementById('chapterBody');
         if (window.speechSynthesis && window.speechSynthesis.speaking && !isPaused) {
           window.speechSynthesis.pause();
           isPaused = true;
@@ -383,7 +383,7 @@
     stopSpeech();
     setupPermanentHeaderControls();
 
-    const contentArea = document.getElementById('chapterContent');
+    const contentArea = document.getElementById('chapterContent') || document.getElementById('chapterBody');
     if (!contentArea) return;
 
     // Estimate reading time & chapter title
@@ -479,7 +479,7 @@
     window.addEventListener('scroll', updateScrollProgress, { passive: true });
 
     const getReadingTime = () => {
-      const content = document.getElementById('chapterContent') || document.body;
+      const content = (document.getElementById('chapterContent') || document.getElementById('chapterBody') || document.body);
       const text = content ? (content.innerText || '') : '';
       const words = text.trim().split(/\s+/).length;
       const minutes = Math.max(1, Math.ceil(words / 185));

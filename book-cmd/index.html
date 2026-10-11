@@ -256,46 +256,48 @@
       </div>
 
       <!-- Speaker Bar & Reader Controls -->
+      <!-- Reader controls (same markup in every book; styled in styles/book-theme.css, wired by js/book-speaker.js) -->
       <header class="book-reader-header" id="bookReaderHeader" role="region" aria-label="Book Reader Controls">
-        <div class="book-speaker-panel" id="book-speaker-bar">
-          <div class="book-speaker-left">
-            <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read chapter aloud">
-              <span class="btn-icon">&#128266;</span>
+        <div class="reader-header-main">
+          <div class="reader-controls-left">
+            <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read entire chapter aloud">
+              <span class="btn-icon">🔊</span>
               <span class="btn-text">Read Chapter</span>
             </button>
-            <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop reading">
-              <span class="btn-icon">&#9209;&#65039;</span>
+            <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop audio narration">
+              <span class="btn-icon">⏹️</span>
               <span class="btn-text">Stop</span>
             </button>
-            <div class="book-speaker-speed-wrap">
-              <label for="book-speaker-speed-select" class="book-speaker-speed-label">Speed:</label>
-              <select class="book-speaker-speed-select" id="book-speaker-speed-select">
-                <option value="0.75">0.75x</option>
-                <option value="1" selected>1.0x</option>
-                <option value="1.25">1.25x</option>
-                <option value="1.5">1.5x</option>
-              </select>
-            </div>
             <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true">
               <span></span><span></span><span></span><span></span>
             </div>
           </div>
+          <div class="reader-divider" aria-hidden="true"></div>
           <div class="reader-status-center">
             <div class="reader-chapter-badge">
-              <span class="status-dot"></span>
+              <span class="status-dot" style="background: var(--book-accent, #2563eb);"></span>
               <span class="status-text" id="book-speaker-status-text">Ready to read</span>
             </div>
           </div>
-          <div class="book-speaker-right">
-            <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn">
-              <span class="btn-icon">&#128214;</span>
+          <div class="reader-divider" aria-hidden="true"></div>
+          <div class="reader-controls-right">
+            <div class="reader-speed-pill">
+              <span class="speed-caption">Speed</span>
+              <select class="book-speaker-speed-select" id="book-speaker-speed-select" aria-label="Narration speed">
+                <option value="0.85">0.85x</option>
+                <option value="1.0" selected>1.0x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
+              </select>
+            </div>
+            <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn" title="Toggle Distraction-Free Reading Mode">
+              <span class="btn-icon">📖</span>
               <span class="btn-text">Reading Mode</span>
             </button>
             <button type="button" class="book-download-pdf-btn" id="book-download-pdf-btn" title="Download current chapter as PDF">
               <span class="btn-icon">⬇️</span>
               <span class="btn-text">Download PDF</span>
             </button>
-            <span class="reader-meta-item" id="readTime">⏱️ 4 min read</span>
           </div>
         </div>
       </header>
@@ -436,7 +438,8 @@
 
         // Update read time estimate
         const wordCount = md.split(/\s+/).length;
-        document.getElementById('readTime').textContent = `⏱️ ${Math.ceil(wordCount / 180)} min read`;
+        // Refresh the reader bar: chapter title + read time in the status badge, section speaker buttons
+        if (window.initBookSpeaker) window.initBookSpeaker();
 
         // Update breadcrumb
         const partGroup = navElement ? navElement.closest('.part-group') : null;

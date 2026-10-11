@@ -49,10 +49,11 @@ _Last updated 2026-10-11._
   Teacher Hub header and class selector overflowing on phones; 67 literal `*Amānah*`-style asterisks now render as italics.
 - **Brand name is "Junior Coders"** (owner's decision, 2026-10-11). The old names "BEI Coders" and "LearnCode V-01" were
   replaced in all visible text. Code identifiers keep the `bei-` prefix (`bei-core.css`, `.bei-nav`, `js/bei-*.js`); do not rename them.
-- Textbook readers on phones (2026-10-11): controls compacted for all 11 books (chapter text now starts ~260-280px down,
-  was 360-420px); the `.book-mobile-header` variant (Cybersecurity, Networks, Python) had no CSS, so its menu button was
-  invisible — now styled, and the chapter drawer closes on chapter pick, outside tap or Escape. The books use three
-  different control-bar markups (`.reader-header-main`, `.book-speaker-panel`, Laravel's `.book-content` card); phone rules for
-  each are at the end of `styles/book-theme.css`.
-- Open: on desktop the Cybersecurity/Networks/Python control bars stack untidily ("Speed:", voice name, A-/A+ on separate
-  lines). Unifying the three control-bar markups into one would fix this for good.
+- **Reader controls are one shared markup in all 11 books** (2026-10-11): `header.book-reader-header > .reader-header-main`
+  with `.reader-controls-left` (Read/Stop), `.reader-status-center` (Prev/Next from `js/book-pagination.js` + chapter badge),
+  `.reader-controls-right` (speed, optional A-/A+ `.reader-font-size`, Reading Mode, PDF). Copy it from any book; do not
+  invent a new bar. Each book's `loadChapter()` must call `window.initBookSpeaker()` after rendering a chapter (it fills the
+  badge with title + read time and adds section 🔊 buttons). Layout: one row on wide screens, two rows at 901-1440px,
+  compact one row on phones (rules at the end of `styles/book-theme.css`).
+- Phone fixes (2026-10-11): chapter text starts ~260-310px down (was 360-440px); the `.book-mobile-header` variant
+  (Cybersecurity, Networks, Python) is now styled and its chapter drawer closes on pick / outside tap / Escape.

@@ -2943,9 +2943,7 @@ body.dark .concept-figure {
 }
 
 /* ==========================================================================
-   Compact phone layout for books using the .book-speaker-panel control bar
-   (Terminal, Git, Cybersecurity, Networks, Python ...).
-   Row 1: Read · Stop · speed · Reading Mode · PDF   Row 2: Prev / Next
+   Link row (.reader-quick-actions) on phones: one swipeable row
    ========================================================================== */
 @media (max-width: 640px) {
   .reader-quick-actions {
@@ -2954,34 +2952,50 @@ body.dark .concept-figure {
   }
   .reader-quick-actions::-webkit-scrollbar { display: none !important; }
   .reader-quick-actions .reader-nav-btn { flex: 0 0 auto !important; white-space: nowrap !important; }
+}
 
-  .book-speaker-panel {
-    display: flex !important; flex-wrap: wrap !important; align-items: center !important;
-    gap: 0.4rem 0.25rem !important; padding: 0.45rem 0.4rem !important;
-  }
-  .book-speaker-panel .book-speaker-left,
-  .book-speaker-panel .book-speaker-right { display: contents !important; }
-  .book-speaker-panel .book-speaker-speed-wrap {
-    display: inline-flex !important; align-items: center !important; width: auto !important;
-    padding: 0.2rem 0.45rem !important; border: 1px solid var(--border-color) !important; border-radius: 999px !important;
-    margin: 0 !important;
-  }
-  .book-speaker-panel .book-speaker-speed-label,
-  .book-speaker-panel .book-speaker-status,
-  .book-speaker-panel .speaker-voice-name,
-  .book-speaker-panel #readTime,
-  .book-speaker-panel .book-speaker-waveform { display: none !important; }
-  .book-speaker-panel .book-speaker-btn-stop .btn-text { display: none !important; }
-  .book-speaker-panel .book-reading-mode-toggle-btn { margin-left: auto !important; }
-  .book-speaker-panel .reader-status-center { order: 10 !important; flex: 1 0 100% !important; width: 100% !important; }
+/* Text-size buttons (A- / A+) inside the reader controls (Cybersecurity, Networks) */
+.reader-font-size { display: inline-flex; align-items: center; gap: 0.25rem; }
+.reader-font-size .font-size-btn {
+  min-width: 34px; height: 34px; padding: 0 0.4rem;
+  border: 1px solid var(--border-color); border-radius: 999px;
+  background: #ffffff; color: var(--text-primary);
+  font-size: 0.8rem; font-weight: 700; cursor: pointer;
+}
+.reader-font-size .font-size-btn:hover { border-color: var(--book-accent, #2563eb); }
+/* On phones, text size lives in Reading Mode's own A-/A+ controls; keep the bar on one row */
+@media (max-width: 640px) { .reader-font-size { display: none !important; } }
 
-  /* Cybersecurity-style second bar (.reader-header): text-size and reading buttons on one compact row */
-  .reader-header { padding: 0.4rem 0.25rem !important; margin-bottom: 0.5rem !important; }
-  .reader-header .font-size-controls { display: flex !important; align-items: center !important; gap: 0.35rem !important; flex-wrap: wrap !important; }
-  .reader-header .font-size-btn { min-width: 36px !important; min-height: 36px !important; }
-  .reader-header #readTime { display: none !important; }
+/* Git book: chapter header under the reader controls (breadcrumb + level badge) had no styles */
+.book-content-wrapper > .chapter-header {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 0.35rem 0.75rem; margin: 0 0 0.75rem; font-size: 0.8rem; color: var(--text-muted);
+}
+.chapter-header .chapter-breadcrumb a { color: var(--text-secondary); text-decoration: none; font-weight: 600; }
+.chapter-header .chapter-breadcrumb a:hover { color: var(--book-accent, #f05032); }
+.chapter-header .chapter-breadcrumb .sep { margin: 0 0.3rem; opacity: 0.6; }
+.chapter-header .status-badge {
+  padding: 0.15rem 0.6rem; border-radius: 999px; font-size: 0.72rem; font-weight: 700;
+  background: rgba(240, 80, 50, 0.1); color: #c2410c;
 }
 @media (max-width: 640px) {
-  /* Panel nested inside .book-reader-header: the header already pads it */
-  .book-reader-header .book-speaker-panel { padding: 0 !important; }
+  /* The top bar already shows where you are; keep only the level badge */
+  .book-content-wrapper > .chapter-header .chapter-breadcrumb { display: none; }
+}
+
+/* ==========================================================================
+   Reader controls on laptop-size screens (901px - 1440px)
+   With the sidebar open there is not enough width for audio controls, Prev/Next,
+   the chapter badge and the reading/PDF buttons on one line (they squeezed or
+   overlapped). Keep the buttons on row 1 and move Prev/Next + badge to row 2.
+   ========================================================================== */
+@media (min-width: 901px) and (max-width: 1440px) {
+  .reader-header-main { flex-wrap: wrap !important; row-gap: 0.5rem !important; }
+  .reader-header-main .reader-divider { display: none !important; }
+  .reader-header-main .reader-controls-right { margin-left: auto !important; }
+  .reader-header-main .reader-status-center {
+    order: 3 !important; flex: 1 0 100% !important; justify-content: space-between !important;
+    padding: 0.45rem 0 0 !important; border-top: 1px solid var(--border-color) !important;
+  }
+  .reader-header-main .reader-chapter-badge { max-width: 60% !important; }
 }
