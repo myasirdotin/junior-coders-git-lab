@@ -2734,3 +2734,77 @@ body.bei-search-open { overflow: hidden; }
 }
 [data-theme="light"] .speaker-voice-hint { background: #fffbeb; border-color: #fcd34d; color: #92400e; }
 @media (max-width: 640px) { .speaker-voice-select { display: none; } }
+
+/* ═════════════════════════════════════════════════════════════════════
+   SQL EXERCISES (Learning MySQL/exercises.html) + shared result tables
+   ═════════════════════════════════════════════════════════════════════ */
+.sqlx-intro { margin: 1.25rem 0; display: grid; gap: 0.9rem; }
+.sqlx-progress { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
+.sqlx-progress-bar { flex: 1 1 160px; height: 8px; border-radius: 999px; background: var(--bg-surface-elevated); overflow: hidden; }
+.sqlx-progress-bar span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #0ea5e9, #10b981); transition: width 0.3s ease; }
+.sqlx-engine { font-size: 0.8rem; color: var(--text-muted); }
+.sqlx-engine.ok { color: #34d399; }
+.sqlx-engine.bad { color: #fca5a5; }
+.sqlx-tiers { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.sqlx-tier-btn {
+    padding: 0.4rem 0.85rem; border-radius: 999px; border: 1px solid var(--border-subtle);
+    background: var(--bg-surface); color: var(--text-secondary); font: inherit; font-size: 0.85rem; font-weight: 700; cursor: pointer;
+}
+.sqlx-tier-btn.active { background: var(--brand-primary); border-color: var(--brand-primary); color: #fff; }
+.sqlx-schema { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.75rem 1rem; }
+.sqlx-schema summary { cursor: pointer; font-weight: 700; }
+.sqlx-table { display: grid; grid-template-columns: 130px 1fr; gap: 0.5rem; padding: 0.4rem 0; font-size: 0.82rem; border-top: 1px solid var(--border-subtle); }
+.sqlx-table code { color: var(--brand-cyan); font-weight: 700; }
+.sqlx-table span { color: var(--text-secondary); font-family: var(--font-mono); font-size: 0.76rem; }
+.sqlx-note { margin: 0.6rem 0 0; font-size: 0.82rem; color: var(--text-secondary); }
+.sqlx-note a { color: var(--brand-cyan); font-weight: 600; }
+
+.sqlx-list { display: grid; gap: 1.1rem; }
+.sqlx-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.1rem 1.2rem; }
+.sqlx-card.done { border-color: rgba(16, 185, 129, 0.45); }
+.sqlx-card-head { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.sqlx-card-head h2 { font-size: 1.1rem; margin: 0; flex: 1 1 auto; }
+.sqlx-num {
+    width: 32px; height: 32px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
+    background: var(--bg-surface-elevated); font-family: var(--font-mono); font-weight: 800; font-size: 0.85rem; flex-shrink: 0;
+}
+.sqlx-card.done .sqlx-num { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+.sqlx-tier { font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.6rem; border-radius: 999px; letter-spacing: 0.03em; }
+.sqlx-tier.t1 { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+.sqlx-tier.t2 { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.sqlx-tier.t3 { background: rgba(244, 63, 94, 0.15); color: #fb7185; }
+.sqlx-task { color: var(--text-secondary); font-size: 0.95rem; margin: 0 0 0.7rem; line-height: 1.5; }
+.sqlx-editor {
+    width: 100%; min-height: 96px; resize: vertical; padding: 0.8rem 0.9rem; box-sizing: border-box;
+    background: #020617; color: #7dd3fc; border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+    font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.5; outline: none;
+}
+.sqlx-editor:focus { border-color: var(--brand-cyan); }
+[data-theme="light"] .sqlx-editor { background: #0f172a; }
+.sqlx-actions { display: flex; flex-wrap: wrap; gap: 0.45rem; margin: 0.7rem 0; }
+.sqlx-actions button {
+    padding: 0.5rem 0.9rem; border-radius: 999px; border: 1px solid var(--border-subtle);
+    background: var(--bg-surface-elevated); color: var(--text-primary); font: inherit; font-size: 0.83rem; font-weight: 700; cursor: pointer;
+}
+.sqlx-actions .sqlx-run { background: var(--brand-cyan); border-color: var(--brand-cyan); color: #fff; }
+.sqlx-actions .sqlx-run:disabled { opacity: 0.5; cursor: wait; }
+.sqlx-hintbox, .sqlx-solbox { margin: 0.4rem 0; padding: 0.6rem 0.8rem; border-radius: var(--radius-sm); font-size: 0.88rem; line-height: 1.5; }
+.sqlx-hintbox { background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.35); }
+.sqlx-solbox { background: rgba(14, 165, 233, 0.1); border: 1px solid rgba(14, 165, 233, 0.35); font-family: var(--font-mono); overflow-x: auto; }
+.sqlx-feedback { margin: 0.4rem 0; padding: 0.6rem 0.8rem; border-radius: var(--radius-sm); font-weight: 700; font-size: 0.9rem; }
+.sqlx-feedback.ok { background: rgba(16, 185, 129, 0.15); border: 1px solid rgba(16, 185, 129, 0.45); color: #34d399; }
+.sqlx-feedback.no { background: rgba(244, 63, 94, 0.12); border: 1px solid rgba(244, 63, 94, 0.4); color: #fda4af; }
+[data-theme="light"] .sqlx-feedback.ok { color: #047857; }
+[data-theme="light"] .sqlx-feedback.no { color: #be123c; }
+.sqlx-result { overflow-x: auto; }
+.sqlx-label { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); margin: 0.5rem 0 0.3rem; text-transform: uppercase; letter-spacing: 0.04em; }
+.sqlx-error { color: #fca5a5; font-family: var(--font-mono); font-size: 0.85rem; }
+.sqlx-card .result-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; text-align: left; }
+.sqlx-card .result-table th { background: var(--bg-surface-elevated); color: var(--brand-cyan); padding: 0.45rem 0.7rem; font-family: var(--font-mono); border-bottom: 2px solid var(--border-subtle); }
+.sqlx-card .result-table td { padding: 0.4rem 0.7rem; border-bottom: 1px solid var(--border-subtle); color: var(--text-secondary); }
+.sql-null { color: var(--text-muted); font-style: italic; }
+.sql-empty { color: var(--text-muted); padding: 0.75rem; font-size: 0.88rem; }
+@media (max-width: 640px) {
+    .sqlx-table { grid-template-columns: 1fr; gap: 0.15rem; }
+    .sqlx-actions button { flex: 1 1 45%; text-align: center; }
+}

@@ -153,25 +153,10 @@
                 <h3>🗄️ Active Database: <code>school_db</code></h3>
                 <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1rem;">Click any table name to insert a quick SELECT query.</p>
 
-                <div class="table-schema-item" onclick="insertQuery('SELECT * FROM students;')" style="cursor: pointer;">
-                    <div class="table-schema-name">📋 students (5 rows)</div>
-                    <div class="table-schema-cols">id (INT), name (TEXT), grade (INT), gpa (DECIMAL)</div>
-                </div>
-
-                <div class="table-schema-item" onclick="insertQuery('SELECT * FROM books;')" style="cursor: pointer;">
-                    <div class="table-schema-name">📖 books (6 rows)</div>
-                    <div class="table-schema-cols">id (INT), title (TEXT), category (TEXT), available (BOOL)</div>
-                </div>
-
-                <div class="table-schema-item" onclick="insertQuery('SELECT * FROM donations;')" style="cursor: pointer;">
-                    <div class="table-schema-name">🤲 donations (6 rows)</div>
-                    <div class="table-schema-cols">id (INT), donor (TEXT), amount (INT), cause (TEXT)</div>
-                </div>
-
-                <div class="table-schema-item" onclick="insertQuery('SELECT s.name, b.title FROM students s JOIN books b ON s.id = b.id;')" style="cursor: pointer;">
-                    <div class="table-schema-name">🔗 Relational JOIN Demo</div>
-                    <div class="table-schema-cols">Multi-table relational query</div>
-                </div>
+                <div id="schemaList"></div>
+                <button type="button" id="resetDbBtn" class="btn-hero-secondary" style="width: 100%; justify-content: center; padding: 0.45rem 0.9rem; font-size: 0.82rem;">↺ Reset database</button>
+                <p style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.6rem;">INSERT, UPDATE and DELETE work too. Reset brings the original data back.</p>
+                <p style="font-size: 0.8rem; margin-top: 0.75rem;"><a href="../../Learning%20MySQL/exercises.html">✍️ Try the auto-checked SQL exercises →</a></p>
             </aside>
 
             <!-- Main SQL Editor & Output -->
@@ -185,6 +170,10 @@
                             <option value="p3">Available Library Books</option>
                             <option value="p4">Total Donations by Cause (GROUP BY)</option>
                             <option value="p5">Top Donors Sorted (ORDER BY DESC)</option>
+                            <option value="p6">Who Borrowed What (JOIN)</option>
+                            <option value="p7">Books Never Borrowed (LEFT JOIN)</option>
+                            <option value="p8">Class Averages (JOIN + GROUP BY)</option>
+                            <option value="p9">Add a Donation (INSERT)</option>
                         </select>
                     </div>
                     <button id="runSqlBtn" class="btn-hero-primary" style="padding: 0.4rem 1.1rem; font-size: 0.85rem; background: var(--brand-cyan);">
@@ -200,7 +189,7 @@ ORDER BY gpa DESC;</textarea>
                 <div class="sql-results-card">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
                         <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">📊 Query Result Set</span>
-                        <span id="resultCount" style="font-size: 0.78rem; color: var(--brand-accent);">Returned 3 rows</span>
+                        <span id="resultCount" style="font-size: 0.78rem; color: var(--brand-accent);">Loading SQL engine…</span>
                     </div>
                     <div id="tableOutput">
                         <table class="result-table">
@@ -219,40 +208,19 @@ ORDER BY gpa DESC;</textarea>
         </div>
     </main>
 
-    <!-- In-Memory SQL Sandbox Logic -->
+    <!-- Real SQL (SQLite via sql.js) on the shared school database: js/sql-lab.js -->
+    <script src="../../js/sql-lab.js"></script>
     <script>
-        const dbData = {
-            students: [
-                { id: 1, name: "Zayd", grade: 8, gpa: 3.90 },
-                { id: 2, name: "Maryam", grade: 7, gpa: 3.75 },
-                { id: 3, name: "Bilal", grade: 9, gpa: 3.95 },
-                { id: 4, name: "Fatima", grade: 8, gpa: 3.85 },
-                { id: 5, name: "Tariq", grade: 9, gpa: 3.60 }
-            ],
-            books: [
-                { id: 1, title: "Clean Code", category: "Programming", available: "Yes" },
-                { id: 2, title: "Algorithm Design", category: "Computer Science", available: "Yes" },
-                { id: 3, title: "Ethical Technology", category: "Ethics", available: "No" },
-                { id: 4, title: "HTML & CSS Architecture", category: "Web", available: "Yes" },
-                { id: 5, title: "Python Data Science", category: "Data", available: "No" },
-                { id: 6, title: "Digital Stewardship", category: "Ethics", available: "Yes" }
-            ],
-            donations: [
-                { id: 1, donor: "Ahmad", amount: 1500, cause: "Books" },
-                { id: 2, donor: "Sara", amount: 5000, cause: "Clean Water" },
-                { id: 3, donor: "Ibrahim", amount: 2500, cause: "Food Pantry" },
-                { id: 4, donor: "Hafsa", amount: 3000, cause: "Books" },
-                { id: 5, donor: "Yusuf", amount: 8000, cause: "Clean Water" },
-                { id: 6, donor: "Zainab", amount: 4500, cause: "Food Pantry" }
-            ]
-        };
-
         const presets = {
             p1: "SELECT * FROM students;",
             p2: "SELECT id, name, grade, gpa\nFROM students\nWHERE gpa >= 3.8\nORDER BY gpa DESC;",
             p3: "SELECT id, title, category\nFROM books\nWHERE available = 'Yes';",
-            p4: "SELECT cause, SUM(amount) AS total_raised, COUNT(*) as donors_count\nFROM donations\nGROUP BY cause;",
-            p5: "SELECT donor, amount, cause\nFROM donations\nORDER BY amount DESC;"
+            p4: "SELECT cause, SUM(amount) AS total_raised, COUNT(*) AS donors_count\nFROM donations\nGROUP BY cause;",
+            p5: "SELECT donor, amount, cause\nFROM donations\nORDER BY amount DESC;",
+            p6: "SELECT students.name, books.title, loans.loan_date\nFROM loans\nJOIN students ON loans.student_id = students.id\nJOIN books ON loans.book_id = books.id;",
+            p7: "SELECT books.title\nFROM books\nLEFT JOIN loans ON books.id = loans.book_id\nWHERE loans.id IS NULL;",
+            p8: "SELECT classes.name, ROUND(AVG(students.gpa), 2) AS avg_gpa\nFROM students\nJOIN classes ON students.class_id = classes.id\nGROUP BY classes.id;",
+            p9: "INSERT INTO donations (donor, amount, cause, donated_on)\nVALUES ('Your name', 500, 'Books', '2026-10-11');\nSELECT * FROM donations;"
         };
 
         const sqlInput = document.getElementById('sqlInput');
@@ -260,78 +228,45 @@ ORDER BY gpa DESC;</textarea>
         const runBtn = document.getElementById('runSqlBtn');
         const tableOutput = document.getElementById('tableOutput');
         const resultCount = document.getElementById('resultCount');
+        const esc = (v) => String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
-        sqlPresets.addEventListener('change', () => {
-            sqlInput.value = presets[sqlPresets.value];
-            executeQuery();
-        });
+        function renderSchema() {
+            document.getElementById('schemaList').innerHTML = SQLLab.SCHEMA.map(t => `
+                <div class="table-schema-item" onclick="insertQuery('SELECT * FROM ${t.table};')" style="cursor: pointer;">
+                    <div class="table-schema-name">${t.icon} ${t.table} (${SQLLab.rowCount(t.table)} rows)</div>
+                    <div class="table-schema-cols">${esc(t.columns)}</div>
+                </div>`).join('');
+        }
 
         function insertQuery(query) {
             sqlInput.value = query;
             executeQuery();
         }
 
-        runBtn.addEventListener('click', executeQuery);
-
         function executeQuery() {
-            const raw = sqlInput.value.trim().toLowerCase();
-            let rows = [];
-
-            if (raw.includes('students')) {
-                rows = dbData.students;
-                if (raw.includes('3.8')) {
-                    rows = rows.filter(s => s.gpa >= 3.8).sort((a,b) => b.gpa - a.gpa);
-                }
-            } else if (raw.includes('books')) {
-                rows = dbData.books;
-                if (raw.includes("'yes'") || raw.includes('"yes"') || raw.includes('available')) {
-                    rows = rows.filter(b => b.available === 'Yes');
-                }
-            } else if (raw.includes('donations')) {
-                if (raw.includes('group by')) {
-                    // Grouped aggregation
-                    const grouped = {};
-                    dbData.donations.forEach(d => {
-                        if (!grouped[d.cause]) grouped[d.cause] = { cause: d.cause, total_raised: 0, donors_count: 0 };
-                        grouped[d.cause].total_raised += d.amount;
-                        grouped[d.cause].donors_count += 1;
-                    });
-                    rows = Object.values(grouped);
-                } else if (raw.includes('order by')) {
-                    rows = [...dbData.donations].sort((a,b) => b.amount - a.amount);
-                } else {
-                    rows = dbData.donations;
-                }
-            } else {
-                rows = dbData.students;
+            try {
+                const result = SQLLab.run(sqlInput.value);
+                tableOutput.innerHTML = SQLLab.toTable(result, 'result-table');
+                const n = result.values.length;
+                resultCount.innerText = result.columns.length ? `Returned ${n} row${n === 1 ? '' : 's'}` : 'Statement executed';
+                resultCount.style.color = 'var(--brand-accent)';
+                renderSchema();
+                if (window.awardXP) window.awardXP(10, 'SQL Query Execution');
+            } catch (err) {
+                tableOutput.innerHTML = `<div style="color: #fca5a5; padding: 1rem; font-family: var(--font-mono); font-size: 0.85rem;">⚠️ ${esc(err.message)}</div>`;
+                resultCount.innerText = 'SQL error';
+                resultCount.style.color = '#fca5a5';
             }
-
-            renderTable(rows);
-            if (window.awardXP) window.awardXP(10, 'SQL Query Execution');
         }
 
-        function renderTable(data) {
-            if (!data || data.length === 0) {
-                tableOutput.innerHTML = '<div style="color: #94a3b8; padding: 1.5rem;">0 rows returned.</div>';
-                resultCount.innerText = 'Returned 0 rows';
-                return;
-            }
+        sqlPresets.addEventListener('change', () => { sqlInput.value = presets[sqlPresets.value]; executeQuery(); });
+        runBtn.addEventListener('click', executeQuery);
+        sqlInput.addEventListener('keydown', (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); executeQuery(); } });
+        document.getElementById('resetDbBtn').addEventListener('click', () => { SQLLab.reset(); renderSchema(); resultCount.innerText = 'Database reset to the original data'; tableOutput.innerHTML = ''; });
 
-            const cols = Object.keys(data[0]);
-            let html = '<table class="result-table"><thead><tr>';
-            cols.forEach(col => html += `<th>${col}</th>`);
-            html += '</tr></thead><tbody>';
-
-            data.forEach(row => {
-                html += '<tr>';
-                cols.forEach(col => html += `<td>${row[col]}</td>`);
-                html += '</tr>';
-            });
-            html += '</tbody></table>';
-
-            tableOutput.innerHTML = html;
-            resultCount.innerText = `Returned ${data.length} row${data.length === 1 ? '' : 's'}`;
-        }
+        runBtn.disabled = true;
+        SQLLab.ready().then(() => { runBtn.disabled = false; renderSchema(); executeQuery(); })
+            .catch(err => { resultCount.innerText = 'Engine failed to load'; tableOutput.innerHTML = `<div style="color: #fca5a5; padding: 1rem;">${esc(err.message)}</div>`; });
     </script>
     <script src="../../js/bei-core.js"></script>
     <script src="../../js/bei-nav.js"></script>

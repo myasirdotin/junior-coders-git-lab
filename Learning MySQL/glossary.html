@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL Glossary: Database Terms Explained | Junior Coders</title>
+    <meta name="description" content="Plain-English definitions of database and SQL terms: table, row, primary key, foreign key, SELECT, JOIN, GROUP BY, index, normalization and more.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+</head>
+<body>
+    <main id="main-content" class="glossary-container">
+        <div class="glossary-header">
+            <h1>MySQL Glossary</h1>
+            <p>Quick reference for database and SQL terms used in the MySQL track</p>
+        </div>
+
+        <input type="text" id="glossary-search" class="glossary-search" placeholder="Search terms..." aria-label="Search glossary terms">
+
+        <div class="glossary-letter">A</div>
+        <dl class="glossary-term"><dt>Aggregate function</dt><dd>A function that works on many rows and returns one value: <code>COUNT()</code>, <code>SUM()</code>, <code>AVG()</code>, <code>MIN()</code>, <code>MAX()</code>. Usually paired with <code>GROUP BY</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Alias (AS)</dt><dd>A temporary name for a column or table: <code>SELECT SUM(amount) AS total</code>. The result column is then called <code>total</code>.</dd></dl>
+        <dl class="glossary-term"><dt>AUTO_INCREMENT</dt><dd>A column setting that gives each new row the next number automatically, so you never have to invent an <code>id</code> yourself.</dd></dl>
+
+        <div class="glossary-letter">C</div>
+        <dl class="glossary-term"><dt>Column</dt><dd>One field of a table, such as <code>name</code> or <code>gpa</code>. Every row has a value (or NULL) for each column.</dd></dl>
+        <dl class="glossary-term"><dt>Constraint</dt><dd>A rule the database enforces on a column: <code>NOT NULL</code>, <code>UNIQUE</code>, <code>PRIMARY KEY</code>, <code>FOREIGN KEY</code>, <code>DEFAULT</code>.</dd></dl>
+        <dl class="glossary-term"><dt>CREATE TABLE</dt><dd>The statement that defines a new table, its columns and their data types: <code>CREATE TABLE books (id INT PRIMARY KEY, title VARCHAR(100));</code></dd></dl>
+
+        <div class="glossary-letter">D</div>
+        <dl class="glossary-term"><dt>Database</dt><dd>An organised collection of related tables, for example <code>school_db</code> with its students, books and loans.</dd></dl>
+        <dl class="glossary-term"><dt>Data type</dt><dd>What kind of value a column holds: <code>INT</code> (whole numbers), <code>DECIMAL</code>, <code>VARCHAR(n)</code> (text up to n characters), <code>DATE</code>, <code>BOOLEAN</code>.</dd></dl>
+        <dl class="glossary-term"><dt>DELETE</dt><dd>Removes rows: <code>DELETE FROM loans WHERE id = 3;</code> Without a <code>WHERE</code> it removes every row, so always check the condition first.</dd></dl>
+        <dl class="glossary-term"><dt>DISTINCT</dt><dd>Removes duplicate values from a result: <code>SELECT DISTINCT city FROM students;</code> lists each city once.</dd></dl>
+
+        <div class="glossary-letter">F</div>
+        <dl class="glossary-term"><dt>Foreign key</dt><dd>A column that points to the primary key of another table, linking the two. <code>loans.student_id</code> refers to <code>students.id</code>.</dd></dl>
+
+        <div class="glossary-letter">G</div>
+        <dl class="glossary-term"><dt>GROUP BY</dt><dd>Collapses rows that share a value into one row each, so aggregate functions can summarise them: one row per <code>cause</code>, per <code>class</code>, and so on.</dd></dl>
+
+        <div class="glossary-letter">H</div>
+        <dl class="glossary-term"><dt>HAVING</dt><dd>A filter applied <em>after</em> <code>GROUP BY</code>, for conditions on aggregates: <code>HAVING SUM(amount) &gt; 8000</code>. <code>WHERE</code> cannot do this.</dd></dl>
+
+        <div class="glossary-letter">I</div>
+        <dl class="glossary-term"><dt>Index</dt><dd>A lookup structure the database keeps on a column so searches on it are fast, like the index at the back of a book. Primary keys are indexed automatically.</dd></dl>
+        <dl class="glossary-term"><dt>INNER JOIN</dt><dd>The default <code>JOIN</code>: returns only rows that have a match in both tables.</dd></dl>
+        <dl class="glossary-term"><dt>INSERT</dt><dd>Adds a row: <code>INSERT INTO books (title, category) VALUES ('Clean Code', 'Programming');</code></dd></dl>
+
+        <div class="glossary-letter">J</div>
+        <dl class="glossary-term"><dt>JOIN</dt><dd>Combines rows from two tables using a matching column: <code>FROM loans JOIN students ON loans.student_id = students.id</code>.</dd></dl>
+
+        <div class="glossary-letter">L</div>
+        <dl class="glossary-term"><dt>LEFT JOIN</dt><dd>Keeps every row of the left table even when the right table has no match; the missing side shows <code>NULL</code>. Used to find things with no match, such as books never borrowed.</dd></dl>
+        <dl class="glossary-term"><dt>LIMIT</dt><dd>Caps how many rows come back: <code>ORDER BY gpa DESC LIMIT 3</code> gives the top three.</dd></dl>
+
+        <div class="glossary-letter">N</div>
+        <dl class="glossary-term"><dt>Normalization</dt><dd>Designing tables so each fact is stored once. Instead of repeating the teacher's name in every student row, store classes in their own table and link with <code>class_id</code>.</dd></dl>
+        <dl class="glossary-term"><dt>NULL</dt><dd>"No value". Not zero and not an empty string. Test it with <code>IS NULL</code> or <code>IS NOT NULL</code>, never with <code>= NULL</code>.</dd></dl>
+
+        <div class="glossary-letter">O</div>
+        <dl class="glossary-term"><dt>ORDER BY</dt><dd>Sorts the result: <code>ORDER BY name</code> (A to Z) or <code>ORDER BY gpa DESC</code> (highest first).</dd></dl>
+
+        <div class="glossary-letter">P</div>
+        <dl class="glossary-term"><dt>Primary key</dt><dd>The column (usually <code>id</code>) whose value is unique for every row, so each row can be found and linked to reliably.</dd></dl>
+
+        <div class="glossary-letter">Q</div>
+        <dl class="glossary-term"><dt>Query</dt><dd>A request to the database written in SQL. <code>SELECT</code> statements are the most common queries.</dd></dl>
+
+        <div class="glossary-letter">R</div>
+        <dl class="glossary-term"><dt>Relational database</dt><dd>A database made of tables that are linked to each other through keys, such as MySQL, MariaDB, PostgreSQL and SQLite.</dd></dl>
+        <dl class="glossary-term"><dt>Row</dt><dd>One record in a table, for example one student or one loan. Also called a record or a tuple.</dd></dl>
+
+        <div class="glossary-letter">S</div>
+        <dl class="glossary-term"><dt>Schema</dt><dd>The design of a database: which tables exist, their columns, data types and keys.</dd></dl>
+        <dl class="glossary-term"><dt>SELECT</dt><dd>Reads data: <code>SELECT name, gpa FROM students WHERE grade = 9 ORDER BY gpa DESC;</code></dd></dl>
+        <dl class="glossary-term"><dt>SQL</dt><dd>Structured Query Language, the standard language for talking to relational databases. MySQL, SQLite and others all understand it.</dd></dl>
+        <dl class="glossary-term"><dt>SQL injection</dt><dd>An attack where user input is pasted straight into a query so it changes the SQL. Prevented with prepared statements (placeholders), never by trusting input.</dd></dl>
+        <dl class="glossary-term"><dt>Subquery</dt><dd>A query inside another query, used as a value or a list: <code>WHERE gpa &gt; (SELECT AVG(gpa) FROM students)</code>.</dd></dl>
+
+        <div class="glossary-letter">T</div>
+        <dl class="glossary-term"><dt>Table</dt><dd>A grid of rows and columns that stores one kind of thing, such as <code>students</code> or <code>books</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Transaction</dt><dd>A group of statements that must all succeed or all be undone together, so the data never ends up half-changed.</dd></dl>
+
+        <div class="glossary-letter">U</div>
+        <dl class="glossary-term"><dt>UNIQUE</dt><dd>A constraint that forbids two rows from having the same value in a column, for example an email address.</dd></dl>
+        <dl class="glossary-term"><dt>UPDATE</dt><dd>Changes existing rows: <code>UPDATE students SET city = 'Lahore' WHERE id = 5;</code> Always include a <code>WHERE</code>.</dd></dl>
+
+        <div class="glossary-letter">W</div>
+        <dl class="glossary-term"><dt>WHERE</dt><dd>Filters rows before they are returned or changed: <code>WHERE gpa &gt;= 3.8</code>, <code>WHERE city = 'Lahore'</code>.</dd></dl>
+
+        <p id="glossary-empty" class="glossary-empty" hidden>No terms match your search.</p>
+    </main>
+
+    <script>
+    (function () {
+        const input = document.getElementById('glossary-search');
+        const terms = Array.from(document.querySelectorAll('.glossary-term'));
+        const letters = Array.from(document.querySelectorAll('.glossary-letter'));
+        input.addEventListener('input', () => {
+            const q = input.value.trim().toLowerCase();
+            let shown = 0;
+            terms.forEach(t => { const hit = !q || t.textContent.toLowerCase().includes(q); t.style.display = hit ? '' : 'none'; if (hit) shown++; });
+            letters.forEach(l => {
+                let el = l.nextElementSibling, any = false;
+                while (el && !el.classList.contains('glossary-letter')) { if (el.classList.contains('glossary-term') && el.style.display !== 'none') any = true; el = el.nextElementSibling; }
+                l.style.display = any ? '' : 'none';
+            });
+            document.getElementById('glossary-empty').hidden = shown > 0;
+        });
+    })();
+    </script>
+    <script src="../js/bei-nav.js"></script>
+    <script src="../js/tts-voices.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/pdf-download.js"></script>
+</body>
+</html>

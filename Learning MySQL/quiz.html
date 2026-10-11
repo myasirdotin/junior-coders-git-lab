@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL Quiz: 10 Questions | Junior Coders</title>
+    <meta name="description" content="Ten quick questions on databases and SQL: tables, keys, SELECT, WHERE, ORDER BY, GROUP BY, JOIN, INSERT, UPDATE and DELETE.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-mysql">
+            <span class="badge" style="background: white; color: var(--mysql-brand);">Quiz</span>
+            <h1>MySQL Master Quiz 🧠</h1>
+            <p>Ten questions covering the whole MySQL track. Pick an answer for each, then press <strong>Check my answers</strong>.</p>
+        </header>
+
+        <section class="content-card">
+            <form id="quiz-form-mysql" onsubmit="event.preventDefault(); checkQuiz('mysql');">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: In a database, what is a <strong>row</strong>?</p>
+                    <label><input type="radio" name="q1" value="a"> A column heading such as <code>name</code></label>
+                    <label><input type="radio" name="q1" value="b"> One record, such as one student</label>
+                    <label><input type="radio" name="q1" value="c"> The whole table</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q2: Which column uniquely identifies each row in a table?</p>
+                    <label><input type="radio" name="q2" value="a"> The first column</label>
+                    <label><input type="radio" name="q2" value="b"> A foreign key</label>
+                    <label><input type="radio" name="q2" value="c"> The primary key</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: Which statement reads data from a table?</p>
+                    <label><input type="radio" name="q3" value="a"> <code>SELECT</code></label>
+                    <label><input type="radio" name="q3" value="b"> <code>INSERT</code></label>
+                    <label><input type="radio" name="q3" value="c"> <code>CREATE TABLE</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q4: <code>SELECT name FROM students WHERE grade = 9;</code> returns…</p>
+                    <label><input type="radio" name="q4" value="a"> All columns of every student</label>
+                    <label><input type="radio" name="q4" value="b"> Only the names of Grade 9 students</label>
+                    <label><input type="radio" name="q4" value="c"> The number 9</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q5: Which keyword sorts the result from highest to lowest?</p>
+                    <label><input type="radio" name="q5" value="a"> <code>ORDER BY gpa ASC</code></label>
+                    <label><input type="radio" name="q5" value="b"> <code>SORT BY gpa</code></label>
+                    <label><input type="radio" name="q5" value="c"> <code>ORDER BY gpa DESC</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q6: <code>SELECT cause, SUM(amount) FROM donations GROUP BY cause;</code> gives…</p>
+                    <label><input type="radio" name="q6" value="a"> One row per cause with its total</label>
+                    <label><input type="radio" name="q6" value="b"> One row per donation</label>
+                    <label><input type="radio" name="q6" value="c"> An error: SUM needs WHERE</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q7: What does a <code>JOIN</code> do?</p>
+                    <label><input type="radio" name="q7" value="a"> Adds a new column to a table</label>
+                    <label><input type="radio" name="q7" value="b"> Combines rows from two tables using a matching column</label>
+                    <label><input type="radio" name="q7" value="c"> Deletes duplicate rows</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q8: A <strong>foreign key</strong> such as <code>loans.student_id</code>…</p>
+                    <label><input type="radio" name="q8" value="a"> Must be unique in the loans table</label>
+                    <label><input type="radio" name="q8" value="b"> Stores the student's name</label>
+                    <label><input type="radio" name="q8" value="c"> Points to the primary key of another table (<code>students.id</code>)</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q9: Which statement is dangerous without a <code>WHERE</code> clause?</p>
+                    <label><input type="radio" name="q9" value="a"> <code>DELETE FROM students;</code> (removes every row)</label>
+                    <label><input type="radio" name="q9" value="b"> <code>SELECT * FROM students;</code></label>
+                    <label><input type="radio" name="q9" value="c"> <code>SELECT COUNT(*) FROM students;</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q10: To change Tariq's city to 'Lahore' you write…</p>
+                    <label><input type="radio" name="q10" value="a"> <code>CHANGE students city = 'Lahore' WHERE name = 'Tariq';</code></label>
+                    <label><input type="radio" name="q10" value="b"> <code>UPDATE students SET city = 'Lahore' WHERE name = 'Tariq';</code></label>
+                    <label><input type="radio" name="q10" value="c"> <code>INSERT INTO students (city) VALUES ('Lahore');</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="submit" class="btn-primary" style="margin-top: 1rem;">Check my answers</button>
+            </form>
+        </section>
+
+        <section class="content-card" style="margin-top: 1.5rem;">
+            <h2>Keep practising</h2>
+            <p>Try the <a href="exercises.html">MySQL exercises</a> (real queries, auto-checked), explore freely in the <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a>, or look terms up in the <a href="glossary.html">glossary</a>.</p>
+        </section>
+    </main>
+
+    <script src="../js/bei-nav.js"></script>
+    <script src="../js/tts-voices.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/pdf-download.js"></script>
+</body>
+</html>

@@ -52,4 +52,8 @@ _Last updated 2026-10-11._
 - Narrator voices (2026-10-11): `js/tts-voices.js` + voice picker in both narrators; Edge tip on Windows Chrome
   (see `GEMINI.md` §7d). Owner finds the default Windows Chrome voice flat; pre-recorded neural narration for key
   chapters is the next step if wanted.
+- MySQL practice (2026-10-11): real SQL engine (`js/sql-lab.js`, sql.js from cdnjs), SQL Sandbox rebuilt on it, 14
+  auto-checked exercises in 3 tiers (`Learning MySQL/exercises.html`), 10-question quiz, 36-term glossary; the track's
+  switcher now shows Playground / Exercises / Quiz / Glossary like the front-end tracks. PHP and Laravel practice still open
+  (PHP runtime decision pending: php-wasm vs runtime-free).
 - **Open — not yet checked:** narration audio playback in a real browser (headless tests cannot play sound).

@@ -175,6 +175,12 @@ These rules come from real bugs found in this site. Follow them for every change
    Voice quality is decided by the browser, not by our code: Windows Chrome = flat Google/Microsoft voices, Edge = free
    neural "Natural" voices, Android/iOS = system voices. Pre-recorded MP3 narration (neural TTS generated once per chapter)
    is the only way to guarantee the same voice everywhere; if added, play it when present and fall back to Web Speech.
+7e. **SQL practice runs on a real engine.** `js/sql-lab.js` loads sql.js (SQLite in WebAssembly, pinned on cdnjs) and
+   builds the shared `school_db` (classes, students, books, loans, donations) from its `SEED`. The SQL Sandbox studio and
+   `Learning MySQL/exercises.html` both use it. Exercises live in `js/data/sql-exercises.js`; each one's expected result
+   is produced by running its `solution` against the database at page load, so never hard-code expected rows. Keep
+   scenarios within §1 (school library, charity drives). Exercise completions are stored by `beiProgress.completeExercise`
+   with keys like `mysql:<id>` and earn 15/25/40 XP by tier.
 8. **Check before you finish:**
    ```bash
    node scripts/bundle-books.js          # after editing textbook chapters (.md)

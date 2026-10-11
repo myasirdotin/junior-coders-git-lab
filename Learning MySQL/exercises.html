@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL Exercises: Write Real Queries | Junior Coders</title>
+    <meta name="description" content="14 auto-checked SQL exercises on a real in-browser school database: SELECT, WHERE, ORDER BY, GROUP BY, JOIN, LEFT JOIN, subqueries and HAVING.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-mysql">
+            <span class="badge" style="background: white; color: var(--mysql-brand);">Practice</span>
+            <h1>MySQL Exercises 🗄️</h1>
+            <p>Write real SQL against the school library database. Every answer is checked instantly: same columns, same rows.</p>
+        </header>
+
+        <section class="sqlx-intro">
+            <div class="sqlx-progress">
+                <strong><span id="sqlxDone">0</span> of <span id="sqlxTotal">0</span> solved</strong>
+                <span class="sqlx-progress-bar"><span id="sqlxBar"></span></span>
+                <span class="sqlx-engine" id="sqlxEngine">Loading the SQL engine…</span>
+            </div>
+            <div class="sqlx-tiers">
+                <button type="button" class="sqlx-tier-btn active" data-tier="all">All</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="1">🟢 Warm-up</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="2">🟡 Apply</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="3">🔴 Challenge</button>
+            </div>
+            <details class="sqlx-schema">
+                <summary>📋 Tables in <code>school_db</code> (tap to show columns)</summary>
+                <div id="sqlxSchema"></div>
+                <p class="sqlx-note">Need to explore first? Open the <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a> and run any query you like.</p>
+            </details>
+        </section>
+
+        <section id="sqlxList" class="sqlx-list" aria-live="polite"></section>
+    </main>
+
+    <script src="../js/sql-lab.js"></script>
+    <script src="../js/data/sql-exercises.js"></script>
+    <script>
+    (function () {
+        'use strict';
+        const EX = window.SQL_EXERCISES || [];
+        const list = document.getElementById('sqlxList');
+        const TIER_LABEL = { 1: '🟢 Warm-up', 2: '🟡 Apply', 3: '🔴 Challenge' };
+        const XP = { 1: 15, 2: 25, 3: 40 };
+        const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+        const progress = () => window.beiProgress;
+        const doneKey = (ex) => 'mysql:' + ex.id;
+        const isDone = (ex) => !!(progress() && progress().isExerciseDone(doneKey(ex)));
+
+        document.getElementById('sqlxTotal').textContent = EX.length;
+        document.getElementById('sqlxSchema').innerHTML = SQLLab.SCHEMA.map(t =>
+            `<div class="sqlx-table"><code>${t.icon} ${t.table}</code><span>${esc(t.columns)}</span></div>`).join('');
+
+        function updateProgress() {
+            const n = EX.filter(isDone).length;
+            document.getElementById('sqlxDone').textContent = n;
+            document.getElementById('sqlxBar').style.width = (EX.length ? n / EX.length * 100 : 0) + '%';
+        }
+
+        function card(ex, i) {
+            return `
+            <article class="sqlx-card${isDone(ex) ? ' done' : ''}" data-tier="${ex.tier}" id="ex-${ex.id}">
+                <header class="sqlx-card-head">
+                    <span class="sqlx-num">${isDone(ex) ? '✓' : i + 1}</span>
+                    <h2>${esc(ex.title)}</h2>
+                    <span class="sqlx-tier t${ex.tier}">${TIER_LABEL[ex.tier]} · ${XP[ex.tier]} XP</span>
+                </header>
+                <p class="sqlx-task">${ex.task}</p>
+                <textarea class="sqlx-editor" spellcheck="false" aria-label="Your SQL for: ${esc(ex.title)}">${esc(ex.starter || 'SELECT ')}</textarea>
+                <div class="sqlx-actions">
+                    <button type="button" class="sqlx-run">▶ Run &amp; check</button>
+                    <button type="button" class="sqlx-hint" data-n="1">Hint 1</button>
+                    <button type="button" class="sqlx-hint" data-n="2">Hint 2</button>
+                    <button type="button" class="sqlx-solution">Show solution</button>
+                    <button type="button" class="sqlx-expected">What should it return?</button>
+                </div>
+                <div class="sqlx-hintbox" data-n="1" hidden>${ex.hint1}</div>
+                <div class="sqlx-hintbox" data-n="2" hidden>${ex.hint2}</div>
+                <div class="sqlx-solbox" hidden><code>${esc(ex.solution)}</code></div>
+                <div class="sqlx-feedback" hidden></div>
+                <div class="sqlx-result"></div>
+            </article>`;
+        }
+
+        list.innerHTML = EX.map(card).join('');
+        updateProgress();
+
+        // tier filter
+        document.querySelectorAll('.sqlx-tier-btn').forEach(b => b.addEventListener('click', () => {
+            document.querySelectorAll('.sqlx-tier-btn').forEach(x => x.classList.toggle('active', x === b));
+            const t = b.dataset.tier;
+            document.querySelectorAll('.sqlx-card').forEach(c => { c.hidden = !(t === 'all' || c.dataset.tier === t); });
+        }));
+
+        // ── checking ──
+        const norm = (v) => {
+            if (v === null || v === undefined) return 'NULL';
+            if (typeof v === 'number') return String(Math.round(v * 1000) / 1000);
+            const n = Number(v);
+            return (v !== '' && !isNaN(n)) ? String(Math.round(n * 1000) / 1000) : String(v).trim();
+        };
+        const rowsOf = (r) => r.values.map(row => row.map(norm).join('\u0001'));
+
+        function compare(got, want, ordered) {
+            const gc = got.columns.map(c => c.toLowerCase()), wc = want.columns.map(c => c.toLowerCase());
+            if (gc.length !== wc.length || gc.some((c, i) => c !== wc[i])) {
+                return { ok: false, msg: `Columns differ. Expected <code>${esc(want.columns.join(', '))}</code> but got <code>${esc(got.columns.join(', ') || '(none)')}</code>.` };
+            }
+            const g = rowsOf(got), w = rowsOf(want);
+            if (g.length !== w.length) return { ok: false, msg: `Expected ${w.length} row${w.length === 1 ? '' : 's'}, got ${g.length}. Check your WHERE / GROUP BY.` };
+            if (ordered) {
+                for (let i = 0; i < g.length; i++) if (g[i] !== w[i]) {
+                    const same = [...g].sort().join('|') === [...w].sort().join('|');
+                    return { ok: false, msg: same ? 'Right rows, wrong order. Check your ORDER BY.' : `Row ${i + 1} differs from the expected result.` };
+                }
+                return { ok: true };
+            }
+            return [...g].sort().join('|') === [...w].sort().join('|') ? { ok: true } : { ok: false, msg: 'Same number of rows, but the values differ. Compare with "What should it return?".' };
+        }
+
+        const expectedCache = {};
+        function expected(ex) {
+            if (!expectedCache[ex.id]) expectedCache[ex.id] = SQLLab.run(ex.solution);
+            return expectedCache[ex.id];
+        }
+
+        list.addEventListener('click', (e) => {
+            const cardEl = e.target.closest('.sqlx-card');
+            if (!cardEl) return;
+            const ex = EX.find(x => 'ex-' + x.id === cardEl.id);
+            const fb = cardEl.querySelector('.sqlx-feedback');
+            const out = cardEl.querySelector('.sqlx-result');
+
+            if (e.target.closest('.sqlx-hint')) {
+                const n = e.target.closest('.sqlx-hint').dataset.n;
+                const box = cardEl.querySelector(`.sqlx-hintbox[data-n="${n}"]`);
+                box.hidden = !box.hidden;
+            } else if (e.target.closest('.sqlx-solution')) {
+                const box = cardEl.querySelector('.sqlx-solbox');
+                box.hidden = !box.hidden;
+            } else if (e.target.closest('.sqlx-expected')) {
+                try { out.innerHTML = '<p class="sqlx-label">Expected result:</p>' + SQLLab.toTable(expected(ex), 'result-table'); }
+                catch (err) { out.innerHTML = `<div class="sqlx-error">${esc(err.message)}</div>`; }
+            } else if (e.target.closest('.sqlx-run')) {
+                const sql = cardEl.querySelector('.sqlx-editor').value;
+                fb.hidden = false;
+                try {
+                    const got = SQLLab.run(sql);
+                    const verdict = compare(got, expected(ex), !!ex.ordered);
+                    out.innerHTML = '<p class="sqlx-label">Your result (' + got.values.length + ' row' + (got.values.length === 1 ? '' : 's') + '):</p>' + SQLLab.toTable(got, 'result-table');
+                    if (verdict.ok) {
+                        const first = progress() ? progress().completeExercise(doneKey(ex), XP[ex.tier]) : false;
+                        fb.className = 'sqlx-feedback ok';
+                        fb.innerHTML = first ? `✅ Correct! +${XP[ex.tier]} XP` : '✅ Correct!';
+                        cardEl.classList.add('done');
+                        cardEl.querySelector('.sqlx-num').textContent = '✓';
+                        updateProgress();
+                        if (first && typeof window.showToast === 'function') window.showToast(`Exercise solved! +${XP[ex.tier]} XP`, 'success');
+                    } else {
+                        fb.className = 'sqlx-feedback no';
+                        fb.innerHTML = '❌ ' + verdict.msg;
+                    }
+                } catch (err) {
+                    fb.className = 'sqlx-feedback no';
+                    fb.innerHTML = '⚠️ SQL error: ' + esc(err.message);
+                    out.innerHTML = '';
+                }
+            }
+        });
+
+        // Ctrl+Enter runs the exercise you are typing in
+        list.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter' && e.target.classList.contains('sqlx-editor')) {
+                e.preventDefault();
+                e.target.closest('.sqlx-card').querySelector('.sqlx-run').click();
+            }
+        });
+
+        const engineEl = document.getElementById('sqlxEngine');
+        document.querySelectorAll('.sqlx-run').forEach(b => b.disabled = true);
+        SQLLab.ready().then(() => {
+            engineEl.textContent = '✅ SQL engine ready (runs in your browser)';
+            engineEl.classList.add('ok');
+            document.querySelectorAll('.sqlx-run').forEach(b => b.disabled = false);
+        }).catch(err => {
+            engineEl.textContent = '⚠️ ' + err.message;
+            engineEl.classList.add('bad');
+        });
+    })();
+    </script>
+    <script src="../js/bei-nav.js"></script>
+    <script src="../js/tts-voices.js"></script>
+    <script src="../js/core.js"></script>
+</body>
+</html>

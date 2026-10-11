@@ -373,7 +373,28 @@
                     "file": "module6.html"
                 }
             ],
-            "extras": []
+            "extras": [
+                {
+                    "file": "playground.html",
+                    "icon": "🧪",
+                    "title": "Playground"
+                },
+                {
+                    "file": "exercises.html",
+                    "icon": "✍️",
+                    "title": "Exercises"
+                },
+                {
+                    "file": "quiz.html",
+                    "icon": "❓",
+                    "title": "Quiz"
+                },
+                {
+                    "file": "glossary.html",
+                    "icon": "📖",
+                    "title": "Glossary"
+                }
+            ]
         },
         "laravel": {
             "name": "Laravel Framework",
@@ -856,8 +877,21 @@
             state.lastModule = file;
             state.lastModulePath = window.location.pathname;
             this.save(state);
+        },
+        // Practice exercises (e.g. "mysql:join-loans"): first solve earns XP; later solves are free
+        isExerciseDone(key) { return (this.load().completedExercises || []).includes(key); },
+        completeExercise(key, xp) {
+            const state = this.load();
+            state.completedExercises = state.completedExercises || [];
+            if (state.completedExercises.includes(key)) return false;
+            state.completedExercises.push(key);
+            state.totalXP = (state.totalXP || 0) + (xp || 25);
+            state.lastActiveDay = new Date().toISOString().split('T')[0];
+            this.save(state);
+            return true;
         }
     };
+    window.beiProgress = Progress;
 
     // ═════════════════════════════════════════════════════════════════
     // 5. IN-MODULE NAVIGATION: QUICK SWITCHER & BOTTOM PAGER
