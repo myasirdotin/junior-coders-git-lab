@@ -38,4 +38,7 @@ _Last updated 2026-10-11._
   `scripts/sync-curriculum.js`. The old header in `js/core.js` is disabled when the shared nav is present.
 - Curriculum order: the module *page* order is official for HTML, CSS and JS (decided 2026-10-11); it differs from the
   textbook order on purpose. See each folder's `GEMINI.md` §2.
+- Home page (2026-10-11): one main "Start Learning" button, compact secondary buttons, a "Continue where you left off"
+  card built from `jc_last_module_path` + `window.BEI_CURRICULUM`; on phones the decorative IDE mock-up is hidden.
+- **Open — visual style:** hub pages (navy, `bei-core.css`) vs lesson pages (purple, `main.css`) vs textbooks (light).
 - **Open — not yet checked:** narration audio playback in a real browser (headless tests cannot play sound).

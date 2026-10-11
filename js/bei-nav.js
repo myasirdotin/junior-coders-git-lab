@@ -644,6 +644,7 @@
         }
     };
     // CURRICULUM-END
+    window.BEI_CURRICULUM = CURRICULUM;   // read-only view for pages (e.g. the home page's continue card)
 
     // ═════════════════════════════════════════════════════════════════
     // 2. ROOT PATH RESOLUTION

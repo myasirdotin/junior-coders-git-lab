@@ -61,19 +61,27 @@
                 A modern, zero-setup computer science learning platform for school students and educators. Journey from your first terminal command to real-world Python algorithms, creative web engineering, and ethical AI stewardship (<em>Amānah</em>).
             </p>
 
+            <!-- "Continue where you left off": filled by the script at the end of this page from local progress -->
+            <div class="hero-continue" id="heroContinue" hidden></div>
+
             <div class="hero-actions">
-                <a href="#placement" class="btn-hero-primary">
-                    <span>🧭</span> Start Placement Diagnostic
+                <a href="learn/index.html" class="btn-hero-primary btn-hero-main">
+                    <span>🚀</span> Start Learning
                 </a>
-                <a href="practice-arena.html" class="btn-hero-secondary" style="border-color: #10b981; color: #34d399;">
-                    <span>⚔️</span> Practice Arena
-                </a>
-                <a href="studios/web-studio/index.html" class="btn-hero-secondary">
-                    <span>⚡</span> Open Web Studio
-                </a>
-                <a href="teacher-hub/index.html" class="btn-hero-secondary">
-                    <span>🍎</span> Educator Portal
-                </a>
+                <div class="hero-actions-secondary">
+                    <a href="#placement" class="btn-hero-secondary">
+                        <span>🧭</span> Placement quiz
+                    </a>
+                    <a href="practice-arena.html" class="btn-hero-secondary" style="border-color: #10b981; color: #34d399;">
+                        <span>⚔️</span> Practice Arena
+                    </a>
+                    <a href="studios/web-studio/index.html" class="btn-hero-secondary">
+                        <span>⚡</span> Web Studio
+                    </a>
+                    <a href="teacher-hub/index.html" class="btn-hero-secondary hero-teacher-link">
+                        <span>🍎</span> Educator Portal
+                    </a>
+                </div>
             </div>
 
             <!-- ═════════════════════════════════════════════════════════
@@ -556,5 +564,31 @@
     <!-- Core Scripts -->
     <script src="js/bei-core.js"></script>
     <script src="js/bei-nav.js"></script>
+    <script>
+    // Continue where you left off (reads the lesson progress that js/core.js stores on lesson pages)
+    (function () {
+        try {
+            var path = localStorage.getItem('jc_last_module_path');
+            if (!path) return;
+            var decoded = decodeURIComponent(path);
+            var m = decoded.match(/\/(Learning [^\/]+)\/(module(\d+)\.html)$/);
+            if (!m) return;
+            var dir = m[1], file = m[2], num = parseInt(m[3], 10);
+            var cur = window.BEI_CURRICULUM || {};
+            var track = null;
+            for (var k in cur) { if (cur[k].dir === dir) { track = cur[k]; break; } }
+            var mod = track && track.modules.filter(function (x) { return x.num === num; })[0];
+            var title = mod ? ('Module ' + num + ': ' + mod.title) : ('Module ' + num);
+            var trackName = track ? track.shortName : dir.replace('Learning ', '') + ' Track';
+            var card = document.getElementById('heroContinue');
+            card.innerHTML =
+                '<a class="hero-continue-card" href="' + encodeURI(dir) + '/' + file + '">' +
+                '<span class="hero-continue-label">Continue where you left off</span>' +
+                '<span class="hero-continue-title">' + title.replace(/</g, '&lt;') + '</span>' +
+                '<span class="hero-continue-track">' + trackName.replace(/</g, '&lt;') + ' &rarr;</span></a>';
+            card.hidden = false;
+        } catch (e) { /* no stored progress or storage blocked */ }
+    })();
+    </script>
 </body>
 </html>
