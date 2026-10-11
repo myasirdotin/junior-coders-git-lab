@@ -60,17 +60,19 @@ When teaching database schemas, forms, arithmetic logic, e-commerce, APIs, or bu
 ---
 
 ## 2. Specialized Agents
-The following custom subagents are configured to assist across each domain:
-- `@html-tutor`: Expert in HTML fundamentals, semantics, structure, and accessibility.
-- `@css-tutor`: Expert in CSS architecture, modern layout (Flexbox & Grid), typography, and responsive design.
-- `@js-tutor`: Expert in JavaScript logic, ES6+, data structures, and DOM manipulation.
-- `@php-tutor`: Expert in server-side PHP, form processing, file I/O, security (XSS/CSRF/sessions), and OOP.
-- `@mysql-tutor`: Expert in relational schema design, data normalization, SQL queries, indexing, and data integrity.
-- `@laravel-tutor`: Expert in MVC architecture, Eloquent ORM, Blade templating, migrations, and robust web applications.
-- `@python-tutor`: Expert in Python syntax, data structures, scripting, clean OOP, and data handling.
-- `@ml-tutor`: Expert in machine learning fundamentals, dataset curation, supervised algorithms, and ethical AI stewardship (*Amānah*).
-- `@network-tutor`: Expert in OSI & TCP/IP models, packet analysis, IP subnetting & CIDR, DNS hierarchy, HTTP/3, TLS cryptography, and web diagnostics.
-- `@security-tutor`: Expert in defensive cybersecurity, threat modeling, cryptographic hashing & key derivation, OWASP Top 10 mitigation (SQLi, XSS, CSRF, IDOR), HTTP security headers, and digital stewardship (*Amānah*).
+Subject tutors live in `.gemini/agents/` (one file each). They are read-only advisors: use them to review or explain
+content for their subject, then make edits yourself following this file.
+- `@html-tutor`: HTML fundamentals, semantics, structure, and accessibility (`Learning HTML/`, `book-html/`).
+- `@css-tutor`: CSS architecture, modern layout (Flexbox & Grid), typography, and responsive design (`Learning CSS/`, `book-css/`).
+- `@js-tutor`: JavaScript logic, ES6+, data structures, and DOM manipulation (`Learning JS/`, `book-js/`).
+- `@cmd-tutor`: Terminal & command line: CMD, PowerShell, Git Bash, navigation, developer CLI workflows (`book-cmd/`).
+- `@git-tutor`: Git & GitHub: commits, branches, merges, conflicts, pull requests, remotes (`book-git/`).
+- `@php-tutor`: Server-side PHP, form processing, file I/O, security (XSS/CSRF/sessions), and OOP (`Learning PHP/`, `book-php/`).
+- `@mysql-tutor`: Relational schema design, normalization, SQL queries, indexing, and data integrity (`Learning MySQL/`, `book-mysql/`).
+- `@laravel-tutor`: MVC, routing, controllers, Blade, migrations, Eloquent ORM, validation, auth (`Learning Laravel/`, `book-laravel/`).
+- `@python-tutor`: Python syntax, data structures, scripting, clean OOP, data handling, **and** machine-learning fundamentals and ethical AI stewardship (*Amānah*) (`Learning Python/`, `book-python/`).
+- `@network-tutor`: OSI & TCP/IP models, IP subnetting & CIDR, DNS, HTTP/3, TLS, and web diagnostics (`Learning Networks/`, `book-networks/`).
+- `@security-tutor`: Defensive cybersecurity, threat modeling, hashing & key derivation, OWASP Top 10 mitigation, security headers, and digital stewardship (*Amānah*) (`Learning Cybersecurity/`, `book-cybersecurity/`).
 
 ---
 
@@ -125,4 +127,43 @@ The following custom subagents are configured to assist across each domain:
 ## 6. Directory Instructions
 Each learning folder contains a `GEMINI.md` file with specific coding standards and curriculum mappings for that domain. All sub-guidelines inherit and adhere to this root document.
 
+---
+
+## 7. Engineering Rules (every AI tool and contributor)
+
+These rules come from real bugs found in this site. Follow them for every change.
+
+1. **Brand name is "Junior Coders".** Never write "BEI Coders" or "LearnCode" in visible text. Code identifiers keep the
+   `bei-` prefix (`styles/bei-core.css`, `.bei-nav`, `js/bei-*.js`); do not rename them.
+2. **Mobile first.** Every page must work at **390px wide**: no horizontal page scroll, header buttons visible,
+   tap targets about 38–44px. Long rows of links scroll sideways in one row rather than wrapping into many rows.
+3. **Relative paths only.** The site runs at a domain root (Vercel) *and* in a subfolder
+   (`http://localhost/junior-coders-git-lab/`). Never use root-absolute paths like `/styles/...` or `/js/...`.
+   If a script needs the site root, derive it from its own URL (see `js/pdf-download.js`).
+4. **Never bulk-insert markup blindly.** A script once inserted a `<script>` tag before every `</body>` it found,
+   including ones inside JavaScript strings and exercise answers, and broke three pages. After any scripted edit across
+   many files, search for the inserted text appearing more than once per file and run the checks below.
+5. **One reader control bar for all textbooks.** Every `book-*/index.html` uses the same markup:
+   `header.book-reader-header#bookReaderHeader > .reader-header-main` containing `.reader-controls-left` (Read / Stop),
+   `.reader-status-center` (Prev/Next is injected here by `js/book-pagination.js`, plus the chapter badge) and
+   `.reader-controls-right` (speed, optional `.reader-font-size` A-/A+, Reading Mode, Download PDF). Keep the element IDs
+   (`book-speaker-main-btn`, `book-speaker-stop-btn`, `book-speaker-speed-select`, `book-speaker-status-text`,
+   `book-reading-mode-btn`, `book-download-pdf-btn`); `js/book-speaker.js` and `js/pdf-download.js` depend on them.
+   Copy the bar from an existing book; do not invent a new one.
+6. **Refresh the bar after loading a chapter.** Each book's `loadChapter()` must call
+   `if (window.initBookSpeaker) window.initBookSpeaker();` after the chapter HTML is rendered. It fills the badge with the
+   chapter title and reading time and adds the section 🔊 buttons.
+7. **Module lists must match the pages.** If you add, remove or reorder a module, update that folder's `GEMINI.md`
+   module mapping and the matching `.gemini/agents/*-tutor.md` in the same change.
+8. **Check before you finish:**
+   ```bash
+   node scripts/bundle-books.js          # after editing textbook chapters (.md)
+   powershell .udit.ps1                # all 11 books: chapters, bundles, parser
+   node scripts/validate-scripts.js      # JavaScript syntax in the book readers
+   node scripts/render-check.mjs .render 390 844 1 <page urls...>   # phone width: scroll, JS errors, 404s, screenshots
+   ```
+   Open the screenshots in `.render/` and look at them. `audit.ps1` rewrites `book-audit-report.md` with a new date;
+   do not commit that file if nothing else in it changed.
+9. **Commits:** clear conventional messages (`fix:`, `feat:`, `docs:`...). Push to `main` only when the owner asks;
+   `main` deploys to Vercel.
 

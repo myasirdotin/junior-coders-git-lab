@@ -23,15 +23,23 @@ All JavaScript lessons, exercises, challenges, and DOM mini-projects must adhere
 
 ## 2. Curriculum & Module Mapping
 All learning modules and interactive pages in `Learning JS/` mirror the curriculum in `book-js/`:
-- **Module 1**: JS Introduction, Console, Script Tags & Execution Order (Book Part 1: Ch 1–2)
-- **Module 2**: Variables (`let`, `const`), Data Types & Operators (Book Part 2: Ch 3–5)
-- **Module 3**: Making Decisions: Conditionals, `if/else`, Comparison & Logical Operators (Book Part 3: Ch 6–7)
-- **Module 4**: Loops & Iteration: `for`, `while`, and Loop Control (Book Part 4: Ch 8–9)
-- **Module 5**: Functions, Parameters, Return Values & Scope (Book Part 5: Ch 10–11)
-- **Module 6**: Arrays, Iteration & Common Array Methods (Book Part 6: Ch 12–13)
-- **Module 7**: Objects, Key-Value Pairs & Methods (Book Part 7: Ch 14)
-- **Module 8**: Taking Input, Forms & Events (Book Part 8: Ch 15–16)
-- **Module 9**: DOM Manipulation, Dynamic UI & Capstones (Book Part 9: Ch 17–20)
+Module pages as they are on the site (`Learning JS/moduleN.html`), with the textbook chapters each one covers:
+- **Module 1**: Variables & Data Types (Book Part 1: Ch 1–2 intro; Book Part 2: Ch 3–5)
+- **Module 2**: Operators & Expressions (Book Part 2: Ch 3–5)
+- **Module 3**: Conditionals & Decision Making (Book Part 3: Ch 6–7)
+- **Module 4**: Functions (Book Part 5: Ch 10–11)
+- **Module 5**: JavaScript Arrays (Book Part 6: Ch 12–13)
+- **Module 6**: Loops (Book Part 4: Ch 8–9)
+- **Module 7**: Introduction to the DOM (Book Part 9: Ch 17–20)
+- **Module 8**: Objects & Data Structures (Book Part 7: Ch 14)
+- **Module 9**: Events & Interactivity (Book Part 8: Ch 15–16)
+
+**Differences from the textbook (owner to decide; checked 2026-10-11):** the book order is Loops → Functions → Arrays →
+Objects → Input/Events → DOM. The pages teach Functions and Arrays **before** Loops, and the DOM **before** Objects and
+Events. A check on 2026-10-11 found no student-facing loops or objects in Modules 4, 5 and 7 (only in the pages' own
+grading scripts), so this is an order difference, not a broken lesson. Keep it that way: under the "no premature concepts"
+rule (root `GEMINI.md` §3) those modules must not use loops or objects in examples. Either reorder the pages or record the
+page order as official, then update this list and `.gemini/agents/js-tutor.md` in the same change.
 
 ---
 

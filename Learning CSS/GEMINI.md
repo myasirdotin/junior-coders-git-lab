@@ -22,14 +22,19 @@ All CSS templates, visual cards, component styling, and mini-projects must adher
 
 ## 2. Curriculum & Module Mapping
 All styling modules and practice pages in `Learning CSS/` maintain direct alignment with `book-css/`:
-- **Module 1**: Introduction, CSS Syntax, Linking Methods & Color Systems (Book Part 1: Ch 1–3)
-- **Module 2**: Selectors, Specificity & the Cascade Rule (Book Part 2: Ch 4–5)
-- **Module 3**: Typography, Font Hierarchies & Text Styling (Book Part 3: Ch 6–7)
-- **Module 4**: The Box Model (Margin, Border, Padding, Content) (Book Part 4: Ch 8–9)
-- **Module 5**: Display, Positioning & Normal Document Flow (Book Part 5: Ch 10–11)
-- **Module 6**: Modern Flexbox Layouts (Direction, Alignment, Distribution) (Book Part 6: Ch 12–13)
-- **Module 7**: Modern CSS Grid Architectures (Templates, Areas, Gap) (Book Part 7: Ch 14–15)
-- **Module 8**: Responsive Web Design, Media Queries & Mobile-First Best Practices (Book Part 8: Ch 16–18)
+Module pages as they are on the site (`Learning CSS/moduleN.html`), with the textbook chapters each one covers:
+- **Module 1**: Intro to CSS: syntax and linking methods (Book Part 1: Ch 1–3)
+- **Module 2**: Colors & Text (Book Part 1: Ch 1–3 colour systems; Book Part 3: Ch 6–7 typography)
+- **Module 3**: The Box Model (Book Part 4: Ch 8–9)
+- **Module 4**: Display & Positioning (Book Part 5: Ch 10–11)
+- **Module 5**: Intro to Flexbox (Book Part 6: Ch 12–13)
+- **Module 6**: Advanced Flexbox (Book Part 6: Ch 12–13)
+- **Module 7**: CSS Grid (Book Part 7: Ch 14–15)
+- **Module 8**: Responsive Design (Book Part 8: Ch 16–18)
+
+**Differences from the textbook (owner to decide; checked 2026-10-11):** there is no module page for
+**Selectors, Specificity & the Cascade** (Book Part 2: Ch 4–5), and Flexbox has two modules. Either add a selectors
+module or record the current set as official, and update this list and `.gemini/agents/css-tutor.md` in the same change.
 
 ---
 

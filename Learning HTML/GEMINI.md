@@ -24,19 +24,25 @@ All HTML learning materials, code examples, form templates, and layout projects 
 
 ## 2. Curriculum & Module Mapping
 All learning modules and practice pages must maintain direct alignment with the 17 chapters across the 8 textbook parts:
-- **Module 1**: Introduction, Web Anatomy & HTML5 Boilerplate (Book Part 1: Ch 1–3)
-- **Module 2**: HTML Tags, Elements & Attribute Superpowers (Book Part 2: Ch 4)
-- **Module 3**: Headings & Paragraph Hierarchy (Book Part 2: Ch 5)
-- **Module 4**: Text Formatting & Semantic Emphases (Book Part 2: Ch 6)
-- **Module 5**: Hyperlinks & Multi-Page Navigation (Book Part 3: Ch 7)
-- **Module 6**: Images, Media & Accessibility (Book Part 3: Ch 8)
-- **Module 7**: Ordered, Unordered & Nested Lists (Book Part 4: Ch 9)
-- **Module 8**: Tables & Tabular Data Structures (Book Part 4: Ch 10)
-- **Module 9**: Forms, Inputs & User Interaction (Book Part 5: Ch 11)
-- **Module 10**: Block vs Inline Elements & Containers (Book Part 6: Ch 12)
-- **Module 11**: Classes, IDs & Element Selectors (Book Part 6: Ch 12)
-- **Module 12**: Semantic HTML5 & Modern Layout Architecture (Book Part 6: Ch 12)
+Module pages as they are on the site (`Learning HTML/moduleN.html`), with the textbook chapters each one covers:
+- **Module 1**: Welcome to HTML & Page Anatomy (Book Part 1: Ch 1–3)
+- **Module 2**: Tags & Attribute Superpowers (Book Part 2: Ch 4)
+- **Module 3**: Headings & Paragraphs (Book Part 2: Ch 5)
+- **Module 4**: Text Formatting (Book Part 2: Ch 6)
+- **Module 5**: Links & Navigation (Book Part 3: Ch 7)
+- **Module 6**: Images & Media (Book Part 3: Ch 8)
+- **Module 7**: Tables & Data Grids (Book Part 4: Ch 10)
+- **Module 8**: Lists & Grouping (Book Part 4: Ch 9)
+- **Module 9**: Block vs Inline (Book Part 6: Ch 12)
+- **Module 10**: Classes & IDs (Book Part 6: Ch 12)
+- **Module 11**: Forms & User Interaction (Book Part 5: Ch 11)
+- **Module 12**: Semantic HTML5 & Modern Layout (Book Part 6: Ch 12)
 - **Module 13 / Lab Projects**: Real-World Website Projects & Capstone (Book Part 7 & 8: Ch 13–17)
+
+**Differences from the textbook (owner to decide; checked 2026-10-11):** Tables (Module 7) come before Lists (Module 8),
+while the book teaches lists first (Ch 9, then Ch 10). Forms (Module 11) come after Block/Inline and Classes & IDs,
+while the book teaches forms (Ch 11) before the layout chapter (Ch 12). Either reorder the pages or record the page
+order as official, and update this list and `.gemini/agents/html-tutor.md` in the same change.
 
 ---
 
