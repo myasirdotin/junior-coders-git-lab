@@ -610,9 +610,21 @@
     });
 
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    if (mobileMenuBtn) {
-      mobileMenuBtn.addEventListener('click', () => {
-        document.getElementById('bookSidebar').classList.toggle('open');
+    const bookSidebar = document.getElementById('bookSidebar');
+    if (mobileMenuBtn && bookSidebar) {
+      mobileMenuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        bookSidebar.classList.toggle('open');
+      });
+      // Close the chapter drawer when a chapter is picked, when tapping outside it, or with Escape
+      bookSidebar.addEventListener('click', (e) => {
+        if (e.target.closest('.chapter-nav-item a')) bookSidebar.classList.remove('open');
+      });
+      document.addEventListener('click', (e) => {
+        if (bookSidebar.classList.contains('open') && !bookSidebar.contains(e.target)) bookSidebar.classList.remove('open');
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') bookSidebar.classList.remove('open');
       });
     }
 

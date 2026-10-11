@@ -49,4 +49,10 @@ _Last updated 2026-10-11._
   Teacher Hub header and class selector overflowing on phones; 67 literal `*Amānah*`-style asterisks now render as italics.
 - **Brand name is "Junior Coders"** (owner's decision, 2026-10-11). The old names "BEI Coders" and "LearnCode V-01" were
   replaced in all visible text. Code identifiers keep the `bei-` prefix (`bei-core.css`, `.bei-nav`, `js/bei-*.js`); do not rename them.
-- Open: textbook reader controls use about 350px of a phone screen before the chapter text starts. Make them more compact.
+- Textbook readers on phones (2026-10-11): controls compacted for all 11 books (chapter text now starts ~260-280px down,
+  was 360-420px); the `.book-mobile-header` variant (Cybersecurity, Networks, Python) had no CSS, so its menu button was
+  invisible — now styled, and the chapter drawer closes on chapter pick, outside tap or Escape. The books use three
+  different control-bar markups (`.reader-header-main`, `.book-speaker-panel`, Laravel's `.book-content` card); phone rules for
+  each are at the end of `styles/book-theme.css`.
+- Open: on desktop the Cybersecurity/Networks/Python control bars stack untidily ("Speed:", voice name, A-/A+ on separate
+  lines). Unifying the three control-bar markups into one would fix this for good.
