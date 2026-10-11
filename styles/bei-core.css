@@ -2710,3 +2710,13 @@ body.bei-search-open { overflow: hidden; }
     .bei-search-foot { display: none; }
     .bei-search-item-sub { display: none; }
 }
+
+/* Progress marks in the module switcher and pager */
+.switcher-module-item.done .switcher-mod-number { background: rgba(16, 185, 129, 0.2); color: #34d399; border-color: rgba(16, 185, 129, 0.5); }
+.pager-complete.done { background: rgba(16, 185, 129, 0.15) !important; color: #34d399 !important; border-color: rgba(16, 185, 129, 0.45) !important; cursor: default; }
+[data-theme="light"] .switcher-module-item.done .switcher-mod-number { background: #d1fae5; color: #047857; }
+[data-theme="light"] .pager-complete.done { background: #d1fae5 !important; color: #047857 !important; }
+/* Module switcher menu on phones: anchor left so it stays on screen */
+@media (max-width: 640px) {
+    .bei-module-switcher-menu { left: 0; right: auto; width: min(330px, calc(100vw - 48px)); }
+}

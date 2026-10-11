@@ -43,4 +43,10 @@ _Last updated 2026-10-11._
 - One palette (2026-10-11): lesson pages, cheatsheets and playgrounds now use the navy design system in both themes via
   the bridge block at the end of `bei-core.css` (see `GEMINI.md` §7c); also fixed a white-on-white PDF button in light
   mode. Textbooks stay light by design.
+- Site search (2026-10-11) lives in the shared header (`renderSearch()` in `js/bei-nav.js`; Ctrl+K or `/`): tracks,
+  modules, practice pages, textbooks, cheat sheets, studios. Add new pages to `SEARCH_PAGES` there.
+- Progress (2026-10-11): "Mark complete", switcher ticks and "last lesson" are handled by `Progress` in `js/bei-nav.js`
+  for all 9 tracks, in the same `jc_user_state` format `core.js` uses; `core.js` also learns the extra tracks from
+  `window.BEI_CURRICULUM`. Progress is per device (localStorage). No page currently shows the XP dashboard, and the
+  skill tree (`js/bei-skill-tree.js`) runs on demo data.
 - **Open — not yet checked:** narration audio playback in a real browser (headless tests cannot play sound).

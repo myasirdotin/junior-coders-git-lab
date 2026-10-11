@@ -820,6 +820,46 @@
     }
 
     // ═════════════════════════════════════════════════════════════════
+    // 4.5 LOCAL PROGRESS (shared with js/core.js: key 'jc_user_state';
+    //     completed modules are stored as "<Learning Dir>_<n>")
+    // ═════════════════════════════════════════════════════════════════
+    const Progress = {
+        KEY: 'jc_user_state',
+        load() {
+            try { return Object.assign({ completedModules: [], completedChapters: [], totalXP: 0 }, JSON.parse(localStorage.getItem(this.KEY) || '{}')); }
+            catch (e) { return { completedModules: [], completedChapters: [], totalXP: 0 }; }
+        },
+        save(state) {
+            try {
+                localStorage.setItem(this.KEY, JSON.stringify(state));
+                localStorage.setItem('jc_completed_modules', JSON.stringify(state.completedModules || []));
+                localStorage.setItem('jc_total_xp', String(state.totalXP || 0));
+                if (state.lastModule) localStorage.setItem('jc_last_module', state.lastModule);
+                if (state.lastModulePath) localStorage.setItem('jc_last_module_path', state.lastModulePath);
+            } catch (e) { /* storage unavailable */ }
+        },
+        key(track, num) { return track.dir + '_' + num; },
+        isDone(track, num) { return this.load().completedModules.includes(this.key(track, num)); },
+        doneCount(track) { const c = this.load().completedModules; return track.modules.filter(m => c.includes(this.key(track, m.num))).length; },
+        complete(track, num) {
+            const state = this.load();
+            const k = this.key(track, num);
+            if (state.completedModules.includes(k)) return false;
+            state.completedModules.push(k);
+            state.totalXP = Math.max(state.totalXP || 0, state.completedModules.length * 100 + (state.completedChapters || []).length * 25);
+            state.lastActiveDay = new Date().toISOString().split('T')[0];
+            this.save(state);
+            return true;
+        },
+        visit(track, num, file) {
+            const state = this.load();
+            state.lastModule = file;
+            state.lastModulePath = window.location.pathname;
+            this.save(state);
+        }
+    };
+
+    // ═════════════════════════════════════════════════════════════════
     // 5. IN-MODULE NAVIGATION: QUICK SWITCHER & BOTTOM PAGER
     // ═════════════════════════════════════════════════════════════════
     function detectTrackInfo() {
@@ -862,6 +902,8 @@
         if (!/^module\d+\.html$/.test(filename)) return;   // syllabus, playground, quiz... keep their own layout
         const currentMod = track.modules.find(m => m.num === moduleNum) || track.modules[0];
         const extrasHtml = (track.extras || []).map(x => `<a href="${x.file}" class="switcher-extra-link">${x.icon} ${x.title}</a>`).join('');
+        Progress.visit(track, currentMod.num, currentMod.file);
+        const doneCount = Progress.doneCount(track);
         const prevMod = track.modules.find(m => m.num === moduleNum - 1);
         const nextMod = track.modules.find(m => m.num === moduleNum + 1);
 
@@ -874,8 +916,8 @@
         track.modules.forEach(m => {
             const isActive = m.num === moduleNum;
             listItemsHtml += `
-                <a href="${m.file}" class="switcher-module-item ${isActive ? 'active' : ''}">
-                    <span class="switcher-mod-number">${m.num}</span>
+                <a href="${m.file}" class="switcher-module-item ${isActive ? 'active' : ''} ${Progress.isDone(track, m.num) ? 'done' : ''}">
+                    <span class="switcher-mod-number">${Progress.isDone(track, m.num) ? '✓' : m.num}</span>
                     <span style="flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${m.title}</span>
                     ${isActive ? '<span style="color: #818cf8; font-size: 0.75rem;">●</span>' : ''}
                 </a>
@@ -890,7 +932,7 @@
             </button>
             <div class="bei-module-switcher-menu" id="moduleSwitcherMenu">
                 <div class="switcher-menu-header">
-                    <span>${track.name} (1 to ${track.modules.length})</span>
+                    <span>${track.name} · <span id="beiDoneCount">${doneCount}</span> of ${track.modules.length} done</span>
                     <a href="${track.syllabus}">All Modules ↗</a>
                 </div>
                 <div class="switcher-list">
@@ -971,9 +1013,8 @@
         `;
 
         const companionBookUrl = `${ROOT}${track.bookDir}/index.html`;
-        const completeHtml = (typeof window.markComplete === 'function')
-            ? `<button type="button" class="pager-btn-link pager-complete" onclick="window.markComplete('${currentMod.num}')" title="Record this module as finished (local progress + XP)"><span>✓</span> <span>Mark complete</span></button>`
-            : '';
+        const alreadyDone = Progress.isDone(track, currentMod.num);
+        const completeHtml = `<button type="button" class="pager-btn-link pager-complete${alreadyDone ? ' done' : ''}" id="beiCompleteBtn" data-track="${trackKey}" data-num="${currentMod.num}" title="Record this module as finished on this device"><span>✓</span> <span>${alreadyDone ? 'Completed' : 'Mark complete'}</span></button>`;
 
         pager.innerHTML = `
             <div class="pager-col prev">${prevHtml}</div>
@@ -996,7 +1037,21 @@
         } else if (main) {
             main.appendChild(pager);
         }
+
+        const completeBtn = pager.querySelector('#beiCompleteBtn');
+        completeBtn.addEventListener('click', () => {
+            const isNew = Progress.complete(track, currentMod.num);
+            completeBtn.classList.add('done');
+            completeBtn.querySelector('span:last-child').textContent = 'Completed';
+            const counter = document.getElementById('beiDoneCount');
+            if (counter) counter.textContent = Progress.doneCount(track);
+            const item = document.querySelector(`.switcher-module-item.active`);
+            if (item) { item.classList.add('done'); item.querySelector('.switcher-mod-number').textContent = '✓'; }
+            if (typeof window.showToast === 'function') window.showToast(isNew ? `Module ${currentMod.num} completed! 🎉` : 'Module already completed!');
+        });
     }
+
+    window.beiMarkComplete = (trackKey, num) => { const t = CURRICULUM[trackKey]; return t ? Progress.complete(t, num) : false; };
 
     // ═════════════════════════════════════════════════════════════════
     // 6. INITIALIZATION ON DOM READY

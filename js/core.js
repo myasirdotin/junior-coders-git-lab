@@ -125,8 +125,21 @@
         return depth === 0 ? './' : '../'.repeat(depth);
     };
 
+    // Tracks the shared nav knows (js/bei-nav.js, generated from the module pages) are added to CONFIG.MODULES
+    // so progress, the module list and quizzes work for Python, Networks and Cybersecurity too.
+    if (window.BEI_CURRICULUM) {
+        Object.values(window.BEI_CURRICULUM).forEach(t => {
+            if (CONFIG.MODULES[t.dir]) return;
+            CONFIG.MODULES[t.dir] = [{ name: 'Syllabus', url: t.syllabus }]
+                .concat(t.modules.map(m => ({ name: m.num + ': ' + m.title, url: m.file })))
+                .concat((t.extras || []).map(x => ({ name: x.title, url: x.file })));
+        });
+    }
+
     const getCurrentModule = () => {
         const path = decodeURIComponent(window.location.pathname);
+        const known = Object.keys(CONFIG.MODULES).find(dir => path.includes('/' + dir + '/'));
+        if (known) return known;
         if (path.includes('Learning HTML')) return 'Learning HTML';
         if (path.includes('Learning CSS')) return 'Learning CSS';
         if (path.includes('Learning JS')) return 'Learning JS';
