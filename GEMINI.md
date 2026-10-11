@@ -154,7 +154,14 @@ These rules come from real bugs found in this site. Follow them for every change
    `if (window.initBookSpeaker) window.initBookSpeaker();` after the chapter HTML is rendered. It fills the badge with the
    chapter title and reading time and adds the section 🔊 buttons.
 7. **Module lists must match the pages.** If you add, remove or reorder a module, update that folder's `GEMINI.md`
-   module mapping and the matching `.gemini/agents/*-tutor.md` in the same change.
+   module mapping and the matching `.gemini/agents/*-tutor.md` in the same change, then run
+   `node scripts/sync-curriculum.js` (it regenerates the module switcher list in `js/bei-nav.js` from the pages' titles).
+7b. **One site navigation.** Every page except the textbook readers (`book-*/index.html`) loads
+   `styles/bei-core.css` and `js/bei-nav.js`; the script renders the header, the phone drawer, the phone tab bar,
+   and on `moduleN.html` pages the breadcrumb, module switcher and bottom pager. Do not hand-write a `<nav>` or header
+   in a page, and do not re-enable the old header in `js/core.js` (`injectNavigation`, `injectModuleNavigator`, the
+   `.bottom-nav`): it is kept only as a fallback for pages without the shared nav. To add a menu item, edit
+   `renderGlobalNav()` / `renderTabBar()` in `js/bei-nav.js` once.
 8. **Check before you finish:**
    ```bash
    node scripts/bundle-books.js          # after editing textbook chapters (.md)

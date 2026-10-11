@@ -2503,3 +2503,75 @@ code, pre {
 @media (max-width: 640px) {
     .teacher-mode-pill { display: none; }
 }
+
+/* ═════════════════════════════════════════════════════════════════════
+   PHONE TAB BAR (rendered by js/bei-nav.js on every page except textbooks)
+   Home · Learn · Studios · Books · Menu(opens the drawer)
+   ═════════════════════════════════════════════════════════════════════ */
+.bei-tab-bar { display: none; }
+
+@media (max-width: 640px) {
+    body { padding-bottom: calc(62px + env(safe-area-inset-bottom, 0px)); }
+    body.reading-mode .bei-tab-bar, body.reading-mode-active .bei-tab-bar { display: none; }
+
+    .bei-tab-bar {
+        display: flex;
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 1200;
+        height: calc(62px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        background: rgba(11, 17, 32, 0.96);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.35);
+    }
+    [data-theme="light"] .bei-tab-bar {
+        background: rgba(255, 255, 255, 0.96);
+        border-top: 1px solid #e2e8f0;
+        box-shadow: 0 -6px 24px rgba(15, 23, 42, 0.08);
+    }
+    .bei-tab-item {
+        flex: 1 1 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        min-width: 0;
+        padding: 6px 2px 4px;
+        border: 0;
+        background: transparent;
+        font: inherit;
+        font-size: 0.68rem;
+        font-weight: 700;
+        color: #94a3b8;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    [data-theme="light"] .bei-tab-item { color: #64748b; }
+    .bei-tab-item.active { color: #818cf8; }
+    [data-theme="light"] .bei-tab-item.active { color: #4f46e5; }
+    .bei-tab-icon { font-size: 1.25rem; line-height: 1; }
+
+    /* the legacy bottom bar from core.js must never show alongside */
+    .bottom-nav { display: none !important; }
+}
+
+/* Module switcher: extra pages row (playground, exercises, quiz...) */
+.switcher-extras {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    padding: 0.6rem 0.75rem 0.75rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.switcher-extra-link {
+    font-size: 0.78rem; font-weight: 600; padding: 0.3rem 0.6rem;
+    border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary, #cbd5e1); text-decoration: none; white-space: nowrap;
+}
+.switcher-extra-link:hover { border-color: rgba(99, 102, 241, 0.5); color: #ffffff; }
+[data-theme="light"] .switcher-extras { border-top-color: #e2e8f0; }
+[data-theme="light"] .switcher-extra-link { border-color: #e2e8f0; color: #475569; }
+[data-theme="light"] .switcher-extra-link:hover { color: #4f46e5; }
+.pager-complete { cursor: pointer; font: inherit; }

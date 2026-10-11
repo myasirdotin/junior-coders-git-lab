@@ -355,8 +355,12 @@
     };
 
     // --- Component Injection ---
+    // True when the shared site navigation (js/bei-nav.js) is on the page; it owns the header, tab bar and module pager.
+    const hasSharedNav = () => !!(document.querySelector('.bei-nav') || document.querySelector('script[src*="bei-nav.js"]'));
+
     function injectNavigation() {
         if (document.getElementById('main-nav')) return;
+        if (hasSharedNav()) return;   // legacy header: only for pages without the shared nav
 
         const nav = document.createElement('nav');
         nav.className = 'top-nav';
@@ -707,8 +711,9 @@
     };
 
     // --- State Management ---
+    // Theme is shared with js/bei-nav.js through the 'bei_theme' key so both toggles agree.
     function initTheme() {
-        const savedTheme = JC_State.get('theme');
+        const savedTheme = localStorage.getItem('bei_theme') || JC_State.get('theme');
         document.documentElement.setAttribute('data-theme', savedTheme);
     }
 
@@ -717,6 +722,9 @@
         const next = current === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
         JC_State.set('theme', next);
+        try { localStorage.setItem('bei_theme', next); } catch (e) { /* ignore */ }
+        const btn = document.querySelector('.bei-nav .theme-toggle-btn');
+        if (btn) btn.innerHTML = next === 'dark' ? '☀️' : '🌙';
     }
     window.toggleTheme = toggleTheme;
 
@@ -955,6 +963,7 @@
     });
 
     function injectModuleNavigator() {
+        if (hasSharedNav()) return;   // bei-nav.js renders the module pager (prev / next / mark complete)
         const currentModule = getCurrentModule();
         if (!currentModule) return;
 

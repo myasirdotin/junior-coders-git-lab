@@ -10,90 +10,648 @@
     // ═════════════════════════════════════════════════════════════════
     // 1. CURRICULUM REGISTRY (Single Source of Truth)
     // ═════════════════════════════════════════════════════════════════
+    // CURRICULUM-START (generated: run `node scripts/sync-curriculum.js` after adding/renaming module pages; do not edit by hand)
     const CURRICULUM = {
-        js: {
-            name: 'JavaScript Track',
-            shortName: 'JS Track',
-            dir: 'Learning JS',
-            syllabus: 'learningjs.html',
-            bookDir: 'book-js',
-            accent: '#6366f1',
-            modules: [
-                { num: 1, title: 'Variables, Constants & Data Types', file: 'module1.html', bookCh: 'ch3' },
-                { num: 2, title: 'Operators & Expressions', file: 'module2.html', bookCh: 'ch5' },
-                { num: 3, title: 'Control Flow & Conditionals', file: 'module3.html', bookCh: 'ch6' },
-                { num: 4, title: 'Loops & Iterations', file: 'module4.html', bookCh: 'ch8' },
-                { num: 5, title: 'Functions & Scope', file: 'module5.html', bookCh: 'ch10' },
-                { num: 6, title: 'Arrays & Data Collections', file: 'module6.html', bookCh: 'ch11' },
-                { num: 7, title: 'DOM Manipulation & Dynamic UI', file: 'module7.html', bookCh: 'ch16' },
-                { num: 8, title: 'JavaScript Objects & Dossiers', file: 'module8.html', bookCh: 'ch14' },
-                { num: 9, title: 'Events & Interactive Apps', file: 'module9.html', bookCh: 'ch17' }
+        "html": {
+            "name": "HTML5 Foundations",
+            "shortName": "HTML Track",
+            "dir": "Learning HTML",
+            "syllabus": "learninghtml.html",
+            "bookDir": "book-html",
+            "accent": "#ea580c",
+            "modules": [
+                {
+                    "num": 1,
+                    "title": "Welcome to HTML & Page Anatomy",
+                    "file": "module1.html"
+                },
+                {
+                    "num": 2,
+                    "title": "Tags & Attribute Superpowers",
+                    "file": "module2.html"
+                },
+                {
+                    "num": 3,
+                    "title": "Headings & Paragraphs",
+                    "file": "module3.html"
+                },
+                {
+                    "num": 4,
+                    "title": "Text Formatting",
+                    "file": "module4.html"
+                },
+                {
+                    "num": 5,
+                    "title": "Links & Navigation",
+                    "file": "module5.html"
+                },
+                {
+                    "num": 6,
+                    "title": "Images & Media",
+                    "file": "module6.html"
+                },
+                {
+                    "num": 7,
+                    "title": "Tables & Data Grids",
+                    "file": "module7.html"
+                },
+                {
+                    "num": 8,
+                    "title": "Lists & Grouping",
+                    "file": "module8.html"
+                },
+                {
+                    "num": 9,
+                    "title": "Block vs Inline",
+                    "file": "module9.html"
+                },
+                {
+                    "num": 10,
+                    "title": "Classes & IDs",
+                    "file": "module10.html"
+                },
+                {
+                    "num": 11,
+                    "title": "Forms & User Interaction",
+                    "file": "module11.html"
+                },
+                {
+                    "num": 12,
+                    "title": "Semantic HTML5 & Modern Layout",
+                    "file": "module12.html"
+                }
+            ],
+            "extras": [
+                {
+                    "file": "playground.html",
+                    "icon": "🧪",
+                    "title": "Playground"
+                },
+                {
+                    "file": "exercises.html",
+                    "icon": "✍️",
+                    "title": "Exercises"
+                },
+                {
+                    "file": "quiz.html",
+                    "icon": "❓",
+                    "title": "Quiz"
+                },
+                {
+                    "file": "glossary.html",
+                    "icon": "📖",
+                    "title": "Glossary"
+                },
+                {
+                    "file": "best-practices.html",
+                    "icon": "⭐",
+                    "title": "Best Practices"
+                },
+                {
+                    "file": "tips.html",
+                    "icon": "💡",
+                    "title": "Tips"
+                }
             ]
         },
-        html: {
-            name: 'HTML5 Foundations',
-            shortName: 'HTML Track',
-            dir: 'Learning HTML',
-            syllabus: 'learninghtml.html',
-            bookDir: 'book-html',
-            accent: '#ea580c',
-            modules: [
-                { num: 1, title: 'Welcome to HTML & Page Anatomy', file: 'module1.html', bookCh: 'ch3' },
-                { num: 2, title: 'HTML Attributes & Structure', file: 'module2.html', bookCh: 'ch4' },
-                { num: 3, title: 'Text Formatting & Headings', file: 'module3.html', bookCh: 'ch5' },
-                { num: 4, title: 'Hyperlinks & Navigation Paths', file: 'module4.html', bookCh: 'ch6' },
-                { num: 5, title: 'Images & Accessible Media', file: 'module5.html', bookCh: 'ch7' },
-                { num: 6, title: 'Lists & Site Navigation Menus', file: 'module6.html', bookCh: 'ch8' },
-                { num: 7, title: 'Data Tables & Tabular Layouts', file: 'module7.html', bookCh: 'ch9' },
-                { num: 8, title: 'Forms, Inputs & Data Entry', file: 'module8.html', bookCh: 'ch10' },
-                { num: 9, title: 'HTML5 Semantic Architecture', file: 'module9.html', bookCh: 'ch11' },
-                { num: 10, title: 'Embedded Audio & Video', file: 'module10.html', bookCh: 'ch12' },
-                { num: 11, title: 'Meta Tags, Open Graph & SEO', file: 'module11.html', bookCh: 'ch13' },
-                { num: 12, title: 'Capstone: Ethical Web Portfolio', file: 'module12.html', bookCh: 'final' }
+        "css": {
+            "name": "Modern CSS & Layouts",
+            "shortName": "CSS Track",
+            "dir": "Learning CSS",
+            "syllabus": "learningcss.html",
+            "bookDir": "book-css",
+            "accent": "#3b82f6",
+            "modules": [
+                {
+                    "num": 1,
+                    "title": "Intro to CSS",
+                    "file": "module1.html"
+                },
+                {
+                    "num": 2,
+                    "title": "Colors & Text",
+                    "file": "module2.html"
+                },
+                {
+                    "num": 3,
+                    "title": "The Box Model",
+                    "file": "module3.html"
+                },
+                {
+                    "num": 4,
+                    "title": "Display & Positioning",
+                    "file": "module4.html"
+                },
+                {
+                    "num": 5,
+                    "title": "Intro to Flexbox",
+                    "file": "module5.html"
+                },
+                {
+                    "num": 6,
+                    "title": "Advanced Flexbox",
+                    "file": "module6.html"
+                },
+                {
+                    "num": 7,
+                    "title": "CSS Grid",
+                    "file": "module7.html"
+                },
+                {
+                    "num": 8,
+                    "title": "Responsive Design",
+                    "file": "module8.html"
+                }
+            ],
+            "extras": [
+                {
+                    "file": "playground.html",
+                    "icon": "🧪",
+                    "title": "Playground"
+                },
+                {
+                    "file": "exercises.html",
+                    "icon": "✍️",
+                    "title": "Exercises"
+                },
+                {
+                    "file": "quiz.html",
+                    "icon": "❓",
+                    "title": "Quiz"
+                },
+                {
+                    "file": "glossary.html",
+                    "icon": "📖",
+                    "title": "Glossary"
+                },
+                {
+                    "file": "best-practices.html",
+                    "icon": "⭐",
+                    "title": "Best Practices"
+                },
+                {
+                    "file": "tips.html",
+                    "icon": "💡",
+                    "title": "Tips"
+                }
             ]
         },
-        css: {
-            name: 'Modern CSS & Layouts',
-            shortName: 'CSS Track',
-            dir: 'Learning CSS',
-            syllabus: 'learningcss.html',
-            bookDir: 'book-css',
-            accent: '#3b82f6',
-            modules: [
-                { num: 1, title: 'The Magic of CSS & Syntax', file: 'module1.html', bookCh: 'ch1' },
-                { num: 2, title: 'Selectors, Specificity & Cascade', file: 'module2.html', bookCh: 'ch3' },
-                { num: 3, title: 'Colors, Typography & Fonts', file: 'module3.html', bookCh: 'ch4' },
-                { num: 4, title: 'The Box Model & Spacing', file: 'module4.html', bookCh: 'ch5' },
-                { num: 5, title: 'Flexbox Alignment & Layouts', file: 'module5.html', bookCh: 'ch7' },
-                { num: 6, title: 'CSS Grid & 2D Layouts', file: 'module6.html', bookCh: 'ch8' },
-                { num: 7, title: 'Transitions, Hover & Animation', file: 'module7.html', bookCh: 'ch10' },
-                { num: 8, title: 'Responsive Design & Media Queries', file: 'module8.html', bookCh: 'ch11' }
+        "js": {
+            "name": "JavaScript Track",
+            "shortName": "JS Track",
+            "dir": "Learning JS",
+            "syllabus": "learningjs.html",
+            "bookDir": "book-js",
+            "accent": "#6366f1",
+            "modules": [
+                {
+                    "num": 1,
+                    "title": "Variables & Data Types",
+                    "file": "module1.html"
+                },
+                {
+                    "num": 2,
+                    "title": "Operators & Expressions",
+                    "file": "module2.html"
+                },
+                {
+                    "num": 3,
+                    "title": "Conditionals & Decision Making",
+                    "file": "module3.html"
+                },
+                {
+                    "num": 4,
+                    "title": "Functions",
+                    "file": "module4.html"
+                },
+                {
+                    "num": 5,
+                    "title": "JavaScript Arrays",
+                    "file": "module5.html"
+                },
+                {
+                    "num": 6,
+                    "title": "Loops",
+                    "file": "module6.html"
+                },
+                {
+                    "num": 7,
+                    "title": "Introduction to the DOM",
+                    "file": "module7.html"
+                },
+                {
+                    "num": 8,
+                    "title": "Objects & Data Structures",
+                    "file": "module8.html"
+                },
+                {
+                    "num": 9,
+                    "title": "Events & Interactivity",
+                    "file": "module9.html"
+                }
+            ],
+            "extras": [
+                {
+                    "file": "playground.html",
+                    "icon": "🧪",
+                    "title": "Playground"
+                },
+                {
+                    "file": "exercises.html",
+                    "icon": "✍️",
+                    "title": "Exercises"
+                },
+                {
+                    "file": "quiz.html",
+                    "icon": "❓",
+                    "title": "Quiz"
+                },
+                {
+                    "file": "glossary.html",
+                    "icon": "📖",
+                    "title": "Glossary"
+                },
+                {
+                    "file": "best-practices.html",
+                    "icon": "⭐",
+                    "title": "Best Practices"
+                },
+                {
+                    "file": "tips.html",
+                    "icon": "💡",
+                    "title": "Tips"
+                }
             ]
         },
-        python: {
-            name: 'Python & Ethical AI',
-            shortName: 'Python Track',
-            dir: 'Learning Python',
-            syllabus: 'learningpython.html',
-            bookDir: 'book-python',
-            accent: '#10b981',
-            modules: [
-                { num: 1, title: 'Digital Memory Vault (Variables)', file: 'module1.html', bookCh: 'ch2' },
-                { num: 2, title: 'Decisions & Conditionals (If/Else)', file: 'module2.html', bookCh: 'ch4' },
-                { num: 3, title: 'Repetition & Loops (For/While)', file: 'module3.html', bookCh: 'ch5' },
-                { num: 4, title: 'Functions & Clean Modularity', file: 'module4.html', bookCh: 'ch6' },
-                { num: 5, title: 'Data Collections (Lists & Dicts)', file: 'module5.html', bookCh: 'ch7' },
-                { num: 6, title: 'File Handling & Ethical Data I/O', file: 'module6.html', bookCh: 'ch9' },
-                { num: 7, title: 'Object-Oriented Programming (OOP)', file: 'module7.html', bookCh: 'ch11' },
-                { num: 8, title: 'Algorithms, Problem Solving & Capstone', file: 'module8.html', bookCh: 'ch14' }
+        "php": {
+            "name": "Server-Side PHP",
+            "shortName": "PHP Track",
+            "dir": "Learning PHP",
+            "syllabus": "learningphp.html",
+            "bookDir": "book-php",
+            "accent": "#7c3aed",
+            "modules": [
+                {
+                    "num": 1,
+                    "title": "Introduction to PHP",
+                    "file": "module1.html"
+                },
+                {
+                    "num": 2,
+                    "title": "Variables & Data Types",
+                    "file": "module2.html"
+                },
+                {
+                    "num": 3,
+                    "title": "Control Flow",
+                    "file": "module3.html"
+                },
+                {
+                    "num": 4,
+                    "title": "Functions",
+                    "file": "module4.html"
+                },
+                {
+                    "num": 5,
+                    "title": "Arrays",
+                    "file": "module5.html"
+                },
+                {
+                    "num": 6,
+                    "title": "Forms & POST/GET",
+                    "file": "module6.html"
+                },
+                {
+                    "num": 7,
+                    "title": "File System",
+                    "file": "module7.html"
+                },
+                {
+                    "num": 8,
+                    "title": "OOP Basics",
+                    "file": "module8.html"
+                }
+            ],
+            "extras": []
+        },
+        "mysql": {
+            "name": "MySQL & Databases",
+            "shortName": "MySQL Track",
+            "dir": "Learning MySQL",
+            "syllabus": "learningmysql.html",
+            "bookDir": "book-mysql",
+            "accent": "#0ea5e9",
+            "modules": [
+                {
+                    "num": 1,
+                    "title": "Intro to Databases",
+                    "file": "module1.html"
+                },
+                {
+                    "num": 2,
+                    "title": "CREATE TABLE",
+                    "file": "module2.html"
+                },
+                {
+                    "num": 3,
+                    "title": "INSERT & SELECT",
+                    "file": "module3.html"
+                },
+                {
+                    "num": 4,
+                    "title": "UPDATE & DELETE",
+                    "file": "module4.html"
+                },
+                {
+                    "num": 5,
+                    "title": "JOINs",
+                    "file": "module5.html"
+                },
+                {
+                    "num": 6,
+                    "title": "Advanced Queries",
+                    "file": "module6.html"
+                }
+            ],
+            "extras": []
+        },
+        "laravel": {
+            "name": "Laravel Framework",
+            "shortName": "Laravel Track",
+            "dir": "Learning Laravel",
+            "syllabus": "learninglaravel.html",
+            "bookDir": "book-laravel",
+            "accent": "#ef4444",
+            "modules": [
+                {
+                    "num": 1,
+                    "title": "Introduction to Laravel",
+                    "file": "module1.html"
+                },
+                {
+                    "num": 2,
+                    "title": "Routing",
+                    "file": "module2.html"
+                },
+                {
+                    "num": 3,
+                    "title": "Controllers",
+                    "file": "module3.html"
+                },
+                {
+                    "num": 4,
+                    "title": "Blade Templates",
+                    "file": "module4.html"
+                },
+                {
+                    "num": 5,
+                    "title": "Eloquent ORM",
+                    "file": "module5.html"
+                },
+                {
+                    "num": 6,
+                    "title": "Migrations",
+                    "file": "module6.html"
+                },
+                {
+                    "num": 7,
+                    "title": "Forms & Validation",
+                    "file": "module7.html"
+                },
+                {
+                    "num": 8,
+                    "title": "Authentication",
+                    "file": "module8.html"
+                }
+            ],
+            "extras": []
+        },
+        "python": {
+            "name": "Python & Ethical AI",
+            "shortName": "Python Track",
+            "dir": "Learning Python",
+            "syllabus": "learningpython.html",
+            "bookDir": "book-python",
+            "accent": "#10b981",
+            "modules": [
+                {
+                    "num": 1,
+                    "title": "Python Foundations & Variables",
+                    "file": "module1.html"
+                },
+                {
+                    "num": 2,
+                    "title": "Decisions & Logic",
+                    "file": "module2.html"
+                },
+                {
+                    "num": 3,
+                    "title": "Loops & Sequences",
+                    "file": "module3.html"
+                },
+                {
+                    "num": 4,
+                    "title": "Collections & Records",
+                    "file": "module4.html"
+                },
+                {
+                    "num": 5,
+                    "title": "Functions & Modularity",
+                    "file": "module5.html"
+                },
+                {
+                    "num": 6,
+                    "title": "Files & Datasets",
+                    "file": "module6.html"
+                },
+                {
+                    "num": 7,
+                    "title": "What is Machine Learning?",
+                    "file": "module7.html"
+                },
+                {
+                    "num": 8,
+                    "title": "Supervised AI & Ethical Stewardship",
+                    "file": "module8.html"
+                }
+            ],
+            "extras": [
+                {
+                    "file": "playground.html",
+                    "icon": "🧪",
+                    "title": "Playground"
+                },
+                {
+                    "file": "exercises.html",
+                    "icon": "✍️",
+                    "title": "Exercises"
+                },
+                {
+                    "file": "glossary.html",
+                    "icon": "📖",
+                    "title": "Glossary"
+                },
+                {
+                    "file": "best-practices.html",
+                    "icon": "⭐",
+                    "title": "Best Practices"
+                }
+            ]
+        },
+        "networks": {
+            "name": "Networking & Web Protocols",
+            "shortName": "Networks Track",
+            "dir": "Learning Networks",
+            "syllabus": "learningnetworks.html",
+            "bookDir": "book-networks",
+            "accent": "#0284c7",
+            "modules": [
+                {
+                    "num": 1,
+                    "title": "The Internet Highway & Packets",
+                    "file": "module1.html"
+                },
+                {
+                    "num": 2,
+                    "title": "OSI & TCP/IP Layer Models",
+                    "file": "module2.html"
+                },
+                {
+                    "num": 3,
+                    "title": "IP Addressing, CIDR & NAT",
+                    "file": "module3.html"
+                },
+                {
+                    "num": 4,
+                    "title": "Transport Layer: TCP vs. UDP",
+                    "file": "module4.html"
+                },
+                {
+                    "num": 5,
+                    "title": "DNS: The Global Phonebook",
+                    "file": "module5.html"
+                },
+                {
+                    "num": 6,
+                    "title": "HTTP Deep Dive & Wire Format",
+                    "file": "module6.html"
+                },
+                {
+                    "num": 7,
+                    "title": "HTTPS, TLS 1.3 & Amānah",
+                    "file": "module7.html"
+                },
+                {
+                    "num": 8,
+                    "title": "WebSockets, REST & Diagnostics",
+                    "file": "module8.html"
+                }
+            ],
+            "extras": [
+                {
+                    "file": "playground.html",
+                    "icon": "🧪",
+                    "title": "Playground"
+                },
+                {
+                    "file": "exercises.html",
+                    "icon": "✍️",
+                    "title": "Exercises"
+                },
+                {
+                    "file": "glossary.html",
+                    "icon": "📖",
+                    "title": "Glossary"
+                },
+                {
+                    "file": "best-practices.html",
+                    "icon": "⭐",
+                    "title": "Best Practices"
+                }
+            ]
+        },
+        "cybersecurity": {
+            "name": "Cybersecurity & Hygiene",
+            "shortName": "Security Track",
+            "dir": "Learning Cybersecurity",
+            "syllabus": "learningcybersecurity.html",
+            "bookDir": "book-cybersecurity",
+            "accent": "#059669",
+            "modules": [
+                {
+                    "num": 1,
+                    "title": "The Defender's Mindset & CIA Triad",
+                    "file": "module1.html"
+                },
+                {
+                    "num": 2,
+                    "title": "Passwords, Entropy & MFA",
+                    "file": "module2.html"
+                },
+                {
+                    "num": 3,
+                    "title": "Social Engineering & Phishing",
+                    "file": "module3.html"
+                },
+                {
+                    "num": 4,
+                    "title": "Stopping XSS & Code Injection",
+                    "file": "module4.html"
+                },
+                {
+                    "num": 5,
+                    "title": "Database Defense & SQLi",
+                    "file": "module5.html"
+                },
+                {
+                    "num": 6,
+                    "title": "Broken Access Control & CSRF",
+                    "file": "module6.html"
+                },
+                {
+                    "num": 7,
+                    "title": "Cryptography & Secure Channels",
+                    "file": "module7.html"
+                },
+                {
+                    "num": 8,
+                    "title": "Hygiene, Backups & Forensics",
+                    "file": "module8.html"
+                }
+            ],
+            "extras": [
+                {
+                    "file": "playground.html",
+                    "icon": "🧪",
+                    "title": "Playground"
+                },
+                {
+                    "file": "exercises.html",
+                    "icon": "✍️",
+                    "title": "Exercises"
+                },
+                {
+                    "file": "glossary.html",
+                    "icon": "📖",
+                    "title": "Glossary"
+                },
+                {
+                    "file": "best-practices.html",
+                    "icon": "⭐",
+                    "title": "Best Practices"
+                }
             ]
         }
     };
+    // CURRICULUM-END
 
     // ═════════════════════════════════════════════════════════════════
     // 2. ROOT PATH RESOLUTION
     // ═════════════════════════════════════════════════════════════════
     function computeRootPath() {
+        if (document.currentScript && document.currentScript.src) {
+            try { return new URL('../', document.currentScript.src).href; } catch (e) { /* fall through */ }
+        }
         if (document.body && document.body.dataset.root) {
             return document.body.dataset.root;
         }
@@ -270,10 +828,10 @@
 
         // If not specified in body data attributes, infer from directory and filename
         if (!trackKey) {
-            if (path.includes('Learning%20JS') || path.includes('Learning JS')) trackKey = 'js';
-            else if (path.includes('Learning%20HTML') || path.includes('Learning HTML')) trackKey = 'html';
-            else if (path.includes('Learning%20CSS') || path.includes('Learning CSS')) trackKey = 'css';
-            else if (path.includes('Learning%20Python') || path.includes('Learning Python')) trackKey = 'python';
+            const decoded = decodeURIComponent(path).toLowerCase();
+            for (const key of Object.keys(CURRICULUM)) {
+                if (decoded.includes('/' + CURRICULUM[key].dir.toLowerCase() + '/')) { trackKey = key; break; }
+            }
         }
 
         if (!moduleNum && filename.startsWith('module')) {
@@ -296,7 +854,10 @@
         if (!info) return;
 
         const { track, trackKey, moduleNum } = info;
+        const filename = window.location.pathname.split('/').pop().toLowerCase();
+        if (!/^module\d+\.html$/.test(filename)) return;   // syllabus, playground, quiz... keep their own layout
         const currentMod = track.modules.find(m => m.num === moduleNum) || track.modules[0];
+        const extrasHtml = (track.extras || []).map(x => `<a href="${x.file}" class="switcher-extra-link">${x.icon} ${x.title}</a>`).join('');
         const prevMod = track.modules.find(m => m.num === moduleNum - 1);
         const nextMod = track.modules.find(m => m.num === moduleNum + 1);
 
@@ -331,6 +892,7 @@
                 <div class="switcher-list">
                     ${listItemsHtml}
                 </div>
+                ${extrasHtml ? `<div class="switcher-extras">${extrasHtml}</div>` : ''}
             </div>
         `;
 
@@ -404,8 +966,10 @@
             </a>
         `;
 
-        const bookAnchor = currentMod.bookCh ? `#${currentMod.bookCh}` : '';
-        const companionBookUrl = `${ROOT}${track.bookDir}/index.html${bookAnchor}`;
+        const companionBookUrl = `${ROOT}${track.bookDir}/index.html`;
+        const completeHtml = (typeof window.markComplete === 'function')
+            ? `<button type="button" class="pager-btn-link pager-complete" onclick="window.markComplete('${currentMod.num}')" title="Record this module as finished (local progress + XP)"><span>✓</span> <span>Mark complete</span></button>`
+            : '';
 
         pager.innerHTML = `
             <div class="pager-col prev">${prevHtml}</div>
@@ -416,6 +980,7 @@
                 <a href="${companionBookUrl}" target="_blank" class="pager-btn-link" title="Open companion textbook in reader">
                     <span>📖</span> <span>Book Companion ↗</span>
                 </a>
+                ${completeHtml}
             </div>
             <div class="pager-col next">${nextHtml}</div>
         `;
@@ -432,9 +997,38 @@
     // ═════════════════════════════════════════════════════════════════
     // 6. INITIALIZATION ON DOM READY
     // ═════════════════════════════════════════════════════════════════
+    // ═════════════════════════════════════════════════════════════════
+    // 5.5 PHONE TAB BAR (fixed at the bottom; "Menu" opens the drawer)
+    // ═════════════════════════════════════════════════════════════════
+    function renderTabBar() {
+        if (document.querySelector('.bei-tab-bar')) return;
+        const path = decodeURIComponent(window.location.pathname).toLowerCase();
+        let rootPath = '';
+        try { rootPath = new URL(ROOT, window.location.href).pathname.toLowerCase(); } catch (e) { /* ignore */ }
+        const isHome = path === rootPath || path === rootPath + 'index.html';
+        const active = isHome ? 'home'
+            : (path.includes('/learn/') || path.includes('/learning ') || path.includes('/paths/')) ? 'learn'
+            : (path.includes('/studios/') || path.includes('playground')) ? 'studios'
+            : (path.includes('/library/') || path.includes('/book') || path.includes('cheatsheet')) ? 'books' : '';
+        const tab = (key, href, icon, label) => `<a href="${ROOT}${href}" class="bei-tab-item${active === key ? ' active' : ''}"${active === key ? ' aria-current="page"' : ''}><span class="bei-tab-icon" aria-hidden="true">${icon}</span><span>${label}</span></a>`;
+        const bar = document.createElement('nav');
+        bar.className = 'bei-tab-bar';
+        bar.setAttribute('aria-label', 'Quick navigation');
+        bar.innerHTML = tab('home', 'index.html', '🏠', 'Home') + tab('learn', 'learn/index.html', '📚', 'Learn')
+            + tab('studios', 'studios/index.html', '⚡', 'Studios') + tab('books', 'library/books/index.html', '📖', 'Books')
+            + `<button type="button" class="bei-tab-item bei-tab-menu" aria-label="Open menu"><span class="bei-tab-icon" aria-hidden="true">☰</span><span>Menu</span></button>`;
+        document.body.appendChild(bar);
+        bar.querySelector('.bei-tab-menu').addEventListener('click', (e) => {
+            e.stopPropagation();
+            const toggle = document.querySelector('.bei-nav .mobile-toggle');
+            if (toggle) { window.scrollTo({ top: 0, behavior: 'smooth' }); toggle.click(); }
+        });
+    }
+
     function init() {
         renderGlobalNav();
         setupModuleNavigation();
+        renderTabBar();
     }
 
     if (document.readyState === 'loading') {

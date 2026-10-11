@@ -4,6 +4,7 @@
 // usage: node scripts/render-check.mjs <outDir> <width> <height> <mobile 0|1> <url1> [url2 ...]
 //   e.g. node scripts/render-check.mjs .render 390 844 1 "http://localhost/junior-coders-git-lab/Learning%20JS/module1.html"
 // env:  PORT=9333 (devtools port)  THEME=dark|light  CHROME=<path to chrome.exe>
+//       CLICK=<css selector>  click this element after load (e.g. open the phone menu) before measuring/screenshotting
 // Prints JSON per page, then a summary line listing pages with horizontal scroll or errors.
 // Needs Chrome installed and the site served (XAMPP Apache). Keep <outDir> out of git (.render/ is ignored).
 import { spawn } from 'node:child_process';
@@ -75,6 +76,10 @@ try {
     await cdp.send('Page.navigate', { url });
     await sleep(1800);
 
+    if (process.env.CLICK) {
+      await cdp.send('Runtime.evaluate', { expression: `(() => { const el = document.querySelector(${JSON.stringify(process.env.CLICK)}); if (el) el.click(); return !!el; })()` });
+      await sleep(700);
+    }
     const probe = await cdp.send('Runtime.evaluate', { returnByValue: true, expression: `(() => {
       const de = document.documentElement;
       const wide = [...document.querySelectorAll('body *')].filter(el => {
