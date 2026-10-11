@@ -181,6 +181,11 @@ These rules come from real bugs found in this site. Follow them for every change
    is produced by running its `solution` against the database at page load, so never hard-code expected rows. Keep
    scenarios within §1 (school library, charity drives). Exercise completions are stored by `beiProgress.completeExercise`
    with keys like `mysql:<id>` and earn 15/25/40 XP by tier.
+7f. **PHP practice runs on a real engine too.** `js/php-lab.js` loads php-wasm (PHP 8.3 in WebAssembly, pinned on
+   jsdelivr, ~12 MB downloaded once). The PHP Console studio (`studios/php-console/`) and `Learning PHP/exercises.html`
+   use it. Exercises live in `js/data/php-exercises.js` in three kinds: `predict` and `fill` need no engine (tier 1);
+   `code` tasks run the student's script and compare its output with the solution's output (the stored `expected` is
+   only the fallback when the engine cannot load, so keep it identical to what PHP prints). Keys: `php:<id>`.
 8. **Check before you finish:**
    ```bash
    node scripts/bundle-books.js          # after editing textbook chapters (.md)

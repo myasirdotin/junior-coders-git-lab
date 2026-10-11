@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Quiz: 10 Questions | Junior Coders</title>
+    <meta name="description" content="Ten quick questions on PHP basics: tags, variables, strings, if/else, loops, functions, arrays, forms, files and classes.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-php">
+            <span class="badge" style="background: white; color: var(--php-brand);">Quiz</span>
+            <h1>PHP Master Quiz 🧠</h1>
+            <p>Ten questions covering the whole PHP track. Pick an answer for each, then press <strong>Check my answers</strong>.</p>
+        </header>
+
+        <section class="content-card">
+            <form id="quiz-form-php" onsubmit="event.preventDefault(); checkQuiz('php');">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Where does PHP code run?</p>
+                    <label><input type="radio" name="q1" value="a"> In the visitor's browser, like JavaScript</label>
+                    <label><input type="radio" name="q1" value="b"> On the server, before the page is sent to the browser</label>
+                    <label><input type="radio" name="q1" value="c"> Inside the database</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q2: Every PHP variable name starts with…</p>
+                    <label><input type="radio" name="q2" value="a"> <code>let</code></label>
+                    <label><input type="radio" name="q2" value="b"> <code>@</code></label>
+                    <label><input type="radio" name="q2" value="c"> <code>$</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: <code>echo "Hi, $name";</code> prints the value of <code>$name</code> because…</p>
+                    <label><input type="radio" name="q3" value="a"> Double quotes replace variables with their values</label>
+                    <label><input type="radio" name="q3" value="b"> <code>echo</code> always looks up variables</label>
+                    <label><input type="radio" name="q3" value="c"> It does not: it prints the text <code>$name</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q4: Which operator joins two strings together?</p>
+                    <label><input type="radio" name="q4" value="a"> <code>+</code></label>
+                    <label><input type="radio" name="q4" value="b"> <code>.</code></label>
+                    <label><input type="radio" name="q4" value="c"> <code>&amp;</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q5: Which loop is made for going through every item of an array?</p>
+                    <label><input type="radio" name="q5" value="a"> <code>while</code></label>
+                    <label><input type="radio" name="q5" value="b"> <code>repeat</code></label>
+                    <label><input type="radio" name="q5" value="c"> <code>foreach</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q6: What does <code>return</code> do inside a function?</p>
+                    <label><input type="radio" name="q6" value="a"> Sends a value back to the code that called the function and ends it</label>
+                    <label><input type="radio" name="q6" value="b"> Prints the value on the page</label>
+                    <label><input type="radio" name="q6" value="c"> Restarts the function</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q7: <code>$books = ["Clean Code" =&gt; "Yes"];</code> is a…</p>
+                    <label><input type="radio" name="q7" value="a"> Numbered (indexed) array</label>
+                    <label><input type="radio" name="q7" value="b"> Associative array (keys with values)</label>
+                    <label><input type="radio" name="q7" value="c"> String</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q8: Data from a submitted form with <code>method="post"</code> is read from…</p>
+                    <label><input type="radio" name="q8" value="a"> <code>$_GET</code></label>
+                    <label><input type="radio" name="q8" value="b"> <code>$FORM</code></label>
+                    <label><input type="radio" name="q8" value="c"> <code>$_POST</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q9: Before showing user input on a page you should use <code>htmlspecialchars()</code> to…</p>
+                    <label><input type="radio" name="q9" value="a"> Stop injected HTML or scripts from running (XSS protection)</label>
+                    <label><input type="radio" name="q9" value="b"> Make the text bold</label>
+                    <label><input type="radio" name="q9" value="c"> Save it to the database</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q10: In a class, the method that runs automatically when you write <code>new Book(...)</code> is…</p>
+                    <label><input type="radio" name="q10" value="a"> <code>init()</code></label>
+                    <label><input type="radio" name="q10" value="b"> <code>__construct()</code></label>
+                    <label><input type="radio" name="q10" value="c"> <code>start()</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="submit" class="btn-primary" style="margin-top: 1rem;">Check my answers</button>
+            </form>
+        </section>
+
+        <section class="content-card" style="margin-top: 1.5rem;">
+            <h2>Keep practising</h2>
+            <p>Try the <a href="exercises.html">PHP exercises</a> (code runs in your browser), experiment in the <a href="../studios/php-console/index.html">PHP Console</a>, or look terms up in the <a href="glossary.html">glossary</a>.</p>
+        </section>
+    </main>
+
+    <script src="../js/bei-nav.js"></script>
+    <script src="../js/tts-voices.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/pdf-download.js"></script>
+</body>
+</html>

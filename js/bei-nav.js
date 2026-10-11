@@ -332,7 +332,28 @@
                     "file": "module8.html"
                 }
             ],
-            "extras": []
+            "extras": [
+                {
+                    "file": "playground.html",
+                    "icon": "🧪",
+                    "title": "Playground"
+                },
+                {
+                    "file": "exercises.html",
+                    "icon": "✍️",
+                    "title": "Exercises"
+                },
+                {
+                    "file": "quiz.html",
+                    "icon": "❓",
+                    "title": "Quiz"
+                },
+                {
+                    "file": "glossary.html",
+                    "icon": "📖",
+                    "title": "Glossary"
+                }
+            ]
         },
         "mysql": {
             "name": "MySQL & Databases",

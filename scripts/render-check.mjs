@@ -5,6 +5,7 @@
 //   e.g. node scripts/render-check.mjs .render 390 844 1 "http://localhost/junior-coders-git-lab/Learning%20JS/module1.html"
 // env:  PORT=9333 (devtools port)  THEME=dark|light  CHROME=<path to chrome.exe>
 //       CLICK=<css selector>  click this element after load (e.g. open the phone menu) before measuring/screenshotting
+//       WAIT=<ms>  wait after load before measuring (default 1800; use 20000 for pages that download an engine)
 //       SETUP=<js>  run once after the first load (e.g. set localStorage), then reload the page before measuring
 // Prints JSON per page, then a summary line listing pages with horizontal scroll or errors.
 // Needs Chrome installed and the site served (XAMPP Apache). Keep <outDir> out of git (.render/ is ignored).
@@ -17,6 +18,7 @@ const [outDir, W, H, MOBILE, ...urls] = process.argv.slice(2);
 mkdirSync(outDir, { recursive: true });
 const CHROME = process.env.CHROME || 'C:/Program Files/Google/Chrome/Application/chrome.exe';
 const PORT = +(process.env.PORT || 9333);
+const WAIT = +(process.env.WAIT || 1800);   // ms to wait after load before measuring (raise for pages that download engines)
 
 const chrome = spawn(CHROME, [
   '--headless=new', '--disable-gpu', '--no-first-run', '--no-default-browser-check',
@@ -61,11 +63,12 @@ try {
   for (const url of urls) {
     const r = await (await fetch(`http://127.0.0.1:${PORT}/json/new?${encodeURIComponent('about:blank')}`, { method: 'PUT' })).json();
     const cdp = await openTab(r.webSocketDebuggerUrl);
-    const logs = [];
+    const logs = []; const reqUrls = {};
     cdp.on(m => {
       if (m.method === 'Runtime.exceptionThrown') logs.push('EXC ' + (m.params.exceptionDetails.exception?.description || m.params.exceptionDetails.text));
       if (m.method === 'Runtime.consoleAPICalled' && ['error', 'warning'].includes(m.params.type)) logs.push(m.params.type.toUpperCase() + ' ' + m.params.args.map(a => a.value ?? a.description).join(' '));
-      if (m.method === 'Network.loadingFailed') logs.push('NETFAIL ' + m.params.errorText);
+      if (m.method === 'Network.requestWillBeSent') reqUrls[m.params.requestId] = m.params.request.url;
+      if (m.method === 'Network.loadingFailed' && !m.params.canceled) logs.push('NETFAIL ' + m.params.errorText + ' ' + (reqUrls[m.params.requestId] || ''));
       if (m.method === 'Network.responseReceived' && m.params.response.status >= 400) logs.push(`HTTP ${m.params.response.status} ${m.params.response.url}`);
     });
     await cdp.send('Runtime.enable');
@@ -75,7 +78,7 @@ try {
     if (MOBILE === '1') await cdp.send('Emulation.setTouchEmulationEnabled', { enabled: true });
     await cdp.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-color-scheme', value: process.env.THEME || 'light' }] });
     await cdp.send('Page.navigate', { url });
-    await sleep(1800);
+    await sleep(WAIT);
     if (process.env.SETUP) {   // e.g. SETUP='localStorage.setItem("bei_theme","light")' — runs once, then the page is loaded again
       await cdp.send('Runtime.evaluate', { expression: process.env.SETUP });
       await cdp.send('Page.navigate', { url });

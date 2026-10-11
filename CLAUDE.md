@@ -54,6 +54,9 @@ _Last updated 2026-10-11._
   chapters is the next step if wanted.
 - MySQL practice (2026-10-11): real SQL engine (`js/sql-lab.js`, sql.js from cdnjs), SQL Sandbox rebuilt on it, 14
   auto-checked exercises in 3 tiers (`Learning MySQL/exercises.html`), 10-question quiz, 36-term glossary; the track's
-  switcher now shows Playground / Exercises / Quiz / Glossary like the front-end tracks. PHP and Laravel practice still open
-  (PHP runtime decision pending: php-wasm vs runtime-free).
+  switcher now shows Playground / Exercises / Quiz / Glossary like the front-end tracks.
+- PHP practice (2026-10-11): PHP Console studio on php-wasm (`js/php-lab.js`), 15 exercises (5 predict/fill without the
+  engine + 10 coding tasks checked by output), quiz, 39-term glossary; the syllabus's previously broken Playground /
+  Exercises / Glossary links now resolve. Laravel practice still open (runtime-free: arrange-the-steps, fill-in,
+  fix-the-bug + local XAMPP checklist).
 - **Open — not yet checked:** narration audio playback in a real browser (headless tests cannot play sound).

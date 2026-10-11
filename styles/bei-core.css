@@ -2808,3 +2808,28 @@ body.bei-search-open { overflow: hidden; }
     .sqlx-table { grid-template-columns: 1fr; gap: 0.15rem; }
     .sqlx-actions button { flex: 1 1 45%; text-align: center; }
 }
+
+/* PHP exercises (reuse the sqlx-* layout) */
+.phpx-code {
+    margin: 0 0 0.6rem; padding: 0.8rem 0.9rem; overflow-x: auto;
+    background: #020617; color: #e9d5ff; border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+    font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.55;
+}
+.phpx-blank { background: rgba(245, 158, 11, 0.35); color: #fde68a; padding: 0 0.2rem; border-radius: 3px; }
+.phpx-label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin: 0.2rem 0 0.3rem; }
+.phpx-answer {
+    width: 100%; box-sizing: border-box; padding: 0.6rem 0.8rem; resize: vertical;
+    background: var(--bg-input); color: var(--text-primary); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);
+    font-family: var(--font-mono); font-size: 0.9rem; outline: none;
+}
+.phpx-answer:focus { border-color: var(--brand-purple); }
+.phpx-editor { color: #e9d5ff; min-height: 140px; }
+.phpx-editor:focus { border-color: var(--brand-purple) !important; }
+.phpx-output {
+    margin: 0; padding: 0.7rem 0.9rem; white-space: pre-wrap; word-break: break-word;
+    background: #020617; color: #a7f3d0; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);
+    font-family: var(--font-mono); font-size: 0.88rem; line-height: 1.5;
+}
+.phpx-stderr { color: #fca5a5; margin-top: 0.4rem; }
+.phpx-why { margin-top: 0.4rem; font-weight: 500; color: var(--text-secondary); font-size: 0.88rem; }
+.sqlx-card .sqlx-solbox pre { margin: 0; white-space: pre-wrap; font-family: inherit; }

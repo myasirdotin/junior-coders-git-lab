@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-Browser PHP Console | Junior Coders</title>
+    <meta name="description" content="Write and run real PHP 8 in your browser: variables, loops, functions, arrays and classes, with instant output. No server or installation needed.">
+    <link rel="stylesheet" href="../../styles/bei-core.css">
+    <style>
+        .php-layout { display: grid; grid-template-columns: 260px 1fr; gap: 1.25rem; margin: 1.5rem 0 3rem; }
+        @media (max-width: 900px) { .php-layout { grid-template-columns: 1fr; } }
+        .php-sidebar { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem; }
+        .php-sidebar h3 { font-size: 1.05rem; margin-bottom: 0.75rem; }
+        .php-example { display: block; width: 100%; text-align: left; background: var(--bg-surface-elevated); border: 1px solid transparent; border-radius: var(--radius-sm); padding: 0.6rem 0.75rem; margin-bottom: 0.5rem; color: var(--text-primary); font: inherit; font-size: 0.85rem; font-weight: 600; cursor: pointer; }
+        .php-example:hover { border-color: var(--brand-purple); }
+        .php-example small { display: block; color: var(--text-muted); font-weight: 500; font-size: 0.74rem; }
+        .php-editor-pane { display: flex; flex-direction: column; gap: 1rem; }
+        .php-toolbar { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 0.6rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
+        .php-status { font-size: 0.8rem; color: var(--text-muted); }
+        .php-status.ok { color: #34d399; } .php-status.bad { color: #fca5a5; }
+        .php-textarea { width: 100%; min-height: 240px; box-sizing: border-box; background: #020617; color: #e9d5ff; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1rem; font-family: var(--font-mono); font-size: 0.95rem; line-height: 1.5; resize: vertical; outline: none; }
+        .php-textarea:focus { border-color: var(--brand-purple); }
+        .php-output-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.25rem; min-height: 160px; }
+        .php-output { margin: 0; white-space: pre-wrap; word-break: break-word; font-family: var(--font-mono); font-size: 0.92rem; line-height: 1.5; color: #a7f3d0; }
+        .php-output.err { color: #fca5a5; }
+        .php-output.muted { color: var(--text-muted); }
+        .php-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.75rem; line-height: 1.5; }
+        .php-note a { color: var(--brand-purple); font-weight: 600; }
+        #runPhpBtn:disabled { opacity: 0.5; cursor: wait; }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <header class="learn-header" style="margin-bottom: 1rem;">
+            <div class="breadcrumbs">
+                <a href="../../index.html">Home</a> <span>/</span>
+                <a href="../index.html">Studios</a> <span>/</span>
+                <span>PHP Console</span>
+            </div>
+            <h1>In-Browser PHP Console 🐘</h1>
+            <p class="lead">Real PHP 8 running on your own device. Type a script, press <strong>Run</strong> (or Ctrl+Enter) and see the output instantly. Nothing is uploaded anywhere.</p>
+        </header>
+
+        <div class="php-layout">
+            <aside class="php-sidebar">
+                <h3>📂 Examples</h3>
+                <div id="phpExamples"></div>
+                <p class="php-note">Ready to be tested? Try the <a href="../../Learning%20PHP/exercises.html">auto-checked PHP exercises →</a></p>
+                <p class="php-note">The engine downloads once (about 12 MB) and is then cached by your browser.</p>
+            </aside>
+
+            <div class="php-editor-pane">
+                <div class="php-toolbar">
+                    <span class="php-status" id="phpStatus">⏳ Downloading the PHP engine…</span>
+                    <button id="runPhpBtn" class="btn-hero-primary" style="padding: 0.4rem 1.1rem; font-size: 0.85rem; background: var(--brand-purple);" disabled>▶ Run PHP</button>
+                </div>
+                <textarea id="phpInput" class="php-textarea" spellcheck="false" aria-label="PHP code"><?php
+$student = "Maryam";
+$books = ["Clean Code", "Digital Stewardship", "Algorithm Design"];
+
+echo "Assalamu alaikum, $student!\n";
+echo "You have borrowed " . count($books) . " books:\n";
+
+foreach ($books as $i => $title) {
+    echo ($i + 1) . ". $title\n";
+}</textarea>
+                <div class="php-output-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">🖥️ Output</span>
+                        <span id="phpMeta" style="font-size: 0.78rem; color: var(--text-muted);"></span>
+                    </div>
+                    <pre id="phpOutput" class="php-output muted">Output appears here.</pre>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../../js/php-lab.js"></script>
+    <script>
+        const EXAMPLES = [
+            ['Hello & variables', 'echo, strings, numbers', '<?php\n$name = "Zayd";\n$age = 13;\necho "Hello, $name! You are $age years old.\\n";\necho "Next year you will be " . ($age + 1) . ".";'],
+            ['If / else', 'decisions', '<?php\n$gpa = 3.85;\nif ($gpa >= 3.8) {\n    echo "Honour roll!";\n} elseif ($gpa >= 3.0) {\n    echo "Good work.";\n} else {\n    echo "Keep going.";\n}'],
+            ['For loop', 'counting', '<?php\nfor ($i = 1; $i <= 5; $i++) {\n    echo "$i squared is " . ($i * $i) . "\\n";\n}'],
+            ['Functions', 'reusable code', '<?php\nfunction fine($daysLate) {\n    return $daysLate * 5;\n}\n\necho "3 days late: " . fine(3) . " rupees\\n";\necho "10 days late: " . fine(10) . " rupees";'],
+            ['Arrays', 'lists and foreach', '<?php\n$donations = ["Ahmad" => 1500, "Sara" => 5000, "Ibrahim" => 2500];\n$total = 0;\nforeach ($donations as $donor => $amount) {\n    echo "$donor gave $amount\\n";\n    $total += $amount;\n}\necho "Total raised: $total";'],
+            ['Strings', 'built-in functions', '<?php\n$title = "digital stewardship";\necho ucwords($title), "\\n";\necho strtoupper($title), "\\n";\necho strlen($title), " characters\\n";\necho str_replace("digital", "ethical", $title);'],
+            ['Classes', 'objects (OOP)', '<?php\nclass Book {\n    public $title;\n    public $pages;\n\n    function __construct($title, $pages) {\n        $this->title = $title;\n        $this->pages = $pages;\n    }\n\n    function summary() {\n        return "$this->title has $this->pages pages.";\n    }\n}\n\n$book = new Book("Clean Code", 464);\necho $book->summary();'],
+            ['Dates', 'date() and time', '<?php\necho "Today is " . date("l, j F Y") . "\\n";\necho "The time is " . date("H:i");']
+        ];
+        const input = document.getElementById('phpInput');
+        const output = document.getElementById('phpOutput');
+        const meta = document.getElementById('phpMeta');
+        const status = document.getElementById('phpStatus');
+        const runBtn = document.getElementById('runPhpBtn');
+
+        document.getElementById('phpExamples').innerHTML = EXAMPLES.map((e, i) =>
+            `<button type="button" class="php-example" data-i="${i}">${e[0]}<small>${e[1]}</small></button>`).join('');
+        document.getElementById('phpExamples').addEventListener('click', (e) => {
+            const b = e.target.closest('.php-example');
+            if (!b) return;
+            input.value = EXAMPLES[+b.dataset.i][2];
+            if (PHPLab.isReady()) runPhp();
+        });
+
+        async function runPhp() {
+            runBtn.disabled = true;
+            const t0 = performance.now();
+            try {
+                const r = await PHPLab.run(input.value);
+                output.className = 'php-output' + (r.stderr ? ' err' : '');
+                output.textContent = (r.stdout || '') + (r.stderr ? '\n' + r.stderr : '') || '(nothing printed)';
+                meta.textContent = 'exit code ' + r.exit + ' · ' + Math.round(performance.now() - t0) + ' ms';
+                if (window.awardXP) window.awardXP(10, 'PHP script run');
+            } catch (err) {
+                output.className = 'php-output err';
+                output.textContent = err.message;
+            }
+            runBtn.disabled = false;
+        }
+        runBtn.addEventListener('click', runPhp);
+        input.addEventListener('keydown', (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); runPhp(); } });
+
+        PHPLab.ready().then(() => {
+            status.textContent = '✅ PHP ' + PHPLab.version + ' ready';
+            status.classList.add('ok');
+            runBtn.disabled = false;
+            runPhp();
+        }).catch(err => {
+            status.textContent = '⚠️ ' + err.message;
+            status.classList.add('bad');
+        });
+    </script>
+    <script src="../../js/bei-core.js"></script>
+    <script src="../../js/bei-nav.js"></script>
+</body>
+</html>

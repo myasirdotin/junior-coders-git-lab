@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Glossary: Terms Explained | Junior Coders</title>
+    <meta name="description" content="Plain-English definitions of PHP terms: variable, echo, string, array, associative array, function, loop, $_POST, session, class, object, constructor, htmlspecialchars and more.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+</head>
+<body>
+    <main id="main-content" class="glossary-container">
+        <div class="glossary-header">
+            <h1>PHP Glossary</h1>
+            <p>Quick reference for the terms used in the PHP track</p>
+        </div>
+
+        <input type="text" id="glossary-search" class="glossary-search" placeholder="Search terms..." aria-label="Search glossary terms">
+
+        <div class="glossary-letter">A</div>
+        <dl class="glossary-term"><dt>Array</dt><dd>A variable that holds a list of values: <code>$books = ["Clean Code", "Algorithm Design"];</code>. Items are numbered from 0, so <code>$books[0]</code> is "Clean Code".</dd></dl>
+        <dl class="glossary-term"><dt>Associative array</dt><dd>An array whose items have named keys instead of numbers: <code>["Clean Code" =&gt; "Yes", "Ethical Technology" =&gt; "No"]</code>. Read one with <code>$books["Clean Code"]</code>.</dd></dl>
+
+        <div class="glossary-letter">B</div>
+        <dl class="glossary-term"><dt>Boolean</dt><dd>A value that is either <code>true</code> or <code>false</code>, usually the result of a comparison such as <code>$gpa &gt;= 3.8</code>.</dd></dl>
+
+        <div class="glossary-letter">C</div>
+        <dl class="glossary-term"><dt>Class</dt><dd>A blueprint for objects: it lists properties (data) and methods (functions). <code>class Book { ... }</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Comment</dt><dd>A note for humans that PHP ignores: <code>// one line</code> or <code>/* several lines */</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Concatenation</dt><dd>Joining strings with the dot operator: <code>"Hello, " . $name</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Condition</dt><dd>A test that is true or false, used by <code>if</code>, <code>while</code> and <code>for</code>: <code>if ($daysLate &gt; 0)</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Constructor</dt><dd>The special method <code>__construct()</code> that runs when an object is created with <code>new</code>, usually to set its properties.</dd></dl>
+        <dl class="glossary-term"><dt>CSRF</dt><dd>Cross-Site Request Forgery: tricking a logged-in user's browser into submitting a form they did not intend. Prevented with a secret token checked on every POST.</dd></dl>
+
+        <div class="glossary-letter">E</div>
+        <dl class="glossary-term"><dt>echo</dt><dd>Prints text or values to the page: <code>echo "Total: $total";</code>. Several values can be separated with commas.</dd></dl>
+        <dl class="glossary-term"><dt>else / elseif</dt><dd>Alternatives for an <code>if</code>: <code>if (...) { } elseif (...) { } else { }</code>. Only the first true branch runs.</dd></dl>
+
+        <div class="glossary-letter">F</div>
+        <dl class="glossary-term"><dt>file_put_contents / file_get_contents</dt><dd>Write a whole file or read a whole file in one call. Use <code>FILE_APPEND</code> to add to the end instead of replacing.</dd></dl>
+        <dl class="glossary-term"><dt>for loop</dt><dd>Repeats code a known number of times: <code>for ($i = 1; $i &lt;= 5; $i++) { ... }</code>.</dd></dl>
+        <dl class="glossary-term"><dt>foreach loop</dt><dd>Goes through every item of an array: <code>foreach ($books as $title)</code> or, with keys, <code>foreach ($books as $title =&gt; $available)</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Function</dt><dd>A named, reusable block of code: <code>function square($n) { return $n * $n; }</code>. Call it with <code>square(7)</code>.</dd></dl>
+
+        <div class="glossary-letter">G</div>
+        <dl class="glossary-term"><dt>$_GET</dt><dd>Data sent in the page address after <code>?</code>, for example <code>search.php?q=php</code> gives <code>$_GET["q"]</code>. Fine for searches, not for passwords.</dd></dl>
+
+        <div class="glossary-letter">H</div>
+        <dl class="glossary-term"><dt>htmlspecialchars()</dt><dd>Converts <code>&lt;</code>, <code>&gt;</code>, <code>&amp;</code> and quotes into safe text so user input cannot inject HTML or scripts (XSS protection). Use it on everything you print that came from a user.</dd></dl>
+
+        <div class="glossary-letter">I</div>
+        <dl class="glossary-term"><dt>if statement</dt><dd>Runs code only when a condition is true: <code>if ($gpa &gt;= 3.8) { echo "Honour roll"; }</code>.</dd></dl>
+        <dl class="glossary-term"><dt>include / require</dt><dd>Pull another PHP file into this one, for example a shared header. <code>require</code> stops the script if the file is missing.</dd></dl>
+        <dl class="glossary-term"><dt>Integer / Float</dt><dd>Whole numbers (<code>13</code>) and decimal numbers (<code>3.85</code>).</dd></dl>
+
+        <div class="glossary-letter">M</div>
+        <dl class="glossary-term"><dt>Method</dt><dd>A function that belongs to a class: <code>$book-&gt;summary()</code>.</dd></dl>
+
+        <div class="glossary-letter">N</div>
+        <dl class="glossary-term"><dt>new</dt><dd>Creates an object from a class: <code>$book = new Book("Clean Code", 464);</code>.</dd></dl>
+        <dl class="glossary-term"><dt>null</dt><dd>"No value". A variable that has not been given anything, or a missing form field, is null.</dd></dl>
+
+        <div class="glossary-letter">O</div>
+        <dl class="glossary-term"><dt>Object</dt><dd>One thing made from a class, with its own property values: one particular book.</dd></dl>
+        <dl class="glossary-term"><dt>Operator</dt><dd>A symbol that does something with values: <code>+ - * /</code> (maths), <code>.</code> (join strings), <code>== === != &lt; &gt; &gt;=</code> (compare), <code>&amp;&amp; ||</code> (and / or).</dd></dl>
+
+        <div class="glossary-letter">P</div>
+        <dl class="glossary-term"><dt>password_hash()</dt><dd>Turns a password into a scrambled hash before saving it. Check a login with <code>password_verify()</code>. Never store the real password (Amānah: the user's secret is a trust).</dd></dl>
+        <dl class="glossary-term"><dt>PHP tag</dt><dd><code>&lt;?php</code> starts PHP code inside a file; the closing <code>?&gt;</code> is optional at the end of a pure PHP file.</dd></dl>
+        <dl class="glossary-term"><dt>$_POST</dt><dd>Data from a form submitted with <code>method="post"</code>: <code>$_POST["name"]</code>. Used for anything private or that changes data.</dd></dl>
+        <dl class="glossary-term"><dt>Property</dt><dd>A variable that belongs to an object: <code>$book-&gt;title</code>. Declared in the class with <code>public $title;</code>.</dd></dl>
+
+        <div class="glossary-letter">R</div>
+        <dl class="glossary-term"><dt>return</dt><dd>Sends a value back from a function and ends it: <code>return $n * $n;</code>.</dd></dl>
+
+        <div class="glossary-letter">S</div>
+        <dl class="glossary-term"><dt>Server-side</dt><dd>Code that runs on the web server before the page is sent. The visitor only sees the HTML it produced, never the PHP.</dd></dl>
+        <dl class="glossary-term"><dt>Session</dt><dd>Data the server remembers about one visitor between pages, such as who is logged in: <code>session_start(); $_SESSION["user"] = "Zayd";</code>.</dd></dl>
+        <dl class="glossary-term"><dt>String</dt><dd>Text in quotes. Double quotes fill in variables (<code>"Hi, $name"</code>); single quotes print exactly what is typed.</dd></dl>
+        <dl class="glossary-term"><dt>Superglobal</dt><dd>Variables PHP provides everywhere, written in capitals: <code>$_GET</code>, <code>$_POST</code>, <code>$_SESSION</code>, <code>$_FILES</code>, <code>$_SERVER</code>.</dd></dl>
+
+        <div class="glossary-letter">T</div>
+        <dl class="glossary-term"><dt>$this</dt><dd>Inside a class, the object the method was called on: <code>$this-&gt;title</code>.</dd></dl>
+
+        <div class="glossary-letter">V</div>
+        <dl class="glossary-term"><dt>Validation</dt><dd>Checking user input before using it: is it filled in, a number, an email, within limits? Always validate on the server even if the browser already checked.</dd></dl>
+        <dl class="glossary-term"><dt>Variable</dt><dd>A named box for a value: <code>$student = "Bilal";</code>. Names start with <code>$</code> and are case-sensitive.</dd></dl>
+
+        <div class="glossary-letter">W</div>
+        <dl class="glossary-term"><dt>while loop</dt><dd>Repeats while a condition stays true: <code>while ($count &lt; 3) { $count++; }</code>. Make sure something inside changes the condition, or it never stops.</dd></dl>
+
+        <div class="glossary-letter">X</div>
+        <dl class="glossary-term"><dt>XSS</dt><dd>Cross-Site Scripting: an attacker types a <code>&lt;script&gt;</code> into a form and it runs for other visitors. Prevented by escaping output with <code>htmlspecialchars()</code>.</dd></dl>
+
+        <p id="glossary-empty" class="glossary-empty" hidden>No terms match your search.</p>
+    </main>
+
+    <script>
+    (function () {
+        const input = document.getElementById('glossary-search');
+        const terms = Array.from(document.querySelectorAll('.glossary-term'));
+        const letters = Array.from(document.querySelectorAll('.glossary-letter'));
+        input.addEventListener('input', () => {
+            const q = input.value.trim().toLowerCase();
+            let shown = 0;
+            terms.forEach(t => { const hit = !q || t.textContent.toLowerCase().includes(q); t.style.display = hit ? '' : 'none'; if (hit) shown++; });
+            letters.forEach(l => {
+                let el = l.nextElementSibling, any = false;
+                while (el && !el.classList.contains('glossary-letter')) { if (el.classList.contains('glossary-term') && el.style.display !== 'none') any = true; el = el.nextElementSibling; }
+                l.style.display = any ? '' : 'none';
+            });
+            document.getElementById('glossary-empty').hidden = shown > 0;
+        });
+    })();
+    </script>
+    <script src="../js/bei-nav.js"></script>
+    <script src="../js/tts-voices.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/pdf-download.js"></script>
+</body>
+</html>

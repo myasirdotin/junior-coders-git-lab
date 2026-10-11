@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP Exercises: Predict, Fill and Code | Junior Coders</title>
+    <meta name="description" content="15 auto-checked PHP exercises: predict the output, fill the missing keyword, then write real PHP that runs in your browser (variables, if/else, loops, functions, arrays, classes).">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-php">
+            <span class="badge" style="background: white; color: var(--php-brand);">Practice</span>
+            <h1>PHP Exercises 🐘</h1>
+            <p>Warm up by reading code, then write real PHP. Your code runs right here in the browser and is checked against the expected output.</p>
+        </header>
+
+        <section class="sqlx-intro">
+            <div class="sqlx-progress">
+                <strong><span id="phpxDone">0</span> of <span id="phpxTotal">0</span> solved</strong>
+                <span class="sqlx-progress-bar"><span id="phpxBar"></span></span>
+                <span class="sqlx-engine" id="phpxEngine">Warm-up tasks need no download. The PHP engine (about 12 MB, once) loads for the coding tasks…</span>
+            </div>
+            <div class="sqlx-tiers">
+                <button type="button" class="sqlx-tier-btn active" data-tier="all">All</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="1">🟢 Warm-up</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="2">🟡 Apply</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="3">🔴 Challenge</button>
+            </div>
+            <p class="sqlx-note">Want to experiment freely first? Open the <a href="../studios/php-console/index.html">PHP Console</a>.</p>
+        </section>
+
+        <section id="phpxList" class="sqlx-list" aria-live="polite"></section>
+    </main>
+
+    <script src="../js/php-lab.js"></script>
+    <script src="../js/data/php-exercises.js"></script>
+    <script>
+    (function () {
+        'use strict';
+        const EX = window.PHP_EXERCISES || [];
+        const list = document.getElementById('phpxList');
+        const TIER_LABEL = { 1: '🟢 Warm-up', 2: '🟡 Apply', 3: '🔴 Challenge' };
+        const XP = { 1: 15, 2: 25, 3: 40 };
+        const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+        const progress = () => window.beiProgress;
+        const doneKey = (ex) => 'php:' + ex.id;
+        const isDone = (ex) => !!(progress() && progress().isExerciseDone(doneKey(ex)));
+        let engineOk = false;
+
+        document.getElementById('phpxTotal').textContent = EX.length;
+
+        function updateProgress() {
+            const n = EX.filter(isDone).length;
+            document.getElementById('phpxDone').textContent = n;
+            document.getElementById('phpxBar').style.width = (EX.length ? n / EX.length * 100 : 0) + '%';
+        }
+
+        function card(ex, i) {
+            const head = `
+                <header class="sqlx-card-head">
+                    <span class="sqlx-num">${isDone(ex) ? '✓' : i + 1}</span>
+                    <h2>${esc(ex.title)}</h2>
+                    <span class="sqlx-tier t${ex.tier}">${TIER_LABEL[ex.tier]} · ${XP[ex.tier]} XP</span>
+                </header>
+                <p class="sqlx-task">${ex.task}</p>`;
+            let body = '';
+            if (ex.type === 'predict') {
+                body = `
+                <pre class="phpx-code"><code>${esc(ex.code)}</code></pre>
+                <label class="phpx-label">It prints:</label>
+                <textarea class="phpx-answer" rows="2" spellcheck="false" placeholder="Type the exact output"></textarea>
+                <div class="sqlx-actions"><button type="button" class="sqlx-run">✓ Check</button><button type="button" class="sqlx-solution">Show answer</button></div>
+                <div class="sqlx-solbox" hidden><code>${esc(ex.answer)}</code><div class="phpx-why">${ex.why}</div></div>`;
+            } else if (ex.type === 'fill') {
+                body = `
+                <pre class="phpx-code"><code>${esc(ex.code).replace('____', '<mark class="phpx-blank">____</mark>')}</code></pre>
+                <label class="phpx-label">The missing part is:</label>
+                <input type="text" class="phpx-answer phpx-input" spellcheck="false" autocomplete="off" placeholder="e.g. a keyword or operator">
+                <div class="sqlx-actions"><button type="button" class="sqlx-run">✓ Check</button><button type="button" class="sqlx-solution">Show answer</button></div>
+                <div class="sqlx-solbox" hidden><code>${esc(ex.answers[0])}</code><div class="phpx-why">${ex.why}</div></div>`;
+            } else {
+                body = `
+                <textarea class="sqlx-editor phpx-editor" spellcheck="false" aria-label="Your PHP for: ${esc(ex.title)}">${esc(ex.starter)}</textarea>
+                <div class="sqlx-actions">
+                    <button type="button" class="sqlx-run" disabled>▶ Run &amp; check</button>
+                    <button type="button" class="sqlx-hint" data-n="1">Hint 1</button>
+                    <button type="button" class="sqlx-hint" data-n="2">Hint 2</button>
+                    <button type="button" class="sqlx-solution">Show solution</button>
+                    <button type="button" class="sqlx-expected">Expected output</button>
+                </div>
+                <div class="sqlx-hintbox" data-n="1" hidden>${ex.hint1}</div>
+                <div class="sqlx-hintbox" data-n="2" hidden>${ex.hint2}</div>
+                <div class="sqlx-solbox" hidden><pre>${esc(ex.solution)}</pre></div>`;
+            }
+            return `<article class="sqlx-card${isDone(ex) ? ' done' : ''}" data-tier="${ex.tier}" data-type="${ex.type}" id="ex-${ex.id}">${head}${body}
+                <div class="sqlx-feedback" hidden></div>
+                <div class="sqlx-result"></div>
+            </article>`;
+        }
+
+        list.innerHTML = EX.map(card).join('');
+        updateProgress();
+
+        document.querySelectorAll('.sqlx-tier-btn').forEach(b => b.addEventListener('click', () => {
+            document.querySelectorAll('.sqlx-tier-btn').forEach(x => x.classList.toggle('active', x === b));
+            const t = b.dataset.tier;
+            document.querySelectorAll('.sqlx-card').forEach(c => { c.hidden = !(t === 'all' || c.dataset.tier === t); });
+        }));
+
+        const normText = (s) => String(s).replace(/\r/g, '').split('\n').map(l => l.replace(/\s+$/g, '')).join('\n').trim();
+        const normLoose = (s) => normText(s).replace(/\s+/g, ' ').toLowerCase();
+
+        function markSolved(ex, cardEl, fb, extra) {
+            const first = progress() ? progress().completeExercise(doneKey(ex), XP[ex.tier]) : false;
+            fb.className = 'sqlx-feedback ok';
+            fb.innerHTML = (first ? `✅ Correct! +${XP[ex.tier]} XP` : '✅ Correct!') + (extra || '');
+            cardEl.classList.add('done');
+            cardEl.querySelector('.sqlx-num').textContent = '✓';
+            updateProgress();
+            if (first && typeof window.showToast === 'function') window.showToast(`Exercise solved! +${XP[ex.tier]} XP`, 'success');
+        }
+
+        const expectedCache = {};
+        async function expectedOutput(ex) {
+            if (expectedCache[ex.id] !== undefined) return expectedCache[ex.id];
+            if (engineOk) {
+                const r = await PHPLab.run(ex.solution);
+                expectedCache[ex.id] = normText(r.stdout);
+            } else {
+                expectedCache[ex.id] = normText(ex.expected);
+            }
+            return expectedCache[ex.id];
+        }
+
+        list.addEventListener('click', async (e) => {
+            const cardEl = e.target.closest('.sqlx-card');
+            if (!cardEl) return;
+            const ex = EX.find(x => 'ex-' + x.id === cardEl.id);
+            const fb = cardEl.querySelector('.sqlx-feedback');
+            const out = cardEl.querySelector('.sqlx-result');
+
+            if (e.target.closest('.sqlx-hint')) {
+                const box = cardEl.querySelector(`.sqlx-hintbox[data-n="${e.target.closest('.sqlx-hint').dataset.n}"]`);
+                box.hidden = !box.hidden;
+            } else if (e.target.closest('.sqlx-solution')) {
+                const box = cardEl.querySelector('.sqlx-solbox');
+                box.hidden = !box.hidden;
+            } else if (e.target.closest('.sqlx-expected')) {
+                out.innerHTML = '<p class="sqlx-label">Expected output:</p><pre class="phpx-output">' + esc(await expectedOutput(ex)) + '</pre>';
+            } else if (e.target.closest('.sqlx-run')) {
+                fb.hidden = false;
+                if (ex.type === 'predict') {
+                    const got = cardEl.querySelector('.phpx-answer').value;
+                    if (normLoose(got) === normLoose(ex.answer)) markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>');
+                    else { fb.className = 'sqlx-feedback no'; fb.innerHTML = '❌ Not quite. Read the code line by line and try again, or show the answer.'; }
+                } else if (ex.type === 'fill') {
+                    const got = cardEl.querySelector('.phpx-answer').value.trim().toLowerCase();
+                    if (ex.answers.map(a => a.toLowerCase()).includes(got)) markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>');
+                    else { fb.className = 'sqlx-feedback no'; fb.innerHTML = '❌ That is not it. Think about what the sentence in the task is asking for.'; }
+                } else {
+                    const btn = cardEl.querySelector('.sqlx-run');
+                    btn.disabled = true;
+                    try {
+                        const r = await PHPLab.run(cardEl.querySelector('.phpx-editor').value);
+                        const got = normText(r.stdout), want = await expectedOutput(ex);
+                        out.innerHTML = '<p class="sqlx-label">Your output:</p><pre class="phpx-output">' + (esc(r.stdout) || '<span class="sql-null">(nothing printed)</span>') + '</pre>' +
+                            (r.stderr ? '<pre class="phpx-output phpx-stderr">' + esc(r.stderr) + '</pre>' : '');
+                        if (got === want) markSolved(ex, cardEl, fb);
+                        else if (normLoose(got) === normLoose(want)) { fb.className = 'sqlx-feedback no'; fb.innerHTML = '❌ Almost: the words are right but the spacing or line breaks differ. Compare with "Expected output".'; }
+                        else if (/Parse error|syntax error/i.test(r.stdout + r.stderr)) { fb.className = 'sqlx-feedback no'; fb.innerHTML = '⚠️ PHP found a syntax error. Check for a missing semicolon, quote or bracket (see the message above).'; }
+                        else { fb.className = 'sqlx-feedback no'; fb.innerHTML = '❌ The output does not match yet. Compare it with "Expected output".'; }
+                    } catch (err) {
+                        fb.className = 'sqlx-feedback no'; fb.innerHTML = '⚠️ ' + esc(err.message);
+                    }
+                    btn.disabled = false;
+                }
+            }
+        });
+
+        list.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter' && (e.target.classList.contains('phpx-editor') || e.target.classList.contains('phpx-answer'))) {
+                e.preventDefault();
+                e.target.closest('.sqlx-card').querySelector('.sqlx-run').click();
+            }
+        });
+
+        const engineEl = document.getElementById('phpxEngine');
+        PHPLab.ready().then(() => {
+            engineOk = true;
+            engineEl.textContent = '✅ PHP ' + PHPLab.version + ' engine ready (runs in your browser)';
+            engineEl.classList.add('ok');
+            document.querySelectorAll('.sqlx-card[data-type="code"] .sqlx-run').forEach(b => b.disabled = false);
+        }).catch(err => {
+            engineEl.textContent = '⚠️ ' + err.message + ' The warm-up tasks still work; coding tasks show their solution and expected output.';
+            engineEl.classList.add('bad');
+        });
+    })();
+    </script>
+    <script src="../js/bei-nav.js"></script>
+    <script src="../js/tts-voices.js"></script>
+    <script src="../js/core.js"></script>
+</body>
+</html>
