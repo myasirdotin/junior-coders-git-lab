@@ -360,9 +360,11 @@
       document.body.classList.add('sidebar-open');
     };
 
+    // Books open the drawer with their own inline scripts too, using other class names
+    // ('open' / 'visible'); closing must clear every variant or the drawer stays on screen.
     const closeDrawer = () => {
-      if (sidebar) sidebar.classList.remove('is-open');
-      if (backdrop) backdrop.classList.remove('is-active');
+      if (sidebar) sidebar.classList.remove('is-open', 'open');
+      if (backdrop) backdrop.classList.remove('is-active', 'visible');
       document.body.classList.remove('sidebar-open');
     };
 
@@ -379,17 +381,17 @@
       backdrop.addEventListener('click', closeDrawer);
     }
 
-    // Auto-close drawer when clicking any chapter nav link on mobile
-    document.querySelectorAll('.chapter-nav-item a').forEach(link => {
-      if (!link.dataset.drawerBound) {
-        link.dataset.drawerBound = 'true';
-        link.addEventListener('click', () => {
-          if (window.innerWidth <= 900) {
-            closeDrawer();
-          }
-        });
-      }
-    });
+    // Phones/tablets: tapping any link in the drawer (chapter, part, home) closes it so the chapter shows.
+    // Delegated on the sidebar, so it also covers chapter lists the book renders later.
+    if (sidebar && !sidebar.dataset.drawerBound) {
+      sidebar.dataset.drawerBound = 'true';
+      sidebar.addEventListener('click', (e) => {
+        if (window.innerWidth <= 900 && e.target.closest('a[href]')) closeDrawer();
+      });
+    }
+    // A chapter opened another way (Prev/Next, back button) also closes it
+    window.addEventListener('hashchange', () => { if (window.innerWidth <= 900) closeDrawer(); });
+    window.addEventListener('pageshow', (e) => { if (e.persisted) closeDrawer(); });
 
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {

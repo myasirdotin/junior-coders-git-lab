@@ -865,6 +865,15 @@
                 });
             });
 
+            // Back button restores the page from memory with the drawer still open: close it
+            window.addEventListener('pageshow', (e) => {
+                if (!e.persisted) return;
+                nav.classList.remove('mobile-active');
+                toggle.classList.remove('active');
+                toggle.innerHTML = '☰';
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+
             // Close on click outside
             document.addEventListener('click', (e) => {
                 if (!nav.contains(e.target)) {
@@ -1031,12 +1040,17 @@
             switcherBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
 
+        const closeSwitcher = () => {
+            switcherWrap.classList.remove('open');
+            switcherBtn.setAttribute('aria-expanded', 'false');
+        };
         document.addEventListener('click', (e) => {
-            if (!switcherWrap.contains(e.target)) {
-                switcherWrap.classList.remove('open');
-                switcherBtn.setAttribute('aria-expanded', 'false');
-            }
+            if (!switcherWrap.contains(e.target)) closeSwitcher();
         });
+        // Picking a module closes the list straight away (it used to stay open while the next page loaded)
+        switcherWrap.addEventListener('click', (e) => { if (e.target.closest('a[href]')) closeSwitcher(); });
+        // Back button: phones restore the previous page from memory, menus and all; show it closed
+        window.addEventListener('pageshow', (e) => { if (e.persisted) closeSwitcher(); });
 
         // 5.2 Build Breadcrumb Header Bar
         const topBar = document.createElement('div');
