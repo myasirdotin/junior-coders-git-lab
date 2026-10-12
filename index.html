@@ -167,7 +167,7 @@
                     Learn coding. Build projects. Become a developer.
                 </h2>
                 <p class="mission-desc">
-                    Unlike self-study websites built for adults, Junior Coders is engineered for <strong>school classrooms (Grades 6–10)</strong>: fixed learning cycles, zero-setup in-browser test grading, teacher diagnostics, and verifiable certificates.
+                    Unlike self-study websites built for adults, Junior Coders is engineered for <strong>school classrooms (Grades 6–10)</strong>: fixed learning cycles, practice that is checked instantly in the browser, and lesson plans for teachers.
                 </p>
             </div>
 
@@ -176,64 +176,64 @@
                 <div class="mission-progress-head">
                     <div>
                         <strong class="mission-progress-title">🎒 Student Grade-by-Grade Progression</strong>
-                        <span class="mission-progress-sub">From absolute fundamentals to full-stack engineering</span>
+                        <span class="mission-progress-sub">Your own progress, saved on this device. Tick "Mark complete" at the end of a lesson to fill a bar.</span>
                     </div>
-                    <span class="mission-standards-tag">Grades 6–10 Standards</span>
+                    <span class="mission-standards-tag">Grades 6–10</span>
                 </div>
 
                 <div class="mission-progress-list">
                     <!-- Class 6 -->
-                    <div class="progress-track-item">
+                    <div class="progress-track-item" data-tracks="html">
                         <div class="progress-track-info">
                             <span class="track-name c-emerald">Class 6: HTML5 &amp; Terminal Foundations</span>
-                            <span class="track-status c-emerald">100% Mastered ✓</span>
+                            <span class="track-status c-emerald" data-status>Not started</span>
                         </div>
                         <div class="progress-bar-track">
-                            <div class="progress-bar-fill fill-emerald" style="width: 100%;"></div>
+                            <div class="progress-bar-fill fill-emerald" style="width: 0%;"></div>
                         </div>
                     </div>
 
                     <!-- Class 7 -->
-                    <div class="progress-track-item">
+                    <div class="progress-track-item" data-tracks="css">
                         <div class="progress-track-info">
                             <span class="track-name c-sky">Class 7: Modern Responsive CSS &amp; Flexbox</span>
-                            <span class="track-status c-sky">70% In Progress</span>
+                            <span class="track-status c-sky" data-status>Not started</span>
                         </div>
                         <div class="progress-bar-track">
-                            <div class="progress-bar-fill fill-sky" style="width: 70%;"></div>
+                            <div class="progress-bar-fill fill-sky" style="width: 0%;"></div>
                         </div>
                     </div>
 
                     <!-- Class 8 -->
-                    <div class="progress-track-item">
+                    <div class="progress-track-item" data-tracks="js">
                         <div class="progress-track-info">
                             <span class="track-name c-amber">Class 8: JavaScript Logic, Functions &amp; DOM</span>
-                            <span class="track-status c-amber">40% Active</span>
+                            <span class="track-status c-amber" data-status>Not started</span>
                         </div>
                         <div class="progress-bar-track">
-                            <div class="progress-bar-fill fill-amber" style="width: 40%;"></div>
+                            <div class="progress-bar-fill fill-amber" style="width: 0%;"></div>
                         </div>
                     </div>
 
                     <!-- Class 9 -->
-                    <div class="progress-track-item">
+                    <div class="progress-track-item" data-tracks="php mysql laravel">
                         <div class="progress-track-info">
                             <span class="track-name c-slate">Class 9: Full-Stack PHP, MySQL &amp; Laravel</span>
-                            <span class="track-status c-muted">🔒 Unlocks after JS Level 4</span>
+                            <span class="track-status c-muted" data-status>Not started</span>
                         </div>
                         <div class="progress-bar-track">
-                            <div class="progress-bar-fill fill-slate" style="width: 5%;"></div>
+                            <div class="progress-bar-fill fill-slate" style="width: 0%;"></div>
                         </div>
                     </div>
 
                     <!-- Python & AI -->
-                    <div class="progress-track-item">
+                    <div class="progress-track-item" data-tracks="python">
                         <div class="progress-track-info">
                             <span class="track-name c-purple">Grades 8–10: Python Algorithms &amp; Ethical AI Stewardship</span>
-                            <span class="track-status c-purple">⭐ Specialized Lab</span>
+                            <span class="track-status c-purple" data-status>Not started</span>
                         </div>
                         <div class="progress-bar-track">
-                            <div class="progress-bar-fill fill-purple" style="width: 55%;"></div>
+                            <div class="progress-bar-fill fill-purple" style="width: 0%;"></div>
                         </div>
                     </div>
                 </div>
@@ -288,7 +288,7 @@
                     <ul class="gateway-topics">
                         <li>Computer anatomy: CPU, RAM &amp; Disks</li>
                         <li>Navigating file trees &amp; relative path addresses</li>
-                        <li>Terminal scaffolding (`cd`, `mkdir`, `type`)</li>
+                        <li>Terminal scaffolding (<code>cd</code>, <code>mkdir</code>, <code>type</code>)</li>
                         <li>Git checkpoints, commits, and history tracking</li>
                     </ul>
                     <a href="learn/foundations/index.html" class="btn-gateway">Enter Foundations Gateway →</a>
@@ -542,7 +542,7 @@
 
         <div class="container footer-bottom">
             <div class="footer-copyright">
-                &copy; 2026 Junior Coders (Junior Coders). Dedicated to Beneficial Knowledge (<em>'Ilm N&#257;fi'</em>), Digital Stewardship &amp; Craftsmanship.
+                &copy; 2026 Junior Coders. Dedicated to Beneficial Knowledge (<em>'Ilm N&#257;fi'</em>), Digital Stewardship &amp; Craftsmanship.
             </div>
             <div class="footer-dedication-badge">
                 <span class="heart-symbol">✦</span> Designed with <em>Iḥsān</em> for <strong>Yasir Rasool</strong>
@@ -588,6 +588,25 @@
                 '<span class="hero-continue-track">' + trackName.replace(/</g, '&lt;') + ' &rarr;</span></a>';
             card.hidden = false;
         } catch (e) { /* no stored progress or storage blocked */ }
+    })();
+    </script>
+    <script>
+    // Grade-by-grade bars show this visitor's real progress (completed modules saved by js/bei-nav.js)
+    (function () {
+        var cur = window.BEI_CURRICULUM, P = window.beiProgress;
+        if (!cur || !P) return;
+        document.querySelectorAll('.progress-track-item[data-tracks]').forEach(function (row) {
+            var done = 0, total = 0;
+            row.getAttribute('data-tracks').split(' ').forEach(function (k) {
+                if (!cur[k]) return;
+                done += P.doneCount(cur[k]); total += cur[k].modules.length;
+            });
+            if (!total) return;
+            var pct = Math.round(done / total * 100);
+            row.querySelector('.progress-bar-fill').style.width = pct + '%';
+            row.querySelector('[data-status]').textContent =
+                pct === 100 ? 'Complete ✓' : done ? done + ' of ' + total + ' modules' : 'Not started';
+        });
     })();
     </script>
 </body>

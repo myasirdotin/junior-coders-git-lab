@@ -70,14 +70,9 @@
       if (window.speechSynthesis && window.speechSynthesis.speaking && queue[currentIndex]) { currentIndex--; stopSpeech(); playNextInQueue(); }
     }));
     speedPill.insertAdjacentElement('afterend', pill);
-    const tip = window.JCVoices.hint();
     const header = document.getElementById('bookReaderHeader');
-    if (tip && header && !document.querySelector('.reader-voice-hint')) {
-      const note = document.createElement('p');
-      note.className = 'reader-voice-hint';
-      note.textContent = '🎙️ ' + tip;
-      header.appendChild(note);
-    }
+    const note = header && !document.querySelector('.reader-voice-hint') && window.JCVoices.hintNote('reader-voice-hint');
+    if (note) header.appendChild(note);
   };
 
   if ('speechSynthesis' in window) {

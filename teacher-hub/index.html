@@ -105,18 +105,23 @@
         <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 2rem; margin-bottom: 3.5rem; box-shadow: var(--shadow-card);">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1.25rem;">
                 <div>
-                    <span class="placement-badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">Live LMS Radar</span>
+                    <span class="placement-badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">Sample preview · not real data</span>
                     <h2 style="font-size: 1.8rem; margin: 0.35rem 0 0.2rem; color: #fff;">Classroom Analytics &amp; Student Diagnostics 📊</h2>
-                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">Monitor student progress, track weak areas, and manage weekly assignments.</p>
+                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">A preview of a planned class dashboard. The classes, students and scores below are made up to show the idea.</p>
                 </div>
                 <div style="display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; align-items: center; max-width: 100%; min-width: 0;">
-                    <label for="teacherClassSelect" style="font-size: 0.88rem; color: var(--text-muted); font-weight: 600;">Active Class:</label>
+                    <label for="teacherClassSelect" style="font-size: 0.88rem; color: var(--text-muted); font-weight: 600;">Sample class:</label>
                     <select id="teacherClassSelect" style="max-width: 100%; min-width: 0; background: #020617; color: #f8fafc; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.9rem; outline: none; font-weight: 700;">
                         <option value="class-8b">Class 8B (JavaScript Logic • 32 Students)</option>
                         <option value="class-7a">Class 7A (HTML &amp; CSS Web • 28 Students)</option>
                         <option value="class-9c">Class 9C (PHP &amp; MySQL Full Stack • 24 Students)</option>
                     </select>
                 </div>
+            </div>
+
+            <!-- Honest notice: this dashboard runs on sample data (GEMINI.md §1.4) -->
+            <div role="note" style="background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.35); color: #fcd34d; border-radius: var(--radius-md); padding: 0.85rem 1.1rem; margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.55;">
+                <strong>Sample data.</strong> Junior Coders has no student accounts yet, so teachers cannot see real class progress here. Each student's progress is saved only on their own device.
             </div>
 
             <!-- KPI Tiles Row -->
@@ -177,7 +182,7 @@
                             <td style="padding: 0.9rem 1rem; color: #34d399;">92%</td>
                             <td style="padding: 0.9rem 1rem; color: #f87171;">64%</td>
                             <td style="padding: 0.9rem 1rem;"><span style="background:rgba(239,68,68,0.15); color:#f87171; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.78rem;">Loops, Functions</span></td>
-                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" onclick="alert('Viewing Ahmed\'s Code History: 4 attempts on Module 6 loops.')">Inspect Code</button></td>
+                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" onclick="alert('Sample data: this button will work once class accounts exist.')">Inspect Code</button></td>
                         </tr>
                         <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
                             <td style="padding: 0.9rem 1rem; font-weight: 700; color: #fff;">Sara Al-Mansoor</td>
@@ -185,7 +190,7 @@
                             <td style="padding: 0.9rem 1rem; color: #34d399;">96%</td>
                             <td style="padding: 0.9rem 1rem; color: #34d399;">88%</td>
                             <td style="padding: 0.9rem 1rem;"><span style="color:#34d399; font-size:0.8rem;">None (On Track)</span></td>
-                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" onclick="alert('Sara is eligible for JavaScript Mastery Certificate!')">Certify</button></td>
+                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" onclick="alert('Sample data: this button will work once class accounts exist.')">Certify</button></td>
                         </tr>
                         <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
                             <td style="padding: 0.9rem 1rem; font-weight: 700; color: #fff;">Bilal Tariq</td>
@@ -193,7 +198,7 @@
                             <td style="padding: 0.9rem 1rem; color: #fbbf24;">80%</td>
                             <td style="padding: 0.9rem 1rem; color: #fbbf24;">72%</td>
                             <td style="padding: 0.9rem 1rem;"><span style="background:rgba(245,158,11,0.15); color:#fbbf24; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.78rem;">DOM Events</span></td>
-                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" onclick="alert('Bilal completed 3 exercises this week.')">Inspect Code</button></td>
+                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" onclick="alert('Sample data: this button will work once class accounts exist.')">Inspect Code</button></td>
                         </tr>
                         <tr>
                             <td style="padding: 0.9rem 1rem; font-weight: 700; color: #fff;">Maryam Zayd</td>
@@ -201,7 +206,7 @@
                             <td style="padding: 0.9rem 1rem; color: #34d399;">94%</td>
                             <td style="padding: 0.9rem 1rem; color: #f87171;">58%</td>
                             <td style="padding: 0.9rem 1rem;"><span style="background:rgba(239,68,68,0.15); color:#f87171; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.78rem;">Array Indexing</span></td>
-                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" onclick="alert('Maryam has unsubmitted assignment for Module 5.')">Inspect Code</button></td>
+                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" onclick="alert('Sample data: this button will work once class accounts exist.')">Inspect Code</button></td>
                         </tr>
                     </tbody>
                 </table>
@@ -234,13 +239,13 @@
                 </div>
             </div>
             <p style="color: var(--text-secondary); line-height: 1.6; margin: 0.75rem 0 1.25rem;">
-                In the generative AI era, assessing syntax output alone is obsolete. Shift focus from *code generation* to *code comprehension, oral defense, and architectural reasoning*:
+                In the generative AI era, assessing syntax output alone is obsolete. Shift focus from <em>code generation</em> to <em>code comprehension, oral defense, and architectural reasoning</em>:
             </p>
             <ul style="color: var(--text-secondary); font-size: 0.92rem; margin-left: 1.25rem; line-height: 1.7; margin-bottom: 1.25rem;">
                 <li><strong>1. Oral Code Defense (Viva Voce):</strong> Ask students to explain line-by-line what their logic does and why they chose a specific data structure.</li>
                 <li><strong>2. In-Class Refactoring Challenges:</strong> Present a working code snippet and ask students to modify variable constraints or swap a loop for a function without AI assistance.</li>
                 <li><strong>3. Error Injection &amp; Debugging:</strong> Give students subtly broken code and evaluate their systematic diagnostic reasoning.</li>
-                <li><strong>4. Ethical Verification (*Tabayyun*):</strong> Grade students on their ability to fact-check AI-generated explanations and detect subtle hallucinations.</li>
+                <li><strong>4. Ethical Verification (<em>Tabayyun</em>):</strong> Grade students on their ability to fact-check AI-generated explanations and detect subtle hallucinations.</li>
             </ul>
         </section>
 

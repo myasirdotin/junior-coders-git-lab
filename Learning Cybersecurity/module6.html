@@ -20,7 +20,7 @@
         <!-- Broken Access Control & IDOR -->
         <section class="content-section">
             <h2>Broken Access Control &amp; IDOR Flaws</h2>
-            <p>An **Insecure Direct Object Reference (IDOR)** occurs when an application provides direct access to records based on user-supplied input (like an ID in the URL) without checking whether the logged-in user owns that record:</p>
+            <p>An <strong>Insecure Direct Object Reference (IDOR)</strong> occurs when an application provides direct access to records based on user-supplied input (like an ID in the URL) without checking whether the logged-in user owns that record:</p>
             
             <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
                 // ❌ VULNERABLE: Anyone can change ?id=50 to ?id=51 and view other students' records!<br>

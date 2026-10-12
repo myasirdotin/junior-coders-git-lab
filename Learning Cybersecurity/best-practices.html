@@ -102,7 +102,7 @@
 
             <div class="rule-card">
                 <h3>7. Adopt the Principle of Least Privilege (PoLP)</h3>
-                <p style="color: #64748b; font-size: 0.92rem;">Web applications should never connect to databases using the `root` administrative account. Create a dedicated application user granted only `SELECT`, `INSERT`, `UPDATE`, and `DELETE` on specific tables.</p>
+                <p style="color: #64748b; font-size: 0.92rem;">Web applications should never connect to databases using the <code>root</code> administrative account. Create a dedicated application user granted only <code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, and <code>DELETE</code> on specific tables.</p>
                 <div class="code-good">✅ Good: GRANT SELECT, INSERT, UPDATE ON portal_db.* TO 'web_app'@'localhost';</div>
                 <div class="code-bad">❌ Bad: GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;</div>
             </div>

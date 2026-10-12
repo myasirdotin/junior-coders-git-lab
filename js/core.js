@@ -1308,8 +1308,9 @@
             playNextInQueue();
         };
 
-        // Create Lesson Toolbar only if on a structured lesson page
-        if (header || sections.length > 0) {
+        // Create Lesson Toolbar only on reading pages: quizzes, exercises and glossaries are for doing, not listening
+        const isPracticePage = /\/(quiz|exercises|glossary)\.html$/i.test(decodeURIComponent(location.pathname));
+        if (!isPracticePage && (header || sections.length > 0)) {
             const toolbar = document.createElement('div');
             toolbar.className = 'lesson-speaker-bar';
             toolbar.id = 'lesson-speaker-bar';
@@ -1320,10 +1321,7 @@
                     <span>🔊</span> Read Lesson
                 </button>
                 <button type="button" class="speaker-btn-stop" id="speaker-stop-btn" title="Stop audio">
-                    <span>⏹️</span> Stop
-                </button>
-                <button type="button" class="speaker-btn-pdf" id="speaker-download-pdf-btn" title="Download this lesson as PDF">
-                    <span>⬇️</span> Download PDF
+                    <span>⏹️</span> <span class="speaker-btn-label">Stop</span>
                 </button>
                 <select class="speaker-speed-select" id="speaker-speed-select" title="Voice speed" aria-label="Reading Speed">
                     <option value="0.85">0.85x</option>
@@ -1351,13 +1349,8 @@
                 const voiceSelect = window.JCVoices.picker(() => { loadVoices(); });
                 voiceSelect.classList.add('speaker-voice-select');
                 speedSelect.insertAdjacentElement('afterend', voiceSelect);
-                const tip = window.JCVoices.hint();
-                if (tip) {
-                    const note = document.createElement('p');
-                    note.className = 'speaker-voice-hint';
-                    note.textContent = '🎙️ ' + tip;
-                    toolbar.appendChild(note);
-                }
+                const note = window.JCVoices.hintNote('speaker-voice-hint');
+                if (note) toolbar.appendChild(note);
             }
             const pdfBtn = toolbar.querySelector('#speaker-download-pdf-btn');
 

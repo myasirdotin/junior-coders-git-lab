@@ -364,7 +364,9 @@
             injectModuleControls();
         }
 
-        if (isCheat || isModule || isHub ||
+        // Floating button only where the page has no PDF button of its own (module pages get one in the
+        // title card, cheat sheets get a download bar): one PDF button per page, not three.
+        if (!isModule && !isCheat && isHub ||
             path.includes('best-practice') ||
             path.includes('glossary') ||
             path.includes('tips') ||

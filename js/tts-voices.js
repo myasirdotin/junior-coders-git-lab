@@ -64,8 +64,11 @@
         return n + ' · ' + v.lang;
     }
 
-    /** Only basic voices and we are on desktop Windows (where Edge has free natural voices): advise. */
+    /** Only basic voices and we are on desktop Windows (where Edge has free natural voices): advise.
+     *  Returns null once the reader has closed the tip (remembered in HINT_KEY). */
+    const HINT_KEY = 'jc_tts_hint_closed';
     function hint() {
+        try { if (localStorage.getItem(HINT_KEY)) return null; } catch (e) { /* storage blocked: keep showing */ }
         const list = english();
         if (!list.length || list.some(isNatural)) return null;
         const ua = navigator.userAgent || '';
@@ -73,6 +76,29 @@
             return 'For a more natural narrator, open this page in Microsoft Edge: its "Natural" voices are free and work with the same Read button.';
         }
         return 'This browser only has basic voices. A browser or device with "Natural" or "Enhanced" voices will sound much better.';
+    }
+
+    /** The tip as a <p class="className"> with a close button that hides it on every page from then on. */
+    function hintNote(className) {
+        const tip = hint();
+        if (!tip) return null;
+        const note = document.createElement('p');
+        note.className = className + ' jc-voice-hint';
+        note.setAttribute('role', 'note');
+        const text = document.createElement('span');
+        text.textContent = '🎙️ ' + tip;
+        const close = document.createElement('button');
+        close.type = 'button';
+        close.className = 'jc-voice-hint-close';
+        close.setAttribute('aria-label', 'Close this tip');
+        close.title = 'Close this tip';
+        close.textContent = '✕';
+        close.addEventListener('click', () => {
+            try { localStorage.setItem(HINT_KEY, '1'); } catch (e) { /* ignore */ }
+            note.remove();
+        });
+        note.append(text, close);
+        return note;
     }
 
     function fill(select) {
@@ -99,5 +125,5 @@
         window.speechSynthesis.addEventListener('voiceschanged', () => pickers.forEach(p => fill(p.select)));
     }
 
-    window.JCVoices = { score, english, best, isNatural, choose, chosenName, hint, picker, label };
+    window.JCVoices = { score, english, best, isNatural, choose, chosenName, hint, hintNote, picker, label };
 })();
