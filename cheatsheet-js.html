@@ -15,7 +15,7 @@
 <div class="cheatsheet-container">
 
     <header class="cheat-hero js-hero">
-        <span class="course-level js-level" style="background:rgba(0,0,0,0.15);color:#0f172a;border-color:rgba(0,0,0,0.2);">Class 8</span>
+        <span class="course-level js-level" style="background:rgba(0,0,0,0.15);color:#0f172a;border-color:rgba(0,0,0,0.2);">Grades 7–8</span>
         <h1 style="-webkit-text-fill-color: #0f172a !important; color: #0f172a !important;">JavaScript Cheat Sheet</h1>
         <p style="color: rgba(0,0,0,0.7) !important;">Syntax, arrays, DOM, events — everything in one place. Bookmark this!</p>
     </header>
@@ -27,7 +27,7 @@
     <div class="cheat-grid">
 
         <!-- Variables -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-variables">
             <div class="cheat-card-header js-hdr">📦 Variables</div>
             <table class="cheat-table js-table">
                 <tr><td>const name = "Ali"</td><td>Cannot be reassigned — use by default</td></tr>
@@ -38,7 +38,7 @@
         </div>
 
         <!-- Data Types -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-data-types">
             <div class="cheat-card-header js-hdr">🧪 Data Types</div>
             <table class="cheat-table js-table">
                 <tr><td>"Hello" / 'World'</td><td>String — text inside quotes</td></tr>
@@ -55,7 +55,7 @@
         </div>
 
         <!-- Operators -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-operators">
             <div class="cheat-card-header js-hdr">➕ Operators</div>
             <table class="cheat-table js-table">
                 <tr><td>+ - * /</td><td>Math: add, subtract, multiply, divide</td></tr>
@@ -75,7 +75,7 @@
         </div>
 
         <!-- String Methods -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-string-methods">
             <div class="cheat-card-header js-hdr">📝 String Methods</div>
             <table class="cheat-table js-table">
                 <tr><td>"hello".length</td><td>5 — number of characters</td></tr>
@@ -94,7 +94,7 @@
         </div>
 
         <!-- Array Methods -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-array-methods">
             <div class="cheat-card-header js-hdr">📋 Array Methods</div>
             <table class="cheat-table js-table">
                 <tr><td>arr.length</td><td>Number of items in the array</td></tr>
@@ -117,7 +117,7 @@
         </div>
 
         <!-- Math -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-math-object">
             <div class="cheat-card-header js-hdr">🔢 Math Object</div>
             <table class="cheat-table js-table">
                 <tr><td>Math.round(4.6)</td><td>5 — round to nearest integer</td></tr>
@@ -134,7 +134,7 @@
         </div>
 
         <!-- Conditionals -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-conditionals">
             <div class="cheat-card-header js-hdr">🤔 Conditionals</div>
             <table class="cheat-table js-table">
                 <tr><td>if (x &gt; 10) { }</td><td>Run code if condition is true</td></tr>
@@ -147,7 +147,7 @@
         </div>
 
         <!-- Loops -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-loops">
             <div class="cheat-card-header js-hdr">🔄 Loops</div>
             <table class="cheat-table js-table">
                 <tr><td>for (let i=0; i&lt;5; i++)</td><td>Classic for loop — run 5 times</td></tr>
@@ -160,7 +160,7 @@
         </div>
 
         <!-- Functions -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-functions">
             <div class="cheat-card-header js-hdr">⚙️ Functions</div>
             <table class="cheat-table js-table">
                 <tr><td>function greet(name) { return "Hi " + name; }</td><td>Named function declaration</td></tr>
@@ -175,7 +175,7 @@
         </div>
 
         <!-- Objects -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-objects">
             <div class="cheat-card-header js-hdr">🗂️ Objects</div>
             <table class="cheat-table js-table">
                 <tr><td>const student = { name: "Ali", age: 12 }</td><td>Create an object</td></tr>
@@ -191,7 +191,7 @@
         </div>
 
         <!-- DOM -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-dom-finding-elements">
             <div class="cheat-card-header js-hdr">🌐 DOM — Finding Elements</div>
             <table class="cheat-table js-table">
                 <tr><td>document.getElementById("id")</td><td>Find element by its id</td></tr>
@@ -205,7 +205,7 @@
         </div>
 
         <!-- DOM Manipulation -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-dom-changing-elements">
             <div class="cheat-card-header js-hdr">✏️ DOM — Changing Elements</div>
             <table class="cheat-table js-table">
                 <tr><td>element.innerHTML = "&lt;b&gt;Hi&lt;/b&gt;"</td><td>Set HTML content (can use tags)</td></tr>
@@ -225,7 +225,7 @@
         </div>
 
         <!-- Events -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-events">
             <div class="cheat-card-header js-hdr">🖱️ Events</div>
             <table class="cheat-table js-table">
                 <tr><td>el.addEventListener("click", fn)</td><td>When element is clicked</td></tr>
@@ -244,7 +244,7 @@
         </div>
 
         <!-- Useful Patterns -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-useful-patterns">
             <div class="cheat-card-header js-hdr">🛠️ Useful Patterns</div>
             <table class="cheat-table js-table">
                 <tr><td>console.log("text")</td><td>Print to the browser console</td></tr>

@@ -15,7 +15,7 @@
 <div class="cheatsheet-container">
 
     <header class="cheat-hero php-hero">
-        <span class="course-level php-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Class 9</span>
+        <span class="course-level php-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Grades 9–10</span>
         <h1>PHP Cheat Sheet</h1>
         <p>The server-side language powering 80% of the web — your complete reference!</p>
     </header>
@@ -27,7 +27,7 @@
     <div class="cheat-grid">
 
         <!-- Basics -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-basics-output">
             <div class="cheat-card-header php-hdr">🐘 Basics & Output</div>
             <table class="cheat-table php-table">
                 <tr><td>&lt;?php ... ?&gt;</td><td>Open and close PHP block</td></tr>
@@ -42,7 +42,7 @@
         </div>
 
         <!-- Variables & Types -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-variables-types">
             <div class="cheat-card-header php-hdr">📦 Variables &amp; Types</div>
             <table class="cheat-table php-table">
                 <tr><td>$name = "Yasir";</td><td>String variable</td></tr>
@@ -59,7 +59,7 @@
         </div>
 
         <!-- Strings -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-string-functions">
             <div class="cheat-card-header php-hdr">✏️ String Functions</div>
             <table class="cheat-table php-table">
                 <tr><td>"Hi " . $name</td><td>Concatenate strings with dot</td></tr>
@@ -78,7 +78,7 @@
         </div>
 
         <!-- Arrays -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-arrays">
             <div class="cheat-card-header php-hdr">📚 Arrays</div>
             <table class="cheat-table php-table">
                 <tr><td>$a = [1, 2, 3];</td><td>Indexed array</td></tr>
@@ -98,7 +98,7 @@
         </div>
 
         <!-- Control Flow -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-control-flow">
             <div class="cheat-card-header php-hdr">🔀 Control Flow</div>
             <table class="cheat-table php-table">
                 <tr><td>if ($x &gt; 0) { }</td><td>Conditional block</td></tr>
@@ -116,7 +116,7 @@
         </div>
 
         <!-- Functions -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-functions">
             <div class="cheat-card-header php-hdr">⚙️ Functions</div>
             <table class="cheat-table php-table">
                 <tr><td>function greet($name) { }</td><td>Define a function</td></tr>
@@ -131,7 +131,7 @@
         </div>
 
         <!-- OOP -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-oop-classes">
             <div class="cheat-card-header php-hdr">🏛️ OOP — Classes</div>
             <table class="cheat-table php-table">
                 <tr><td>class Dog { }</td><td>Define a class</td></tr>
@@ -150,7 +150,7 @@
         </div>
 
         <!-- Forms & Superglobals -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-forms-superglobals">
             <div class="cheat-card-header php-hdr">📬 Forms &amp; Superglobals</div>
             <table class="cheat-table php-table">
                 <tr><td>$_GET['name']</td><td>Data from URL query string</td></tr>
@@ -167,7 +167,7 @@
         </div>
 
         <!-- Math & Date -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-math-dates">
             <div class="cheat-card-header php-hdr">🔢 Math &amp; Dates</div>
             <table class="cheat-table php-table">
                 <tr><td>abs($x)</td><td>Absolute value</td></tr>
@@ -185,7 +185,7 @@
         </div>
 
         <!-- File & Error -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-file-error-handling">
             <div class="cheat-card-header php-hdr">📁 File &amp; Error Handling</div>
             <table class="cheat-table php-table">
                 <tr><td>file_get_contents($path)</td><td>Read entire file into a string</td></tr>

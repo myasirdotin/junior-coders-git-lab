@@ -44,7 +44,7 @@
     <header class="cheatsheet-hero cyber-hero">
         <div class="cheatsheet-nav">
             <a href="index.html" class="nav-back">← Back to Hub</a>
-            <span class="nav-tag">Security &amp; Hygiene • Quick Reference</span>
+            <span class="nav-tag">Grades 9–10 • Quick Reference</span>
         </div>
         <h1>Cybersecurity &amp; Digital Hygiene Cheat Sheet 🛡️🔐</h1>
         <p>Essential defense-in-depth reference: CIA triad, password entropy, OWASP web vulnerabilities, parameterized queries, HTTP security headers, and digital stewardship.</p>
@@ -58,7 +58,7 @@
     <main class="cheatsheet-grid">
 
         <!-- 1. The CIA Triad & Core Principles -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-the-cia-triad-ethics">
             <div class="cheat-card-header cyber-hdr">
                 <span>🔺</span> The CIA Triad &amp; Ethics
             </div>
@@ -73,7 +73,7 @@
         </div>
 
         <!-- 2. Cryptography: Categories Compared -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-cryptography-categorization">
             <div class="cheat-card-header cyber-hdr">
                 <span>🥩</span> Cryptography Categorization
             </div>
@@ -87,9 +87,9 @@
         </div>
 
         <!-- 3. Password Entropy & Strength -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-password-strength-entropy-length-log-of">
             <div class="cheat-card-header cyber-hdr">
-                <span>🎲</span> Password Entropy ($E = L \times \log_2(N)$)
+                <span>🔑</span> Password Strength (entropy = length × log₂ of choices)
             </div>
             <table class="cheat-table cyber-table">
                 <tr><td><code>&lt; 40 bits</code></td><td>Very Weak ➔ Cracked in seconds on consumer GPU.</td></tr>
@@ -101,7 +101,7 @@
         </div>
 
         <!-- 4. OWASP Top Web Defenses -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-owasp-top-vulnerabilities-fixes">
             <div class="cheat-card-header cyber-hdr">
                 <span>🛡️</span> OWASP Top Vulnerabilities &amp; Fixes
             </div>
@@ -116,7 +116,7 @@
         </div>
 
         <!-- 5. Defensive Prepared Statements Code -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-safe-sql-prepared-statements">
             <div class="cheat-card-header cyber-hdr">
                 <span>💻</span> Safe SQL Prepared Statements
             </div>
@@ -178,7 +178,7 @@ if (password_verify($inputPassword, $hash)) {<br>
         </div>
 
         <!-- 8. Cookie Security Flags -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-session-cookie-fortification">
             <div class="cheat-card-header cyber-hdr">
                 <span>🍪</span> Session Cookie Fortification
             </div>
@@ -192,7 +192,7 @@ if (password_verify($inputPassword, $hash)) {<br>
         </div>
 
         <!-- 9. Digital Hygiene & OpSec Checklist -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-digital-hygiene-checklist">
             <div class="cheat-card-header cyber-hdr">
                 <span>🧼</span> Digital Hygiene Checklist
             </div>

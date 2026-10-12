@@ -209,6 +209,7 @@ These rules come from real bugs found in this site. Follow them for every change
 8. **Check before you finish:**
    ```bash
    node scripts/bundle-books.js          # after editing textbook chapters (.md)
+   node scripts/build-cheat-index.js     # after editing a cheatsheet-*.html (search index + card ids)
    powershell .udit.ps1                # all 11 books: chapters, bundles, parser
    node scripts/validate-scripts.js      # JavaScript syntax in the book readers
    node scripts/render-check.mjs .render 390 844 1 <page urls...>   # phone width: scroll, JS errors, 404s, screenshots

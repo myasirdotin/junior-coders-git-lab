@@ -2969,3 +2969,9 @@ body.bei-search-open { overflow: hidden; }
 [data-theme="light"] .jc-answer > div { background: #f0f9ff; }
 /* HTML track keeps its old .practice-section wrapper inside the tiers: no second box around the cards */
 .jc-tiers .practice-section { padding: 0 !important; margin: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; }
+
+/* Cheat sheets: a search result on library/cheatsheets links to sheet.html#card-...; show that card clearly
+   below the fixed header (ids are added by scripts/build-cheat-index.js) */
+.cheat-card { scroll-margin-top: 84px; }
+.cheat-card:target { outline: 3px solid var(--brand-cyan); outline-offset: 3px; animation: jc-card-flash 1.6s ease 1; }
+@keyframes jc-card-flash { 0%, 40% { box-shadow: 0 0 0 8px rgba(56, 189, 248, 0.35); } 100% { box-shadow: none; } }

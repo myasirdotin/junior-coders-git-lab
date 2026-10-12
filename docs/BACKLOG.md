@@ -34,6 +34,9 @@ _Last updated: 2026-10-12 (mobile + content review: all four steps done)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-12 Cheat Sheets page rebuilt: one search across all 848 rows of the 11 sheets (results jump to the
+  exact box, `js/data/cheat-index.js` from `scripts/build-cheat-index.js`), sheets grouped like the textbooks,
+  accurate descriptions; sheet grade badges aligned; dice emoji and raw LaTeX removed from the security sheet.
 - 2026-10-12 §1 content sweep: movie, music, concert, dice, pepperoni, superhero/Marvel/Harry Potter, Minecraft,
   video-game review and social-media "like" examples replaced in ~55 textbook chapters and pages; GEMINI.md §1.3 now
   lists these explicitly; all 11 `.gemini/agents/*-tutor.md` carry the same Content Rules block.

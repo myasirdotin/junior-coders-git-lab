@@ -72,7 +72,7 @@
 <div class="cheatsheet-container">
 
     <header class="cheat-hero cmd-hero">
-        <span class="course-level" style="background:rgba(16,185,129,0.25); color:#10b981; border: 1px solid rgba(16,185,129,0.4);">Core Developer Foundations</span>
+        <span class="course-level" style="background:rgba(16,185,129,0.25); color:#10b981; border: 1px solid rgba(16,185,129,0.4);">Grades 6–7</span>
         <h1>💻 Command Line &amp; Terminal Cheat Sheet</h1>
         <p>Windows Command Prompt (CMD) &amp; Git Bash side-by-side — navigation, project scaffolding, file management, and developer tools on one page!</p>
     </header>
@@ -87,7 +87,7 @@
     <div class="cheat-grid">
 
         <!-- 1. Orientation & Location -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-orientation-location">
             <div class="cheat-card-header cmd-hdr">🧭 1. Orientation &amp; Location</div>
             <table class="cheat-table cmd-table">
                 <tr><td>cd (CMD) / pwd (Bash)</td><td>Print current working directory</td></tr>
@@ -99,7 +99,7 @@
         </div>
 
         <!-- 2. Navigation -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-navigation-moving">
             <div class="cheat-card-header cmd-hdr">🚶 2. Navigation &amp; Moving</div>
             <table class="cheat-table cmd-table">
                 <tr><td>cd &lt;folder&gt;</td><td>Step inside a subfolder</td></tr>
@@ -112,7 +112,7 @@
         </div>
 
         <!-- 3. Creating & Scaffolding -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-creation-scaffolding">
             <div class="cheat-card-header cmd-hdr">⚡ 3. Creation &amp; Scaffolding</div>
             <table class="cheat-table cmd-table">
                 <tr><td>mkdir &lt;folder&gt;</td><td>Create a new directory</td></tr>
@@ -125,7 +125,7 @@
         </div>
 
         <!-- 4. Moving, Renaming & Copying -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-moving-renaming-copying">
             <div class="cheat-card-header cmd-hdr">📦 4. Moving, Renaming &amp; Copying</div>
             <table class="cheat-table cmd-table">
                 <tr><td>ren old.txt new.txt</td><td>Rename a file (Windows CMD)</td></tr>
@@ -138,7 +138,7 @@
         </div>
 
         <!-- 5. Deletion & Safety Nets -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-deletion-safety-nets">
             <div class="cheat-card-header cmd-hdr">🛑 5. Deletion &amp; Safety Nets</div>
             <table class="cheat-table cmd-table">
                 <tr><td>del file.txt (CMD)</td><td>Delete a single file (No Recycle Bin!)</td></tr>
@@ -151,7 +151,7 @@
         </div>
 
         <!-- 6. Developer Workflow -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-web-developer-workflow">
             <div class="cheat-card-header cmd-hdr">🛠️ 6. Web Developer Workflow</div>
             <table class="cheat-table cmd-table">
                 <tr><td>code .</td><td>Open current folder in VS Code</td></tr>
@@ -166,7 +166,7 @@
     </div>
 
     <!-- Side-by-Side Rosetta Stone Comparison Table -->
-    <div class="cheat-card" style="margin-top: 2rem;">
+    <div class="cheat-card" id="card-rosetta-stone-windows-cmd-vs-git-bash-li" style="margin-top: 2rem;">
         <div class="cheat-card-header cmd-hdr">🔄 Rosetta Stone: Windows CMD vs. Git Bash / Linux</div>
         <div style="overflow-x: auto; padding: 0.5rem 1rem 1.5rem;">
             <table class="rosetta-table">

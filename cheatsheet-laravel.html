@@ -15,7 +15,7 @@
 <div class="cheatsheet-container">
 
     <header class="cheat-hero laravel-hero">
-        <span class="course-level laravel-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Class 9</span>
+        <span class="course-level laravel-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Grades 9–10</span>
         <h1>Laravel Cheat Sheet</h1>
         <p>Routes, Eloquent, Blade, Artisan — everything in one place. Bookmark this!</p>
     </header>
@@ -27,7 +27,7 @@
     <div class="cheat-grid">
 
         <!-- Artisan -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-artisan-commands">
             <div class="cheat-card-header laravel-hdr">⚙️ Artisan Commands</div>
             <table class="cheat-table laravel-table">
                 <tr><td>php artisan serve</td><td>Start the local development server</td></tr>
@@ -46,7 +46,7 @@
         </div>
 
         <!-- Routing -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-routing">
             <div class="cheat-card-header laravel-hdr">🗺️ Routing</div>
             <table class="cheat-table laravel-table">
                 <tr><td>Route::get('/url', fn() =&gt; 'Hello');</td><td>Basic GET route</td></tr>
@@ -64,7 +64,7 @@
         </div>
 
         <!-- Controllers -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-controllers">
             <div class="cheat-card-header laravel-hdr">🎮 Controllers</div>
             <table class="cheat-table laravel-table">
                 <tr><td>index()</td><td>List all records → view</td></tr>
@@ -82,7 +82,7 @@
         </div>
 
         <!-- Eloquent -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-eloquent-orm">
             <div class="cheat-card-header laravel-hdr">🗣️ Eloquent ORM</div>
             <table class="cheat-table laravel-table">
                 <tr><td>Student::all()</td><td>Get all records as a collection</td></tr>
@@ -102,7 +102,7 @@
         </div>
 
         <!-- Blade -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-blade-templates">
             <div class="cheat-card-header laravel-hdr">🌿 Blade Templates</div>
             <table class="cheat-table laravel-table">
                 <tr><td>{{ $variable }}</td><td>Echo (HTML-escaped — safe!)</td></tr>
@@ -125,7 +125,7 @@
         </div>
 
         <!-- Validation -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-validation-rules">
             <div class="cheat-card-header laravel-hdr">✅ Validation Rules</div>
             <table class="cheat-table laravel-table">
                 <tr><td>required</td><td>Must not be empty</td></tr>
@@ -146,7 +146,7 @@
         </div>
 
         <!-- Auth & Middleware -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-auth-middleware">
             <div class="cheat-card-header laravel-hdr">🔐 Auth &amp; Middleware</div>
             <table class="cheat-table laravel-table">
                 <tr><td>Auth::check()</td><td>Is someone logged in?</td></tr>
@@ -164,7 +164,7 @@
         </div>
 
         <!-- Migrations -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-migration-column-types">
             <div class="cheat-card-header laravel-hdr">🗂️ Migration Column Types</div>
             <table class="cheat-table laravel-table">
                 <tr><td>$table->id()</td><td>Auto-increment BIGINT primary key</td></tr>
@@ -184,7 +184,7 @@
         </div>
 
         <!-- Relationships -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-eloquent-relationships">
             <div class="cheat-card-header laravel-hdr">🔗 Eloquent Relationships</div>
             <table class="cheat-table laravel-table">
                 <tr><td>hasOne(Profile::class)</td><td>One-to-one (User has one Profile)</td></tr>

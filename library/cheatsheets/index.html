@@ -3,54 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Developer Cheat Sheets Hub | Junior Coders</title>
-    <meta name="description" content="Complete set of school computer science cheat sheets: HTML, CSS, JS, Python, Git, Terminal, SQL, PHP, Laravel, Networks, and Cybersecurity.">
+    <title>Cheat Sheets | Junior Coders</title>
+    <meta name="description" content="Eleven one-page cheat sheets for Grades 6–10 (HTML, CSS, JavaScript, Python, Git, Terminal, SQL, PHP, Laravel, Networks, Cybersecurity), searchable all at once.">
     <link rel="stylesheet" href="../../styles/bei-core.css">
     <style>
-        .cheats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3.5rem;
+        /* Cheat Sheets page (library/cheatsheets). Colours come from bei-core.css tokens: light and dark both work. */
+        .cs-header { margin-bottom: 1.25rem; }
+        .cs-finder {
+            margin: 0 0 2rem; padding: 1rem; border-radius: var(--radius-lg);
+            background: var(--bg-surface); border: 1px solid var(--border-subtle);
         }
-        .cheat-link-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.25s ease;
-            text-decoration: none;
-            color: inherit;
+        .cs-search {
+            display: flex; align-items: center; gap: 0.6rem; padding: 0 0.9rem; min-height: 50px;
+            background: var(--bg-input, var(--bg-page)); border: 1px solid var(--border-subtle); border-radius: 12px;
         }
-        .cheat-link-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--brand-primary);
-            box-shadow: var(--shadow-card);
+        .cs-search:focus-within { border-color: var(--brand-primary); }
+        .cs-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text-primary); font: inherit; font-size: 1rem; }
+        .cs-try { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-top: 0.7rem; color: var(--text-muted); font-size: 0.85rem; font-weight: 600; }
+        .cs-try button {
+            min-height: 34px; padding: 0 0.75rem; border-radius: 999px; cursor: pointer;
+            background: transparent; border: 1px solid var(--border-subtle); color: var(--text-secondary);
+            font: inherit; font-family: var(--font-mono, monospace); font-size: 0.82rem;
         }
-        .cheat-card-icon {
-            font-size: 2.2rem;
-            margin-bottom: 0.75rem;
+        .cs-try button:hover { border-color: var(--brand-primary); color: var(--text-primary); }
+        .cs-status { margin: 0.75rem 0 0; color: var(--text-muted); font-size: 0.85rem; }
+        .cs-status:empty { display: none; }
+        .cs-results { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 0.45rem; max-height: 60vh; overflow-y: auto; }
+        .cs-results[hidden] { display: none; }
+        .cs-results a {
+            display: grid; grid-template-columns: auto 1fr; gap: 0.15rem 0.7rem; align-items: start;
+            padding: 0.6rem 0.75rem; border-radius: 10px; text-decoration: none;
+            background: var(--bg-surface-elevated); border: 1px solid transparent; color: var(--text-secondary);
         }
-        .cheat-link-card h3 {
-            font-size: 1.15rem;
-            margin-bottom: 0.4rem;
+        .cs-results a:hover, .cs-results a:focus-visible { border-color: var(--brand-primary); }
+        .cs-r-icon { grid-row: span 2; font-size: 1.2rem; line-height: 1.6; }
+        .cs-r-code {
+            font-family: var(--font-mono, monospace); font-size: 0.86rem; color: var(--text-primary); font-weight: 600;
+            overflow-wrap: anywhere;
         }
-        .cheat-link-card p {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            line-height: 1.5;
-            margin-bottom: 1.25rem;
-            flex-grow: 1;
+        .cs-r-meaning { font-size: 0.84rem; line-height: 1.4; }
+        .cs-r-where { grid-column: 2; font-size: 0.74rem; color: var(--text-muted); font-weight: 700; }
+        .cs-results mark { background: rgba(250, 204, 21, 0.35); color: inherit; border-radius: 3px; padding: 0 1px; }
+
+        .cs-group { margin-bottom: 2.25rem; }
+        .cs-group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; margin-bottom: 0.9rem; }
+        .cs-group-head h2 { font-size: 1.3rem; margin: 0; }
+        .cs-group-head p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+        .cs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1rem; }
+        .cs-card {
+            display: flex; flex-direction: column; padding: 1.1rem; border-radius: var(--radius-lg);
+            background: var(--bg-surface); border: 1px solid var(--border-subtle); transition: border-color 0.2s ease, transform 0.2s ease;
         }
-        .cheat-link-arrow {
-            color: var(--brand-primary);
-            font-size: 0.85rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 0.35rem;
+        .cs-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+        .cs-card-head { display: flex; gap: 0.8rem; align-items: center; margin-bottom: 0.6rem; }
+        .cs-icon {
+            flex: none; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center;
+            font-size: 1.5rem; background: var(--bg-surface-elevated);
+        }
+        .cs-card h3 { font-size: 1.08rem; margin: 0 0 0.15rem; line-height: 1.25; }
+        .cs-meta { margin: 0; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+        .cs-count { color: var(--brand-cyan); font-weight: 800; }
+        .cs-count:not(:empty)::after { content: ' · '; color: var(--text-muted); font-weight: 600; }
+        .cs-desc { flex: 1; margin: 0 0 0.9rem; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; }
+        .cs-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+        .cs-btn {
+            display: flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 0.6rem; border-radius: 10px;
+            font-size: 0.86rem; font-weight: 800; text-decoration: none; text-align: center;
+        }
+        .cs-btn-primary { background: var(--brand-primary); color: #fff; }
+        .cs-btn-primary:hover { filter: brightness(1.1); }
+        .cs-btn-secondary { border: 1px solid var(--border-subtle); color: var(--text-primary); }
+        .cs-btn-secondary:hover { border-color: var(--border-hover); }
+
+        .cs-howto { margin: 1rem 0 3rem; padding: 1.25rem 1.4rem; border-radius: var(--radius-lg); background: var(--bg-surface); border: 1px solid var(--border-subtle); }
+        .cs-howto h2 { font-size: 1.15rem; margin: 0 0 0.6rem; }
+        .cs-howto ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.4rem; color: var(--text-secondary); line-height: 1.5; }
+
+        @media (max-width: 640px) {
+            .cs-header h1 { font-size: 1.9rem; }
+            .cs-finder { padding: 0.8rem; margin-bottom: 1.5rem; }
+            .cs-group { margin-bottom: 1.75rem; }
+            .cs-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+            .cs-card { padding: 0.9rem; }
+            .cs-desc { font-size: 0.86rem; margin-bottom: 0.75rem; }
+            .cs-howto { padding: 1rem; }
         }
     </style>
 </head>
@@ -81,106 +117,222 @@
         </div>
     </nav>
 
-    <main class="container">
-        <header class="learn-header">
+    <main class="container cs-page">
+        <header class="learn-header cs-header">
             <div class="breadcrumbs">
                 <a href="../../index.html">Home</a> <span>/</span>
                 <a href="../index.html">Library</a> <span>/</span>
                 <span>Cheat Sheets</span>
             </div>
-            <h1>Developer Cheat Sheets Hub 📋⚡</h1>
-            <p class="lead">Instant syntax lookups, command references, and architecture cheat sheets. Cleanly organized on single printable pages for rapid revision during lab sessions and project builds.</p>
+            <h1>Cheat Sheets 📋</h1>
+            <p class="lead">One page per subject with the commands, tags and rules you use most. Search them all at once below, or open one and print it.</p>
         </header>
 
-        <div class="cheats-grid">
-            <!-- 1. HTML -->
-            <a href="../../cheatsheet-html.html" class="cheat-link-card">
-                <div class="cheat-card-icon">🌐</div>
-                <h3 style="color: #ff6b35;">HTML Cheat Sheet</h3>
-                <p>Semantic tags, headings, text formatting, hyperlinks, images, accessible forms, and table attributes.</p>
-                <span class="cheat-link-arrow" style="color: #ff6b35;">Open HTML Sheet →</span>
-            </a>
-
-            <!-- 2. CSS -->
-            <a href="../../cheatsheet-css.html" class="cheat-link-card">
-                <div class="cheat-card-icon">🎨</div>
-                <h3 style="color: #3b82f6;">CSS Layout Cheat Sheet</h3>
-                <p>Selectors, typography, colors, the Box Model, Flexbox container/item rules, and CSS Grid quick formulas.</p>
-                <span class="cheat-link-arrow" style="color: #3b82f6;">Open CSS Sheet →</span>
-            </a>
-
-            <!-- 3. JS -->
-            <a href="../../cheatsheet-js.html" class="cheat-link-card">
-                <div class="cheat-card-icon">⚡</div>
-                <h3 style="color: #eab308;">JavaScript Cheat Sheet</h3>
-                <p>Variables (<code>const</code>/<code>let</code>), conditionals, loops, array methods (map, filter), and DOM event listeners.</p>
-                <span class="cheat-link-arrow" style="color: #eab308;">Open JS Sheet →</span>
-            </a>
-
-            <!-- 4. Python -->
-            <a href="../../cheatsheet-python.html" class="cheat-link-card">
-                <div class="cheat-card-icon">🐍</div>
-                <h3 style="color: #60a5fa;">Python 3 Cheat Sheet</h3>
-                <p>Syntax, data types, list comprehensions, dictionary operations, file parsing, and clean coding rules.</p>
-                <span class="cheat-link-arrow" style="color: #60a5fa;">Open Python Sheet →</span>
-            </a>
-
-            <!-- 5. Terminal CMD -->
-            <a href="../../cheatsheet-cmd.html" class="cheat-link-card">
-                <div class="cheat-card-icon">💻</div>
-                <h3 style="color: #10b981;">Terminal &amp; CMD Sheet</h3>
-                <p>Dual-shell navigation (<code>cd</code>, <code>mkdir</code>), file commands, and the Windows CMD vs Bash Rosetta Stone.</p>
-                <span class="cheat-link-arrow" style="color: #10b981;">Open CMD Sheet →</span>
-            </a>
-
-            <!-- 6. Git -->
-            <a href="../../cheatsheet-git.html" class="cheat-link-card">
-                <div class="cheat-card-icon">🐙</div>
-                <h3 style="color: #f97316;">Git &amp; GitHub Cheat Sheet</h3>
-                <p>Commits, staging, feature branches, diffs, merge conflicts, pull requests, and remote repositories.</p>
-                <span class="cheat-link-arrow" style="color: #f97316;">Open Git Sheet →</span>
-            </a>
-
-            <!-- 7. SQL & MySQL -->
-            <a href="../../cheatsheet-mysql.html" class="cheat-link-card">
-                <div class="cheat-card-icon">🗄️</div>
-                <h3 style="color: #0284c7;">SQL &amp; MySQL Cheat Sheet</h3>
-                <p>SELECT queries, WHERE filtering, INNER/LEFT JOINs, GROUP BY aggregations, and table indexes.</p>
-                <span class="cheat-link-arrow" style="color: #0284c7;">Open SQL Sheet →</span>
-            </a>
-
-            <!-- 8. PHP -->
-            <a href="../../cheatsheet-php.html" class="cheat-link-card">
-                <div class="cheat-card-icon">🐘</div>
-                <h3 style="color: #a855f7;">PHP Server Scripting Sheet</h3>
-                <p>Syntax, superglobals (<code>$_POST</code>, <code>$_GET</code>, <code>$_SESSION</code>), input sanitization, and OOP classes.</p>
-                <span class="cheat-link-arrow" style="color: #a855f7;">Open PHP Sheet →</span>
-            </a>
-
-            <!-- 9. Laravel -->
-            <a href="../../cheatsheet-laravel.html" class="cheat-link-card">
-                <div class="cheat-card-icon">🔥</div>
-                <h3 style="color: #ef4444;">Laravel MVC Cheat Sheet</h3>
-                <p>Artisan CLI commands, routing, Blade template directives, migrations, and Eloquent relationships.</p>
-                <span class="cheat-link-arrow" style="color: #ef4444;">Open Laravel Sheet →</span>
-            </a>
-
-            <!-- 10. Networks -->
-            <a href="../../cheatsheet-networks.html" class="cheat-link-card">
-                <div class="cheat-card-icon">🌐</div>
-                <h3 style="color: #38bdf8;">Networks &amp; Protocols Sheet</h3>
-                <p>OSI 7 layers, port numbers, CIDR subnets, DNS records, HTTP status codes, and CLI diagnostic tools.</p>
-                <span class="cheat-link-arrow" style="color: #38bdf8;">Open Networks Sheet →</span>
-            </a>
-
-            <!-- 11. Cybersecurity -->
-            <a href="../../cheatsheet-cybersecurity.html" class="cheat-link-card">
-                <div class="cheat-card-icon">🛡️</div>
-                <h3 style="color: #34d399;">Cybersecurity &amp; Hygiene Sheet</h3>
-                <p>CIA Triad, password entropy table, OWASP defenses, prepared statements, and cookie hardening.</p>
-                <span class="cheat-link-arrow" style="color: #34d399;">Open Security Sheet →</span>
-            </a>
+        <div class="cs-finder" role="search">
+            <label class="cs-search">
+                <span aria-hidden="true">🔍</span>
+                <input type="search" id="csSearch" placeholder="Look up: flex, git commit, JOIN…" aria-label="Look up a command, tag or rule in every cheat sheet" autocomplete="off" spellcheck="false">
+            </label>
+            <div class="cs-try" id="csTry">Try:
+                <button type="button" data-q="flex">flex</button>
+                <button type="button" data-q="git commit">git commit</button>
+                <button type="button" data-q="JOIN">JOIN</button>
+                <button type="button" data-q="loop">loop</button>
+                <button type="button" data-q="password">password</button>
+            </div>
+            <p class="cs-status" id="csStatus" aria-live="polite"></p>
+            <ol class="cs-results" id="csResults" hidden></ol>
         </div>
+
+        <section class="cs-group" data-group="first" aria-labelledby="cs-h-first">
+            <div class="cs-group-head">
+                <h2 id="cs-h-first"><span aria-hidden="true">🌱</span> First steps</h2>
+                <p>Grades 6–8</p>
+            </div>
+            <div class="cs-grid">
+                <article class="cs-card" data-sheet="cmd">
+                    <div class="cs-card-head">
+                        <span class="cs-icon" aria-hidden="true">⌨️</span>
+                        <div>
+                            <h3>Terminal &amp; Command Prompt</h3>
+                            <p class="cs-meta"><span class="cs-count" data-count="cmd"></span>Grades 6–7</p>
+                        </div>
+                    </div>
+                    <p class="cs-desc">Where am I, moving between folders, making, renaming, copying and safely deleting files, plus CMD vs Git Bash side by side.</p>
+                    <div class="cs-actions">
+                        <a href="../../cheatsheet-cmd.html" class="cs-btn cs-btn-primary">📋 Open sheet</a>
+                        <a href="../../book-cmd/index.html" class="cs-btn cs-btn-secondary">📖 Book</a>
+                    </div>
+                </article>
+                <article class="cs-card" data-sheet="html">
+                    <div class="cs-card-head">
+                        <span class="cs-icon" aria-hidden="true">🌐</span>
+                        <div>
+                            <h3>HTML</h3>
+                            <p class="cs-meta"><span class="cs-count" data-count="html"></span>Grades 6–7</p>
+                        </div>
+                    </div>
+                    <p class="cs-desc">Page structure, headings and text, links and images, lists, tables, forms, semantic tags and common attributes.</p>
+                    <div class="cs-actions">
+                        <a href="../../cheatsheet-html.html" class="cs-btn cs-btn-primary">📋 Open sheet</a>
+                        <a href="../../Learning%20HTML/learninghtml.html" class="cs-btn cs-btn-secondary">🧪 Lessons</a>
+                    </div>
+                </article>
+                <article class="cs-card" data-sheet="css">
+                    <div class="cs-card-head">
+                        <span class="cs-icon" aria-hidden="true">🎨</span>
+                        <div>
+                            <h3>CSS</h3>
+                            <p class="cs-meta"><span class="cs-count" data-count="css"></span>Grade 7</p>
+                        </div>
+                    </div>
+                    <p class="cs-desc">Selectors, colours, fonts, the box model, display, Flexbox, Grid, positioning, animations and responsive design.</p>
+                    <div class="cs-actions">
+                        <a href="../../cheatsheet-css.html" class="cs-btn cs-btn-primary">📋 Open sheet</a>
+                        <a href="../../Learning%20CSS/learningcss.html" class="cs-btn cs-btn-secondary">🧪 Lessons</a>
+                    </div>
+                </article>
+                <article class="cs-card" data-sheet="git">
+                    <div class="cs-card-head">
+                        <span class="cs-icon" aria-hidden="true">🗂️</span>
+                        <div>
+                            <h3>Git &amp; GitHub</h3>
+                            <p class="cs-meta"><span class="cs-count" data-count="git"></span>Grades 7–8</p>
+                        </div>
+                    </div>
+                    <p class="cs-desc">Setup, status, staging and commits, branches, undoing safely, and pushing to GitHub.</p>
+                    <div class="cs-actions">
+                        <a href="../../cheatsheet-git.html" class="cs-btn cs-btn-primary">📋 Open sheet</a>
+                        <a href="../../book-git/index.html" class="cs-btn cs-btn-secondary">📖 Book</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="cs-group" data-group="web" aria-labelledby="cs-h-web">
+            <div class="cs-group-head">
+                <h2 id="cs-h-web"><span aria-hidden="true">⚙️</span> Websites that think</h2>
+                <p>Grades 7–10</p>
+            </div>
+            <div class="cs-grid">
+                <article class="cs-card" data-sheet="js">
+                    <div class="cs-card-head">
+                        <span class="cs-icon" aria-hidden="true">⚡</span>
+                        <div>
+                            <h3>JavaScript</h3>
+                            <p class="cs-meta"><span class="cs-count" data-count="js"></span>Grades 7–8</p>
+                        </div>
+                    </div>
+                    <p class="cs-desc">Variables, operators, strings, arrays, conditions, loops, functions, objects, the DOM and events.</p>
+                    <div class="cs-actions">
+                        <a href="../../cheatsheet-js.html" class="cs-btn cs-btn-primary">📋 Open sheet</a>
+                        <a href="../../Learning%20JS/learningjs.html" class="cs-btn cs-btn-secondary">🧪 Lessons</a>
+                    </div>
+                </article>
+                <article class="cs-card" data-sheet="php">
+                    <div class="cs-card-head">
+                        <span class="cs-icon" aria-hidden="true">🐘</span>
+                        <div>
+                            <h3>PHP</h3>
+                            <p class="cs-meta"><span class="cs-count" data-count="php"></span>Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="cs-desc">Output, variables, strings, arrays, control flow, functions, classes, forms and superglobals, dates and files.</p>
+                    <div class="cs-actions">
+                        <a href="../../cheatsheet-php.html" class="cs-btn cs-btn-primary">📋 Open sheet</a>
+                        <a href="../../Learning%20PHP/learningphp.html" class="cs-btn cs-btn-secondary">🧪 Lessons</a>
+                    </div>
+                </article>
+                <article class="cs-card" data-sheet="mysql">
+                    <div class="cs-card-head">
+                        <span class="cs-icon" aria-hidden="true">🗄️</span>
+                        <div>
+                            <h3>SQL &amp; MySQL</h3>
+                            <p class="cs-meta"><span class="cs-count" data-count="mysql"></span>Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="cs-desc">Database commands, CREATE TABLE, SELECT, INSERT, UPDATE and DELETE, totals and averages, JOINs and keys.</p>
+                    <div class="cs-actions">
+                        <a href="../../cheatsheet-mysql.html" class="cs-btn cs-btn-primary">📋 Open sheet</a>
+                        <a href="../../Learning%20MySQL/learningmysql.html" class="cs-btn cs-btn-secondary">🧪 Lessons</a>
+                    </div>
+                </article>
+                <article class="cs-card" data-sheet="laravel">
+                    <div class="cs-card-head">
+                        <span class="cs-icon" aria-hidden="true">🔥</span>
+                        <div>
+                            <h3>Laravel</h3>
+                            <p class="cs-meta"><span class="cs-count" data-count="laravel"></span>Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="cs-desc">Artisan commands, routes, controllers, Eloquent, Blade, validation rules, login and middleware, migrations.</p>
+                    <div class="cs-actions">
+                        <a href="../../cheatsheet-laravel.html" class="cs-btn cs-btn-primary">📋 Open sheet</a>
+                        <a href="../../Learning%20Laravel/learninglaravel.html" class="cs-btn cs-btn-secondary">🧪 Lessons</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="cs-group" data-group="python" aria-labelledby="cs-h-python">
+            <div class="cs-group-head">
+                <h2 id="cs-h-python"><span aria-hidden="true">🤖</span> Python, networks and safety</h2>
+                <p>Grades 8–10</p>
+            </div>
+            <div class="cs-grid">
+                <article class="cs-card" data-sheet="python">
+                    <div class="cs-card-head">
+                        <span class="cs-icon" aria-hidden="true">🐍</span>
+                        <div>
+                            <h3>Python &amp; Machine Learning</h3>
+                            <p class="cs-meta"><span class="cs-count" data-count="python"></span>Grades 8–10</p>
+                        </div>
+                    </div>
+                    <p class="cs-desc">Variables, f-strings, decisions, loops, lists and dictionaries, functions, machine learning words and AI ethics.</p>
+                    <div class="cs-actions">
+                        <a href="../../cheatsheet-python.html" class="cs-btn cs-btn-primary">📋 Open sheet</a>
+                        <a href="../../Learning%20Python/learningpython.html" class="cs-btn cs-btn-secondary">🧪 Lessons</a>
+                    </div>
+                </article>
+                <article class="cs-card" data-sheet="networks">
+                    <div class="cs-card-head">
+                        <span class="cs-icon" aria-hidden="true">📡</span>
+                        <div>
+                            <h3>Networks &amp; Protocols</h3>
+                            <p class="cs-meta"><span class="cs-count" data-count="networks"></span>Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="cs-desc">The layer models, common ports, subnets, special IP ranges, HTTP methods and status codes, DNS records and diagnostic commands.</p>
+                    <div class="cs-actions">
+                        <a href="../../cheatsheet-networks.html" class="cs-btn cs-btn-primary">📋 Open sheet</a>
+                        <a href="../../Learning%20Networks/learningnetworks.html" class="cs-btn cs-btn-secondary">🧪 Lessons</a>
+                    </div>
+                </article>
+                <article class="cs-card" data-sheet="cybersecurity">
+                    <div class="cs-card-head">
+                        <span class="cs-icon" aria-hidden="true">🛡️</span>
+                        <div>
+                            <h3>Cybersecurity &amp; Digital Safety</h3>
+                            <p class="cs-meta"><span class="cs-count" data-count="cybersecurity"></span>Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="cs-desc">The CIA triad, kinds of cryptography, password strength, common web risks and fixes, safe SQL, cookies and a safety checklist.</p>
+                    <div class="cs-actions">
+                        <a href="../../cheatsheet-cybersecurity.html" class="cs-btn cs-btn-primary">📋 Open sheet</a>
+                        <a href="../../Learning%20Cybersecurity/learningcybersecurity.html" class="cs-btn cs-btn-secondary">🧪 Lessons</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="cs-howto" aria-labelledby="cs-howto-h">
+            <h2 id="cs-howto-h">Tips for using cheat sheets</h2>
+            <ul>
+                <li><strong>🔍 Search first.</strong> Type a word above to find it in all 11 sheets, then tap a result to jump to that box.</li>
+                <li><strong>🖨️ Print one.</strong> Open a sheet and press <em>Download PDF</em> to keep a copy next to your keyboard.</li>
+                <li><strong>🧠 Understand, then look up.</strong> A sheet reminds you of something you learned. If a line makes no sense yet, open the lesson first.</li>
+            </ul>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -251,5 +403,71 @@
 
     <script src="../../js/bei-core.js"></script>
     <script src="../../js/bei-nav.js"></script>
+    <script src="../../js/data/cheat-index.js"></script>
+    <script>
+    // Cheat Sheets page: search every row of every sheet (index built by scripts/build-cheat-index.js)
+    (function () {
+        var data = window.JC_CHEAT_INDEX;
+        var input = document.getElementById('csSearch');
+        var list = document.getElementById('csResults');
+        var status = document.getElementById('csStatus');
+        if (!data || !input) return;
+
+        var ICON = {}, NAME = {};
+        document.querySelectorAll('.cs-card').forEach(function (c) {
+            var k = c.getAttribute('data-sheet');
+            ICON[k] = c.querySelector('.cs-icon').textContent;
+            NAME[k] = c.querySelector('h3').textContent;
+            var n = data.sheets[k];
+            if (n) c.querySelector('.cs-count').textContent = n.cards + ' topic boxes';
+        });
+
+        var esc = function (t) {
+            return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
+        };
+        var mark = function (t, words) {
+            var out = esc(t);
+            words.forEach(function (w) {
+                var re = new RegExp('(' + esc(w).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+                out = out.replace(re, '<mark>$1</mark>');
+            });
+            return out;
+        };
+
+        function search() {
+            var q = input.value.trim().toLowerCase();
+            if (q.length < 2) { list.hidden = true; list.innerHTML = ''; status.textContent = ''; return; }
+            var words = q.split(/\s+/).filter(Boolean);
+            var hits = [];
+            data.rows.forEach(function (r) {
+                var code = r[3].toLowerCase(), meaning = r[4].toLowerCase(), card = r[2].toLowerCase();
+                var hay = code + ' ' + meaning + ' ' + card + ' ' + r[0];
+                for (var i = 0; i < words.length; i++) if (hay.indexOf(words[i]) === -1) return;
+                // rank: phrase in the code first, then any word in the code, then the meaning
+                var score = code.indexOf(q) === 0 ? 0 : code.indexOf(q) !== -1 ? 1 : words.every(function (w) { return code.indexOf(w) !== -1; }) ? 2 : meaning.indexOf(q) !== -1 ? 3 : 4;
+                hits.push({ r: r, s: score });
+            });
+            hits.sort(function (a, b) { return a.s - b.s; });
+            var shown = hits.slice(0, 40);
+            list.innerHTML = shown.map(function (h) {
+                var r = h.r;
+                return '<li><a href="../../cheatsheet-' + r[0] + '.html#' + r[1] + '">' +
+                    '<span class="cs-r-icon" aria-hidden="true">' + esc(ICON[r[0]] || '📋') + '</span>' +
+                    '<span><span class="cs-r-code">' + mark(r[3], words) + '</span><br><span class="cs-r-meaning">' + mark(r[4], words) + '</span></span>' +
+                    '<span class="cs-r-where">' + esc(NAME[r[0]] || r[0]) + ' › ' + esc(r[2]) + '</span></a></li>';
+            }).join('');
+            list.hidden = shown.length === 0;
+            status.textContent = hits.length === 0
+                ? 'Nothing found for "' + input.value.trim() + '". Try a shorter word, like "flex" or "commit".'
+                : hits.length + (hits.length === 1 ? ' match' : ' matches') + (hits.length > 40 ? ' (showing the first 40)' : '') + '. Tap one to open it.';
+        }
+
+        var timer;
+        input.addEventListener('input', function () { clearTimeout(timer); timer = setTimeout(search, 120); });
+        document.querySelectorAll('#csTry button').forEach(function (b) {
+            b.addEventListener('click', function () { input.value = b.getAttribute('data-q'); search(); input.focus(); });
+        });
+    })();
+    </script>
 </body>
 </html>

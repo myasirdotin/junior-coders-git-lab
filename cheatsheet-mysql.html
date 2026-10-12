@@ -15,7 +15,7 @@
 <div class="cheatsheet-container">
 
     <header class="cheat-hero mysql-hero">
-        <span class="course-level mysql-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Class 9</span>
+        <span class="course-level mysql-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Grades 9–10</span>
         <h1>MySQL Cheat Sheet</h1>
         <p>Every SQL query you need — from SELECT to JOINs, one page, always ready!</p>
     </header>
@@ -27,7 +27,7 @@
     <div class="cheat-grid">
 
         <!-- Database & Table Commands -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-database-commands">
             <div class="cheat-card-header mysql-hdr">🗄️ Database Commands</div>
             <table class="cheat-table mysql-table">
                 <tr><td>CREATE DATABASE school;</td><td>Create a new database</td></tr>
@@ -42,7 +42,7 @@
         </div>
 
         <!-- CREATE TABLE -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-create-table">
             <div class="cheat-card-header mysql-hdr">🏗️ CREATE TABLE</div>
             <table class="cheat-table mysql-table">
                 <tr><td>INT</td><td>Whole number (age, count)</td></tr>
@@ -61,7 +61,7 @@
         </div>
 
         <!-- SELECT -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-select-read">
             <div class="cheat-card-header mysql-hdr">🔍 SELECT (Read)</div>
             <table class="cheat-table mysql-table">
                 <tr><td>SELECT * FROM students;</td><td>Get all rows and columns</td></tr>
@@ -82,7 +82,7 @@
         </div>
 
         <!-- INSERT, UPDATE, DELETE -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-insert-update-delete">
             <div class="cheat-card-header mysql-hdr">✏️ INSERT / UPDATE / DELETE</div>
             <table class="cheat-table mysql-table">
                 <tr><td colspan="2" style="color:#10b981; font-weight:600;">INSERT</td></tr>
@@ -98,7 +98,7 @@
         </div>
 
         <!-- Aggregate Functions -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-aggregate-functions">
             <div class="cheat-card-header mysql-hdr">📊 Aggregate Functions</div>
             <table class="cheat-table mysql-table">
                 <tr><td>COUNT(*)</td><td>Count all rows</td></tr>
@@ -113,7 +113,7 @@
         </div>
 
         <!-- JOINs -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-joins">
             <div class="cheat-card-header mysql-hdr">🔗 JOINs</div>
             <table class="cheat-table mysql-table">
                 <tr><td>INNER JOIN</td><td>Only rows that match in BOTH tables</td></tr>
@@ -127,7 +127,7 @@
         </div>
 
         <!-- Constraints & Keys -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-keys-constraints">
             <div class="cheat-card-header mysql-hdr">🔑 Keys &amp; Constraints</div>
             <table class="cheat-table mysql-table">
                 <tr><td>PRIMARY KEY</td><td>Unique row identifier — only one per table</td></tr>
@@ -141,7 +141,7 @@
         </div>
 
         <!-- Useful Extras -->
-        <div class="cheat-card">
+        <div class="cheat-card" id="card-useful-extras">
             <div class="cheat-card-header mysql-hdr">💡 Useful Extras</div>
             <table class="cheat-table mysql-table">
                 <tr><td>SELECT CONCAT(first,' ',last) AS full_name</td><td>Join two columns into one</td></tr>
