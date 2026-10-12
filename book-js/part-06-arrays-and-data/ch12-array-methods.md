@@ -18,7 +18,7 @@ By the end of this chapter, you will be able to:
 ## 2. Warm-Up Activity 🛒
 
 Imagine shopping with a dynamic digital cart:
-1. You click "Add to Cart" on a video game → The game pops onto the end of your list!
+1. You click "Add to Cart" on a science kit → The kit pops onto the end of your list!
 2. You decide you don't want the last item you added → You click "Remove Last Item"!
 3. You search your cart: "Did I remember to add batteries?" → The app tells you "Yes!" or "No!".
 

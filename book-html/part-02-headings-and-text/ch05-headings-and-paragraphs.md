@@ -184,17 +184,17 @@ When visitors arrive on a website, they spend an average of **3 seconds** scanni
 
 ---
 
-## 11. 🚀 Mini Challenge: The Video Game Review Page
+## 11. 🚀 Mini Challenge: The Book Review Page
 
-Write an HTML page reviewing your favorite video game:
-- `<h1>`: The Game Title
+Write an HTML page reviewing your favorite book:
+- `<h1>`: The Book Title
 - `<h2>`: Overview & Story
-- `<p>`: A short review of what the game is about.
+- `<p>`: A short review of what the book is about.
 - `<h2>`: The Best Features
-- `<h3>`: Graphics & Sound
-- `<p>`: Review of visuals.
-- `<h3>`: Gameplay & Challenges
-- `<p>`: Review of difficulty.
+- `<h3>`: Characters & Writing
+- `<p>`: Review of the people in the story and how it is written.
+- `<h3>`: Lessons & Ideas
+- `<p>`: Review of what the book taught you.
 - `<h2>`: Final Score
 - `<p>`: Your rating (e.g., 9 out of 10 stars!).
 

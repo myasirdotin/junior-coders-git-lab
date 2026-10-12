@@ -2,17 +2,17 @@
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Film Director's Master Plan
+## 1. 🌟 Real-Life Situation: The Architect's Master Plan
 
-Think about how a blockbuster movie is made:
-- A film director doesn't just pick up an expensive camera on Monday morning and yell: *"Action!"* without any idea of what the story is about!
-- First, the screenwriters write a compelling story script.
-- The storyboard artists sketch every scene on paper so the crew knows how each camera shot will look.
-- The costume designers pick colors that match the heroes and villains.
-- The sound crew tests the microphones.
-- **Only after thorough planning and rehearsals does filming begin!**
+Think about how a new school building is made:
+- An architect doesn't just hire a digger on Monday morning and shout: *"Start building!"* without any idea of what the school needs!
+- First, the architect talks to teachers and students to learn which rooms they need.
+- Then the architect draws a floor plan, so the builders know where every classroom, lab and library will go.
+- The designers pick wall colors and furniture that make the rooms bright and calm.
+- The engineers check the plan for safety, light and fresh air.
+- **Only after careful planning and checking does building begin!**
 
-**Building a real website is exactly like directing a movie!**
+**Building a real website is exactly like planning a new school building!**
 If you sit at your keyboard and start typing random tags without a plan, you get stuck, confused, and overwhelmed. When you follow the **Professional 9-Step Web Development Workflow**, building even the largest website becomes clear, exciting, fun, and deeply rewarding!
 
 ---
@@ -36,7 +36,7 @@ By the end of this capstone chapter, you will be able to:
  1. THE BIG IDEA       │ "What problem does this site solve? What is its mission?"
           │
           ▼
- 2. TARGET AUDIENCE    │ "Who is visiting? (Kids, parents, gamers, book lovers?)"
+ 2. TARGET AUDIENCE    │ "Who is visiting? (Kids, parents, teachers, book lovers?)"
           │
           ▼
  3. PAGE SITEMAP       │ Plan the pages: Home, About, Gallery, Contact.
@@ -134,7 +134,7 @@ Pick one of these 8 exciting real-world project themes for your final masterpiec
 | **2. School Club Portal** | Club mission, officer directory, upcoming meetings table, sign-up form. |
 | **3. Travel & Nature Guide** | National park cards, photo gallery, trail difficulty badges, packing list. |
 | **4. Family Restaurant** | Daily specials, menu cards with prices, dietary tags, reservation form. |
-| **5. Video Game Wiki** | Character stat cards, boss strategies, weapon inventory grid, tips. |
+| **5. Science Fair Showcase** | Project cards, judges' results table, experiment photo grid, tips. |
 | **6. Book Review Sanctuary** | Book cover posters, star ratings, quotes, author summaries. |
 | **7. Photography Gallery** | 3-column CSS Grid, smooth image zoom on hover, captions. |
 | **8. Local Community Pet Rescue** | Animal adoption cards, pet photo badges, volunteer sign-up. |

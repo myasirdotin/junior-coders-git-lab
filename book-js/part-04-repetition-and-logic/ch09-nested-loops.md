@@ -60,7 +60,7 @@ To print a triangle of stars, we build a string inside the inner loop and print 
 ## 4. 🌍 Real-World Connection: Computer Pixels & Clocks
 
 - **Digital Clocks**: The seconds tick from 0 to 59 (inner loop). Only when seconds finish does the minute counter tick up by 1 (outer loop)!
-- **Game Grids**: Chessboards, Minecraft chunks, and retro pixel art grids are drawn on screens using nested loops iterating across `x` and `y` coordinates!
+- **Grids**: Chessboards, seating plans, and pixel art pictures are drawn on screens using nested loops iterating across `x` and `y` coordinates!
 
 ---
 
@@ -210,7 +210,7 @@ Build a pattern maker program that can draw 2 different geometric shapes:
 - A nested loop is a loop located inside another loop.
 - The inner loop completes all iterations for every single iteration of the outer loop.
 - Total executions = `Outer Count × Inner Count`.
-- Used extensively in grid layouts, 2D gaming coordinates, and algorithmic pattern generation.
+- Used extensively in grid layouts, 2D screen coordinates, and algorithmic pattern generation.
 
 ---
 

@@ -207,19 +207,19 @@ Programmers follow the 5-step problem solving cycle:
 
 ### Where JavaScript Is Used Today:
 - **Interactive Websites**: Animations, live search bars, shopping carts, video players.
-- **Mobile Apps**: Instagram, Uber, and Discord rely heavily on JavaScript frameworks.
-- **Browser Games**: Everything from 2D arcade games to 3D multiplayer web games.
+- **Mobile Apps**: Many map, school and messaging apps are built with JavaScript frameworks.
+- **Learning Tools**: Interactive quizzes, science simulations and maths puzzles that run in the browser.
 - **Smart Devices & Robots**: Drones, smart home lights, and kitchen appliances!
 
 ---
 
-## 4. 🌍 Real-World Example: The Instagram Like Heart
+## 4. 🌍 Real-World Example: The "Save for Later" Bookmark
 
-When you scroll through a social app and double-tap a photo of a cute puppy:
-- The heart icon instantly turns glowing red.
-- A tiny heart animation pops up and floats away.
-- The like counter changes from `42` to `43`.
-- A silent digital message is sent to the server to record your like.
+When you read a school library website and double-tap a book about the planets:
+- The bookmark icon instantly turns gold.
+- A tiny "Saved!" message pops up and fades away.
+- Your "Saved books" list changes from `4` to `5`.
+- A silent digital message is sent to the server to remember your choice.
 
 That instantaneous, magical reaction is powered by **JavaScript** running right inside your browser!
 
@@ -231,7 +231,7 @@ That instantaneous, magical reaction is powered by **JavaScript** running right 
       <circle cx="95" cy="65" r="22" fill="rgba(56, 189, 248, 0.15)"/>
       <text x="95" y="72" font-size="20" text-anchor="middle">👆</text>
       <text x="95" y="105" fill="#f0f9ff" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">1. User Action</text>
-      <text x="95" y="125" fill="#94a3b8" font-size="10" text-anchor="middle" font-family="system-ui, sans-serif">Double-taps photo</text>
+      <text x="95" y="125" fill="#94a3b8" font-size="10" text-anchor="middle" font-family="system-ui, sans-serif">Double-taps a book</text>
 
       <!-- Arrow 1 -> 2 -->
       <path d="M185 90 L205 90" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round"/>
@@ -251,9 +251,9 @@ That instantaneous, magical reaction is powered by **JavaScript** running right 
       <!-- Event 3: DOM UI Mutation -->
       <rect x="400" y="30" width="165" height="120" rx="14" fill="#0f172a" stroke="#c084fc" stroke-width="1.5"/>
       <circle cx="482" cy="65" r="22" fill="rgba(192, 132, 252, 0.15)"/>
-      <text x="482" y="72" font-size="20" text-anchor="middle">❤️✨</text>
+      <text x="482" y="72" font-size="20" text-anchor="middle">🔖✨</text>
       <text x="482" y="105" fill="#fdf4ff" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">3. Updates Page</text>
-      <text x="482" y="125" fill="#94a3b8" font-size="10" text-anchor="middle" font-family="system-ui, sans-serif">Turns red &amp; count +1</text>
+      <text x="482" y="125" fill="#94a3b8" font-size="10" text-anchor="middle" font-family="system-ui, sans-serif">Turns gold &amp; list +1</text>
 
       <!-- Arrow 3 -> 4 -->
       <path d="M575 90 L595 90" stroke="#f472b6" stroke-width="2.5" stroke-linecap="round"/>
@@ -264,12 +264,12 @@ That instantaneous, magical reaction is powered by **JavaScript** running right 
       <circle cx="670" cy="65" r="22" fill="rgba(244, 114, 182, 0.15)"/>
       <text x="670" y="72" font-size="20" text-anchor="middle">☁️💾</text>
       <text x="670" y="105" fill="#fff1f2" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">4. Saves to Cloud</text>
-      <text x="670" y="125" fill="#94a3b8" font-size="10" text-anchor="middle" font-family="system-ui, sans-serif">Syncs like in database</text>
+      <text x="670" y="125" fill="#94a3b8" font-size="10" text-anchor="middle" font-family="system-ui, sans-serif">Saves to your list</text>
     </svg>
   </div>
   <figcaption class="concept-caption">
     <span class="concept-caption-badge">Diagram 1.3</span>
-    <span class="concept-caption-text"><strong>Event-Driven Lifecycle:</strong> When you double-tap on social media, JavaScript instantly detects your touch, animates the heart icon, updates the counter, and syncs the result to cloud servers without refreshing the page!</span>
+    <span class="concept-caption-text"><strong>Event-Driven Lifecycle:</strong> When you double-tap a book, JavaScript instantly detects your touch, colours the bookmark icon, updates your list, and syncs the result to cloud servers without refreshing the page!</span>
   </figcaption>
 </figure>
 

@@ -74,7 +74,7 @@ UDP eliminates handshakes, acknowledgments, and retransmissions. It attaches an 
 | **Reliability** | 100% Guaranteed delivery & ordering | Best-effort; packets may be dropped |
 | **Speed** | Slower (acknowledgments & overhead) | Ultra fast (minimal latency) |
 | **Header Size** | 20 to 60 bytes | Exactly 8 bytes |
-| **Ideal For** | Web browsing (HTTP/HTTPS), Email, File downloads, Financial transactions | Live video streaming (Twitch/YouTube Live), Online gaming, VoIP phone calls, DNS lookups, HTTP/3 (QUIC) |
+| **Ideal For** | Web browsing (HTTP/HTTPS), Email, File downloads, Financial transactions | Live online classes, Video calls, VoIP phone calls, DNS lookups, HTTP/3 (QUIC) |
 
 ---
 
@@ -82,8 +82,8 @@ UDP eliminates handshakes, acknowledgments, and retransmissions. It attaches an 
 
 1. **What are the three steps of the TCP 3-way handshake?**
    - *Answer: SYN (Synchronize), SYN-ACK (Synchronize-Acknowledge), ACK (Acknowledge).*
-2. **Why does live video streaming prefer UDP over TCP?**
-   - *Answer: Because in live streaming, a dropped frame is instantly obsolete. Halting the video stream to wait for a retransmitted frame would cause stuttering and buffering.*
+2. **Why does a live online class prefer UDP over TCP?**
+   - *Answer: Because in a live video lesson, a dropped frame is instantly obsolete. Halting the video stream to wait for a retransmitted frame would cause stuttering and buffering.*
 3. **What is the size of a standard UDP header compared to TCP?**
    - *Answer: A UDP header is only 8 bytes, while a standard TCP header is at least 20 bytes.*
 

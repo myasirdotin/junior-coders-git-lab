@@ -9,7 +9,7 @@ Have you ever flipped through a children's wildlife encyclopedia filled with ful
 Now imagine that same encyclopedia had zero photographs—just endless columns of tiny, dense black text. It would feel dull, exhausting, and hard to imagine what the animals actually look like!
 
 An old proverb says: *"A picture is worth a thousand words."*
-On the web, images bring life, emotion, color, and excitement to your pages. Whether you are showcasing artwork, explaining a science experiment, or displaying a video game screenshot, learning how to add and format images is a vital skill for every web creator!
+On the web, images bring life, emotion, color, and excitement to your pages. Whether you are showcasing artwork, explaining a science experiment, or displaying a photo of your school garden, learning how to add and format images is a vital skill for every web creator!
 
 ---
 
@@ -181,7 +181,7 @@ Writing great alternative text is an art form. Check out these examples for a ph
 
 Create a new file named `my-hobbies.html`:
 - Give it an `<h1>`: `My Favorite Weekend Activities`
-- Add 3 hobbies (e.g. Soccer, Drawing, Baking, Gaming, Skateboarding).
+- Add 3 hobbies (e.g. Football, Drawing, Baking, Robotics, Skateboarding).
 - For each hobby, add an `<h2>`, an `<img>` with realistic dimensions (`width="350"`), a detailed `alt` description, and a short paragraph describing why you love that activity.
 
 ---

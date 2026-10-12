@@ -109,7 +109,7 @@ METHOD 2: LINE-BY-LINE STREAMING (For large logs & CSVs)
 ## 6. 🌍 Real-World Connection: Server Error Logs
 
 Every time a website crashes, web servers write details to `error.log`.
-DevOps engineers write PHP scripts that read these log files line-by-line using `fopen()` and `fgets()` to detect crashes and send emergency alerts to developers on Slack or Discord!
+DevOps engineers write PHP scripts that read these log files line-by-line using `fopen()` and `fgets()` to detect crashes and send emergency alerts to developers on Slack or Microsoft Teams!
 
 ---
 

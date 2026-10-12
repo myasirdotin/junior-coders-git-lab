@@ -2,14 +2,14 @@
 
 ---
 
-## 1. 🌟 Real-Life Situation: Trading Cards and Museum Plaques
+## 1. 🌟 Real-Life Situation: Fact Cards and Museum Plaques
 
-Think about physical collector cards—like Pokémon cards, baseball cards, or Marvel superhero cards:
-- Every card is an individual, self-contained universe:
-  - At the top, there is a vivid illustration of the character.
-  - Below the artwork is the character's name in bold letters.
-  - Below the name is a description of their powers, history, and weakness.
-  - At the bottom, there is a stat badge or action power score.
+Think about printed fact cards—like animal fact cards, planet cards, or revision flash cards:
+- Every card is an individual, self-contained package:
+  - At the top, there is a vivid picture of the animal or planet.
+  - Below the picture is its name in bold letters.
+  - Below the name is a short description of where it lives, its size, and a fun fact.
+  - At the bottom, there is a small badge, such as "Endangered" or "Gas Giant".
 - You can shuffle them, place three of them side-by-side on your desk, or browse through a binder of dozens.
 
 In modern web design, **The Card Pattern** is the undisputed king of user interfaces!

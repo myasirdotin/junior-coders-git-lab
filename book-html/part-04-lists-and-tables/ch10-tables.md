@@ -206,16 +206,16 @@ You will master these with CSS in Chapter 15!
 
 ---
 
-## 11. 🚀 Mini Challenge: The Video Game High Scores Board
+## 11. 🚀 Mini Challenge: The Science Fair Results Table
 
-Build a web page named `leaderboard.html`:
-- An `<h1>`: `Galaxy Blaster: All-Time High Scores`
+Build a web page named `science-fair.html`:
+- An `<h1>`: `Class 7 Science Fair: Project Results`
 - A `<table border="1">` with 4 columns:
-  - `Rank`
-  - `Player Name`
-  - `High Score`
-  - `Badges Won`
-- Add at least 5 player rows, with the #1 champion having a score over 100,000 points!
+  - `Project No.`
+  - `Student Name`
+  - `Project Title`
+  - `Judges' Score (out of 50)`
+- Add at least 5 project rows, such as a solar water heater, a rainwater filter and a plant growth experiment!
 
 ---
 

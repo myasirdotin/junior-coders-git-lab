@@ -2,7 +2,7 @@
 
 Your computer has a single physical network card and one IP address. Yet at this very second, your laptop might be running:
 - A web browser with 10 tabs open
-- A background music player streaming audio
+- A Quran recitation player streaming audio in the background
 - An IDE connected to GitHub
 - A local web server like Apache or Node.js
 

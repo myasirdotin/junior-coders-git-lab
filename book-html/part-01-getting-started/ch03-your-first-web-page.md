@@ -209,7 +209,7 @@ How do you know which tab is YouTube and which tab is your homework?
 Open your `index.html` file and customize it:
 1. Change the `<title>` to: `[Your Name]'s Creative Workshop`
 2. Change the `<h1>` to your favorite motto or hobby (e.g., *"Welcome to Leo's Robot Lab!"*).
-3. Add two paragraphs describing your favorite hobby, favorite video game, or favorite book.
+3. Add two paragraphs describing your favorite hobby, favorite science topic, or favorite book.
 4. Save the file (`Ctrl + S`), switch to your browser, and hit **F5 (Refresh)** to see your changes appear instantly!
 
 ---

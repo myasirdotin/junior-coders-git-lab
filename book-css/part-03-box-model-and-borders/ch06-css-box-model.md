@@ -260,12 +260,12 @@ In graphic and web design, empty space is called **Whitespace** or **Negative Sp
 
 ---
 
-## 11. 🚀 Mini Challenge: The Game Stat Card
+## 11. 🚀 Mini Challenge: The Planet Fact Card
 
-Create a web page named `hero-stats.html`:
-- Build a warrior or wizard stat box (`width: 280px;`).
+Create a web page named `planet-facts.html`:
+- Build a planet fact box (`width: 280px;`).
 - Give it `padding: 20px;`, a bold colored border (e.g. `3px solid #f59e0b` - gold), and `margin: 30px auto;` to center it horizontally on the page.
-- Inside, list Health Points (HP), Magic Points (MP), and Special Abilities.
+- Inside, list the planet's Distance from the Sun, Number of Moons, and One Amazing Fact.
 
 ---
 

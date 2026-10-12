@@ -10,7 +10,7 @@ Imagine you have a magical T-shirt in your closet:
 - When a little 5-year-old puts it on, it shrinks to an extra-small, so they don't trip over the sleeves!
 - It is **one single shirt**, but it gracefully adapts to whoever is wearing it!
 
-In the early days of the internet, people only surfed the web on bulky desktop computer monitors with beige plastic keyboards. Today, people visit websites on **giant 32-inch gaming monitors, laptops, iPads, tablets, and skinny 6-inch smartphones**!
+In the early days of the internet, people only surfed the web on bulky desktop computer monitors with beige plastic keyboards. Today, people visit websites on **giant 32-inch desktop monitors, laptops, iPads, tablets, and skinny 6-inch smartphones**!
 
 **Responsive Web Design (RWD) is the art of building ONE single website that automatically reshapes, reorganizes, and looks stunning on ANY screen size in the universe!**
 

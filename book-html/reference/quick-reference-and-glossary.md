@@ -38,7 +38,7 @@
 - `<a href="url" target="_blank">`: Hyperlink anchor
 - `<img src="path.jpg" alt="Description" width="300">`: Image embed
 - `<audio controls src="audio.mp3">`: Audio player
-- `<video controls width="400" src="movie.mp4">`: Video player
+- `<video controls width="400" src="science-lesson.mp4">`: Video player
 
 ### Lists
 - `<ol>`: Numbered ordered list

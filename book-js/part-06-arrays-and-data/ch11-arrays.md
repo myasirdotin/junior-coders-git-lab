@@ -85,31 +85,31 @@ backpack[1] = "Art Sketchbook"; // Replaces "Pencil case"
 
 ## 4. Real-World Example 🏆
 
-Think about the high-score leaderboard in your favorite video game:
+Think about the score board for your class science quiz:
 ```javascript
-let topScores = [9800, 8950, 8400, 7800, 7200];
+let topScores = [98, 95, 84, 78, 72];
 ```
-1. Who won 1st Place (Gold Medal)? `topScores[0]` (9800).
-2. Who won 2nd Place (Silver Medal)? `topScores[1]` (8950).
-3. If the 3rd place player gets bonus points, the game updates `topScores[2] = 8700`.
+1. Who came 1st (Gold Medal)? `topScores[0]` (98).
+2. Who came 2nd (Silver Medal)? `topScores[1]` (95).
+3. If the teacher re-marks the 3rd paper and adds 3 marks, the board updates `topScores[2] = 87`.
 
 ---
 
 ## 5. Code Example 💻
 
 ```javascript
-let favoriteSuperheroes = ["Iron Man", "Spider-Man", "Wonder Woman", "Black Panther", "Batman"];
+let planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter"];
 
-console.log("Total Heroes: " + favoriteSuperheroes.length);
-console.log("My #1 favorite hero is: " + favoriteSuperheroes[0]);
+console.log("Total Planets: " + planets.length);
+console.log("Closest to the Sun: " + planets[0]);
 
-// Change the 3rd hero (index 2)
-favoriteSuperheroes[2] = "Captain Marvel";
+// Change the 3rd planet (index 2) to its Arabic name
+planets[2] = "Al-Ard";
 
-console.log("--- The Superhero Roster ---");
-// Looping through every hero in the array
-for (let i = 0; i < favoriteSuperheroes.length; i++) {
-    console.log("Hero #" + (i + 1) + ": " + favoriteSuperheroes[i]);
+console.log("--- The Planet List ---");
+// Looping through every planet in the array
+for (let i = 0; i < planets.length; i++) {
+    console.log("Planet #" + (i + 1) + ": " + planets[i]);
 }
 ```
 
@@ -117,12 +117,12 @@ for (let i = 0; i < favoriteSuperheroes.length; i++) {
 
 ## 6. Line-by-Line Explanation 🔍
 
-- `let favoriteSuperheroes = [...]`: Declares an array of strings holding 5 superhero names.
-- `favoriteSuperheroes.length`: Evaluates to 5.
-- `favoriteSuperheroes[0]`: Accesses the first element (`"Iron Man"`).
-- `favoriteSuperheroes[2] = "Captain Marvel"`: Modifies index 2 (replacing `"Wonder Woman"`).
-- `for (let i = 0; i < favoriteSuperheroes.length; i++)`: A loop running from `i = 0` up to `i = 4` (since `i < 5`).
-- `console.log("Hero #" + (i + 1) + ": " + favoriteSuperheroes[i])`: Prints each hero's rank (1 to 5) and name cleanly.
+- `let planets = [...]`: Declares an array of strings holding 5 planet names.
+- `planets.length`: Evaluates to 5.
+- `planets[0]`: Accesses the first element (`"Mercury"`).
+- `planets[2] = "Al-Ard"`: Modifies index 2 (replacing `"Earth"` with its Arabic name).
+- `for (let i = 0; i < planets.length; i++)`: A loop running from `i = 0` up to `i = 4` (since `i < 5`).
+- `console.log("Planet #" + (i + 1) + ": " + planets[i])`: Prints each planet's position (1 to 5) and name cleanly.
 
 ---
 

@@ -357,7 +357,7 @@ function showFinalResults() {
     finalScore.textContent = `${score} / ${quizData.length}`;
 
     if (score === quizData.length) {
-        feedbackMessage.textContent = "🏆 Master Coder! Perfect score! You're a JavaScript Wizard!";
+        feedbackMessage.textContent = "🏆 Master Coder! Perfect score! You're a JavaScript Coding Champion!";
     } else if (score >= 3) {
         feedbackMessage.textContent = "🌟 Great job! You have strong web development fundamentals!";
     } else {

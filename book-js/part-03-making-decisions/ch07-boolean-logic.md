@@ -251,7 +251,7 @@ Print a personalized congratulatory or remediation letter!
 ## 17. 🏡 Homework
 
 Write three real-life rules from your home or school as boolean logic statements:
-1. *"I can play video games IF homework is done AND bedroom is clean."*
+1. *"I can go to the park IF homework is done AND bedroom is clean."*
 2. Write one rule using `||` (OR).
 3. Write one rule using `!` (NOT).
 

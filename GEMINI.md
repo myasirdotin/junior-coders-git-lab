@@ -32,6 +32,16 @@ When teaching database schemas, forms, arithmetic logic, e-commerce, APIs, or bu
   - **No Prohibited Goods (*Ḥarām*)**: Do not use examples involving alcohol, intoxicants, pork/illicit foods, night clubs, or unethical entertainment venues.
   - **No Deceptive Patterns (*Gharar* & Fraud)**: No fake countdown timers, hidden checkout fees, deceptive popups, or privacy-invading spyware techniques.
   - **No Entertainment Media Streaming or Cinema Themes**: Do not reference commercial movie/series streaming platforms (such as Netflix, Hulu, or film streaming portals), movie theaters, cinema box offices, movie ticket pricing, celebrity gossip, or pop music streaming. Entertainment media containing unwholesome themes, immodesty, or music/film consumption contrary to Islamic modesty (*Ḥayā'*) must never be normalized or used as teaching examples.
+  - **No Music, Film or Entertainment-Fandom Examples**: no song lists, playlists, albums, concerts or "favourite movie"
+    prompts; no entertainment brands or characters (superheroes, Marvel, Harry Potter, Pokémon, Minecraft, Mario);
+    no magic, sorcery or wizard themes; no "review your favourite video game", game wikis, high-score boards or
+    RPG characters as the subject of an exercise. Neutral technical facts are fine (a game loop runs 60 times a
+    second; a student may build an educational game).
+  - **No Pork in Food Examples**: pepperoni, ham, bacon and sausage are usually pork; use halal or vegetable items.
+  - **No Vanity Metrics**: do not teach with social-media like counts, followers or streaks (§1.1). Use "Mark as
+    helpful", "Save for later" or "Bookmark" instead.
+  - **Randomness without chance games**: teach `rand()` / `Math.random()` with a random quiz question, a fair team
+    picker or a science simulation, never dice rolls, coin-flip bets, spin-the-wheel or raffles.
 - **Encouraged Real-World Scenarios**:
   - Educational knowledge platforms (online academies, digital research libraries, university portals, Quran/tafsir lecture archives, educational science documentaries).
   - Ethical e-commerce (halal bakeries, bookshops, artisan crafts, organic farms, educational software).

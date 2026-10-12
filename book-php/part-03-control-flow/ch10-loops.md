@@ -110,8 +110,8 @@ By the end of this chapter, you will be able to:
 
 ## 6. 🌍 Real-World Connection: Rendering Products & Timelines
 
-When you open Amazon or Instagram:
-- A database query returns 20 products or posts as an array.
+When you open an online bookshop or a school news page:
+- A database query returns 20 books or news posts as an array.
 - A `foreach` loop takes each product and renders an HTML card with image, title, and price.
 - You never write 20 individual HTML blocks—1 loop renders them all!
 

@@ -186,10 +186,10 @@ You first write down the essential details (What, When, Where). Then, you arrang
 
 ## 11. 🚀 Mini Challenge: The Tech Trio Story
 
-Write a 3-sentence superhero story where the heroes are named **HTML**, **CSS**, and **JS**:
-- Sentence 1 introduces **HTML**, the builder who constructs indestructible shelters.
-- Sentence 2 introduces **CSS**, the artist who cloaks the city in camouflage and light.
-- Sentence 3 introduces **JS**, the lightning-fast speedster who activates defense shields!
+Write a 3-sentence story about three friends named **HTML**, **CSS**, and **JS** who build a new school library together:
+- Sentence 1 introduces **HTML**, the builder who puts up the walls, shelves and doors.
+- Sentence 2 introduces **CSS**, the painter who chooses the colours, lights and signs.
+- Sentence 3 introduces **JS**, the helper who makes the doors open and the book scanner beep!
 
 Share your story with your classmate or teacher!
 

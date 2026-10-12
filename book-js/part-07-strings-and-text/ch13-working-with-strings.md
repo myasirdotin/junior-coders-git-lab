@@ -18,9 +18,9 @@ By the end of this chapter, you will be able to:
 ## 2. Warm-Up Activity 💬
 
 Think about creating a username on a website:
-- You type: `"   SpiderHero_07   "` (with accidental spaces).
-- The website automatically trims the spaces to `"SpiderHero_07"`.
-- It converts it to lowercase `"spiderhero_07"` to make sure no two users have the same name with different capitals.
+- You type: `"   StarGazer_07   "` (with accidental spaces).
+- The website automatically trims the spaces to `"StarGazer_07"`.
+- It converts it to lowercase `"stargazer_07"` to make sure no two users have the same name with different capitals.
 - It checks if the length is at least 6 characters.
 
 All of this magic happens using JavaScript **String Methods**!
@@ -70,11 +70,11 @@ console.log(clean.replace("Super", "Mega"));   // "JavaScript is Mega Fun!"
 
 ## 4. Real-World Example 🔍
 
-Think about the search bar on YouTube or Google:
-When you search for `"cricket highlights"`, the search engine:
+Think about the search bar on your school library website:
+When you search for `"solar system"`, the search engine:
 1. Trims extra spaces you typed accidentally.
-2. Converts your search to lowercase so it matches both `"Cricket"` and `"CRICKET"`.
-3. Checks every video title using `.includes(searchTerm.toLowerCase())`.
+2. Converts your search to lowercase so it matches both `"Solar"` and `"SOLAR"`.
+3. Checks every book title using `.includes(searchTerm.toLowerCase())`.
 
 ---
 

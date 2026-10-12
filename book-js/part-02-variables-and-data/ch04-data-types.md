@@ -181,14 +181,14 @@ console.log(typeof isPresent);
 
 ---
 
-## 11. 🧭 Think Like a Programmer: Designing a Game Character
+## 11. 🧭 Think Like a Programmer: Designing a Mars Rover
 
-Imagine you are programming a role-playing video game character.
+Imagine you are programming a robot rover that explores Mars.
 List the data type you would choose for:
-- Character Name
-- Health Points (HP)
-- Has Shield Equipped?
-- Current Quest (if none started yet, what value fits best?)
+- Rover Name
+- Battery Level (%)
+- Has Camera Switched On?
+- Current Mission (if none started yet, what value fits best?)
 
 ---
 
@@ -201,21 +201,21 @@ Print a comparison sentence using `console.log()` showing each value and its `ty
 
 ## 13. 🛠️ Mini Project: The Data Type Detective
 
-Create a program about your favorite video game:
-- Variable 1: `gameTitle` (string)
-- Variable 2: `maxPlayers` (number)
-- Variable 3: `isMultiplayer` (boolean)
-- Variable 4: `nextExpansionPack` (null - not released yet!)
-- Variable 5: `secretCheatCode` (undefined)
+Create a program about a book in your school library:
+- Variable 1: `bookTitle` (string)
+- Variable 2: `pageCount` (number)
+- Variable 3: `isAvailable` (boolean)
+- Variable 4: `borrowedBy` (null - nobody has it right now!)
+- Variable 5: `nextEdition` (undefined)
 
 Print each variable out formatted like a detective report:
 ```text
 === DATA TYPE DETECTIVE REPORT ===
-Item: gameTitle | Value: Minecraft | Type: string
-Item: maxPlayers | Value: 8 | Type: number
-Item: isMultiplayer | Value: true | Type: boolean
-Item: nextExpansionPack | Value: null | Type: object (JS historical quirk!)
-Item: secretCheatCode | Value: undefined | Type: undefined
+Item: bookTitle | Value: The Solar System | Type: string
+Item: pageCount | Value: 120 | Type: number
+Item: isAvailable | Value: true | Type: boolean
+Item: borrowedBy | Value: null | Type: object (JS historical quirk!)
+Item: nextEdition | Value: undefined | Type: undefined
 ==================================
 ```
 

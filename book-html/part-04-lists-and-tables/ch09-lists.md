@@ -82,8 +82,8 @@ Type this code into your editor and save it as `lists.html`:
     <!-- 1. Unordered List (Bullet Points) -->
     <h2>Top 3 Favorite Foods (Order Doesn't Matter)</h2>
     <ul>
-      <li>Homemade Pepperoni Pizza</li>
-      <li>Crispy Japanese Gyoza</li>
+      <li>Homemade Vegetable Pizza</li>
+      <li>Crispy Chicken Samosas</li>
       <li>Fresh Mango Smoothie</li>
     </ul>
 
@@ -250,7 +250,7 @@ Build a recipe web page titled `hot-cocoa.html`:
 3. What tag must be used for every individual item inside a list?
 
 ### 🟡 Medium (Application)
-4. Write the HTML code for an ordered list of your top 3 favorite movies of all time.
+4. Write the HTML code for an ordered list of your top 3 favorite books of all time.
 5. Create a nested list showing two school subjects (e.g. Science and Math), with two specific topics listed under each subject.
 
 ### 🔴 Challenge (Creative Problem-Solving)

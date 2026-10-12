@@ -271,4 +271,4 @@ Write a `for` loop that prints all **odd numbers** from 1 to 25.
 ## 18. 🍎 Teacher Discussion Questions
 
 1. Have students act out a physical loop in the classroom: One student acts as the counter, another as the condition checker, and another runs the action block.
-2. Ask: *"In video games, the main loop runs 60 times every second. What actions happen during each tick of that game loop?"*
+2. Ask: *"In animations, the main loop runs 60 times every second. What actions happen during each tick of that animation loop?"*

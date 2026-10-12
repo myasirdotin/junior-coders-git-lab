@@ -96,7 +96,7 @@ Dollar Sign    Variable Identifier    Assignment Operator      Stored Value     
 
 ## 6. 🌍 Real-World Connection: User Accounts
 
-When you sign up on Instagram or Discord:
+When you sign up on a school portal or an online library:
 - The backend server creates variables like `$userId`, `$username`, `$email`, and `$accountCreationDate`.
 - These variables hold your information temporarily in server RAM while computing your profile, before saving it permanently into a database!
 

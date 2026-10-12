@@ -184,10 +184,10 @@ console.log("My favourite number is 7);
 
 ## 11. 🧭 Think Like a Programmer: Why Comments Save Teams
 
-Imagine you write a brilliant, complex 500-line video game over summer break.
+Imagine you write a brilliant, complex 500-line science quiz app over summer break.
 Six months later, a bug occurs and you open your code to fix it.
 - If there are zero comments, you won't remember what half your functions do!
-- If another student joins your team to help design levels, they will be completely lost!
+- If another student joins your team to help write questions, they will be completely lost!
 - **Rule of Thumb**: Write comments that explain *WHY* your code is doing something, not just *WHAT* it does!
 
 ---

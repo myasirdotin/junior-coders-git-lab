@@ -209,4 +209,4 @@ When opened in the browser, the year was completely blank!
 7. If someone views the source code of your page, can they tell what PHP variables you used in `profile.php`? Why or why not?
 
 ### 🟣 Level 5: Create & Build
-8. Build a dynamic product card in `product.php` for a gaming laptop. Include title, price, discount percentage, calculated sale price (`$price * (1 - $discount)`), and an in-stock badge that changes color if stock is greater than 0.
+8. Build a dynamic product card in `product.php` for a student laptop. Include title, price, discount percentage, calculated sale price (`$price * (1 - $discount)`), and an in-stock badge that changes color if stock is greater than 0.

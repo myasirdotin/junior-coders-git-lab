@@ -6,12 +6,12 @@
 
 Think about the buttons you press in the physical world:
 - An elevator button has a smooth metal surface. When you press it, a pleasant golden light illuminates the ring to let you know the elevator is coming.
-- A video game controller has comfortable rubberized thumb buttons with crisp clicks.
+- A calculator has comfortable rubber buttons that give a crisp click under your finger.
 - A critical emergency stop switch in a science lab is painted bright fire-engine red with bold warning text so nobody presses it accidentally!
 
 In the physical world, great buttons invite your hand to touch them.
 **On a website, buttons are the most important interactive elements you will ever create!**
-They invite users to *"Sign Up"*, *"Download Game"*, *"Add to Cart"*, or *"Submit Quiz"*. If your button looks like a flat, boring gray rectangle from 1995, users hesitate. When your button looks sleek, colorful, padded, and interactive, users click with confidence!
+They invite users to *"Sign Up"*, *"Download Notes"*, *"Add to Cart"*, or *"Submit Quiz"*. If your button looks like a flat, boring gray rectangle from 1995, users hesitate. When your button looks sleek, colorful, padded, and interactive, users click with confidence!
 
 ---
 

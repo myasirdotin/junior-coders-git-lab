@@ -38,7 +38,7 @@ Notice how an "impossible" game becomes 7 manageable mini-tasks!
 ## 3. Pillar 2: Pattern Recognition (Spotting the Repeat) 🔍
 
 Consider these three tasks:
-- Find the highest score in a video game.
+- Find the highest mark in a class science quiz.
 - Find the oldest student in class.
 - Find the hottest temperature of the week.
 

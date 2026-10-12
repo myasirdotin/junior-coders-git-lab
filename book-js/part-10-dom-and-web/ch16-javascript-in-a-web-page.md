@@ -89,7 +89,7 @@ heading.classList.remove("dimmed");
 
 ## 4. Real-World Example 🌙
 
-Think of "Dark Mode" on YouTube or Discord:
+Think of "Dark Mode" in a reading app or on your school website:
 When you flip the switch to Dark Mode:
 1. JavaScript finds the `<body>` element: `let body = document.body;`
 2. It toggles a class: `body.classList.toggle("dark-theme");`

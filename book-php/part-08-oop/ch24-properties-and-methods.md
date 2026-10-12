@@ -120,12 +120,12 @@ Means:
 
 ---
 
-## 6. 🌍 Real-World Connection: Preventing Chaos in Game Development
+## 6. 🌍 Real-World Connection: Preventing Chaos in a Library System
 
-Imagine a multiplayer game like Roblox or Minecraft:
-- A player object has `private $health = 100;`.
-- If `$health` were `public`, a cheating client script could execute: `$player->health = 9999999;`!
-- With encapsulation, the only way health changes is through `takeDamage($pts)` or `heal($pts)`, where the game server enforces rules!
+Imagine the online system of a school library:
+- A member object has `private $booksBorrowed = 0;`.
+- If `$booksBorrowed` were `public`, a careless script could execute: `$member->booksBorrowed = -50;`!
+- With encapsulation, the only way the count changes is through `borrowBook()` or `returnBook()`, where the library server enforces the rules (for example, at most 3 books at a time)!
 
 ---
 

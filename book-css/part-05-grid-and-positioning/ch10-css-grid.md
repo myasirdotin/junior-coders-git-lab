@@ -4,12 +4,12 @@
 
 ## 1. 🌟 Real-Life Situation: The Comic Book Page & The Waffle Maker
 
-Imagine opening a thrilling comic book about superheroes:
+Imagine opening a colorful picture book about the solar system:
 - On the page, the artist doesn't just draw one long line of pictures.
 - The page is divided into a **2-dimensional grid of panels**:
   - Two panels across the top.
   - Three smaller panels in the middle row.
-  - One wide panoramic battle panel stretching across the entire bottom!
+  - One wide panoramic panel of the night sky stretching across the entire bottom!
 
 Or think of a hot waffle iron: it has rows and columns crossing each other, stamping perfect square pockets into the waffle batter.
 
@@ -264,12 +264,12 @@ When building grid galleries, cards look sloppy if one card has 10 lines of text
 
 ---
 
-## 11. 🚀 Mini Challenge: The Game Inventory Grid
+## 11. 🚀 Mini Challenge: The Science Lab Supply Shelf
 
-Build an RPG Game Inventory Backpack:
+Build a Science Lab Supply Shelf:
 - A container with `display: grid;`, `grid-template-columns: repeat(4, 1fr);`, and `gap: 12px;`.
-- Add 8 inventory slots with dark square backgrounds (`height: 80px;`).
-- Add item emojis inside: ⚔️ (Sword), 🛡️ (Shield), 🧪 (Potion), 💎 (Gem), 🗝️ (Key), 🏹 (Bow), 🍞 (Bread), 🪙 (Gold Coins).
+- Add 8 supply slots with dark square backgrounds (`height: 80px;`).
+- Add item emojis inside: 🔬 (Microscope), 🧪 (Test Tube), 🧲 (Magnet), 🌡️ (Thermometer), 🔭 (Telescope), 🧫 (Petri Dish), ⚖️ (Scale), 🔋 (Battery).
 
 ---
 

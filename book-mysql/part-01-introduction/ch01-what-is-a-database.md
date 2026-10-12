@@ -57,7 +57,7 @@ Spreadsheets are wonderful tools for personal budgeting, quick tables, and simpl
 ### What is an RDBMS?
 **RDBMS** stands for **Relational Database Management System**. 
 - The word **Relational** means data is organized into logical, structured **tables** that can be linked (*related*) to one another using unique identifiers.
-- **MySQL** is the world’s most popular open-source RDBMS. It powers major global platforms such as Wikipedia, YouTube, GitHub, and millions of websites worldwide.
+- **MySQL** is the world’s most popular open-source RDBMS. It powers major global platforms such as Wikipedia, Booking.com, GitHub, and millions of websites worldwide.
 
 ```
 ┌─────────────────────────────────────────────────────────────┐

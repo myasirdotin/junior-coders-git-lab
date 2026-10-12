@@ -27,10 +27,10 @@ Teaching computer science to 11–13 year-olds (Grade 7) requires balancing **co
 | **Week 9** | Ch 9: Nested Loops | 2D coordinates & patterns | Drawing star and emoji grids |
 | **Week 10** | **Mid-Term Project Week** | Mini Projects 1 to 8 | Peer review & code walk |
 | **Week 11** | Ch 10: Functions | Parameters, arguments, `return` | Reusable pizza party bill splitter |
-| **Week 12** | Ch 11: Arrays | Zero-indexing, `.length` | Superhero inventory roster |
-| **Week 13** | Ch 12: Array Methods | `push`, `pop`, `shift`, `includes` | Dynamic playlist manager |
+| **Week 12** | Ch 11: Arrays | Zero-indexing, `.length` | Planet list and class quiz score board |
+| **Week 13** | Ch 12: Array Methods | `push`, `pop`, `shift`, `includes` | Library reading list manager |
 | **Week 14** | Ch 13: Strings | Template literals, slice, upper/lower | Secret detective code breaker |
-| **Week 15** | Ch 14: Objects | Key-value properties & methods | RPG Video Game character creator |
+| **Week 15** | Ch 14: Objects | Key-value properties & methods | Mars rover control sheet |
 | **Week 16** | Ch 15: User Input | `prompt()`, `alert()`, type casting | Interactive Number Guessing Game |
 | **Week 17** | Ch 16: DOM & Web | `document.getElementById`, styles | Dynamic digital business card |
 | **Week 18** | Ch 17: Events | `addEventListener`, `click`, `input` | Interactive Tally Counter widget |

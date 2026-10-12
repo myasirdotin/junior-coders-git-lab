@@ -42,7 +42,7 @@ By the end of this chapter, you will be able to:
  │  Text Input:      [ John Doe                  ]             │
  │  Email Input:     [ student@srinagar.edu.in   ]             │
  │                                                             │
- │  Checkboxes:      [✓] Coding   [ ] Robotics   [✓] Gaming    │
+ │  Checkboxes:      [✓] Coding   [ ] Robotics   [✓] Science   │
  │                   (Can pick multiple options!)              │
  │                                                             │
  │  Radio Buttons:   (•) Grade 7   ( ) Grade 8   ( ) Grade 9   │
@@ -107,8 +107,8 @@ Type this into your editor and save it as `registration.html`:
         <input type="checkbox" id="web" name="interests" value="web">
         <label for="web">Website Design (HTML & CSS)</label><br>
 
-        <input type="checkbox" id="games" name="interests" value="games">
-        <label for="games">Video Game Programming</label><br>
+        <input type="checkbox" id="apps" name="interests" value="apps">
+        <label for="apps">Educational App Programming</label><br>
 
         <input type="checkbox" id="robot" name="interests" value="robot">
         <label for="robot">Lego Robotics</label>
@@ -223,7 +223,7 @@ Have you ever opened a form with 60 required questions in tiny font? You immedia
 Create a web page named `pizza-order.html`:
 - `<h1>`: `Luigi's Custom Pizzeria`
 - Radio buttons for **Pizza Crust** (Thin Crust, Deep Dish, Stuffed Crust).
-- Checkboxes for **Toppings** (Pepperoni, Mushrooms, Olives, Extra Cheese).
+- Checkboxes for **Toppings** (Grilled Chicken, Mushrooms, Olives, Extra Cheese).
 - A `<select>` dropdown for **Delivery Time** (ASAP, In 30 Mins, In 1 Hour).
 - A `<button type="submit">`: `Place My Order! 🍕`
 

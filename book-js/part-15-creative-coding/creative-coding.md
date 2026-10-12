@@ -6,8 +6,8 @@
 ## 1. Welcome to the World of Creative Coding! ✨
 
 Who said coding is only about business spreadsheets and math quizzes?
-JavaScript can also be used like a digital paintbrush, an animator's studio, and a musical instrument! 
-With the **HTML5 `<canvas>` element**, you can draw shapes, paint rainbow spirals, create bouncy physics particles, and even program your own 2D video games!
+JavaScript can also be used like a digital paintbrush, an animator's studio, and a science lab! 
+With the **HTML5 `<canvas>` element**, you can draw shapes, paint rainbow spirals, create bouncy physics particles, and even program your own 2D educational games!
 
 ---
 

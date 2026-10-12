@@ -48,7 +48,7 @@ By the end of this chapter, you will be able to:
  ├─────────────────────────────────────────────────────────────┤
  │ HOBBIES CARDS (3-COLUMN GRID)                               │
  │  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐     │
- │  │ 🎮 Gaming    │   │ 🛹 Skate     │   │ 🔭 Astronomy │     │
+ │  │ 🔭 Stargazing│   │ 🛹 Skate     │   │ ♟️ Chess     │     │
  │  └──────────────┘   └──────────────┘   └──────────────┘     │
  ├─────────────────────────────────────────────────────────────┤
  │ CONTACT SECTION (FORM) & FOOTER                             │

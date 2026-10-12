@@ -174,8 +174,8 @@ When a student lands on a school website, what do they want to see first?
 Before coders write a single line of code, they draw what they want to build!
 Take a blank sheet of paper and a pencil. Draw a website idea for:
 - Your favorite animal rescue sanctuary
-- A video game review club
-- Or a superhero fan page!
+- A school science club
+- Or a neighbourhood library!
 
 Divide your paper into 3 parts:
 1. **Top bar**: A logo and name.

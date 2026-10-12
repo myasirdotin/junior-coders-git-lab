@@ -15,15 +15,15 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 2. Warm-Up Activity 🎮
+## 2. Warm-Up Activity 🤖
 
-Think about a character in a video game like Mario or Minecraft Steve:
-A character isn't just a single number or a plain list. A character has distinct **attributes**:
-- Name: "Steve"
-- Health: 100
-- Level: 5
-- HasArmor: true
-- Inventory: `["Pickaxe", "Torch", "Bread"]`
+Think about a robot rover exploring the surface of Mars:
+A rover isn't just a single number or a plain list. A rover has distinct **attributes**:
+- Name: "Explorer-1"
+- Battery: 100
+- Mission: 5
+- HasCamera: true
+- Tools: `["Drill", "Torch", "Thermometer"]`
 
 In programming, we bundle all these related traits into a single unit called an **Object**!
 
@@ -83,9 +83,9 @@ car.accelerate(); // "Zoom! Speed is now 20 km/h"
 Think of a library catalog card:
 ```javascript
 let book = {
-    title: "Harry Potter and the Sorcerer's Stone",
-    author: "J.K. Rowling",
-    pages: 309,
+    title: "Charlotte's Web",
+    author: "E.B. White",
+    pages: 192,
     isAvailable: true
 };
 ```
@@ -188,13 +188,13 @@ console.log(documentary[propertyToLookUp]);
 
 Find the 3 errors in this code:
 ```javascript
-let superhero = {
-    name = "Flash",
-    power: "Super Speed"
-    isHero: true;
+let robot = {
+    name = "Helper-Bot",
+    power: "Solar Energy"
+    isWorking: true;
 }
 
-console.log(superhero->power);
+console.log(robot->power);
 ```
 
 ---
@@ -216,24 +216,24 @@ Write a function `findTopScorer(players)`:
 
 ---
 
-## 13. Mini Project: RPG Game Character Sheet 🛡️
+## 13. Mini Project: Mars Rover Control Sheet 🚀
 
-Build a character generator that defines:
+Build a rover control program that defines:
 ```javascript
-let hero = {
-    name: "Sir Lancelot",
-    class: "Knight",
-    hp: 120,
-    maxHp: 120,
-    attackPower: 25,
-    gold: 50,
-    inventory: ["Iron Sword", "Health Potion"]
+let rover = {
+    name: "Explorer-1",
+    team: "Science Club",
+    battery: 120,
+    maxBattery: 120,
+    speed: 25,
+    credits: 50,
+    samples: ["Red Rock", "Dust Jar"]
 };
 ```
 Write functions:
-1. `takeDamage(damage)`: reduces hp. If hp <= 0, print "Hero has fallen!".
-2. `heal(amount)`: increases hp up to maxHp.
-3. `buyItem(item, cost)`: checks if gold >= cost, deducts gold, and pushes item to inventory.
+1. `useEnergy(amount)`: reduces battery. If battery <= 0, print "Rover needs recharging!".
+2. `recharge(amount)`: increases battery up to maxBattery.
+3. `collectSample(sample, cost)`: checks if credits >= cost, deducts credits, and pushes sample to samples.
 
 ---
 

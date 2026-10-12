@@ -192,7 +192,7 @@ Your eyes would feel dizzy within 10 seconds!
 Create a new file named `about-me.html`. Build a personal profile card using what you learned:
 - An `<h1>` with your name.
 - An `<hr>` dividing line.
-- A paragraph with your age, favorite subjects, and hobbies, using `<strong>` for your biggest talent and `<em>` for your favorite book or movie title.
+- A paragraph with your age, favorite subjects, and hobbies, using `<strong>` for your biggest talent and `<em>` for your favorite book title.
 - Another `<hr>` dividing line.
 - A 3-line contact or school address block formatted using `<br>` tags!
 

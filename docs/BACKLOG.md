@@ -34,6 +34,9 @@ _Last updated: 2026-10-12 (mobile + content review: all four steps done)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-12 §1 content sweep: movie, music, concert, dice, pepperoni, superhero/Marvel/Harry Potter, Minecraft,
+  video-game review and social-media "like" examples replaced in ~55 textbook chapters and pages; GEMINI.md §1.3 now
+  lists these explicitly; all 11 `.gemini/agents/*-tutor.md` carry the same Content Rules block.
 - 2026-10-12 Textbooks page rebuilt: grouped by stage (First steps / Websites that think / Python, networks and safety),
   search and filter, plain-words cards with grade and chapter count, "Continue reading" from the last chapter opened
   (`jc_book_progress`, saved by `js/book-speaker.js`). All 11 books open `#chN` links; CSS/HTML chapter headings

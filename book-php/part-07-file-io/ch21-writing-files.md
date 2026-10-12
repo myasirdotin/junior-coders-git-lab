@@ -137,7 +137,7 @@ Save this as `guestbook.php`:
 Small web projects often persist data directly to a `.json` file:
 ```php
 $posts = json_decode(file_get_contents("posts.json"), true);
-$posts[] = ["title" => "My Day", "likes" => 1];
+$posts[] = ["title" => "Science Fair Notes", "bookmarked" => true];
 file_put_contents("posts.json", json_encode($posts, JSON_PRETTY_PRINT));
 ```
 No database server required!

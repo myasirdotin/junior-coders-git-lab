@@ -70,14 +70,14 @@ inputField.addEventListener("input", function() {
 
 ---
 
-## 4. Real-World Example ❤️
+## 4. Real-World Example 🔖
 
-Think of the "Like" button on Instagram or YouTube:
-1. The heart icon has a click listener: `heartBtn.addEventListener("click", toggleLike)`.
+Think of the "Save for later" button on a school library website:
+1. The bookmark icon has a click listener: `saveBtn.addEventListener("click", toggleSave)`.
 2. When tapped:
-   - The heart turns red!
-   - The like count increments by 1.
-   - A heart animation plays on screen.
+   - The bookmark turns gold!
+   - Your "Saved books" count increments by 1.
+   - A small "Saved!" message appears on screen.
 
 ---
 

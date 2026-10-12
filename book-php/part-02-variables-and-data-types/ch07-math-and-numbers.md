@@ -75,10 +75,10 @@ Any number % 2 == 1  -->  ODD NUMBER!  (1, 3, 5, 7, 9...)
   echo "max(12, 85, 43) = " . max(12, 85, 43) . "<br>";          // 85
   echo "min(12, 85, 43) = " . min(12, 85, 43) . "<br>";          // 12
 
-  // Random Number Generator (Rolling two dice)
-  $die1 = rand(1, 6);
-  $die2 = rand(1, 6);
-  echo "<h3>Dice Roll: $die1 and $die2 (Total: " . ($die1 + $die2) . ")</h3>";
+  // Random Number Generator (Picking a quiz question for a random seat)
+  $questionNumber = rand(1, 20); // one of 20 quiz questions
+  $seatNumber = rand(1, 30);     // one of 30 seats in the class
+  echo "<h3>Quiz Time: Question $questionNumber goes to seat $seatNumber</h3>";
 ?>
 ```
 
@@ -165,7 +165,7 @@ In web applications, generating random numbers is critical for:
 5. Why should parentheses always be used when mixing addition and multiplication?
 
 ### 🟠 Level 3: Apply
-6. Write a script that simulates a coin toss. Generate a random number (0 or 1). If 0, print `"Heads!"`; if 1, print `"Tails!"`.
+6. Write a script that picks a team fairly. Generate a random number (0 or 1). If 0, print `"Team Green!"`; if 1, print `"Team Blue!"`.
 
 ### 🔵 Level 4: Think & Troubleshoot
 7. How would you format a number like `1250050.75` into a readable currency string like `$1,250,050.75`? (Hint: Explore `number_format()`).

@@ -175,7 +175,7 @@ Type this into your editor and save it as `navbar-flex.html`:
 
 ## 6. 🌍 Real-World Connection: How Top Apps Use Flexbox
 
-Every single navigation bar on **Twitter/X**, **Instagram**, **GitHub**, and **Khan Academy** is powered by Flexbox!
+Every single navigation bar on **Wikipedia**, **GitHub**, **BBC Bitesize**, and **Khan Academy** is powered by Flexbox!
 - On **BBC News** and **Al Jazeera**, the top navigation bar uses `justify-content: space-between;`:
   - Left item: News logo and category icon.
   - Middle item: Breaking news headline ticker.

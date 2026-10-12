@@ -108,12 +108,12 @@ array_shift()    <--  [  Item 1,  Item 2,  Item 3  ]  -->  array_pop()
 
 ---
 
-## 6. 🌍 Real-World Connection: Leaderboards & Feeds
+## 6. 🌍 Real-World Connection: Charity Drive Totals
 
-In competitive gaming (like Fortnite or Chess.com):
-- Hundreds of player scores are loaded into an array.
-- `arsort($players)` sorts the leaderboard descending by points while keeping player usernames attached.
-- `array_slice($players, 0, 10)` extracts the top 10 champions for the homepage!
+In a school charity drive tracker:
+- The amount collected by each class is loaded into an array.
+- `arsort($classTotals)` sorts the totals from highest to lowest while keeping each class name attached.
+- `array_slice($classTotals, 0, 10)` extracts the top 10 classes to thank on the homepage!
 
 ---
 
