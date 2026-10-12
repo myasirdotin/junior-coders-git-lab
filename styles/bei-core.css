@@ -2933,3 +2933,37 @@ body.bei-search-open { overflow: hidden; }
     background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.3); color: var(--text-secondary);
 }
 .start-here-note a { color: var(--brand-cyan); font-weight: 700; }
+
+/* ═════════════════════════════════════════════════════════════════════
+   THREE-TIER PRACTICE (GEMINI.md §3.3) — shared markup for every lesson track:
+   <section class="content-section jc-tiers"><h2>🏆 Practice: three levels</h2>
+     <div class="jc-tier jc-tier-1"><h3>🟢 Level 1: Recall</h3><p>…</p>
+       <details class="jc-answer"><summary>Show answer</summary><div>…</div></details></div>
+     <div class="jc-tier jc-tier-2"><h3>🟡 Level 2: Apply</h3>…</div>
+     <div class="jc-tier jc-tier-3"><h3>🔴 Level 3: Challenge</h3>…</div></section>
+   ═════════════════════════════════════════════════════════════════════ */
+.jc-tiers .jc-tier {
+    margin: 0 0 1rem; padding: 1rem 1.1rem; border-radius: 12px;
+    background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left-width: 4px;
+}
+.jc-tiers .jc-tier:last-child { margin-bottom: 0; }
+.jc-tiers .jc-tier-1 { border-left-color: #10b981; }
+.jc-tiers .jc-tier-2 { border-left-color: #f59e0b; }
+.jc-tiers .jc-tier-3 { border-left-color: #ef4444; }
+.jc-tiers .jc-tier h3 { margin: 0 0 0.5rem; font-size: 1.05rem; color: var(--text-primary); }
+.jc-tiers .jc-tier p, .jc-tiers .jc-tier li { color: var(--text-secondary); line-height: 1.6; }
+.jc-tiers .jc-tier ol, .jc-tiers .jc-tier ul { margin: 0.5rem 0 0 1.2rem; }
+.jc-tiers pre { margin: 0.6rem 0; padding: 0.75rem 0.9rem; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; }
+.jc-answer { margin-top: 0.6rem; }
+.jc-answer > summary {
+    display: inline-flex; align-items: center; min-height: 38px; padding: 0 0.85rem; border-radius: 8px; cursor: pointer;
+    font-weight: 700; font-size: 0.88rem; color: var(--brand-cyan); background: rgba(56, 189, 248, 0.08);
+    border: 1px solid rgba(56, 189, 248, 0.3); list-style: none;
+}
+.jc-answer > summary::-webkit-details-marker { display: none; }
+.jc-answer[open] > summary { margin-bottom: 0.5rem; }
+.jc-answer > div {
+    padding: 0.7rem 0.9rem; border-radius: 8px; border-left: 3px solid var(--brand-cyan);
+    background: rgba(56, 189, 248, 0.07); color: var(--text-primary); font-size: 0.92rem; line-height: 1.55;
+}
+[data-theme="light"] .jc-answer > div { background: #f0f9ff; }

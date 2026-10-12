@@ -186,6 +186,16 @@ These rules come from real bugs found in this site. Follow them for every change
    use it. Exercises live in `js/data/php-exercises.js` in three kinds: `predict` and `fill` need no engine (tier 1);
    `code` tasks run the student's script and compare its output with the solution's output (the stored `expected` is
    only the fallback when the engine cannot load, so keep it identical to what PHP prints). Keys: `php:<id>`.
+7g. **Three-tier practice uses one markup.** Every `moduleN.html` ends its teaching with one
+   `<section class="content-section jc-tiers">` holding `.jc-tier.jc-tier-1` (🟢 Recall), `.jc-tier-2` (🟡 Apply) and
+   `.jc-tier-3` (🔴 Challenge), each answer in `<details class="jc-answer">`. Styles live in `styles/bei-core.css` and
+   work in both themes; do not hard-code colours for practice blocks.
+7h. **Say what is real.** Sample or demo data (Teacher Hub dashboard, project gallery) must be labelled as sample on
+   the page. Do not promise what the site cannot do: there are no accounts, certificates are made on the student's
+   device and cannot be verified by others, progress is saved per device. Chapter and lesson counts must match the files.
+7i. **Phones get one clear screen.** On lesson pages the lesson text should start on the first phone screen: keep the
+   title card compact, one narrator row, one PDF button per page. The phone rules sit in `styles/bei-core.css`
+   ("LESSON PAGES" and "WEB STUDIO ON PHONES") and `styles/book-theme.css` (end of file).
 8. **Check before you finish:**
    ```bash
    node scripts/bundle-books.js          # after editing textbook chapters (.md)
