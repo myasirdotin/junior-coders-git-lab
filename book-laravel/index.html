@@ -306,6 +306,14 @@ php artisan db:seed           # Seed database</code></pre>` }
     document.getElementById('sidebarCloseBtn').addEventListener('click',()=>{document.getElementById('bookSidebar').classList.remove('open');document.getElementById('sidebarBackdrop').classList.remove('visible');});
     document.getElementById('sidebarBackdrop').addEventListener('click',()=>{document.getElementById('bookSidebar').classList.remove('open');document.getElementById('sidebarBackdrop').classList.remove('visible');});
     document.getElementById('chapterFilter').addEventListener('input',function(e){const q=e.target.value.toLowerCase();document.querySelectorAll('.chapter-nav-item').forEach(i=>{i.style.display=i.textContent.toLowerCase().includes(q)?'':'none';});});
+      // Open the chapter named in the address (e.g. #ch4 from "Continue reading"); back/forward between chapters
+    const openFromHash = () => {
+      const h = window.location.hash.toLowerCase();
+      const link = /^#ch\d+$/.test(h) && document.querySelector(`#bookSidebar a[href="${h}"]`);
+      if (link && !link.parentElement.classList.contains('active')) link.click();
+    };
+    openFromHash();
+    window.addEventListener('hashchange', openFromHash);
   </script>
   <script src="../js/pdf-download.js"></script>
   <script src="../js/tts-voices.js"></script>

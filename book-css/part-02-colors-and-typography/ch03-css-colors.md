@@ -1,4 +1,4 @@
-# Chapter 15: CSS Colors 🎨🌈
+# Chapter 3: CSS Colors 🎨🌈
 
 ---
 

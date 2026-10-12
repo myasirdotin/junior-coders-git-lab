@@ -1,4 +1,4 @@
-# Chapter 21: Flexbox 🧘‍♂️📐
+# Chapter 9: Flexbox 🧘‍♂️📐
 
 ---
 

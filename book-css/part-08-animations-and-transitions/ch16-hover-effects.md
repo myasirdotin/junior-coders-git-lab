@@ -1,4 +1,4 @@
-# Chapter 26: Hover Effects 🖱️✨
+# Chapter 16: Hover Effects 🖱️✨
 
 ---
 

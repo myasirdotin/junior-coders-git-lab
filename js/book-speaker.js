@@ -400,6 +400,21 @@
     });
   };
 
+  // Remember the last chapter read in each book (this device only), so the Textbooks page can offer
+  // "Continue reading". Key 'jc_book_progress': { "book-html": { ch: "#ch4", title, t }, ... }
+  const rememberChapter = (title) => {
+    try {
+      const m = location.pathname.match(/\/(book-[a-z]+)\//i);
+      const sb = document.getElementById('bookSidebar');
+      const act = sb && sb.querySelector('.active a[href^="#ch"], a.active[href^="#ch"]');
+      const ch = /^#ch\d+$/i.test(location.hash) ? location.hash : (act ? act.getAttribute('href') : '');
+      if (!m || !ch) return;
+      const all = JSON.parse(localStorage.getItem('jc_book_progress') || '{}');
+      all[m[1].toLowerCase()] = { ch: ch.toLowerCase(), title: String(title || '').slice(0, 90), t: Date.now() };
+      localStorage.setItem('jc_book_progress', JSON.stringify(all));
+    } catch (e) { /* storage blocked: nothing to remember */ }
+  };
+
   window.initBookSpeaker = function() {
     stopSpeech();
     setupPermanentHeaderControls();
@@ -421,6 +436,8 @@
     if (statusEl) {
       statusEl.textContent = `${chapterName} • ⏱️ ${minutes} min read`;
     }
+
+    rememberChapter(chapterName);
 
     // Attach Section Speaker buttons next to all h2 and h3 inside chapter
     contentArea.querySelectorAll('h2, h3').forEach(heading => {

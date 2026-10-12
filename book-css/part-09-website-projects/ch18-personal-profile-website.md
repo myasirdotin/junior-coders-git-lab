@@ -1,4 +1,4 @@
-# Chapter 30: Personal Profile Website 🧑‍🚀🌐
+# Chapter 18: Personal Profile Website 🧑‍🚀🌐
 
 ---
 

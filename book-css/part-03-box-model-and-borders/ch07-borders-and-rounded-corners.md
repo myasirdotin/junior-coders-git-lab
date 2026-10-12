@@ -1,4 +1,4 @@
-# Chapter 19: Borders and Rounded Corners 🔲🔘
+# Chapter 7: Borders and Rounded Corners 🔲🔘
 
 ---
 

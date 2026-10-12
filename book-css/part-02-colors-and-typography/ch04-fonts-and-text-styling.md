@@ -1,4 +1,4 @@
-# Chapter 16: Fonts and Text Styling 🔤📖
+# Chapter 4: Fonts and Text Styling 🔤📖
 
 ---
 

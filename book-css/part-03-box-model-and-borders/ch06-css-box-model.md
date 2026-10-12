@@ -1,4 +1,4 @@
-# Chapter 18: CSS Box Model 📦📐
+# Chapter 6: CSS Box Model 📦📐
 
 ---
 

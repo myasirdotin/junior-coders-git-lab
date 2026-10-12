@@ -1,4 +1,4 @@
-# Chapter 27: CSS Transitions ⏳🧈
+# Chapter 17: CSS Transitions ⏳🧈
 
 ---
 

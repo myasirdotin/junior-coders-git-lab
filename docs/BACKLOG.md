@@ -34,6 +34,10 @@ _Last updated: 2026-10-12 (mobile + content review: all four steps done)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-12 Textbooks page rebuilt: grouped by stage (First steps / Websites that think / Python, networks and safety),
+  search and filter, plain-words cards with grade and chapter count, "Continue reading" from the last chapter opened
+  (`jc_book_progress`, saved by `js/book-speaker.js`). All 11 books open `#chN` links; CSS/HTML chapter headings
+  renumbered to match their files; stray footer line removed on 19 pages; mobile menus auto-close.
 - 2026-10-12 Content: three-tier practice (one `jc-tiers` markup, GEMINI §7g) in every module of all 9 tracks;
   Python 1–6, Networks and Cybersecurity modules deepened; new quizzes (Python, Networks, Cybersecurity, Laravel),
   Laravel glossary; many factual fixes (Laravel logout/starter kits, CSS quiz Q1, PHP form XSS, Networks numbers).

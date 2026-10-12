@@ -1,4 +1,4 @@
-# Chapter 33: Portfolio Website 💼🎨
+# Chapter 21: Portfolio Website 💼🎨
 
 ---
 
@@ -418,7 +418,7 @@ How do web developers share their portfolios with the world?
 ## 7. ✍️ Try It Yourself: Link Your Real Chapter Projects
 
 Look inside the `.projects-grid` in `portfolio.html`:
-1. Change the links on Project 1 to point directly to the files you created in Chapter 31 and Chapter 32!
+1. Change the links on Project 1 to point directly to the files you created in Chapter 19 and Chapter 20!
 2. Click the "Live Demo" link: Watch your browser seamlessly launch your actual restaurant and school websites!
 
 ---

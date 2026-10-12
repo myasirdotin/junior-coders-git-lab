@@ -1,4 +1,4 @@
-# Chapter 22: CSS Grid 📐🧇
+# Chapter 10: CSS Grid 📐🧇
 
 ---
 

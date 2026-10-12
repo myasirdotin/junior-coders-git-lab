@@ -1,4 +1,4 @@
-# Chapter 20: Display Property 🧱🔤
+# Chapter 8: Display Property 🧱🔤
 
 ---
 

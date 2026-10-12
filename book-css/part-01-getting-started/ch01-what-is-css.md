@@ -1,4 +1,4 @@
-# Chapter 13: What Is CSS? 🎨✨
+# Chapter 1: What Is CSS? 🎨✨
 
 ---
 

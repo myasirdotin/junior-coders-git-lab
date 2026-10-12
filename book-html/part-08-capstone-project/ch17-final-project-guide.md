@@ -1,4 +1,4 @@
-# Chapter 34: Final Project Planning & Showcase 🎓🏆
+# Chapter 17: Final Project Planning & Showcase 🎓🏆
 
 ---
 

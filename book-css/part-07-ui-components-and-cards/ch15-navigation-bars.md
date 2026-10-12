@@ -1,4 +1,4 @@
-# Chapter 29: Navigation Bars 🧭🚀
+# Chapter 15: Navigation Bars 🧭🚀
 
 ---
 

@@ -1,4 +1,4 @@
-# Chapter 24: Responsive Web Design 📱💻🖥️
+# Chapter 12: Responsive Web Design 📱💻🖥️
 
 ---
 

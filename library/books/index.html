@@ -3,69 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Official Modular Textbooks (Audio TTS) | Junior Coders</title>
-    <meta name="description" content="All 11 official school computer science textbooks with Web Speech audio narration, reading mode, and code lab buttons.">
+    <title>Textbooks | Junior Coders</title>
+    <meta name="description" content="Eleven computer science textbooks for Grades 6–10 that can read themselves aloud, each with lessons or a cheat sheet to practise.">
     <link rel="stylesheet" href="../../styles/bei-core.css">
     <style>
-        .books-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3.5rem;
+        /* Textbooks page (library/books). Colours come from bei-core.css tokens, so light and dark both work. */
+        .tb-header { margin-bottom: 1.25rem; }
+        .tb-continue {
+            display: flex; align-items: center; gap: 0.75rem; margin: 0 0 1.25rem; padding: 0.85rem 1rem;
+            border-radius: var(--radius-md); background: var(--brand-primary-light); border: 1px solid var(--brand-primary);
+            color: var(--text-primary); text-decoration: none;
         }
-        .book-item-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.25s ease;
+        .tb-continue[hidden] { display: none; }
+        .tb-continue:hover { border-color: var(--brand-cyan); }
+        .tb-continue-icon { font-size: 1.5rem; }
+        .tb-continue small { display: block; color: var(--text-muted); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; }
+        .tb-continue strong { display: block; font-size: 0.98rem; }
+        .tb-continue-text { color: var(--text-secondary); font-size: 0.88rem; }
+        .tb-continue-go { margin-left: auto; font-weight: 800; color: var(--brand-cyan); white-space: nowrap; }
+
+        .tb-tools { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 1.75rem; }
+        .tb-search {
+            flex: 1 1 280px; display: flex; align-items: center; gap: 0.5rem; padding: 0 0.85rem; min-height: 44px;
+            background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px;
         }
-        .book-item-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--border-hover);
-            box-shadow: var(--shadow-card);
+        .tb-search:focus-within { border-color: var(--brand-primary); }
+        .tb-search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--text-primary); font: inherit; font-size: 0.95rem; }
+        .tb-chips { display: flex; gap: 0.5rem; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+        .tb-chips::-webkit-scrollbar { display: none; }
+        .tb-chip {
+            flex: none; min-height: 40px; padding: 0 0.9rem; border-radius: 999px; cursor: pointer; white-space: nowrap;
+            background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-secondary);
+            font: inherit; font-size: 0.86rem; font-weight: 700;
         }
-        .book-item-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
+        .tb-chip.active { background: var(--brand-primary); border-color: var(--brand-primary); color: #fff; }
+
+        .tb-group { margin-bottom: 2.25rem; }
+        .tb-group[hidden], .tb-card[hidden] { display: none; }
+        .tb-group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; margin-bottom: 0.9rem; }
+        .tb-group-head h2 { font-size: 1.3rem; margin: 0; }
+        .tb-group-head p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+        .tb-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1rem; }
+
+        .tb-card {
+            display: flex; flex-direction: column; padding: 1.1rem; border-radius: var(--radius-lg);
+            background: var(--bg-surface); border: 1px solid var(--border-subtle); transition: border-color 0.2s ease, transform 0.2s ease;
         }
-        .book-item-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: var(--radius-sm);
-            background: var(--bg-surface-elevated);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
+        .tb-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+        .tb-card-head { display: flex; gap: 0.8rem; align-items: center; margin-bottom: 0.6rem; }
+        .tb-icon {
+            flex: none; width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center;
+            font-size: 1.5rem; background: var(--bg-surface-elevated);
         }
-        .book-item-badge {
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.25rem 0.6rem;
-            border-radius: var(--radius-sm);
-            background: var(--brand-primary-light);
-            color: #a5b4fc;
+        .tb-card h3 { font-size: 1.08rem; margin: 0 0 0.15rem; line-height: 1.25; }
+        .tb-meta { margin: 0; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+        .tb-chapters { color: var(--brand-cyan); font-weight: 800; }
+        .tb-chapters.tb-meta-partial { color: #f59e0b; }
+        .tb-desc { flex: 1; margin: 0 0 0.9rem; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; }
+        .tb-resume { margin: -0.3rem 0 0.8rem; font-size: 0.82rem; color: var(--text-secondary); }
+        .tb-resume strong { color: var(--text-primary); }
+        .tb-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+        .tb-btn {
+            display: flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 0.6rem; border-radius: 10px;
+            font-size: 0.86rem; font-weight: 800; text-decoration: none; text-align: center;
         }
-        .book-item-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.4rem;
-        }
-        .book-item-card p {
-            color: var(--text-secondary);
-            font-size: 0.88rem;
-            line-height: 1.55;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-        .book-item-actions {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
+        .tb-btn-primary { background: var(--brand-primary); color: #fff; }
+        .tb-btn-primary:hover { filter: brightness(1.1); }
+        .tb-btn-secondary { background: transparent; border: 1px solid var(--border-subtle); color: var(--text-primary); }
+        .tb-btn-secondary:hover { border-color: var(--border-hover); }
+
+        .tb-empty { padding: 1rem; border-radius: var(--radius-md); background: var(--bg-surface); color: var(--text-secondary); }
+        .tb-empty[hidden] { display: none; }
+        .tb-empty a { color: var(--brand-cyan); font-weight: 700; }
+        .tb-howto { margin: 1rem 0 3rem; padding: 1.25rem 1.4rem; border-radius: var(--radius-lg); background: var(--bg-surface); border: 1px solid var(--border-subtle); }
+        .tb-howto h2 { font-size: 1.15rem; margin: 0 0 0.6rem; }
+        .tb-howto ol { margin: 0; padding-left: 1.2rem; display: grid; gap: 0.4rem; color: var(--text-secondary); line-height: 1.5; }
+        .tb-note { margin: 0.75rem 0 0; font-size: 0.82rem; color: var(--text-muted); }
+
+        @media (max-width: 640px) {
+            .tb-header h1 { font-size: 1.9rem; }
+            .tb-tools { margin-bottom: 1.25rem; }
+            .tb-search { flex-basis: 100%; }
+            .tb-group { margin-bottom: 1.75rem; }
+            .tb-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+            .tb-card { padding: 0.9rem; }
+            .tb-desc { font-size: 0.86rem; margin-bottom: 0.75rem; }
+            .tb-howto { padding: 1rem; }
         }
     </style>
 </head>
@@ -96,172 +119,235 @@
         </div>
     </nav>
 
-    <main class="container">
-        <header class="learn-header">
+    <main class="container tb-page">
+        <header class="learn-header tb-header">
             <div class="breadcrumbs">
                 <a href="../../index.html">Home</a> <span>/</span>
                 <a href="../index.html">Library</a> <span>/</span>
                 <span>Textbooks</span>
             </div>
-            <h1>11 Official Modular Textbooks 📖</h1>
-            <p class="lead">Complete, project-based educational textbooks with built-in Web Speech audio narration (Text-to-Speech), distraction-free reading mode, syntax-highlighted code examples, and companion exercises.</p>
+            <h1>Textbooks 📖</h1>
+            <p class="lead">Eleven books for Grades 6–10. Read a chapter, press <strong>🔊 Read</strong> to hear it aloud, then practise in the matching lessons.</p>
         </header>
 
-        <div class="books-grid">
-            <!-- 1. HTML -->
-            <div class="book-item-card">
-                <div class="book-item-top">
-                    <div class="book-item-icon">🌐</div>
-                    <span class="book-item-badge">17 Ch • 🎙️ Audio</span>
-                </div>
-                <h3>HTML: Structure the Web</h3>
-                <p>Master the semantic skeleton: tags, headings, accessible forms, tables, SEO, and 5 capstone projects for Classes 6 &amp; 7.</p>
-                <div class="book-item-actions">
-                    <a href="../../book-html/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
-                    <a href="../../Learning HTML/learninghtml.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 12 Lessons</a>
-                </div>
-            </div>
+        <a class="tb-continue" id="tbContinue" href="#" hidden></a>
 
-            <!-- 2. CSS -->
-            <div class="book-item-card">
-                <div class="book-item-top">
-                    <div class="book-item-icon">🎨</div>
-                    <span class="book-item-badge">22 Ch • 🎙️ Audio</span>
-                </div>
-                <h3>CSS: Styling &amp; Layouts</h3>
-                <p>Colors, typography, Box Model, Flexbox alignment, CSS Grid, animations, and responsive mobile design for Class 7.</p>
-                <div class="book-item-actions">
-                    <a href="../../book-css/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
-                    <a href="../../Learning CSS/learningcss.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 8 Lessons</a>
-                </div>
-            </div>
-
-            <!-- 3. JavaScript -->
-            <div class="book-item-card">
-                <div class="book-item-top">
-                    <div class="book-item-icon">⚡</div>
-                    <span class="book-item-badge">17 Ch • 🎙️ Audio</span>
-                </div>
-                <h3>JavaScript: Learn, Think, Create</h3>
-                <p>Variables, control flow, loops, functions, array methods, DOM manipulation, and interactive game projects for Class 7.</p>
-                <div class="book-item-actions">
-                    <a href="../../book-js/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
-                    <a href="../../Learning JS/learningjs.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 9 Lessons</a>
-                </div>
-            </div>
-
-            <!-- 4. Terminal CMD -->
-            <div class="book-item-card">
-                <div class="book-item-top">
-                    <div class="book-item-icon">&gt;_</div>
-                    <span class="book-item-badge">14 Ch • 🎙️ Audio</span>
-                </div>
-                <h3>Terminal &amp; Command Prompt</h3>
-                <p>Master File Explorer without a mouse: file hierarchies, batch folder creation, local PHP servers, and dual-shell fluency.</p>
-                <div class="book-item-actions">
-                    <a href="../../book-cmd/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
-                    <a href="../../cheatsheet-cmd.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">💻 Cheatsheet</a>
-                </div>
-            </div>
-
-            <!-- 5. Git & GitHub -->
-            <div class="book-item-card">
-                <div class="book-item-top">
-                    <div class="book-item-icon">🐙</div>
-                    <span class="book-item-badge">19 Ch • 🎙️ Audio</span>
-                </div>
-                <h3>Git &amp; GitHub Mastery</h3>
-                <p>Milestone checkpoints, diff inspections, branch isolation, conflict resolution, Pull Requests, and GitHub Pages deployment.</p>
-                <div class="book-item-actions">
-                    <a href="../../book-git/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
-                    <a href="../../cheatsheet-git.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🐙 Cheatsheet</a>
-                </div>
-            </div>
-
-            <!-- 6. Python & Machine Learning -->
-            <div class="book-item-card">
-                <div class="book-item-top">
-                    <div class="book-item-icon">🐍</div>
-                    <span class="book-item-badge">15 Ch • 🎙️ Audio</span>
-                </div>
-                <h3>Python &amp; Machine Learning</h3>
-                <p>Clean Python syntax, data collections, file automation, supervised machine learning, and Islamic AI ethics (<em>Amānah</em>).</p>
-                <div class="book-item-actions">
-                    <a href="../../book-python/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
-                    <a href="../../Learning Python/learningpython.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 8 Lessons</a>
-                </div>
-            </div>
-
-            <!-- 7. PHP Server Scripting -->
-            <div class="book-item-card">
-                <div class="book-item-top">
-                    <div class="book-item-icon">🐘</div>
-                    <span class="book-item-badge">29 Ch • 🎙️ Audio</span>
-                </div>
-                <h3>PHP Server Scripting</h3>
-                <p>Server-side programming: associative arrays, GET/POST forms, superglobals, security sanitization, and OOP architecture.</p>
-                <div class="book-item-actions">
-                    <a href="../../book-php/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
-                    <a href="../../Learning PHP/learningphp.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 8 Lessons</a>
-                </div>
-            </div>
-
-            <!-- 8. MySQL Databases -->
-            <div class="book-item-card">
-                <div class="book-item-top">
-                    <div class="book-item-icon">🗄️</div>
-                    <span class="book-item-badge">22 Ch • 🎙️ Audio</span>
-                </div>
-                <h3>MySQL Relational Databases</h3>
-                <p>Relational table schemas, CRUD queries, foreign key relationships, multi-table JOINs, aggregations, and data trust.</p>
-                <div class="book-item-actions">
-                    <a href="../../book-mysql/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
-                    <a href="../../Learning MySQL/learningmysql.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 6 Lessons</a>
-                </div>
-            </div>
-
-            <!-- 9. Laravel Framework -->
-            <div class="book-item-card">
-                <div class="book-item-top">
-                    <div class="book-item-icon">🔥</div>
-                    <span class="book-item-badge">3 of 24 Ch ready</span>
-                </div>
-                <h3>Laravel Modern PHP MVC</h3>
-                <p>Routing, Blade templates, database migrations, Eloquent and logins. Still being written: 3 chapters are ready, so use the 8 Laravel lessons for the rest.</p>
-                <div class="book-item-actions">
-                    <a href="../../book-laravel/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
-                    <a href="../../Learning Laravel/learninglaravel.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 8 Lessons</a>
-                </div>
-            </div>
-
-            <!-- 10. Computer Networking & Protocols -->
-            <div class="book-item-card">
-                <div class="book-item-top">
-                    <div class="book-item-icon">🌐</div>
-                    <span class="book-item-badge">14 Ch • 🎙️ Audio</span>
-                </div>
-                <h3>Networking &amp; Web Protocols</h3>
-                <p>OSI 7-layer and TCP/IP models, IP addressing, CIDR subnetting, TCP/UDP, DNS resolution, HTTP/3, and TLS 1.3 cryptography.</p>
-                <div class="book-item-actions">
-                    <a href="../../book-networks/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
-                    <a href="../../Learning Networks/learningnetworks.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 8 Lessons</a>
-                </div>
-            </div>
-
-            <!-- 11. Cybersecurity & Digital Hygiene -->
-            <div class="book-item-card">
-                <div class="book-item-top">
-                    <div class="book-item-icon">🛡️</div>
-                    <span class="book-item-badge">14 Ch • 🎙️ Audio</span>
-                </div>
-                <h3>Cybersecurity &amp; Digital Hygiene</h3>
-                <p>The CIA Triad, password entropy math, OWASP web defenses (SQLi &amp; XSS), HTTP security headers, anti-phishing, and 3-2-1 backups.</p>
-                <div class="book-item-actions">
-                    <a href="../../book-cybersecurity/index.html" class="btn-hero-primary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">📖 Read Book</a>
-                    <a href="../../Learning Cybersecurity/learningcybersecurity.html" class="btn-hero-secondary" style="padding: 0.5rem; font-size: 0.82rem; text-align: center; justify-content: center;">🧪 8 Lessons</a>
-                </div>
+        <div class="tb-tools">
+            <label class="tb-search">
+                <span aria-hidden="true">🔍</span>
+                <input type="search" id="tbSearch" placeholder="Find a book: loops, forms…" aria-label="Find a textbook" autocomplete="off">
+            </label>
+            <div class="tb-chips" role="group" aria-label="Show books">
+                <button type="button" class="tb-chip active" data-filter="all" aria-pressed="true">All</button>
+                <button type="button" class="tb-chip" data-filter="first" aria-pressed="false">🌱 First steps</button>
+                <button type="button" class="tb-chip" data-filter="web" aria-pressed="false">⚙️ Websites that think</button>
+                <button type="button" class="tb-chip" data-filter="python" aria-pressed="false">🤖 Python &amp; safety</button>
             </div>
         </div>
+
+        <section class="tb-group" data-group="first" aria-labelledby="tb-h-first">
+            <div class="tb-group-head">
+                <h2 id="tb-h-first"><span aria-hidden="true">🌱</span> First steps</h2>
+                <p>Start here if you are new. Grades 6–7.</p>
+            </div>
+            <div class="tb-grid">
+                <article class="tb-card" data-book="book-cmd" data-search="terminal &amp; command prompt move around your computer by typing commands. make folders and files without a mouse. cmd">
+                    <div class="tb-card-head">
+                        <span class="tb-icon" aria-hidden="true">⌨️</span>
+                        <div>
+                            <h3>Terminal &amp; Command Prompt</h3>
+                            <p class="tb-meta"><span class="tb-chapters">14 chapters</span> · Grades 6–7</p>
+                        </div>
+                    </div>
+                    <p class="tb-desc">Move around your computer by typing commands. Make folders and files without a mouse.</p>
+                    <p class="tb-resume" hidden></p>
+                    <div class="tb-actions">
+                        <a href="../../book-cmd/index.html" class="tb-btn tb-btn-primary tb-read">📖 Read</a>
+                        <a href="../../cheatsheet-cmd.html" class="tb-btn tb-btn-secondary">📋 Cheat sheet</a>
+                    </div>
+                </article>
+                <article class="tb-card" data-book="book-html" data-search="html: structure the web build web pages with headings, links, images, tables and forms. ends with five small projects. html">
+                    <div class="tb-card-head">
+                        <span class="tb-icon" aria-hidden="true">🌐</span>
+                        <div>
+                            <h3>HTML: Structure the Web</h3>
+                            <p class="tb-meta"><span class="tb-chapters">17 chapters</span> · Grades 6–7</p>
+                        </div>
+                    </div>
+                    <p class="tb-desc">Build web pages with headings, links, images, tables and forms. Ends with five small projects.</p>
+                    <p class="tb-resume" hidden></p>
+                    <div class="tb-actions">
+                        <a href="../../book-html/index.html" class="tb-btn tb-btn-primary tb-read">📖 Read</a>
+                        <a href="../../Learning%20HTML/learninghtml.html" class="tb-btn tb-btn-secondary">🧪 12 lessons</a>
+                    </div>
+                </article>
+                <article class="tb-card" data-book="book-css" data-search="css: styling &amp; layouts add colours, fonts and spacing. line things up with flexbox and grid, and make pages fit phones. css">
+                    <div class="tb-card-head">
+                        <span class="tb-icon" aria-hidden="true">🎨</span>
+                        <div>
+                            <h3>CSS: Styling &amp; Layouts</h3>
+                            <p class="tb-meta"><span class="tb-chapters">22 chapters</span> · Grade 7</p>
+                        </div>
+                    </div>
+                    <p class="tb-desc">Add colours, fonts and spacing. Line things up with Flexbox and Grid, and make pages fit phones.</p>
+                    <p class="tb-resume" hidden></p>
+                    <div class="tb-actions">
+                        <a href="../../book-css/index.html" class="tb-btn tb-btn-primary tb-read">📖 Read</a>
+                        <a href="../../Learning%20CSS/learningcss.html" class="tb-btn tb-btn-secondary">🧪 8 lessons</a>
+                    </div>
+                </article>
+                <article class="tb-card" data-book="book-git" data-search="git &amp; github save versions of your work, try ideas on branches, and share projects on github. git">
+                    <div class="tb-card-head">
+                        <span class="tb-icon" aria-hidden="true">🗂️</span>
+                        <div>
+                            <h3>Git &amp; GitHub</h3>
+                            <p class="tb-meta"><span class="tb-chapters">19 chapters</span> · Grades 7–8</p>
+                        </div>
+                    </div>
+                    <p class="tb-desc">Save versions of your work, try ideas on branches, and share projects on GitHub.</p>
+                    <p class="tb-resume" hidden></p>
+                    <div class="tb-actions">
+                        <a href="../../book-git/index.html" class="tb-btn tb-btn-primary tb-read">📖 Read</a>
+                        <a href="../../cheatsheet-git.html" class="tb-btn tb-btn-secondary">📋 Cheat sheet</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="tb-group" data-group="web" aria-labelledby="tb-h-web">
+            <div class="tb-group-head">
+                <h2 id="tb-h-web"><span aria-hidden="true">⚙️</span> Websites that think</h2>
+                <p>Logic, servers and databases. Grades 7–10.</p>
+            </div>
+            <div class="tb-grid">
+                <article class="tb-card" data-book="book-js" data-search="javascript: learn, think, create make pages respond to clicks and typing. learn variables, decisions, loops and functions. js">
+                    <div class="tb-card-head">
+                        <span class="tb-icon" aria-hidden="true">⚡</span>
+                        <div>
+                            <h3>JavaScript: Learn, Think, Create</h3>
+                            <p class="tb-meta"><span class="tb-chapters">17 chapters</span> · Grades 7–8</p>
+                        </div>
+                    </div>
+                    <p class="tb-desc">Make pages respond to clicks and typing. Learn variables, decisions, loops and functions.</p>
+                    <p class="tb-resume" hidden></p>
+                    <div class="tb-actions">
+                        <a href="../../book-js/index.html" class="tb-btn tb-btn-primary tb-read">📖 Read</a>
+                        <a href="../../Learning%20JS/learningjs.html" class="tb-btn tb-btn-secondary">🧪 9 lessons</a>
+                    </div>
+                </article>
+                <article class="tb-card" data-book="book-php" data-search="php: server scripting write code that runs on the server: handle forms, keep data safe, and build small web apps. php">
+                    <div class="tb-card-head">
+                        <span class="tb-icon" aria-hidden="true">🐘</span>
+                        <div>
+                            <h3>PHP: Server Scripting</h3>
+                            <p class="tb-meta"><span class="tb-chapters">29 chapters</span> · Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="tb-desc">Write code that runs on the server: handle forms, keep data safe, and build small web apps.</p>
+                    <p class="tb-resume" hidden></p>
+                    <div class="tb-actions">
+                        <a href="../../book-php/index.html" class="tb-btn tb-btn-primary tb-read">📖 Read</a>
+                        <a href="../../Learning%20PHP/learningphp.html" class="tb-btn tb-btn-secondary">🧪 8 lessons</a>
+                    </div>
+                </article>
+                <article class="tb-card" data-book="book-mysql" data-search="mysql: databases store data in tables and ask questions with sql, using a school library database. mysql">
+                    <div class="tb-card-head">
+                        <span class="tb-icon" aria-hidden="true">🗄️</span>
+                        <div>
+                            <h3>MySQL: Databases</h3>
+                            <p class="tb-meta"><span class="tb-chapters">22 chapters</span> · Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="tb-desc">Store data in tables and ask questions with SQL, using a school library database.</p>
+                    <p class="tb-resume" hidden></p>
+                    <div class="tb-actions">
+                        <a href="../../book-mysql/index.html" class="tb-btn tb-btn-primary tb-read">📖 Read</a>
+                        <a href="../../Learning%20MySQL/learningmysql.html" class="tb-btn tb-btn-secondary">🧪 6 lessons</a>
+                    </div>
+                </article>
+                <article class="tb-card" data-book="book-laravel" data-search="laravel: php framework routes, blade pages, databases and logins. still being written, so use the 8 laravel lessons for the rest. laravel">
+                    <div class="tb-card-head">
+                        <span class="tb-icon" aria-hidden="true">🔥</span>
+                        <div>
+                            <h3>Laravel: PHP Framework</h3>
+                            <p class="tb-meta"><span class="tb-chapters tb-meta-partial">3 of 24 chapters ready</span> · Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="tb-desc">Routes, Blade pages, databases and logins. Still being written, so use the 8 Laravel lessons for the rest.</p>
+                    <p class="tb-resume" hidden></p>
+                    <div class="tb-actions">
+                        <a href="../../book-laravel/index.html" class="tb-btn tb-btn-primary tb-read">📖 Read</a>
+                        <a href="../../Learning%20Laravel/learninglaravel.html" class="tb-btn tb-btn-secondary">🧪 8 lessons</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="tb-group" data-group="python" aria-labelledby="tb-h-python">
+            <div class="tb-group-head">
+                <h2 id="tb-h-python"><span aria-hidden="true">🤖</span> Python, networks and safety</h2>
+                <p>Data, AI and staying safe online. Grades 8–10.</p>
+            </div>
+            <div class="tb-grid">
+                <article class="tb-card" data-book="book-python" data-search="python &amp; machine learning learn python step by step, work with data files, then see how simple ai learns, and how to use it honestly. python">
+                    <div class="tb-card-head">
+                        <span class="tb-icon" aria-hidden="true">🐍</span>
+                        <div>
+                            <h3>Python &amp; Machine Learning</h3>
+                            <p class="tb-meta"><span class="tb-chapters">15 chapters</span> · Grades 8–10</p>
+                        </div>
+                    </div>
+                    <p class="tb-desc">Learn Python step by step, work with data files, then see how simple AI learns, and how to use it honestly.</p>
+                    <p class="tb-resume" hidden></p>
+                    <div class="tb-actions">
+                        <a href="../../book-python/index.html" class="tb-btn tb-btn-primary tb-read">📖 Read</a>
+                        <a href="../../Learning%20Python/learningpython.html" class="tb-btn tb-btn-secondary">🧪 8 lessons</a>
+                    </div>
+                </article>
+                <article class="tb-card" data-book="book-networks" data-search="networks &amp; web protocols how messages travel across the internet: ip addresses, dns, http and secure https. networks">
+                    <div class="tb-card-head">
+                        <span class="tb-icon" aria-hidden="true">📡</span>
+                        <div>
+                            <h3>Networks &amp; Web Protocols</h3>
+                            <p class="tb-meta"><span class="tb-chapters">14 chapters</span> · Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="tb-desc">How messages travel across the internet: IP addresses, DNS, HTTP and secure HTTPS.</p>
+                    <p class="tb-resume" hidden></p>
+                    <div class="tb-actions">
+                        <a href="../../book-networks/index.html" class="tb-btn tb-btn-primary tb-read">📖 Read</a>
+                        <a href="../../Learning%20Networks/learningnetworks.html" class="tb-btn tb-btn-secondary">🧪 8 lessons</a>
+                    </div>
+                </article>
+                <article class="tb-card" data-book="book-cybersecurity" data-search="cybersecurity &amp; digital safety strong passwords, spotting scam messages, protecting websites, and keeping backups. cybersecurity">
+                    <div class="tb-card-head">
+                        <span class="tb-icon" aria-hidden="true">🛡️</span>
+                        <div>
+                            <h3>Cybersecurity &amp; Digital Safety</h3>
+                            <p class="tb-meta"><span class="tb-chapters">14 chapters</span> · Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="tb-desc">Strong passwords, spotting scam messages, protecting websites, and keeping backups.</p>
+                    <p class="tb-resume" hidden></p>
+                    <div class="tb-actions">
+                        <a href="../../book-cybersecurity/index.html" class="tb-btn tb-btn-primary tb-read">📖 Read</a>
+                        <a href="../../Learning%20Cybersecurity/learningcybersecurity.html" class="tb-btn tb-btn-secondary">🧪 8 lessons</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <p class="tb-empty" id="tbEmpty" hidden>No book matches that word. Try a shorter word, or <a href="../../paths/index.html">pick a path</a> instead.</p>
+
+        <section class="tb-howto" aria-labelledby="tb-howto-h">
+            <h2 id="tb-howto-h">How to use a textbook</h2>
+            <ol>
+                <li><strong>📖 Read one chapter at a time.</strong> Tap <em>Chapters</em> to jump to any part.</li>
+                <li><strong>🔊 Listen if you like.</strong> The Read button reads the chapter aloud. Microsoft Edge has the most natural voices.</li>
+                <li><strong>🧪 Practise straight away.</strong> Each book has lessons or a cheat sheet with exercises.</li>
+            </ol>
+            <p class="tb-note">The site remembers the last chapter you opened in each book, on this device only.</p>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -309,7 +395,7 @@
         </div>
         <div class="container footer-bottom">
             <div class="footer-copyright">
-                &copy; 2026 Junior Coders (Junior Coders). Dedicated to Beneficial Knowledge (<em>'Ilm N&#257;fi'</em>), Digital Stewardship &amp; Craftsmanship.
+                &copy; 2026 Junior Coders. Dedicated to Beneficial Knowledge (<em>'Ilm N&#257;fi'</em>), Digital Stewardship &amp; Craftsmanship.
             </div>
             <div class="footer-dedication-badge">
                 <span class="heart-symbol">✦</span> Designed with <em>Iḥsān</em> for <strong>Yasir Rasool</strong>
@@ -326,11 +412,75 @@
                 </a>
             </div>
         </div>
-            <div>beicoders.vercel.app</div>
-        </div>
     </footer>
 
     <script src="../../js/bei-core.js"></script>
     <script src="../../js/bei-nav.js"></script>
+    <script>
+    // Textbooks page: search, group filter, and "continue reading" saved by js/book-speaker.js (key jc_book_progress)
+    (function () {
+        var cards = Array.prototype.slice.call(document.querySelectorAll('.tb-card'));
+        var groups = Array.prototype.slice.call(document.querySelectorAll('.tb-group'));
+        var input = document.getElementById('tbSearch');
+        var empty = document.getElementById('tbEmpty');
+        var filter = 'all';
+
+        function apply() {
+            var q = (input.value || '').trim().toLowerCase();
+            var shown = 0;
+            groups.forEach(function (g) {
+                var inGroup = filter === 'all' || g.getAttribute('data-group') === filter;
+                var visible = 0;
+                g.querySelectorAll('.tb-card').forEach(function (c) {
+                    var ok = inGroup && (!q || c.getAttribute('data-search').indexOf(q) !== -1);
+                    c.hidden = !ok;
+                    if (ok) visible++;
+                });
+                g.hidden = visible === 0;
+                shown += visible;
+            });
+            empty.hidden = shown !== 0;
+        }
+        input.addEventListener('input', apply);
+        document.querySelectorAll('.tb-chip').forEach(function (chip) {
+            chip.addEventListener('click', function () {
+                filter = chip.getAttribute('data-filter');
+                document.querySelectorAll('.tb-chip').forEach(function (c) {
+                    var on = c === chip;
+                    c.classList.toggle('active', on);
+                    c.setAttribute('aria-pressed', on ? 'true' : 'false');
+                });
+                apply();
+            });
+        });
+
+        var progress = {};
+        try { progress = JSON.parse(localStorage.getItem('jc_book_progress') || '{}') || {}; } catch (e) { progress = {}; }
+        var esc = function (t) {
+            return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; });
+        };
+        var latest = null;
+        cards.forEach(function (c) {
+            var p = progress[c.getAttribute('data-book')];
+            if (!p || !/^#ch\d+$/.test(p.ch)) return;
+            var read = c.querySelector('.tb-read');
+            read.href = read.getAttribute('href') + p.ch;
+            read.textContent = '📖 Continue ' + p.ch.replace('#ch', 'Ch ');
+            var note = c.querySelector('.tb-resume');
+            note.innerHTML = 'You stopped at <strong>' + esc(p.title || p.ch.replace('#ch', 'Chapter ')) + '</strong>';
+            note.hidden = false;
+            if (!latest || p.t > latest.p.t) latest = { p: p, card: c, href: read.href };
+        });
+        if (latest) {
+            var box = document.getElementById('tbContinue');
+            box.href = latest.href;
+            box.innerHTML = '<span class="tb-continue-icon" aria-hidden="true">🔖</span>' +
+                '<span><small>Continue reading</small><strong>' + esc(latest.card.querySelector('h3').textContent) + '</strong>' +
+                '<span class="tb-continue-text">' + esc(latest.p.title || '') + '</span></span>' +
+                '<span class="tb-continue-go">Go →</span>';
+            box.hidden = false;
+        }
+    })();
+    </script>
 </body>
 </html>

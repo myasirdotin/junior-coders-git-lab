@@ -628,7 +628,18 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-      loadChapter('part-01-foundations-of-security/ch01-the-mindset-of-digital-defense.md', document.querySelector('.chapter-nav-item a'));
+      // Open the chapter named in the address (e.g. #ch4 from "Continue reading"), else chapter 1
+      const startHash = window.location.hash.toLowerCase();
+      const startLink = /^#ch\d+$/.test(startHash) && document.querySelector(`#bookSidebar a[href="${startHash}"]`);
+      if (startLink) startLink.click();
+      else loadChapter('part-01-foundations-of-security/ch01-the-mindset-of-digital-defense.md', document.querySelector('.chapter-nav-item a'));
+    });
+
+    // Back/forward between chapters
+    window.addEventListener('hashchange', () => {
+      const h = window.location.hash.toLowerCase();
+      const link = /^#ch\d+$/.test(h) && document.querySelector(`#bookSidebar a[href="${h}"]`);
+      if (link && !link.parentElement.classList.contains('active')) link.click();
     });
   </script>
   <script src="../js/pdf-download.js"></script>

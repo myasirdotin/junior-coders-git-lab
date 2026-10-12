@@ -1,4 +1,4 @@
-# Chapter 14: Adding CSS 🔌🎨
+# Chapter 2: Adding CSS 🔌🎨
 
 ---
 
