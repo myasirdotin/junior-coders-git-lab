@@ -203,8 +203,8 @@ These rules come from real bugs found in this site. Follow them for every change
    node scripts/validate-scripts.js      # JavaScript syntax in the book readers
    node scripts/render-check.mjs .render 390 844 1 <page urls...>   # phone width: scroll, JS errors, 404s, screenshots
    ```
-   Open the screenshots in `.render/` and look at them. `audit.ps1` rewrites `book-audit-report.md` with a new date;
-   do not commit that file if nothing else in it changed.
+   Open the screenshots in `.render/` and look at them. `audit.ps1` writes `book-audit-report.md`; it is git-ignored,
+   so read it locally and do not commit it.
 9. **Commits:** clear conventional messages (`fix:`, `feat:`, `docs:`...). Push only when the owner asks, and then push
    **both** branches: `git push origin main && git push origin main:master` (`master` is GitHub's default and deploys to Vercel).
 10. **Session handoff.** `docs/BACKLOG.md` is the work log (Now / Next / Decisions / Done). Read it at the start of a
