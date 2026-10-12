@@ -28,6 +28,28 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">return</span> wealth * <span style="color: #eab308;">0.025</span><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">return</span> <span style="color: #eab308;">0.0</span>
             </div>
+            <p>A <strong>function</strong> is a named set of steps. You write it once, then use it again and again. You have already used ready-made functions such as <code>print()</code>, <code>len()</code> and <code>round()</code>. Now you will build your own.</p>
+        </section>
+
+        <!-- Define and Call -->
+        <section class="content-section">
+            <h2>🔨 Define Once, Call Many Times</h2>
+            <p>Making a function has two parts:</p>
+            <ol>
+                <li><strong>Define</strong> it with <code>def</code>. This only builds the tool. Nothing runs yet.</li>
+                <li><strong>Call</strong> it by writing its name with round brackets. This is when the steps run.</li>
+            </ol>
+            <p>The value you send in when you call is called an <strong>argument</strong>. Inside the function, it arrives in the <strong>parameter</strong>, which works like a variable.</p>
+            <h3>Worked example 1: a welcome desk</h3>
+            <pre class="code-block"><code>def greet(name):
+    print(f"Welcome to the science fair, {name}!")
+
+greet("Amina")
+greet("Bilal")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Welcome to the science fair, Amina!
+Welcome to the science fair, Bilal!</code></pre>
+            <p>The steps were written once but ran twice. To welcome a third visitor, you add one short line.</p>
         </section>
 
         <!-- Anatomy -->
@@ -41,17 +63,125 @@
             </ol>
         </section>
 
+        <!-- Return Values -->
+        <section class="content-section">
+            <h2>📤 Getting an Answer Back with <code>return</code></h2>
+            <p><code>return</code> sends a value back to the line that called the function. Then the function stops at once. You can store the answer in a variable or print it.</p>
+            <h3>Worked example 2: calling <code>calculate_zakat</code></h3>
+            <pre class="code-block"><code>print(calculate_zakat(8000))
+print(calculate_zakat(3000))
+
+gift = calculate_zakat(12000)
+print(f"Zakat due: {gift}")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>200.0
+0.0
+Zakat due: 300.0</code></pre>
+            <p>8000 is at least 5000, so the function returns 2.5% of it (8000 × 0.025 = 200). 3000 is below the limit, so the first <code>return</code> is skipped and the function returns <code>0.0</code>.</p>
+            <p>Note: 5000 is a made-up number for practice. The real limit for zakat (the <em>nisab</em>) depends on the current price of gold or silver. For real payments, use a trusted zakat calculator or ask a scholar.</p>
+
+            <div class="tip-box" style="border-left-color: #ef4444;">
+                <p>⚠️ <strong>Common mistake: using <code>print</code> when you meant <code>return</code></strong></p>
+                <p>This function shows the sum but does not hand it back:</p>
+                <pre class="code-block"><code>def add_badly(a, b):
+    print(a + b)
+
+total = add_badly(2, 3)
+print(total)</code></pre>
+                <p><strong>Output:</strong></p>
+                <pre class="code-block"><code>5
+None</code></pre>
+                <p><code>None</code> is Python's word for "no value". A function with no <code>return</code> gives back <code>None</code>. Write <code>return a + b</code> so the caller gets the answer. Another slip: writing the name without brackets, such as <code>greet</code> instead of <code>greet("Amina")</code>. Without brackets, the function does not run.</p>
+            </div>
+        </section>
+
+        <!-- Defaults, Docstrings, Modules -->
+        <section class="content-section">
+            <h2>🧰 Defaults, Docstrings and Modules</h2>
+            <p>A parameter can have a <strong>default value</strong>. It is used when the caller leaves that argument out.</p>
+            <p>A <strong>docstring</strong> is a short note in triple quotes <code>"""..."""</code> on the first line inside a function. It tells readers what the function does.</p>
+            <h3>Worked example 3: shelf labels for the library</h3>
+            <pre class="code-block"><code>def make_label(item, shelf="General"):
+    """Builds a shelf label for a library book."""
+    return f"{item} -&gt; Shelf: {shelf}"
+
+print(make_label("Atlas of the Stars", "Science"))
+print(make_label("Story of Ibn Battuta"))</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Atlas of the Stars -&gt; Shelf: Science
+Story of Ibn Battuta -&gt; Shelf: General</code></pre>
+            <p>A <strong>module</strong> is a file full of ready-made functions. Python comes with many. You bring one into your program with <code>import</code>, then use its functions with a dot. This is what "modularity" means: building programs from separate, reusable parts.</p>
+            <h3>Worked example 4: the math module</h3>
+            <pre class="code-block"><code>import math
+
+print(math.sqrt(49))
+print(round(math.pi, 2))</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>7.0
+3.14</code></pre>
+            <p><code>math.sqrt()</code> finds a square root. <code>math.pi</code> is the number pi. Put <code>import</code> lines at the very top of your file. In Module 6 you will import the <code>csv</code> and <code>json</code> modules the same way.</p>
+            <p>One more rule: a variable made <strong>inside</strong> a function only exists inside it. This is called <strong>local scope</strong>. To get a value out, <code>return</code> it.</p>
+
+            <div class="tip-box" style="border-left-color: #2563eb;">
+                <p>🧪 <strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a>. Type <code>calculate_zakat</code> from the top of this page, then call it with three different amounts. Next, fix <code>add_badly</code> so it returns the sum.</p>
+            </div>
+        </section>
+
         <!-- Practice Challenge -->
         <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
             <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Temperature Unit Converter</h2>
-            <p>Write a function converting Celsius to Fahrenheit:</p>
+            <p>Write a function <code>to_fahrenheit(celsius)</code> that returns the temperature in Fahrenheit. The formula is: multiply by 9, divide by 5, then add 32. Give it a docstring, call it with 25, and print the result rounded to 1 decimal place.</p>
+            <details class="jc-answer"><summary>Show answer</summary><div>
             <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>def to_fahrenheit(celsius):
     """Calculates Fahrenheit from Celsius."""
     return (celsius * 9/5) + 32
 
 c_temp = 25
 f_temp = to_fahrenheit(c_temp)
-print(f"{c_temp}°C is equal to {f_temp:.1f}°F")</code></pre>
+print(f"{c_temp}°C is equal to {round(f_temp, 1)}°F")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>25°C is equal to 77.0°F</code></pre>
+            </div></details>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the two blanks: <code>___ double(n):</code> and on the next line <code>    ___ n * 2</code>. What does <code>print(double(21))</code> show?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>The blanks are <code>def</code> and <code>return</code>. <code>print(double(21))</code> shows <code>42</code>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>Write a function <code>average(numbers)</code> that takes a list of quiz marks and returns their average. Use <code>sum()</code> and <code>len()</code> from Module 4. Print the average of <code>[7, 8, 10]</code> rounded to 1 decimal place.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>def average(numbers):
+    """Returns the average of a list of numbers."""
+    return sum(numbers) / len(numbers)
+
+print(round(average([7, 8, 10]), 1))</code></pre>
+<p>Output: <code>8.3</code> (25 ÷ 3 = 8.333..., rounded).</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>A relief team is planning drinking water for two camps for one week. This task uses 3 litres per person per day.</p>
+                <ol>
+                    <li>Write a function <code>water_needed(people, days)</code> with a docstring. It returns <code>people * days * 3</code>.</li>
+                    <li>Give <code>days</code> a default value of 7.</li>
+                    <li>Call it for North camp (120 people) and River camp (75 people).</li>
+                    <li>Print one f-string line per camp.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>def water_needed(people, days=7):
+    """Litres of drinking water for a camp, at 3 litres per person per day."""
+    return people * days * 3
+
+print(f"North camp needs {water_needed(120)} litres.")
+print(f"River camp needs {water_needed(75)} litres.")</code></pre>
+<p>Output: <code>North camp needs 2520 litres.</code> and <code>River camp needs 1575 litres.</code></p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Module Navigation Footer -->

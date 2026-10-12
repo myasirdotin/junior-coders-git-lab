@@ -70,7 +70,8 @@
         <!-- Practice Challenge -->
         <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
             <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Feature &amp; Label Detective</h2>
-            <p>Write a Python list of sample feature dictionaries and print their labels:</p>
+            <p>Make a list of three plant records (dictionaries) with two features, <code>humidity</code> and <code>leaf_spots</code>, and a <code>label</code>. Loop through the list and print each record's features and label on one line.</p>
+            <details class="jc-answer"><summary>Show answer</summary><div>
             <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Plant Disease Dataset Sample
 dataset = [
     {"humidity": 85, "leaf_spots": 12, "label": "Blight Infection"},
@@ -79,7 +80,74 @@ dataset = [
 ]
 
 for sample in dataset:
-    print(f"Features: Humidity={sample['humidity']}%, Spots={sample['leaf_spots']} -> Label: {sample['label']}")</code></pre>
+    print(f"Features: Humidity={sample['humidity']}%, Spots={sample['leaf_spots']} -&gt; Label: {sample['label']}")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>Features: Humidity=85%, Spots=12 -&gt; Label: Blight Infection
+Features: Humidity=40%, Spots=0 -&gt; Label: Healthy
+Features: Humidity=55%, Spots=1 -&gt; Label: Healthy</code></pre>
+            </div></details>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>A plant record is <code>{"humidity": 40, "leaf_spots": 0, "label": "Healthy"}</code>. Which parts are the features, and which part is the label?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>The features are <code>humidity</code> and <code>leaf_spots</code> (the measured inputs). The label is <code>"Healthy"</code> (the answer we want the model to predict).</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>Use the plant <code>dataset</code> from the Your Turn box. Write a loop that counts how many samples have the label <code>"Healthy"</code>, then print the count.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>healthy_count = 0
+for sample in dataset:
+    if sample["label"] == "Healthy":
+        healthy_count += 1
+
+print(f"Healthy samples: {healthy_count}")</code></pre>
+<p>Output: <code>Healthy samples: 2</code>. Counting labels is a useful first check: if one label is very rare, the model has few examples to learn from.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Let the data choose a rule. A school garden recorded how many hours of sunlight each seedling got, and whether it grew well.</p>
+                <ol>
+                    <li>Make a list of four records: 8 hours "Grew well", 3 hours "Weak", 7 hours "Grew well", 2 hours "Weak".</li>
+                    <li>Use a loop to find the average sunlight of the "Grew well" seedlings and of the "Weak" seedlings.</li>
+                    <li>Set <code>threshold</code> to the point halfway between the two averages.</li>
+                    <li>Predict a new seedling with 6 hours of sunlight: "Grew well" if it is above the threshold, otherwise "Weak".</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>garden = [
+    {"sun_hours": 8, "label": "Grew well"},
+    {"sun_hours": 3, "label": "Weak"},
+    {"sun_hours": 7, "label": "Grew well"},
+    {"sun_hours": 2, "label": "Weak"},
+]
+
+good_total = 0
+good_count = 0
+weak_total = 0
+weak_count = 0
+for seedling in garden:
+    if seedling["label"] == "Grew well":
+        good_total += seedling["sun_hours"]
+        good_count += 1
+    else:
+        weak_total += seedling["sun_hours"]
+        weak_count += 1
+
+threshold = (good_total / good_count + weak_total / weak_count) / 2
+print(f"Learned threshold: {threshold} hours")
+
+new_hours = 6
+if new_hours &gt; threshold:
+    print("Prediction: Grew well")
+else:
+    print("Prediction: Weak")</code></pre>
+<p>Output: <code>Learned threshold: 5.0 hours</code> and <code>Prediction: Grew well</code>. Nobody typed the number 5. The program found it from the data. That is the core idea of machine learning, in a very small form.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Module Navigation Footer -->

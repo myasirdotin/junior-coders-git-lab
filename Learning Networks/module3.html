@@ -16,62 +16,190 @@
             <h1 style="color: white; margin: 0.5rem 0;">IP Addressing, CIDR &amp; NAT 🗺️</h1>
             <p>Every device on the Internet needs an address. Master IPv4 octets, CIDR prefixes, and private home networks.</p>
         </header>
+        <!-- Analogy -->
+        <section class="content-section">
+            <h2>Addresses for Every Device 🏠</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> A school address has two parts: the street name and the house number. Every house on one street shares the street name. Each house has its own number. An IP address works the same way. One part names the <strong>network</strong> (the street). The other part names the <strong>host</strong>, which means one device on that network (the house).</p>
+            </div>
+            <p>An <strong>IP address</strong> is the number that tells routers where a packet should go. IP stands for Internet Protocol. Every device that talks on a network needs one.</p>
+        </section>
 
         <!-- IPv4 Anatomy -->
         <section class="content-section">
             <h2>The Anatomy of an IPv4 Address</h2>
-            <p>An IPv4 address consists of <strong>32 binary bits</strong> broken into <strong>four 8-bit octets</strong> (ranging from 0 to 255):</p>
-            
-            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
-                Decimal:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;192&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;168&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;100<br>
-                Binary:&nbsp;&nbsp;&nbsp;11000000 . 10101000 . 00000001 . 01100100
-            </div>
-        </section>
+            <p>An IPv4 address is <strong>32 bits</strong> long. It is written as four numbers with dots between them. Each number is called an <strong>octet</strong>, because it is made of 8 bits. Each octet can go from 0 to 255.</p>
 
-        <!-- Private IP Ranges & NAT -->
-        <section class="content-section">
-            <h2>Private Networks &amp; NAT: Saving the IPv4 Web</h2>
-            <p>Because IPv4 ran out of its 4.3 billion public addresses, RFC 1918 reserved special <strong>Private IP Ranges</strong> that can never be routed directly on the public Internet:</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
-                    <h3>10.0.0.0/8</h3>
-                    <p>Large enterprise campus networks (up to 16 million devices).</p>
-                </div>
-                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
-                    <h3>172.16.0.0/12</h3>
-                    <p>Mid-sized corporate and university networks.</p>
-                </div>
-                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
-                    <h3>192.168.0.0/16</h3>
-                    <p>Standard home Wi-Fi routers and small classroom LANs.</p>
-                </div>
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; overflow-x: auto;">
+                Decimal:&nbsp;&nbsp;192&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;168&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;100<br>
+                Binary:&nbsp;&nbsp;&nbsp;11000000.10101000.00000001.01100100
             </div>
-            <p style="margin-top: 1rem; color: #475569; font-size: 0.95rem;">
-                <strong>Network Address Translation (NAT)</strong> in your home router maps your 15 internal devices to <strong>one single public IP</strong> assigned by your ISP!
-            </p>
+
+            <h3>Worked example 1: turning a number into binary</h3>
+            <p>Each of the 8 bits has a place value. Start at 128 and halve each time. Put a 1 under each value you need, and a 0 under the rest.</p>
+            <pre class="code-block"><code>Place value: 128  64  32  16   8   4   2   1
+
+192 = 128 + 64
+             1   1   0   0   0   0   0   0  → 11000000
+
+168 = 128 + 32 + 8
+             1   0   1   0   1   0   0   0  → 10101000
+
+100 = 64 + 32 + 4
+             0   1   1   0   0   1   0   0  → 01100100</code></pre>
+            <p>Eight 1s in a row add up to 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255. That is why an octet can never be bigger than 255.</p>
+            <p>32 bits give 2<sup>32</sup> = 4,294,967,296 possible addresses, about 4.3 billion. That sounds like a lot, but the world has more devices than that.</p>
+            <p><strong>IPv6</strong> is the newer version. It uses 128 bits and is written in hexadecimal (base 16, using the digits 0–9 and the letters a–f), for example <code>2001:db8::25</code>. It has enough addresses for every device for a very long time.</p>
         </section>
 
         <!-- CIDR Breakdown -->
         <section class="content-section">
             <h2>CIDR Subnet Math: The Slash Notation</h2>
-            <p>The prefix <code>/24</code> means the first 24 bits belong to the <strong>Network</strong>, leaving $32 - 24 = 8$ bits for <strong>Hosts</strong>:</p>
+            <p>A <strong>subnet</strong> is one smaller network, like one street. <strong>CIDR</strong> notation writes a slash and a number after the address, for example <code>192.168.1.0/24</code>. The number says how many bits, counted from the left, belong to the <strong>network</strong> part. The bits that are left over belong to the <strong>hosts</strong>.</p>
+            <p>For <code>/24</code>: 32 − 24 = 8 host bits.</p>
             <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
-                Total Addresses = 2^HostBits = 2^8 = 256<br>
-                Usable Devices = 256 - 2 = <span style="color: #34d399;">254 usable hosts</span><br>
-                (Address 0 is the Network ID, Address 255 is the Broadcast Address)
+                Total addresses = 2<sup>8</sup> = 256<br>
+                Usable devices = 256 − 2 = <span style="color: #34d399;">254 usable hosts</span><br>
+                (The first address is the network address. The last is the broadcast address.)
+            </div>
+            <p>Two addresses in every subnet are kept for special jobs:</p>
+            <ul>
+                <li>The <strong>network address</strong> (all host bits 0) is the name of the whole subnet, like the street name.</li>
+                <li>The <strong>broadcast address</strong> (all host bits 1) sends a message to every device on the subnet at once, like a school-wide announcement.</li>
+            </ul>
+            <p>A <strong>subnet mask</strong> is the same idea written another way. <code>/24</code> is the mask <code>255.255.255.0</code>: 24 ones followed by 8 zeros.</p>
+
+            <h3>Worked example 2: working out a /26 subnet</h3>
+            <p>A science lab uses <code>192.168.10.0/26</code>. What are its addresses?</p>
+            <pre class="code-block"><code>Host bits      = 32 − 26 = 6
+Total          = 2^6 = 64 addresses
+Usable hosts   = 64 − 2 = 62
+
+Network address   192.168.10.0
+First usable      192.168.10.1
+Last usable       192.168.10.62
+Broadcast         192.168.10.63
+Subnet mask       255.255.255.192
+Next subnet       192.168.10.64/26</code></pre>
+            <p>Why .192 in the mask? The last octet has 2 network bits: 11000000 = 128 + 64 = 192.</p>
+
+            <h3>Worked example 3: choosing a size</h3>
+            <p>A school hall needs 50 computers. Which prefix is the smallest that fits?</p>
+            <pre class="code-block"><code>Need 50 hosts + 2 special = 52 addresses
+
+/27 → 2^5 = 32 addresses  ✘ too small
+/26 → 2^6 = 64 addresses  ✔ 62 usable
+
+Answer: /26</code></pre>
+            <p>Each step down in the prefix number doubles the size. A <code>/25</code> has 128 addresses, a <code>/24</code> has 256.</p>
+        </section>
+
+        <!-- Private IP Ranges & NAT -->
+        <section class="content-section">
+            <h2>Private Networks &amp; NAT: Saving IPv4</h2>
+            <p>Free IPv4 addresses ran out years ago. To save them, a standard called RFC 1918 set aside three <strong>private ranges</strong>. Anyone may use them inside their own building. Routers on the public Internet do not carry them.</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
+                    <h3>10.0.0.0/8</h3>
+                    <p>About 16.7 million addresses. Used by large campuses and companies.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3>172.16.0.0/12</h3>
+                    <p>From 172.16.0.0 to 172.31.255.255, about 1 million addresses. Used by many universities and offices.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
+                    <h3>192.168.0.0/16</h3>
+                    <p>65,536 addresses. Used by most home Wi-Fi routers and small classrooms.</p>
+                </div>
+            </div>
+            <p style="margin-top: 1rem;"><strong>NAT</strong> (Network Address Translation) lets many private devices share <strong>one public IP address</strong>. Your router gets the public address from your ISP. When a device sends a packet out, the router swaps the private sender address for its public one. It writes down who asked, so it can pass the reply back to the right device. (It uses port numbers to keep track. You will meet ports in Module 4.)</p>
+            <pre class="code-block"><code>Laptop  192.168.1.20 ─┐
+Tablet  192.168.1.21 ─┼─[Router]── Internet
+Printer 192.168.1.30 ─┘   public:
+                          203.0.113.7
+
+Websites see: 203.0.113.7 for all three</code></pre>
+            <p>The addresses <code>203.0.113.x</code> and <code>2001:db8::</code> are kept for examples in books, so they never belong to a real computer.</p>
+        </section>
+
+        <!-- Find your own address -->
+        <section class="content-section">
+            <h2>Worked Example 4: Find Your Own Address 🔎</h2>
+            <p>On Windows, open Command Prompt or PowerShell and run:</p>
+            <pre class="code-block"><code>ipconfig</code></pre>
+            <p><strong>Example output</strong> (shortened; yours will differ):</p>
+            <pre class="code-block"><code>Wireless LAN adapter Wi-Fi:
+
+   IPv4 Address. . . . . . : 192.168.1.20
+   Subnet Mask . . . . . . : 255.255.255.0
+   Default Gateway . . . . : 192.168.1.1</code></pre>
+            <ul>
+                <li><strong>IPv4 Address</strong> is this device's private address.</li>
+                <li><strong>Subnet Mask</strong> 255.255.255.0 means this network is a <code>/24</code>.</li>
+                <li><strong>Default Gateway</strong> is the router: the door your packets use to leave this network.</li>
+            </ul>
+            <p>On macOS, try <code>ifconfig</code>. On Linux, try <code>ip addr</code>. You will usually see an address starting with <code>192.168.</code> or <code>10.</code>.</p>
+        </section>
+
+        <!-- Common misunderstanding -->
+        <section class="content-section">
+            <h2>Common Misunderstanding ⚠️</h2>
+            <div class="tip-box">
+                <p><strong>"The address in ipconfig is the address websites see."</strong></p>
+                <p>Usually not. <code>ipconfig</code> shows your private address, such as 192.168.1.20. Because of NAT, websites see your router's single public address instead. Many homes and school rooms share one public address.</p>
+            </div>
+            <div class="tip-box">
+                <p><strong>"A /24 can hold 256 computers."</strong></p>
+                <p>It has 256 addresses, but only 254 can be given to devices. The first is the network address and the last is the broadcast address.</p>
+            </div>
+            <div class="connection-box">
+                <p>🔐 <strong>Amānah:</strong> An IP address can hint at where a person is. Treat logs of visitors' addresses as private information. Keep them only as long as you truly need them.</p>
             </div>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #0369a1; margin-top: 0;">🧪 Your Turn: Test Your Local Gateway</h2>
-            <p>Find out what private IP your local device was assigned by running:</p>
-            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Windows:
-ipconfig | findstr /i "IPv4"
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>How many bits are in an IPv4 address? How many bits are in one octet? What is the largest number one octet can hold?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>32 bits in the address, 8 bits in each octet, and the largest octet value is 255.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>A computer club uses <code>10.0.5.0/27</code>. Work out the number of usable hosts, the first and last usable addresses, the broadcast address and the subnet mask.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <pre class="code-block"><code>Host bits    = 32 − 27 = 5
+Total        = 2^5 = 32, usable = 30
+Network      10.0.5.0
+First usable 10.0.5.1
+Last usable  10.0.5.30
+Broadcast    10.0.5.31
+Mask         255.255.255.224
+             (11100000 = 128+64+32 = 224)</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>A neighbourhood food bank has the private block <code>192.168.20.0/24</code>. Plan three subnets for it:</p>
+                <ol>
+                    <li>Volunteer guest Wi-Fi: 50 devices.</li>
+                    <li>Office: 25 devices.</li>
+                    <li>Warehouse scanners: 10 devices.</li>
+                </ol>
+                <p>Choose the smallest prefix for each. Start with the biggest subnet. Write each network address and its usable range.</p>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <pre class="code-block"><code>Guest Wi-Fi  50 → /26 (62 usable)
+  192.168.20.0/26   .1 – .62    (bcast .63)
+Office       25 → /27 (30 usable)
+  192.168.20.64/27  .65 – .94   (bcast .95)
+Warehouse    10 → /28 (14 usable)
+  192.168.20.96/28  .97 – .110  (bcast .111)
 
-# Linux / Mac:
-ip route get 1.1.1.1</code></pre>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #475569;">You will likely see an address like <code>192.168.1.x</code> or <code>10.0.0.x</code>!</p>
+Free for later: 192.168.20.112 – .255</code></pre>
+                    <p>Starting with the largest subnet keeps every block lined up neatly, with no gaps.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

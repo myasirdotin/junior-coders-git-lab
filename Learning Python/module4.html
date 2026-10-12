@@ -17,6 +17,16 @@
             <p>Group complex data together using lists for ordered sequences and dictionaries for labeled records.</p>
         </header>
 
+        <!-- Analogy -->
+        <section class="content-section">
+            <h2>🧺 Why Collections?</h2>
+            <div class="tip-box" style="border-left-color: #2563eb;">
+                <p>🧠 <strong>Real-life analogy:</strong> A <strong>list</strong> is like a row of numbered lockers in the school corridor. You find things by their locker number. A <strong>dictionary</strong> is like a library card. Each line has a label ("Title", "Author") and a value next to it.</p>
+            </div>
+            <p>So far, each variable held one value. Real data comes in groups: a class of students, a shelf of books, a record about one donor.</p>
+            <p>A <strong>collection</strong> is one variable that holds many values. Python's two most used collections are the <strong>list</strong> and the <strong>dictionary</strong> (often called a <em>dict</em>).</p>
+        </section>
+
         <!-- Lists vs Dictionaries -->
         <section class="content-section">
             <h2>Two Essential Collections</h2>
@@ -25,21 +35,108 @@
                     <h3>Lists 📋 (Ordered by index: 0, 1, 2)</h3>
                     <p>Great for sequences and queues.</p>
                     <pre style="background: #0f172a; color: #f8fafc; padding: 0.75rem; border-radius: 8px;"><code>fruits = ["Fig", "Olive", "Pomegranate"]
-print(fruits[0])  # 'Fig'</code></pre>
+print(fruits[0])  # Fig</code></pre>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
                     <h3>Dictionaries 📖 (Key-Value Lookups)</h3>
                     <p>Great for labeled objects and real-world entities.</p>
                     <pre style="background: #0f172a; color: #f8fafc; padding: 0.75rem; border-radius: 8px;"><code>donor = {"name": "Bilal", "pledge": 100}
-print(donor["name"])  # 'Bilal'</code></pre>
+print(donor["name"])  # Bilal</code></pre>
                 </div>
+            </div>
+        </section>
+
+        <!-- Lists in Depth -->
+        <section class="content-section">
+            <h2>📋 Working with Lists</h2>
+            <p>Each item in a list has a position number called an <strong>index</strong>. Counting starts at 0, not 1. So the first item is <code>fruits[0]</code>.</p>
+            <p>A negative index counts from the end. <code>fruits[-1]</code> is the last item.</p>
+            <p>A list can change. You can swap an item, or add a new one at the end with <code>.append()</code>. A function that belongs to a value, called with a dot, is named a <strong>method</strong>.</p>
+            <p>Useful helpers:</p>
+            <ul>
+                <li><code>len(my_list)</code> gives the number of items (the length).</li>
+                <li><code>sum(my_list)</code> adds up a list of numbers.</li>
+                <li><code>"Fig" in fruits</code> asks "is this value in the list?" and gives <code>True</code> or <code>False</code>.</li>
+            </ul>
+            <h3>Worked example 1: the orchard list</h3>
+            <pre class="code-block"><code>fruits = ["Fig", "Olive", "Pomegranate"]
+print(fruits[0])
+print(fruits[-1])
+print(len(fruits))
+
+fruits.append("Date")
+fruits[1] = "Green Olive"
+print(fruits)
+print("Fig" in fruits)
+
+scores = [8, 9, 7, 10]
+print(sum(scores) / len(scores))</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Fig
+Pomegranate
+3
+['Fig', 'Green Olive', 'Pomegranate', 'Date']
+True
+8.5</code></pre>
+            <p>The last line works out an <strong>average</strong> (the total divided by how many there are): 34 ÷ 4 = 8.5.</p>
+        </section>
+
+        <!-- Dictionaries in Depth -->
+        <section class="content-section">
+            <h2>📖 Working with Dictionaries</h2>
+            <p>A dictionary stores <strong>key-value pairs</strong>. The <strong>key</strong> is the label, such as <code>"name"</code>. The <strong>value</strong> is the data, such as <code>"Bilal"</code>. A colon joins each key to its value, and curly brackets wrap the whole record.</p>
+            <p>You read a value with its key in square brackets. To change a value, store a new one under the same key. To add a pair, store a value under a new key.</p>
+            <h3>Worked example 2: updating a donor record</h3>
+            <pre class="code-block"><code>donor = {"name": "Bilal", "pledge": 100}
+print(donor["name"])
+
+donor["pledge"] = 150      # change a value
+donor["city"] = "Lahore"   # add a new pair
+print(donor)
+print(len(donor))</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Bilal
+{'name': 'Bilal', 'pledge': 150, 'city': 'Lahore'}
+3</code></pre>
+            <p><code>len()</code> on a dictionary counts its pairs. A <code>for</code> loop over a dictionary gives you each key in turn: <code>for key in donor:</code>.</p>
+        </section>
+
+        <!-- Records -->
+        <section class="content-section">
+            <h2>🗂️ A List of Records</h2>
+            <p>Real datasets are often a list of dictionaries. Each dictionary is one <strong>record</strong> (one row of data). The list holds all the records. You will see this shape again in Modules 6, 7 and 8.</p>
+            <p>When an f-string uses double quotes, write the key inside it with single quotes: <code>{student['name']}</code>. Mixing the two kinds of quotes keeps Python from getting confused.</p>
+            <h3>Worked example 3: the reading club</h3>
+            <pre class="code-block"><code>students = [
+    {"name": "Amina", "books_read": 6},
+    {"name": "Yusuf", "books_read": 3},
+    {"name": "Hana", "books_read": 9},
+]
+
+for student in students:
+    print(f"{student['name']} read {student['books_read']} books.")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Amina read 6 books.
+Yusuf read 3 books.
+Hana read 9 books.</code></pre>
+
+            <div class="tip-box" style="border-left-color: #ef4444;">
+                <p>⚠️ <strong>Common mistake: asking for something that is not there</strong></p>
+                <p>The list <code>["Fig", "Olive", "Pomegranate"]</code> has 3 items, so its indexes are 0, 1 and 2. Asking for <code>fruits[3]</code> fails with:</p>
+                <pre class="code-block"><code>IndexError: list index out of range</code></pre>
+                <p>Dictionaries have the same trap. Asking for a key that does not exist, such as <code>donor["phone"]</code>, fails with <code>KeyError: 'phone'</code>. Check the spelling of your keys: <code>"Name"</code> and <code>"name"</code> are different.</p>
+            </div>
+
+            <div class="tip-box" style="border-left-color: #2563eb;">
+                <p>🧪 <strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a>. Run worked example 3, then add a fourth student to the list. Run it again and watch the loop pick up the new record by itself.</p>
             </div>
         </section>
 
         <!-- Practice Challenge -->
         <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
             <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Community Library Inventory</h2>
-            <p>Create a dictionary representing an educational book and display its attributes:</p>
+            <p>Create a dictionary for one library book with a title, an author, the number of pages and whether it is available (<code>True</code> or <code>False</code>). Use <code>if</code>/<code>else</code> from Module 2 to choose a status message, then print two lines about the book.</p>
+            <details class="jc-answer"><summary>Show answer</summary><div>
             <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>book_record = {
     "title": "Algorithms in Ancient Baghdad",
     "author": "Dr. Salma",
@@ -47,9 +144,70 @@ print(donor["name"])  # 'Bilal'</code></pre>
     "available": True
 }
 
-status = "Available on shelf" if book_record["available"] else "Checked out"
+if book_record["available"]:
+    status = "Available on shelf"
+else:
+    status = "Checked out"
+
 print(f"Book: {book_record['title']} by {book_record['author']}")
 print(f"Status: {status} ({book_record['pages']} pages)")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>Book: Algorithms in Ancient Baghdad by Dr. Salma
+Status: Available on shelf (310 pages)</code></pre>
+            <p><code>if book_record["available"]:</code> works because the value is already <code>True</code> or <code>False</code>. You do not need to write <code>== True</code>.</p>
+            </div></details>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p><code>planets = ["Mercury", "Venus", "Earth"]</code>. What does <code>planets[2]</code> give? After <code>planets.append("Mars")</code>, what does <code>len(planets)</code> give?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>planets[2]</code> is <code>"Earth"</code>, because indexes start at 0. After the append the list has 4 items, so <code>len(planets)</code> is <code>4</code>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>A food bank stores its stock in kilograms: <code>pantry = {"rice": 20, "lentils": 12, "flour": 8}</code>. A donor brings 5 kg of lentils and 10 kg of dates. Update the dictionary, then use a loop to print every item and the total weight.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>pantry = {"rice": 20, "lentils": 12, "flour": 8}
+pantry["lentils"] += 5
+pantry["dates"] = 10
+
+total = 0
+for item in pantry:
+    print(f"{item}: {pantry[item]} kg")
+    total += pantry[item]
+
+print(f"Total: {total} kg")</code></pre>
+<p>Output: <code>rice: 20 kg</code>, <code>lentils: 17 kg</code>, <code>flour: 8 kg</code>, <code>dates: 10 kg</code>, then <code>Total: 55 kg</code>.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Three schools planted trees for a green city project.</p>
+                <ol>
+                    <li>Make a list of three dictionaries. Each has a <code>"school"</code> and a <code>"trees"</code> key. Use 14, 22 and 9 trees.</li>
+                    <li>Loop through the list and print one line per school.</li>
+                    <li>Add up all the trees inside the same loop.</li>
+                    <li>Print the total, then the average per school, rounded to 1 decimal place.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>tree_log = [
+    {"school": "Al-Noor School", "trees": 14},
+    {"school": "Crescent Academy", "trees": 22},
+    {"school": "Green Valley School", "trees": 9},
+]
+
+total_trees = 0
+for record in tree_log:
+    print(f"{record['school']}: {record['trees']} trees")
+    total_trees += record["trees"]
+
+print(f"Total trees planted: {total_trees}")
+print(f"Average per school: {round(total_trees / len(tree_log), 1)}")</code></pre>
+<p>The last two lines print <code>Total trees planted: 45</code> and <code>Average per school: 15.0</code>.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Module Navigation Footer -->

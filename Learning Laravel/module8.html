@@ -10,7 +10,7 @@
 <body>
     <main class="module-container">
         <header class="module-header path-laravel">
-            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 8</span>
+            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 3</span>
             <h1>Authentication 🔐</h1>
             <p>Secure login, registration, and user sessions — built into Laravel!</p>
         </header>
@@ -34,24 +34,25 @@
         </section>
 
         <section class="content-section">
-            <h2>Laravel Breeze — Quick Auth Setup ⚡</h2>
-            <p>Laravel Breeze is the simplest way to add a full login/register system to a new Laravel app. It generates all the routes, controllers, and views for you in seconds.</p>
+            <h2>Starter Kits — Quick Auth Setup ⚡</h2>
+            <p>You do not have to build login pages yourself. A <strong>starter kit</strong> is a ready-made set of pages and code. It gives your app register, login and logout pages, plus the routes and controllers behind them.</p>
+            <p>Since Laravel 12, the official starter kits are built with React, Vue or Livewire. Projects on Laravel 11 and earlier usually used a starter kit called Breeze.</p>
 
             <div class="code-block">
-<code><span class="code-comment"># 1. Install Breeze via Composer</span>
-composer require laravel/breeze --dev
+<code><span class="code-comment"># 1. Install the Laravel installer once (it adds the "laravel" command)</span>
+composer global require laravel/installer
 
-<span class="code-comment"># 2. Generate the auth scaffolding (Blade version)</span>
-php artisan breeze:install blade
+<span class="code-comment"># 2. Create a new app. The installer asks which starter kit you want.</span>
+laravel new school-portal
 
-<span class="code-comment"># 3. Install frontend assets</span>
-npm install && npm run dev
+<span class="code-comment"># 3. Build the page files (CSS and JavaScript)</span>
+npm install &amp;&amp; npm run build
 
-<span class="code-comment"># 4. Run migrations (creates the users table)</span>
+<span class="code-comment"># 4. Create the users table</span>
 php artisan migrate</code>
             </div>
 
-            <p style="margin-top:1rem;">After running these four commands you have a complete login, registration, password reset, and email verification system — ready to use!</p>
+            <p style="margin-top:1rem;"><code>npm</code> is a tool that downloads JavaScript packages. It comes with Node.js. The installer may already run steps 3 and 4 for you, and running them again is safe. After these steps, your app has working register, login and logout pages.</p>
         </section>
 
         <section class="content-section">
@@ -83,7 +84,10 @@ php artisan migrate</code>
             <div class="code-block">
 <code><span class="code-keyword">@auth</span>
     &lt;p&gt;Hello, <span class="code-string">{{ auth()->user()->name }}</span>! 👋&lt;/p&gt;
-    &lt;a href="/logout"&gt;Log Out&lt;/a&gt;
+    &lt;form method="POST" action="<span class="code-string">{{ route('logout') }}</span>"&gt;
+        <span class="code-keyword">@csrf</span>
+        &lt;button type="submit"&gt;Log Out&lt;/button&gt;
+    &lt;/form&gt;
 <span class="code-keyword">@endauth</span>
 
 <span class="code-keyword">@guest</span>
@@ -91,6 +95,7 @@ php artisan migrate</code>
     &lt;a href="/register"&gt;Register&lt;/a&gt;
 <span class="code-keyword">@endguest</span></code>
             </div>
+            <p style="margin-top:1rem;">Logging out uses a small POST form with <code>@csrf</code>, not a plain link. The logout route only accepts POST with a CSRF token, so another website cannot log your users out with a hidden link.</p>
         </section>
 
         <section class="content-section">
@@ -111,7 +116,84 @@ php artisan migrate</code>
 
             <div class="connection-box" style="border-left-color: var(--laravel-brand);">
                 <strong>🎉 You've completed the Laravel Course!</strong><br><br>
-                You now know routing, controllers, Blade templates, Eloquent ORM, migrations, forms, validation, and authentication. You have the complete skill set to build real, production-ready web applications with Laravel. The next step is to combine everything and build your first full-stack project! 🚀
+                You now know the basics of routing, controllers, Blade templates, Eloquent ORM, migrations, forms, validation and authentication. That is enough to build small, real projects on your own computer. Before an app goes online for real users, there is more to learn, such as testing, security checks and hosting. Your next step is to combine everything into your first full project! 🚀
+            </div>
+        </section>
+
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blanks. The middleware that sends guests to the login page is called ______. The Blade directive that shows content only to logged-in users is ______.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>auth</code> (used as <code>-&gt;middleware('auth')</code>) and <code>@auth ... @endauth</code>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Fix the bug</h3>
+                <p>A library app has two problems. Clicking "Log out" does not work. Also, anyone can open <code>/my-books</code> without logging in. Fix both.</p>
+<pre><code>&lt;!-- In the Blade view --&gt;
+@auth
+    &lt;a href="/logout"&gt;Log out&lt;/a&gt;
+@endauth
+
+// In routes/web.php
+Route::get('/my-books', [MyBooksController::class, 'index']);</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <p>The logout route only accepts a POST form with a CSRF token, and a link sends GET. The route needs the <code>auth</code> middleware.</p>
+<pre><code>@auth
+    &lt;form method="POST" action="{{ route('logout') }}"&gt;
+        @csrf
+        &lt;button type="submit"&gt;Log out&lt;/button&gt;
+    &lt;/form&gt;
+@endauth
+
+Route::get('/my-books', [MyBooksController::class, 'index'])
+    -&gt;middleware('auth');</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>On your own XAMPP computer, build a "My reading list" page that only library members can see.</p>
+                <ol>
+                    <li>Create a new project with a starter kit, as shown above. Connect it to a MySQL database (see Module 5, Level 3) and run <code>php artisan migrate</code>.</li>
+                    <li>Start the server. Register an account for yourself on the register page.</li>
+                    <li>Make a <code>ReadingListController</code> with an <code>index()</code> method. It gets the logged-in user with <code>Auth::user()</code> and passes it to a view.</li>
+                    <li>Add the route <code>/my-reading-list</code> and protect it with the <code>auth</code> middleware.</li>
+                    <li>In the view, greet the member by name. Add a logout form inside <code>@auth</code>, and log in and register links inside <code>@guest</code>.</li>
+                    <li>Log out, then try to open <code>/my-reading-list</code>. You should be sent to the login page.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>// routes/web.php
+use App\Http\Controllers\ReadingListController;
+
+Route::get('/my-reading-list', [ReadingListController::class, 'index'])
+    -&gt;middleware('auth');
+
+// app/Http/Controllers/ReadingListController.php
+use Illuminate\Support\Facades\Auth;
+
+public function index()
+{
+    $user = Auth::user();
+    return view('reading-list', compact('user'));
+}
+
+&lt;!-- resources/views/reading-list.blade.php --&gt;
+@auth
+    &lt;h1&gt;Assalamu alaikum, {{ $user-&gt;name }}!&lt;/h1&gt;
+    &lt;p&gt;Your reading list is empty. Visit the library to add a book.&lt;/p&gt;
+    &lt;form method="POST" action="{{ route('logout') }}"&gt;
+        @csrf
+        &lt;button type="submit"&gt;Log out&lt;/button&gt;
+    &lt;/form&gt;
+@endauth
+
+@guest
+    &lt;a href="{{ route('login') }}"&gt;Log in&lt;/a&gt;
+    &lt;a href="{{ route('register') }}"&gt;Register&lt;/a&gt;
+@endguest</code></pre>
+                    <p>Because the route uses <code>auth</code>, a guest never reaches this view. The <code>@guest</code> part is there for when you reuse it on a public page.</p>
+                </div></details>
             </div>
         </section>
 

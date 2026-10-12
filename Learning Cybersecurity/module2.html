@@ -14,68 +14,181 @@
         <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 1</span>
             <h1 style="color: white; margin: 0.5rem 0;">Passwords, Entropy &amp; Multi-Factor Auth 🔑🔐</h1>
-            <p>Why length trumps complexity, how GPU clusters crack hashes, and why MFA neutralizes credential theft.</p>
+            <p>Why long passwords beat short tricky ones, how websites should store passwords, and how a second step (MFA) keeps you safe.</p>
         </header>
 
-        <!-- Password Entropy Formula -->
+        <!-- Real-life analogy -->
         <section class="content-section">
-            <h2>The Mathematics of Entropy</h2>
-            <p><strong>Entropy</strong> is the mathematical measure of a password's randomness, calculated in bits:</p>
-            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
-                Entropy (bits) = Length × log2(PoolSize)<br>
-                - Digits only (0-9): Pool = 10<br>
-                - Mixed alphanumeric + symbols: Pool = 95<br>
-                <span style="color: #34d399;">Length is exponential! A 24-character passphrase creates trillions of years of cracking resistance!</span>
+            <h2>🚲 Think of a Bike Lock</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> A bike lock with 3 number wheels has 1,000 possible codes (000 to 999). A patient thief could try them all in an afternoon.</p>
+                <p>Add one more wheel and there are 10,000 codes. Add six more and there are 1,000,000,000 codes. Each extra wheel makes guessing ten times harder.</p>
+                <p>Passwords work the same way. <strong>Every extra character multiplies the work for a guesser.</strong></p>
             </div>
+            <p>Attackers rarely guess by hand. They use computers that can try billions of guesses per second. So a good password must be <strong>long</strong> and <strong>unpredictable</strong>.</p>
         </section>
 
-        <!-- The Passphrase Strategy -->
+        <!-- Entropy -->
         <section class="content-section">
-            <h2>The Passphrase Revolution: Long &amp; Memorable</h2>
-            <p>Stop forcing frustrating 8-character jumbles like <code>Tr$8!k</code>. Instead, combine four random dictionary words into a memorable passphrase:</p>
-            <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1.25rem; font-family: monospace; color: #38bdf8; font-size: 1.1rem; text-align: center;">
-                olive-trees-bloom-peacefully
-            </div>
-            <p style="margin-top: 0.75rem; color: #475569; font-size: 0.92rem;">
-                This passphrase has 28 characters, over 80 bits of entropy, and takes modern supercomputers hundreds of thousands of years to brute-force!
-            </p>
+            <h2>🎲 Entropy: Measuring Unpredictability</h2>
+            <p><strong>Entropy</strong> measures how hard something is to guess. We count it in <strong>bits</strong>. Each extra bit doubles the number of guesses an attacker needs.</p>
+            <pre class="code-block"><code>Entropy (bits) = Length × log2(PoolSize)
+
+PoolSize = how many different symbols
+           each character could be
+  Digits only (0–9)           → 10
+  Lowercase letters (a–z)     → 26
+  Every keyboard character    → 95
+
+log2(PoolSize) = how many times you double 1
+                 to reach the pool size
+  log2(10) ≈ 3.32
+  log2(26) ≈ 4.70
+  log2(95) ≈ 6.57</code></pre>
+            <div class="tip-box">⚠️ This formula only works when every character is picked <strong>at random</strong>. A password like <code>Password1!</code> looks mixed, but it is on every guessing list. Its real entropy is very low.</div>
+        </section>
+
+        <!-- Worked example 1 -->
+        <section class="content-section">
+            <h2>🧮 Worked Example 1: Comparing Three Passwords</h2>
+            <p>Let us use the formula on three random passwords.</p>
+            <pre class="code-block"><code>A) 4-digit PIN, e.g. 4071
+   4 × 3.32 = about 13 bits
+   (10,000 possible PINs: very weak)
+
+B) 8 random keyboard characters, e.g. Tr$8!kQ2
+   8 × 6.57 = about 53 bits
+   (strong-ish, but hard to remember)
+
+C) 16 random lowercase letters
+   16 × 4.70 = about 75 bits
+   (much stronger, only small letters!)</code></pre>
+            <p><strong>What this shows:</strong> password C uses only small letters. It is still far stronger than B, because it is twice as long. <strong>Length beats tricky symbols.</strong></p>
+        </section>
+
+        <!-- Passphrases -->
+        <section class="content-section">
+            <h2>📝 Worked Example 2: The Passphrase</h2>
+            <p>Random letters are hard to remember. A <strong>passphrase</strong> solves this. It is a few random words joined together, like this made-up example:</p>
+            <pre class="code-block"><code>maple-lantern-orbit-pebble-harvest</code></pre>
+            <p>Suppose each word is picked at random from a list of 7,776 words. Each word adds about 12.9 bits.</p>
+            <pre class="code-block"><code>4 random words: 4 × 12.9 ≈ 52 bits
+5 random words: 5 × 12.9 ≈ 65 bits
+6 random words: 6 × 12.9 ≈ 78 bits</code></pre>
+            <ul>
+                <li>The words must be <strong>random</strong>. A famous saying or song line is easy to guess.</li>
+                <li>Five or six words are better than four for important accounts.</li>
+                <li>Never use an example passphrase from a website, including this one. Everyone has seen it.</li>
+            </ul>
         </section>
 
         <!-- Password Hashing & Salts -->
         <section class="content-section">
-            <h2>Password Hashing: Never Plaintext (<em>Amānah</em>)</h2>
-            <p>Web applications must never store passwords in plaintext. Use slow, memory-hard adaptive hashing algorithms:</p>
-            <div style="background: #0f172a; padding: 1.25rem; border-radius: 10px; font-family: monospace; color: #f8fafc;">
-                // Modern PHP: Argon2id Hashing with Automatic Unique Salt<br>
-                $hash = password_hash($password, PASSWORD_ARGON2ID);<br><br>
-                // Verify safely without timing leaks:<br>
-                if (password_verify($inputPassword, $hash)) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;// Login successful!<br>
-                }
-            </div>
+            <h2>🗄️ Worked Example 3: How Websites Should Store Passwords (<em>Amānah</em>)</h2>
+            <p>A website must never keep your real password. If its database is stolen, every password would leak. Instead, it keeps a <strong>hash</strong>.</p>
+            <ul>
+                <li><strong>Hash:</strong> a scrambled "fingerprint" of the password. You can make the fingerprint from the password. You cannot turn the fingerprint back into the password.</li>
+                <li><strong>Salt:</strong> a random bit of extra text added to each password before hashing. Two people with the same password get different hashes. This spoils attackers' ready-made lists of hashes.</li>
+                <li><strong>Slow hashing:</strong> good password hashes, such as <strong>bcrypt</strong> and <strong>Argon2id</strong>, are built to be slow. One login barely notices. An attacker trying billions of guesses is slowed down hugely.</li>
+            </ul>
+            <p>Here is a weak way and a safe way in PHP. Read the comments: they explain each line.</p>
+            <pre class="code-block"><code>&lt;?php
+// ❌ UNSAFE: the real password is saved as plain text.
+// Anyone who steals the database can read it.
+$saved = $password;
+
+// ✅ SAFE: PHP adds a random salt and makes a slow hash.
+$saved = password_hash($password, PASSWORD_DEFAULT);
+// $saved now looks like: $2y$...  (a long scrambled string)
+
+// Later, when the user logs in:
+if (password_verify($typedPassword, $saved)) {
+    echo "Welcome back!";
+} else {
+    echo "Wrong password.";
+}
+?&gt;</code></pre>
+            <p><strong>The fix explained:</strong> <code>password_hash()</code> does the salting and slow hashing for you. <code>password_verify()</code> checks a typed password against the saved hash. The real password is never stored. If the server supports it, <code>PASSWORD_ARGON2ID</code> can be used instead of <code>PASSWORD_DEFAULT</code>.</p>
         </section>
 
         <!-- Multi-Factor Authentication -->
         <section class="content-section">
-            <h2>Multi-Factor Authentication (MFA)</h2>
-            <p>Combine two independent factors to protect accounts even if passwords leak:</p>
+            <h2>📱 Multi-Factor Authentication (MFA)</h2>
+            <p><strong>Authentication</strong> means proving who you are. <strong>Multi-factor authentication (MFA)</strong> asks for proof from more than one of these groups:</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
                 <div style="background: var(--bg-glass); padding: 1rem; border-radius: 8px; border-left: 4px solid #059669;">
-                    <strong>1. Something You Know</strong><br>Password or Passphrase
+                    <strong>1. Something you know</strong><br>A password or passphrase.
                 </div>
                 <div style="background: var(--bg-glass); padding: 1rem; border-radius: 8px; border-left: 4px solid #0284c7;">
-                    <strong>2. Something You Have</strong><br>Phone Authenticator (TOTP) / Security Key
+                    <strong>2. Something you have</strong><br>Your phone, or a small USB security key.
                 </div>
                 <div style="background: var(--bg-glass); padding: 1rem; border-radius: 8px; border-left: 4px solid #7c3aed;">
-                    <strong>3. Something You Are</strong><br>Fingerprint or Face Biometrics
+                    <strong>3. Something you are</strong><br>Your fingerprint or face.
                 </div>
             </div>
+            <p style="margin-top: 1rem;">Using exactly two of these is called <strong>2FA</strong> (two-factor authentication). It is the most common kind of MFA.</p>
+            <p><strong>Not all second steps are equally strong:</strong></p>
+            <ol>
+                <li><strong>Strongest:</strong> passkeys and security keys. They only work on the real website, so a fake site cannot trick them.</li>
+                <li><strong>Good:</strong> an authenticator app. It shows a 6-digit code that changes every 30 seconds.</li>
+                <li><strong>Better than nothing:</strong> a code sent by text message (SMS).</li>
+            </ol>
+            <div class="tip-box">💡 <strong>Story:</strong> Aisha's password leaked from an old quiz website. A stranger tried it on her school email. Her phone asked, "Is this you signing in?" She tapped <strong>No</strong>. MFA stopped the stranger. Then she changed her password.</div>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #047857; margin-top: 0;">🧪 Your Turn: Test Your Password Entropy</h2>
-            <p>Jump to our <a href="playground.html" style="color: #059669; font-weight: 700;">Cyber Defense Studio</a>, click <strong>Generate Passphrase</strong>, and observe how a 4-word phrase instantly reaches the "Impenetrable" tier!</p>
+        <!-- Checklist -->
+        <section class="content-section">
+            <h2>✅ What To Do: Your Password Checklist</h2>
+            <ul>
+                <li>☐ Use a passphrase of 5 or more random words, or a long random password.</li>
+                <li>☐ Use a <strong>different</strong> password for every account. One leak should not open everything.</li>
+                <li>☐ Let a <strong>password manager</strong> remember them. It is an app that stores your passwords in a locked vault.</li>
+                <li>☐ Turn on MFA, starting with your email account.</li>
+                <li>☐ Never tell anyone your MFA code. Real companies and schools never ask for it.</li>
+                <li>☐ If a site says your password leaked, change it straight away.</li>
+            </ul>
+            <p>🧪 <strong>Try it:</strong> open the <a href="playground.html">Cyber Defense Studio</a>, click <strong>Generate Passphrase</strong>, and watch the strength meter.</p>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blanks: a website should store a password's ________, never the real password. A random ________ is added to each password so that two equal passwords look different.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>Hash. Salt. (In PHP, <code>password_hash()</code> does both for you.)</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>Part A: which is stronger, 12 random lowercase letters or 8 random keyboard characters? Use the entropy formula. Part B: fix this code so the password is stored safely.</p>
+                <pre><code>$saved = $password;</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <p>Part A: 12 × 4.70 ≈ 56 bits. 8 × 6.57 ≈ 53 bits. The 12 lowercase letters win, because length matters most.</p>
+                    <p>Part B:</p>
+                    <pre><code>$saved = password_hash($password, PASSWORD_DEFAULT);
+// At login:
+if (password_verify($typedPassword, $saved)) {
+    echo "Welcome back!";
+}</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Your school library is starting an online account for each student. Write a short password policy (a list of rules) for it.</p>
+                <ol>
+                    <li>Set a minimum length, and say why.</li>
+                    <li>Say how passwords are stored on the server.</li>
+                    <li>Choose an MFA method for the librarian accounts.</li>
+                    <li>Write one sentence for students about sharing codes.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <ol>
+                        <li>Passwords must be at least 12 characters. Passphrases are welcome. Length makes guessing much harder.</li>
+                        <li>Passwords are stored only with <code>password_hash()</code>, which salts and slowly hashes them. Nobody, not even staff, can read them.</li>
+                        <li>Librarians use an authenticator app or a security key as a second factor.</li>
+                        <li>"The library will never ask for your password or code. Never share them, even with friends."</li>
+                    </ol>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

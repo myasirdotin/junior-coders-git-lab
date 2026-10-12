@@ -39,7 +39,7 @@
         <!-- Flex Grow Section -->
         <section class="content-section">
             <h2>The "Greedy" Item 🍔</h2>
-            <p>Want one item to take up all the extra space? Use <code>flex-grow</code>!</p>
+            <p>Want one item to take up all the extra space? Use <code>flex-grow</code>! The number is how many shares of the leftover space the item gets.</p>
             <div style="background: #0f172a; padding: 2rem; border-radius: 1.5rem; border: 3px solid #ec4899; margin-top: 2rem;">
                 <div style="display: flex; gap: 1rem;">
                     <div style="background: white; color: #ec4899; padding: 1rem; border-radius: 1rem; font-weight: 900; flex-grow: 1;">I am greedy! (grow: 1)</div>
@@ -82,7 +82,7 @@
 }
 
 .greedy {
-    flex-grow: 2; /* Takes twice the space! Try setting to 0 */
+    flex-grow: 2; /* Gets 2 shares of the extra space. Try 0 */
     background: #ec4899;
 }</textarea>
                     </div>
@@ -91,6 +91,51 @@
                     <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Live Preview</label>
                     <div id="preview" style="background: var(--bg-card); min-height: 290px; border-radius: 1rem; border: 2px solid var(--border-dim); padding: 1.5rem; display: flex; flex-direction: column; align-items: stretch; justify-content: center; overflow: auto; color: white;"></div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>In your own words: what does <code>flex-wrap: wrap;</code> do, and what does <code>flex-grow: 1;</code> do?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><p><code>flex-wrap: wrap</code> lets items move down to a new line when the row is full. <code>flex-grow: 1</code> lets an item stretch to fill the extra space in the row.</p></div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>Make a search row with a text box <code>.search-box</code> and a button <code>.search-button</code>. The text box should stretch to fill the row. The button should keep its own size. Keep 10px of space between them.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><pre><code>.search-row {
+    display: flex;
+    gap: 10px; /* space between the items */
+}
+
+.search-box {
+    flex-grow: 1;
+}</code></pre><p>The button has no <code>flex-grow</code>, so it keeps its normal size.</p></div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Build a gallery for a bookshop that sells six books.</p>
+                <ol>
+                    <li>Make <code>.book-shelf</code> a flex container that wraps.</li>
+                    <li>Add 15px of space between the cards and centre them.</li>
+                    <li>Make each <code>.book</code> card 150px wide with padding and a border.</li>
+                    <li>Make the window narrow and check that the cards drop to a new line.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div><pre><code>.book-shelf {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.book {
+    width: 150px;
+    padding: 12px;
+    border: 2px solid #a855f7;
+    text-align: center;
+}</code></pre></div></details>
             </div>
         </section>
 

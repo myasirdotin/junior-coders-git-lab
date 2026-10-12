@@ -16,60 +16,163 @@
             <h1 style="color: white; margin: 0.5rem 0;">Transport Layer: TCP vs. UDP 🚚⚡</h1>
             <p>Guaranteed reliability vs. lightning-fast speed. Understand handshakes, sockets, and ports.</p>
         </header>
-
-        <!-- TCP 3-Way Handshake -->
+        <!-- Analogy -->
         <section class="content-section">
-            <h2>The TCP 3-Way Handshake</h2>
-            <p>Before TCP transfers a single byte of data, it establishes an synchronized connection between client and server:</p>
-            
-            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
-                1. <strong>Client ➔ Server:</strong> <span style="color: #38bdf8;">[SYN]</span> (Seq=1000) "Let's connect! My sequence starts at 1000."<br>
-                2. <strong>Server ➔ Client:</strong> <span style="color: #34d399;">[SYN-ACK]</span> (Seq=5000, Ack=1001) "Got it! My sequence is 5000."<br>
-                3. <strong>Client ➔ Server:</strong> <span style="color: #fbbf24;">[ACK]</span> (Seq=1001, Ack=5001) "Acknowledged! Connection ESTABLISHED."
+            <h2>Two Ways to Deliver: Courier or Loudspeaker 🚚📢</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> <strong>TCP</strong> is like a careful courier. Before delivering, the courier phones to check you are home. Every parcel is signed for. If one goes missing, the courier sends it again. <strong>UDP</strong> is like the school loudspeaker. The announcement goes out at once. Nobody signs anything. If you miss a word, it is not repeated, but the announcement keeps going.</p>
             </div>
-        </section>
-
-        <!-- Comparison Table -->
-        <section class="content-section">
-            <h2>TCP vs. UDP Breakdown</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
-                    <h3>TCP (Transmission Control Protocol)</h3>
-                    <p>Guarantees delivery, preserves packet order, and handles retransmission.</p>
-                    <strong>Best for:</strong> Web pages (HTTP/HTTPS), email, banking, and file downloads.
-                </div>
-                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
-                    <h3>UDP (User Datagram Protocol)</h3>
-                    <p>Connectionless, ultra-low 8-byte header, zero handshake latency.</p>
-                    <strong>Best for:</strong> Live streaming, online multiplayer games, VoIP calls, and DNS queries.
-                </div>
-            </div>
+            <p>The <strong>transport layer</strong> (Layer 4) carries data between two <em>programs</em>, not just two computers. The two main transport protocols are <strong>TCP</strong> (Transmission Control Protocol) and <strong>UDP</strong> (User Datagram Protocol).</p>
         </section>
 
         <!-- Ports & Sockets -->
         <section class="content-section">
-            <h2>Sockets = IP Address + Port Number</h2>
-            <p>Every network connection binds to a specific port on your operating system:</p>
+            <h2>Ports: Numbered Doors on a Computer 🚪</h2>
+            <p>One computer runs many programs at once. A browser, an email app and a video-call app may all use the network together. How does an arriving segment find the right program?</p>
+            <p>The answer is a <strong>port number</strong>. A port is like a numbered door on the computer. Each program listens at its own door. Port numbers go from 0 to 65,535. Numbers 0 to 1,023 are "well-known" ports kept for common services.</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin-top: 1rem;">
                 <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
-                    <span style="color: #38bdf8; font-weight: 800; font-size: 1.2rem;">80</span><br>HTTP Web
+                    <span style="color: #38bdf8; font-weight: 800; font-size: 1.2rem;">80</span><br>HTTP (web)
                 </div>
                 <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
-                    <span style="color: #34d399; font-weight: 800; font-size: 1.2rem;">443</span><br>HTTPS Web
+                    <span style="color: #34d399; font-weight: 800; font-size: 1.2rem;">443</span><br>HTTPS (secure web)
                 </div>
                 <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
-                    <span style="color: #fbbf24; font-weight: 800; font-size: 1.2rem;">22</span><br>SSH Shell
+                    <span style="color: #fbbf24; font-weight: 800; font-size: 1.2rem;">22</span><br>SSH (secure remote command line)
                 </div>
                 <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
-                    <span style="color: #f87171; font-weight: 800; font-size: 1.2rem;">53</span><br>DNS Queries
+                    <span style="color: #f87171; font-weight: 800; font-size: 1.2rem;">53</span><br>DNS (name lookups)
                 </div>
+            </div>
+            <p style="margin-top: 1rem;">An IP address plus a port number is called a <strong>socket</strong>. It is written with a colon, for example <code>203.0.113.10:443</code>. The server listens on a well-known port. Your computer picks a temporary port for its side, such as <code>52814</code>. So one connection is the pair of sockets: <code>192.168.1.20:52814 ⇄ 203.0.113.10:443</code>.</p>
+        </section>
+
+        <!-- TCP 3-Way Handshake -->
+        <section class="content-section">
+            <h2>The TCP 3-Way Handshake 🤝</h2>
+            <p>Before TCP sends any data, the two sides agree to talk. They swap three short messages. Each side also picks a starting <strong>sequence number</strong> (Module 1) for the bytes it will send. Real starting numbers are picked at random; we use round numbers here.</p>
+            <ul>
+                <li><strong>SYN</strong> means "synchronise": "Let's start, my numbers begin here."</li>
+                <li><strong>ACK</strong> means "acknowledge": "I received everything up to here. Send byte number ___ next."</li>
+            </ul>
+
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
+                1. <strong>Client ➔ Server:</strong> <span style="color: #38bdf8;">[SYN]</span> (Seq=1000) "Let's connect! My numbers start at 1000."<br>
+                2. <strong>Server ➔ Client:</strong> <span style="color: #34d399;">[SYN-ACK]</span> (Seq=5000, Ack=1001) "Got it! Mine start at 5000."<br>
+                3. <strong>Client ➔ Server:</strong> <span style="color: #fbbf24;">[ACK]</span> (Seq=1001, Ack=5001) "Agreed! The connection is open."
+            </div>
+            <p>🧪 Watch it happen: open the <a href="playground.html">Protocol Lab Studio</a> and click <strong>Start Handshake</strong> to see SYN, SYN-ACK and ACK travel between two computers.</p>
+
+            <h3>Worked example 1: following the numbers</h3>
+            <p>After the handshake, the client sends a 500-byte homework file in one segment. What does the server's ACK say?</p>
+            <pre class="code-block"><code>Client → Server  SYN         seq=1000
+Server → Client  SYN-ACK     seq=5000 ack=1001
+Client → Server  ACK         seq=1001 ack=5001
+Client → Server  DATA 500 B  seq=1001
+                 (bytes 1001 – 1500)
+Server → Client  ACK         ack=1501
+                 "Send byte 1501 next"</code></pre>
+            <p>The ACK number is always the <strong>next byte the receiver expects</strong>: 1001 + 500 = 1501.</p>
+
+            <h3>Worked example 2: a lost segment</h3>
+            <p>The client sends four segments of 100 bytes. The third one is lost on the way.</p>
+            <pre class="code-block"><code>seq=1001 (100 B) ──► arrives  → ACK 1101
+seq=1101 (100 B) ──► arrives  → ACK 1201
+seq=1201 (100 B) ──✘ lost
+seq=1301 (100 B) ──► arrives  → ACK 1201
+                                (still missing 1201!)
+sender notices, resends:
+seq=1201 (100 B) ──► arrives  → ACK 1401</code></pre>
+            <p>The receiver keeps saying "I still need byte 1201". The sender resends it. Once the gap is filled, the receiver acknowledges everything up to byte 1400 in one go: ACK 1401. This is how TCP makes sure nothing is missing and everything is in order.</p>
+            <p>When the conversation is over, each side sends a <strong>FIN</strong> ("finished") message to close the connection politely.</p>
+        </section>
+
+        <!-- Comparison -->
+        <section class="content-section">
+            <h2>TCP vs. UDP Breakdown</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem;">
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
+                    <h3>TCP (Transmission Control Protocol)</h3>
+                    <p>Opens a connection first. Checks that every byte arrives. Resends lost data. Puts data back in order. Its header is 20 to 60 bytes.</p>
+                    <p><strong>Best for:</strong> web pages, email, file downloads, online forms.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
+                    <h3>UDP (User Datagram Protocol)</h3>
+                    <p>No connection and no handshake. Just sends each message (called a <strong>datagram</strong>). No resending. Its header is only 8 bytes.</p>
+                    <p><strong>Best for:</strong> live video and voice calls, live online classes, quick DNS lookups.</p>
+                </div>
+            </div>
+            <p style="margin-top: 1rem;">Why would anyone choose UDP? In a live call, a sound that arrives half a second late is useless. It is better to skip it and play the next sound now. Waiting for a resend would make the call stutter.</p>
+            <p>DNS uses UDP for most questions because they are tiny and one reply is enough. It switches to TCP when an answer is too large. The newest web protocol, HTTP/3, also runs on UDP and adds its own checking on top (Module 6).</p>
+        </section>
+
+        <!-- netstat -->
+        <section class="content-section">
+            <h2>Worked Example 3: Seeing Your Own Connections 👀</h2>
+            <p>The <code>netstat</code> command lists the connections your computer has open right now. On Windows, run:</p>
+            <pre class="code-block"><code>netstat -an</code></pre>
+            <p><strong>Example output</strong> (shortened; yours will differ):</p>
+            <pre class="code-block"><code>  Proto  Local Address        Foreign Address      State
+  TCP    0.0.0.0:80           0.0.0.0:0            LISTENING
+  TCP    192.168.1.20:52814   203.0.113.10:443     ESTABLISHED
+  UDP    0.0.0.0:5353         *:*</code></pre>
+            <ul>
+                <li><strong>LISTENING</strong> on port 80: a web server on this computer (for example XAMPP's Apache) is waiting for visitors.</li>
+                <li><strong>ESTABLISHED</strong>: a finished handshake. Your browser (temporary port 52814) is talking to a secure website on port 443.</li>
+                <li>The <strong>UDP</strong> line has no state, because UDP has no connection.</li>
+            </ul>
+            <p>On macOS and Linux, <code>netstat -an</code> also works. Many Linux systems use the newer <code>ss -tuan</code> instead.</p>
+        </section>
+
+        <!-- Common misunderstanding -->
+        <section class="content-section">
+            <h2>Common Misunderstanding ⚠️</h2>
+            <div class="tip-box">
+                <p><strong>"UDP is just a broken version of TCP."</strong></p>
+                <p>No. UDP is a deliberate choice. It skips the handshake and the resending to save time. For live voice, video and quick lookups, that is exactly what you want. Programs that need some checking can add their own on top of UDP, as HTTP/3 does.</p>
+            </div>
+            <div class="tip-box">
+                <p><strong>"A port is a socket on the wall."</strong></p>
+                <p>In this module, a port is not a physical hole. It is just a number in the TCP or UDP header that picks the right program.</p>
             </div>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #0369a1; margin-top: 0;">🧪 Your Turn: Test the Lab Handshake</h2>
-            <p>Visit the interactive <a href="playground.html" style="color: #0284c7; font-weight: 700;">Protocol Lab Studio</a> and click <strong>Start Handshake</strong> to watch SYN, SYN-ACK, and ACK packets fly between nodes in real time!</p>
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Put the three handshake messages in order: ACK, SYN, SYN-ACK. Then give the well-known port for HTTPS and for DNS.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>SYN, then SYN-ACK, then ACK. HTTPS uses port 443 and DNS uses port 53.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>After the handshake, a client's next byte is number 2001. It sends a 300-byte segment, then a 200-byte segment. Both arrive. What ACK number does the server send after each one?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <pre class="code-block"><code>Segment 1: bytes 2001 – 2300 → ACK 2301
+Segment 2: bytes 2301 – 2500 → ACK 2501</code></pre>
+                    <p>The ACK is always the next byte expected.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>A community school is planning its online services. For each one, choose TCP or UDP and give a reason:</p>
+                <ol>
+                    <li>Students upload their science project files.</li>
+                    <li>A teacher runs a live video class for students at home.</li>
+                    <li>A laptop looks up the address of the school's website by name.</li>
+                    <li>The office emails donation receipts to a charity's supporters.</li>
+                </ol>
+                <p>Hint: ask "Must every byte arrive?" or "Is fresh data more important than complete data?"</p>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <ol>
+                        <li><strong>TCP.</strong> A file with a missing piece is broken, so every byte must arrive.</li>
+                        <li><strong>UDP.</strong> Live sound and pictures must be fresh; a late frame is skipped, not waited for.</li>
+                        <li><strong>UDP.</strong> A DNS question and answer are tiny; if one is lost, the laptop simply asks again.</li>
+                        <li><strong>TCP.</strong> A receipt must arrive complete and correct.</li>
+                    </ol>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

@@ -50,11 +50,11 @@
                     <code>position: relative; top: 10px;</code>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #eab308;">
-                    <strong>Absolute:</strong> The box "breaks free" and flies to a specific spot inside its parent!
+                    <strong>Absolute:</strong> The box "breaks free" and flies to a specific spot. It measures from the nearest box around it that has a <code>position</code> set (often <code>position: relative</code>).
                     <code>position: absolute; right: 0;</code>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #10b981;">
-                    <strong>Fixed:</strong> The box sticks to the screen even when you scroll. Like our navigation bar!
+                    <strong>Fixed:</strong> The box stays in the same place on the screen even when you scroll. Like a "back to top" button in the corner!
                     <code>position: fixed; top: 0;</code>
                 </div>
             </div>
@@ -99,6 +99,59 @@
                     <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Live Preview</label>
                     <div id="preview" style="background: var(--bg-card); min-height: 290px; border-radius: 1rem; border: 2px solid var(--border-dim); padding: 1.5rem; display: flex; flex-direction: column; align-items: stretch; justify-content: center; overflow: auto; color: white;"></div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Which <code>display</code> value does each job? (a) Takes the whole width. (b) Takes only the space it needs. (c) Hides the box and removes its space.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><p>(a) <code>block</code>, (b) <code>inline</code>, (c) <code>none</code>.</p></div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>A <code>.book-card</code> holds a small <code>.new-badge</code>. Put the badge in the top-right corner of the card. Give the card 20px of padding and a gray border.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><pre><code>.book-card {
+    position: relative; /* the badge measures from this box */
+    padding: 20px;
+    border: 2px solid gray;
+}
+
+.new-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: gold;
+    padding: 4px 8px;
+}</code></pre><p>Without <code>position: relative</code> on the card, the badge would measure from a box further out, often the whole page.</p></div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Improve a school help page.</p>
+                <ol>
+                    <li>Make the three topic boxes <code>.topic</code> sit side by side in one line with <code>display: inline</code>.</li>
+                    <li>Hide the <code>.answer-box</code> for now with <code>display: none</code>.</li>
+                    <li>Make a <code>.top-button</code> link that stays in the bottom-right corner of the screen, even when you scroll.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div><pre><code>.topic {
+    display: inline;
+    padding: 4px;
+}
+
+.answer-box {
+    display: none;
+}
+
+.top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: navy;
+    color: white;
+    padding: 10px;
+}</code></pre></div></details>
             </div>
         </section>
 

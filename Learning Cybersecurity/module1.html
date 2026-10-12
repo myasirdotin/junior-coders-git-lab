@@ -14,61 +14,183 @@
         <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 1</span>
             <h1 style="color: white; margin: 0.5rem 0;">The Defender's Mindset &amp; CIA Triad 🛡️🏰</h1>
-            <p>Welcome to Cybersecurity! Learn how to think like an ethical defender and safeguard digital human dignity.</p>
+            <p>Welcome to Cybersecurity! Learn to think like a defender and protect the data people trust you with.</p>
         </header>
+
+        <!-- Real-life analogy -->
+        <section class="content-section">
+            <h2>🏫 Think of Your School Building</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> Your school keeps three promises every day.</p>
+                <ul>
+                    <li>The exam papers stay locked in the office. Only teachers may see them. That is <strong>secrecy</strong>.</li>
+                    <li>Your report card has the head teacher's stamp. Nobody can change a mark without it showing. That is <strong>accuracy</strong>.</li>
+                    <li>The library opens at 8 o'clock every morning. Students can use it when they need it. That is <strong>being available</strong>.</li>
+                </ul>
+                <p>Computer security keeps the same three promises for data.</p>
+            </div>
+            <p><strong>Cybersecurity</strong> means protecting computers, networks and data from harm. A <strong>defender</strong> is someone who does this job. A defender keeps asking one question: "What could go wrong here, and how do I stop it?"</p>
+        </section>
 
         <!-- The CIA Triad -->
         <section class="content-section">
-            <h2>The Three Pillars of Security (CIA Triad)</h2>
-            <p>Every security decision, policy, and line of code is designed to protect one or more of these three fundamental pillars:</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+            <h2>🔺 The Three Pillars of Security (CIA Triad)</h2>
+            <p>Security experts call the three promises the <strong>CIA Triad</strong>. "Triad" just means a group of three. Every security rule protects at least one of them.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
                     <h3>1. Confidentiality (Secrecy) 🔐</h3>
-                    <p>Only authorized individuals can view the data. Unauthorized peeking or leaking is blocked.</p>
-                    <strong>Example:</strong> Encrypting student medical files.
+                    <p>Only the right people can see the data. Nobody else can peek at it or leak it.</p>
+                    <p><strong>Example:</strong> Student health records are <strong>encrypted</strong>. Encrypted means scrambled with a secret key. Without the key, they look like nonsense.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
                     <h3>2. Integrity (Accuracy) 📜</h3>
-                    <p>Data cannot be modified, tampered with, or forged without immediate detection.</p>
-                    <strong>Example:</strong> Cryptographic signatures on exam grades.
+                    <p>Data stays correct. If someone changes it without permission, we can tell.</p>
+                    <p><strong>Example:</strong> Exam grades carry a <strong>digital signature</strong>. This is a mathematical seal. If one mark changes, the seal breaks and the system notices.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #f59e0b;">
-                    <h3>3. Availability (Uptime) ⚡</h3>
-                    <p>Systems, services, and databases remain accessible when users legitimately need them.</p>
-                    <strong>Example:</strong> DDoS mitigation during final exams.
+                    <h3>3. Availability (Ready to use) ⚡</h3>
+                    <p>Systems work when people really need them.</p>
+                    <p><strong>Example:</strong> During exam week, the school portal must stay online. A <strong>DDoS attack</strong> floods a website with fake visits until it freezes. Defenders use filters that block the flood.</p>
                 </div>
             </div>
+        </section>
+
+        <!-- Key words -->
+        <section class="content-section">
+            <h2>📖 Four Words Every Defender Uses</h2>
+            <ul>
+                <li><strong>Asset:</strong> something worth protecting. Examples: student records, a website, a laptop.</li>
+                <li><strong>Vulnerability:</strong> a weak spot. Example: a door with a broken lock, or a bug in a website.</li>
+                <li><strong>Threat:</strong> something or someone that could use the weak spot to cause harm.</li>
+                <li><strong>Risk:</strong> how likely the harm is, and how bad it would be.</li>
+            </ul>
+            <div class="tip-box">💡 A defender cannot fix everything at once. So we fix the biggest risks first.</div>
+        </section>
+
+        <!-- Worked example 1 -->
+        <section class="content-section">
+            <h2>🧪 Worked Example 1: Which Pillar Broke?</h2>
+            <p>Imagine a community clinic website. Read each event. Then decide which pillar was harmed.</p>
+            <ol>
+                <li>A stranger reads a patient's prescription. ➔ <strong>Confidentiality</strong>. Someone saw data they should not see.</li>
+                <li>A bug changes a patient's blood type in the records. ➔ <strong>Integrity</strong>. The data is no longer correct.</li>
+                <li>The server crashes, and nurses cannot open patient charts. ➔ <strong>Availability</strong>. The system is not there when needed.</li>
+            </ol>
+            <p><strong>How to decide:</strong> ask three short questions. Did the wrong person <em>see</em> it? Was it <em>changed</em>? Could people <em>use</em> it?</p>
         </section>
 
         <!-- Defense in Depth -->
         <section class="content-section">
-            <h2>The "Castle Defense" (Defense in Depth)</h2>
-            <p>A castle never depends on a single wooden gate. It has a moat, stone ramparts, portcullises, and a secure inner keep:</p>
-            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
-                [ Layer 1: Edge Cloudflare DDoS Shield ]<br>
-                &nbsp;&nbsp;▼ [ Layer 2: HTTPS TLS 1.3 Transport Encryption ]<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;▼ [ Layer 3: Web App Firewall &amp; Anti-CSRF ]<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼ [ Layer 4: Multi-Factor Authentication (2FA) ]<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;▼ [ Layer 5: Salted Argon2id Hashing &amp; Database Isolation ]
-            </div>
+            <h2>🏰 Worked Example 2: The Castle Defense (Defense in Depth)</h2>
+            <p>A castle never trusts one wooden gate. It has a moat, high walls, a strong gate and a guarded inner tower. If one layer fails, the next layer still protects. Security experts call this <strong>defense in depth</strong>.</p>
+            <p>Here are five layers that protect a school website. Each one is explained in plain words. You will meet most of them again in later modules.</p>
+            <pre class="code-block"><code>[ Layer 1: Traffic filter ]
+  Blocks floods of fake visits
+  (DDoS protection).
+    ▼
+[ Layer 2: HTTPS ]
+  Scrambles data while it travels
+  between your device and the
+  website. (Module 7)
+    ▼
+[ Layer 3: Web firewall + form checks ]
+  A firewall is a guard that blocks
+  known bad requests. Form checks stop
+  fake form sends. (Modules 4–6)
+    ▼
+[ Layer 4: Multi-Factor Authentication (MFA) ]
+  You prove who you are in more than
+  one way: a password AND a code on
+  your phone. (Module 2)
+    ▼
+[ Layer 5: Safe passwords + locked database ]
+  Passwords are kept only as a scrambled
+  "fingerprint", never as real text.
+  The database has its own lock.
+  (Modules 2 and 5)</code></pre>
+            <p><strong>MFA and 2FA:</strong> MFA means "more than one proof of who you are". The most common kind uses exactly two proofs, such as a password plus a phone code. That two-step kind is called <strong>2FA</strong> (two-factor authentication).</p>
+            <p><strong>Why layers?</strong> Suppose a student's password leaks. Layer 4 still asks for the phone code, so the stranger is stopped. One mistake does not open the whole castle.</p>
+        </section>
+
+        <!-- Least privilege -->
+        <section class="content-section">
+            <h2>🔑 Worked Example 3: Only the Keys You Need</h2>
+            <p>The school caretaker has keys to the classroom doors. The caretaker does not have the key to the exam safe. This idea is called <strong>least privilege</strong>: give each person only the access their job needs.</p>
+            <ul>
+                <li>A <strong>student</strong> account can see its own grades. It cannot see anyone else's.</li>
+                <li>A <strong>librarian</strong> account can add books. It cannot change exam marks.</li>
+                <li>A <strong>head teacher</strong> account can approve marks. Even so, every change is written in a log.</li>
+            </ul>
+            <p>If one account is misused, the harm stays small. Least privilege helps all three pillars at once.</p>
         </section>
 
         <!-- Ethical Stewardship -->
         <section class="content-section">
-            <h2>Digital Stewardship (<em>Amānah</em>): White Hat vs Black Hat</h2>
-            <p>Knowledge of security vulnerabilities carries moral responsibility. In Islam, private communications are a sacred trust (*<em>Amānah</em>*). Probing or testing a system without written consent from the owner is unauthorized intrusion. Ethical defenders only test systems they own or have official authorization to defend.</p>
+            <h2>🤲 Digital Stewardship (<em>Amānah</em>): Helpers, Not Intruders</h2>
+            <p>Knowing about weak spots is a big responsibility. In Islam, what people trust us with is an <em>amānah</em>: a trust we must guard. People's messages, passwords and records are part of that trust.</p>
+            <ul>
+                <li><strong>White hat</strong> defenders protect systems. They only test a system when the owner has given clear, written permission.</li>
+                <li><strong>Black hat</strong> attackers break in without permission. That is wrong, and in most countries it is also a crime.</li>
+                <li>If you notice a weak spot by accident, stop. Do not explore further. Tell a teacher or the site owner politely. This is called <strong>responsible disclosure</strong>.</li>
+            </ul>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #047857; margin-top: 0;">🧪 Your Turn: Threat Modeling Scenario</h2>
-            <p>Imagine a community clinic portal. Which pillar of the CIA triad is violated in each event?</p>
-            <ul style="line-height: 1.8; color: #334155;">
-                <li>1. An unauthorized person reads a patient's prescription ➔ <strong>Confidentiality</strong></li>
-                <li>2. A bug accidentally changes a patient's blood type record ➔ <strong>Integrity</strong></li>
-                <li>3. A server crash prevents nurses from accessing medical charts ➔ <strong>Availability</strong></li>
+        <!-- Checklist -->
+        <section class="content-section">
+            <h2>✅ What To Do: Your Defender Checklist</h2>
+            <ul>
+                <li>☐ Before using a new app, ask: what data does it keep about me, and who can see it?</li>
+                <li>☐ Lock your phone and computer when you step away.</li>
+                <li>☐ Never share your login with friends, even best friends.</li>
+                <li>☐ Turn on MFA for important accounts, like school email.</li>
+                <li>☐ Only test systems you own, or have written permission to test.</li>
+                <li>☐ If something looks wrong, tell a trusted adult or your school IT team.</li>
             </ul>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blanks: the CIA Triad stands for C________, I________ and A________. Someone changes a test mark without permission. Which pillar is harmed?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>Confidentiality, Integrity and Availability. A changed mark harms <strong>Integrity</strong>, because the data is no longer correct.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>A school library website has three problems. For each one, name the pillar harmed. Then pick one castle layer (or least privilege) that would help.</p>
+                <ol>
+                    <li>Students' home addresses are visible to every visitor.</li>
+                    <li>A flood of fake visits freezes the site on the day books are due.</li>
+                    <li>A leaked password lets a stranger log in as the librarian.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <ol>
+                        <li>Confidentiality. Fix: least privilege, so only library staff can see addresses.</li>
+                        <li>Availability. Fix: Layer 1, the traffic filter that blocks floods (DDoS protection).</li>
+                        <li>Confidentiality and Integrity, because the stranger could read and change records. Fix: Layer 4, MFA. A password alone is no longer enough.</li>
+                    </ol>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>A neighbourhood food bank wants a website where volunteers sign up for shifts. Make a small <strong>threat model</strong>: a plan of what could go wrong and how to stop it.</p>
+                <ol>
+                    <li>List three assets the website must protect.</li>
+                    <li>For each CIA pillar, write one thing that could go wrong.</li>
+                    <li>For each problem, write one defense.</li>
+                    <li>Decide who may see volunteer phone numbers (least privilege).</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <p><strong>Assets:</strong> volunteer names and phone numbers, the shift timetable, the organiser's login.</p>
+                    <ul>
+                        <li><strong>Confidentiality:</strong> a stranger reads phone numbers. Defense: only the organiser account can see them, with MFA turned on.</li>
+                        <li><strong>Integrity:</strong> someone deletes other people's shifts. Defense: volunteers can change only their own shifts, and every change is logged.</li>
+                        <li><strong>Availability:</strong> the site goes down before a big delivery. Defense: a traffic filter, plus a printed copy of the timetable.</li>
+                    </ul>
+                    <p><strong>Least privilege:</strong> volunteers see only their own details. Only the organiser sees everyone's phone numbers.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

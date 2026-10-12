@@ -17,6 +17,27 @@
             <p>Welcome to Python! Learn how computers store and remember values using variables and types.</p>
         </header>
 
+        <!-- First Line: print() -->
+        <section class="content-section">
+            <h2>👋 Your First Python Line: <code>print()</code></h2>
+            <div class="tip-box" style="border-left-color: #2563eb;">
+                <p>🧠 <strong>Real-life analogy:</strong> <code>print()</code> is like a notice board in the school hall. Whatever you pin on it, everyone can see.</p>
+            </div>
+            <p>Python reads your code from top to bottom. It runs one line at a time.</p>
+            <p><code>print()</code> is a <strong>function</strong>. A function is a ready-made tool that does one job. The job of <code>print()</code> is to show something on the screen.</p>
+            <p>You put what you want to show inside the round brackets. Text must go inside quotes. Numbers do not need quotes.</p>
+            <h3>Worked example 1: printing text and numbers</h3>
+            <pre class="code-block"><code>print("Assalamu alaikum, Junior Coders!")
+print(7 + 5)
+print("7 + 5")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Assalamu alaikum, Junior Coders!
+12
+7 + 5</code></pre>
+            <p>Look at the last two lines. Without quotes, Python does the sum and shows <code>12</code>. With quotes, Python treats <code>"7 + 5"</code> as plain text and shows it exactly.</p>
+            <p>A line that starts with <code>#</code> is a <strong>comment</strong>. Python skips it. Comments are notes for people who read your code.</p>
+        </section>
+
         <!-- Variable Concept -->
         <section class="content-section">
             <h2>The "Sticky Label" Analogy</h2>
@@ -34,6 +55,33 @@
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">Stores a whole number (integer) ready for math.</p>
                 </div>
             </div>
+        </section>
+
+        <!-- How = Works -->
+        <section class="content-section">
+            <h2>📝 How the <code>=</code> Sign Works</h2>
+            <p>In maths class, <code>=</code> means "is equal to". In Python, a single <code>=</code> means "store this value".</p>
+            <p>Python works out the right side first. Then it sticks the label on the left side to that value.</p>
+            <p>A variable can change. That is why it is called a <em>variable</em>: its value can vary.</p>
+            <h3>Worked example 2: updating a variable</h3>
+            <pre class="code-block"><code># The school water station starts with 10 bottles
+water_bottles = 10
+
+# A parent brings 5 more bottles
+water_bottles = water_bottles + 5
+
+print(water_bottles)</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>15</code></pre>
+            <p>The second line reads the old value (10), adds 5, and stores the new value (15) under the same label.</p>
+            <h3>Naming rules for variables</h3>
+            <ul>
+                <li>Use small letters and join words with an underscore: <code>student_name</code>. This style is called <strong>snake_case</strong>.</li>
+                <li>No spaces. <code>student name</code> will not work.</li>
+                <li>A name cannot start with a digit. <code>1st_place</code> is not allowed, but <code>place_1</code> is fine.</li>
+                <li>Choose clear names. <code>books_donated</code> tells the reader much more than <code>b</code>.</li>
+                <li>Capital letters matter. <code>Score</code> and <code>score</code> are two different variables.</li>
+            </ul>
         </section>
 
         <!-- Data Types Section -->
@@ -64,6 +112,44 @@
             </div>
         </section>
 
+        <!-- type() and Maths -->
+        <section class="content-section">
+            <h2>🔍 Checking a Type and Doing Maths</h2>
+            <p>You can ask Python what type a value is with <code>type()</code>. Python answers with a short word: <code>str</code>, <code>int</code>, <code>float</code> or <code>bool</code>.</p>
+            <pre class="code-block"><code>print(type("Amina"))
+print(type(15))
+print(type(19.5))
+print(type(True))</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>&lt;class 'str'&gt;
+&lt;class 'int'&gt;
+&lt;class 'float'&gt;
+&lt;class 'bool'&gt;</code></pre>
+            <p>Numbers can be used for maths. These are the main maths signs, called <strong>operators</strong>:</p>
+            <ul>
+                <li><code>+</code> add, <code>-</code> subtract</li>
+                <li><code>*</code> multiply (a star, not the letter x)</li>
+                <li><code>/</code> divide. The answer is always a float, such as <code>3.75</code> or <code>2.0</code>.</li>
+            </ul>
+            <p>Some divisions give long decimals. <code>round(value, 1)</code> rounds a number to 1 decimal place. Change the 1 to 2 for two decimal places.</p>
+            <h3>Worked example 3: sorting donated books</h3>
+            <pre class="code-block"><code>books_donated = 15
+books_per_shelf = 4
+
+print(books_donated + 5)
+print(books_donated - 3)
+print(books_donated * 2)
+print(books_donated / books_per_shelf)
+print(round(10 / 3, 1))</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>20
+12
+30
+3.75
+3.3</code></pre>
+            <p>Notice that <code>10 / 3</code> is really 3.3333... and goes on for ever. <code>round()</code> keeps it short and readable.</p>
+        </section>
+
         <!-- Syntax Formula -->
         <section class="content-section">
             <h2>The F-String Formula</h2>
@@ -75,16 +161,85 @@
             </div>
         </section>
 
+        <!-- f-string Worked Example -->
+        <section class="content-section">
+            <h2>✨ Reading an f-string</h2>
+            <p>The <code>f</code> before the opening quote tells Python: "this text has holes to fill". Each pair of curly brackets <code>{ }</code> is a hole. Python puts the variable's value into it.</p>
+            <h3>Worked example 4: the f-string above, run</h3>
+            <pre class="code-block"><code>name = "Tariq"
+xp = 150
+print(f"Coder {name} has earned {xp} XP!")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Coder Tariq has earned 150 XP!</code></pre>
+            <p>You can also put a small calculation inside the brackets, for example <code>{xp + 50}</code>.</p>
+
+            <div class="tip-box" style="border-left-color: #ef4444;">
+                <p>⚠️ <strong>Common mistake: joining text and a number with <code>+</code></strong></p>
+                <p>Python will not glue a string and an integer together with <code>+</code>. This line stops the program:</p>
+                <pre class="code-block"><code>age = 12
+print("Age: " + age)</code></pre>
+                <p>The last line of the error says:</p>
+                <pre class="code-block"><code>TypeError: can only concatenate str (not "int") to str</code></pre>
+                <p>"Concatenate" means "join together". The fix is an f-string: <code>print(f"Age: {age}")</code>. It prints <code>Age: 12</code>.</p>
+                <p>Another common slip is forgetting the quotes around text. <code>print(Amina)</code> makes Python look for a variable called <code>Amina</code>, and you get a <code>NameError</code>.</p>
+            </div>
+
+            <div class="tip-box" style="border-left-color: #2563eb;">
+                <p>🧪 <strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a>. Type worked examples 1 to 4, press Run, and check that your output matches. Then change one value and run it again.</p>
+            </div>
+        </section>
+
         <!-- Interactive Practice Challenge -->
         <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
             <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Sincere Intention Logger</h2>
-            <p>Write a Python script that stores your coding goal in a variable and displays a formatted announcement using an f-string:</p>
+            <p>Write a Python script that stores your name and your coding goal in two variables. Then print one announcement line using an f-string. Try it yourself first, then open the answer.</p>
+            <details class="jc-answer"><summary>Show answer</summary><div>
             <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Step 1: Create your variables
 coder_name = "Zayd"
 project_goal = "Building a clean water sensor classifier"
 
 # Step 2: Print using f-string
 print(f"Bismillah! Coder {coder_name} is dedicated to: {project_goal}")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>Bismillah! Coder Zayd is dedicated to: Building a clean water sensor classifier</code></pre>
+            </div></details>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blank so the variable <code>city</code> stores the text Makkah: <code>city ___ "Makkah"</code>. Then name the type of <code>19.5</code>.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>The blank is a single <code>=</code>, so the line is <code>city = "Makkah"</code>. <code>19.5</code> is a <code>float</code> (a number with a decimal point).</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>Maryam has 24 pages left in her library book. She reads 8 pages a day. Store these numbers in variables, then use one f-string to print how many days she needs.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>student = "Maryam"
+pages_left = 24
+pages_per_day = 8
+print(f"{student} will finish in {pages_left / pages_per_day} days.")</code></pre>
+<p>Output: <code>Maryam will finish in 3.0 days.</code> The answer is <code>3.0</code> because <code>/</code> always gives a float.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Your school charity drive is packing food boxes for families in need.</p>
+                <ol>
+                    <li>Make a variable <code>boxes</code> set to 12.</li>
+                    <li>Make a variable <code>meals_per_box</code> set to 6.</li>
+                    <li>Work out the total meals and store it in a variable <code>total</code>.</li>
+                    <li>Print a thank-you line such as <code>The charity drive packed 72 meals.</code> using an f-string.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>boxes = 12
+meals_per_box = 6
+total = boxes * meals_per_box
+print(f"The charity drive packed {total} meals.")</code></pre>
+<p>Output: <code>The charity drive packed 72 meals.</code></p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Module Navigation Footer -->

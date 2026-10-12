@@ -16,55 +16,173 @@
             <h1 style="color: white; margin: 0.5rem 0;">DNS: The Global Phonebook 📖🔍</h1>
             <p>How human-friendly domain names like <code>juniorcoders.org</code> become machine-routable IP addresses in milliseconds.</p>
         </header>
+        <!-- Analogy -->
+        <section class="content-section">
+            <h2>Names for People, Numbers for Computers 📇</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> On your phone, you tap "Grandma" to call her. You do not type her number from memory. Your contacts list turns the name into the number for you. <strong>DNS</strong> (the Domain Name System) is the Internet's shared contacts list. It turns a name like <code>library.example.org</code> into an IP address like <code>203.0.113.25</code>.</p>
+            </div>
+            <p>People remember names easily. Routers only understand IP addresses (Module 3). DNS connects the two. Your device asks a DNS question before almost every new website it visits.</p>
+        </section>
+
+        <!-- Name structure -->
+        <section class="content-section">
+            <h2>Reading a Domain Name From Right to Left 🌳</h2>
+            <p>A domain name is a list of labels separated by dots. The most general part is on the right. The most specific part is on the left.</p>
+            <pre class="code-block"><code>library . example . org . (root)
+   │         │        │      │
+   │         │        │      └ the root: top of the tree
+   │         │        └ TLD: top-level domain
+   │         └ the domain someone registered
+   └ subdomain: one part of that site</code></pre>
+            <p>A <strong>TLD</strong> (top-level domain) is the last label, such as <code>.org</code>, <code>.edu</code> or a country code like <code>.pk</code> or <code>.uk</code>. The hidden dot at the very end stands for the <strong>root</strong>, the top of the whole naming tree.</p>
+        </section>
 
         <!-- Recursive Query Flow -->
         <section class="content-section">
-            <h2>The 4 Steps of a DNS Recursive Query</h2>
+            <h2>The 5 Steps of a DNS Lookup</h2>
+            <p>A <strong>recursive resolver</strong> is a helper server that does the searching for you. It is often run by your ISP, or it may be a public one such as <code>1.1.1.1</code>. Your device asks it one question. The resolver asks the other servers, step by step, until it finds the answer.</p>
             <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
-                1. <strong>Local Cache:</strong> Checks browser and OS memory.<br>
-                2. <strong>Recursive Resolver (1.1.1.1):</strong> Queries the Root cluster on your behalf.<br>
-                3. <strong>Root Nameserver (.):</strong> Directs to the Top-Level Domain (TLD) server (e.g. <code>.org</code>).<br>
-                4. <strong>TLD Nameserver (.org):</strong> Directs to the domain's Authoritative Nameserver.<br>
-                5. <strong>Authoritative Nameserver:</strong> Delivers the definitive <span style="color: #34d399;">A Record (IP Address)</span>!
+                1. <strong>Local cache:</strong> the browser and the computer check their memory first.<br>
+                2. <strong>Recursive resolver:</strong> if there is no saved answer, your device asks the resolver.<br>
+                3. <strong>Root server (.):</strong> points the resolver to the servers for the TLD (e.g. <code>.org</code>).<br>
+                4. <strong>TLD server (.org):</strong> points to the domain's own authoritative server.<br>
+                5. <strong>Authoritative server:</strong> gives the official answer, such as the <span style="color: #34d399;">A record (IPv4 address)</span>.
             </div>
+            <p>An <strong>authoritative server</strong> is the server that holds the official records for a domain. Its answer is the true one. There are 13 named root servers, and each is copied to many places around the world so that answers are fast everywhere.</p>
+
+            <h3>Worked example 1: looking up library.example.org</h3>
+            <pre class="code-block"><code>Laptop   → Resolver : "library.example.org?"
+Resolver → Root     : "library.example.org?"
+Root     → Resolver : "Ask the .org servers"
+Resolver → .org     : "library.example.org?"
+.org     → Resolver : "Ask ns1.example.org"
+Resolver → ns1      : "library.example.org?"
+ns1      → Resolver : "A 203.0.113.25,
+                       keep for 3600 s"
+Resolver → Laptop   : "203.0.113.25"</code></pre>
+            <p>The laptop asked just one question. The resolver did all the other work. It also saves the answer, so the next person who asks gets it straight away.</p>
         </section>
 
         <!-- Common Record Types -->
         <section class="content-section">
             <h2>Essential DNS Record Types</h2>
+            <p>A DNS <strong>record</strong> is one line of information stored for a name. Different types answer different questions.</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
                     <h3>A Record</h3>
-                    <p>Maps a hostname to an <strong>IPv4</strong> address (e.g. <code>104.21.55.2</code>).</p>
+                    <p>Name ➔ <strong>IPv4</strong> address (e.g. <code>203.0.113.25</code>).</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
                     <h3>AAAA Record</h3>
-                    <p>Maps a hostname to an <strong>IPv6</strong> address (128-bit).</p>
+                    <p>Name ➔ <strong>IPv6</strong> address (128-bit, e.g. <code>2001:db8::25</code>).</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
                     <h3>CNAME Record</h3>
-                    <p>Canonical Name: aliases <code>www.site.com</code> to <code>site.com</code>.</p>
+                    <p>Canonical name: makes one name an alias (nickname) for another, e.g. <code>www.example.org</code> ➔ <code>example.org</code>.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
                     <h3>MX Record</h3>
-                    <p>Mail Exchanger: specifies the servers that accept incoming emails.</p>
+                    <p>Mail exchanger: names the servers that receive email for the domain.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0d9488;">
+                    <h3>NS Record</h3>
+                    <p>Name server: lists the authoritative servers for the domain.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #64748b;">
+                    <h3>TXT Record</h3>
+                    <p>Free text. Often used to prove who owns a domain and to help stop fake emails.</p>
                 </div>
             </div>
         </section>
 
-        <!-- TTL & Caching -->
+        <!-- nslookup -->
         <section class="content-section">
-            <h2>Time To Live (TTL): Caching Efficiency</h2>
-            <p>Every DNS record has a TTL value (in seconds). A TTL of <code>3600</code> instructs resolvers to store the answer in cache for 1 hour. This eliminates redundant queries and keeps the Internet lightning fast!</p>
+            <h2>Worked Example 2: Asking DNS Yourself 🔍</h2>
+            <p>The <code>nslookup</code> command asks a DNS question from the command line. It works on Windows, macOS and Linux.</p>
+            <pre class="code-block"><code>nslookup wikipedia.org</code></pre>
+            <p><strong>Example output</strong> (the shape is real; the addresses here are example values, and yours will differ):</p>
+            <pre class="code-block"><code>Server:  router.home
+Address:  192.168.1.1
+
+Non-authoritative answer:
+Name:    wikipedia.org
+Addresses:  2001:db8::20
+          203.0.113.20</code></pre>
+            <ul>
+                <li><strong>Server</strong> and the first <strong>Address</strong> show which resolver answered. Here it is the home router, which passes questions on.</li>
+                <li><strong>Non-authoritative answer</strong> means the answer came from a resolver, not straight from the domain's own server. That is normal.</li>
+                <li>The <strong>Addresses</strong> lines give the IPv6 (AAAA) and IPv4 (A) answers.</li>
+            </ul>
+            <p>You can ask for one record type. For example, <code>nslookup -type=mx example.org</code> asks for mail servers.</p>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #0369a1; margin-top: 0;">🧪 Your Turn: CLI DNS Investigation</h2>
-            <p>Perform a live DNS query using your command line:</p>
-            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Query the IPv4 address of an educational site
-nslookup wikipedia.org</code></pre>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #475569;">Notice the Address line returned by your local DNS resolver!</p>
+        <!-- TTL & Caching -->
+        <section class="content-section">
+            <h2>Time To Live (TTL): Saving Answers ⏳</h2>
+            <p>Every DNS record has a <strong>TTL</strong> (time to live), counted in seconds. It tells resolvers how long they may keep a saved copy, called a <strong>cache</strong>. A TTL of <code>3600</code> means "you may keep this for 1 hour". Caching saves many repeated questions and makes browsing faster.</p>
+
+            <h3>Worked example 3: when does a change reach everyone?</h3>
+            <p>A school's record has TTL 3600. A resolver saves it at 09:00. At 09:30, the school moves its website to a new IP address.</p>
+            <pre class="code-block"><code>09:00  resolver saves old address (TTL 3600 s)
+09:30  school changes the A record
+09:30–10:00  resolver still gives the OLD address
+10:00  saved copy expires
+10:00+ next question fetches the NEW address</code></pre>
+            <p>Some users may reach the old server for up to an hour. Careful admins lower the TTL (for example to 300 seconds) a day before a planned move.</p>
+        </section>
+
+        <!-- Common misunderstanding -->
+        <section class="content-section">
+            <h2>Common Misunderstanding ⚠️</h2>
+            <div class="tip-box">
+                <p><strong>"DNS loads the website."</strong></p>
+                <p>No. DNS only gives back an address. After that, your browser connects to that address (with TCP, from Module 4) and asks for the page. If DNS works but the page still fails, the problem is somewhere after DNS.</p>
+            </div>
+            <div class="tip-box">
+                <p><strong>"A DNS change always takes 48 hours to spread."</strong></p>
+                <p>The waiting time depends on the TTL of the old record. With a short TTL, most people see the change within minutes.</p>
+            </div>
+            <div class="connection-box">
+                <p>🔐 <strong>Amānah:</strong> Plain DNS questions are not secret. They show which sites a person visits. Newer browsers can use encrypted DNS (DNS over HTTPS) to keep these questions private. Treat people's browsing history as a trust.</p>
+            </div>
+        </section>
+
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Which record type gives: (a) an IPv4 address, (b) an IPv6 address, (c) the mail servers for a domain?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>(a) A record, (b) AAAA record, (c) MX record.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>A resolver saves a record at 14:00:00 with TTL 300. (1) Until what time may it keep using that copy? (2) In the nslookup output in Worked example 2, which line is the IPv4 address?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <pre class="code-block"><code>300 s = 5 minutes
+14:00:00 + 5 min = 14:05:00</code></pre>
+                    <p>(1) Until 14:05:00. (2) <code>203.0.113.20</code> is the IPv4 address; <code>2001:db8::20</code> is the IPv6 one.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>A neighbourhood library owns <code>example.org</code>. Plan its DNS records:</p>
+                <ol>
+                    <li>The catalogue site <code>library.example.org</code> lives at IPv4 <code>203.0.113.25</code> and IPv6 <code>2001:db8::25</code>.</li>
+                    <li>Visitors who type <code>www.example.org</code> should reach the same site.</li>
+                    <li>Email to the library should go to <code>mail.example.org</code>.</li>
+                    <li>The library will move servers next week. What should it do with the TTL today?</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <pre class="code-block"><code>library.example.org  A      203.0.113.25
+library.example.org  AAAA   2001:db8::25
+www.example.org      CNAME  library.example.org
+example.org          MX     10 mail.example.org</code></pre>
+                    <p>The 10 in the MX record is a priority number. When there are several mail servers, the lowest number is tried first.</p>
+                    <p>Today, lower the TTL on the A and AAAA records (for example from 3600 to 300). After the move, saved copies expire within 5 minutes, so visitors quickly find the new server.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

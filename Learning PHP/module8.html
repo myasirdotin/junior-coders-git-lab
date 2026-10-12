@@ -10,7 +10,7 @@
 <body>
     <main class="module-container">
         <header class="module-header path-php">
-            <span class="badge" style="background:white;color:var(--php-brand);">Level 8</span>
+            <span class="badge" style="background:white;color:var(--php-brand);">Level 3</span>
             <h1>OOP Basics 🏛️</h1>
             <p>Build cleaner, reusable code with Classes and Objects!</p>
         </header>
@@ -27,7 +27,7 @@
 
         <section class="content-section">
             <h2>📐 Defining a Class</h2>
-            <p>Use the <code>class</code> keyword to define a class. Properties are variables that belong to the object. Methods are functions that belong to the object.</p>
+            <p>Use the <code>class</code> keyword to define a class. Properties are variables that belong to the object. Methods are functions that belong to the object. Inside a class, <code>$this</code> means "this object". In our example, students earn XP (experience points) for each module.</p>
 
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
@@ -77,7 +77,7 @@
 
         <section class="content-section">
             <h2>🔐 Access Modifiers</h2>
-            <p>PHP has three levels of access control for properties and methods:</p>
+            <p><strong>Access modifiers</strong> are keywords that decide who can use a property or method. PHP has three:</p>
 
             <div class="analogy-grid">
                 <div class="analogy-card active" style="border-color: #10b981;">
@@ -130,7 +130,99 @@
 
             <div class="connection-box">
                 <strong>💡 Why OOP?</strong><br><br>
-                OOP keeps your code organized, reusable, and easy to maintain. Instead of writing the same logic over and over, you define it once in a class and create as many objects as you need. This is how Laravel, WordPress, and almost every modern PHP framework is built!
+                OOP keeps your code organized, reusable, and easy to maintain. Instead of writing the same logic over and over, you define it once in a class and create as many objects as you need. Laravel and most modern PHP projects are built this way. (A <strong>framework</strong> is a ready-made toolkit for building websites.)
+            </div>
+        </section>
+
+        <!-- Practice: three levels -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+<p>Fill in the blanks: a ____ is a blueprint. An ____ is one real thing built from it, made with the ____ keyword.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>A <strong>class</strong> is a blueprint. An <strong>object</strong> is built from it with the <code>new</code> keyword.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+<p>Write a <code>Book</code> class with a public <code>$title</code> and a <strong>private</strong> <code>$available = true</code>. Add a method <code>borrow()</code> that sets <code>$available</code> to <code>false</code>, and a method <code>isAvailable()</code> that returns it. Why make <code>$available</code> private?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>&lt;?php
+class Book {
+    public $title;
+    private $available = true;
+
+    public function __construct($title) {
+        $this-&gt;title = $title;
+    }
+
+    public function borrow() {
+        $this-&gt;available = false;
+        echo $this-&gt;title . " has been borrowed.&lt;br&gt;";
+    }
+
+    public function isAvailable() {
+        return $this-&gt;available;
+    }
+}
+
+$book = new Book("Clean Code");
+$book-&gt;borrow();
+var_dump($book-&gt;isAvailable());   // bool(false)
+?&gt;</code></pre>
+<p>Private means only the class itself can change <code>$available</code>. Other code must use <code>borrow()</code>, so the book cannot be marked wrongly by mistake.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+<p>Model a charity donation box.</p>
+<ol>
+<li>Make a class <code>DonationBox</code> with private <code>$cause</code> and private <code>$total = 0</code>.</li>
+<li>The constructor takes the cause, for example <code>"Clean Water"</code>.</li>
+<li>Add <code>donate($amount)</code>. Add the amount only if it is more than 0. Otherwise print a polite message.</li>
+<li>Add <code>report()</code>. It returns a sentence like <em>Clean Water: Rs 6500 collected</em>.</li>
+<li>Make a child class <code>ClassroomBox</code> that <code>extends DonationBox</code> with a public <code>$room</code>, and a method <code>label()</code> that returns the room plus the report.</li>
+<li>Try it in the <a href="../studios/php-console/index.html">PHP Console</a>.</li>
+</ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>&lt;?php
+class DonationBox {
+    private $cause;
+    private $total = 0;
+
+    public function __construct($cause) {
+        $this-&gt;cause = $cause;
+    }
+
+    public function donate($amount) {
+        if ($amount &gt; 0) {
+            $this-&gt;total += $amount;
+        } else {
+            echo "Please enter an amount above zero.\n";
+        }
+    }
+
+    public function report() {
+        return $this-&gt;cause . ": Rs " . $this-&gt;total . " collected";
+    }
+}
+
+class ClassroomBox extends DonationBox {
+    public $room;
+
+    public function label() {
+        return "Room " . $this-&gt;room . " - " . $this-&gt;report();
+    }
+}
+
+$box = new ClassroomBox("Clean Water");
+$box-&gt;room = "8B";
+$box-&gt;donate(1500);
+$box-&gt;donate(5000);
+$box-&gt;donate(0);          // Please enter an amount above zero.
+echo $box-&gt;label();       // Room 8B - Clean Water: Rs 6500 collected
+?&gt;</code></pre>
+<p>The child class cannot touch the private <code>$total</code> directly. It uses the public <code>report()</code> method instead. That is encapsulation: the box guards its own data.</p>
+                </div></details>
             </div>
         </section>
 

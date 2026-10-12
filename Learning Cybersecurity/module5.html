@@ -14,55 +14,160 @@
         <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 2</span>
             <h1 style="color: white; margin: 0.5rem 0;">Database Defense: Defeating SQLi 💉🗄️</h1>
-            <p>Guarding the data vault. Discover how query concatenation creates vulnerabilities and how Prepared Statements eliminate them.</p>
+            <p>Learn how mixing visitor text into database commands goes wrong, and how prepared statements fix it.</p>
         </header>
 
-        <!-- Anatomy of SQL Injection -->
+        <!-- Real-life analogy -->
         <section class="content-section">
-            <h2>How SQL Injection Works</h2>
-            <p>When user input is directly glued into an SQL command string, special characters like single quotes <code>'</code> allow an attacker to escape the data field and inject new SQL instructions:</p>
-            
-            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
-                // Vulnerable query template:<br>
-                $sql = "SELECT * FROM users WHERE user = '$username' AND pass = '$password'";<br><br>
-                // Attacker inputs username: <span style="color: #f87171;">admin' OR '1'='1' --</span><br><br>
-                // Constructed SQL command executed by database:<br>
-                SELECT * FROM users WHERE user = '<span style="color: #f87171;">admin' OR '1'='1' --</span>' AND pass = '...'<br>
-                <span style="color: #f59e0b;">(The '--' comments out the password check! The attacker is logged in as admin!)</span>
+            <h2>📚 Think of a Library Request Slip</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> In a big library, you write a book title on a slip. A helper robot reads the <em>whole</em> slip and does what it says.</p>
+                <p>A careless slip reads: "Fetch the book: Rivers of Asia. Also give me the staff-room key." The robot fetches the book and hands over the key!</p>
+                <p>A safer library uses a printed form. It has one locked box marked "Title only". Whatever is written in that box is treated as a title, nothing more.</p>
             </div>
+            <p>Websites talk to their <strong>database</strong> (an organised store of data) using a language called <strong>SQL</strong>. <strong>SQL injection</strong> (SQLi) happens when a visitor's typing gets mixed into an SQL command. Then the database may obey the visitor's words as commands.</p>
         </section>
 
-        <!-- The Prepared Statement Shield -->
+        <!-- SQL refresher -->
         <section class="content-section">
-            <h2>The Silver Bullet: Prepared Statements (PDO)</h2>
-            <p>Prepared statements separate the <strong>SQL command structure</strong> from the <strong>user data</strong>. The database compiles the SQL logic first, ensuring user input is strictly treated as inert literal values:</p>
+            <h2>🗄️ A Tiny Bit of SQL</h2>
+            <p>An SQL command is a sentence for the database. This one asks for the titles of books by one author:</p>
+            <pre class="code-block"><code>SELECT title FROM books WHERE author = 'Ibn Sina';</code></pre>
+            <ul>
+                <li><code>SELECT title</code>: give me the title column.</li>
+                <li><code>FROM books</code>: look in the books table.</li>
+                <li><code>WHERE author = 'Ibn Sina'</code>: only rows with this author.</li>
+                <li>The quote marks <code>' '</code> show where the <strong>data</strong> starts and ends.</li>
+            </ul>
+            <p>Those quote marks are the weak spot. If a visitor's text contains a quote, it can end the data early. Then the rest of the text is read as SQL commands.</p>
+        </section>
 
-            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
-                // ✅ 100% SECURE: Prepared Statement in PHP PDO<br>
-                $stmt = $pdo-&gt;prepare("SELECT id, password_hash FROM users WHERE username = :user");<br><br>
-                // Safely bind the parameter (immune to injection!)<br>
-                $stmt-&gt;execute([':user' => $_POST['username']]);<br>
-                $row = $stmt-&gt;fetch();<br><br>
-                if ($row &amp;&amp; password_verify($_POST['password'], $row['password_hash'])) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;// Welcome authorized user!<br>
-                }
-            </div>
+        <!-- Worked example 1 -->
+        <section class="content-section">
+            <h2>🧪 Worked Example 1: A Search Box That Breaks</h2>
+            <p>A school library search page builds its SQL by gluing text together. Gluing strings together is called <strong>concatenation</strong>.</p>
+            <pre class="code-block"><code>&lt;?php
+// ❌ RISKY: the visitor's text is glued into the SQL command
+$sql = "SELECT title FROM books WHERE author = '" . $author . "'";
+?&gt;</code></pre>
+            <p><strong>An innocent test:</strong> a student searches for the author <code>O'Hara</code>. The command becomes:</p>
+            <pre class="code-block"><code>SELECT title FROM books WHERE author = 'O'Hara'
+                                         ↑ the data ends here early
+                                           "Hara'" is now read as SQL → error</code></pre>
+            <p>The page crashes with an error. That error is the warning sign. If one quote can change the command, carefully chosen words could change it more.</p>
+            <p><strong>What attackers do with this:</strong> on a login form, they might type text such as <code>' OR '1'='1</code>. Because <code>'1'='1'</code> is always true, a badly built query could let them in without the right password. We study this only so we can block it.</p>
+        </section>
+
+        <!-- Worked example 2 -->
+        <section class="content-section">
+            <h2>🛡️ Worked Example 2: The Fix, Prepared Statements</h2>
+            <p>A <strong>prepared statement</strong> is the "printed form" from our analogy. You send the SQL command first, with a <code>?</code> where data will go. The <code>?</code> is called a <strong>placeholder</strong>. Then you send the data separately.</p>
+            <pre class="code-block"><code>&lt;?php
+// ✅ SAFE: command and data travel separately
+$stmt = $pdo-&gt;prepare("SELECT title FROM books WHERE author = ?");
+$stmt-&gt;execute([$author]);
+$books = $stmt-&gt;fetchAll();
+?&gt;</code></pre>
+            <p><strong>The fix explained:</strong></p>
+            <ul>
+                <li><code>$pdo</code> is PHP's connection to the database. <strong>PDO</strong> is the PHP tool for talking to databases.</li>
+                <li><code>prepare()</code> sends the command with its empty <code>?</code> box. The database fixes the shape of the command now.</li>
+                <li><code>execute([$author])</code> fills the box. Whatever the visitor typed is treated as data only, even quotes.</li>
+                <li>Now <code>O'Hara</code> simply searches for the author O'Hara. No error, no injection.</li>
+            </ul>
+        </section>
+
+        <!-- Worked example 3 -->
+        <section class="content-section">
+            <h2>🔐 Worked Example 3: A Safe Login (Modules 2 + 5)</h2>
+            <p>Login pages need both lessons: prepared statements and password hashes.</p>
+            <pre class="code-block"><code>&lt;?php
+// 1. Find the user with a placeholder (no gluing!)
+$stmt = $pdo-&gt;prepare("SELECT id, password_hash FROM users WHERE username = ?");
+$stmt-&gt;execute([$_POST['username']]);
+$row = $stmt-&gt;fetch();
+
+// 2. Check the password against the saved hash (Module 2)
+if ($row &amp;&amp; password_verify($_POST['password'], $row['password_hash'])) {
+    echo "Welcome back!";
+} else {
+    // Same message for both mistakes, so we don't reveal which was wrong
+    echo "Username or password is incorrect.";
+}
+?&gt;</code></pre>
+            <p><strong>Why this is good:</strong> the password is never put into SQL at all. The database only finds the user. PHP checks the password with <code>password_verify()</code>.</p>
         </section>
 
         <!-- Golden Rules -->
         <section class="content-section">
-            <h2>The Three Database Security Rules (<em>Iḥsān</em>)</h2>
-            <ol style="line-height: 1.8; color: #334155; padding-left: 1.2rem;">
-                <li><strong>100% Parameterization:</strong> Never concatenate variables into SQL strings. Use prepared statements for every query.</li>
-                <li><strong>Principle of Least Privilege:</strong> The database account used by your web server should never have <code>DROP DATABASE</code> or superuser privileges.</li>
-                <li><strong>Never Expose Raw DB Errors:</strong> Catch PDO exceptions and log them internally. Never output raw database error messages to public web users!</li>
+            <h2>📏 Three More Database Safety Rules (<em>Iḥsān</em>)</h2>
+            <ol>
+                <li><strong>Least privilege:</strong> the website's database account gets only the powers it needs. A search page only needs to read. It should not be able to delete tables.</li>
+                <li><strong>Hide error details:</strong> show visitors a friendly message like "Something went wrong". Save the full error in a private log for developers. Detailed errors give attackers clues.</li>
+                <li><strong>Placeholders are for values only:</strong> a <code>?</code> cannot hold a column name. If visitors choose a sort order, use an allow-list such as <code>["title", "author"]</code>.</li>
             </ol>
+            <div class="tip-box">💡 Placeholders are not just for logins. Use them in <strong>every</strong> query that includes user data: searches, sign-ups, updates and deletes.</div>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #047857; margin-top: 0;">🧪 Your Turn: Live Query Visualizer</h2>
-            <p>Open the <a href="playground.html" style="color: #059669; font-weight: 700;">Cyber Defense Studio</a> tab <strong>SQL Injection Visualizer</strong> and test how prepared statements safely neutralize malicious input strings!</p>
+        <!-- Checklist -->
+        <section class="content-section">
+            <h2>✅ What To Do: Your Database Checklist</h2>
+            <ul>
+                <li>☐ Never glue user input into SQL. Use <code>prepare()</code> and <code>?</code> placeholders every time.</li>
+                <li>☐ Store passwords with <code>password_hash()</code>; check them with <code>password_verify()</code>.</li>
+                <li>☐ Give the website's database account only the powers it needs.</li>
+                <li>☐ Show friendly errors to visitors and keep details in a private log.</li>
+                <li>☐ Use allow-lists for column names and sort orders.</li>
+                <li>☐ Only test your own projects. Never try injection on a real website.</li>
+            </ul>
+            <p>🧪 <strong>Try it:</strong> the <a href="playground.html">Cyber Defense Studio</a> tab <strong>SQL Injection Visualizer</strong> shows how a prepared statement keeps input as plain data.</p>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blanks: SQL injection happens when user input is ________ into an SQL command. In a prepared statement, the <code>?</code> is called a ________.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>Glued (concatenated). Placeholder. It holds data that is never treated as a command.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>A charity website shows a donor their past gifts. Rewrite this risky code as a prepared statement.</p>
+                <pre><code>$sql = "SELECT amount, gift_date FROM donations WHERE donor_email = '" . $email . "'";
+$rows = $pdo-&gt;query($sql)-&gt;fetchAll();</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <pre><code>$stmt = $pdo-&gt;prepare("SELECT amount, gift_date FROM donations WHERE donor_email = ?");
+$stmt-&gt;execute([$email]);
+$rows = $stmt-&gt;fetchAll();</code></pre>
+                    <p>The email now travels separately from the command, so quotes in it cannot change the SQL.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Plan a safe "My Library Loans" page. A logged-in student sees the books they have borrowed, sorted by title or by due date.</p>
+                <ol>
+                    <li>Write the query with a placeholder for the student's ID.</li>
+                    <li>Take the student's ID from the login session, not from the web address.</li>
+                    <li>Let the student choose the sort, using an allow-list.</li>
+                    <li>Show a friendly message if something goes wrong.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <pre><code>&lt;?php
+$sortChoices = ["title", "due_date"];
+$sort = in_array($_GET['sort'] ?? '', $sortChoices) ? $_GET['sort'] : "due_date";
+
+try {
+    $stmt = $pdo-&gt;prepare("SELECT title, due_date FROM loans WHERE student_id = ? ORDER BY $sort");
+    $stmt-&gt;execute([$_SESSION['student_id']]);
+    $loans = $stmt-&gt;fetchAll();
+} catch (PDOException $e) {
+    error_log($e-&gt;getMessage());   // private log for developers
+    echo "Sorry, we could not load your loans. Please try later.";
+}
+?&gt;</code></pre>
+                    <p><code>$sort</code> is safe to place in the SQL because it can only be one of two words we chose.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

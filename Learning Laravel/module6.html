@@ -10,7 +10,7 @@
 <body>
     <main class="module-container">
         <header class="module-header path-laravel">
-            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 6</span>
+            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 2</span>
             <h1>Migrations 🏗️</h1>
             <p>Version-control your database schema — never lose track of changes!</p>
         </header>
@@ -110,7 +110,69 @@ php artisan migrate:status</code>
             </div>
 
             <div class="connection-box" style="border-left-color: #f43f5e;">
-                <strong>⚠️ Warning:</strong> <code>migrate:fresh</code> DROPS all tables and rebuilds from scratch. Never run it on a production database — all real data will be lost!
+                <strong>⚠️ Warning:</strong> <code>migrate:fresh</code> DROPS all tables and rebuilds from scratch. Never run it on the database of a live website (called "production"). All the real data would be lost!
+            </div>
+        </section>
+
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blanks. In a migration, the ______ method builds the table and the ______ method undoes it. The command <code>php artisan ______</code> runs every migration that has not run yet.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>up()</code>, <code>down()</code> and <code>php artisan migrate</code>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Fix the bug</h3>
+                <p>This migration for a charity's volunteers table has two mistakes. Find and fix them. Then add an optional <code>team</code> column.</p>
+<pre><code>Schema::create('volunteers', function (Blueprint $table) {
+    $table-&gt;id();
+    $table-&gt;string('name');
+    $table-&gt;string('email')-&gt;unique;
+    $table-&gt;integer('hours')-&gt;default(0);
+    $table-&gt;timestamps;
+});</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <p><code>unique</code> and <code>timestamps</code> are methods, so they need brackets: <code>unique()</code> and <code>timestamps()</code>. <code>nullable()</code> makes the new column optional.</p>
+<pre><code>Schema::create('volunteers', function (Blueprint $table) {
+    $table-&gt;id();
+    $table-&gt;string('name');
+    $table-&gt;string('email')-&gt;unique();
+    $table-&gt;integer('hours')-&gt;default(0);
+    $table-&gt;string('team')-&gt;nullable();
+    $table-&gt;timestamps();
+});</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>On your own XAMPP computer, build the table for a charity volunteer log with migrations. Use a project that is already connected to MySQL (see Module 5, Level 3).</p>
+                <ol>
+                    <li>Run <code>php artisan make:model Volunteer -m</code> to make the model and its migration together.</li>
+                    <li>Open the new file in <code>database/migrations/</code>. Add the columns from Level 2.</li>
+                    <li>Run <code>php artisan migrate</code>. Open phpMyAdmin and look at the new <code>volunteers</code> table.</li>
+                    <li>Make a second migration that adds a <code>phone</code> column to the existing table. Use <code>make:migration add_phone_to_volunteers_table --table=volunteers</code>.</li>
+                    <li>In that file, <code>Schema::table</code> (not <code>Schema::create</code>) changes a table that already exists. Add <code>phone</code> in <code>up()</code> and remove it in <code>down()</code>.</li>
+                    <li>Run <code>php artisan migrate</code>, then <code>php artisan migrate:status</code>.</li>
+                    <li>Run <code>php artisan migrate:rollback</code>. Check in phpMyAdmin that only the <code>phone</code> column was removed.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>// database/migrations/xxxx_add_phone_to_volunteers_table.php
+public function up(): void
+{
+    Schema::table('volunteers', function (Blueprint $table) {
+        $table-&gt;string('phone')-&gt;nullable();
+    });
+}
+
+public function down(): void
+{
+    Schema::table('volunteers', function (Blueprint $table) {
+        $table-&gt;dropColumn('phone');
+    });
+}</code></pre>
+                    <p>A rollback undoes only the last batch. The <code>volunteers</code> table stays, and only <code>phone</code> disappears. Run <code>php artisan migrate</code> again to bring it back.</p>
+                </div></details>
             </div>
         </section>
 

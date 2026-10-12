@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Quiz: 10 Questions | Junior Coders</title>
+    <meta name="description" content="Ten quick questions on the Python track: types, f-strings, if/else, loops, lists, dictionaries, functions, files and machine learning testing.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-python">
+            <span class="badge" style="background: white; color: #2563eb;">Quiz</span>
+            <h1>Python Master Quiz 🧠</h1>
+            <p>Ten questions covering the whole Python track. Pick an answer for each, then press <strong>Check my answers</strong>.</p>
+        </header>
+
+        <section class="content-card">
+            <form id="quiz-form-python" onsubmit="event.preventDefault(); checkQuiz('python');">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: What does <code>print(type(19.5))</code> show?</p>
+                    <label><input type="radio" name="q1" value="a"> <code>&lt;class 'int'&gt;</code></label>
+                    <label><input type="radio" name="q1" value="b"> <code>&lt;class 'float'&gt;</code></label>
+                    <label><input type="radio" name="q1" value="c"> <code>&lt;class 'str'&gt;</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: <code>name = "Tariq"</code>. What does <code>print(f"Hello, {name}!")</code> show?</p>
+                    <label><input type="radio" name="q2" value="a"> <code>Hello, Tariq!</code></label>
+                    <label><input type="radio" name="q2" value="b"> <code>Hello, {name}!</code></label>
+                    <label><input type="radio" name="q2" value="c"> <code>Hello, name!</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: Which line correctly checks whether <code>score</code> is equal to 10?</p>
+                    <label><input type="radio" name="q3" value="a"> <code>if score = 10:</code></label>
+                    <label><input type="radio" name="q3" value="b"> <code>if score equals 10:</code></label>
+                    <label><input type="radio" name="q3" value="c"> <code>if score == 10:</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q4: Which numbers does <code>range(1, 4)</code> give?</p>
+                    <label><input type="radio" name="q4" value="a"> 1, 2, 3, 4</label>
+                    <label><input type="radio" name="q4" value="b"> 1, 2, 3</label>
+                    <label><input type="radio" name="q4" value="c"> 0, 1, 2, 3</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q5: What can make a <code>while</code> loop run for ever?</p>
+                    <label><input type="radio" name="q5" value="a"> The loop body never changes the variable in its condition</label>
+                    <label><input type="radio" name="q5" value="b"> Using <code>print()</code> inside the loop</label>
+                    <label><input type="radio" name="q5" value="c"> Starting the loop variable at 0</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q6: <code>fruits = ["Fig", "Olive", "Date"]</code>. What is <code>fruits[0]</code>?</p>
+                    <label><input type="radio" name="q6" value="a"> <code>"Olive"</code></label>
+                    <label><input type="radio" name="q6" value="b"> <code>"Date"</code></label>
+                    <label><input type="radio" name="q6" value="c"> <code>"Fig"</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q7: <code>donor = {"name": "Bilal", "pledge": 100}</code>. How do you read Bilal's pledge?</p>
+                    <label><input type="radio" name="q7" value="a"> <code>donor[1]</code></label>
+                    <label><input type="radio" name="q7" value="b"> <code>donor["pledge"]</code></label>
+                    <label><input type="radio" name="q7" value="c"> <code>donor.100</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q8: A function has no <code>return</code> line. What value does it give back?</p>
+                    <label><input type="radio" name="q8" value="a"> <code>None</code></label>
+                    <label><input type="radio" name="q8" value="b"> <code>0</code></label>
+                    <label><input type="radio" name="q8" value="c"> The last value it printed</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q9: You want to add a new line to the end of a journal file and keep the old lines. Which mode do you use?</p>
+                    <label><input type="radio" name="q9" value="a"> <code>"r"</code></label>
+                    <label><input type="radio" name="q9" value="b"> <code>"w"</code></label>
+                    <label><input type="radio" name="q9" value="c"> <code>"a"</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q10: Why do we keep a test set that the model never sees during training?</p>
+                    <label><input type="radio" name="q10" value="a"> To make training faster</label>
+                    <label><input type="radio" name="q10" value="b"> To check fairly how well the model works on new data</label>
+                    <label><input type="radio" name="q10" value="c"> To hide the data from the teacher</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="submit" class="btn-primary" style="margin-top: 1rem;">Check my answers</button>
+            </form>
+        </section>
+
+        <section class="content-card" style="margin-top: 1.5rem;">
+            <h2>Keep practising</h2>
+            <p>Try the <a href="exercises.html">Python exercises</a>, experiment in the <a href="../studios/python-console/index.html">Python Console</a> (code runs in your browser), or look terms up in the <a href="glossary.html">glossary</a>.</p>
+        </section>
+    </main>
+
+    <script src="../js/bei-nav.js"></script>
+    <script src="../js/tts-voices.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/pdf-download.js"></script>
+</body>
+</html>

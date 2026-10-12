@@ -10,7 +10,7 @@
 <body>
     <main class="module-container">
         <header class="module-header path-laravel">
-            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 5</span>
+            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 2</span>
             <h1>Eloquent ORM 🗣️</h1>
             <p>Talk to your database in plain PHP — no SQL required!</p>
         </header>
@@ -132,6 +132,64 @@ php artisan make:model Student -m</code>
 <span class="code-comment">// Get all students in classroom 1</span>
 <span class="code-val">$class</span> = <span class="code-val">Classroom</span>::<span class="code-val">find</span>(<span class="code-val">1</span>);
 <span class="code-val">$students</span> = <span class="code-val">$class</span>-&gt;<span class="code-val">students</span>;</code>
+            </div>
+        </section>
+
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blanks. A table called <code>books</code> has a model called ______. To get every row, you write <code>Book::______()</code>.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>Book</code> (singular, starting with a capital letter) and <code>Book::all()</code>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Fix the bug</h3>
+                <p>The librarian wants to correct the title of book 3. The code runs with no error, but the database never changes. Why? Fix it. Also make it show a 404 page if book 3 does not exist.</p>
+<pre><code>$book = Book::find(3);
+$book-&gt;title = 'Our Solar System';</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <p>Changing <code>$book-&gt;title</code> only changes the object in PHP. You must call <code>save()</code> to write it to the database. <code>findOrFail()</code> gives a 404 page when the id is missing.</p>
+<pre><code>$book = Book::findOrFail(3);
+$book-&gt;title = 'Our Solar System';
+$book-&gt;save();</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>On your own XAMPP computer, connect a library catalogue to MySQL and use Eloquent to add and find books.</p>
+                <ol>
+                    <li>Start Apache and MySQL in XAMPP. In phpMyAdmin, create a database called <code>school_library</code>.</li>
+                    <li>Run the SQL below in that database to make a <code>books</code> table. (In Module 6 you will learn to do this with a migration instead.)</li>
+                    <li>Open the <code>.env</code> file of your project. Set <code>DB_CONNECTION=mysql</code>, <code>DB_DATABASE=school_library</code>, <code>DB_USERNAME=root</code> and leave <code>DB_PASSWORD=</code> empty. Remove any <code>#</code> at the start of those lines.</li>
+                    <li>Create the <code>Book</code> model. Add <code>title</code> and <code>author</code> to <code>$fillable</code>.</li>
+                    <li>Run <code>php artisan tinker</code>. Tinker lets you type PHP in the terminal and run it inside your Laravel app.</li>
+                    <li>In Tinker, add three books with <code>Book::create()</code>. Then list them all, and find the books by one author with <code>where()</code>.</li>
+                    <li>Type <code>exit</code> to leave Tinker. Refresh phpMyAdmin and check that the books are there.</li>
+                </ol>
+<pre><code>CREATE TABLE books (
+    id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    author VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP NULL,
+    updated_at TIMESTAMP NULL
+);</code></pre>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>// app/Models/Book.php
+class Book extends Model
+{
+    protected $fillable = ['title', 'author'];
+}
+
+// Typed inside: php artisan tinker
+Book::create(['title' =&gt; 'Our Solar System', 'author' =&gt; 'Amina Yusuf']);
+Book::create(['title' =&gt; 'The Water Cycle', 'author' =&gt; 'Amina Yusuf']);
+Book::create(['title' =&gt; 'Plants Around Us', 'author' =&gt; 'Bilal Ahmed']);
+
+Book::all();
+Book::where('author', 'Amina Yusuf')-&gt;get();</code></pre>
+                    <p>Eloquent fills in <code>id</code>, <code>created_at</code> and <code>updated_at</code> for you. The <code>where()</code> search should return two books.</p>
+                </div></details>
             </div>
         </section>
 

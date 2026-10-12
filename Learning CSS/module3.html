@@ -106,6 +106,51 @@
             </div>
         </section>
 
+        <!-- Practice Section -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Put the four layers of the box model in order, from the <strong>inside</strong> to the <strong>outside</strong>: border, content, margin, padding.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><p>Content, then padding, then border, then margin. Padding is space inside the border. Margin is space outside it.</p></div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>A <code>.book-card</code> only has <code>background: lightyellow;</code>. Add 15px of space inside the card, a 2px solid brown border, 20px of space outside the card, and centre its text.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><pre><code>.book-card {
+    background: lightyellow;
+    padding: 15px;
+    border: 2px solid brown;
+    margin: 20px;
+    text-align: center;
+}</code></pre></div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Make a notice card for a community clean-up day.</p>
+                <ol>
+                    <li>Give the card <code>.notice-card</code> a light green background and 20px of padding.</li>
+                    <li>Add a 3px dashed green border.</li>
+                    <li>Add a 16px margin so the card does not touch other boxes.</li>
+                    <li>Make the heading inside it dark green and the text 18px.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div><pre><code>.notice-card {
+    background: #dcfce7;
+    padding: 20px;
+    border: 3px dashed green;
+    margin: 16px;
+}
+
+.notice-card h3 {
+    color: darkgreen;
+}
+
+.notice-card p {
+    font-size: 18px;
+}</code></pre><p><code>.notice-card h3</code> means "any <code>h3</code> inside the notice card".</p></div></details>
+            </div>
+        </section>
+
         <!-- Quiz Section -->
         <section class="content-section">
             <h2>Box Quiz!</h2>

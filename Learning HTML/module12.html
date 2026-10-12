@@ -176,24 +176,24 @@
         </section>
 
         <!-- Section 4: Official Book Practice Exercises -->
-        <section class="content-section">
-            <h2>🏆 Official Book Practice Exercises</h2>
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
             <div class="practice-section">
                 <!-- Easy -->
-                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
-                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                <div class="jc-tier jc-tier-1">
+                    <h3>🟢 Level 1: Recall (Easy)</h3>
                     <p>A page has one <code>&lt;header&gt;</code>, one <code>&lt;nav&gt;</code>, and two <code>&lt;section&gt;</code> elements. Is this valid semantic HTML? How many <code>&lt;main&gt;</code> elements are allowed per page?</p>
-                    <details class="hint-block" style="margin-top: 0.5rem;">
-                        <summary>Show Answer</summary>
-                        <div class="hint-block-content">
+                    <details class="jc-answer">
+                        <summary>Show answer</summary>
+                        <div>
                             Yes — the structure is valid. <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code> and others can appear multiple times. However, there must be exactly <strong>ONE</strong> <code>&lt;main&gt;</code> element per page. It marks the primary, unique content and must not appear inside <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, <code>&lt;nav&gt;</code>, or <code>&lt;aside&gt;</code>.
                         </div>
                     </details>
                 </div>
 
                 <!-- Medium -->
-                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
-                    <h4>🟡 Level 2: Application — Div Soup Rescue (Medium)</h4>
+                <div class="jc-tier jc-tier-2">
+                    <h3>🟡 Level 2: Application — Div Soup Rescue (Medium)</h3>
                     <p>A junior developer wrote this non-semantic code. Rewrite it using the correct semantic tags:</p>
                     <pre style="background: rgba(244,63,94,0.08); border: 1px solid rgba(244,63,94,0.3); border-radius: 8px; padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.85rem; color: #fda4af; overflow-x: auto;">&lt;div class="top"&gt;
   &lt;div class="logo"&gt;My School&lt;/div&gt;
@@ -206,9 +206,9 @@
   &lt;div class="article"&gt;Today's News...&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="bottom"&gt;© 2026&lt;/div&gt;</pre>
-                    <details class="hint-block" style="margin-top: 0.5rem;">
-                        <summary>Show Answer</summary>
-                        <div class="hint-block-content">
+                    <details class="jc-answer">
+                        <summary>Show answer</summary>
+                        <div>
                             <code>&lt;header&gt;</code> replaces <code>div.top</code> — no class needed!<br>
                             <code>&lt;nav&gt;</code> replaces <code>div.menu</code> — it wraps the navigation links.<br>
                             <code>&lt;main&gt;</code> replaces <code>div.content</code> — for the primary page content.<br>
@@ -219,8 +219,8 @@
                 </div>
 
                 <!-- Challenge -->
-                <div>
-                    <h4>🔴 Level 3: Textbook Challenge — Junior Coders School Portal</h4>
+                <div class="jc-tier jc-tier-3">
+                    <h3>🔴 Level 3: Textbook Challenge — Junior Coders School Portal</h3>
                     <p><strong>Chapter 12 Real-World Mission:</strong> In the editor above, build a complete <strong>Junior Coders School Portal page</strong> using only semantic HTML5 tags. Your page must include:</p>
                     <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
                         <li>A <code>&lt;header&gt;</code> with your school name as <code>&lt;h1&gt;</code> and a tagline <code>&lt;p&gt;</code></li>

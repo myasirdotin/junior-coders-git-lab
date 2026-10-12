@@ -37,14 +37,14 @@
 
             <p>Let us understand the structure:</p>
             <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 2;">
-                <li><code>if (condition)</code> — Check the first condition. If it is <strong>true</strong>, run the block.</li>
+                <li><code>if (condition)</code> — Check the first <strong>condition</strong> (a question whose answer is true or false). If it is <strong>true</strong>, run the <strong>block</strong> (the code inside the curly braces).</li>
                 <li><code>elseif (condition)</code> — If the first condition failed, check another one.</li>
                 <li><code>else</code> — If <em>none</em> of the above are true, run this block.</li>
                 <li>Curly braces <code>{ }</code> wrap the code that belongs to each branch.</li>
             </ul>
 
             <div class="connection-box">
-                <p>🔢 <strong>Comparison Operators you'll use in conditions:</strong></p>
+                <p>🔢 <strong>Comparison operators</strong> (symbols that compare two values) <strong>you'll use in conditions:</strong></p>
                 <ul style="margin: 0.5rem 0 0 1.5rem; line-height: 2;">
                     <li><code>==</code> — Equal to (value only)</li>
                     <li><code>===</code> — Identical (value AND type)</li>
@@ -60,7 +60,7 @@
         <!-- Section 2: Switch -->
         <section class="content-section">
             <h2>🎛️ The Switch Statement</h2>
-            <p>When you have many possible values for one variable, a <code>switch</code> is cleaner than many <code>elseif</code> blocks. Think of it like a TV remote — each button (case) does something different!</p>
+            <p>When you have many possible values for one variable, a <code>switch</code> is cleaner than many <code>elseif</code> blocks. Think of it like the buttons in a lift — each button (case) takes you somewhere different!</p>
 
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
@@ -144,7 +144,7 @@
             </div>
 
             <div class="connection-box">
-                <p>⚠️ <strong>Infinite Loop Warning!</strong> If your condition never becomes false, the loop runs forever and crashes the server. Always make sure your loop variable changes inside the loop!</p>
+                <p>⚠️ <strong>Infinite Loop Warning!</strong> If your condition never becomes false, the loop never stops. The page never finishes loading, until PHP gives up at its time limit. Always make sure your loop variable changes inside the loop!</p>
             </div>
         </section>
 
@@ -166,7 +166,8 @@
 // I love Mango!
 // I love Strawberry!</span>
 
-<span class="code-comment">// With associative arrays (key => value)</span>
+<span class="code-comment">// With associative arrays, each value has a name called a key (key =&gt; value).
+// Module 5 explains these fully.</span>
 <span class="code-keyword">$student</span> = [<span class="code-string">"name"</span> => <span class="code-string">"Sara"</span>, <span class="code-string">"age"</span> => <span class="code-val">13</span>, <span class="code-string">"grade"</span> => <span class="code-string">"A"</span>];
 
 <span class="code-keyword">foreach</span> (<span class="code-keyword">$student</span> <span class="code-keyword">as</span> <span class="code-keyword">$key</span> => <span class="code-keyword">$value</span>) {
@@ -198,10 +199,65 @@
     } <span class="code-keyword">elseif</span> (<span class="code-keyword">$score</span> >= <span class="code-val">60</span>) {
         <span class="code-keyword">echo</span> <span class="code-keyword">$score</span> . <span class="code-string">": Grade C 📚&lt;br&gt;"</span>;
     } <span class="code-keyword">else</span> {
-        <span class="code-keyword">echo</span> <span class="code-keyword">$score</span> . <span class="code-string">": Grade F — Study harder! 📖&lt;br&gt;"</span>;
+        <span class="code-keyword">echo</span> <span class="code-keyword">$score</span> . <span class="code-string">": Grade F — Keep practising! 📖&lt;br&gt;"</span>;
     }
 }
 <span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Practice: three levels -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+<p>How many times does this loop run: <code>for ($i = 1; $i &lt;= 4; $i++)</code>? And what does <code>break</code> do inside a <code>switch</code>?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>It runs 4 times (for 1, 2, 3 and 4). <code>break</code> stops the <code>switch</code> so PHP does not run the next cases too.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+<p>The library counts how many books come back each day: <code>[12, 7, 15, 4, 10]</code>. Use <code>foreach</code> and <code>if / else</code> to print <em>Busy day</em> when 10 or more books came back, and <em>Quiet day</em> otherwise.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>&lt;?php
+$returned = [12, 7, 15, 4, 10];
+
+foreach ($returned as $books) {
+    if ($books &gt;= 10) {
+        echo $books . " books: Busy day&lt;br&gt;";
+    } else {
+        echo $books . " books: Quiet day&lt;br&gt;";
+    }
+}
+?&gt;</code></pre>
+<p>Busy days are 12, 15 and 10. Quiet days are 7 and 4.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+<p>Your class is collecting water bottles for a charity drive. The target is 100 bottles. Each day the class brings 15 bottles.</p>
+<ol>
+<li>Make <code>$target = 100</code>, <code>$total = 0</code> and <code>$day = 0</code>.</li>
+<li>Use a <code>while</code> loop that keeps going while <code>$total</code> is less than the target.</li>
+<li>Inside the loop, add 1 to <code>$day</code>, add 15 to <code>$total</code>, and print the day and the total.</li>
+<li>After the loop, print how many days it took.</li>
+<li>Try it in the <a href="../studios/php-console/index.html">PHP Console</a>. There, use <code>"\n"</code> for a new line; on a web page use <code>&lt;br&gt;</code>.</li>
+</ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>&lt;?php
+$target = 100;
+$total  = 0;
+$day    = 0;
+
+while ($total &lt; $target) {
+    $day++;
+    $total = $total + 15;
+    echo "Day " . $day . ": " . $total . " bottles\n";
+}
+
+echo "Target reached in " . $day . " days!";
+?&gt;</code></pre>
+<p>The total goes 15, 30, 45, 60, 75, 90, 105. The target is reached in 7 days.</p>
+                </div></details>
             </div>
         </section>
 

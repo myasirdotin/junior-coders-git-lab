@@ -123,7 +123,7 @@
 
         <section class="content-section">
             <h2>What is MySQL?</h2>
-            <p>MySQL is <strong>free, open-source software</strong> that manages your databases. When you use apps like Facebook, YouTube, Twitter, or any school software, they almost certainly use a database like MySQL behind the scenes.</p>
+            <p>MySQL is <strong>free, open-source software</strong> (its code is public, and anyone may use it) that manages your databases. When you use a big website or your school's software, a database is almost always working behind the scenes. MySQL is one of the most popular.</p>
 
             <p>MySQL is called a <strong>Relational Database</strong>. That means it stores data in tables that can be <em>related</em> to each other. For example, a students table can connect to a grades table.</p>
 
@@ -133,7 +133,7 @@
 <span class="code-comment">-- "Give me everything from the students table"</span></code>
             </div>
 
-            <p style="margin-top: 1.5rem;">Those lines above are called <strong>SQL</strong> — Structured Query Language. It's the language you use to talk to MySQL. By the end of this course, you'll be writing SQL like a pro!</p>
+            <p style="margin-top: 1.5rem;">Those lines above are called <strong>SQL</strong> — Structured Query Language. A <strong>query</strong> is a question or command you send to the database. It's the language you use to talk to MySQL. By the end of this course, you'll be writing SQL like a pro!</p>
         </section>
 
         <section class="content-section">
@@ -151,7 +151,7 @@
                         <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
                             <td style="padding: 0.9rem 1rem; font-weight: 600;">Data Format</td>
                             <td style="padding: 0.9rem 1rem;">Tables with rows &amp; columns</td>
-                            <td style="padding: 0.9rem 1rem;">Documents (like JSON files)</td>
+                            <td style="padding: 0.9rem 1rem;">Documents (records of labels and values, often stored as JSON)</td>
                         </tr>
                         <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
                             <td style="padding: 0.9rem 1rem; font-weight: 600;">Best For</td>
@@ -166,7 +166,39 @@
                     </tbody>
                 </table>
             </div>
-            <p>For this course, we focus on MySQL — it's the #1 choice for most websites and apps you'll build!</p>
+            <p>For this course, we focus on MySQL — it is one of the most popular choices for the websites and apps you'll build!</p>
+        </section>
+
+        <!-- Practice: three levels -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+<p>Fill in the blanks: in a table, one ____ holds everything about one student. One ____ holds one kind of information, like the name. The column with a unique number for every row is the ____.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>One <strong>row</strong> (record) is one student. One <strong>column</strong> (field) is one kind of information. The unique column is the <strong>primary key</strong>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+<p>The school library wants a <code>books</code> table. On paper, list four columns it should have. Which column should be the primary key, and why not the title?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<p>One good plan: <code>id</code>, <code>title</code>, <code>category</code>, <code>pages</code>. The <code>id</code> is the primary key. Two different copies or books can share the same title, but every <code>id</code> is unique.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+<p>Plan a database for a school charity drive, on paper first.</p>
+<ol>
+<li>Give the database a name.</li>
+<li>Plan a <code>donations</code> table. Choose its columns: who gave, how much, for which cause, and on which date.</li>
+<li>Choose the primary key.</li>
+<li>Write three sample rows.</li>
+<li>Open the <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a> and run <code>SELECT * FROM donations;</code>. Compare its table with your plan.</li>
+</ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<div style="overflow-x: auto;"><table><thead><tr><th>id</th><th>donor</th><th>amount</th><th>cause</th><th>donated_on</th></tr></thead><tbody><tr><td>1</td><td>Ahmad</td><td>1500</td><td>Books</td><td>2026-09-01</td></tr><tr><td>2</td><td>Sara</td><td>5000</td><td>Clean Water</td><td>2026-09-03</td></tr><tr><td>3</td><td>Ibrahim</td><td>2500</td><td>Food Pantry</td><td>2026-09-07</td></tr></tbody></table></div>
+<p>Database name: <code>charity_drive</code>. The primary key is <code>id</code>, because two donors can have the same name.</p>
+                </div></details>
+            </div>
         </section>
 
         <section class="content-section" style="border-top: 5px solid var(--mysql-brand);">

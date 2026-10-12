@@ -30,14 +30,14 @@
             <h2>📮 GET vs POST — Two Ways to Send Data</h2>
             <p>When a form is submitted, it sends data to the server using one of two methods:</p>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); border: 2px solid #10b981; border-radius: 1rem; padding: 1.5rem;">
                     <h3 style="color: #10b981; margin-bottom: 1rem;">🔍 GET method</h3>
                     <ul style="list-style: none; line-height: 2.2;">
-                        <li>📎 Data appears in the URL</li>
+                        <li>📎 Data appears in the URL (the web address)</li>
                         <li>👀 Visible to everyone</li>
                         <li>🔖 Can be bookmarked</li>
-                        <li>📦 Limited data size (~2000 chars)</li>
+                        <li>📦 Only short data (very long URLs can be cut off)</li>
                         <li>✅ Good for: search boxes, filters</li>
                     </ul>
                     <p style="margin-top: 1rem; font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">example.com/search?q=PHP</p>
@@ -45,10 +45,10 @@
                 <div style="background: var(--bg-glass); border: 2px solid var(--php-brand); border-radius: 1rem; padding: 1.5rem;">
                     <h3 style="color: var(--php-brand); margin-bottom: 1rem;">📤 POST method</h3>
                     <ul style="list-style: none; line-height: 2.2;">
-                        <li>🔒 Data hidden in request body</li>
+                        <li>📨 Data travels inside the request, not the URL</li>
                         <li>🙈 Not visible in URL</li>
                         <li>🔖 Cannot be bookmarked</li>
-                        <li>📦 No size limit</li>
+                        <li>📦 Can carry much more data (the server sets a limit)</li>
                         <li>✅ Good for: login forms, passwords</li>
                     </ul>
                 </div>
@@ -81,8 +81,9 @@
 <span class="code-keyword">$name</span>    = <span class="code-keyword">$_POST</span>[<span class="code-string">"username"</span>];
 <span class="code-keyword">$message</span> = <span class="code-keyword">$_POST</span>[<span class="code-string">"message"</span>];
 
-<span class="code-keyword">echo</span> <span class="code-string">"Hello, "</span> . <span class="code-keyword">$name</span> . <span class="code-string">"!"</span>;
-<span class="code-keyword">echo</span> <span class="code-string">"Your message: "</span> . <span class="code-keyword">$message</span>;
+<span class="code-comment">// htmlspecialchars() makes the text safe to show (see below)</span>
+<span class="code-keyword">echo</span> <span class="code-string">"Hello, "</span> . <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">$name</span>) . <span class="code-string">"!"</span>;
+<span class="code-keyword">echo</span> <span class="code-string">"Your message: "</span> . <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">$message</span>);
 <span class="code-keyword">?&gt;</span></code>
             </div>
 
@@ -100,16 +101,16 @@
 <code><span class="code-keyword">&lt;?php</span>
 <span class="code-comment">// Reading GET data from URL: example.com/page.php?city=Srinagar</span>
 <span class="code-keyword">$city</span> = <span class="code-keyword">$_GET</span>[<span class="code-string">"city"</span>];
-<span class="code-keyword">echo</span> <span class="code-keyword">$city</span>;  <span class="code-comment">// Srinagar</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">$city</span>);  <span class="code-comment">// Srinagar</span>
 
 
 <span class="code-comment">// Reading POST data from a submitted form</span>
 <span class="code-keyword">$email</span> = <span class="code-keyword">$_POST</span>[<span class="code-string">"email"</span>];
-<span class="code-keyword">echo</span> <span class="code-keyword">$email</span>;
+<span class="code-keyword">echo</span> <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">$email</span>);
 
 <span class="code-comment">// $_SERVER — information about the server and request</span>
 <span class="code-keyword">echo</span> <span class="code-keyword">$_SERVER</span>[<span class="code-string">"REQUEST_METHOD"</span>];  <span class="code-comment">// GET or POST</span>
-<span class="code-keyword">echo</span> <span class="code-keyword">$_SERVER</span>[<span class="code-string">"PHP_SELF"</span>];        <span class="code-comment">// Current file name</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">$_SERVER</span>[<span class="code-string">"PHP_SELF"</span>]);  <span class="code-comment">// Current file name</span>
 <span class="code-keyword">?&gt;</span></code>
             </div>
         </section>
@@ -131,7 +132,7 @@
         <span class="code-keyword">if</span> (<span class="code-keyword">empty</span>(<span class="code-keyword">$_POST</span>[<span class="code-string">"username"</span>])) {
             <span class="code-keyword">echo</span> <span class="code-string">"Error: Name cannot be empty!"</span>;
         } <span class="code-keyword">else</span> {
-            <span class="code-comment">// htmlspecialchars() — make the input safe (prevent hacking!)</span>
+            <span class="code-comment">// htmlspecialchars() — turn &lt; and &gt; into harmless text</span>
             <span class="code-keyword">$name</span> = <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">$_POST</span>[<span class="code-string">"username"</span>]);
             <span class="code-keyword">echo</span> <span class="code-string">"Welcome, "</span> . <span class="code-keyword">$name</span> . <span class="code-string">"!"</span>;
         }
@@ -154,7 +155,7 @@
                 <div class="analogy-card">
                     <span class="analogy-icon">🛡️</span>
                     <h3>htmlspecialchars()</h3>
-                    <p>Converts dangerous characters like <code>&lt;</code> and <code>&gt;</code> into safe text. Stops hackers from injecting code!</p>
+                    <p>Converts dangerous characters like <code>&lt;</code> and <code>&gt;</code> into safe text. This stops attackers from sneaking their own code (like a script) into your page. That attack is called <strong>XSS</strong> (cross-site scripting).</p>
                 </div>
             </div>
         </section>
@@ -185,12 +186,82 @@
     <span class="code-comment">&lt;!-- Show the greeting message if there is one --&gt;</span>
     &lt;<span class="code-keyword">p</span>&gt;&lt;?php <span class="code-keyword">echo</span> <span class="code-keyword">$greeting</span>; ?&gt;&lt;/<span class="code-keyword">p</span>&gt;
 
-    &lt;<span class="code-keyword">form</span> <span class="code-string">method</span>=<span class="code-string">"POST"</span> <span class="code-string">action</span>=<span class="code-string">"&lt;?php echo $_SERVER['PHP_SELF']; ?&gt;"</span>&gt;
+    &lt;!-- No action: the form sends its data back to this same page --&gt;
+    &lt;<span class="code-keyword">form</span> <span class="code-string">method</span>=<span class="code-string">"POST"</span>&gt;
         &lt;<span class="code-keyword">input</span> <span class="code-string">type</span>=<span class="code-string">"text"</span> <span class="code-string">name</span>=<span class="code-string">"name"</span> <span class="code-string">placeholder</span>=<span class="code-string">"Your name"</span>&gt;
         &lt;<span class="code-keyword">button</span> <span class="code-string">type</span>=<span class="code-string">"submit"</span>&gt;Greet Me!&lt;/<span class="code-keyword">button</span>&gt;
     &lt;/<span class="code-keyword">form</span>&gt;
 &lt;/<span class="code-keyword">body</span>&gt;
 &lt;/<span class="code-keyword">html</span>&gt;</code>
+            </div>
+        </section>
+
+        <!-- Practice: three levels -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+<p>Which superglobal holds the data from a form sent with <code>method="POST"</code>? Why do we pass user input through <code>htmlspecialchars()</code> before we echo it?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>$_POST</code>. <code>htmlspecialchars()</code> turns characters like <code>&lt;</code> and <code>&gt;</code> into harmless text, so nobody can sneak their own code into our page.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+<p>A search box sends <code>?city=...</code> in the URL. Write PHP that prints <em>Please type a city.</em> when the box is empty. Otherwise it prints <em>Showing libraries in</em> and the city, made safe and trimmed.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>&lt;?php
+// empty() is safe even when "city" was not sent at all
+if (empty($_GET["city"])) {
+    echo "Please type a city.";
+} else {
+    $city = htmlspecialchars(trim($_GET["city"]));
+    echo "Showing libraries in " . $city;
+}
+?&gt;</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+<p>Build a one-page sign-up form for a park clean-up day.</p>
+<ol>
+<li>Make one PHP file that shows a form with <code>method="POST"</code> and two fields: <code>name</code> and <code>email</code>.</li>
+<li>When the form is sent, <code>trim()</code> both fields.</li>
+<li>If the name is empty, show <em>Please enter your name.</em></li>
+<li>Check the email with <code>filter_var($email, FILTER_VALIDATE_EMAIL)</code>. It gives back <code>false</code> when the email is not valid.</li>
+<li>If both are fine, thank the volunteer by name. Escape the name with <code>htmlspecialchars()</code>.</li>
+<li>Run it on your own XAMPP (save it in the <code>htdocs</code> folder and open it in the browser).</li>
+</ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>&lt;?php
+$message = "";
+$name = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name  = trim($_POST["name"]);
+    $email = trim($_POST["email"]);
+
+    if (empty($name)) {
+        $message = "Please enter your name.";
+    } elseif (filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+        $message = "Please enter a valid email address.";
+    } else {
+        $message = "Thank you, " . htmlspecialchars($name) . "! See you at the clean-up.";
+    }
+}
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+    &lt;h1&gt;Park Clean-up Volunteers&lt;/h1&gt;
+    &lt;p&gt;&lt;?php echo $message; ?&gt;&lt;/p&gt;
+    &lt;form method="POST"&gt;
+        &lt;label&gt;Name: &lt;input type="text" name="name" value="&lt;?php echo htmlspecialchars($name); ?&gt;"&gt;&lt;/label&gt;
+        &lt;label&gt;Email: &lt;input type="email" name="email"&gt;&lt;/label&gt;
+        &lt;button type="submit"&gt;Sign up&lt;/button&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+<p>We only collect what we need: a name and an email. If a form ever asks for a password, never save the password itself. Save <code>password_hash($password, PASSWORD_DEFAULT)</code> and check it later with <code>password_verify()</code>.</p>
+                </div></details>
             </div>
         </section>
 

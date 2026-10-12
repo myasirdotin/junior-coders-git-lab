@@ -107,36 +107,36 @@
         </section>
 
         <!-- Section 5: Official Book Practice Exercises -->
-        <section class="content-section">
-            <h2>🏆 Official Book Practice Exercises</h2>
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
             <div class="practice-section">
                 <!-- Easy -->
-                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
-                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                <div class="jc-tier jc-tier-1">
+                    <h3>🟢 Level 1: Recall (Easy)</h3>
                     <p>What does <code>href</code> stand for? Which attribute opens a link in a new tab?</p>
-                    <details class="hint-block" style="margin-top: 0.5rem;">
-                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
-                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                    <details class="jc-answer">
+                        <summary>Show answer</summary>
+                        <div>
                             <code>href</code> stands for <strong>Hypertext REFerence</strong>. <code>target="_blank"</code> tells the browser to open the destination page in a new window or tab.
                         </div>
                     </details>
                 </div>
 
                 <!-- Medium -->
-                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
-                    <h4>🟡 Level 2: Application (Medium)</h4>
+                <div class="jc-tier jc-tier-2">
+                    <h3>🟡 Level 2: Application (Medium)</h3>
                     <p>How do you create an in-page link that jumps directly down to a section titled "Back to Top" or "Contact Us"?</p>
-                    <details class="hint-block" style="margin-top: 0.5rem;">
-                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
-                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                    <details class="jc-answer">
+                        <summary>Show answer</summary>
+                        <div>
                             Give the target section an <code>id</code> (e.g. <code>&lt;h2 id="contact"&gt;</code>), and point the link's <code>href</code> to that ID prefixed with a hash symbol: <code>&lt;a href="#contact"&gt;Jump to Contact&lt;/a&gt;</code>.
                         </div>
                     </details>
                 </div>
 
                 <!-- Challenge -->
-                <div>
-                    <h4>🔴 Level 3: Textbook Challenge — School Resource Hub</h4>
+                <div class="jc-tier jc-tier-3">
+                    <h3>🔴 Level 3: Textbook Challenge — School Resource Hub</h3>
                     <p><strong>Chapter 7 Real-World Mission:</strong> In the editor above, build a <strong>School Digital Resource Hub</strong> page with every link type covered in the textbook:</p>
                     <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
                         <li>An <code>&lt;h1&gt;</code> heading: <em>"Junior Coders Resource Hub"</em></li>

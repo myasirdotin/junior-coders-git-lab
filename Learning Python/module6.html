@@ -17,15 +17,60 @@
             <p>Save information permanently to disk. Read and write text files, CSV tables, and JSON datasets.</p>
         </header>
 
+        <!-- Analogy -->
+        <section class="content-section">
+            <h2>🗄️ Why Save to a File?</h2>
+            <div class="tip-box" style="border-left-color: #2563eb;">
+                <p>🧠 <strong>Real-life analogy:</strong> Variables are like writing on a whiteboard. When the lesson ends, the board is wiped. A <strong>file</strong> is like a notebook in your drawer. It is still there tomorrow.</p>
+            </div>
+            <p>When a Python program ends, all its variables are lost. To keep data, the program must save it in a file on the disk (the computer's long-term storage).</p>
+            <p>Working with a file has three steps: <strong>open</strong> it, <strong>read or write</strong>, then <strong>close</strong> it.</p>
+            <p>The second argument of <code>open()</code> is the <strong>mode</strong>. It says what you plan to do:</p>
+            <ul>
+                <li><code>"r"</code> read: look at what is already in the file.</li>
+                <li><code>"w"</code> write: start a fresh file. If the file already exists, its old contents are <strong>erased</strong>.</li>
+                <li><code>"a"</code> append: add new lines to the end and keep the old ones.</li>
+            </ul>
+            <p><code>encoding="utf-8"</code> lets the file store letters from any language, such as Arabic, Urdu or Malay. It is a good habit to always include it.</p>
+        </section>
+
         <!-- Concept -->
         <section class="content-section">
             <h2>Context Managers: <code>with open(...)</code></h2>
-            <p>Always use the <code>with</code> statement when working with files in Python. It guarantees that the file is safely closed when you are finished, preventing data corruption.</p>
+            <p>Always use the <code>with</code> statement when working with files in Python. A <strong>context manager</strong> is a helper that sets things up for you and tidies up afterwards. It guarantees that the file is safely closed when you are finished, preventing data corruption.</p>
             
             <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
                 <span style="color: #60a5fa;">with</span> open(<span style="color: #34d399;">"solar_log.txt"</span>, <span style="color: #34d399;">"w"</span>, encoding=<span style="color: #34d399;">"utf-8"</span>) <span style="color: #60a5fa;">as</span> file:<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;file.write(<span style="color: #34d399;">"Harvested 45.2 kWh today\n"</span>)
             </div>
+            <p>The <code>with</code> line opens the file and gives it the short name <code>file</code>. The indented lines use it. When the indent ends, Python closes the file for you.</p>
+            <p><code>\n</code> inside a string means "new line". <code>write()</code> does not add one by itself, so put <code>\n</code> at the end of each line you write.</p>
+            <h3>Worked example 1: write a log, then read it back</h3>
+            <pre class="code-block"><code>with open("solar_log.txt", "w", encoding="utf-8") as file:
+    file.write("Monday: 45.2 kWh\n")
+    file.write("Tuesday: 38.7 kWh\n")
+
+with open("solar_log.txt", "r", encoding="utf-8") as file:
+    content = file.read()
+
+print(content)</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Monday: 45.2 kWh
+Tuesday: 38.7 kWh
+</code></pre>
+            <p><code>file.read()</code> gives the whole file as one string. (kWh means kilowatt-hours, a unit of electrical energy.) An empty line appears at the end. The file ends with <code>\n</code>, and <code>print()</code> adds one more.</p>
+            <h3>Worked example 2: add a line, then read line by line</h3>
+            <pre class="code-block"><code>with open("solar_log.txt", "a", encoding="utf-8") as file:
+    file.write("Wednesday: 50.1 kWh\n")
+
+with open("solar_log.txt", "r", encoding="utf-8") as file:
+    for line in file:
+        print(line.strip())</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Monday: 45.2 kWh
+Tuesday: 38.7 kWh
+Wednesday: 50.1 kWh</code></pre>
+            <p>A <code>for</code> loop over a file gives one line at a time. Each line still ends with <code>\n</code>. <code>.strip()</code> removes spaces and new-line marks from both ends, so no blank lines appear.</p>
         </section>
 
         <!-- CSV & JSON -->
@@ -43,10 +88,77 @@
             </div>
         </section>
 
+        <!-- CSV and JSON Worked Examples -->
+        <section class="content-section">
+            <h2>📊 Reading a Dataset</h2>
+            <p>A <strong>dataset</strong> is a collection of records, often kept in a CSV file. The first line of a CSV file is the <strong>header</strong>. It names each column.</p>
+            <p><code>csv.DictReader</code> turns each row into a dictionary. The header words become the keys. First, write <code>import csv</code> at the top, as you learned in Module 5.</p>
+            <p>Everything read from a text file is a string, even <code>"42"</code>. To do maths, change it into a number with <code>int()</code> for whole numbers or <code>float()</code> for decimals.</p>
+            <h3>Worked example 3: rainfall in three villages</h3>
+            <pre class="code-block"><code>import csv
+
+# Make a small CSV file to practise with
+with open("rainfall.csv", "w", encoding="utf-8") as file:
+    file.write("village,rain_mm\n")
+    file.write("Hillside,42\n")
+    file.write("Riverbend,17\n")
+    file.write("Palm Grove,30\n")
+
+total = 0
+with open("rainfall.csv", "r", encoding="utf-8") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        rain = int(row["rain_mm"])
+        total += rain
+        print(f"{row['village']}: {rain} mm")
+
+print(f"Total rain: {total} mm")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Hillside: 42 mm
+Riverbend: 17 mm
+Palm Grove: 30 mm
+Total rain: 89 mm</code></pre>
+            <p>Without <code>int()</code>, the line <code>total += rain</code> would try to add a string to a number and stop with a <code>TypeError</code>.</p>
+
+            <h3>Worked example 4: saving a dictionary as JSON</h3>
+            <p>JSON (JavaScript Object Notation) is a text format that looks almost exactly like Python dictionaries and lists. <code>json.dump()</code> saves a dictionary to a file. <code>json.load()</code> reads it back as a dictionary.</p>
+            <pre class="code-block"><code>import json
+
+club = {"name": "Astronomy Club", "members": 18, "telescopes": ["Small", "Large"]}
+
+with open("club.json", "w", encoding="utf-8") as file:
+    json.dump(club, file)
+
+with open("club.json", "r", encoding="utf-8") as file:
+    loaded = json.load(file)
+
+print(loaded["name"])
+print(loaded["members"] + 2)
+print(loaded["telescopes"][1])</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Astronomy Club
+20
+Large</code></pre>
+            <p>Unlike CSV, JSON keeps numbers as numbers. That is why <code>loaded["members"] + 2</code> works without <code>int()</code>.</p>
+
+            <div class="tip-box" style="border-left-color: #ef4444;">
+                <p>⚠️ <strong>Common mistake: using <code>"w"</code> when you meant <code>"a"</code></strong></p>
+                <p>Mode <code>"w"</code> wipes the file before writing. If you open your journal with <code>"w"</code> each day, only today's entry survives. Use <code>"a"</code> to add to the end.</p>
+                <p>A second trap is reading a file that does not exist yet, or misspelling its name:</p>
+                <pre class="code-block"><code>FileNotFoundError: [Errno 2] No such file or directory: 'missing_notes.txt'</code></pre>
+                <p>Check the spelling, and make sure the file was written first.</p>
+            </div>
+
+            <div class="tip-box" style="border-left-color: #2563eb;">
+                <p>🧪 <strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a> and run worked examples 1 and 2 together. The console runs Python inside your browser, so its files are kept only while the page is open. Reloading the page clears them.</p>
+            </div>
+        </section>
+
         <!-- Practice Challenge -->
         <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
             <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Logging Science Lab Observations</h2>
-            <p>Write an entry to an experimental observation log:</p>
+            <p>Add one new observation to the end of a science journal file called <code>seedling_journal.txt</code>, without erasing the older entries. Then print a confirmation message.</p>
+            <details class="jc-answer"><summary>Show answer</summary><div>
             <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Append a new observation to log
 observation = "Sample #4: Olive seedling growth +1.2 cm under morning sunlight.\n"
 
@@ -54,6 +166,79 @@ with open("seedling_journal.txt", "a", encoding="utf-8") as journal:
     journal.write(observation)
 
 print("Observation safely recorded in seedling_journal.txt!")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>Observation safely recorded in seedling_journal.txt!</code></pre>
+            <p>Mode <code>"a"</code> keeps the earlier entries. Run it twice and the file holds two lines.</p>
+            </div></details>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Which mode adds to the end of a file: <code>"r"</code>, <code>"w"</code> or <code>"a"</code>? Why do we open files with <code>with</code>?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>"a"</code> (append) adds to the end. <code>with</code> closes the file for us automatically when the indented block ends, so the data is saved safely.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>Write three book titles to <code>reading_list.txt</code>, one per line. Then read the file back with a loop and print each title with a number in front: <code>1. The Story of Water</code>.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>with open("reading_list.txt", "w", encoding="utf-8") as file:
+    file.write("The Story of Water\n")
+    file.write("Stars and Navigation\n")
+    file.write("Gardens of the World\n")
+
+count = 0
+with open("reading_list.txt", "r", encoding="utf-8") as file:
+    for line in file:
+        count += 1
+        print(f"{count}. {line.strip()}")</code></pre>
+<p>Output: <code>1. The Story of Water</code>, <code>2. Stars and Navigation</code>, <code>3. Gardens of the World</code>.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>The school library ran a book donation week. Build a small report.</p>
+                <ol>
+                    <li>Write <code>donations.csv</code> with the header <code>donor,books</code> and three rows: Amina 5, Yusuf 12, Hana 8.</li>
+                    <li>Write a function <code>load_donations(filename)</code> that reads the CSV and returns a list of dictionaries, with <code>books</code> changed to an <code>int</code>.</li>
+                    <li>Loop through the list, add up the books, and thank anyone who gave 10 or more.</li>
+                    <li>Save the total to <code>summary.json</code> with <code>json.dump()</code>.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>import csv
+import json
+
+with open("donations.csv", "w", encoding="utf-8") as file:
+    file.write("donor,books\n")
+    file.write("Amina,5\n")
+    file.write("Yusuf,12\n")
+    file.write("Hana,8\n")
+
+def load_donations(filename):
+    """Reads a donations CSV file and returns a list of records."""
+    records = []
+    with open(filename, "r", encoding="utf-8") as file:
+        reader = csv.DictReader(file)
+        for row in reader:
+            records.append({"donor": row["donor"], "books": int(row["books"])})
+    return records
+
+donations = load_donations("donations.csv")
+total_books = 0
+for record in donations:
+    total_books += record["books"]
+    if record["books"] &gt;= 10:
+        print(f"Special thanks to {record['donor']} for {record['books']} books!")
+
+print(f"Books donated in total: {total_books}")
+
+with open("summary.json", "w", encoding="utf-8") as file:
+    json.dump({"total_books": total_books}, file)
+print("Summary saved to summary.json")</code></pre>
+<p>Output: <code>Special thanks to Yusuf for 12 books!</code>, <code>Books donated in total: 25</code>, <code>Summary saved to summary.json</code>.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Module Navigation Footer -->

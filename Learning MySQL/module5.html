@@ -109,9 +109,11 @@
 
 <span class="code-keyword">CREATE TABLE</span> grades (
     id         <span class="code-keyword">INT</span> <span class="code-keyword">AUTO_INCREMENT</span> <span class="code-keyword">PRIMARY KEY</span>,
-    student_id <span class="code-keyword">INT</span>,           <span class="code-comment">-- Foreign Key: links to students.id</span>
+    student_id <span class="code-keyword">INT</span>,           <span class="code-comment">-- links to students.id</span>
     subject    <span class="code-keyword">VARCHAR</span>(<span class="code-val">100</span>),
-    score      <span class="code-keyword">INT</span>
+    score      <span class="code-keyword">INT</span>,
+    <span class="code-comment">-- The rule that makes student_id a real Foreign Key:</span>
+    <span class="code-keyword">FOREIGN KEY</span> (student_id) <span class="code-keyword">REFERENCES</span> students(id)
 );
 
 <span class="code-comment">-- Insert sample data</span>
@@ -179,12 +181,12 @@
                 </table>
             </div>
 
-            <p>Ali Hassan appears twice because he has grades in two subjects! The JOIN automatically multiplied the rows to match.</p>
+            <p>Ali Hassan appears twice because he has grades in two subjects! The JOIN makes one result row for each matching grade.</p>
         </section>
 
         <section class="content-section">
             <h2>Using Aliases to Simplify Queries</h2>
-            <p>Typing <code>students.name</code> every time gets long. You can create short aliases using <code>AS</code>:</p>
+            <p>Typing <code>students.name</code> every time gets long. You can give tables short nicknames, called <strong>aliases</strong>, using <code>AS</code>:</p>
 
             <div class="code-block">
                 <code><span class="code-comment">-- s = students alias, g = grades alias</span>
@@ -286,6 +288,58 @@
                 </table>
             </div>
             <p>For most school and beginner projects, <strong>INNER JOIN</strong> and <strong>LEFT JOIN</strong> are all you need!</p>
+        </section>
+
+        <!-- Practice: three levels -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+<p>What is a foreign key? Which JOIN keeps every row from the left table, even with no match?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>A <strong>foreign key</strong> is a column that points to the primary key of another table, like <code>grades.student_id</code> pointing to <code>students.id</code>. <code>LEFT JOIN</code> keeps every row from the left table.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+<p>The <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a> already has a small school database with the tables <code>students</code>, <code>books</code>, <code>loans</code> (library books borrowed by students) and <code>donations</code>. In <code>loans</code>, <code>student_id</code> points to <code>students.id</code>. Write a query with an <code>INNER JOIN</code> and short aliases that lists each loan's <code>loan_date</code> next to the student's <code>name</code>.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>SELECT s.name, l.loan_date
+FROM loans AS l
+INNER JOIN students AS s
+    ON s.id = l.student_id;</code></pre>
+<p>You get 10 rows. Zayd, Bilal and Khadija appear twice, because each borrowed two books.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+<p>Find out who is reading what right now, using the <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a>.</p>
+<ol>
+<li>Join <code>loans</code> to <code>students</code> (on <code>student_id</code>) and to <code>books</code> (on <code>book_id</code>). You can write two <code>INNER JOIN</code> lines, one after the other.</li>
+<li>Show the student's name, the book title and the loan date.</li>
+<li>Keep only books not returned yet (<code>returned = 'No'</code>).</li>
+<li>Sort by loan date, oldest first.</li>
+<li>Bonus: use a <code>LEFT JOIN</code> to find students who have never borrowed a book. (<code>IS NULL</code> checks for an empty value.)</li>
+</ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>SELECT s.name, b.title, l.loan_date
+FROM loans AS l
+INNER JOIN students AS s ON s.id = l.student_id
+INNER JOIN books    AS b ON b.id = l.book_id
+WHERE l.returned = 'No'
+ORDER BY l.loan_date ASC;
+-- Tariq   | Ethical Technology       | 2026-09-12
+-- Zayd    | Algorithm Design         | 2026-09-20
+-- Bilal   | Introduction to Networks | 2026-09-25
+-- Aisha   | Clean Code               | 2026-09-28
+-- Khadija | Digital Stewardship      | 2026-10-01
+
+-- Bonus: students with no loans at all
+SELECT s.name
+FROM students AS s
+LEFT JOIN loans AS l ON s.id = l.student_id
+WHERE l.id IS NULL;
+-- Hamza</code></pre>
+                </div></details>
+            </div>
         </section>
 
         <section class="content-section" style="border-top: 5px solid var(--mysql-brand);">

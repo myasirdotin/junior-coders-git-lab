@@ -113,36 +113,36 @@
         </section>
 
         <!-- Section 5: Official Book Practice Exercises -->
-        <section class="content-section">
-            <h2>🏆 Official Book Practice Exercises</h2>
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
             <div class="practice-section">
                 <!-- Easy -->
-                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
-                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                <div class="jc-tier jc-tier-1">
+                    <h3>🟢 Level 1: Recall (Easy)</h3>
                     <p>Which two attributes are strictly necessary for every standard image tag? Is <code>&lt;img&gt;</code> a container or void tag?</p>
-                    <details class="hint-block" style="margin-top: 0.5rem;">
-                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
-                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                    <details class="jc-answer">
+                        <summary>Show answer</summary>
+                        <div>
                             <code>src</code> (the image file path) and <code>alt</code> (the description for accessibility). <code>&lt;img&gt;</code> is a void tag (no closing tag).
                         </div>
                     </details>
                 </div>
 
                 <!-- Medium -->
-                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
-                    <h4>🟡 Level 2: Application (Medium)</h4>
+                <div class="jc-tier jc-tier-2">
+                    <h3>🟡 Level 2: Application (Medium)</h3>
                     <p>Why is writing <code>alt="photo"</code> or <code>alt="image.jpg"</code> considered bad practice by professional web developers?</p>
-                    <details class="hint-block" style="margin-top: 0.5rem;">
-                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
-                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                    <details class="jc-answer">
+                        <summary>Show answer</summary>
+                        <div>
                             The <code>alt</code> attribute must describe the actual subject and context of the image so a blind student using a screen reader understands what is on the screen (e.g. <code>alt="Brown puppy running on green grass"</code>).
                         </div>
                     </details>
                 </div>
 
                 <!-- Challenge -->
-                <div>
-                    <h4>🔴 Level 3: Textbook Challenge — School Photo Gallery</h4>
+                <div class="jc-tier jc-tier-3">
+                    <h3>🔴 Level 3: Textbook Challenge — School Photo Gallery</h3>
                     <p><strong>Chapter 8 Real-World Mission:</strong> In the editor above, build a <strong>School Events Photo Gallery</strong> with 3 photo cards. Each card must follow the textbook's best practices:</p>
                     <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
                         <li>Use <code>&lt;figure&gt;</code> as the card wrapper for each photo</li>

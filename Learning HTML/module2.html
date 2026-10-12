@@ -107,36 +107,36 @@
         </section>
 
         <!-- Section 5: Official Book Practice Exercises -->
-        <section class="content-section">
-            <h2>🏆 Official Book Practice Exercises</h2>
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
             <div class="practice-section">
                 <!-- Easy -->
-                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
-                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                <div class="jc-tier jc-tier-1">
+                    <h3>🟢 Level 1: Recall (Easy)</h3>
                     <p>Where are attributes always written—in the opening tag, closing tag, or between the tags? Give an example of a void tag.</p>
-                    <details class="hint-block" style="margin-top: 0.5rem;">
-                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
-                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                    <details class="jc-answer">
+                        <summary>Show answer</summary>
+                        <div>
                             Attributes are always written <strong>inside the opening tag</strong>. Void tags include <code>&lt;br&gt;</code>, <code>&lt;hr&gt;</code>, and <code>&lt;img&gt;</code>.
                         </div>
                     </details>
                 </div>
 
                 <!-- Medium -->
-                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
-                    <h4>🟡 Level 2: Application (Medium)</h4>
+                <div class="jc-tier jc-tier-2">
+                    <h3>🟡 Level 2: Application (Medium)</h3>
                     <p>Identify the syntax error in this code: <code>&lt;p title=Secret Mission&gt;Click me&lt;/p&gt;</code>. How should it be written?</p>
-                    <details class="hint-block" style="margin-top: 0.5rem;">
-                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
-                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                    <details class="jc-answer">
+                        <summary>Show answer</summary>
+                        <div>
                             Attribute values must always be enclosed in quotes: <code>&lt;p title="Secret Mission"&gt;Click me&lt;/p&gt;</code>. Without quotes, spaces break attribute parsing.
                         </div>
                     </details>
                 </div>
 
                 <!-- Challenge -->
-                <div>
-                    <h4>🔴 Level 3: Textbook Challenge — Science Lab Specimen Tag</h4>
+                <div class="jc-tier jc-tier-3">
+                    <h3>🔴 Level 3: Textbook Challenge — Science Lab Specimen Tag</h3>
                     <p><strong>Chapter 4 Real-World Mission:</strong> In the editor above, build a <strong>Science Lab Specimen Tag</strong> for a newly discovered species. Your specimen tag must include:</p>
                     <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
                         <li>An <code>&lt;h1&gt;</code> with the species name AND a <code>title</code> attribute (hover tooltip) showing the Latin scientific name</li>

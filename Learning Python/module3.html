@@ -26,6 +26,61 @@
                 <span style="color: #60a5fa;">for</span> day <span style="color: #60a5fa;">in</span> range(<span style="color: #eab308;">1</span>, <span style="color: #eab308;">8</span>):<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;print(<span style="color: #34d399;">f"Day {day}: Striving in coding practice!"</span>)
             </div>
+            <p>The name <code>day</code> is the <strong>loop variable</strong>. Each time round, it holds the next number. The indented line under the <code>for</code> line is the <strong>loop body</strong>: the steps that repeat. Each trip round the loop is called an <strong>iteration</strong>.</p>
+        </section>
+
+        <!-- range() -->
+        <section class="content-section">
+            <h2>🔢 How <code>range()</code> Counts</h2>
+            <p><code>range(start, stop)</code> makes the numbers from <code>start</code> up to <strong>but not including</strong> <code>stop</code>.</p>
+            <p>So <code>range(1, 8)</code> above gives 1, 2, 3, 4, 5, 6, 7. That is 7 days, one for each day of the week.</p>
+            <p>If you give only one number, counting starts at 0. <code>range(3)</code> gives 0, 1, 2.</p>
+            <p>A third number sets the <strong>step</strong> (how much to jump each time). <code>range(2, 11, 2)</code> gives 2, 4, 6, 8, 10.</p>
+            <h3>Worked example 1: a short practice week</h3>
+            <pre class="code-block"><code>for day in range(1, 4):
+    print(f"Day {day}: Striving in coding practice!")
+print("All done!")
+
+for number in range(3):
+    print(number)</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Day 1: Striving in coding practice!
+Day 2: Striving in coding practice!
+Day 3: Striving in coding practice!
+All done!
+0
+1
+2</code></pre>
+            <p><code>print("All done!")</code> has no indent. It is outside the loop, so it runs once, after the loop ends.</p>
+        </section>
+
+        <!-- Sequences -->
+        <section class="content-section">
+            <h2>📜 Looping Over a Sequence</h2>
+            <p>A <strong>sequence</strong> is a group of values kept in order. Two sequences you can loop over right away:</p>
+            <ul>
+                <li>A <strong>list</strong>: values inside square brackets, split by commas, such as <code>["Amina", "Bilal", "Sara"]</code>. You will learn much more about lists in Module 4.</li>
+                <li>A <strong>string</strong>: a word or sentence is a sequence of letters.</li>
+            </ul>
+            <p>A <code>for</code> loop hands you each item in turn, from first to last.</p>
+            <h3>Worked example 2: thanking every volunteer</h3>
+            <pre class="code-block"><code>volunteers = ["Amina", "Bilal", "Sara"]
+
+for name in volunteers:
+    print(f"JazakAllah khair, {name}!")
+
+for letter in "Salam":
+    print(letter)</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>JazakAllah khair, Amina!
+JazakAllah khair, Bilal!
+JazakAllah khair, Sara!
+S
+a
+l
+a
+m</code></pre>
+            <p>If you add a fourth name to the list, the loop thanks four people. You do not change the loop at all.</p>
         </section>
 
         <!-- while vs for -->
@@ -45,18 +100,109 @@
             </div>
         </section>
 
+        <!-- while Worked Example -->
+        <section class="content-section">
+            <h2>💧 Worked Example 3: A <code>while</code> Loop</h2>
+            <p>A <code>while</code> loop checks its condition before every iteration. It keeps going while the condition is <code>True</code>. It stops the first time the condition is <code>False</code>.</p>
+            <pre class="code-block"><code>tank = 10
+
+while tank &gt; 0:
+    print(f"Water left: {tank} litres")
+    tank = tank - 4
+
+print("Tank is empty. Time to refill!")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Water left: 10 litres
+Water left: 6 litres
+Water left: 2 litres
+Tank is empty. Time to refill!</code></pre>
+            <p>After the third trip, <code>tank</code> becomes -2. Now <code>tank &gt; 0</code> is <code>False</code>, so the loop stops.</p>
+
+            <h3>Keeping a running total with <code>+=</code></h3>
+            <p>Loops are often used to add things up. <code>total += 5</code> is a short way to write <code>total = total + 5</code>. In the same way, <code>-=</code> takes away.</p>
+            <p>Always set the total to 0 <strong>before</strong> the loop starts. You will use this in the Your Turn task below.</p>
+
+            <div class="tip-box" style="border-left-color: #ef4444;">
+                <p>⚠️ <strong>Common mistake: a loop that never ends</strong></p>
+                <p>If the loop body never changes the variable in the condition, the condition stays <code>True</code> for ever. This is called an <strong>infinite loop</strong>:</p>
+                <pre class="code-block"><code>tank = 10
+while tank &gt; 0:
+    print("Water left")   # tank never changes!</code></pre>
+                <p>The program prints the same line again and again and never finishes. Make sure every <code>while</code> loop moves towards its stop. Here, add <code>tank = tank - 4</code>.</p>
+                <p>A smaller slip: forgetting that <code>range(1, 5)</code> stops at 4, not 5.</p>
+            </div>
+
+            <div class="tip-box" style="border-left-color: #2563eb;">
+                <p>🧪 <strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a>. Run worked example 3, then change <code>- 4</code> to <code>- 3</code>. How many lines print now? Predict first, then run.</p>
+            </div>
+        </section>
+
         <!-- Practice Challenge -->
         <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Daily Water Consumption Tracker</h2>
-            <p>Calculate the total water collected across 5 rainfall events:</p>
+            <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Rainwater Tracker</h2>
+            <p>The school garden measured rain on 5 days: 12.5, 0.0, 18.2, 5.4 and 22.0 mm. Put them in a list. Use a <code>for</code> loop and <code>+=</code> to add them up. Print the running total after each reading, then print a summary. Use <code>round(total, 1)</code> from Module 1 to keep the numbers tidy.</p>
+            <details class="jc-answer"><summary>Show answer</summary><div>
             <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>rain_readings = [12.5, 0.0, 18.2, 5.4, 22.0]
 total_water = 0
 
 for reading in rain_readings:
     total_water += reading
-    print(f"Recorded +{reading} mm -> Total: {total_water:.1f} mm")
+    print(f"Recorded +{reading} mm -&gt; Total: {round(total_water, 1)} mm")
 
-print(f"Summary: Harvested {total_water} mm of clean rain!")</code></pre>
+print(f"Summary: Collected {round(total_water, 1)} mm of clean rain!")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>Recorded +12.5 mm -&gt; Total: 12.5 mm
+Recorded +0.0 mm -&gt; Total: 12.5 mm
+Recorded +18.2 mm -&gt; Total: 30.7 mm
+Recorded +5.4 mm -&gt; Total: 36.1 mm
+Recorded +22.0 mm -&gt; Total: 58.1 mm
+Summary: Collected 58.1 mm of clean rain!</code></pre>
+            <p>Why <code>round()</code>? Computers store some decimals with a tiny error. For example, <code>print(0.1 + 0.2)</code> shows <code>0.30000000000000004</code>. Rounding hides this tiny error.</p>
+            </div></details>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Which numbers does <code>range(2, 6)</code> give? And which loop, <code>for</code> or <code>while</code>, is best when you do not know in advance how many times to repeat?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>range(2, 6)</code> gives 2, 3, 4, 5 (the stop number 6 is not included). A <code>while</code> loop is best when you repeat until something changes.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>Bilal read 12, 20, 8 and 15 pages on four days. Store the numbers in a list. Use a loop and <code>+=</code> to print the total pages for the week.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>pages = [12, 20, 8, 15]
+total = 0
+
+for p in pages:
+    total += p
+
+print(f"Total pages read this week: {total}")</code></pre>
+<p>Output: <code>Total pages read this week: 55</code></p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>The school charity box collects 15 coins every week for a well-building project. How many weeks until it holds at least 100 coins?</p>
+                <ol>
+                    <li>Start with <code>coins = 0</code> and <code>weeks = 0</code>.</li>
+                    <li>Use a <code>while</code> loop that runs while <code>coins &lt; 100</code>.</li>
+                    <li>Inside the loop, add 15 to <code>coins</code> and 1 to <code>weeks</code>.</li>
+                    <li>After the loop, print the number of weeks and the coins collected.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>coins = 0
+weeks = 0
+
+while coins &lt; 100:
+    coins += 15
+    weeks += 1
+
+print(f"After {weeks} weeks the box holds {coins} coins.")</code></pre>
+<p>Output: <code>After 7 weeks the box holds 105 coins.</code> After 6 weeks it holds only 90, so a seventh week is needed.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Module Navigation Footer -->

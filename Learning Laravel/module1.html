@@ -53,7 +53,13 @@
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #6366f1;">
                     <h3>Stays Secure 🔒</h3>
-                    <p style="font-size: 0.9rem;">Laravel handles common security threats automatically — SQL injection, XSS, CSRF are protected by default.</p>
+                    <p style="font-size: 0.9rem;">Laravel gives you tools that help block three common attacks:</p>
+                    <ul style="font-size: 0.9rem; margin: 0.5rem 0 0 1.2rem;">
+                        <li><strong>SQL injection:</strong> someone types database commands into a form to read or change your data.</li>
+                        <li><strong>XSS (cross-site scripting):</strong> someone hides a script in a page so it runs in other visitors' browsers.</li>
+                        <li><strong>CSRF (cross-site request forgery):</strong> another website tricks your browser into sending a form you did not mean to send.</li>
+                    </ul>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Laravel helps protect you when you use its tools: Eloquent for the database, Blade's <code>{{ }}</code> for showing data, and <code>@csrf</code> in forms. It cannot protect code that skips these tools. You will meet all three later in this course.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #eab308;">
                     <h3>Stays Organized 📁</h3>
@@ -61,7 +67,7 @@
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #f43f5e;">
                     <h3>Used Everywhere 🌍</h3>
-                    <p style="font-size: 0.9rem;">Millions of professional developers use Laravel worldwide. It's one of the most popular frameworks on Earth!</p>
+                    <p style="font-size: 0.9rem;">Many professional developers around the world use Laravel. It is one of the most popular PHP frameworks.</p>
                 </div>
             </div>
         </section>
@@ -213,6 +219,53 @@
                     <strong style="color: #f43f5e;">make:migration</strong>
                     <p style="font-size: 0.8rem; margin: 0.3rem 0 0; color: var(--text-muted);">Creates a Migration</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blanks: "In MVC, the ______ talks to the database. The ______ is the page the user sees. The ______ connects the two."</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>Model, View, Controller. The Model handles data, the View shows it, and the Controller is the manager in the middle.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Put the steps in order</h3>
+                <p>A visitor opens <code>/books</code> on a school library app. Put these steps in the right order:</p>
+                <ol type="A">
+                    <li>The Model fetches the books from the database.</li>
+                    <li>The visitor types <code>/books</code> in the browser.</li>
+                    <li>The visitor sees the finished HTML page.</li>
+                    <li>The Router matches <code>/books</code> to a Controller.</li>
+                    <li>The Controller sends the books to the View.</li>
+                    <li>The Controller asks the Model for the books.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show answer</summary><div>B, D, F, A, E, C. The request comes in through the Router. The Controller gets data through the Model. The View turns it into HTML.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Laravel cannot run inside this web page, so build this on your own computer with XAMPP. Create the start of a school library app.</p>
+                <ol>
+                    <li>Open a terminal. Type <code>php -v</code> and then <code>composer -V</code>. Composer is a tool that downloads PHP packages, like Laravel. If the second command fails, install Composer from getcomposer.org.</li>
+                    <li>Go to your XAMPP web folder: <code>cd C:\xampp\htdocs</code>.</li>
+                    <li>Use Composer to create a new Laravel project called <code>school-library</code>.</li>
+                    <li>Go into the new folder. Start the development server with Artisan.</li>
+                    <li>Open <code>http://localhost:8000</code>. Check that you see the Laravel welcome page.</li>
+                    <li>Stop the server with Ctrl + C. Use Artisan to make a <code>Book</code> model and a <code>BookController</code>.</li>
+                    <li>Find both new files. Write down the folder each one is in.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>cd C:\xampp\htdocs
+composer create-project laravel/laravel school-library
+cd school-library
+php artisan serve
+
+# after stopping the server:
+php artisan make:model Book
+php artisan make:controller BookController</code></pre>
+                    <p>The model is in <code>app/Models/Book.php</code>. The controller is in <code>app/Http/Controllers/BookController.php</code>. If Composer says your PHP version is too old, update XAMPP and try again.</p>
+                </div></details>
             </div>
         </section>
 

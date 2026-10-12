@@ -185,6 +185,53 @@
             </div>
         </section>
 
+        <!-- Practice: three levels -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+<p>What do the four letters of CRUD stand for, and which SQL command matches each? What happens if you forget <code>WHERE</code> in an <code>UPDATE</code>?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>Create = <code>INSERT</code>, Read = <code>SELECT</code>, Update = <code>UPDATE</code>, Delete = <code>DELETE</code>. Without <code>WHERE</code>, the <code>UPDATE</code> changes every row in the table.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+<p>The <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a> already has a small school database with the tables <code>students</code>, <code>books</code>, <code>loans</code> (library books borrowed by students) and <code>donations</code>. Book number 3, <em>Ethical Technology</em>, is back on the shelf. Mark it as available (<code>'Yes'</code>), then check your change with a <code>SELECT</code>.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>UPDATE books
+SET available = 'Yes'
+WHERE id = 3;
+
+SELECT title, available FROM books WHERE id = 3;
+-- Ethical Technology | Yes</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+<p>Tidy up the library records in the <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a>. Press <strong>Reset database</strong> first so the numbers match.</p>
+<ol>
+<li>Loan number 7 has been returned. Set its <code>returned</code> column to <code>'Yes'</code>.</li>
+<li>Someone added a test book by mistake. Add it first so you can practise: <code>INSERT INTO books (title, category, pages, available) VALUES ('Test Book', 'Test', 1, 'No');</code></li>
+<li>Before deleting, run a <code>SELECT</code> with the same <code>WHERE</code> you plan to use. Check that it shows only the test book.</li>
+<li>Delete the test book.</li>
+</ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>-- 1. Mark loan 7 as returned
+UPDATE loans SET returned = 'Yes' WHERE id = 7;
+
+-- 2. The test book (it gets id 9)
+INSERT INTO books (title, category, pages, available)
+VALUES ('Test Book', 'Test', 1, 'No');
+
+-- 3. Preview first: this should show only the test book
+SELECT * FROM books WHERE id = 9;
+
+-- 4. Now delete exactly that row
+DELETE FROM books WHERE id = 9;</code></pre>
+<p>Previewing with <code>SELECT</code> before <code>UPDATE</code> or <code>DELETE</code> is a habit that protects data. Data that others trust us with is an <em>amānah</em>.</p>
+                </div></details>
+            </div>
+        </section>
+
         <section class="content-section" style="border-top: 5px solid var(--mysql-brand);">
             <h2>Quick Quiz!</h2>
             <div id="quiz-form-1" class="quiz-section">

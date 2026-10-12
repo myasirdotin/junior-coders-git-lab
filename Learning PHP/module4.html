@@ -118,7 +118,7 @@
         <!-- Section 5: Variable Scope -->
         <section class="content-section">
             <h2>🔭 Variable Scope — Where Variables Live</h2>
-            <p>In PHP, variables created <strong>inside</strong> a function are only available <strong>inside</strong> that function. They do not exist outside. This is called <strong>local scope</strong>.</p>
+            <p>In PHP, variables created <strong>inside</strong> a function are only available <strong>inside</strong> that function. They do not exist outside. This is called <strong>local scope</strong>. <strong>Scope</strong> means the part of your code where a variable can be seen. A variable made outside every function is called a <strong>global</strong> variable.</p>
 
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
@@ -126,7 +126,7 @@
 
 <span class="code-keyword">function</span> <span class="code-val">showPlanet</span>() {
     <span class="code-comment">// $planet is NOT available here without 'global'</span>
-    <span class="code-keyword">echo</span> <span class="code-keyword">$planet</span>;  <span class="code-comment">// This would cause an error!</span>
+    <span class="code-keyword">echo</span> <span class="code-keyword">$planet</span>;  <span class="code-comment">// PHP warns: Undefined variable $planet</span>
 }
 
 <span class="code-keyword">function</span> <span class="code-val">showPlanetFixed</span>() {
@@ -163,6 +163,62 @@
 <span class="code-keyword">var_dump</span>(<span class="code-keyword">is_string</span>(<span class="code-string">"Hi"</span>));  <span class="code-comment">// bool(true)</span>
 <span class="code-keyword">var_dump</span>(<span class="code-keyword">is_null</span>(<span class="code-val">null</span>));   <span class="code-comment">// bool(true)</span>
 <span class="code-keyword">?&gt;</span></code>
+            </div>
+        </section>
+
+        <!-- Practice: three levels -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+<p>Fill in the blank: the keyword ____ sends a value back from a function. Why is that often better than using <code>echo</code> inside the function?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>return</code>. A returned value can be saved in a variable or used in another calculation. An <code>echo</code> only prints it.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+<p>Write a function <code>bookLabel($title, $shelf = "A")</code> that <strong>returns</strong> a label like <em>Clean Code (Shelf A)</em>. Call it once with only a title and once with a title and shelf <code>"C"</code>.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>&lt;?php
+function bookLabel($title, $shelf = "A") {
+    return $title . " (Shelf " . $shelf . ")";
+}
+
+echo bookLabel("Clean Code") . "&lt;br&gt;";        // Clean Code (Shelf A)
+echo bookLabel("Digital Stewardship", "C");   // Digital Stewardship (Shelf C)
+?&gt;</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+<p>Build a small report-card helper for a teacher.</p>
+<ol>
+<li>Write <code>average($a, $b, $c)</code>. It returns the average of three scores, rounded with <code>round()</code>.</li>
+<li>Write <code>gradeFor($score)</code>. It returns <code>"A"</code> for 90 or more, <code>"B"</code> for 75 or more, <code>"C"</code> for 60 or more, and <code>"Keep practising"</code> otherwise.</li>
+<li>Write <code>report($name, $a, $b, $c)</code>. It uses the two functions above and returns one sentence.</li>
+<li>Print <code>report("Maryam", 88, 79, 91)</code>.</li>
+<li>Try it in the <a href="../studios/php-console/index.html">PHP Console</a>.</li>
+</ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>&lt;?php
+function average($a, $b, $c) {
+    return round(($a + $b + $c) / 3);
+}
+
+function gradeFor($score) {
+    if ($score &gt;= 90) return "A";
+    if ($score &gt;= 75) return "B";
+    if ($score &gt;= 60) return "C";
+    return "Keep practising";
+}
+
+function report($name, $a, $b, $c) {
+    $avg = average($a, $b, $c);
+    return $name . ": average " . $avg . ", grade " . gradeFor($avg);
+}
+
+echo report("Maryam", 88, 79, 91);   // Maryam: average 86, grade B
+?&gt;</code></pre>
+                </div></details>
             </div>
         </section>
 

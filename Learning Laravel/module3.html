@@ -207,6 +207,68 @@
             <p>That single <code>Route::resource()</code> line creates all 7 routes automatically! Run <code>php artisan route:list</code> and you'll see them all listed.</p>
         </section>
 
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Which Artisan command creates a controller called <code>LibraryController</code>? Which of the 7 standard method names means "show a list of all items"?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>php artisan make:controller LibraryController</code>. The list method is <code>index()</code>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Put the steps in order</h3>
+                <p>A visitor opens <code>/books</code>. The route is <code>Route::get('/books', [BookController::class, 'index']);</code>. Put these in the order they happen:</p>
+                <ol type="A">
+                    <li><code>return view('books.index', compact('books'));</code> sends the data to the view.</li>
+                    <li>Laravel finds the matching route in <code>routes/web.php</code>.</li>
+                    <li>The browser shows the finished page.</li>
+                    <li>The <code>index()</code> method of <code>BookController</code> starts running.</li>
+                    <li><code>$books = Book::all();</code> asks the model for every book.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show answer</summary><div>B, D, E, A, C. First the route, then the controller, then the model, then the view, and last the browser.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>On your own XAMPP computer, build a controller for a school food drive. You do not need a database for this task.</p>
+                <ol>
+                    <li>Use Artisan to create <code>DriveController</code>.</li>
+                    <li>Add an <code>index()</code> method. It returns "Food drive: please bring rice, lentils or flour to the school hall."</li>
+                    <li>Add a <code>show($day)</code> method. It returns "Collection day X", where X comes from the URL.</li>
+                    <li>Add an <code>items()</code> method. It returns JSON with a list: rice, lentils, flour.</li>
+                    <li>In <code>routes/web.php</code>, add three routes: <code>/drive</code>, <code>/drive/day/{day}</code> and <code>/drive/items</code>.</li>
+                    <li>Start the server and visit all three pages.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>// app/Http/Controllers/DriveController.php
+class DriveController extends Controller
+{
+    public function index()
+    {
+        return 'Food drive: please bring rice, lentils or flour to the school hall.';
+    }
+
+    public function show($day)
+    {
+        return 'Collection day ' . $day;
+    }
+
+    public function items()
+    {
+        return response()-&gt;json(['items' =&gt; ['rice', 'lentils', 'flour']]);
+    }
+}
+
+// routes/web.php
+use App\Http\Controllers\DriveController;
+
+Route::get('/drive', [DriveController::class, 'index']);
+Route::get('/drive/day/{day}', [DriveController::class, 'show']);
+Route::get('/drive/items', [DriveController::class, 'items']);</code></pre>
+                    <p>Put the <code>use</code> line near the top of <code>web.php</code>. Without it, Laravel cannot find the controller.</p>
+                </div></details>
+            </div>
+        </section>
+
         <!-- Quiz -->
         <section class="content-section">
             <h2>Quick Knowledge Check! 🧪</h2>

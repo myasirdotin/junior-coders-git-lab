@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Quiz: 10 Questions | Junior Coders</title>
+    <meta name="description" content="Ten quick questions on defensive cybersecurity: the CIA Triad, passwords and MFA, phishing, XSS, SQL injection, access control, cryptography and backups.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
+            <span class="badge" style="background: white; color: #059669; font-weight: 800;">Quiz</span>
+            <h1 style="color: white; margin: 0.5rem 0;">Cybersecurity Master Quiz 🧠</h1>
+            <p>Ten questions covering the whole Cybersecurity track. Pick an answer for each, then press <strong>Check my answers</strong>.</p>
+        </header>
+
+        <section class="content-card">
+            <form id="quiz-form-cyber" onsubmit="event.preventDefault(); checkQuiz('cyber');">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: A bug changes a student's exam mark from 85 to 58. Which pillar of the CIA Triad is harmed?</p>
+                    <label><input type="radio" name="q1" value="a"> Confidentiality</label>
+                    <label><input type="radio" name="q1" value="b"> Integrity</label>
+                    <label><input type="radio" name="q1" value="c"> Availability</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q2: Which password is hardest for a computer to guess?</p>
+                    <label><input type="radio" name="q2" value="a"> <code>Password1!</code></label>
+                    <label><input type="radio" name="q2" value="b"> A 4-digit PIN</label>
+                    <label><input type="radio" name="q2" value="c"> Five random words joined together</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q3: How should a website store users' passwords?</p>
+                    <label><input type="radio" name="q3" value="a"> As a slow, salted hash, e.g. with <code>password_hash()</code></label>
+                    <label><input type="radio" name="q3" value="b"> As plain text, so staff can help people who forget</label>
+                    <label><input type="radio" name="q3" value="c"> In Base64, so nobody can read them</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q4: Your MFA (multi-factor authentication) protects you when…</p>
+                    <label><input type="radio" name="q4" value="a"> You forget to update your apps</label>
+                    <label><input type="radio" name="q4" value="b"> Someone learns your password but does not have your second proof, such as your phone</label>
+                    <label><input type="radio" name="q4" value="c"> You visit a website without HTTPS</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q5: A message says it is from your aunt on a new number and asks for the code just sent to your phone. What should you do?</p>
+                    <label><input type="radio" name="q5" value="a"> Send the code quickly, because family needs help</label>
+                    <label><input type="radio" name="q5" value="b"> Reply to the new number to ask if it is really her</label>
+                    <label><input type="radio" name="q5" value="c"> Not send it, and phone her on the number you already have saved</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q6: In JavaScript, which line shows a visitor's name safely, as plain text?</p>
+                    <label><input type="radio" name="q6" value="a"> <code>box.textContent = name;</code></label>
+                    <label><input type="radio" name="q6" value="b"> <code>box.innerHTML = name;</code></label>
+                    <label><input type="radio" name="q6" value="c"> <code>eval(name);</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q7: What is the main fix for SQL injection?</p>
+                    <label><input type="radio" name="q7" value="a"> Hiding the search box from visitors</label>
+                    <label><input type="radio" name="q7" value="b"> Prepared statements with <code>?</code> placeholders</label>
+                    <label><input type="radio" name="q7" value="c"> Showing the full database error on the page</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q8: Changing <code>report.php?id=50</code> to <code>id=51</code> shows another student's report. This bug is called…</p>
+                    <label><input type="radio" name="q8" value="a"> IDOR, a kind of broken access control</label>
+                    <label><input type="radio" name="q8" value="b"> A phishing attack</label>
+                    <label><input type="radio" name="q8" value="c"> The avalanche effect</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q9: Which one can be reversed by anyone, without any key?</p>
+                    <label><input type="radio" name="q9" value="a"> Encryption</label>
+                    <label><input type="radio" name="q9" value="b"> Hashing</label>
+                    <label><input type="radio" name="q9" value="c"> Encoding, such as Base64</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q10: The 3-2-1 backup rule means…</p>
+                    <label><input type="radio" name="q10" value="a"> Back up 3 times a day, for 2 weeks, on 1 drive</label>
+                    <label><input type="radio" name="q10" value="b"> 3 copies, on 2 kinds of storage, with 1 copy in another place</label>
+                    <label><input type="radio" name="q10" value="c"> 3 passwords, 2 phones and 1 security key</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="submit" class="btn-primary" style="margin-top: 1rem;">Check my answers</button>
+            </form>
+        </section>
+
+        <section class="content-card" style="margin-top: 1.5rem;">
+            <h2>Keep practising</h2>
+            <p>Try the <a href="exercises.html">Cybersecurity exercises</a>, explore the <a href="playground.html">Cyber Defense Studio</a>, or look terms up in the <a href="glossary.html">glossary</a>.</p>
+        </section>
+    </main>
+
+    <script src="../js/bei-nav.js"></script>
+    <script src="../js/tts-voices.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/pdf-download.js"></script>
+</body>
+</html>

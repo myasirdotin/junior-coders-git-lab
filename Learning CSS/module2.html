@@ -28,11 +28,11 @@
                 </div>
                 <div style="background: #f0fdf4; border: 2px solid #22c55e; padding: 1.5rem; border-radius: 1rem; text-align: center;">
                     <span style="color: #22c55e; font-weight: 800; font-size: 1.2rem;">Hex Codes</span>
-                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Secret codes: <code>#ff0000</code> is red!</p>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">A # and six characters: two each for red, green and blue. <code>#ff0000</code> is red!</p>
                 </div>
                 <div style="background: #eff6ff; border: 2px solid #3b82f6; padding: 1.5rem; border-radius: 1rem; text-align: center;">
                     <span style="color: #3b82f6; font-weight: 800; font-size: 1.2rem;">RGB</span>
-                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Red, Green, Blue: <code>rgb(255, 0, 0)</code>.</p>
+                    <p style="font-size: 0.8rem; margin-top: 0.5rem;">Red, Green, Blue, each from 0 to 255: <code>rgb(255, 0, 0)</code>.</p>
                 </div>
             </div>
         </section>
@@ -100,6 +100,50 @@
                     <label style="font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 0.5rem;">Live Preview</label>
                     <div id="preview" style="background: var(--bg-card); min-height: 290px; border-radius: 1rem; border: 2px solid var(--border-dim); padding: 2rem; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: auto; color: white;"></div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Practice Section -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Write the colour red in three different ways: as a colour name, as a hex code and as an <code>rgb()</code> value.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><p><code>red</code>, <code>#ff0000</code> and <code>rgb(255, 0, 0)</code>. All three give the same red.</p></div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>A heading for a charity bake sale starts as <code>h2 { color: black; }</code>. Change it so the text is the hex colour <code>#0f766e</code> (teal), uses a clean sans-serif font, is bold and sits in the centre.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><pre><code>h2 {
+    color: #0f766e;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+}</code></pre><p>If Arial is missing on a computer, the browser uses any sans-serif font instead.</p></div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Style the title card for a school science fair poster.</p>
+                <ol>
+                    <li>Make the title <code>.fair-title</code> a hex colour of your choice, 32px, and centred.</li>
+                    <li>Give the subtitle <code>.fair-subtitle</code> an <code>rgb()</code> colour and a serif font.</li>
+                    <li>Underline the date <code>.fair-date</code> and make it bold.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div><pre><code>.fair-title {
+    color: #1d4ed8;
+    font-size: 32px;
+    text-align: center;
+}
+
+.fair-subtitle {
+    color: rgb(22, 163, 74);
+    font-family: Georgia, serif;
+}
+
+.fair-date {
+    text-decoration: underline;
+    font-weight: bold;
+}</code></pre></div></details>
             </div>
         </section>
 

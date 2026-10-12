@@ -116,36 +116,36 @@
         </section>
 
         <!-- Section 4: Official Book Practice Exercises -->
-        <section class="content-section">
-            <h2>🏆 Official Book Practice Exercises</h2>
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
             <div class="practice-section">
                 <!-- Easy -->
-                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
-                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                <div class="jc-tier jc-tier-1">
+                    <h3>🟢 Level 1: Recall (Easy)</h3>
                     <p>Can two elements on the same page share the same <code>id</code>? Can two elements share the same <code>class</code>?</p>
-                    <details class="hint-block" style="margin-top: 0.5rem;">
-                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
-                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                    <details class="jc-answer">
+                        <summary>Show answer</summary>
+                        <div>
                             No, an <code>id</code> must be 100% unique per page. Yes, multiple elements can share the same <code>class</code>.
                         </div>
                     </details>
                 </div>
 
                 <!-- Medium -->
-                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
-                    <h4>🟡 Level 2: Application (Medium)</h4>
+                <div class="jc-tier jc-tier-2">
+                    <h3>🟡 Level 2: Application (Medium)</h3>
                     <p>How do you assign three different classes (e.g. <code>btn</code>, <code>large</code>, <code>primary</code>) to a single button tag?</p>
-                    <details class="hint-block" style="margin-top: 0.5rem;">
-                        <summary style="cursor: pointer; color: #38bdf8; font-weight: 600;">Show Answer</summary>
-                        <div style="margin-top: 0.5rem; padding: 0.5rem 0.75rem; background: rgba(56,189,248,0.1); border-left: 3px solid #38bdf8; border-radius: 4px; color: #e0f2fe; font-size: 0.85rem;">
+                    <details class="jc-answer">
+                        <summary>Show answer</summary>
+                        <div>
                             Separate each class name with a space inside the quotes: <code>&lt;button class="btn large primary"&gt;Click Me&lt;/button&gt;</code>.
                         </div>
                     </details>
                 </div>
 
                 <!-- Challenge -->
-                <div>
-                    <h4>🔴 Level 3: Textbook Challenge (Problem Solving)</h4>
+                <div class="jc-tier jc-tier-3">
+                    <h3>🔴 Level 3: Textbook Challenge (Problem Solving)</h3>
                     <p><strong>Chapter 12 Pricing Table:</strong> In the editor above, create three pricing cards (Basic, Pro, Enterprise) sharing the class <code>pricing-card</code>, but give the Pro card a special second class <code>featured</code> with an orange border!</p>
                 </div>
             </div>

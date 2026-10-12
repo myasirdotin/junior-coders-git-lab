@@ -14,55 +14,175 @@
         <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 1</span>
             <h1 style="color: white; margin: 0.5rem 0;">Social Engineering &amp; Phishing Defense 🎭🎣</h1>
-            <p>Deconstruct psychological manipulation, examine deceptive links, and build an alert human firewall.</p>
+            <p>Learn the tricks scammers use, spot fake messages and links, and check before you act.</p>
         </header>
+
+        <!-- Real-life analogy -->
+        <section class="content-section">
+            <h2>🚪 Think of the School Gate</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> A stranger arrives at the school gate in a delivery uniform. "The head teacher sent me to collect the office keys," he says. "Quickly, she is waiting!"</p>
+                <p>The lock on the office is perfect. But if the guard hands over the keys, the lock does not matter.</p>
+                <p>The stranger did not break the lock. He tricked a person.</p>
+            </div>
+            <p><strong>Social engineering</strong> means tricking people instead of breaking computers. <strong>Phishing</strong> is the most common kind. It is a fake message that pretends to come from someone you trust. It wants you to click a link, type a password, or send money or files.</p>
+            <ul>
+                <li><strong>Phishing</strong> usually arrives by email.</li>
+                <li><strong>Smishing</strong> arrives by text message (SMS) or chat apps.</li>
+                <li><strong>Vishing</strong> is a voice phone call.</li>
+            </ul>
+        </section>
 
         <!-- The Human Hack -->
         <section class="content-section">
-            <h2>Hacking the Human Mind</h2>
-            <p>Attackers do not break algorithms when they can simply trick a person into opening the door. They weaponize psychological triggers:</p>
-            
+            <h2>🧠 The Tricks Scammers Use</h2>
+            <p>Scammers use our feelings against us. When we feel rushed or scared, we stop thinking carefully. Learn these tricks so you can spot them.</p>
+
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1rem;">
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #dc2626;">
-                    <h3>Artificial Urgency ⏱️</h3>
-                    <p>"Act in 20 minutes or your account will be deleted permanently!" Panic bypasses logic.</p>
+                    <h3>Rush ⏱️</h3>
+                    <p>"Act in 20 minutes or your account will be deleted!" Hurry makes us skip checking.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #f59e0b;">
-                    <h3>Fake Authority 👔</h3>
-                    <p>Impersonating bank directors, school principals, or police officers to force quick compliance.</p>
+                    <h3>Fake boss 👔</h3>
+                    <p>The message pretends to be from a head teacher, a bank or the police. We tend to obey people in charge.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
-                    <h3>Curiosity &amp; Baiting 🎁</h3>
-                    <p>"Click here to see who viewed your profile" or infected flash drives left in hallways.</p>
+                    <h3>Curiosity and bait 🎁</h3>
+                    <p>"See who looked at your profile!" Or a USB stick left in the corridor, labelled "Exam answers".</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
-                    <h3>Helpfulness Exploit 🤝</h3>
-                    <p>Posing as a distressed new student who "forgot their login password" to gain staff empathy.</p>
+                    <h3>Kindness 🤝</h3>
+                    <p>"I'm new and I forgot my password. Can you log me in with yours?" Scammers use our wish to help.</p>
+                </div>
+                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
+                    <h3>Fear and threats 😨</h3>
+                    <p>"Pay now or you will lose your scholarship." Threats push people to act before thinking.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Red Flags of Phishing -->
+        <!-- Worked example 1: phishing email -->
         <section class="content-section">
-            <h2>Spotting Phishing Emails &amp; Fraud</h2>
-            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
-                🚩 <strong>Lookalike Domain:</strong> <code>support@g00gle.com</code> or <code>paypaI.com</code> (Capital I instead of l)<br>
-                🚩 <strong>Mismatched Links:</strong> Text displays <code>https://mybank.com</code> but points to <code>http://198.51.100.88/scam</code><br>
-                🚩 <strong>Unsolicited MFA Requests:</strong> "Read me the SMS code we just sent your phone"<br>
-                🚩 <strong>Coercive Threats:</strong> Warnings of sudden legal action or scholarship loss
-            </div>
+            <h2>🎣 Worked Example 1: Spot the Warning Signs</h2>
+            <p>Here is a made-up phishing email. Each 🚩 marks a warning sign.</p>
+            <pre class="code-block"><code>From: "Greenfield IT Team" &lt;it-help@greenfie1d-school.org&gt;
+                         🚩 1 ── "1" (one) instead of "l"
+Subject: URGENT!! Account closing in 1 hour
+                         🚩 2 ── rush
+Dear Student,            🚩 3 ── no name, just "Student"
+
+We found a problem with your account.
+Click below or lose all your homework files.
+                         🚩 4 ── fear
+   [ Verify my account ]
+   → really goes to http://198.51.100.88/login
+                         🚩 5 ── link hides a different address
+Type your password AND the 6-digit code
+we just sent to your phone.
+                         🚩 6 ── asks for password + MFA code</code></pre>
+            <ol>
+                <li><strong>Lookalike address.</strong> The real school is <code>greenfield-school.org</code>. Scammers swap letters that look alike, like 1 and l, or 0 and o.</li>
+                <li><strong>Rush.</strong> Real IT teams give you time.</li>
+                <li><strong>No name.</strong> Your school knows your name.</li>
+                <li><strong>Fear.</strong> A threat to make you panic.</li>
+                <li><strong>Hidden link.</strong> The button text and the real address do not match. On a computer, rest your mouse on a link (without clicking) to see where it goes.</li>
+                <li><strong>Asking for codes.</strong> No real school, company or bank asks for your password or MFA code.</li>
+            </ol>
+        </section>
+
+        <!-- Worked example 2: chat message -->
+        <section class="content-section">
+            <h2>💬 Worked Example 2: A Message From "Family"</h2>
+            <p>Yusuf gets this chat message from an unknown number:</p>
+            <pre class="code-block"><code>Salam Yusuf, it's Auntie Maryam. This is my new number.
+I'm locked out of my account. A code is coming to your phone.
+Please send it to me quickly! 🙏</code></pre>
+            <p><strong>Warning signs:</strong> a new number, a rush, and a request for a code. The code is probably a login code for <em>Yusuf's</em> account. The scammer is trying to take it over.</p>
+            <p><strong>What Yusuf does:</strong> he does not reply with the code. He phones Auntie Maryam on her <strong>old number</strong>, the one already saved in his phone. She says she never sent the message. Yusuf blocks the number and reports it.</p>
+        </section>
+
+        <!-- Worked example 3: reading a link -->
+        <section class="content-section">
+            <h2>🔗 Worked Example 3: Who Really Owns This Link?</h2>
+            <p>A web address can be built to fool you. The real owner is shown by the <strong>domain</strong>: the name just before the first single slash <code>/</code>. Read the domain from right to left.</p>
+            <pre class="code-block"><code>https://greenfield-school.org/library
+        └──── domain: greenfield-school.org ✅ real school
+
+https://greenfield-school.org.login-check.example/library
+        └──── domain ends in: login-check.example 🚩
+              The school's name is just a decoration at the front.</code></pre>
+            <p>The second link starts with the school's name. But it really belongs to <code>login-check.example</code>, someone else entirely.</p>
+            <div class="tip-box">⚠️ A padlock 🔒 in the address bar only means the connection is scrambled. It does <strong>not</strong> prove the site is honest. Many fake sites have a padlock too.</div>
         </section>
 
         <!-- Verification Protocol -->
         <section class="content-section">
-            <h2>The Principle of Verification (<em>Tabayyun</em>)</h2>
-            <p>Whenever you receive an urgent message requesting credentials, money, or sensitive files, execute the <strong>Out-of-Band Verification</strong>: Hang up, navigate to the organization's official website manually in your browser, and call their public phone number directly.</p>
+            <h2>🕊️ Check Before You Act (<em>Tabayyun</em>)</h2>
+            <p>The Qur'an teaches <em>tabayyun</em>: when news reaches you, check it before you act on it (Surah Al-Hujurat, 49:6). This is the best defense against phishing.</p>
+            <ol>
+                <li><strong>Stop.</strong> Do not click, reply or pay yet.</li>
+                <li><strong>Do not use the contact details in the message.</strong> They may belong to the scammer.</li>
+                <li><strong>Check the request using a different way.</strong> For example, phone the person on a number you already know. Or type the website address yourself.</li>
+                <li><strong>Ask a trusted adult</strong> if you are not sure.</li>
+            </ol>
+            <p>Experts call step 3 <strong>out-of-band verification</strong>. "Out of band" just means "through a different channel".</p>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #047857; margin-top: 0;">🧪 Your Turn: Inspect the Lure</h2>
-            <p>Go to the <a href="playground.html" style="color: #059669; font-weight: 700;">Cyber Defense Studio</a> tab <strong>Phishing Detective</strong> and click <strong>Reveal All Red Flags</strong> to audit an incoming lure!</p>
+        <!-- Checklist -->
+        <section class="content-section">
+            <h2>✅ What To Do: Your Anti-Phishing Checklist</h2>
+            <ul>
+                <li>☐ Slow down when a message makes you feel rushed, scared or very excited.</li>
+                <li>☐ Check the sender's address and the link's real domain.</li>
+                <li>☐ Never share passwords or MFA codes. Nobody real will ask.</li>
+                <li>☐ Never plug in a USB stick you found. Hand it to a teacher.</li>
+                <li>☐ Check strange requests through a different way, such as a known phone number.</li>
+                <li>☐ <strong>If you already clicked:</strong> do not panic. Tell a trusted adult or IT at once. Change your password from a safe device. Turn on MFA.</li>
+            </ul>
+            <p>🧪 <strong>Try it:</strong> in the <a href="playground.html">Cyber Defense Studio</a>, open <strong>Phishing Detective</strong> and click <strong>Reveal All Red Flags</strong>.</p>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Name three warning signs of a phishing message. What is phishing called when it comes by text message?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>Any three of: rush, a lookalike sender address, no name, threats, a link that goes somewhere different, a request for a password or code. By text message it is called <strong>smishing</strong>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>After a flood, this message arrives. Find at least three warning signs, and say what you would do instead.</p>
+                <pre><code>From: Flood Relief Fund &lt;donate@reIief-help.example&gt;
+Only 2 hours left! Families need you NOW.
+Send your gift card codes to this address.
+Do not tell your parents, it's a surprise for them.</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <ul>
+                        <li>Lookalike address: "reIief" uses a capital I instead of l.</li>
+                        <li>Rush: "only 2 hours left".</li>
+                        <li>Gift card codes: real charities do not ask for them.</li>
+                        <li>Secrecy: "do not tell your parents" is a big warning sign.</li>
+                    </ul>
+                    <p>Instead: tell a parent. Give through a charity you know, by typing its real website address yourself.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Make a one-page "Stop and Check" poster for Grade 4 students at your school.</p>
+                <ol>
+                    <li>Write a short title that is easy to remember.</li>
+                    <li>List four warning signs in simple words.</li>
+                    <li>Write three steps to follow when a message feels wrong.</li>
+                    <li>Add who to tell at your school.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <p><strong>STOP. THINK. CHECK. 🛑</strong></p>
+                    <p><strong>Warning signs:</strong> it says "hurry"; it asks for your password or a code; the spelling of the name looks odd; it says "keep this secret".</p>
+                    <p><strong>Steps:</strong> 1. Do not click or reply. 2. Show a grown-up. 3. Check with the real person using a number you already know.</p>
+                    <p><strong>Tell:</strong> your class teacher or the school IT office.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

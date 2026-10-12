@@ -138,7 +138,7 @@
 
         <section class="content-section">
             <h2>Filtering with WHERE</h2>
-            <p>The <strong>WHERE</strong> clause lets you filter rows — only get the students that match your condition.</p>
+            <p>The <strong>WHERE</strong> clause (a clause is one part of a SQL command) lets you filter rows — only get the students that match your condition.</p>
 
             <div class="code-block">
                 <code><span class="code-comment">-- Only get students with grade 'A'</span>
@@ -191,8 +191,8 @@
 <span class="code-comment">-- Sort by name alphabetically (A to Z)</span>
 <span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">ORDER BY</span> name <span class="code-keyword">ASC</span>;
 
-<span class="code-comment">-- Sort by grade, best grade first (Z to A)</span>
-<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">ORDER BY</span> grade <span class="code-keyword">DESC</span>;</code>
+<span class="code-comment">-- Sort by name in reverse (Z to A)</span>
+<span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students <span class="code-keyword">ORDER BY</span> name <span class="code-keyword">DESC</span>;</code>
             </div>
         </section>
 
@@ -209,6 +209,52 @@
             </div>
 
             <p style="margin-top: 1.5rem;">LIMIT is very useful for website pages that show results in batches — this technique is called <strong>pagination</strong>.</p>
+        </section>
+
+        <!-- Practice: three levels -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+<p>In <code>SELECT * FROM students;</code>, what does the <code>*</code> mean? What does adding <code>LIMIT 3</code> do?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>*</code> means "all columns". <code>LIMIT 3</code> shows only the first 3 rows of the result.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+<p>The <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a> already has a small school database with the tables <code>students</code>, <code>books</code>, <code>loans</code> (library books borrowed by students) and <code>donations</code>. Write one query that shows the <code>title</code> and <code>pages</code> of the books in the <code>Ethics</code> category, longest book first.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>SELECT title, pages
+FROM books
+WHERE category = 'Ethics'
+ORDER BY pages DESC;</code></pre>
+<div style="overflow-x: auto;"><table><thead><tr><th>title</th><th>pages</th></tr></thead><tbody><tr><td>Ethical Technology</td><td>210</td></tr><tr><td>Digital Stewardship</td><td>180</td></tr></tbody></table></div>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+<p>Help the charity team with a quick report. Use the <code>donations</code> table in the <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a>.</p>
+<ol>
+<li>Add a new donation: Maryam gave 1200 for <code>Books</code> on <code>2026-10-05</code>. (The sandbox gives the <code>id</code> by itself.)</li>
+<li>Show the <code>donor</code> and <code>amount</code> of every donation for <code>Clean Water</code>.</li>
+<li>Show the three largest donations, biggest first.</li>
+</ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>-- 1. Add a donation
+INSERT INTO donations (donor, amount, cause, donated_on)
+VALUES ('Maryam', 1200, 'Books', '2026-10-05');
+
+-- 2. Clean Water donations
+SELECT donor, amount FROM donations
+WHERE cause = 'Clean Water';
+-- Sara 5000, Yusuf 8000, Layla 2000
+
+-- 3. The three largest donations
+SELECT donor, amount FROM donations
+ORDER BY amount DESC
+LIMIT 3;
+-- Yusuf 8000, Sara 5000, Zainab 4500</code></pre>
+                </div></details>
+            </div>
         </section>
 
         <section class="content-section" style="border-top: 5px solid var(--mysql-brand);">

@@ -243,7 +243,7 @@
 <span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students
 <span class="code-keyword">WHERE</span> age <span class="code-keyword">BETWEEN</span> <span class="code-val">11</span> <span class="code-keyword">AND</span> <span class="code-val">13</span>;
 
-<span class="code-comment">-- Get grades recorded in September 2024</span>
+<span class="code-comment">-- Get students who enrolled in September 2024</span>
 <span class="code-keyword">SELECT</span> * <span class="code-keyword">FROM</span> students
 <span class="code-keyword">WHERE</span> enrolled_at <span class="code-keyword">BETWEEN</span> <span class="code-string">'2024-09-01'</span> <span class="code-keyword">AND</span> <span class="code-string">'2024-09-30'</span>;</code>
             </div>
@@ -318,6 +318,56 @@
             <p style="font-style: italic; color: var(--text-muted);">(English avg is 78, so it's excluded by the HAVING filter)</p>
         </section>
 
+        <!-- Practice: three levels -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+<p>Which function counts rows? Which one adds up a column? Which one finds the average? When do you need <code>HAVING</code> instead of <code>WHERE</code>?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>COUNT()</code> counts, <code>SUM()</code> adds up, <code>AVG()</code> finds the average. Use <code>HAVING</code> to filter on a group result, such as <code>SUM(amount)</code>, after <code>GROUP BY</code>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+<p>The <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a> already has a small school database with the tables <code>students</code>, <code>books</code>, <code>loans</code> (library books borrowed by students) and <code>donations</code>. Write one query that shows the total amount given to each <code>cause</code>, biggest total first.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>SELECT cause, SUM(amount) AS total
+FROM donations
+GROUP BY cause
+ORDER BY total DESC;</code></pre>
+<div style="overflow-x: auto;"><table><thead><tr><th>cause</th><th>total</th></tr></thead><tbody><tr><td>Clean Water</td><td>15000</td></tr><tr><td>Food Pantry</td><td>7000</td></tr><tr><td>Books</td><td>5500</td></tr></tbody></table></div>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+<p>Write the end-of-month report for the school charity drive, using the <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a>.</p>
+<ol>
+<li>For each cause, show how many donations it got and the total amount.</li>
+<li>Keep only causes whose total is more than 6000.</li>
+<li>In a second query, use a subquery to list donations larger than the average donation.</li>
+<li>In a third query, find donors whose name starts with <code>Z</code>.</li>
+</ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>-- 1 and 2: causes with a total above 6000
+SELECT cause, COUNT(*) AS gifts, SUM(amount) AS total
+FROM donations
+GROUP BY cause
+HAVING SUM(amount) &gt; 6000;
+-- Clean Water | 3 | 15000
+-- Food Pantry | 2 | 7000
+
+-- 3: donations above the average (the average is 3437.5)
+SELECT donor, amount FROM donations
+WHERE amount &gt; (SELECT AVG(amount) FROM donations);
+-- Sara 5000, Yusuf 8000, Zainab 4500
+
+-- 4: donors whose name starts with Z
+SELECT donor FROM donations WHERE donor LIKE 'Z%';
+-- Zainab</code></pre>
+<p>These results use the sandbox's starting data. If you added Maryam's donation in Module 3, press <strong>Reset database</strong> in the sandbox first.</p>
+                </div></details>
+            </div>
+        </section>
+
         <section class="content-section" style="border-top: 5px solid var(--mysql-brand);">
             <h2>Quick Quiz!</h2>
             <div id="quiz-form-1" class="quiz-section">
@@ -347,8 +397,8 @@
         </section>
 
         <section class="content-section" style="text-align: center;">
-            <h2>🎉 Course Complete! You're a Database Developer!</h2>
-            <p>You've finished all 6 modules of Database Quest. You can now:</p>
+            <h2>🎉 Course Complete! Well Done!</h2>
+            <p>You've finished all 6 modules of Learning MySQL. You can now:</p>
             <ul style="list-style: none; padding: 0; margin: 1.5rem auto; max-width: 500px; display: flex; flex-direction: column; gap: 0.6rem; text-align: left;">
                 <li>✅ Create databases and tables with the right data types</li>
                 <li>✅ Insert, read, update, and delete data (full CRUD)</li>

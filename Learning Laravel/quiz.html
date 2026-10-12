@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Quiz: 10 Questions | Junior Coders</title>
+    <meta name="description" content="Ten quick questions on Laravel: MVC, routes, controllers, Blade, Eloquent, migrations, forms, CSRF, starter kits and middleware.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header path-laravel">
+            <span class="badge" style="background: white; color: var(--laravel-brand);">Quiz</span>
+            <h1>Laravel Master Quiz 🧠</h1>
+            <p>Ten questions covering the whole Laravel track. Pick an answer for each, then press <strong>Check my answers</strong>.</p>
+        </header>
+
+        <section class="content-card">
+            <form id="quiz-form-laravel" onsubmit="event.preventDefault(); checkQuiz('laravel');">
+                <div class="quiz-question" data-answer="c">
+                    <p>Q1: In MVC, which part talks to the database?</p>
+                    <label><input type="radio" name="q1" value="a"> The View</label>
+                    <label><input type="radio" name="q1" value="b"> The Controller</label>
+                    <label><input type="radio" name="q1" value="c"> The Model</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: Which file holds the routes for your web pages?</p>
+                    <label><input type="radio" name="q2" value="a"> <code>routes/web.php</code></label>
+                    <label><input type="radio" name="q2" value="b"> <code>public/index.html</code></label>
+                    <label><input type="radio" name="q2" value="c"> <code>.env</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q3: In <code>Route::get('/book/{id}', ...)</code>, what is <code>{id}</code>?</p>
+                    <label><input type="radio" name="q3" value="a"> A comment that Laravel ignores</label>
+                    <label><input type="radio" name="q3" value="b"> A route parameter: it captures that part of the URL, such as 7 in <code>/book/7</code></label>
+                    <label><input type="radio" name="q3" value="c"> The name of the route</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q4: Which command creates a controller called <code>BookController</code>?</p>
+                    <label><input type="radio" name="q4" value="a"> <code>php artisan make:controller BookController</code></label>
+                    <label><input type="radio" name="q4" value="b"> <code>php artisan serve BookController</code></label>
+                    <label><input type="radio" name="q4" value="c"> <code>composer new BookController</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q5: In a Blade view, which line shows a student's name safely, so any HTML in it shows as plain text?</p>
+                    <label><input type="radio" name="q5" value="a"> <code>{!! $student-&gt;name !!}</code></label>
+                    <label><input type="radio" name="q5" value="b"> <code>{{ $student-&gt;name }}</code></label>
+                    <label><input type="radio" name="q5" value="c"> <code>@name($student)</code></label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q6: What does <code>Student::findOrFail(5)</code> do?</p>
+                    <label><input type="radio" name="q6" value="a"> Deletes the student with id 5</label>
+                    <label><input type="radio" name="q6" value="b"> Returns the first 5 students</label>
+                    <label><input type="radio" name="q6" value="c"> Finds the student with id 5, or shows a 404 page if there is none</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q7: What does the <code>down()</code> method of a migration do?</p>
+                    <label><input type="radio" name="q7" value="a"> Undoes what <code>up()</code> did, for example drops the table</label>
+                    <label><input type="radio" name="q7" value="b"> Downloads the database</label>
+                    <label><input type="radio" name="q7" value="c"> Moves the table to the bottom of phpMyAdmin</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q8: Why does every Laravel form that sends POST data need <code>@csrf</code>?</p>
+                    <label><input type="radio" name="q8" value="a"> It makes the form look nicer</label>
+                    <label><input type="radio" name="q8" value="b"> It adds a secret token that proves the form came from your own site</label>
+                    <label><input type="radio" name="q8" value="c"> It checks that the email address is valid</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q9: What does a Laravel starter kit give a new app?</p>
+                    <label><input type="radio" name="q9" value="a"> A free web host</label>
+                    <label><input type="radio" name="q9" value="b"> A full database of sample students</label>
+                    <label><input type="radio" name="q9" value="c"> Ready-made register, login and logout pages with their routes and controllers</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q10: A route has <code>-&gt;middleware('auth')</code>. What happens when a guest (not logged in) opens it?</p>
+                    <label><input type="radio" name="q10" value="a"> The page opens as normal</label>
+                    <label><input type="radio" name="q10" value="b"> Laravel sends the guest to the login page</label>
+                    <label><input type="radio" name="q10" value="c"> The whole app stops working</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="submit" class="btn-primary" style="margin-top: 1rem;">Check my answers</button>
+            </form>
+        </section>
+
+        <section class="content-card" style="margin-top: 1.5rem;">
+            <h2>Keep practising</h2>
+            <p>Try the three practice levels at the end of each <a href="learninglaravel.html">Laravel module</a>, or look terms up in the <a href="glossary.html">glossary</a>.</p>
+        </section>
+    </main>
+
+    <script src="../js/bei-nav.js"></script>
+    <script src="../js/tts-voices.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/pdf-download.js"></script>
+</body>
+</html>

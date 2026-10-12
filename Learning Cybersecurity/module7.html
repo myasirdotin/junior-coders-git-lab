@@ -14,52 +14,160 @@
         <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 3</span>
             <h1 style="color: white; margin: 0.5rem 0;">Cryptography &amp; Secure Channels 🔐📡</h1>
-            <p>Differentiate encoding, encryption, and hashing. Protect communications on hostile public networks.</p>
+            <p>Learn the difference between encoding, encryption and hashing, and stay safe on public Wi-Fi.</p>
         </header>
 
-        <!-- Core Triad Comparison -->
+        <!-- Real-life analogy -->
         <section class="content-section">
-            <h2>Encoding vs. Encryption vs. Hashing</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+            <h2>📦 Three Ways to Change a Message</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> imagine three things you could do to a note.</p>
+                <ul>
+                    <li><strong>Write it in Morse code.</strong> It looks different, but anyone with a Morse chart can read it. No secret is needed. This is like <strong>encoding</strong>.</li>
+                    <li><strong>Lock it in a box.</strong> Only someone with the key can open it and read the note. This is like <strong>encryption</strong>.</li>
+                    <li><strong>Blend fruit into a smoothie.</strong> You can always make the same smoothie from the same fruit. But you can never turn the smoothie back into fruit. This is like <strong>hashing</strong>.</li>
+                </ul>
+            </div>
+            <p><strong>Cryptography</strong> is the science of protecting information with mathematics. It helps all three CIA pillars from Module 1, but mostly secrecy and accuracy.</p>
+        </section>
+
+        <!-- Core Comparison -->
+        <section class="content-section">
+            <h2>🔍 Encoding vs. Encryption vs. Hashing</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #64748b;">
-                    <h3>1. Encoding (Base64)</h3>
-                    <p>Changes data format for safe transport. <strong>NOT security!</strong> Anyone can reverse it instantly without a key.</p>
+                    <h3>1. Encoding (e.g. Base64)</h3>
+                    <p>Changes the <em>format</em> of data so it can travel safely, for example inside an email. <strong>It is not security.</strong> Anyone can reverse it without a key.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
-                    <h3>2. Encryption (AES / RSA)</h3>
-                    <p>Scrambles data for secrecy. <strong>Reversible with the correct mathematical key.</strong></p>
+                    <h3>2. Encryption (e.g. AES)</h3>
+                    <p>Scrambles data so only key holders can read it. <strong>It can be reversed with the right key.</strong></p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
-                    <h3>3. Hashing (SHA-256)</h3>
-                    <p>Fixed-size digital fingerprint. <strong>Strictly one-way. Impossible to reverse.</strong></p>
+                    <h3>3. Hashing (e.g. SHA-256)</h3>
+                    <p>Makes a fixed-size "fingerprint" of data. <strong>It is one-way.</strong> You cannot turn a hash back into the original.</p>
                 </div>
             </div>
         </section>
 
-        <!-- The Avalanche Effect -->
+        <!-- Worked example 1 -->
         <section class="content-section">
-            <h2>The Cryptographic Avalanche Effect</h2>
-            <p>In secure cryptographic hash functions (like SHA-256), changing a single letter flips more than 50% of the output bits completely, preventing attackers from guessing patterns:</p>
-            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; font-size: 0.88rem; line-height: 1.8;">
-                "Salam" &nbsp;➔ <span style="color: #34d399;">a9f2bc88d74e...</span><br>
-                "Salam!" ➔ <span style="color: #38bdf8;">1b045e2c349a...</span> (Completely different 256-bit output!)
+            <h2>🧪 Worked Example 1: Encoding Is Not a Secret</h2>
+            <p>Base64 is a common encoding. Here is the word "Salam" in Base64:</p>
+            <pre class="code-block"><code>"Salam"  ──Base64──▶  U2FsYW0=
+U2FsYW0= ──decode──▶  "Salam"   (no key needed!)</code></pre>
+            <p>In JavaScript you can try it yourself with <code>btoa("Salam")</code> and <code>atob("U2FsYW0=")</code>.</p>
+            <div class="tip-box">⚠️ <strong>Common mistake:</strong> a website stores passwords in Base64 and calls them "encrypted". They are not. Anyone who sees them can decode them in a second. Passwords need slow, salted hashing (Module 2).</div>
+        </section>
+
+        <!-- Worked example 2 -->
+        <section class="content-section">
+            <h2>🔑 Worked Example 2: Two Kinds of Encryption</h2>
+            <p>An <strong>encryption key</strong> is a long secret number used to lock and unlock data.</p>
+            <ul>
+                <li><strong>Symmetric encryption</strong> (e.g. AES) uses <em>one</em> key to lock and unlock. It is very fast. The problem: both people need the same key, and sharing it safely is hard.</li>
+                <li><strong>Asymmetric encryption</strong> uses a <em>pair</em> of keys. The <strong>public key</strong> can be shared with everyone. The <strong>private key</strong> stays secret with its owner.</li>
+            </ul>
+            <div class="connection-box">
+                <p>🧠 <strong>Padlock analogy:</strong> Fatima hands out open padlocks to anyone (her public key). You put a letter in a box and snap her padlock shut. Now only Fatima can open it, because only she has the key (her private key).</p>
             </div>
+            <p>Websites use both. Asymmetric keys help two computers agree on a shared secret. Then fast symmetric encryption protects the rest of the conversation.</p>
+        </section>
+
+        <!-- Worked example 3: avalanche -->
+        <section class="content-section">
+            <h2>🌊 Worked Example 3: The Avalanche Effect</h2>
+            <p>A good hash changes completely when the input changes even a little. On average, about half of the output bits flip. This is called the <strong>avalanche effect</strong>. Here are the real SHA-256 hashes of two words (shortened):</p>
+            <pre class="code-block"><code>"Salam"   ➔ e6aff8d7aabcab5ae8243568...
+"Salam!"  ➔ df5531cc965daf33d93cd2fa...
+One "!" added → a totally different fingerprint.</code></pre>
+            <p><strong>Where hashes help:</strong></p>
+            <ul>
+                <li><strong>Checking downloads:</strong> a software site lists the SHA-256 hash of its file. You hash your download and compare. If they match, the file was not changed on the way (Integrity).</li>
+                <li><strong>Passwords:</strong> websites store a hash, not the password. But SHA-256 is very fast, which helps guessers. For passwords, use slow, salted hashes like bcrypt or Argon2id (Module 2).</li>
+            </ul>
+        </section>
+
+        <!-- HTTPS & TLS -->
+        <section class="content-section">
+            <h2>🔒 HTTPS and TLS: The Secure Channel</h2>
+            <p>When you visit a website, your data hops through many computers on the way. Without protection, any of them could read it.</p>
+            <ul>
+                <li><strong>HTTPS</strong> is the secure version of the web's language, HTTP. The "S" stands for "secure".</li>
+                <li><strong>TLS</strong> (Transport Layer Security) is the set of rules that makes HTTPS secure. Your browser and the website agree on secret keys, then encrypt everything they send. TLS 1.3 is the current version.</li>
+                <li>A <strong>certificate</strong> is the website's digital ID card. It proves the site really owns its name, for example <code>greenfield-school.org</code>.</li>
+            </ul>
+            <div class="tip-box">⚠️ The padlock 🔒 means the <em>connection</em> is private. It does not mean the site is honest. A phishing site can have a padlock too (Module 3). Always check the domain name.</div>
         </section>
 
         <!-- Public Wi-Fi & VPNs -->
         <section class="content-section">
-            <h2>Public Wi-Fi Hazards &amp; VPN Protection</h2>
-            <p>On open coffee shop or airport Wi-Fi, malicious actors can sniff radio packets or launch "Evil Twin" rogue access points. Protect yourself with:</p>
-            <ul style="line-height: 1.8; color: #334155;">
-                <li><strong>HTTPS (TLS 1.3):</strong> Encrypts payload data so eavesdroppers only see garbled ciphertext.</li>
-                <li><strong>Virtual Private Network (VPN):</strong> Creates an encrypted tunnel that shields DNS queries and destination IPs from the local router.</li>
+            <h2>📶 Public Wi-Fi and VPNs</h2>
+            <p>Free Wi-Fi in a library, airport or café is shared with strangers. Two risks to know:</p>
+            <ul>
+                <li><strong>Eavesdropping:</strong> on an open network, others nearby may see traffic that is not encrypted.</li>
+                <li><strong>Evil twin:</strong> someone sets up a fake hotspot with a real-looking name, like "City Library Free WiFi". Devices that join it send their traffic through the faker.</li>
             </ul>
+            <p>A <strong>VPN</strong> (Virtual Private Network) builds an encrypted tunnel from your device to the VPN company. People on the local Wi-Fi then cannot see which sites you visit. But the VPN company can, so only use a trusted one, such as one your school or family approves.</p>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #047857; margin-top: 0;">🧪 Your Turn: Live Hash Avalanche</h2>
-            <p>Go to the <a href="playground.html" style="color: #059669; font-weight: 700;">Cyber Defense Studio</a> tab <strong>SHA-256 Avalanche Lab</strong> and observe the real-time mathematical digest as you type!</p>
+        <!-- Checklist -->
+        <section class="content-section">
+            <h2>✅ What To Do: Your Secure Channel Checklist</h2>
+            <ul>
+                <li>☐ Look for <code>https://</code> and the correct domain before typing a password.</li>
+                <li>☐ If your browser warns "Your connection is not private", stop. Do not continue.</li>
+                <li>☐ On public Wi-Fi, ask staff for the exact network name. Avoid logging in to important accounts.</li>
+                <li>☐ Use mobile data or a trusted network for anything private.</li>
+                <li>☐ Remember: encoding is not encryption. Never "hide" secrets with Base64.</li>
+                <li>☐ <strong>As a builder:</strong> serve your sites over HTTPS, and hash passwords with <code>password_hash()</code>.</li>
+            </ul>
+            <p>🧪 <strong>Try it:</strong> the <a href="playground.html">Cyber Defense Studio</a> tab <strong>SHA-256 Avalanche Lab</strong> shows the hash changing as you type.</p>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Which of the three (encoding, encryption, hashing) is one-way? Which needs a key to reverse? Which needs no secret at all?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>Hashing is one-way. Encryption needs a key to reverse. Encoding needs no secret, so anyone can reverse it.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>Choose encoding, encryption or hashing for each job, and say why.</p>
+                <ol>
+                    <li>Storing student passwords on the school server.</li>
+                    <li>Sending a private message that the receiver must read.</li>
+                    <li>Checking that a downloaded science app was not changed.</li>
+                    <li>A friend stores a secret as <code>btoa("myPin1234")</code>. Is it safe?</li>
+                </ol>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <ol>
+                        <li>Hashing, slow and salted: <code>password_hash($password, PASSWORD_DEFAULT)</code>. Nobody needs to read the password back.</li>
+                        <li>Encryption, because the receiver must unlock and read it.</li>
+                        <li>Hashing: compare the file's SHA-256 with the one the publisher lists.</li>
+                        <li>Not safe. <code>btoa</code> is Base64 encoding; <code>atob</code> reverses it instantly.</li>
+                    </ol>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>You will work on a science project at the city library using its free Wi-Fi. Write a safety plan.</p>
+                <ol>
+                    <li>How will you make sure you join the real network?</li>
+                    <li>Which websites will you use there, and which will you wait to use at home?</li>
+                    <li>What will you check before typing any password?</li>
+                    <li>What will you do if the browser shows a security warning?</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <ol>
+                        <li>Ask the library desk for the exact network name, and choose that one only.</li>
+                        <li>Use research and reading sites there. Wait until home for email and account settings.</li>
+                        <li>Check for <code>https://</code>, the padlock and the correct domain name.</li>
+                        <li>Stop, close the page, and do not click "continue anyway". Use mobile data or wait until home.</li>
+                    </ol>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

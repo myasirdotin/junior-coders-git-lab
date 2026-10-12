@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laravel Glossary: Terms Explained | Junior Coders</title>
+    <meta name="description" content="Plain-English definitions of Laravel terms: route, controller, view, Blade, Eloquent, model, migration, Artisan, middleware, CSRF token, validation, request, MVC, seeder, .env, Composer and starter kit.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+</head>
+<body>
+    <main id="main-content" class="glossary-container">
+        <div class="glossary-header">
+            <h1>Laravel Glossary</h1>
+            <p>Quick reference for the terms used in the Laravel track</p>
+        </div>
+
+        <input type="text" id="glossary-search" class="glossary-search" placeholder="Search terms..." aria-label="Search glossary terms">
+
+        <div class="glossary-letter">A</div>
+        <dl class="glossary-term"><dt>Artisan</dt><dd>Laravel's command-line tool. You type commands such as <code>php artisan serve</code> (start the app) or <code>php artisan make:controller BookController</code> (create a file).</dd></dl>
+
+        <div class="glossary-letter">B</div>
+        <dl class="glossary-term"><dt>Blade</dt><dd>Laravel's template language: HTML with extra commands. Files end in <code>.blade.php</code>. <code>{{ $name }}</code> shows a value safely, and directives like <code>@foreach</code> and <code>@if</code> add logic.</dd></dl>
+
+        <div class="glossary-letter">C</div>
+        <dl class="glossary-term"><dt>Composer</dt><dd>A tool that downloads PHP packages and keeps them up to date. You use it to install Laravel: <code>composer create-project laravel/laravel school-library</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Controller</dt><dd>A PHP class that handles requests. It asks the model for data and passes it to a view. Lives in <code>app/Http/Controllers/</code>.</dd></dl>
+        <dl class="glossary-term"><dt>CSRF token</dt><dd>A secret code added to every form by <code>@csrf</code>. Laravel checks it on each POST, so another website cannot trick a browser into sending your form. A missing token gives "419 Page Expired".</dd></dl>
+
+        <div class="glossary-letter">E</div>
+        <dl class="glossary-term"><dt>Eloquent</dt><dd>Laravel's tool for working with the database using PHP instead of SQL: <code>Book::all()</code>, <code>Book::where('author', 'Amina Yusuf')-&gt;get()</code>. Each table has a model.</dd></dl>
+        <dl class="glossary-term"><dt>.env file</dt><dd>The settings file of your app: database name, username, password and more. It holds secrets, so never share it or upload it publicly (Amānah: keep what you are trusted with safe).</dd></dl>
+
+        <div class="glossary-letter">M</div>
+        <dl class="glossary-term"><dt>Middleware</dt><dd>A check that runs before a route's code. The <code>auth</code> middleware sends guests to the login page: <code>Route::get('/dashboard', ...)-&gt;middleware('auth');</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Migration</dt><dd>A PHP file that describes a database table. <code>up()</code> builds it and <code>down()</code> undoes it. Run them with <code>php artisan migrate</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Model</dt><dd>A PHP class that stands for one database table. The <code>Book</code> model works with the <code>books</code> table. Lives in <code>app/Models/</code>.</dd></dl>
+        <dl class="glossary-term"><dt>MVC</dt><dd>Model, View, Controller: a way to split an app into three parts. The model handles data, the view shows it, and the controller connects them.</dd></dl>
+
+        <div class="glossary-letter">R</div>
+        <dl class="glossary-term"><dt>Request</dt><dd>Everything the browser sends to your app: the URL, the method (GET or POST) and any form data. In a controller, read a field with <code>$request-&gt;input('name')</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Route</dt><dd>A rule that says which code runs for a URL. Written in <code>routes/web.php</code>: <code>Route::get('/books', [BookController::class, 'index']);</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Route parameter</dt><dd>A part of the URL in curly braces that Laravel captures: in <code>/book/{id}</code>, visiting <code>/book/7</code> gives <code>$id = 7</code>.</dd></dl>
+
+        <div class="glossary-letter">S</div>
+        <dl class="glossary-term"><dt>Seeder</dt><dd>A class that fills the database with sample data for testing. Seeders live in <code>database/seeders/</code> and run with <code>php artisan db:seed</code>.</dd></dl>
+        <dl class="glossary-term"><dt>Starter kit</dt><dd>Ready-made register, login and logout pages for a new app. Since Laravel 12 the official kits use React, Vue or Livewire. Laravel 11 and earlier mostly used Breeze.</dd></dl>
+
+        <div class="glossary-letter">V</div>
+        <dl class="glossary-term"><dt>Validation</dt><dd>Checking form data before saving it: <code>$request-&gt;validate(['email' =&gt; 'required|email'])</code>. If a rule fails, Laravel sends the user back to the form with error messages.</dd></dl>
+        <dl class="glossary-term"><dt>View</dt><dd>The page the user sees, written in Blade and stored in <code>resources/views/</code>. A controller shows one with <code>return view('books.index');</code>.</dd></dl>
+
+        <p id="glossary-empty" class="glossary-empty" hidden>No terms match your search.</p>
+    </main>
+
+    <script>
+    (function () {
+        const input = document.getElementById('glossary-search');
+        const terms = Array.from(document.querySelectorAll('.glossary-term'));
+        const letters = Array.from(document.querySelectorAll('.glossary-letter'));
+        input.addEventListener('input', () => {
+            const q = input.value.trim().toLowerCase();
+            let shown = 0;
+            terms.forEach(t => { const hit = !q || t.textContent.toLowerCase().includes(q); t.style.display = hit ? '' : 'none'; if (hit) shown++; });
+            letters.forEach(l => {
+                let el = l.nextElementSibling, any = false;
+                while (el && !el.classList.contains('glossary-letter')) { if (el.classList.contains('glossary-term') && el.style.display !== 'none') any = true; el = el.nextElementSibling; }
+                l.style.display = any ? '' : 'none';
+            });
+            document.getElementById('glossary-empty').hidden = shown > 0;
+        });
+    })();
+    </script>
+    <script src="../js/bei-nav.js"></script>
+    <script src="../js/tts-voices.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/pdf-download.js"></script>
+</body>
+</html>

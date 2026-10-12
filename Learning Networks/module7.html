@@ -16,49 +16,194 @@
             <h1 style="color: white; margin: 0.5rem 0;">HTTPS, TLS 1.3 &amp; Digital Trust (Amānah) 🔐</h1>
             <p>Guarding the wire. Learn how modern cryptography, certificates, and CORS defend human privacy.</p>
         </header>
+        <!-- Why HTTPS -->
+        <section class="content-section">
+            <h2>Why Plain HTTP Is Not Enough 📮</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> Plain HTTP is like a postcard. Every sorting office it passes through could read it, or even change the words. HTTPS is like a sealed, tamper-proof envelope, delivered only after the receiver shows a valid ID card.</p>
+            </div>
+            <p><strong>HTTPS</strong> is HTTP sent inside a protective layer called <strong>TLS</strong> (Transport Layer Security). The newest version, TLS 1.3, is used by most websites today. TLS gives three promises:</p>
+            <ul>
+                <li><strong>Privacy:</strong> nobody on the path can read the data. This is done with <strong>encryption</strong>, which scrambles data so only someone with the right key can unscramble it.</li>
+                <li><strong>Integrity:</strong> if anyone changes the data on the way, the receiver will notice.</li>
+                <li><strong>Authentication:</strong> you are really talking to the website you asked for, not a fake one.</li>
+            </ul>
+        </section>
 
         <!-- Symmetric vs Asymmetric -->
         <section class="content-section">
-            <h2>The Hybrid Cryptographic Engine</h2>
-            <p>Modern HTTPS uses a brilliant blend of two mathematical approaches:</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
+            <h2>Two Kinds of Keys Working Together 🔑</h2>
+            <p>A <strong>key</strong> is a long secret number used to scramble and unscramble data. HTTPS mixes two kinds of key methods:</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem;">
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
-                    <h3>1. Asymmetric Cryptography (Public Key)</h3>
-                    <p>Uses a Public Key to encrypt and a Private Key to decrypt. Used only for the first few milliseconds to safely exchange secrets over an open network.</p>
+                    <h3>1. Asymmetric (Public-Key) Cryptography</h3>
+                    <p>Uses a pair of keys: a <strong>public key</strong> anyone may see and a <strong>private key</strong> kept secret. In TLS 1.3 it is used at the start, for two jobs: to agree on a shared secret over an open network, and to let the server prove its identity with a digital signature.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
-                    <h3>2. Symmetric Cryptography (AES-256)</h3>
-                    <p>Uses one shared session key to encrypt and decrypt. Blazingly fast, providing high-speed bulk data encryption for the rest of your session.</p>
+                    <h3>2. Symmetric Cryptography (e.g. AES)</h3>
+                    <p>Uses one shared <strong>session key</strong> to both scramble and unscramble. It is very fast, so it protects all the data for the rest of the visit. Common choices are AES and ChaCha20.</p>
                 </div>
             </div>
+
+            <h3 style="margin-top: 1.5rem;">How can two strangers agree on a secret in public?</h3>
+            <p>Think of mixing paint. Both sides start with the same public colour, yellow. Each adds a secret colour of its own and sends the mix across. Then each adds its own secret colour to the mix it received. Both end up with the <em>same</em> final colour. Someone watching only saw the two mixes, and paint cannot be un-mixed. TLS does this with maths instead of paint. It is called a <strong>key exchange</strong>.</p>
+            <pre class="code-block"><code>Browser                      Server
+yellow + RED  ──── mix ────►
+              ◄──── mix ────  yellow + BLUE
+mix + RED                     mix + BLUE
+   = yellow+red+blue  ==  yellow+blue+red
+        (same secret, never sent)</code></pre>
+        </section>
+
+        <!-- Certificates -->
+        <section class="content-section">
+            <h2>Certificates: A Website's ID Card 🪪</h2>
+            <p>How do you know the server is the real <code>library.example.org</code>? It shows a <strong>certificate</strong>. A certificate is a digital ID card. It holds:</p>
+            <ul>
+                <li>the domain name it belongs to,</li>
+                <li>the site's public key,</li>
+                <li>the dates it is valid from and to,</li>
+                <li>the name of the <strong>Certificate Authority (CA)</strong> that signed it. A CA is a trusted organisation that checks a site really controls its domain.</li>
+            </ul>
+            <p>Your browser and computer come with a built-in list of trusted CAs. If a certificate is not signed by one of them, has expired or is for a different name, the browser shows a warning. Free CAs such as Let's Encrypt mean every website, even a small charity's, can use HTTPS. Certificates now last only a few months, so servers renew them automatically.</p>
+
+            <h3>Worked example 1: reading a certificate with curl</h3>
+            <p>The <code>-v</code> flag ("verbose", meaning "tell me everything") makes curl show the TLS details.</p>
+            <pre class="code-block"><code>curl -v https://example.org/ -o NUL</code></pre>
+            <p><code>-o NUL</code> throws the page away on Windows, so only the details show. On macOS and Linux, use <code>-o /dev/null</code>.</p>
+            <p><strong>Example output</strong> (a few lines from curl on Linux or macOS; the names and dates here are made up, and Windows shows less):</p>
+            <pre class="code-block"><code>* SSL connection using TLSv1.3 /
+*   TLS_AES_128_GCM_SHA256
+* Server certificate:
+*  subject: CN=library.example.org
+*  start date: Sep  1 00:00:00 2026 GMT
+*  expire date: Nov 30 23:59:59 2026 GMT
+*  issuer: O=Example Trust CA
+*  SSL certificate verify ok.</code></pre>
+            <ul>
+                <li><code>TLSv1.3</code> is the TLS version. <code>AES_128_GCM</code> is the symmetric method chosen.</li>
+                <li><code>subject: CN=...</code> is the name on the ID card. It must match the site you asked for.</li>
+                <li><code>verify ok</code> means the signature chain leads back to a trusted CA.</li>
+            </ul>
         </section>
 
         <!-- The TLS 1.3 Handshake -->
         <section class="content-section">
-            <h2>The 1-RTT TLS 1.3 Handshake</h2>
+            <h2>The 1-RTT TLS 1.3 Handshake 🤝</h2>
+            <p>An <strong>RTT</strong> (round-trip time) is one trip there and back, like a ping (Module 1). TLS 1.3 needs only <strong>one</strong> round trip to set up the secure channel. It happens right after the TCP handshake (Module 4).</p>
             <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
-                Client ➔ Server: <span style="color: #38bdf8;">ClientHello</span> (Supported Ciphers + Key Share)<br>
-                Server ➔ Client: <span style="color: #34d399;">ServerHello + X.509 Certificate + Finished</span><br>
-                Both compute Session Keys independently ➔ <span style="color: #fbbf24;">Encrypted Wire Established in 1 RTT!</span>
+                Client ➔ Server: <span style="color: #38bdf8;">ClientHello</span> (supported methods + key share)<br>
+                Server ➔ Client: <span style="color: #34d399;">ServerHello</span> (key share) + Certificate + signature + Finished, already encrypted<br>
+                Client ➔ Server: <span style="color: #fbbf24;">Finished</span> + the first encrypted HTTP request
             </div>
+            <p>The "key share" is each side's paint mix. After the first two messages, both sides compute the same session key on their own. The key itself is never sent.</p>
+
+            <h3>Worked example 2: counting the waiting time</h3>
+            <p>A student's laptop is 40 ms (one RTT) from the school portal. How long before the first encrypted request can leave?</p>
+            <pre class="code-block"><code>TCP handshake      1 RTT = 40 ms
+TLS 1.3 handshake  1 RTT = 40 ms
+                   ─────────────
+Request can go after       80 ms
+
+With older TLS 1.2 (2 RTTs):
+40 + 80 = 120 ms</code></pre>
+            <p>TLS 1.3 saves one whole round trip on every new connection. HTTP/3 (Module 6) goes further: QUIC joins the transport and TLS handshakes, so the request can leave after about one round trip.</p>
+        </section>
+
+        <!-- Security headers & cookies -->
+        <section class="content-section">
+            <h2>Headers That Protect Visitors 🛡️</h2>
+            <p>A <strong>cookie</strong> is a small note a website asks the browser to keep and send back on later visits. Login cookies prove who you are, so they must be guarded. The server sets them with flags:</p>
+            <pre class="code-block"><code>Set-Cookie: session=abc123; Secure;
+            HttpOnly; SameSite=Lax</code></pre>
+            <ul>
+                <li><code>Secure</code>: only send this cookie over HTTPS.</li>
+                <li><code>HttpOnly</code>: page scripts cannot read it, so a harmful script cannot steal it.</li>
+                <li><code>SameSite=Lax</code>: do not send it when other websites quietly make requests to this site.</li>
+            </ul>
+            <p>Another header tells browsers to always use HTTPS for a site:</p>
+            <pre class="code-block"><code>Strict-Transport-Security: max-age=31536000</code></pre>
+            <p>31,536,000 seconds is 365 days. For a year, the browser will refuse plain HTTP for this site.</p>
         </section>
 
         <!-- CORS Security -->
         <section class="content-section">
-            <h2>Same-Origin Policy &amp; CORS Headers</h2>
-            <p>Browsers block cross-origin requests by default to protect user sessions. The server grants explicit permission using headers:</p>
-            <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem; font-family: monospace; color: #38bdf8;">
-                Access-Control-Allow-Origin: https://app.oasis-aid.org<br>
+            <h2>Same-Origin Policy &amp; CORS</h2>
+            <p>An <strong>origin</strong> is the scheme, the host name and the port together. <code>https://app.relief.example.org</code> and <code>https://api.relief.example.org</code> are <em>different</em> origins, because the host names differ.</p>
+            <p>The <strong>same-origin policy</strong> is a browser rule. A page's scripts may freely read answers from their own origin. For any other origin, the browser hides the answer from the script unless that server gives permission. This stops a harmful page from reading your private data from another site where you are logged in.</p>
+            <p><strong>CORS</strong> (Cross-Origin Resource Sharing) is how a server gives that permission, with headers.</p>
+
+            <h3>Worked example 3: a charity app calling its own API</h3>
+            <p>The app at <code>https://app.relief.example.org</code> wants to send JSON to the API. For a request like this, the browser first sends a short "may I?" check, called a <strong>preflight</strong>, using the <code>OPTIONS</code> method:</p>
+            <pre class="code-block"><code>OPTIONS /supplies HTTP/1.1
+Host: api.relief.example.org
+Origin: https://app.relief.example.org
+Access-Control-Request-Method: POST
+Access-Control-Request-Headers: Content-Type</code></pre>
+            <p>The API answers with permission:</p>
+            <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem; font-family: monospace; color: #38bdf8; overflow-x: auto;">
+                HTTP/1.1 204 No Content<br>
+                Access-Control-Allow-Origin: https://app.relief.example.org<br>
                 Access-Control-Allow-Methods: GET, POST, OPTIONS<br>
-                Access-Control-Allow-Headers: Content-Type, Authorization
+                Access-Control-Allow-Headers: Content-Type
+            </div>
+            <p>Now the browser sends the real POST. If the permission headers were missing, the browser would block the request and show a CORS error in the console.</p>
+        </section>
+
+        <!-- Common misunderstanding -->
+        <section class="content-section">
+            <h2>Common Misunderstanding ⚠️</h2>
+            <div class="tip-box">
+                <p><strong>"The padlock means the website is safe and honest."</strong></p>
+                <p>No. The padlock only means the connection is encrypted and the certificate matches the name in the address bar. A fake website can get a certificate for its own fake name. Always check the name carefully before typing a password.</p>
+            </div>
+            <div class="tip-box">
+                <p><strong>"CORS protects my server from attackers."</strong></p>
+                <p>CORS is a rule that <em>browsers</em> follow to protect their users. Tools like curl ignore it. Your server must still check logins and permissions on every request.</p>
+            </div>
+            <div class="connection-box">
+                <p>🔐 <strong>Amānah:</strong> When people type their names, passwords or donation details into your site, they are trusting you. HTTPS everywhere, careful cookies and tight CORS rules are how a developer keeps that trust.</p>
             </div>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #0369a1; margin-top: 0;">🧪 Your Turn: Check Site Certificate</h2>
-            <p>Click the padlock icon in your browser's address bar right now. View the certificate issuer and notice that the connection is secured with TLS 1.3!</p>
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Name the three promises TLS gives. Which kind of cryptography, symmetric or asymmetric, is used for the bulk of the data, and why?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>Privacy, integrity and authentication. Symmetric cryptography carries the bulk of the data, because it is much faster.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>(1) The RTT to a server is 50 ms. How long before the first encrypted request can leave with TCP + TLS 1.3? With TCP + TLS 1.2? (2) A site sends <code>Set-Cookie: id=77; Secure; HttpOnly</code>. Explain each flag in one short sentence.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <pre class="code-block"><code>TLS 1.3: 50 + 50      = 100 ms
+TLS 1.2: 50 + 50 + 50 = 150 ms</code></pre>
+                    <p><code>Secure</code>: the cookie is only sent over HTTPS. <code>HttpOnly</code>: scripts on the page cannot read it.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>A youth group runs a charity donation site. Its app is at <code>https://give.example.org</code> and its API is at <code>https://api.give.example.org</code>. Write a short security plan:</p>
+                <ol>
+                    <li>What should happen when someone visits <code>http://give.example.org</code> (no S)?</li>
+                    <li>Which header makes browsers use HTTPS for a whole year?</li>
+                    <li>Write the login cookie with safe flags.</li>
+                    <li>Write the CORS header so only the app may read API answers.</li>
+                    <li>How will the certificate stay valid?</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <ol>
+                        <li>Reply <code>301 Moved Permanently</code> to <code>https://give.example.org</code>.</li>
+                        <li><code>Strict-Transport-Security: max-age=31536000</code></li>
+                        <li><code>Set-Cookie: session=…; Secure; HttpOnly; SameSite=Lax</code></li>
+                        <li><code>Access-Control-Allow-Origin: https://give.example.org</code> (one exact origin, not <code>*</code>).</li>
+                        <li>Use a free CA such as Let's Encrypt with automatic renewal, and check the expiry date each month.</li>
+                    </ol>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

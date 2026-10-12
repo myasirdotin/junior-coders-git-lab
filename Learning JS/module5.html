@@ -225,10 +225,10 @@ console.log("Total items:", fruits.length);</textarea>
         <!-- ═══════════════════════════════════════════════════════════════ -->
         <!-- STEP 4: PRACTICE (3 Tiers of Exercises)                        -->
         <!-- ═══════════════════════════════════════════════════════════════ -->
-        <section id="step-practice" class="content-section" style="margin-bottom: 3.5rem;">
+        <section id="step-practice" class="content-section jc-tiers" style="margin-bottom: 3.5rem;">
             <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
                 <span style="background: rgba(79, 70, 229, 0.2); color: #818cf8; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800;">4</span>
-                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 4: Practice — 3 Levels of Drills</h2>
+                <h2 style="font-size: 1.6rem; color: #fff; margin: 0;">Step 4: 🏆 Practice: three levels</h2>
             </div>
             <p style="font-size: 1rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
                 Pick your difficulty level. Teachers can easily differentiate assignments using these three tiers:
@@ -238,22 +238,22 @@ console.log("Total items:", fruits.length);</textarea>
                 <div class="tier-tabs-bar">
                     <button class="tier-tab-btn active tier-easy" data-tier="easy">
                         <span class="tier-badge">Level 1</span>
-                        <span>🟢 Beginner (Recall & Warmup)</span>
+                        <span>🟢 Recall (First Book)</span>
                     </button>
                     <button class="tier-tab-btn tier-med" data-tier="medium">
                         <span class="tier-badge">Level 2</span>
-                        <span>🟡 Intermediate (Application)</span>
+                        <span>🟡 Apply (New Supplies)</span>
                     </button>
                     <button class="tier-tab-btn tier-hard" data-tier="hard">
                         <span class="tier-badge">Level 3</span>
-                        <span>🔴 Advanced (Challenge)</span>
+                        <span>🔴 Challenge (Inventory Fixer)</span>
                     </button>
                 </div>
 
                 <!-- Pane 1: Easy -->
-                <div class="tier-exercise-pane" data-tier="easy">
+                <div class="tier-exercise-pane jc-tier jc-tier-1" data-tier="easy" style="padding: 0 0 0 0.5rem; background: none; border: 0; border-left: 4px solid #10b981; border-radius: 0;">
                     <div style="background: var(--bg-surface-elevated); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: var(--radius-lg); padding: 1.5rem;">
-                        <h3 style="color: #34d399; margin-top: 0;">Drill 1: Pick the First Book</h3>
+                        <h3 style="color: #34d399; margin-top: 0;">🟢 Level 1: Recall — Pick the First Book</h3>
                         <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
                             Given the array <code>let library = ["Quran Stories", "Science Almanac", "Math Atlas"];</code>, print the <strong>first</strong> book to the console using its index.
                         </p>
@@ -282,9 +282,9 @@ console.log(library[0]);</textarea>
                 </div>
 
                 <!-- Pane 2: Medium -->
-                <div class="tier-exercise-pane" data-tier="medium" style="display: none;">
+                <div class="tier-exercise-pane jc-tier jc-tier-2" data-tier="medium" style="display: none; padding: 0 0 0 0.5rem; background: none; border: 0; border-left: 4px solid #f59e0b; border-radius: 0;">
                     <div style="background: var(--bg-surface-elevated); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: var(--radius-lg); padding: 1.5rem;">
-                        <h3 style="color: #fbbf24; margin-top: 0;">Drill 2: Add New Supplies</h3>
+                        <h3 style="color: #fbbf24; margin-top: 0;">🟡 Level 2: Apply — Add New Supplies</h3>
                         <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
                             Start with <code>let supplies = ["Pencil", "Notebook"];</code>. Use <code>.push()</code> to add <code>"Ruler"</code> and <code>"Eraser"</code> to the supplies list.
                         </p>
@@ -316,9 +316,9 @@ console.log(supplies);</textarea>
                 </div>
 
                 <!-- Pane 3: Hard -->
-                <div class="tier-exercise-pane" data-tier="hard" style="display: none;">
+                <div class="tier-exercise-pane jc-tier jc-tier-3" data-tier="hard" style="display: none; padding: 0 0 0 0.5rem; background: none; border: 0; border-left: 4px solid #ef4444; border-radius: 0;">
                     <div style="background: var(--bg-surface-elevated); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: var(--radius-lg); padding: 1.5rem;">
-                        <h3 style="color: #f87171; margin-top: 0;">Drill 3: The Inventory Fixer</h3>
+                        <h3 style="color: #f87171; margin-top: 0;">🔴 Level 3: Challenge — The Inventory Fixer</h3>
                         <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
                             A shipment has arrived with one damaged box at the end. Given <code>let boxes = ["Box A", "Box B", "Box C", "Damaged Box"];</code>, remove the last item using <code>.pop()</code> and print the remaining count!
                         </p>

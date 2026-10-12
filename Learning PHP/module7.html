@@ -58,7 +58,8 @@
 <span class="code-keyword">$content</span> = <span class="code-keyword">file_get_contents</span>(<span class="code-string">"notes.txt"</span>);
 <span class="code-keyword">echo</span> <span class="code-keyword">$content</span>;  <span class="code-comment">// Output: Hello, this is my first file!</span>
 
-<span class="code-comment">// APPEND: Add content to the END of the file (use FILE_APPEND flag)</span>
+<span class="code-comment">// APPEND: Add content to the END of the file (use the FILE_APPEND flag,
+// an extra option that changes how the function works)</span>
 <span class="code-keyword">file_put_contents</span>(<span class="code-string">"notes.txt"</span>, <span class="code-string">"\nA second line!"</span>, <span class="code-val">FILE_APPEND</span>);
 
 <span class="code-comment">// Read again to see both lines</span>
@@ -104,7 +105,7 @@
             </div>
 
             <div class="connection-box">
-                <p>⚠️ <strong>Always close files!</strong> Not closing a file with <code>fclose()</code> can cause data corruption or leave the file locked. Think of it like always putting the lid back on a pen!</p>
+                <p>⚠️ <strong>Always close files!</strong> PHP closes files when the script ends, but closing them yourself with <code>fclose()</code> makes sure everything is saved and frees the file for other code. Think of it like always putting the lid back on a pen!</p>
             </div>
         </section>
 
@@ -130,7 +131,7 @@
 }
 
 <span class="code-comment">// Get the size of a file in bytes</span>
-<span class="code-keyword">echo</span> <span class="code-keyword">filesize</span>(<span class="code-string">"notes.txt"</span>);  <span class="code-comment">// e.g. 31 bytes</span>
+<span class="code-keyword">echo</span> <span class="code-keyword">filesize</span>(<span class="code-string">"notes.txt"</span>);  <span class="code-comment">// e.g. 31 bytes (1 byte is about one letter)</span>
 <span class="code-keyword">?&gt;</span></code>
             </div>
         </section>
@@ -147,9 +148,10 @@
 <span class="code-keyword">if</span> (<span class="code-keyword">$_SERVER</span>[<span class="code-string">"REQUEST_METHOD"</span>] == <span class="code-string">"POST"</span>) {
     <span class="code-keyword">$name</span>    = <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">trim</span>(<span class="code-keyword">$_POST</span>[<span class="code-string">"name"</span>]));
     <span class="code-keyword">$message</span> = <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">trim</span>(<span class="code-keyword">$_POST</span>[<span class="code-string">"message"</span>]));
-    <span class="code-keyword">$date</span>    = <span class="code-keyword">date</span>(<span class="code-string">"Y-m-d H:i:s"</span>);
+    <span class="code-keyword">$date</span>    = <span class="code-keyword">date</span>(<span class="code-string">"Y-m-d H:i:s"</span>);  <span class="code-comment">// today's date and time</span>
 
     <span class="code-keyword">if</span> (!<span class="code-keyword">empty</span>(<span class="code-keyword">$name</span>) && !<span class="code-keyword">empty</span>(<span class="code-keyword">$message</span>)) {
+        <span class="code-comment">// &amp;&amp; means AND: both must be true to get here</span>
         <span class="code-comment">// Save to file: one entry per line</span>
         <span class="code-keyword">$entry</span> = <span class="code-string">"[$date] $name: $message\n"</span>;
         <span class="code-keyword">file_put_contents</span>(<span class="code-keyword">$logFile</span>, <span class="code-keyword">$entry</span>, <span class="code-val">FILE_APPEND</span>);
@@ -181,9 +183,9 @@
                 <p>🛡️ <strong>Security is important! Here are key safety rules:</strong></p>
                 <ul style="margin: 1rem 0 0 1.5rem; line-height: 2.2;">
                     <li>Never let users control the <strong>filename</strong> — always use a filename you define in code</li>
-                    <li>Always use <code>htmlspecialchars()</code> on user input before saving to files</li>
+                    <li>Always use <code>htmlspecialchars()</code> on user text before showing it on a page</li>
                     <li>Store sensitive files <strong>outside</strong> the web-accessible folder so they can't be downloaded directly</li>
-                    <li>On Linux/Mac servers, files need the correct <strong>permissions</strong> (chmod 644) to be writable by PHP</li>
+                    <li>On Linux/Mac servers, files need the correct <strong>permissions</strong> (rules for who may read or change a file) so PHP can write to them</li>
                     <li>Use <code>file_exists()</code> before reading to avoid errors</li>
                 </ul>
             </div>
@@ -231,6 +233,60 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </section>
+
+        <!-- Practice: three levels -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+<p>What is the difference between opening a file with mode <code>"w"</code> and mode <code>"a"</code>?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>"w"</code> (write) clears the file and starts again. <code>"a"</code> (append) keeps what is there and adds new text at the end.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+<p>Keep a reading log. Add the line <em>Read chapter 3 of Clean Code</em> to the end of <code>reading-log.txt</code>. Then, only if the file exists, print everything in it.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>&lt;?php
+$logFile = "reading-log.txt";
+
+file_put_contents($logFile, "Read chapter 3 of Clean Code\n", FILE_APPEND);
+
+if (file_exists($logFile)) {
+    echo file_get_contents($logFile);
+} else {
+    echo "No reading log yet.";
+}
+?&gt;</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+<p>Count the visits to your class's library page.</p>
+<ol>
+<li>Use a file called <code>counter.txt</code>.</li>
+<li>If the file exists, read the number in it and turn it into an integer with <code>(int)</code>. If not, start at 0.</li>
+<li>Add 1 to the number.</li>
+<li>Save the new number back with <code>file_put_contents()</code> (no append this time, so the old number is replaced).</li>
+<li>Print <em>You are visitor number ...</em></li>
+<li>Save it as <code>counter.php</code> in your XAMPP <code>htdocs</code> folder and refresh the page a few times.</li>
+</ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>&lt;?php
+$counterFile = "counter.txt";
+$visits = 0;
+
+if (file_exists($counterFile)) {
+    $visits = (int) file_get_contents($counterFile);
+}
+
+$visits++;
+file_put_contents($counterFile, $visits);
+
+echo "You are visitor number " . $visits . ". Welcome to our library page!";
+?&gt;</code></pre>
+                </div></details>
             </div>
         </section>
 

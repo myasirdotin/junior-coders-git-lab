@@ -16,65 +16,205 @@
             <h1 style="color: white; margin: 0.5rem 0;">The Internet Highway &amp; Packets 🌐📦</h1>
             <p>Welcome to Computer Networking! Learn how physical light, electricity, and digital packets connect humanity across oceans.</p>
         </header>
-
         <!-- The Mental Model -->
         <section class="content-section">
-            <h2>The "Postcard Network" Analogy</h2>
-            <p>Computers do not send entire video files or web pages as one massive uninterrupted stream. Instead, they slice data into thousands of tiny, numbered chunks called <strong>packets</strong>.</p>
-            
+            <h2>The "Postcard Network" Analogy ✉️</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> Imagine sending a 40-page science report to a friend in another city, but the post office only accepts postcards. You copy one page onto each postcard. You write the address on every card. You also write "page 7 of 40" in the corner. The cards may travel on different trucks and arrive in a mixed-up order. Your friend uses the page numbers to put the report back together.</p>
+            </div>
+            <p>Computers do the same thing. They do not send a whole file or web page in one go. They cut the data into small pieces called <strong>packets</strong>.</p>
+            <p>Each packet carries three main things:</p>
+            <ul>
+                <li><strong>Addresses:</strong> who sent it and where it is going. (These are called IP addresses. You will study them in Module 3.)</li>
+                <li><strong>A sequence number:</strong> a number that tells the receiver where this piece belongs, like "page 7 of 40". It lets the receiver put the pieces back in the right order.</li>
+                <li><strong>The payload:</strong> the actual piece of your data. It is the message itself, not the address label around it.</li>
+            </ul>
+
             <div class="analogy-grid">
                 <div class="analogy-card active">
                     <span class="analogy-icon">✉️</span>
                     <h3>The Postcard (Packet)</h3>
-                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Contains source IP, destination IP, sequence number, and up to 1,500 bytes of payload data.</p>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Carries the sender and receiver addresses, a sequence number and a small piece of your data (the payload).</p>
                 </div>
                 <div class="analogy-card active" style="border-color: #059669;">
                     <span class="analogy-icon">🚦</span>
                     <h3 style="color: #059669;">The Switch &amp; Router</h3>
-                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Switches forward packets inside your local room (LAN); routers direct packets across international highways (WAN).</p>
+                    <p style="font-size: 0.85rem; margin-top: 0.5rem;">A switch passes packets between devices in one building. A router passes packets from one network to the next, like a sorting office.</p>
                 </div>
             </div>
+        </section>
+
+        <!-- How big is a packet? -->
+        <section class="content-section">
+            <h2>How Big Is One Packet? 📏</h2>
+            <p>Every kind of link has a size limit for one piece. This limit is called the <strong>MTU</strong> (maximum transmission unit).</p>
+            <p>On a normal wired network (Ethernet), one frame can carry up to <strong>1,500 bytes</strong>. That is its MTU. A <strong>byte</strong> is a group of 8 bits, enough to store one letter such as "A".</p>
+            <p>Those 1,500 bytes are not all your data. They also include the address labels: the IP header and the TCP header. A <strong>header</strong> is a small block of labels at the front of a packet. Together these two headers usually take about 40 bytes. So the payload in each packet is usually about <strong>1,460 bytes</strong>.</p>
+            <p>You will meet each header properly in Modules 2 to 4.</p>
+
+            <h3>Worked example 1: cutting a file into packets</h3>
+            <p>Aisha uploads a 6,000-byte science report. Each packet can carry about 1,460 bytes of payload. How many packets does she need?</p>
+            <pre class="code-block"><code>File: science-report.pdf = 6,000 bytes
+Payload per packet       ≈ 1,460 bytes
+
+Packet 1: bytes     1 – 1,460
+Packet 2: bytes 1,461 – 2,920
+Packet 3: bytes 2,921 – 4,380
+Packet 4: bytes 4,381 – 5,840
+Packet 5: bytes 5,841 – 6,000
+          (only 160 bytes)
+
+Answer: 5 packets</code></pre>
+            <p>Four full packets carry 4 × 1,460 = 5,840 bytes. The last 160 bytes need a fifth packet. Real computers number the bytes, not the packets, but the idea is the same.</p>
+        </section>
+
+        <!-- LAN and WAN -->
+        <section class="content-section">
+            <h2>LAN and WAN: Near and Far Networks 🏫🌍</h2>
+            <p>A <strong>LAN</strong> (local area network) is a small network in one place. A school computer lab is a LAN. So is your home Wi-Fi.</p>
+            <p>A <strong>WAN</strong> (wide area network) joins networks across cities and countries. The Internet is the biggest WAN of all. It is a network of networks.</p>
+            <p>Two kinds of boxes move packets:</p>
+            <ul>
+                <li>A <strong>switch</strong> connects devices inside one LAN. It sends each packet only to the device it is meant for.</li>
+                <li>A <strong>router</strong> connects different networks. It reads the destination and chooses the next step on the path. Each step from one router to the next is called a <strong>hop</strong>.</li>
+            </ul>
+
+            <h3>Worked example 2: a packet's trip from school to a library website</h3>
+            <pre class="code-block"><code>[Laptop] ──cable──► [Switch]
+                        │
+                        ▼
+              [School router]  ← LAN ends
+                        │
+                        ▼
+                 [ISP router]  ← WAN begins
+                        │
+                        ▼
+              ... more hops ...
+                        │
+                        ▼
+              [Library server]</code></pre>
+            <p>An <strong>ISP</strong> (Internet service provider) is the company that connects your school or home to the Internet. The packet crosses the LAN first, then many routers in the WAN. The reply comes back too, though it may take a different path.</p>
         </section>
 
         <!-- Core Components Grid -->
         <section class="content-section">
             <h2>The Four Physical Media of Networking</h2>
+            <p>Packets must travel through something real. These are the four common paths:</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
                     <h3>Fiber-Optic Cables 💡</h3>
-                    <p>Flashes of laser light traveling inside glass strands across ocean floors at 200,000 km/s.</p>
+                    <p>Flashes of light travel inside thin glass strands, even across ocean floors. Light in glass moves at about 200,000 km per second.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
                     <h3>Copper Ethernet (Cat6) ⚡</h3>
-                    <p>Electrical voltage pulses for short, high-speed connections inside schools, offices, and homes.</p>
+                    <p>Electrical pulses in copper wires. Used for short, fast links inside schools, offices and homes (up to about 100 metres per cable).</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
                     <h3>Wi-Fi &amp; Radio Waves 📡</h3>
-                    <p>High-frequency radio waves (2.4 GHz &amp; 5 GHz) carrying data through the air without physical cords.</p>
+                    <p>Radio waves carry data through the air. Wi-Fi uses 2.4 GHz, 5 GHz and, on newer routers, 6 GHz. GHz (gigahertz) means billions of waves per second.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
                     <h3>Cellular (4G / 5G) 📱</h3>
-                    <p>Long-range tower antennas providing mobile connectivity across towns and transit highways.</p>
+                    <p>Tall tower antennas give phones a connection across towns and along roads.</p>
                 </div>
             </div>
+            <p style="margin-top: 1rem;">The 2.4 GHz Wi-Fi band reaches farther and passes through walls better. The 5 GHz and 6 GHz bands are usually faster but cover a smaller area.</p>
         </section>
 
         <!-- Bandwidth vs Latency -->
         <section class="content-section">
-            <h2>Bandwidth vs. Latency: The Water Pipe</h2>
+            <h2>Bandwidth vs. Latency: The Water Pipe 🚰</h2>
             <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
-                <strong>Bandwidth (Width of Pipe):</strong> How much water can flow per second (e.g. 100 Mbps).<br>
-                <strong>Latency (Delay of Pipe):</strong> How many milliseconds it takes for the first drop to arrive (e.g. 24 ms ping).
+                <strong>Bandwidth (width of the pipe):</strong> how much data can flow each second, for example 100 Mbps.<br>
+                <strong>Latency (length of the pipe):</strong> how long one small message takes to arrive, for example 24 ms.
+            </div>
+            <p><strong>Mbps</strong> means megabits per second: millions of bits each second. A <strong>bit</strong> is a single 0 or 1. <strong>ms</strong> means milliseconds: thousandths of a second.</p>
+            <p>A wide pipe moves lots of water. But a long pipe still makes the first drop wait. That is why bandwidth and latency are different things.</p>
+
+            <h3>Worked example 3: measuring latency with ping</h3>
+            <p>The <code>ping</code> command sends a tiny "are you there?" message to another computer. The other computer sends a tiny reply. Ping measures the <strong>round-trip time</strong>: the time for the message to reach the other computer and come back. Most of that time is spent travelling through cables and waiting in routers along the way.</p>
+            <pre class="code-block"><code>ping 1.1.1.1</code></pre>
+            <p><strong>Example output on Windows</strong> (your numbers will be different):</p>
+            <pre class="code-block"><code>Pinging 1.1.1.1 with 32 bytes of data:
+Reply from 1.1.1.1: bytes=32 time=14ms TTL=57
+Reply from 1.1.1.1: bytes=32 time=13ms TTL=57
+Reply from 1.1.1.1: bytes=32 time=16ms TTL=57
+Reply from 1.1.1.1: bytes=32 time=14ms TTL=57
+
+Ping statistics for 1.1.1.1:
+    Packets: Sent = 4, Received = 4, Lost = 0 (0% loss),
+Approximate round trip times in milli-seconds:
+    Minimum = 13ms, Maximum = 16ms, Average = 14ms</code></pre>
+            <ul>
+                <li><code>time=14ms</code> is the round-trip time for that one message.</li>
+                <li><code>Lost = 0</code> means every message came back. Lost messages are a sign of a weak or busy link.</li>
+                <li><code>TTL=57</code> is a hop counter. Each router lowers it by one, so a lost packet cannot travel in circles forever.</li>
+            </ul>
+            <p>On macOS and Linux, <code>ping</code> keeps going until you press <code>Ctrl + C</code>. Add <code>-c 4</code> to send only four messages.</p>
+
+            <h3>Worked example 4: why distance matters</h3>
+            <p>A science-museum server is 1,000 km away. Light in fiber covers about 200,000 km each second. What is the fastest possible round trip?</p>
+            <pre class="code-block"><code>One way   : 1,000 ÷ 200,000 s = 0.005 s = 5 ms
+Round trip: 5 ms × 2          = 10 ms
+
+Real ping will be higher, because packets
+also wait inside routers, and cables rarely
+run in a straight line.</code></pre>
+        </section>
+
+        <!-- Common misunderstanding -->
+        <section class="content-section">
+            <h2>Common Misunderstanding ⚠️</h2>
+            <div class="tip-box">
+                <p><strong>"A faster Internet plan will make my ping lower."</strong></p>
+                <p>Not usually. A bigger plan gives you more <em>bandwidth</em> (a wider pipe). Ping measures <em>latency</em> (how long the pipe is). Latency depends mostly on distance and on how long packets wait in routers. A wider pipe helps big downloads. It does not make a far-away server closer.</p>
+            </div>
+            <div class="tip-box">
+                <p><strong>"Wi-Fi is the Internet."</strong></p>
+                <p>Wi-Fi is only the short radio link between your device and your router. After the router, your packets travel through cables and many other routers.</p>
+            </div>
+            <div class="connection-box">
+                <p>🤝 <strong>Beneficial knowledge:</strong> These same packets carry online lessons to remote villages, test results between hospitals and messages between families far apart. Understanding them helps you build networks that serve people well.</p>
             </div>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #0369a1; margin-top: 0;">🧪 Your Turn: Ping the Wire</h2>
-            <p>Open your local terminal or prompt and run a reachability test to an open educational DNS server:</p>
-            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Run ping to test round-trip latency
-ping 1.1.1.1</code></pre>
-            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #475569;">Notice the average round-trip time in milliseconds (ms). That is the speed of light bouncing across your local fiber!</p>
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blanks: Data is cut into small pieces called ______. Each piece carries a ______ number so the receiver can put the pieces back in order. The part that holds your actual data is called the ______.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>packets; sequence; payload.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>A student sends a 4,000-byte class timetable. Each packet carries about 1,460 bytes of payload. How many packets are needed, and how many bytes are in the last one?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <pre class="code-block"><code>2 full packets: 2 × 1,460   = 2,920 bytes
+Left over:      4,000 − 2,920 = 1,080 bytes
+
+Answer: 3 packets.
+The last one carries 1,080 bytes.</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Your school IT club wants a short "network health" note for the library computers.</p>
+                <ol>
+                    <li>Run <code>ping 1.1.1.1</code> and write down the average time and the number of lost messages.</li>
+                    <li>If you can, run it once on Wi-Fi and once on a cable, and compare.</li>
+                    <li>A partner school's server is 3,000 km away. Work out the fastest possible round trip through fiber.</li>
+                    <li>Write two sentences explaining your results to a teacher.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <pre class="code-block"><code>Wi-Fi : average 18 ms, 0 lost
+Cable : average 11 ms, 0 lost
+
+3,000 ÷ 200,000 s = 0.015 s = 15 ms one way
+Fastest round trip = 15 ms × 2 = 30 ms</code></pre>
+                    <p>"The library link is healthy: no messages were lost. The cable was a little faster than Wi-Fi. The partner school can never answer in less than about 30 ms, because of distance alone."</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Module Navigation Footer -->

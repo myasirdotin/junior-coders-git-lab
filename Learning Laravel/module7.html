@@ -10,7 +10,7 @@
 <body>
     <main class="module-container">
         <header class="module-header path-laravel">
-            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 7</span>
+            <span class="badge" style="background: white; color: var(--laravel-brand);">Level 3</span>
             <h1>Forms &amp; Validation 📝</h1>
             <p>Collect user input safely and validate it like a pro!</p>
         </header>
@@ -113,6 +113,97 @@
         ❌ <span class="code-string">{{ session('error') }}</span>
     &lt;/div&gt;
 <span class="code-keyword">@endif</span></code>
+            </div>
+        </section>
+
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blanks. The validation rule that means "this field must not be empty" is ______. To refill the <code>name</code> box after a failed form, use ______.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>required</code> and <code>value="{{ old('name') }}"</code>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Fix the bug</h3>
+                <p>A volunteer sign-up form has problems. Pressing the button shows "419 Page Expired". After you fix that, an empty name sends the user back with no message, and the typed text is gone. Fix all three problems.</p>
+<pre><code>&lt;form method="POST" action="{{ route('volunteers.store') }}"&gt;
+    &lt;input type="text" name="name"&gt;
+    &lt;button type="submit"&gt;Sign up&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <p>"419 Page Expired" means the CSRF token is missing, so add <code>@csrf</code>. Use <code>old('name')</code> to keep the typed text. Use <code>@error</code> to show the message.</p>
+<pre><code>&lt;form method="POST" action="{{ route('volunteers.store') }}"&gt;
+    @csrf
+    &lt;input type="text" name="name" value="{{ old('name') }}"&gt;
+    @error('name')
+        &lt;p&gt;{{ $message }}&lt;/p&gt;
+    @enderror
+    &lt;button type="submit"&gt;Sign up&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>On your own XAMPP computer, build a sign-up form for the school science fair. It should save each entry to MySQL.</p>
+                <ol>
+                    <li>Run <code>php artisan make:model FairEntry -m</code>. In the migration, add <code>student_name</code>, <code>project_title</code> and an integer <code>grade</code>. Run <code>php artisan migrate</code>.</li>
+                    <li>In the model, list the three columns in <code>$fillable</code>.</li>
+                    <li>Make <code>FairEntryController</code> with two methods: <code>create()</code> shows the form, and <code>store()</code> saves it.</li>
+                    <li>Add two named routes: GET <code>/fair/entries/create</code> (<code>fair.create</code>) and POST <code>/fair/entries</code> (<code>fair.store</code>).</li>
+                    <li>In <code>store()</code>, validate: the name is required with 2 to 100 characters, the title is required with at most 150, and the grade is required and one of 6, 7, 8, 9, 10.</li>
+                    <li>Save the entry and redirect back to the form with the message "Your project is registered!".</li>
+                    <li>Build the form view with <code>@csrf</code>, <code>old()</code>, <code>@error</code> and the success message. Test it with empty and wrong values too.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>// routes/web.php
+use App\Http\Controllers\FairEntryController;
+
+Route::get('/fair/entries/create', [FairEntryController::class, 'create'])-&gt;name('fair.create');
+Route::post('/fair/entries', [FairEntryController::class, 'store'])-&gt;name('fair.store');
+
+// app/Http/Controllers/FairEntryController.php
+public function create()
+{
+    return view('fair.create');
+}
+
+public function store(Request $request)
+{
+    $validated = $request-&gt;validate([
+        'student_name'  =&gt; 'required|min:2|max:100',
+        'project_title' =&gt; 'required|max:150',
+        'grade'         =&gt; 'required|in:6,7,8,9,10',
+    ]);
+
+    FairEntry::create($validated);
+
+    return redirect()-&gt;route('fair.create')
+                     -&gt;with('success', 'Your project is registered!');
+}
+
+&lt;!-- resources/views/fair/create.blade.php --&gt;
+@if (session('success'))
+    &lt;p&gt;✅ {{ session('success') }}&lt;/p&gt;
+@endif
+
+&lt;form method="POST" action="{{ route('fair.store') }}"&gt;
+    @csrf
+    &lt;label&gt;Your name:&lt;/label&gt;
+    &lt;input type="text" name="student_name" value="{{ old('student_name') }}"&gt;
+    @error('student_name') &lt;p&gt;{{ $message }}&lt;/p&gt; @enderror
+
+    &lt;label&gt;Project title:&lt;/label&gt;
+    &lt;input type="text" name="project_title" value="{{ old('project_title') }}"&gt;
+    @error('project_title') &lt;p&gt;{{ $message }}&lt;/p&gt; @enderror
+
+    &lt;label&gt;Grade (6 to 10):&lt;/label&gt;
+    &lt;input type="number" name="grade" value="{{ old('grade') }}"&gt;
+    @error('grade') &lt;p&gt;{{ $message }}&lt;/p&gt; @enderror
+
+    &lt;button type="submit"&gt;Register project&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div></details>
             </div>
         </section>
 

@@ -16,59 +16,170 @@
             <h1 style="color: white; margin: 0.5rem 0;">OSI &amp; TCP/IP Layer Models 🧱</h1>
             <p>Learn how computer scientists tame complexity by breaking communication into standardized, cooperative layers.</p>
         </header>
+        <!-- Why layers? -->
+        <section class="content-section">
+            <h2>Why Split Networking Into Layers? 🧱</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> Think of a school sending a parcel of donated books to a village library. The teacher writes a letter. The office packs it in a box and writes the address. The courier drives it to the right town. The truck driver only cares about roads. Nobody needs to do everyone's job. Each worker does one job and passes the parcel on.</p>
+            </div>
+            <p>Networking works the same way. The job is split into <strong>layers</strong>. Each layer does one job. It only talks to the layer just above it and the layer just below it.</p>
+            <p>This makes problems easier to fix. If one layer breaks, you know where to look. It also lets people improve one layer without rebuilding the others. For example, Wi-Fi replaced cables in many homes, but websites did not need to change.</p>
+        </section>
 
         <!-- Mental Model -->
         <section class="content-section">
-            <h2>The "Russian Nesting Dolls" (Encapsulation)</h2>
-            <p>When you send data, each layer down the stack wraps your application message in its own header containing specialized routing and error-checking instructions.</p>
-            
+            <h2>Encapsulation: Wrapping the Message 🎁</h2>
+            <p><strong>Encapsulation</strong> means wrapping. On the way down, each layer adds its own label to the front of the message. This label is called a <strong>header</strong>. The data link layer also adds a <strong>trailer</strong> at the end. The trailer holds a check number (a CRC) that shows if the frame was damaged on the way.</p>
+            <p>Each wrapped bundle has its own name. Learn these names; you will see them often.</p>
+
             <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
-                [ Application Data: {"user": "Farooq", "donation": 100} ]<br>
-                &nbsp;&nbsp;▼ <strong>Layer 4 (Transport):</strong> Adds TCP Port Header ➔ <span style="color: #38bdf8;">[Segment]</span><br>
-                &nbsp;&nbsp;▼ <strong>Layer 3 (Network):</strong> Adds IP Address Header ➔ <span style="color: #34d399;">[Packet]</span><br>
-                &nbsp;&nbsp;▼ <strong>Layer 2 (Data Link):</strong> Adds MAC Frame Header + CRC Trailer ➔ <span style="color: #fbbf24;">[Frame]</span><br>
-                &nbsp;&nbsp;▼ <strong>Layer 1 (Physical):</strong> Transmits raw voltage or light ➔ <span style="color: #f87171;">[Bits 01001101...]</span>
+                [ Data: {"donor": "Farooq", "books": 12} ]<br>
+                &nbsp;&nbsp;▼ <strong>Layer 4 (Transport):</strong> adds a TCP header ➔ <span style="color: #38bdf8;">[Segment]</span><br>
+                &nbsp;&nbsp;▼ <strong>Layer 3 (Network):</strong> adds an IP header ➔ <span style="color: #34d399;">[Packet]</span><br>
+                &nbsp;&nbsp;▼ <strong>Layer 2 (Data Link):</strong> adds an Ethernet header and trailer ➔ <span style="color: #fbbf24;">[Frame]</span><br>
+                &nbsp;&nbsp;▼ <strong>Layer 1 (Physical):</strong> sends it as electricity, light or radio ➔ <span style="color: #f87171;">[Bits 01001101...]</span>
             </div>
+            <p>At the other end, the steps run in reverse. Each layer reads its own label, removes it and passes the rest up. This is called <strong>decapsulation</strong> (unwrapping).</p>
+
+            <h3>Worked example 1: how big is the final frame?</h3>
+            <p>A library app sends a 30-byte search request. Typical header sizes are: TCP 20 bytes, IP 20 bytes, Ethernet header 14 bytes and Ethernet trailer 4 bytes.</p>
+            <pre class="code-block"><code>Data                      30 bytes
++ TCP header       20  →  50 bytes  (segment)
++ IP header        20  →  70 bytes  (packet)
++ Ethernet header  14
++ Ethernet trailer  4  →  88 bytes  (frame)
+
+┌────┬────┬─────┬──────────┬───┐
+│ETH │ IP │ TCP │ Data 30  │CRC│
+│ 14 │ 20 │ 20  │          │ 4 │
+└────┴────┴─────┴──────────┴───┘</code></pre>
+            <p>So 30 bytes of real data become an 88-byte frame on the wire. Small messages carry a lot of labels for their size.</p>
         </section>
 
         <!-- OSI vs TCP/IP Comparison -->
         <section class="content-section">
-            <h2>The OSI 7 Layers vs. The Real-World TCP/IP 4 Layers</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+            <h2>The OSI 7 Layers vs. the TCP/IP 4 Layers</h2>
+            <p>There are two famous layer models. The <strong>OSI model</strong> has 7 layers. It is a reference model: people use it to explain and talk about problems. The <strong>TCP/IP model</strong> has 4 layers. It describes how the real Internet is built. Both are numbered from the bottom (the wire) to the top (the app).</p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
                     <h3>The OSI 7-Layer Reference Model</h3>
-                    <ul style="padding-left: 1.2rem; font-size: 0.9rem; line-height: 1.6; color: #334155;">
-                        <li><strong>7. Application</strong> (HTTP, DNS, SSH)</li>
-                        <li><strong>6. Presentation</strong> (Encryption, TLS, JSON)</li>
-                        <li><strong>5. Session</strong> (Sockets, RPC)</li>
-                        <li><strong>4. Transport</strong> (TCP, UDP)</li>
-                        <li><strong>3. Network</strong> (IP, Routers)</li>
-                        <li><strong>2. Data Link</strong> (Ethernet, MAC, Switches)</li>
-                        <li><strong>1. Physical</strong> (Cables, Radio, Bits)</li>
+                    <ul style="padding-left: 1.2rem; font-size: 0.9rem; line-height: 1.6;">
+                        <li><strong>7. Application:</strong> what apps speak (HTTP, DNS, email)</li>
+                        <li><strong>6. Presentation:</strong> data formats and character codes; encryption is often listed here</li>
+                        <li><strong>5. Session:</strong> starting, keeping and ending a conversation</li>
+                        <li><strong>4. Transport:</strong> TCP and UDP; which program gets the data</li>
+                        <li><strong>3. Network:</strong> IP addresses and routers; finding a path</li>
+                        <li><strong>2. Data Link:</strong> Ethernet, Wi-Fi frames, switches, MAC addresses</li>
+                        <li><strong>1. Physical:</strong> cables, light, radio, raw bits</li>
                     </ul>
                 </div>
 
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0d9488;">
-                    <h3>The Pragmatic TCP/IP 4-Layer Model</h3>
-                    <ul style="padding-left: 1.2rem; font-size: 0.9rem; line-height: 1.6; color: #334155;">
-                        <li><strong>1. Application Layer</strong> (Blends OSI 5, 6, and 7)</li>
-                        <li><strong>2. Transport Layer</strong> (TCP segments, UDP datagrams)</li>
-                        <li><strong>3. Internet Layer</strong> (IP routing across networks)</li>
-                        <li><strong>4. Network Access Layer</strong> (Ethernet, Wi-Fi hardware)</li>
+                    <h3>The TCP/IP 4-Layer Model</h3>
+                    <ul style="padding-left: 1.2rem; font-size: 0.9rem; line-height: 1.6;">
+                        <li><strong>4. Application:</strong> covers OSI layers 5, 6 and 7</li>
+                        <li><strong>3. Transport:</strong> TCP segments, UDP datagrams</li>
+                        <li><strong>2. Internet:</strong> IP routing across networks</li>
+                        <li><strong>1. Link (Network Access):</strong> Ethernet and Wi-Fi hardware, covers OSI 1 and 2</li>
                     </ul>
                 </div>
             </div>
+            <p style="margin-top: 1rem;">A <strong>MAC address</strong> is a hardware ID given to each network card, such as <code>3C-52-82-1A-7F-09</code>. Switches use MAC addresses to deliver frames inside a LAN. Routers use IP addresses to send packets between networks.</p>
+            <p>💡 <strong>Memory trick</strong> for OSI from the bottom (Physical, Data Link, Network, Transport, Session, Presentation, Application): "<strong>P</strong>lease <strong>D</strong>o <strong>N</strong>ot <strong>T</strong>ake <strong>S</strong>weets <strong>P</strong>ast <strong>A</strong>ssembly."</p>
+
+            <h3>Which device works at which layer?</h3>
+            <div style="overflow-x: auto;">
+                <table class="cheat-table">
+                    <tr><th>Layer</th><th>Bundle name</th><th>Example device or tool</th></tr>
+                    <tr><td>7 Application</td><td>Message</td><td>Web browser, web server</td></tr>
+                    <tr><td>4 Transport</td><td>Segment</td><td>The computer's operating system</td></tr>
+                    <tr><td>3 Network</td><td>Packet</td><td>Router</td></tr>
+                    <tr><td>2 Data Link</td><td>Frame</td><td>Switch, Wi-Fi access point</td></tr>
+                    <tr><td>1 Physical</td><td>Bits</td><td>Cable, fiber, radio</td></tr>
+                </table>
+            </div>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #0369a1; margin-top: 0;">🧪 Your Turn: Diagnosing the Stack</h2>
-            <p>Match each real-world glitch to its failure layer:</p>
-            <ul style="line-height: 1.8; color: #334155;">
-                <li>1. Dog chews through your internet Ethernet cable ➔ <strong>Physical (Layer 1)</strong></li>
-                <li>2. Your router cannot assign an IP address via DHCP ➔ <strong>Network (Layer 3)</strong></li>
-                <li>3. Website throws a <code>500 Internal Server Error</code> in PHP ➔ <strong>Application (Layer 7)</strong></li>
+        <!-- Troubleshooting by layer -->
+        <section class="content-section">
+            <h2>Fixing Problems Layer by Layer 🔧</h2>
+            <p>Network engineers often check from the bottom up. If the cable is broken, nothing above it can work. So check the lowest layer first.</p>
+
+            <h3>Worked example 2: "The library computer cannot open the catalogue"</h3>
+            <pre class="code-block"><code>Step 1 – Physical (L1)
+  Is the cable plugged in? Is the port light on?
+  Yes ✔
+
+Step 2 – Data Link (L2)
+  Is Wi-Fi connected / does the switch see it?
+  Yes ✔
+
+Step 3 – Network (L3)
+  Can it reach a computer outside the school?
+  ping 1.1.1.1 → replies ✔
+
+Step 4 – Application (L7)
+  Browser shows "500 Internal Server Error"
+  ✘ Problem found: the catalogue program on
+    the server has a fault.</code></pre>
+            <p>The network was fine. The problem was at the top, in the server's program. Checking layers in order saved time.</p>
+
+            <h3>Worked example 3: match the problem to the layer</h3>
+            <ul>
+                <li>A cable is cut or unplugged ➔ <strong>Physical (Layer 1)</strong></li>
+                <li>A laptop can reach computers in its own room, but no other network ➔ <strong>Network (Layer 3)</strong>, often a router setting</li>
+                <li>A website answers with <code>404 Not Found</code> ➔ <strong>Application (Layer 7)</strong>: the server is reachable but the page is missing</li>
             </ul>
+        </section>
+
+        <!-- Common misunderstanding -->
+        <section class="content-section">
+            <h2>Common Misunderstanding ⚠️</h2>
+            <div class="tip-box">
+                <p><strong>"The Internet runs on the 7-layer OSI model."</strong></p>
+                <p>Not quite. The real Internet is built on the <strong>TCP/IP</strong> family of protocols. The OSI model is a shared map. Engineers use its layer numbers to talk clearly, for example "that is a Layer 2 problem". Some real protocols, like TLS, do not fit neatly into one OSI layer.</p>
+            </div>
+            <div class="tip-box">
+                <p><strong>"Each layer is a separate machine."</strong></p>
+                <p>No. Your laptop runs all the layers itself, from the app at the top to the Wi-Fi radio at the bottom. A router mostly works with layers 1 to 3.</p>
+            </div>
+        </section>
+
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Name the bundle at each layer: Transport layer = ______, Network layer = ______, Data Link layer = ______. Which OSI layer number adds IP addresses?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>Segment, packet, frame. IP addresses are added at Layer 3, the Network layer (the Internet layer in TCP/IP).</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>A school attendance app sends 100 bytes of data. Using the header sizes from Worked example 1, how big are the segment, the packet and the frame?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <pre class="code-block"><code>Data                 100 bytes
++ TCP 20       →     120 bytes (segment)
++ IP 20        →     140 bytes (packet)
++ Ethernet 14 + 4 →  158 bytes (frame)</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>You are helping at the community library help desk. Three reports arrive:</p>
+                <ol>
+                    <li>"Computer 4 shows a red cross on the network icon, and the light on its cable port is off."</li>
+                    <li>"The library website opens, but the 'Reserve a book' page says 404 Not Found."</li>
+                    <li>"I can print to the printer in this room, but no website outside the library will open."</li>
+                </ol>
+                <p>For each report, name the most likely layer and the first thing you would check.</p>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <ol>
+                        <li>Layer 1 (Physical). Check that the cable is plugged in at both ends, or try a new cable.</li>
+                        <li>Layer 7 (Application). The network works; tell the website team the page link is missing or wrong.</li>
+                        <li>Layer 3 (Network). The LAN works, but traffic is not leaving it. Check the router and the Internet link.</li>
+                    </ol>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

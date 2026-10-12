@@ -243,6 +243,81 @@
             </div>
         </section>
 
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blanks. To show <code>$book-&gt;title</code> safely, write ______. Every form that sends POST data must contain the directive ______.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>{{ $book-&gt;title }}</code> and <code>@csrf</code>. Double curly braces escape the text, so any HTML inside it shows as plain text.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Fix the bug</h3>
+                <p>This view lists book titles that students typed in. It has two problems. One causes an error, and one is a safety risk. Fix both. Then show "No books yet." when the list is empty.</p>
+<pre><code>&lt;ul&gt;
+    @foreach ($books as $book)
+        &lt;li&gt;{!! $book-&gt;title !!}&lt;/li&gt;
+    @endif
+&lt;/ul&gt;</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <p>A <code>@foreach</code> must end with <code>@endforeach</code>, not <code>@endif</code>. Titles typed by students are user input, so use <code>{{ }}</code>, not <code>{!! !!}</code>. <code>@forelse</code> handles the empty list.</p>
+<pre><code>&lt;ul&gt;
+    @forelse ($books as $book)
+        &lt;li&gt;{{ $book-&gt;title }}&lt;/li&gt;
+    @empty
+        &lt;li&gt;No books yet.&lt;/li&gt;
+    @endforelse
+&lt;/ul&gt;</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>On your own XAMPP computer, build a "New books this month" page for the school library. Use a layout, so every page shares one header.</p>
+                <ol>
+                    <li>Create <code>resources/views/layouts/app.blade.php</code>. Give it a header that says "School Library" and add <code>@yield('content')</code>.</li>
+                    <li>Create <code>resources/views/books/new.blade.php</code>. It extends the layout and fills the <code>content</code> section.</li>
+                    <li>In <code>BookController</code>, add a <code>newBooks()</code> method. It makes a <code>$titles</code> array with three titles and passes it to the view.</li>
+                    <li>In the view, use <code>@forelse</code> to list the titles. Show a message if the list is empty.</li>
+                    <li>Add the route <code>/books/new</code> and visit it.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>&lt;!-- resources/views/layouts/app.blade.php --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;School Library&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;&lt;h1&gt;School Library&lt;/h1&gt;&lt;/header&gt;
+    @yield('content')
+&lt;/body&gt;
+&lt;/html&gt;
+
+&lt;!-- resources/views/books/new.blade.php --&gt;
+@extends('layouts.app')
+
+@section('content')
+    &lt;h2&gt;New books this month&lt;/h2&gt;
+    &lt;ul&gt;
+        @forelse ($titles as $title)
+            &lt;li&gt;{{ $title }}&lt;/li&gt;
+        @empty
+            &lt;li&gt;No new books yet.&lt;/li&gt;
+        @endforelse
+    &lt;/ul&gt;
+@endsection
+
+// In BookController
+public function newBooks()
+{
+    $titles = ['Our Solar System', 'The Water Cycle', 'Great Muslim Scientists'];
+    return view('books.new', compact('titles'));
+}
+
+// routes/web.php
+Route::get('/books/new', [BookController::class, 'newBooks']);</code></pre>
+                </div></details>
+            </div>
+        </section>
+
         <!-- Quiz -->
         <section class="content-section">
             <h2>Quick Knowledge Check! 🧪</h2>

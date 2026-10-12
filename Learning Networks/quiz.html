@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networks Quiz: 10 Questions | Junior Coders</title>
+    <meta name="description" content="Ten quick questions on computer networking: packets, layers, IP addresses, TCP and UDP, DNS, HTTP, HTTPS and WebSockets.">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+</head>
+<body>
+    <main class="module-container">
+        <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white;">
+            <span class="badge" style="background: white; color: #0284c7;">Quiz</span>
+            <h1 style="color: white;">Networks Quiz 🧠</h1>
+            <p>Ten questions covering the whole Networks track. Pick an answer for each, then press <strong>Check my answers</strong>.</p>
+        </header>
+
+        <section class="content-card">
+            <form id="quiz-form-net" onsubmit="event.preventDefault(); checkQuiz('net');">
+                <div class="quiz-question" data-answer="b">
+                    <p>Q1: Why are files cut into small packets before they travel?</p>
+                    <label><input type="radio" name="q1" value="a"> So the file becomes secret</label>
+                    <label><input type="radio" name="q1" value="b"> So pieces can share the links fairly and a lost piece can be resent on its own</label>
+                    <label><input type="radio" name="q1" value="c"> Because cables can only carry text</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q2: Which device connects different networks and chooses the next hop for each packet?</p>
+                    <label><input type="radio" name="q2" value="a"> A router</label>
+                    <label><input type="radio" name="q2" value="b"> A switch</label>
+                    <label><input type="radio" name="q2" value="c"> A Wi-Fi password</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q3: At which OSI layer are IP addresses added?</p>
+                    <label><input type="radio" name="q3" value="a"> Layer 1, Physical</label>
+                    <label><input type="radio" name="q3" value="b"> Layer 2, Data Link</label>
+                    <label><input type="radio" name="q3" value="c"> Layer 3, Network</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q4: How many usable host addresses does a <code>/24</code> subnet have?</p>
+                    <label><input type="radio" name="q4" value="a"> 256</label>
+                    <label><input type="radio" name="q4" value="b"> 254</label>
+                    <label><input type="radio" name="q4" value="c"> 24</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q5: Which protocol is the better choice for a live video class?</p>
+                    <label><input type="radio" name="q5" value="a"> UDP, because fresh data matters more than resending late data</label>
+                    <label><input type="radio" name="q5" value="b"> TCP, because live video must never skip a frame</label>
+                    <label><input type="radio" name="q5" value="c"> Neither; live video does not use the transport layer</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q6: What does a DNS <strong>A record</strong> give you?</p>
+                    <label><input type="radio" name="q6" value="a"> The mail servers for a domain</label>
+                    <label><input type="radio" name="q6" value="b"> An alias for another name</label>
+                    <label><input type="radio" name="q6" value="c"> The IPv4 address for a name</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q7: A server answers <code>404 Not Found</code>. What does that tell you?</p>
+                    <label><input type="radio" name="q7" value="a"> The server is switched off</label>
+                    <label><input type="radio" name="q7" value="b"> The server is working, but nothing exists at that path</label>
+                    <label><input type="radio" name="q7" value="c"> Your Internet connection is broken</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a">
+                    <p>Q8: In HTTPS, why is symmetric encryption (such as AES) used for most of the data?</p>
+                    <label><input type="radio" name="q8" value="a"> It is much faster than public-key cryptography</label>
+                    <label><input type="radio" name="q8" value="b"> It needs no key at all</label>
+                    <label><input type="radio" name="q8" value="c"> It lets anyone read the data</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c">
+                    <p>Q9: What does the padlock in the address bar prove?</p>
+                    <label><input type="radio" name="q9" value="a"> The website is honest and safe to trust with anything</label>
+                    <label><input type="radio" name="q9" value="b"> The website has no bugs</label>
+                    <label><input type="radio" name="q9" value="c"> The connection is encrypted and the certificate matches the site's name</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b">
+                    <p>Q10: What makes a WebSocket different from normal HTTP requests?</p>
+                    <label><input type="radio" name="q10" value="a"> It can only send data from the server to the browser</label>
+                    <label><input type="radio" name="q10" value="b"> It stays open so both sides can send messages at any time (full-duplex)</label>
+                    <label><input type="radio" name="q10" value="c"> It does not use TCP or any network at all</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="submit" class="btn-primary" style="margin-top: 1rem;">Check my answers</button>
+            </form>
+        </section>
+
+        <section class="content-card" style="margin-top: 1.5rem;">
+            <h2>Keep practising</h2>
+            <p>Try the <a href="exercises.html">Networks exercises</a>, experiment in the <a href="playground.html">Protocol Lab Studio</a>, or look terms up in the <a href="glossary.html">glossary</a>.</p>
+        </section>
+    </main>
+
+    <script src="../js/bei-nav.js"></script>
+    <script src="../js/tts-voices.js"></script>
+    <script src="../js/core.js"></script>
+    <script src="../js/pdf-download.js"></script>
+</body>
+</html>

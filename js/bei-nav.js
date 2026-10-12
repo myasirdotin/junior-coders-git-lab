@@ -466,7 +466,18 @@
                     "file": "module8.html"
                 }
             ],
-            "extras": []
+            "extras": [
+                {
+                    "file": "quiz.html",
+                    "icon": "❓",
+                    "title": "Quiz"
+                },
+                {
+                    "file": "glossary.html",
+                    "icon": "📖",
+                    "title": "Glossary"
+                }
+            ]
         },
         "python": {
             "name": "Python & Ethical AI",
@@ -527,6 +538,11 @@
                     "file": "exercises.html",
                     "icon": "✍️",
                     "title": "Exercises"
+                },
+                {
+                    "file": "quiz.html",
+                    "icon": "❓",
+                    "title": "Quiz"
                 },
                 {
                     "file": "glossary.html",
@@ -601,6 +617,11 @@
                     "title": "Exercises"
                 },
                 {
+                    "file": "quiz.html",
+                    "icon": "❓",
+                    "title": "Quiz"
+                },
+                {
                     "file": "glossary.html",
                     "icon": "📖",
                     "title": "Glossary"
@@ -671,6 +692,11 @@
                     "file": "exercises.html",
                     "icon": "✍️",
                     "title": "Exercises"
+                },
+                {
+                    "file": "quiz.html",
+                    "icon": "❓",
+                    "title": "Quiz"
                 },
                 {
                     "file": "glossary.html",

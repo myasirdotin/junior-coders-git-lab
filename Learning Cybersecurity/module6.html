@@ -14,50 +14,161 @@
         <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 3</span>
             <h1 style="color: white; margin: 0.5rem 0;">Broken Access Control &amp; CSRF 🚪🎭</h1>
-            <p>OWASP #1 vulnerability. Learn how to enforce ownership boundaries, prevent IDOR, and defeat request forgery.</p>
+            <p>Make sure people can only see and change what is theirs, and stop forged form requests.</p>
         </header>
 
-        <!-- Broken Access Control & IDOR -->
+        <!-- Real-life analogy -->
         <section class="content-section">
-            <h2>Broken Access Control &amp; IDOR Flaws</h2>
-            <p>An <strong>Insecure Direct Object Reference (IDOR)</strong> occurs when an application provides direct access to records based on user-supplied input (like an ID in the URL) without checking whether the logged-in user owns that record:</p>
-            
-            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
-                // ❌ VULNERABLE: Anyone can change ?id=50 to ?id=51 and view other students' records!<br>
-                $report = $db-&gt;query("SELECT * FROM grades WHERE id = " . $_GET['id']);<br><br>
-                // ✅ SECURE ACCESS CONTROL: Enforce ownership with session verification!<br>
-                $stmt = $pdo-&gt;prepare("SELECT * FROM grades WHERE id = :id AND student_id = :session_user");<br>
-                $stmt-&gt;execute([':id' => $_GET['id'], ':session_user' => $_SESSION['user_id']]);
+            <h2>🗄️ Think of the School Lockers</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> Every student has a numbered locker. The caretaker has a master key.</p>
+                <p>One day a student says, "Please open locker 51." The caretaker opens it without asking, "Is locker 51 yours?" Now anyone can open anyone's locker just by saying a number.</p>
+                <p>The lock is fine. The <strong>checking</strong> is missing.</p>
             </div>
-        </section>
-
-        <!-- CSRF Defense -->
-        <section class="content-section">
-            <h2>Cross-Site Request Forgery (CSRF)</h2>
-            <p>CSRF tricks an authenticated victim into executing unwanted actions on a trusted web application where they are currently logged in:</p>
-            
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1rem;">
-                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
-                    <h3>1. Anti-CSRF Synchronizer Tokens</h3>
-                    <p>Insert a secret, random token into every form. External sites cannot read this token due to the Same-Origin Policy.</p>
-                    <code style="font-size: 0.8rem;">&lt;input type="hidden" name="csrf" value="token_xyz"&gt;</code>
-                </div>
-                <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
-                    <h3>2. SameSite Cookie Attributes</h3>
-                    <p>Tell the browser not to attach session cookies to requests originating from external third-party domains.</p>
-                    <code style="font-size: 0.8rem;">Set-Cookie: session=123; SameSite=Strict; Secure</code>
-                </div>
-            </div>
-        </section>
-
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #047857; margin-top: 0;">🧪 Your Turn: Audit URL Parameters</h2>
-            <p>Review this route: <code>GET /account/delete?user_id=15</code>. Why is this flawed in two separate ways?</p>
-            <ul style="color: #334155; line-height: 1.8;">
-                <li>1. <strong>State change on GET:</strong> Dangerous actions like deleting must always use <code>POST</code> or <code>DELETE</code> with CSRF tokens.</li>
-                <li>2. <strong>IDOR parameter:</strong> The server should delete the account belonging to <code>$_SESSION['user_id']</code> rather than trusting a user-supplied ID in the URL!</li>
+            <p>Two words help here:</p>
+            <ul>
+                <li><strong>Authentication</strong>: proving <em>who you are</em> (logging in).</li>
+                <li><strong>Authorization</strong>: checking <em>what you are allowed to do</em>.</li>
             </ul>
+            <p><strong>Access control</strong> is the set of authorization rules. When those rules are missing or wrong, we call it <strong>broken access control</strong>. The OWASP Top 10 is a respected list of the biggest website security risks, made by an open community of experts. Broken access control is number one on it.</p>
+        </section>
+
+        <!-- IDOR -->
+        <section class="content-section">
+            <h2>🔢 Worked Example 1: Changing a Number in the Address (IDOR)</h2>
+            <p>A school portal shows report cards at addresses like this:</p>
+            <pre class="code-block"><code>https://portal.greenfield-school.org/report.php?id=50</code></pre>
+            <p>Bilal sees his report at <code>id=50</code>. What if the server shows report 51 to anyone who asks? This bug has a long name: <strong>Insecure Direct Object Reference</strong>, or <strong>IDOR</strong>. In plain words: the server hands over a record just because you asked for its number, without checking it is yours.</p>
+            <pre class="code-block"><code>&lt;?php
+// ❌ RISKY: shows ANY report whose number is in the address
+$stmt = $pdo-&gt;prepare("SELECT * FROM reports WHERE id = ?");
+$stmt-&gt;execute([$_GET['id']]);
+?&gt;</code></pre>
+            <p>This uses a placeholder, so it is safe from SQL injection (Module 5). But it still has no ownership check.</p>
+            <pre class="code-block"><code>&lt;?php
+// ✅ SAFE: only shows the report if it belongs to the logged-in student
+$stmt = $pdo-&gt;prepare("SELECT * FROM reports WHERE id = ? AND student_id = ?");
+$stmt-&gt;execute([$_GET['id'], $_SESSION['user_id']]);
+$report = $stmt-&gt;fetch();
+
+if (!$report) {
+    http_response_code(404);
+    exit("Report not found.");
+}
+?&gt;</code></pre>
+            <p><strong>The fix explained:</strong> <code>$_SESSION['user_id']</code> comes from the login, on the server. The visitor cannot change it. The query now asks for "report 50 <em>and</em> belonging to this student". Report 51 returns nothing.</p>
+        </section>
+
+        <!-- Role check -->
+        <section class="content-section">
+            <h2>👩‍🏫 Worked Example 2: Hiding a Button Is Not Enough</h2>
+            <p>A library website hides the "Delete book" button from students. But the delete page itself still works for anyone who visits it. Hiding a button is not security. <strong>The server must check every request.</strong></p>
+            <pre class="code-block"><code>&lt;?php
+// ✅ At the top of delete_book.php: only librarians may continue
+if (($_SESSION['role'] ?? '') !== 'librarian') {
+    http_response_code(403);   // 403 means "Forbidden"
+    exit("Sorry, only librarians can delete books.");
+}
+// ...delete code runs only after the check...
+?&gt;</code></pre>
+            <div class="tip-box">💡 Check permissions on the <strong>server</strong>, on <strong>every</strong> page that reads or changes private data. Anything in the browser can be changed by the visitor.</div>
+        </section>
+
+        <!-- CSRF -->
+        <section class="content-section">
+            <h2>✉️ Cross-Site Request Forgery (CSRF)</h2>
+            <p>When you log in, the website saves a <strong>session cookie</strong> in your browser. A cookie is a small note that says "this visitor is logged in". Your browser sends it automatically with every request to that site.</p>
+            <p><strong>CSRF</strong> uses that habit. A different website secretly makes your browser send a request to a site where you are logged in. Your cookie goes along, so the request looks like it came from you. "Forgery" means a fake made to look real.</p>
+            <div class="connection-box">
+                <p>🧠 <strong>Analogy:</strong> someone slips a filled-in permission slip into your school bag. You hand in your bag, and the office stamps the slip because it is in <em>your</em> bag. The office should have checked for the secret stamp that only it gives out.</p>
+            </div>
+        </section>
+
+        <!-- Worked example 3 -->
+        <section class="content-section">
+            <h2>🛡️ Worked Example 3: Adding a CSRF Token</h2>
+            <p>The fix is a <strong>CSRF token</strong>: a long random secret placed in each form. Other websites cannot read it. The browser's <strong>same-origin policy</strong> stops one website from reading pages of another. So a forged request will not have the right token.</p>
+            <pre class="code-block"><code>&lt;?php
+// Step 1: make a random token once per login session
+if (empty($_SESSION['csrf'])) {
+    $_SESSION['csrf'] = bin2hex(random_bytes(32));
+}
+?&gt;
+&lt;!-- Step 2: put it in the form as a hidden field --&gt;
+&lt;form method="post" action="update_email.php"&gt;
+    &lt;input type="hidden" name="csrf" value="&lt;?= $_SESSION['csrf'] ?&gt;"&gt;
+    &lt;input type="email" name="email"&gt;
+    &lt;button&gt;Save&lt;/button&gt;
+&lt;/form&gt;
+
+&lt;?php
+// Step 3 (in update_email.php): refuse the request if the token is wrong
+if (!hash_equals($_SESSION['csrf'], $_POST['csrf'] ?? '')) {
+    http_response_code(403);
+    exit("This form has expired. Please reload the page.");
+}
+?&gt;</code></pre>
+            <ul>
+                <li><code>random_bytes(32)</code> makes 32 random bytes. <code>bin2hex()</code> turns them into readable letters and digits.</li>
+                <li><code>hash_equals()</code> compares the two tokens safely.</li>
+                <li>Use <code>method="post"</code> for anything that changes data. Never change or delete data from a plain link.</li>
+            </ul>
+            <p><strong>Extra layer:</strong> cookies can carry a <code>SameSite</code> setting. <code>SameSite=Lax</code> or <code>SameSite=Strict</code> tells the browser not to send the cookie with most requests that start on other websites.</p>
+            <pre class="code-block"><code>Set-Cookie: session=...; HttpOnly; Secure; SameSite=Lax</code></pre>
+        </section>
+
+        <!-- Checklist -->
+        <section class="content-section">
+            <h2>✅ What To Do: Your Access Control Checklist</h2>
+            <ul>
+                <li>☐ On every private page, check on the server: is this user allowed to see or change <em>this</em> record?</li>
+                <li>☐ Take the user's ID from the session, never from the address or a form field.</li>
+                <li>☐ Give each role only the powers it needs (least privilege, Module 1).</li>
+                <li>☐ Use POST forms with a CSRF token for every change.</li>
+                <li>☐ Set cookies with <code>HttpOnly</code>, <code>Secure</code> and <code>SameSite</code>.</li>
+                <li>☐ <strong>As a user:</strong> log out of shared computers, and report it if you ever see someone else's data.</li>
+            </ul>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>What is the difference between authentication and authorization? What does CSRF stand for?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>Authentication proves who you are. Authorization decides what you are allowed to do. CSRF stands for Cross-Site Request Forgery.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>Review this link from a school website. It is flawed in two different ways. Name both and say how to fix them.</p>
+                <pre><code>&lt;a href="account_delete.php?user_id=15"&gt;Delete my account&lt;/a&gt;</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <ol>
+                        <li><strong>Change from a plain link (GET):</strong> another website could trigger it (CSRF). Fix: use a POST form with a CSRF token.</li>
+                        <li><strong>IDOR:</strong> the user ID comes from the address, so anyone could change 15 to another number. Fix: delete the account of <code>$_SESSION['user_id']</code> instead.</li>
+                    </ol>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>A community food bank lets volunteers edit their own shift times. Design the secure "Edit my shift" feature.</p>
+                <ol>
+                    <li>Decide how the server knows who the volunteer is.</li>
+                    <li>Write the query that updates a shift only if it belongs to them.</li>
+                    <li>Protect the form against CSRF.</li>
+                    <li>Say what organisers can do that volunteers cannot.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <ol>
+                        <li>From <code>$_SESSION['volunteer_id']</code>, set at login.</li>
+                        <li>
+                            <pre><code>$stmt = $pdo-&gt;prepare("UPDATE shifts SET start_time = ? WHERE id = ? AND volunteer_id = ?");
+$stmt-&gt;execute([$_POST['start_time'], $_POST['shift_id'], $_SESSION['volunteer_id']]);</code></pre>
+                        </li>
+                        <li>The form uses <code>method="post"</code> with a hidden CSRF token, checked with <code>hash_equals()</code> before the update.</li>
+                        <li>Organisers (role <code>organiser</code>) may edit any shift and see all phone numbers. The server checks the role on those pages.</li>
+                    </ol>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

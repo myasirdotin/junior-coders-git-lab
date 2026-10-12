@@ -210,24 +210,24 @@
         </section>
 
         <!-- Section 5: Official Book Practice Exercises -->
-        <section class="content-section">
-            <h2>🏆 Official Book Practice Exercises</h2>
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
             <div class="practice-section">
                 <!-- Easy -->
-                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
-                    <h4>🟢 Level 1: Recall (Easy)</h4>
+                <div class="jc-tier jc-tier-1">
+                    <h3>🟢 Level 1: Recall (Easy)</h3>
                     <p>What attribute on a <code>&lt;label&gt;</code> connects it to an <code>&lt;input&gt;</code>? What matching attribute must the input have? Why does this matter for accessibility?</p>
-                    <details class="hint-block" style="margin-top: 0.5rem;">
-                        <summary>Show Answer</summary>
-                        <div class="hint-block-content">
+                    <details class="jc-answer">
+                        <summary>Show answer</summary>
+                        <div>
                             The <code>for</code> attribute on the <code>&lt;label&gt;</code> must match the <code>id</code> attribute on the <code>&lt;input&gt;</code>. This connection means clicking the label text will focus the input — essential for screen readers and users with motor difficulties (they get a larger click target too).
                         </div>
                     </details>
                 </div>
 
                 <!-- Medium -->
-                <div style="margin-bottom: 1.5rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border-dim);">
-                    <h4>🟡 Level 2: Application — Spot the Bug (Medium)</h4>
+                <div class="jc-tier jc-tier-2">
+                    <h3>🟡 Level 2: Application — Spot the Bug (Medium)</h3>
                     <p>There are <strong>two errors</strong> in the code below. Can you identify and fix both?</p>
                     <pre style="background: rgba(244,63,94,0.08); border: 1px solid rgba(244,63,94,0.3); border-radius: 8px; padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.85rem; color: #fda4af; overflow-x: auto;">&lt;label for="city"&gt;Your City:&lt;/label&gt;
 &lt;input type="text" id="location" name="city"&gt;
@@ -235,9 +235,9 @@
 &lt;p&gt;Favourite sport?&lt;/p&gt;
 &lt;label&gt;&lt;input type="radio" name="cricket" value="cricket"&gt; Cricket&lt;/label&gt;
 &lt;label&gt;&lt;input type="radio" name="football" value="football"&gt; Football&lt;/label&gt;</pre>
-                    <details class="hint-block" style="margin-top: 0.5rem;">
-                        <summary>Show Answer</summary>
-                        <div class="hint-block-content">
+                    <details class="jc-answer">
+                        <summary>Show answer</summary>
+                        <div>
                             <strong>Bug 1:</strong> The label's <code>for="city"</code> does not match the input's <code>id="location"</code>. Fix: change input to <code>id="city"</code>.<br><br>
                             <strong>Bug 2:</strong> Both radio buttons have <strong>different</strong> <code>name</code> attributes (<code>name="cricket"</code> and <code>name="football"</code>). Radio buttons in the same group MUST share the same <code>name</code>. Fix: give both <code>name="sport"</code>.
                         </div>
@@ -245,8 +245,8 @@
                 </div>
 
                 <!-- Challenge -->
-                <div>
-                    <h4>🔴 Level 3: Textbook Challenge — School Registration Form</h4>
+                <div class="jc-tier jc-tier-3">
+                    <h3>🔴 Level 3: Textbook Challenge — School Registration Form</h3>
                     <p><strong>Chapter 11 Real-World Mission:</strong> In the editor above, build a complete <strong>Junior Coders School Registration Form</strong> that includes all of the following:</p>
                     <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
                         <li>A <code>&lt;text&gt;</code> field for <strong>Student Full Name</strong> (with <code>required</code>)</li>

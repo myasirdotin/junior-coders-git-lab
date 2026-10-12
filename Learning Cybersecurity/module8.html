@@ -14,49 +14,154 @@
         <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 3</span>
             <h1 style="color: white; margin: 0.5rem 0;">Hygiene, Backups &amp; Forensics 💻🧹</h1>
-            <p>Everyday defensive discipline: defeat malware, apply the 3-2-1 backup rule, and master incident response.</p>
+            <p>Everyday habits: updates, the 3-2-1 backup rule, photo privacy, and what to do when something goes wrong.</p>
         </header>
 
-        <!-- Malware Spectrum & Patching -->
+        <!-- Real-life analogy -->
         <section class="content-section">
-            <h2>The Malware Spectrum &amp; Automatic Updates</h2>
-            <p>Ransomware, trojans, worms, and spyware exploit known operating system bugs. Enable <strong>automatic security updates</strong> on Windows, macOS, and mobile devices to patch zero-day holes before attackers weaponize them.</p>
+            <h2>🧼 Think of Washing Your Hands</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> washing your hands takes a few seconds. You do it every day. It stops many illnesses before they start.</p>
+                <p>Islam teaches that cleanliness is part of faith. <strong>Digital hygiene</strong> is the same idea for computers: small, regular habits that keep your devices and data healthy.</p>
+            </div>
+            <p>This module covers four habits: keeping software updated, keeping backups, protecting the hidden data in photos, and knowing what to do when something goes wrong.</p>
+        </section>
+
+        <!-- Malware & Updates -->
+        <section class="content-section">
+            <h2>🦠 Malware and Updates</h2>
+            <p><strong>Malware</strong> means "bad software": programs made to cause harm. Common kinds:</p>
+            <ul>
+                <li><strong>Virus and worm:</strong> spread from file to file or computer to computer.</li>
+                <li><strong>Trojan:</strong> pretends to be a useful app, like a free game or tool, but hides harm inside.</li>
+                <li><strong>Spyware:</strong> secretly watches what you do.</li>
+                <li><strong>Ransomware:</strong> locks your files and demands payment to unlock them.</li>
+            </ul>
+            <p>Malware often gets in through <strong>bugs</strong> (mistakes) in software. Companies fix them with <strong>updates</strong>, also called <strong>patches</strong>. A <strong>zero-day</strong> is a bug that attackers find before the company knows about it. Once a fix is released, the race is on: install it before attackers use the bug on you.</p>
+            <div class="tip-box">💡 Turn on <strong>automatic updates</strong> for your phone, computer, browser and apps. Restart when asked. Only install apps from official app stores.</div>
         </section>
 
         <!-- 3-2-1 Backup Strategy -->
         <section class="content-section">
-            <h2>The 3-2-1 Backup Rule: Ransomware Immunity</h2>
-            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
-                • <strong style="color: #38bdf8;">3 Copies of Data:</strong> Primary original + 2 independent backups.<br>
-                • <strong style="color: #34d399;">2 Different Media:</strong> E.g. internal computer drive + external USB drive.<br>
-                • <strong style="color: #fbbf24;">1 Offsite Copy:</strong> Encrypted cloud storage or remote drive at another home.
-            </div>
-            <p style="color: #475569; font-size: 0.92rem;">If ransomware strikes or your laptop is lost, a 3-2-1 backup allows full recovery without paying extortion!</p>
+            <h2>💾 The 3-2-1 Backup Rule</h2>
+            <p>A <strong>backup</strong> is a spare copy of your files. If your laptop breaks, is lost, or is hit by ransomware, a backup brings your work back.</p>
+            <pre class="code-block"><code>3 copies of your data
+  → the original + 2 backups
+2 different kinds of storage
+  → e.g. laptop drive + USB drive
+1 copy kept in another place
+  → e.g. trusted cloud storage, or a drive at
+    a relative's house</code></pre>
         </section>
 
-        <!-- EXIF Privacy Hygiene -->
+        <!-- Worked example 1 -->
         <section class="content-section">
-            <h2>Metadata Privacy Hygiene</h2>
-            <p>Photos taken with smartphones store hidden EXIF metadata containing exact GPS latitude and longitude coordinates. Always strip EXIF data before uploading photos to public community portals.</p>
-        </section>
-
-        <!-- Incident Response -->
-        <section class="content-section">
-            <h2>Incident Response: The 6 NIST Phases</h2>
-            <ol style="line-height: 1.8; color: #334155; padding-left: 1.2rem;">
-                <li><strong>Preparation:</strong> Audit logging, backups, and defined team roles.</li>
-                <li><strong>Identification:</strong> Detecting anomalies and alert triage.</li>
-                <li><strong>Containment:</strong> Isolate the compromised host from the network. (Do NOT pull power cord—save volatile RAM memory!).</li>
-                <li><strong>Eradication:</strong> Remove malware, close backdoors, and rotate all keys.</li>
-                <li><strong>Recovery:</strong> Restore clean systems from verified backups under close observation.</li>
-                <li><strong>Lessons Learned:</strong> Blameless post-mortem analysis to harden future defenses.</li>
+            <h2>🧪 Worked Example 1: Zainab's Science Project</h2>
+            <p>Zainab has spent six weeks on her clean-water science project. Here is her 3-2-1 plan:</p>
+            <ol>
+                <li><strong>Copy 1:</strong> the original folder on her laptop.</li>
+                <li><strong>Copy 2:</strong> a USB drive. She copies the folder every Friday, then <strong>unplugs</strong> the drive and puts it away.</li>
+                <li><strong>Copy 3:</strong> her school cloud drive, which is in a different place.</li>
             </ol>
+            <p>One day her laptop shows a ransomware message. Her files are locked. Zainab does not pay. An IT helper cleans the laptop. She restores her project from the USB drive and loses only two days of work.</p>
+            <p><strong>Why unplugging matters:</strong> ransomware can also lock drives that are plugged in. A backup that is disconnected stays safe.</p>
+            <div class="tip-box">⚠️ A backup only counts if it works. Once a month, open a file from your backup to check you can really restore it.</div>
+        </section>
+
+        <!-- Worked example 2: EXIF -->
+        <section class="content-section">
+            <h2>📸 Worked Example 2: The Secret Inside a Photo</h2>
+            <p>Phone photos store hidden information called <strong>metadata</strong> ("data about data"). In photos it is often called <strong>EXIF</strong> data. It can include the date, the phone model, and the exact <strong>GPS location</strong> where the photo was taken.</p>
+            <pre class="code-block"><code>garden_day.jpg
+  Date:      2026-09-14 10:32
+  Camera:    (phone model)
+  Location:  exact map position 🚩
+             (could show where you live)</code></pre>
+            <p>Omar takes a photo of his family's vegetable garden and wants to share it on the community gardening page. The location data could show strangers where his home is.</p>
+            <p><strong>What Omar does:</strong> he uses his phone's sharing option to remove the location before sharing. Many phones have this option, and you can also turn off location for the camera app. Many big websites remove this data on upload, but not every site does, so it is safer to remove it yourself.</p>
+        </section>
+
+        <!-- Worked example 3: incident response -->
+        <section class="content-section">
+            <h2>🚨 Worked Example 3: When Something Goes Wrong</h2>
+            <p>An <strong>incident</strong> is a security problem that has really happened, such as malware or a stolen account. <strong>Incident response</strong> is the plan for dealing with it calmly.</p>
+            <p><strong>If it happens to you:</strong></p>
+            <ol>
+                <li><strong>Stay calm and tell a trusted adult or the school IT team.</strong> Hiding it makes it worse.</li>
+                <li><strong>Disconnect from the internet</strong>: turn off Wi-Fi or unplug the network cable. This stops the problem spreading.</li>
+                <li><strong>Do not pay and do not delete things.</strong> Take a photo of the screen as a record.</li>
+                <li><strong>Change your passwords using a different, clean device.</strong> Start with your email.</li>
+                <li><strong>Restore from your backup</strong> once the device has been cleaned.</li>
+            </ol>
+            <p><strong>Should you switch it off?</strong> Ask your IT team first. Some clues are kept only in the computer's short-term memory (RAM). They vanish when the power goes off.</p>
+            <p><strong>How professional teams do it:</strong> many teams follow six steps, made popular by the SANS Institute. (NIST, a US standards body, publishes a similar guide.)</p>
+            <ol>
+                <li><strong>Preparation:</strong> backups, logs and a plan, ready before anything happens.</li>
+                <li><strong>Identification:</strong> noticing that something is wrong, and checking it.</li>
+                <li><strong>Containment:</strong> stopping it spreading, for example disconnecting a computer.</li>
+                <li><strong>Eradication:</strong> removing the malware and changing passwords and keys.</li>
+                <li><strong>Recovery:</strong> restoring clean systems from backups and watching them closely.</li>
+                <li><strong>Lessons learned:</strong> asking "how do we stop this next time?" without blaming people.</li>
+            </ol>
+            <p><strong>Digital forensics</strong> is the careful collecting of clues about what happened, like a detective. Forensic experts copy evidence without changing it, so the facts stay trustworthy (<em>Ṣidq</em>).</p>
+        </section>
+
+        <!-- Checklist -->
+        <section class="content-section">
+            <h2>✅ What To Do: Your Weekly Hygiene Checklist</h2>
+            <ul>
+                <li>☐ Install updates and restart when asked.</li>
+                <li>☐ Back up your work using 3-2-1. Test one restore each month.</li>
+                <li>☐ Remove location data before sharing photos publicly.</li>
+                <li>☐ Delete apps you no longer use. Fewer apps means fewer weak spots.</li>
+                <li>☐ Only install apps from official stores.</li>
+                <li>☐ Know who to tell if something goes wrong: a trusted adult or school IT.</li>
+            </ul>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>In the 3-2-1 backup rule, what do the numbers 3, 2 and 1 stand for?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>3 copies of your data, on 2 different kinds of storage, with 1 copy kept in another place.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>Hamza keeps his homework in a "Homework" folder and a "Homework copy" folder, both on his laptop. His USB backup drive is always plugged in. Find two problems with his plan and fix them.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <ol>
+                        <li>Both folders are on the same laptop. If the laptop is lost or broken, both copies are gone. Fix: keep a copy in another place, such as the school cloud drive.</li>
+                        <li>The USB drive is always plugged in, so ransomware could lock it too. Fix: plug it in only to back up, then unplug it.</li>
+                    </ol>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Plan a "Digital Hygiene Week" for your class or family, using ideas from the whole course.</p>
+                <ol>
+                    <li>Choose one task for each of five days.</li>
+                    <li>Link each task to a module (passwords, phishing, updates, backups, privacy).</li>
+                    <li>Write one sentence explaining why each task matters.</li>
+                    <li>Make a short "If something goes wrong" card to finish the week.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <ul>
+                        <li><strong>Monday (Module 2):</strong> turn on MFA for email, because one leaked password should not open everything.</li>
+                        <li><strong>Tuesday (Module 3):</strong> practise spotting 3 phishing messages, because scammers trick people more than machines.</li>
+                        <li><strong>Wednesday (Module 8):</strong> install all updates, because they fix known weak spots.</li>
+                        <li><strong>Thursday (Module 8):</strong> set up a 3-2-1 backup and test a restore, because hard work should never be lost.</li>
+                        <li><strong>Friday (Module 8):</strong> turn off camera location and delete unused apps, to protect privacy (<em>Ḥayā'</em>).</li>
+                    </ul>
+                    <p><strong>If something goes wrong card:</strong> stay calm, tell an adult, disconnect from the internet, do not pay, change passwords from a clean device.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Course Completion -->
         <section class="content-section" style="background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 16px; padding: 1.5rem;">
             <h2 style="color: #047857; margin-top: 0;">🎉 Curriculum Modules Complete!</h2>
-            <p style="color: #1e293b;">You have mastered all 8 modules of Cybersecurity &amp; Digital Hygiene! Put your knowledge to work in the <a href="exercises.html" style="color: #059669; font-weight: 700;">Mastery Exercises</a> or explore the <a href="playground.html" style="color: #059669; font-weight: 700;">Cyber Defense Studio</a>.</p>
+            <p style="color: #1e293b;">You have mastered all 8 modules of Cybersecurity &amp; Digital Hygiene! Put your knowledge to work in the <a href="exercises.html" style="color: #059669; font-weight: 700;">Mastery Exercises</a>, take the <a href="quiz.html" style="color: #059669; font-weight: 700;">10-question quiz</a>, or explore the <a href="playground.html" style="color: #059669; font-weight: 700;">Cyber Defense Studio</a>.</p>
         </section>
 
         <!-- Navigation Footer -->

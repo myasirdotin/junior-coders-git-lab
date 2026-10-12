@@ -160,6 +160,59 @@
             </div>
         </section>
 
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Fill in the blank so that visiting <code>/library</code> shows a welcome message. Which file does this code go in?</p>
+<pre><code>Route::______('/library', function () {
+    return 'Welcome to the school library!';
+});</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>The blank is <code>get</code>, because the visitor is just opening a page. The code goes in <code>routes/web.php</code>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Fix the bug</h3>
+                <p>This route should show "Showing book number: 3" for <code>/book/3</code>. Instead, <code>/book/3</code> shows a "404 Not Found" page. Fix it. Then give the route the name <code>book.show</code>.</p>
+<pre><code>Route::get('/book/id', function ($id) {
+    return 'Showing book number: ' . $id;
+});</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+                    <p>The route parameter needs curly braces. Without them, the route only matches the exact text <code>/book/id</code>.</p>
+<pre><code>Route::get('/book/{id}', function ($id) {
+    return 'Showing book number: ' . $id;
+})-&gt;name('book.show');</code></pre>
+                    <p>In a Blade view you can now link to it with <code>{{ route('book.show', ['id' =&gt; 3]) }}</code>.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>On your own XAMPP computer, add routes for a school science fair. Use the <code>school-library</code> project from Module 1, or any Laravel project.</p>
+                <ol>
+                    <li>Open <code>routes/web.php</code>.</li>
+                    <li>Make a route group with the prefix <code>fair</code>.</li>
+                    <li>Inside it, add a route for <code>/</code> that returns "Welcome to the Science Fair!".</li>
+                    <li>Add a second route, <code>/project/{number}</code>. It returns "Project number X", where X is the number from the URL. Name it <code>fair.project</code>.</li>
+                    <li>Run <code>php artisan route:list</code> and find your two routes.</li>
+                    <li>Start the server. Visit <code>http://localhost:8000/fair</code> and <code>http://localhost:8000/fair/project/4</code>.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>Route::prefix('fair')-&gt;group(function () {
+
+    Route::get('/', function () {
+        return 'Welcome to the Science Fair!';
+    });
+
+    Route::get('/project/{number}', function ($number) {
+        return 'Project number ' . $number;
+    })-&gt;name('fair.project');
+
+});</code></pre>
+                    <p>The second page should show "Project number 4".</p>
+                </div></details>
+            </div>
+        </section>
+
         <!-- Quiz -->
         <section class="content-section">
             <h2>Quick Knowledge Check! 🧪</h2>

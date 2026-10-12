@@ -16,67 +16,188 @@
             <h1 style="color: white; margin: 0.5rem 0;">HTTP Deep Dive &amp; Wire Format 📬</h1>
             <p>The core protocol of the World Wide Web. Learn what travels through the wire when you click a button or fetch an API.</p>
         </header>
+        <!-- Analogy -->
+        <section class="content-section">
+            <h2>Asking and Answering: The Order Slip 📝</h2>
+            <div class="connection-box">
+                <p>🧠 <strong>Real-life analogy:</strong> At the school book counter, you hand over a slip. It says what you want to do ("borrow"), which item ("Science Grade 8") and any notes ("paperback, please"). The librarian hands back a reply slip. It starts with a short result ("Ready" or "Not in stock"), then any notes, then the book itself. <strong>HTTP</strong> works exactly like these two slips.</p>
+            </div>
+            <p><strong>HTTP</strong> (HyperText Transfer Protocol) is the set of rules browsers and servers use to ask for and send web pages, pictures and data. The browser is the <strong>client</strong>: it asks. The <strong>server</strong> answers. Every exchange is one <strong>request</strong> and one <strong>response</strong>.</p>
+        </section>
 
         <!-- Anatomy of Request & Response -->
         <section class="content-section">
-            <h2>The RFC 7230 Wire Format</h2>
-            <p>Under the hood, HTTP/1.1 is plain text structured into three clean parts:</p>
-            
-            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
-                <span style="color: #38bdf8;">POST /api/v1/relief-supplies HTTP/1.1</span> &nbsp;&lt;-- Request Line<br>
-                Host: api.oasis-aid.org<br>
-                User-Agent: Mozilla/5.0<br>
+            <h2>The Parts of an HTTP Message</h2>
+            <p>In HTTP/1.1, a message is plain text in four parts:</p>
+            <ol>
+                <li><strong>Start line.</strong> In a request: the <em>method</em> (what to do), the <em>path</em> (which item) and the version. In a response: the version and the <em>status code</em> (the result).</li>
+                <li><strong>Headers.</strong> Extra notes, one per line, written as <code>Name: value</code>.</li>
+                <li><strong>An empty line.</strong> It marks the end of the headers.</li>
+                <li><strong>The body</strong> (optional). The actual content, such as a web page or form data.</li>
+            </ol>
+            <p>The most common <strong>methods</strong> are:</p>
+            <ul>
+                <li><code>GET</code>: read something. It has no body.</li>
+                <li><code>POST</code>: send new data, such as a form.</li>
+                <li><code>PUT</code> or <code>PATCH</code>: replace or change something that exists.</li>
+                <li><code>DELETE</code>: remove something.</li>
+            </ul>
+
+            <h3>Worked example 1: a GET request and its response</h3>
+            <p>A student searches a library catalogue for science books. The browser sends:</p>
+            <pre class="code-block"><code>GET /books?topic=science HTTP/1.1     ← start line
+Host: library.example.org             ← headers
+Accept: text/html
+                                      ← empty line
+                                      (no body for GET)</code></pre>
+            <p>The server answers:</p>
+            <pre class="code-block"><code>HTTP/1.1 200 OK                       ← status line
+Content-Type: text/html; charset=utf-8
+Content-Length: 5120
+Cache-Control: max-age=600
+                                      ← empty line
+&lt;!DOCTYPE html&gt;                       ← body begins
+&lt;html&gt; ... list of science books ...</code></pre>
+            <ul>
+                <li><code>Host</code> says which website is wanted, because one server can host many sites.</li>
+                <li><code>Content-Type</code> says what the body is: an HTML page written in UTF-8 characters.</li>
+                <li><code>Content-Length</code> says the body is 5,120 bytes long.</li>
+                <li><code>Cache-Control: max-age=600</code> lets the browser reuse this page for 600 seconds (10 minutes) without asking again.</li>
+            </ul>
+
+            <h3>Worked example 2: sending data with POST</h3>
+            <p>A relief charity's app records a donation of blankets. The body is JSON, a simple text format for data.</p>
+            <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; overflow-x: auto;">
+                <span style="color: #38bdf8;">POST /api/supplies HTTP/1.1</span><br>
+                Host: relief.example.org<br>
                 Content-Type: application/json<br>
-                Content-Length: 42<br>
+                Content-Length: 34<br>
                 <br>
-                &lt;-- Empty Line (\r\n) separates headers from body<br>
-                <span style="color: #34d399;">{"item": "Blankets", "quantity": 500}</span> &nbsp;&lt;-- Request Body
+                <span style="color: #34d399;">{"item":"Blankets","quantity":500}</span>
             </div>
+            <p>The body is exactly 34 characters, so <code>Content-Length</code> is 34. The server replies:</p>
+            <pre class="code-block"><code>HTTP/1.1 201 Created
+Location: /api/supplies/77
+Content-Type: application/json
+Content-Length: 42
+
+{"id":77,"item":"Blankets","quantity":500}</code></pre>
+            <p><code>201 Created</code> means a new record was made. The <code>Location</code> header tells the app where to find it.</p>
         </section>
 
         <!-- Status Codes Classes -->
         <section class="content-section">
             <h2>The 5 HTTP Status Code Classes</h2>
+            <p>A status code is a three-digit number. Its first digit tells you the kind of result.</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
-                    <h3>1xx Informational</h3>
-                    <p><code>101 Switching Protocols</code> (WebSocket handshake).</p>
+                    <h3>1xx Information</h3>
+                    <p><code>101 Switching Protocols</code>: "let's change to another protocol" (used by WebSockets, Module 8).</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
                     <h3>2xx Success ✅</h3>
-                    <p><code>200 OK</code>, <code>201 Created</code>, <code>204 No Content</code>.</p>
+                    <p><code>200 OK</code>, <code>201 Created</code>, <code>204 No Content</code> (done, nothing to send back).</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
                     <h3>3xx Redirection 🔀</h3>
-                    <p><code>301 Moved Permanently</code>, <code>304 Not Modified</code>.</p>
+                    <p><code>301 Moved Permanently</code> (go to a new address), <code>304 Not Modified</code> (your saved copy is still fine).</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #dc2626;">
                     <h3>4xx Client Error ⚠️</h3>
-                    <p><code>400 Bad Request</code>, <code>401 Unauthorized</code>, <code>404 Not Found</code>.</p>
+                    <p><code>400 Bad Request</code>, <code>401 Unauthorized</code> (please log in), <code>403 Forbidden</code> (you are not allowed), <code>404 Not Found</code>.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
                     <h3>5xx Server Error 💥</h3>
-                    <p><code>500 Server Error</code>, <code>502 Bad Gateway</code>.</p>
+                    <p><code>500 Internal Server Error</code>, <code>502 Bad Gateway</code>, <code>503 Service Unavailable</code> (busy or under repair).</p>
                 </div>
             </div>
+            <p style="margin-top: 1rem;">A simple rule: <strong>4xx</strong> means the request had a problem. <strong>5xx</strong> means the server had a problem.</p>
+        </section>
+
+        <!-- curl -->
+        <section class="content-section">
+            <h2>Worked Example 3: Reading Real Headers With curl 🖥️</h2>
+            <p><code>curl</code> is a command-line tool that sends HTTP requests. It comes with Windows 10 and 11, macOS and most Linux systems. The <code>-I</code> flag asks for the headers only.</p>
+            <pre class="code-block"><code>curl -I https://example.org/</code></pre>
+            <p>In Windows PowerShell 5, type <code>curl.exe</code> instead of <code>curl</code>. There, the short word <code>curl</code> runs a different PowerShell command.</p>
+            <p><strong>Example output</strong> (shortened; real headers will differ):</p>
+            <pre class="code-block"><code>HTTP/2 200
+content-type: text/html
+content-length: 1256
+cache-control: max-age=3600
+date: Mon, 12 Oct 2026 08:00:00 GMT</code></pre>
+            <p>Notice <code>HTTP/2</code> and the lowercase header names. HTTP/2 writes header names in lowercase. The meaning is the same as in HTTP/1.1.</p>
+            <p>Use <code>curl -i</code> (small i) to see the headers <em>and</em> the body together.</p>
         </section>
 
         <!-- HTTP Evolution -->
         <section class="content-section">
             <h2>From HTTP/1.1 to HTTP/2 and HTTP/3</h2>
-            <ul style="line-height: 1.8; color: #334155;">
-                <li><strong>HTTP/1.1:</strong> Sequential text pipeline with Head-of-Line blocking.</li>
-                <li><strong>HTTP/2:</strong> Multiplexed binary streams over a single TCP connection with HPACK header compression.</li>
-                <li><strong>HTTP/3 (QUIC):</strong> Built on <strong>UDP</strong> with zero Head-of-Line blocking and seamless Wi-Fi-to-cellular connection migration!</li>
+            <p><strong>Head-of-line blocking</strong> is like a canteen queue. If the person at the front is slow, everyone behind them waits. Each new HTTP version reduced this waiting.</p>
+            <ul style="line-height: 1.8;">
+                <li><strong>HTTP/1.1</strong> (plain text): one request at a time on each connection. A slow reply holds up the next one. Browsers open several connections to work around this.</li>
+                <li><strong>HTTP/2</strong> (binary, which means computer-friendly codes instead of text): many requests share one TCP connection as separate <em>streams</em>. Headers are compressed. But if one TCP segment is lost, TCP pauses every stream until it is resent.</li>
+                <li><strong>HTTP/3</strong> runs on <strong>QUIC</strong>, a protocol built on top of <strong>UDP</strong> (Module 4). QUIC does its own checking and resending for each stream. A lost packet only pauses its own stream. Encryption is built in. A download can also keep going when a phone moves from Wi-Fi to mobile data.</li>
             </ul>
         </section>
 
-        <!-- Interactive Practice Challenge -->
-        <section class="content-section" style="background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #0369a1; margin-top: 0;">🧪 Your Turn: Curl Response Headers</h2>
-            <p>Use <code>curl</code> with the <code>-i</code> flag to inspect both the status line and headers:</p>
-            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># View raw headers from httpbin
-curl -i https://httpbin.org/status/200</code></pre>
+        <!-- Common misunderstanding -->
+        <section class="content-section">
+            <h2>Common Misunderstanding ⚠️</h2>
+            <div class="tip-box">
+                <p><strong>"404 means the server is down."</strong></p>
+                <p>No. A 404 is an answer, so the server is working. It only means there is nothing at that path. A server that is truly down sends no answer at all, and the browser eventually gives up.</p>
+            </div>
+            <div class="tip-box">
+                <p><strong>"POST is secret and GET is not."</strong></p>
+                <p>Without HTTPS (Module 7), both travel as readable text. POST does keep data out of the address bar and out of most server logs. That is why passwords are sent with POST, and always over HTTPS.</p>
+            </div>
+        </section>
+
+        <!-- Three-tier practice -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>What do these status codes mean: <code>201</code>, <code>404</code>, <code>503</code>? Which class (first digit) means the server had a problem?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>201 Created (a new item was made), 404 Not Found (nothing at that path), 503 Service Unavailable (the server is busy or under repair). The 5xx class means a server problem.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>Read this response and answer: (1) Did it work? (2) What kind of content is the body? (3) For how many minutes may the browser reuse it?</p>
+                <pre class="code-block"><code>HTTP/1.1 200 OK
+Content-Type: application/json
+Cache-Control: max-age=1800
+Content-Length: 39
+
+{"item":"Water bottles","quantity":200}</code></pre>
+                <details class="jc-answer"><summary>Show answer</summary><div>(1) Yes: 200 OK. (2) JSON data (<code>application/json</code>). (3) 1800 ÷ 60 = 30 minutes.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Design the requests for a school lost-and-found board. For each action, choose the method, a path and the success status code:</p>
+                <ol>
+                    <li>Show all found items.</li>
+                    <li>Add a newly found water bottle.</li>
+                    <li>Mark item 12 as "returned to owner".</li>
+                    <li>Remove item 12 from the board.</li>
+                </ol>
+                <p>Then write the first lines of request 2 with a JSON body, including a correct <code>Content-Length</code>.</p>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+                    <pre class="code-block"><code>1. GET    /items      → 200 OK
+2. POST   /items      → 201 Created
+3. PATCH  /items/12   → 200 OK
+4. DELETE /items/12   → 204 No Content
+
+POST /items HTTP/1.1
+Host: school.example.org
+Content-Type: application/json
+Content-Length: 23
+
+{"item":"Water bottle"}</code></pre>
+                    <p>Count the body: <code>{"item":"Water bottle"}</code> has 23 characters.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Navigation Footer -->

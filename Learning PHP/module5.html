@@ -28,7 +28,7 @@
         <!-- Section 2: Indexed Arrays -->
         <section class="content-section">
             <h2>🔢 Indexed Arrays</h2>
-            <p>Indexed arrays store values with automatic numeric keys starting at <strong>0</strong>. This is the most common type of array.</p>
+            <p>Indexed arrays store values with automatic number <strong>keys</strong> (the label used to find each value), starting at <strong>0</strong>. This is the most common type of array.</p>
 
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
@@ -167,7 +167,7 @@
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-dim);">
                             <td style="padding: 0.75rem 1rem;"><code>sort()</code></td>
-                            <td style="padding: 0.75rem 1rem;">Sorts array values in ascending order</td>
+                            <td style="padding: 0.75rem 1rem;">Sorts array values in ascending order (smallest to largest)</td>
                         </tr>
                         <tr style="border-bottom: 1px solid var(--border-dim);">
                             <td style="padding: 0.75rem 1rem;"><code>in_array()</code></td>
@@ -221,6 +221,68 @@
 // ---
 // Total: Rs 730</span>
 <span class="code-keyword">?&gt;</span></code>
+            </div>
+
+            <p><code>$total += $price;</code> is a short way to write <code>$total = $total + $price;</code>. It adds each price to the running total.</p>
+        </section>
+
+        <!-- Practice: three levels -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+<code>$colours = ["red", "green", "blue"];</code> What does <code>echo $colours[1];</code> print? What does <code>count($colours)</code> give?
+                <details class="jc-answer"><summary>Show answer</summary><div>It prints <strong>green</strong>, because the first item has index 0. <code>count($colours)</code> gives <strong>3</strong>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+<p>Make an associative array <code>$book</code> with the keys <code>title</code>, <code>author</code> and <code>pages</code>. Add a new key <code>shelf</code>. Then use <code>foreach</code> with <code>$key =&gt; $value</code> to print every key and value.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>&lt;?php
+$book = [
+    "title"  =&gt; "Arabic Calligraphy Basics",
+    "author" =&gt; "S. Rahman",
+    "pages"  =&gt; 120,
+];
+
+$book["shelf"] = "Art B2";   // add a new key
+
+foreach ($book as $key =&gt; $value) {
+    echo $key . ": " . $value . "&lt;br&gt;";
+}
+?&gt;</code></pre>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+<p>Make a shelf report for the school library.</p>
+<ol>
+<li>Make a multi-dimensional array <code>$shelf</code> with four books. Each book is an array with a <code>title</code> and <code>pages</code>.</li>
+<li>Use <code>foreach</code> to print each book as <em>Title (pages pages)</em>.</li>
+<li>Inside the loop, add each book's pages to <code>$totalPages</code>. (Remember: <code>$total += 5;</code> is short for <code>$total = $total + 5;</code>.)</li>
+<li>After the loop, use <code>count()</code> to print how many books there are, and print the total pages.</li>
+<li>Try it in the <a href="../studios/php-console/index.html">PHP Console</a>.</li>
+</ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>&lt;?php
+$shelf = [
+    ["title" =&gt; "Clean Code",                "pages" =&gt; 464],
+    ["title" =&gt; "Algorithm Design",          "pages" =&gt; 320],
+    ["title" =&gt; "Digital Stewardship",       "pages" =&gt; 180],
+    ["title" =&gt; "Arabic Calligraphy Basics", "pages" =&gt; 120],
+];
+
+$totalPages = 0;
+
+foreach ($shelf as $book) {
+    echo $book["title"] . " (" . $book["pages"] . " pages)&lt;br&gt;";
+    $totalPages += $book["pages"];
+}
+
+echo count($shelf) . " books, " . $totalPages . " pages in total.";
+// 4 books, 1084 pages in total.
+?&gt;</code></pre>
+                </div></details>
             </div>
         </section>
 

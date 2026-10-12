@@ -29,6 +29,56 @@
                 <span style="color: #60a5fa;">else</span>:<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;print(<span style="color: #34d399;">"Reservoir levels are optimal."</span>)
             </div>
+            <p>Run the code above and you get this <strong>output</strong> (what the program shows on screen):</p>
+            <pre class="code-block"><code>Warning: Community reservoir is low!</code></pre>
+            <p>4 is less than 5, so the condition is <code>True</code>. Python runs the first message and skips the <code>else</code> part.</p>
+        </section>
+
+        <!-- Comparison Operators -->
+        <section class="content-section">
+            <h2>⚖️ Asking Questions: Comparison Operators</h2>
+            <p>A <strong>condition</strong> is a question with a yes-or-no answer. In Python, yes is <code>True</code> and no is <code>False</code>. These are the Boolean values from Module 1.</p>
+            <p>You build a condition with a <strong>comparison operator</strong>:</p>
+            <ul>
+                <li><code>==</code> is equal to (two equals signs)</li>
+                <li><code>!=</code> is not equal to</li>
+                <li><code>&lt;</code> less than, <code>&gt;</code> greater than</li>
+                <li><code>&lt;=</code> less than or equal to, <code>&gt;=</code> greater than or equal to</li>
+            </ul>
+            <h3>Worked example 1: printing the answers</h3>
+            <pre class="code-block"><code>print(8 &gt; 5)
+print(3 == 4)
+print("Fig" == "Fig")
+print(10 != 7)</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>True
+False
+True
+True</code></pre>
+            <p>Text can be compared too. <code>"Fig" == "Fig"</code> is <code>True</code> because both strings match exactly, letter by letter.</p>
+        </section>
+
+        <!-- Colon and Indentation -->
+        <section class="content-section">
+            <h2>📐 The Colon and the Indent</h2>
+            <p>Every <code>if</code>, <code>elif</code> and <code>else</code> line ends with a colon <code>:</code>. The colon means "the steps for this choice come next".</p>
+            <p>The steps underneath are pushed in by 4 spaces. This push-in is called an <strong>indent</strong>. Python uses the indent to know which lines belong to which choice.</p>
+            <p><code>elif</code> is short for "else if". It asks a second question only when the first answer was <code>False</code>. You can have as many <code>elif</code> lines as you need. Python checks them from top to bottom and stops at the first <code>True</code> one.</p>
+            <h3>Worked example 2: reading badges at the library</h3>
+            <pre class="code-block"><code>minutes_read = 45
+
+if minutes_read &gt;= 60:
+    print("Gold reader badge!")
+elif minutes_read &gt;= 30:
+    print("Silver reader badge!")
+else:
+    print("Keep going, every page counts.")
+
+print("Thank you for reading today.")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Silver reader badge!
+Thank you for reading today.</code></pre>
+            <p>45 is not 60 or more, so the first test is <code>False</code>. 45 is 30 or more, so the second test is <code>True</code>. The last line has no indent, so it runs every time.</p>
         </section>
 
         <!-- Comparisons & Logical Operators -->
@@ -51,10 +101,44 @@
             </div>
         </section>
 
+        <!-- Combining Conditions Worked Example -->
+        <section class="content-section">
+            <h2>🔗 Worked Example 3: Borrowing a Book</h2>
+            <p>The library lets a member borrow a book only if they have fewer than 3 books at home. Both things must be true, so we use <code>and</code>.</p>
+            <pre class="code-block"><code>is_member = True
+books_out = 2
+
+if is_member and books_out &lt; 3:
+    print("You may borrow another book.")
+else:
+    print("Please return a book first.")
+
+is_raining = False
+print(not is_raining)</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>You may borrow another book.
+True</code></pre>
+            <p><code>not</code> flips a Boolean. <code>not False</code> becomes <code>True</code>.</p>
+
+            <div class="tip-box" style="border-left-color: #ef4444;">
+                <p>⚠️ <strong>Common mistake: one <code>=</code> instead of two</strong></p>
+                <p>A single <code>=</code> stores a value. A double <code>==</code> compares two values. This line is wrong:</p>
+                <pre class="code-block"><code>if score = 10:</code></pre>
+                <p>Python stops and says:</p>
+                <pre class="code-block"><code>SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?</code></pre>
+                <p>Write <code>if score == 10:</code> instead. Also watch out for a missing colon, or a line under <code>if</code> with no indent. The second one gives an <code>IndentationError</code>.</p>
+            </div>
+
+            <div class="tip-box" style="border-left-color: #2563eb;">
+                <p>🧪 <strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a>. Paste worked example 2. Change <code>minutes_read</code> to 75, then to 10. Predict the badge before you press Run each time.</p>
+            </div>
+        </section>
+
         <!-- Practice Challenge -->
         <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
             <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Smart Greenhouse Thermostat</h2>
-            <p>Write an <code>if-elif-else</code> chain that evaluates greenhouse temperature:</p>
+            <p>Write an <code>if-elif-else</code> chain that checks the greenhouse temperature in °C. Above 35: open the vents. Below 15: turn on the soil warming pads. Anything else: ideal growing conditions. Test it with <code>temp = 32</code>.</p>
+            <details class="jc-answer"><summary>Show answer</summary><div>
             <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>temp = 32
 
 if temp > 35:
@@ -63,6 +147,54 @@ elif temp < 15:
     print("Action: Turn on eco-friendly soil warming pads.")
 else:
     print("Action: Ideal growing conditions for seedlings!")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>Action: Ideal growing conditions for seedlings!</code></pre>
+            </div></details>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>Which operator checks whether two values are equal: <code>=</code> or <code>==</code>? And what does <code>print(7 &lt;= 7)</code> show?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div><code>==</code> checks for equality (a single <code>=</code> stores a value). <code>print(7 &lt;= 7)</code> shows <code>True</code>, because 7 is equal to 7.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>A park clean-up can start only when at least 5 volunteers have come <strong>and</strong> they can stay for at least 2 hours. Store <code>volunteers = 6</code> and <code>hours = 3</code>, then print the right message.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>volunteers = 6
+hours = 3
+
+if volunteers &gt;= 5 and hours &gt;= 2:
+    print("The park clean-up can start.")
+else:
+    print("We need more help first.")</code></pre>
+<p>Output: <code>The park clean-up can start.</code></p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>Build a ticket checker for the town science centre.</p>
+                <ol>
+                    <li>Store a visitor's <code>age</code> in a variable.</li>
+                    <li>Under 5: print <code>Ticket: free</code>.</li>
+                    <li>Under 18: print <code>Ticket: student price</code>.</li>
+                    <li>Everyone else: print <code>Ticket: adult price</code>.</li>
+                    <li>Test it with the ages 3, 9 and 40.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>age = 9
+
+if age &lt; 5:
+    print("Ticket: free")
+elif age &lt; 18:
+    print("Ticket: student price")
+else:
+    print("Ticket: adult price")</code></pre>
+<p>With <code>age = 9</code> the output is <code>Ticket: student price</code>. The order matters: the smallest age check comes first.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Module Navigation Footer -->

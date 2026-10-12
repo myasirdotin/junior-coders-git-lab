@@ -12,17 +12,17 @@
         <header class="module-header path-php">
             <span class="badge" style="background:white;color:var(--php-brand);">Level 1</span>
             <h1>Introduction to PHP</h1>
-            <p>Discover the language that powers 80% of the web! 🌐</p>
+            <p>Discover one of the most-used languages on the web! 🌐</p>
         </header>
 
         <!-- Section 1: What is PHP? -->
         <section class="content-section">
             <h2>🍽️ What is PHP?</h2>
-            <p>PHP stands for <strong>PHP: Hypertext Preprocessor</strong> (yes, the name contains itself — programmers are funny like that!). It is a <strong>server-side</strong> programming language, which means it runs on the web server — not in your browser.</p>
+            <p>PHP stands for <strong>PHP: Hypertext Preprocessor</strong> (yes, the name contains itself — programmers are funny like that!). It is a <strong>server-side</strong> programming language, which means it runs on the web server — not in your browser. A <strong>web server</strong> is a computer that stores websites and sends their pages to visitors.</p>
 
             <div class="connection-box">
                 <p><strong>🧠 Think of it like a restaurant:</strong></p>
-                <p>PHP is like a <strong>waiter</strong> in a restaurant. <em>You</em> (the browser) order food. The <em>waiter</em> (PHP) goes to the kitchen (the database), gets the food, cooks it up, and brings it back to you. You never see what happens in the kitchen — you just get the result!</p>
+                <p>PHP is like a <strong>waiter</strong> in a restaurant. <em>You</em> (the browser) order food. The <em>waiter</em> (PHP) goes to the kitchen (the <strong>database</strong>, an organised store of information), gets the food, cooks it up, and brings it back to you. You never see what happens in the kitchen — you just get the result!</p>
             </div>
 
             <div style="text-align: center; margin: 1.5rem 0;">
@@ -67,7 +67,7 @@
                 <div class="flow-step">🖥️ Browser shows the final page</div>
             </div>
 
-            <p style="margin-top: 1.5rem;">The browser <strong>never sees PHP code</strong> — it only receives the HTML that PHP created. This is what makes PHP powerful and secure!</p>
+            <p style="margin-top: 1.5rem;">The browser <strong>never sees PHP code</strong> — it only receives the HTML that PHP created. This keeps your PHP source code private. But hidden code alone does not make a website safe. Safety comes from careful coding: checking what users type in, and making it harmless before showing it on a page. You will learn how in Module 6.</p>
         </section>
 
         <!-- Section 3: Your First PHP Code -->
@@ -90,7 +90,7 @@
                 <li><code>&lt;?php</code> — Opens the PHP block. Everything after this is PHP code.</li>
                 <li><code>// This is a comment</code> — PHP ignores lines starting with <code>//</code>. Great for notes!</li>
                 <li><code>echo "Hello, Junior Coder!";</code> — <strong>echo</strong> prints text to the screen. Always end with a semicolon <code>;</code></li>
-                <li><code>$name = "Yasir";</code> — Creates a variable called <code>$name</code> and stores the text "Yasir".</li>
+                <li><code>$name = "Yasir";</code> — Creates a <strong>variable</strong> (a named box that holds a value) called <code>$name</code> and stores the text "Yasir". Module 2 explains variables fully.</li>
                 <li><code>echo "Welcome, " . $name;</code> — The dot <code>.</code> joins two pieces of text together.</li>
                 <li><code>?&gt;</code> — Closes the PHP block.</li>
             </ul>
@@ -99,7 +99,7 @@
                 <p>💡 <strong>Important Rules:</strong></p>
                 <ul style="margin: 0.5rem 0 0 1.5rem; line-height: 2;">
                     <li>Every PHP statement ends with a <strong>semicolon <code>;</code></strong> — never forget it!</li>
-                    <li>PHP is <strong>case-sensitive</strong> for variable names: <code>$name</code> and <code>$Name</code> are different!</li>
+                    <li>PHP is <strong>case-sensitive</strong> for variable names. That means capital and small letters count as different: <code>$name</code> and <code>$Name</code> are two separate variables!</li>
                     <li>PHP files are saved with the <strong>.php</strong> extension, not .html</li>
                 </ul>
             </div>
@@ -110,7 +110,7 @@
             <h2>⚔️ PHP vs JavaScript — What's the Difference?</h2>
             <p>You might already know JavaScript. Here is how PHP compares:</p>
 
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); border: 2px solid #eab308; border-radius: 1rem; padding: 1.5rem;">
                     <h3 style="color: #eab308; margin-bottom: 1rem;">⚡ JavaScript</h3>
                     <ul style="list-style: none; line-height: 2.2;">
@@ -145,22 +145,63 @@
                 <div class="analogy-card">
                     <span class="analogy-icon">🪟</span>
                     <h3>XAMPP</h3>
-                    <p>Free tool for Windows &amp; Mac. Installs Apache + PHP + MySQL all at once!</p>
+                    <p>Free tool for Windows &amp; Mac. Installs Apache (a web server), PHP and MySQL (a database) all at once!</p>
                 </div>
                 <div class="analogy-card">
                     <span class="analogy-icon">🐧</span>
                     <h3>LAMP Stack</h3>
-                    <p>Linux + Apache + MySQL + PHP — the classic server setup used worldwide.</p>
+                    <p>Linux (an operating system) + Apache + MySQL + PHP — the classic server setup used worldwide.</p>
                 </div>
                 <div class="analogy-card">
                     <span class="analogy-icon">☁️</span>
                     <h3>Online Editors</h3>
-                    <p>Sites like <strong>3v4l.org</strong> let you run PHP in the browser for free!</p>
+                    <p>Our <a href="../studios/php-console/index.html">PHP Console</a> and sites like <strong>3v4l.org</strong> let you try PHP in the browser for free!</p>
                 </div>
             </div>
 
             <div class="connection-box" style="margin-top: 2rem;">
-                <p>🐘 <strong>Fun Fact:</strong> PHP was created in 1994 by Rasmus Lerdorf. The elephant is PHP's mascot! Giant websites like Facebook, Wikipedia, and WordPress all use PHP under the hood.</p>
+                <p>🐘 <strong>Fun Fact:</strong> PHP was created in 1994 by Rasmus Lerdorf. The elephant is PHP's mascot! Wikipedia and WordPress run on PHP, and Facebook was first built with it.</p>
+            </div>
+        </section>
+
+        <!-- Practice: three levels -->
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+<p>Fill in the blanks: PHP code goes between ____ and ____. Every PHP statement ends with a ____.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>PHP code goes between <code>&lt;?php</code> and <code>?&gt;</code>. Every statement ends with a semicolon <code>;</code>.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+<p>Change the first example so it stores your school name in a variable called <code>$school</code>. Then print <em>Welcome to</em> followed by the school name, using the dot to join them.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>&lt;?php
+$school = "Al-Noor Public School";
+echo "Welcome to " . $school;
+?&gt;</code></pre>
+<p>It prints: Welcome to Al-Noor Public School</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+<p>Make a notice for the school library website.</p>
+<ol>
+<li>Create a variable <code>$library</code> with the library's name.</li>
+<li>Create a variable <code>$hours</code> with the opening hours, for example <code>"9 am to 4 pm"</code>.</li>
+<li>Print one sentence: <em>The (library) is open from (hours).</em></li>
+<li>Add a comment line that says what the code does.</li>
+<li>Try it in the <a href="../studios/php-console/index.html">PHP Console</a>.</li>
+</ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>&lt;?php
+// Show the library opening hours
+$library = "Iqra School Library";
+$hours = "9 am to 4 pm";
+echo "The " . $library . " is open from " . $hours . ".";
+?&gt;</code></pre>
+<p>It prints: The Iqra School Library is open from 9 am to 4 pm.</p>
+                </div></details>
             </div>
         </section>
 

@@ -20,13 +20,53 @@
         <!-- Concept -->
         <section class="content-section">
             <h2>Classification: Sorting with Intelligence</h2>
-            <p>A classifier takes input features and assigns them to a discrete class. For example, sorting water samples into <em>Safe Drinkable Water</em> or <em>Needs Filtration</em>.</p>
+            <p>A <strong>classifier</strong> is a program that sorts each sample into one group from a short, fixed list. Each group is called a <strong>class</strong>. For example, it can sort water samples into <em>Safe to drink</em> or <em>Needs filtering</em>.</p>
+            <p>It uses two features of each water sample:</p>
+            <ul>
+                <li><strong>Cloudiness</strong>: how cloudy the water looks, given as a score. Scientists call this <em>turbidity</em>. Lower is clearer.</li>
+                <li><strong>pH level</strong>: how acidic or how basic (alkaline) the water is, on a scale from 0 to 14. 7 is neutral. Drinking water is usually between 6.5 and 8.5.</li>
+            </ul>
             
             <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
-                <span style="color: #60a5fa;">def</span> <span style="color: #34d399;">evaluate_water_safety</span>(turbidity, ph_level):<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">if</span> turbidity &lt; <span style="color: #eab308;">5.0</span> <span style="color: #60a5fa;">and</span> <span style="color: #eab308;">6.5</span> &lt;= ph_level &lt;= <span style="color: #eab308;">8.5</span>:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">return</span> <span style="color: #34d399;">"Safe Potable Water 💧"</span><br>
+                <span style="color: #60a5fa;">def</span> <span style="color: #34d399;">evaluate_water_safety</span>(cloudiness, ph_level):<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">if</span> cloudiness &lt; <span style="color: #eab308;">5.0</span> <span style="color: #60a5fa;">and</span> ph_level &gt;= <span style="color: #eab308;">6.5</span> <span style="color: #60a5fa;">and</span> ph_level &lt;= <span style="color: #eab308;">8.5</span>:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">return</span> <span style="color: #34d399;">"Safe to drink 💧"</span><br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">return</span> <span style="color: #f87171;">"Filter Required ⚠️"</span>
+            </div>
+            <p>Calling it for three samples:</p>
+            <pre class="code-block"><code>print(evaluate_water_safety(1.2, 7.1))
+print(evaluate_water_safety(8.0, 7.0))
+print(evaluate_water_safety(2.0, 5.9))</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Safe to drink 💧
+Filter Required ⚠️
+Filter Required ⚠️</code></pre>
+            <p>The second sample is too cloudy. The third is too acidic (its pH is below 6.5).</p>
+            <p>Here a person wrote the rule by hand. A machine learning model would <strong>learn</strong> numbers like 5.0 and 6.5 from many labelled samples instead. Either way, we must test how often it is right.</p>
+            <div class="tip-box" style="border-left-color: #ef4444;">
+                <p>⚠️ <strong>Important:</strong> this is a simplified teaching rule. Real water testing checks many more things, such as germs and harmful chemicals, in a proper laboratory. Never decide that water is safe to drink using a school program.</p>
+            </div>
+        </section>
+
+        <!-- Measuring Accuracy -->
+        <section class="content-section">
+            <h2>🎯 Is the Model Any Good? Accuracy</h2>
+            <p><strong>Accuracy</strong> is the share of test samples the model got right, as a percentage. To work it out, compare each prediction with the true answer from the test set (the samples kept back in Module 7).</p>
+            <p>We need to walk through two lists side by side. <code>range(len(actual))</code> gives the index numbers 0, 1, 2 and so on. The same index then picks matching items from both lists.</p>
+            <h3>Worked example: counting correct predictions</h3>
+            <pre class="code-block"><code>actual = ["Safe", "Safe", "Contaminated"]
+predicted = ["Safe", "Contaminated", "Contaminated"]
+
+for i in range(len(actual)):
+    print(f"Sample {i}: true={actual[i]}, model={predicted[i]}")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre class="code-block"><code>Sample 0: true=Safe, model=Safe
+Sample 1: true=Safe, model=Contaminated
+Sample 2: true=Contaminated, model=Contaminated</code></pre>
+            <p>Two of the three match, so this model's accuracy is 2 ÷ 3 × 100, about 66.7%.</p>
+            <p>"Contaminated" means the water has something harmful mixed into it.</p>
+            <div class="tip-box" style="border-left-color: #2563eb;">
+                <p>🧪 <strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a>. Paste <code>evaluate_water_safety</code> and test it with your own cloudiness and pH values. Can you find a sample that sits right on the edge?</p>
             </div>
         </section>
 
@@ -52,14 +92,84 @@
         <!-- Practice Challenge -->
         <section class="content-section" style="background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 16px; padding: 1.5rem;">
             <h2 style="color: #1d4ed8; margin-top: 0;">🧪 Your Turn: Test Set Accuracy Calculator</h2>
-            <p>Calculate the accuracy of a disease prediction model across 5 test samples:</p>
+            <p>Calculate the accuracy of a water-safety model across 5 test samples. Count the matches with a loop, then turn the count into a percentage.</p>
+            <details class="jc-answer"><summary>Show answer</summary><div>
             <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>actual = ["Safe", "Contaminated", "Safe", "Safe", "Contaminated"]
-predicted = ["Safe", "Contaminated", "Safe", "Safe", "Safe"] # 1 error on last sample
+predicted = ["Safe", "Contaminated", "Safe", "Safe", "Safe"]  # 1 error on last sample
 
-correct = sum(1 for a, p in zip(actual, predicted) if a == p)
-accuracy = (correct / len(actual)) * 100
+correct = 0
+for i in range(len(actual)):
+    if actual[i] == predicted[i]:
+        correct += 1
 
-print(f"Accuracy: {accuracy:.1f}% ({correct}/{len(actual)} correct)")</code></pre>
+accuracy = correct / len(actual) * 100
+print(f"Accuracy: {accuracy}% ({correct}/{len(actual)} correct)")</code></pre>
+            <p><strong>Output:</strong></p>
+            <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>Accuracy: 80.0% (4/5 correct)</code></pre>
+            <p>Look at the one mistake: the model called contaminated water "Safe". For water, that is the most dangerous kind of error. Accuracy alone does not show which mistakes a model makes, so always look at the errors too.</p>
+            </div></details>
+        </section>
+
+        <section class="content-section jc-tiers">
+            <h2>🏆 Practice: three levels</h2>
+            <div class="jc-tier jc-tier-1">
+                <h3>🟢 Level 1: Recall</h3>
+                <p>A model gets 9 out of 10 test samples right. What is its accuracy? Which principle says we must never train a model on people's personal data without their permission?</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>9 ÷ 10 × 100 = 90%. The principle is <em>Amānah</em> (digital trust): personal data is a trust we must protect.</div></details>
+            </div>
+            <div class="jc-tier jc-tier-2">
+                <h3>🟡 Level 2: Apply</h3>
+                <p>Store four water samples as a list of dictionaries with <code>"cloudiness"</code> and <code>"ph"</code> keys: (1.2, 7.1), (8.0, 7.0), (2.0, 5.9), (0.5, 8.0). Loop through them, print the result of <code>evaluate_water_safety</code> for each, and count how many are safe.</p>
+                <details class="jc-answer"><summary>Show answer</summary><div>
+<pre><code>samples = [
+    {"cloudiness": 1.2, "ph": 7.1},
+    {"cloudiness": 8.0, "ph": 7.0},
+    {"cloudiness": 2.0, "ph": 5.9},
+    {"cloudiness": 0.5, "ph": 8.0},
+]
+
+safe_count = 0
+for sample in samples:
+    result = evaluate_water_safety(sample["cloudiness"], sample["ph"])
+    print(result)
+    if result == "Safe to drink 💧":
+        safe_count += 1
+
+print(f"Safe samples: {safe_count} of {len(samples)}")</code></pre>
+<p>The last line prints <code>Safe samples: 2 of 4</code>. The first and fourth samples pass.</p>
+                </div></details>
+            </div>
+            <div class="jc-tier jc-tier-3">
+                <h3>🔴 Level 3: Challenge</h3>
+                <p>A fair model works equally well for everyone. Check whether a water-safety model is fair to two villages.</p>
+                <ol>
+                    <li>Write a function <code>accuracy(actual, predicted)</code> that returns the accuracy as a percentage.</li>
+                    <li>Village A: actual <code>["Safe", "Safe", "Contaminated", "Safe"]</code>, predicted <code>["Safe", "Safe", "Contaminated", "Safe"]</code>.</li>
+                    <li>Village B: actual <code>["Safe", "Contaminated", "Contaminated", "Safe"]</code>, predicted <code>["Safe", "Safe", "Safe", "Safe"]</code>.</li>
+                    <li>Print both accuracies. If they differ, print a warning that the model needs more data from the weaker village before anyone uses it.</li>
+                </ol>
+                <details class="jc-answer"><summary>Show one possible answer</summary><div>
+<pre><code>def accuracy(actual, predicted):
+    """Returns the percentage of predictions that match the true labels."""
+    correct = 0
+    for i in range(len(actual)):
+        if actual[i] == predicted[i]:
+            correct += 1
+    return correct / len(actual) * 100
+
+village_a = accuracy(["Safe", "Safe", "Contaminated", "Safe"],
+                     ["Safe", "Safe", "Contaminated", "Safe"])
+village_b = accuracy(["Safe", "Contaminated", "Contaminated", "Safe"],
+                     ["Safe", "Safe", "Safe", "Safe"])
+
+print(f"Village A: {village_a}%")
+print(f"Village B: {village_b}%")
+
+if village_a != village_b:
+    print("Warning: the model is not equally accurate. Collect more samples from the weaker village first.")</code></pre>
+<p>Output: <code>Village A: 100.0%</code>, <code>Village B: 50.0%</code>, then the warning. The model missed both contaminated samples in Village B. Using it there could harm people, which goes against <em>Amānah</em>.</p>
+                </div></details>
+            </div>
         </section>
 
         <!-- Module Navigation Footer -->
