@@ -4,28 +4,28 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-10-11 (session keeper set up)._
+_Last updated: 2026-10-12 (mobile + content review: all four steps done)._
 
 ## 🔧 Now (in progress)
 
-- Nothing in progress. Last completed: PHP practice set (console, exercises, quiz, glossary).
+- Nothing in progress. Last completed: the 2026-10-12 review (honest data, phone layout, Start here, content depth).
 
 ## ⏭️ Next (agreed order)
 
-1. **Laravel practice** — runtime-free, since a framework cannot run in the browser: arrange-the-steps
-   (route → controller → Blade view), fill-in Blade/Eloquent snippets, fix-the-bug, a 10-question quiz, a glossary,
-   and a "build it on your own XAMPP" checklist per module. Owner agreed to the plan; said "later".
-2. **Practice Arena** — only 5 challenges, all JS/HTML/CSS. Add Python, PHP and SQL challenges (the Python console,
-   PHP console and SQL sandbox engines now exist to run them).
-3. **Teacher Hub data** — "Class 8B · 32 students", KPIs and radar are fixed sample numbers. Either label as demo or wire
-   to real local progress with a student export/import file.
-4. **Reading level** — some lesson intros are too dense for Grades 6–7 (e.g. Cybersecurity module 4). Shorter sentences,
-   tappable glossary words.
-5. **Pre-recorded narration** — owner finds Windows Chrome voices flat. Generate neural MP3s for chapter 1 of each book
-   (Azure / Google / ElevenLabs / OpenAI TTS, a few dollars), play when present, fall back to Web Speech.
-6. **CSS selectors/specificity module** — the CSS track has no module for it (the textbook does). Insert as Module 3,
-   renumber, update `Learning CSS/GEMINI.md`, `.gemini/agents/css-tutor.md`, run `node scripts/sync-curriculum.js`.
-7. **Laravel textbook** is the only one written inline (`book-laravel/index.html`) rather than chapter files — convert later.
+1. **Laravel practice, remaining part**: quiz, glossary and tiers now exist. Still to do: `exercises.html` with
+   arrange-the-steps, fill-in Blade/Eloquent snippets, fix-the-bug, plus a "build it on your own XAMPP" checklist.
+2. **Practice Arena**: only 5 challenges, all JS/HTML/CSS. Add Python, PHP and SQL challenges (engines exist).
+3. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
+   a teacher can import.
+4. **Leftover content gaps** found in the review:
+   - JS modules 4–6: the practice textareas already contain the full solutions.
+   - Python module 7 was not deepened (modules 1–6 and 8 were).
+   - Networks module title cards still set old inline "Level" badge colours.
+   - `tips.html` and `best-practices.html` overlap in the HTML, CSS and JS tracks.
+5. **Pre-recorded narration**: generate neural MP3s for chapter 1 of each book, play when present, fall back to Web Speech.
+6. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
+   `.gemini/agents/css-tutor.md`, run `node scripts/sync-curriculum.js`.
+7. **Laravel textbook**: only 3 of 24 chapters written, inline in `book-laravel/index.html`. Write and convert to chapter files.
 
 ## ❓ Decisions pending from the owner
 
@@ -34,6 +34,16 @@ _Last updated: 2026-10-11 (session keeper set up)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-12 Content: three-tier practice (one `jc-tiers` markup, GEMINI §7g) in every module of all 9 tracks;
+  Python 1–6, Networks and Cybersecurity modules deepened; new quizzes (Python, Networks, Cybersecurity, Laravel),
+  Laravel glossary; many factual fixes (Laravel logout/starter kits, CSS quiz Q1, PHP form XSS, Networks numbers).
+- 2026-10-12 Start here: Pathways hub is the front door; every path week opens a real lesson; home chooser → lesson 1.
+- 2026-10-12 Phones: compact lesson pages (text starts ~400px higher), narrator tip closable, one PDF button,
+  textbook reader roomier, Web Studio Code/Preview switch; Master Playground merged into Web Studio.
+- 2026-10-12 Honesty (GEMINI §7h): Teacher Hub and Projects labelled as sample data, home grade bars show real
+  progress, no "verifiable certificate" claims, textbook chapter counts corrected; dice button renamed.
+- 2026-10-12 Clean-up: removed remove_nav.js, book/, Docker files; audit report git-ignored; 120 raw markdown
+  fragments fixed; broken links (HTML module 13, learn/networks) fixed.
 - 2026-10-11 PHP practice: `studios/php-console/` on php-wasm (`js/php-lab.js`), 15 exercises (`Learning PHP/exercises.html`,
   data in `js/data/php-exercises.js`), quiz, glossary; syllabus links fixed. GEMINI §7f.
 - 2026-10-11 MySQL practice: real SQL engine (`js/sql-lab.js`, sql.js), SQL Sandbox rebuilt, 14 exercises, quiz, glossary. GEMINI §7e.
@@ -52,5 +62,6 @@ _Last updated: 2026-10-11 (session keeper set up)._
 
 ## 🧪 Not yet verified by a human
 
+- Web Studio Code/Preview switch and the compact lesson layout on a real phone (only headless Chrome so far).
 - Narration audio actually playing in a real browser (headless tests cannot play sound).
 - PHP console on a slow school network (12 MB first download).
