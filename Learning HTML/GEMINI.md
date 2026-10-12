@@ -12,6 +12,7 @@ All HTML learning materials, code examples, form templates, and layout projects 
   - **No Commercial Movie / Entertainment Streaming**: Do not build mockups or forms for movie streaming platforms (e.g., Netflix), cinema box offices, celebrity gossip fansites, or unwholesome media portals.
   - **No Usury / Conventional Banking (*Ribā*)**: No loan applications or interest calculators.
   - **No Gambling or Lotteries (*Maysir*)**: No lottery forms, raffle betting, or chance games.
+  - **Full list**: the full, current list of forbidden themes is in the root `GEMINI.md` §1.3 (also no music, film or fan themes, pork toppings, social-media likes, or dice for randomness). The subject tutor in `.gemini/agents/` repeats it.
   - **No Prohibited Goods (*Ḥarām*)**: No references to alcohol, nightclubs, or unwholesome venues.
 - **Encouraged Wholesome Scenarios**:
   - Educational academy portals, digital libraries, school course catalogs, and student profiles.

@@ -13,6 +13,7 @@ All modules in this track must strictly follow our core ethical foundation:
   - No packet sniffing tutorials designed for spying or eavesdropping.
   - No DDoS scripts or botnet tutorials.
   - No interest or loan models (*Ribā*), gambling tools (*Maysir*), or deceptive dark patterns.
+  - **Full list**: the full, current list of forbidden themes is in the root `GEMINI.md` §1.3 (also no music, film or fan themes, pork toppings, social-media likes, or dice for randomness). The subject tutor in `.gemini/agents/` repeats it.
   - No commercial entertainment/movie streaming scenarios (e.g., Netflix, cinema CDN traffic). When teaching streaming protocols (HLS, DASH, WebRTC, HTTP range requests), frame them exclusively around educational lectures, university webinars, medical telemetry, or interactive remote classrooms.
 
 ---

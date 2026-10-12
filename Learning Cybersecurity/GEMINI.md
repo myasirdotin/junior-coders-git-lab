@@ -15,6 +15,7 @@ All modules in this track must strictly follow our core ethical foundation:
   - No unauthorized penetration testing guides or credential stuffing scripts.
   - No piracy tools, illicit movie/entertainment streaming scrapers (e.g., Netflix rippers), or cinema credential cracking examples. All defensive threat models and audit scenarios must protect educational, civic, healthcare, or ethical business platforms.
   - No usury/interest calculators (*Ribā*), gambling simulations (*Maysir*), or deceptive dark patterns (*Gharar*).
+  - **Full list**: the full, current list of forbidden themes is in the root `GEMINI.md` §1.3 (also no music, film or fan themes, pork toppings, social-media likes, or dice for randomness). The subject tutor in `.gemini/agents/` repeats it.
 
 ---
 

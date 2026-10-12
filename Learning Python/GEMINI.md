@@ -12,6 +12,7 @@ All modules in this track must strictly follow our core ethical foundation:
 - **Strictly Prohibited Topics**:
   - **No Interest or Loan Models (*Ribā*)**: No compound interest calculators or debt engines.
   - **No Gambling, Betting, or Lottery Algorithms (*Maysir*)**: No games of chance or loot drop generators.
+  - **Full list**: the full, current list of forbidden themes is in the root `GEMINI.md` §1.3 (also no music, film or fan themes, pork toppings, social-media likes, or dice for randomness). The subject tutor in `.gemini/agents/` repeats it.
   - **No Commercial Movie / Entertainment Streaming Platforms**: Never build movie recommendation engines (e.g., Netflix clone recommenders), cinema ticket calculators, pop media scrapers, or sentiment analysis on inappropriate films.
   - **No Deceptive Patterns or Harms**: No deepfakes, voice spoofing, invasive surveillance, or dark UX patterns.
 - **Encouraged Beneficial Datasets & Algorithms**:

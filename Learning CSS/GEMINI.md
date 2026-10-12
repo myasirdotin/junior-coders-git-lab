@@ -11,6 +11,7 @@ All CSS templates, visual cards, component styling, and mini-projects must adher
 - **Strictly Prohibited Domains**:
   - **No Entertainment / Movie Streaming Clones**: Never create or style clones of commercial streaming platforms (such as Netflix or Hulu), cinema booking interfaces, or entertainment gossip portals.
   - **No Gambling or Nightclub Themes**: Prohibit dark UI designs themed around casinos, betting, or illicit entertainment venues.
+  - **Full list**: the full, current list of forbidden themes is in the root `GEMINI.md` §1.3 (also no music, film or fan themes, pork toppings, social-media likes, or dice for randomness). The subject tutor in `.gemini/agents/` repeats it.
   - **No Deceptive UX Styling (*Gharar*)**: Prohibit deceptive patterns, hidden fee badges, or fake countdown styles.
 - **Encouraged Wholesome Scenarios**:
   - Clean card layouts for educational courses, digital libraries, and community service projects.

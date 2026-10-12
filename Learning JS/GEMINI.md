@@ -12,6 +12,7 @@ All JavaScript lessons, exercises, challenges, and DOM mini-projects must adhere
   - **No Entertainment / Movie Streaming**: Never use commercial video/movie streaming portals (e.g., Netflix, cinema booking, pop celebrity tracking) in examples, decision trees, or projects.
   - **No Usury / Interest (*Ribā*)**: No interest rate calculations or debt engines.
   - **No Gambling (*Maysir*)**: No dice games of chance, coin flips used for gambling, lottery pickers, or casino games.
+  - **Full list**: the full, current list of forbidden themes is in the root `GEMINI.md` §1.3 (also no music, film or fan themes, pork toppings, social-media likes, or dice for randomness). The subject tutor in `.gemini/agents/` repeats it.
   - **No Deceptive UX (*Gharar*)**: No deceptive popups, fake countdown timers, or artificial scarcity tricks.
 - **Encouraged Wholesome Scenarios**:
   - Educational tools: Science quiz engines, flashcard memorizers, study session timers, library book searches, math tutors.

@@ -12,6 +12,7 @@ All modules, code demonstrations, forms, exercise prompts, and projects in this 
   - **No Entertainment / Movie Streaming**: Absolutely no references to commercial streaming portals (e.g., Netflix, Hulu), cinema ticketing engines, celebrity fandoms, or unwholesome media entertainment.
   - **No Usury / Interest (*Ribā*)**: Do not build loan interest calculators or conventional debt mechanisms.
   - **No Gambling (*Maysir*)**: No lottery drawings, random chance betting, or casino games.
+  - **Full list**: the full, current list of forbidden themes is in the root `GEMINI.md` §1.3 (also no music, film or fan themes, pork toppings, social-media likes, or dice for randomness). The subject tutor in `.gemini/agents/` repeats it.
   - **No Prohibited Commerce (*Ḥarām*)**: No alcohol, intoxicants, or illicit goods.
 - **Encouraged Wholesome Scenarios**:
   - Educational learning portals, digital research libraries, student gradebooks, and teacher dashboards.
