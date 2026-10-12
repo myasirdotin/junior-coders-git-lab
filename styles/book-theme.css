@@ -3056,3 +3056,26 @@ body.dark .concept-figure {
 @media (max-width: 640px) {
   .reader-voice-pill { display: none !important; }   /* phones: system voices are fine; keep the bar to one row */
 }
+
+/* ==========================================================================
+   Phones: more room for the chapter
+   - the link row (.reader-topbar) scrolls away instead of sticking under the top bar
+     (the sticky top bar keeps Chapters + Home, which is enough while reading)
+   - Prev/Next lives in the cards at the end of every chapter (js/book-pagination.js);
+     the copy in the control bar took a whole second row
+   ========================================================================== */
+@media (max-width: 640px) {
+  .reader-topbar { position: static !important; }
+  .reader-status-center .header-quick-nav { display: none !important; }
+  .reader-status-center:not(:has(> :not(.header-quick-nav))) { display: none !important; }
+  .reader-voice-hint { font-size: 0.74rem !important; line-height: 1.4 !important; padding: 0.35rem 0.6rem !important; }
+}
+
+/* Close button on the "open in Edge for natural voices" tip (js/tts-voices.js hintNote) */
+.reader-voice-hint.jc-voice-hint { display: flex; align-items: flex-start; gap: 0.5rem; }
+.jc-voice-hint > span { flex: 1; }
+.jc-voice-hint-close {
+  flex: none; width: 28px; height: 28px; margin: -0.2rem -0.3rem -0.2rem 0; border: 0; border-radius: 6px;
+  background: transparent; color: inherit; font-size: 0.85rem; cursor: pointer; opacity: 0.8;
+}
+.jc-voice-hint-close:hover, .jc-voice-hint-close:focus-visible { opacity: 1; background: rgba(0, 0, 0, 0.08); }

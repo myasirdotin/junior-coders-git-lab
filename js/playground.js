@@ -378,6 +378,20 @@
                 });
             }
 
+            // Start with the selected template instead of empty editors (unless a lesson sent code here)
+            let pendingWaiting = false;
+            try { pendingWaiting = !!localStorage.getItem('pendingExercise'); } catch (e) { /* storage blocked */ }
+            if (!htmlEditor.value && !cssEditor.value && !jsEditor.value && !pendingWaiting) {
+                const start = STARTER_TEMPLATES[templateSelect ? templateSelect.value : 'default'] || STARTER_TEMPLATES.default;
+                htmlEditor.value = start.html;
+                cssEditor.value = start.css;
+                jsEditor.value = start.js;
+                updatePreview();
+            }
+
+            // Refresh button: run the code again (reloading the page would wipe the student's work)
+            window.refreshStudioPreview = updatePreview;
+
             // 8. Standalone Project Exporter
             const exportBtn = document.getElementById('export-project-btn');
             if (exportBtn) {

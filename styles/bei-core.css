@@ -2885,3 +2885,38 @@ body.bei-search-open { overflow: hidden; }
     /* floating PDF button: clear the phone tab bar */
     #pdf-fab { bottom: 76px !important; right: 12px !important; padding: 9px 14px !important; font-size: 13px !important; }
 }
+
+/* ═════════════════════════════════════════════════════════════════════
+   WEB STUDIO ON PHONES (studios/web-studio/index.html)
+   Editor and preview stacked meant the preview sat below the fold. On phones show one
+   at a time with a Code / Preview switch; each fills the screen above the tab bar.
+   ═════════════════════════════════════════════════════════════════════ */
+.studio-view-switch { display: none; }
+@media (max-width: 640px) {
+    .studio-view-switch {
+        display: flex; gap: 0.4rem; margin: 0.6rem 0.75rem 0; padding: 0.3rem;
+        background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: 12px;
+    }
+    .studio-view-btn {
+        flex: 1; min-height: 42px; border: 0; border-radius: 9px; background: transparent;
+        color: var(--text-secondary); font: inherit; font-size: 0.92rem; font-weight: 700; cursor: pointer;
+    }
+    .studio-view-btn.active { background: var(--brand-primary); color: #fff; }
+    .web-studio-page .master-playground-container {
+        margin: 0.6rem 0.75rem; min-height: 0;
+        height: calc(100dvh - 69px - 62px - 70px); /* header, tab bar, switch */
+    }
+    .web-studio-page .studio-view-code .ide-preview-panel,
+    .web-studio-page .studio-view-preview .ide-editor-panel { display: none; }
+    .web-studio-page .ide-editor-panel, .web-studio-page .ide-preview-panel { height: 100%; flex: 1 1 auto; }
+    .web-studio-page .ide-content-area { flex: 1 1 auto; min-height: 0; }
+    .web-studio-page .ide-console { max-height: 110px; }
+    .web-studio-page #master-preview { flex: 1 1 auto; height: auto; min-height: 0; }
+    /* the Desktop / Tablet / Mobile width buttons do nothing useful on a phone screen */
+    .web-studio-page .viewport-controls { display: none; }
+}
+/* Tutor button and drawer (js/bei-tutor.js sets them inline at bottom: 20px): clear the phone tab bar */
+@media (max-width: 640px) {
+    #tutorFloatingBtn { bottom: 76px !important; right: 12px !important; padding: 0.6rem 1rem !important; font-size: 0.85rem !important; }
+    #tutorDrawer { bottom: 72px !important; right: 8px !important; left: 8px !important; width: auto !important; max-width: none !important; height: min(520px, calc(100dvh - 160px)) !important; }
+}

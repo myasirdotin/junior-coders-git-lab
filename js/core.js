@@ -272,7 +272,7 @@
                 type: data.type || 'html'
             }));
             const isSub = window.location.pathname.includes('Learning') || window.location.pathname.includes('book');
-            const targetUrl = (isSub ? '../' : './') + 'master-playground.html';
+            const targetUrl = (isSub ? '../' : './') + 'studios/web-studio/index.html';
             window.location.href = targetUrl;
         } catch(err) {
             console.error('Failed to load exercise to playground:', err);

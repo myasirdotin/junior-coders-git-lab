@@ -14,51 +14,18 @@
             min-height: 100vh;
             background: var(--bg-page);
         }
-        .studio-top-bar {
-            background: var(--bg-surface);
-            border-bottom: 1px solid var(--border-subtle);
-            padding: 0.6rem 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-        .studio-breadcrumbs {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-        .studio-breadcrumbs a {
-            color: var(--text-secondary);
-        }
     </style>
 </head>
 <body class="web-studio-page ide-mode">
 
-    <!-- Top Bar Navigation -->
-    <header class="studio-top-bar">
-        <div style="display: flex; align-items: center; gap: 1rem;">
-            <a href="../../index.html" class="bei-logo" style="font-size: 1.1rem;">
-                <div class="bei-logo-icon" style="width: 32px; height: 32px; font-size: 1rem;">💻</div>
-                <span>Junior Coders</span>
-            </a>
-            <div class="studio-breadcrumbs">
-                <span>/</span> <a href="../index.html">Studios</a>
-                <span>/</span> <span style="color: var(--text-primary); font-weight: 600;">Web Studio</span>
-            </div>
-        </div>
-        <div style="display: flex; align-items: center; gap: 0.75rem;">
-            <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
-            <a href="../../learn/web-dev/index.html" class="btn-hero-secondary" style="padding: 0.4rem 0.85rem; font-size: 0.82rem;">📖 Web Curriculum</a>
-            <a href="../../library/cheatsheets/index.html" class="btn-hero-secondary" style="padding: 0.4rem 0.85rem; font-size: 0.82rem;">📋 Cheat Sheets</a>
-        </div>
-    </header>
+    <!-- Phones: show the code or the preview, one at a time (styles in bei-core.css "WEB STUDIO ON PHONES") -->
+    <div class="studio-view-switch" role="tablist" aria-label="Show code or preview">
+        <button type="button" role="tab" class="studio-view-btn active" data-view="code" aria-selected="true">✏️ Code</button>
+        <button type="button" role="tab" class="studio-view-btn" data-view="preview" aria-selected="false">👁️ Preview</button>
+    </div>
 
-    <!-- Master Playground IDE -->
-    <div class="master-playground-container" style="height: calc(100vh - 80px); margin: 0.75rem 1rem;">
+    <!-- Web Studio IDE -->
+    <div class="master-playground-container studio-view-code">
         <!-- Editor Panel -->
         <section class="ide-editor-panel">
             <div class="ide-tabs">
@@ -106,7 +73,7 @@ console.log('Web Studio initialized. Ready to create!');"></textarea>
                     <button class="viewport-btn" data-width="768px">📟 Tablet</button>
                     <button class="viewport-btn" data-width="375px">📱 Mobile</button>
                 </div>
-                <button class="btn-icon" onclick="window.location.reload()" title="Refresh Preview">🔄</button>
+                <button class="btn-icon" type="button" onclick="window.refreshStudioPreview && window.refreshStudioPreview()" title="Run the code again" aria-label="Run the code again">🔄</button>
             </div>
             <iframe id="master-preview" title="Live code preview" sandbox="allow-scripts"></iframe>
         </section>
@@ -123,6 +90,24 @@ console.log('Web Studio initialized. Ready to create!');"></textarea>
     <script src="../../js/playground.js"></script>
     <script src="../../js/bei-tutor.js"></script>
     <script>
+        // Code / Preview switch for phones (on wider screens both panels show side by side)
+        (function () {
+            const box = document.querySelector('.master-playground-container');
+            document.querySelectorAll('.studio-view-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const view = btn.dataset.view;
+                    box.classList.toggle('studio-view-code', view === 'code');
+                    box.classList.toggle('studio-view-preview', view === 'preview');
+                    document.querySelectorAll('.studio-view-btn').forEach(b => {
+                        const on = b === btn;
+                        b.classList.toggle('active', on);
+                        b.setAttribute('aria-selected', on ? 'true' : 'false');
+                    });
+                    window.scrollTo(0, 0);
+                });
+            });
+        })();
+
         document.addEventListener('DOMContentLoaded', () => {
             if (window.BeiTutor) {
                 window.BeiTutor.initTutor('socraticTutorContainer', () => {

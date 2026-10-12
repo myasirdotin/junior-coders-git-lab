@@ -1169,7 +1169,6 @@
         ['studios/web-studio/index.html', '⚡', 'Web Studio (HTML, CSS & JS Lab)', 'Studio', 'playground ide code'],
         ['studios/sql-sandbox/index.html', '🗄️', 'SQL Sandbox', 'Studio', 'mysql database query'],
         ['studios/python-console/index.html', '🐍', 'Python Console', 'Studio', 'python run'],
-        ['master-playground.html', '💻', 'Master Playground IDE', 'Studio', 'code lab ide'],
         ['practice-arena.html', '⚔️', 'Practice Arena', 'Practice', 'challenges exercises xp'],
         ['learn/index.html', '📚', 'Learn: Curriculum & Pathways', 'Page', 'courses tracks'],
         ['paths/index.html', '🗺️', 'Guided Learning Pathways', 'Page', 'beginner web developer full stack'],
