@@ -2920,3 +2920,16 @@ body.bei-search-open { overflow: hidden; }
     #tutorFloatingBtn { bottom: 76px !important; right: 12px !important; padding: 0.6rem 1rem !important; font-size: 0.85rem !important; }
     #tutorDrawer { bottom: 72px !important; right: 8px !important; left: 8px !important; width: auto !important; max-width: none !important; height: min(520px, calc(100dvh - 160px)) !important; }
 }
+
+/* "Start here" path picker list (paths/index.html) */
+.path-picker-guide { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; gap: 0.45rem; }
+.path-picker-guide li {
+    padding: 0.6rem 0.85rem; border-radius: 10px; background: var(--bg-surface);
+    border: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: 0.95rem; line-height: 1.45;
+}
+.path-picker-guide a { color: var(--brand-cyan); font-weight: 700; }
+.start-here-note {
+    margin: 0.9rem 0 0; padding: 0.65rem 0.9rem; border-radius: 10px; font-size: 0.95rem;
+    background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.3); color: var(--text-secondary);
+}
+.start-here-note a { color: var(--brand-cyan); font-weight: 700; }

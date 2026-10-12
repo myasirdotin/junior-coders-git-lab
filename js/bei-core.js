@@ -40,23 +40,26 @@ function initPlacementWidget() {
     const outcomes = {
         foundations: {
             title: "🌟 Recommended Starting Point: Foundations & Digital Literacy",
-            desc: "Perfect for students in Grades 6–7 or absolute beginners! You will master keyboard navigation, file organization, command-line terminal, and Git basics with zero prior coding required.",
-            link: "learn/foundations/index.html",
-            btnText: "Start Foundations Journey →",
+            desc: "Great for Grades 6–7 and anyone who has never coded. In 4 weeks you learn how files and folders work, use the terminal, and make your first web page.",
+            link: "book-cmd/index.html#ch1",
+            plan: "paths/beginner/index.html",
+            btnText: "Start Week 1 →",
             color: "var(--brand-accent)"
         },
         web: {
             title: "🌐 Recommended Starting Point: Web Development Pathway",
-            desc: "Ideal if you love visual creation! Start with semantic HTML structure, style with modern CSS (Flexbox & Grid), and bring websites alive with JavaScript logic.",
-            link: "learn/web-dev/index.html",
-            btnText: "Start Web Development Track →",
+            desc: "Great if you like making things you can see. Build pages with HTML, style them with CSS, then make them interactive with JavaScript.",
+            link: "Learning%20HTML/module1.html",
+            plan: "paths/web-developer/index.html",
+            btnText: "Start HTML Module 1 →",
             color: "var(--brand-cyan)"
         },
         python: {
             title: "🐍 Recommended Starting Point: Python & AI Lab",
-            desc: "Ideal for Grades 8–10 or algorithmic thinkers! Master clean Python syntax, loops, data structures, ethical AI principles, and interactive machine learning models.",
-            link: "learn/python/index.html",
-            btnText: "Launch Python & AI Lab →",
+            desc: "Great for Grades 8–10 and puzzle lovers. Learn Python step by step, then see how simple AI models learn from data, and how to use them honestly.",
+            link: "Learning%20Python/module1.html",
+            plan: "paths/python-ai/index.html",
+            btnText: "Start Python Module 1 →",
             color: "var(--brand-purple)"
         }
     };
@@ -76,7 +79,7 @@ function initPlacementWidget() {
                         <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.6;">${data.desc}</p>
                         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
                             <a href="${data.link}" class="btn-hero-primary" style="padding: 0.65rem 1.4rem; font-size: 0.92rem; background: ${data.color}; color: white;">${data.btnText}</a>
-                            <a href="studios/web-studio/index.html" class="btn-hero-secondary" style="padding: 0.65rem 1.2rem; font-size: 0.92rem;">Try Live Studio First ⚡</a>
+                            <a href="${data.plan}" class="btn-hero-secondary" style="padding: 0.65rem 1.2rem; font-size: 0.92rem;">See the week-by-week plan</a>
                         </div>
                     </div>
                 `;

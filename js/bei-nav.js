@@ -774,13 +774,13 @@
                 </a>
 
                 <ul class="bei-nav-links">
+                    <li><a href="${ROOT}paths/index.html" class="bei-nav-link ${activeKey === 'paths' ? 'active' : ''}"><span class="nav-icon">🗺️</span><span>Start here</span></a></li>
                     <li><a href="${ROOT}learn/index.html" class="bei-nav-link ${activeKey === 'learn' ? 'active' : ''}"><span class="nav-icon">📚</span><span>Learn</span></a></li>
                     <li><a href="${ROOT}practice-arena.html" class="bei-nav-link ${activeKey === 'arena' ? 'active' : ''}"><span class="nav-icon">⚔️</span><span>Arena</span></a></li>
                     <li><a href="${ROOT}studios/index.html" class="bei-nav-link ${activeKey === 'studios' ? 'active' : ''}"><span class="nav-icon">⚡</span><span>Studios</span></a></li>
                     <li><a href="${ROOT}library/books/index.html" class="bei-nav-link ${activeKey === 'textbooks' ? 'active' : ''}"><span class="nav-icon">📖</span><span>Textbooks</span></a></li>
                     <li><a href="${ROOT}library/cheatsheets/index.html" class="bei-nav-link ${activeKey === 'cheatsheets' ? 'active' : ''}"><span class="nav-icon">📋</span><span>Cheatsheets</span></a></li>
                     <li><a href="${ROOT}projects/index.html" class="bei-nav-link ${activeKey === 'projects' ? 'active' : ''}"><span class="nav-icon">🏆</span><span>Projects</span></a></li>
-                    <li><a href="${ROOT}paths/index.html" class="bei-nav-link ${activeKey === 'paths' ? 'active' : ''}"><span class="nav-icon">🗺️</span><span>Pathways</span></a></li>
                     <li><a href="${ROOT}teacher-hub/index.html" class="bei-nav-link ${activeKey === 'teachers' ? 'active' : ''}"><span class="nav-icon">🍎</span><span>Teachers</span></a></li>
                 </ul>
 
@@ -1171,7 +1171,7 @@
         ['studios/python-console/index.html', '🐍', 'Python Console', 'Studio', 'python run'],
         ['practice-arena.html', '⚔️', 'Practice Arena', 'Practice', 'challenges exercises xp'],
         ['learn/index.html', '📚', 'Learn: Curriculum & Pathways', 'Page', 'courses tracks'],
-        ['paths/index.html', '🗺️', 'Guided Learning Pathways', 'Page', 'beginner web developer full stack'],
+        ['paths/index.html', '🗺️', 'Start here: pick your path', 'Page', 'start begin pathways beginner web developer full stack'],
         ['library/books/index.html', '📖', 'All Textbooks', 'Page', 'books library'],
         ['library/cheatsheets/index.html', '📋', 'All Cheat Sheets', 'Page', 'reference'],
         ['projects/index.html', '🏆', 'Graded Project Catalog', 'Page', 'projects capstone'],
