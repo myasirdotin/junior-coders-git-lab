@@ -923,6 +923,10 @@ window.JC_BOOKS = [
     "colorSoft": "#f0fdf4",
     "links": [
       {
+        "href": "../cheatsheet-kotlin.html",
+        "label": "📋 Cheat sheet"
+      },
+      {
         "href": "../book-js/index.html",
         "label": "⚡ JavaScript book"
       },

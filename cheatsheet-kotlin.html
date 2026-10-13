@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kotlin &amp; Android Cheat Sheet | Junior Coders</title>
+    <meta name="description" content="A one-page Kotlin and Jetpack Compose cheat sheet for Grades 9–10: variables, decisions, lists, functions, classes, null safety, Compose screens, state, lists, navigation, saving data and permissions.">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/bei-core.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .kt-hero {
+            background: linear-gradient(135deg, rgba(127, 82, 255, 0.25) 0%, rgba(30, 41, 59, 0.9) 100%);
+            border-bottom: 2px solid #7f52ff;
+        }
+        .kt-hdr {
+            background: linear-gradient(135deg, rgba(127, 82, 255, 0.2), rgba(127, 82, 255, 0.05));
+            color: #a78bfa;
+            border-bottom: 1px solid rgba(127, 82, 255, 0.3);
+        }
+        .kt-table td:first-child {
+            font-family: var(--font-mono);
+            color: #c4b5fd;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+<div class="cheatsheet-container">
+
+    <header class="cheat-hero kt-hero">
+        <span class="course-level" style="background:rgba(127,82,255,0.25); color:#c4b5fd; border: 1px solid rgba(127,82,255,0.4);">Grades 9–10</span>
+        <h1>📱 Kotlin &amp; Android Cheat Sheet</h1>
+        <p>Kotlin basics and Jetpack Compose screens on one page, in the same order as the Android Apps textbook.</p>
+    </header>
+
+    <div class="cheat-tip">
+        <strong>Two habits:</strong> use <code>val</code> unless the value must change (then <code>var</code>), and never use <code>!!</code>: handle a missing value with <code>?.</code> and <code>?:</code>. Plain Kotlin runs in your browser at <a href="https://play.kotlinlang.org/" target="_blank" rel="noopener">Kotlin Playground</a>; screen code runs in Android Studio.
+    </div>
+
+    <div class="cheat-grid">
+
+        <div class="cheat-card" id="card-variables-types">
+            <div class="cheat-card-header kt-hdr">📦 Variables &amp; Types</div>
+            <table class="cheat-table kt-table">
+                <tr><td>val name = "Amina"</td><td>Read-only: cannot be given a new value</td></tr>
+                <tr><td>var borrowed = 0</td><td>Can change later: <code>borrowed = 3</code></td></tr>
+                <tr><td>val pages: Int = 120</td><td>Type written out (usually Kotlin works it out)</td></tr>
+                <tr><td>Int, Double, Boolean, String, Char</td><td>Whole number, decimal, true/false, text, one letter</td></tr>
+                <tr><td>"Salaam, $name!"</td><td>String template: puts a value inside text</td></tr>
+                <tr><td>"${books.size} books"</td><td>Template with an expression in <code>${ }</code></td></tr>
+                <tr><td>7 / 2 &nbsp;→ 3 &nbsp;&nbsp; 7 % 2 → 1</td><td>Whole-number division and remainder</td></tr>
+                <tr><td>7 / 2.0 → 3.5</td><td>One decimal makes the answer a decimal</td></tr>
+                <tr><td>"42".toInt()</td><td>Text to number (crashes on "abc")</td></tr>
+                <tr><td>"abc".toIntOrNull() → null</td><td>Safe version: null when it is not a number</td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-decisions">
+            <div class="cheat-card-header kt-hdr">🚦 Decisions</div>
+            <table class="cheat-table kt-table">
+                <tr><td>if (copies &gt; 0) { … } else { … }</td><td>Run one block or the other</td></tr>
+                <tr><td>val label = if (ok) "Yes" else "No"</td><td><code>if</code> can give back a value</td></tr>
+                <tr><td>== &nbsp; != &nbsp; &lt; &nbsp; &lt;= &nbsp; &gt; &nbsp; &gt;=</td><td>Compare values (<code>==</code> compares the contents of text too)</td></tr>
+                <tr><td>&amp;&amp; &nbsp; || &nbsp; !</td><td>And, or, not</td></tr>
+                <tr><td>when (mark) {<br>&nbsp; in 90..100 -&gt; "A"<br>&nbsp; in 75..89 -&gt; "B"<br>&nbsp; else -&gt; "Keep going"<br>}</td><td><code>when</code> picks the first matching branch; <code>90..100</code> is a range</td></tr>
+                <tr><td>when (day) { "Fri" -&gt; … }</td><td>Match exact values</td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-lists-loops">
+            <div class="cheat-card-header kt-hdr">🔁 Lists &amp; Loops</div>
+            <table class="cheat-table kt-table">
+                <tr><td>val subjects = listOf("Maths", "Physics")</td><td>A list that cannot change</td></tr>
+                <tr><td>val tasks = mutableListOf&lt;String&gt;()</td><td>An empty list you can change</td></tr>
+                <tr><td>tasks.add("Read ch 4") / tasks.remove(x)</td><td>Add or remove an item</td></tr>
+                <tr><td>subjects[0] &nbsp;&nbsp; subjects.size</td><td>First item (index 0) and how many items</td></tr>
+                <tr><td>for (s in subjects) { … }</td><td>Visit every item</td></tr>
+                <tr><td>for (i in 1..5)</td><td>1, 2, 3, 4, 5</td></tr>
+                <tr><td>for (i in 0 until 5)</td><td>0 to 4 (stops before 5)</td></tr>
+                <tr><td>for (i in 10 downTo 0 step 2)</td><td>10, 8, 6, 4, 2, 0</td></tr>
+                <tr><td>while (left &gt; 0) { … }</td><td>Repeat while the condition is true</td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-functions-lambdas">
+            <div class="cheat-card-header kt-hdr">🧩 Functions &amp; Lambdas</div>
+            <table class="cheat-table kt-table">
+                <tr><td>fun add(a: Int, b: Int): Int { return a + b }</td><td>Function with parameters and a return type</td></tr>
+                <tr><td>fun area(w: Int, h: Int) = w * h</td><td>Single-expression function</td></tr>
+                <tr><td>fun greet(name: String = "friend")</td><td>Default value for a parameter</td></tr>
+                <tr><td>greet(name = "Bilal")</td><td>Named argument</td></tr>
+                <tr><td>val double = { x: Int -&gt; x * 2 }</td><td>A lambda: a small function stored in a value</td></tr>
+                <tr><td>books.filter { it.available }</td><td>Keep matching items (<code>it</code> = each item)</td></tr>
+                <tr><td>books.map { it.title }</td><td>Turn each item into something new</td></tr>
+                <tr><td>books.count { !it.available }</td><td>Count matching items</td></tr>
+                <tr><td>repeat(3) { println("Hi") }</td><td>Trailing lambda: the last lambda goes after the <code>( )</code></td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-classes-null-safety">
+            <div class="cheat-card-header kt-hdr">🏗️ Classes &amp; Null Safety</div>
+            <table class="cheat-table kt-table">
+                <tr><td>class Student(val name: String)</td><td>A class with a property</td></tr>
+                <tr><td>data class Book(val id: Int, val title: String)</td><td>Data class: ready-made printing, comparing and copying</td></tr>
+                <tr><td>book.copy(title = "New title")</td><td>A copy with one value changed</td></tr>
+                <tr><td>val note: String? = null</td><td><code>?</code> means "may be missing (null)"</td></tr>
+                <tr><td>note?.length</td><td>Safe call: null instead of a crash</td></tr>
+                <tr><td>note ?: "No note"</td><td>Elvis operator: a fallback when the value is null</td></tr>
+                <tr><td>books.find { it.id == 3 }</td><td>First match, or null (type <code>Book?</code>)</td></tr>
+                <tr><td>enum class Level { EASY, HARD }</td><td>A fixed set of choices</td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-compose-basics">
+            <div class="cheat-card-header kt-hdr">🖼️ Compose Basics</div>
+            <table class="cheat-table kt-table">
+                <tr><td>@Composable fun BookCard(book: Book) { … }</td><td>A function that draws part of the screen</td></tr>
+                <tr><td>Text("Hello")</td><td>Show text</td></tr>
+                <tr><td>Text(title, fontSize = 20.sp)</td><td>Text size in <code>sp</code> (grows with the phone's font setting)</td></tr>
+                <tr><td>style = MaterialTheme.typography.titleLarge</td><td>Use the theme's text styles</td></tr>
+                <tr><td>Image(painterResource(R.drawable.shelf), contentDescription = "Bookshelf")</td><td>Show a picture; describe it for screen readers</td></tr>
+                <tr><td>stringResource(R.string.app_name)</td><td>Text kept in <code>res/values/strings.xml</code></td></tr>
+                <tr><td>@Preview(showBackground = true)</td><td>See a composable in Android Studio without running</td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-layout-modifiers">
+            <div class="cheat-card-header kt-hdr">📐 Layout &amp; Modifiers</div>
+            <table class="cheat-table kt-table">
+                <tr><td>Column { … } &nbsp; Row { … } &nbsp; Box { … }</td><td>Stack down, side by side, on top of each other</td></tr>
+                <tr><td>Spacer(Modifier.height(8.dp))</td><td>Empty space (<code>dp</code> for sizes)</td></tr>
+                <tr><td>Modifier.padding(16.dp).fillMaxWidth()</td><td>Modifiers chain; order matters</td></tr>
+                <tr><td>Modifier.size(48.dp)</td><td>48dp: the smallest comfortable touch target</td></tr>
+                <tr><td>Modifier.clickable { … }</td><td>Make any element tappable</td></tr>
+                <tr><td>verticalArrangement = Arrangement.spacedBy(8.dp)</td><td>Even gaps between children</td></tr>
+                <tr><td>horizontalAlignment = Alignment.CenterHorizontally</td><td>Centre children in a Column</td></tr>
+                <tr><td>Card { … }</td><td>A raised box from Material 3</td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-state-input">
+            <div class="cheat-card-header kt-hdr">🔘 State &amp; Input</div>
+            <table class="cheat-table kt-table">
+                <tr><td>var count by remember { mutableIntStateOf(0) }</td><td>State: change it and the screen redraws</td></tr>
+                <tr><td>var name by rememberSaveable { mutableStateOf("") }</td><td>Also survives turning the phone</td></tr>
+                <tr><td>import androidx.compose.runtime.getValue<br>import androidx.compose.runtime.setValue</td><td>Needed for <code>by</code></td></tr>
+                <tr><td>Button(onClick = { count++ }) { Text("Add") }</td><td>A button; its label is a trailing lambda</td></tr>
+                <tr><td>OutlinedTextField(value = name, onValueChange = { name = it }, label = { Text("Name") })</td><td>A text box tied to state</td></tr>
+                <tr><td>isError = name.isBlank()</td><td>Show the box in the error colour</td></tr>
+                <tr><td>Checkbox(checked = done, onCheckedChange = { done = it })</td><td>A tick box</td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-lists-screens">
+            <div class="cheat-card-header kt-hdr">📜 Lists &amp; Screens</div>
+            <table class="cheat-table kt-table">
+                <tr><td>LazyColumn { items(books, key = { it.id }) { BookRow(it) } }</td><td>A long list that scrolls; draws only what is visible</td></tr>
+                <tr><td>Scaffold(topBar = { … }) { innerPadding -&gt; … }</td><td>Screen frame with a top bar</td></tr>
+                <tr><td>@Serializable object Home</td><td>A screen route</td></tr>
+                <tr><td>@Serializable data class BookDetail(val id: Int)</td><td>A route that carries a value</td></tr>
+                <tr><td>NavHost(navController, startDestination = Home) { composable&lt;Home&gt; { … } }</td><td>All screens and where the app starts</td></tr>
+                <tr><td>navController.navigate(BookDetail(3))</td><td>Go to a screen</td></tr>
+                <tr><td>navController.popBackStack()</td><td>Go back one screen</td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-saving-permissions">
+            <div class="cheat-card-header kt-hdr">💾 Saving &amp; Permissions</div>
+            <table class="cheat-table kt-table">
+                <tr><td>val Context.dataStore by preferencesDataStore(name = "settings")</td><td>A small store on the phone (DataStore)</td></tr>
+                <tr><td>val SAVED = stringSetPreferencesKey("saved_ids")</td><td>A key to save under</td></tr>
+                <tr><td>dataStore.data … .collectAsState(initial = emptySet())</td><td>Read: the screen updates when the data changes</td></tr>
+                <tr><td>scope.launch { dataStore.edit { it[SAVED] = ids } }</td><td>Write in the background (<code>rememberCoroutineScope()</code>)</td></tr>
+                <tr><td>&lt;uses-permission android:name="android.permission.POST_NOTIFICATIONS"/&gt;</td><td>Declare a permission in AndroidManifest.xml (notifications: Android 13+)</td></tr>
+                <tr><td>rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted -&gt; … }</td><td>Ask at the moment you need it; keep working if the answer is no</td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-android-studio">
+            <div class="cheat-card-header kt-hdr">🛠️ Android Studio (Windows keys)</div>
+            <table class="cheat-table kt-table">
+                <tr><td>Shift + F10</td><td>Run the app</td></tr>
+                <tr><td>Alt + Enter</td><td>Quick fix: add a missing import, fix an error</td></tr>
+                <tr><td>Ctrl + Space</td><td>Suggest code (autocomplete)</td></tr>
+                <tr><td>Ctrl + Alt + L</td><td>Tidy the code layout</td></tr>
+                <tr><td>Ctrl + /</td><td>Comment or uncomment a line</td></tr>
+                <tr><td>Shift, Shift</td><td>Search everywhere</td></tr>
+                <tr><td>Log.d("Library", "Saved $id")</td><td>Print a message to Logcat while testing</td></tr>
+            </table>
+        </div>
+
+    </div>
+
+    <div class="cheat-tip" style="margin-top: 2rem;">
+        <strong>Amānah (trust) rule:</strong> an app is trusted with people's phones. Ask only for the permissions a feature needs, explain why first, collect no personal data you do not need, and add no ads or tracking to a student app.
+    </div>
+
+    <div style="text-align:center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="book-android/index.html" class="btn-primary" style="background: linear-gradient(135deg, #7f52ff, #5b21b6); color: white;">📖 Read the Android Apps Textbook (19 Ch)</a>
+        <a href="cheatsheet-js.html" class="btn-primary" style="background: linear-gradient(135deg, #eab308, #a16207); color: white;">⚡ JavaScript Cheat Sheet</a>
+        <a href="index.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">🏠 Return Home</a>
+    </div>
+
+</div>
+<script src="js/bei-nav.js"></script>
+<script src="js/tts-voices.js"></script>
+<script src="js/core.js"></script>
+    <script src="js/pdf-download.js"></script>
+</body>
+</html>

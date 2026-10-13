@@ -824,7 +824,9 @@
         const learnMenu =
             section('Subjects', trackOrder.filter(k => CURRICULUM[k]).map(k =>
                 item(encodeURI(CURRICULUM[k].dir) + '/' + CURRICULUM[k].syllabus, TRACK_ICONS[k] || '📚',
-                     CURRICULUM[k].shortName.replace(/ Track$/, ''), CURRICULUM[k].modules.length + ' lessons'))) +
+                     CURRICULUM[k].shortName.replace(/ Track$/, ''), CURRICULUM[k].modules.length + ' lessons')).concat([
+                // subjects taught by a textbook only (no lesson track yet)
+                item('book-android/index.html', '📱', 'Android Apps', 'Textbook + cheat sheet')])) +
             footer([item('learn/index.html', '🧭', 'All subjects', ''), item('paths/index.html', '🗺️', 'Learning paths', 'Week-by-week plans')]);
         const practiceMenu =
             section('Code studios', [
@@ -841,7 +843,7 @@
         const libraryMenu =
             section('Read and look up', [
                 item('library/books/index.html', '📖', 'Textbooks', '12 books that read aloud'),
-                item('library/cheatsheets/index.html', '📋', 'Cheat sheets', 'Search all 11 at once')]) +
+                item('library/cheatsheets/index.html', '📋', 'Cheat sheets', 'Search all 12 at once')]) +
             footer([item('library/index.html', '🏛️', 'Library home', '')]);
 
         const navHtml = `
@@ -1298,6 +1300,7 @@
         ['cheatsheet-python.html', '📋', 'Python & Machine Learning Cheat Sheet', 'Cheat sheet', 'python'],
         ['cheatsheet-networks.html', '📋', 'Networking & Web Protocols Cheat Sheet', 'Cheat sheet', 'network'],
         ['cheatsheet-cybersecurity.html', '📋', 'Cybersecurity & Digital Hygiene Cheat Sheet', 'Cheat sheet', 'security'],
+        ['cheatsheet-kotlin.html', '📋', 'Kotlin & Android Cheat Sheet', 'Cheat sheet', 'kotlin android compose app'],
         ['studios/web-studio/index.html', '⚡', 'Web Studio (HTML, CSS & JS Lab)', 'Studio', 'playground ide code'],
         ['studios/sql-sandbox/index.html', '🗄️', 'SQL Sandbox', 'Studio', 'mysql database query'],
         ['studios/python-console/index.html', '🐍', 'Python Console', 'Studio', 'python run'],

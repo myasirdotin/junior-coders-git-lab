@@ -35,6 +35,9 @@ _Last updated: 2026-10-13 (Android book added)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 Kotlin & Android cheat sheet (`cheatsheet-kotlin.html`, 11 boxes, 84 rows, Kotlin facts checked with
+  kotlinc): in the cheat-sheet search, a new "Apps for phones" group on the Cheat Sheets page, site search, and the
+  Android book's links. "Android Apps" added to the Learn menu (desktop and phone drawer). Counts now 12 sheets.
 - 2026-10-13 New textbook: **Android Apps with Kotlin** (`book-android/`, Grades 9–10, 19 chapters + reference +
   teacher guide): Android Studio, Kotlin basics, Jetpack Compose screens, state, lists, navigation, DataStore, design and
   accessibility, permissions and privacy, testing and sharing, Study Planner capstone; one School Library app grows

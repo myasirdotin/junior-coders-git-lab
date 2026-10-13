@@ -848,6 +848,7 @@
             { label: 'PHP Cheat Sheet',          sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-php.html`     },
             { label: 'MySQL Cheat Sheet',        sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-mysql.html`   },
             { label: 'Laravel Cheat Sheet',      sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-laravel.html` },
+            { label: 'Kotlin & Android Cheat Sheet', sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-kotlin.html` },
         ].forEach(item => index.push(item));
 
         // Textbooks & Interactive Playgrounds
