@@ -29,5 +29,42 @@
       "source": "/studios/web-studio/Learning%20Laravel/:path*",
       "destination": "/Learning%20Laravel/:path*"
     }
+  ],
+  "redirects": [
+    {
+      "source": "/web-studio",
+      "destination": "/studios/web-studio/",
+      "permanent": false
+    },
+    {
+      "source": "/python-console",
+      "destination": "/studios/python-console/",
+      "permanent": false
+    },
+    {
+      "source": "/php-console",
+      "destination": "/studios/php-console/",
+      "permanent": false
+    },
+    {
+      "source": "/sql-sandbox",
+      "destination": "/studios/sql-sandbox/",
+      "permanent": false
+    },
+    {
+      "source": "/textbooks",
+      "destination": "/library/books/",
+      "permanent": false
+    },
+    {
+      "source": "/cheatsheets",
+      "destination": "/library/cheatsheets/",
+      "permanent": false
+    },
+    {
+      "source": "/start",
+      "destination": "/paths/",
+      "permanent": false
+    }
   ]
 }

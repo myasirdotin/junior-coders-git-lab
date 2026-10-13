@@ -123,6 +123,12 @@ content for their subject, then make edits yourself following this file.
 1. **Vercel Routing & Trailing Slashes**:
    - Do NOT set `"trailingSlash": false` in `vercel.json`. Forcing `trailingSlash: false` strips slashes from directory paths (`/book-xyz/` -> `/book-xyz`), breaking browser relative asset resolution (`<script src="chapters-bundle.js">` and chapter fetches resolve to domain root `/` resulting in `404 Not Found`).
    - Clean URLs (`"cleanUrls": true`) should remain enabled for extensionless `.html` pages.
+   - Vercel serves `/studios` (no slash) without adding one, so relative links on folder pages would resolve from the
+     site root (`/web-studio/...` → 404). Every folder `index.html` therefore starts its `<head>` with a tiny
+     `jc-folder-slash` script that adds the slash, and `vercel.json` holds short-link redirects (`/web-studio`).
+     Both come from `node scripts/sync-vercel-redirects.js`: run it after adding a folder with an `index.html`.
+   - `404.html` is shown by Vercel at the wrong address itself, so it is self-contained with links starting at `/`
+     (the one allowed exception to §7.3).
 2. **Textbook Base URI Resilience**:
    - Every textbook reader (`book-*/index.html`) must include the dynamic `<base>` tag injector in `<head>` so that relative assets resolve to the book folder under any server configuration or iframe embedding.
 3. **Dual-Tier Chapter Loading Fallback**:
@@ -210,6 +216,7 @@ These rules come from real bugs found in this site. Follow them for every change
    ```bash
    node scripts/bundle-books.js          # after editing textbook chapters (.md)
    node scripts/build-cheat-index.js     # after editing a cheatsheet-*.html (search index + card ids)
+   node scripts/sync-vercel-redirects.js # after adding a folder with an index.html (trailing slash + short links)
    powershell .udit.ps1                # all 11 books: chapters, bundles, parser
    node scripts/validate-scripts.js      # JavaScript syntax in the book readers
    node scripts/render-check.mjs .render 390 844 1 <page urls...>   # phone width: scroll, JS errors, 404s, screenshots

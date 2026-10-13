@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page not found | Junior Coders</title>
+    <meta name="robots" content="noindex">
+    <!--
+      Vercel shows this page for any address that does not exist, at that address (e.g. /a/b/c).
+      Relative paths would point to the wrong place there, so this page is self-contained (inline styles,
+      no external files) and its links start with "/". It is the one deliberate exception to GEMINI.md §7.3,
+      and it is only used on Vercel; XAMPP shows its own 404 page.
+    -->
+    <style>
+        :root { --bg: #0b1120; --card: #111a2e; --text: #e2e8f0; --muted: #94a3b8; --brand: #6366f1; --line: rgba(148, 163, 184, 0.2); }
+        @media (prefers-color-scheme: light) {
+            :root { --bg: #f8fafc; --card: #ffffff; --text: #0f172a; --muted: #475569; --line: #e2e8f0; }
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 1.5rem 1rem;
+               background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+        main { width: 100%; max-width: 560px; text-align: center; }
+        .icon { font-size: 3rem; margin-bottom: 0.5rem; }
+        h1 { font-size: 1.8rem; margin: 0 0 0.5rem; }
+        p { color: var(--muted); line-height: 1.6; margin: 0 0 1.25rem; }
+        code { background: var(--card); border: 1px solid var(--line); border-radius: 6px; padding: 0.1rem 0.4rem; word-break: break-all; }
+        .links { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.6rem; margin-top: 1rem; }
+        .links a { display: flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 0.8rem; border-radius: 10px;
+                   background: var(--card); border: 1px solid var(--line); color: var(--text); font-weight: 700; text-decoration: none; }
+        .links a:hover { border-color: var(--brand); }
+        .links a.main { background: var(--brand); border-color: var(--brand); color: #fff; }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="icon" aria-hidden="true">🧭</div>
+        <h1>This page is not here</h1>
+        <p>We could not find <code id="where">this address</code>. It may have moved, or there may be a small typo.</p>
+        <div class="links">
+            <a class="main" href="/">🏠 Home</a>
+            <a href="/paths/">🗺️ Start here</a>
+            <a href="/studios/">⚡ Studios</a>
+            <a href="/library/books/">📖 Textbooks</a>
+            <a href="/library/cheatsheets/">📋 Cheat sheets</a>
+            <a href="/projects/">🏆 Projects</a>
+        </div>
+    </main>
+    <script>
+        var where = location.pathname;
+        try { where = decodeURIComponent(where); } catch (e) { /* keep it as typed */ }
+        document.getElementById('where').textContent = where;
+    </script>
+</body>
+</html>
