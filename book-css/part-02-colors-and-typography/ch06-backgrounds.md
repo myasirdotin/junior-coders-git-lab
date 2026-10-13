@@ -1,4 +1,4 @@
-# Chapter 6: Backgrounds 🖼️
+# Chapter 6: Backgrounds
 
 ---
 
@@ -26,7 +26,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Background Properties Toolkit
 
@@ -73,7 +73,7 @@ Some edges may be cut off.
 
 ---
 
-## 💻 Code Example: The Hero Banner
+## Code Example: The Hero Banner
 
 Type this into your editor and save it as `hero-banner.html`:
 
@@ -142,7 +142,7 @@ Type this into your editor and save it as `hero-banner.html`:
 
 ---
 
-## 🔍 Code Explanation: Building the Hero Banner
+## Code Explanation: Building the Hero Banner
 
 - `background-color: #0b132b;`: **Always provide a background color!** If the user is on a slow cell connection and the image takes 3 seconds to download, they won't see white text on a white screen—they will see white text on dark blue!
 - `background-image: url('...');`: The `url('...')` function tells the browser where to fetch the wallpaper image.
@@ -193,7 +193,7 @@ A student tried to load an image, but the background remained plain white:
 
 ---
 
-## 🎨 Think Like a Web Designer: The Readability Test
+## Think Like a Web Designer: The Readability Test
 
 Placing text directly over photographic backgrounds can be risky:
 - If a photo has light and dark patches, white text will disappear when it passes over a white cloud.
@@ -205,7 +205,7 @@ Placing text directly over photographic backgrounds can be risky:
 
 ---
 
-## 🚀 Mini Challenge: The Rainforest Sanctuary Banner
+## Mini Challenge: The Rainforest Sanctuary Banner
 
 Create a web page named `rainforest.html`:
 - Build a `.banner` container with a height of `400px`.

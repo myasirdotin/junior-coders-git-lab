@@ -1,4 +1,4 @@
-# Chapter 15: School Website 🏫
+# Chapter 15: School Website
 
 ---
 
@@ -29,7 +29,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The School Website Blueprint
 
@@ -57,7 +57,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: The Complete School Website
+## Code Example: The Complete School Website
 
 Type this code into an editor and save it as `school-website.html`:
 
@@ -366,7 +366,7 @@ Type this code into an editor and save it as `school-website.html`:
 
 ---
 
-## 🔍 Code Explanation: Visual Hierarchy & School Branding
+## Code Explanation: Visual Hierarchy & School Branding
 
 - **School Color Palette**: Notice how the primary color is a calm, academic forest green (`#059669`), paired with a warm golden amber CTA button (`#f59e0b`). Colors create instant identity and trustworthiness!
 - `background: linear-gradient(...), url(...)`: Combines a dark translucent green wash with a campus photo backdrop so white headline text remains 100% readable!
@@ -416,7 +416,7 @@ If a parent opens this school site on a smartphone (390px wide), what will happe
 
 ---
 
-## 🎨 Think Like a Web Designer: Trust and Accessibility
+## Think Like a Web Designer: Trust and Accessibility
 
 Educational websites serve diverse audiences: children, elderly grandparents, and visitors with disabilities.
 - Use high contrast text.
@@ -425,7 +425,7 @@ Educational websites serve diverse audiences: children, elderly grandparents, an
 
 ---
 
-## 🚀 Mini Challenge: The School Mascot Badge
+## Mini Challenge: The School Mascot Badge
 
 Add a floating school mascot crest in the top right corner:
 - Create a badge reading: `🦅 Home of the Golden Eagles`.

@@ -1,4 +1,4 @@
-# Chapter 6: Text Formatting 🎨
+# Chapter 6: Text Formatting
 
 ---
 
@@ -26,7 +26,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Formatting Toolkit
 
@@ -62,7 +62,7 @@ Why does HTML have two ways to make text bold (`<b>` and `<strong>`) and two way
 
 ---
 
-## 💻 Code Example: Formatting Showcase
+## Code Example: Formatting Showcase
 
 Type this into your editor as `formatting.html`:
 
@@ -103,7 +103,7 @@ Type this into your editor as `formatting.html`:
 
 ---
 
-## 🔍 Code Explanation: Line-by-Line Breakdown
+## Code Explanation: Line-by-Line Breakdown
 
 - `<strong>extreme care</strong>`: The words *"extreme care"* will appear in dark, thick bold lettering to warn the reader.
 - `<hr>`: Stands for *Horizontal Rule*. It draws a crisp, clean dividing line straight across the browser window. Notice it does NOT need a closing `</hr>` tag—it is a self-closing void tag!
@@ -165,7 +165,7 @@ A beginner student tried to write this divider and line break:
 
 ---
 
-## 🎨 Think Like a Web Designer: Don't Over-Decorate!
+## Think Like a Web Designer: Don't Over-Decorate!
 
 Imagine reading a book where **EVERY** *SINGLE* **WORD** *IS* **EITHER** *BOLD* **OR** *ITALIC*!
 Your eyes would feel dizzy within 10 seconds!
@@ -175,7 +175,7 @@ Your eyes would feel dizzy within 10 seconds!
 
 ---
 
-## 🚀 Mini Challenge: The "About Me" Profile
+## Mini Challenge: The "About Me" Profile
 
 Create a new file named `about-me.html`. Build a personal profile card using what you learned:
 - An `<h1>` with your name.

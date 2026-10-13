@@ -12,7 +12,7 @@ When a new school opens, nobody builds the front gate's lock from scratch. The s
 - Know that **Breeze** was the starter kit for Laravel 11 and earlier.
 - Protect passwords as an *amānah*.
 
-## 🔑 Authentication vs Authorization
+## Authentication vs Authorization
 
 | Word | Question it answers | Library example |
 |------|--------------------|-----------------|
@@ -21,7 +21,7 @@ When a new school opens, nobody builds the front gate's lock from scratch. The s
 
 This chapter and the next cover authentication. Chapter 24 covers both: keeping pages for logged-in users, and keeping some pages for librarians only.
 
-## 🧱 What Laravel Already Gives You
+## What Laravel Already Gives You
 
 Even a brand-new project is ready for users:
 
@@ -52,7 +52,7 @@ class User extends Authenticatable
 - `$hidden` keeps the password out of arrays and JSON, so it is never sent to a browser by accident.
 - The `'password' => 'hashed'` cast means: whenever a password is saved, **hash** it first.
 
-## 🔒 Hashing Passwords
+## Hashing Passwords
 
 A **hash** is a one-way scramble. You can turn a password into a hash, but you cannot turn the hash back into the password. Laravel uses **bcrypt**, the same method as PHP's `password_hash()`, which you met in the PHP book.
 
@@ -79,7 +79,7 @@ People often reuse passwords. If your app leaked them, a member's other accounts
 - **Never** put real people's passwords in seeders or Git.
 - Use the tools that hash for you, and let users reset forgotten passwords instead of "telling" them their old one.
 
-## 🚀 Laravel 12 Starter Kits
+## Laravel 12 Starter Kits
 
 A **starter kit** is a ready-made app with login, registration, password reset, email verification, a dashboard and profile settings. You start a **new** project with it. In Laravel 12 the kits are:
 
@@ -129,7 +129,7 @@ Explore the new project. You will find:
 
 All of it uses the same ideas as this book: routes, controllers or components, validation, `@csrf`, the `auth` middleware and the `User` model. Logout is a **POST** form with `@csrf`, as Chapter 21 explained.
 
-## 🕰️ Laravel 11 and Earlier: Breeze
+## Laravel 11 and Earlier: Breeze
 
 You will still find older tutorials and school projects using **Laravel Breeze**. Breeze was the simple starter kit for Laravel 11 and earlier. You added it to an existing project:
 

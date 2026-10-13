@@ -12,7 +12,7 @@ Imagine your school decides to open a new library. You could cut the wood, build
 - Create your first Laravel project and see it running in the browser.
 - Meet the school library app that you will build across this book.
 
-## 🔥 What is Laravel?
+## What is Laravel?
 
 **Laravel** is a free, open-source **PHP web framework**. Taylor Otwell first released it in 2011. Today it is one of the most popular ways to build websites with PHP.
 
@@ -20,7 +20,7 @@ A **framework** is a ready-made structure for an app. It gives you folders, tool
 
 You already know PHP and MySQL. Laravel does not replace them. It is written in PHP, and it talks to MySQL. It simply organises your work.
 
-## ⚖️ Plain PHP vs Laravel
+## Plain PHP vs Laravel
 
 | Task | Plain PHP | Laravel |
 |------|-----------|---------|
@@ -33,7 +33,7 @@ You already know PHP and MySQL. Laravel does not replace them. It is written in 
 
 Laravel helps protect your app from common attacks when you use its tools. It does not make every app safe by itself. You still need to think carefully about every page you build.
 
-## 🧰 The Tools You Need
+## The Tools You Need
 
 You will build every example on **your own computer**. Laravel cannot run inside a web page, so this book has no in-browser lab. Your computer is the lab.
 
@@ -58,7 +58,7 @@ Composer version 2.8.12 2025-09-19 13:41:59
 
 If you see `'php' is not recognized`, add `C:\xampp\php` to your Windows PATH, then open a new terminal.
 
-## 🚀 Create Your First Project
+## Create Your First Project
 
 Go to the XAMPP web folder and ask Composer to create a new Laravel app called `library-app`:
 
@@ -82,7 +82,7 @@ Laravel Framework 12.61.0
 
 **Artisan** is Laravel's command-line helper. You will use it in almost every chapter. Every Artisan command starts with `php artisan`.
 
-## 🌐 See It in the Browser
+## See It in the Browser
 
 Start Laravel's small development server:
 
@@ -100,7 +100,7 @@ Output:
 
 Open `http://127.0.0.1:8000` in your browser. You will see the Laravel welcome page. Keep this terminal open while you work. Press **Ctrl+C** to stop the server.
 
-## 📚 Our Project: The School Library App
+## Our Project: The School Library App
 
 In this book you will build one app, step by step: a **school library app**. It has three main parts:
 

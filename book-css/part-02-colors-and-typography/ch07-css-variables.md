@@ -1,4 +1,4 @@
-# Chapter 7: CSS Variables (Custom Properties) 🧪
+# Chapter 7: CSS Variables (Custom Properties)
 
 ---
 
@@ -25,7 +25,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### Define Once, Use Everywhere
 
@@ -55,7 +55,7 @@ Change #0f766e to #166534 in ONE line
 
 ---
 
-## 🧩 Creating and Using a Variable
+## Creating and Using a Variable
 
 A **CSS variable** (official name: **custom property**) is a property you invent yourself. Its name must start with two dashes `--`.
 
@@ -92,7 +92,7 @@ Two rules to remember:
 
 ---
 
-## 💻 Code Example: The Food Drive Page
+## Code Example: The Food Drive Page
 
 Type this and save it as `variables.html`:
 
@@ -147,7 +147,7 @@ Type this and save it as `variables.html`:
 
 ---
 
-## 🔍 Code Explanation: Why This Is Better
+## Code Explanation: Why This Is Better
 
 - **One place to change.** Change `--color-accent` to `#166534` (forest green). The headings **and** the highlight strip change together.
 - **The rules describe meaning.** `color: var(--color-accent)` says *why* the colour is used, not just which colour it is.
@@ -155,7 +155,7 @@ Type this and save it as `variables.html`:
 
 ---
 
-## 🛟 Fallback Values
+## Fallback Values
 
 What if a variable does not exist? You can give `var()` a second value, after a comma. It is used only when the variable is missing:
 
@@ -174,7 +174,7 @@ Be careful: the fallback is **not** used when the variable exists but holds a wr
 
 ---
 
-## 🌳 Scope: Variables Are Inherited
+## Scope: Variables Are Inherited
 
 Variables follow the same **inheritance** you learned in Chapter 3. A variable set on an element passes down to everything inside it.
 
@@ -219,7 +219,7 @@ This is very useful for things like cards. Each card type sets its own `--accent
 
 ---
 
-## 🌗 Light and Dark Themes
+## Light and Dark Themes
 
 A **dark theme** shows light text on a dark background. Many people prefer it at night, and it can be gentler on the eyes in a dark room. With variables, a theme is just **a second set of values**.
 
@@ -286,7 +286,7 @@ Both themes pass the 4.5 : 1 minimum for normal text. Notice that the dark accen
 
 ---
 
-## 🏷️ Naming Tips
+## Naming Tips
 
 Good names make a stylesheet easy to read months later.
 

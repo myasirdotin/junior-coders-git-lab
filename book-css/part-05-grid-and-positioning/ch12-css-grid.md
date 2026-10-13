@@ -1,4 +1,4 @@
-# Chapter 12: CSS Grid 🧇
+# Chapter 12: CSS Grid
 
 ---
 
@@ -31,7 +31,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### CSS Grid 2D Track System
 
@@ -70,7 +70,7 @@ grid-template-columns: 1fr 2fr 1fr;
 
 ---
 
-## 💻 Code Example: The Photo Gallery
+## Code Example: The Photo Gallery
 
 We will build `gallery-grid.html` in four small steps. Type each part into the same file, in order.
 
@@ -214,7 +214,7 @@ Refresh once more. The six cards snap into **3 columns and 2 rows**, with even 2
 
 ---
 
-## 🔍 Code Explanation: Breaking Down the Grid
+## Code Explanation: Breaking Down the Grid
 
 - `display: grid;`: Declares that `.grid-gallery` is now a 2D Grid container.
 - `grid-template-columns: repeat(3, 1fr);`:
@@ -279,7 +279,7 @@ A student tried to write a 3-column grid, but the layout broke into a single col
 
 ---
 
-## 🎨 Think Like a Web Designer: Consistency in Cards
+## Think Like a Web Designer: Consistency in Cards
 
 When building grid galleries, cards look sloppy if one card has 10 lines of text and another has 2 lines, making them mismatched heights.
 - Use `object-fit: cover` with fixed heights on images so every picture aligns on the same baseline.
@@ -287,7 +287,7 @@ When building grid galleries, cards look sloppy if one card has 10 lines of text
 
 ---
 
-## 🚀 Mini Challenge: The Science Lab Supply Shelf
+## Mini Challenge: The Science Lab Supply Shelf
 
 Build a Science Lab Supply Shelf:
 - A container with `display: grid;`, `grid-template-columns: repeat(4, 1fr);`, and `gap: 12px;`.

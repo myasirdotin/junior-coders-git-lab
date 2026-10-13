@@ -1,4 +1,4 @@
-# Chapter 17: Navigation Bars 🧭
+# Chapter 17: Navigation Bars
 
 ---
 
@@ -30,7 +30,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Anatomy of a Master Navbar
 
@@ -61,7 +61,7 @@ The page has scrolled 1,000px...
 
 ---
 
-## 💻 Code Example: The Production Navigation Bar
+## Code Example: The Production Navigation Bar
 
 Type this into your editor and save it as `master-nav.html`:
 
@@ -243,7 +243,7 @@ Type this into your editor and save it as `master-nav.html`:
 
 ---
 
-## 🔍 Code Explanation: Behind the Top Bar
+## Code Explanation: Behind the Top Bar
 
 - `position: sticky; top: 0;`: **The Sticky Superpower!** Unlike `position: fixed` (which rips elements out of layout flow), `sticky` lets the header sit naturally on the page until you start scrolling, at which point it pins to the top edge (`top: 0`) and glides with the visitor!
 - `z-index: 1000;`: Guarantees that when images, cards, or paragraphs scroll upward, they slide *underneath* the navbar, never covering your menu links!
@@ -299,7 +299,7 @@ A student created a sticky navbar, but when scrolling down, large images and vid
 
 ---
 
-## 🎨 Think Like a Web Designer: How Many Links Are Too Many?
+## Think Like a Web Designer: How Many Links Are Too Many?
 
 Look at the main menu of Apple or Nike:
 - You will see 5 to 7 primary links—never 25!
@@ -308,7 +308,7 @@ Look at the main menu of Apple or Nike:
 
 ---
 
-## 🚀 Mini Challenge: The Eco Club Navbar
+## Mini Challenge: The Eco Club Navbar
 
 Create a navbar for a Green Earth Environmental Club:
 - Logo: 🌿 `EcoGuardians`

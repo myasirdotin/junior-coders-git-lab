@@ -11,7 +11,7 @@ On your first day in a new school library, everything feels confusing. Then a ki
 - Use the `.env` file to connect Laravel to a MySQL database in XAMPP.
 - Run your first migration to create Laravel's starter tables.
 
-## 🗺️ The Folder Map
+## The Folder Map
 
 Open `C:\xampp\htdocs\library-app` in your code editor. You will see this (some small files are left out):
 
@@ -42,7 +42,7 @@ library-app/
 └── composer.json
 ```
 
-## 📂 What Each Folder Is For
+## What Each Folder Is For
 
 | Folder or file | What lives there |
 |----------------|------------------|
@@ -64,7 +64,7 @@ library-app/
 
 Every request enters through `public/index.php`. That file starts Laravel and hands the request to your routes. Your other folders stay hidden from visitors. This is safer, because nobody can download your `.env` file or your code. When you use `php artisan serve`, Laravel points the server at `public/` for you.
 
-## 🔑 The `.env` File
+## The `.env` File
 
 `.env` (say "dot env") holds settings that change from one computer to another. Here are some important lines:
 
@@ -85,7 +85,7 @@ DB_CONNECTION=sqlite
 
 The `.env` file holds passwords and keys. They are a trust (*amānah*) you must protect. Laravel's `.gitignore` already stops Git from uploading `.env`. Never paste it online or share it in a group chat. Share `.env.example` instead; it has the names but no secrets.
 
-## 🐬 Connect to MySQL in XAMPP
+## Connect to MySQL in XAMPP
 
 A new Laravel 12 project uses **SQLite**, a database stored in one file. We want MySQL, because you already know it and phpMyAdmin shows the tables.
 
@@ -105,7 +105,7 @@ XAMPP's MySQL user is `root` with an empty password. That is fine on your own co
 
 3. Save the file. Laravel reads `.env` on every request, so there is nothing to restart. (If you ever run `php artisan config:cache`, run `php artisan config:clear` after changing `.env`.)
 
-## 🏗️ Your First Migration
+## Your First Migration
 
 A **migration** is a PHP file that creates or changes database tables. Part 6 explains migrations in full. For now, run the ones Laravel already wrote:
 
@@ -140,7 +140,7 @@ Choose **Yes**. Then you see something like this (times will differ):
 
 Open phpMyAdmin. The `library_app` database now has tables such as `users`, `sessions`, `cache`, `jobs` and `migrations`. Laravel keeps its login sessions in the `sessions` table, so this step matters even before you write any code.
 
-## 🏠 Where the Welcome Page Comes From
+## Where the Welcome Page Comes From
 
 Open `routes/web.php`:
 

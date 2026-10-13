@@ -1,4 +1,4 @@
-# Chapter 15: Capstone Project — Community Relief Predictor 🏆
+# Chapter 15: Capstone Project — Community Relief Predictor
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ It is a cold winter night at the community centre. Requests for help arrive fast
 - Save an audit log as JSON so every decision can be checked later.
 - Evaluate the model against past human decisions, and review it for fairness and privacy.
 
-## 🧭 The Project at a Glance
+## The Project at a Glance
 
 You will build a **Community Relief Priority Tool**. It reads a batch of aid requests, gives each one a priority score, sorts them, and saves a log. Every skill comes from an earlier chapter:
 
@@ -31,7 +31,7 @@ You will build a **Community Relief Priority Tool**. It reads a batch of aid req
 
 Type each step into the Python Console. Each step adds to the code of the steps before it, so keep everything in one program.
 
-## 📐 Step 1: Plan the Features and Weights
+## Step 1: Plan the Features and Weights
 
 First, decide which facts (features) matter and how many points each one adds. The volunteers agreed on these:
 
@@ -52,7 +52,7 @@ Then decide the **tiers** (priority groups):
 
 Notice what is **not** in the plan: names, phone numbers, religion or nationality. They are not needed to decide who is coldest, so we do not collect them. Each request has only a code, like `REQ-801` (*Amānah*).
 
-## 📥 Step 2: Load the Requests from CSV
+## Step 2: Load the Requests from CSV
 
 Requests arrive as a CSV file. To make the project self-contained, we first write a sample file, then read it back. CSV values are always text (Chapter 10), so we convert them: `int()` for numbers, and `== "yes"` to turn `"yes"`/`"no"` into `True`/`False`.
 
@@ -95,7 +95,7 @@ print(requests[0])
 {'id': 'REQ-801', 'members': 6, 'has_infants': True, 'has_elderly': True, 'has_heating': False}
 ```
 
-## 🧮 Step 3: Score Each Request, with Reasons
+## Step 3: Score Each Request, with Reasons
 
 The scoring function follows the plan in Step 1 exactly. It also collects a list of **reasons**, so every score can be explained (Chapter 14).
 
@@ -131,7 +131,7 @@ print(score_request(requests[1]))
 
 Check the first one by hand: 40 + 35 + 25 + 15 = 115. The second request has no risk factors, so it scores 0 with no reasons.
 
-## 🚦 Step 4: Turn Scores into Tiers
+## Step 4: Turn Scores into Tiers
 
 ```python
 def tier_for(score):
@@ -157,7 +157,7 @@ Tier 3: standard
 
 Test the borders too: `tier_for(70)` and `tier_for(40)` should give Tier 1 and Tier 2. Testing the edges is where many bugs hide.
 
-## 🔁 Step 5: Process and Sort the Batch
+## Step 5: Process and Sort the Batch
 
 Now loop over every request, build a **record** (a result dictionary) for each, and sort the records so the highest score comes first.
 
@@ -209,7 +209,7 @@ REQ-802  score 0  Tier 3: standard
 
 `", ".join(list)` glues a list of strings into one string, with `", "` between the items. When the list is empty, it gives an empty string, which is why REQ-802 shows nothing after "because:".
 
-## 🗂️ Step 6: Save a JSON Audit Log
+## Step 6: Save a JSON Audit Log
 
 An **audit log** is a saved record of what the program decided and why. Anyone can check it later. That makes the system accountable.
 
@@ -239,7 +239,7 @@ First in line: REQ-801
 
 The log stores codes and reasons only. No names or contact details are written to disk.
 
-## 🧪 Step 7: Evaluate Against Past Decisions
+## Step 7: Evaluate Against Past Decisions
 
 Last winter, experienced volunteers sorted eight requests by hand. A good tool should mostly **agree** with them. This is like the test set in Chapter 13: the model never saw these cases while we chose the weights. (The data is made up.)
 
@@ -277,7 +277,7 @@ Agreement: 6 of 8 (75.0%)
 
 Study each disagreement instead of hiding it. Here, both disagreements are big families (P3 with 6 people, P5 with 8). The volunteers placed them higher than the model did. Perhaps "large household" deserves more than 15 points. Changing a weight and testing again is how you improve a model honestly. Just remember Chapter 13: if you tune the weights on these eight cases, you need fresh cases for the next honest test.
 
-## 🛡️ Step 8: Ethics Review
+## Step 8: Ethics Review
 
 Before anyone uses the tool, go through this checklist:
 
@@ -287,7 +287,7 @@ Before anyone uses the tool, go through this checklist:
 - [ ] **Human control:** volunteers can change the order, and the tool never refuses help to anyone.
 - [ ] **Honesty:** users are told it is a simple rule-based helper, not an all-knowing AI.
 
-## 🚀 Where to Go from Here
+## Where to Go from Here
 
 You have completed the **Python & Machine Learning Foundations** book. You can now:
 

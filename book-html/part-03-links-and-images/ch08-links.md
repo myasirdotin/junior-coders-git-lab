@@ -1,4 +1,4 @@
-# Chapter 8: Links 🔗
+# Chapter 8: Links
 
 ---
 
@@ -27,7 +27,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### Anatomy of an Anchor Tag
 
@@ -71,7 +71,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: Educational Links Directory
+## Code Example: Educational Links Directory
 
 Type this into an editor and save it as `links.html`:
 
@@ -114,7 +114,7 @@ Type this into an editor and save it as `links.html`:
 
 ---
 
-## 🔍 Code Explanation: Breaking Down Attributes
+## Code Explanation: Breaking Down Attributes
 
 Look closely at how attributes work:
 - `<a>`: Stands for **anchor**. It anchors a link to text or images.
@@ -173,7 +173,7 @@ A student was confused because the text turned blue, but clicking it didn't take
 
 ---
 
-## 🎨 Think Like a Web Designer: The "Click Here" Trap
+## Think Like a Web Designer: The "Click Here" Trap
 
 Have you ever seen a page that says:
 *"To see our timetable click here. For teacher emails click here. For lunch menu click here."*
@@ -186,7 +186,7 @@ Have you ever seen a page that says:
 
 ---
 
-## 🚀 Mini Challenge: The Classroom Resource Launchpad
+## Mini Challenge: The Classroom Resource Launchpad
 
 Create an HTML page titled `my-launchpad.html`. Include:
 - A prominent `<h1>` headline: `My Learning Launchpad`

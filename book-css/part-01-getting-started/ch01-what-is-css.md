@@ -1,4 +1,4 @@
-# Chapter 1: What Is CSS? 🎨
+# Chapter 1: What Is CSS?
 
 ---
 
@@ -33,7 +33,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### Before CSS vs. After CSS
 
@@ -72,7 +72,7 @@ Every CSS rule has three core parts:
 
 ---
 
-## 💻 Code Example: Transforming a Web Page
+## Code Example: Transforming a Web Page
 
 Type this code into an editor and save it as `first-style.html`:
 
@@ -117,7 +117,7 @@ Type this code into an editor and save it as `first-style.html`:
 
 ---
 
-## 🔍 Code Explanation: Deciphering the Syntax
+## Code Explanation: Deciphering the Syntax
 
 - `<style>`: This tag sits inside the `<head>` of your HTML document. It tells the browser: *"Everything inside here is CSS styling instructions!"*
 - `body { ... }`: The **selector** is `body`. This means the background color, font, and text color will apply to the entire window canvas!
@@ -190,7 +190,7 @@ h1 {
 
 ---
 
-## 🎨 Think Like a Web Designer: Contrast and Readability
+## Think Like a Web Designer: Contrast and Readability
 
 Have you ever tried reading bright yellow text on a pure white background? It makes your eyes water!
 - A great web designer always checks **contrast**:
@@ -203,7 +203,7 @@ Have you ever tried reading bright yellow text on a pure white background? It ma
 
 ---
 
-## 🚀 Mini Challenge: The Candy Shop Palette
+## Mini Challenge: The Candy Shop Palette
 
 Create a web page named `candy-store.html`:
 - Give it an `<h1>`: `The Sweet Tooth Bakery`

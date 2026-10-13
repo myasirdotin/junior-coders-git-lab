@@ -1,4 +1,4 @@
-# Chapter 14: Incident Response & Digital Forensics 🚨
+# Chapter 14: Incident Response & Digital Forensics
 
 ## 🌟 Real-Life Story
 
@@ -13,7 +13,7 @@ An **incident** is any event that harms, or threatens, the security of a system:
 - Respond correctly to a common student incident: a secret key pushed to GitHub.
 - Report a weakness you find in someone else's system, responsibly and honestly.
 
-## ⏱️ The Six Phases of Incident Response
+## The Six Phases of Incident Response
 
 Security teams often follow six phases taught by the **SANS Institute**, a well-known security training organisation. **NIST**, the US standards agency, describes very similar steps.
 
@@ -97,7 +97,7 @@ Restore clean systems and data from backups made **before** the incident. Watch 
 ### Phase 6: Lessons Learned
 Meet and ask: How did it happen? What worked? What will we change? Keep this meeting **blameless**: the goal is to fix the system, not to shame a person. People who fear blame hide mistakes; people who feel safe report them early.
 
-## 🔍 Forensics: Protecting Evidence
+## Forensics: Protecting Evidence
 
 **Forensics** means collecting evidence carefully, so the story of what happened can be trusted.
 
@@ -106,7 +106,7 @@ Meet and ask: How did it happen? What worked? What will we change? Keep this mee
 - Do not "tidy up" by deleting files. That destroys evidence.
 - Experts copy disks and then work only on the copy. They record a **hash** (Chapter 10) of the copy, so anyone can later check it was not changed.
 
-## 🔑 A Common Student Incident: A Secret on GitHub
+## A Common Student Incident: A Secret on GitHub
 
 Sara pushes her project to a public GitHub repository. Later she notices that `config.php` contains her database password and an API key (an **API key** is a secret code that lets a program use an online service).
 
@@ -118,7 +118,7 @@ Sara pushes her project to a public GitHub repository. Later she notices that `c
 
 Deleting the file is not enough: the old commit still contains the secret in the project's history. The key must be treated as stolen.
 
-## 📜 Reporting a Weakness Responsibly (*Ṣidq*)
+## Reporting a Weakness Responsibly (*Ṣidq*)
 
 What if you notice a security problem on someone else's site, such as your school portal?
 
@@ -128,7 +128,7 @@ What if you notice a security problem on someone else's site, such as your schoo
 4. **Keep it private** while they fix it. Organisations often ask for up to 90 days.
 5. **Be truthful** (*Ṣidq*): report exactly what you did and saw. Honesty is what separates a trusted defender from an intruder.
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 Your family's mini incident plan:
 

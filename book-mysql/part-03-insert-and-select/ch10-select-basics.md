@@ -18,7 +18,7 @@ A visitor asks the librarian, "Could you show me just the titles and page counts
 
 ---
 
-## 🔍 The Shape of a `SELECT`
+## The Shape of a `SELECT`
 
 ```sql
 SELECT column1, column2
@@ -36,7 +36,7 @@ When MySQL runs a `SELECT`:
 
 ---
 
-## ⭐ All Columns vs. Chosen Columns
+## All Columns vs. Chosen Columns
 
 ### Everything with `*`
 
@@ -77,7 +77,7 @@ SELECT name, city FROM students;
 
 ---
 
-## 🏷️ Renaming Columns with `AS`
+## Renaming Columns with `AS`
 
 An **alias** is a temporary nickname for a column in the result. It does not rename the real column.
 
@@ -101,7 +101,7 @@ If the nickname has a space, put it in quotes: `title AS 'Book Title'`.
 
 ---
 
-## 🧮 Calculated Columns
+## Calculated Columns
 
 You can do maths inside `SELECT`. Suppose a reader needs about 2 minutes per page:
 
@@ -145,7 +145,7 @@ The maths signs are `+` (add), `-` (subtract), `*` (multiply) and `/` (divide).
 
 ---
 
-## 🔗 Joining Text with `CONCAT`
+## Joining Text with `CONCAT`
 
 `CONCAT` glues pieces of text together into one value:
 
@@ -171,7 +171,7 @@ Notice the spaces inside `' from '`. Without them you would get `ZaydfromLahore`
 
 ---
 
-## 🧹 Removing Repeats with `DISTINCT`
+## Removing Repeats with `DISTINCT`
 
 Which cities do our students come from? Without help, Lahore appears three times. `DISTINCT` keeps each value once:
 

@@ -25,7 +25,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 ### What Is an Event?
 
@@ -68,7 +68,7 @@ inputField.addEventListener("input", function() {
 
 ---
 
-## 🌍 Real-World Example
+## Real-World Example
 
 Think of the "Save for later" button on a school library website:
 1. The bookmark icon has a click listener: `saveBtn.addEventListener("click", toggleSave)`.
@@ -79,7 +79,7 @@ Think of the "Save for later" button on a school library website:
 
 ---
 
-## 💻 Code Example
+## Code Example
 
 ### The Interactive Click Counter Widget
 
@@ -142,7 +142,7 @@ Think of the "Save for later" button on a school library website:
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - `let count = 0;`: Holds the single source of truth for the current count value.
 - `const display = ...`: Caches references to the HTML elements so we don't query the DOM repeatedly.
@@ -179,7 +179,7 @@ btn.addEventListener("click", function() {
 
 ---
 
-## 🧭 Think Like a Programmer: Programs That Wait
+## Think Like a Programmer: Programs That Wait
 
 Most programs in this book ran from top to bottom: line 1, then line 2, then line 3. Then they finished.
 
@@ -194,7 +194,7 @@ This way of writing programs is called **event-driven programming**: the user's 
 
 ---
 
-## 🚀 Coding Challenge
+## Coding Challenge
 
 Build a "Color Palette Generator":
 - Place 4 buttons on a page: "Sky Blue", "Emerald Green", "Sunset Orange", "Rose Pink".
@@ -202,7 +202,7 @@ Build a "Color Palette Generator":
 
 ---
 
-## 🛠️ Mini Project: Interactive Currency Converter Widget
+## Mini Project: Interactive Currency Converter Widget
 
 Create an interactive mini-app:
 - HTML inputs:

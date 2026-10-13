@@ -1,4 +1,4 @@
-# Chapter 13: Divs and Page Sections 🏛️
+# Chapter 13: Divs and Page Sections
 
 ---
 
@@ -30,7 +30,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### Anatomy of a Professional Modern Website
 
@@ -70,7 +70,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: The Complete Semantic Skeleton
+## Code Example: The Complete Semantic Skeleton
 
 Type this into your editor and save it as `website-layout.html`:
 
@@ -136,7 +136,7 @@ Type this into your editor and save it as `website-layout.html`:
 
 ---
 
-## 🔍 Code Explanation: Why Semantics Rule the Web
+## Code Explanation: Why Semantics Rule the Web
 
 - `<header>`: Sits at the top of the body. It introduces the site.
 - `<nav>`: Wraps navigation links. When blind visitors use screen readers, they can tell their computer: *"Skip to navigation!"* and it jumps right here.
@@ -209,7 +209,7 @@ A student wrote this code:
 
 ---
 
-## 🎨 Think Like a Web Designer: The Foundation for CSS
+## Think Like a Web Designer: The Foundation for CSS
 
 Think of Chapter 13 as the end of your **HTML Structural Training**!
 - You now know how to build headers, navigation menus, text, links, photos, lists, tables, forms, and semantic page sections!
@@ -219,7 +219,7 @@ Think of Chapter 13 as the end of your **HTML Structural Training**!
 
 ---
 
-## 🚀 Mini Challenge: Sketch Your Personal Site Layout
+## Mini Challenge: Sketch Your Personal Site Layout
 
 Create an HTML file called `my-personal-blueprint.html`:
 - A `<header>` with your name and a tagline.

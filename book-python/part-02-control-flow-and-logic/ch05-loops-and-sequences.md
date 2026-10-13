@@ -1,4 +1,4 @@
-# Chapter 5: Loops & Sequences (`for` & `while`) 🔁
+# Chapter 5: Loops & Sequences (`for` & `while`)
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ At an organic farm, crates of oranges roll past on a conveyor belt. A worker che
 - Repeat code until a condition changes with `while`.
 - Control loops with `break` and `continue`, and avoid infinite loops.
 
-## 🔂 The `for` Loop and `range()`
+## The `for` Loop and `range()`
 
 A `for` loop repeats a block once for each value in a **sequence** (an ordered row of values). `range(5)` makes the sequence `0, 1, 2, 3, 4`.
 
@@ -71,7 +71,7 @@ Launch the weather balloon!
 
 A negative step counts down. The stop value is still left out, so `range(3, 0, -1)` ends at `1`.
 
-## 🔤 Looping Over a String
+## Looping Over a String
 
 A string is also a sequence: a row of characters. A `for` loop can visit each character in turn.
 
@@ -112,7 +112,7 @@ Vowels found: 5
 
 The keyword `in` checks whether one piece of text appears inside another. `"e" in "aeiou"` is `True`.
 
-## ➕ Running Totals and Counters
+## Running Totals and Counters
 
 Two loop patterns appear again and again:
 
@@ -150,7 +150,7 @@ Days with more than 20 pages: 3
 
 Watch how `total_pages` grows on every line. Days 5, 6 and 7 had more than 20 pages, so `long_days` is 3.
 
-## ⏳ The `while` Loop
+## The `while` Loop
 
 A `while` loop repeats **as long as its condition is `True`**. Use it when you do not know in advance how many passes you need.
 
@@ -203,7 +203,7 @@ After 7 weeks Yusuf has 105 coins to donate.
 | Example | Each day of the week | Until the battery is low |
 | Danger | Few | Forgetting to change the condition |
 
-## 🛑 Controlling Loops: `break` and `continue`
+## Controlling Loops: `break` and `continue`
 
 - `break` stops the loop **immediately**. Python jumps to the first line after the loop.
 - `continue` skips the rest of **this** pass and jumps to the next one.
@@ -241,7 +241,7 @@ Recycling drive finished.
 
 Day 7 is skipped by `continue`. On day 8 the total reaches 210, so `break` ends the loop early. Days 9 and 10 never run.
 
-## ☀️ Worked Example: Solar Energy Over a Day
+## Worked Example: Solar Energy Over a Day
 
 A school's solar panels make different amounts of energy at different hours. This loop runs from 6:00 to 18:00 and adds up the energy.
 

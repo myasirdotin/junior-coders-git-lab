@@ -1,4 +1,4 @@
-# Chapter 8: The Evolution of HTTP: HTTP/1.1, HTTP/2 & HTTP/3 🚀
+# Chapter 8: The Evolution of HTTP: HTTP/1.1, HTTP/2 & HTTP/3
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ At first, the school canteen had one counter and one queue. If the student in fr
 
 ---
 
-## 📜 A Short Timeline
+## A Short Timeline
 
 Tim Berners-Lee proposed the World Wide Web in 1989. Early pages were simple documents with text and links. Today a single page may load a hundred files: images, scripts, fonts and stylesheets. HTTP had to change to keep up.
 
@@ -29,7 +29,7 @@ The *meaning* of HTTP did not change. Methods, status codes and headers (Chapter
 
 ---
 
-## ⏳ HTTP/1.0 and HTTP/1.1: One at a Time
+## HTTP/1.0 and HTTP/1.1: One at a Time
 
 **HTTP/1.0** opened a new TCP connection for every file. A page with 20 icons needed 20 handshakes (Chapter 4). That wasted time.
 
@@ -49,7 +49,7 @@ To get around this, browsers open about **six** connections to the same website.
 
 ---
 
-## ⚡ HTTP/2 (2015): Many Streams on One Connection
+## HTTP/2 (2015): Many Streams on One Connection
 
 HTTP/2 changed how the messages are packed:
 
@@ -68,7 +68,7 @@ Now a big file no longer blocks small ones at the HTTP level.
 
 ---
 
-## 🏎️ HTTP/3 (2022): QUIC over UDP
+## HTTP/3 (2022): QUIC over UDP
 
 HTTP/2 still had one hidden problem, in the layer below. It runs over **TCP**, and TCP delivers bytes strictly in order. If **one packet** is lost, TCP holds back *all* data behind it, for *every* stream, until the lost packet is resent. On a weak mobile signal this happens often.
 
@@ -98,7 +98,7 @@ TLS is the encryption layer of HTTPS (Chapter 10). In QUIC, encryption is built 
 
 ---
 
-## 📊 Comparison
+## Comparison
 
 | Feature | HTTP/1.1 | HTTP/2 | HTTP/3 |
 | :--- | :--- | :--- | :--- |
@@ -111,7 +111,7 @@ TLS is the encryption layer of HTTPS (Chapter 10). In QUIC, encryption is built 
 
 ---
 
-## 🔍 See It Yourself: Which Version?
+## See It Yourself: Which Version?
 
 ### In the browser
 

@@ -18,7 +18,7 @@ Before builders lay a single brick, an architect draws a plan. The plan says whe
 
 ---
 
-## 📐 What is a Schema?
+## What is a Schema?
 
 A **schema** is the plan of a database: which tables exist, which columns each has, and what rules the data must follow.
 
@@ -30,7 +30,7 @@ When you write `CREATE TABLE`, you tell MySQL three things:
 
 ---
 
-## ✏️ The Shape of `CREATE TABLE`
+## The Shape of `CREATE TABLE`
 
 ```sql
 CREATE TABLE table_name (
@@ -56,7 +56,7 @@ A **data type** (or **type**) says what kind of value a column holds. You will m
 
 ---
 
-## 🏫 Building `school_db`, Step by Step
+## Building `school_db`, Step by Step
 
 First choose the database from Chapter 4:
 
@@ -129,7 +129,7 @@ A row in `loans` means **a student borrowed a library book**. `available` and `r
 
 ---
 
-## 🔍 Checking Your Work: `SHOW TABLES` and `DESCRIBE`
+## Checking Your Work: `SHOW TABLES` and `DESCRIBE`
 
 List the tables in the active database:
 
@@ -169,7 +169,7 @@ How to read it:
 
 ---
 
-## 🔁 Renaming or Deleting a Table
+## Renaming or Deleting a Table
 
 Rename a table:
 

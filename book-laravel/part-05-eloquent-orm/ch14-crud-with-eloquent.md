@@ -12,11 +12,11 @@ A new box of donated books arrives at the library. The librarian **adds** each o
 - Delete rows with `delete()` and `destroy()`.
 - Change a number safely with `increment()` and `decrement()`.
 
-## 🔄 CRUD Reminder
+## CRUD Reminder
 
 In Chapter 8 you met **CRUD**: Create, Read, Update, Delete. Chapter 13 covered **Read**. This chapter covers the other three. We test everything in **Tinker** first. Chapter 19 connects it to real forms.
 
-## ➕ Create: Two Ways
+## Create: Two Ways
 
 ### Way 1: `new` and `save()`
 
@@ -66,13 +66,13 @@ Restart Tinker (it only loads code when it starts), then:
 
 Your times will differ.
 
-## 🛡️ Why `$fillable`? Mass Assignment
+## Why `$fillable`? Mass Assignment
 
 Filling many columns from one array is called **mass assignment**. It is handy, and a little risky. Later, `create()` will receive the array of data a visitor sent from a form. Suppose the `members` table had a column `is_librarian`. A sneaky visitor could add a hidden field `is_librarian=1` to the form. Without protection, they would become a librarian!
 
 `$fillable` is a **guest list**. Only the columns on the list are filled by `create()` and `update()`. Anything else is ignored. Keep the list to columns a normal form should change.
 
-## ✏️ Update: Two Ways
+## Update: Two Ways
 
 ### Change properties, then `save()`
 
@@ -112,7 +112,7 @@ When a member borrows a book, one copy leaves the shelf. When it returns, one co
 
 The `= 1` means one row changed. `decrement()` and `increment()` change the number inside the database in one step. That is safer than reading the number, changing it in PHP and saving it, because two librarians at two desks could overwrite each other.
 
-## 🗑️ Delete
+## Delete
 
 ```text
 > Book::find(6)->delete()
@@ -127,7 +127,7 @@ The `= 1` means one row changed. `decrement()` and `increment()` change the numb
 
 A deleted row is gone. There is no "undo" in the database. Real apps ask "Are you sure?" before deleting.
 
-## 🔍 Find or Create
+## Find or Create
 
 Sometimes you want "find this row, and if it is not there, add it":
 
@@ -140,7 +140,7 @@ $member = Member::firstOrCreate(
 
 This needs a `Member` model and table; you will make them in Chapter 15.
 
-## 🧭 Where CRUD Goes in the Controller
+## Where CRUD Goes in the Controller
 
 In the app, each Eloquent call lives in a resource controller method from Chapter 8:
 

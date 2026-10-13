@@ -12,7 +12,7 @@ Every library in the world does the same few things with its books. It shows the
 - Read the table of the seven actions, their URLs and route names.
 - Keep only the actions you need with `only()` and `except()`.
 
-## 🔄 CRUD: The Four Jobs
+## CRUD: The Four Jobs
 
 Almost every part of a data app does four things. Together they are called **CRUD**:
 
@@ -25,7 +25,7 @@ Almost every part of a data app does four things. Together they are called **CRU
 
 Books need CRUD. Members need CRUD. Loans need CRUD. Writing every route and method by hand would be slow and easy to get wrong.
 
-## 🛠️ Make a Resource Controller
+## Make a Resource Controller
 
 Add `--resource` to the Artisan command. (If you already made `BookController` in Chapter 7, delete that file first, or use a new name to practise.)
 
@@ -56,7 +56,7 @@ class BookController extends Controller
 
 `Request $request` gives the method the submitted form data. You will use it in Part 7.
 
-## 🔗 One Line, Seven Routes
+## One Line, Seven Routes
 
 ```php
 // routes/web.php
@@ -103,7 +103,7 @@ Output (spacing depends on your window):
                             Showing [7] routes
 ```
 
-## ✏️ Fill In Two Methods
+## Fill In Two Methods
 
 We still have no database, so return simple text to test the routes:
 
@@ -126,7 +126,7 @@ Visit `/books/3`. The browser shows:
 Details of book 3
 ```
 
-## ✂️ Only the Actions You Need
+## Only the Actions You Need
 
 The library has no page to edit members' loan history, and loans are never deleted (they are records). Keep only what you need:
 
@@ -152,7 +152,7 @@ php artisan make:controller BookController --resource --model=Book
 
 You will use this in Chapter 14.
 
-## 🌐 But Forms Only Send GET and POST
+## But Forms Only Send GET and POST
 
 An HTML form can only use `method="GET"` or `method="POST"`. So how does a browser send PUT or DELETE? Laravel's answer is a hidden field written with `@method('PUT')` or `@method('DELETE')` inside a POST form. Chapter 19 shows it step by step.
 

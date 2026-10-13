@@ -1,4 +1,4 @@
-# Chapter 14: AI Ethics, Transparency & Digital Trust (*Amānah*) 🛡️
+# Chapter 14: AI Ethics, Transparency & Digital Trust (*Amānah*)
 
 ## 🌟 Real-Life Story
 
@@ -12,9 +12,9 @@ When a neighbour leaves her house key with your family before a journey, she tru
 - Make a model explain its decisions.
 - Practise *Tabayyun*: checking an AI answer before trusting it.
 
-## 🏛️ Five Principles of Ethical AI
+## Five Principles of Ethical AI
 
-### 🔐 Privacy as a Trust (*Amānah*)
+### Privacy as a Trust (*Amānah*)
 
 Every row of data stands for a real person: their family, their health, their home. So:
 
@@ -24,7 +24,7 @@ Every row of data stands for a real person: their family, their health, their ho
 
 Betraying someone's data is a betrayal of trust (*Khiyānah*).
 
-### ⚖️ Fairness and Bias
+### Fairness and Bias
 
 A model learns from its data, including the data's gaps. For example:
 
@@ -33,17 +33,17 @@ A model learns from its data, including the data's gaps. For example:
 
 Ethical engineers test their models across different groups and conditions **before** anyone relies on them.
 
-### 🗣️ Truthfulness (*Ṣidq*)
+### Truthfulness (*Ṣidq*)
 
 - **Deepfakes** are fake videos or voices made by AI to show people saying things they never said. Making them to deceive is falsehood and slander (*Buhtān*).
 - **Dark patterns** are designs that trick users, for example into endless scrolling. We do not build them.
 - AI answers can be confidently **wrong**. Before you share or act on one, check it. This is *Tabayyun*: verifying news before acting on it.
 
-### 🔍 Explainability
+### Explainability
 
 If an AI system affects someone, such as the order of a clinic queue or a scholarship decision, that person has a right to know **why**. Prefer models whose reasons can be shown, like the threshold rule in Chapter 13, over "black boxes" that nobody can explain.
 
-### 🚫 Things We Refuse to Build
+### Things We Refuse to Build
 
 As ethical technologists, we do not build:
 
@@ -51,7 +51,7 @@ As ethical technologists, we do not build:
 - Surveillance that tracks innocent people, or face recognition used to watch them.
 - Systems that guess private things about people, such as their beliefs or health, without consent.
 
-## 🧽 Privacy in Code: Remove What You Do Not Need
+## Privacy in Code: Remove What You Do Not Need
 
 A study club wants to know which subjects need more tutoring. The sign-up sheet asked for too much. Before analysing, we keep only what the question needs, and replace names with codes. Removing names like this is called **anonymising** data.
 
@@ -85,7 +85,7 @@ print(counts)
 
 The answer ("maths needs more tutors") did not need any names or phone numbers. The safest data is the data you never keep.
 
-## 📊 Auditing a Dataset for Representation
+## Auditing a Dataset for Representation
 
 Before training, a careful data scientist checks: does the dataset include everyone the model will serve? Here is a **made-up** clinic study sample.
 
@@ -166,7 +166,7 @@ rural: 50.0% correct
 
 70% overall hides a real problem: the model is right only half the time for rural cases. Fixing it might mean collecting better rural data. Treating every community fairly is *'Adl* (justice).
 
-## 💬 A Model That Explains Itself
+## A Model That Explains Itself
 
 A transparent model shows the reasons for each decision. This simple, **made-up** rule decides whether a school garden bed needs attention, and lists every reason it used.
 
@@ -195,7 +195,7 @@ Because: ['soil is dry', 'many yellow leaves']
 
 A gardener can read the reasons, disagree with them, and correct the rule. That is the kind of system people can trust.
 
-## 🔎 *Tabayyun*: Checking AI Answers
+## *Tabayyun*: Checking AI Answers
 
 | An AI tool tells you… | How to check it |
 | :--- | :--- |
@@ -204,7 +204,7 @@ A gardener can read the reasons, disagree with them, and correct the rule. That 
 | A quote from a person | Find the original speech or book |
 | A medical tip | Ask a doctor or nurse; never rely on AI alone |
 
-## 🤲 The Ethical Technologist's Oath
+## The Ethical Technologist's Oath
 
 Before releasing any program into the world, ask yourself:
 

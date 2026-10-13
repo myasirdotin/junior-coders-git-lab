@@ -11,7 +11,7 @@ In a library, every book has a number on its spine. You do not need a separate s
 - Make a parameter optional and give it a default value.
 - Limit a parameter to numbers or letters with constraints.
 
-## 🧩 Your First Parameter
+## Your First Parameter
 
 Put a name inside curly braces in the route's address. Laravel passes that part of the URL to your function:
 
@@ -29,7 +29,7 @@ Route::get('/books/{id}', function ($id) {
 
 A **route parameter** is a changing part of the URL. The name in braces (`{id}`) and the function's variable (`$id`) should match. It makes the code easy to read.
 
-## 🔢 Two Parameters
+## Two Parameters
 
 A route can capture more than one part:
 
@@ -47,7 +47,7 @@ Member 7, loan 3.
 
 Laravel fills the parameters **in order**. The first `{...}` goes to the first variable.
 
-## ❓ Optional Parameters
+## Optional Parameters
 
 Add `?` after the name to make a parameter optional. Then give the variable a default value:
 
@@ -64,7 +64,7 @@ Route::get('/shelf/{subject?}', function ($subject = 'general') {
 
 Without the default value, `/shelf` would cause an error, because PHP would have no value for `$subject`.
 
-## 🛡️ Constraints: Only Allow Good Values
+## Constraints: Only Allow Good Values
 
 Right now `/books/hello` also matches `/books/{id}`. That makes no sense. A book number should be a number. Add a **constraint**, a rule the parameter must follow:
 
@@ -100,7 +100,7 @@ Route::get('/grade/{grade}', function ($grade) {
 
 `/grade/9` shows `Books for grade 9.` and `/grade/12` shows the 404 page.
 
-## 🧭 Order Matters
+## Order Matters
 
 Laravel checks routes from top to bottom. Look at this file:
 
@@ -121,7 +121,7 @@ Visiting `/books/new` shows `Book new`. The first route matched, because `new` f
 
 Using both is the safest choice.
 
-## 🔒 Never Trust a Parameter
+## Never Trust a Parameter
 
 A parameter comes from the address bar. Anyone can type anything there. Remember what you learned in PHP: never put user input straight into SQL or HTML. Constraints are a first fence. In later chapters, Eloquent (Part 5) and Blade's `{{ }}` (Part 4) add more protection.
 

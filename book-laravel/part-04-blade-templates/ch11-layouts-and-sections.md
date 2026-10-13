@@ -12,11 +12,11 @@ Look at your school's printed notices. Every notice has the same school logo at 
 - Reuse small pieces such as a navigation bar with `@include`.
 - Recognise Blade **components** (`<x-...>`), which starter kits use.
 
-## 😩 The Problem: Copy and Paste
+## The Problem: Copy and Paste
 
 So far each view has its own `<html>`, `<head>` and menu. With three pages, that is three copies. If the library changes its menu, you must edit every copy. Miss one, and the site looks broken. Layouts solve this: **write the shared parts once**.
 
-## 🏗️ Step 1: The Layout
+## Step 1: The Layout
 
 Create a folder `resources/views/layouts/` and a file `app.blade.php` inside it:
 
@@ -47,7 +47,7 @@ Create a folder `resources/views/layouts/` and a file `app.blade.php` inside it:
 
 `@yield('content')` is a **blank to fill**. It says, "a page will put its content here". `@yield('title', 'School Library')` has a **default**: if a page gives no title, the tab shows `School Library`.
 
-## 📄 Step 2: A Page That Uses It
+## Step 2: A Page That Uses It
 
 ```blade
 {{-- resources/views/books/index.blade.php --}}
@@ -91,7 +91,7 @@ layouts/app.blade.php
 
 A second page, `members/index.blade.php`, uses the same layout with its own content. Change the footer once in the layout, and every page changes.
 
-## 🧩 Including Small Pieces
+## Including Small Pieces
 
 The menu is a small piece of HTML that many layouts might share. Put it in its own file and pull it in with `@include`:
 
@@ -128,7 +128,7 @@ Output:
 Library week starts on Monday!
 ```
 
-## ➕ Adding to a Section: `@parent`
+## Adding to a Section: `@parent`
 
 Sometimes a page wants to *add* to a layout's section instead of replacing it. In the layout, write a section with `@show` instead of `@yield`:
 
@@ -154,7 +154,7 @@ Today's tip: return books on time.
 New: science magazines on shelf B.
 ```
 
-## 🧱 Components: The Other Style
+## Components: The Other Style
 
 Laravel has a second way to build layouts: **components**. You will see them in starter kits (Chapter 22). A component file lives in `resources/views/components/` and is used like an HTML tag that starts with `x-`:
 

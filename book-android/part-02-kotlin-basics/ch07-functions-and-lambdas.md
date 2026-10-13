@@ -1,4 +1,4 @@
-# Chapter 7: Functions and Lambdas 🧩
+# Chapter 7: Functions and Lambdas
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ The school bakery club makes the same date biscuits every Friday. They do not re
 - Write lambdas such as `{ x -> x + 5 }` and use the short name `it`.
 - Pass a lambda to a function, read trailing lambda syntax, and use `filter`, `map` and `forEach`.
 
-## 🍪 Your First Functions
+## Your First Functions
 
 You have already written one function in every program: `main`. Now you will write your own. A function is made with the keyword `fun`, a name, round brackets and a block of code.
 
@@ -40,7 +40,7 @@ Assalamu alaikum, Omar! Welcome to the library.
 
 Writing the steps once and calling them many times means fewer mistakes. If the welcome message changes, you fix it in one place.
 
-## ↩️ Returning a Value
+## Returning a Value
 
 Many functions work something out and **return** (hand back) a result. Write the result's type after the brackets, and use `return` to send the value back.
 
@@ -88,7 +88,7 @@ keyword
 
 `greetReader` had no return type. A function that returns nothing useful has the type `Unit`, and you can leave it out. `Unit` is Kotlin's word for "no value worth keeping".
 
-## 🎛️ Default and Named Arguments
+## Default and Named Arguments
 
 A parameter can have a **default value**, written with `=`. If the caller leaves that argument out, the default is used. You can also name arguments when you call, so their order no longer matters.
 
@@ -120,7 +120,7 @@ Look at the fourth call. We wanted the default shelf but 3 copies. Naming the ar
 
 This matters a lot for Android. Jetpack Compose functions have many parameters with defaults, and you set only the ones you need by name, for example `Text(text = "Hello", fontSize = 20.sp)`. You will see `modifier = ...` and `onClick = ...` on almost every screen.
 
-## ✂️ Single-Expression Functions
+## Single-Expression Functions
 
 When a function only returns one expression, you can drop the braces and `return`, and write `=` instead:
 
@@ -150,7 +150,7 @@ Keep going
 
 `fun double(n: Int): Int = n * 2` means exactly the same as the longer form with `{ return n * 2 }`. Because `when` and `if` are expressions (Chapter 5), they fit after `=` too. Use the short form for small, clear functions; use the block form when there are several steps.
 
-## 🎈 Lambdas: Functions Without a Name
+## Lambdas: Functions Without a Name
 
 A **lambda** is a small function written straight into your code, without `fun` and without a name. It lives inside curly braces. The parameters come first, then an arrow `->`, then the body. The value of the **last line** is the result; there is no `return`.
 
@@ -216,7 +216,7 @@ Hello from a lambda
 
 This is the `{ it >= 50 }` you saw as a preview in Chapter 6. Now you know: it is a lambda with one input.
 
-## 📨 Passing a Lambda to a Function
+## Passing a Lambda to a Function
 
 The real power of lambdas: you can give one to a function as an argument. The function decides **when** to run it. Here `repeatTask` asks for a parameter `task` whose type is a function type:
 
@@ -242,7 +242,7 @@ Water the plants: round 3
 
 `repeatTask` knows how to repeat; the lambda says **what** to do each time. A function that takes another function as a parameter is called a **higher-order function**.
 
-## 🚂 Trailing Lambda Syntax (Read This Carefully)
+## Trailing Lambda Syntax (Read This Carefully)
 
 Kotlin has one special rule that makes lambda code much cleaner:
 
@@ -349,7 +349,7 @@ Book saved for later.
 
 Two lambdas, two jobs: `content` draws what is inside, `onClick` reacts to a tap. When Chapter 11 arrives, nothing about `Button` will be new.
 
-## 🛠️ filter, map and forEach
+## filter, map and forEach
 
 Kotlin lists come with higher-order functions that take a lambda. They all use trailing lambda syntax, which is why you see no round brackets.
 

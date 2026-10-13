@@ -1,4 +1,4 @@
-# Chapter 6: DNS — The Internet's Global Phonebook 📖
+# Chapter 6: DNS — The Internet's Global Phonebook
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ Bilal wants a copy of *The Canon of Medicine* by Ibn Sina. He asks the librarian
 
 ---
 
-## 🤔 Why Do We Need DNS?
+## Why Do We Need DNS?
 
 People remember names, like `example.org`. Routers only understand numbers, like `203.0.113.10` (Chapter 3).
 
@@ -24,7 +24,7 @@ DNS lookups usually travel over **UDP port 53** (Chapters 4 and 5). UDP fits wel
 
 ---
 
-## 🌳 Reading a Domain Name
+## Reading a Domain Name
 
 A domain name is read from **right to left**, from the most general part to the most specific.
 
@@ -57,7 +57,7 @@ The DNS tree looks like this:
 
 ---
 
-## 🗂️ The Four Servers in a Lookup
+## The Four Servers in a Lookup
 
 1. **Recursive resolver.** This is the "front desk librarian". Your ISP, school or a public service runs it. It does all the asking for you.
 2. **Root name server.** It knows where every TLD lives. There are 13 root server names (`a.root-servers.net` to `m.root-servers.net`). They are copied onto more than a thousand machines around the world. Your question goes to the nearest copy, a trick called **anycast**.
@@ -78,7 +78,7 @@ The resolver saves each answer in its **cache** (short-term memory). The next pe
 
 ---
 
-## 📑 Common DNS Record Types
+## Common DNS Record Types
 
 A domain's settings are stored as **records**. Each record has a type.
 
@@ -95,7 +95,7 @@ For MX records, a **lower** preference number means "try this mail server first"
 
 ---
 
-## ⏱️ TTL: Time To Live and Caching
+## TTL: Time To Live and Caching
 
 Every record comes with a **TTL** (Time To Live). It is a number of seconds. It tells resolvers how long they may keep the answer in their cache.
 
@@ -108,7 +108,7 @@ A long TTL makes lookups faster and reduces traffic. A short TTL means changes s
 
 ---
 
-## 🔍 See It Yourself: `nslookup`
+## See It Yourself: `nslookup`
 
 On Windows, run in Command Prompt or PowerShell:
 

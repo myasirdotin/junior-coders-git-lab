@@ -1,4 +1,4 @@
-# Chapter 20: Animations with @keyframes 🎞️
+# Chapter 20: Animations with @keyframes
 
 ---
 
@@ -25,7 +25,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### Transition vs. Animation
 
@@ -68,7 +68,7 @@ The `@keyframes` rule only **describes** the motion. Nothing moves until an elem
 
 ---
 
-## 🧩 Writing Keyframes
+## Writing Keyframes
 
 ### `from` and `to`
 
@@ -122,7 +122,7 @@ When two keyframes are the same, you can group them with a comma, just like a se
 
 ---
 
-## 🎛️ The Animation Properties
+## The Animation Properties
 
 | Property | What it controls | Example values |
 | :--- | :--- | :--- |
@@ -190,7 +190,7 @@ animation: spin 1s linear infinite;
 
 ---
 
-## 💻 Code Example: The Library Catalogue Page
+## Code Example: The Library Catalogue Page
 
 Type this and save it as `animations.html`:
 
@@ -319,7 +319,7 @@ Type this and save it as `animations.html`:
 
 ---
 
-## 🔍 Code Explanation: How Each Effect Works
+## Code Explanation: How Each Effect Works
 
 - **The spinner** is a round box (`border-radius: 50%`) with a gray border. Only the top border is teal, so you can see it turning. The keyframes have only `to`. When `from` is missing, the browser starts from the element's normal style (no rotation). `linear` keeps the speed even, so the ring does not speed up and slow down.
 - **The badge** uses `display: inline-block` (Chapter 10). A `transform` does not work on a plain inline `<span>`, so this line matters. The `0%, 100%` keyframe means it starts and ends at normal size, so each cycle joins smoothly to the next.
@@ -329,7 +329,7 @@ Type this and save it as `animations.html`:
 
 ---
 
-## 🚀 Smooth Animations: Use `transform` and `opacity`
+## Smooth Animations: Use `transform` and `opacity`
 
 You learned in Chapter 19 that browsers draw changes to `transform` and `opacity` very quickly. This matters even more for animations, because they often run for a long time or forever.
 
@@ -348,7 +348,7 @@ CAN STUTTER (layout redone each frame)
 
 ---
 
-## ♿ Animations and Kindness: Accessibility
+## Animations and Kindness: Accessibility
 
 Movement on a screen is not pleasant for everyone. Some people feel dizzy or sick when things slide, zoom or spin. Others find constant movement makes it hard to read. Treating every visitor with care is part of doing good work (*Iḥsān*).
 

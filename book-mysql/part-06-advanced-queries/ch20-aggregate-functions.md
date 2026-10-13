@@ -18,7 +18,7 @@ After the charity week, the club leader does not read out all eight donation sli
 
 ---
 
-## 🧮 The Five Aggregate Functions
+## The Five Aggregate Functions
 
 | Function | Gives back | Example question |
 | :--- | :--- | :--- |
@@ -41,7 +41,7 @@ The **average** (or *mean*) is the total divided by how many values there are.
 
 ---
 
-## 🔢 Counting with `COUNT`
+## Counting with `COUNT`
 
 ```sql
 SELECT COUNT(*) AS students FROM students;
@@ -89,7 +89,7 @@ Nine students, but only eight have a city on record.
 
 ---
 
-## ➕ Totals with `SUM`
+## Totals with `SUM`
 
 ```sql
 SELECT SUM(amount) AS total FROM donations;
@@ -112,7 +112,7 @@ WHERE cause = 'Clean Water';
 
 ---
 
-## ⚖️ Averages with `AVG` and `ROUND`
+## Averages with `AVG` and `ROUND`
 
 ```sql
 SELECT AVG(gpa) AS average_gpa FROM students;
@@ -138,7 +138,7 @@ SELECT ROUND(AVG(gpa), 2) AS average_gpa FROM students;
 
 ---
 
-## 📏 Smallest and Largest: `MIN` and `MAX`
+## Smallest and Largest: `MIN` and `MAX`
 
 ```sql
 SELECT MIN(pages) AS shortest, MAX(pages) AS longest FROM books;
@@ -161,7 +161,7 @@ FROM donations;
 
 ---
 
-## 📊 A Summary Card in One Query
+## A Summary Card in One Query
 
 You can put several aggregates in one `SELECT`. Here is a library summary card:
 

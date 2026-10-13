@@ -1,4 +1,4 @@
-# Chapter 8: CSS Box Model 📦
+# Chapter 8: CSS Box Model
 
 ---
 
@@ -26,7 +26,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Universal Box Model Diagram
 
@@ -70,7 +70,7 @@ Memory trick: TRBL = "trouble".
 
 ---
 
-## 💻 Code Example: The Student Profile Card
+## Code Example: The Student Profile Card
 
 Type this into your editor and save it as `profile-card.html`:
 
@@ -163,7 +163,7 @@ Type this into your editor and save it as `profile-card.html`:
 
 ---
 
-## 🔍 Code Explanation: Breaking Down the Box
+## Code Explanation: Breaking Down the Box
 
 - `box-sizing: border-box;`: By default, in older CSS, if you made a box 300px wide and added 20px of padding, the browser stretched the box to 340px! With `box-sizing: border-box;`, the width you specify (`320px`) is the **exact total width**, and the padding is tucked neatly inside!
 - `padding: 24px;`: Provides a generous 24-pixel buffer around the avatar, name, and bio, ensuring text never touches the card edge!
@@ -232,7 +232,7 @@ A student created two profile cards, but they are smashing against each other li
 
 ---
 
-## 🎨 Think Like a Web Designer: Whitespace is Luxury
+## Think Like a Web Designer: Whitespace is Luxury
 
 In graphic and web design, empty space is called **Whitespace** or **Negative Space**:
 - Amateur websites cram elements into every millimeter of screen space.
@@ -244,7 +244,7 @@ In graphic and web design, empty space is called **Whitespace** or **Negative Sp
 
 ---
 
-## 🚀 Mini Challenge: The Planet Fact Card
+## Mini Challenge: The Planet Fact Card
 
 Create a web page named `planet-facts.html`:
 - Build a planet fact box (`width: 280px;`).

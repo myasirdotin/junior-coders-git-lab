@@ -1,4 +1,4 @@
-# Chapter 25: CSS Capstone: Style Your Own Website 🎓
+# Chapter 25: CSS Capstone: Style Your Own Website
 
 ---
 
@@ -25,7 +25,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 🗺️ The CSS Capstone Workflow
+## The CSS Capstone Workflow
 
 Work in this order. Each step builds on the one before.
 
@@ -66,7 +66,7 @@ Without the viewport tag, your media queries will not work on phones (Chapter 14
 
 ---
 
-## 🎨 Step 1: Choose a Colour Palette
+## Step 1: Choose a Colour Palette
 
 A **palette** is the small set of colours your whole site uses. Five is plenty. Write your palette as a comment at the top of `style.css`, so you use the same codes everywhere:
 
@@ -100,7 +100,7 @@ A pale colour like `#facc15` can still be used, but as a border or background, *
 
 ---
 
-## 🔤 Step 2: Style the Text
+## Step 2: Style the Text
 
 Pick **two fonts at most**: one for headings and one for body text (Chapter 5). Give each a fallback.
 
@@ -135,7 +135,7 @@ You will see calm, readable body text and coloured serif headings. Body text of 
 
 ---
 
-## 📦 Step 3: Spacing and Cards
+## Step 3: Spacing and Cards
 
 Start every stylesheet with `box-sizing: border-box` (Chapter 8), so widths stay the size you set. Then style your repeated blocks, such as cards, once with a class.
 
@@ -169,7 +169,7 @@ The `.container` keeps lines from becoming too long on wide screens, and its 16p
 
 ---
 
-## 📐 Step 4: Lay Out the Page, Phone First
+## Step 4: Lay Out the Page, Phone First
 
 Write the **phone layout first**. Most things simply stack, so you need little CSS. Use Flexbox for one row of items (the header) and Grid for groups of cards.
 
@@ -203,7 +203,7 @@ At 390px wide, you see the logo with the links wrapping beneath it, and the card
 
 ---
 
-## 📱 Step 5: Add Breakpoints
+## Step 5: Add Breakpoints
 
 Now add `min-width` media queries at the **end** of your stylesheet (Chapter 14). A **breakpoint** is the width where your layout changes. Choose it where your design starts to look stretched, not for a particular device.
 
@@ -231,7 +231,7 @@ Drag your browser narrower and wider: 1 column, then 2, then 3.
 
 ---
 
-## ✨ Step 6: Polish and Accessibility
+## Step 6: Polish and Accessibility
 
 Small details make a site feel finished, and some of them help people who use a keyboard.
 

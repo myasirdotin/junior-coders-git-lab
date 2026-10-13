@@ -18,7 +18,7 @@ The librarian wants to send a thank-you card to every student who has borrowed a
 
 ---
 
-## 🎯 Only the Matches
+## Only the Matches
 
 <div align="center" style="margin: 2rem 0;">
   <img src="../assets/diagrams/mysql/sql-joins-visual.svg" alt="SQL JOINs Visualized" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
@@ -41,7 +41,7 @@ Hamza has no partner → left out
 
 ---
 
-## 👀 Watching Rows Appear and Disappear
+## Watching Rows Appear and Disappear
 
 ```sql
 SELECT s.id, s.name, l.book_id
@@ -72,7 +72,7 @@ The same is true on the books side. *Arabic Calligraphy Basics* (book 8) has nev
 
 ---
 
-## 🔍 Join, Then Filter
+## Join, Then Filter
 
 `WHERE` can test columns from **any** joined table. Which books are still out, and who has them?
 
@@ -116,7 +116,7 @@ The order of the `ON` sides does not matter: `s.id = l.student_id` means the sam
 
 ---
 
-## 🔗 A Chain of Four Tables
+## A Chain of Four Tables
 
 Each extra `INNER JOIN` adds one more table to the chain. To connect four tables you need three joins. Here we go from a loan to the student, the book **and** the student's class:
 
@@ -150,7 +150,7 @@ books                 classes
 
 ---
 
-## 🧹 Removing Repeats After a Join
+## Removing Repeats After a Join
 
 Which students have read an *Ethics* book, and who is their teacher? Khadija borrowed *Digital Stewardship* once, but if she had borrowed two Ethics books she would appear twice. `DISTINCT` (Chapter 10) keeps each pair once:
 

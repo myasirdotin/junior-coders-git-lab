@@ -1,4 +1,4 @@
-# Chapter 6: Conditions 🚦
+# Chapter 6: Conditions
 
 ---
 
@@ -29,7 +29,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 ### The Anatomy of an `if...else` Statement
 
@@ -80,7 +80,7 @@ You have a permission slip, but the workshop is for ages 12 and up.
 
 ---
 
-## 🌍 Real-World Example: Traffic Light System
+## Real-World Example: Traffic Light System
 
 At a busy street intersection:
 - `if (lightColor === "green")`: Drive forward!
@@ -90,7 +90,7 @@ At a busy street intersection:
 
 ---
 
-## 💻 Code Example: The Age Classifier
+## Code Example: The Age Classifier
 
 Type this into your editor or scratchpad:
 
@@ -114,7 +114,7 @@ You are a teenager!
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - Line 1: `let age = 13;` stores the number 13.
 - Line 3: Checks `age >= 18`. Since 13 is not greater than or equal to 18, this evaluates to `false`. JavaScript skips down to line 5.
@@ -149,7 +149,7 @@ if (temperature > 35) {
 
 ---
 
-## 🧭 Think Like a Programmer: The Climbing Wall Gate
+## Think Like a Programmer: The Climbing Wall Gate
 
 The climbing wall at the sports centre has a safety rule:
 - A climber must be at least **120 cm tall**.
@@ -158,7 +158,7 @@ Plan the step-by-step logic to check height and age using nested conditions befo
 
 ---
 
-## 🚀 Coding Challenge: The Sports Team Eligibility Checker
+## Coding Challenge: The Sports Team Eligibility Checker
 
 Write a program that checks if a student can join the Class 7 football team:
 - Eligible age range: 11 to 14.
@@ -167,7 +167,7 @@ Write a program that checks if a student can join the Class 7 football team:
 
 ---
 
-## 🛠️ Mini Project: The Weather Decision Advisor
+## Mini Project: The Weather Decision Advisor
 
 Build a weather advisor program:
 - `isRaining = true;`

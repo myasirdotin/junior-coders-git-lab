@@ -1,4 +1,4 @@
-# Chapter 4: Transport Protocols: TCP vs. UDP 🚚
+# Chapter 4: Transport Protocols: TCP vs. UDP
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ Imagine two ways a school shares news. The first is a signed letter to each pare
 
 ---
 
-## 🚦 What the Transport Layer Does
+## What the Transport Layer Does
 
 IP (layer 3) gets packets from one computer to another. But IP is **best effort**. That means it tries, but packets can be lost, copied twice or arrive out of order. IP does not fix this.
 
@@ -27,7 +27,7 @@ Both also carry **port numbers**, which tell the computer *which program* gets t
 
 ---
 
-## 🤝 TCP: The Reliable Courier
+## TCP: The Reliable Courier
 
 Before TCP sends any real data, the two computers agree to talk. This agreement is called the **3-way handshake**. It uses three small messages:
 
@@ -64,7 +64,7 @@ TCP's header is **20 to 60 bytes**. That is the cost of all these features.
 
 ---
 
-## 🚀 UDP: The Lightweight Messenger
+## UDP: The Lightweight Messenger
 
 UDP skips the handshake, the ACKs and the resending. It adds a tiny **8-byte header** and sends the data at once. A UDP message is called a **datagram**.
 
@@ -85,7 +85,7 @@ Why would anyone want that? Because in some apps, **late data is useless**. In a
 
 ---
 
-## ⚖️ When to Use TCP or UDP
+## When to Use TCP or UDP
 
 | Feature | TCP | UDP |
 | :--- | :--- | :--- |
@@ -100,7 +100,7 @@ You will meet DNS in Chapter 6 and HTTP/3 in Chapter 8. HTTP/3 runs over UDP but
 
 ---
 
-## 🔍 See It Yourself: `netstat`
+## See It Yourself: `netstat`
 
 `netstat` lists the TCP and UDP connections on your computer. On Windows, run:
 

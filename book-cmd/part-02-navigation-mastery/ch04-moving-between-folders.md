@@ -14,7 +14,7 @@ Think of a big school building. To reach the science lab, you walk through the m
 - Switch to another drive, such as a USB flash drive.
 - Read the error message when a folder name is wrong.
 
-## 🚪 Stepping In: `cd folder-name`
+## Stepping In: `cd folder-name`
 
 To go into a folder inside your current folder, type `cd`, a space and the folder name. The command prints nothing. Instead, **the prompt changes** to show your new place.
 
@@ -43,7 +43,7 @@ C:\Users\Amina\Documents\school\science>
 
 This works the same in PowerShell. PowerShell also accepts forward slashes: `cd Documents/school/science`.
 
-## 🔙 Stepping Out: `cd ..`
+## Stepping Out: `cd ..`
 
 Remember from Chapter 3: `..` means *"the parent folder, one level up"*. So `cd ..` is the terminal's **Back** button. It is the most used move in the whole terminal.
 
@@ -85,7 +85,7 @@ C:\
                 └── science  ◄── start
 ```
 
-## 🏠 Jumping to the Top or to Home
+## Jumping to the Top or to Home
 
 Sometimes you want to go straight to a well-known place.
 
@@ -116,7 +116,7 @@ PS C:\> cd ~
 PS C:\Users\Amina>
 ```
 
-## 💾 Switching Drives
+## Switching Drives
 
 Your computer may have more than one drive. A USB flash drive often appears as `D:` or `E:`.
 
@@ -148,7 +148,7 @@ PS E:\my-code>
 > [!NOTE]
 > **Git Bash / macOS**: use forward slashes, as in `cd Documents/school` and `cd ../..`. `cd ~` (or just `cd`) goes home. `cd /` goes to the very top. In Git Bash, drive E is `/e/`, so you type `cd /e/my-code`. A Mac has no drive letters; a USB drive appears under `/Volumes/`.
 
-## 📋 Summary Table
+## Summary Table
 
 | Goal | CMD | PowerShell | Git Bash / macOS |
 | :--- | :--- | :--- | :--- |

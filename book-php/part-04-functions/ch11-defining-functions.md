@@ -1,4 +1,4 @@
-# Chapter 11: Defining Custom Functions 🧩
+# Chapter 11: Defining Custom Functions
 
 ---
 
@@ -17,7 +17,7 @@ Think of a blender in a kitchen. Inside it are a motor, gears and blades, but yo
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 To **call** (or **invoke**) a function means to run it by writing its name followed by `()`.
 
@@ -57,7 +57,7 @@ sayHello();   <- the call: runs the body
 
 ---
 
-## 💻 Code Example: Function Declaration and Scope
+## Code Example: Function Declaration and Scope
 
 ```php
 <?php
@@ -103,7 +103,7 @@ Students enrolled: 450
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `function printDivider() { ... }`: Defines a function. The code inside does **not** run yet. It waits until it is called.
 - `printDivider();`: Calls the function, so PHP runs its body. Calling it twice prints two dividers.

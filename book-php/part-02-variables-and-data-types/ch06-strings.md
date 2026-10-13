@@ -1,4 +1,4 @@
-# Chapter 6: Strings & Operations 🔤
+# Chapter 6: Strings & Operations
 
 ---
 
@@ -17,7 +17,7 @@ Imagine threading alphabet beads onto a cord to make a name bracelet. You add an
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **string** is a row of characters (letters, digits, spaces, symbols). **Concatenation** means joining strings end to end.
 
@@ -57,7 +57,7 @@ Inside single quotes, only `\'` and `\\` work. Everything else is printed exactl
 
 ---
 
-## 💻 Code Example: String Manipulation Laboratory
+## Code Example: String Manipulation Laboratory
 
 A **function** is a ready-made command that does a job and gives back an answer, like `strlen($text)`. Chapter 11 shows how to write your own.
 
@@ -101,7 +101,7 @@ Staff Member: Prof. Rasool<br>Original: <em>Code is poetry in motion.</em><br>Le
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `$salutation . " " . $teacherName`: Joins three strings into one with the dot (`.`).
 - `strlen($quote)`: Counts the characters, including spaces and the full stop (25).

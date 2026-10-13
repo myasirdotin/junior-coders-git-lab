@@ -1,4 +1,4 @@
-# Chapter 12: REST APIs & Real-Time WebSockets ⚡
+# Chapter 12: REST APIs & Real-Time WebSockets
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ There are two ways to hear news from the school office. You can walk to the offi
 
 ---
 
-## 🧩 What Is an API?
+## What Is an API?
 
 An **API** (Application Programming Interface) is a set of rules that lets one program ask another program for data or actions. A **web API** does this over HTTP (Chapter 7). Instead of HTML pages, it usually sends data as **JSON**, a simple text format like `{"title":"Book of Optics"}`.
 
@@ -22,7 +22,7 @@ A phone app, a website and a school display screen can all use the same API.
 
 ---
 
-## 🏛️ REST: Representational State Transfer
+## REST: Representational State Transfer
 
 **REST** is a popular style for designing web APIs. It is not a new protocol. It simply uses HTTP the way HTTP was meant to be used.
 
@@ -51,7 +51,7 @@ Each request carries everything the server needs, including who you are. For exa
 
 ---
 
-## 🔍 See It Yourself: A Tiny REST API
+## See It Yourself: A Tiny REST API
 
 PHP has a built-in web server, so you can run a real API on your own computer. Save this as `books.php` in an empty folder:
 
@@ -109,7 +109,7 @@ This demo does not save anything; a real API would store the book in a database.
 
 ---
 
-## ⏳ The Problem with Live Updates
+## The Problem with Live Updates
 
 HTTP is **request–response**. The client asks; the server answers. The server cannot start a conversation on its own.
 
@@ -126,7 +126,7 @@ Polling every 2 seconds sends full HTTP headers each time, even when nothing cha
 
 ---
 
-## 🔌 WebSockets: A Two-Way Line
+## WebSockets: A Two-Way Line
 
 The **WebSocket** protocol keeps one TCP connection open (Chapter 4). Once it is open, **both** sides can send messages at any time. This is called **full-duplex**: both directions work at the same time, like a phone call. The addresses start with `ws://`, or `wss://` for the encrypted version (Chapter 10).
 
@@ -171,7 +171,7 @@ In DevTools (**F12**), the **Network** tab has a **WS** filter. Click a WebSocke
 
 ---
 
-## 📡 Which One Should I Use?
+## Which One Should I Use?
 
 | Technology | Direction | Connection | Good for |
 | :--- | :--- | :--- | :--- |

@@ -1,4 +1,4 @@
-# Chapter 30: Project: Dynamic Contact Form 📬
+# Chapter 30: Project: Dynamic Contact Form
 
 ---
 
@@ -18,7 +18,7 @@ At the school office there is a stack of paper contact slips. A parent writes a 
 
 ---
 
-## 🧱 What You Will Build
+## What You Will Build
 
 One file, `contact.php`, that does everything:
 
@@ -40,7 +40,7 @@ It uses ideas from earlier chapters:
 
 ---
 
-## 🗺️ Build Steps
+## Build Steps
 
 Build the page in four steps. Test after each one.
 
@@ -71,7 +71,7 @@ Build the page in four steps. Test after each one.
 
 ---
 
-## 💻 Complete Code: contact.php
+## Complete Code: contact.php
 
 Save this file as `htdocs/contact-project/contact.php`. Long tags are split over several lines; HTML does not mind.
 
@@ -281,7 +281,7 @@ When Zainab sends a good message, one line is added to `messages.txt`. It is sho
 
 ---
 
-## 🔍 How the Code Works
+## How the Code Works
 
 - `$allowedTopics` and `in_array($subject, $allowedTopics, true)`: a visitor can change a `<select>` with browser tools and send any text. Checking against a fixed list (an **allow-list**) means only your three topics are accepted.
 - `strlen($message) > 1000`: a **maximum length** stops someone filling your file with a huge message.

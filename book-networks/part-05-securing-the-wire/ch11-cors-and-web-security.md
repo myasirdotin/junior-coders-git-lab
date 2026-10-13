@@ -1,4 +1,4 @@
-# Chapter 11: CORS, Same-Origin Policy & Web Security 🛡️
+# Chapter 11: CORS, Same-Origin Policy & Web Security
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ In a school, each class keeps its own register. A teacher from class 8A can walk
 
 ---
 
-## 🤔 The Famous Console Error
+## The Famous Console Error
 
 Sooner or later, every web developer sees this in the browser console:
 
@@ -29,7 +29,7 @@ Origin' header is present on the requested resource.
 
 ---
 
-## 🔒 The Same-Origin Policy
+## The Same-Origin Policy
 
 An **origin** is made of three parts:
 
@@ -56,7 +56,7 @@ Compared with `https://school.example.org/students`:
 
 ---
 
-## 🌐 CORS: Permission to Share
+## CORS: Permission to Share
 
 Sometimes sharing is wanted. A school's web app at `https://school.example.org` may need data from its own API at `https://api.school.example.org`. These are different origins.
 
@@ -110,7 +110,7 @@ Other requests need a **preflight** first. A preflight is a small `OPTIONS` requ
 
 ---
 
-## 🔍 See It Yourself: A Real CORS Server
+## See It Yourself: A Real CORS Server
 
 You can watch CORS headers with a tiny PHP file and PHP's built-in web server. Save this as `api.php` in an empty folder:
 
@@ -170,7 +170,7 @@ There is **no** `Access-Control-Allow-Origin` line. A browser would hide this re
 
 ---
 
-## 🛡️ More Security Headers
+## More Security Headers
 
 | Header | What it does |
 | :--- | :--- |

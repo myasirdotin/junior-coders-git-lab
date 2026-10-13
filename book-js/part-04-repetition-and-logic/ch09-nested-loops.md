@@ -1,4 +1,4 @@
-# Chapter 9: Nested Loops & Patterns 🔲
+# Chapter 9: Nested Loops & Patterns
 
 ---
 
@@ -31,7 +31,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 ### The Anatomy of a Nested Loop
 
@@ -66,7 +66,7 @@ To print a triangle of stars, we build a string inside the inner loop and print 
 
 ---
 
-## 💻 Code Example: The Triangle Star Maker
+## Code Example: The Triangle Star Maker
 
 Type this into your editor or scratchpad:
 
@@ -99,7 +99,7 @@ Output:
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - When `row = 1`: Inner loop runs for `col = 1`. `starLine` becomes `"* "`. Prints: `* `
 - When `row = 2`: Inner loop runs for `col = 1` and `col = 2`. `starLine` becomes `"* * "`. Prints: `* * `
@@ -133,7 +133,7 @@ for (let i = 1; i <= 2; i++) {
 
 ---
 
-## 🧭 Think Like a Programmer: The Tiled Floor Problem
+## Think Like a Programmer: The Tiled Floor Problem
 
 The school hall floor is a square of tiles: 8 rows and 8 columns, in two colours.
 - Plan the algorithm to draw the 8x8 floor with alternating `[ ]` and `[#]` tiles.
@@ -141,7 +141,7 @@ The school hall floor is a square of tiles: 8 rows and 8 columns, in two colours
 
 ---
 
-## 🚀 Coding Challenge: The Number Pyramid
+## Coding Challenge: The Number Pyramid
 
 Can you use nested loops to print this number triangle?
 ```text
@@ -154,7 +154,7 @@ Can you use nested loops to print this number triangle?
 
 ---
 
-## 🛠️ Mini Project: The Pattern Maker
+## Mini Project: The Pattern Maker
 
 Build a pattern maker program that can draw 2 different geometric shapes:
 - Pattern A: A 4x4 Square of hashes (`#`)

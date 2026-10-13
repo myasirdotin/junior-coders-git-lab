@@ -18,7 +18,7 @@ Every student at school gets an ID card with a number. Two students may both be 
 
 ---
 
-## 🪪 What is a Primary Key?
+## What is a Primary Key?
 
 A **primary key** is the column that identifies each row. It has two rules:
 
@@ -40,7 +40,7 @@ students
 
 ---
 
-## 🔢 `AUTO_INCREMENT`: Numbers For Free
+## `AUTO_INCREMENT`: Numbers For Free
 
 Most tables use a plain number called `id` as the key, with `AUTO_INCREMENT`:
 
@@ -56,7 +56,7 @@ When you add a row without an id, MySQL picks the next number: 1, then 2, then 3
 
 ---
 
-## 🛡️ The Constraint Family
+## The Constraint Family
 
 A **constraint** is a rule attached to a column. MySQL checks it on every new or changed row.
 
@@ -72,7 +72,7 @@ A **constraint** is a rule attached to a column. MySQL checks it on every new or
 
 ---
 
-## 🏫 Example: Library Cards
+## Example: Library Cards
 
 The library wants to issue cards. Each card needs a unique code, a student's name, a status, and a borrowing limit of 1 to 5 books.
 
@@ -136,7 +136,7 @@ None of these rows were saved. The table stays clean.
 
 ---
 
-## 🤔 Why Not Use Names or Emails as Keys?
+## Why Not Use Names or Emails as Keys?
 
 - **Names repeat.** Two students can be called Fatima.
 - **Emails change.** A student may get a new address, and every link to the old one breaks.

@@ -1,4 +1,4 @@
-# Chapter 11: Buttons and State 🔘
+# Chapter 11: Buttons and State
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ At the library desk, Zainab helps the librarian on Tuesdays. Every time a studen
 - Describe recomposition in plain words and keep state through a screen rotation with `rememberSaveable`.
 - Move state up to the parent with state hoisting, passing a value and an "on change" function down.
 
-## 🔘 Four Kinds of Button
+## Four Kinds of Button
 
 Material 3 gives you several buttons. They all work the same way: `onClick` says what happens when tapped, and the braces after the brackets say what the button shows.
 
@@ -66,7 +66,7 @@ An icon has no words, so its `contentDescription` is what TalkBack reads aloud. 
 
 `IconButton` already gives the icon a touch area of at least 48 dp, so it is easy to tap. Keep every tappable thing at least 48 dp. Small fingers and shaky hands both need room.
 
-## 🧮 The Counter That Does Not Count
+## The Counter That Does Not Count
 
 Let us build Zainab's tally board: a number and a button that adds one.
 
@@ -91,7 +91,7 @@ Books borrowed today: 0
 
 The variable does change. But nobody told Compose to **redraw the screen**. And even if it did redraw, the first line `var count = 0` would run again and set it back to zero. This normal `var` is like a number in Zainab's head: forgotten the moment she looks away.
 
-## 📌 What State Is
+## What State Is
 
 **State** is any value that can change while the app is running *and* that the screen depends on.
 
@@ -112,7 +112,7 @@ Two tools do these jobs.
 - `mutableStateOf(…)` makes a **watched** box. Changing what is inside tells Compose to redraw.
 - `remember { … }` **keeps** the box between redraws, instead of making a new one each time.
 
-## ✅ The Counter That Works
+## The Counter That Works
 
 Here is the fixed counter in a full `MainActivity.kt`, with every import:
 
@@ -235,7 +235,7 @@ import androidx.compose.runtime.setValue
 
 `getValue` makes reading work, `setValue` makes writing work. If they are missing, the `by` is underlined in red. Click on it and press **Alt + Enter** to import them.
 
-## 🔄 Recomposition: How the Screen Updates
+## Recomposition: How the Screen Updates
 
 When state changes, Compose calls your composable function again, and draws the new result. This is called **recomposition**.
 
@@ -263,7 +263,7 @@ Some facts that make this clearer:
 
 Think of the story again. Each recomposition is Zainab redrawing the board's numbers neatly. The tally itself, the state, is kept safe while she does it.
 
-## 📱 Turning the Phone: `remember` vs `rememberSaveable`
+## Turning the Phone: `remember` vs `rememberSaveable`
 
 Try this experiment. Change `rememberSaveable` to `remember`, run the app, count to 4, then turn the emulator sideways (the rotate buttons are on the emulator's side toolbar).
 
@@ -280,7 +280,7 @@ Use `rememberSaveable` for things the user did: a count, a choice, typed text. N
 
 `rememberSaveable` works with simple values such as numbers, text and `true`/`false`. Keep saveable state simple.
 
-## 🔖 A "Save for Later" Toggle
+## A "Save for Later" Toggle
 
 Now give each book card a bookmark button. A **toggle** switches between two states, on and off.
 
@@ -306,7 +306,7 @@ fun SaveForLaterButton() {
 
 The card shows an outline bookmark. Tap it and it fills in. Tap again and it goes back to the outline.
 
-## ⬆️ State Hoisting: Let the Parent Hold It
+## State Hoisting: Let the Parent Hold It
 
 The button above keeps its own state. That causes a problem. The book card might want to show "Saved" in its text too, and later (Chapter 15) the app must store which books are saved. Nobody outside the button can see `saved`.
 

@@ -1,4 +1,4 @@
-# Chapter 2: Variables & Data Types 📦
+# Chapter 2: Variables & Data Types
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ The school pantry has many jars on a shelf. Each jar has a label: "Rice", "Lenti
 - Calculate with Python's arithmetic operators.
 - Convert values from one type to another, and round decimals with `round()`.
 
-## 💡 Variables Are Name Labels
+## Variables Are Name Labels
 
 A **variable** is a name that points to a value. Think of it as a **sticky label** attached to a value in memory.
 
@@ -73,7 +73,7 @@ Evening: 25
 
 The last assignment reads the old value (`20`), adds `5`, and stores the new value (`25`). Python always works out the right side of `=` first.
 
-## 🗂️ The Four Basic Data Types
+## The Four Basic Data Types
 
 Every value belongs to a family called a **data type**. The type decides what you can do with the value.
 
@@ -86,7 +86,7 @@ Every value belongs to a family called a **data type**. The type decides what yo
 
 Note that `True` and `False` start with a capital letter and have no quotes.
 
-## 🔍 Checking Types with `type()`
+## Checking Types with `type()`
 
 The built-in function `type()` tells you the data type of any value:
 
@@ -115,7 +115,7 @@ print(type("250"))
 
 The last line is a surprise for many beginners. `"250"` is in quotes, so it is a **string**, not a number. Quotes always make text.
 
-## 🧮 Arithmetic Operators
+## Arithmetic Operators
 
 Computers are excellent at fast, exact calculation. Here are Python's arithmetic **operators** (symbols that do maths):
 
@@ -193,7 +193,7 @@ print(trees_planted)
 40
 ```
 
-## 🧺 Worked Example: The Charity Pantry Calculator
+## Worked Example: The Charity Pantry Calculator
 
 A community relief drive collects food. Volunteers want to share it fairly between 25 families. The `//` operator gives each family's whole share. The `%` operator shows what is left over.
 
@@ -222,7 +222,7 @@ Kept in storage for emergencies: 15
 
 Check it: 25 × 10 = 250, and 265 − 250 = 15. The program is right.
 
-## 🔄 Type Conversion
+## Type Conversion
 
 Sometimes a number is stored as text, for example `"120"`. You must convert it before you can do maths. Converting a value to another type is called **type conversion** (or **casting**).
 
@@ -276,7 +276,7 @@ print(round(water_litres))
 
 With no second number, `round()` gives a whole number.
 
-## 🏷️ Naming Rules and Good Habits
+## Naming Rules and Good Habits
 
 Python has a few strict rules for names, and some good habits (from the style guide called **PEP 8**):
 

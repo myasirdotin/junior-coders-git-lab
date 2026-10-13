@@ -31,6 +31,10 @@ const warn = (where, msg) => warnings.push(`${where}: ${msg}`);
 const TEMPLATE = ['🌟 Real-Life Story', '🎯 What You Will Learn', '⚠️ Common Mistake', '✍️ Try It', '📝 Recap', '🏆 Practice'];
 const LEVELS = ['🟢 Level 1', '🟡 Level 2', '🔴 Level 3'];
 const EMOJI = /\p{Extended_Pictographic}/gu;
+// headings that keep their emoji: the same boxes in every chapter (keep in sync with scripts/clean-heading-emoji.js)
+const SIGNPOSTS = ['Real-Life Story', 'What You Will Learn', 'Common Mistake', 'Try It', 'Recap', 'Practice',
+  'Level 1', 'Level 2', 'Level 3', 'Predict the Output', 'Predict the Screen', 'Real-World Connection',
+  'Code Detective', 'Key Terms', 'Amānah'];
 const BOX = /[┌┐└┘├┤┬┴┼─│═║╔╗╚╝╠╣╦╩╬]/;
 const ASCII_BOX = /^\s*\+[-=]{3,}[-=+]*\+\s*$/; // boxes drawn with +----+ and |
 const LATEX = /\$[^$\n]{0,80}?(\\(frac|text|times|approx|log|cdot|sqrt|leq|geq)\b|\^\{|\^[0-9a-zA-Z])[^$\n]*?\$/;
@@ -91,6 +95,9 @@ function checkFile(file) {
     if (h.level >= 2 && /^\d+\.\s/.test(h.text)) err(where, `line ${h.line}: numbered heading "${h.text.slice(0, 40)}"`);
     const emojis = (h.text.match(EMOJI) || []).length;
     if (emojis > 1) err(where, `line ${h.line}: ${emojis} emoji in heading "${h.text.slice(0, 40)}"`);
+    // emoji are signposts only (GEMINI §7j): chapter titles and ordinary topic headings stay plain
+    if (isChapter && emojis && !SIGNPOSTS.some(s => h.text.replace(/[\p{Extended_Pictographic}️‍]/gu, '').trim().startsWith(s)))
+      err(where, `line ${h.line}: emoji on a heading that is not a signpost: "${h.text.slice(0, 40)}" (run node scripts/clean-heading-emoji.js <file>)`);
   });
 
   // template

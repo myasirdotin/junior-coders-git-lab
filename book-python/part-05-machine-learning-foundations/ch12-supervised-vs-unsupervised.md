@@ -1,4 +1,4 @@
-# Chapter 12: Supervised vs. Unsupervised Learning 🎯
+# Chapter 12: Supervised vs. Unsupervised Learning
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ Imagine two ways of learning about plants. In the first, your biology teacher sh
 - Group numbers into clusters with a small, step-by-step version of k-means.
 - Choose the right kind of learning for a task.
 
-## 🎓 Supervised Learning: Learning with a Teacher
+## Supervised Learning: Learning with a Teacher
 
 In **supervised learning**, every training example has **features** and the correct **label**. The label acts like a teacher. The algorithm makes a guess, compares it with the label and adjusts itself.
 
@@ -27,7 +27,7 @@ Supervised learning has two main kinds:
 
 The sunshine model in Chapter 11 was **regression**: it predicted a number. Now let us build a **classifier**.
 
-## 🥭 A Nearest-Neighbour Classifier
+## A Nearest-Neighbour Classifier
 
 A fruit packing group sorts mangoes into "ripe" and "unripe". For each mango, they measure two features on a 1 to 10 scale: **softness** and **colour** (1 = green, 10 = deep yellow). Here is a small, **made-up** training set:
 
@@ -98,7 +98,7 @@ The classifier never received a rule like "softness above 5 means ripe". It **le
 
 > 🧪 **Honest note**: this is a simplified teaching model with six made-up mangoes. Real classifiers use far more examples, and often look at several neighbours (the "k" in **k-nearest neighbours**) and let them vote.
 
-## 🔍 Unsupervised Learning: Finding Groups Alone
+## Unsupervised Learning: Finding Groups Alone
 
 In **unsupervised learning** there are **no labels**. We give the computer raw data and ask: *"What natural groups are hiding in here?"* Finding groups of similar items is called **clustering**.
 
@@ -156,7 +156,7 @@ Group B: [410, 395, 420, 405]
 
 The centres settle after the first round. The computer found two clusters by itself: taps that give about 131 litres a day and taps that give about 408. It does **not** know *why*. Perhaps the busy taps are near the market. Explaining the groups is the human's job.
 
-## 🧭 Supervised or Unsupervised?
+## Supervised or Unsupervised?
 
 | | Supervised | Unsupervised |
 | :--- | :--- | :--- |

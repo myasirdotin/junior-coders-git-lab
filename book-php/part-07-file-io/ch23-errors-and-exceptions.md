@@ -1,4 +1,4 @@
-# Chapter 23: Errors & Exceptions (try / catch) 🧯
+# Chapter 23: Errors & Exceptions (try / catch)
 
 ---
 
@@ -18,7 +18,7 @@ A school bus driver plans the morning route. Most days nothing goes wrong. One d
 
 ---
 
-## 👁️ Two Kinds of Problems: Warnings and Fatal Errors
+## Two Kinds of Problems: Warnings and Fatal Errors
 
 When something goes wrong, PHP reports it. Two kinds matter most to a beginner:
 
@@ -67,7 +67,7 @@ A **stack trace** is the list of function calls that led to the problem. It help
 
 ---
 
-## 🧺 Exceptions: Problems You Can Catch
+## Exceptions: Problems You Can Catch
 
 Modern PHP reports many serious problems as **exceptions**. An exception is a message object that PHP *throws* when it cannot continue. If your code *catches* it, the script does not crash. You decide what happens next.
 
@@ -126,7 +126,7 @@ Groups "0": Division by zero
 
 ---
 
-## 🚨 Throwing Your Own Exceptions
+## Throwing Your Own Exceptions
 
 Your own functions can refuse bad values too. You **throw** an exception with the `throw` keyword:
 
@@ -187,7 +187,7 @@ A function that only echoes "Error!" cannot tell the caller that something went 
 
 ---
 
-## 🏷️ Catching Specific Types
+## Catching Specific Types
 
 PHP 8.3 throws different **types** of problems. The type name after `catch` decides which ones that block handles.
 
@@ -273,7 +273,7 @@ Cannot share: Division by zero
 
 ---
 
-## 📄 Not Everything Throws: `false` + a Warning
+## Not Everything Throws: `false` + a Warning
 
 Some older functions do **not** throw. They print a warning and return `false`. `file_get_contents()`, `fopen()` and `file_put_contents()` work this way. A `try`/`catch` around them catches nothing, so you must **check the return value** yourself (as in Chapters 20 and 21):
 
@@ -308,7 +308,7 @@ Use `=== false`, not `!$x`. An empty file returns `""`, which is not a failure.
 
 ---
 
-## 🛡️ Errors on a Live Website
+## Errors on a Live Website
 
 On **your own computer**, seeing every warning helps you learn and fix bugs. On a **live website**, raw error messages are dangerous. They show folder paths, file names and sometimes database details. An attacker can use those clues.
 

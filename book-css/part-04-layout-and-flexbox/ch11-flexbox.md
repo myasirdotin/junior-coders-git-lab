@@ -1,4 +1,4 @@
-# Chapter 11: Flexbox 📐
+# Chapter 11: Flexbox
 
 ---
 
@@ -28,7 +28,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Flexbox Axes Architecture
 
@@ -77,7 +77,7 @@ In the default `flex-direction: row`, the **main axis** runs left to right and t
 
 ---
 
-## 💻 Code Example: The Modern Navigation Bar
+## Code Example: The Modern Navigation Bar
 
 Type this into your editor and save it as `navbar-flex.html`:
 
@@ -166,7 +166,7 @@ Type this into your editor and save it as `navbar-flex.html`:
 
 ---
 
-## 🔍 Code Explanation: How the Navbar Works
+## Code Explanation: How the Navbar Works
 
 - `display: flex;` on `.navbar`: Instantly converts `.navbar` into a Flex container. The logo and the `<ul>` list automatically pop side-by-side!
 - `justify-content: space-between;`: Takes whatever spare whitespace exists in the browser window and distributes it between the logo and the link list, shoving the logo to the far left and the links to the far right!
@@ -232,7 +232,7 @@ A student wanted to center three cards, so they wrote this CSS:
 
 ---
 
-## 🎨 Think Like a Web Designer: The Power of `gap`
+## Think Like a Web Designer: The Power of `gap`
 
 In the old days of CSS, developers had to write `margin-right: 15px;` on every child item, and then write `margin-right: 0;` on the very last item to prevent overflow.
 - Modern CSS introduced the **`gap` property**:
@@ -243,7 +243,7 @@ In the old days of CSS, developers had to write `margin-right: 15px;` on every c
 
 ---
 
-## 🚀 Mini Challenge: The 3-Button Club Bar
+## Mini Challenge: The 3-Button Club Bar
 
 Build a strip of club buttons:
 - Create a parent container with `display: flex;`, `justify-content: center;`, and `gap: 15px;`.

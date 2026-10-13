@@ -1,4 +1,4 @@
-# Chapter 10: Tabular Data (CSV & JSON) 📊
+# Chapter 10: Tabular Data (CSV & JSON)
 
 ## 🌟 Real-Life Story
 
@@ -11,7 +11,7 @@ Two schools want to share their recycling results. One school writes a long para
 - Convert CSV text values into numbers and calculate with them.
 - Save Python dictionaries and lists as JSON and load them back with the `json` module.
 
-## 📄 CSV: Comma-Separated Values
+## CSV: Comma-Separated Values
 
 A **CSV** file is plain text. Each line is one **row**. Commas separate the **columns**. The first line is usually the **header**: the names of the columns.
 
@@ -117,7 +117,7 @@ Total: 1180.7 kWh per day
 | `csv.reader` | list | `row[2]` |
 | `csv.DictReader` | dictionary | `row["daily_kwh"]` |
 
-## 🌐 JSON: Data with Labels and Nesting
+## JSON: Data with Labels and Nesting
 
 **JSON** (JavaScript Object Notation) stores data with labels, like a Python dictionary. It can also hold lists **inside** records, which a flat CSV table cannot do easily. Websites and apps use JSON to send data to each other.
 
@@ -218,7 +218,7 @@ Average: 22.33
 {"ok": true, "count": 3}
 ```
 
-## 🆚 CSV or JSON?
+## CSV or JSON?
 
 | | CSV | JSON |
 | :--- | :--- | :--- |
@@ -227,7 +227,7 @@ Average: 22.33
 | Opens in a spreadsheet | Yes | No |
 | Common use | Sensor logs, gradebooks | Web apps, settings, APIs |
 
-## 📈 Looking Ahead: NumPy and Pandas
+## Looking Ahead: NumPy and Pandas
 
 Data scientists often use two extra libraries. They are not part of standard Python; on a computer you install them with `pip install pandas`.
 
@@ -243,7 +243,7 @@ Data scientists often use two extra libraries. They are not part of standard Pyt
 
 Everything in this book uses only the standard library, so you understand what these tools do for you.
 
-## 📚 Worked Example: Library Borrowing Report
+## Worked Example: Library Borrowing Report
 
 The school library stores how often each book was borrowed. We write the records with `csv.DictWriter`, then read them back to find the most borrowed book.
 

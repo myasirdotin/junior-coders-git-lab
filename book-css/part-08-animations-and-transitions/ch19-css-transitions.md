@@ -1,4 +1,4 @@
-# Chapter 19: CSS Transitions ⏳
+# Chapter 19: CSS Transitions
 
 ---
 
@@ -27,7 +27,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### How a Transition Bridges Two States
 
@@ -77,7 +77,7 @@ ease-in-out  slow, faster, slow again
 
 ---
 
-## 💻 Code Example: The Smooth Physics Laboratory
+## Code Example: The Smooth Physics Laboratory
 
 Type this into your editor and save it as `transitions.html`:
 
@@ -177,7 +177,7 @@ Type this into your editor and save it as `transitions.html`:
 
 ---
 
-## 🔍 Code Explanation: Crafting Fluid Motion
+## Code Explanation: Crafting Fluid Motion
 
 - `transition: transform 0.5s ease-out;` on `.card-viewport img`:
   - Notice where `transition` is placed: **On the base element**, NOT on the `:hover` rule!
@@ -255,7 +255,7 @@ A student tried to animate an element appearing smoothly, but it popped in abrup
 
 ---
 
-## 🎨 Think Like a Web Designer: Animating the Right Properties
+## Think Like a Web Designer: Animating the Right Properties
 
 Computers have graphics cards (GPUs) designed specifically to handle two CSS properties at blistering 60 frames per second:
 1. **`transform`** (`scale`, `translate`, `rotate`)
@@ -266,7 +266,7 @@ Computers have graphics cards (GPUs) designed specifically to handle two CSS pro
 
 ---
 
-## 🚀 Mini Challenge: The Sliding Card Drawer
+## Mini Challenge: The Sliding Card Drawer
 
 Build an interactive profile card:
 - A card showing a student's photo and name.

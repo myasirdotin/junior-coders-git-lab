@@ -1,4 +1,4 @@
-# Chapter 21: Writing & Appending Files ✍️
+# Chapter 21: Writing & Appending Files
 
 ---
 
@@ -18,7 +18,7 @@ At the exit of a science museum lies a big guestbook. You write: *"The planets r
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **flag** is an extra option you pass to a function to change how it works.
 
@@ -56,7 +56,7 @@ fclose($h);
 
 ---
 
-## 💻 Code Example: An Interactive Guestbook
+## Code Example: An Interactive Guestbook
 
 Save this as `guestbook.php` in `htdocs`:
 
@@ -160,7 +160,7 @@ Sara's `<b>` tags are shown as text, not run as HTML.
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `str_replace(["\r", "\n", "|"], " ", $comment)`: Swaps line breaks and `|` for spaces. Each entry stays on one line, and the `|` separator cannot be faked.
 - `strlen($comment) <= 300`: A length limit, so nobody can fill your disk with one giant message.

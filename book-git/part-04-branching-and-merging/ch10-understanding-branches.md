@@ -1,4 +1,4 @@
-# Chapter 10: Understanding Branches (`git branch`, `switch`) 🌿
+# Chapter 10: Understanding Branches (`git branch`, `switch`)
 
 ---
 
@@ -20,7 +20,7 @@ Look at a great Chinar tree in a Srinagar garden. It has one strong trunk, and m
 
 ---
 
-## 👁️ The Branching Timeline
+## The Branching Timeline
 
 ![Git Branching Lifecycle](../assets/diagrams/git/git-branching-lifecycle.svg)
 
@@ -36,7 +36,7 @@ feature:          C3 -- C4 -----'
 
 ---
 
-## 💻 Example: Creating and Switching Branches
+## Example: Creating and Switching Branches
 
 **Step 1.** See which branch you are on. The star `*` marks it:
 
@@ -115,7 +115,7 @@ Your work is right back. Git changes the files in your folder to match the branc
 
 ---
 
-## 🔍 How Branches Work
+## How Branches Work
 
 - **A branch is tiny.** Older tools copied the whole project to make a branch. In Git, a branch is just a small file in `.git/refs/heads/` that holds one commit hash (41 bytes). That is why creating one is almost instant, even in a big project.
 - **`git switch`** was added in Git 2.23 (2019). It only changes branches. The older `git checkout` did many different jobs, which confused people.

@@ -1,4 +1,4 @@
-# Chapter 19: Publishing Live Websites with GitHub Pages 🌐
+# Chapter 19: Publishing Live Websites with GitHub Pages
 
 ---
 
@@ -24,7 +24,7 @@ Now anyone passing by can enjoy your work. For websites, **GitHub Pages** is tha
 
 ---
 
-## 👁️ How GitHub Pages Works
+## How GitHub Pages Works
 
 **GitHub Pages** is a free service from GitHub. It takes the HTML, CSS and JavaScript files in a repository and shows them as a real website.
 These are **static** files: the server sends them exactly as they are. GitHub Pages cannot run server code like PHP or a MySQL database.
@@ -60,7 +60,7 @@ The `https` part means the connection is encrypted. GitHub sets this up for you 
 
 ---
 
-## 💻 Turning On GitHub Pages
+## Turning On GitHub Pages
 
 ### Step 1: Name your home page `index.html`
 Your repository's top folder needs a file named exactly `index.html`: all lowercase, no spaces.
@@ -85,7 +85,7 @@ On a free GitHub account, Pages works for **public** repositories. Anything in a
 
 ---
 
-## 🔄 Updating the Live Site
+## Updating the Live Site
 
 You never upload files by hand. To change your website:
 

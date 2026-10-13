@@ -1,4 +1,4 @@
-# Chapter 11: Public Wi-Fi, VPNs & Traffic Sniffing 📡
+# Chapter 11: Public Wi-Fi, VPNs & Traffic Sniffing
 
 ## 🌟 Real-Life Story
 
@@ -11,7 +11,7 @@ Imagine sending a **postcard**. Every person who handles it, from the postbox to
 - Explain what HTTPS protects, and what it does not hide.
 - Describe what a **VPN** does, and how to choose and use one wisely.
 
-## 📡 Wi-Fi Is a Shared Room
+## Wi-Fi Is a Shared Room
 
 Wi-Fi sends data by radio. Every device in range "hears" the radio signals, a bit like people in one room hearing every conversation. Normally a device ignores messages not meant for it. But with special software, a device can listen to everything nearby. This is called **sniffing** (or packet sniffing). A **packet** is a small piece of data travelling across a network.
 
@@ -28,7 +28,7 @@ On an **open** network (one with no Wi-Fi password), the radio signals themselve
 
 Network staff use sniffing tools, such as Wireshark, to fix problems on networks **they are responsible for**. Capturing other people's traffic without permission is illegal.
 
-## 🕵️ Two Tricks to Know
+## Two Tricks to Know
 
 ### Man-in-the-middle (MITM)
 A **man-in-the-middle** attack means someone secretly sits between you and the website. They pass messages back and forth, so everything seems normal. But they can read, and sometimes change, what passes through.
@@ -38,7 +38,7 @@ An **evil twin** is a fake Wi-Fi hotspot with the same name as a real one, such 
 
 **Defence:** ask staff for the exact network name. Turn off "auto-join" for public networks. Forget networks you no longer use.
 
-## 🔒 How HTTPS Protects You
+## How HTTPS Protects You
 
 **HTTPS** is HTTP inside an encrypted connection called **TLS** (Transport Layer Security). You learned in Chapter 10 that TLS agrees a secret key and then encrypts everything. TLS also checks the website's **certificate**: a digital ID card that proves the site really owns its name. That check makes man-in-the-middle tricks fail. Your browser shows a big warning instead.
 
@@ -55,7 +55,7 @@ So with HTTPS, the network can usually see *which site* you visit, but not *what
 
 > ⚠️ **Never click past a certificate warning** on public Wi-Fi. It may be the exact moment a man-in-the-middle is trying to step in.
 
-## 🚇 VPNs: An Encrypted Tunnel
+## VPNs: An Encrypted Tunnel
 
 A **VPN** (Virtual Private Network) creates an encrypted tunnel from your device to a VPN server somewhere else. All your traffic goes through the tunnel first.
 
@@ -78,7 +78,7 @@ A **VPN** (Virtual Private Network) creates an encrypted tunnel from your device
 
 > ⚠️ **Choosing a VPN (*Amānah*)**: many "free VPN" apps pay for themselves by collecting and selling what you do online. Choose a well-known provider whose privacy claims have been checked by independent auditors, or the VPN your school provides. Follow your school's and family's rules about VPN use.
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 - Set your home router to **WPA3**, or **WPA2 (AES)** if WPA3 is not available. Never use WEP or an open network.
 - Change the router's default admin password.

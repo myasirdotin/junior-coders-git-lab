@@ -1,4 +1,4 @@
-# Chapter 24: Portfolio Website 💼
+# Chapter 24: Portfolio Website
 
 ---
 
@@ -29,7 +29,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Developer Portfolio Blueprint
 
@@ -60,7 +60,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: The Complete Developer Portfolio
+## Code Example: The Complete Developer Portfolio
 
 Type this into your editor and save it as `portfolio.html`:
 
@@ -400,7 +400,7 @@ Type this into your editor and save it as `portfolio.html`:
 
 ---
 
-## 🔍 Code Explanation: Agency-Grade Dark Mode
+## Code Explanation: Agency-Grade Dark Mode
 
 - **Dark Theme Palette**: Dark slate background (`#0f172a`), lighter card container (`#1e293b`), borders (`#334155`), and vibrant cyan accents (`#38bdf8`). Dark mode saves battery on OLED screens and looks ultra-modern!
 - Tech Tags: Small pills showing the technologies used (`<span class="tag">HTML5</span>`) communicate technical competence to recruiters and teachers.
@@ -453,7 +453,7 @@ A student tested their portfolio on an iPhone, but the giant 48px hero title was
 
 ---
 
-## 🎨 Think Like a Web Designer: Show, Don't Just Tell!
+## Think Like a Web Designer: Show, Don't Just Tell!
 
 Anyone can write on a resume: *"I know how to code websites."*
 A portfolio allows you to **PROVE IT** visually:
@@ -463,7 +463,7 @@ A portfolio allows you to **PROVE IT** visually:
 
 ---
 
-## 🚀 Mini Challenge: Add a "Testimonials" Quote Box
+## Mini Challenge: Add a "Testimonials" Quote Box
 
 Add a recommendation quote underneath your projects:
 - Ask a real teacher or club leader for one honest sentence, and quote it exactly. For practice, use a clearly marked sample: *"Leo built our science club website, and it is easy to use on phones." (sample quote)*

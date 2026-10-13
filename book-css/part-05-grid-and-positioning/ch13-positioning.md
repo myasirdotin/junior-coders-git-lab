@@ -1,4 +1,4 @@
-# Chapter 13: Positioning 📍
+# Chapter 13: Positioning
 
 ---
 
@@ -30,7 +30,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The 4 Position Personalities
 
@@ -74,7 +74,7 @@ BADGE: position: absolute;
 
 ---
 
-## 💻 Code Example: The Badge on an Image Card
+## Code Example: The Badge on an Image Card
 
 Type this into your editor and save it as `card-badge.html`:
 
@@ -172,7 +172,7 @@ Type this into your editor and save it as `card-badge.html`:
 
 ---
 
-## 🔍 Code Explanation: Pinpoint Coordinates
+## Code Explanation: Pinpoint Coordinates
 
 - `position: relative;` on `.course-card`: This is the **anchor frame**. It creates a boundary coordinate system for its children.
 - `position: absolute;` on `.badge-deal`:
@@ -235,7 +235,7 @@ A student wrote this code, but their badge is appearing far away at the top of t
 
 ---
 
-## 🎨 Think Like a Web Designer: Don't Abuse Absolute Positioning!
+## Think Like a Web Designer: Don't Abuse Absolute Positioning!
 
 Beginners sometimes try to build entire websites by making every single paragraph and image `position: absolute;` with fixed pixel coordinates.
 - **Why is that a disaster?** 
@@ -244,7 +244,7 @@ Beginners sometimes try to build entire websites by making every single paragrap
 
 ---
 
-## 🚀 Mini Challenge: The Library Book Badges
+## Mini Challenge: The Library Book Badges
 
 Create a web page named `book-card.html`:
 - Build a library book card with a cover photo.

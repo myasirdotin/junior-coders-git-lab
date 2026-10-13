@@ -36,7 +36,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 An **Array** is a special container that holds an ordered list of values. 
 
@@ -81,7 +81,7 @@ backpack[1] = "Art Sketchbook"; // Replaces "Pencil case"
 
 ---
 
-## 🌍 Real-World Example
+## Real-World Example
 
 Think about the score board for your class science quiz:
 ```javascript
@@ -93,7 +93,7 @@ let topScores = [98, 95, 84, 78, 72];
 
 ---
 
-## 💻 Code Example
+## Code Example
 
 ```javascript
 let planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter"];
@@ -126,7 +126,7 @@ Planet #5: Jupiter
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - `let planets = [...]`: Declares an array of strings holding 5 planet names.
 - `planets.length`: Evaluates to 5.
@@ -164,7 +164,7 @@ console.log(pets.length);
 
 ---
 
-## 🧭 Think Like a Programmer: Off-By-One Errors (Fencepost Errors)
+## Think Like a Programmer: Off-By-One Errors (Fencepost Errors)
 
 One of the most common bugs in all of software engineering is the **Off-By-One Error**!
 When an array has 5 items:
@@ -175,7 +175,7 @@ Always double-check your comparison operator: use `< array.length`!
 
 ---
 
-## 🚀 Coding Challenge
+## Coding Challenge
 
 Write a function `findLargestNumber(numbersArray)`:
 - It accepts an array of numbers.
@@ -184,7 +184,7 @@ Write a function `findLargestNumber(numbersArray)`:
 
 ---
 
-## 🛠️ Mini Project: Class Roll Call
+## Mini Project: Class Roll Call
 
 Create a program with an array of student names:
 `let students = ["Aanya", "Dev", "Fatima", "Kabir", "Meera", "Rohan"];`

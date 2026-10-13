@@ -17,7 +17,7 @@ Think of the class register your teacher fills in each morning. Across the top a
 
 ---
 
-## 🧩 The Parts of a Table
+## The Parts of a Table
 
 <div align="center" style="margin: 2rem 0;">
   <img src="../assets/diagrams/mysql/table-anatomy-records.svg" alt="Table Anatomy: Fields, Records & Types" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
@@ -61,7 +61,7 @@ The table above has **6 columns** and **8 rows**.
 
 ---
 
-## 📚 A Second Example: The Library Books
+## A Second Example: The Library Books
 
 The `books` table describes the school library:
 
@@ -86,7 +86,7 @@ New columns are only for a new *kind* of fact, for example if the library starts
 
 ---
 
-## 📏 The Three Golden Rules of Table Design
+## The Three Golden Rules of Table Design
 
 ### Rule 1: One table = one kind of thing
 Do not mix unrelated facts in one table.

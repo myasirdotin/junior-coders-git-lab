@@ -18,7 +18,7 @@ A school has one big building but many rooms. The science lab keeps its equipmen
 
 ---
 
-## 📁 What is a Database Container?
+## What is a Database Container?
 
 One MySQL server can hold many separate apps. Each app keeps its tables inside its own **database**. MySQL also calls a database a **schema**.
 
@@ -39,7 +39,7 @@ In this book we build one database: **`school_db`**.
 
 ---
 
-## 🛠️ Creating a Database
+## Creating a Database
 
 The command is short:
 
@@ -99,7 +99,7 @@ SHOW CREATE DATABASE school_db;
 
 ---
 
-## 👉 Choosing a Database with `USE`
+## Choosing a Database with `USE`
 
 When you log in, no database is chosen yet. Ask MySQL which one is active:
 
@@ -139,7 +139,7 @@ In phpMyAdmin you can simply click `school_db` in the left tree. That does the s
 
 ---
 
-## 🗑️ Deleting a Database with `DROP DATABASE`
+## Deleting a Database with `DROP DATABASE`
 
 `DROP` means "throw away". This deletes the database **and every table and row inside it**:
 
@@ -153,7 +153,7 @@ There is no Recycle Bin. Once dropped, the data is gone unless you made a **back
 
 ---
 
-## 📋 Command Summary
+## Command Summary
 
 | Command | What it does |
 | :--- | :--- |

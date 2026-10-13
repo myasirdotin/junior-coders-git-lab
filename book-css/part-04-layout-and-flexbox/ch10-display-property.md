@@ -1,4 +1,4 @@
-# Chapter 10: Display Property 🧱
+# Chapter 10: Display Property
 
 ---
 
@@ -25,7 +25,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Three Core Display Personalities
 
@@ -55,7 +55,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: The Display Trio Laboratory
+## Code Example: The Display Trio Laboratory
 
 Type this into your editor and save it as `display.html`:
 
@@ -132,7 +132,7 @@ Type this into your editor and save it as `display.html`:
 
 ---
 
-## 🔍 Code Explanation: Observing Behaviors
+## Code Explanation: Observing Behaviors
 
 - `.box-block`: Notice how Block Box 1 and Block Box 2 refuse to sit next to each other! Even though their text is short, each `<div>` expands to fill the entire horizontal screen, pushing the next box downward.
 - `.tag-inline`: The `<span>` elements only occupy as many pixels as their letters need. They flow seamlessly inside the paragraph without breaking the sentence!
@@ -203,7 +203,7 @@ a.buy-btn {
 
 ---
 
-## 🎨 Think Like a Web Designer: Horizontal Navigation
+## Think Like a Web Designer: Horizontal Navigation
 
 Before modern layout engines, how did designers turn a vertical list of links into a horizontal top bar?
 They targeted the `<li>` items and wrote:
@@ -216,7 +216,7 @@ Instantly, the bulleted list lined up horizontally like soldiers!
 
 ---
 
-## 🚀 Mini Challenge: The 3-Tier Pricing Table
+## Mini Challenge: The 3-Tier Pricing Table
 
 Create a web page named `pricing-table.html`:
 - Build 3 pricing boxes: *Starter*, *Pro*, and *Legend*.

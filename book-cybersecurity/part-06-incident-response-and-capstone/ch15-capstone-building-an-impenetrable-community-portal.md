@@ -1,4 +1,4 @@
-# Chapter 15: Capstone: Building an Impenetrable Community Portal 🏰
+# Chapter 15: Capstone: Building an Impenetrable Community Portal
 
 ## 🌟 Real-Life Story
 
@@ -13,7 +13,7 @@ Congratulations on reaching the final chapter! You will now bring everything tog
 - Write secure PHP for logins, queries, output and forms.
 - Add security **headers** and check a site against a final audit list.
 
-## 🎯 The Project: Bayt Al-Amanah
+## The Project: Bayt Al-Amanah
 
 **Bayt Al-Amanah** (a made-up charity) runs a website that coordinates food-bank deliveries, interest-free community loans (*Qard Hasan*) and help with medical costs for families in need.
 
@@ -29,7 +29,7 @@ A **threat model** is a short plan that answers four questions.
 
 Every decision below protects real people. That is the meaning of *Amānah*.
 
-## 🔐 Layer 1: Logins and Passwords (Chapter 2)
+## Layer 1: Logins and Passwords (Chapter 2)
 
 - **Password rule:** at least 12 characters, passphrases encouraged, no forced symbols. Check new passwords against a list of common passwords.
 - **Storage:** Argon2id through `password_hash()`. Each hash gets its own salt automatically.
@@ -83,7 +83,7 @@ Only the second list has 5 failures inside the last 15 minutes. Old failures fro
 
 - **MFA:** every staff member and volunteer uses an authenticator-app code as well as a password.
 
-## 🗄️ Layer 2: The Database (Chapters 7 and 8)
+## Layer 2: The Database (Chapters 7 and 8)
 
 - **Every** query uses prepared statements. No user input is ever glued into SQL.
 - **Every** query for personal data checks ownership or role.
@@ -99,7 +99,7 @@ $application = $stmt->fetch(PDO::FETCH_ASSOC);
 - **Least privilege:** the website's database account may `SELECT`, `INSERT` and `UPDATE` the application tables only. It cannot `DROP` (delete) tables or create new users.
 - **Medical notes** are encrypted in the database (Chapter 10), with the key stored outside the code.
 
-## 🖥️ Layer 3: Pages and Forms (Chapters 5, 6 and 8)
+## Layer 3: Pages and Forms (Chapters 5, 6 and 8)
 
 - **Validate** every input on the server (type, length, allowed values).
 - **Escape** every output:
@@ -114,7 +114,7 @@ echo '<p>' . e($volunteerNote) . '</p>';
 - **CSRF token** in every POST form, checked with `hash_equals()`.
 - **Error pages** show a friendly message only. Details go to a private log.
 
-## 🌐 Layer 4: Security Headers and HTTPS (Chapters 6 and 11)
+## Layer 4: Security Headers and HTTPS (Chapters 6 and 11)
 
 **Headers** are extra instructions the server sends with every page. In PHP they are sent with `header()` before any page content:
 
@@ -141,18 +141,18 @@ Set-Cookie: session_id=...; Path=/; Secure; HttpOnly; SameSite=Lax
 
 Older guides use `X-Frame-Options: DENY` to stop clickjacking. It still works, and you may send both.
 
-## 🧩 Layer 5: Software and Secrets (Chapters 5 and 12)
+## Layer 5: Software and Secrets (Chapters 5 and 12)
 
 - Keep PHP, the database and every library **updated**. Remove plugins nobody uses.
 - Keep passwords and keys in a `.env` file that is listed in `.gitignore`, never in code.
 
-## 🚨 Layer 6: Logs, Backups and a Plan (Chapters 12 and 14)
+## Layer 6: Logs, Backups and a Plan (Chapters 12 and 14)
 
 - Log logins, failed logins, permission errors and admin actions, without logging passwords.
 - Daily backups following 3-2-1, with a test restore every month.
 - A written incident plan: who is called, who can switch the site off, who tells families.
 
-## 🌟 The Trustworthy Guardian (*Al-Amīn*)
+## The Trustworthy Guardian (*Al-Amīn*)
 
 Before his prophethood, the Prophet Muhammad ﷺ was known in Makkah as **Al-Amīn**: the trustworthy one. People left their valuables with him because they knew he would protect them.
 
@@ -165,7 +165,7 @@ When you:
 
 you are keeping an *Amānah* and doing your work with *Iḥsān*: excellence and care, even in places nobody else will see.
 
-## 🎓 Textbook Completion Milestone
+## Textbook Completion Milestone
 
 Congratulations! You have completed all 14 chapters of **Cybersecurity & Digital Hygiene**. You are ready to explore the **Cybersecurity Lab Studio**, try the practice exercises, and protect the people who trust the websites you build. Use your knowledge only to defend, and always with permission.
 

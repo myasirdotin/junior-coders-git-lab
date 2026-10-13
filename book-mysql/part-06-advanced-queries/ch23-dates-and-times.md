@@ -18,7 +18,7 @@ The school librarian stamps a due date inside every book: "Return within 14 days
 
 ---
 
-## 📅 The Three Date Types (a Reminder)
+## The Three Date Types (a Reminder)
 
 Chapter 6 introduced the date and time types. Here they are again:
 
@@ -48,7 +48,7 @@ Dates in quotes look like text, but MySQL compares and sorts them as real dates.
 
 ---
 
-## ⏰ Today and Now: `CURDATE()` and `NOW()`
+## Today and Now: `CURDATE()` and `NOW()`
 
 ```sql
 SELECT CURDATE(), NOW(), CURTIME();
@@ -64,7 +64,7 @@ Because the answer changes every day, the examples in this chapter use a fixed "
 
 ---
 
-## 🔍 Taking a Date Apart: `YEAR()`, `MONTH()`, `DAY()`
+## Taking a Date Apart: `YEAR()`, `MONTH()`, `DAY()`
 
 Each function pulls one number out of a date:
 
@@ -88,7 +88,7 @@ The answers are plain numbers, so `MONTH(donated_on) = 9` means "in September". 
 
 ---
 
-## 🖨️ Showing Dates Nicely: `DATE_FORMAT()`
+## Showing Dates Nicely: `DATE_FORMAT()`
 
 `2026-09-01` is clear to a computer. A certificate or a letter home should say "01 September 2026". `DATE_FORMAT(date, pattern)` builds that text. In the pattern, each `%` code is replaced by a part of the date:
 
@@ -121,7 +121,7 @@ LIMIT 4;
 
 ---
 
-## ➕ Adding Days: `DATE_ADD()` and a Due Date
+## Adding Days: `DATE_ADD()` and a Due Date
 
 The library lends books for **14 days**. `DATE_ADD(date, INTERVAL n unit)` moves a date forward:
 
@@ -153,7 +153,7 @@ There is no 31 February, so MySQL uses the last day of February.
 
 ---
 
-## ➖ Counting Days: `DATEDIFF()`
+## Counting Days: `DATEDIFF()`
 
 `DATEDIFF(later, earlier)` gives the number of days from the second date to the first. Order matters: put the **later** date first to get a positive number.
 
@@ -204,7 +204,7 @@ Khadija's loan 10 is not on the list. It is due on 15 October, so it is not late
 
 ---
 
-## 🗓️ Filtering by Date Range
+## Filtering by Date Range
 
 `BETWEEN` (Chapter 11) works on dates too. Donations in the first half of September:
 
@@ -238,7 +238,7 @@ ORDER BY donated_on;
 
 ---
 
-## 📊 Grouping by Month
+## Grouping by Month
 
 The charity club wants totals per month. Group by the year and month together:
 
@@ -277,7 +277,7 @@ ORDER BY yr, mon;
 
 ---
 
-## ⏱️ Dates with Times: `DATETIME`
+## Dates with Times: `DATETIME`
 
 The science fair records the exact moment each class signs in:
 
@@ -310,7 +310,7 @@ FROM fair_visits;
 
 ---
 
-## 🧪 MySQL vs the SQL Sandbox (SQLite)
+## MySQL vs the SQL Sandbox (SQLite)
 
 The browser SQL Sandbox runs **SQLite**. SQLite stores dates as text and has **different date functions**. The ideas are the same; the words change:
 

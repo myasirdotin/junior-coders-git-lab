@@ -1,4 +1,4 @@
-# Chapter 17: Permissions and Privacy 🔐
+# Chapter 17: Permissions and Privacy
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ An Android app should behave like that nurse. Before it uses the camera, the mic
 - Explain first, then ask, and keep the app working when the user says no.
 - Treat the user's data as an *Amānah* (a trust): collect the least, share nothing, and protect children's privacy.
 
-## 🔑 What Is a Permission?
+## What Is a Permission?
 
 A **permission** is Android's way of protecting the phone and the person who owns it. Some parts of the phone are private: the camera, the microphone, the contacts, the exact location. An app cannot use them unless it has permission.
 
@@ -62,7 +62,7 @@ Questions the user may see: 2
 
 `permission` is a `String?`, so a feature may need no permission at all (`null`). The Elvis operator `?:` from Chapter 8 gives the text `"no permission"` in that case. `count { ... }` counts the items for which the lambda gives `true`. A good app has as few runtime questions as possible.
 
-## 📄 Declaring a Permission in the Manifest
+## Declaring a Permission in the Manifest
 
 Every app has a file called `AndroidManifest.xml` (in `app/src/main/`). The **manifest** is the app's ID card. It tells Android the app's name, its screens and the permissions it may use.
 
@@ -92,7 +92,7 @@ If your app has an optional camera feature, also add this line. It tells the Pla
 <uses-feature android:name="android.hardware.camera" android:required="false" />
 ```
 
-## ⏰ Ask at the Moment of Need
+## Ask at the Moment of Need
 
 When should an app ask? **Not** the moment it opens. A wall of dialogs on the first screen feels pushy, and the user does not yet know why the app wants anything. Ask when the user taps the feature that needs it.
 
@@ -268,7 +268,7 @@ After **Continue**, Android shows its own dialog asking whether the app may send
 
 This chapter shows only the permission part. Scheduling and showing a reminder at a set time (notification channels, background work) is a later topic.
 
-## 🙅 When the Answer Is No
+## When the Answer Is No
 
 "No" is a normal, respectful answer. Your app must handle it calmly:
 
@@ -283,7 +283,7 @@ On newer Android versions, if the user says no twice, Android usually stops show
 
 Some apps also call `shouldShowRequestPermissionRationale(...)`, an Activity function that tells you when a longer explanation is wise. Our app explains every time before asking, so it does not need it.
 
-## 📷 An Optional Camera Feature
+## An Optional Camera Feature
 
 The School Library app could scan a book's barcode with the camera. Follow the same steps:
 
@@ -295,7 +295,7 @@ The School Library app could scan a book's barcode with the camera. Follow the s
 
 Before you ask for a permission, check if you need it at all. To let a user **choose a photo** (for example, a book cover), use Android's **photo picker**. The user picks one photo and your app sees only that photo. It usually needs no permission at all. That is much better than asking to read every photo on the phone.
 
-## 🤲 Privacy Is an Amānah
+## Privacy Is an Amānah
 
 In Islam, an *Amānah* is something left in your care that you must protect and return. When a person uses your app, their data is an *Amānah*. They trust you not to misuse it.
 

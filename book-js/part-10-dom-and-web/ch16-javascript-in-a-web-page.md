@@ -24,7 +24,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 ### What is the DOM?
 When a browser loads an HTML file, it translates the raw code into a tree of JavaScript objects called the **DOM** (**Document Object Model**).
@@ -87,7 +87,7 @@ heading.classList.remove("dimmed");
 
 ---
 
-## 🌍 Real-World Example
+## Real-World Example
 
 Think of "Dark Mode" in a reading app or on your school website:
 When you flip the switch to Dark Mode:
@@ -97,7 +97,7 @@ When you flip the switch to Dark Mode:
 
 ---
 
-## 💻 Code Example
+## Code Example
 
 ### `index.html`
 ```html
@@ -140,7 +140,7 @@ scoreSpan.classList.add("winner");
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - `document.getElementById("team-name")`: Finds the `<h2>` tag whose ID attribute is `"team-name"`.
 - `teamHeading.textContent = "Golden Eagles 🦅"`: Replaces `"Blue House"` with `"Golden Eagles 🦅"`.
@@ -178,7 +178,7 @@ Hello <b>World</b>
 
 ---
 
-## 🧭 Think Like a Programmer: Separation of Concerns
+## Think Like a Programmer: Separation of Concerns
 
 Good web developers keep three layers distinct:
 1. **HTML:** Content and semantic hierarchy.
@@ -189,7 +189,7 @@ Avoid hardcoding complex styles inside JavaScript. Instead, write the visual des
 
 ---
 
-## 🚀 Coding Challenge
+## Coding Challenge
 
 Write a script that selects all `<p>` tags on a page using `document.querySelectorAll("p")` and loops through them with a `for` loop, adding a numbered prefix to each paragraph. (`querySelectorAll` gives back a list that works like an array: it has `.length` and items at `[0]`, `[1]` and so on.)
 - `"Paragraph 1: ..."`
@@ -197,7 +197,7 @@ Write a script that selects all `<p>` tags on a page using `document.querySelect
 
 ---
 
-## 🛠️ Mini Project: Interactive Digital Business Card
+## Mini Project: Interactive Digital Business Card
 
 Build a single-page business card:
 - HTML has a card box with avatar placeholder, name, bio, and badge.

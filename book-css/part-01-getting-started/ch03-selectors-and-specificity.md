@@ -1,4 +1,4 @@
-# Chapter 3: Selectors & Specificity 🎯
+# Chapter 3: Selectors & Specificity
 
 ---
 
@@ -28,7 +28,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### Five Basic Selectors
 
@@ -59,7 +59,7 @@ This paragraph matches `.notice` **and** `.urgent`.
 
 ---
 
-## 💻 Code Example: The Library Notice Board
+## Code Example: The Library Notice Board
 
 Type this and save it as `selectors.html`:
 
@@ -120,7 +120,7 @@ Type this and save it as `selectors.html`:
 
 ---
 
-## 🧭 Selecting Elements Inside Other Elements
+## Selecting Elements Inside Other Elements
 
 HTML elements live inside each other, like boxes inside boxes. CSS can use that.
 
@@ -175,7 +175,7 @@ One small space changes the meaning completely.
 
 ---
 
-## 🔖 Attribute Selectors
+## Attribute Selectors
 
 An **attribute** is extra information inside a tag, like `type="email"`. Square brackets select by attribute:
 
@@ -199,7 +199,7 @@ input[type="password"] {
 
 ---
 
-## 👆 A First Look at Pseudo-Classes
+## A First Look at Pseudo-Classes
 
 A **pseudo-class** starts with a colon `:`. It selects an element when it is in a special state or position. You will use them a lot in later chapters. Here are two:
 
@@ -228,7 +228,7 @@ li:first-child {
 
 ---
 
-## ⚖️ When Rules Disagree: The Cascade
+## When Rules Disagree: The Cascade
 
 Often two rules try to set the same property on the same element. The browser must choose one. It asks these questions in order:
 
@@ -250,7 +250,7 @@ Both selectors are equal, so the later rule wins. Paragraphs are **blue**. This 
 
 ---
 
-## 🔢 Specificity as a Score
+## Specificity as a Score
 
 Think of specificity as a score with three columns: **ids – classes – elements**.
 
@@ -328,7 +328,7 @@ In Chapter 2 you saw that `style="..."` on a tag beats internal and external rul
 
 ---
 
-## 🧬 Inheritance: Styles Children Receive
+## Inheritance: Styles Children Receive
 
 Some properties pass down from a parent element to everything inside it. This is called **inheritance**.
 
@@ -394,7 +394,7 @@ p        { color: orange; }  /* rule C */
 
 ---
 
-## 🚫 Why Avoid `!important` and Ids for Styling
+## Why Avoid `!important` and Ids for Styling
 
 You may see this in other people's CSS:
 

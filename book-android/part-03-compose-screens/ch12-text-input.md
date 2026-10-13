@@ -1,4 +1,4 @@
-# Chapter 12: Text Input and Forms ⌨️
+# Chapter 12: Text Input and Forms
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ The school library has a paper request slip. You write the book you are looking 
 - Tidy input with `trim()` and search without caring about capital letters (`ignoreCase`).
 - Treat passwords with care: hide them and never show them back.
 
-## 🖊️ Your First Text Field
+## Your First Text Field
 
 A **text field** is a box the user types into. Material 3 has two kinds that work the same way: `TextField` (filled) and `OutlinedTextField` (with an outline). This book uses `OutlinedTextField`.
 
@@ -100,7 +100,7 @@ A `label` matters for accessibility. TalkBack reads it, so a blind student knows
 
 > Compose also has a newer kind of text field that takes a `TextFieldState` instead of `value` and `onValueChange`. The version in this chapter is still widely used and works well for school apps.
 
-## 🔢 Choosing the Keyboard
+## Choosing the Keyboard
 
 When a box needs a number, show the number keyboard. It is faster for the user and prevents many mistakes.
 
@@ -133,7 +133,7 @@ import androidx.compose.ui.text.input.KeyboardType
 
 Note: the value of a text field is **always a `String`**, even with the number keyboard. Some keyboards still let people type a full stop or minus sign, or paste letters. So you must still check the text, which comes next.
 
-## ✅ Checking Input: Validation
+## Checking Input: Validation
 
 **Validation** means checking that the input makes sense before using it. Let us check the "copies needed" box. The library lets a class borrow 1 to 3 copies of a book.
 
@@ -213,7 +213,7 @@ Some points about kind validation:
 - **The message is text, not only colour.** Some people cannot tell red from green. `supportingText` gives everyone the words.
 - `error` is worked out again on every recomposition from the latest text, so it never goes out of date.
 
-## 🔒 Passwords: Handle With Care
+## Passwords: Handle With Care
 
 Your library app does not need accounts, and a good app never collects data it does not need (*Amānah*). But you will meet password boxes in many apps, so here is how to treat one properly.
 
@@ -240,7 +240,7 @@ Rules for passwords:
 
 A password is a secret someone trusted you with. Showing it back on the screen lets anyone looking over their shoulder read it.
 
-## 🔍 A Search Box for the Library
+## A Search Box for the Library
 
 Now the School Library app gets its search box. As the student types, the list of matching titles shrinks.
 

@@ -1,4 +1,4 @@
-# Chapter 4: Spotting Phishing, Spoofing & Online Fraud 🎣
+# Chapter 4: Spotting Phishing, Spoofing & Online Fraud
 
 ## 🌟 Real-Life Story
 
@@ -13,7 +13,7 @@ Maryam's grandmother receives a letter that looks like it came from her bank. It
 - Check where a link really goes before clicking it.
 - Explain in simple words what SPF, DKIM and DMARC do, and what they cannot do.
 
-## 🔍 Anatomy of a Phishing Email
+## Anatomy of a Phishing Email
 
 Here is a made-up phishing email. Each arrow marks a warning sign, or **red flag**.
 
@@ -42,7 +42,7 @@ Security Team
 
 Notice the zero in `juni0r`. Notice the link goes to a bare number address (an **IP address**) instead of a named site. No real school deletes your work for missing a 12-hour deadline.
 
-## 🚩 Six Red Flags
+## Six Red Flags
 
 ### Lookalike domains
 A **domain** is the name part of a web or email address, such as `example.org`. Tricksters register names that look almost the same as a real one. This is called **typosquatting**.
@@ -87,7 +87,7 @@ Be very careful with files ending in `.exe`, `.scr` or `.vbs`. These are program
 ### Pressure, threats and too-good offers
 "Act now", "your account will be deleted", or "you have won a free tablet". Strong feelings switch off careful thinking. That is exactly why tricksters use them.
 
-## 📬 SPF, DKIM and DMARC
+## SPF, DKIM and DMARC
 
 Email was invented without any way to prove who sent a message. Three add-ons, published in a domain's settings, help mail servers check:
 
@@ -97,7 +97,7 @@ Email was invented without any way to prove who sent a message. Three add-ons, p
 
 > ⚠️ **What they cannot do:** these checks prove an email really came from `juni0r-coders.example.net`. They cannot tell you that this domain is a fake. A trickster can set up perfect SPF and DKIM for their own lookalike domain. Your eyes are still needed.
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 - Read the sender's full address, not just the display name.
 - Read the domain from the right, just before the first single `/`.

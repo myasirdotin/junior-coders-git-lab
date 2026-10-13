@@ -13,7 +13,7 @@ Before a community food drive, volunteers set up the hall. One group puts out ta
 - Check a finished structure with `tree /f`, `dir /s /b` or `ls -Recurse -Name`.
 - Open the finished project in VS Code and view it on a local server.
 
-## 🎯 The Mission
+## The Mission
 
 A community charity called **Kindness Pantry** shares food with families in need. They need a simple website. Your job is to build its scaffold inside `C:\JuniorCoders\practice`:
 
@@ -33,7 +33,7 @@ kindness-pantry
 
 **Rule**: no File Explorer and no mouse until the very end.
 
-## 🛠️ The Plan
+## The Plan
 
 Good builders plan first. Here are the steps, with the chapter where you learned each skill.
 
@@ -45,7 +45,7 @@ Good builders plan first. Here are the steps, with the chapter where you learned
 6. Check the structure (Chapters 3 and 7).
 7. Open it in VS Code and on a local server (Chapters 10 and 11).
 
-## 💻 Solution in CMD
+## Solution in CMD
 
 Lines starting with `::` are **comments**. They are notes for people. CMD ignores them. You do not need to type them.
 
@@ -86,7 +86,7 @@ C:\JuniorCoders\practice\kindness-pantry>type index.html
 </html>
 ```
 
-## 💻 Solution in PowerShell
+## Solution in PowerShell
 
 The steps are in the same order as the CMD solution. Watch for the commas when making folders and files, and the quotes around the text.
 
@@ -117,7 +117,7 @@ echo '</html>' >> index.html
 > ```
 > `&&` means *"if the first command worked, run the second"*. On a Mac, start with `cd ~` and work in a practice folder in your home folder.
 
-## ✅ Checking Your Work
+## Checking Your Work
 
 The `tree /f` command draws the folder as a tree, with **f**iles included. It works in both CMD and PowerShell:
 
@@ -147,7 +147,7 @@ You can also use `dir /s /b` (CMD) or `ls -Recurse -Name` (PowerShell) from Chap
 > [!NOTE]
 > **Git Bash / macOS**: `ls -R` lists every folder and its contents.
 
-## 🚀 Final Step: Open and View
+## Final Step: Open and View
 
 ```text
 code .
@@ -156,7 +156,7 @@ php -S localhost:8000
 
 `code .` opens the project in VS Code. Check the side bar matches your tree. Then start the server and visit `http://localhost:8000` to see your heading. Stop the server with <kbd>Ctrl</kbd> + <kbd>C</kbd> when you are done.
 
-## ⏱️ Mastery Levels
+## Mastery Levels
 
 Time yourself. Focus on **correct** first, then on **fast**.
 

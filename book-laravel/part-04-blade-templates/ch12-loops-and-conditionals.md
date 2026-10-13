@@ -12,7 +12,7 @@ Every morning the library assistant reads the **returns list** aloud. For each b
 - Handle an empty list neatly with `@forelse`.
 - Use the `$loop` variable to number rows and spot the first and last item.
 
-## 📦 Today's Data
+## Today's Data
 
 We still use sample data from the controller. Part 5 brings real database rows.
 
@@ -30,7 +30,7 @@ public function index()
 }
 ```
 
-## 🔀 Conditionals
+## Conditionals
 
 ### `@if`, `@elseif`, `@else`
 
@@ -81,7 +81,7 @@ Read it as "unless the library is open, show this".
 - `@isset($notice)` runs if `$notice` exists and is not `null`.
 - `@empty($books)` runs if `$books` is empty, such as `[]`.
 
-## 🔁 Loops
+## Loops
 
 ### `@foreach`
 
@@ -139,7 +139,7 @@ Shelf 3
 
 You will use `@foreach` far more than `@for`, because data usually arrives as a list.
 
-## 🔢 The `$loop` Variable
+## The `$loop` Variable
 
 Inside `@foreach` and `@forelse`, Blade gives you a free variable called `$loop`:
 
@@ -171,7 +171,7 @@ Output:
 3 of 3: Bees and Their Hives (end of list)
 ```
 
-## 🧩 Putting It Together
+## Putting It Together
 
 A real book table with a status column:
 

@@ -14,7 +14,7 @@ When a patient visits the doctor, the doctor does not guess. She asks questions,
 - Remove an unwanted folder safely, after checking it first.
 - Review everything this book has taught you.
 
-## 🕵️ The Detective Routine
+## The Detective Routine
 
 | Step | Ask yourself | Command |
 | :--- | :--- | :--- |
@@ -25,7 +25,7 @@ When a patient visits the doctor, the doctor does not guess. She asks questions,
 | 5. Fix | What is the smallest change that fixes it? | `mkdir`, `move`, `ren` |
 | 6. Check | Did it work? | `dir`, `tree /f`, browser |
 
-## 📚 Error Message Guide
+## Error Message Guide
 
 These messages are clues, not disasters. Each one tells you what to check.
 
@@ -40,7 +40,7 @@ These messages are clues, not disasters. Each one tells you what to check.
 | `The directory is not empty.` | CMD | `rmdir` protected a folder that still has files |
 | `[404]: GET /...` in a server log | PHP server | The browser asked for a file that is not there |
 
-## 🚨 The Incident Report
+## The Incident Report
 
 The school library's website has arrived in a mess. When you open it, the page has no colours and the logo is missing. Here is the folder:
 
@@ -55,7 +55,7 @@ library-site
     └── old_styles.css
 ```
 
-## 🔎 Investigation
+## Investigation
 
 ### Step 1 and 2: Read and locate
 
@@ -94,7 +94,7 @@ The page looks for `css/style.css` and `assets/logo.png`. But `style.css` and `l
 
 **Diagnosis**: two files are in the wrong place. The paths in the page are fine.
 
-## 🔧 The Fix in CMD
+## The Fix in CMD
 
 ```text
 :: Step 5a: make the missing folders
@@ -117,7 +117,7 @@ backup, Are you sure (Y/N)? Y
 
 We list first and let CMD ask. We do not add `/q`.
 
-## 🔧 The Fix in PowerShell
+## The Fix in PowerShell
 
 ```text
 mkdir css, assets
@@ -140,7 +140,7 @@ Because `backup` has a file inside, PowerShell shows its **Confirm** question. R
 > ```
 > `-i` asks before each item is removed.
 
-## ✅ Step 6: Check
+## Step 6: Check
 
 ```text
 C:\JuniorCoders\practice\library-site>tree /f
@@ -161,7 +161,7 @@ C:.
 
 Every path in `index.html` now matches a real file. Start a server with `php -S localhost:8000` and open the page. The colours and logo are back! The log now shows `[200]` for `css/style.css` and `assets/logo.png`. Stop the server with <kbd>Ctrl</kbd> + <kbd>C</kbd>.
 
-## 🎓 What You Have Mastered
+## What You Have Mastered
 
 Look how far you have come:
 

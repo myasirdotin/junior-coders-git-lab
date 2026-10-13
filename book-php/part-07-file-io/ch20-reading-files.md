@@ -1,4 +1,4 @@
-# Chapter 20: Reading Files in PHP 📂
+# Chapter 20: Reading Files in PHP
 
 ---
 
@@ -18,7 +18,7 @@ A teacher asks the school office for the Class 9 attendance register. The secret
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 Not all data lives in a database. Notes, settings, logs and small tables are often plain **files** on the server's disk.
 
@@ -54,7 +54,7 @@ A **file handle** (`$h` above) is PHP's bookmark for an open file. `fgets()` use
 
 ---
 
-## 💻 Code Example: Reading Notes and a CSV Roster
+## Code Example: Reading Notes and a CSV Roster
 
 Put these two files next to your PHP script.
 
@@ -131,7 +131,7 @@ Library closes at 3 pm.<br />
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `file_exists($filename)`: Checks that the file is there before reading. Without it, a missing file gives a warning.
 - `nl2br()`: Turns each newline in the text into an HTML `<br />` tag, so the lines stay separate in the browser.

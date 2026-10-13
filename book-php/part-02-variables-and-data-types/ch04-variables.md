@@ -1,4 +1,4 @@
-# Chapter 4: Variables in PHP 📦
+# Chapter 4: Variables in PHP
 
 ---
 
@@ -17,7 +17,7 @@ Outside the computer lab, each student has a cubby with a name label on the fron
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 To **declare** a variable means to create it. To **assign** means to put a value into it with `=`.
 
@@ -48,7 +48,7 @@ Two common naming styles: **camelCase** (`$firstName`, each new word starts with
 
 ---
 
-## 💻 Code Example: Declaring, Updating, and Printing Variables
+## Code Example: Declaring, Updating, and Printing Variables
 
 ```php
 <?php
@@ -86,7 +86,7 @@ Student: Hamza Farooq<br>Current Grade: 9 (GPA: 3.84)<br><h3>Promoting Student..
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `$firstName = "Hamza";`: Creates the variable `$firstName` and stores the text `"Hamza"` in it.
 - `echo "... $firstName ...";`: Inside **double quotes**, PHP replaces each variable with its value. This is called **string interpolation**.

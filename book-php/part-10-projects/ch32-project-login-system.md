@@ -1,4 +1,4 @@
-# Chapter 32: Project: Login & Session System 🔐
+# Chapter 32: Project: Login & Session System
 
 ---
 
@@ -17,7 +17,7 @@ At the public library, you show your library card once at the front desk. The li
 
 ---
 
-## 🧱 What You Will Build
+## What You Will Build
 
 Four small files in `C:\xampp\htdocs\login-project\`:
 
@@ -40,7 +40,7 @@ It uses ideas from earlier chapters:
 
 ---
 
-## 🎫 New Idea: Sessions
+## New Idea: Sessions
 
 Each page request is separate. The server does not remember that you logged in one click ago. A **session** gives you a memory between pages.
 
@@ -72,7 +72,7 @@ Each page request is separate. The server does not remember that you logged in o
 
 ---
 
-## 🗺️ Build Steps
+## Build Steps
 
 1. **Make the hashes.** Never store a real password. Run `make-hash.php` once and copy each hash into `login.php`.
 2. **Build the front desk.** `login.php` finds the user's hash, checks it with `password_verify()`, and saves the email in `$_SESSION`.
@@ -81,7 +81,7 @@ Each page request is separate. The server does not remember that you logged in o
 
 ---
 
-## 💻 Step 1: make-hash.php
+## Step 1: make-hash.php
 
 ```php
 <?php
@@ -99,7 +99,7 @@ Both your hash and this one still match the same password. `password_verify()` r
 
 ---
 
-## 💻 Step 2: login.php
+## Step 2: login.php
 
 ```php
 <?php
@@ -205,7 +205,7 @@ The password field never gets a `value`: we never print a password back into a p
 
 ---
 
-## 💻 Step 3: dashboard.php (the private page)
+## Step 3: dashboard.php (the private page)
 
 ```php
 <?php
@@ -265,7 +265,7 @@ The `exit` after `header()` matters. Without it, PHP keeps running and would sti
 
 ---
 
-## 💻 Step 4: logout.php
+## Step 4: logout.php
 
 ```php
 <?php
@@ -290,7 +290,7 @@ A cookie with a time in the past (`time() - 3600`, one hour ago) is deleted by t
 
 ---
 
-## 🔍 How the Password Check Works
+## How the Password Check Works
 
 Here is the check on its own, with three tries:
 

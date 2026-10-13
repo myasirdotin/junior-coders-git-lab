@@ -18,7 +18,7 @@ The head teacher says: "Give a certificate to every student whose GPA is above t
 
 ---
 
-## ❓ Why Subqueries?
+## Why Subqueries?
 
 In Chapter 20 this failed:
 
@@ -62,7 +62,7 @@ The brackets are required. The inner query is worked out first, and its answer d
 
 ---
 
-## 1️⃣ One-Value Subqueries
+## One-Value Subqueries
 
 A subquery that returns **one row and one column** can be used anywhere a single value fits: with `=`, `>`, `<` and so on.
 
@@ -97,7 +97,7 @@ ORDER BY amount DESC;
 
 ---
 
-## 📋 List Subqueries with `IN`
+## List Subqueries with `IN`
 
 Sometimes the inner query returns **many** rows. Then use `IN` (Chapter 11), which checks "is the value somewhere in this list?"
 
@@ -161,7 +161,7 @@ These are the same answers as the `LEFT JOIN ... IS NULL` trick in Chapter 19, w
 
 ---
 
-## 🧱 Subqueries in `FROM`: Derived Tables
+## Subqueries in `FROM`: Derived Tables
 
 So far the inner query gave us a number or a list. It can also give a whole **table**. You can then read from that table in the outer query, just like a real one.
 
@@ -242,7 +242,7 @@ The inner table has 7 rows (counts 2, 1, 2, 1, 1, 1, 2). Their average is 10 ÷ 
 
 ---
 
-## ⚖️ Subqueries vs JOINs
+## Subqueries vs JOINs
 
 Many questions can be answered either way. "Students with a book still out":
 

@@ -1,4 +1,4 @@
-# Chapter 6: Lists & Tuples 📋
+# Chapter 6: Lists & Tuples
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ Your class teacher keeps one attendance register, not thirty separate notes. Eac
 - Take a part of a list with slicing.
 - Use tuples for data that should never change.
 
-## 🚂 Creating a List
+## Creating a List
 
 A **list** is written with square brackets `[ ]`. Items are separated by commas. Think of a train: each wagon holds one item, and the wagons are numbered **starting at 0**. The position number is called the **index**.
 
@@ -64,7 +64,7 @@ print(readings)
 [22, 24, 25, 23]
 ```
 
-## 🛠️ List Methods
+## List Methods
 
 A list comes with built-in methods. Here are the most useful ones:
 
@@ -133,7 +133,7 @@ False
 ['Amina', 'Bilal', 'Hana', 'Omar']
 ```
 
-## 🔁 Looping Over a List
+## Looping Over a List
 
 A `for` loop can visit every item of a list, one by one, just as it visited each letter of a string.
 
@@ -206,7 +206,7 @@ print(f"{len(honour_roll)} students made the honour roll")
 3 students made the honour roll
 ```
 
-## ✂️ Slicing: Taking Part of a List
+## Slicing: Taking Part of a List
 
 A **slice** copies a part of a list. Write `[start:stop]`. Like `range()`, it stops **before** `stop`. The original list does not change.
 
@@ -235,7 +235,7 @@ print(days)
 ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri']
 ```
 
-## 🔒 Tuples: Lists That Cannot Change
+## Tuples: Lists That Cannot Change
 
 A **tuple** looks like a list, but uses round brackets `( )`. A tuple is **immutable**: once made, it cannot be changed. Use it for values that belong together and must stay fixed, like map coordinates or a date.
 
@@ -277,7 +277,7 @@ TypeError: 'tuple' object does not support item assignment
 
 Using a tuple protects data that must not be changed by accident. That is a small act of trust (*Amānah*).
 
-## 📊 Worked Example: Class Results Summary
+## Worked Example: Class Results Summary
 
 ```python
 grades = [88, 92, 79, 95, 84, 91, 68, 89]

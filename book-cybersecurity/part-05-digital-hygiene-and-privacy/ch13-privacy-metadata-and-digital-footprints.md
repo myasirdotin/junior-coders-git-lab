@@ -1,4 +1,4 @@
-# Chapter 13: Privacy, Metadata & Digital Footprints 👣
+# Chapter 13: Privacy, Metadata & Digital Footprints
 
 ## 🌟 Real-Life Story
 
@@ -11,7 +11,7 @@ When you walk across a sandy beach, you leave footprints. Someone who comes late
 - Review app permissions and privacy settings.
 - Apply **data minimisation**: share only what is needed.
 
-## 📷 Metadata: Data About Data
+## Metadata: Data About Data
 
 **Metadata** means "data about data". A letter's contents are the data. The postmark, date and address on the envelope are metadata. Metadata can reveal a lot, even when the contents are private.
 
@@ -50,7 +50,7 @@ Typed into a map (with West written as minus: 51.50736, -0.12767), this points t
 - When sharing, many phones offer an option to **remove location** first.
 - Many large social sites strip EXIF on upload, but email, chat apps that send "original quality" files, and personal websites often do **not**. Do not rely on it.
 
-## 🕵️ Browser Fingerprinting
+## Browser Fingerprinting
 
 A **cookie** is a small file a website stores in your browser to remember you. You can delete cookies. But trackers have another method.
 
@@ -74,7 +74,7 @@ In a 2010 study by the Electronic Frontier Foundation, about 84% of the browsers
 
 **What helps:** browsers with built-in tracking protection, keeping the browser updated, and installing few add-ons (each one can make you more unusual).
 
-## 📱 App Permissions
+## App Permissions
 
 A **permission** is something an app asks to use, such as your location, camera, microphone or contacts.
 
@@ -87,7 +87,7 @@ A **permission** is something an app asks to use, such as your location, camera,
 
 Choose **"only while using the app"** and **"approximate location"** wherever possible. If an app asks for something it does not need, deny it or choose a different app.
 
-## 🧺 Data Minimisation: Share Less
+## Data Minimisation: Share Less
 
 **Data minimisation** means collecting and sharing only what is truly needed. It works in two directions.
 
@@ -100,7 +100,7 @@ Choose **"only while using the app"** and **"approximate location"** wherever po
 | :--- | :--- |
 | "Walking home from Greenfield School like every day at 3:15! 🏠" + a photo outside the house | "Lovely autumn walk today 🍂" with no location, posted later |
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 - Turn off location tags in your camera app, or remove location before sharing.
 - Review app permissions every few months and remove what is not needed.

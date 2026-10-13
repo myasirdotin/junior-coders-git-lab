@@ -1,4 +1,4 @@
-# Chapter 5: Data Types & Inspection 🔍
+# Chapter 5: Data Types & Inspection
 
 ---
 
@@ -17,7 +17,7 @@ Your school canteen has separate recycling bins: blue for paper, green for plast
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **data type** tells PHP what kind of value a variable holds, and so what you can do with it.
 
@@ -58,7 +58,7 @@ You will use strings, integers, floats, booleans and null now. Arrays, objects a
 
 ---
 
-## 💻 Code Example: Inspecting Types with `var_dump()`
+## Code Example: Inspecting Types with `var_dump()`
 
 ```php
 <?php
@@ -112,7 +112,7 @@ NULL
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `var_dump($variable);`: A tool for developers. It prints the **type**, the **size** and the **exact value** of a variable. `string(15)` means a string of 15 characters.
 - `<pre> ... </pre>`: Keeps the line breaks of `var_dump()` so the result is easy to read in a browser.

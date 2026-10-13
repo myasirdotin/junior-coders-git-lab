@@ -1,4 +1,4 @@
-# Chapter 22: Creative Coding with Canvas 🎨
+# Chapter 22: Creative Coding with Canvas
 
 ## 🌟 Real-Life Story
 
@@ -19,7 +19,7 @@ In this chapter you give JavaScript exact drawing steps, and it paints shapes, p
 
 ---
 
-## ✨ Code as a Paintbrush
+## Code as a Paintbrush
 
 Code is not only for lists and calculations.
 JavaScript can also work like a paintbrush, an animator's desk and a science lab.
@@ -27,7 +27,7 @@ With the HTML **`<canvas>` element**, you can draw shapes, paint colourful patte
 
 ---
 
-## 🖼️ Setting Up the Canvas
+## Setting Up the Canvas
 
 A `<canvas>` is a blank rectangle of pixels on the page. You choose its size with `width` and `height`.
 On its own it shows nothing. JavaScript does all the drawing.
@@ -79,7 +79,7 @@ Watch out: `y` grows **downwards**, the opposite of a maths graph.
 
 ---
 
-## 🖌️ Basic Shapes and Colours
+## Basic Shapes and Colours
 
 ```javascript
 const canvas = document.getElementById("artCanvas");
@@ -109,7 +109,7 @@ What each command does:
 
 ---
 
-## 🌀 Patterns with Loops: Rainbow Rings
+## Patterns with Loops: Rainbow Rings
 
 Loops and colours together make patterns with very little code. Each round of this loop draws a bigger ring in a new colour.
 
@@ -133,7 +133,7 @@ The result is 20 rings, from radius 10 to radius 200, whose colours move all the
 
 ---
 
-## ⚽ Animation: The Bouncing Ball Simulation
+## Animation: The Bouncing Ball Simulation
 
 A flip book is a stack of still drawings flipped quickly. Each picture is called a **frame**.
 Animation in code works the same way: clear the canvas, draw, move a little, and repeat.

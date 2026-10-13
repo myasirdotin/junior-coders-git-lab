@@ -12,7 +12,7 @@ When the library rearranges its shelves, the head librarian writes each change i
 - Undo the last batch with `migrate:rollback`.
 - Know which commands delete data, and use them with care.
 
-## 🤔 The Problem with Clicking
+## The Problem with Clicking
 
 In Chapters 13 and 15 you created tables by running SQL in phpMyAdmin. That works on **your** computer. Now imagine:
 
@@ -22,7 +22,7 @@ In Chapters 13 and 15 you created tables by running SQL in phpMyAdmin. That work
 
 Clicks and pasted SQL leave no record. Mistakes creep in.
 
-## 📒 What is a Migration?
+## What is a Migration?
 
 A **migration** is a PHP file that describes **one change** to the database: create a table, add a column, rename something. Migrations live in `database/migrations/`, and they are saved with the rest of your code in Git.
 
@@ -34,7 +34,7 @@ php artisan migrate
 
 Think of migrations as **version control for your database**. Git tracks changes to code; migrations track changes to tables.
 
-## 🔍 Read a Real Migration
+## Read a Real Migration
 
 Laravel already gave you some. Open `database/migrations/0001_01_01_000000_create_users_table.php` (the first part is shown, shortened):
 
@@ -82,7 +82,7 @@ return new class extends Migration
 
 Compare it with the SQL you wrote in Chapter 13. It is the same idea, written in PHP. Laravel turns it into the right SQL for MySQL, SQLite and other databases.
 
-## 🧾 How Laravel Remembers
+## How Laravel Remembers
 
 When you ran `php artisan migrate` in Chapter 3, Laravel made a table called `migrations`. It records every migration that has run, and in which **batch** (group run together):
 
@@ -94,7 +94,7 @@ When you ran `php artisan migrate` in Chapter 3, Laravel made a table called `mi
 
 Next time you run `migrate`, Laravel skips those and only runs **new** files. That is why it is safe to run `migrate` again and again.
 
-## 🧰 The Main Commands
+## The Main Commands
 
 Check what has run:
 
@@ -140,7 +140,7 @@ Output (times will differ):
 
 All three ran in batch 1, so all three are undone, newest first. Run `php artisan migrate` to bring them back (empty).
 
-## 🛡️ Data is a Trust (*Amānah*)
+## Data is a Trust (*Amānah*)
 
 `migrate:fresh` and `migrate:refresh` delete **every row** in your database. On your practice computer, that is fine; you can add sample data again (Chapter 18). On a real school server, those rows are real members' records. Losing them breaks a trust. Before any command that deletes data:
 

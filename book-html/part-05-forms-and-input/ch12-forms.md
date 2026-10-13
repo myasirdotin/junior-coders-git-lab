@@ -1,4 +1,4 @@
-# Chapter 12: Forms 📝
+# Chapter 12: Forms
 
 ---
 
@@ -31,7 +31,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Form Element Family
 
@@ -59,7 +59,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: Student Club Registration
+## Code Example: Student Club Registration
 
 Type this into your editor and save it as `registration.html`:
 
@@ -141,7 +141,7 @@ Type this into your editor and save it as `registration.html`:
 
 ---
 
-## 🔍 Code Explanation: Key Form Attributes
+## Code Explanation: Key Form Attributes
 
 - `<label for="studentName">`: Labels make forms accessible. When you click the label text with your mouse, the browser automatically jumps the cursor into the matching input box (connected via the `id` attribute)!
 - `placeholder="..."`: The faint light-gray hint text that appears inside an empty box to show students what to type.
@@ -201,7 +201,7 @@ A student wrote a form, but clicking on the text "I agree to the rules" does not
 
 ---
 
-## 🎨 Think Like a Web Designer: Friendly Forms
+## Think Like a Web Designer: Friendly Forms
 
 Have you ever opened a form with 60 required questions in tiny font? You immediately close the tab!
 - **Good Form Design**: Only ask for the information you truly need.
@@ -210,7 +210,7 @@ Have you ever opened a form with 60 required questions in tiny font? You immedia
 
 ---
 
-## 🚀 Mini Challenge: The Pizza Ordering Form
+## Mini Challenge: The Pizza Ordering Form
 
 Create a web page named `pizza-order.html`:
 - `<h1>`: `Luigi's Custom Pizzeria`

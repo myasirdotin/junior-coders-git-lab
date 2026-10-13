@@ -12,7 +12,7 @@ The school library has three kinds of spaces. The **reading hall** is open to ev
 - Give librarians extra rights with a **Gate** and `->can()`.
 - Show or hide buttons in Blade with `@can`.
 
-## 🔐 Logged-in Users Only
+## Logged-in Users Only
 
 The `auth` middleware (Chapter 9) lets a request through only if someone is logged in:
 
@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function () {
 
 Starter kits also use `verified` (`->middleware(['auth', 'verified'])`) for pages that need a confirmed email address.
 
-## 📚 Public and Protected Parts of One Resource
+## Public and Protected Parts of One Resource
 
 Everyone may **browse** books. Only logged-in staff may **add, edit or delete** them. Split the resource:
 
@@ -71,7 +71,7 @@ Route::resource('books', BookController::class)->only(['index', 'show']);
 
 Check it with `php artisan route:list --name=books -v`. The `-v` option shows each route's middleware. The create, store, edit, update and destroy routes list `auth`; index and show do not.
 
-## 🛂 Librarians Only (Authorization)
+## Librarians Only (Authorization)
 
 Being logged in is not enough to delete books. Members log in too. We need **authorization**: deciding what a logged-in user may do.
 
@@ -166,7 +166,7 @@ public function destroy(Book $book)
 
 Checking in **both** the route and the controller is fine. Extra care with the library's records is never wasted.
 
-## 🙈 Hide Buttons People Cannot Use
+## Hide Buttons People Cannot Use
 
 Protecting the route is what keeps the app safe. Hiding the button keeps the page tidy and honest. Use `@can`:
 
@@ -186,7 +186,7 @@ Protecting the route is what keeps the app safe. Hiding the button keeps the pag
 
 A librarian sees the buttons; a member does not. Remember: hiding a button is **not** protection. Someone could still type the URL. The route's `can` check is what stops them.
 
-## 🏁 Your Finished Library App
+## Your Finished Library App
 
 Look how far you have come. Your app now has:
 

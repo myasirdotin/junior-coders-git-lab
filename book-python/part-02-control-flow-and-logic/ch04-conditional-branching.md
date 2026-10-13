@@ -1,4 +1,4 @@
-# Chapter 4: Conditional Logic & Branching 🚦
+# Chapter 4: Conditional Logic & Branching
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ Every morning your sports teacher looks at the sky. If it is raining, PE happens
 - Put one decision inside another (nesting).
 - Avoid the classic `=` versus `==` mistake.
 
-## ⚖️ Comparison Operators
+## Comparison Operators
 
 A **comparison** asks a question about two values. The answer is always a Boolean: `True` or `False`.
 
@@ -46,7 +46,7 @@ True
 
 String comparisons are **case-sensitive**. `"Amina"` and `"amina"` are different. Using `.lower()` on both sides is a common fix.
 
-## 🚦 The `if` Statement
+## The `if` Statement
 
 An `if` statement runs a block of code **only when its condition is `True`**. Notice the colon `:` at the end of the line, and the 4-space indentation underneath.
 
@@ -86,7 +86,7 @@ else:
 PE is on the field today.
 ```
 
-## 🪜 Many Paths with `elif`
+## Many Paths with `elif`
 
 `elif` means "else if". It lets you check several conditions in order. Python tests them **from top to bottom** and runs the **first** block whose condition is `True`. Then it skips the rest.
 
@@ -134,7 +134,7 @@ Here is what the same code prints for other scores:
 | `60` | `score >= 50` | Pass - keep practising. |
 | `30` | none | Needs review - ask your teacher for help. |
 
-## 🔗 Combining Conditions: `and`, `or`, `not`
+## Combining Conditions: `and`, `or`, `not`
 
 Real decisions often depend on more than one fact. Python has three **logical operators**:
 
@@ -172,7 +172,7 @@ Welcome to the Robotics Lab!
 The library opens at 10:00.
 ```
 
-## 🪆 Nested Decisions
+## Nested Decisions
 
 You can put an `if` inside another `if`. This is called **nesting**. The inner block is indented one more level (8 spaces).
 
@@ -199,7 +199,7 @@ Large group: please use the side entrance.
 
 Keep nesting shallow. Two levels is usually enough. If you need more, try `and` or `elif` instead.
 
-## 🌱 Worked Example: Plant Irrigation Advisor
+## Worked Example: Plant Irrigation Advisor
 
 A school garden has a soil sensor. The program decides whether to switch on the drip watering system. On a computer, the three values could come from `input()`. Here they are written in the code.
 

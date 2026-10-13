@@ -12,7 +12,7 @@ A carpenter is asked to build the same bookshelf for five schools. He does not g
 - Add a column to an existing table with a new migration.
 - Create a model and its migration together with `make:model -m`.
 
-## 🧹 First: Remove the Hand-Made Tables
+## First: Remove the Hand-Made Tables
 
 In Part 5 you created `books`, `members` and `loans` by hand. Now migrations will create them, so remove the old ones. In phpMyAdmin, run this on your **practice** database (loans first, because it points to the other two):
 
@@ -24,7 +24,7 @@ DROP TABLE books;
 
 Your models stay. They do not care how a table was made.
 
-## 🛠️ Make a Migration
+## Make a Migration
 
 ```bash
 php artisan make:migration create_books_table
@@ -58,7 +58,7 @@ public function down(): void
 }
 ```
 
-## 📐 Column Types
+## Column Types
 
 | Method | MySQL type | Library example |
 |--------|-----------|-----------------|
@@ -84,7 +84,7 @@ Add a **modifier** after the type to change a column's rules:
 | `->unique()` | No two rows may share this value |
 | `->after('author')` | Place the column after another (MySQL only) |
 
-## 👥 The Members Table
+## The Members Table
 
 ```bash
 php artisan make:migration create_members_table
@@ -100,7 +100,7 @@ Schema::create('members', function (Blueprint $table) {
 });
 ```
 
-## 🔗 The Loans Table and Foreign Keys
+## The Loans Table and Foreign Keys
 
 ```bash
 php artisan make:migration create_loans_table
@@ -126,7 +126,7 @@ Schema::create('loans', function (Blueprint $table) {
 
 `loans` points to `books` and `members`, so those must exist first. Migrations run in the order of their date stamps. Because you made `loans` last, it runs last. 
 
-## ▶️ Run Them
+## Run Them
 
 ```bash
 php artisan migrate
@@ -144,7 +144,7 @@ Output (names and times will differ):
 
 Open phpMyAdmin: the three tables are back, empty. Chapter 18 fills them.
 
-## ➕ Changing a Table Later
+## Changing a Table Later
 
 The library now wants to store each book's **shelf** code, like `B3`. Do not edit the old migration (Chapter 16 explained why). Write a new one:
 
@@ -172,7 +172,7 @@ public function down(): void
 
 The new column is `nullable()` because existing books have no shelf code yet. Run `php artisan migrate` again. Only the new migration runs. Remember to add `'shelf'` to the `$fillable` list in `Book.php`.
 
-## ⚡ Model and Migration Together
+## Model and Migration Together
 
 For the next new table, make both in one go:
 

@@ -14,7 +14,7 @@ To join the library, you fill in a **membership form** and the librarian gives y
 
 > We build this inside your `library-app` to learn how login works. For a real school app, use a starter kit (Chapter 22). It also handles password resets, email checks and many edge cases.
 
-## 🗺️ The Routes
+## The Routes
 
 ```php
 // routes/web.php
@@ -46,7 +46,7 @@ php artisan make:controller Auth/RegisterController
 php artisan make:controller Auth/LoginController
 ```
 
-## 📝 Register
+## Register
 
 ```php
 // app/Http/Controllers/Auth/RegisterController.php
@@ -126,7 +126,7 @@ If the two passwords differ, the form returns with:
 The password field confirmation does not match.
 ```
 
-## 🔑 Log In
+## Log In
 
 ```php
 // app/Http/Controllers/Auth/LoginController.php
@@ -194,7 +194,7 @@ A wrong password shows:
 These credentials do not match our records.
 ```
 
-## 🚪 Log Out
+## Log Out
 
 ```php
 // app/Http/Controllers/Auth/LoginController.php
@@ -211,7 +211,7 @@ public function destroy(Request $request)
 
 `invalidate()` empties the session. `regenerateToken()` makes a new CSRF token, so old forms cannot be reused.
 
-## 👀 Who is Logged In?
+## Who is Logged In?
 
 | Code | Gives |
 |------|-------|

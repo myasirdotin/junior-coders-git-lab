@@ -1,4 +1,4 @@
-# Chapter 1: What is PHP? 🐘
+# Chapter 1: What is PHP?
 
 ---
 
@@ -17,7 +17,7 @@ Think about a restaurant. You sit at a table and read a nicely printed menu. A w
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **server** is a computer that stores websites and sends pages to visitors. A **client** is the visitor's browser that asks for those pages.
 
@@ -69,7 +69,7 @@ An **HTTP request** is the message a browser sends to ask a server for a page.
 
 ---
 
-## 💻 Code Example: Peeking Behind the Server Curtain
+## Code Example: Peeking Behind the Server Curtain
 
 When a visitor requests a PHP page, the server runs the PHP code and sends only the result:
 
@@ -113,7 +113,7 @@ Notice that the two `<p>` lines arrive side by side. `echo` prints exactly what 
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `<?php`: The **PHP opening tag**. It tells the server: *"Start running PHP code here."*
 - `$studentName = "Zainab";`: Creates a **variable** (a named box in memory) that stores a name. Chapter 4 explains variables.

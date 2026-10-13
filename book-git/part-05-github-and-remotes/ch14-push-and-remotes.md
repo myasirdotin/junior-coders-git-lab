@@ -1,4 +1,4 @@
-# Chapter 14: Connecting to Remotes & Pushing Code (`remote`, `push`) 🚀
+# Chapter 14: Connecting to Remotes & Pushing Code (`remote`, `push`)
 
 ---
 
@@ -24,7 +24,7 @@ Your class builds a small weather station in the school garden. It records tempe
 
 ---
 
-## 📡 The Remote Connection Workflow
+## The Remote Connection Workflow
 
 ![Git Remote Push & Pull](../assets/diagrams/git/git-remote-workflow.svg)
 
@@ -40,7 +40,7 @@ Your class builds a small weather station in the school garden. It records tempe
 
 ---
 
-## 🏠 Practise Offline: A "Pretend GitHub" Folder
+## Practise Offline: A "Pretend GitHub" Folder
 
 A **bare repository** is a repository with no working files, only the history. It is exactly what GitHub keeps on its servers. You can make one in a folder next to your project and use it as your remote. Everyone can do this, with no account and no internet.
 
@@ -75,7 +75,7 @@ Notice there is no line about `origin` yet: the project does not know any remote
 
 ---
 
-## 🔗 Linking and Pushing Your Project
+## Linking and Pushing Your Project
 
 ### Step 1: Save the remote's address
 
@@ -143,7 +143,7 @@ The two short codes are the old and new commit hashes on the remote. Yours will 
 
 ---
 
-## 🐙 The Same Steps with GitHub (13+)
+## The Same Steps with GitHub (13+)
 
 1. Open [github.com/new](https://github.com/new) and name the repository `eco-club`.
 2. Leave *"Add a README"*, *".gitignore"* and *"license"* **unticked**. Your local project already has its files.
@@ -173,7 +173,7 @@ Refresh the GitHub page: your files and full history are online. 🚀
 
 ---
 
-## 🔍 Breaking It Down
+## Breaking It Down
 
 - **`origin`** is a nickname for the remote's address. You could pick another name, but almost everyone uses `origin`.
 - **`git remote -v`**: `-v` means **verbose** (show more detail). It prints the address used to fetch (download) and to push (upload).

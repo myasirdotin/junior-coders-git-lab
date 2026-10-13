@@ -1,4 +1,4 @@
-# Chapter 9: Images 📸
+# Chapter 9: Images
 
 ---
 
@@ -25,7 +25,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### Anatomy of an Image Tag
 
@@ -68,7 +68,7 @@ C: A web address (another server)
 
 ---
 
-## 💻 Code Example: The Wildlife Photo Gallery
+## Code Example: The Wildlife Photo Gallery
 
 Type this into an editor and save it as `gallery.html`:
 
@@ -107,7 +107,7 @@ Type this into an editor and save it as `gallery.html`:
 
 ---
 
-## 🔍 Code Explanation: Key Attributes Explained
+## Code Explanation: Key Attributes Explained
 
 - `<img>`: The image tag.
 - `src="..."`: Stands for **source**. This tells the browser: *"Go find the image file at this exact location or web address!"* If the file path is misspelled by even one letter, the image will fail to load and show a broken icon.
@@ -159,7 +159,7 @@ A student's photo shows up, but when a screen reader reads it, it only says **"A
 
 ---
 
-## 🎨 Think Like a Web Designer: Good Alt Text vs. Bad Alt Text
+## Think Like a Web Designer: Good Alt Text vs. Bad Alt Text
 
 Writing great alternative text is an art form. Check out these examples for a photo of a kitten sleeping in a red teacup:
 
@@ -171,7 +171,7 @@ Writing great alternative text is an art form. Check out these examples for a ph
 
 ---
 
-## 🚀 Mini Challenge: The 3-Photo Hobby Showcase
+## Mini Challenge: The 3-Photo Hobby Showcase
 
 Create a new file named `my-hobbies.html`:
 - Give it an `<h1>`: `My Favorite Weekend Activities`

@@ -1,4 +1,4 @@
-# Chapter 10: Lists 📋
+# Chapter 10: Lists
 
 ---
 
@@ -36,7 +36,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Two Types of HTML Lists
 
@@ -65,7 +65,7 @@ You cannot put raw text directly inside a `<ul>` or `<ol>`. You must wrap every 
 
 ---
 
-## 💻 Code Example: Daily Routines & Favorites
+## Code Example: Daily Routines & Favorites
 
 Type this code into your editor and save it as `lists.html`:
 
@@ -120,7 +120,7 @@ Type this code into your editor and save it as `lists.html`:
 
 ---
 
-## 🔍 Code Explanation: How Browsers Handle Lists
+## Code Explanation: How Browsers Handle Lists
 
 - `<ul>`: Tells the browser: *"Begin an unordered list. Show round bullet points (•) for each child!"*
 - `<ol>`: Tells the browser: *"Begin an ordered list. Automatically calculate numbers (1, 2, 3...) for each child!"*
@@ -190,7 +190,7 @@ A student tried to create a list of pet names, but wrote this code:
 
 ---
 
-## 🎨 Think Like a Web Designer: Bullet Point Overload
+## Think Like a Web Designer: Bullet Point Overload
 
 Have you ever visited a web page with a bulleted list of 45 items?
 Almost nobody reads a 45-item list to the end! Long lists are hard to scan, and readers soon lose track of what they have read.
@@ -200,7 +200,7 @@ Almost nobody reads a 45-item list to the end! Long lists are hard to scan, and 
 
 ---
 
-## 🚀 Mini Challenge: The Ultimate Hot Cocoa Recipe
+## Mini Challenge: The Ultimate Hot Cocoa Recipe
 
 Build a recipe web page titled `hot-cocoa.html`:
 1. An `<h1>`: `The Ultimate Winter Hot Cocoa`

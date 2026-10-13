@@ -18,7 +18,7 @@ Hamza's family moves from Peshawar to Islamabad. The school secretary opens the 
 
 ---
 
-## ✏️ The Shape of `UPDATE`
+## The Shape of `UPDATE`
 
 ```sql
 UPDATE table_name
@@ -32,7 +32,7 @@ WHERE condition;
 
 ---
 
-## 🎯 Changing One Row
+## Changing One Row
 
 ### Step 1: look before you change
 
@@ -78,7 +78,7 @@ If you run the same `UPDATE` again, MySQL says `Rows matched: 1  Changed: 0`. Th
 
 ---
 
-## 📚 More Real Updates
+## More Real Updates
 
 ### A book comes back to the shelf
 
@@ -136,7 +136,7 @@ WHERE id = 2;
 
 ---
 
-## ➕ Updating From the Old Value
+## Updating From the Old Value
 
 The new value can use the old one. A new edition of *Arabic Calligraphy Basics* has 16 extra practice pages:
 
@@ -154,7 +154,7 @@ MySQL reads the old value (120), adds 16, and stores 136. You do not need to kno
 
 ---
 
-## 🚨 The Golden Rule: Never Forget `WHERE`
+## The Golden Rule: Never Forget `WHERE`
 
 ```sql
 UPDATE students SET city = 'Quetta';

@@ -1,4 +1,4 @@
-# Chapter 9: Statelessness, Cookies, Sessions & Web Caching 🍪
+# Chapter 9: Statelessness, Cookies, Sessions & Web Caching
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ At a school prize evening, guests leave their coats at the cloakroom. The helper
 
 ---
 
-## 🧠 HTTP Is Stateless
+## HTTP Is Stateless
 
 **Stateless** means each HTTP request stands alone. The server does not remember the previous request from the same person.
 
@@ -24,7 +24,7 @@ The fix is **state management**: a way to carry "who you are" from one request t
 
 ---
 
-## 🍪 How Cookies Work
+## How Cookies Work
 
 A **cookie** is a small piece of text, up to about 4 KB, that a server asks the browser to store. The server sends it with the `Set-Cookie` response header. After that, the browser adds it to every request to the same site, in a `Cookie` request header.
 
@@ -55,7 +55,7 @@ Cookie: sid=k7Q2xP
 
 ---
 
-## 🗄️ Sessions: The Server's Locker
+## Sessions: The Server's Locker
 
 A **session** is a small record that the server keeps about one visitor, for example "this visitor is Amina in class 8B". The server gives the record a long random ID, the **session ID**. Only the ID goes into the cookie.
 
@@ -72,7 +72,7 @@ Because the session ID works like a key, it must stay secret. Anyone who steals 
 
 ---
 
-## 🛡️ Safe Cookie Flags (*Amānah*)
+## Safe Cookie Flags (*Amānah*)
 
 Login cookies are a trust (*Amānah*). Protect them with these flags:
 
@@ -86,7 +86,7 @@ Also give cookies an end time with `Max-Age` (in seconds) or `Expires`, and dele
 
 ---
 
-## ⚡ Web Caching: Don't Download It Twice
+## Web Caching: Don't Download It Twice
 
 A **cache** is a saved copy. If the browser already has a file and it has not changed, downloading it again wastes data, time and electricity. HTTP has headers that tell browsers how long they may reuse a file.
 
@@ -128,7 +128,7 @@ Browser                       Server
 
 ---
 
-## 🔍 See It Yourself: A Real `304`
+## See It Yourself: A Real `304`
 
 First, ask for the headers and find `Last-Modified`. In PowerShell or Command Prompt:
 

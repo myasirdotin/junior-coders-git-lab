@@ -1,4 +1,4 @@
-# Chapter 8: If / Else Decisions 🚦
+# Chapter 8: If / Else Decisions
 
 ---
 
@@ -18,7 +18,7 @@ You walk up to the school library desk with a book. The librarian asks one quest
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **condition** is a question whose answer is `true` or `false`, such as `$score >= 50`. A value that is only true or false is called a **boolean**.
 
@@ -69,7 +69,7 @@ A **condition** is a question whose answer is `true` or `false`, such as `$score
 
 ---
 
-## 💻 Code Example: Exam Grading Engine
+## Code Example: Exam Grading Engine
 
 ```php
 <?php
@@ -122,7 +122,7 @@ Official Status: Passed
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `if ($score >= 90)`: Checks if `$score` is 90 or more. If true, PHP runs that block and **skips every other branch**.
 - `elseif (...)`: Checked only when all the conditions above it were false. 87 fails `>= 90` but passes `>= 80`.

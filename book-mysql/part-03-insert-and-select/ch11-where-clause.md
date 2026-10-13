@@ -18,7 +18,7 @@ At the end of the day, the librarian wants to phone only the students who still 
 
 ---
 
-## 🧹 The Shape of `WHERE`
+## The Shape of `WHERE`
 
 ```sql
 SELECT columns
@@ -44,7 +44,7 @@ Three of the eight students passed the test.
 
 ---
 
-## ⚖️ Comparison Signs
+## Comparison Signs
 
 | Sign | Meaning | Example |
 | :--- | :--- | :--- |
@@ -80,7 +80,7 @@ Text values need quotes (`'Yes'`). Numbers do not (`300`).
 
 ---
 
-## 🔀 `AND`, `OR`, `NOT`
+## `AND`, `OR`, `NOT`
 
 ### `AND`: both tests must be true
 
@@ -129,7 +129,7 @@ SELECT name, grade FROM students WHERE NOT grade = 9;
 
 ---
 
-## 📏 `BETWEEN` and `IN`
+## `BETWEEN` and `IN`
 
 ### `BETWEEN`: a range, ends included
 
@@ -181,7 +181,7 @@ WHERE category IN ('Ethics', 'Art');
 
 ---
 
-## 🕳️ Missing Values: `IS NULL`
+## Missing Values: `IS NULL`
 
 `NULL` means "no value" or "unknown". It is not zero and not empty text.
 

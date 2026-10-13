@@ -1,4 +1,4 @@
-# Chapter 10: Layouts and Modifiers 📐
+# Chapter 10: Layouts and Modifiers
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ Think about arranging books on a shelf. You can stand them side by side in a **r
 - Explain why the order of modifiers changes what you see.
 - Turn the plain book card from Chapter 9 into a tidy Material 3 `Card`.
 
-## 📚 Three Layout Boxes: Column, Row and Box
+## Three Layout Boxes: Column, Row and Box
 
 At the end of Chapter 9, the `BookCard` was squeezed into one corner. Compose needs to be told how to arrange things. Three layout composables do almost all the work.
 
@@ -52,7 +52,7 @@ The two texts touch. There is no gap yet. Spacing comes next.
 
 > In Arabic or Urdu, the phone reads right to left, so a `Row` starts from the right. Compose does this for you.
 
-## ↔️ Spacing with `Spacer` and `Arrangement`
+## Spacing with `Spacer` and `Arrangement`
 
 ### `Spacer`: an empty gap
 
@@ -95,7 +95,7 @@ Now each line has a 4 dp gap under it, except the last.
 
 `SpaceBetween` only spreads things out when the `Row` is wider than its children, for example when it fills the screen width.
 
-## 🎯 Lining Up with `Alignment`
+## Lining Up with `Alignment`
 
 **Arrangement** is about the main direction (down a `Column`, across a `Row`). **Alignment** is about the other direction.
 
@@ -129,7 +129,7 @@ Box(contentAlignment = Alignment.BottomCenter) {
 
 The phone shows the cover with the word "New!" sitting on top of it, at the bottom centre of the picture.
 
-## 🎛️ Modifiers: Size, Space and Look
+## Modifiers: Size, Space and Look
 
 A **modifier** changes how a composable is sized, spaced or drawn. Almost every composable takes a `modifier` parameter. You build one by starting with `Modifier` and adding settings with dots. This is called a **modifier chain**.
 
@@ -172,7 +172,7 @@ The modifiers you will use most:
 
 `weight(1f)` is handy in a `Row`: the child with a weight takes all the space the others do not need. A long title then wraps onto two lines instead of pushing other things off the screen.
 
-## 🔢 Why Modifier Order Matters
+## Why Modifier Order Matters
 
 Modifiers are applied **from top to bottom**, one after another. Each one wraps around what comes after it. Compare these two:
 
@@ -212,7 +212,7 @@ Modifier.clip(RoundedCornerShape(12.dp)).background(Color.Yellow)
 
 A good habit: read a chain aloud from the top. "First clip to rounded corners, then paint yellow, then add space inside."
 
-## 🃏 The Material 3 `Card`
+## The Material 3 `Card`
 
 You could build a card yourself from `Column`, `clip`, `background` and `border`. Material 3 already has one that matches the theme: `Card`. It has rounded corners, a soft background colour and its children stacked like a `Column`.
 
@@ -230,7 +230,7 @@ Card(modifier = Modifier.fillMaxWidth()) {
 
 Colours come from the theme with `MaterialTheme.colorScheme`, for example `MaterialTheme.colorScheme.primaryContainer`. Using theme colours instead of fixed ones like `Color.Yellow` means dark mode works later (Chapter 16) without changing this code.
 
-## 📇 The Laid-Out Book Card
+## The Laid-Out Book Card
 
 Now rebuild `BookCard` from Chapter 9. The plan:
 

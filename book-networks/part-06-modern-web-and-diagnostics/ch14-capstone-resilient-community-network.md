@@ -1,4 +1,4 @@
-# Chapter 14: Capstone: Architecting a Resilient Community Network 🏗️
+# Chapter 14: Capstone: Architecting a Resilient Community Network
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ A town is building a new community centre. The architect does not start with bri
 
 ---
 
-## 🎯 The Mission: The Oasis Community Portal
+## The Mission: The Oasis Community Portal
 
 The town of Oasis has a school, a public library and a small charity clinic. They want one website, `oasis.example.org`, where:
 
@@ -31,7 +31,7 @@ The town of Oasis has a school, a public library and a small charity clinic. The
 
 ---
 
-## 📖 The Building Blocks, in Plain Words
+## The Building Blocks, in Plain Words
 
 Real websites use a few extra parts. Each one is explained in one sentence here. The rest of the chapter shows where each one fits.
 
@@ -50,7 +50,7 @@ Real websites use a few extra parts. Each one is explained in one sentence here.
 
 ---
 
-## 🗺️ The Big Picture
+## The Big Picture
 
 ```
  Families, students, donors
@@ -73,7 +73,7 @@ Visitors only ever talk to the CDN and the load balancer. The web servers and th
 
 ---
 
-## 🛠️ Step-by-Step Blueprint
+## Step-by-Step Blueprint
 
 ### Step 1: Addresses and subnets
 
@@ -153,13 +153,13 @@ When the clinic says "the site is slow", staff follow the ladder from Chapter 13
 
 ---
 
-## 🌟 The Moral Dimension of Network Engineering
+## The Moral Dimension of Network Engineering
 
 Network engineering is not just moving bits between chips. It is building bridges of trust between people.
 
 When you shrink a page so a family on a weak signal can read a flood warning, when you keep health records behind three walls, and when you lock donors' details inside HTTPS, you are practising *Amānah* (trust) and *Iḥsān* (excellence). May your knowledge be a continuing benefit to others (*'Ilm Nāfi'*).
 
-## 🎓 Textbook Completion Milestone
+## Textbook Completion Milestone
 
 Congratulations! You have finished all 14 chapters of **Computer Networking & Web Protocols**. Next, try the interactive **Network Lab**, the practice exercises and the quiz in the Learning Networks track.
 

@@ -1,4 +1,4 @@
-# Chapter 8: Classes and Null Safety 🏗️
+# Chapter 8: Classes and Null Safety
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ Every book in the school library has a catalogue card. Each card has the same pr
 - Mark values that may be missing with `?`, and handle them with `?.`, `?:` and `toIntOrNull()`.
 - Explain why this book never uses `!!`, and (optionally) list fixed choices with `enum class`.
 
-## 🧱 Classes: Designing Your Own Type
+## Classes: Designing Your Own Type
 
 You already know the types `Int`, `String` and `List`. A **class** lets you design a new type of your own. It groups related values (called **properties**) and the actions on them (called **methods**, which are functions that live inside a class).
 
@@ -78,7 +78,7 @@ How to read it:
 
 Each object keeps its own values. Amina borrowing a book does not change Omar's count.
 
-## 📇 Data Classes: Classes That Hold Data
+## Data Classes: Classes That Hold Data
 
 Many classes exist only to **hold data**, like a catalogue card. Kotlin has a special kind for this: put `data` in front of `class`. To see what it adds, compare a plain class with a data class:
 
@@ -135,7 +135,7 @@ A data class gives you three things for free:
 
 The constructor here is written over several lines. That is just layout: one property per line is easier to read.
 
-## 📚 The School Library Data
+## The School Library Data
 
 From Chapter 9 onwards you will build the School Library app. Every chapter uses this exact data class and sample list, so type it carefully:
 
@@ -186,7 +186,7 @@ Everything here is from earlier chapters, now working together: a `List<Book>` (
 
 The `id` is a unique number for each book. Two books can have the same title, but never the same id. Later the app will use the id to open the right detail screen and to remember which books you saved for later.
 
-## ❓ Null: When a Value Is Missing
+## Null: When a Value Is Missing
 
 In Chapter 4 you saw that `"twelve".toIntOrNull()` gives `null`. **`null` means "no value here"**. Missing values are a part of real life: a student without a nickname, a search that finds no book, a form box left empty.
 
@@ -239,7 +239,7 @@ error: only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable
 
 The error is long, but its meaning is simple: "this might be null, so tell me what to do if it is". It is caught **before** the program runs. The next three tools tell Kotlin what to do.
 
-## 🛟 Safe Call ?.
+## Safe Call ?.
 
 `?.` means "if it is not null, go ahead; if it is null, stop and give `null`".
 
@@ -264,7 +264,7 @@ null
 
 No crash. When the value is missing, the whole expression quietly becomes `null`.
 
-## 🪣 Elvis Operator ?:
+## Elvis Operator ?:
 
 Often you do not want `null`; you want a sensible **default**. The operator `?:` says "use the left side, but if it is null, use the right side instead". Its official name is the **Elvis operator**.
 
@@ -392,7 +392,7 @@ No book with that id
 
 The detail screen in Chapter 14 does exactly this: it receives a book id and finds the book, and must cope politely if the id is wrong.
 
-## 🚫 Why There Is No !! in This Book
+## Why There Is No !! in This Book
 
 Kotlin also has `!!`, the "not-null assertion". `value!!` means "I promise this is not null; if I am wrong, crash". You saw it mentioned in the long error message above.
 
@@ -404,7 +404,7 @@ This book never uses it, for three reasons:
 
 If Android Studio ever suggests adding `!!`, stop and choose one of the safe tools instead.
 
-## 🏷️ Optional: enum class for Fixed Choices
+## Optional: enum class for Fixed Choices
 
 Sometimes a value must be one of a **fixed set** of choices, like the sections of the library. An `enum class` lists them. Kotlin will then reject any value that is not on the list, so typing mistakes like `"Sceince"` become impossible.
 

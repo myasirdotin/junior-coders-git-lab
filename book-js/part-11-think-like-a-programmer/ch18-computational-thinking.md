@@ -1,4 +1,4 @@
-# Chapter 18: Computational Thinking 🧠
+# Chapter 18: Computational Thinking
 
 ---
 
@@ -21,7 +21,7 @@ That way of thinking has a name: **computational thinking**. Programmers use it 
 
 ---
 
-## 🧠 The Four Pillars of Problem Solving
+## The Four Pillars of Problem Solving
 
 Programming is not about typing fast or memorizing every JavaScript keyword. Programming is about **problem-solving**!
 When professional software engineers build rocket flight software or weather forecast apps, they don't just sit down and immediately type code. They use a thinking method called **Computational Thinking**.
@@ -37,7 +37,7 @@ Computational Thinking has four pillars (main ideas):
 
 ---
 
-## 🔨 Pillar 1: Decomposition (Divide and Conquer)
+## Pillar 1: Decomposition (Divide and Conquer)
 
 ### The Big Problem
 *"Build a sign-up page for the school science fair, with 9 project tables!"*
@@ -56,7 +56,7 @@ Notice how a big, scary project becomes 7 manageable mini-tasks! Each one uses s
 
 ---
 
-## 🔍 Pillar 2: Pattern Recognition (Spotting the Repeat)
+## Pillar 2: Pattern Recognition (Spotting the Repeat)
 
 Consider these three tasks:
 - Find the highest mark in a class science quiz.
@@ -96,7 +96,7 @@ Once you solve a pattern once, you can reuse that mental blueprint for many diff
 
 ---
 
-## 🎨 Pillar 3: Abstraction (Filtering the Noise)
+## Pillar 3: Abstraction (Filtering the Noise)
 
 Think about a map app on a phone.
 When you use it to walk to your friend's house, does the map show:
@@ -137,7 +137,7 @@ Amina has Rs 300, so she can buy a Rs 250 book (Rs 50 left), but not a second on
 
 ---
 
-## 📋 Pillar 4: Algorithm Design (The Step-by-Step Blueprint)
+## Pillar 4: Algorithm Design (The Step-by-Step Blueprint)
 
 An **algorithm** is a precise sequence of steps that takes an input and produces an output.
 
@@ -180,7 +180,7 @@ Output:
 
 ---
 
-## 🗒️ How to Plan Before You Code: Pseudocode
+## How to Plan Before You Code: Pseudocode
 
 Never jump straight into writing syntax. Write **pseudocode** first: plain English notes outlining your logic.
 

@@ -1,4 +1,4 @@
-# Chapter 19: Form Validation & Security 🛡️
+# Chapter 19: Form Validation & Security
 
 ---
 
@@ -18,7 +18,7 @@ Before you board a plane, your bag goes through a security scanner. Officers che
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 **Validation** means checking that data follows the rules (for example, "an email must look like an email"). **Escaping** means making data safe to print inside HTML.
 
@@ -51,7 +51,7 @@ The browser shows the text. Nothing runs.
 
 ---
 
-## 💻 Code Example: A Safe Registration Form
+## Code Example: A Safe Registration Form
 
 Save as `register.php` in `htdocs`:
 
@@ -178,7 +178,7 @@ The fields still show `Al`, `sana@` and `25`, so the student only fixes the mist
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `strlen($name) < 3 || strlen($name) > 50`: A **length check**. Very long input can fill your storage or break your layout, so set a maximum too.
 - `filter_var($email, FILTER_VALIDATE_EMAIL)`: PHP's built-in email checker. It returns the email if it is valid, or `false` if not.

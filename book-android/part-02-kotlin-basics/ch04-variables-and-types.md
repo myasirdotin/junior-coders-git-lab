@@ -1,4 +1,4 @@
-# Chapter 4: Variables and Types 📦
+# Chapter 4: Variables and Types
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ In the school library, every book sits in a labelled box on a shelf. Some labels
 - Do arithmetic, including whole-number division and the remainder `%`.
 - Convert between types with `toInt()`, `toDouble()` and `toString()`.
 
-## 🧪 Running Kotlin Without a Phone
+## Running Kotlin Without a Phone
 
 Chapters 4 to 8 teach the Kotlin language itself. Every example is a small program that starts at `fun main()` and prints text. You do not need a phone or an emulator for these.
 
@@ -49,7 +49,7 @@ What each part means:
 
 You can also write a longer comment over many lines between `/*` and `*/`. Use comments to explain *why* the code does something, not to repeat what it obviously does.
 
-## 📦 val and var: Sealed Boxes and Refillable Boxes
+## val and var: Sealed Boxes and Refillable Boxes
 
 A **variable** is a name that holds a value. Kotlin has two keywords to make one:
 
@@ -95,7 +95,7 @@ Al-Noor School
 - Choose names that say what the box holds. `pagesLeft` is better than `p`.
 - Names cannot contain spaces and cannot be Kotlin keywords such as `val` or `fun`.
 
-## 🔢 Types: What Kind of Value Is in the Box?
+## Types: What Kind of Value Is in the Box?
 
 Every value in Kotlin has a **type**. The type tells Kotlin what kind of value it is and what you can do with it. You can add two numbers, but you cannot add a number to `true`.
 
@@ -147,7 +147,7 @@ You may still write the type after a colon, as in `val totalPages: Int = 240`. B
 
 Once a box has a type, it keeps it. A `var` that holds an `Int` can get a new `Int`, but never a `String`. You will see that error in the Common Mistake section.
 
-## 💬 String Templates: Putting Values Inside Text
+## String Templates: Putting Values Inside Text
 
 To build a sentence from variables, put a `$` in front of the variable name inside the string. For anything more than a plain name, such as a sum, use `${ ... }`.
 
@@ -183,7 +183,7 @@ Your name has 5 letters.
 
 This is the same idea as a template literal with backticks in JavaScript, but in Kotlin it works in normal double quotes.
 
-## ➗ Arithmetic
+## Arithmetic
 
 Kotlin uses the usual symbols: `+` add, `-` subtract, `*` multiply, `/` divide and `%` remainder.
 
@@ -261,7 +261,7 @@ To add to a `var`, you can write `count = count + 1`. Kotlin also has short form
 | `count = count - 2` | `count -= 2` |
 | `total = total * 3` | `total *= 3` |
 
-## 🔄 Converting Between Types
+## Converting Between Types
 
 Sometimes you have a value of one type and need another. Text typed into an app always arrives as a `String`, even when it looks like a number. Kotlin never converts silently, so you ask for it with a function that starts with `to`.
 

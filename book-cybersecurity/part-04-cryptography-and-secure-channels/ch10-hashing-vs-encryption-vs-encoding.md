@@ -1,4 +1,4 @@
-# Chapter 10: Hashing vs. Encryption vs. Encoding 🔐
+# Chapter 10: Hashing vs. Encryption vs. Encoding
 
 ## 🌟 Real-Life Story
 
@@ -13,7 +13,7 @@ People mix up these three all the time. Using the wrong one can leave data wide 
 - Explain **symmetric** and **asymmetric** encryption in simple words.
 - Describe the properties of a good hash, including the **avalanche effect**.
 
-## 🧭 The Three at a Glance
+## The Three at a Glance
 
 | | Purpose | Needs a key? | Can it be reversed? | Examples |
 | :--- | :--- | :--- | :--- | :--- |
@@ -21,7 +21,7 @@ People mix up these three all the time. Using the wrong one can leave data wide 
 | **Encryption** | Keep data secret | Yes | Yes, but only with the key | AES, RSA, TLS |
 | **Hashing** | Make a fingerprint to check data | No | No (one-way) | SHA-256; bcrypt and Argon2id for passwords |
 
-## 🔤 Encoding: Changing the Format (Not Security)
+## Encoding: Changing the Format (Not Security)
 
 **Encoding** changes data into another format so it can travel without being damaged. For example, **Base64** turns any bytes, such as a picture, into plain letters and digits that can sit inside an email or a text file.
 
@@ -42,7 +42,7 @@ Hello
 
 Another common encoding is **URL encoding**: a space becomes `%20` so it can travel safely in a web address.
 
-## 🔒 Encryption: A Lock and a Key
+## Encryption: A Lock and a Key
 
 **Encryption** turns readable data (the **plaintext**) into scrambled data (the **ciphertext**) using a **key**. Only someone with the right key can turn it back.
 
@@ -80,7 +80,7 @@ The hard part of symmetric encryption is sharing the key safely. If you send the
 
 RSA and elliptic-curve cryptography (ECC) work this way. It is slower than AES, so real systems combine them. When you visit an HTTPS website, **TLS** uses asymmetric methods to agree a fresh shared key safely, then uses fast symmetric encryption for everything else. Chapter 11 shows why this matters on public Wi-Fi.
 
-## 👆 Hashing: A One-Way Fingerprint
+## Hashing: A One-Way Fingerprint
 
 A **hash function** takes input of any length and produces a short, fixed-size fingerprint. SHA-256 always produces 256 bits, shown as **64 hexadecimal characters** (the digits 0–9 and letters a–f).
 
@@ -111,7 +111,7 @@ Adding one `!` changed 56 of the 64 characters. A long sentence still gives exac
 - **Checking downloads:** a website publishes the SHA-256 of a file. After downloading, you hash your copy. If the two match, the file was not damaged or swapped.
 - **Storing passwords:** but only with a **slow, salted** password hash such as bcrypt or Argon2id, as in Chapter 2. Plain SHA-256 is too fast for passwords.
 
-## 🧩 Choosing the Right Tool
+## Choosing the Right Tool
 
 | Job | Use |
 | :--- | :--- |
@@ -121,7 +121,7 @@ Adding one `!` changed 56 of the 64 characters. A long sentence still gives exac
 | Check a download was not changed | Hashing (SHA-256) |
 | Put a space in a web address | Encoding (URL encoding) |
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 - Never use Base64 to "hide" anything secret.
 - Store passwords only with `password_hash()`, never with Base64 or plain SHA-256.

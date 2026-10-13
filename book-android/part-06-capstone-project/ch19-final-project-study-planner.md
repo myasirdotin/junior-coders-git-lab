@@ -1,4 +1,4 @@
-# Chapter 19: Final Project: The Study Planner 🏆
+# Chapter 19: Final Project: The Study Planner
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ The paper plan works, but it gets lost, the ticks get messy, and adding up minut
 - Check your app against a theme, accessibility and privacy checklist.
 - Mark your own work with a rubric and choose an extension.
 
-## 🗺️ The Plan
+## The Plan
 
 Good apps start on paper. Here is the plan for the **Study Planner**.
 
@@ -54,7 +54,7 @@ Good apps start on paper. Here is the plan for the **Study Planner**.
 | `AddTaskScreen.kt` | The form with validation |
 | `MainActivity.kt` | The routes, the `NavHost` and the shared state |
 
-## 🛠️ Project Setup
+## Project Setup
 
 1. In Android Studio choose **New Project → Empty Activity**.
 2. Name: `Study Planner`. Package name: `org.juniorcoders.planner`. Language: Kotlin. Minimum SDK: leave the suggested value.
@@ -77,7 +77,7 @@ dependencies {
 
 The `libs.` names point to entries in `gradle/libs.versions.toml`. If a name is red, use Android Studio's suggestion (Alt + Enter) or copy the current lines from the official Android docs pages for Navigation and DataStore. Do not type a version number from memory. Then click **Sync Now**.
 
-## 📦 File 1: StudyTask.kt (the data and the logic)
+## File 1: StudyTask.kt (the data and the logic)
 
 All the thinking that does not draw anything goes in one plain Kotlin file. That makes it easy to test, just like `formatMinutes` in Chapter 18.
 
@@ -214,7 +214,7 @@ DataStore Preferences stores simple values: text, numbers, true/false. A list of
 
 For a few dozen tasks, our format is clear and enough. We protect it with validation: the form refuses `|`, and `singleLine = true` stops new lines in the text fields. For hundreds of records with searching and sorting, the next step is **Room**, a real database on the phone with tables, like the tables in the MySQL book.
 
-## 💾 File 2: TaskStore.kt (saving)
+## File 2: TaskStore.kt (saving)
 
 This is the same DataStore pattern as Chapter 15, with one text key that holds all the lines.
 
@@ -254,7 +254,7 @@ class TaskStore(private val context: Context) {
 - `save` is a `suspend` function. That word means it must run in the background helper (`scope.launch { }`), so saving never freezes the screen.
 - On the very first run nothing is saved yet, so `prefs[TASKS_KEY]` is `null` and `?: ""` gives empty text. `decodeTasks("")` returns an empty list.
 
-## 📋 File 3: TaskListScreen.kt (the list)
+## File 3: TaskListScreen.kt (the list)
 
 ```kotlin
 package org.juniorcoders.planner
@@ -403,7 +403,7 @@ What is new or worth noticing:
 - `LinearProgressIndicator(progress = { ... })` takes a lambda that gives a number from 0.0 to 1.0. `done.toFloat() / planned` turns 45 out of 70 into about 0.64. We hide it when nothing is planned, to avoid dividing by zero.
 - The Delete button's `contentDescription` says **which** task, so a TalkBack user does not hear "Delete, Delete, Delete".
 
-## ✏️ File 4: AddTaskScreen.kt (the form)
+## File 4: AddTaskScreen.kt (the form)
 
 ```kotlin
 package org.juniorcoders.planner
@@ -526,7 +526,7 @@ What the screen shows after tapping **Save task** with an empty title:
 └──────────────────────────────┘
 ```
 
-## 🧭 File 5: MainActivity.kt (routes and shared state)
+## File 5: MainActivity.kt (routes and shared state)
 
 ```kotlin
 package org.juniorcoders.planner
@@ -624,7 +624,7 @@ store.save(...) ◄── save(newList)
 
 Run the app. Add two or three tasks, tick one, then close the app completely and open it again. Your plan is still there.
 
-## 🎨 Theme and Accessibility Checklist
+## Theme and Accessibility Checklist
 
 Go through this list on an emulator or a real phone before you hand in the project (Chapters 16 and 18):
 
@@ -641,7 +641,7 @@ Go through this list on an emulator or a real phone before you hand in the proje
 | ☐ | The app asks for **no permissions** and sends nothing off the phone |
 | ☐ | A unit test for `validateTask` or `formatMinutes` passes (Chapter 18) |
 
-## 📊 Marking Rubric
+## Marking Rubric
 
 Each row is worth 0 to 3 marks, 12 in total. Use it to check your own work before your teacher does.
 
@@ -652,7 +652,7 @@ Each row is worth 0 to 3 marks, 12 in total. Use it to check your own work befor
 | **Design and accessibility** | Whole checklist passes, including TalkBack, dark mode and large text | Most checks pass | Looks fine only in one mode or size |
 | **Testing and honesty** | At least three passing unit tests; can explain the save format and why there are no permissions; own work, sources named | One or two tests; partial explanation | No tests; cannot explain the code |
 
-## 🌱 Extension Ideas
+## Extension Ideas
 
 Finished early? Choose one. Each idea is useful, kind and private.
 

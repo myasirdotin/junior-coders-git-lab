@@ -1,4 +1,4 @@
-# Chapter 3: Variables 📦
+# Chapter 3: Variables
 
 ---
 
@@ -27,7 +27,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 ### The Memory Box Mental Model
 
@@ -56,7 +56,7 @@ In modern JavaScript, there are two primary keywords used to declare variables:
 
 ---
 
-## 🌍 Real-World Example: School Report Cards
+## Real-World Example: School Report Cards
 
 Look at your quarterly school report card:
 - The box labeled **"Student Name"** is a constant: it stays the same all year (`const studentName = "Amina";`).
@@ -64,7 +64,7 @@ Look at your quarterly school report card:
 
 ---
 
-## 💻 Code Example: A Reading Challenge Tracker
+## Code Example: A Reading Challenge Tracker
 
 Type this code into your editor or scratchpad:
 
@@ -100,7 +100,7 @@ Reading level: 2
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - Line 2: `const readerName = "Zane";` creates a locked box named `readerName`. It holds the text `"Zane"`.
 - Line 6: `let pagesRead = 0;` creates an unlocked box named `pagesRead`. It starts at `0`.
@@ -132,7 +132,7 @@ First <code>apples</code> starts at 4. Then 4 + 2 is calculated (6) and reassign
 
 ---
 
-## 🧭 Think Like a Programmer: The Library Book Tracker
+## Think Like a Programmer: The Library Book Tracker
 
 Imagine you are designing the computer system for your school library.
 For each book, you must store:
@@ -146,7 +146,7 @@ For each book, you must store:
 
 ---
 
-## 🚀 Coding Challenge: The Shopping Trip Receipt
+## Coding Challenge: The Shopping Trip Receipt
 
 Write a program that defines:
 - `itemName = "Sketchbook"`
@@ -157,7 +157,7 @@ Write a program that defines:
 
 ---
 
-## 🛠️ Mini Project: Student Profile Card
+## Mini Project: Student Profile Card
 
 Write a program that stores your student information across multiple variables:
 - `studentName` (string)

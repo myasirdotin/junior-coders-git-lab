@@ -1,4 +1,4 @@
-# Chapter 9: Text and Images on the Screen 🖼️
+# Chapter 9: Text and Images on the Screen
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ Walk into the school library and look at the display board near the door. Each n
 - Add a picture to your project and show it with `Image` and `painterResource`.
 - Write a `contentDescription` for screen readers and check your work with `@Preview`.
 
-## 🧱 Starting the School Library App
+## Starting the School Library App
 
 From this chapter on, you build one app step by step: the **School Library** app. Create it now.
 
@@ -47,7 +47,7 @@ val sampleBooks = listOf(
 
 This is **sample data**: five made-up books so the screens have something to show. Later chapters keep using these same five books.
 
-## 🏷️ What `@Composable` Means
+## What `@Composable` Means
 
 A screen in Compose is built from small functions. Each one describes a piece of the screen. These functions carry a label written just above them: `@Composable`.
 
@@ -72,7 +72,7 @@ Names like `Greeting` and `BookCard` start with a capital letter because they wo
 
 Think of composables as LEGO bricks. `Text` and `Image` are small bricks. You snap them together into a bigger brick, `BookCard`. Later you snap many `BookCard`s into a whole screen.
 
-## ✏️ Showing Words with `Text`
+## Showing Words with `Text`
 
 `Text` shows a piece of writing. Its first parameter is the words. The other parameters are optional and have sensible defaults (you met default parameters in Chapter 7).
 
@@ -147,7 +147,7 @@ The most common styles, from biggest to smallest:
 
 Use a style first. Change single parameters only when you need to. If you write both, the single parameter wins: `style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold` gives bold body text.
 
-## 📄 Words for Users Live in `strings.xml`
+## Words for Users Live in `strings.xml`
 
 Look in the Project panel at `app/res/values/strings.xml`. It already holds the app name:
 
@@ -194,7 +194,7 @@ Shelf: Science A3
 
 Book titles and authors come from your data (`sampleBooks`), not from `strings.xml`. Only fixed words that are the same for every book belong there, such as "Shelf:".
 
-## 🖼️ Showing a Picture with `Image`
+## Showing a Picture with `Image`
 
 ### Step 1: add a picture to the project
 
@@ -238,7 +238,7 @@ Image(
 
 If the picture is not square, add `contentScale = ContentScale.Crop`. The picture then fills the square and the edges that do not fit are trimmed off, like a photo in a frame.
 
-## 🦮 `contentDescription`: Pictures for Everyone
+## `contentDescription`: Pictures for Everyone
 
 Some people cannot see the screen well. They use a **screen reader**. On Android it is called **TalkBack**. It reads the screen aloud. When TalkBack reaches your `Image`, it reads the `contentDescription`.
 
@@ -256,7 +256,7 @@ Rules of thumb:
 
 Writing a good description is a small act of kindness. It means your app serves every student, not only some.
 
-## 👀 Seeing Your Work with `@Preview`
+## Seeing Your Work with `@Preview`
 
 Starting the emulator every time you change a colour is slow. A **preview** draws a composable right inside Android Studio.
 
@@ -277,7 +277,7 @@ Open the **Split** view (top right of the editor). The preview appears on the ri
 - `showBackground = true` paints a white background behind it.
 - Previews do not run on a phone. They are only for you while you work.
 
-## 📇 Putting It Together: `BookCard`
+## Putting It Together: `BookCard`
 
 Now build the card from the story. It takes one `Book` and shows its cover, title, author and shelf. Here is the complete `MainActivity.kt` with every import:
 

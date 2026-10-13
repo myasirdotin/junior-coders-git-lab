@@ -1,4 +1,4 @@
-# Chapter 16: Essential Array Functions 🧰
+# Chapter 16: Essential Array Functions
 
 ---
 
@@ -18,7 +18,7 @@ The school librarian receives a box of 50 new science books. She does not leave 
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Array Sorting Compass
 
@@ -49,7 +49,7 @@ A **queue** is a line where the first to join is the first to leave (`array_push
 
 ---
 
-## 💻 Code Example: Array Operations Lab
+## Code Example: Array Operations Lab
 
 ```php
 <?php
@@ -97,7 +97,7 @@ Sorted Scores: 62, 78, 88, 95, 100<br><h3>Sorted by Age (Ascending):</h3>Amina i
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `implode(", ", $scores)`: Joins the items into one string, with `", "` between them.
 - `sort($scores)`: Changes the original array **in place** (the array itself is sorted). It does not give back a new array.

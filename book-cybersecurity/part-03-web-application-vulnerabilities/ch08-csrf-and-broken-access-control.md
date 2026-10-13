@@ -1,4 +1,4 @@
-# Chapter 8: CSRF & Broken Access Control 🚪
+# Chapter 8: CSRF & Broken Access Control
 
 ## 🌟 Real-Life Story
 
@@ -11,13 +11,13 @@ At Zainab's school, the office accepts signed notes from parents. One day a note
 - Explain **Broken Access Control** and **IDOR**.
 - Write an ownership check so users only see their own records.
 
-## 💡 How a Logged-In Browser Works
+## How a Logged-In Browser Works
 
 When you log in to a website, it gives your browser a **session cookie**: a small value meaning "this visitor is logged in as Zainab". Your browser sends that cookie back automatically with every request to the same site. That is why you do not have to log in on every page.
 
 Automatic is convenient. But it creates a gap: the site sees the cookie and assumes **you** chose to send the request.
 
-## 🎭 CSRF: The Forged Note
+## CSRF: The Forged Note
 
 **Cross-Site Request Forgery (CSRF)** means another website tricks your browser into sending a request to a site where you are logged in. "Cross-site" means it comes from a different site. "Forgery" means it pretends to be you.
 
@@ -40,7 +40,7 @@ You clicked nothing on the portal, yet an action happened in your name. The atta
 ### Which actions are at risk?
 Anything that **changes** something: changing an email address, deleting a project, submitting a vote in a class poll, posting a message. Pages that only show data are much less at risk. That is one reason why actions that change data must always use **POST** forms, never plain links (GET).
 
-## 🛡️ Defence 1: A Secret Form Token
+## Defence 1: A Secret Form Token
 
 A **CSRF token** is a long random value the server creates and keeps in the user's session. The server also puts it in a hidden field in every form it shows. When the form comes back, the server checks the two match.
 
@@ -100,7 +100,7 @@ bool(true)
 bool(false)
 ```
 
-## 🛡️ Defence 2: SameSite Cookies
+## Defence 2: SameSite Cookies
 
 The `SameSite` setting tells the browser when to send a cookie with requests that start on **other** sites:
 
@@ -116,7 +116,7 @@ Set-Cookie: session_id=abc987; Secure; HttpOnly; SameSite=Lax
 
 Modern browsers treat cookies as `Lax` when no setting is given, but set it yourself. Use **both** tokens and SameSite: two layers are better than one.
 
-## 🚪 Broken Access Control
+## Broken Access Control
 
 **Access control** means deciding who may see or change each thing. **Broken Access Control** is when the website forgets to check. It is number one (A01) in the OWASP Top 10 (Chapter 5).
 
@@ -156,7 +156,7 @@ If the report exists but belongs to someone else, the query returns nothing, and
 - **Deny by default:** if you are not sure a user is allowed, say no.
 - **Check every request:** a hidden page is not a protected page. Anyone can type its address.
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 - Use POST forms for every action that changes data.
 - Add a CSRF token to every POST form and check it with `hash_equals()`.

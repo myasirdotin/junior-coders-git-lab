@@ -1,4 +1,4 @@
-# Chapter 31: Project: JSON File-Based Mini Blog 📰
+# Chapter 31: Project: JSON File-Based Mini Blog
 
 ---
 
@@ -18,7 +18,7 @@ Our school has a class noticeboard in the corridor. Students pin up short articl
 
 ---
 
-## 🧱 What You Will Build
+## What You Will Build
 
 One file, `blog.php`, with two parts:
 
@@ -40,7 +40,7 @@ It uses ideas from earlier chapters:
 
 ---
 
-## 🗺️ Build Steps
+## Build Steps
 
 ```text
 +--------------------------------+
@@ -70,7 +70,7 @@ It uses ideas from earlier chapters:
 
 ---
 
-## 💻 Complete Code: blog.php
+## Complete Code: blog.php
 
 Save this file as `C:\xampp\htdocs\blog-project\blog.php`.
 
@@ -260,7 +260,7 @@ Notice the `&` is stored as a real `&`. It becomes `&amp;` only when it is print
 
 ---
 
-## 🔍 How the Code Works
+## How the Code Works
 
 - `json_decode(..., true) ?? []`: the `true` gives back associative arrays. If the file is broken, `json_decode()` returns `null`, and `?? []` gives an empty list instead.
 - `in_array($category, $categories, true)`: the visitor could send any category with browser tools. Only our three are accepted.

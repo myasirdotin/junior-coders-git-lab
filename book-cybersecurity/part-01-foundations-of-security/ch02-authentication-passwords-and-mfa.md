@@ -1,4 +1,4 @@
-# Chapter 2: Authentication, Password Entropy & MFA 🔑
+# Chapter 2: Authentication, Password Entropy & MFA
 
 ## 🌟 Real-Life Story
 
@@ -13,7 +13,7 @@ Most break-ins online do not start with clever code. They start with a password 
 - Explain why websites must store **hashes**, not passwords, and what a **salt** does.
 - Name the three kinds of login factors and explain **MFA**.
 
-## 🎲 Password Entropy: Measuring Unpredictability
+## Password Entropy: Measuring Unpredictability
 
 **Authentication** means proving who you are, for example by typing a password.
 
@@ -53,7 +53,7 @@ So **length beats complexity**. Five or six random words are easier to remember 
 ### A password manager
 You cannot remember 40 different passphrases. A **password manager** is an app that stores them all in an encrypted vault. You remember one strong passphrase; it remembers the rest and creates new random passwords for you. This also stops **reuse**, where one leaked password unlocks many accounts.
 
-## 🧂 Storing Passwords: Hashes, Not Plain Text
+## Storing Passwords: Hashes, Not Plain Text
 
 What if a website's database is stolen? It depends on how passwords were stored.
 
@@ -91,7 +91,7 @@ bool(false)
 ### What is a salt?
 A **salt** is a random value made for each user and mixed in before hashing. Two people with the same password get completely different hashes. It also defeats **rainbow tables**, which are huge ready-made lists of passwords and their hashes.
 
-## 📲 Multi-Factor Authentication (MFA)
+## Multi-Factor Authentication (MFA)
 
 There are three kinds of login **factors**:
 
@@ -111,7 +111,7 @@ There are three kinds of login **factors**:
 
 If someone steals your password, they still need your phone. A password plus a second password is **not** MFA, because both are "something you know".
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 - Make your main passwords passphrases of 5–6 random words.
 - Never reuse a password on two sites.

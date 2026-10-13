@@ -1,4 +1,4 @@
-# Chapter 5: Operators ➕
+# Chapter 5: Operators
 
 ---
 
@@ -28,7 +28,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 ### Arithmetic Operators (Math)
 | Operator | Meaning | Example | Result |
@@ -66,7 +66,7 @@ Comparison operators compare two values and always return a **boolean** (`true` 
 
 ---
 
-## 🌍 Real-World Example: Even and Odd Numbers
+## Real-World Example: Even and Odd Numbers
 
 How does your computer know if a number is even or odd?
 - Any even number divided by 2 has **0 remainder**!
@@ -76,7 +76,7 @@ This simple maths trick powers alternating row colours in tables and fair "take 
 
 ---
 
-## 💻 Code Example: Exam Marks Evaluator
+## Code Example: Exam Marks Evaluator
 
 Type this into your editor or scratchpad:
 
@@ -119,7 +119,7 @@ New Total with Bonus: 182
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - Line 7: `let totalMarks = mathMarks + scienceMarks;` calculates `85 + 92 = 177`.
 - Line 8: `let averageMarks = totalMarks / 2;` divides `177 / 2 = 88.5`.
@@ -150,7 +150,7 @@ Line 2 prints: <code>true</code>
 
 ---
 
-## 🧭 Think Like a Programmer: Even or Odd Algorithm
+## Think Like a Programmer: Even or Odd Algorithm
 
 Before writing code, plan how you would determine whether a user's roll number is even or odd:
 1. Input: `rollNumber`.
@@ -160,7 +160,7 @@ Before writing code, plan how you would determine whether a user's roll number i
 
 ---
 
-## 🚀 Coding Challenge: The Sweet Shop Sharing Calculator
+## Coding Challenge: The Sweet Shop Sharing Calculator
 
 Write a program where:
 - `totalSweets = 28;`
@@ -171,7 +171,7 @@ Write a program where:
 
 ---
 
-## 🛠️ Mini Project: The Report Card Calculator
+## Mini Project: The Report Card Calculator
 
 Create a program that calculates a student's term report:
 - `subject1 = 78`, `subject2 = 88`, `subject3 = 94`

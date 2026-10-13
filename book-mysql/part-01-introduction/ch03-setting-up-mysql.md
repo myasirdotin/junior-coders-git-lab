@@ -18,7 +18,7 @@ A school library has a librarian who sits behind the desk all day. Students do n
 
 ---
 
-## 🟢 Starting MySQL in XAMPP
+## Starting MySQL in XAMPP
 
 **XAMPP** is a free package that installs a web server (Apache), PHP and a database server on your computer. The database server in XAMPP is **MariaDB**, MySQL's close cousin. It understands the same SQL, so this book calls it "MySQL".
 
@@ -43,7 +43,7 @@ A **port** is a numbered door on your computer. Each server program listens at i
 
 ---
 
-## 🖥️ Using phpMyAdmin
+## Using phpMyAdmin
 
 **phpMyAdmin** is a web page for managing MySQL with buttons and forms.
 
@@ -67,7 +67,7 @@ Throughout this book, **"run this in phpMyAdmin"** means: open the SQL tab, past
 
 ---
 
-## ⌨️ Using the Command Line
+## Using the Command Line
 
 The **command line** (or **CLI**, command-line interface) is a text window where you type commands. Many developers prefer it because it is fast.
 
@@ -94,11 +94,11 @@ To leave, type `exit` and press Enter.
 
 ---
 
-## 🧪 Your First SQL Commands
+## Your First SQL Commands
 
 Type each command and press Enter. Every SQL **statement** (one complete command) ends with a semicolon `;`.
 
-### ➗ Do a sum
+### Do a sum
 
 ```sql
 SELECT 7 * 6;
@@ -110,7 +110,7 @@ SELECT 7 * 6;
 
 `SELECT` asks the server to give something back. Here it is just a calculation.
 
-### 👤 Who am I?
+### Who am I?
 
 ```sql
 SELECT CURRENT_USER();
@@ -122,7 +122,7 @@ SELECT CURRENT_USER();
 
 You are the `root` user, connected from this same computer (`localhost`).
 
-### 📚 Which databases exist?
+### Which databases exist?
 
 ```sql
 SHOW DATABASES;

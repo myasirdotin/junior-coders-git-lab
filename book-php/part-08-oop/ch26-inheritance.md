@@ -1,4 +1,4 @@
-# Chapter 26: Class Inheritance (Extends) 🧬
+# Chapter 26: Class Inheritance (Extends)
 
 ---
 
@@ -17,7 +17,7 @@ Think about your own family. You may have your mother's eyes or your father's he
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 **Inheritance** means one class receives all the properties and methods of another. The class that gives is the **parent** (or *base class*). The class that receives is the **child** (or *subclass*). You write shared code once, in the parent.
 
@@ -49,7 +49,7 @@ Inside the child, `parent::methodName()` still calls the parent's original versi
 
 ---
 
-## 💻 Code Example: School Community Hierarchy
+## Code Example: School Community Hierarchy
 
 ```php
 <?php
@@ -116,7 +116,7 @@ Notice that `Teacher` did not override `getDetails()`, so it uses the parent's v
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `class Student extends Person`: `Student` is a child of `Person`. It gets `$name`, `$email` and `getDetails()` automatically.
 - `public function getDetails()` inside `Student`: **Overrides** the parent's method. For a student, this version runs.

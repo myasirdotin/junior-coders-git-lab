@@ -13,7 +13,7 @@ During the school book fair, Khadija runs the information desk. While the desk i
 - Read the lines a server prints while it works.
 - Stop a server, or any stuck command, with <kbd>Ctrl</kbd> + <kbd>C</kbd>.
 
-## 🖥️ What Is a Local Server?
+## What Is a Local Server?
 
 A **web server** is a program that sends web pages to browsers. Big websites use servers on computers far away. A **local server** runs on **your own** computer, just for you to test your work.
 
@@ -21,7 +21,7 @@ Its address is `localhost`. That name always means *"this computer"*. After it c
 
 Plain HTML pages open fine with a double-click. But a **PHP** page needs a server to run its PHP code first. Without a server, the browser only shows the raw code, or offers to download the file.
 
-## 🐘 Starting PHP's Built-In Server
+## Starting PHP's Built-In Server
 
 PHP comes with a small server for testing. First go to your website folder. Make sure it has an `index.html` (or `index.php`). Then start the server with `php -S localhost:8000`. The `-S` must be a **capital** S. It means **S**erver.
 
@@ -60,7 +60,7 @@ Each time you refresh the page, more lines appear. This list is called a **log**
 > [!NOTE]
 > **Git Bash / macOS**: the command is the same, `php -S localhost:8000`, if PHP is installed.
 
-## 🐍 Python's Simple Server
+## Python's Simple Server
 
 If Python is installed, it can also serve plain HTML, CSS and JavaScript files (but not PHP). The command is the same in CMD and PowerShell:
 
@@ -81,7 +81,7 @@ Serving HTTP on :: port 8000 (http://[::]:8000/) ...
 > [!TIP]
 > Windows may show a firewall question the first time. You do not need to allow anything to visit `localhost`. If you are not sure, ask your teacher before clicking.
 
-## 🛑 The Emergency Brake: <kbd>Ctrl</kbd> + <kbd>C</kbd>
+## The Emergency Brake: <kbd>Ctrl</kbd> + <kbd>C</kbd>
 
 While a server runs, you **cannot type new commands** in that window. The terminal is busy listening for browsers.
 

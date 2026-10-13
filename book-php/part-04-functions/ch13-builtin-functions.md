@@ -1,4 +1,4 @@
-# Chapter 13: Top Built-in PHP Functions 🧰
+# Chapter 13: Top Built-in PHP Functions
 
 ---
 
@@ -18,7 +18,7 @@ On a school nature trip, nobody makes their own scissors, knife and torch from r
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **built-in function** is a function that comes with PHP. You call it; you never have to write it.
 
@@ -44,7 +44,7 @@ A **built-in function** is a function that comes with PHP. You call it; you neve
 
 ---
 
-## 💻 Code Example: Built-in Utility Showcase
+## Code Example: Built-in Utility Showcase
 
 ```php
 <?php
@@ -89,7 +89,7 @@ Output (the dates and times depend on when you run it; this run was on 13 Octobe
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `date("l, F j, Y")`:
   - `l` (lowercase L): full day name (*"Tuesday"*).

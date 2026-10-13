@@ -1,4 +1,4 @@
-# Chapter 18: Testing and Sharing Your App 🚀
+# Chapter 18: Testing and Sharing Your App
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ Apps are the same. First you test: you watch what the app is doing, find the cau
 - Test on different screen sizes, in dark mode and with large text, and write a small **unit test** with JUnit.
 - Explain signing, keystores, versions and the safe ways to share an app with family or a teacher.
 
-## 📋 Logcat and Log.d
+## Logcat and Log.d
 
 **Logcat** is a window in Android Studio that shows messages from the phone or emulator. Open it with **View → Tool Windows → Logcat** (or the Logcat tab at the bottom). Android writes many messages there. Your app can add its own.
 
@@ -51,7 +51,7 @@ There are five common log levels:
 
 **Amānah in logs:** never log passwords, names or other personal data. Logs can be read by anyone who connects the phone to a computer. Log ids and counts, not people.
 
-## 💥 Reading a Crash Stack Trace
+## Reading a Crash Stack Trace
 
 When an app crashes, Android closes it and Logcat prints a **stack trace** in red. A **stack trace** is the list of functions that were running when the error happened, newest first. It looks scary, but you only need three things from it.
 
@@ -91,7 +91,7 @@ In an Android app, Logcat shows the same kind of list. It starts with `FATAL EXC
 
 The fix here is to use `toIntOrNull()` (Chapter 8), which gives `null` instead of crashing, and then show a kind message.
 
-## 🐞 Breakpoints and the Debugger
+## Breakpoints and the Debugger
 
 `Log.d` shows what you decided to print. The **debugger** lets you stop the app and look at **everything**.
 
@@ -110,7 +110,7 @@ Then move through the code step by step:
 
 Debugging is detective work. Do not change code at random. Form a guess ("I think `available` is still false here"), stop at that line, and check it.
 
-## 📏 Different Screens, Dark Mode and Large Text
+## Different Screens, Dark Mode and Large Text
 
 Your classmates' phones are all different. Test at least these:
 
@@ -143,7 +143,7 @@ fun BookCardPreview() {
 
 The preview pane now shows the card in a light and a dark version, on phone, foldable, tablet and desktop sizes, and with several text sizes. Look for text that is cut off, colours that are hard to read in dark mode, and buttons pushed off the screen.
 
-## 🧪 A Tiny Unit Test
+## A Tiny Unit Test
 
 Clicking through the app is slow. A **unit test** is a small piece of code that checks one function automatically. Android Studio projects already have a folder for them: `app/src/test/`. These tests run on your computer, not on a phone, so they take seconds.
 
@@ -243,7 +243,7 @@ PASS: expected "0 min", got "0 min"
 
 Change `"$hours h $rest min"` to `"$hours h$rest min"` and run again. The third line says `FAIL`. That is the whole point of tests: they catch a small slip before a user does.
 
-## 🔢 Version Code and Version Name
+## Version Code and Version Name
 
 Every app has two version values in `app/build.gradle.kts`, inside `defaultConfig`:
 
@@ -263,7 +263,7 @@ defaultConfig {
 
 Android uses `versionCode` to decide if a file is an update. If you share a new version with the same or a smaller `versionCode`, Android may refuse to install it over the old one. After changing these lines, click **Sync Now** at the top of the editor.
 
-## ✍️ Signing and the Keystore
+## Signing and the Keystore
 
 Android only installs apps that are **signed**. A **signature** is a digital seal made with a secret key. It proves two things: who made the app, and that nobody changed it after it was signed.
 
@@ -291,7 +291,7 @@ The keystore is like the school's official stamp. Treat it that way:
 - **Never put it in Git or on a public site.** Add `*.jks` to your `.gitignore` file.
 - **Keep a backup** in a safe place, such as a USB stick your teacher or parent keeps.
 
-## 📲 Sharing With Family or Your Teacher
+## Sharing With Family or Your Teacher
 
 The simplest way to try the app on a family phone: connect the phone with a USB cable, turn on **USB debugging** in its **Developer options** (Settings → About phone → tap **Build number** seven times to show them), and press Run. Android Studio installs the debug version.
 
@@ -307,7 +307,7 @@ Android then shows a warning and asks you to allow "**Install unknown apps**" fo
 
 **A rule that is changing.** From 2026, Google has started to require that apps installed on most Android phones come from a **verified developer**, even when they are not from the Play Store. It began in a few countries and is spreading. Installing straight from Android Studio over a USB cable, as above, is not affected. If tapping an APK file is blocked on a family phone, use the USB cable way, and check the latest rules on developer.android.com.
 
-## 🏪 Google Play Needs an Adult
+## Google Play Needs an Adult
 
 To publish on Google Play, someone must create a **Google Play developer account**. The account holder must be **18 or older**. Google also asks for identity checks and a one-time registration fee. New personal accounts usually must test the app with a group of testers for a while before it can go public.
 

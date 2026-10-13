@@ -14,7 +14,7 @@ Hafsa is writing a report in the school library. When she starts typing a long w
 - Show your command history as a list.
 - Use the most helpful keyboard shortcuts, including the <kbd>Ctrl</kbd> + <kbd>C</kbd> "stop" key.
 
-## ⌨️ Superpower 1: Tab Completion
+## Superpower 1: Tab Completion
 
 **Tab completion** means the terminal finishes a name for you. You type the first few letters, then press the <kbd>Tab</kbd> key.
 
@@ -51,7 +51,7 @@ Suppose you have `day-01`, `day-02` and `day-03`.
 > [!TIP]
 > **Tab is a spelling check.** If you press <kbd>Tab</kbd> and nothing changes, no file or folder starts with those letters **here**. Check your spelling, or check where you are standing.
 
-## 🕰️ Superpower 2: Command History
+## Superpower 2: Command History
 
 The terminal remembers the commands you ran in this window. This list is called the **history**.
 
@@ -97,7 +97,7 @@ Each window keeps its own history. In CMD, closing the window forgets it. PowerS
 
 In Chapter 11 you will start a small web server with a long command. You will stop it, change your page, and start it again many times. Instead of retyping, you will press <kbd>↑</kbd> and <kbd>Enter</kbd>. Two key presses!
 
-## ⚡ Helpful Keyboard Shortcuts
+## Helpful Keyboard Shortcuts
 
 | Shortcut | What it does | Works in |
 | :--- | :--- | :--- |

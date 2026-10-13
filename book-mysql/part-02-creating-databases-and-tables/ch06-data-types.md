@@ -18,7 +18,7 @@ A school office has different boxes for different things. Exam papers go in the 
 
 ---
 
-## ❓ Why Data Types Matter
+## Why Data Types Matter
 
 A computer treats `15` (a number) and `'15'` (text) differently.
 
@@ -35,7 +35,7 @@ Column: age INT
 
 ---
 
-## 🔢 Family 1: Number Types
+## Family 1: Number Types
 
 | Type | What it holds | Range or size | Good for |
 | :--- | :--- | :--- | :--- |
@@ -64,7 +64,7 @@ The `FLOAT` lost the paise! For charity donations, fees or Zakat, fairness means
 
 ---
 
-## 🔤 Family 2: Text Types
+## Family 2: Text Types
 
 | Type | What it holds | Good for |
 | :--- | :--- | :--- |
@@ -79,7 +79,7 @@ The `FLOAT` lost the paise! For charity donations, fees or Zakat, fairness means
 
 ---
 
-## 📅 Family 3: Date and Time Types
+## Family 3: Date and Time Types
 
 | Type | Format | Good for |
 | :--- | :--- | :--- |
@@ -98,13 +98,13 @@ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
 ---
 
-## ✅ Family 4: True or False (`BOOLEAN`)
+## Family 4: True or False (`BOOLEAN`)
 
 `BOOLEAN` (or `BOOL`) holds true or false. MySQL really stores it as a tiny number: `1` for TRUE and `0` for FALSE. If you insert `TRUE` and read it back, you see `1`.
 
 ---
 
-## 🏫 The Types in `school_db`
+## The Types in `school_db`
 
 Here is why Chapter 5 chose each type:
 

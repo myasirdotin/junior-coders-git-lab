@@ -18,7 +18,7 @@ A loan slip says only "student 1, book 2". The librarian wants to print a friend
 
 ---
 
-## 🧩 Putting the Pieces Back Together
+## Putting the Pieces Back Together
 
 `school_db` stores each fact once:
 
@@ -36,7 +36,7 @@ The picture shows three kinds of join. This chapter uses the plain `JOIN`, which
 
 ---
 
-## 🔗 The Shape of a JOIN
+## The Shape of a JOIN
 
 Every join needs two things:
 
@@ -79,7 +79,7 @@ Writing `students.name` (table name, dot, column name) tells MySQL exactly which
 
 ---
 
-## ✂️ Short Names: Table Aliases
+## Short Names: Table Aliases
 
 Typing `students.` and `classes.` again and again is tiring. Give each table a short **alias** right after its name:
 
@@ -102,7 +102,7 @@ WHERE c.teacher = 'Ms. Noor';
 
 ---
 
-## 🔗 Three Tables: Who Borrowed What?
+## Three Tables: Who Borrowed What?
 
 A loan links a student **and** a book, so we join three tables. Start from `loans` and join each parent:
 
@@ -131,7 +131,7 @@ Now the loan list reads like sentences. The `loans` table itself still holds onl
 
 ---
 
-## 💥 Forgetting `ON`: Every Row Times Every Row
+## Forgetting `ON`: Every Row Times Every Row
 
 What if you leave out the `ON` part?
 

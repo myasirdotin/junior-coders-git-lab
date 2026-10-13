@@ -1,4 +1,4 @@
-# Chapter 5: The OWASP Top 10 — Defending the Web 🌐
+# Chapter 5: The OWASP Top 10 — Defending the Web
 
 ## 🌟 Real-Life Story
 
@@ -11,7 +11,7 @@ Before a school opens each morning, the caretaker uses a printed checklist. Are 
 - Apply the rule "never trust user input" to a form.
 - Tell apart **validation**, **escaping** and **parameterization**.
 
-## 🗺️ What Is OWASP?
+## What Is OWASP?
 
 **OWASP** (the Open Worldwide Application Security Project) is a non-profit community. Its members share free guides and tools about building safe software.
 
@@ -32,7 +32,7 @@ Every few years, OWASP studies data from many real web applications. It then pub
 └──────────────────────────────────────────┘
 ```
 
-## 📖 The Ten Risks in Plain Words
+## The Ten Risks in Plain Words
 
 | Code | Plain meaning | School-portal example |
 | :--- | :--- | :--- |
@@ -49,7 +49,7 @@ Every few years, OWASP studies data from many real web applications. It then pub
 
 Words to know: a **library** (in coding) is ready-made code you add to your project. An **exception** is an error the program has to deal with while running.
 
-## 🧱 The Core Rule: Never Trust User Input
+## The Core Rule: Never Trust User Input
 
 If you remember one rule from this part of the book, make it this one:
 
@@ -65,7 +65,7 @@ If you remember one rule from this part of the book, make it this one:
 
 Remember: anyone can change what their own browser sends. Hidden form fields and drop-down menus can be edited too. Checks in JavaScript help the user, but only checks on the **server** protect the data.
 
-## 🛡️ Three Shields Against Bad Input
+## Three Shields Against Bad Input
 
 ### Shield 1: Validation (is it the right shape?)
 **Validation** means checking that data looks the way you expect, *before* you use it. Is the age really a whole number between 5 and 19?
@@ -116,7 +116,7 @@ The browser now *shows* the tags as text instead of making the words bold. Chapt
 | Escaping | "Will this show as text only?" | Data is shown on a page |
 | Parameterization | "Is data kept apart from commands?" | Data goes into a database query |
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 When you build any form:
 

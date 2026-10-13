@@ -1,4 +1,4 @@
-# Chapter 7: Dictionaries & Sets 📖
+# Chapter 7: Dictionaries & Sets
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ In the school library, every book has a catalogue card. The card does not say "i
 - Keep a list of dictionaries as a small table of records.
 - Remove duplicates and compare groups with sets.
 
-## 🗂️ Creating a Dictionary
+## Creating a Dictionary
 
 A **dictionary** stores **key-value pairs**. The **key** is the label. The **value** is the information. Write a dictionary with curly braces `{ }`, a colon between each key and value, and commas between pairs.
 
@@ -48,7 +48,7 @@ Book of Optics
 
 You read a value with square brackets and the **key**: `book["title"]`. Keys are usually strings. Each key appears only once in a dictionary.
 
-## ✏️ Adding, Changing and Removing
+## Adding, Changing and Removing
 
 ```python
 book = {"title": "Book of Optics", "year": 1021, "is_available": True}
@@ -101,7 +101,7 @@ None
 
 With no default, `.get()` returns `None`, Python's word for "nothing here".
 
-## 🔁 Looping Over a Dictionary
+## Looping Over a Dictionary
 
 A `for` loop over a dictionary visits its **keys**. Use `.items()` to get each key **and** its value together.
 
@@ -137,7 +137,7 @@ Total items: 175
 
 Dictionaries remember the order in which you added the keys, so loops follow that order.
 
-## 🧮 Counting with a Dictionary
+## Counting with a Dictionary
 
 A very common job is counting how often each thing appears. Start with an empty dictionary `{}`. For each item, add 1 to its count. `.get(item, 0)` gives 0 the first time an item is seen.
 
@@ -165,7 +165,7 @@ beach clean-up: 1 vote(s)
 
 This "tally" pattern appears again in the machine learning chapters, where we count labels in a dataset.
 
-## 🧾 A List of Dictionaries: A Small Table
+## A List of Dictionaries: A Small Table
 
 Real data often has many records with the same keys. Put each record in a dictionary and keep them all in a list. Each dictionary is one **row**; each key is one **column**.
 
@@ -202,7 +202,7 @@ First record's age: 45
 
 `clinic_queue[0]["age"]` reads in two steps: first item of the list, then the `"age"` key. Inside a double-quoted f-string, use single quotes for keys: `{patient['name']}`.
 
-## ⭕ Sets: Only Unique Items
+## Sets: Only Unique Items
 
 A **set** is a collection where **no value can appear twice**. Write it with curly braces but no colons: `{"a", "b"}`. A set has **no order**, so it has no indexes. When printing a set of words, the order can change from run to run. So in this chapter we print `sorted(...)`. The built-in `sorted()` gives back a new, sorted **list**.
 
@@ -254,7 +254,7 @@ print(sorted(group_b.difference(group_a)))
 ['Ethics', 'Statistics']
 ```
 
-## 🧭 Which Collection Should I Use?
+## Which Collection Should I Use?
 
 | Collection | Looks like | Ordered? | Can change? | Duplicates? | Use for |
 | :--- | :--- | :--- | :--- | :--- | :--- |

@@ -1,4 +1,4 @@
-# Chapter 3: PHP in HTML Templates 🎨
+# Chapter 3: PHP in HTML Templates
 
 ---
 
@@ -17,7 +17,7 @@ At the end of term, your school gives out certificates. Each certificate is prin
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **template** is a page layout with gaps that get filled in later. A `.php` file can hold normal HTML with small PHP "gaps" inside it.
 
@@ -53,7 +53,7 @@ Both give exactly the same HTML. The short echo tag is quicker to type and easie
 
 ---
 
-## 💻 Code Example: Dynamic Student Profile Page
+## Code Example: Dynamic Student Profile Page
 
 Save this file as `profile.php`:
 
@@ -107,7 +107,7 @@ Output (in 2026):
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `<?php $studentName = "..."; ?>`: The data is prepared at the top. This keeps the HTML below clean.
 - `<title><?= $studentName ?> - ...</title>`: Puts the student's name in the browser tab title.

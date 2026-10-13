@@ -1,4 +1,4 @@
-# Chapter 14: Indexed Arrays 📚
+# Chapter 14: Indexed Arrays
 
 ---
 
@@ -18,7 +18,7 @@ Think of a carton of 12 eggs. You do not give each egg its own shelf in the frid
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 An **array** is one variable that stores many values. In an **indexed array**, each value has a number called its **index**.
 
@@ -41,7 +41,7 @@ LAST ITEM:   $fruits[count($fruits) - 1]
 
 ---
 
-## 💻 Code Example: Managing a Student Roster
+## Code Example: Managing a Student Roster
 
 ```php
 <?php
@@ -87,7 +87,7 @@ First student: Amina<br>Third student: Chandni<br>Total Students Enrolled: <stro
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `$roster = ["Amina", ...];`: The short array syntax. It has worked since PHP 5.4 and is the modern style.
 - `$roster[1] = "Babar";`: Puts a new value into position 1, replacing the old one.

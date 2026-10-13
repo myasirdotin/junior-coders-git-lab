@@ -18,7 +18,7 @@ After charity week, the club pours all the donation slips onto a table. Then the
 
 ---
 
-## 🧺 The Grouping Idea
+## The Grouping Idea
 
 <div align="center" style="margin: 2rem 0;">
   <img src="../assets/diagrams/mysql/group-by-aggregation.svg" alt="How GROUP BY & Aggregations Work" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
@@ -55,7 +55,7 @@ One result row per group. The aggregate runs inside each group.
 
 ---
 
-## 📊 Grouping in Practice
+## Grouping in Practice
 
 ### Donations by cause
 
@@ -144,7 +144,7 @@ ORDER BY s.id;
 
 ---
 
-## 🚦 Filtering Groups with `HAVING`
+## Filtering Groups with `HAVING`
 
 Which causes raised more than 6,000 rupees?
 
@@ -189,7 +189,7 @@ Step by step: `WHERE` removes the early gifts (Ahmad, Sara, Ibrahim). The remain
 
 ---
 
-## 🧭 The Order of the Parts
+## The Order of the Parts
 
 You **write** the parts in this order:
 

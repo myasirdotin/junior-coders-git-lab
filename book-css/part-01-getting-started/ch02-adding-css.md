@@ -1,4 +1,4 @@
-# Chapter 2: Adding CSS 🔌
+# Chapter 2: Adding CSS
 
 ---
 
@@ -28,7 +28,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Three Methods Compared
 
@@ -55,7 +55,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: Linking HTML and External CSS
+## Code Example: Linking HTML and External CSS
 
 ### File 1: `index.html`
 ```html
@@ -114,7 +114,7 @@ p {
 
 ---
 
-## 🔍 Code Explanation: How the `<link>` Tag Works
+## Code Explanation: How the `<link>` Tag Works
 
 Look at line 8 of `index.html`:
 ```html
@@ -176,7 +176,7 @@ Filename in folder: style.css
 
 ---
 
-## 🎨 Think Like a Web Designer: Clean Project Folders
+## Think Like a Web Designer: Clean Project Folders
 
 As your websites grow, having 20 HTML files, 5 CSS files, and 30 photos in one messy folder gets overwhelming.
 Professional web designers use clean folder organization:
@@ -200,7 +200,7 @@ In index.html:
 
 ---
 
-## 🚀 Mini Challenge: The Multi-Page Style Test
+## Mini Challenge: The Multi-Page Style Test
 
 Create a mini 2-page website:
 - `page1.html`: "Page 1 - Home"

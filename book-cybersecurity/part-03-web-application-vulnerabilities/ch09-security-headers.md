@@ -1,4 +1,4 @@
-# Chapter 9: HTTP Security Headers 📨
+# Chapter 9: HTTP Security Headers
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ When the school office sends a parcel of exam papers to another school, it does 
 - Turn on HSTS carefully, and set the **Secure**, **HttpOnly** and **SameSite** cookie flags.
 - Send security headers from PHP with `header()` and from Apache with `.htaccess`.
 
-## 📨 What Are Response Headers?
+## What Are Response Headers?
 
 When your browser asks for a page, it sends a **request**. The server replies with a **response**. The response has two parts:
 
@@ -39,7 +39,7 @@ The first line says the request worked (`200 OK`). `Content-Type` says "this is 
 
 In Chapter 6 you met one security header already: the Content Security Policy against XSS. In Chapter 8 you met the `Set-Cookie` header with `SameSite`. This chapter puts all the important ones together.
 
-## 🔍 How to See a Site's Headers
+## How to See a Site's Headers
 
 ### In the browser (DevTools)
 
@@ -78,7 +78,7 @@ alt-svc: h3=":443"; ma=86400
 
 > 🛡️ **Amānah rule:** looking at headers is harmless, because every browser receives them. Testing a site for weaknesses is different: only test sites you own or have written permission to test.
 
-## 🧱 Content-Security-Policy (CSP)
+## Content-Security-Policy (CSP)
 
 **What it blocks:** scripts and other files from places you did not approve. It is a strong second layer against **XSS** (Chapter 6).
 
@@ -115,7 +115,7 @@ An attacker cannot guess the next nonce, so their injected script has no matchin
 
 > 💡 **Test first:** send the same policy as `Content-Security-Policy-Report-Only`. The browser then only reports problems in the DevTools **Console** and blocks nothing. When the console is clean, switch to the real header.
 
-## 🔒 Strict-Transport-Security (HSTS)
+## Strict-Transport-Security (HSTS)
 
 **What it blocks:** someone on the same Wi-Fi quietly switching your visit from `https://` to unprotected `http://`.
 
@@ -137,7 +137,7 @@ A browser that has seen HSTS will **refuse** plain HTTP for the whole `max-age`.
 3. Add `includeSubDomains` only when **every** subdomain has HTTPS.
 4. Do not add the extra `preload` word until you are sure. It puts your site on a list built into browsers, and leaving that list takes months.
 
-## 📄 X-Content-Type-Options: nosniff
+## X-Content-Type-Options: nosniff
 
 **What it blocks:** the browser "guessing" a file's type and running it as something dangerous.
 
@@ -149,7 +149,7 @@ Every file is sent with a `Content-Type`, such as `text/plain` or `image/png`. S
 
 This header has only one value, `nosniff`, and is safe to send on every response.
 
-## 🖼️ Clickjacking: frame-ancestors and X-Frame-Options
+## Clickjacking: frame-ancestors and X-Frame-Options
 
 **What it blocks:** **clickjacking**. Another site loads your page invisibly inside a frame and places it over its own buttons. The visitor thinks they are clicking "Next", but they are really clicking "Delete my project" on your site.
 
@@ -177,7 +177,7 @@ X-Frame-Options: DENY
 
 `DENY` matches `'none'`, and `SAMEORIGIN` matches `'self'`. Sending both is common and harmless. When both are present, modern browsers follow `frame-ancestors`.
 
-## 🔗 Referrer-Policy
+## Referrer-Policy
 
 **What it blocks:** leaking the full address of your page to other sites.
 
@@ -189,7 +189,7 @@ Referrer-Policy: strict-origin-when-cross-origin
 
 This sends the full address within your own site, but only the site name (`https://school-portal.example.org`) to other sites, and nothing at all from HTTPS to HTTP. Modern browsers already use this as their default, but setting it yourself makes it certain. For very private pages, use `no-referrer`.
 
-## 🎛️ Permissions-Policy
+## Permissions-Policy
 
 **What it blocks:** using powerful browser features your site does not need.
 
@@ -199,7 +199,7 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()
 
 The empty brackets `()` mean "allowed for nobody". So even if a harmful script gets into the page, it cannot ask to use the camera, the microphone or the visitor's location. A homework site needs none of these. Turn off what you do not use: that is the principle of **least privilege** (give only the access that is needed).
 
-## 🍪 Cookie Flags: Secure, HttpOnly, SameSite
+## Cookie Flags: Secure, HttpOnly, SameSite
 
 Cookies are set with the `Set-Cookie` header, and three **flags** (extra settings) protect them:
 
@@ -228,14 +228,14 @@ The `Set-Cookie` header this sends (the session ID is random each time):
 Set-Cookie: PHPSESSID=ssi4emhp1dnd1gat7828sj055b; path=/; secure; HttpOnly; SameSite=Lax
 ```
 
-## 🗑️ Old Headers You Can Skip
+## Old Headers You Can Skip
 
 Old tutorials often list headers that modern browsers no longer use:
 
 - **`X-XSS-Protection`** switched on an "XSS filter" built into old browsers. Edge removed that filter in 2018 and Chrome in 2019; Firefox never had it. The filter could even be misused to cause harm. **Do not rely on it.** Leave the header out, or send `X-XSS-Protection: 0` to turn the old filter off. Your real XSS defences are escaping (Chapter 6) and CSP.
 - **`Public-Key-Pins`** and **`Expect-CT`** are also retired. Browsers ignore them.
 
-## 🐘 Setting Headers in PHP
+## Setting Headers in PHP
 
 PHP's `header()` function adds one response header. It must run **before** any HTML or `echo`, because headers travel in front of the page.
 
@@ -275,7 +275,7 @@ Every header you set is there. HSTS is left out of this test on purpose, because
 
 Notice `X-Powered-By: PHP/8.3.31`. It tells everyone your exact PHP version, which helps attackers look up known weaknesses. On a real server, set `expose_php = Off` in `php.ini` to hide it.
 
-## 🪶 Setting Headers in Apache (.htaccess)
+## Setting Headers in Apache (.htaccess)
 
 If your site runs on Apache (as in XAMPP), you can set the headers once for a whole folder. Apache's **mod_headers** module adds the `Header` command. Put this in a file named `.htaccess` in your site's folder:
 
@@ -296,7 +296,7 @@ If your site runs on Apache (as in XAMPP), you can set the headers once for a wh
 
 Choose **one** place for each header, PHP or Apache. Setting the same header in both can send it twice.
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 - Open your own project in DevTools → Network and list which security headers it sends.
 - Add CSP, `nosniff`, `frame-ancestors` (plus `X-Frame-Options`), Referrer-Policy and Permissions-Policy.

@@ -1,4 +1,4 @@
-# Chapter 14: More Than One Screen 🧭
+# Chapter 14: More Than One Screen
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ Think of the school library itself. At the front desk there is a long list of bo
 - Move between screens with `NavController` and `NavHost`, passing only a book's id.
 - Go back with the system Back button, `navigateUp()` and a top app bar with a back arrow.
 
-## 🧭 Why Apps Have Screens
+## Why Apps Have Screens
 
 So far the School Library app is one screen: a search box and a scrolling list of `BookRow` items with a "Save for later" toggle. That works for five books. But where does a student read more about one book? If you squeeze every detail into each row, the list becomes long and hard to scan.
 
@@ -27,7 +27,7 @@ The student taps a row on the list. The app opens the detail screen for that boo
 
 Moving between screens is called **navigation**. Jetpack has a library for it called **Navigation Compose**.
 
-## 🗺️ Three Words: Route, NavHost, NavController
+## Three Words: Route, NavHost, NavController
 
 Navigation Compose uses three ideas. Learn the words first; the code will make sense after.
 
@@ -51,7 +51,7 @@ Start        Tap book 3       Press Back
 
 The screen on top of the pile is the one the student sees.
 
-## 🛠️ Setting Up the Project
+## Setting Up the Project
 
 Navigation is not part of the "Empty Activity" template. You add two things: the **Navigation Compose library** and the **Kotlin serialization plugin**. A **plugin** is a helper that changes how your code is built. The serialization plugin lets Kotlin turn a route like `BookDetail(3)` into text and back again, so the app can remember it.
 
@@ -108,7 +108,7 @@ Notice the dots: the name `androidx-navigation-compose` in the catalog becomes `
 
 A bar appears at the top: "Gradle files have changed since last project sync". Click **Sync Now**. Wait until the sync finishes. If a line turns red, read the error, check the spelling against the catalog, and sync again.
 
-## 🏷️ Routes as Kotlin Types
+## Routes as Kotlin Types
 
 A **type-safe route** is a small Kotlin class or object that names a screen. "Type-safe" means Kotlin checks it for you. If you forget the book's id, the code will not even build.
 
@@ -132,7 +132,7 @@ data class BookDetail(val id: Int)
 
 Why send only the `id` and not the whole `Book`? The id is small and simple. The detail screen can look the book up itself. The official Android advice is the same: pass the smallest piece of data that identifies the thing.
 
-## 🔍 Looking Up a Book by Its Id
+## Looking Up a Book by Its Id
 
 Here is the lookup on its own, as plain Kotlin (with the `Book` class and `sampleBooks` from Chapter 8 above it). `find` returns the first book that matches, or `null` if none does. You met `?.` and `?:` in Chapter 8.
 
@@ -156,7 +156,7 @@ Book not found
 
 The detail screen must handle the `null` case. An id might not exist, for example if a book is removed from the list later.
 
-## 📱 The Two Screens and the NavHost
+## The Two Screens and the NavHost
 
 Now the full example. It is long, so read it in parts. The `Book` class and `sampleBooks` are the same as in earlier chapters. To keep the code short, the list here leaves out the search box and the "Save for later" toggle. Keep yours in your own app: they stay inside `BookListScreen` and `BookRow`.
 
@@ -343,7 +343,7 @@ Notice that the screens do not know about `navController`. `BookListScreen` only
 
 `Card(onClick = ...)` makes the whole card tappable. A tappable card also shows a ripple (a soft wave of colour) when touched, so the student sees that the tap worked.
 
-## ⬅️ Going Back
+## Going Back
 
 There are two ways back, and both should work.
 
@@ -364,7 +364,7 @@ The icon is `Icons.AutoMirrored.Filled.ArrowBack`. "AutoMirrored" means it flips
 
 If `Icons` stays red after you add the import, your project usually needs the Material icons library (`androidx.compose.material:material-icons-core`). Add it the same way you added Navigation, using Android Studio's suggestion.
 
-## 💾 What Happens to State When You Leave a Screen?
+## What Happens to State When You Leave a Screen?
 
 In Chapter 12 the search text lived in a `rememberSaveable` variable. Good news: Navigation keeps `rememberSaveable` values for screens that are still on the back stack. So if a student types "garden", opens a book and presses Back, the word "garden" is still in the box.
 

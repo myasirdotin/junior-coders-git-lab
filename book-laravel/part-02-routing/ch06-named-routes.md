@@ -12,7 +12,7 @@ Your school library moves from the first floor to a new building. If every poste
 - Redirect to a named route.
 - Group routes that share a URL prefix and a name prefix.
 
-## 🏷️ Naming a Route
+## Naming a Route
 
 Add `->name('...')` to the end of a route:
 
@@ -29,7 +29,7 @@ Route::get('/books/{id}', function ($id) {
 
 Names usually use dots: **thing.action**. So `books.index` means "the list of books" and `books.show` means "one book". Chapter 8 uses exactly these names, so it is a good habit to start now.
 
-## 🔗 Making URLs with `route()`
+## Making URLs with `route()`
 
 The `route()` helper turns a name into a full URL:
 
@@ -77,7 +77,7 @@ The browser receives:
 <a href="http://127.0.0.1:8000/books/42">Book 42</a>
 ```
 
-## 🔁 Why Names Beat Typed URLs
+## Why Names Beat Typed URLs
 
 Suppose the library decides that `/books` should become `/catalogue`. You change one line:
 
@@ -89,7 +89,7 @@ Route::get('/catalogue', function () {
 
 Every `route('books.index')` in your app now gives `http://127.0.0.1:8000/catalogue`. No link breaks. If you had typed `href="/books"` in twenty views, you would need to find and fix all twenty.
 
-## ↪️ Redirecting to a Named Route
+## Redirecting to a Named Route
 
 After an action, you often send the visitor to another page. Use `redirect()->route()`:
 
@@ -101,7 +101,7 @@ Route::get('/old-catalogue', function () {
 
 Visiting `/old-catalogue` jumps to `/books`. Later, after saving a new book, you will write `return redirect()->route('books.index');` many times.
 
-## 📦 Route Groups
+## Route Groups
 
 Librarian pages often share the same start, like `/librarian/...`. A **route group** lets you write the shared parts once:
 
@@ -124,7 +124,7 @@ Route::prefix('librarian')->name('librarian.')->group(function () {
 
 `prefix()` adds to the URL. `name()` adds to the start of each name. Notice the dot at the end of `'librarian.'`. Chapter 9 adds a third shared part to groups: middleware.
 
-## 🔍 Check Names with `route:list`
+## Check Names with `route:list`
 
 ```bash
 php artisan route:list --name=books

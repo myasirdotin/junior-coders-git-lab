@@ -18,7 +18,7 @@ On the first day of term, the school secretary fills in a new line in the regist
 
 ---
 
-## 🧩 The Shape of `INSERT INTO`
+## The Shape of `INSERT INTO`
 
 <div align="center" style="margin: 2rem 0;">
   <img src="../assets/diagrams/mysql/crud-lifecycle.svg" alt="The 4 CRUD Operations in SQL" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
@@ -40,7 +40,7 @@ Four rules:
 
 ---
 
-## ➕ Adding One Row
+## Adding One Row
 
 Make sure `school_db` is active (`USE school_db;`), then add the first class:
 
@@ -67,7 +67,7 @@ This is handy in apps: right after adding a student, you can learn their new id.
 
 ---
 
-## 📦 Adding Many Rows at Once
+## Adding Many Rows at Once
 
 Put several sets of brackets after `VALUES`, separated by commas:
 
@@ -98,7 +98,7 @@ SELECT * FROM classes;
 
 ---
 
-## 🏫 Filling `school_db`
+## Filling `school_db`
 
 Here is the full data for the other four tables. The rest of this book uses exactly these rows, so type them carefully (or copy them once you have typed a few yourself).
 
@@ -149,7 +149,7 @@ A `loans` row like `(1, 2, '2026-09-20', 'No')` reads: *student 1 (Zayd) borrowe
 
 ---
 
-## 🕳️ Leaving Columns Out
+## Leaving Columns Out
 
 You do not have to fill every column:
 

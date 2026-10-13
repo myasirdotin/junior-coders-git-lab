@@ -18,7 +18,7 @@ The school office printed a register with four columns: ID, name, subject and em
 
 ---
 
-## 🧰 Why Change a Table?
+## Why Change a Table?
 
 In Chapters 5–7 we planned tables with care. Still, plans change:
 
@@ -38,7 +38,7 @@ ALTER TABLE table_name
 
 ---
 
-## 🧪 Our Practice Table: `teachers`
+## Our Practice Table: `teachers`
 
 We will practise on a small new table, so the five `school_db` tables stay exactly as the rest of this book expects.
 
@@ -56,7 +56,7 @@ The table is empty. Rows come in Chapter 9. In this chapter we only change its *
 
 ---
 
-## ➕ Adding a Column: `ADD COLUMN`
+## Adding a Column: `ADD COLUMN`
 
 The office wants an email address for each teacher:
 
@@ -108,7 +108,7 @@ Column order does not change what the table can store. It only changes how `DESC
 
 ---
 
-## 🔧 Changing a Column: `MODIFY`
+## Changing a Column: `MODIFY`
 
 Some teachers have long names, and 50 letters is not enough. `MODIFY` gives a column a new definition but keeps its name:
 
@@ -124,7 +124,7 @@ Read it as: "from now on, `full_name` is `VARCHAR(100) NOT NULL`."
 
 ---
 
-## 🏷️ Renaming a Column: `CHANGE`
+## Renaming a Column: `CHANGE`
 
 The name `email` is not clear. Is it the teacher's own address or the school one? Let us rename it to `work_email`.
 
@@ -170,7 +170,7 @@ XAMPP ships **MariaDB 10.4**, so on your XAMPP use `CHANGE`. `CHANGE` works on e
 
 ---
 
-## 🛡️ Defaults and Constraints
+## Defaults and Constraints
 
 Chapter 7 put rules on columns inside `CREATE TABLE`. `ALTER TABLE` can add them later, or take them away.
 
@@ -256,7 +256,7 @@ Why is a `UNIQUE` rule removed with `DROP INDEX`? To check "no repeats" quickly,
 
 ---
 
-## 🗑️ Removing a Column: `DROP COLUMN`
+## Removing a Column: `DROP COLUMN`
 
 The office decides not to track periods after all:
 
@@ -270,7 +270,7 @@ ALTER TABLE teachers DROP COLUMN periods;
 
 ---
 
-## 🔁 Renaming a Whole Table
+## Renaming a Whole Table
 
 The office decides the table should hold all staff, not only teachers:
 
@@ -295,7 +295,7 @@ SHOW TABLES;
 
 ---
 
-## 🧩 Several Changes in One Statement
+## Several Changes in One Statement
 
 You can list many changes, separated by commas. MySQL applies them together:
 
@@ -309,7 +309,7 @@ This is faster on big tables, because MySQL rebuilds the table once instead of t
 
 ---
 
-## 🧯 A Safety Habit: Copy First
+## A Safety Habit: Copy First
 
 `ALTER TABLE` changes real tables at once. There is no "Are you sure?" message. Make it a habit:
 

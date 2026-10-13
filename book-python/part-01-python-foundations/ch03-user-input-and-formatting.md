@@ -1,4 +1,4 @@
-# Chapter 3: User Input & String Formatting (F-Strings) 🗣️
+# Chapter 3: User Input & String Formatting (F-Strings)
 
 ## 🌟 Real-Life Story
 
@@ -11,7 +11,7 @@ At the school library desk, the librarian has a printed card: "Dear ______, your
 - Build clear sentences with f-strings.
 - Clean and change text with string methods such as `.strip()` and `.title()`.
 
-## 📥 Getting Input with `input()`
+## Getting Input with `input()`
 
 The `input()` function shows a question, then **pauses** the program. It waits for the person to type an answer and press <kbd>Enter</kbd>. The answer is stored in a variable.
 
@@ -69,7 +69,7 @@ At this rate, you will read 84 pages this week!
 
 Use `int()` for whole numbers and `float()` for decimals such as `36.6`.
 
-## 💎 F-Strings: Filling the Gaps
+## F-Strings: Filling the Gaps
 
 Joining text with `+` works, but it gets messy. You must add spaces yourself, and numbers need `str()`:
 
@@ -147,7 +147,7 @@ Each student carries 6.67 litres.
 | `f"{round(10 / 3, 1)}"` | `3.3` |
 | `f"{{braces}}"` | `{braces}` |
 
-## 🧼 Cleaning Text with String Methods
+## Cleaning Text with String Methods
 
 People type messy answers. They add extra spaces or mix capital and small letters. A **method** is a function that belongs to a value. You call it with a dot: `text.strip()`.
 
@@ -203,7 +203,7 @@ print("=" * 30)
 ==============================
 ```
 
-## 🤝 Worked Example: The Sadaqah Pledge Card
+## Worked Example: The Sadaqah Pledge Card
 
 A community centre records voluntary charity (*Sadaqah*) pledges. On a computer, the three values would come from `input()`. Here they are written in the code, with messy spacing on purpose.
 

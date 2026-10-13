@@ -1,4 +1,4 @@
-# Chapter 18: Issues, Milestones & GitHub Project Boards 📋
+# Chapter 18: Issues, Milestones & GitHub Project Boards
 
 ---
 
@@ -24,7 +24,7 @@ Everyone can see who is doing what, and nothing is forgotten. GitHub gives softw
 
 ---
 
-## 📌 What Is an Issue?
+## What Is an Issue?
 
 An **Issue** is a page on GitHub for one task, bug or idea. Each issue gets a number, like `#12`.
 You find them in the **Issues** tab of a repository. Anyone working on the project can comment on an issue.
@@ -43,7 +43,7 @@ A **milestone** is like a finish line. Put every issue needed for "Exhibition Da
 
 ---
 
-## 🗂️ The Project Board
+## The Project Board
 
 A **GitHub Project** is a board for your issues. The column style is called a **Kanban** board (*kanban* is a Japanese word for "signboard"). Each card moves from left to right as the work moves forward.
 
@@ -63,7 +63,7 @@ On a phone the board is shown here as a list. On GitHub the three columns sit si
 
 ---
 
-## 💻 Closing Issues from a Commit
+## Closing Issues from a Commit
 
 Mention an issue number in a commit message and GitHub links the two together.
 Use a **closing keyword**, and GitHub also closes the issue:
@@ -96,7 +96,7 @@ You can also write them in a Pull Request description, for example `Closes #12`.
 
 ---
 
-## 🐛 Writing a Helpful Bug Report
+## Writing a Helpful Bug Report
 
 Do not just write "The site is broken." Nobody can fix that. Give the steps, so others can see the bug for themselves:
 

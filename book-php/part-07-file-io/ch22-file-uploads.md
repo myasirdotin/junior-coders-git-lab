@@ -1,4 +1,4 @@
-# Chapter 22: File Uploads in PHP 📤
+# Chapter 22: File Uploads in PHP
 
 ---
 
@@ -17,7 +17,7 @@ Your school is running a digital science fair. You drew a poster in a drawing ap
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **MIME type** is a short label that says what kind of data a file holds, such as `image/png` or `application/pdf`.
 
@@ -75,7 +75,7 @@ For a real PNG picture this prints `image/png`. For a PHP file that was renamed 
 
 ---
 
-## 💻 Code Example: Secure Profile Avatar Uploader
+## Code Example: Secure Profile Avatar Uploader
 
 Save this as `upload.php`:
 
@@ -173,7 +173,7 @@ Save this as `upload.php`:
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `enctype="multipart/form-data"`: **Essential.** Without it, the browser sends only the file's name as text, not the file itself.
 - `$_FILES["avatar"]["tmp_name"]`: Where the server holds the uploaded file while your script runs. PHP deletes it when the script ends unless you move it.

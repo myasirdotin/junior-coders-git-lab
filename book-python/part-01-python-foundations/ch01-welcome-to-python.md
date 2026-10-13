@@ -1,4 +1,4 @@
-# Chapter 1: Welcome to Python — The Language of AI 🐍
+# Chapter 1: Welcome to Python — The Language of AI
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ A new student joins your class and asks the way to the library. You could give a
 - Use indentation (spaces at the start of a line) to group code.
 - Describe how the Python interpreter runs a program line by line.
 
-## 💡 Why Python?
+## Why Python?
 
 Imagine you want to tell a friend how to make tea:
 
@@ -35,7 +35,7 @@ Python:          clean lines, plain words
 | Automation | Renaming 500 homework files at once |
 | Web servers | Running a school library website |
 
-## ⚡ Your Very First Python Program
+## Your Very First Python Program
 
 Every programmer begins with a greeting. In Python, one line is enough:
 
@@ -80,7 +80,7 @@ Numbers need no quotes: 12
 
 Notice three things. `print()` with nothing inside prints an empty line. Numbers do not need quotes. And `7 + 5` was worked out before printing, so we see `12`.
 
-## 📝 Comments: Notes for Humans
+## Comments: Notes for Humans
 
 A line that starts with `#` is a **comment**. Python skips it completely. Comments explain *why* the code does something. They help your teacher, your classmates and your future self.
 
@@ -100,7 +100,7 @@ Astronomy: Wednesday
 
 The third line did not print. Putting `#` in front of code is a handy way to switch it off while testing.
 
-## 🧱 The Power of Indentation
+## The Power of Indentation
 
 In JavaScript or PHP, a group of lines is wrapped in curly braces `{ }`:
 
@@ -134,7 +134,7 @@ The two indented lines belong to the `if`. The last line is not indented, so it 
 
 > ⚠️ **Golden Rule**: use **4 spaces** for each level of indentation. Neat, consistent code is part of *Iḥsān*: doing work with care.
 
-## 🛠️ How Python Runs: The Interpreter
+## How Python Runs: The Interpreter
 
 Python is an **interpreted** language. An **interpreter** is a program that reads your code and runs it straight away, one line at a time.
 

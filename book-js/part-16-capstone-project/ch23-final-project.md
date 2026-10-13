@@ -1,4 +1,4 @@
-# Chapter 23: Final Project: The Quiz Arena 🏆
+# Chapter 23: Final Project: The Quiz Arena
 
 ---
 
@@ -18,7 +18,7 @@ At the end of a science course, students often build a working model, such as a 
 
 ---
 
-## 🧭 Project Overview
+## Project Overview
 
 You will build **"The Quiz Arena"**, a five-question quiz about science and coding. It has:
 
@@ -33,7 +33,7 @@ Every idea comes from earlier chapters: variables, conditions, loops, functions,
 
 ---
 
-## 📁 Plan the Files
+## Plan the Files
 
 Create a folder called `final-quiz-app` with three files:
 
@@ -48,7 +48,7 @@ Keeping the three jobs in three files is called **separation of concerns** (Chap
 
 ---
 
-## 🧱 Step 1: The HTML Page (`index.html`)
+## Step 1: The HTML Page (`index.html`)
 
 The page has three screens: start, question card and results. Only one is visible at a time. The class `hidden` hides the other two.
 
@@ -108,7 +108,7 @@ The `<script>` tag is at the end of `<body>`. So all the elements exist before `
 
 ---
 
-## 🎨 Step 2: The Stylesheet (`style.css`)
+## Step 2: The Stylesheet (`style.css`)
 
 The CSS is kept short. The most important rules are `.correct`, `.wrong` and `.hidden`, because JavaScript switches them on and off with `classList`.
 
@@ -262,7 +262,7 @@ body {
 
 ---
 
-## ⚙️ Step 3: The JavaScript (`app.js`)
+## Step 3: The JavaScript (`app.js`)
 
 This is the brain of the app. Read the numbered comments: each part has one job.
 
@@ -414,7 +414,7 @@ restartBtn.addEventListener("click", function () {
 
 ---
 
-## 🔍 How the Code Works
+## How the Code Works
 
 - **Part 1, the data:** each question is an object with `question`, `options` (an array) and `answer` (an index). To add a question, you add one object. No other code changes.
 - **Part 2, the elements:** `getElementById` finds each element once, and a `const` keeps it ready.
@@ -428,7 +428,7 @@ Notice that the options `"<ul>"` and `"<ol>"` appear on the buttons as plain tex
 
 ---
 
-## 📋 Testing Checklist
+## Testing Checklist
 
 Open `index.html` in your browser and test like a quality checker:
 
@@ -443,7 +443,7 @@ Open `index.html` in your browser and test like a quality checker:
 
 ---
 
-## 🎤 Presenting Your Project
+## Presenting Your Project
 
 When you show your project to your teacher and classmates:
 

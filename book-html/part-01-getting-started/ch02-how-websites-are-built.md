@@ -1,4 +1,4 @@
-# Chapter 2: How Websites Are Built 🏗️
+# Chapter 2: How Websites Are Built
 
 ---
 
@@ -25,7 +25,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Web Anatomy Architecture
 
@@ -68,7 +68,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: Seeing the Trio in Action
+## Code Example: Seeing the Trio in Action
 
 Here is a tiny sneak peek of how the three languages coordinate together on a single button:
 
@@ -99,7 +99,7 @@ Here is a tiny sneak peek of how the three languages coordinate together on a si
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down
+## Code Explanation: Breaking It Down
 
 Notice how clean this separation is:
 - `<button class="join-btn">Click Me!</button>`: This is pure **HTML**. It tells the browser to place a clickable button containing the words *"Click Me!"*. Without CSS, it would look like a plain, boring gray rectangle from 1995.
@@ -151,7 +151,7 @@ Flashcard 2: "HTML is used to choose
 
 ---
 
-## 🎨 Think Like a Web Designer: Content First or Colors First?
+## Think Like a Web Designer: Content First or Colors First?
 
 Imagine you are asked to design a poster for a school bake sale.
 Would you buy glitter and paint before you even know what pastries are being sold and what time the event starts?
@@ -164,7 +164,7 @@ You first write down the essential details (What, When, Where). Then, you arrang
 
 ---
 
-## 🚀 Mini Challenge: The Tech Trio Story
+## Mini Challenge: The Tech Trio Story
 
 Write a 3-sentence story about three friends named **HTML**, **CSS**, and **JS** who build a new school library together:
 - Sentence 1 introduces **HTML**, the builder who puts up the walls, shelves and doors.

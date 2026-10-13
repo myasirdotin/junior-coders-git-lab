@@ -1,4 +1,4 @@
-# Chapter 11: Merging Branches (`git merge`) 🤝
+# Chapter 11: Merging Branches (`git merge`)
 
 ---
 
@@ -19,7 +19,7 @@ High in the Himalayas, two streams run down different valleys. One carries glaci
 
 ---
 
-## 👁️ Two Kinds of Merge
+## Two Kinds of Merge
 
 ### Fast-forward merge
 
@@ -55,7 +55,7 @@ feature:           C3 -- C4 --'
 
 ---
 
-## 💻 Example 1: A Fast-Forward Merge
+## Example 1: A Fast-Forward Merge
 
 Zainab built a navigation bar on `feature/navbar`. Nothing new happened on `main` meanwhile.
 
@@ -96,7 +96,7 @@ Deleted branch feature/navbar (was a307ae2).
 
 ---
 
-## 💻 Example 2: A Three-Way Merge
+## Example 2: A Three-Way Merge
 
 This time `main` moved on too. On `feat-a` Zainab added `page.html`. On `main` she added `other.html`. Then, standing on `main`:
 
@@ -133,7 +133,7 @@ The two lines split and join again at the merge commit.
 
 ---
 
-## 🔍 How It Works
+## How It Works
 
 - **The golden rule:** stand where you want the code to **go**, then invite the branch to come to you.
   - Want the feature in `main`? `git switch main`, then `git merge feature-name`.

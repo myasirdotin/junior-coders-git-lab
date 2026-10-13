@@ -14,7 +14,7 @@ Amina wants to borrow a book from the school library. She can walk along the she
 - Run your first harmless command and read what the screen prints.
 - Follow the four safety rules every terminal user keeps.
 
-## 🖱️ GUI vs. CLI: Two Ways to Talk to a Computer
+## GUI vs. CLI: Two Ways to Talk to a Computer
 
 Every day you use a **GUI**. GUI means **Graphical User Interface**. "Graphical" means it uses pictures.
 
@@ -38,7 +38,7 @@ The **CLI** is the other way. CLI means **Command Line Interface**. People also 
 | **Needs a screen?** | Yes | Can work on distant computers |
 | **Best for** | Browsing, drawing | Git, PHP, servers, tidy work |
 
-## 💡 Why Web Developers Learn the Terminal
+## Why Web Developers Learn the Terminal
 
 You may ask: *"I can already click. Why learn typing commands?"* Here are four reasons.
 
@@ -47,7 +47,7 @@ You may ask: *"I can already click. Why learn typing commands?"* Here are four r
 3. **Tool installers**: Tools like `npm` and `composer` download helpful code libraries. They are terminal tools.
 4. **Cloud servers**: Real websites run on computers far away. They have no mouse and no screen. You manage them by typing commands.
 
-## 🪟 The Three Terminals on Windows
+## The Three Terminals on Windows
 
 School labs usually use Windows. A Windows computer has three terminals you will meet.
 
@@ -62,7 +62,7 @@ In this book, every command is shown for **CMD** and **PowerShell** side by side
 > [!WARNING]
 > **Never choose "Run as administrator".** An administrator terminal can change important system files. Everything in this book works in a normal window. If a menu offers "Run as administrator", pick the normal option.
 
-## ▶️ Your First Command: `ver` and `exit`
+## Your First Command: `ver` and `exit`
 
 Let us open a terminal and ask a harmless question. The command `ver` asks, "Which Windows version is this?" It changes nothing.
 
@@ -95,7 +95,7 @@ To close either window, type `exit` and press <kbd>Enter</kbd>. The window close
 > [!NOTE]
 > **Git Bash / macOS**: there is no `ver` command. Type `uname` to see the system name. Git Bash prints something like `MINGW64_NT-10.0-26200`. A Mac prints `Darwin`. Type `exit` to close.
 
-## 🤝 Safety and Trust (*Amānah*)
+## Safety and Trust (*Amānah*)
 
 > [!CAUTION]
 > **No safety net.** When you delete a file from the terminal, it does **not** go to the Recycle Bin. It is gone.

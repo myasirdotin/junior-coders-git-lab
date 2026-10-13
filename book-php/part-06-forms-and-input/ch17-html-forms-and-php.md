@@ -1,4 +1,4 @@
-# Chapter 17: HTML Forms & PHP Processing 📝
+# Chapter 17: HTML Forms & PHP Processing
 
 ---
 
@@ -18,7 +18,7 @@ Outside the principal's office hangs a wooden suggestion box. You write an idea 
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **form** is the part of a page where visitors type or choose things. When they press Submit, the browser sends the data to a PHP script on the server.
 
@@ -53,7 +53,7 @@ SERVER (save.php)
 
 ---
 
-## 💻 Code Example: An All-in-One Feedback Form
+## Code Example: An All-in-One Feedback Form
 
 Save this file as `feedback.php` in `htdocs` and open `http://localhost/feedback.php`:
 
@@ -142,7 +142,7 @@ The browser shows it as: *Thank you, Aisha! Your feedback about 'Library' has be
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `if ($_SERVER["REQUEST_METHOD"] === "POST")`: When you first open the page, the method is `GET`, so this block is skipped. After you click Submit, the method is `POST`, so the form is processed.
 - `name="student_name"`: **Very important.** PHP ignores the HTML `id`. It reads data only by the `name`: `$_POST["student_name"]`.

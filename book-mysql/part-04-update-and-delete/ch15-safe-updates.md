@@ -18,7 +18,7 @@ When Hamza borrows a book, the librarian does two things. She writes a new line 
 
 ---
 
-## 🔗 What is a Transaction?
+## What is a Transaction?
 
 Borrowing a library book needs **two** changes:
 
@@ -45,7 +45,7 @@ COMMIT;    ROLLBACK;
 
 ---
 
-## 🧪 A Transaction You Can Watch
+## A Transaction You Can Watch
 
 Before we start, *Arabic Calligraphy Basics* is on the shelf:
 
@@ -122,7 +122,7 @@ Why id 12 and not 11? The cancelled insert had already used number 11. A rollbac
 
 ---
 
-## 🧱 The ACID Promises
+## The ACID Promises
 
 A trustworthy database keeps four promises, known by the letters **ACID**:
 
@@ -135,7 +135,7 @@ A trustworthy database keeps four promises, known by the letters **ACID**:
 
 ---
 
-## 🦺 Safe-Updates Mode
+## Safe-Updates Mode
 
 Chapters 13 and 14 showed how one missing `WHERE` can change every row. MySQL has a guard for this:
 
@@ -168,7 +168,7 @@ The setting lasts until you log out. MySQL Workbench, another MySQL tool, switch
 
 ---
 
-## 🤲 Protecting Data Is an *Amānah*
+## Protecting Data Is an *Amānah*
 
 - **Wrap linked changes in a transaction**, so records never disagree.
 - **Back up** before big changes (phpMyAdmin → Export).

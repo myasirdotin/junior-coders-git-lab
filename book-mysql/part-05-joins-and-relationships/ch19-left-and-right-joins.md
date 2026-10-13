@@ -18,7 +18,7 @@ At the end of term, the head teacher asks for a reading report on **every** stud
 
 ---
 
-## 🤔 When INNER JOIN Is Not Enough
+## When INNER JOIN Is Not Enough
 
 In Chapter 18, the inner join of `students` and `loans` dropped Hamza, because he has no loans. For a report on "all students" that is wrong.
 
@@ -36,7 +36,7 @@ every student is kept
 
 ---
 
-## 📋 A LEFT JOIN Step by Step
+## A LEFT JOIN Step by Step
 
 ```sql
 SELECT s.id, s.name, l.book_id, l.loan_date
@@ -63,7 +63,7 @@ All eight students appear. Hamza is there, with `NULL` where his loan details wo
 
 ---
 
-## 🏷️ Friendly Labels with `COALESCE`
+## Friendly Labels with `COALESCE`
 
 `NULL` looks unfriendly on a report. `COALESCE(a, b)` gives back `a` if it has a value, otherwise `b`. (It returns the first value in its list that is not `NULL`.)
 
@@ -82,7 +82,7 @@ ORDER BY s.id;
 
 ---
 
-## 🕵️ Finding What Is Missing
+## Finding What Is Missing
 
 This is the most useful trick in the chapter. After a `LEFT JOIN`, the rows with **no match** are exactly the rows where the right side is `NULL`. So filter for them.
 
@@ -118,7 +118,7 @@ This pattern is often called an **anti-join**: "rows in A with **no** partner in
 
 ---
 
-## ↔️ What About `RIGHT JOIN`?
+## What About `RIGHT JOIN`?
 
 A `RIGHT JOIN` keeps every row of the **right** table instead. These two queries give the same rows:
 

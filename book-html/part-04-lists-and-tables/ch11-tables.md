@@ -1,4 +1,4 @@
-# Chapter 11: Tables 📊
+# Chapter 11: Tables
 
 ---
 
@@ -26,7 +26,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The 4 Pillars of an HTML Table
 
@@ -54,7 +54,7 @@ HTML builds a table **row by row**: one `<tr>` for each line, with that line's c
 
 ---
 
-## 💻 Code Example: Class Timetable & Marks Sheet
+## Code Example: Class Timetable & Marks Sheet
 
 Type this into your editor and save it as `timetable.html`:
 
@@ -110,7 +110,7 @@ Type this into your editor and save it as `timetable.html`:
 
 ---
 
-## 🔍 Code Explanation: Stepping Through the Grid
+## Code Explanation: Stepping Through the Grid
 
 - `<table>`: Opens the table. The attribute `border="1"` tells the browser to draw simple gridlines around the cells so you can clearly see the structure. It is an old attribute that is fine for practice; in the CSS track you will draw borders with CSS instead.
 - `<tr>`: Stands for **Table Row**. Every horizontal line on the screen is contained within its own `<tr>` and `</tr>`.
@@ -184,7 +184,7 @@ A student created a table, but the rows are appearing inside each other like a s
 
 ---
 
-## 🎨 Think Like a Web Designer: Readability & Zebra Striping
+## Think Like a Web Designer: Readability & Zebra Striping
 
 Have you ever tried reading a wide table with 20 columns where all the text is squished together in black and white? Your eyes drift to the wrong row and you get confused!
 
@@ -195,7 +195,7 @@ You will master these in the CSS track!
 
 ---
 
-## 🚀 Mini Challenge: The Science Fair Results Table
+## Mini Challenge: The Science Fair Results Table
 
 Build a web page named `science-fair.html`:
 - An `<h1>`: `Class 7 Science Fair: Project Results`

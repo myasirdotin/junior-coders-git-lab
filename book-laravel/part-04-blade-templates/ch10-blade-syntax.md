@@ -12,7 +12,7 @@ The library prints a **reading certificate** for every student who finishes ten 
 - Write Blade comments that never reach the browser.
 - Recognise Blade **directives** like `@if` and `@foreach`.
 
-## 📋 What is Blade?
+## What is Blade?
 
 **Blade** is Laravel's **template engine**: a tool that mixes HTML with small pieces of data. Blade files:
 
@@ -22,7 +22,7 @@ The library prints a **reading certificate** for every student who finishes ten 
 
 Behind the scenes, Laravel turns each Blade file into plain PHP and saves it in `storage/framework/views/`. That is why Blade is fast. You never edit those saved files.
 
-## 🖨️ Printing Data with `{{ }}`
+## Printing Data with `{{ }}`
 
 Double curly braces print a value. The controller passes the data:
 
@@ -75,7 +75,7 @@ Library: Crescent Valley School Library
 
 The `??` operator from PHP gives a default when a variable is missing or `null`.
 
-## 🛡️ Why `{{ }}` is Safe
+## Why `{{ }}` is Safe
 
 Imagine a book review form. A visitor types this as their review:
 
@@ -115,7 +115,7 @@ Sometimes you *want* HTML to work, such as a notice that **you** wrote with bold
 
 `{!! !!}` prints **without** escaping. Use it only for HTML that you or your app made and fully trust. **Never** use it for anything a visitor typed: names, reviews, search words, form fields. When unsure, use `{{ }}`.
 
-## 💬 Blade Comments
+## Blade Comments
 
 ```blade
 {{-- This note is for developers only. --}}
@@ -124,7 +124,7 @@ Sometimes you *want* HTML to work, such as a notice that **you** wrote with bold
 
 A **Blade comment** `{{-- --}}` is removed before the page is sent. Visitors cannot see it, even with "View Source". An HTML comment `<!-- -->` *is* sent, so never put secrets in it.
 
-## 🧭 Directives: A Preview
+## Directives: A Preview
 
 Words that start with `@` are **directives**: short Blade commands that stand for PHP code.
 
@@ -148,7 +148,7 @@ Every opening directive has a matching end: `@if` ... `@endif`, `@foreach` ... `
 
 Some JavaScript tools also use `{{ }}`. To print the braces themselves, add `@` in front: `@{{ name }}` shows `{{ name }}` in the browser, and Blade leaves it alone.
 
-## 🔄 Plain PHP vs Blade
+## Plain PHP vs Blade
 
 | Plain PHP | Blade |
 |-----------|-------|

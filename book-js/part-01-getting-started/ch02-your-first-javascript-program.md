@@ -1,4 +1,4 @@
-# Chapter 2: Your First JavaScript Program 🚀
+# Chapter 2: Your First JavaScript Program
 
 ---
 
@@ -32,7 +32,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 ### The JavaScript Environment
 To run code, JavaScript needs an **environment** (an engine). The most common environment is your **Web Browser** (Google Chrome, Edge, Safari, Firefox). When you open a website, the browser's built-in JavaScript engine reads and executes the code instantly.
@@ -65,14 +65,14 @@ Errors are simply the computer's way of saying: *"I got confused on Line 4. Here
 
 ---
 
-## 🌍 Real-World Example: The Friendly Guide
+## Real-World Example: The Friendly Guide
 
 Imagine asking a foreign exchange student for directions. If you say a word they don't know, they say: *"I'm sorry, I don't recognize that word. Could you spell it or say it differently?"*
 That is all a JavaScript error is doing! It is guiding you toward fixing a small typo or misplaced bracket.
 
 ---
 
-## 💻 Code Example: Mathematics and Strings
+## Code Example: Mathematics and Strings
 
 Type this complete program into your editor or scratchpad:
 
@@ -96,7 +96,7 @@ console.log((10 * 2) - 4);
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - Lines 1–4: Single-line comments starting with `//`. The computer skips these lines entirely.
 - Line 6: Prints the greeting string `"Welcome to JavaScript class!"` to the screen.
@@ -126,7 +126,7 @@ Line 2 prints: <code>6</code> (as the mathematical result)
 
 ---
 
-## 🧭 Think Like a Programmer: Why Comments Save Teams
+## Think Like a Programmer: Why Comments Save Teams
 
 Imagine you write a brilliant, complex 500-line science quiz app over summer break.
 Six months later, a bug occurs and you open your code to fix it.
@@ -136,7 +136,7 @@ Six months later, a bug occurs and you open your code to fix it.
 
 ---
 
-## 🚀 Coding Challenge: The ASCII Art Creator
+## Coding Challenge: The ASCII Art Creator
 
 Can you use multiple `console.log()` lines to print an ASCII art spaceship launching into the stars?
 
@@ -154,7 +154,7 @@ Test it in your console to verify all the slashes line up!
 
 ---
 
-## 🛠️ Mini Project: The Digital Name Tag
+## Mini Project: The Digital Name Tag
 
 Write a program that prints a personal digital student profile tag:
 - Top line comment explaining the program's purpose.

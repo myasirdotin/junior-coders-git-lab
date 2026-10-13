@@ -1,4 +1,4 @@
-# Chapter 5: Fonts and Text Styling 🔤
+# Chapter 5: Fonts and Text Styling
 
 ---
 
@@ -29,7 +29,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### Serif vs. Sans-Serif: What's the Difference?
 
@@ -69,7 +69,7 @@ text-transform: uppercase;
 
 ---
 
-## 💻 Code Example: The Motivational Quote Page
+## Code Example: The Motivational Quote Page
 
 Type this into your editor and save it as `quote.html`:
 
@@ -139,7 +139,7 @@ Type this into your editor and save it as `quote.html`:
 
 ---
 
-## 🔍 Code Explanation: How the Text Styles Work
+## Code Explanation: How the Text Styles Work
 
 - `font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;`:
   - This is called a **Font Stack**.
@@ -203,7 +203,7 @@ p {
 
 ---
 
-## 🎨 Think Like a Web Designer: Don't Mix 10 Fonts!
+## Think Like a Web Designer: Don't Mix 10 Fonts!
 
 Beginner coders often get so excited by fonts that they put 6 different wacky fonts on one page:
 - One font for the header, one for paragraphs, one for buttons, one for dates...
@@ -214,7 +214,7 @@ Beginner coders often get so excited by fonts that they put 6 different wacky fo
 
 ---
 
-## 🚀 Mini Challenge: The Book Cover Poster
+## Mini Challenge: The Book Cover Poster
 
 Create a web page named `book-cover.html`:
 - Center a decorative book cover card on the screen.

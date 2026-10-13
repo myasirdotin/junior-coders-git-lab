@@ -14,7 +14,7 @@ Imagine you wake up in a new room during a school trip. Before you do anything, 
 - Show hidden folders such as `.git`.
 - Clear a crowded screen without losing anything.
 
-## 📍 Where Am I? Printing Your Location
+## Where Am I? Printing Your Location
 
 In File Explorer, you look at the address bar at the top. In the terminal, you ask the computer. The folder you are standing in is called the **working directory**. "Directory" is another word for folder.
 
@@ -53,7 +53,7 @@ PowerShell prints a small table with the heading `Path`. Both answers say the sa
 > ```
 > `C:\` becomes `/c/`, and backslashes become forward slashes.
 
-## 📋 What Is Here? Listing a Folder
+## What Is Here? Listing a Folder
 
 To see what is inside the current folder, use `dir`. The word comes from **dir**ectory. In PowerShell, `dir` and `ls` both work.
 
@@ -110,7 +110,7 @@ d-----        13-10-2026     08:10                js
 > [!NOTE]
 > **Git Bash / macOS**: type `ls` for a short list, or `ls -l` for a long list with sizes and dates. Git Bash marks folders with a `d` at the start of the line, like PowerShell.
 
-## 🙈 Showing Hidden Items
+## Showing Hidden Items
 
 Some folders are **hidden**. They hold settings that you should not change by accident. A common one is `.git`, made by the Git tool. A normal listing does not show it.
 
@@ -148,7 +148,7 @@ C:\JuniorCoders\practice\simple-site>dir /a:h
                1 Dir(s)  317,987,713,024 bytes free
 ```
 
-## 🧹 Clearing the Screen
+## Clearing the Screen
 
 After many commands, the window gets crowded. You can wipe it clean.
 

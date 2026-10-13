@@ -1,4 +1,4 @@
-# Chapter 5: Decisions with if and when 🚦
+# Chapter 5: Decisions with if and when
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ At the library desk, the librarian makes small decisions all day. Is the book on
 - Use `if` as an expression that gives back a value.
 - Choose between many cases with `when`, including ranges like `in 90..100`.
 
-## ⚖️ Comparison Operators
+## Comparison Operators
 
 A **condition** is a question whose answer is `true` or `false`. You met the `Boolean` type in Chapter 4: it holds exactly these two values. Comparison operators build conditions.
 
@@ -53,7 +53,7 @@ Two things to notice:
 - One `=` **stores** a value (`val score = 72`). Two `==` **compares** two values. Mixing them up is the most common beginner mistake.
 - `==` compares Strings by their letters. In Kotlin there is no separate `===` for this, unlike JavaScript. (Kotlin does have `===`, but it means "the very same object", and you will not need it in this book.)
 
-## 🔗 Logical Operators: and, or, not
+## Logical Operators: and, or, not
 
 Real decisions often depend on more than one question. Logical operators join conditions together.
 
@@ -97,7 +97,7 @@ hasCard   booksBorrowed<3   !finesUnpaid
           canBorrow = true
 ```
 
-## 🛤️ if and else: Two Roads
+## if and else: Two Roads
 
 `if` runs a block of code only when its condition is `true`. The optional `else` block runs when it is `false`. The condition always goes inside round brackets `( )`, and each block inside curly braces `{ }`.
 
@@ -152,7 +152,7 @@ Warm: bring a water bottle.
 
 `31 >= 35` is false, so Kotlin moves on. `31 >= 28` is true, so it prints the warm message and stops. It never checks `>= 15`, even though that is also true.
 
-## 🎁 if as an Expression
+## if as an Expression
 
 In Kotlin, `if` can do more than run code. It can also **give back a value**. Something that produces a value is called an **expression**. You can store the result straight into a `val`:
 
@@ -182,7 +182,7 @@ If you know JavaScript, this replaces the ternary operator `condition ? a : b`. 
 
 You will use this a lot in Android. For example, a book card will show `if (book.available) "Available" else "Borrowed"`.
 
-## 🔀 when: Choosing from Many Cases
+## when: Choosing from Many Cases
 
 A long chain of `else if` checks against one value gets hard to read. Kotlin's `when` is a neater way. It is like `switch` in other languages, but more powerful.
 

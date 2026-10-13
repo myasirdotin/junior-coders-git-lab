@@ -1,4 +1,4 @@
-# Chapter 24: Classes & Objects (OOP) 🏛️
+# Chapter 24: Classes & Objects (OOP)
 
 ---
 
@@ -18,7 +18,7 @@ An architect draws a **blueprint** for a house: three bedrooms, a kitchen and a 
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 **Object-Oriented Programming (OOP)** is a way of organising code. You group the data about a thing and the actions it can do into one unit, called an **object**.
 
@@ -56,7 +56,7 @@ An architect draws a **blueprint** for a house: three bedrooms, a kitchen and a 
 
 ---
 
-## 💻 Code Example: Creating Your First Class and Objects
+## Code Example: Creating Your First Class and Objects
 
 ```php
 <?php
@@ -108,7 +108,7 @@ Output:
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `class Student { ... }`: Creates the blueprint. Class names start with a capital letter, in **PascalCase** (each word capitalised, no spaces).
 - `public $name;`: Declares a **property**, a variable that belongs to the class. `public` means code outside the class may use it (Chapter 25 explains this).

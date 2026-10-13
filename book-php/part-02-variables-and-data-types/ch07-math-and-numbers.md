@@ -1,4 +1,4 @@
-# Chapter 7: Math & Numbers in PHP 🔢
+# Chapter 7: Math & Numbers in PHP
 
 ---
 
@@ -18,7 +18,7 @@ Your class is buying planetarium tickets for a science trip. The teacher multipl
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Arithmetic Operators Toolbox
 
@@ -72,7 +72,7 @@ Output (what the browser shows):
 
 ---
 
-## 💻 Code Example: Mathematical Operations and Functions
+## Code Example: Mathematical Operations and Functions
 
 ```php
 <?php
@@ -136,7 +136,7 @@ Question 7 goes to seat 23
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `$subtotal = $pricePerTicket * $quantity;`: Multiplies 45 by 3 and stores `135`.
 - `round($finalBill, 2)`: Rounds to at most 2 decimal places, good for money. PHP drops a trailing zero, so `129.60` prints as `129.6`.

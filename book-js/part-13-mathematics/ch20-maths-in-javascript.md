@@ -1,4 +1,4 @@
-# Chapter 20: Maths in JavaScript 📐
+# Chapter 20: Maths in JavaScript
 
 ## 🌟 Real-Life Story
 
@@ -21,7 +21,7 @@ Code turns maths from something you only read into something you can test.
 
 ---
 
-## ⚡ Why Maths and Code Fit Together
+## Why Maths and Code Fit Together
 
 A maths formula is a list of exact steps. So is a program.
 When you write a formula as a function, you can run it on hundreds of numbers.
@@ -29,7 +29,7 @@ You can test whether a number is prime in a split second, check geometry formula
 
 ---
 
-## 🧮 The Built-in `Math` Object
+## The Built-in `Math` Object
 
 JavaScript has a ready-made toolbox called `Math`. It holds useful constants (fixed numbers such as π) and functions.
 You met `Math.floor()` in Chapter 5. Here is more of the toolbox:
@@ -89,7 +89,7 @@ Output:
 78
 ```
 
-### 🎯 The Fair Random Number Recipe
+### The Fair Random Number Recipe
 
 `Math.random()` gives a decimal number from `0` up to, but not including, `1` (for example `0.4172...`).
 To get a random whole number from `min` to `max` (both included), use this recipe:
@@ -117,7 +117,7 @@ How it works for `getRandomInt(1, 10)`:
 
 ---
 
-## 📚 Grade 7 Maths Topics Explored in Code
+## Grade 7 Maths Topics Explored in Code
 
 ### Factors and Prime Numbers
 

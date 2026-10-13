@@ -14,7 +14,7 @@ At the start of term, Maryam's teacher asks her to prepare files for the class l
 - Create a small text file with one line inside it.
 - Build a complete website skeleton in a few lines.
 
-## 📁 Creating a Folder: `mkdir`
+## Creating a Folder: `mkdir`
 
 `mkdir` stands for **m**a**k**e **dir**ectory. It works in CMD, PowerShell and Git Bash.
 
@@ -49,7 +49,7 @@ PowerShell shows a small table of what it made. The `d` in `Mode` tells you it i
 > [!IMPORTANT]
 > **From now on, every exercise happens inside `C:\JuniorCoders\practice`.** It is your safe practice space. Nothing important lives there.
 
-## 📂 Several Folders at Once
+## Several Folders at Once
 
 Here CMD and PowerShell are different.
 
@@ -78,7 +78,7 @@ d-----        13-10-2026     08:14                js
 d-----        13-10-2026     08:14                images
 ```
 
-## 🪆 Folders Inside Folders
+## Folders Inside Folders
 
 You can make a folder **and** the folders around it in one go. CMD and PowerShell both create any missing folders along the path.
 
@@ -95,7 +95,7 @@ The same `mkdir assets\images\icons` works in PowerShell.
 > [!NOTE]
 > **Git Bash / macOS**: separate names with spaces: `mkdir css js images`. For folders inside folders, add `-p` (for **p**arents): `mkdir -p assets/images/icons`. Without `-p`, Git Bash stops with "No such file or directory".
 
-## 📄 Creating an Empty File
+## Creating an Empty File
 
 An **empty file** has a name but nothing inside (0 bytes). Developers often make empty files first and fill them later.
 
@@ -133,7 +133,7 @@ The `Length` is `0`, so the file is empty. A short name for `New-Item` is `ni`.
 > [!NOTE]
 > **Git Bash / macOS**: `touch index.html` makes an empty file. If the file already exists, `touch` only updates its time. It never empties it.
 
-## 📝 A File With One Line Inside
+## A File With One Line Inside
 
 `echo` prints text. With `>` you can send that text into a new file.
 
@@ -151,7 +151,7 @@ PS C:\JuniorCoders\practice> echo "Science fair notes" > notes.txt
 
 To open any file in Notepad and type more, use `notepad notes.txt`. This works in both terminals. You will learn to read files in the terminal in Chapter 12.
 
-## 🏗️ Drill: A Website Skeleton in Six Lines
+## Drill: A Website Skeleton in Six Lines
 
 Watch a whole website skeleton appear.
 

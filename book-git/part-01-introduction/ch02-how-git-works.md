@@ -1,4 +1,4 @@
-# Chapter 2: How Git Works Under the Hood ⚙️
+# Chapter 2: How Git Works Under the Hood
 
 ---
 
@@ -19,7 +19,7 @@ Bilal is sending a parcel of books to his cousin in Jammu. His desk is covered w
 
 ---
 
-## 📦 The Parcel and the Three Areas
+## The Parcel and the Three Areas
 
 Each part of the parcel story matches a part of Git:
 
@@ -34,7 +34,7 @@ The staging area is also called the **index**. The first three areas are all on 
 
 ---
 
-## 👁️ The Journey of a Change
+## The Journey of a Change
 
 ![Git Three Trees & GitHub Remote](../assets/diagrams/git/git-three-trees.svg)
 
@@ -65,7 +65,7 @@ The staging area is also called the **index**. The first three areas are all on 
 
 ---
 
-## 💻 Example: Watching a File Move
+## Example: Watching a File Move
 
 Ayesha has a school website that already has one commit. She adds a welcome banner to `index.html` and also makes a new file, `logo.png`. She asks Git what it sees:
 
@@ -120,7 +120,7 @@ Only `index.html` went into the commit. Later, `git push` sends commits to GitHu
 
 ---
 
-## 🔍 Why Have a Staging Area?
+## Why Have a Staging Area?
 
 Many beginners ask: *"Why must I run `git add` before `git commit`?"*
 

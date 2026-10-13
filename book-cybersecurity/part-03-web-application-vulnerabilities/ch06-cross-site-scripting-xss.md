@@ -1,4 +1,4 @@
-# Chapter 6: Cross-Site Scripting (XSS) & Frontend Defense 🛡️
+# Chapter 6: Cross-Site Scripting (XSS) & Frontend Defense
 
 ## 🌟 Real-Life Story
 
@@ -11,7 +11,7 @@ The community library has a public noticeboard where visitors pin book recommend
 - Use `htmlspecialchars()` in PHP and `textContent` in JavaScript to show user text safely.
 - Explain how a **Content Security Policy** and **HttpOnly** cookies add extra layers.
 
-## 💡 What Is XSS?
+## What Is XSS?
 
 A web page is made of HTML. The browser reads HTML and obeys it. Some tags, like `<b>`, only change how text looks. The `<script>` tag is different: it tells the browser to **run JavaScript code**.
 
@@ -25,7 +25,7 @@ In noticeboard terms:
 - The fake "official" note is a stranger's text containing HTML or script.
 - The plastic sleeve is **escaping**: showing text *as text*, never as instructions.
 
-## 🦠 Three Kinds of XSS
+## Three Kinds of XSS
 
 ### Stored XSS
 The harmful text is **saved** in the website's database, for example inside a comment or a profile description. Every visitor who later views that page receives it. This is the most dangerous kind because it reaches many people.
@@ -45,7 +45,7 @@ Whatever is in `q` goes into the page exactly as typed. If it contains tags, the
 ### DOM-based XSS
 The **DOM** (Document Object Model) is the browser's live model of the page, which JavaScript can change. DOM-based XSS happens entirely in the browser: the page's own JavaScript takes text from the address or a form and inserts it using `innerHTML`.
 
-## 🛡️ Defence 1: Escape Output (the Plastic Sleeve)
+## Defence 1: Escape Output (the Plastic Sleeve)
 
 **Escaping** (also called output encoding) replaces the special characters of HTML with safe codes called **HTML entities**. The browser then shows them as ordinary characters.
 
@@ -97,7 +97,7 @@ What the reader sees:
 
 > 💡 **Rule:** escape when you *show* data, not only when you save it. The same text might be shown in many places.
 
-## 🛡️ Defence 2: Content Security Policy (CSP)
+## Defence 2: Content Security Policy (CSP)
 
 A **Content Security Policy** is an instruction the server sends to the browser in an **HTTP header** (extra information sent along with a page). It says which scripts are allowed to run:
 
@@ -109,7 +109,7 @@ Content-Security-Policy: default-src 'self'; script-src 'self'
 
 CSP is a **second layer**, not a replacement for escaping. Defense in depth again!
 
-## 🛡️ Defence 3: HttpOnly Cookies
+## Defence 3: HttpOnly Cookies
 
 A **session cookie** is the small value that keeps you logged in. Adding the `HttpOnly` flag means JavaScript cannot read that cookie at all:
 
@@ -119,7 +119,7 @@ Set-Cookie: session_id=abc987; Secure; HttpOnly; SameSite=Lax
 
 If an XSS bug ever slips through, the stranger's code still cannot copy your login cookie.
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 - Escape every piece of user text you print with `htmlspecialchars($x, ENT_QUOTES, 'UTF-8')`.
 - In JavaScript, use `textContent` for user text. Avoid `innerHTML` unless the HTML is your own.

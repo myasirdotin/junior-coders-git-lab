@@ -18,7 +18,7 @@ At the end of term, the librarian tidies her borrowing notebook. She crosses out
 
 ---
 
-## 🗑️ The Shape of `DELETE`
+## The Shape of `DELETE`
 
 ```sql
 DELETE FROM table_name
@@ -31,7 +31,7 @@ Like `UPDATE`, **`DELETE` without `WHERE` removes every row.**
 
 ---
 
-## 🎯 Deleting One Row
+## Deleting One Row
 
 Omar's donation (id 7) was entered by mistake. First, look:
 
@@ -75,7 +75,7 @@ A `WHERE` that matches nothing is harmless: `DELETE FROM students WHERE id = 99;
 
 ---
 
-## 📚 Deleting Several Rows
+## Deleting Several Rows
 
 The librarian removes old, finished loans: returned **and** borrowed before 10 September.
 
@@ -106,7 +106,7 @@ Loans 1, 3 and 4 were removed. Loan 6 (10 September) stayed, because `<` means "
 
 ---
 
-## ⚖️ `DELETE` vs `TRUNCATE` vs `DROP`
+## `DELETE` vs `TRUNCATE` vs `DROP`
 
 | Command | What it does | Ids start again at 1? | Can be undone in a transaction? |
 | :--- | :--- | :--- | :--- |
@@ -135,7 +135,7 @@ The counter restarted at 1. After a `DELETE`, it would have carried on (9, 10, 1
 
 ---
 
-## 🤲 The Soft Delete Pattern (*Amānah*)
+## The Soft Delete Pattern (*Amānah*)
 
 School records are a trust. A student who leaves still has a history: books borrowed, marks earned. Destroying those rows can break other tables and loses the truth.
 

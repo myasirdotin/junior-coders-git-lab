@@ -14,7 +14,7 @@ Before a science lesson, the lab assistant checks the shelf. Is the microscope t
 - Find where a program lives with `where.exe` and `Get-Command`.
 - Know what to do (and not do) when a tool is missing.
 
-## 🚀 Opening VS Code: `code .`
+## Opening VS Code: `code .`
 
 **VS Code** (Visual Studio Code) is a free code editor. Many beginners open it, click *File*, then *Open Folder*, and hunt through menus. From the terminal it takes two seconds.
 
@@ -44,7 +44,7 @@ The terminal prints nothing, and the prompt comes back. A moment later, VS Code 
 > [!NOTE]
 > Remember Chapter 5: `.` means *"this folder"*. So `code .` means *"VS Code, please open the folder I am standing in."* You can also open one file: `code index.html`.
 
-## 🧰 Checking Tool Versions
+## Checking Tool Versions
 
 Every developer tool can tell you its **version** number. A version shows which edition of the tool you have. Most tools use the option `--version`, and some also accept `-v`.
 
@@ -77,7 +77,7 @@ Zend Engine v4.3.31, Copyright (c) Zend Technologies
 
 Your numbers will probably be different. That is normal. Tools get new versions often. What matters is that each command printed a version, so the tool is ready.
 
-## ❓ "Not Recognized": What It Means
+## "Not Recognized": What It Means
 
 Sometimes you get an error instead of a version.
 
@@ -106,7 +106,7 @@ Do not worry. Nothing is broken. There are only three common reasons.
 > [!WARNING]
 > **Do not change the PATH or install software yourself on a school computer.** These are system settings. Changing them often needs Administrator rights, and we never run as Administrator. Write down the tool name and the error, and ask your teacher.
 
-## 📍 Where Does a Program Live?
+## Where Does a Program Live?
 
 You can ask Windows where it finds a program.
 

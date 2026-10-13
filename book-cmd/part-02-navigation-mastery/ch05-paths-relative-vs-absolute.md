@@ -13,7 +13,7 @@ Imagine you invite a friend to your home. You can give the **full address**: *"H
 - Reach the same folder with both kinds of path in CMD and PowerShell.
 - Explain why websites must use relative paths for their own files.
 
-## 🗺️ The Map We Will Use
+## The Map We Will Use
 
 Here is a small website inside the practice folder. We will use it for every example.
 
@@ -29,7 +29,7 @@ C:\
                 └── app.js
 ```
 
-## 📮 Absolute Paths: The Full Address
+## Absolute Paths: The Full Address
 
 An **absolute path** starts at the **root** of a drive. On Windows it begins with a drive letter, like `C:\`. It works from **anywhere**, because it gives the whole address.
 
@@ -55,7 +55,7 @@ style.css
 
 Amina was standing in her home folder. The full address still worked.
 
-## 🧭 Relative Paths: Directions From Here
+## Relative Paths: Directions From Here
 
 A **relative path** does **not** start with a drive letter or `\`. The terminal reads it starting from your **current folder**.
 
@@ -91,7 +91,7 @@ app.js
 
 In PowerShell the command is `dir -Name ..\js`, with the same answer: `app.js`.
 
-## 📊 Comparing Both Kinds
+## Comparing Both Kinds
 
 Standing in `C:\JuniorCoders\practice\my-website`:
 
@@ -102,7 +102,7 @@ Standing in `C:\JuniorCoders\practice\my-website`:
 | `style.css` | `C:\JuniorCoders\practice\my-website\css\style.css` | `css\style.css` |
 | `practice` folder | `C:\JuniorCoders\practice` | `..` |
 
-## 🔣 Path Symbols
+## Path Symbols
 
 | Symbol | Meaning | Example |
 | :--- | :--- | :--- |
@@ -114,7 +114,7 @@ Standing in `C:\JuniorCoders\practice\my-website`:
 > [!NOTE]
 > **Git Bash / macOS** use forward slashes: `css/style.css`, `../js/app.js`, `./index.html`. An absolute path starts with `/`, such as `/c/JuniorCoders/practice` in Git Bash. PowerShell happily accepts forward slashes too.
 
-## 🌐 Why Web Developers Care
+## Why Web Developers Care
 
 A web page connects to its other files with paths. Here is how `index.html` might load its style file and script:
 

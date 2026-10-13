@@ -1,4 +1,4 @@
-# Chapter 1: How the Internet Actually Works 🌐
+# Chapter 1: How the Internet Actually Works
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ Maryam wants to send a 500-page science report to her cousin in another country.
 
 ---
 
-## 📦 The Big Idea: Packet Switching
+## The Big Idea: Packet Switching
 
 A **network** is two or more devices joined together so they can share data. The **Internet** is a network of networks. It joins millions of smaller networks across the world.
 
@@ -58,7 +58,7 @@ An **ISP** (Internet Service Provider) is the company that connects your home or
 
 ---
 
-## 🧱 The Building Blocks of a Network
+## The Building Blocks of a Network
 
 ### Clients and Servers
 
@@ -106,7 +106,7 @@ An **IP address** is a number that tells the Internet *where* a device is, like 
 
 ---
 
-## ⚡ The Physical Wire: How Bits Move
+## The Physical Wire: How Bits Move
 
 Computers speak in **bits**: `1`s and `0`s. Bits must travel as real signals. There are three main ways:
 
@@ -116,7 +116,7 @@ Computers speak in **bits**: `1`s and `0`s. Bits must travel as real signals. Th
 
 ---
 
-## 🔍 See It Yourself: `ping`
+## See It Yourself: `ping`
 
 The `ping` command sends a few tiny test packets to another computer. That computer replies. `ping` then shows how long each **round trip** took: from you, to the server, and back again.
 
@@ -153,7 +153,7 @@ On macOS or Linux, `ping` keeps going until you press **Ctrl + C**. Use `ping -c
 
 ---
 
-## 🛡️ Digital Stewardship (*Amānah*): The Shared Commons
+## Digital Stewardship (*Amānah*): The Shared Commons
 
 The Internet works only because thousands of universities, companies and countries agree on the same open rules. These rules are called **protocols**. As young developers, we treat this shared network as a trust (*Amānah*):
 

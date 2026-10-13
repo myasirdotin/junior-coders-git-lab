@@ -1,4 +1,4 @@
-# Chapter 1: What Is Programming? 🧠
+# Chapter 1: What Is Programming?
 
 ---
 
@@ -23,7 +23,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 ### What Is a Program?
 A **computer program** is a list of instructions that tells a computer exactly what to do, step by step. A computer cannot guess what you mean, and it has no imagination or common sense — it only does **exactly** what you tell it, in **exactly** the order you write it.
@@ -139,7 +139,7 @@ It shows that programmers repeat the cycle until the program works.
 
 ---
 
-## ⚡ What Is JavaScript?
+## What Is JavaScript?
 
 **JavaScript** is one of the most popular and powerful programming languages on Planet Earth! It is the language that brings websites and applications to life. 
 - HTML provides the skeleton.
@@ -225,7 +225,7 @@ In this book you will learn the third one: JavaScript.
 
 ---
 
-## 🌍 Real-World Example: The "Save for Later" Bookmark
+## Real-World Example: The "Save for Later" Bookmark
 
 When you read a school library website and double-tap a book about the planets:
 - The bookmark icon instantly turns gold.
@@ -292,7 +292,7 @@ You will build your own events in Chapter 17.
 
 ---
 
-## 💻 Code Example: Hello World
+## Code Example: Hello World
 
 Here is your very first line of genuine JavaScript:
 
@@ -302,7 +302,7 @@ console.log("Hello, World!");
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - `console.log(...)`: This is a built-in instruction that tells the computer: *"Please print this message into the output console so humans can read it!"*
 - `"Hello, World!"`: The message inside the quotation marks. In programming, text wrapped in quotes is called a **string**.
@@ -328,7 +328,7 @@ console.log("I am learning JavaScript!");
 
 ---
 
-## 🧭 Think Like a Programmer: The Robot Morning Routine
+## Think Like a Programmer: The Robot Morning Routine
 
 Pick an activity you do every morning before leaving for school (e.g. brushing your teeth or making buttered toast).
 - Break the activity down into **at least 6 numbered, sequential steps**.
@@ -337,7 +337,7 @@ Pick an activity you do every morning before leaving for school (e.g. brushing y
 
 ---
 
-## 🚀 Coding Challenge: The Triple Introduction
+## Coding Challenge: The Triple Introduction
 
 Open your editor or the interactive console. Write a program using three `console.log()` statements that prints:
 ```text
@@ -348,7 +348,7 @@ I am ready to build helpful websites!
 
 ---
 
-## 🛠️ Mini Project: The Digital Badge
+## Mini Project: The Digital Badge
 
 Write a JavaScript program that prints a decorated terminal badge using text symbols and stars:
 ```javascript

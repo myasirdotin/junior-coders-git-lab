@@ -1,4 +1,4 @@
-# Chapter 7: Boolean Logic ⚡
+# Chapter 7: Boolean Logic
 
 ---
 
@@ -29,7 +29,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 ### The 3 Logical Operators in JavaScript
 
@@ -69,7 +69,7 @@ NOT (!): flips the value
 
 ---
 
-## 💻 Code Example: Coding Club Admission
+## Code Example: Coding Club Admission
 
 Type this into your editor or scratchpad:
 
@@ -94,7 +94,7 @@ Welcome to the Junior Coders Club! 🚀
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - Line 6: Evaluates 3 boolean checks:
   1. `studentAge >= 11` (12 >= 11 is `true`).
@@ -129,14 +129,14 @@ Line 3: <code>true</code> (!false flips to true)
 
 ---
 
-## 🧭 Think Like a Programmer: The Library Borrowing Rule
+## Think Like a Programmer: The Library Borrowing Rule
 
 Write the boolean expression for this rule before writing any JavaScript:
 > *"A student can borrow a book if the book is in stock (`isAvailable`) AND the student currently has fewer than 3 books checked out (`booksCheckedOut < 3`)."*
 
 ---
 
-## 🚀 Coding Challenge: Robotics Lab Access Safety Check
+## Coding Challenge: Robotics Lab Access Safety Check
 
 Write a program that checks whether a student can operate high-precision robotics lab equipment:
 - Can operate if `age >= 14` OR `hasSafetySupervisorWithThem === true`.
@@ -144,7 +144,7 @@ Write a program that checks whether a student can operate high-precision robotic
 
 ---
 
-## 🛠️ Mini Project: Smart Eligibility Checker
+## Mini Project: Smart Eligibility Checker
 
 Build a comprehensive school field trip eligibility checker:
 - `isGrade7 = true;`

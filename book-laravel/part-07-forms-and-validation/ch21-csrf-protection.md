@@ -12,7 +12,7 @@ The library only accepts official request slips that carry the librarian's **sec
 - Send the token with JavaScript requests.
 - Explain why GET requests must never change data, and why logout is a POST form.
 
-## 🎭 What is CSRF?
+## What is CSRF?
 
 **CSRF** stands for **Cross-Site Request Forgery**. "Forgery" means a fake made to look real. "Cross-site" means it comes from a different website.
 
@@ -37,7 +37,7 @@ She never clicked "Delete". The other site **forged** the request, using her log
 
 Modern browsers make this harder: Laravel's session cookie is marked `SameSite=Lax`, which stops browsers sending it with most requests started by other sites. But older browsers and some tricks get around that, so Laravel adds a stronger guard: the token.
 
-## 🔐 How the Token Stops It
+## How the Token Stops It
 
 Laravel gives each visitor's session a long random **CSRF token**. Every form made by your app includes that token in a hidden field. When a POST, PUT, PATCH or DELETE request arrives, Laravel compares the token in the form with the one in the session:
 
@@ -53,7 +53,7 @@ The harmful site **cannot read** the token. Browsers do not let one website read
 
 This check is done by middleware called `ValidateCsrfToken`. Laravel runs it on every web route automatically. You do not add it yourself.
 
-## 🏷️ `@csrf` in Every Form
+## `@csrf` in Every Form
 
 ```blade
 <form method="POST" action="{{ route('books.store') }}">
@@ -70,7 +70,7 @@ This check is done by middleware called `ValidateCsrfToken`. Laravel runs it on 
 
 Your token will be different, and it changes when your session changes. Keep `@csrf` in **every** form that uses POST, including forms with `@method('PUT')` or `@method('DELETE')`.
 
-## ⛔ The 419 Error
+## The 419 Error
 
 If the token is missing or wrong, Laravel shows:
 
@@ -88,7 +88,7 @@ You will see this in three common cases:
 
 The default session lasts 120 minutes (`SESSION_LIFETIME=120` in `.env`).
 
-## 📡 Tokens with JavaScript
+## Tokens with JavaScript
 
 If your page sends data with JavaScript's `fetch()`, it must send the token too. Put it in a `<meta>` tag in the layout:
 
@@ -110,7 +110,7 @@ fetch('/loans/7/return', {
 
 Laravel accepts the token from the `_token` field **or** the `X-CSRF-TOKEN` header.
 
-## 🚫 GET Must Never Change Data
+## GET Must Never Change Data
 
 CSRF checks only run on POST, PUT, PATCH and DELETE. GET requests are not checked, because GET is supposed to only **read**. So a GET route that changes data has no protection:
 
@@ -134,7 +134,7 @@ Logging out changes the session, so it is a POST too. Starter kits (Chapter 22) 
 
 If logout were a plain link, any website could log your users out with one link.
 
-## 🧩 Excluding a Route (Rarely)
+## Excluding a Route (Rarely)
 
 Sometimes another **server** (not a browser) must send POST requests to your app, such as an online donation service reporting a gift. It cannot know your token. You can exclude that one URL in `bootstrap/app.php`:
 
@@ -148,7 +148,7 @@ Sometimes another **server** (not a browser) must send POST requests to your app
 
 Such routes need **another** way to prove who is calling, such as a secret signature. Never exclude routes just to make a 419 error go away.
 
-## 🛡️ What CSRF Protection Does Not Do
+## What CSRF Protection Does Not Do
 
 CSRF protection checks **where a request came from**. It does not:
 

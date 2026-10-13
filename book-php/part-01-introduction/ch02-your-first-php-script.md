@@ -1,4 +1,4 @@
-# Chapter 2: Your First PHP Script 🚀
+# Chapter 2: Your First PHP Script
 
 ---
 
@@ -18,7 +18,7 @@ Think about your school's loudspeaker system. The principal switches the microph
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **statement** is one complete instruction to PHP, like one sentence in English.
 
@@ -64,7 +64,7 @@ You will meet variables, functions and the other items in later chapters. For no
 
 ---
 
-## 💻 Code Example: Writing and Documenting PHP
+## Code Example: Writing and Documenting PHP
 
 Create a file named `hello.php` in your XAMPP `htdocs/` folder:
 
@@ -108,7 +108,7 @@ The browser turns this HTML into a heading, a purple paragraph and line breaks.
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `//`: Starts a **single-line comment**. A **comment** is a note for humans; PHP skips it.
 - `#`: Another way to write a single-line comment.

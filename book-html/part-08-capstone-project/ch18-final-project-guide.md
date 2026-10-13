@@ -1,4 +1,4 @@
-# Chapter 18: Final Project Planning & Showcase 🎓
+# Chapter 18: Final Project Planning & Showcase
 
 ---
 
@@ -28,7 +28,7 @@ By the end of this capstone chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The 9-Step Professional Web Development Workflow
 
@@ -64,7 +64,7 @@ By the end of this capstone chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: The Project Starter Blueprint
+## Code Example: The Project Starter Blueprint
 
 Here is your master starter boilerplate containing modern metadata, accessibility hooks, and CSS reset:
 
@@ -118,7 +118,7 @@ Here is your master starter boilerplate containing modern metadata, accessibilit
 
 ---
 
-## 🔍 Code Explanation: The Capstone Architecture
+## Code Explanation: The Capstone Architecture
 
 - **Semantic Cleanliness**: Notice how clean and readable the code is. We don't have messy unclosed tags or scrambled inline styles.
 - **Accessibility Hooks**: We included `<html lang="en">`, `<meta name="viewport">`, descriptive `<title>`, and semantic `<header>`, `<nav>`, `<main>`, and `<footer>` landmarks.
@@ -175,7 +175,7 @@ Issue 3: An external link replaced the
 
 ---
 
-## 🎨 Think Like a Web Designer: The Polish That Makes It Shine
+## Think Like a Web Designer: The Polish That Makes It Shine
 
 What turns a "good" student website into an **unforgettable** masterpiece?
 - **Consistent Spacing**: Generous padding and margins using the Box Model.
@@ -185,7 +185,7 @@ What turns a "good" student website into an **unforgettable** masterpiece?
 
 ---
 
-## 🚀 Mini Challenge: Complete Your Capstone Website!
+## Mini Challenge: Complete Your Capstone Website!
 
 It is time to unleash your creativity!
 - Choose your project idea.
@@ -196,7 +196,7 @@ It is time to unleash your creativity!
 
 ---
 
-## 🏁 Final Graduation Checklist
+## Final Graduation Checklist
 
 Congratulations, Web Creator! Before you launch your final project, verify your code against this master checklist:
 
@@ -222,7 +222,7 @@ CSS track extras (after you learn CSS):
 
 ---
 
-## 🎓 Official Certificate of Completion
+## Official Certificate of Completion
 
 ```text
 ╔════════════════════════════════════════╗

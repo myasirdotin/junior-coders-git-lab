@@ -1,4 +1,4 @@
-# Chapter 2: Installing Android Studio 🛠️
+# Chapter 2: Installing Android Studio
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ Before a science practical, Yusuf's teacher sets out the equipment: goggles, bea
 - Create a virtual device (an emulator), or choose a better option for a slow computer.
 - Find your way around the main parts of the Android Studio window.
 
-## 🙋 First: Ask Permission
+## First: Ask Permission
 
 Android Studio is a large program. It changes settings on the computer and downloads several gigabytes.
 
@@ -22,7 +22,7 @@ Android Studio is a large program. It changes settings on the computer and downl
 
 Asking first is part of honesty (*ṣidq*) and trust (*amānah*). A computer or phone that belongs to someone else is in your care, not yours to change freely.
 
-## 💻 Is My Computer Strong Enough?
+## Is My Computer Strong Enough?
 
 Android Studio does a lot of work: it checks your code as you type, builds apps and can run a pretend phone. It needs a fairly strong computer. The table shows what the official site asked for on Windows in 2026. The numbers change from time to time, so check the "System requirements" part of the download page.
 
@@ -52,7 +52,7 @@ Device specifications
 
 If you see 8 GB, Android Studio will work, but the emulator needs 16 GB to run well. Read the section "Slow computer? Three good options" below before you decide.
 
-## ⬇️ Downloading Android Studio Safely
+## Downloading Android Studio Safely
 
 There is only **one** safe place to get Android Studio: the official Android developers site.
 
@@ -69,7 +69,7 @@ Never download Android Studio from other sites, file-sharing pages or video desc
 
 You do **not** need to install Java separately. Android Studio comes with the Java tools it needs.
 
-## ⚙️ The First-Run Setup
+## The First-Run Setup
 
 On Windows, double-click the downloaded `.exe` file and follow the installer. Keep the default choices. When it finishes, start Android Studio. The first time, a **setup assistant** appears: a set of screens that asks you a few questions, one step at a time.
 
@@ -102,7 +102,7 @@ When the setup ends, you see the **Welcome to Android Studio** window:
 
 You will press **New Project** in Chapter 3. Not today.
 
-## 📦 The Android SDK
+## The Android SDK
 
 During setup, the setup assistant downloaded the **Android SDK**. SDK means *Software Development Kit*: a toolbox of everything needed to build apps for Android. It holds:
 
@@ -119,7 +119,7 @@ The SDK lives in a folder on your computer, usually something like:
 C:\Users\<your name>\AppData\Local\Android\Sdk
 ```
 
-## 📱 Creating a Virtual Device (Emulator)
+## Creating a Virtual Device (Emulator)
 
 An **emulator** is a pretend phone that runs in a window on your computer. In Android Studio it is called an **Android Virtual Device**, or **AVD**.
 
@@ -150,7 +150,7 @@ You can click on it with the mouse as if you were tapping with a finger.
 
 The emulator runs a whole Android phone inside your computer. To do this quickly it needs **hardware acceleration**: help from the processor's *virtualisation* feature. On most new computers it is already on. If Android Studio says virtualisation is off, it must be switched on in the computer's start-up settings (BIOS). **That is a job for a parent, teacher or IT staff**, not something to try alone.
 
-## 🐢 Slow Computer? Three Good Options
+## Slow Computer? Three Good Options
 
 Many school computers have 8 GB of RAM or less. The emulator may crawl or refuse to start. That is not your fault, and you can still learn everything in this book.
 
@@ -197,7 +197,7 @@ Books waiting on the shelf: 5
 
 The Playground runs plain Kotlin only. Screens built with Compose (Chapter 9 onwards) need Android Studio.
 
-## 🗺️ A Tour of the Android Studio Window
+## A Tour of the Android Studio Window
 
 You will see the full window when you open a project in Chapter 3. Here is a map so you know the names in advance.
 

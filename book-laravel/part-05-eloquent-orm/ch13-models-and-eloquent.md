@@ -12,7 +12,7 @@ In the old days, finding a book meant walking to the records room, opening a hea
 - Read data with `all()`, `find()`, `findOrFail()`, `where()`, `orderBy()` and `count()`.
 - Try queries in **Tinker** and show real rows in a view.
 
-## 🧠 What is Eloquent?
+## What is Eloquent?
 
 In the PHP book you wrote SQL by hand with PDO:
 
@@ -37,7 +37,7 @@ Eloquent writes the SQL for you and uses **prepared statements**, so values are 
 | One row | One `Book` object |
 | Column `title` | Property `$book->title` |
 
-## 🗄️ Today the Table Already Exists
+## Today the Table Already Exists
 
 Part 6 teaches **migrations**, Laravel's way to create tables with PHP. For now, make the `books` table yourself with SQL, as you did in the MySQL book. Open phpMyAdmin, choose the `library_app` database, open the **SQL** tab and run:
 
@@ -61,7 +61,7 @@ INSERT INTO books (title, author, isbn, copies) VALUES
 
 (These ISBNs are made-up practice numbers.) Notice the columns `created_at` and `updated_at`. Eloquent fills them in automatically when you save rows.
 
-## 🛠️ Create the Model
+## Create the Model
 
 ```bash
 php artisan make:model Book
@@ -96,7 +96,7 @@ That empty class is already enough to read the table. How does it know which tab
 
 Eloquent also expects a primary key called `id`. If your table had a different name, you could write `protected $table = 'library_books';` inside the class. Following the conventions is simpler.
 
-## 🧪 Try Queries in Tinker
+## Try Queries in Tinker
 
 **Tinker** is a PHP command line that already knows your Laravel app. Start it:
 
@@ -130,7 +130,7 @@ Type a query after the `>` prompt and press Enter. Results start with `=`:
 
 (The `#6214` number is an internal id. Yours will differ.) Type `exit` to leave Tinker.
 
-## 📖 The Most Useful Read Methods
+## The Most Useful Read Methods
 
 | Code | What it gives |
 |------|---------------|
@@ -144,7 +144,7 @@ Type a query after the `>` prompt and press Enter. Results start with `=`:
 
 A query that starts with `where()` or `orderBy()` must end with `get()`, `first()` or `count()`. Those words actually run it.
 
-## 🔗 Real Data in the Controller
+## Real Data in the Controller
 
 Replace the sample array from Part 4:
 
@@ -178,7 +178,7 @@ Stars Over the Desert by Hamza Qureshi (2 on the shelf)
 The Story of Numbers by Yusuf Ali Khan (0 on the shelf)
 ```
 
-## 🎁 Route Model Binding
+## Route Model Binding
 
 For one book, Laravel can find it **for you**. Type-hint the model in the method, and give the route parameter the same name:
 

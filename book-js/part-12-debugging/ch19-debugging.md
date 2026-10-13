@@ -1,4 +1,4 @@
-# Chapter 19: Debugging 🐞
+# Chapter 19: Debugging
 
 ---
 
@@ -20,7 +20,7 @@ Finding and fixing a problem in code works the same way. Programmers call it **d
 
 ---
 
-## ❤️ Why Bugs Happen (And Why That Is Normal)
+## Why Bugs Happen (And Why That Is Normal)
 
 A **bug** is a mistake in a program that makes it stop or give the wrong answer.
 
@@ -31,7 +31,7 @@ Every programmer, whether they have been coding for 2 weeks or 20 years, meets b
 
 ---
 
-## 🚨 The Three Types of Programming Errors
+## The Three Types of Programming Errors
 
 To fix a bug quickly, you first need to know what kind of error it is.
 
@@ -66,7 +66,7 @@ The code runs from start to finish with no red error messages, but it gives the 
 
 ---
 
-## 🔍 The Five-Step Debugging Method
+## The Five-Step Debugging Method
 
 Follow this checklist whenever your code doesn't work:
 
@@ -113,7 +113,7 @@ DEBUG: total is -> 120
 
 (The browser console shows the array as `(3) [40, 35, 45]`; it means the same thing.)
 
-### 🦆 Step 4: The Rubber Duck Technique
+### Step 4: The Rubber Duck Technique
 Some programmers keep a rubber duck on their desks. When stuck:
 1. Explain the problem out loud to the rubber duck (or a classmate).
 2. Explain what every single line of code is supposed to do.
@@ -127,7 +127,7 @@ When it is right, delete your `DEBUG` lines so the console stays clean.
 
 ---
 
-## 🐛 Ten Common JavaScript Bugs for Beginners
+## Ten Common JavaScript Bugs for Beginners
 
 | Bug | What it looks like | How to fix |
 |---|---|---|

@@ -14,7 +14,7 @@ The school library keeps a daily notebook. Each day the librarian writes one new
 - Search for words inside a file.
 - Join two commands with a pipe `|`.
 
-## 📖 Printing a File on the Screen
+## Printing a File on the Screen
 
 | Task | CMD | PowerShell |
 | :--- | :--- | :--- |
@@ -52,7 +52,7 @@ error: scanner jammed
 > [!NOTE]
 > **Git Bash / macOS**: `cat log.txt` prints a file. `less log.txt` shows it page by page (<kbd>Q</kbd> quits). `head -n 2 log.txt` and `tail -n 1 log.txt` show the first and last lines.
 
-## ➡️ Redirection: `>` and `>>`
+## Redirection: `>` and `>>`
 
 Most commands print their result on the screen. **Redirection** sends that result into a file instead.
 
@@ -95,7 +95,7 @@ The first command used `>` to start a fresh file. The next two used `>>` to add 
 > [!NOTE]
 > **Git Bash / macOS** use `>` and `>>` the same way: `echo "License: MIT" >> README.md`.
 
-## 🔍 Finding Words Inside a File
+## Finding Words Inside a File
 
 | Task | CMD | PowerShell |
 | :--- | :--- | :--- |
@@ -126,7 +126,7 @@ log.txt:4:error: scanner jammed
 > [!NOTE]
 > **Git Bash / macOS**: `grep Error log.txt` finds a word. `grep -i -n error log.txt` ignores capitals and shows line numbers.
 
-## 🔗 The Pipe: `|`
+## The Pipe: `|`
 
 The **pipe** sign `|` connects two commands. The output of the first command becomes the input of the second. It is like a water pipe carrying water from one tank to the next. On most keyboards, `|` is <kbd>Shift</kbd> + <kbd>\</kbd>.
 

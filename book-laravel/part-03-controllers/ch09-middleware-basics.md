@@ -12,7 +12,7 @@ Before you reach the library's front desk, you pass the **door attendant**. He c
 - Attach middleware to one route or to a group of routes.
 - Give your middleware a short alias in `bootstrap/app.php`.
 
-## 🚪 Where Middleware Sits
+## Where Middleware Sits
 
 **Middleware** is code that runs **before** (and sometimes after) your controller. It can let the request continue, or stop it and send a different response.
 
@@ -40,7 +40,7 @@ Browser request
 
 Many middleware can stand in a line, like several checkpoints. The request passes through each one in turn.
 
-## 🧰 Middleware Laravel Already Has
+## Middleware Laravel Already Has
 
 You will use these often:
 
@@ -63,7 +63,7 @@ Route::get('/librarian/reports', [ReportController::class, 'index'])
 
 We have no login yet; Part 8 adds it. Today we build our own door attendant.
 
-## 🛠️ Make Your Own Middleware
+## Make Your Own Middleware
 
 The library desk is open from 8:00 to 15:00. Outside those hours, the borrowing pages should show a polite message.
 
@@ -114,7 +114,7 @@ Read it slowly:
 
 `now()` uses the timezone in `config/app.php`, which is `'UTC'` by default. Set it to your own, for example `'timezone' => 'Asia/Kolkata'`, or the hours will be wrong.
 
-## 🔗 Attach It to Routes
+## Attach It to Routes
 
 You can use the class name directly:
 

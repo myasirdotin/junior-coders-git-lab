@@ -1,4 +1,4 @@
-# Chapter 9: The Switch Statement 🎛️
+# Chapter 9: The Switch Statement
 
 ---
 
@@ -18,7 +18,7 @@ Picture the drinks machine in the school canteen. Press button 1 and out comes l
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### Anatomy of a Switch Statement
 
@@ -66,7 +66,7 @@ This sliding into the next case is called **fall-through**.
 
 ---
 
-## 💻 Code Example: School Timetable Selector
+## Code Example: School Timetable Selector
 
 ```php
 <?php
@@ -124,7 +124,7 @@ Class 9 Schedule for Tuesday
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `switch ($day)`: Names the one value we are checking.
 - `case "Monday":`: Asks "is `$day == "Monday"`?" If yes, PHP starts running here.
@@ -134,7 +134,7 @@ Class 9 Schedule for Tuesday
 
 ---
 
-## 🆕 The Modern Alternative: `match` (PHP 8)
+## The Modern Alternative: `match` (PHP 8)
 
 `match` checks one value too, but it **returns** a value and uses strict `===` comparison. You do not need `break`.
 

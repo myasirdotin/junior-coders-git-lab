@@ -1,4 +1,4 @@
-# Chapter 15: Staying in Sync: Fetching & Pulling (`fetch`, `pull`) 🔄
+# Chapter 15: Staying in Sync: Fetching & Pulling (`fetch`, `pull`)
 
 ---
 
@@ -24,7 +24,7 @@ Every morning, teachers pin new notices on the school noticeboard. They might mo
 
 ---
 
-## 📥 `git fetch` vs. `git pull`: Peek or Download Everything
+## `git fetch` vs. `git pull`: Peek or Download Everything
 
 ```text
 git fetch  = download new commits
@@ -42,7 +42,7 @@ A **remote-tracking branch** like `origin/main` is Git's memory of where `main` 
 
 ---
 
-## 👀 Watching a Fetch, Step by Step
+## Watching a Fetch, Step by Step
 
 Your teammate Amina pushed a new page, `about.html`, to the remote. You have not talked to the remote yet:
 
@@ -94,7 +94,7 @@ b8fae50 Add about page
 
 ---
 
-## 🔄 Pulling the Updates
+## Pulling the Updates
 
 ```bash
 git pull

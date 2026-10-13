@@ -1,4 +1,4 @@
-# Chapter 6: Crafting Meaningful Commits 📝
+# Chapter 6: Crafting Meaningful Commits
 
 ---
 
@@ -20,7 +20,7 @@ A ship's captain keeps a logbook of the whole voyage. A useless entry says: *"Di
 
 ---
 
-## 👁️ The Shape of a Good Commit Message
+## The Shape of a Good Commit Message
 
 ```text
  TYPE  DESCRIPTION
@@ -57,7 +57,7 @@ A ship's captain keeps a logbook of the whole voyage. A useless entry says: *"Di
 
 ---
 
-## 💻 Example: Making Commits
+## Example: Making Commits
 
 The Eco Club website already has a first commit. Now we add a navigation bar.
 
@@ -91,7 +91,7 @@ Your commit ID (here `c3898ce`) will be different. The very first commit in a re
 
 ---
 
-## 🔍 How It Works
+## How It Works
 
 - `git commit` takes **only what is in the staging area** and saves it as a new snapshot. It records your name, email and the time.
 - `-m "..."` gives the message straight on the command line. Without `-m`, Git opens a text editor.
@@ -101,7 +101,7 @@ Your commit ID (here `c3898ce`) will be different. The very first commit in a re
 
 ---
 
-## 🩹 Fixing the Last Commit with `--amend`
+## Fixing the Last Commit with `--amend`
 
 You spot a typo right after committing:
 

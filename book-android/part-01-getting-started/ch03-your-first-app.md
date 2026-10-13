@@ -1,4 +1,4 @@
-# Chapter 3: Your First App 👋
+# Chapter 3: Your First App
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ When Maryam joined the school's science club, the teacher did not ask her to des
 - Read the generated `MainActivity.kt` in broad strokes and change the greeting text.
 - Run the app on an emulator and on a real phone with USB debugging, and fix common first errors.
 
-## 🆕 Creating the Project
+## Creating the Project
 
 Open Android Studio. On the welcome screen, click **New Project**.
 
@@ -68,7 +68,7 @@ Every Android version has an **API level**, a number that goes up with each new 
 
 Android Studio shows a line like "Your app will run on approximately …% of devices". The **default** is a sensible balance: it reaches nearly all phones still in use. Keep it. If your family phone is very old, your teacher can help you check it is covered.
 
-## 🔄 Gradle Sync
+## Gradle Sync
 
 After you click Finish, look at the status bar at the bottom. You will see messages such as "Gradle sync" or "Gradle Build Running" with a progress bar.
 
@@ -76,7 +76,7 @@ After you click Finish, look at the status bar at the bottom. You will see messa
 
 Wait until the status bar is quiet and the Build window shows success. Then the project is ready.
 
-## 📁 The Project's Folders
+## The Project's Folders
 
 In the **Project** window on the left, make sure the view at the top says **Android**. This view hides the clutter and shows the important parts:
 
@@ -120,7 +120,7 @@ Here is what each part is for:
 
 You do not need to edit the Gradle files now. Later chapters add a line to them when the app needs an extra library.
 
-## 👀 Reading MainActivity.kt
+## Reading MainActivity.kt
 
 Double-click `MainActivity.kt`. The template code looks very close to this (small details can differ between Android Studio versions):
 
@@ -211,7 +211,7 @@ Click **Split** at the top right of the editor. On the right, the preview panel 
 
 `showBackground = true` gives the preview a white background so the text is easy to read.
 
-## ✏️ Change the Greeting
+## Change the Greeting
 
 Time to make the app yours. Find this line inside `onCreate`:
 
@@ -251,7 +251,7 @@ The screen will say:
 Welcome to the School Library!
 ```
 
-## ▶️ Run on the Emulator
+## Run on the Emulator
 
 1. In the toolbar, open the device menu and choose your virtual device, such as `Library Phone`.
 2. Click the green **Run** button (the ▶ triangle).
@@ -273,7 +273,7 @@ The emulator shows your app:
 
 The text sits just under the status bar, not behind it. That is `innerPadding` at work. Notice the app also appears in the emulator's app list with a default Android icon. You can close it and tap the icon to open it again.
 
-## 📲 Run on a Real Phone (USB Debugging)
+## Run on a Real Phone (USB Debugging)
 
 On a slow computer, a real phone is often the best choice. **Ask permission first:** this changes the phone's settings. Menu names differ a little between phone makers, so look carefully.
 
@@ -301,7 +301,7 @@ When you finish for the day, you can switch **USB debugging** off again in Devel
 
 Some newer phones also offer **Wireless debugging**, which works over Wi-Fi without a cable. Ask your teacher before using it on a shared network.
 
-## 🧯 Common First Errors and Fixes
+## Common First Errors and Fixes
 
 | What you see | What it usually means | What to do |
 |--------------|-----------------------|------------|

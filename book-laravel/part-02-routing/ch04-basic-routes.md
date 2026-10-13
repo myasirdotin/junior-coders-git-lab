@@ -12,7 +12,7 @@ At the entrance of a big school there is a signboard. "Library: first floor, lef
 - Name the main HTTP methods: GET, POST, PUT, PATCH and DELETE.
 - Connect a route to a controller method.
 
-## 🛠️ What is a Route?
+## What is a Route?
 
 A **route** links a URL to some code. When a browser visits a URL, Laravel looks through your routes from top to bottom. It runs the first route that matches.
 
@@ -29,7 +29,7 @@ Route::get('/', function () {
 
 Read it like a sentence: "When the browser **gets** the address `/`, run this function." The function is a **closure**, which means a function with no name, written right where it is used.
 
-## 📋 Basic GET Routes
+## Basic GET Routes
 
 A route can return plain text:
 
@@ -60,7 +60,7 @@ Visit `/status`. The browser shows:
 {"library":"open","books":120}
 ```
 
-## 🖼️ Returning a View
+## Returning a View
 
 Most pages are HTML. A **view** is an HTML file in `resources/views/` whose name ends in `.blade.php`. (Blade is Laravel's template language. Chapter 10 teaches it.)
 
@@ -109,7 +109,7 @@ Route::redirect('/library-home', '/');
 
 Visiting `/library-home` now jumps to `/`.
 
-## 📮 HTTP Methods
+## HTTP Methods
 
 Every request has a **method** that says what kind of action it is. You know GET and POST from HTML forms in PHP.
 
@@ -131,7 +131,7 @@ Route::delete('/books/1', ...);
 
 The same address can have different routes for different methods. A GET to `/books` and a POST to `/books` run different code. GET routes must never change data. Part 7 explains why.
 
-## 🔁 Route to a Controller
+## Route to a Controller
 
 Closures are fine for tiny pages. Real pages use a **controller**, a class that groups related actions (Chapter 7). The route names the class and the method:
 
@@ -145,7 +145,7 @@ Route::get('/about', [HomeController::class, 'about']);
 
 `HomeController::class` gives the full class name, `App\Http\Controllers\HomeController`. The `use` line at the top lets you write the short name.
 
-## 🔍 See All Your Routes
+## See All Your Routes
 
 Artisan can list every route:
 

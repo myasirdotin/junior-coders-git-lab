@@ -12,11 +12,11 @@ A careful librarian never adds a donation form to the register without checking 
 - Keep what the user typed with `old()`.
 - Allow a record's own value in `unique` when updating.
 
-## 🛂 Why Validate on the Server?
+## Why Validate on the Server?
 
 You can add `required` to an HTML input, and the browser will check it. That is helpful, but it is **not** protection. Anyone can switch off browser checks or send a request without a browser. **The server must always check.** Validation is part of the trust (*amānah*) of keeping the library's records correct.
 
-## ✅ `$request->validate()`
+## `$request->validate()`
 
 Replace `$request->only(...)` in `store` from Chapter 19:
 
@@ -59,7 +59,7 @@ validate() checks every rule
 
 Rules are joined with `|`. You can also write them as an array: `'title' => ['required', 'string', 'max:255']`.
 
-## 📏 Common Rules
+## Common Rules
 
 | Rule | Passes when the value… |
 |------|-------------------------|
@@ -75,7 +75,7 @@ Rules are joined with `|`. You can also write them as an array: `'title' => ['re
 | `exists:members,id` | **is** in the `id` column of `members` |
 | `nullable` | may be empty (other rules then skip it) |
 
-## 🖍️ Showing Errors
+## Showing Errors
 
 Laravel puts the messages in a variable called `$errors`, which every view has. Show them next to each field with `@error`:
 
@@ -130,7 +130,7 @@ To list every error in one box, use `$errors->any()` and `$errors->all()`:
 @endif
 ```
 
-## 💬 Friendlier Messages
+## Friendlier Messages
 
 Pass your own messages as a second array. The key is `field.rule`:
 
@@ -146,7 +146,7 @@ $validated = $request->validate([
 
 Now an empty title shows `Please write the book title.`
 
-## ✏️ Updating: Unique, but Not Against Itself
+## Updating: Unique, but Not Against Itself
 
 When you edit book 3 and keep its ISBN, `unique:books,isbn` fails, because book 3 itself already has that ISBN. Tell the rule to **ignore** the book being edited:
 
@@ -173,7 +173,7 @@ In the edit form, use `old()` with the current value as the default:
 <input type="text" id="title" name="title" value="{{ old('title', $book->title) }}">
 ```
 
-## 📚 Validating a Loan
+## Validating a Loan
 
 ```php
 // app/Http/Controllers/LoanController.php
@@ -192,7 +192,7 @@ The due on field must be a date after or equal to today.
 
 Laravel turns `due_on` into `due on` for messages.
 
-## 📦 Bigger Forms: Form Requests
+## Bigger Forms: Form Requests
 
 When rules grow long, move them out of the controller into a **Form Request** class:
 

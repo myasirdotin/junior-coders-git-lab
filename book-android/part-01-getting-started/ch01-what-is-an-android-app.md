@@ -1,4 +1,4 @@
-# Chapter 1: What Is an Android App? 📱
+# Chapter 1: What Is an Android App?
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ Zainab's school library has a paper register. To find a book, she turns page aft
 - Name the two main tools of this book: the Kotlin language and Jetpack Compose.
 - Describe the two apps you will build and the values that make an app trustworthy.
 
-## 📱 What Is an App?
+## What Is an App?
 
 An **app** (short for *application*) is a program made for one job. A calculator app does sums. A dictionary app finds the meaning of words. A timetable app shows your lessons.
 
@@ -42,7 +42,7 @@ An app cannot talk to the screen, the battery or the camera by itself. It asks t
 
 Each layer talks to the layer next to it. Your app asks Android, and Android asks the hardware. Because Android keeps every app in its own separate space, one app cannot secretly read another app's data.
 
-## 🤖 Android and Other Systems
+## Android and Other Systems
 
 **Android** is an operating system led by Google. It is built on Linux, and most of its code is open source. That means anyone can read it. Many companies make Android phones and tablets, so Android runs on a huge range of devices, from low-cost phones to large tablets.
 
@@ -68,7 +68,7 @@ A **native app** is built with the system's own tools. It is installed on the ph
 
 A web page is still great for many jobs. The Junior Coders site itself is a web page! Choose the tool that fits the problem.
 
-## 🏭 How an App Is Built and Installed
+## How an App Is Built and Installed
 
 Making an app is like making a school magazine. You write the articles, the printer turns them into a printed copy, and the copy reaches readers. For an app, the journey looks like this:
 
@@ -105,7 +105,7 @@ You have two choices, and Chapter 2 sets up both:
 | **Emulator** | A pretend phone in a window on your computer | Computers with plenty of memory |
 | **Real phone** | Your own or a family phone on a USB cable | Slower school computers |
 
-## 🧩 Kotlin and Compose in One Picture
+## Kotlin and Compose in One Picture
 
 This book uses two main tools. Think of building a house.
 
@@ -169,7 +169,7 @@ On the phone, the screen shows one line of text at the top:
 
 The word `@Composable` marks a function that draws part of a screen. You will write many of these from Chapter 9. Plain Kotlin comes first (Chapters 4 to 8), because Compose is written in Kotlin.
 
-## 📚 What This Book Builds
+## What This Book Builds
 
 You will not build many small, forgettable apps. You will grow **two real apps** that solve real school problems.
 
@@ -209,7 +209,7 @@ A sketch of where it is heading:
 
 Your final project. You plan your homework and revision, tick off tasks and see what is due this week. You build it on your own, using everything from the book.
 
-## 🧰 What You Need
+## What You Need
 
 | Item | Notes |
 |------|-------|
@@ -222,7 +222,7 @@ Your final project. You plan your homework and revision, tick off tasks and see 
 
 You do **not** need to pay for anything. You also do not need a Google Play developer account. Those accounts are for adults (18 or older). You will share your apps with family and teachers as an APK file instead (Chapter 18).
 
-## 🤝 Apps as Amānah
+## Apps as Amānah
 
 An app lives in someone's pocket. It sees what they type and what they save. That trust is an **Amānah**, something placed in your care that you must look after. Every app in this book keeps three promises.
 

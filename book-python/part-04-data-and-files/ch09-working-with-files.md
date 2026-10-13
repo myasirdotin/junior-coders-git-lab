@@ -1,4 +1,4 @@
-# Chapter 9: Working with Files & Context Managers 📁
+# Chapter 9: Working with Files & Context Managers
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ In the science lab, each experiment is written in a logbook. When the bell rings
 - Split each line into pieces of data and calculate with them.
 - Recognise `FileNotFoundError` and avoid wiping a file by accident.
 
-## 💡 Open, Use, Close
+## Open, Use, Close
 
 Working with a file is like working with a real notebook:
 
@@ -24,7 +24,7 @@ If a program forgets to close a file, some of the text may never be saved. Pytho
 
 > 💻 **Where files are saved**: on a computer, files are saved in the folder you run Python from. In the Python Console on this website, files live in the browser's temporary memory. They work the same way, but disappear when you reload the page.
 
-## 📂 File Modes
+## File Modes
 
 The second argument of `open()` is the **mode**. It says what you plan to do.
 
@@ -36,7 +36,7 @@ The second argument of `open()` is the **mode**. It says what you plan to do.
 
 We also pass `encoding="utf-8"`. An **encoding** is the rule for storing letters as numbers. UTF-8 can store every language, including Arabic, Urdu and emoji.
 
-## ✍️ Writing a File with `with`
+## Writing a File with `with`
 
 ```python
 with open("club_log.txt", "w", encoding="utf-8") as file:
@@ -57,7 +57,7 @@ File written and closed.
 - When the indented block ends, Python **closes the file automatically**, even if something goes wrong.
 - `.write()` does **not** add a new line for you. The `\n` at the end of each string means "new line". It is called a **newline character**.
 
-## 📖 Reading a File
+## Reading a File
 
 ### All at Once with `.read()`
 
@@ -106,7 +106,7 @@ Line 3: Study kits given out: 150
 
 Each `line` still ends with `\n`. `.strip()` removes it. Without `.strip()`, you would see an empty line after every line.
 
-## ➕ Appending: Adding Without Erasing
+## Appending: Adding Without Erasing
 
 Mode `"a"` adds new text at the end and keeps everything already there.
 
@@ -127,7 +127,7 @@ Study kits given out: 150
 Volunteers: 12
 ```
 
-## 🔢 Turning Lines into Data
+## Turning Lines into Data
 
 Files often store one record per line, with values separated by commas. The string method `.split(",")` cuts a line into a **list** of pieces.
 
@@ -174,7 +174,7 @@ Class total: 60 pages
 
 `name, pages = ...` unpacks the two-item list into two variables, just like a tuple. In the next chapter, the `csv` module will do this splitting for us.
 
-## 🚫 When the File Is Missing
+## When the File Is Missing
 
 Reading a file that does not exist stops the program:
 
@@ -207,7 +207,7 @@ No data file yet. Starting with an empty log.
 
 The code under `try` runs first. If that exact error happens, Python jumps to the `except` block. You only need this simple form for now.
 
-## 📓 Worked Example: Daily Reflection Journal
+## Worked Example: Daily Reflection Journal
 
 A student keeps a short daily journal of what she learned. On a computer, the entries could come from `input()`. Here they are in a list of tuples. Append mode keeps every old entry.
 

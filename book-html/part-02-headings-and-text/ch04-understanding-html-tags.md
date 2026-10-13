@@ -1,4 +1,4 @@
-# Chapter 4: Understanding HTML Tags 🏷️
+# Chapter 4: Understanding HTML Tags
 
 ---
 
@@ -25,7 +25,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### Anatomy of an HTML Element & Attribute
 
@@ -78,7 +78,7 @@ open p -> open strong
 
 ---
 
-## 💻 Code Example: Clean Nesting and Indentation
+## Code Example: Clean Nesting and Indentation
 
 Look at how clear and easy to read properly indented code is:
 
@@ -107,7 +107,7 @@ Look at how clear and easy to read properly indented code is:
 
 ---
 
-## 🔍 Code Explanation: What's Happening Inside?
+## Code Explanation: What's Happening Inside?
 
 - Notice how every time a tag is inside another tag (like `<head>` inside `<html>`, or `<h1>` inside `<body>`), we press the **Tab key (or 2 spaces)** to indent it inward.
 - `<em>Tuesday afternoon</em>`: The `<em>` tag means *emphasis* (italics). Notice that `<em>` opens inside `<p>` and closes with `</em>` *before* the sentence ends.
@@ -164,7 +164,7 @@ Look at this broken code written by an apprentice developer:
 
 ---
 
-## 🎨 Think Like a Web Designer: Visual Hierarchy
+## Think Like a Web Designer: Visual Hierarchy
 
 When you read a newspaper, your eyes jump first to the big headline, then to section titles, and then to regular body text.
 - If everything on the page is **BOLD AND HUGE**, nothing stands out!
@@ -175,7 +175,7 @@ When you read a newspaper, your eyes jump first to the big headline, then to sec
 
 ---
 
-## 🚀 Mini Challenge: The Indentation Makeover
+## Mini Challenge: The Indentation Makeover
 
 Take this messy, ugly code that is crammed into one single line:
 

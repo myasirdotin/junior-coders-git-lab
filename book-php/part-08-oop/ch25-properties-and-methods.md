@@ -1,4 +1,4 @@
-# Chapter 25: Properties, Methods & Encapsulation 🛡️
+# Chapter 25: Properties, Methods & Encapsulation
 
 ---
 
@@ -17,7 +17,7 @@ Look at a digital wristwatch. On the outside you see a screen and two buttons, "
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 **Encapsulation** means keeping an object's data safe inside it. Outside code may only change the data through methods that check the rules. An **access modifier** is the word in front of a property or method that says who may use it.
 
@@ -54,7 +54,7 @@ It is called a **pseudo-variable** because you never create it yourself. PHP fil
 
 ---
 
-## 💻 Code Example: Encapsulated School Wallet
+## Code Example: Encapsulated School Wallet
 
 Each student has a school wallet for buying stationery at the school shop.
 
@@ -120,7 +120,7 @@ Final balance: ₹100.50
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `private $balance = 0.0;`: Sealed inside the object. Outside code cannot write `$wallet->balance = 50000;`.
 - `$this->balance`: The balance of the wallet the method was called on.

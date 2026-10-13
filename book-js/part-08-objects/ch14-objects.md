@@ -27,7 +27,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 An **Object** is a collection of key-value pairs (also called properties). While arrays store items by numerical order (`0, 1, 2`), objects store items by **meaningful names (keys)**.
 
@@ -76,7 +76,7 @@ bus.speedUp(); // Speed is now 20 km/h
 
 ---
 
-## 🌍 Real-World Example
+## Real-World Example
 
 Think of a library catalog card:
 ```javascript
@@ -92,7 +92,7 @@ When a student borrows the book, the library database simply sets:
 
 ---
 
-## 💻 Code Example
+## Code Example
 
 ```javascript
 // Array of student objects
@@ -122,7 +122,7 @@ Student: Pooja | Average Marks: 95.5%
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - `let classroom = [ ... ]`: An array containing three separate objects. Each object represents one student.
 - `let student = classroom[i];`: Grabs the student object at index `i`.
@@ -161,7 +161,7 @@ Dot notation looks for a key literally called `propertyToLookUp`, and there is n
 
 ---
 
-## 🧭 Think Like a Programmer: Modeling Reality
+## Think Like a Programmer: Modeling Reality
 
 Software engineering is about turning messy real-world problems into organized digital structures.
 - Use an **Array** when the order matters and items are identical in kind (e.g., a list of test marks: `[100, 95, 90]`).
@@ -170,7 +170,7 @@ Software engineering is about turning messy real-world problems into organized d
 
 ---
 
-## 🚀 Coding Challenge
+## Coding Challenge
 
 Your school houses collected books for a charity book drive. Write a function `findTopCollector(houses)`:
 - Takes an array of house objects: `[{ name: "Red House", books: 50 }, { name: "Blue House", books: 85 }, { name: "Green House", books: 72 }]`.
@@ -178,7 +178,7 @@ Your school houses collected books for a charity book drive. Write a function `f
 
 ---
 
-## 🛠️ Mini Project: Mars Rover Control Sheet
+## Mini Project: Mars Rover Control Sheet
 
 Build a rover control program that defines:
 ```javascript

@@ -1,4 +1,4 @@
-# Chapter 14: Responsive Web Design 📱
+# Chapter 14: Responsive Web Design
 
 ---
 
@@ -29,7 +29,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Screen Size Spectrum
 
@@ -84,7 +84,7 @@ Condition: "if the screen is
 
 ---
 
-## 💻 Code Example: The Mobile-First Club Page
+## Code Example: The Mobile-First Club Page
 
 We will build `responsive.html` the **mobile-first** way: first the phone layout, then extra rules for wider screens. Type the three parts into one file, in order.
 
@@ -216,7 +216,7 @@ Make your browser window wide, then narrow. Wide: three cards in a row and a big
 
 ---
 
-## 🔍 Code Explanation: The Secrets of Responsiveness
+## Code Explanation: The Secrets of Responsiveness
 
 - `<meta name="viewport" content="width=device-width, initial-scale=1.0">`: **Never forget this tag!** Without it, phones pretend to be about 980px wide and shrink the whole page. The text becomes tiny, and your media queries do not work as planned.
 - **Mobile-first**: the normal rules (Step 2) are the phone design. The cards stack with `flex-direction: column;`.
@@ -276,7 +276,7 @@ A student built a responsive site, but when testing it on their friend's phone, 
 
 ---
 
-## 🎨 Think Like a Web Designer: Touch Targets for Thumbs
+## Think Like a Web Designer: Touch Targets for Thumbs
 
 On desktop computers, users click with a sharp mouse cursor that is 1 pixel wide.
 On smartphones, users tap with **fingertips and thumbs**, which are much bigger than a cursor.
@@ -285,7 +285,7 @@ On smartphones, users tap with **fingertips and thumbs**, which are much bigger 
 
 ---
 
-## 🚀 Mini Challenge: The Responsive School Menu
+## Mini Challenge: The Responsive School Menu
 
 Build a weekly school lunch menu, mobile-first:
 - Default (phones): Monday to Friday stack as five cards, one under another.

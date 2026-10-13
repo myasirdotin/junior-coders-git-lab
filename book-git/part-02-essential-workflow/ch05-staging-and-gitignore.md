@@ -1,4 +1,4 @@
-# Chapter 5: Staging Changes & The Sacred `.gitignore` 🛡️
+# Chapter 5: Staging Changes & The Sacred `.gitignore`
 
 ---
 
@@ -20,7 +20,7 @@ You are packing for a school science trip. Into the suitcase go your notebook, y
 
 ---
 
-## 👁️ The Staging Filter and the `.gitignore` Shield
+## The Staging Filter and the `.gitignore` Shield
 
 **Staging** means choosing which changes will go into the next commit. The **staging area** is the waiting room for those changes (you met it in Chapter 2).
 
@@ -36,7 +36,7 @@ node_modules/ +     (Git skips them)
 
 ---
 
-## 💻 Example: Staging Files
+## Example: Staging Files
 
 We start in a small school library project. It has a page, a stylesheet, a secret file `.env` and a log file.
 
@@ -88,7 +88,7 @@ Untracked files:
 
 ---
 
-## 🛡️ Example: Creating a `.gitignore` File
+## Example: Creating a `.gitignore` File
 
 Create a plain text file named exactly `.gitignore` (with the dot, and no `.txt` at the end) in the top folder of the project:
 
@@ -163,7 +163,7 @@ hint: Disable this message with "git config set advice.addIgnoredFile false"
 
 ---
 
-## ↩️ Example: Unstaging a File
+## Example: Unstaging a File
 
 Say the project already has one commit. You edit `index.html`, stage it, and then change your mind:
 
@@ -202,7 +202,7 @@ Your edit is still in the file. Only the "packed" mark was removed.
 
 ---
 
-## 🔍 How It Works
+## How It Works
 
 - `git add <file>`: copies the file's current content into the staging area.
 - `git add .`: stages every new or changed file in this folder and below, except ignored ones.

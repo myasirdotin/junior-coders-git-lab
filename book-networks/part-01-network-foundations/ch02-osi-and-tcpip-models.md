@@ -1,4 +1,4 @@
-# Chapter 2: The OSI & TCP/IP Layer Models 🧱
+# Chapter 2: The OSI & TCP/IP Layer Models
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ Think of a school sending a book parcel to a sister school abroad. The librarian
 
 ---
 
-## 🧩 Why Layers?
+## Why Layers?
 
 When your computer talks to a server far away, many details must work together. There are electrical signals, error checks, addresses, routes and data formats. That is too much for one program to handle.
 
@@ -28,7 +28,7 @@ This means one layer can change without breaking the others. For example, you ca
 
 ---
 
-## 🏛️ The OSI 7-Layer Model
+## The OSI 7-Layer Model
 
 The **OSI model** (Open Systems Interconnection) is a teaching model made by ISO, an international standards group. It describes network work in seven layers. Layer 1 is at the bottom, closest to the wire.
 
@@ -52,7 +52,7 @@ Most names in the table are taught later in this book. For now, just notice whic
 
 ---
 
-## 🌐 The TCP/IP 4-Layer Model
+## The TCP/IP 4-Layer Model
 
 The OSI model is great for learning. The real Internet uses a simpler model with four layers. It is called the **TCP/IP model**, after its two most famous protocols.
 
@@ -77,7 +77,7 @@ The OSI model is great for learning. The real Internet uses a simpler model with
 
 ---
 
-## 📦 Encapsulation: Wrapping the Data
+## Encapsulation: Wrapping the Data
 
 When you send a message, the data moves **down** the layers on your computer. Each layer adds a **header**. A header is a small block of instructions for the same layer on the other computer. This wrapping is called **encapsulation**.
 
@@ -104,7 +104,7 @@ The receiving computer does the opposite. It removes one header at each layer, g
 
 ---
 
-## 🔍 See It Yourself: Layers in `ipconfig`
+## See It Yourself: Layers in `ipconfig`
 
 On Windows, run this in Command Prompt or PowerShell:
 
@@ -135,7 +135,7 @@ On macOS or Linux, try `ip addr` (Linux) or `ifconfig` (macOS).
 
 ---
 
-## 🩺 Using Layers to Find Problems
+## Using Layers to Find Problems
 
 Network engineers often check layers from the bottom up. Fix the lowest broken layer first.
 

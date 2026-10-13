@@ -1,4 +1,4 @@
-# Chapter 15: Buttons 🔘
+# Chapter 15: Buttons
 
 ---
 
@@ -28,7 +28,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### Anatomy of a Professional Modern Button
 
@@ -50,7 +50,7 @@ cursor: pointer (pointing hand)
 
 ---
 
-## 💻 Code Example: The Button Design System
+## Code Example: The Button Design System
 
 Type this into your editor and save it as `button-lab.html`:
 
@@ -148,7 +148,7 @@ Type this into your editor and save it as `button-lab.html`:
 
 ---
 
-## 🔍 Code Explanation: Essential Button Ingredients
+## Code Explanation: Essential Button Ingredients
 
 - `border: none;`: Browsers inject an ugly, dated 1990s bevel border onto `<button>` elements. Setting `border: none;` strips that away so we start with a clean slate!
 - `cursor: pointer;`: **Super important!** When a mouse hovers over an HTML button, browsers often keep the default arrow cursor. `cursor: pointer;` changes the arrow into a friendly pointing hand, signaling to the user: *"Hey! I am clickable!"*
@@ -205,7 +205,7 @@ A student created a button, but when visitors hovered over it, the cursor remain
 
 ---
 
-## 🎨 Think Like a Web Designer: Button Hierarchy
+## Think Like a Web Designer: Button Hierarchy
 
 On a checkout screen, you usually have two buttons:
 - **Button A**: "Complete Purchase"
@@ -218,7 +218,7 @@ If BOTH buttons are giant, glowing crimson red, users will panic and click the w
 
 ---
 
-## 🚀 Mini Challenge: The Glowing Science Fair Button
+## Mini Challenge: The Glowing Science Fair Button
 
 Create a bold "Join the Science Fair" button for a dark page:
 - Black background (`#000000`).

@@ -1,4 +1,4 @@
-# Chapter 21: Personal Profile Website 🌐
+# Chapter 21: Personal Profile Website
 
 ---
 
@@ -29,7 +29,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Personal Profile Architecture
 
@@ -58,7 +58,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: Complete Personal Profile Website
+## Code Example: Complete Personal Profile Website
 
 Create a file named `personal-profile.html` and write the complete production code:
 
@@ -374,7 +374,7 @@ Create a file named `personal-profile.html` and write the complete production co
 
 ---
 
-## 🔍 Code Explanation: Key Project Techniques
+## Code Explanation: Key Project Techniques
 
 - `html { scroll-behavior: smooth; }`: **A delightful modern touch!** When a visitor taps `<a href="#hobbies">Hobbies</a>` in the top navbar, the browser glides down smoothly to the section instead of teleporting abruptly!
 - `grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));`:
@@ -423,7 +423,7 @@ A student clicked their "About" link, but nothing happened:
 
 ---
 
-## 🎨 Think Like a Web Designer: Color Palette Harmony
+## Think Like a Web Designer: Color Palette Harmony
 
 Notice the colors used in Alex's profile:
 - Primary Blue: `#2563eb`
@@ -434,7 +434,7 @@ Notice the colors used in Alex's profile:
 
 ---
 
-## 🚀 Mini Challenge: Add a "Project Showcase" Section
+## Mini Challenge: Add a "Project Showcase" Section
 
 Add a new `<section id="projects">` between Skills and Hobbies:
 - Add an `<h2>Projects I've Built</h2>`.

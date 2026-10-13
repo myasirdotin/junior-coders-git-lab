@@ -1,4 +1,4 @@
-# Chapter 27: Constructors & Destructors ⚙️
+# Chapter 27: Constructors & Destructors
 
 ---
 
@@ -17,7 +17,7 @@ Think of a new library card being made at the school office. The clerk does not 
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **constructor** is a special method named `__construct()`. PHP runs it automatically when you write `new`. A **destructor**, named `__destruct()`, runs automatically when the object is no longer needed.
 
@@ -53,7 +53,7 @@ unset($obj) or the script ends
 
 ---
 
-## 💻 Code Example: Classic Constructor & Property Promotion
+## Code Example: Classic Constructor & Property Promotion
 
 ```php
 <?php
@@ -111,7 +111,7 @@ Output:
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `public function __construct(...)`: The two underscores mark a **magic method**. PHP calls it during `new`.
 - `new Book("PHP for Class 9", "Junior Coders", 320)`: The values in the brackets go straight into the constructor's parameters, in order.

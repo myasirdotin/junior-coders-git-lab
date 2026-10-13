@@ -1,4 +1,4 @@
-# Chapter 8: Functions & Modularity 🧩
+# Chapter 8: Functions & Modularity
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ A halal bakery has a recipe card for date biscuits. The baker does not rewrite t
 - Explain local and global scope.
 - Import ready-made modules such as `math` and `statistics`, and split your own code into modules.
 
-## 🔁 Why Functions? Don't Repeat Yourself
+## Why Functions? Don't Repeat Yourself
 
 Look at this code. The same three lines appear twice, with only the name changed.
 
@@ -27,7 +27,7 @@ print("-" * 24)
 
 If the school asks for a new design, you must change it in every copy. Programmers follow the **DRY** principle: *Don't Repeat Yourself*. A function lets you write the steps **once**.
 
-## 🏗️ Defining and Calling a Function
+## Defining and Calling a Function
 
 You **define** a function with the keyword `def`, a name, round brackets and a colon. The indented lines below are the **body**: the steps the function runs.
 
@@ -56,7 +56,7 @@ Welcome, Maryam!
 - **Calling** the function runs it. You call it by writing its name and brackets: `welcome("Hassan")`.
 - Define a function **before** the line that calls it, because Python reads from top to bottom.
 
-## 📦 Parameters and Arguments
+## Parameters and Arguments
 
 The name inside the brackets of `def` is a **parameter**: a variable that waits for a value. The value you give when you call the function is an **argument**.
 
@@ -107,7 +107,7 @@ Welcome, Teacher Ms Aisha! Strive with diligence today.
 
 Parameters with defaults must come **after** the ones without.
 
-## ↩️ Returning a Result with `return`
+## Returning a Result with `return`
 
 So far our functions only printed. Most useful functions **calculate** something and hand the answer back with `return`. The caller can store that answer, print it, or use it in more maths.
 
@@ -229,7 +229,7 @@ print(round(average([88, 92, 79, 95]), 1))
 88.5
 ```
 
-## 🌐 Scope: Where a Variable Lives
+## Scope: Where a Variable Lives
 
 The **scope** of a variable is the part of the program where it can be used.
 
@@ -269,7 +269,7 @@ Inside the function, both `school` and `reading` work. Outside, `reading` has go
 
 **Good habit:** pass values **in** as arguments and send results **out** with `return`. Functions that do not depend on global variables are easier to test and reuse.
 
-## 📚 Modules: Borrowing Ready-Made Functions
+## Modules: Borrowing Ready-Made Functions
 
 A **module** is a file of Python code that other programs can use. Python comes with many modules, called the **standard library**. You load one with `import`.
 
@@ -356,7 +356,7 @@ Running `python report.py` on a computer prints:
 
 Splitting code into modules like this is called **modularity**. Each file has one clear job, which makes big programs easier to understand and share.
 
-## 🤲 Worked Example: A Zakat Helper
+## Worked Example: A Zakat Helper
 
 *Zakat* is the yearly charity of 2.5% on savings that reach the **nisab**, a minimum amount. The real nisab depends on the current price of gold or silver, so it changes. The number below is only a **practice value** for this exercise.
 

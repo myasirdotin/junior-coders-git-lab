@@ -1,4 +1,4 @@
-# Chapter 6: Lists and Loops 🔁
+# Chapter 6: Lists and Loops
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ On Monday morning the class monitor takes the register. She does not write a sep
 - Count with ranges: `1..5`, `until`, `step` and `downTo`.
 - Repeat while a condition is true with `while`, and total, count and find the biggest item.
 
-## 📚 Lists: Many Values in One Box
+## Lists: Many Values in One Box
 
 So far each variable held one value. A **list** holds many values in order, inside one variable. If you finished the JavaScript book, a Kotlin list is like a JavaScript array.
 
@@ -66,7 +66,7 @@ Every item has a position number called an **index**. Counting starts at **0**, 
 
 `listOf("Maths", "Science")` is a list of `String`. Kotlin writes this type as `List<String>`: the type inside the angle brackets `< >` says what the list holds. A list of whole numbers is `List<Int>`. A `List<String>` can never contain an `Int` by accident.
 
-## ✏️ mutableListOf: A List You Can Change
+## mutableListOf: A List You Can Change
 
 A list made with `listOf` is **read-only**: you cannot add or remove items. That is safe, and it is what you will use most. When the list must change, such as a student's reading list, use `mutableListOf`. (Mutable means "can be changed".)
 
@@ -110,7 +110,7 @@ Notice that `readingList` is a `val`, yet we changed its contents. The `val` onl
 
 To start with an empty mutable list, tell Kotlin the type, because there are no items to infer it from: `mutableListOf<Int>()`.
 
-## 🔁 The for Loop: Do It for Every Item
+## The for Loop: Do It for Every Item
 
 A **loop** repeats code. The `for` loop takes each item of a list in turn, gives it a name, and runs the block once for it.
 
@@ -148,7 +148,7 @@ round 4: amount = 300   total = 1100
 
 The variable `total` is made **before** the loop, as a `var`, so it can grow and still exist after the loop ends. This "running total" pattern is used everywhere.
 
-## 🔢 Loops with Ranges
+## Loops with Ranges
 
 You met ranges like `90..100` in Chapter 5. A `for` loop can walk through a range of numbers too. The examples below use `print`, which works like `println` but does **not** move to a new line. An empty `println()` then ends the line.
 
@@ -216,7 +216,7 @@ Seat 3: Maryam
 
 We print `i + 1` because people count from 1, while indexes count from 0. When you only need the items, prefer the simpler `for (name in students)`.
 
-## ⏳ The while Loop: Repeat While Something Is True
+## The while Loop: Repeat While Something Is True
 
 Sometimes you do not know in advance how many rounds you need. A `while` loop keeps going **as long as** its condition is true, and checks it before every round.
 
@@ -249,7 +249,7 @@ After 4 days 2 litres were left, so day 5 still ran; then the tank went below ze
 
 Something inside a `while` loop **must** change the condition. If `litresInTank` never went down, the loop would run forever and the program would freeze. Use `for` when you know the items or the count; use `while` when you wait for something to happen.
 
-## 🧮 Three Patterns You Will Use Again and Again
+## Three Patterns You Will Use Again and Again
 
 Most list work is one of three jobs: **keep** some items, **count** some items, or **find** the best item. Here are all three, with a loop:
 

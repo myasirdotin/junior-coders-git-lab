@@ -1,4 +1,4 @@
-# Chapter 9: Stashing Work in Progress (`git stash`) 🗄️
+# Chapter 9: Stashing Work in Progress (`git stash`)
 
 ---
 
@@ -20,7 +20,7 @@ You are halfway through a model of the solar system on your desk. Pieces are eve
 
 ---
 
-## 👁️ The Stash Shelf
+## The Stash Shelf
 
 ```text
 Working tree: half-done code
@@ -39,7 +39,7 @@ A **stash** is a saved bundle of uncommitted changes. It is not a commit on your
 
 ---
 
-## 💻 Example: The Stash Workflow
+## Example: The Stash Workflow
 
 Zainab is halfway through a search filter in `app.js`:
 
@@ -109,7 +109,7 @@ Dropped refs/stash@{0} (dc064b7cd6b2ee5e5300d71501b539a7d3b64ea9)
 
 ---
 
-## 🔍 The Stash Commands
+## The Stash Commands
 
 | Command | What it does |
 |---|---|

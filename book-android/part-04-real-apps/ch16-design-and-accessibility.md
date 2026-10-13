@@ -1,4 +1,4 @@
-# Chapter 16: Design, Themes and Accessibility 🎨
+# Chapter 16: Design, Themes and Accessibility
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ A good school library is easy for everyone to use. The signs all use the same co
 - Make screens accessible: content descriptions, 48dp touch targets, good contrast, text that scales and merged rows.
 - Test with TalkBack and give the app its own icon with Image Asset Studio.
 
-## 🎨 Where the Theme Lives
+## Where the Theme Lives
 
 When you created the project, Android Studio made a folder `ui/theme` with three files:
 
@@ -82,7 +82,7 @@ Read it as three decisions, in order:
 
 You have used `when` like this since Chapter 5.
 
-## 🌈 The Colour Scheme: Colours with Jobs
+## The Colour Scheme: Colours with Jobs
 
 A Material 3 **colour scheme** is a set of colours, each with a job. It is called a **role**. You never ask for "green"; you ask for "the primary colour", and the theme decides which green.
 
@@ -122,7 +122,7 @@ private val DarkColorScheme = darkColorScheme(
 
 `Color(0xFF2E6B4F)` is a colour written as a hex number: `FF` means fully solid (opaque), then red `2E`, green `6B`, blue `4F`. (`Color` is imported from `androidx.compose.ui.graphics.Color`; `Color.kt` already has that import.) Notice that the dark scheme uses a **lighter** green. A dark green on a dark background would be hard to read.
 
-## 📱 Dynamic Colour and Dark Theme
+## Dynamic Colour and Dark Theme
 
 **Dynamic colour** (Android 12 and newer) builds the colour scheme from the user's wallpaper. Every app on the phone then feels like part of one family. It is on in the template (`dynamicColor: Boolean = true`).
 
@@ -151,7 +151,7 @@ fun BookRowPreview() {
 
 `@PreviewLightDark` (from `androidx.compose.ui.tooling.preview`) draws the preview twice: once light, once dark.
 
-## 🔤 Text Styles and Shapes
+## Text Styles and Shapes
 
 `Type.kt` holds the **typography**: the set of text styles. Material 3 names them by size and job.
 
@@ -186,7 +186,7 @@ MaterialTheme(
 
 Material 3 cards use the `medium` shape, so every `Card` in the app now has 16dp round corners.
 
-## 🚫 Never Hard-Code Colours in Screens
+## Never Hard-Code Colours in Screens
 
 Look at this book card text:
 
@@ -229,7 +229,7 @@ soft green,               deep green,
 dark text                 light text
 ```
 
-## ♿ Accessibility: An App for Everyone
+## Accessibility: An App for Everyone
 
 **Accessibility** means people with different abilities can use your app: people who cannot see well or at all, people with shaky hands, people who need large text. It also helps everyone else, for example in bright sunlight. Caring for every user is part of *iḥsān*, doing work with excellence.
 
@@ -326,7 +326,7 @@ Column(modifier = Modifier.semantics(mergeDescendants = true) { }) {
 
 Now TalkBack reads "Our Solar System, Author: Amina Yusuf, Shelf: Science A3" in one go. `semantics` (from `androidx.compose.ui.semantics`) adds information for accessibility services. `mergeDescendants = true` means "treat everything inside me as one item". A `Card` with `onClick` already merges its contents like this, because it is one tappable thing. But a separate button inside it, like "Save for later", stays its own stop, which is what we want.
 
-## 🔊 Testing with TalkBack
+## Testing with TalkBack
 
 Reading about accessibility is not enough. Try it:
 
@@ -338,7 +338,7 @@ Reading about accessibility is not enough. Try it:
 
 You can also install Google's free **Accessibility Scanner** app. It takes a picture of your screen and points out small touch targets, low contrast and missing labels.
 
-## 🖼️ Giving the App Its Own Icon
+## Giving the App Its Own Icon
 
 So far the app shows Android Studio's green robot icon. Make your own with **Image Asset Studio**:
 

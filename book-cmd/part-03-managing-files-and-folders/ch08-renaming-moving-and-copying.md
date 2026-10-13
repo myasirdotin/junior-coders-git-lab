@@ -23,7 +23,7 @@ mkdir css js
 
 Then make the empty files `styles.txt`, `script.js` and `page.html` (Chapter 7 shows how).
 
-## 🏷️ Renaming: `ren`
+## Renaming: `ren`
 
 `ren` is short for **ren**ame. Pattern: `ren old-name new-name`.
 
@@ -47,7 +47,7 @@ Both print nothing when they succeed. Run `dir` to see the new name. Folders are
 > [!NOTE]
 > **Git Bash / macOS** have no rename command. They use `mv` (move) for both jobs: `mv styles.txt style.css`.
 
-## 🚚 Moving: `move`
+## Moving: `move`
 
 Moving takes a file out of one folder and puts it in another. Pattern: `move file destination`.
 
@@ -75,7 +75,7 @@ The `\` after `js` says *"js is a folder"*. It is a good habit, as you will see 
 | Up to the parent folder | `move logo.png ..` | `mv logo.png ..` |
 | Move and rename together | `move draft.txt js\notes.txt` | `mv draft.txt js/notes.txt` |
 
-## 📑 Copying: `copy`
+## Copying: `copy`
 
 Copying makes a second file. The original stays where it was. Pattern: `copy original new-copy`.
 
@@ -105,7 +105,7 @@ copy style.css style.backup.css
 
 Now you can experiment without fear. If things go wrong, the backup is still there.
 
-## 🗃️ Copying a Whole Folder
+## Copying a Whole Folder
 
 `copy` in CMD only copies files. For a folder with everything inside, CMD uses `xcopy`. The options are `/e` (include **e**very subfolder, even empty ones) and `/i` (the destination **i**s a folder).
 
@@ -129,7 +129,7 @@ PS C:\JuniorCoders\practice> copy library-site library-site-backup -Recurse
 > [!NOTE]
 > **Git Bash / macOS**: `cp page.html backup.html` copies a file. `cp -r library-site library-site-backup` copies a whole folder (`-r` means recursive, "go into every subfolder").
 
-## 📋 Summary Table
+## Summary Table
 
 | Task | CMD | PowerShell | Git Bash / macOS |
 | :--- | :--- | :--- | :--- |

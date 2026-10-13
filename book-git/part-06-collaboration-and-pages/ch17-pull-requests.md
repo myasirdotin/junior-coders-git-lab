@@ -1,4 +1,4 @@
-# Chapter 17: Pull Requests & Polite Code Reviews 📬
+# Chapter 17: Pull Requests & Polite Code Reviews
 
 ---
 
@@ -25,7 +25,7 @@ You fix that, they approve, and the plan becomes part of the school. In software
 
 ---
 
-## 👁️ The Pull Request Conversation
+## The Pull Request Conversation
 
 A **Pull Request** is a request to merge your branch into another branch (usually `main`).
 It is also a conversation page where teammates can read your changes and comment on them before they are merged.
@@ -51,7 +51,7 @@ The name sounds odd at first. You are asking the project owner to **pull** your 
 
 ---
 
-## 💻 Step 1: Push Your Feature Branch
+## Step 1: Push Your Feature Branch
 
 You already know how to make a branch (Chapter 10) and push it (Chapter 14).
 Here, Zainab adds a search box to a school's student directory site:
@@ -79,7 +79,7 @@ Your commit hash will be different. When you push to GitHub, it also prints a li
 
 ---
 
-## 📬 Step 2: Open the Pull Request on GitHub
+## Step 2: Open the Pull Request on GitHub
 
 1. Open your repository page on GitHub.
 2. A yellow banner appears: *"feature/student-search had recent pushes"*.
@@ -112,7 +112,7 @@ GitHub adds the new commit to the open PR by itself.
 
 ---
 
-## 🤝 The Manners of Code Review (*Adab*)
+## The Manners of Code Review (*Adab*)
 
 When a teammate asks you to review their PR, they are trusting you. Be kind, clear and helpful.
 

@@ -1,4 +1,4 @@
-# Chapter 10: Loops in PHP 🔁
+# Chapter 10: Loops in PHP
 
 ---
 
@@ -17,7 +17,7 @@ On sports day, the teacher says, "Everyone run 5 laps!" You run lap 1, then coun
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 Each trip through a loop is called an **iteration** (one "lap").
 
@@ -49,7 +49,7 @@ for ( $i = 1 ; $i <= 5 ; $i++ ) { ... }
 
 ---
 
-## 💻 Code Example: The 4 Loops in Action
+## Code Example: The 4 Loops in Action
 
 ```php
 <?php
@@ -125,7 +125,7 @@ Number: 6
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `while ($count >= 1)`: Checks the condition **first**. The body repeats as long as it is true.
 - `$count--;`: Moves the counter towards the finish. Without it, `$count` stays 3 forever.

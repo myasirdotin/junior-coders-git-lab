@@ -1,4 +1,4 @@
-# Chapter 18: Hover Effects 🖱️
+# Chapter 18: Hover Effects
 
 ---
 
@@ -29,7 +29,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Hover State Timeline
 
@@ -64,7 +64,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: The Interactive Feature Showcase
+## Code Example: The Interactive Feature Showcase
 
 Type this into your editor and save it as `hover-lab.html`:
 
@@ -184,7 +184,7 @@ Type this into your editor and save it as `hover-lab.html`:
 
 ---
 
-## 🔍 Code Explanation: Behind the Scenes
+## Code Explanation: Behind the Scenes
 
 - `.hover-card { transition: all 0.3s ease; }`: The secret hero of hover effects! Without this line, changes would snap instantly like a harsh lightning flash. With `0.3s ease`, the colors and shadows blend like butter!
 - `.card-grow:hover`:
@@ -247,7 +247,7 @@ a hover {
 
 ---
 
-## 🎨 Think Like a Web Designer: Subtlety is Elegance
+## Think Like a Web Designer: Subtlety is Elegance
 
 When beginners discover hover effects, they often make elements spin 360 degrees, flash fluorescent rainbow colors, and scale up by 300%.
 - It makes the website feel chaotic and nauseating!
@@ -255,7 +255,7 @@ When beginners discover hover effects, they often make elements spin 360 degrees
 
 ---
 
-## 🚀 Mini Challenge: The Interactive Menu List
+## Mini Challenge: The Interactive Menu List
 
 Build an interactive school lunch menu list:
 - A clean list of 4 dishes: *Margherita Pizza*, *Lentil Soup*, *Vegetable Pasta*, *Fruit Salad*.

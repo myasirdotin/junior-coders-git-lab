@@ -1,4 +1,4 @@
-# Chapter 16: Cloning & Forking Open Source Projects (`clone`, `fork`) 🌍
+# Chapter 16: Cloning & Forking Open Source Projects (`clone`, `fork`)
 
 ---
 
@@ -23,7 +23,7 @@ You visit a woodworker in Srinagar and admire the pattern carved on a walnut des
 
 ---
 
-## 🧬 Clone vs. Fork
+## Clone vs. Fork
 
 - **Clone** (`git clone`): copies a repository from a remote **to your computer**. You get every file and every commit.
 - **Fork** (a GitHub button): copies someone's repository **into your GitHub account**. Forking is a GitHub feature, not a Git command.
@@ -48,7 +48,7 @@ You open a **pull request** (Chapter 17) to ask the original author to take your
 
 ---
 
-## 📥 Cloning a Repository
+## Cloning a Repository
 
 ```bash
 git clone https://github.com/zainab-codes/tree-map.git
@@ -86,7 +86,7 @@ From GitHub, Git also prints progress lines while downloading; your hashes and n
 
 ---
 
-## 🔁 Keeping a Fork Up to Date with `upstream`
+## Keeping a Fork Up to Date with `upstream`
 
 After you fork, the original author keeps adding commits. Your fork does not get them by itself. Add the original project as a second remote. By custom it is called **`upstream`**:
 

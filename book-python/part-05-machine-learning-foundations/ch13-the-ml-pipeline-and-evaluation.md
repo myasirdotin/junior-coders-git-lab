@@ -1,4 +1,4 @@
-# Chapter 13: The Machine Learning Pipeline & Evaluation 📈
+# Chapter 13: The Machine Learning Pipeline & Evaluation
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ Before a maths exam, Ahmed found last year's paper and learned every answer by h
 - Train a simple threshold model and measure its accuracy on new data.
 - Count false positives and false negatives, and explain why accuracy alone can mislead.
 
-## 🔄 The Five Steps of the ML Pipeline
+## The Five Steps of the ML Pipeline
 
 A **pipeline** is a fixed series of steps where the output of one step feeds the next.
 
@@ -29,7 +29,7 @@ A **pipeline** is a fixed series of steps where the output of one step feeds the
              check for unfair errors
 ```
 
-## 🧹 Steps 1 and 2: Collect and Clean
+## Steps 1 and 2: Collect and Clean
 
 Real data is messy. Sensors fail, people type values twice, and labels are spelled in different ways. If messy data goes in, a messy model comes out. Engineers call this "garbage in, garbage out".
 
@@ -70,7 +70,7 @@ After cleaning:  10
 
 (Real projects do not always delete duplicates. Two different samples can have the same reading. Here we pretend the second one was typed twice by mistake.)
 
-## ✂️ Step 3: Split into Training and Test Sets
+## Step 3: Split into Training and Test Sets
 
 We never test a model on the same examples it learned from. That would be like Ahmed's practice test. Instead, we **split** the data:
 
@@ -99,7 +99,7 @@ Training: 8 [(1, 'clean'), (7, 'polluted'), (2, 'clean'), (8, 'polluted'), (3, '
 Test:     2 [(4, 'clean'), (5, 'polluted')]
 ```
 
-## 🏋️ Step 4: Train a Threshold Model
+## Step 4: Train a Threshold Model
 
 Our model will be a single rule: **"if cloudiness is at least T, predict polluted"**. The number **T** is the **threshold**. Training means finding the best T, using the training set only. We try every T from 1 to 9 and count the mistakes.
 
@@ -144,7 +144,7 @@ Chosen threshold: 4
 
 Thresholds 4, 5 and 6 all make zero mistakes on the training data. Our loop keeps the **first** best one, so it chooses T = 4.
 
-## 🧪 Step 5: Evaluate on the Test Set
+## Step 5: Evaluate on the Test Set
 
 Now we unlock the test set. **Accuracy** is the share of correct predictions:
 
@@ -182,7 +182,7 @@ Training looked perfect, but the test found a mistake. The training data had no 
 
 > 🧪 **Honest note**: this is a simplified teaching model with ten made-up samples. Real water testing is done in a laboratory. A cloudiness score alone can never prove that water is safe to drink.
 
-## 🧠 Overfitting: Memorising Instead of Learning
+## Overfitting: Memorising Instead of Learning
 
 A model that does brilliantly on its training data but badly on new data is **overfitting**. The most extreme case is a "model" that simply memorises every training answer:
 
@@ -208,7 +208,7 @@ New sample 6: no idea
 
 It scores 100% on what it has seen and is useless on anything new. A good model learns a **general pattern**, like our threshold rule.
 
-## ⚖️ Accuracy Is Not Everything
+## Accuracy Is Not Everything
 
 Two kinds of mistakes can happen when the model looks for pollution:
 

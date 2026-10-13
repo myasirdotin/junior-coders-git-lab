@@ -1,4 +1,4 @@
-# Chapter 7: Special Characters & Comments 🔣
+# Chapter 7: Special Characters & Comments
 
 ---
 
@@ -23,7 +23,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💬 HTML Comments: Notes for People, Not for the Page
+## HTML Comments: Notes for People, Not for the Page
 
 A **comment** is a note you write inside your code for yourself or your teammates. The browser does not show it on the page.
 
@@ -94,7 +94,7 @@ Science Club Notice Board
 
 ---
 
-## 👀 Comments Are NOT Secret
+## Comments Are NOT Secret
 
 This is the most important idea in this chapter.
 
@@ -114,7 +114,7 @@ So a comment is like a pencil note in a library book: anyone who looks closely c
 
 ---
 
-## 🔣 Why `<` and `&` Are Special
+## Why `<` and `&` Are Special
 
 The browser reads your HTML like a detective. When it sees `<`, it thinks: *"A tag starts here!"* When it sees `&`, it thinks: *"A special code starts here!"*
 
@@ -175,7 +175,7 @@ Now the reader sees exactly what you meant.
 
 ---
 
-## 📛 Named and Numeric Entities
+## Named and Numeric Entities
 
 There are two ways to write an entity.
 
@@ -229,7 +229,7 @@ You do not need an entity for every symbol. Remember these simple rules:
 
 ---
 
-## 🔗 The Non-Breaking Space `&nbsp;`
+## The Non-Breaking Space `&nbsp;`
 
 In Chapter 6 you learned that browsers squeeze many spaces into one. They also break a long line wherever there is a space.
 
@@ -263,7 +263,7 @@ Lots of `&nbsp;` makes code hard to read and can look messy on phones. Spacing a
 
 ---
 
-## 🌍 UTF-8: Type Most Symbols Directly
+## UTF-8: Type Most Symbols Directly
 
 Do you remember this line from your very first web page?
 
@@ -317,7 +317,7 @@ If the meta line is missing, a browser may guess wrongly. Then "café" can appea
 
 ---
 
-## 💻 Showing Code on a Page: `<code>` and `<pre>`
+## Showing Code on a Page: `<code>` and `<pre>`
 
 When you write about HTML, you often want to show code to your readers. Two tags help.
 

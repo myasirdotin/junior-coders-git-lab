@@ -1,4 +1,4 @@
-# Chapter 13: Network Diagnostics & Developer Tools 🛠️
+# Chapter 13: Network Diagnostics & Developer Tools
 
 ## 🌟 Real-Life Story
 
@@ -14,13 +14,13 @@ When a student feels unwell, the school nurse does not guess. She checks tempera
 
 ---
 
-## 🛑 First: The Permission Rule
+## First: The Permission Rule
 
 Diagnostic tools are like a doctor's tools: helpful in the right hands. You must **only** test your own devices, your home network, or your school lab network when your teacher allows it. Probing or scanning other people's networks without written permission is wrong, and in many countries it is against the law. Honest testing is part of our *Amānah*.
 
 ---
 
-## 🪜 The Troubleshooting Ladder
+## The Troubleshooting Ladder
 
 Start at the bottom layer (Chapter 2). Only move up when a step works.
 
@@ -37,7 +37,7 @@ The number in brackets is the OSI layer.
 
 ---
 
-## 💻 The Tools, One by One
+## The Tools, One by One
 
 ### `ipconfig`: Do I have an address?
 
@@ -174,7 +174,7 @@ The last line, `TcpTestSucceeded : True`, means the TCP handshake on port 443 wo
 
 ---
 
-## 🌐 The Browser's Network Panel
+## The Browser's Network Panel
 
 Press **F12** and open the **Network** tab, then reload the page.
 

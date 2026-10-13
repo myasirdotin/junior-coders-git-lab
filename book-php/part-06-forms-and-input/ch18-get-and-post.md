@@ -1,4 +1,4 @@
-# Chapter 18: Superglobals: GET vs POST ⚖️
+# Chapter 18: Superglobals: GET vs POST
 
 ---
 
@@ -18,7 +18,7 @@ Think about sending a postcard. Everyone who carries it, from the mail carrier t
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **query string** is the part of a URL after the `?`. It holds `name=value` pairs joined by `&`.
 
@@ -54,7 +54,7 @@ Examples: `$_GET`, `$_POST`, `$_SERVER`, `$_FILES`, `$_SESSION`, `$_COOKIE`.
 
 ---
 
-## 💻 Code Example: Demonstrating Both Methods
+## Code Example: Demonstrating Both Methods
 
 ### The Search Filter (GET in Action)
 
@@ -127,7 +127,7 @@ The address bar still shows only `join.php`.
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `search.php?q=robotics&cat=tech`: `?` starts the query string. Each pair is `name=value`. Pairs are joined by `&`.
 - `$_GET["q"]`: PHP takes `"robotics"` out of the URL for you.

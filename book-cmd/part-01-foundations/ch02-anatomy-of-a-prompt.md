@@ -13,7 +13,7 @@ Bilal arrives at a big science fair. At the entrance there is a map with a red d
 - Spot the different option styles: `/w`, `-Name` and `-l`.
 - Use quotation marks for names that contain spaces.
 
-## 🔎 Reading the Prompt
+## Reading the Prompt
 
 When you open a terminal, you see a line of text and a blinking cursor. That line is the **prompt**.
 
@@ -47,7 +47,7 @@ It is almost the same. The letters **`PS`** at the start tell you this is PowerS
 > ```
 > `amina` is the user name and `LAB-PC` is the computer name. `~` (the **tilde**) is short for your **home folder**, such as `C:\Users\Amina`. The `$` sign means *"ready"*. Git Bash and macOS use forward slashes `/` between folders.
 
-## 🧩 Command Grammar: Command, Options, Target
+## Command Grammar: Command, Options, Target
 
 Every instruction follows the same three-part pattern.
 
@@ -113,7 +113,7 @@ science-fair.txt
 timetable.txt
 ```
 
-## 🔀 Option Styles Compared
+## Option Styles Compared
 
 Each terminal writes options in its own style.
 
@@ -127,7 +127,7 @@ Each terminal writes options in its own style.
 > [!TIP]
 > PowerShell does not care about capital letters in commands and options. `dir -name` works the same as `dir -Name`.
 
-## 🗂️ Quotation Marks for Spaces
+## Quotation Marks for Spaces
 
 The terminal reads a **space** as a gap *between* parts. So a name with spaces confuses it.
 

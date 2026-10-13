@@ -1,4 +1,4 @@
-# Chapter 9: Borders and Rounded Corners 🔲
+# Chapter 9: Borders and Rounded Corners
 
 ---
 
@@ -26,7 +26,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Anatomy of the `border` Shorthand
 
@@ -63,7 +63,7 @@ border-radius: 50%;   a circle
 
 ---
 
-## 💻 Code Example: The Modern UI Component Lab
+## Code Example: The Modern UI Component Lab
 
 Type this code into your editor and save it as `borders.html`:
 
@@ -156,7 +156,7 @@ Type this code into your editor and save it as `borders.html`:
 
 ---
 
-## 🔍 Code Explanation: Mastering the Curves
+## Code Explanation: Mastering the Curves
 
 - `border: 1px solid #e2e8f0;`: Specifies width (`1px`), style (`solid`), and color (`#e2e8f0`) in one elegant line.
 - `border: 2px dashed #f59e0b;`: Replaces the continuous line with dashed stitches, making it look like a physical paper coupon you can cut out with scissors!
@@ -213,7 +213,7 @@ img {
 
 ---
 
-## 🎨 Think Like a Web Designer: Border Consistency
+## Think Like a Web Designer: Border Consistency
 
 Look across professional websites like Stripe or GitHub:
 - Notice that they don't mix `0px` sharp corners on one card, `30px` round corners on another, and `8px` on a third.
@@ -224,7 +224,7 @@ Look across professional websites like Stripe or GitHub:
 
 ---
 
-## 🚀 Mini Challenge: The VIP Member Badge
+## Mini Challenge: The VIP Member Badge
 
 Create a web page named `vip-badge.html`:
 - Build a rectangular VIP Pass card (`width: 300px;`).

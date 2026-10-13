@@ -18,7 +18,7 @@ Picture the school library on a busy morning. Mr. Imran keeps every borrowing re
 
 ---
 
-## 📂 The Filing Cabinet Analogy
+## The Filing Cabinet Analogy
 
 Imagine a community academy with 500 students. Each student's name, class and attendance is written on loose sheets in desk drawers.
 
@@ -44,7 +44,7 @@ A **database** is an organised collection of data. It is looked after by special
 
 ---
 
-## 📊 Database vs. Spreadsheet
+## Database vs. Spreadsheet
 
 <div align="center" style="margin: 2rem 0;">
   <img src="../assets/diagrams/mysql/database-vs-spreadsheet.svg" alt="Spreadsheet vs Relational Database" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
@@ -64,7 +64,7 @@ Spreadsheets are great for small lists, quick sums and simple charts. But a real
 
 ---
 
-## 🗄️ What is an RDBMS?
+## What is an RDBMS?
 
 **RDBMS** stands for **Relational Database Management System**.
 
@@ -90,7 +90,7 @@ Spreadsheets are great for small lists, quick sums and simple charts. But a real
 
 ---
 
-## 💬 What is SQL?
+## What is SQL?
 
 **SQL** (said *"sequel"* or *"S-Q-L"*) stands for **Structured Query Language**. A **query** is a question you ask the database.
 
@@ -118,7 +118,7 @@ Read it aloud: *"Select name, grade and city from students where the grade is 9 
 
 ---
 
-## 🏫 The School Database in This Book
+## The School Database in This Book
 
 Every chapter uses one running example, a database called `school_db`. It has five tables:
 
@@ -134,7 +134,7 @@ You will build these tables yourself in Chapters 4–9. The same tables are alre
 
 ---
 
-## 🤲 Beneficial Knowledge & Digital Stewardship (*'Ilm Nāfi' & Amānah*)
+## Beneficial Knowledge & Digital Stewardship (*'Ilm Nāfi' & Amānah*)
 
 Storing people's data is not only a technical skill. It is a moral duty. In Islamic ethics, entrusted data is an **Amānah** (a trust you must look after).
 

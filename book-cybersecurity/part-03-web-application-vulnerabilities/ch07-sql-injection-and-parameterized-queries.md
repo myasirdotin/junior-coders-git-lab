@@ -1,4 +1,4 @@
-# Chapter 7: SQL Injection & Parameterized Defense 🗄️
+# Chapter 7: SQL Injection & Parameterized Defense
 
 ## 🌟 Real-Life Story
 
@@ -13,7 +13,7 @@ That careful system is exactly how prepared statements protect a database.
 - Write **prepared statements** with PHP's PDO.
 - Add extra layers: validation and limited database permissions.
 
-## 🗄️ How a Web Page Talks to a Database
+## How a Web Page Talks to a Database
 
 **SQL** (Structured Query Language) is the language used to ask a database for data. A PHP page builds an SQL **query** (a question or command) and sends it to the database:
 
@@ -23,7 +23,7 @@ SELECT id FROM members WHERE surname = 'Khan'
 
 The quote marks `'...'` show where the **data** starts and ends. Everything outside the quotes is the **command**.
 
-## 💥 The Risky Way: Gluing Input into SQL
+## The Risky Way: Gluing Input into SQL
 
 Many beginners build queries by joining strings together. This is called **concatenation**:
 
@@ -70,7 +70,7 @@ That is **SQL injection**: user input "injected" into a command, changing what t
 
 > 🔒 We will not show attack inputs here. You only need to understand the cause: **data and commands were mixed in one string.** Fix the cause and every variation of the attack fails.
 
-## 🛡️ The Fix: Prepared Statements
+## The Fix: Prepared Statements
 
 A **prepared statement** sends the database the command and the data **separately**, like the careful librarian.
 
@@ -128,7 +128,7 @@ if ($user && password_verify($_POST['password'], $user['password_hash'])) {
 
 Notice the error message does not say *which* one was wrong. That gives a guesser less information.
 
-## 🧱 Extra Layers (Defense in Depth)
+## Extra Layers (Defense in Depth)
 
 Prepared statements are the main fix. Add these layers as well:
 
@@ -143,7 +143,7 @@ Prepared statements are the main fix. Add these layers as well:
 | Least privilege | Even a mistake cannot delete everything |
 | Hidden errors | Visitors learn nothing about your database |
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 - Search your PHP files for queries that contain `$` variables inside the SQL string. Rewrite each one with `?` placeholders.
 - Use `prepare()` and `execute()` for every query that includes any outside value.

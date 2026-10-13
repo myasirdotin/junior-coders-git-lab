@@ -1,4 +1,4 @@
-# Chapter 23: Restaurant Website 🍽️
+# Chapter 23: Restaurant Website
 
 ---
 
@@ -28,7 +28,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Restaurant Website Architecture
 
@@ -56,7 +56,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: Complete Restaurant Website
+## Code Example: Complete Restaurant Website
 
 Type this into your editor and save it as `restaurant.html`:
 
@@ -423,7 +423,7 @@ Type this into your editor and save it as `restaurant.html`:
 
 ---
 
-## 🔍 Code Explanation: Food Psychology in Web Design
+## Code Explanation: Food Psychology in Web Design
 
 - **Appetite Color Palette**: Warm tones (warm terracotta orange `#ea580c`, golden yellow `#fef08a`, and vanilla cream `#fffbeb`) are proven by psychology to stimulate hunger and comfort!
 - `font-family: Georgia, serif;`: Traditional serif typography on restaurant titles suggests timeless recipe heritage, artisan quality, and elegance.
@@ -478,7 +478,7 @@ A student created food cards, but the prices appeared under the dish description
 
 ---
 
-## 🎨 Think Like a Web Designer: Mobile Table Reservations
+## Think Like a Web Designer: Mobile Table Reservations
 
 Over 70% of restaurant reservations happen on a smartphone while people are walking or riding in a car.
 - Ensure the reservation date picker and submit button are easy to tap with one thumb!
@@ -486,7 +486,7 @@ Over 70% of restaurant reservations happen on a smartphone while people are walk
 
 ---
 
-## 🚀 Mini Challenge: Add a Customer Reviews Section
+## Mini Challenge: Add a Customer Reviews Section
 
 Add a testimonial section:
 - 3 customer review quote cards.

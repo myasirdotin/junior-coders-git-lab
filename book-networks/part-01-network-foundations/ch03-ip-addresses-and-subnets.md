@@ -1,4 +1,4 @@
-# Chapter 3: IP Addresses, Subnets & CIDR 🗺️
+# Chapter 3: IP Addresses, Subnets & CIDR
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ A letter needs a full address: the city, the street and the house number. The so
 
 ---
 
-## 🔢 IPv4: Four Numbers, 32 Bits
+## IPv4: Four Numbers, 32 Bits
 
 An **IPv4 address** is 32 bits long. We split it into four groups of 8 bits, called **octets**. Each octet is written as a normal number, with dots in between. This is called **dotted-decimal** notation.
 
@@ -40,7 +40,7 @@ Add the place values where the bit is `1`: 128 + 64 + 8 + 2 + 1 = **203**. So `1
 
 ---
 
-## 🌍 IPv6: A Much Bigger Address Book
+## IPv6: A Much Bigger Address Book
 
 IPv4 was designed in 1981. Nobody imagined phones, laptops and sensors in every home. The free IPv4 addresses ran out.
 
@@ -59,7 +59,7 @@ Two rules make it shorter: drop leading zeros in a group, and replace **one** ru
 
 ---
 
-## 🏠 Private and Public Addresses, and NAT
+## Private and Public Addresses, and NAT
 
 Some IPv4 ranges are **private**. They are free to use inside any home, school or office. Routers on the Internet never forward them.
 
@@ -85,7 +85,7 @@ Printer 192.168.1.30 ─┘   public IP:
 
 ---
 
-## ✂️ Subnet Masks and CIDR
+## Subnet Masks and CIDR
 
 Every IP address has two parts:
 
@@ -142,7 +142,7 @@ Each subnet has 64 addresses and 62 usable hosts.
 
 ---
 
-## 🔍 See It Yourself: Your Own Address
+## See It Yourself: Your Own Address
 
 On Windows, run:
 

@@ -1,4 +1,4 @@
-# Chapter 13: What is GitHub? Cloud Repositories & SSH ☁️
+# Chapter 13: What is GitHub? Cloud Repositories & SSH
 
 ---
 
@@ -24,7 +24,7 @@ You keep a notebook of your science ideas on your desk at home. It is safe, unti
 
 ---
 
-## ☁️ Git vs. GitHub: What's the Difference?
+## Git vs. GitHub: What's the Difference?
 
 A **remote repository** (or just **remote**) is a copy of your repository that lives somewhere else, usually on a server on the internet. GitHub is the most popular place to keep remotes.
 
@@ -40,7 +40,7 @@ Git is free, open-source software. GitHub is a company, owned by Microsoft since
 
 ---
 
-## 🔓 Public vs. Private Repositories
+## Public vs. Private Repositories
 
 - **Public repositories**
   - Anyone can view the code and suggest improvements.
@@ -53,7 +53,7 @@ Even in a private repository, never store passwords or secret keys (remember `.g
 
 ---
 
-## 🔑 Proving Who You Are: Tokens and SSH Keys
+## Proving Who You Are: Tokens and SSH Keys
 
 Since **August 2021**, GitHub no longer accepts your website password when you push from the terminal. You need one of these instead:
 

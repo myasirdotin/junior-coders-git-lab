@@ -1,4 +1,4 @@
-# Chapter 21: Mini Projects 🚀
+# Chapter 21: Mini Projects
 
 ---
 
@@ -17,7 +17,7 @@ A carpentry student first learns each tool on its own: the saw, the drill, the r
 
 ---
 
-## 🧭 How to Use These Projects
+## How to Use These Projects
 
 Every project has three parts:
 
@@ -53,7 +53,7 @@ Work like a scientist. Run the code, check the output, then change **one** thing
 
 ---
 
-## 🔢 Numbers and Decisions (Projects 1–7)
+## Numbers and Decisions (Projects 1–7)
 
 ### Project 1: Personal Greeting
 
@@ -288,7 +288,7 @@ Output:
 
 ---
 
-## 🔁 Loops at Work (Projects 8–12)
+## Loops at Work (Projects 8–12)
 
 ### Project 8: Times Table Generator
 
@@ -463,7 +463,7 @@ Goal reached! Thank you, everyone.
 
 ---
 
-## 📚 Arrays, Strings and Objects (Projects 13–18)
+## Arrays, Strings and Objects (Projects 13–18)
 
 ### Project 13: School Supplies List
 
@@ -710,7 +710,7 @@ The tip changes from run to run. One run printed `Today's tip: Sleep well before
 
 ---
 
-## 🧠 Thinking Projects (Projects 19–21)
+## Thinking Projects (Projects 19–21)
 
 ### Project 19: Seconds to Hours, Minutes, Seconds
 

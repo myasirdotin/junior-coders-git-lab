@@ -1,4 +1,4 @@
-# Chapter 8: Loops 🔄
+# Chapter 8: Loops
 
 ---
 
@@ -32,7 +32,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 ### The `for` Loop (When You Know How Many Times to Repeat)
 The `for` loop has three distinct control pieces separated by semicolons inside parentheses:
@@ -64,12 +64,12 @@ while (count <= 5) {
 }
 ```
 
-### ⚠️ The Monster of Code: The Infinite Loop!
+### The Monster of Code: The Infinite Loop!
 If you forget to write `i++` or write a condition that can never be false (like `while (true)`), the computer gets trapped in an **Infinite Loop**! It repeats billions of times, freezes the browser tab, and crashes! Always ensure your loop has a clear exit door!
 
 ---
 
-## 🌍 Real-World Example: Physical Education Drills
+## Real-World Example: Physical Education Drills
 
 In gym class, your PE teacher says:
 > *"Do 10 jumping jacks!"*
@@ -79,7 +79,7 @@ In gym class, your PE teacher says:
 
 ---
 
-## 💻 Code Example: The Multiplication Table
+## Code Example: The Multiplication Table
 
 Type this into your editor or scratchpad:
 
@@ -113,7 +113,7 @@ Output:
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - Line 6: `let i = 1;` initializes counter at 1.
 - Loop checks: Is `1 <= 10`? Yes (`true`).
@@ -148,7 +148,7 @@ The condition is <code>i &lt; 3</code> (strictly less than 3). The loop will pri
 
 ---
 
-## 🧭 Think Like a Programmer: Summing 1 to 100
+## Think Like a Programmer: Summing 1 to 100
 
 How do you sum numbers 1 to 100 in code?
 1. Create an accumulator variable: `let total = 0;`
@@ -158,7 +158,7 @@ How do you sum numbers 1 to 100 in code?
 
 ---
 
-## 🚀 Coding Challenge: Divisible by 3 Counter
+## Coding Challenge: Divisible by 3 Counter
 
 Write a program that loops through numbers from 1 to 50:
 - Checks if the number is divisible by 3 using modulus (`i % 3 === 0`).
@@ -167,7 +167,7 @@ Write a program that loops through numbers from 1 to 50:
 
 ---
 
-## 🛠️ Mini Project: The Multiplication Table Generator
+## Mini Project: The Multiplication Table Generator
 
 Write an interactive Multiplication Table Generator:
 - Choose any number (e.g. `tableOf = 7;`).

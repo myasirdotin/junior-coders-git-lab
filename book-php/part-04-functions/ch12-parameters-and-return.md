@@ -1,4 +1,4 @@
-# Chapter 12: Parameters & Return Values 📥
+# Chapter 12: Parameters & Return Values
 
 ---
 
@@ -18,7 +18,7 @@ The school library has a photocopy machine. You put in your page and type how ma
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **parameter** is the name for an input, written in the function definition. An **argument** is the real value you pass when you call the function.
 
@@ -44,7 +44,7 @@ A **parameter** is the name for an input, written in the function definition. An
 
 ---
 
-## 💻 Code Example: School Shop Order Calculator
+## Code Example: School Shop Order Calculator
 
 ```php
 <?php
@@ -92,7 +92,7 @@ Order 1 Total: $35.99<br>Order 2 Total: $72.00<br>Admission check (Age 14): Elig
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `float $unitPrice, int $qty`: **Type declarations** say which kind of data each parameter expects. Wrong types are caught early.
 - `$discountPercent = 0.0`: A **default parameter**. If the caller leaves out the 3rd argument, PHP uses `0.0`.

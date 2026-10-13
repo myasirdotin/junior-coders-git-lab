@@ -18,7 +18,7 @@ On a library slip, the librarian does not write out Zayd's full name, class, tea
 
 ---
 
-## 🔁 The Problem with Repeating Data
+## The Problem with Repeating Data
 
 Suppose we stored the class details inside every student row:
 
@@ -41,7 +41,7 @@ Three problems appear:
 
 ---
 
-## 🧩 The Fix: Split and Link
+## The Fix: Split and Link
 
 <div align="center" style="margin: 2rem 0;">
   <img src="../assets/diagrams/mysql/primary-foreign-key-rel.svg" alt="Primary Key to Foreign Key Relational Mapping" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);">
@@ -89,7 +89,7 @@ The `loans` table is a child of **two** parents. Each row links one student to o
 
 ---
 
-## 🔒 Declaring Foreign Keys
+## Declaring Foreign Keys
 
 So far, `class_id` is just a number. MySQL does not know it is a link, so it would accept `class_id = 50`. Let us make the links official.
 
@@ -136,7 +136,7 @@ ERROR 1005 (HY000): Can't create table ... (errno: 150
 
 ---
 
-## 🚫 Watching the Rules Work
+## Watching the Rules Work
 
 ### A loan for a student who does not exist
 
@@ -172,7 +172,7 @@ But `DELETE FROM students WHERE id = 7;` **works**, because Hamza has no loans. 
 
 ---
 
-## ⚙️ What Happens on Delete? `ON DELETE`
+## What Happens on Delete? `ON DELETE`
 
 You can choose what MySQL does when a parent row is deleted:
 

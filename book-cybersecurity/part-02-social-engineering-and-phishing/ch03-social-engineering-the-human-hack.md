@@ -1,4 +1,4 @@
-# Chapter 3: Social Engineering — The Human Hack 🎭
+# Chapter 3: Social Engineering — The Human Hack
 
 ## 🌟 Real-Life Story
 
@@ -13,7 +13,7 @@ A school spends a lot of money on a strong gate, card readers and cameras. One m
 - Use four questions to pause and check any unusual request.
 - Respond safely when someone asks for a password or login code.
 
-## 💡 The Trojan Horse: An Old Trick
+## The Trojan Horse: An Old Trick
 
 An old Greek legend tells of the city of Troy. Its walls held out against an army for ten years. Then the army left a huge wooden horse outside the gates as a "gift". The people of Troy proudly wheeled it inside. At night, soldiers hidden in the horse climbed out and opened the gates.
 
@@ -26,7 +26,7 @@ The walls never failed. The **people** were tricked into opening them. Modern tr
 
 None of these feelings is bad. Kindness and trust are good qualities. The defence is simply to **pause and check** before acting.
 
-## 🎭 Five Common Methods
+## Five Common Methods
 
 ### Pretexting (a made-up story)
 A **pretext** is a false reason given to hide the real one. The trickster invents a believable situation.
@@ -51,7 +51,7 @@ A person without a pass follows closely behind someone who has one, often while 
 ### Shoulder surfing (looking over your shoulder)
 Someone on a bus or in the library quietly watches you type your PIN or password. Cover the keypad, angle your screen, and be aware of who is near you.
 
-## 🛡️ Defending the Human Firewall
+## Defending the Human Firewall
 
 A **firewall** is a barrier that blocks unwanted traffic. Aware people act as a "human firewall".
 
@@ -73,7 +73,7 @@ Islam teaches us to check news before acting on it (*Tabayyun*):
 | Stranger asks you to hold the secure door | Holds it open | "Sorry, please use your own card or sign in at reception." |
 | Message says "Your account closes today" | Clicks the link | Opens the site by typing its address, and checks there |
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 - Never share a password or a login code with anyone, including people claiming to be support staff.
 - When a message makes you feel rushed or scared, stop. That feeling is the trick.

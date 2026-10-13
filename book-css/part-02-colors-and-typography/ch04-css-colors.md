@@ -1,4 +1,4 @@
-# Chapter 4: CSS Colors 🌈
+# Chapter 4: CSS Colors
 
 ---
 
@@ -26,7 +26,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Three Ways to Write Colors in CSS
 
@@ -63,7 +63,7 @@ p {
 
 ---
 
-## 💻 Code Example: The Color Palette Showcase
+## Code Example: The Color Palette Showcase
 
 Type this into your editor and save it as `colors.html`:
 
@@ -130,7 +130,7 @@ Type this into your editor and save it as `colors.html`:
 
 ---
 
-## 🔍 Code Explanation: How Colors Work
+## Code Explanation: How Colors Work
 
 - `lightcoral` and `darkred`: Browsers recognise about **140 named colours**, including `rebeccapurple`, `papayawhip`, `seashell`, and `midnightblue`!
 - `#0284c7`: Hexadecimal numbers count from `0` to `9`, and then use letters `A, B, C, D, E, F` (where `F` represents the maximum number, 15). The first pair of characters is Red, the second is Green, and the third is Blue.
@@ -191,7 +191,7 @@ h1 {
 
 ---
 
-## 🎨 Think Like a Web Designer: The 60-30-10 Rule
+## Think Like a Web Designer: The 60-30-10 Rule
 
 How do professional interior designers and web artists choose colors that look stunning together?
 They use the **60-30-10 Rule**:
@@ -201,7 +201,7 @@ They use the **60-30-10 Rule**:
 
 ---
 
-## 🚀 Mini Challenge: Design Your Personal Palette
+## Mini Challenge: Design Your Personal Palette
 
 Design a 4-color palette for your dream website! Pick one color for each category:
 1. **Canvas Background**: A calm, soft tone (e.g. `#f8fafc`).

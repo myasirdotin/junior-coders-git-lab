@@ -1,4 +1,4 @@
-# Chapter 8: Undoing Mistakes Safely (`restore`, `reset`, `revert`) 🛡️
+# Chapter 8: Undoing Mistakes Safely (`restore`, `reset`, `revert`)
 
 ---
 
@@ -19,7 +19,7 @@ You write a science report in pencil, dislike a sentence, and rub it out with an
 
 ---
 
-## 👁️ Three Levels of Undo
+## Three Levels of Undo
 
 Each mistake lives in a different place, so each has its own tool:
 
@@ -35,7 +35,7 @@ Remember the three trees from Chapter 2: the **working tree** (your files), the 
 
 ---
 
-## 💻 Example 1: Throw Away an Edit with `git restore`
+## Example 1: Throw Away an Edit with `git restore`
 
 Zainab's `index.html` was committed. She adds a silly test line and wants it gone. First she checks the status:
 
@@ -71,7 +71,7 @@ The file is back to its last committed version. To restore **every** changed fil
 
 ---
 
-## 💻 Example 2: Unstage a File with `git restore --staged`
+## Example 2: Unstage a File with `git restore --staged`
 
 Zainab ran `git add .` and accidentally staged `notes.txt`:
 
@@ -104,7 +104,7 @@ nothing added to commit but untracked files present (use "git add" to track)
 
 ---
 
-## 💻 Example 3: Undo a Commit with `git revert`
+## Example 3: Undo a Commit with `git revert`
 
 Zainab committed a banner with the wrong event date. She finds its **hash** (the commit's ID) with `git log --oneline`:
 
@@ -137,7 +137,7 @@ Git did **not** delete `db01d89`. It added a new commit that does the exact oppo
 
 ---
 
-## 🔍 How `git reset` Is Different
+## How `git reset` Is Different
 
 `git reset` moves your branch **backwards**, as if later commits never happened. `HEAD~1` means "one commit before the current one".
 

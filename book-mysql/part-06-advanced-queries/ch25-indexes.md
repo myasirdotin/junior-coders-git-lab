@@ -18,7 +18,7 @@ You want to read about "photosynthesis" in a 400-page science book. You could tu
 
 ---
 
-## 📚 Why Searches Get Slow
+## Why Searches Get Slow
 
 Our `school_db` has 8 students and 10 loans. Every query feels instant. Now imagine the school after ten years: **2,000 students** and **50,000 loans**. The examples in this chapter use a test copy of `school_db` filled with that many sample rows.
 
@@ -32,7 +32,7 @@ Without help, MySQL must read **all 50,000 rows** and test each one. That is cal
 
 ---
 
-## 🗂️ What an Index Is
+## What an Index Is
 
 An **index** is a separate, sorted list of one column's values. Each entry points to the row it came from. Here are the first six loans and an index on `book_id`:
 
@@ -64,7 +64,7 @@ MySQL keeps this list in a tree shape called a **B-tree** ("balanced tree"). You
 
 ---
 
-## 🛠️ Creating an Index: `CREATE INDEX`
+## Creating an Index: `CREATE INDEX`
 
 ```sql
 CREATE INDEX idx_loans_student ON loans (student_id);
@@ -101,7 +101,7 @@ In MySQL you must say which table (`ON books`). Dropping an index removes only t
 
 ---
 
-## 🔬 Is My Index Used? `EXPLAIN`
+## Is My Index Used? `EXPLAIN`
 
 Put `EXPLAIN` in front of a `SELECT`. MySQL does not run the query. It shows its **plan**: how it would find the rows.
 
@@ -167,7 +167,7 @@ DROP INDEX idx_students_city ON students;
 
 ---
 
-## 📋 Listing Indexes: `SHOW INDEX FROM`
+## Listing Indexes: `SHOW INDEX FROM`
 
 ```sql
 SHOW INDEX FROM loans;
@@ -186,7 +186,7 @@ On the test copy, after we also added `CREATE INDEX idx_loans_date ON loans (loa
 
 ---
 
-## 🧱 Composite Indexes and the Left-Most Rule
+## Composite Indexes and the Left-Most Rule
 
 A **composite index** covers two or more columns, in a fixed order:
 
@@ -215,7 +215,7 @@ The order of the conditions inside `WHERE` does not matter. `grade = 9 AND city 
 
 ---
 
-## ⚖️ When Indexes Help, and What They Cost
+## When Indexes Help, and What They Cost
 
 **Indexes help** on big tables with columns used in:
 

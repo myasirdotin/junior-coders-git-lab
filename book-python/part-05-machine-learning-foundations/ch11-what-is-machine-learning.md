@@ -1,4 +1,4 @@
-# Chapter 11: What is Machine Learning? 🧠
+# Chapter 11: What is Machine Learning?
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ When Zainab was small, her grandmother took her to the date market. Her grandmot
 - Watch a tiny model "learn" by trying guesses and measuring its error.
 - Describe what machine learning cannot do, and why ethics matters from day one.
 
-## 💡 Rules versus Learning
+## Rules versus Learning
 
 Until now, you wrote **rules-based programs**. You told the computer exactly what to do:
 
@@ -33,7 +33,7 @@ Machine learning:
 
 The rule that the computer finds is called a **model**. Once we have a model, we can give it new data and it produces answers.
 
-## 🏷️ The Key Words of ML
+## The Key Words of ML
 
 | Word | Meaning | Example (plant leaves) |
 | :--- | :--- | :--- |
@@ -88,7 +88,7 @@ Labels (y): ['healthy', 'sick', 'healthy', 'sick']
 
 Each feature pair is a tuple, because the measurements of one leaf belong together and should not change.
 
-## 🔬 Watching a Tiny Model Learn
+## Watching a Tiny Model Learn
 
 Let us see learning happen. A school records how many hours of sunshine each day had, and how much energy its solar panels made. This data is **made up** for teaching.
 
@@ -172,7 +172,7 @@ print(predict_energy(7.5))
 | Water safety checks | acidity, cloudiness | safe or needs testing |
 | Library planning | month, school events | books borrowed |
 
-## ⚖️ What ML Cannot Do, and Why Ethics Matters
+## What ML Cannot Do, and Why Ethics Matters
 
 A model only knows what its data showed it.
 

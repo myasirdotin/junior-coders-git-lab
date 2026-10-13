@@ -1,4 +1,4 @@
-# Chapter 10: TLS/SSL, HTTPS & Digital Trust (*Amānah*) 🔐
+# Chapter 10: TLS/SSL, HTTPS & Digital Trust (*Amānah*)
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ A clinic needs to post a patient's test results to a hospital in another city. W
 
 ---
 
-## 👀 Why Plain HTTP Is Not Enough
+## Why Plain HTTP Is Not Enough
 
 HTTP (Chapter 7) is plain text. Every router and Wi-Fi access point on the way can read it. On a shared Wi-Fi network, a person with a **packet sniffer** (a program that records network traffic) could read:
 
@@ -36,7 +36,7 @@ HTTPS uses TCP port **443** (or UDP 443 with HTTP/3). **SSL** is TLS's old name.
 
 ---
 
-## 🔑 Two Kinds of Cryptography
+## Two Kinds of Cryptography
 
 **Cryptography** is the science of keeping messages secret and checking that they are real.
 
@@ -72,7 +72,7 @@ TLS uses both kinds: **asymmetric** for key exchange and signatures at the start
 
 ---
 
-## 🤝 The TLS 1.3 Handshake
+## The TLS 1.3 Handshake
 
 TLS 1.3 sets up a secure connection in **one round trip** (1-RTT), right after the TCP handshake.
 
@@ -102,7 +102,7 @@ The temporary key pairs are thrown away afterwards. So even if the server's priv
 
 ---
 
-## 📜 Certificates and Certificate Authorities
+## Certificates and Certificate Authorities
 
 How does your browser know the certificate really belongs to `example.org`?
 
@@ -123,7 +123,7 @@ If any check fails (wrong name, expired, unknown CA), the browser shows a full-p
 
 ---
 
-## 🔍 See It Yourself: Read a Certificate
+## See It Yourself: Read a Certificate
 
 ### In the browser
 
@@ -158,7 +158,7 @@ CN=Example Trust Issuing CA 3, O=Example Trust Ltd, C=US
 
 ---
 
-## 🛡️ HTTPS as *Amānah*
+## HTTPS as *Amānah*
 
 People trust us with their passwords, health records and donations. Keeping them private is an *Amānah*. Good practice:
 

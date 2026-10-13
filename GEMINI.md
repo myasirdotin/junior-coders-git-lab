@@ -240,7 +240,7 @@ These rules come from real bugs found in this site. Follow them for every change
    its exact output), `## ⚠️ Common Mistake`, `## ✍️ Try It`, `## 📝 Recap`, `## 🏆 Practice` with `### 🟢 Level 1: Recall`,
    `### 🟡 Level 2: Apply`, `### 🔴 Level 3: Challenge`, each answer in `<details><summary>Show answer</summary>` + blank
    line + markdown + blank line + `</details>`. Good extras (Predict the Output, Code Detective, Key Terms, Amānah)
-   may stay. At most one emoji per heading, no section numbers, no raw LaTeX, diagrams at most 44 characters wide.
+   may stay. Emoji are signposts only: one at the start of the template and recurring-extra headings (Real-Life Story, What You Will Learn, Common Mistake, Try It, Recap, Practice and its levels, Predict the Output, Code Detective, Real-World Connection, Key Terms, Amānah); chapter titles and ordinary topic headings have none (`node scripts/clean-heading-emoji.js <file>` removes them). No section numbers, no raw LaTeX, diagrams at most 44 characters wide.
    The reader adds the "In this chapter" outline and shrinks text diagrams itself (`js/book-speaker.js`).
    `node scripts/check-books.js` checks all of this (and that menus, bundles and the Textbooks page counts match the
    files); it must report 0 errors before a textbook change is committed.

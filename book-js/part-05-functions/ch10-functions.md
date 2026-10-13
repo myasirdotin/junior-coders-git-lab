@@ -24,7 +24,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 When building real programs, you often need to perform the exact same series of steps many times:
 - Calculating the total bill with tax
@@ -65,7 +65,7 @@ let sum = addNumbers(15, 25); // sum is now 40
 
 ---
 
-## 🌍 Real-World Example
+## Real-World Example
 
 Imagine the volume slider on your phone:
 Every time you press the "Volume Up" button, the phone doesn't reinvent the speaker system. It simply calls:
@@ -80,7 +80,7 @@ The function checks:
 
 ---
 
-## 💻 Code Example
+## Code Example
 
 ```javascript
 // Reusable recipe to calculate final price with discount
@@ -109,7 +109,7 @@ Original Book: Rs 450 -> Sale Price: Rs 360
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - `function calculateDiscountPrice(itemPrice, discountPercentage) {`: Declares a function named `calculateDiscountPrice` that accepts two parameters: `itemPrice` and `discountPercentage`.
 - `let discountAmount = itemPrice * (discountPercentage / 100);`: Computes the currency value of the discount. This variable is *local* to this function.
@@ -144,7 +144,7 @@ The line `result = result + 10;` sits after `return`, so it never runs.
 
 ---
 
-## 🧭 Think Like a Programmer : Scope (Global vs. Local)
+## Think Like a Programmer : Scope (Global vs. Local)
 
 Imagine your bedroom (local scope) vs. the school hallway (global scope):
 - If you leave your notebook in the school hallway, anyone in the school can see it and pick it up.
@@ -154,7 +154,7 @@ Variables created inside `{ ... }` of a function are **locally scoped**—they a
 
 ---
 
-## 🚀 Coding Challenge
+## Coding Challenge
 
 Write a function `isEven(number)` that returns `true` if a number is even and `false` if it is odd (using `% 2 === 0`).
 Then, write a loop that tests all numbers from 1 to 10 using your `isEven()` function and prints:
@@ -164,7 +164,7 @@ Then, write a loop that tests all numbers from 1 to 10 using your `isEven()` fun
 
 ---
 
-## 🛠️ Mini Project: Iftar Dinner Bill Splitter
+## Mini Project: Iftar Dinner Bill Splitter
 
 Create a complete script with two functions:
 1. `calculateTotalWithTax(subtotal, taxRate)`

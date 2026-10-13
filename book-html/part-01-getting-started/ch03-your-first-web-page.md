@@ -1,4 +1,4 @@
-# Chapter 3: Your First Web Page 💻
+# Chapter 3: Your First Web Page
 
 ---
 
@@ -23,7 +23,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The 4-Step Cycle of Web Coding
 
@@ -66,7 +66,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: Your First Program
+## Code Example: Your First Program
 
 Here is the exact code for your very first web page. Type this into your code editor:
 
@@ -88,7 +88,7 @@ Here is the exact code for your very first web page. Type this into your code ed
 
 ---
 
-## 🔍 Code Explanation: Visual Labels for Every Tag
+## Code Explanation: Visual Labels for Every Tag
 
 Let's dissect every piece of this code so there are no mysteries:
 
@@ -170,7 +170,7 @@ my-page.html.txt
 
 ---
 
-## 🎨 Think Like a Web Designer: The Browser Tab Matters
+## Think Like a Web Designer: The Browser Tab Matters
 
 Look at your open browser right now. You probably have 5 or 10 tabs open!
 How do you know which tab is the online dictionary and which tab is your homework?
@@ -184,7 +184,7 @@ How do you know which tab is the online dictionary and which tab is your homewor
 
 ---
 
-## 🚀 Mini Challenge: Personalize Your Page
+## Mini Challenge: Personalize Your Page
 
 Open your `index.html` file and customize it:
 1. Change the `<title>` to: `[Your Name]'s Creative Workshop`

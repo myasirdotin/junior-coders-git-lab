@@ -12,7 +12,7 @@ When the library was small, one teacher handled everything from her own desk. No
 - Pass data from a controller to a view and print it.
 - Stop with a 404 page when something is not found, using `abort()`.
 
-## 🗂️ Why Controllers?
+## Why Controllers?
 
 In Part 2 you wrote code inside routes:
 
@@ -24,7 +24,7 @@ Route::get('/books', function () {
 
 That is fine for five routes. A real app has fifty. If all the code sits in `routes/web.php`, the file becomes a long, messy list. A **controller** is a PHP class that groups the actions for one part of the app. `BookController` holds the book actions, and `MemberController` holds the member actions. The routes file stays short: it only says which method handles which URL.
 
-## 🛠️ Make a Controller
+## Make a Controller
 
 Artisan writes the empty class for you:
 
@@ -57,7 +57,7 @@ class BookController extends Controller
 - `extends Controller` means it inherits from Laravel's base `Controller` class.
 - Controller names are singular and end in `Controller`: `BookController`, not `BooksController`.
 
-## ✏️ Add Methods
+## Add Methods
 
 Each public method is an **action**. We have no database yet, so we keep a small sample list inside the class. Part 5 replaces it with real data.
 
@@ -93,7 +93,7 @@ class BookController extends Controller
 
 `abort(404)` stops the request and shows Laravel's "404 Not Found" page. Use it whenever a visitor asks for something that does not exist.
 
-## 🔗 Connect the Routes
+## Connect the Routes
 
 ```php
 // routes/web.php
@@ -107,7 +107,7 @@ Route::get('/books/{id}', [BookController::class, 'show'])
 
 The route parameter `{id}` arrives as the method's `$id`, just like with closures.
 
-## 🖼️ Pass Data to a View
+## Pass Data to a View
 
 The second argument of `view()` is an array. Each **key** becomes a variable inside the view: the key `'book'` becomes `$book`.
 
@@ -154,7 +154,7 @@ $book = $this->books[$id];
 return view('books.show', compact('book'));   // same as ['book' => $book]
 ```
 
-## 🎯 Single-Action Controllers
+## Single-Action Controllers
 
 Some controllers do only one job, like showing opening hours. Make an **invokable** controller. It has one method called `__invoke`:
 

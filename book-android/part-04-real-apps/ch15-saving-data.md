@@ -1,4 +1,4 @@
-# Chapter 15: Saving Data on the Phone 💾
+# Chapter 15: Saving Data on the Phone
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ In class, the teacher writes the day's homework on the whiteboard. At the end of
 - Read saved data with `collectAsState` and write it with `rememberCoroutineScope().launch { }`.
 - Tell users what the app saves and give them a button to clear it.
 
-## 🧽 Why State Disappears
+## Why State Disappears
 
 Try this with the app from Chapter 14. Tap "Save for later" on two books. Now open the phone's recent apps list and swipe the School Library app away. Open it again. Both books are no longer saved.
 
@@ -26,7 +26,7 @@ Here is why. Values in `remember` and `rememberSaveable` live in the phone's **m
 
 **Storage** is the phone's long-term memory, where files and photos are kept. It is the notebook. To keep the saved books, we must write them to storage.
 
-## 🗂️ Choosing Where to Save
+## Choosing Where to Save
 
 Android gives you several places to keep data. Pick the smallest one that does the job.
 
@@ -50,7 +50,7 @@ settings file (on the phone)
 +------------------+------------+
 ```
 
-## 🛠️ Adding DataStore to the Project
+## Adding DataStore to the Project
 
 DataStore is not in the "Empty Activity" template. Add it the same way you added Navigation in Chapter 14.
 
@@ -75,7 +75,7 @@ dependencies {
 
 Click **Sync Now** and wait for the sync to finish.
 
-## 📒 Creating the DataStore
+## Creating the DataStore
 
 Make a new file called `SavedBooksStore.kt`. At the very top of the file, outside any class or function, add this line:
 
@@ -91,7 +91,7 @@ Read it slowly:
 
 This line must appear **once** in the whole app, at the top level of a file. The ⚠️ Common Mistake section shows what happens otherwise.
 
-## 🔑 Keys and Why the Ids Become Text
+## Keys and Why the Ids Become Text
 
 To save a value you need a key. Preferences DataStore has keys for simple types: `intPreferencesKey`, `booleanPreferencesKey`, `stringPreferencesKey` and `stringSetPreferencesKey`. There is no key for a set of numbers. So we store the ids as a **set of strings**, such as `{"1", "4"}`, and turn them back into numbers when we read them.
 
@@ -131,7 +131,7 @@ Output:
 
 The first toggle of 4 adds it. The second toggle of 4 removes it. The word `"oops"` is not a number, so it is quietly skipped instead of crashing the app.
 
-## 🧺 A Small Store Class
+## A Small Store Class
 
 Now put the key, the reading and the writing together in one small class. A class like this is often called a **repository**: one place that knows how the data is saved, so the screens do not have to.
 
@@ -183,7 +183,7 @@ There are three new words here. You only need the plain meaning of each.
 
 `context.dataStore.data` is the Flow of everything in the settings file. `edit { }` opens the file for changing. Inside the braces you set or remove values, and DataStore saves the file safely when the braces end. If something goes wrong half way, the old file is kept, so the data is never half-written.
 
-## 📡 Reading: collectAsState
+## Reading: collectAsState
 
 A screen cannot show a Flow directly. It needs ordinary state, like in Chapter 11. `collectAsState` turns the stream into state:
 
@@ -196,7 +196,7 @@ val savedIds by store.savedIds.collectAsState(initial = emptySet())
 
 You may also see `collectAsStateWithLifecycle()` in official examples. It does the same job, but stops listening while the app is in the background. It needs one more library (`androidx.lifecycle:lifecycle-runtime-compose`). Either is fine for this book.
 
-## ✏️ Writing: rememberCoroutineScope().launch
+## Writing: rememberCoroutineScope().launch
 
 Writing a file takes time. If the app waited on the main thread, the screen could freeze. So `toggle` and `clearAll` are `suspend` functions, and Kotlin only lets you call them from a small background helper (a coroutine).
 
@@ -215,7 +215,7 @@ TextButton(onClick = { scope.launch { store.toggle(book.id) } }) {
 
 You do not need to know more about coroutines for this book. Remember the pattern: **read with `collectAsState`, write with `scope.launch`**.
 
-## 📱 The List Screen with Saving
+## The List Screen with Saving
 
 Here is the list screen from Chapter 14, now with saving. The navigation code in `LibraryApp` does not change. Put this in a new file, `BookListScreen.kt`, and delete the old `BookListScreen` and `BookRow` from `MainActivity.kt`, because Kotlin does not allow two functions with the same name and parameters.
 
@@ -365,7 +365,7 @@ Compose redraws: row 4 says "Saved"
 
 Notice that the button does not change `savedIds` itself. It only writes to the file. The screen updates because the Flow reports the change. The file is the single **source of truth**: the one place the answer comes from.
 
-## 🗄️ When You Need Tables: Room
+## When You Need Tables: Room
 
 DataStore is for small things. It reads the whole file each time, and it cannot search or sort. If your app keeps hundreds of records, such as every book and every loan, use **Room**.
 

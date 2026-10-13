@@ -1,4 +1,4 @@
-# Chapter 5: Ports & Sockets: The Doorways of the Operating System 🚪
+# Chapter 5: Ports & Sockets: The Doorways of the Operating System
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ A parcel arrives at a big block of flats. The street address gets the van to the
 
 ---
 
-## 🔢 One Address, Many Programs
+## One Address, Many Programs
 
 Right now, your computer may be running many network programs at once:
 
@@ -29,7 +29,7 @@ A **port** is a number from `0` to `65,535`. It is 16 bits long, so 2¹⁶ = 65,
 
 ---
 
-## 🔌 Sockets and Socket Pairs
+## Sockets and Socket Pairs
 
 A **socket** is one end of a conversation. It is an IP address plus a port:
 
@@ -49,7 +49,7 @@ Each new connection from your browser uses a different client port. So the serve
 
 ---
 
-## 🏷️ The Three Port Ranges
+## The Three Port Ranges
 
 **IANA** (Internet Assigned Numbers Authority) is the group that keeps the official list of ports. It splits them into three ranges.
 
@@ -92,7 +92,7 @@ port 52814 ◄─── reply ────── port 443
 
 ---
 
-## 🔍 See It Yourself: Who Is Using Port 80?
+## See It Yourself: Who Is Using Port 80?
 
 If XAMPP's Apache will not start, another program may already be using port 80. On Windows, run:
 
@@ -153,7 +153,7 @@ TcpTestSucceeded : True
 
 ---
 
-## 🛡️ Port Security & Firewalls (*Amānah*)
+## Port Security & Firewalls (*Amānah*)
 
 Every open, listening port is a door. If a database port is open to the whole Internet, strangers can knock on it.
 

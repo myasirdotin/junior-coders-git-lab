@@ -12,7 +12,7 @@ Before a new library opens, the staff practise. They fill the shelves with **pra
 - Call seeders from `DatabaseSeeder` and rebuild everything with `migrate:fresh --seed`.
 - Keep sample data honest and free of real people's details.
 
-## 🌱 Seeders and Factories
+## Seeders and Factories
 
 | Tool | What it does | Library example |
 |------|--------------|-----------------|
@@ -21,7 +21,7 @@ Before a new library opens, the staff practise. They fill the shelves with **pra
 
 Seeders often **use** factories: "make 20 books using the book recipe."
 
-## 📗 A Seeder with Fixed Rows
+## A Seeder with Fixed Rows
 
 ```bash
 php artisan make:seeder BookSeeder
@@ -68,7 +68,7 @@ Output:
 
 Check in Tinker: `Book::count()` gives `= 4`.
 
-## 🏭 A Factory for Many Rows
+## A Factory for Many Rows
 
 Typing 30 members by hand is slow. A **factory** describes what one member looks like, using **fake** values:
 
@@ -145,7 +145,7 @@ You can fix some values and leave the rest random:
 Member::factory()->count(5)->create(['grade' => 10]);
 ```
 
-## 🧺 `DatabaseSeeder`: Run Everything
+## `DatabaseSeeder`: Run Everything
 
 `database/seeders/DatabaseSeeder.php` is the main seeder. `php artisan db:seed` runs it. Make it call the others in the right order:
 
@@ -177,7 +177,7 @@ public function run(): void
 
 (Laravel's starter `DatabaseSeeder` also makes one test user. You can keep that part; you will need a user in Part 8.)
 
-## 🔄 Start Fresh with Sample Data
+## Start Fresh with Sample Data
 
 While building, you often want a clean database full of sample data. One command does it:
 
@@ -207,7 +207,7 @@ It **drops every table**, runs all migrations, then runs `DatabaseSeeder`. Outpu
 
 Remember Chapter 16: this deletes all data. Use it only on your practice database.
 
-## 🤝 Honest Sample Data (*Amānah*)
+## Honest Sample Data (*Amānah*)
 
 - **Never seed real people.** Do not copy your classmates' names, emails or phone numbers into a seeder. Seeders live in Git, and Git is shared. Use `fake()` or clearly made-up names.
 - **Label it.** If you show the app to your teacher with sample data, say that it is sample data.

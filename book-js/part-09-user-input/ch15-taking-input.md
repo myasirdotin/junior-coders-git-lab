@@ -24,7 +24,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 In browser JavaScript, we have three built-in dialog windows:
 
@@ -50,7 +50,7 @@ let userName = prompt("What is your name?");
 console.log(`Hello, ${userName}!`);
 ```
 
-### ⚠️ The Critical Number Trap
+### The Critical Number Trap
 Because `prompt()` **always** returns a string:
 ```javascript
 let age = prompt("How old are you?"); // user enters 12
@@ -73,7 +73,7 @@ if (isNaN(score)) {
 
 ---
 
-## 🌍 Real-World Example
+## Real-World Example
 
 Think about booking a high-speed train pass or science center ticket:
 1. The site asks: "How many tickets would you like to purchase?"
@@ -83,7 +83,7 @@ Think about booking a high-speed train pass or science center ticket:
 
 ---
 
-## 💻 Code Example
+## Code Example
 
 ```javascript
 // Interactive Age & Discount Calculator
@@ -113,7 +113,7 @@ if (!nameInput || nameInput.trim() === "") {
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - `let nameInput = prompt(...)`: Pops up a dialog box asking for the user's name.
 - `if (!nameInput || nameInput.trim() === "")`: Checks if the user clicked "Cancel" (`null`) or typed only whitespace.
@@ -155,7 +155,7 @@ console.log(num1 * num2); // Sneaky JavaScript automatic type coercion!
 
 ---
 
-## 🧭 Think Like a Programmer: Defensive Programming
+## Think Like a Programmer: Defensive Programming
 
 Rule #1 of real-world software engineering:
 > **"Never trust user input!"**
@@ -170,7 +170,7 @@ Always validate and sanitize your input with checks (`isNaN()`, `trim()`, checki
 
 ---
 
-## 🚀 Coding Challenge
+## Coding Challenge
 
 Write a "Times-Table Practice Quiz":
 - Pick a random number between 1 and 10: `Math.floor(Math.random() * 10) + 1`. (`Math.random()` gives a random decimal from 0 up to, but not including, 1.)
@@ -180,7 +180,7 @@ Write a "Times-Table Practice Quiz":
 
 ---
 
-## 🛠️ Mini Project: Interactive Story Builder
+## Mini Project: Interactive Story Builder
 
 Create a fill-in-the-words story:
 - Prompt the user for:

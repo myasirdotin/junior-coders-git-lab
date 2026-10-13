@@ -1,4 +1,4 @@
-# Chapter 1: What Is a Website? 🌐
+# Chapter 1: What Is a Website?
 
 ---
 
@@ -27,7 +27,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Journey of a Web Page Request
 
@@ -69,7 +69,7 @@ When you sit at your computer and type `www.wikipedia.org` or your school's addr
 
 ---
 
-## 💻 Code Example: Peeking Behind the Curtain
+## Code Example: Peeking Behind the Curtain
 
 Browsers do not see words and pictures the way human eyes do. They read text instructions written in code! Here is what a simple, raw web page instruction looks like:
 
@@ -90,7 +90,7 @@ Browsers do not see words and pictures the way human eyes do. They read text ins
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 Let's inspect the code above like digital scientists:
 
@@ -154,7 +154,7 @@ until the letter arrives."
 
 ---
 
-## 🎨 Think Like a Web Designer: First Impressions Matter
+## Think Like a Web Designer: First Impressions Matter
 
 When a student lands on a school website, what do they want to see first?
 - A wall of 1,000 tiny words in gray text? **OR**
@@ -165,7 +165,7 @@ When a student lands on a school website, what do they want to see first?
 
 ---
 
-## 🚀 Mini Challenge: Sketch Your Dream Website
+## Mini Challenge: Sketch Your Dream Website
 
 Before coders write a single line of code, they draw what they want to build!
 Take a blank sheet of paper and a pencil. Draw a website idea for:

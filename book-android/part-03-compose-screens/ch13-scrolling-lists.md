@@ -1,4 +1,4 @@
-# Chapter 13: Lists That Scroll 📜
+# Chapter 13: Lists That Scroll
 
 ## 🌟 Real-Life Story
 
@@ -12,7 +12,7 @@ Imagine the library printed its whole catalogue, every one of 2,000 books, on on
 - Make rows tappable with `Modifier.clickable` and show an "Available" or "On loan" label.
 - Join the Chapter 12 search box to the list, and know when to use `LazyRow`.
 
-## 🐢 Why a Column Is Not Enough
+## Why a Column Is Not Enough
 
 In Chapter 12 you showed search results with `forEach` inside a `Column`:
 
@@ -33,7 +33,7 @@ You *can* make a `Column` scroll with `Modifier.verticalScroll(rememberScrollSta
 
 `verticalScroll` is fine for a short page with a fixed amount of content, such as a settings page or a long paragraph. For a list of data that can grow, use a lazy list.
 
-## 📜 `LazyColumn`: Only Build What Is Visible
+## `LazyColumn`: Only Build What Is Visible
 
 **Lazy** here means "do work only when it is needed". A `LazyColumn` builds rows only when they scroll into view. Rows that scroll out of view are thrown away, and their space is reused.
 
@@ -120,7 +120,7 @@ LazyColumn {
 
 The heading scrolls away with the list, like the title printed at the top of a catalogue page.
 
-## 📏 Spacing: `contentPadding` and `spacedBy`
+## Spacing: `contentPadding` and `spacedBy`
 
 There are two kinds of space in a list.
 
@@ -147,7 +147,7 @@ Why not `Modifier.padding(16.dp)` on the `LazyColumn` instead? Padding on the mo
 
 `PaddingValues` can also be different on each side: `PaddingValues(horizontal = 16.dp, vertical = 8.dp)`.
 
-## 🏷️ An "Available / On Loan" Label
+## An "Available / On Loan" Label
 
 Each card should show whether the book can be borrowed right now. First the rule, as a plain Kotlin function you can test:
 
@@ -194,7 +194,7 @@ fun StatusLabel(book: Book) {
 
 The label shows the **word** as well as the colour. A student who cannot tell red from green still knows the answer, and TalkBack reads it aloud.
 
-## 👆 Tappable Rows with `Modifier.clickable`
+## Tappable Rows with `Modifier.clickable`
 
 A list is more useful when you can tap a book. `Modifier.clickable { … }` makes any composable react to taps. Like a button, it shows a ripple when touched.
 
@@ -270,7 +270,7 @@ In Chapter 14 a tap will open a separate detail screen for the book instead.
 
 > Material 3's `Card` also has its own `onClick` parameter: `Card(onClick = onClick) { … }`. It does the same job. This chapter uses `clickable` because it works on any composable, not only cards.
 
-## 🔍 Search Plus List
+## Search Plus List
 
 Now join the search box from Chapter 12 to the lazy list. This is the School Library app's main screen.
 
@@ -325,7 +325,7 @@ fun LibraryScreen(modifier: Modifier = Modifier) {
 
 `Modifier.weight(1f)` on the `LazyColumn` tells it to take all the height left below the search box. Because each row has a `key`, Compose can tell which cards stayed when the list shrinks, and does not mix them up.
 
-## ↔️ `LazyRow`: Lists That Scroll Sideways
+## `LazyRow`: Lists That Scroll Sideways
 
 `LazyRow` is the same idea, turned sideways. It suits a short strip of things, such as "New this week" covers above the main list.
 

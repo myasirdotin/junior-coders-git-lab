@@ -17,7 +17,7 @@ In the school kitchen garden, Yusuf is asked to pull out the weeds. A careless h
 > [!CAUTION]
 > **No Recycle Bin. No undo.** Practise every command in this chapter **only** inside `C:\JuniorCoders\practice`. Never on the desktop, never in Documents, never on a shared computer's folders.
 
-## 🔍 Golden Rule 1: Look Before You Delete
+## Golden Rule 1: Look Before You Delete
 
 Before every deletion, check **where** you are and **what** is there.
 
@@ -44,7 +44,7 @@ notes.txt
 
 Now you know exactly which items exist. You are ready to choose one.
 
-## 🗑️ Deleting One File: `del`
+## Deleting One File: `del`
 
 `del` is short for **del**ete. Type it with **one exact file name**.
 
@@ -101,7 +101,7 @@ Type `N` and press Enter to keep the file. Type `Y` to delete it.
 > [!NOTE]
 > **Git Bash / macOS**: `rm junk.txt` deletes a file. `rm -i junk.txt` asks first (`-i` means **i**nteractive). Like Windows, `rm` skips the bin.
 
-## 📁 Deleting Folders
+## Deleting Folders
 
 ### An empty folder: `rmdir`
 
@@ -151,7 +151,7 @@ continue, all children will be removed with the item. Are you sure you want to c
 > [!NOTE]
 > **Git Bash / macOS**: `rmdir old-drafts` removes an empty folder. `rm -r -i old-drafts` removes a full folder and asks about each item. Never add `-f` (force), which turns off all questions.
 
-## 🛡️ The Three Golden Rules
+## The Three Golden Rules
 
 1. **Check where you are.** Run `cd` (CMD) or `pwd` (PowerShell) first.
 2. **List before you delete.** Run `dir` and read the names. Planning to delete all `.log` files with `del *.log`? Run `dir *.log` first. The `*` means "any name", so this shows every file the delete would remove.
@@ -159,7 +159,7 @@ continue, all children will be removed with the item. Are you sure you want to c
 
 Later, in the Git book, you will learn to save versions of your work. Git can bring back a file that was saved in a version. Until then, the only safety is care.
 
-## 🤝 Digital Trust (*Amānah*)
+## Digital Trust (*Amānah*)
 
 In Islam, what is placed in our care is an **Amānah**, a trust. A shared school computer is a trust. So are other people's files.
 

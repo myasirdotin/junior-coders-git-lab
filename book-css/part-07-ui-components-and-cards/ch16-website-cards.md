@@ -1,4 +1,4 @@
-# Chapter 16: Website Cards 🃏
+# Chapter 16: Website Cards
 
 ---
 
@@ -29,7 +29,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### Anatomy of a High-Converting Modern Card
 
@@ -56,7 +56,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💻 Code Example: The Smart Gadget Product Card
+## Code Example: The Smart Gadget Product Card
 
 Type this into your editor and save it as `product-card.html`:
 
@@ -214,7 +214,7 @@ Type this into your editor and save it as `product-card.html`:
 
 ---
 
-## 🔍 Code Explanation: The Craft of Card Building
+## Code Explanation: The Craft of Card Building
 
 - `overflow: hidden;` on `.product-card`:
   - When you give `.product-card` a `border-radius: 20px;`, the square corners of the image at the top would normally poke out past the rounded corners of the card!
@@ -272,7 +272,7 @@ A student tried to build a card, but the photo of a tall lighthouse got squashed
 
 ---
 
-## 🎨 Think Like a Web Designer: Card Breathing Room
+## Think Like a Web Designer: Card Breathing Room
 
 Look inside `.card-body`:
 - Many beginners put `padding: 5px;` and smash the text against the card borders.
@@ -281,7 +281,7 @@ Look inside `.card-body`:
 
 ---
 
-## 🚀 Mini Challenge: The Recipe Card
+## Mini Challenge: The Recipe Card
 
 Create a recipe card for *Homemade Berry Pancakes*:
 - Top image of golden pancakes with syrup.

@@ -1,4 +1,4 @@
-# Chapter 1: The Mindset of Digital Defense 🛡️
+# Chapter 1: The Mindset of Digital Defense
 
 ## 🌟 Real-Life Story
 
@@ -13,7 +13,7 @@ Today, medical records, school grades, charity funds and family messages are sto
 - Describe **Defense in Depth**: many layers of protection instead of one.
 - Spot which security goal is at risk in an everyday situation.
 
-## 💡 The CIA Triad: Three Goals of Security
+## The CIA Triad: Three Goals of Security
 
 Imagine protecting a library of rare science manuscripts. You would care about three things.
 
@@ -44,7 +44,7 @@ In computer security these three goals are called **the CIA Triad**. "Triad" sim
 
 Notice that each defence protects one goal. A good system protects all three.
 
-## ⚖️ Ethical Defenders and Attackers
+## Ethical Defenders and Attackers
 
 Knowing how systems break is powerful knowledge. What matters is how you use it.
 
@@ -56,7 +56,7 @@ Knowing how systems break is powerful knowledge. What matters is how you use it.
 
 So where can you practise? Only on things you own, or on labs built for practice. This book's **Cybersecurity Lab Studio** is one of those safe places. If you ever find a weakness in a real site, tell the owner or a teacher. Chapter 14 shows you how.
 
-## 🧅 Defense in Depth (The Onion Model)
+## Defense in Depth (The Onion Model)
 
 Never trust a single barrier. A lock on the front door is good. A lock, a guard, a locked cupboard and a visitors' book is much better. If one fails, the others still protect you.
 
@@ -85,7 +85,7 @@ You will meet each of these layers later in the book. For now, remember the idea
 - ❌ **Risky:** a charity website relies only on a strong admin password. One leaked password and everything is open.
 - ✅ **Better:** the same site also asks for a code from the admin's phone, lets only coordinators edit donor records, and keeps daily backups. A leaked password alone is no longer a disaster.
 
-## 🏠 What to Do at Home
+## What to Do at Home
 
 - Use a different password for every important account (Chapter 2 shows how).
 - Turn on two-step login wherever it is offered.

@@ -11,7 +11,7 @@ Think about how your school library works. A student walks up to the **front des
 - Follow one request on its journey: route → controller → model → view.
 - Find where each part lives in a Laravel project.
 
-## 🧩 The Three Parts of MVC
+## The Three Parts of MVC
 
 **MVC** stands for **Model, View, Controller**. It is a way to split an app into three parts, each with one job.
 
@@ -23,7 +23,7 @@ Think about how your school library works. A student walks up to the **front des
 
 Laravel adds one more piece: the **route**. A route is like the signboard at the library door. It says, "Questions about books? Go to the books desk."
 
-## 🛣️ The Request Journey
+## The Request Journey
 
 When someone visits a page, a **request** travels through your app. A request is the message a browser sends to a server, such as "please give me `/books`". The server sends back a **response**, usually an HTML page.
 
@@ -60,7 +60,7 @@ Browser shows the HTML page
 4. The controller passes the books to a **view**.
 5. The view turns them into HTML, and the browser shows it.
 
-## 📁 Where Each Part Lives
+## Where Each Part Lives
 
 Here is a sneak peek at the real files. You will write each one properly in later chapters, so do not worry about every word yet. Just notice where each file lives.
 
@@ -112,7 +112,7 @@ Clean Water for Every Village
 The Story of Numbers
 ```
 
-## 🤔 Why Split the Work?
+## Why Split the Work?
 
 In plain PHP, one file often does everything. It connects to MySQL, runs SQL, loops through rows and prints HTML. That works for a tiny page. As the app grows, the file becomes long and hard to fix.
 

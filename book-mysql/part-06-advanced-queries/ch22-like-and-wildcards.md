@@ -18,7 +18,7 @@ A Grade 7 student comes to the library desk. "I want that book about data… I t
 
 ---
 
-## 🔎 Why `=` Is Not Enough
+## Why `=` Is Not Enough
 
 `=` needs a perfect match:
 
@@ -34,7 +34,7 @@ No student is called exactly "Zay". A search box on a website must also find "Za
 
 ---
 
-## 🃏 Wildcard 1: `%` (Any Number of Characters)
+## Wildcard 1: `%` (Any Number of Characters)
 
 A **wildcard** is a symbol that stands in for other characters, like a joker in a word puzzle.
 
@@ -89,7 +89,7 @@ SELECT title FROM books WHERE title LIKE '%data%';
 
 ---
 
-## 🃏 Wildcard 2: `_` (Exactly One Character)
+## Wildcard 2: `_` (Exactly One Character)
 
 Each `_` matches exactly **one** character, no more and no less.
 
@@ -124,7 +124,7 @@ SELECT name FROM students WHERE name LIKE '_____';
 
 ---
 
-## ➖ `NOT LIKE`
+## `NOT LIKE`
 
 `NOT LIKE` keeps rows that do **not** fit the pattern. Titles without the letter "e":
 
@@ -140,7 +140,7 @@ SELECT title FROM books WHERE title NOT LIKE '%e%';
 
 ---
 
-## 🔠 Upper and Lower Case
+## Upper and Lower Case
 
 With the usual MySQL settings, `LIKE` **ignores case**. The collation's `_ci` ending (Chapter 4) means *case-insensitive*:
 
@@ -166,7 +166,7 @@ Empty set
 
 ---
 
-## 🛡️ Searching for a Real `%` or `_`
+## Searching for a Real `%` or `_`
 
 Suppose the library adds a science booklet, *Save 20% Water at Home*, and also *Room 205 Lab Notes*. We want titles containing "20%":
 

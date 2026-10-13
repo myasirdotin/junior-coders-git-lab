@@ -24,7 +24,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 An array method is called using dot notation right on the array name: `myArray.methodName()`.
 
@@ -72,7 +72,7 @@ console.log(letters.join("-")); // "J-A-V-A"
 
 ---
 
-## 🌍 Real-World Example
+## Real-World Example
 
 Think of a **student’s Reading Bookmark List** — a list of book chapters saved to read later:
 1. When you tap **“Read This Next”**, the chapter jumps to the front using `readingList.unshift(newChapter)`.
@@ -82,7 +82,7 @@ Think of a **student’s Reading Bookmark List** — a list of book chapters sav
 
 ---
 
-## 💻 Code Example
+## Code Example
 
 A science club packs a field kit for a nature walk:
 
@@ -125,7 +125,7 @@ Kit label: [ Lab Notebook | Magnifying Glass | Thermometer ]
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - `fieldKit.push("Thermometer");`: Adds `"Thermometer"` to the end of the array. The array size increases to 4.
 - `let lentItem = fieldKit.shift();`: Removes the first item (`"Safety Goggles"`), shifts all remaining items left, and stores `"Safety Goggles"` in `lentItem`.
@@ -163,7 +163,7 @@ console.log(letters.length);
 
 ---
 
-## 🧭 Think Like a Programmer: Mutating vs. Non-Mutating Methods
+## Think Like a Programmer: Mutating vs. Non-Mutating Methods
 
 Some methods **change** (mutate) the original array, while others produce a fresh copy:
 - **Mutating Methods:** `push()`, `pop()`, `shift()`, `unshift()`. (The original array changes size or contents).
@@ -172,7 +172,7 @@ Always be mindful whether your method modifies your original data!
 
 ---
 
-## 🚀 Coding Challenge
+## Coding Challenge
 
 Write a function `cleanSpamWords(chatMessage, bannedWords)`:
 - Convert the chat message into an array of words using `.split(" ")`. (`split` is a string method from Chapter 13. It cuts a sentence at every space and gives back an array of words.)
@@ -182,7 +182,7 @@ Write a function `cleanSpamWords(chatMessage, bannedWords)`:
 
 ---
 
-## 🛠️ Mini Project: Interactive To-Do List Simulator
+## Mini Project: Interactive To-Do List Simulator
 
 Create a complete script that simulates a to-do manager:
 - Has a `tasks` array: `["Do Homework", "Clean Room", "Walk Dog"]`.

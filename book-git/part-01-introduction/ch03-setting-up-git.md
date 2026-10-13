@@ -1,4 +1,4 @@
-# Chapter 3: Setting Up Git & Your Identity 💻
+# Chapter 3: Setting Up Git & Your Identity
 
 ---
 
@@ -19,7 +19,7 @@ When an architect draws the plan for a new school, she signs and dates it. Every
 
 ---
 
-## 🛠️ Installing Git
+## Installing Git
 
 Git is free. Download it from the official site, **git-scm.com**, or ask your teacher to install it in the computer lab.
 
@@ -41,7 +41,7 @@ Your number may be different. Any recent version works with this book.
 
 ---
 
-## 👁️ Your Git "Passport": the `.gitconfig` File
+## Your Git "Passport": the `.gitconfig` File
 
 Git keeps your personal settings in a file called `.gitconfig` in your home folder. Think of it as a passport that Git reads every time you commit:
 
@@ -61,7 +61,7 @@ Git keeps your personal settings in a file called `.gitconfig` in your home fold
 
 ---
 
-## 💻 Example: One-Time Setup
+## Example: One-Time Setup
 
 Run these three commands once on your computer. Use your own name and email.
 
@@ -89,7 +89,7 @@ Git shows setting names in small letters, so `defaultBranch` appears as `default
 
 ---
 
-## 🔍 How It Works
+## How It Works
 
 - `git config`: reads or changes Git settings.
 - `--global`: the setting applies to **every** Git project for your user on this computer. You only do this once.

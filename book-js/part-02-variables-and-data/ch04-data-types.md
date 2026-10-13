@@ -1,4 +1,4 @@
-# Chapter 4: Data Types 🏷️
+# Chapter 4: Data Types
 
 ---
 
@@ -28,7 +28,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 ### The 5 Primitive Data Types in JavaScript
 
@@ -52,7 +52,7 @@ console.log(typeof undefined); // prints: undefined
 
 ---
 
-## 🌍 Real-World Example: The Student ID Card
+## Real-World Example: The Student ID Card
 
 Look at your student ID badge:
 - **Name ("Zara Chen")**: String.
@@ -63,7 +63,7 @@ Look at your student ID badge:
 
 ---
 
-## 💻 Code Example: The Data Type Showcase
+## Code Example: The Data Type Showcase
 
 Type this into your scratchpad or editor:
 
@@ -100,7 +100,7 @@ houseNumber is: undefined
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - Line 2: `"Ravi"` is enclosed in quotes, so its data type is `string`.
 - Line 5: `88.5` has no quotes and represents a numeric quantity, so its type is `number`.
@@ -128,7 +128,7 @@ console.log(typeof booksRead, typeof hasFinished);
 
 ---
 
-## 🧭 Think Like a Programmer: Designing a Mars Rover
+## Think Like a Programmer: Designing a Mars Rover
 
 Imagine you are programming a robot rover that explores Mars.
 List the data type you would choose for:
@@ -139,14 +139,14 @@ List the data type you would choose for:
 
 ---
 
-## 🚀 Coding Challenge: The Type Inspector
+## Coding Challenge: The Type Inspector
 
 Write a program that defines three variables: `a = 50;`, `b = "50";`, `c = true;`.
 Print a comparison sentence using `console.log()` showing each value and its `typeof`.
 
 ---
 
-## 🛠️ Mini Project: The Data Type Detective
+## Mini Project: The Data Type Detective
 
 Create a program about a book in your school library:
 - Variable 1: `bookTitle` (string)

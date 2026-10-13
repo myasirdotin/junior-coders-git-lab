@@ -1,4 +1,4 @@
-# Chapter 4: Initializing Repositories & Checking Status 📁
+# Chapter 4: Initializing Repositories & Checking Status
 
 ---
 
@@ -19,7 +19,7 @@ Your class starts a new Science & Coding Club. You do not toss meeting notes int
 
 ---
 
-## 👁️ Before and After `git init`
+## Before and After `git init`
 
 A **repository** is a project folder that Git looks after. Git keeps all the history in one hidden folder called `.git`.
 
@@ -42,7 +42,7 @@ The `.git` folder holds every snapshot, every branch name and every setting for 
 
 ---
 
-## 💻 Example: Creating Your First Repository
+## Example: Creating Your First Repository
 
 Open your terminal in your practice folder and type these commands:
 
@@ -97,7 +97,7 @@ In most terminals, `README.md` appears in **red**. Red in `git status` means "Gi
 
 ---
 
-## 🔍 How It Works
+## How It Works
 
 - **`git init`** is short for *initialize* (to set something up for the first time). It creates the hidden `.git` folder and the starting branch.
 - **`git status`** is the most useful command in Git. Run it before and after almost every step. It tells you:

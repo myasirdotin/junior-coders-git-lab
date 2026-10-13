@@ -24,7 +24,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 💡 Concept Explanation
+## Concept Explanation
 
 A **string** is an ordered sequence of characters (letters, numbers, spaces, symbols). 
 
@@ -65,7 +65,7 @@ console.log(clean.replace("Super", "Mega"));   // "JavaScript is Mega Fun!"
 
 ---
 
-## 🌍 Real-World Example
+## Real-World Example
 
 Think about the search bar on your school library website:
 When you search for `"solar system"`, the search engine:
@@ -75,7 +75,7 @@ When you search for `"solar system"`, the search engine:
 
 ---
 
-## 💻 Code Example
+## Code Example
 
 ```javascript
 // User registration cleaner
@@ -116,7 +116,7 @@ Profile Created:
 
 ---
 
-## 🔍 Line-by-Line Explanation
+## Line-by-Line Explanation
 
 - `rawName.trim()`: Strips the extra spaces around `"   Ayesha Khan   "`, resulting in `"Ayesha Khan"`.
 - `rawEmail.trim().toLowerCase()`: Chains two methods! Removes spaces and turns all letters lowercase (`"ayesha.khan@gmail.com"`).
@@ -152,7 +152,7 @@ true
 
 ---
 
-## 🧭 Think Like a Programmer: Case-Insensitive Comparisons
+## Think Like a Programmer: Case-Insensitive Comparisons
 
 Computers see letters as binary numbers. In ASCII/Unicode:
 - Capital `'A'` is number 65.
@@ -165,7 +165,7 @@ input.trim().toLowerCase() === expectedWord.toLowerCase()
 
 ---
 
-## 🚀 Coding Challenge
+## Coding Challenge
 
 Write a function `isPalindrome(word)`:
 - A palindrome is a word that reads the same forwards and backwards (like `"radar"`, `"level"`, `"racecar"`).
@@ -174,7 +174,7 @@ Write a function `isPalindrome(word)`:
 
 ---
 
-## 🛠️ Mini Project: Secret Detective Decoder
+## Mini Project: Secret Detective Decoder
 
 Create a program that:
 1. Takes an encoded string: `"XJAZXVAXSCXRXIPXTX"`

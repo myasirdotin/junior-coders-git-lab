@@ -1,4 +1,4 @@
-# Chapter 7: Inspecting History & Differences (`log` & `diff`) 🔍
+# Chapter 7: Inspecting History & Differences (`log` & `diff`)
 
 ---
 
@@ -20,7 +20,7 @@ Every passenger plane carries a flight data recorder. It notes every change in h
 
 ---
 
-## 📜 Reading History with `git log`
+## Reading History with `git log`
 
 Our example is a school library website with three commits. Two people worked on it: Zainab and Omar.
 
@@ -107,7 +107,7 @@ With one straight line of commits the drawing is simple. In Chapter 10 you will 
 
 ---
 
-## 🔎 Seeing Changes with `git diff`
+## Seeing Changes with `git diff`
 
 Now Zainab changes the heading colour in `style.css` from `blue` to `teal`. She has **not** run `git add` yet.
 
@@ -175,7 +175,7 @@ index ccf22a0..24cddd2 100644
 
 ---
 
-## 🔍 How It Works
+## How It Works
 
 - When the output is longer than your screen, Git shows it in a **pager** (a viewer that shows one screen at a time). Press `Space` for the next page, `b` to go back, and **`q` to quit**.
 - `--oneline` shortens each commit to the short hash and the first line of the message.

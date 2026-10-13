@@ -18,7 +18,7 @@ On prize day, the head teacher reads out the top three readers. First she sorts 
 
 ---
 
-## ↕️ Why Sort?
+## Why Sort?
 
 Without `ORDER BY`, MySQL returns rows in whatever order is easiest for it. Often that looks like id order, but **it is not promised**. If the order matters to you, ask for it.
 
@@ -33,7 +33,7 @@ ORDER BY column [ASC | DESC];
 
 ---
 
-## 🔤 Sorting Examples
+## Sorting Examples
 
 ### A to Z by name
 
@@ -125,7 +125,7 @@ ORDER BY amount DESC;
 
 ---
 
-## ✂️ Only the First Few: `LIMIT`
+## Only the First Few: `LIMIT`
 
 `LIMIT n` keeps the first *n* rows of the result. The three longest books:
 
@@ -158,7 +158,7 @@ Dates stored as `DATE` sort correctly by time, which is one reason Chapter 6 cho
 
 ---
 
-## 📄 Pages of Results: `LIMIT` with `OFFSET`
+## Pages of Results: `LIMIT` with `OFFSET`
 
 A website showing 100 books does not dump them all at once. It shows page 1, page 2, and so on. This is called **pagination**.
 

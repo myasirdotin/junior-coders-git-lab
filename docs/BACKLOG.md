@@ -35,6 +35,10 @@ _Last updated: 2026-10-13 (Android book added)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 Fewer emoji in the textbooks: only the signpost headings keep one (Real-Life Story … Practice levels,
+  Predict the Output, Code Detective, Real-World Connection, Key Terms, Amānah); 1,495 removed from chapter titles
+  and topic headings in all 243 chapters (about 16 → 10 per chapter). `scripts/clean-heading-emoji.js`; check-books
+  now reports an emoji on any other heading. GEMINI §7j.
 - 2026-10-13 11 new textbook chapters for the gaps found while linking the cheat sheets: HTML 7 (special characters
   & comments), CSS 3 (selectors & specificity), 7 (variables), 20 (@keyframes), PHP 23 (errors & try/catch), 28–29
   (PDO, new Part 9), MySQL 8 (ALTER TABLE), 23 (dates & times), 25 (indexes), Cybersecurity 9 (security headers).

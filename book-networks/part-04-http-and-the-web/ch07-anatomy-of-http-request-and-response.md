@@ -1,4 +1,4 @@
-# Chapter 7: Anatomy of an HTTP Request & Response 📬
+# Chapter 7: Anatomy of an HTTP Request & Response
 
 ## 🌟 Real-Life Story
 
@@ -14,7 +14,7 @@ Zainab fills in a book request slip at the library desk. The slip has a clear la
 
 ---
 
-## 🌐 What Is HTTP?
+## What Is HTTP?
 
 **HTTP** (Hypertext Transfer Protocol) is the language browsers and web servers use. It is an Application-layer protocol (Chapter 2). It usually runs over a TCP connection to port 80 (Chapters 4 and 5).
 
@@ -32,7 +32,7 @@ HTTP/1.1 is plain text, so people can read it. Its secure version, **HTTPS**, wr
 
 ---
 
-## 📨 The HTTP Request
+## The HTTP Request
 
 A request has four parts:
 
@@ -62,7 +62,7 @@ In the raw bytes, each line ends with two characters: **CR LF** (carriage return
 
 ---
 
-## 🏷️ HTTP Methods
+## HTTP Methods
 
 The **method** says what the client wants to do.
 
@@ -83,7 +83,7 @@ The **method** says what the client wants to do.
 
 ---
 
-## 📬 The HTTP Response
+## The HTTP Response
 
 The server's reply also has four parts:
 
@@ -111,7 +111,7 @@ Connection: keep-alive
 
 ---
 
-## 🚦 The Five Classes of Status Codes
+## The Five Classes of Status Codes
 
 A status code is a 3-digit number. The first digit tells you the class.
 
@@ -132,7 +132,7 @@ A few need care:
 
 ---
 
-## 🔍 See It Yourself: `curl.exe -v`
+## See It Yourself: `curl.exe -v`
 
 `curl` is a command-line tool that speaks HTTP. It comes with Windows 10 and 11.
 

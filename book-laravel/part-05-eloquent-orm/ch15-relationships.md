@@ -12,7 +12,7 @@ Every loan slip in the library connects two things: a **member** and a **book**.
 - Filter related rows, such as loans not yet returned.
 - Avoid the "N+1" slowdown with eager loading: `with()`.
 
-## 🔗 One-to-Many
+## One-to-Many
 
 Look at our three tables:
 
@@ -30,7 +30,7 @@ members       loans            books
 
 The columns `member_id` and `book_id` are **foreign keys**: they store the id of a row in another table. You met them in the MySQL book.
 
-## 🗄️ Create the Tables (by Hand for Now)
+## Create the Tables (by Hand for Now)
 
 As in Chapter 13, run this SQL in phpMyAdmin. Part 6 shows the Laravel way.
 
@@ -75,7 +75,7 @@ php artisan make:model Member
 php artisan make:model Loan
 ```
 
-## ✍️ Write the Relationships
+## Write the Relationships
 
 A relationship is a **method** in the model that returns `hasMany(...)` or `belongsTo(...)`.
 
@@ -143,7 +143,7 @@ How does Eloquent know the column names? Convention again. `belongsTo(Book::clas
 
 The `casts()` method tells Eloquent to turn the date columns into date objects. Then you can write `$loan->due_on->format('d M Y')`.
 
-## 📖 Use the Relationships
+## Use the Relationships
 
 Call the method **without brackets** to get the related data:
 
@@ -188,7 +188,7 @@ $aisha->loans()->create([
 
 Eloquent fills `member_id` with Aisha's id for you.
 
-## 🖼️ In a View
+## In a View
 
 ```php
 // app/Http/Controllers/MemberController.php
@@ -221,7 +221,7 @@ Aisha Khan (Grade 9)
 • Clean Water for Every Village, due 24 Sep 2026 (returned)
 ```
 
-## 🐢 The N+1 Problem and `with()`
+## The N+1 Problem and `with()`
 
 Look at this loans page:
 

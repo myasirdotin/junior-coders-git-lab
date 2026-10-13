@@ -1,4 +1,4 @@
-# Chapter 12: Resolving Merge Conflicts with Confidence 🕊️
+# Chapter 12: Resolving Merge Conflicts with Confidence
 
 ---
 
@@ -19,7 +19,7 @@ You and a classmate are writing the first line of an article for the school maga
 
 ---
 
-## 👁️ Anatomy of a Conflict
+## Anatomy of a Conflict
 
 ![Merge Conflict Anatomy](../assets/diagrams/git/merge-conflict-anatomy.svg)
 
@@ -39,7 +39,7 @@ A conflict happens when **both** branches changed the **same lines** of the same
 
 ---
 
-## 💻 Example: Resolving a Conflict Step by Step
+## Example: Resolving a Conflict Step by Step
 
 On `main`, Zainab changed the title to include the city. On `feature/title`, she changed the same line to use the full club name.
 
@@ -125,7 +125,7 @@ The history now shows both lines joined:
 
 ---
 
-## 🔍 The Emergency Exit: `git merge --abort`
+## The Emergency Exit: `git merge --abort`
 
 If a conflict feels too confusing, or you want to ask your teacher first, run:
 

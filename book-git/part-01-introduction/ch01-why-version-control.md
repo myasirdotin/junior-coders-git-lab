@@ -1,4 +1,4 @@
-# Chapter 1: Why Version Control Matters ⏳
+# Chapter 1: Why Version Control Matters
 
 ---
 
@@ -28,7 +28,7 @@ Zainab is writing a science project on her computer. Every evening she saves a n
 
 ---
 
-## 🤔 What Is Version Control?
+## What Is Version Control?
 
 Imagine a website with **500 files** and a team of **5 developers**. If everyone saves copies like `website_final_zainab.html`, nobody knows which copy is the real one.
 
@@ -44,7 +44,7 @@ A **repository** (or "repo") is a project folder that Git is watching. Git keeps
 
 ---
 
-## 👁️ The Hiking Trail Checkpoints
+## The Hiking Trail Checkpoints
 
 Think of Git like the checkpoints on a long hiking trail:
 
@@ -66,7 +66,7 @@ A commit never changes after it is made. People say commits are **immutable** (c
 
 ---
 
-## 💻 Example: Peeking at a Real Git History
+## Example: Peeking at a Real Git History
 
 Inside a project tracked by Git, this command lists the commits, one per line:
 
@@ -87,7 +87,7 @@ Your own list will have different codes, because every project is different. You
 
 ---
 
-## 🔍 How It Works
+## How It Works
 
 - **Commit hash (`48b6332`)**: a unique code for each commit. Git makes it from the exact contents of the project, using a maths recipe called **SHA-1**. If even one comma changes, the hash changes completely. The full hash has 40 characters; `--oneline` shows only the first 7.
 - **Commit message (`Add book list table`)**: a short sentence written by the programmer. It explains **what** changed and **why**.

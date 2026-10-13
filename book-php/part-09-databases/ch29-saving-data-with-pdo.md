@@ -1,4 +1,4 @@
-# Chapter 29: Saving Data Safely with PDO 💾
+# Chapter 29: Saving Data Safely with PDO
 
 ---
 
@@ -18,7 +18,7 @@ The school library keeps a lending register. When Aisha borrows a book, the libr
 
 ---
 
-## 🏷️ Named Placeholders
+## Named Placeholders
 
 In Chapter 28 you used `?` placeholders. With many values, it is easy to mix up their order. **Named placeholders** give each value a name that starts with a colon:
 
@@ -40,7 +40,7 @@ All examples in this chapter start with `require "db.php";`, the connection file
 
 ---
 
-## ➕ INSERT: Adding a Row
+## INSERT: Adding a Row
 
 The library receives a new book from a charity drive:
 
@@ -74,7 +74,7 @@ Saved book number 9
 
 ---
 
-## 📝 INSERT From a Form: Validate, Save, Redirect
+## INSERT From a Form: Validate, Save, Redirect
 
 Now a librarian adds books through a web form. Three steps, in this order:
 
@@ -194,7 +194,7 @@ Without the redirect, the last thing the browser did was a `POST`. If the librar
 
 ---
 
-## ✏️ UPDATE and `rowCount()`
+## UPDATE and `rowCount()`
 
 A book comes back from loan. Mark it as available:
 
@@ -223,7 +223,7 @@ Book 99: 0 row(s) updated
 
 ---
 
-## 🗑️ DELETE
+## DELETE
 
 A donation was typed twice by mistake. Remove the extra one:
 
@@ -249,7 +249,7 @@ Two safety rules for deleting:
 
 ---
 
-## 🚨 SQL Injection: Why We Never Build SQL From Strings
+## SQL Injection: Why We Never Build SQL From Strings
 
 This section shows a **dangerous** example so that you can recognise it. Never use it in a real page.
 
@@ -314,7 +314,7 @@ One limit: placeholders hold **values** only, not table or column names. To let 
 
 ---
 
-## 🔁 Transactions: All or Nothing
+## Transactions: All or Nothing
 
 Lending a book needs **two** changes: mark the book as out, and write the loan. If the first works and the second fails (the server stops, a typo in the SQL), the data is now wrong: the book is "out" with no record of who has it.
 

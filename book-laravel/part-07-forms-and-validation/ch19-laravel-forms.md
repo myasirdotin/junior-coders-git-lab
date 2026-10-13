@@ -12,7 +12,7 @@ When a family donates a book, the librarian hands them a **paper form**: title, 
 - Build an "Edit" form that sends PUT with `@method('PUT')`.
 - Build a safe "Delete" button that sends DELETE.
 
-## 🗺️ The Plan
+## The Plan
 
 We use the resource routes from Chapter 8:
 
@@ -29,7 +29,7 @@ Route::resource('books', BookController::class);
 | Save the changes | PUT `/books/{book}` | `update` |
 | Delete the book | DELETE `/books/{book}` | `destroy` |
 
-## ➕ The "Add a Book" Form
+## The "Add a Book" Form
 
 ```php
 // app/Http/Controllers/BookController.php
@@ -76,7 +76,7 @@ Three things to notice:
 
 Each `<label for="...">` matches an input's `id`, so screen readers and taps on the label work.
 
-## 📥 Read and Save in `store`
+## Read and Save in `store`
 
 ```php
 // app/Http/Controllers/BookController.php
@@ -101,7 +101,7 @@ public function store(Request $request)
 
 > ⚠️ This `store` saves whatever was typed, even an empty title. Chapter 20 adds **validation**. Never put a form online without it.
 
-## 💬 Flash Messages
+## Flash Messages
 
 `->with('status', '...')` stores a message in the session for **one** page view only. This is called a **flash** message. Show it in your layout, so every page can use it:
 
@@ -120,7 +120,7 @@ Thank you! The book has been added.
 
 Refresh the page, and the message is gone, because flash messages last for one visit.
 
-## ✏️ The Edit Form
+## The Edit Form
 
 ```php
 public function edit(Book $book)
@@ -162,7 +162,7 @@ public function update(Request $request, Book $book)
 }
 ```
 
-## 🗑️ The Delete Button
+## The Delete Button
 
 Deleting changes data, so it must **not** be a link. Use a small form with `@method('DELETE')`:
 

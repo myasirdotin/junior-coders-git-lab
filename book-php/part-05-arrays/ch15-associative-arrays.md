@@ -1,4 +1,4 @@
-# Chapter 15: Associative Arrays 🏷️
+# Chapter 15: Associative Arrays
 
 ---
 
@@ -18,7 +18,7 @@ Look at your school ID card. It does not just list facts like "Zainab, 15, Emera
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 A **key-value pair** is a label (the key) joined to a piece of data (the value).
 
@@ -49,7 +49,7 @@ echo $student["name"]; // Zainab Ali
 
 ---
 
-## 💻 Code Example: Teacher Card & Exam Table
+## Code Example: Teacher Card & Exam Table
 
 ```php
 <?php
@@ -114,7 +114,7 @@ Teacher: Mr. Imran Shah teaches Computer Science<br>
 
 ---
 
-## 🔍 Code Explanation: Breaking It Down Line by Line
+## Code Explanation: Breaking It Down Line by Line
 
 - `=>`: The **double arrow** joins the key on the left to the value on the right.
 - `$teacher["email"] = "...";`: If the key `"email"` does not exist yet, PHP creates it.
