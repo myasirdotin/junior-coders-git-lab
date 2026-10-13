@@ -305,6 +305,8 @@ Android then shows a warning and asks you to allow "**Install unknown apps**" fo
 - After installing, turn "Install unknown apps" **off** again for that app.
 - Never ask friends to install APKs from strangers, and never install one yourself.
 
+**A rule that is changing.** From 2026, Google has started to require that apps installed on most Android phones come from a **verified developer**, even when they are not from the Play Store. It began in a few countries and is spreading. Installing straight from Android Studio over a USB cable, as above, is not affected. If tapping an APK file is blocked on a family phone, use the USB cable way, and check the latest rules on developer.android.com.
+
 ## 🏪 Google Play Needs an Adult
 
 To publish on Google Play, someone must create a **Google Play developer account**. The account holder must be **18 or older**. Google also asks for identity checks and a one-time registration fee. New personal accounts usually must test the app with a group of testers for a while before it can go public.
