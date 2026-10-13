@@ -52,8 +52,8 @@ By the end of this book, a student will be able to:
 | **Week 14** | **Part 8 — Objects**: Key-value pairs, dot notation, nested data models |
 | **Week 15** | **Part 9 — User Input**: `prompt()`, type conversion with `Number()`, interactive dialogs |
 | **Weeks 16–17** | **Part 10 — DOM and Web Interaction**: Selecting elements, changing text/styles, event listeners |
-| *Throughout* | **Parts 11–13** (Think Like a Programmer, Debugging, Maths) woven as continuous 10-min workshops |
-| **Weeks 18–20** | **Parts 14–15**: 21 hands-on mini projects and creative coding challenges |
+| *Throughout* | **Chapters 18–20** (Computational Thinking, Debugging, Maths) woven in as 10-minute workshops |
+| **Weeks 18–20** | **Chapters 21–23**: mini projects, creative coding with canvas, and the final Quiz Arena project |
 | **Week 21** | **Final Capstone Project & Assessment**: Comprehensive review & certificate |
 
 > 🍎 **Teacher Tip**:
@@ -61,32 +61,19 @@ By the end of this book, a student will be able to:
 
 ---
 
-## 🧭 The 18-Step Chapter Pedagogy
+## 🧭 How Every Chapter Works
 
-Every single chapter in this textbook follows an 18-step pedagogical sequence:
-1. **Learning Objectives** (Clear, action-oriented outcomes)
-2. **Warm-Up Activity** (Relatable unplugged thinking prompt)
-3. **Concept Explanation** (Crystal-clear definitions without jargon)
-4. **Real-World Example** (Everyday tech parallels like digital libraries, weather dashboards, or smart sensors)
-5. **Code Example** (Clean, runnable modern JavaScript)
-6. **Line-by-Line Explanation** (Detailed inspection of syntax)
-7. **Try It Yourself** (Immediate hands-on task)
-8. **Practice Exercises** (5-Tier Bloom's Taxonomy Scale):
-   - *Level 1 – Remember*: Recall facts, definitions, and multiple-choice questions
-   - *Level 2 – Understand*: Explain concepts in plain words
-   - *Level 3 – Apply*: Code solutions for similar scenarios
-   - *Level 4 – Think*: Deconstruct errors, combine ideas, analyze logic
-   - *Level 5 – Create ⭐*: Invent and code an original program
-9. **Predict the Output** (Active mental simulation before running code)
-10. **Debug It** (Find, explain, and correct intentional bugs)
-11. **Think Like a Programmer** (Algorithmic problem-solving prompts)
-12. **Coding Challenge ⭐** (Creative hands-on mission)
-13. **Mini Project** (Practical, standalone program)
-14. **Chapter Recap** (Bullet-point summary)
-15. **Key Terms** (Glossary definitions)
-16. **Self-Assessment** (Checkbox mastery checklist)
-17. **Homework** (Independent practice tasks)
-18. **Teacher Discussion Questions** (Classroom debate & conceptual probes)
+All 23 chapters follow the same plan as the other Junior Coders textbooks:
+1. **🌟 Real-Life Story**: an everyday picture of the idea.
+2. **🎯 What You Will Learn**: three to five goals.
+3. **Topic sections**: the explanation, each with a code example and its exact output.
+   Many chapters add Predict the Output, Think Like a Programmer and a Mini Project here.
+4. **⚠️ Common Mistake**: a real beginner mistake and how to fix it.
+5. **✍️ Try It**: one small task to do straight away.
+6. **📝 Recap**: the key ideas, with a "Check yourself" list.
+7. **🏆 Practice**: three levels (🟢 Recall, 🟡 Apply, 🔴 Challenge) with hidden answers.
+
+Homework and discussion questions for each chapter are in the Teacher's Guide.
 
 ---
 
@@ -129,12 +116,24 @@ Every single chapter in this textbook follows an 18-step pedagogical sequence:
 - **Chapter 16**: [JavaScript in a Web Page (The DOM)](part-10-dom-and-web/ch16-javascript-in-a-web-page.md)
 - **Chapter 17**: [Events & Interactivity](part-10-dom-and-web/ch17-events.md)
 
-### Practical Workshops & Appendices
-- **Part 11**: [Think Like a Programmer (Computational Thinking)](part-11-think-like-a-programmer/computational-thinking.md)
-- **Part 12**: [Debugging Guide](part-12-debugging/debugging-guide.md)
-- **Part 13**: [Mathematics Through JavaScript](part-13-mathematics/math-through-javascript.md)
-- **Part 14**: [21 Complete Mini Projects Collection](part-14-mini-projects/mini-projects-collection.md)
-- **Part 15**: [Creative Coding Challenges](part-15-creative-coding/creative-coding.md)
-- **Final Project**: [Capstone App: Student Report Card Generator](final-project/final-project-guide.md)
+### Part 11: Think Like a Programmer
+- **Chapter 18**: [Computational Thinking](part-11-think-like-a-programmer/ch18-computational-thinking.md)
+
+### Part 12: Debugging
+- **Chapter 19**: [Debugging](part-12-debugging/ch19-debugging.md)
+
+### Part 13: Maths in JavaScript
+- **Chapter 20**: [Maths in JavaScript](part-13-mathematics/ch20-maths-in-javascript.md)
+
+### Part 14: Mini Projects
+- **Chapter 21**: [Mini Projects](part-14-mini-projects/ch21-mini-projects.md)
+
+### Part 15: Creative Coding
+- **Chapter 22**: [Creative Coding with Canvas](part-15-creative-coding/ch22-creative-coding.md)
+
+### Part 16: Final Capstone
+- **Chapter 23**: [Final Project: The Quiz Arena](part-16-capstone-project/ch23-final-project.md)
+
+### Reference & Teacher Guides
 - **Reference**: [JavaScript Quick Reference & Glossary](reference/quick-reference-and-glossary.md)
 - **Teacher Guide**: [Teacher's Guide, Assessment & Rubrics](teacher-guide/teachers-guide-and-rubrics.md)

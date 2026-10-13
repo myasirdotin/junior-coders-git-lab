@@ -38,13 +38,15 @@ By the end of this chapter, you will be able to:
 The `for` loop has three distinct control pieces separated by semicolons inside parentheses:
 
 ```text
-       1. START           2. CONDITION              3. STEP
-     (Initializer)      (How long to run?)        (Count update)
-          │                     │                       │
-          ▼                     ▼                       ▼
-  for (let i = 1;             i <= 5;                  i++) {
-    console.log("Round number:", i);
-  }
+for (let i = 1; i <= 5; i++) {
+     └───┬───┘  └──┬─┘  └┬┘
+       START     CHECK   STEP
+  console.log("Round number:", i);
+}
+
+START: make the counter, once
+CHECK: keep going while this is true
+STEP:  change the counter after each round
 ```
 
 1. **`let i = 1`**: Creates a loop counter variable `i` starting at 1.
@@ -231,6 +233,13 @@ Open your console:
 - Infinite loops occur when exit conditions can never be met.
 - Accumulator variables calculate sums and counts inside loops.
 
+**Check yourself:**
+
+- [ ] I can write a `for` loop that counts from 1 to 10.
+- [ ] I understand the role of initializer, condition, and increment.
+- [ ] I can write a `while` loop with a safe exit condition.
+- [ ] I know how to avoid creating an infinite loop.
+
 ---
 
 ## 📖 Key Terms
@@ -305,25 +314,3 @@ Total: 5050
 ```
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can write a `for` loop that counts from 1 to 10.
-- [ ] I understand the role of initializer, condition, and increment.
-- [ ] I can write a `while` loop with a safe exit condition.
-- [ ] I know how to avoid creating an infinite loop.
-
----
-
-## 🏡 Homework
-
-Write a `for` loop that prints all **odd numbers** from 1 to 25.
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Have students act out a physical loop in the classroom: One student acts as the counter, another as the condition checker, and another runs the action block.
-2. Ask: *"In animations, the main loop runs 60 times every second. What actions happen during each tick of that animation loop?"*

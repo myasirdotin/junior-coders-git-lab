@@ -52,7 +52,7 @@ function bundleText(b) {
 }
 
 function readerSettings(b) {
-  const keep = ['title', 'short', 'subtitle', 'icon', 'color', 'colorDark', 'colorSoft', 'links', 'parts', 'groups', 'extras', 'practice', 'scratchpad', 'moreTitle'];
+  const keep = ['title', 'short', 'subtitle', 'icon', 'color', 'colorDark', 'colorSoft', 'links', 'parts', 'groups', 'extras', 'practice', 'scratchpad', 'moreTitle', 'oldKeys'];
   const s = { bundle: `BOOK_${b.key.toUpperCase()}_CHAPTERS`, badge: b.grades };
   keep.forEach((k) => { if (b[k] !== undefined && b[k] !== false) s[k] = b[k]; });
   return s;

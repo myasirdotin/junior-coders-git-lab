@@ -10,7 +10,7 @@
 // Fields: key (folder book-KEY), stage (Textbooks page group: first | web | python), title, short (phone bar),
 // grades, subtitle, icon (inside the book), cardIcon (Textbooks page, optional), color/colorDark/colorSoft, links (top link row), parts (folder: [title, filter group]),
 // groups (filter buttons), extras (files that are not chNN chapters: projects, reference, teacher guide),
-// practice (end-of-chapter "Practise this chapter" box, or null), scratchpad (JS book), moreTitle,
+// oldKeys (old #links mapped to new chapter keys), practice (end-of-chapter "Practise this chapter" box, or null), scratchpad (JS book), moreTitle,
 // card (Textbooks page text), metaDescription (search engines), lessonsFolder (its Learning track, if any),
 // search (extra words for the site search).
 window.JC_BOOKS = [
@@ -357,97 +357,78 @@ window.JC_BOOKS = [
     "parts": {
       "part-01-getting-started": [
         "Getting Started",
-        ""
+        "basics"
       ],
       "part-02-variables-and-data": [
         "Variables and Data",
-        ""
+        "basics"
       ],
       "part-03-making-decisions": [
         "Making Decisions",
-        ""
+        "logic"
       ],
       "part-04-repetition-and-logic": [
         "Repetition and Logic",
-        ""
+        "logic"
       ],
       "part-05-functions": [
         "Functions",
-        ""
+        "data"
       ],
       "part-06-arrays-and-data": [
         "Arrays and Data",
-        ""
+        "data"
       ],
       "part-07-strings-and-text": [
         "Strings and Text",
-        ""
+        "data"
       ],
       "part-08-objects": [
         "Objects",
-        ""
+        "data"
       ],
       "part-09-user-input": [
         "User Input & Interaction",
-        ""
+        "web"
       ],
       "part-10-dom-and-web": [
         "DOM & Web Interaction",
-        ""
+        "web"
       ],
       "part-11-think-like-a-programmer": [
         "Think Like a Programmer",
-        ""
+        "skills"
       ],
       "part-12-debugging": [
         "Debugging",
-        ""
+        "skills"
       ],
       "part-13-mathematics": [
         "Maths in JavaScript",
-        ""
+        "skills"
       ],
       "part-14-mini-projects": [
         "Mini Projects",
-        ""
+        "projects"
       ],
       "part-15-creative-coding": [
         "Creative Coding",
-        ""
+        "projects"
+      ],
+      "part-16-capstone-project": [
+        "Final Capstone",
+        "projects"
       ]
     },
-    "groups": {},
+    "groups": {
+      "basics": "Basics",
+      "logic": "Logic",
+      "data": "Data",
+      "web": "Web Pages",
+      "skills": "Skills",
+      "projects": "Projects"
+    },
     "extras": [
-      {
-        "file": "part-11-think-like-a-programmer/computational-thinking.md",
-        "key": "p11",
-        "label": "Part 11: Think Like a Programmer"
-      },
-      {
-        "file": "part-12-debugging/debugging-guide.md",
-        "key": "p12",
-        "label": "Part 12: Debugging"
-      },
-      {
-        "file": "part-13-mathematics/math-through-javascript.md",
-        "key": "p13",
-        "label": "Part 13: Maths in JavaScript"
-      },
-      {
-        "file": "part-14-mini-projects/mini-projects-collection.md",
-        "key": "p14",
-        "label": "Part 14: 21 Mini Projects"
-      },
-      {
-        "file": "part-15-creative-coding/creative-coding.md",
-        "key": "p15",
-        "label": "Part 15: Creative Coding"
-      },
-      {
-        "file": "final-project/final-project-guide.md",
-        "key": "final",
-        "label": "Final Capstone Project"
-      },
       {
         "file": "reference/quick-reference-and-glossary.md",
         "key": "ref",
@@ -459,14 +440,26 @@ window.JC_BOOKS = [
         "label": "Teacher's Guide & Rubrics"
       }
     ],
-    "practice": null,
+    "practice": {
+      "href": "../studios/web-studio/index.html",
+      "label": "Open the Web Studio",
+      "icon": "🌐",
+      "text": "Build this chapter’s examples into a real page in the Web Studio, or run small pieces in the scratchpad above."
+    },
     "scratchpad": true,
-    "moreTitle": "Final Project & Reference",
     "grades": "Grades 7–8",
     "card": "Make pages respond to clicks and typing. Learn variables, decisions, loops and functions.",
     "metaDescription": "The Junior Coders JavaScript textbook for Grades 7–8: variables, decisions, loops, functions, arrays, objects, the DOM and events, with a live scratchpad.",
     "lessonsFolder": "Learning JS",
-    "search": "javascript js"
+    "search": "javascript js",
+    "oldKeys": {
+      "p11": "ch18",
+      "p12": "ch19",
+      "p13": "ch20",
+      "p14": "ch21",
+      "p15": "ch22",
+      "final": "ch23"
+    }
   },
   {
     "key": "php",

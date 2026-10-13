@@ -404,6 +404,13 @@ Open the **Live JavaScript Scratchpad** at the top of the reader, or open your b
 - `console.log()` prints messages and data to the developer console.
 - Text strings must always be enclosed in quotation marks (`"..."`).
 
+**Check yourself:**
+
+- [ ] I can explain what a computer program is to a friend.
+- [ ] I can name two places where JavaScript is actively used in the real world.
+- [ ] I know how to break a daily task down into numbered steps.
+- [ ] I can write a working `console.log()` command without syntax errors.
+
 ---
 
 ## 📖 Key Terms
@@ -484,25 +491,3 @@ My dream invention is a robot that plants trees.
 Normal English can mean more than one thing. Strict punctuation has only one meaning, so the computer never has to guess. For example, quotation marks always mean "this is text".
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can explain what a computer program is to a friend.
-- [ ] I can name two places where JavaScript is actively used in the real world.
-- [ ] I know how to break a daily task down into numbered steps.
-- [ ] I can write a working `console.log()` command without syntax errors.
-
----
-
-## 🏡 Homework
-
-Write down five distinct activities you performed today (e.g. eating lunch, packing your school bag, doing homework). Write them out as numbered, chronological instructions as if you were programming a computer assistant to repeat your day!
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Ask students to share an example of a time when an instruction they gave to a friend or sibling was misunderstood because it wasn't specific enough. Connect this directly to why computers require absolute precision.
-2. Why do students think JavaScript became the undisputed language of the web rather than older languages like C or Fortran?

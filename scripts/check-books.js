@@ -16,7 +16,7 @@
 // WARNINGS (reported, exit code 0): text diagrams wider than 46 characters (too wide for phones), words from the
 //   GEMINI.md §1.3 list (check the context: a chapter may name them as things we refuse to build).
 //
-// Projects (projNN-*.md) and the JavaScript book's special parts are "extras": they get the per-file checks, plus
+// Projects (projNN-*.md) are "extras": they get the per-file checks, plus
 // What You Will Learn and Recap, but not the full template.
 const fs = require('fs');
 const path = require('path');

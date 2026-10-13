@@ -207,6 +207,13 @@ Open your scratchpad or console:
 - Comments (`//` and `/* */`) are ignored by the engine and exist to guide humans.
 - Errors are helpful diagnostic clues indicating line numbers and issues to resolve.
 
+**Check yourself:**
+
+- [ ] I know how to open the browser developer console using `F12`.
+- [ ] I can write single-line (`//`) and multi-line (`/* */`) comments.
+- [ ] I can print text strings and mathematical equations with `console.log()`.
+- [ ] I know what to check when a "SyntaxError: missing ) after argument list" appears.
+
 ---
 
 ## 📖 Key Terms
@@ -275,28 +282,3 @@ Seconds in a day: 86400
 ```
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I know how to open the browser developer console using `F12`.
-- [ ] I can write single-line (`//`) and multi-line (`/* */`) comments.
-- [ ] I can print text strings and mathematical equations with `console.log()`.
-- [ ] I know what to check when a "SyntaxError: missing ) after argument list" appears.
-
----
-
-## 🏡 Homework
-
-Write five distinct `console.log()` statements:
-1. Two lines printing sentences about your favorite books.
-2. Two lines calculating mathematics (e.g., your birth year subtracted from 2026).
-3. At least one helpful comment explaining the program.
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Have students share the exact text of one error message they saw during class today. Discuss what it meant and how they fixed it to normalize error reading without anxiety.
-2. Ask: *"Why does a computer calculate `5 + 3` as `8`, but when wrapped in quotes, it treats it like a picture of letters?"*

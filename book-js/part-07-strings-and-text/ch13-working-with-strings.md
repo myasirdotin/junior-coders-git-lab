@@ -1,4 +1,3 @@
-*Part 7 · Strings and Text*
 # Chapter 13: Working With Strings — The Power of Words
 
 ---
@@ -240,6 +239,13 @@ console.log(message.touppercase());
 - Use `.trim()` to remove unwanted whitespace.
 - Use `.includes()`, `.slice()`, and `.replace()` to manipulate text.
 
+**Check yourself:**
+
+- [ ] I can rewrite `+` string concatenation using backticks and `${}`.
+- [ ] I know how to check string length.
+- [ ] I can convert user input to lowercase.
+- [ ] I understand why `"Cat" === "cat"` is false.
+
 ---
 
 ## 📖 Key Terms
@@ -315,27 +321,3 @@ I love maths because it is exciting and a fun challenge
 Note: `.replace()` only changes the **first** match of each word.
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can rewrite `+` string concatenation using backticks and `${}`.
-- [ ] I know how to check string length.
-- [ ] I can convert user input to lowercase.
-- [ ] I understand why `"Cat" === "cat"` is false.
-
----
-
-## 🏡 Homework
-
-1. Write a function `initials(fullName)` that returns the first letter of each word (e.g., `"Bilal Khan"` returns `"B.K."`).
-2. Create a hashtag generator that takes a phrase like `"junior coders rock"` and returns `"#JuniorCodersRock"`.
-3. Check if an email entered by a user contains both `"@"` and `"."`.
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Why are strings immutable in JavaScript while arrays are mutable?
-2. What are some security and database reasons why websites always trim and lowercase email addresses before saving them?

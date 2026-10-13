@@ -1,4 +1,3 @@
-*Part 9 · User Input*
 # Chapter 15: Taking Input — Making Programs Interactive
 
 ---
@@ -239,6 +238,13 @@ alert "Your final score is " + finalScore;
 - Use `Number()` or `parseInt()` before doing math.
 - Use `isNaN()` to check for invalid numerical entries.
 
+**Check yourself:**
+
+- [ ] I know how to ask a user for their name using `prompt()`.
+- [ ] I always convert numbers using `Number()` before addition.
+- [ ] I can check for invalid numbers using `isNaN()`.
+- [ ] I understand how `confirm()` returns a boolean.
+
 ---
 
 ## 📖 Key Terms
@@ -324,27 +330,3 @@ Each person pays: Rs 330
 ```
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I know how to ask a user for their name using `prompt()`.
-- [ ] I always convert numbers using `Number()` before addition.
-- [ ] I can check for invalid numbers using `isNaN()`.
-- [ ] I understand how `confirm()` returns a boolean.
-
----
-
-## 🏡 Homework
-
-1. Write a program that asks for the user's birth year and calculates their approximate age.
-2. Ask the user for their favorite pizza topping. If they enter `"pineapple"`, make a funny alert!
-3. Build a simple currency converter (e.g., USD to INR - Indian Rupees).
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Why are browser alerts and prompts rarely used in modern professional web apps like GitHub, Wikipedia, or educational portals, and what do developers use instead?
-2. What happens if a malicious user types code into an input field? (Introduction to cybersecurity awareness).

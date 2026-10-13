@@ -1,4 +1,3 @@
-*Part 6 · Arrays and Data*
 # Chapter 12: Array Methods — The Power Tools of Lists
 
 ---
@@ -249,6 +248,13 @@ let topTwo = scores.slice(0; 2);
 - `slice()` copies a subset without changing the original.
 - `join()` glues items into a string.
 
+**Check yourself:**
+
+- [ ] I can add items to both the front and back of an array.
+- [ ] I can safely remove items using `pop()` and `shift()`.
+- [ ] I know how to use `.includes()` in an `if` statement.
+- [ ] I understand what `.join()` does.
+
 ---
 
 ## 📖 Key Terms
@@ -325,27 +331,3 @@ Layla added to invitation list!
 ```
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can add items to both the front and back of an array.
-- [ ] I can safely remove items using `pop()` and `shift()`.
-- [ ] I know how to use `.includes()` in an `if` statement.
-- [ ] I understand what `.join()` does.
-
----
-
-## 🏡 Homework
-
-1. Create an array of 5 planets. Add Pluto to the end, then remove it.
-2. Write a program that checks if `"chocolate"` is on your grocery list. If not, add it to the front!
-3. Take the array `["Learning", "JavaScript", "is", "awesome"]` and join it with spaces to make a full sentence.
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Why is `.indexOf()` returning `-1` for missing items rather than `0`?
-2. When would you prefer `.slice()` over modifying the original array directly?

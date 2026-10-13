@@ -223,6 +223,13 @@ Open your console:
 - Variable names must not start with numbers and cannot contain spaces.
 - Professional developers use **camelCase** for multi-word variables (`studentAge`).
 
+**Check yourself:**
+
+- [ ] I can explain the difference between `let` and `const`.
+- [ ] I can name variables following proper camelCase rules.
+- [ ] I know which characters are illegal at the start of a variable name.
+- [ ] I can update an existing variable without re-declaring it with `let`.
+
 ---
 
 ## 📖 Key Terms
@@ -304,25 +311,3 @@ After launch, fuel is now: 75
 ```
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can explain the difference between `let` and `const`.
-- [ ] I can name variables following proper camelCase rules.
-- [ ] I know which characters are illegal at the start of a variable name.
-- [ ] I can update an existing variable without re-declaring it with `let`.
-
----
-
-## 🏡 Homework
-
-Create five variables describing your bedroom (e.g. `wallColor`, `numberOfWindows`, `hasDesk`, `bedSize`, `favoritePoster`). Choose whether each should be `let` or `const` based on how likely it is to change, and log each to the console.
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Ask the class: *"Why do professional programmers use `const` for over 80% of their variables even though `let` seems more flexible?"* Guide them to realize that fewer moving parts means fewer unexpected bugs!
-2. Show the class `let score = 10;` and `let Score = 20;`. Discuss why case-sensitivity can cause sneaky bugs if a developer is sloppy with capitalization.

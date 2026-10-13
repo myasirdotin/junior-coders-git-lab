@@ -42,21 +42,21 @@ By the end of this chapter, you will be able to:
 ### Truth Table Reference
 
 ```text
- 1. LOGICAL AND (&&) - The Picky Operator
-    true  && true   ──> true   (Only this one passes!)
-    true  && false  ──> false
-    false && true   ──> false
-    false && false  ──> false
+AND (&&): true only if BOTH are true
+  true  && true   ──> true   ✓ passes
+  true  && false  ──> false
+  false && true   ──> false
+  false && false  ──> false
 
- 2. LOGICAL OR (||) - The Generous Operator
-    true  || true   ──> true
-    true  || false  ──> true
-    false || true   ──> true
-    false || false  ──> false  (Only fails if BOTH are false!)
+OR (||): true if AT LEAST ONE is true
+  true  || true   ──> true
+  true  || false  ──> true
+  false || true   ──> true
+  false || false  ──> false  ✗ both false
 
- 3. LOGICAL NOT (!) - The Flipper
-    !true   ──> false
-    !false  ──> true
+NOT (!): flips the value
+  !true   ──> false
+  !false  ──> true
 ```
 
 ---
@@ -207,6 +207,13 @@ Open your console:
 - `!` (NOT) inverts the truth value of an expression.
 - Group operations with parentheses `(...)` for clarity.
 
+**Check yourself:**
+
+- [ ] I can combine conditions using `&&`.
+- [ ] I can combine alternative choices using `||`.
+- [ ] I know how to flip a boolean using `!`.
+- [ ] I can solve multi-part logic puzzles on paper.
+
 ---
 
 ## 📖 Key Terms
@@ -281,28 +288,3 @@ Door unlocked. Welcome to the science lab!
 Change `codeAttempt` to `1111` and the output becomes `Access denied. Please ask your teacher for help.`
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can combine conditions using `&&`.
-- [ ] I can combine alternative choices using `||`.
-- [ ] I know how to flip a boolean using `!`.
-- [ ] I can solve multi-part logic puzzles on paper.
-
----
-
-## 🏡 Homework
-
-Write three real-life rules from your home or school as boolean logic statements:
-1. *"I can go to the park IF homework is done AND bedroom is clean."*
-2. Write one rule using `||` (OR).
-3. Write one rule using `!` (NOT).
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Introduce the concept of "Short-Circuit Evaluation" to advanced students: If the left side of an `&&` is `false`, why does JavaScript not bother checking the right side?
-2. Connect Boolean logic to search engine tricks (e.g. typing `dinosaurs AND fossils` in Google Search).

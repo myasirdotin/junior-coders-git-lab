@@ -260,7 +260,9 @@
   });
 
   const openFromHash = () => {
-    const key = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+    let key = decodeURIComponent(location.hash.slice(1)).toLowerCase();
+    // old links (and saved "Continue reading" places) to chapters that were renamed, e.g. JS #p11 -> #ch18
+    if (B.oldKeys && B.oldKeys[key]) { key = B.oldKeys[key]; history.replaceState(null, '', '#' + key); }
     const a = key && linkFor(key);
     if (a && a.dataset.file !== current) loadChapter(a.dataset.file, a);
     return !!a;

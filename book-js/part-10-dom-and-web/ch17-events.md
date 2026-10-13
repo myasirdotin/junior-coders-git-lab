@@ -1,4 +1,3 @@
-*Part 10 · DOM and Web*
 # Chapter 17: Events — Listening and Reacting to the User
 
 ---
@@ -277,6 +276,13 @@ function handleClick {
 - Read text inputs using `inputElement.value`.
 - Event-driven programming lets apps wait efficiently for user actions.
 
+**Check yourself:**
+
+- [ ] I can add a `click` listener to a button.
+- [ ] I can retrieve the text inside an `<input>` field using `.value`.
+- [ ] I know how to update the webpage in response to a user click.
+- [ ] I understand what an event callback is.
+
 ---
 
 ## 📖 Key Terms
@@ -371,27 +377,3 @@ essay.addEventListener("input", function() {
 If you type `Trees  give us clean air` (with two spaces after "Trees"), the page shows `24 characters` and `5 words`. The empty piece between the two spaces is not counted.
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can add a `click` listener to a button.
-- [ ] I can retrieve the text inside an `<input>` field using `.value`.
-- [ ] I know how to update the webpage in response to a user click.
-- [ ] I understand what an event callback is.
-
----
-
-## 🏡 Homework
-
-1. Build a "Show / Hide Password" toggle checkbox.
-2. Create a "Daily Wisdom & Proverb" button that picks an inspiring educational quote from an array and updates an `<h1>`.
-3. Create a dark mode toggle button that toggles a `.dark-theme` CSS class on `document.body`.
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. How do touchscreen smartphones handle web events like clicks and swipes?
-2. What would happen if a website attached 10,000 event listeners on every tiny item on the page? How can developers avoid slowing down mobile browsers?

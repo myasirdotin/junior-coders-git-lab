@@ -226,6 +226,13 @@ Copy the Age Classifier from the Code Example above into your console:
 - `else if` chains multiple mutually-exclusive options in priority order.
 - Conditions must always be enclosed in parentheses `(condition)`.
 
+**Check yourself:**
+
+- [ ] I can write a basic `if...else` block with correct syntax.
+- [ ] I remember to put parentheses around my conditions.
+- [ ] I know how to chain multiple checks using `else if`.
+- [ ] I can write a nested decision tree.
+
 ---
 
 ## 📖 Key Terms
@@ -321,29 +328,3 @@ Try other ages: `3` gives Rs 0, `40` gives Rs 140 and `70` gives Rs 100.
 Why must `visitorAge < 5` be checked before `visitorAge <= 12`? Because a 3-year-old is also "12 or under", and the first true check wins.
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can write a basic `if...else` block with correct syntax.
-- [ ] I remember to put parentheses around my conditions.
-- [ ] I know how to chain multiple checks using `else if`.
-- [ ] I can write a nested decision tree.
-
----
-
-## 🏡 Homework
-
-Write a program that tests an exam mark (0 to 100) and prints:
-- 90–100: `"Grade A - Outstanding!"`
-- 75–89: `"Grade B - Very Good!"`
-- 50–74: `"Grade C - Satisfactory"`
-- Below 50: `"Needs Improvement"`
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Ask students to share examples of classroom rules that act like nested conditions (e.g., *"If your assignment is submitted AND it is signed by a parent, you may join the club"*).
-2. Discuss why condition order matters in `else if` chains (e.g. what happens if you check `marks >= 40` before checking `marks >= 90`?).

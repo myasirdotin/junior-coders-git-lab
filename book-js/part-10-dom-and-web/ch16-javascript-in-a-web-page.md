@@ -1,4 +1,3 @@
-*Part 10 · DOM and Web*
 # Chapter 16: JavaScript in a Web Page — Bringing HTML & CSS to Life
 
 ---
@@ -262,6 +261,13 @@ myTitle.style.background-color = "blue";
 - Add, remove, or toggle CSS classes with `.classList`.
 - Keep scripts at the bottom of the `<body>` so elements exist before they are selected.
 
+**Check yourself:**
+
+- [ ] I can select an element by its ID.
+- [ ] I know how to update the text of an `<h1>` tag with JavaScript.
+- [ ] I can change the background color of an element.
+- [ ] I understand the difference between HTML, CSS, and JS roles.
+
 ---
 
 ## 📖 Key Terms
@@ -344,27 +350,3 @@ document.getElementById("card").classList.add("highlight");
 The card shows **Hamza Ali**, `Class: 7-B` and `School: Green Valley Academy`.
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can select an element by its ID.
-- [ ] I know how to update the text of an `<h1>` tag with JavaScript.
-- [ ] I can change the background color of an element.
-- [ ] I understand the difference between HTML, CSS, and JS roles.
-
----
-
-## 🏡 Homework
-
-1. Create an HTML file with 3 colored boxes. Use JavaScript to change their labels to `"Box 1"`, `"Box 2"`, and `"Box 3"`.
-2. Build an announcement banner that JavaScript hides by applying `display = "none"`.
-3. Experiment with `.classList.toggle()` in the console.
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Why is `.textContent` much safer against security vulnerabilities (like XSS / Cross-Site Scripting) than `.innerHTML`?
-2. How does the browser know how to redraw the screen when a DOM property changes?

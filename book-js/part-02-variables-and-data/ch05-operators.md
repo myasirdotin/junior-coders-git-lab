@@ -226,6 +226,13 @@ Open your console:
 - **Comparison operators** (`===`, `!==`, `>`, `<`, `>=`, `<=`) evaluate to booleans.
 - Always use **`===` (strict equality)** to compare both value and data type.
 
+**Check yourself:**
+
+- [ ] I can calculate remainders using `%`.
+- [ ] I can update variables using `+=` and `-=`.
+- [ ] I know the difference between `=` (assign) and `===` (compare).
+- [ ] I can compare two numbers and predict if the result is `true` or `false`.
+
 ---
 
 ## 📖 Key Terms
@@ -303,25 +310,3 @@ Is the sum more than 100? true
 Extra: `year % 4 === 0` is `true` when the year divides by 4 with nothing left over. For example, `2028 % 4 === 0` is `true`.
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can calculate remainders using `%`.
-- [ ] I can update variables using `+=` and `-=`.
-- [ ] I know the difference between `=` (assign) and `===` (compare).
-- [ ] I can compare two numbers and predict if the result is `true` or `false`.
-
----
-
-## 🏡 Homework
-
-Write a program that defines two numbers `x = 18` and `y = 5`. Print the output of applying all five arithmetic operators (`+`, `-`, `*`, `/`, `%`) between `x` and `y`.
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Why did JavaScript creators include both `==` (loose) and `===` (strict)? Discuss how automatic type coercion (e.g. converting `"5"` to `5` behind your back) caused bugs in early web development.
-2. Ask students how game developers might use the modulus operator `%` to reset a timer or cycle through 4 compass directions (North, East, South, West).

@@ -48,7 +48,7 @@ A complete beginner's textbook and coding workbook with in-browser code runner:
   - **Part 8: Objects** (Ch 14: Modeling the Real World)
   - **Part 9: User Input** (Ch 15: Taking Input)
   - **Part 10: DOM & Web** (Ch 16–17: JavaScript in a Web Page, Events)
-  - **Special Workshops**: Computational Thinking, Debugging Playbook, Math through JS, 21 Mini Projects Collection, Creative Canvas Coding, and Capstone Quiz Arena.
+  - **Chapters 18–23**: Computational Thinking, Debugging, Maths in JavaScript, Mini Projects, Creative Coding with Canvas, and the Quiz Arena final project.
 
 ### 4. “Computer Networking & Web Protocols for Junior Coders”
 A complete 14-chapter systems and protocol textbook with interactive protocol workbench:

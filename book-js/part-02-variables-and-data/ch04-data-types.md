@@ -210,6 +210,13 @@ Open your console:
 - **`undefined`** represents a variable that has not yet received a value.
 - The `typeof` operator checks the data type of any variable.
 
+**Check yourself:**
+
+- [ ] I can list the 5 primitive data types from memory.
+- [ ] I know why `"12"` is different from `12`.
+- [ ] I know how to use the `typeof` keyword.
+- [ ] I understand the difference between `null` and `undefined`.
+
 ---
 
 ## 📖 Key Terms
@@ -293,25 +300,3 @@ undefined -> undefined
 `typeof null` gives `object`. This is an old JavaScript quirk (a mistake kept for safety). The value is still `null`.
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can list the 5 primitive data types from memory.
-- [ ] I know why `"12"` is different from `12`.
-- [ ] I know how to use the `typeof` keyword.
-- [ ] I understand the difference between `null` and `undefined`.
-
----
-
-## 🏡 Homework
-
-List ten facts about your family members or pets. Label each fact with its exact JavaScript data type (e.g., Mom's name = string, number of cousins = number, owns a bicycle = boolean).
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Ask students why numbers and text strings cannot simply be treated as one universal type. What happens if you try to subtract the word `"apple"` from `"banana"`?
-2. Mention the famous JavaScript historical quirk: `typeof null` returns `"object"`. Discuss how early design bugs in 1995 have to stay in languages today so that old websites don't break!

@@ -1,4 +1,3 @@
-*Part 5 · Functions*
 # Chapter 10: Functions — Your Code Recipe Machine
 
 ---
@@ -241,6 +240,13 @@ sayHello "Zara";
 - Code after `return` inside a function is ignored.
 - Local variables exist only inside their parent function.
 
+**Check yourself:**
+
+- [ ] I can write a basic function without looking at notes.
+- [ ] I know how to pass at least 2 arguments into a function.
+- [ ] I understand why `return` is useful.
+- [ ] I can explain what happens if I try to use a local variable outside its function.
+
 ---
 
 ## 📖 Key Terms
@@ -340,28 +346,3 @@ Needs Improvement
 ```
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can write a basic function without looking at notes.
-- [ ] I know how to pass at least 2 arguments into a function.
-- [ ] I understand why `return` is useful.
-- [ ] I can explain what happens if I try to use a local variable outside its function.
-
----
-
-## 🏡 Homework
-
-1. Write a function `calculateRectangleArea(width, height)` that returns the area.
-2. Write a function `minutesToSeconds(minutes)` that returns total seconds.
-3. Write a function `introduce(name, age, hobby)` that returns:
-   `"Hi! I am [name], I am [age] years old, and I love [hobby]!"`
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Why do programmers say "Don't Repeat Yourself (DRY)"? What problems happen when people copy and paste code instead of using functions?
-2. If you want to use the output of a function in another math calculation, why must you use `return` instead of just `console.log`?

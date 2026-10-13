@@ -4,7 +4,7 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-10-13 (textbook overhaul complete)._
+_Last updated: 2026-10-13 (JavaScript book aligned with the other books)._
 
 ## 🔧 Now (in progress)
 
@@ -28,9 +28,6 @@ _Last updated: 2026-10-13 (textbook overhaul complete)._
 
 ## ❓ Decisions pending from the owner
 
-- **JS book "Mini Projects"** (`book-js/part-14-mini-projects/`) still has Rock-Paper-Scissors and a "WINNER!"
-  number-guessing game (games of chance, close to the §1 Maysir rule) and syntax the book does not teach
-  (switch, ternary, for...of, Date). Replace, rewrite or keep?
 - **Confirm** book-cybersecurity ch05's OWASP Top 10:2025 list against owasp.org (written from memory).
 - **Confirm** the browser PHP Console allows file writes (book-php ch20/21 "Try It").
 - **XAMPP MariaDB does not start** (InnoDB data errors in its log, seen 2026-10-13; not caused by this project's
@@ -38,6 +35,12 @@ _Last updated: 2026-10-13 (textbook overhaul complete)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 JavaScript book on the same method as the others: the five special parts and the final project are
+  now Chapters 18–23 (Computational Thinking, Debugging, Maths, Mini Projects, Creative Coding, Final Project) with
+  the full §7j template; Practice is the last section in every chapter (checklists folded into Recap, homework and
+  discussion questions moved to the Teacher's Guide); "Part N" label lines removed; Mini Projects without chance
+  games or untaught syntax; Web Studio practice box and filter groups like the other books; old links (#p11–#p15,
+  #final) open the new chapters (`oldKeys` in `js/data/books.js`); two wide diagrams narrowed.
 - 2026-10-13 One list of books: `js/data/books.js`; `scripts/build-books.js` (run by `bundle-books.js`) generates
   book pages, bundles (now plain line endings, no more rebuild noise), Textbooks cards with counted chapters and
   lessons, the Library line, site-search entries and "N Textbooks" numbers; `check-books.js` reports anything stale

@@ -209,6 +209,13 @@ Open your console:
 - Total executions = `Outer Count × Inner Count`.
 - Used extensively in grid layouts, 2D screen coordinates, and algorithmic pattern generation.
 
+**Check yourself:**
+
+- [ ] I can trace the order of execution in a nested loop.
+- [ ] I can calculate total iterations using multiplication.
+- [ ] I can build and print a horizontal string inside a loop.
+- [ ] I can generate custom star and number patterns.
+
 ---
 
 ## 📖 Key Terms
@@ -290,31 +297,3 @@ Output:
 Extra: count the outer loop down with `for (let row = 5; row >= 1; row--)`. The inner loop `col <= row` then prints 5, 4, 3, 2, 1 stars.
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can trace the order of execution in a nested loop.
-- [ ] I can calculate total iterations using multiplication.
-- [ ] I can build and print a horizontal string inside a loop.
-- [ ] I can generate custom star and number patterns.
-
----
-
-## 🏡 Homework
-
-Write a nested loop that prints a 4-row countdown pattern:
-```text
-4 3 2 1
-3 2 1
-2 1
-1
-```
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Walk students through a physical clock: Why would creating a clock without nested loops require 86,400 manual lines of code?
-2. Discuss why having 4 or 5 deeply nested loops can make programs run slowly (computer scientists call this "n squared" work, written O(n²)).

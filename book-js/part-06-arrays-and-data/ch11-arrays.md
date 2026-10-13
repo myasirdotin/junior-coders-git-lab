@@ -1,4 +1,3 @@
-*Part 6 · Arrays and Data*
 # Chapter 11: Arrays — Storing Lists of Things
 
 ---
@@ -260,6 +259,13 @@ for (let i = 0; i <= groceryList.length; i++) {
 - Access and update elements with bracket notation `array[index]`.
 - Use a `for` loop with `i < array.length` to visit every item.
 
+**Check yourself:**
+
+- [ ] I can create an array with numbers, strings, or booleans.
+- [ ] I remember that indexing starts at 0.
+- [ ] I can safely access the last item using `.length - 1`.
+- [ ] I can write a `for` loop to inspect every element in an array.
+
 ---
 
 ## 📖 Key Terms
@@ -341,27 +347,3 @@ Number of distinction students: 3
 ```
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can create an array with numbers, strings, or booleans.
-- [ ] I remember that indexing starts at 0.
-- [ ] I can safely access the last item using `.length - 1`.
-- [ ] I can write a `for` loop to inspect every element in an array.
-
----
-
-## 🏡 Homework
-
-1. Create an array of the 7 days of the week. Print only the weekend days (Saturday and Sunday).
-2. Create an array of 5 cities. Write a loop that prints `"I want to visit [City Name]!"` for each.
-3. Write a program that reverses a list of numbers without using built-in reverse functions (hint: loop backwards!).
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Why do computers start counting at 0 instead of 1? (Hint: Memory offsets from the starting memory address!)
-2. When should you use a single array instead of multiple separate variables?

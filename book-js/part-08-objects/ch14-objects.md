@@ -1,4 +1,3 @@
-*Part 8 · Objects*
 # Chapter 14: Objects — Modeling the Real World
 
 ---
@@ -263,6 +262,13 @@ console.log(robot->power);
 - Add new properties on the fly.
 - Functions inside objects are called methods.
 
+**Check yourself:**
+
+- [ ] I can create an object with at least 4 properties.
+- [ ] I know how to access properties using dot notation.
+- [ ] I can modify an existing property value.
+- [ ] I can loop through an array of objects.
+
 ---
 
 ## 📖 Key Terms
@@ -350,27 +356,3 @@ Not enough funds for this request.
 ```
 
 </details>
-
----
-
-## ✅ Self-Assessment Checklist
-
-- [ ] I can create an object with at least 4 properties.
-- [ ] I know how to access properties using dot notation.
-- [ ] I can modify an existing property value.
-- [ ] I can loop through an array of objects.
-
----
-
-## 🏡 Homework
-
-1. Create a `recipe` object for your favorite dish with `name`, `prepTimeMinutes`, `ingredients` (array), and `servings`.
-2. Write a loop that counts how many books in a library array are marked `isAvailable: true`.
-3. Add a method `celebrateBirthday()` to a person object that increments their age by 1 and prints a birthday wish.
-
----
-
-## 🍎 Teacher Discussion Questions
-
-1. Why is JSON (JavaScript Object Notation) the most popular format for data exchange across the entire internet today?
-2. How do objects help make code self-documenting and easier for human teams to read?
