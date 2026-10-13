@@ -2976,6 +2976,14 @@ body.bei-search-open { overflow: hidden; }
 .cheat-card:target { outline: 3px solid var(--brand-cyan); outline-offset: 3px; animation: jc-card-flash 1.6s ease 1; }
 @keyframes jc-card-flash { 0%, 40% { box-shadow: 0 0 0 8px rgba(56, 189, 248, 0.35); } 100% { box-shadow: none; } }
 
+/* Cheat sheets in the light theme: each sheet's pale subject colour is made for the dark theme and is unreadable
+   on white (contrast ~1.5:1). Keep the coloured header tint, but use dark text (at least 4.5:1). The selectors
+   start with html[data-theme] so they win over each sheet's own .cheat-table.KEY-table rules. */
+html[data-theme="light"] .cheat-table td:first-child,
+html[data-theme="light"] .cheat-table td:first-child code { color: #1e293b; }
+html[data-theme="light"] .cheat-card-header { color: var(--text-primary); }
+html[data-theme="light"] .cheat-card-header span { color: inherit; }
+
 /* ═════════════════════════════════════════════════════════════════════
    GROUPED TOP MENU (js/bei-nav.js): Start here · Learn ▾ · Practice ▾ · Library ▾ · Teachers
    Wide screens: each group opens a panel under its button. ≤1180px: the groups are sections

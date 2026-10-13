@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git &amp; GitHub Cheat Sheet | Junior Coders</title>
-    <meta name="description" content="A complete Git & GitHub cheat sheet for junior coders and Class 8–9 students. Terminal commands, branching, remotes, and pull requests — one page.">
+    <meta name="description" content="A one-page Git and GitHub cheat sheet for Grades 7–8: setup, status, staging, commits, .gitignore, history, undoing, stashing, branches, merge conflicts, remotes and pull requests.">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/bei-core.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,7 +24,8 @@
             font-family: var(--font-mono);
             color: #fb923c;
             font-weight: 600;
-            white-space: nowrap;
+            white-space: normal;
+            overflow-wrap: anywhere;
         }
     </style>
 </head>
@@ -32,108 +33,139 @@
 <div class="cheatsheet-container">
 
     <header class="cheat-hero git-hero">
-        <span class="course-level" style="background:rgba(240,80,50,0.25); color:#f05032; border: 1px solid rgba(240,80,50,0.4);">Grades 7–8</span>
-        <h1>🐙 Git &amp; GitHub Cheat Sheet</h1>
-        <p>Every essential version control command — staging, branching, conflict resolution &amp; remotes on one quick-reference page!</p>
+        <span class="course-level" style="background:rgba(240,80,50,0.25); color:#fb923c; border: 1px solid rgba(240,80,50,0.4);">Grades 7–8</span>
+        <h1>🗂️ Git &amp; GitHub Cheat Sheet</h1>
+        <p>The Git commands you use every day, from your first commit to a pull request, in the same order as the textbook.</p>
     </header>
 
     <div class="cheat-tip">
-        <strong>The 3 Git States:</strong> Working Tree (files you edit) ➔ Staging Area (<code>git add</code>) ➔ Local Repository (<code>git commit</code>) ➔ Remote (<code>git push origin main</code>).
+        <strong>Where your work lives:</strong> three places on your computer, plus one online. Working tree (the files you edit) → <code>git add</code> → staging area → <code>git commit</code> → local repository → <code>git push</code> → remote on GitHub. Run <code>git status</code> often: it tells you where everything is and what to do next.
     </div>
 
     <div class="cheat-grid">
 
-        <!-- 1. Initial Setup -->
         <div class="cheat-card" id="card-setup-configuration">
-            <div class="cheat-card-header git-hdr">⚙️ 1. Setup &amp; Configuration</div>
+            <div class="cheat-card-header git-hdr">⚙️ Setup &amp; Configuration</div>
             <table class="cheat-table git-table">
-                <tr><td>git --version</td><td>Verify Git installation</td></tr>
-                <tr><td>git config --global user.name "Name"</td><td>Set your global username</td></tr>
-                <tr><td>git config --global user.email "name@srinagar.edu.in"</td><td>Set your global email address</td></tr>
-                <tr><td>git config --global init.defaultBranch main</td><td>Set standard default branch name</td></tr>
-                <tr><td>git config --list</td><td>List all active configurations</td></tr>
+                <tr><td>git --version</td><td>Check that Git is installed</td></tr>
+                <tr><td>git config --global user.name "Amina Khan"</td><td>Your name on every commit</td></tr>
+                <tr><td>git config --global user.email "student@example.com"</td><td>Your email on every commit</td></tr>
+                <tr><td>git config --global init.defaultBranch main</td><td>New repos start on <code>main</code></td></tr>
+                <tr><td>git config --list</td><td>Show your settings</td></tr>
             </table>
         </div>
 
-        <!-- 2. Creating & Inspecting -->
         <div class="cheat-card" id="card-starting-status">
-            <div class="cheat-card-header git-hdr">📁 2. Starting &amp; Status</div>
+            <div class="cheat-card-header git-hdr">📁 Starting &amp; Status</div>
             <table class="cheat-table git-table">
-                <tr><td>git init</td><td>Initialize a new local repo in current folder</td></tr>
-                <tr><td>git clone &lt;url&gt;</td><td>Download a remote repo onto your computer</td></tr>
-                <tr><td>git status</td><td>Check modified, staged, and untracked files</td></tr>
-                <tr><td>git log --oneline</td><td>View compact one-line commit history</td></tr>
-                <tr><td>git log --oneline --graph --all</td><td>Visual ASCII branch tree of history</td></tr>
+                <tr><td>git init</td><td>Start a repo in the current folder</td></tr>
+                <tr><td>git clone &lt;url&gt;</td><td>Copy a GitHub repo to your computer</td></tr>
+                <tr><td>git status</td><td>What is changed, staged or untracked?</td></tr>
+                <tr><td>git log --oneline</td><td>Short history, one commit per line</td></tr>
+                <tr><td>git log --oneline --graph --all</td><td>History drawn as a branch tree</td></tr>
+                <tr><td>git log -p</td><td>History with each commit's changes</td></tr>
+                <tr><td>git show &lt;commit-id&gt;</td><td>One commit's message and changes</td></tr>
             </table>
         </div>
 
-        <!-- 3. Staging & Committing -->
         <div class="cheat-card" id="card-staging-commits">
-            <div class="cheat-card-header git-hdr">💾 3. Staging &amp; Commits</div>
+            <div class="cheat-card-header git-hdr">💾 Staging &amp; Commits</div>
             <table class="cheat-table git-table">
-                <tr><td>git add index.html</td><td>Stage a single file for next commit</td></tr>
-                <tr><td>git add .</td><td>Stage all modified and created files</td></tr>
-                <tr><td>git diff</td><td>Show unstaged changes in working tree</td></tr>
-                <tr><td>git diff --staged</td><td>Show changes staged for next commit</td></tr>
-                <tr><td>git commit -m "feat: msg"</td><td>Save staged changes as a snapshot</td></tr>
-                <tr><td>git commit --amend -m "new"</td><td>Fix the message of the last commit</td></tr>
+                <tr><td>git add index.html</td><td>Stage one file for the next commit</td></tr>
+                <tr><td>git add .</td><td>Stage all new, changed and deleted files in this folder</td></tr>
+                <tr><td>git diff</td><td>Changes not staged yet</td></tr>
+                <tr><td>git diff --staged</td><td>Changes that will go into the commit</td></tr>
+                <tr><td>git commit -m "feat: add contact form"</td><td>Save the staged changes as a snapshot</td></tr>
+                <tr><td>git commit --amend -m "new message"</td><td>Replace the last commit (also adds anything staged). Only before you push!</td></tr>
             </table>
         </div>
 
-        <!-- 4. Branching & Switching -->
-        <div class="cheat-card" id="card-branching-switching">
-            <div class="cheat-card-header git-hdr">🌿 4. Branching &amp; Switching</div>
+        <div class="cheat-card" id="card-gitignore">
+            <div class="cheat-card-header git-hdr">🛡️ .gitignore</div>
             <table class="cheat-table git-table">
-                <tr><td>git branch</td><td>List all local branches</td></tr>
-                <tr><td>git switch -c &lt;branch-name&gt;</td><td>Create and jump into a new branch</td></tr>
-                <tr><td>git switch main</td><td>Switch back to the main branch</td></tr>
-                <tr><td>git merge &lt;feature-branch&gt;</td><td>Merge feature into current active branch</td></tr>
-                <tr><td>git branch -d &lt;branch-name&gt;</td><td>Delete a merged local branch safely</td></tr>
-                <tr><td>git merge --abort</td><td>Abort an active merge conflict cleanly</td></tr>
+                <tr><td>.env</td><td>One line per file Git must never track</td></tr>
+                <tr><td>*.log</td><td>Every file ending in .log</td></tr>
+                <tr><td>node_modules/</td><td>A whole folder</td></tr>
+                <tr><td>git rm --cached .env</td><td>Stop tracking a file already committed (keeps your copy)</td></tr>
             </table>
         </div>
 
-        <!-- 5. Undoing & Safety -->
         <div class="cheat-card" id="card-undoing-safety-nets">
-            <div class="cheat-card-header git-hdr">🛟 5. Undoing &amp; Safety Nets</div>
+            <div class="cheat-card-header git-hdr">🛟 Undoing &amp; Safety Nets</div>
             <table class="cheat-table git-table">
-                <tr><td>git restore &lt;file&gt;</td><td>Discard unstaged edits in a file</td></tr>
-                <tr><td>git restore --staged &lt;file&gt;</td><td>Unstage a file back to working tree</td></tr>
-                <tr><td>git stash</td><td>Shelve unfinished work temporarily</td></tr>
-                <tr><td>git stash pop</td><td>Restore shelved work back to files</td></tr>
-                <tr><td>git revert &lt;commit-hash&gt;</td><td>Safely undo a published commit with a new commit</td></tr>
+                <tr><td>git restore &lt;file&gt;</td><td>Throw away unsaved edits in a file (cannot be undone)</td></tr>
+                <tr><td>git restore --staged &lt;file&gt;</td><td>Unstage a file; your edits stay</td></tr>
+                <tr><td>git reset --soft HEAD~1</td><td>Undo the last commit, keep its changes staged (before pushing)</td></tr>
+                <tr><td>git revert &lt;commit-id&gt;</td><td>Undo a pushed commit with a new commit (safe)</td></tr>
+                <tr><td>git stash</td><td>Put unfinished work aside</td></tr>
+                <tr><td>git stash list</td><td>See what is put aside</td></tr>
+                <tr><td>git stash pop</td><td>Bring the latest stash back</td></tr>
             </table>
         </div>
 
-        <!-- 6. Remote & GitHub -->
-        <div class="cheat-card" id="card-remotes-github">
-            <div class="cheat-card-header git-hdr">☁️ 6. Remotes &amp; GitHub</div>
+        <div class="cheat-card" id="card-branching-switching">
+            <div class="cheat-card-header git-hdr">🌿 Branching &amp; Switching</div>
             <table class="cheat-table git-table">
-                <tr><td>git remote add origin &lt;url&gt;</td><td>Link local repo to GitHub remote</td></tr>
-                <tr><td>git remote -v</td><td>View configured remote URLs</td></tr>
-                <tr><td>git push -u origin main</td><td>First push and set upstream tracking</td></tr>
-                <tr><td>git push</td><td>Push local commits to remote repo</td></tr>
-                <tr><td>git fetch origin</td><td>Download remote changes without merging</td></tr>
-                <tr><td>git pull origin main</td><td>Fetch and merge remote commits into branch</td></tr>
+                <tr><td>git branch</td><td>List local branches (* = current)</td></tr>
+                <tr><td>git branch -a</td><td>Local and remote branches</td></tr>
+                <tr><td>git switch -c feature/dark-mode</td><td>Create a branch and move to it</td></tr>
+                <tr><td>git switch main</td><td>Move back to main</td></tr>
+                <tr><td>git merge feature/dark-mode</td><td>Bring that branch into the current one</td></tr>
+                <tr><td>git branch -d feature/dark-mode</td><td>Delete a merged branch</td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-merge-conflicts">
+            <div class="cheat-card-header git-hdr">🧩 Merge Conflicts</div>
+            <table class="cheat-table git-table">
+                <tr><td>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</td><td>Start of your branch's version</td></tr>
+                <tr><td>=======</td><td>Line between the two versions</td></tr>
+                <tr><td>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature</td><td>End of the other branch's version</td></tr>
+                <tr><td>(edit the file)</td><td>Keep the right text, delete all three marker lines</td></tr>
+                <tr><td>git add &lt;file&gt; then git commit</td><td>Mark it fixed and finish the merge</td></tr>
+                <tr><td>git merge --abort</td><td>Cancel the merge and go back to before it</td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-remotes-github">
+            <div class="cheat-card-header git-hdr">☁️ Remotes &amp; GitHub</div>
+            <table class="cheat-table git-table">
+                <tr><td>git remote add origin &lt;url&gt;</td><td>Link your repo to a GitHub repo</td></tr>
+                <tr><td>git remote -v</td><td>Show the linked addresses</td></tr>
+                <tr><td>git push -u origin main</td><td>First push; remembers where to push</td></tr>
+                <tr><td>git push</td><td>Send new commits (after the first -u push)</td></tr>
+                <tr><td>git fetch</td><td>Download new commits without merging</td></tr>
+                <tr><td>git pull</td><td>Fetch + merge into your branch (do it before you start work)</td></tr>
+            </table>
+        </div>
+
+        <div class="cheat-card" id="card-pull-requests">
+            <div class="cheat-card-header git-hdr">🤝 Pull Requests</div>
+            <table class="cheat-table git-table">
+                <tr><td>Fork (on GitHub)</td><td>Your own copy of someone else's repo</td></tr>
+                <tr><td>git switch -c fix/typo</td><td>Do each change on its own branch</td></tr>
+                <tr><td>git push -u origin fix/typo</td><td>Send the branch to GitHub</td></tr>
+                <tr><td>Compare &amp; pull request</td><td>Ask the owner to review and merge it</td></tr>
+                <tr><td>Fixes #12</td><td>In the PR text: closes issue 12 when merged</td></tr>
             </table>
         </div>
 
     </div>
 
     <div class="cheat-tip" style="margin-top: 2rem;">
-        <strong>Ethical &amp; Clean Git Rule:</strong> Never commit passwords, API tokens, or <code>.env</code> files! Always add private configuration files to your <code>.gitignore</code> file before running <code>git add .</code>.
+        <strong>Amānah (trust) rule:</strong> never commit passwords, API keys or <code>.env</code> files. Add them to <code>.gitignore</code> before your first <code>git add .</code>. If a secret was pushed, removing the file is not enough: change the password or key at once. Write commit messages that honestly say what changed.
     </div>
 
     <div style="text-align:center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-        <a href="book-git/index.html" class="btn-primary" style="background: linear-gradient(135deg, #f05032, #c2410c); color: white;">📖 Read Git &amp; GitHub Textbook (19 Ch)</a>
-        <a href="cheatsheet-cmd.html" class="btn-primary" style="background: linear-gradient(135deg, #10b981, #047857); color: white;">💻 Terminal &amp; CMD Cheatsheet</a>
-        <a href="index.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">🏠 Return Home</a>
+        <a href="book-git/index.html" class="btn-primary" style="background: linear-gradient(135deg, #f05032, #c2410c); color: white;">📖 Read the Git &amp; GitHub Textbook (19 Ch)</a>
+        <a href="cheatsheet-js.html" class="btn-primary" style="background: linear-gradient(135deg, #d97706, #92400e); color: white;">Next: JavaScript Cheat Sheet →</a>
+        <a href="library/cheatsheets/index.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">📋 All cheat sheets</a>
     </div>
 
 </div>
 <script src="js/bei-nav.js"></script>
 <script src="js/tts-voices.js"></script>
 <script src="js/core.js"></script>
-    <script src="js/pdf-download.js"></script>
+<script src="js/pdf-download.js"></script>
 </body>
 </html>

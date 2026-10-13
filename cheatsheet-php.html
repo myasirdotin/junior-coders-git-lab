@@ -4,217 +4,235 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Cheat Sheet | Junior Coders</title>
-    <meta name="description" content="A complete PHP cheat sheet for Class 9 students. Variables, arrays, OOP, forms — one page.">
+    <meta name="description" content="A one-page PHP cheat sheet for Grades 9–10: output, variables, strings, arrays, decisions, loops, functions, classes, forms, sessions, safe passwords and PDO prepared statements.">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/bei-core.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .cheat-hero.php-hero {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.25) 0%, rgba(30, 41, 59, 0.9) 100%);
+            border-bottom: 2px solid #7c3aed;
+        }
+        .cheat-card-header.php-hdr {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(124, 58, 237, 0.05));
+            color: #a78bfa;
+            border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+        }
+        .php-table td:first-child {
+            font-family: var(--font-mono);
+            color: #c4b5fd;
+            font-weight: 600;
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+    </style>
 </head>
 <body>
 <div class="cheatsheet-container">
 
     <header class="cheat-hero php-hero">
-        <span class="course-level php-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Grades 9–10</span>
-        <h1>PHP Cheat Sheet</h1>
-        <p>The server-side language powering 80% of the web — your complete reference!</p>
+        <span class="course-level" style="background:rgba(124,58,237,0.25); color:#c4b5fd; border: 1px solid rgba(124,58,237,0.4);">Grades 9–10</span>
+        <h1>🐘 PHP Cheat Sheet</h1>
+        <p>The server-side PHP you use most, from your first echo to safe logins, on one page.</p>
     </header>
 
     <div class="cheat-tip">
-        <strong>PHP Structure:</strong> All PHP code lives inside <code style="color:#7c3aed;">&lt;?php ... ?&gt;</code> tags. Every statement ends with a <code style="color:#10b981;">semicolon</code>. Variables start with <code style="color:#eab308;">$</code>. Save files as <code>.php</code>.
+        <strong>PHP basics:</strong> code lives inside <code>&lt;?php ... ?&gt;</code> in a <code>.php</code> file, every statement ends with <code>;</code> and every variable starts with <code>$</code>. PHP runs on the server (XAMPP: <code>http://localhost/...</code>), so the browser only sees the HTML it prints.
     </div>
 
     <div class="cheat-grid">
 
-        <!-- Basics -->
         <div class="cheat-card" id="card-basics-output">
-            <div class="cheat-card-header php-hdr">🐘 Basics & Output</div>
+            <div class="cheat-card-header php-hdr">🖨️ Basics &amp; Output</div>
             <table class="cheat-table php-table">
-                <tr><td>&lt;?php ... ?&gt;</td><td>Open and close PHP block</td></tr>
+                <tr><td>&lt;?php ... ?&gt;</td><td>Open and close a PHP block</td></tr>
                 <tr><td>echo "Hello";</td><td>Print text to the page</td></tr>
-                <tr><td>print "Hi";</td><td>Like echo but returns 1</td></tr>
-                <tr><td>// comment</td><td>Single-line comment</td></tr>
-                <tr><td>/* block */</td><td>Multi-line comment</td></tr>
-                <tr><td>phpinfo();</td><td>Show PHP server info</td></tr>
-                <tr><td>var_dump($x);</td><td>Show type + value (debugging)</td></tr>
-                <tr><td>print_r($arr);</td><td>Print array in readable format</td></tr>
+                <tr><td>print "Hi";</td><td>Like echo, but returns 1</td></tr>
+                <tr><td>// comment &nbsp; /* block */</td><td>One-line and multi-line comments</td></tr>
+                <tr><td>var_dump($x);</td><td>Show type + value (for testing)</td></tr>
+                <tr><td>print_r($arr);</td><td>Print an array in a readable way</td></tr>
+                <tr><td>phpinfo();</td><td>Show server settings (never leave it on a live site)</td></tr>
             </table>
         </div>
 
-        <!-- Variables & Types -->
         <div class="cheat-card" id="card-variables-types">
             <div class="cheat-card-header php-hdr">📦 Variables &amp; Types</div>
             <table class="cheat-table php-table">
-                <tr><td>$name = "Yasir";</td><td>String variable</td></tr>
-                <tr><td>$age = 14;</td><td>Integer variable</td></tr>
-                <tr><td>$price = 9.99;</td><td>Float (decimal) variable</td></tr>
-                <tr><td>$active = true;</td><td>Boolean variable</td></tr>
+                <tr><td>$name = "Amina";</td><td>String (text)</td></tr>
+                <tr><td>$age = 14;</td><td>Integer (whole number)</td></tr>
+                <tr><td>$price = 9.99;</td><td>Float (decimal)</td></tr>
+                <tr><td>$active = true;</td><td>Boolean (true/false)</td></tr>
                 <tr><td>$nothing = null;</td><td>Null (no value)</td></tr>
-                <tr><td>gettype($x)</td><td>Returns type as a string</td></tr>
-                <tr><td>is_string($x)</td><td>Check if variable is a string</td></tr>
-                <tr><td>is_int($x)</td><td>Check if integer</td></tr>
-                <tr><td>(int) $x</td><td>Cast (convert) to integer</td></tr>
-                <tr><td>(string) $x</td><td>Cast to string</td></tr>
+                <tr><td>const MAX_BOOKS = 3;</td><td>Constant: cannot change</td></tr>
+                <tr><td>gettype($x) &nbsp; is_int($x)</td><td>Type as text; check a type</td></tr>
+                <tr><td>(int) "42" &nbsp; (string) 7</td><td>Cast (convert) to another type</td></tr>
+                <tr><td>5 == "5" → true</td><td>Loose: compares values only</td></tr>
+                <tr><td>5 === "5" → false</td><td>Strict: value AND type (use this)</td></tr>
+                <tr><td>$name ?? "Guest"</td><td>Use "Guest" if $name is missing or null</td></tr>
             </table>
         </div>
 
-        <!-- Strings -->
         <div class="cheat-card" id="card-string-functions">
             <div class="cheat-card-header php-hdr">✏️ String Functions</div>
             <table class="cheat-table php-table">
-                <tr><td>"Hi " . $name</td><td>Concatenate strings with dot</td></tr>
+                <tr><td>"Hi " . $name</td><td>Join strings with a dot</td></tr>
+                <tr><td>"Hi $name" &nbsp; "{$name}'s"</td><td>Variables inside double quotes</td></tr>
+                <tr><td>'Hi $name'</td><td>Single quotes print $name as it is</td></tr>
                 <tr><td>strlen($s)</td><td>Length of a string</td></tr>
-                <tr><td>strtolower($s)</td><td>Convert to lowercase</td></tr>
-                <tr><td>strtoupper($s)</td><td>Convert to UPPERCASE</td></tr>
-                <tr><td>ucfirst($s)</td><td>Capitalise first letter</td></tr>
-                <tr><td>trim($s)</td><td>Remove leading/trailing spaces</td></tr>
-                <tr><td>str_replace("a","b",$s)</td><td>Replace text inside string</td></tr>
-                <tr><td>strpos($s,"php")</td><td>Find position of substring</td></tr>
-                <tr><td>substr($s, 0, 5)</td><td>Extract part of a string</td></tr>
-                <tr><td>explode(",", $s)</td><td>Split string into array</td></tr>
-                <tr><td>implode(", ", $arr)</td><td>Join array into string</td></tr>
-                <tr><td>nl2br($s)</td><td>Convert newlines to &lt;br&gt;</td></tr>
+                <tr><td>strtolower($s) &nbsp; strtoupper($s)</td><td>lowercase / UPPERCASE</td></tr>
+                <tr><td>ucfirst($s)</td><td>Capital first letter</td></tr>
+                <tr><td>trim($s)</td><td>Remove spaces at both ends</td></tr>
+                <tr><td>str_replace("a", "b", $s)</td><td>Replace text inside a string</td></tr>
+                <tr><td>str_contains($s, "php")</td><td>true if the text is inside (PHP 8)</td></tr>
+                <tr><td>strpos($s, "php") !== false</td><td>Position, or false if not found (0 is a real position!)</td></tr>
+                <tr><td>substr($s, 0, 5)</td><td>Take part of a string</td></tr>
+                <tr><td>explode(",", $s) &nbsp; implode(", ", $a)</td><td>Text → array; array → text</td></tr>
             </table>
         </div>
 
-        <!-- Arrays -->
         <div class="cheat-card" id="card-arrays">
             <div class="cheat-card-header php-hdr">📚 Arrays</div>
             <table class="cheat-table php-table">
                 <tr><td>$a = [1, 2, 3];</td><td>Indexed array</td></tr>
-                <tr><td>$a = ["k" =&gt; "v"];</td><td>Associative array (key =&gt; value)</td></tr>
-                <tr><td>$a[] = 4;</td><td>Append to array</td></tr>
-                <tr><td>count($a)</td><td>Number of elements</td></tr>
-                <tr><td>array_push($a, 5)</td><td>Add to end</td></tr>
-                <tr><td>array_pop($a)</td><td>Remove from end</td></tr>
-                <tr><td>array_shift($a)</td><td>Remove from beginning</td></tr>
-                <tr><td>array_unshift($a, 0)</td><td>Add to beginning</td></tr>
-                <tr><td>sort($a)</td><td>Sort ascending</td></tr>
-                <tr><td>rsort($a)</td><td>Sort descending</td></tr>
-                <tr><td>in_array(3, $a)</td><td>Check if value exists</td></tr>
-                <tr><td>array_merge($a, $b)</td><td>Merge two arrays</td></tr>
-                <tr><td>array_slice($a, 1, 3)</td><td>Extract a portion</td></tr>
+                <tr><td>$a = ["title" =&gt; "Clean Code"];</td><td>Associative array (key =&gt; value)</td></tr>
+                <tr><td>$a[] = 4;</td><td>Add to the end</td></tr>
+                <tr><td>count($a)</td><td>Number of items</td></tr>
+                <tr><td>array_push($a, 5) &nbsp; array_pop($a)</td><td>Add / remove at the end</td></tr>
+                <tr><td>array_unshift($a, 0) &nbsp; array_shift($a)</td><td>Add / remove at the start</td></tr>
+                <tr><td>sort($a) &nbsp; rsort($a)</td><td>Sort up / down</td></tr>
+                <tr><td>in_array(3, $a)</td><td>Is this value in the array?</td></tr>
+                <tr><td>array_key_exists("title", $a)</td><td>Is this key in the array?</td></tr>
+                <tr><td>array_merge($a, $b)</td><td>Join two arrays</td></tr>
+                <tr><td>array_slice($a, 1, 3)</td><td>Copy out a part</td></tr>
             </table>
         </div>
 
-        <!-- Control Flow -->
         <div class="cheat-card" id="card-control-flow">
             <div class="cheat-card-header php-hdr">🔀 Control Flow</div>
             <table class="cheat-table php-table">
-                <tr><td>if ($x &gt; 0) { }</td><td>Conditional block</td></tr>
-                <tr><td>elseif ($x === 0) { }</td><td>Else-if branch</td></tr>
-                <tr><td>else { }</td><td>Default/fallback branch</td></tr>
-                <tr><td>switch ($x) { case 1: }</td><td>Multi-branch switch</td></tr>
-                <tr><td>for ($i=0; $i&lt;5; $i++) { }</td><td>For loop</td></tr>
-                <tr><td>while ($x &gt; 0) { }</td><td>While loop</td></tr>
-                <tr><td>do { } while ($x);</td><td>Do-while (runs at least once)</td></tr>
-                <tr><td>foreach ($arr as $v) { }</td><td>Loop over array values</td></tr>
-                <tr><td>foreach ($a as $k =&gt; $v) { }</td><td>Loop over key &amp; value</td></tr>
-                <tr><td>break;</td><td>Exit the loop early</td></tr>
-                <tr><td>continue;</td><td>Skip to the next iteration</td></tr>
+                <tr><td>if ($x &gt; 0) { } elseif ($x === 0) { } else { }</td><td>Decisions</td></tr>
+                <tr><td>&amp;&amp; &nbsp; || &nbsp; !</td><td>and, or, not</td></tr>
+                <tr><td>match ($grade) { 9, 10 =&gt; "Senior", default =&gt; "Junior" }</td><td>Pick a value (strict ===, PHP 8)</td></tr>
+                <tr><td>switch ($x) { case 1: ... break; }</td><td>Older multi-branch (do not forget break)</td></tr>
+                <tr><td>for ($i = 0; $i &lt; 5; $i++) { }</td><td>Count-controlled loop</td></tr>
+                <tr><td>while ($x &gt; 0) { }</td><td>Loop while true</td></tr>
+                <tr><td>do { } while ($x);</td><td>Runs at least once</td></tr>
+                <tr><td>foreach ($books as $b) { }</td><td>Loop over values</td></tr>
+                <tr><td>foreach ($a as $key =&gt; $value) { }</td><td>Loop over keys and values</td></tr>
+                <tr><td>break; &nbsp; continue;</td><td>Leave the loop / skip to the next turn</td></tr>
             </table>
         </div>
 
-        <!-- Functions -->
         <div class="cheat-card" id="card-functions">
             <div class="cheat-card-header php-hdr">⚙️ Functions</div>
             <table class="cheat-table php-table">
-                <tr><td>function greet($name) { }</td><td>Define a function</td></tr>
-                <tr><td>return $value;</td><td>Return a value from a function</td></tr>
-                <tr><td>function add($a, $b = 0) { }</td><td>Default parameter value</td></tr>
-                <tr><td>function (...$args) { }</td><td>Variadic — accept any number of args</td></tr>
-                <tr><td>$fn = function() { };</td><td>Anonymous function</td></tr>
-                <tr><td>$fn = fn($x) =&gt; $x * 2;</td><td>Arrow function (PHP 7.4+)</td></tr>
-                <tr><td>array_map($fn, $arr)</td><td>Apply function to every element</td></tr>
-                <tr><td>array_filter($arr, $fn)</td><td>Keep elements where fn returns true</td></tr>
+                <tr><td>function greet($name) { return "Hi $name"; }</td><td>Define a function that returns a value</td></tr>
+                <tr><td>function add($a, $b = 0) { }</td><td>Default value for a parameter</td></tr>
+                <tr><td>function total(int ...$nums): int { }</td><td>Any number of arguments, with types</td></tr>
+                <tr><td>$fn = function ($x) { return $x * 2; };</td><td>Anonymous function</td></tr>
+                <tr><td>$fn = fn($x) =&gt; $x * 2;</td><td>Arrow function (short form)</td></tr>
+                <tr><td>array_map($fn, $arr)</td><td>Apply a function to every item</td></tr>
+                <tr><td>array_filter($arr, $fn)</td><td>Keep items where $fn returns true</td></tr>
             </table>
         </div>
 
-        <!-- OOP -->
         <div class="cheat-card" id="card-oop-classes">
             <div class="cheat-card-header php-hdr">🏛️ OOP — Classes</div>
             <table class="cheat-table php-table">
-                <tr><td>class Dog { }</td><td>Define a class</td></tr>
-                <tr><td>public $name;</td><td>Public property</td></tr>
-                <tr><td>private $secret;</td><td>Private property (class only)</td></tr>
-                <tr><td>__construct($x) { }</td><td>Constructor — runs on new</td></tr>
-                <tr><td>$obj = new Dog();</td><td>Create an object</td></tr>
-                <tr><td>$obj-&gt;name</td><td>Access object property</td></tr>
-                <tr><td>$obj-&gt;bark()</td><td>Call object method</td></tr>
-                <tr><td>$this-&gt;name</td><td>Access own property inside class</td></tr>
-                <tr><td>class Pup extends Dog { }</td><td>Child class inherits parent</td></tr>
-                <tr><td>parent::__construct()</td><td>Call parent constructor</td></tr>
-                <tr><td>static $count = 0;</td><td>Shared across all objects</td></tr>
-                <tr><td>Dog::$count</td><td>Access static property</td></tr>
+                <tr><td>class Book { }</td><td>Define a class (a blueprint)</td></tr>
+                <tr><td>public string $title;</td><td>Property anyone can use</td></tr>
+                <tr><td>private int $copies = 0;</td><td>Property only the class can use</td></tr>
+                <tr><td>public function __construct($title) { }</td><td>Constructor: runs on <code>new</code></td></tr>
+                <tr><td>$b = new Book("Clean Code");</td><td>Create an object</td></tr>
+                <tr><td>$b-&gt;title &nbsp; $b-&gt;borrow()</td><td>Use a property / call a method</td></tr>
+                <tr><td>$this-&gt;title</td><td>The object's own property, inside the class</td></tr>
+                <tr><td>class EBook extends Book { }</td><td>Child class inherits the parent</td></tr>
+                <tr><td>parent::__construct($title);</td><td>Call the parent's constructor</td></tr>
+                <tr><td>public static int $count = 0; &nbsp; Book::$count</td><td>Shared by all objects</td></tr>
             </table>
         </div>
 
-        <!-- Forms & Superglobals -->
         <div class="cheat-card" id="card-forms-superglobals">
-            <div class="cheat-card-header php-hdr">📬 Forms &amp; Superglobals</div>
+            <div class="cheat-card-header php-hdr">📬 Forms, Sessions &amp; Superglobals</div>
             <table class="cheat-table php-table">
-                <tr><td>$_GET['name']</td><td>Data from URL query string</td></tr>
-                <tr><td>$_POST['email']</td><td>Data from HTML form (POST)</td></tr>
-                <tr><td>$_REQUEST['x']</td><td>GET + POST combined</td></tr>
-                <tr><td>$_SESSION['user']</td><td>Session data (persists across pages)</td></tr>
-                <tr><td>$_COOKIE['theme']</td><td>Cookie stored in browser</td></tr>
-                <tr><td>$_FILES['photo']</td><td>Uploaded file data</td></tr>
-                <tr><td>$_SERVER['REQUEST_METHOD']</td><td>GET or POST?</td></tr>
-                <tr><td>isset($var)</td><td>Check if variable exists &amp; not null</td></tr>
-                <tr><td>empty($var)</td><td>Check if empty, 0, null, or ""</td></tr>
-                <tr><td>htmlspecialchars($x)</td><td>Escape output — prevent XSS!</td></tr>
+                <tr><td>$_GET['q']</td><td>Data from the URL (?q=...)</td></tr>
+                <tr><td>$_POST['email']</td><td>Data from a POST form</td></tr>
+                <tr><td>$_SERVER['REQUEST_METHOD'] === 'POST'</td><td>Was the form sent?</td></tr>
+                <tr><td>$_FILES['photo']</td><td>An uploaded file</td></tr>
+                <tr><td>$_COOKIE['theme']</td><td>Small value stored in the browser</td></tr>
+                <tr><td>session_start();</td><td>First line of every page that uses sessions</td></tr>
+                <tr><td>$_SESSION['user_id'] = 7;</td><td>Remember a value across pages</td></tr>
+                <tr><td>isset($_POST['name'])</td><td>Exists and is not null</td></tr>
+                <tr><td>empty($x)</td><td>True for "", "0", 0, null, false, []</td></tr>
+                <tr><td>trim($_POST['name'] ?? '')</td><td>Read input safely with a fallback</td></tr>
+                <tr><td>echo htmlspecialchars($name);</td><td>Escape before printing user input (stops XSS)</td></tr>
+                <tr><td>header('Location: thanks.php'); exit;</td><td>Redirect, then stop the script</td></tr>
             </table>
         </div>
 
-        <!-- Math & Date -->
+        <div class="cheat-card" id="card-passwords-database-pdo">
+            <div class="cheat-card-header php-hdr">🔐 Passwords &amp; Database (PDO)</div>
+            <table class="cheat-table php-table">
+                <tr><td>$hash = password_hash($pass, PASSWORD_DEFAULT);</td><td>Store this hash, never the password</td></tr>
+                <tr><td>password_verify($pass, $hash)</td><td>true if the typed password matches</td></tr>
+                <tr><td>$pdo = new PDO("mysql:host=localhost;dbname=school_db;charset=utf8mb4", "root", "");</td><td>Connect to MySQL</td></tr>
+                <tr><td>$stmt = $pdo-&gt;prepare("SELECT * FROM students WHERE id = ?");</td><td>Prepared statement: ? is a placeholder</td></tr>
+                <tr><td>$stmt-&gt;execute([$id]);</td><td>Send the value separately (stops SQL injection)</td></tr>
+                <tr><td>$row = $stmt-&gt;fetch();</td><td>One row (false if none)</td></tr>
+                <tr><td>$rows = $stmt-&gt;fetchAll();</td><td>All rows as an array</td></tr>
+                <tr><td>"... WHERE id = $id"</td><td>Never build SQL from user input like this</td></tr>
+            </table>
+        </div>
+
         <div class="cheat-card" id="card-math-dates">
             <div class="cheat-card-header php-hdr">🔢 Math &amp; Dates</div>
             <table class="cheat-table php-table">
-                <tr><td>abs($x)</td><td>Absolute value</td></tr>
-                <tr><td>round($x, 2)</td><td>Round to 2 decimal places</td></tr>
-                <tr><td>ceil($x)</td><td>Round up to integer</td></tr>
-                <tr><td>floor($x)</td><td>Round down to integer</td></tr>
-                <tr><td>rand(1, 100)</td><td>Random integer between 1 and 100</td></tr>
-                <tr><td>max(1, 5, 3)</td><td>Largest value</td></tr>
-                <tr><td>min(1, 5, 3)</td><td>Smallest value</td></tr>
-                <tr><td>pow(2, 8)</td><td>2 to the power of 8 = 256</td></tr>
-                <tr><td>date("Y-m-d")</td><td>Current date: 2026-05-28</td></tr>
-                <tr><td>time()</td><td>Current Unix timestamp</td></tr>
-                <tr><td>strtotime("next Monday")</td><td>Convert date string to timestamp</td></tr>
+                <tr><td>+ &nbsp; - &nbsp; * &nbsp; / &nbsp; % &nbsp; **</td><td>Add, subtract, multiply, divide, remainder, power</td></tr>
+                <tr><td>intdiv(7, 2) → 3</td><td>Whole-number division</td></tr>
+                <tr><td>round($x, 2) &nbsp; ceil($x) &nbsp; floor($x)</td><td>Round to 2 places / up / down</td></tr>
+                <tr><td>abs($x) &nbsp; max(1, 5, 3) &nbsp; min(1, 5, 3)</td><td>Absolute value, largest, smallest</td></tr>
+                <tr><td>rand(1, 10)</td><td>Random number, e.g. pick a quiz question</td></tr>
+                <tr><td>random_int(1, 10)</td><td>Secure random number (codes, tokens)</td></tr>
+                <tr><td>date("Y-m-d")</td><td>Today's date as text, e.g. 2026-09-02</td></tr>
+                <tr><td>time()</td><td>Seconds since 1 Jan 1970 (Unix timestamp)</td></tr>
+                <tr><td>strtotime("+14 days")</td><td>Text → timestamp (e.g. a book's due date)</td></tr>
             </table>
         </div>
 
-        <!-- File & Error -->
         <div class="cheat-card" id="card-file-error-handling">
-            <div class="cheat-card-header php-hdr">📁 File &amp; Error Handling</div>
+            <div class="cheat-card-header php-hdr">📁 Files &amp; Errors</div>
             <table class="cheat-table php-table">
-                <tr><td>file_get_contents($path)</td><td>Read entire file into a string</td></tr>
-                <tr><td>file_put_contents($p, $d)</td><td>Write string to a file</td></tr>
-                <tr><td>file_exists($path)</td><td>Check if file exists</td></tr>
-                <tr><td>unlink($path)</td><td>Delete a file</td></tr>
-                <tr><td>include 'file.php';</td><td>Include a file (warning if missing)</td></tr>
-                <tr><td>require 'file.php';</td><td>Include a file (fatal if missing)</td></tr>
-                <tr><td>try { } catch (Exception $e) { }</td><td>Catch errors gracefully</td></tr>
-                <tr><td>throw new Exception("Oops");</td><td>Throw a custom error</td></tr>
-                <tr><td>$e-&gt;getMessage()</td><td>Get the error message</td></tr>
+                <tr><td>file_get_contents($path)</td><td>Read a whole file into a string</td></tr>
+                <tr><td>file_put_contents($path, $text)</td><td>Write a string to a file</td></tr>
+                <tr><td>file_put_contents($path, $line, FILE_APPEND)</td><td>Add to the end instead of replacing</td></tr>
+                <tr><td>file_exists($path) &nbsp; unlink($path)</td><td>Check a file exists / delete it</td></tr>
+                <tr><td>require 'db.php';</td><td>Load a file (stops if missing)</td></tr>
+                <tr><td>include 'nav.php';</td><td>Load a file (only warns if missing)</td></tr>
+                <tr><td>try { } catch (Exception $e) { }</td><td>Handle an error without crashing</td></tr>
+                <tr><td>throw new Exception("Not found");</td><td>Raise your own error</td></tr>
+                <tr><td>$e-&gt;getMessage()</td><td>The error's message</td></tr>
             </table>
         </div>
 
     </div>
 
     <div class="cheat-tip" style="margin-top: 2rem;">
-        <strong>Security Rule:</strong> Always use <code>htmlspecialchars()</code> before echoing user input onto a page, and <strong>never</strong> put raw <code>$_POST</code> values directly into SQL queries — use prepared statements to prevent SQL injection!
+        <strong>Amānah (trust) rule:</strong> every form value is untrusted. Escape it with <code>htmlspecialchars()</code> before printing, send it to the database only through prepared statements, store passwords only as <code>password_hash()</code> hashes (never md5 or sha1), and collect no personal data you do not need.
     </div>
 
-    <div style="text-align:center; margin-top: 3rem;">
-        <a href="Learning PHP/learningphp.html" class="btn-primary" style="background: linear-gradient(135deg, var(--php-brand), #9333ea); margin-right:1rem;">Back to PHP Course</a>
-        <a href="cheatsheet-mysql.html" class="btn-primary" style="background: linear-gradient(135deg, var(--mysql-brand), #0369a1); color: white;">MySQL Cheat Sheet →</a>
+    <div style="text-align:center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="book-php/index.html" class="btn-primary" style="background: linear-gradient(135deg, #7c3aed, #5b21b6); color: white;">📖 Read the PHP Textbook (29 Ch)</a>
+        <a href="Learning%20PHP/exercises.html" class="btn-primary" style="background: linear-gradient(135deg, #16a34a, #166534); color: white;">🧪 PHP exercises</a>
+        <a href="cheatsheet-mysql.html" class="btn-primary" style="background: linear-gradient(135deg, #0284c7, #075985); color: white;">Next: MySQL Cheat Sheet →</a>
+        <a href="library/cheatsheets/index.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">📋 All cheat sheets</a>
     </div>
 
 </div>
 <script src="js/bei-nav.js"></script>
 <script src="js/tts-voices.js"></script>
 <script src="js/core.js"></script>
-    <script src="js/pdf-download.js"></script>
+<script src="js/pdf-download.js"></script>
 </body>
 </html>

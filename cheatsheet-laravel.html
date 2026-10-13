@@ -4,215 +4,224 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laravel Cheat Sheet | Junior Coders</title>
-    <meta name="description" content="A complete Laravel cheat sheet for Class 9 students. Routes, Eloquent, Blade, Artisan — one page.">
+    <meta name="description" content="A one-page Laravel 12 cheat sheet for Grades 9–10: new projects, Artisan, routes, controllers with route model binding, Eloquent, Blade, validation, migrations, relationships and safe login and logout.">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/bei-core.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .cheat-hero.laravel-hero {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.25) 0%, rgba(30, 41, 59, 0.9) 100%);
+            border-bottom: 2px solid #dc2626;
+        }
+        .cheat-card-header.laravel-hdr {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.2), rgba(220, 38, 38, 0.05));
+            color: #f87171;
+            border-bottom: 1px solid rgba(220, 38, 38, 0.3);
+        }
+        .laravel-table td:first-child {
+            font-family: var(--font-mono);
+            color: #fca5a5;
+            font-weight: 600;
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+    </style>
 </head>
 <body>
 <div class="cheatsheet-container">
 
     <header class="cheat-hero laravel-hero">
-        <span class="course-level laravel-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Grades 9–10</span>
-        <h1>Laravel Cheat Sheet</h1>
-        <p>Routes, Eloquent, Blade, Artisan — everything in one place. Bookmark this!</p>
+        <span class="course-level" style="background:rgba(220,38,38,0.25); color:#fca5a5; border: 1px solid rgba(220,38,38,0.4);">Grades 9–10</span>
+        <h1>🔥 Laravel Cheat Sheet</h1>
+        <p>Laravel 12 routes, controllers, Eloquent, Blade and Artisan on one page, using the textbook's library app.</p>
     </header>
 
     <div class="cheat-tip">
-        <strong>Laravel Flow:</strong> Browser → <code style="color:#ff2d20;">Route</code> → <code style="color:#6366f1;">Controller</code> → <code style="color:#10b981;">Model</code> (database) → <code style="color:#eab308;">View</code> (Blade) → Browser gets HTML back.
+        <strong>Laravel flow:</strong> Browser → <code>Route</code> (routes/web.php) → <code>Controller</code> → <code>Model</code> (database) → <code>View</code> (Blade) → HTML back to the browser. Validate every form, put <code>@csrf</code> in every form, and let Laravel find rows for you with route model binding.
     </div>
 
     <div class="cheat-grid">
 
-        <!-- Artisan -->
+        <div class="cheat-card" id="card-new-project-setup">
+            <div class="cheat-card-header laravel-hdr">🚀 New Project &amp; Setup</div>
+            <table class="cheat-table laravel-table">
+                <tr><td>composer create-project laravel/laravel library-app</td><td>New plain Laravel 12 project</td></tr>
+                <tr><td>composer global require laravel/installer</td><td>Install the Laravel installer once</td></tr>
+                <tr><td>laravel new library-portal</td><td>New project; can add a starter kit (Livewire, React or Vue) with login</td></tr>
+                <tr><td>DB_CONNECTION=mysql<br>DB_DATABASE=library_app<br>DB_USERNAME=root<br>DB_PASSWORD=</td><td>Database settings in <code>.env</code> (never commit .env)</td></tr>
+                <tr><td>npm install &amp;&amp; npm run build</td><td>Build the CSS/JS (starter kits need Node.js)</td></tr>
+            </table>
+        </div>
+
         <div class="cheat-card" id="card-artisan-commands">
             <div class="cheat-card-header laravel-hdr">⚙️ Artisan Commands</div>
             <table class="cheat-table laravel-table">
-                <tr><td>php artisan serve</td><td>Start the local development server</td></tr>
-                <tr><td>php artisan make:controller StudentController</td><td>Generate a controller</td></tr>
-                <tr><td>php artisan make:model Student -m</td><td>Model + migration together</td></tr>
-                <tr><td>php artisan make:migration create_students_table</td><td>Generate a migration file</td></tr>
-                <tr><td>php artisan migrate</td><td>Run pending migrations</td></tr>
-                <tr><td>php artisan migrate:rollback</td><td>Undo the last migration batch</td></tr>
-                <tr><td>php artisan migrate:fresh --seed</td><td>Rebuild DB and seed test data</td></tr>
-                <tr><td>php artisan make:seeder StudentSeeder</td><td>Generate a seeder file</td></tr>
-                <tr><td>php artisan db:seed</td><td>Run all seeders</td></tr>
-                <tr><td>php artisan route:list</td><td>List all registered routes</td></tr>
-                <tr><td>php artisan tinker</td><td>Interactive PHP shell (great for testing!)</td></tr>
-                <tr><td>php artisan cache:clear</td><td>Clear application cache</td></tr>
+                <tr><td>php artisan serve</td><td>Start the local server (http://127.0.0.1:8000)</td></tr>
+                <tr><td>php artisan make:model Book -m</td><td>Model + migration</td></tr>
+                <tr><td>php artisan make:model Book -mcr</td><td>Model + migration + resource controller</td></tr>
+                <tr><td>php artisan make:controller BookController --resource</td><td>Controller with the 7 CRUD methods</td></tr>
+                <tr><td>php artisan make:migration create_loans_table</td><td>New migration file</td></tr>
+                <tr><td>php artisan make:request StoreBookRequest</td><td>A class that holds validation rules</td></tr>
+                <tr><td>php artisan migrate</td><td>Run new migrations</td></tr>
+                <tr><td>php artisan migrate:rollback</td><td>Undo the last batch</td></tr>
+                <tr><td>php artisan migrate:fresh --seed</td><td>Drop ALL tables, rebuild, add seed data (practice only)</td></tr>
+                <tr><td>php artisan make:seeder BookSeeder &nbsp; db:seed</td><td>Make / run seeders</td></tr>
+                <tr><td>php artisan route:list</td><td>List every route</td></tr>
+                <tr><td>php artisan tinker</td><td>Try PHP and Eloquent in the terminal</td></tr>
+                <tr><td>php artisan optimize:clear</td><td>Clear all cached config, routes and views</td></tr>
             </table>
         </div>
 
-        <!-- Routing -->
         <div class="cheat-card" id="card-routing">
             <div class="cheat-card-header laravel-hdr">🗺️ Routing</div>
             <table class="cheat-table laravel-table">
-                <tr><td>Route::get('/url', fn() =&gt; 'Hello');</td><td>Basic GET route</td></tr>
-                <tr><td>Route::post('/students', [Controller::class, 'store']);</td><td>POST route to controller</td></tr>
-                <tr><td>Route::put('/students/{id}', [C::class, 'update']);</td><td>PUT (full update)</td></tr>
-                <tr><td>Route::patch('/students/{id}', [C::class, 'update']);</td><td>PATCH (partial update)</td></tr>
-                <tr><td>Route::delete('/students/{id}', [C::class, 'destroy']);</td><td>DELETE route</td></tr>
-                <tr><td>Route::resource('students', StudentController::class);</td><td>All 7 CRUD routes at once!</td></tr>
-                <tr><td>Route::get('/s/{id}', fn($id) =&gt; $id);</td><td>Route parameter</td></tr>
-                <tr><td>Route::get('/s/{id?}', fn($id=null) =&gt; ...)</td><td>Optional parameter</td></tr>
-                <tr><td>->name('students.index')</td><td>Name a route for easy referencing</td></tr>
-                <tr><td>route('students.index')</td><td>Generate URL from named route</td></tr>
-                <tr><td>->middleware('auth')</td><td>Protect route — login required</td></tr>
+                <tr><td>Route::get('/about', fn () =&gt; view('about'));</td><td>Basic GET route</td></tr>
+                <tr><td>Route::get('/books', [BookController::class, 'index']);</td><td>Route to a controller method</td></tr>
+                <tr><td>Route::post('/books', [BookController::class, 'store']);</td><td>POST: save a form</td></tr>
+                <tr><td>Route::put('/books/{book}', [BookController::class, 'update']);</td><td>Update (also Route::patch, Route::delete)</td></tr>
+                <tr><td>Route::resource('books', BookController::class);</td><td>All 7 CRUD routes at once</td></tr>
+                <tr><td>Route::get('/books/{book}', [BookController::class, 'show']);</td><td>{book} = route model binding</td></tr>
+                <tr><td>Route::get('/search/{term?}', fn ($term = null) =&gt; ...);</td><td>Optional parameter</td></tr>
+                <tr><td>-&gt;name('books.index')</td><td>Give a route a name</td></tr>
+                <tr><td>route('books.show', $book)</td><td>Make a URL from a route name</td></tr>
+                <tr><td>-&gt;middleware('auth')</td><td>Only for logged-in users</td></tr>
             </table>
         </div>
 
-        <!-- Controllers -->
         <div class="cheat-card" id="card-controllers">
             <div class="cheat-card-header laravel-hdr">🎮 Controllers</div>
             <table class="cheat-table laravel-table">
-                <tr><td>index()</td><td>List all records → view</td></tr>
-                <tr><td>create()</td><td>Show the "add new" form</td></tr>
-                <tr><td>store(Request $request)</td><td>Validate + save new record</td></tr>
-                <tr><td>show($id)</td><td>Show one record</td></tr>
-                <tr><td>edit($id)</td><td>Show the "edit" form for one record</td></tr>
-                <tr><td>update(Request $request, $id)</td><td>Validate + update a record</td></tr>
-                <tr><td>destroy($id)</td><td>Delete a record</td></tr>
-                <tr><td>return view('name', ['key' =&gt; $val])</td><td>Send data to a Blade view</td></tr>
-                <tr><td>return redirect()->route('name')</td><td>Redirect to named route</td></tr>
-                <tr><td>return redirect()->back()</td><td>Go back to previous page</td></tr>
-                <tr><td>->with('success', 'Done!')</td><td>Flash a session message</td></tr>
+                <tr><td>index() &nbsp; create()</td><td>List all / show the "add" form</td></tr>
+                <tr><td>store(Request $request)</td><td>Validate + save a new row</td></tr>
+                <tr><td>show(Book $book)</td><td>Laravel finds the Book (404 if missing)</td></tr>
+                <tr><td>edit(Book $book)</td><td>Show the "edit" form</td></tr>
+                <tr><td>update(Request $request, Book $book)</td><td>Validate + update</td></tr>
+                <tr><td>destroy(Book $book)</td><td>Delete: <code>$book-&gt;delete();</code></td></tr>
+                <tr><td>return view('books.index', ['books' =&gt; $books]);</td><td>Send data to a Blade view</td></tr>
+                <tr><td>return redirect()-&gt;route('books.index');</td><td>Go to a named route</td></tr>
+                <tr><td>return back();</td><td>Go back to the previous page</td></tr>
+                <tr><td>-&gt;with('success', 'Book saved.')</td><td>Flash a one-time message</td></tr>
             </table>
         </div>
 
-        <!-- Eloquent -->
         <div class="cheat-card" id="card-eloquent-orm">
             <div class="cheat-card-header laravel-hdr">🗣️ Eloquent ORM</div>
             <table class="cheat-table laravel-table">
-                <tr><td>Student::all()</td><td>Get all records as a collection</td></tr>
-                <tr><td>Student::find($id)</td><td>Find by primary key</td></tr>
-                <tr><td>Student::findOrFail($id)</td><td>Find or throw 404 error</td></tr>
-                <tr><td>Student::first()</td><td>Get just the first record</td></tr>
-                <tr><td>Student::where('grade','A')->get()</td><td>Filter then get all matches</td></tr>
-                <tr><td>->orderBy('name','asc')</td><td>Sort results</td></tr>
-                <tr><td>->limit(10)->get()</td><td>Get at most 10 records</td></tr>
-                <tr><td>->paginate(10)</td><td>Paginate results (10 per page)</td></tr>
-                <tr><td>Student::create([...])</td><td>Create + save in one step</td></tr>
-                <tr><td>$s->save()</td><td>Save changes to an object</td></tr>
-                <tr><td>$s->delete()</td><td>Delete one record</td></tr>
-                <tr><td>Student::where(...)->delete()</td><td>Delete matching records</td></tr>
-                <tr><td>$fillable = ['name','email']</td><td>Columns safe for mass-assignment</td></tr>
+                <tr><td>protected $fillable = ['title', 'author', 'isbn', 'copies'];</td><td>Columns allowed in create() / update()</td></tr>
+                <tr><td>Book::all()</td><td>Every row (a collection)</td></tr>
+                <tr><td>Book::find($id) &nbsp; Book::findOrFail($id)</td><td>By id: null / 404 if missing</td></tr>
+                <tr><td>Book::where('copies', '&gt;', 0)-&gt;get()</td><td>Filter, then get the matches</td></tr>
+                <tr><td>-&gt;orderBy('title')-&gt;first()</td><td>Sort / just the first one</td></tr>
+                <tr><td>-&gt;count()</td><td>How many match</td></tr>
+                <tr><td>-&gt;paginate(10)</td><td>10 per page; <code>{{ $books-&gt;links() }}</code> in Blade</td></tr>
+                <tr><td>Book::create($validated)</td><td>Insert a row from checked data</td></tr>
+                <tr><td>$book-&gt;update($validated)</td><td>Update a row</td></tr>
+                <tr><td>$book-&gt;title = 'New'; $book-&gt;save();</td><td>Change one field and save</td></tr>
+                <tr><td>$book-&gt;delete()</td><td>Delete the row</td></tr>
             </table>
         </div>
 
-        <!-- Blade -->
         <div class="cheat-card" id="card-blade-templates">
             <div class="cheat-card-header laravel-hdr">🌿 Blade Templates</div>
             <table class="cheat-table laravel-table">
-                <tr><td>{{ $variable }}</td><td>Echo (HTML-escaped — safe!)</td></tr>
-                <tr><td>{!! $html !!}</td><td>Echo raw HTML (trusted content only)</td></tr>
-                <tr><td>{{ $x ?? 'default' }}</td><td>Echo with fallback value</td></tr>
-                <tr><td>@if / @elseif / @else / @endif</td><td>Conditional block</td></tr>
-                <tr><td>@foreach ($items as $item)</td><td>Loop over collection</td></tr>
-                <tr><td>@forelse ... @empty ... @endforelse</td><td>Loop with empty-state fallback</td></tr>
-                <tr><td>@for / @while / @endfor / @endwhile</td><td>Standard for/while loops</td></tr>
-                <tr><td>@extends('layouts.app')</td><td>Inherit a layout template</td></tr>
-                <tr><td>@section('content') ... @endsection</td><td>Fill a layout slot</td></tr>
-                <tr><td>@yield('content')</td><td>Mark where slot goes in layout</td></tr>
-                <tr><td>@include('partials.nav')</td><td>Include a partial template</td></tr>
-                <tr><td>@csrf</td><td>Security token — required in every form!</td></tr>
-                <tr><td>@method('PUT')</td><td>Spoof PUT/PATCH/DELETE in forms</td></tr>
-                <tr><td>@error('field') {{ $message }} @enderror</td><td>Show validation error</td></tr>
-                <tr><td>@auth / @endauth</td><td>Show only to logged-in users</td></tr>
-                <tr><td>@guest / @endguest</td><td>Show only to visitors</td></tr>
+                <tr><td>{{ $book-&gt;title }}</td><td>Print, HTML-escaped (safe)</td></tr>
+                <tr><td>{!! $html !!}</td><td>Print raw HTML (trusted content only)</td></tr>
+                <tr><td>{{ $note ?? 'None' }}</td><td>Print with a fallback</td></tr>
+                <tr><td>@if / @elseif / @else / @endif</td><td>Decisions</td></tr>
+                <tr><td>@foreach ($books as $book) ... @endforeach</td><td>Loop over a collection</td></tr>
+                <tr><td>@forelse ... @empty ... @endforelse</td><td>Loop with a "nothing here" message</td></tr>
+                <tr><td>@extends('layouts.app') &nbsp; @section('content') ... @endsection</td><td>Use a layout and fill its slot</td></tr>
+                <tr><td>@yield('content')</td><td>Where the slot goes, in the layout</td></tr>
+                <tr><td>@include('partials.nav')</td><td>Insert a small view</td></tr>
+                <tr><td>&lt;x-layout&gt; ... &lt;/x-layout&gt;</td><td>Blade component (used by starter kits)</td></tr>
+                <tr><td>@csrf</td><td>Security token: in every POST form</td></tr>
+                <tr><td>@method('PUT') &nbsp; @method('DELETE')</td><td>Send PUT/PATCH/DELETE from a form</td></tr>
+                <tr><td>value="{{ old('title') }}"</td><td>Refill a field after a failed check</td></tr>
+                <tr><td>@error('title') {{ $message }} @enderror</td><td>Show the field's error</td></tr>
+                <tr><td>@auth ... @endauth &nbsp; @guest ... @endguest</td><td>Only logged-in users / only visitors</td></tr>
             </table>
         </div>
 
-        <!-- Validation -->
         <div class="cheat-card" id="card-validation-rules">
             <div class="cheat-card-header laravel-hdr">✅ Validation Rules</div>
             <table class="cheat-table laravel-table">
-                <tr><td>required</td><td>Must not be empty</td></tr>
-                <tr><td>string</td><td>Must be a text string</td></tr>
-                <tr><td>email</td><td>Valid email format</td></tr>
-                <tr><td>min:3 / max:255</td><td>Min/max character length</td></tr>
-                <tr><td>unique:students</td><td>Value must not exist in table</td></tr>
-                <tr><td>unique:students,email,{$id}</td><td>Unique except for this record</td></tr>
-                <tr><td>numeric</td><td>Must be a number</td></tr>
-                <tr><td>integer</td><td>Must be a whole number</td></tr>
-                <tr><td>in:A,B,C</td><td>Must be one of these values</td></tr>
-                <tr><td>nullable</td><td>Field can be empty/null</td></tr>
-                <tr><td>confirmed</td><td>Must match field_name_confirmation</td></tr>
-                <tr><td>image</td><td>Must be jpg, png, gif, etc.</td></tr>
-                <tr><td>date</td><td>Must be a valid date</td></tr>
-                <tr><td>boolean</td><td>Must be true or false (1/0)</td></tr>
+                <tr><td colspan="2"><code>$validated = $request-&gt;validate([<br>&nbsp;&nbsp;'title' =&gt; 'required|string|max:150',<br>&nbsp;&nbsp;'isbn' =&gt; 'required|unique:books,isbn',<br>&nbsp;&nbsp;'copies' =&gt; 'required|integer|min:1',<br>]);</code></td></tr>
+                <tr><td>(on failure)</td><td>Laravel goes back with errors and old input</td></tr>
+                <tr><td>required &nbsp; nullable</td><td>Must be filled / may be empty</td></tr>
+                <tr><td>string &nbsp; integer &nbsp; numeric &nbsp; boolean</td><td>Kind of value</td></tr>
+                <tr><td>email &nbsp; date</td><td>A valid email / date</td></tr>
+                <tr><td>min:3 &nbsp; max:255</td><td>Text: characters; numbers: the value</td></tr>
+                <tr><td>in:Fiction,Science,Ethics</td><td>One of these values</td></tr>
+                <tr><td>unique:members,email</td><td>Not already in that table column</td></tr>
+                <tr><td>Rule::unique('books', 'isbn')-&gt;ignore($book)</td><td>Unique, except this row (when updating)</td></tr>
+                <tr><td>confirmed</td><td>Must match <code>password_confirmation</code></td></tr>
+                <tr><td>image &nbsp; max:2048</td><td>An image file, up to 2048 KB</td></tr>
             </table>
         </div>
 
-        <!-- Auth & Middleware -->
         <div class="cheat-card" id="card-auth-middleware">
             <div class="cheat-card-header laravel-hdr">🔐 Auth &amp; Middleware</div>
             <table class="cheat-table laravel-table">
-                <tr><td>Auth::check()</td><td>Is someone logged in?</td></tr>
-                <tr><td>Auth::user()</td><td>Get the logged-in User object</td></tr>
-                <tr><td>Auth::id()</td><td>Get the logged-in user's ID</td></tr>
-                <tr><td>auth()->user()->name</td><td>Helper function access</td></tr>
-                <tr><td>Auth::logout()</td><td>Log the user out</td></tr>
-                <tr><td>->middleware('auth')</td><td>Route requires login</td></tr>
-                <tr><td>->middleware('guest')</td><td>Route only for visitors (e.g. login page)</td></tr>
-                <tr><td>php artisan breeze:install blade</td><td>Install Breeze auth starter kit</td></tr>
-                <tr><td>session('key')</td><td>Read a session value</td></tr>
-                <tr><td>session(['key' =&gt; 'value'])</td><td>Store in session</td></tr>
-                <tr><td>session()->forget('key')</td><td>Remove from session</td></tr>
+                <tr><td>Auth::check() &nbsp; Auth::user() &nbsp; Auth::id()</td><td>Logged in? / the user / their id</td></tr>
+                <tr><td>if (Auth::attempt($credentials)) { $request-&gt;session()-&gt;regenerate(); }</td><td>Log in, then give a new session id</td></tr>
+                <tr><td colspan="2"><code>Auth::logout();<br>$request-&gt;session()-&gt;invalidate();<br>$request-&gt;session()-&gt;regenerateToken();<br>return redirect('/');</code></td></tr>
+                <tr><td>&lt;form method="POST" action="{{ route('logout') }}"&gt; @csrf</td><td>Logout is a POST form, never a link</td></tr>
+                <tr><td>-&gt;middleware('auth')</td><td>Route needs a login</td></tr>
+                <tr><td>-&gt;middleware('guest')</td><td>Only for visitors (login, register)</td></tr>
+                <tr><td>'password' =&gt; Hash::make($plain)</td><td>Store passwords hashed, never plain</td></tr>
+                <tr><td>session('key') &nbsp; session(['key' =&gt; 'value'])</td><td>Read / store a session value</td></tr>
             </table>
         </div>
 
-        <!-- Migrations -->
         <div class="cheat-card" id="card-migration-column-types">
             <div class="cheat-card-header laravel-hdr">🗂️ Migration Column Types</div>
             <table class="cheat-table laravel-table">
-                <tr><td>$table->id()</td><td>Auto-increment BIGINT primary key</td></tr>
-                <tr><td>$table->string('name')</td><td>VARCHAR(255)</td></tr>
-                <tr><td>$table->string('name', 100)</td><td>VARCHAR with custom length</td></tr>
-                <tr><td>$table->text('bio')</td><td>Long text (TEXT)</td></tr>
-                <tr><td>$table->integer('age')</td><td>Whole number (INT)</td></tr>
-                <tr><td>$table->decimal('price', 8, 2)</td><td>Money/decimal values</td></tr>
-                <tr><td>$table->boolean('active')</td><td>True/false (TINYINT)</td></tr>
-                <tr><td>$table->date('dob')</td><td>Date only</td></tr>
-                <tr><td>$table->timestamps()</td><td>created_at + updated_at</td></tr>
-                <tr><td>->nullable()</td><td>Column can be NULL</td></tr>
-                <tr><td>->default('pending')</td><td>Default value</td></tr>
-                <tr><td>->unique()</td><td>No duplicates allowed</td></tr>
-                <tr><td>$table->foreignId('student_id')->constrained()</td><td>Foreign key with constraint</td></tr>
+                <tr><td>$table-&gt;id();</td><td>Auto-numbered BIGINT primary key</td></tr>
+                <tr><td>$table-&gt;string('title', 150);</td><td>VARCHAR (255 if no length)</td></tr>
+                <tr><td>$table-&gt;text('summary');</td><td>Long text</td></tr>
+                <tr><td>$table-&gt;integer('copies');</td><td>Whole number</td></tr>
+                <tr><td>$table-&gt;decimal('amount', 8, 2);</td><td>Exact decimal (money)</td></tr>
+                <tr><td>$table-&gt;boolean('available');</td><td>true/false (TINYINT)</td></tr>
+                <tr><td>$table-&gt;date('due_on');</td><td>Date only</td></tr>
+                <tr><td>$table-&gt;timestamps();</td><td>created_at + updated_at</td></tr>
+                <tr><td>-&gt;nullable() &nbsp; -&gt;default(1) &nbsp; -&gt;unique()</td><td>May be NULL / default / no duplicates</td></tr>
+                <tr><td>$table-&gt;foreignId('book_id')-&gt;constrained();</td><td>Foreign key to books.id</td></tr>
+                <tr><td>-&gt;constrained()-&gt;cascadeOnDelete();</td><td>Delete loans when the book is deleted</td></tr>
             </table>
         </div>
 
-        <!-- Relationships -->
         <div class="cheat-card" id="card-eloquent-relationships">
             <div class="cheat-card-header laravel-hdr">🔗 Eloquent Relationships</div>
             <table class="cheat-table laravel-table">
-                <tr><td>hasOne(Profile::class)</td><td>One-to-one (User has one Profile)</td></tr>
-                <tr><td>belongsTo(User::class)</td><td>Inverse of hasOne/hasMany</td></tr>
-                <tr><td>hasMany(Post::class)</td><td>One-to-many (User has many Posts)</td></tr>
-                <tr><td>belongsToMany(Role::class)</td><td>Many-to-many (pivot table)</td></tr>
-                <tr><td>$user->posts</td><td>Access relationship as property</td></tr>
-                <tr><td>$user->posts()->where(...)->get()</td><td>Query through relationship</td></tr>
-                <tr><td>with('posts')</td><td>Eager load (prevents N+1 problem!)</td></tr>
-                <tr><td>Student::with('classroom')->get()</td><td>Load students + their classroom</td></tr>
+                <tr><td>return $this-&gt;hasMany(Loan::class);</td><td>In Book: a book has many loans</td></tr>
+                <tr><td>return $this-&gt;belongsTo(Book::class);</td><td>In Loan: a loan belongs to one book</td></tr>
+                <tr><td>return $this-&gt;hasOne(LibraryCard::class);</td><td>One-to-one (a member has one card)</td></tr>
+                <tr><td>return $this-&gt;belongsToMany(Category::class);</td><td>Many-to-many (with a pivot table)</td></tr>
+                <tr><td>$book-&gt;loans</td><td>Use a relationship like a property</td></tr>
+                <tr><td>$book-&gt;loans()-&gt;whereNull('returned_on')-&gt;get()</td><td>Query through a relationship</td></tr>
+                <tr><td>Loan::with(['book', 'member'])-&gt;get()</td><td>Eager loading: avoids the N+1 problem</td></tr>
             </table>
         </div>
 
     </div>
 
     <div class="cheat-tip" style="margin-top: 2rem;">
-        <strong>Route Resource Shortcuts:</strong> <code>Route::resource('students', StudentController::class)</code> creates <strong>7 routes</strong> automatically: index, create, store, show, edit, update, and destroy — saving you from writing each one individually!
+        <strong>Amānah (trust) rule:</strong> keep passwords and keys in <code>.env</code> and never commit it, validate every input, print with <code>{{ }}</code> (not <code>{!! !!}</code>) unless the HTML is yours, protect private pages with <code>auth</code>, and use a tested starter kit for real logins.
     </div>
 
-    <div style="text-align:center; margin-top: 3rem;">
-        <a href="Learning Laravel/learninglaravel.html" class="btn-primary" style="background: linear-gradient(135deg, var(--laravel-brand), #dc2626); margin-right:1rem;">Back to Laravel Course</a>
-        <a href="cheatsheet-php.html" class="btn-primary" style="background: linear-gradient(135deg, var(--php-brand), #9333ea); color: white;">← PHP Cheat Sheet</a>
+    <div style="text-align:center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="book-laravel/index.html" class="btn-primary" style="background: linear-gradient(135deg, #dc2626, #991b1b); color: white;">📖 Read the Laravel Textbook (24 Ch)</a>
+        <a href="Learning%20Laravel/learninglaravel.html" class="btn-primary" style="background: linear-gradient(135deg, #16a34a, #166534); color: white;">📚 Laravel lessons</a>
+        <a href="cheatsheet-python.html" class="btn-primary" style="background: linear-gradient(135deg, #2563eb, #1e40af); color: white;">Next: Python Cheat Sheet →</a>
+        <a href="library/cheatsheets/index.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">📋 All cheat sheets</a>
     </div>
 
 </div>
 <script src="js/bei-nav.js"></script>
 <script src="js/tts-voices.js"></script>
 <script src="js/core.js"></script>
-    <script src="js/pdf-download.js"></script>
+<script src="js/pdf-download.js"></script>
 </body>
 </html>

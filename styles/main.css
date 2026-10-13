@@ -3190,7 +3190,8 @@ select:focus-visible {
     font-family: var(--font-mono);
     font-size: 0.82rem;
     color: #6366f1;
-    white-space: nowrap;
+    white-space: normal;
+    overflow-wrap: anywhere; /* long code wraps on phones instead of overflowing */
     width: 40%;
 }
 

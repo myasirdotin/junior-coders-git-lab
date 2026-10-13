@@ -4,283 +4,293 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Cheat Sheet | Junior Coders</title>
-    <meta name="description" content="A complete JavaScript cheat sheet for Class 8 students. Variables, arrays, DOM, events and more.">
+    <meta name="description" content="A one-page JavaScript cheat sheet for Grades 7–8: variables, types, operators, strings, arrays, Math, decisions, loops, functions, objects, the DOM, events, errors and useful helpers.">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/bei-core.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .cheat-hero.js-hero {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.25) 0%, rgba(30, 41, 59, 0.9) 100%);
+            border-bottom: 2px solid #d97706;
+        }
+        .cheat-card-header.js-hdr {
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.2), rgba(217, 119, 6, 0.05));
+            color: #fbbf24;
+            border-bottom: 1px solid rgba(217, 119, 6, 0.3);
+        }
+        .cheat-table.js-table td:first-child {
+            font-family: var(--font-mono);
+            color: #fcd34d;
+            font-weight: 600;
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+    </style>
 </head>
 <body>
 <div class="cheatsheet-container">
 
     <header class="cheat-hero js-hero">
-        <span class="course-level js-level" style="background:rgba(0,0,0,0.15);color:#0f172a;border-color:rgba(0,0,0,0.2);">Grades 7–8</span>
-        <h1 style="-webkit-text-fill-color: #0f172a !important; color: #0f172a !important;">JavaScript Cheat Sheet</h1>
-        <p style="color: rgba(0,0,0,0.7) !important;">Syntax, arrays, DOM, events — everything in one place. Bookmark this!</p>
+        <span class="course-level" style="background:rgba(217,119,6,0.25); color:#fcd34d; border: 1px solid rgba(217,119,6,0.4);">Grades 7–8</span>
+        <h1>⚡ JavaScript Cheat Sheet</h1>
+        <p>Syntax, arrays, objects, the DOM and events on one page, with what each line gives back.</p>
     </header>
 
     <div class="cheat-tip">
-        <strong>Quick Rules:</strong> Use <code>const</code> by default. Use <code>let</code> when you need to reassign. Always use <code>===</code> (strict equality) not <code>==</code>. End statements with a semicolon <code>;</code>
+        <strong>Quick rules:</strong> use <code>const</code> by default and <code>let</code> when the value must change (never <code>var</code>). Compare with <code>===</code>, not <code>==</code>. Put text a user typed on the page with <code>textContent</code>, never <code>innerHTML</code>. React to clicks with <code>addEventListener</code>, not <code>onclick="…"</code> in the HTML.
     </div>
 
     <div class="cheat-grid">
 
-        <!-- Variables -->
         <div class="cheat-card" id="card-variables">
             <div class="cheat-card-header js-hdr">📦 Variables</div>
             <table class="cheat-table js-table">
-                <tr><td>const name = "Ali"</td><td>Cannot be reassigned — use by default</td></tr>
-                <tr><td>let score = 0</td><td>Can be reassigned — use when value changes</td></tr>
-                <tr><td>var old = "avoid"</td><td>Old style — avoid in modern code</td></tr>
-                <tr><td>const PI = 3.14</td><td>Constants are UPPERCASE by convention</td></tr>
+                <tr><td>const name = "Ali";</td><td>Cannot be given a new value: use this by default</td></tr>
+                <tr><td>let score = 0;</td><td>Can change later: <code>score = 5;</code></td></tr>
+                <tr><td>var old = "avoid";</td><td>Old style from before 2015: do not use it</td></tr>
+                <tr><td>const MAX_BOOKS = 3;</td><td>UPPERCASE only for fixed settings known before the program runs</td></tr>
+                <tr><td>// a note</td><td>A comment on one line (the computer skips it)</td></tr>
+                <tr><td>/* a longer note */</td><td>A comment over several lines</td></tr>
             </table>
         </div>
 
-        <!-- Data Types -->
         <div class="cheat-card" id="card-data-types">
             <div class="cheat-card-header js-hdr">🧪 Data Types</div>
             <table class="cheat-table js-table">
-                <tr><td>"Hello" / 'World'</td><td>String — text inside quotes</td></tr>
-                <tr><td><code>`Hello ${name}`</code></td><td>Template literal — embed variables</td></tr>
-                <tr><td>42</td><td>Number (integer)</td></tr>
-                <tr><td>3.14</td><td>Number (decimal / float)</td></tr>
-                <tr><td>true / false</td><td>Boolean — only two possible values</td></tr>
-                <tr><td>null</td><td>Intentionally empty — set on purpose</td></tr>
-                <tr><td>undefined</td><td>Variable declared but not yet set</td></tr>
-                <tr><td>[1, 2, 3]</td><td>Array — ordered list of values</td></tr>
-                <tr><td>{ name: "Ali", age: 12 }</td><td>Object — key/value pairs</td></tr>
-                <tr><td>typeof variable</td><td>Check what type a variable is</td></tr>
+                <tr><td>"Hello" / 'World'</td><td>String: text inside quotes</td></tr>
+                <tr><td>`Salaam, ${name}!`</td><td>Template literal: puts a value inside text</td></tr>
+                <tr><td>42 / 3.14</td><td>Number (whole or decimal, same type)</td></tr>
+                <tr><td>true / false</td><td>Boolean: only two values</td></tr>
+                <tr><td>null</td><td>Empty on purpose</td></tr>
+                <tr><td>undefined</td><td>No value given yet</td></tr>
+                <tr><td>[1, 2, 3]</td><td>Array: an ordered list</td></tr>
+                <tr><td>{ name: "Ali", age: 12 }</td><td>Object: named values (key: value)</td></tr>
+                <tr><td>typeof 42</td><td>"number": tells you the type</td></tr>
+                <tr><td>Array.isArray([1, 2])</td><td>true: the right way to check for an array</td></tr>
             </table>
         </div>
 
-        <!-- Operators -->
         <div class="cheat-card" id="card-operators">
             <div class="cheat-card-header js-hdr">➕ Operators</div>
             <table class="cheat-table js-table">
-                <tr><td>+ - * /</td><td>Math: add, subtract, multiply, divide</td></tr>
-                <tr><td>%</td><td>Remainder — e.g. 10 % 3 = 1</td></tr>
-                <tr><td>**</td><td>Power — e.g. 2 ** 3 = 8</td></tr>
-                <tr><td>x++</td><td>Increment by 1 (x = x + 1)</td></tr>
-                <tr><td>x--</td><td>Decrement by 1 (x = x - 1)</td></tr>
-                <tr><td>===</td><td>Strictly equal (value AND type)</td></tr>
-                <tr><td>!==</td><td>Strictly NOT equal</td></tr>
-                <tr><td>&gt; &lt; &gt;= &lt;=</td><td>Greater than, less than, etc.</td></tr>
-                <tr><td>&amp;&amp;</td><td>AND — both sides must be true</td></tr>
-                <tr><td>||</td><td>OR — at least one side must be true</td></tr>
-                <tr><td>!</td><td>NOT — flips true to false, vice versa</td></tr>
-                <tr><td>x += 5</td><td>Shorthand: x = x + 5</td></tr>
-                <tr><td>??</td><td>Nullish coalescing — use right side if left is null</td></tr>
+                <tr><td>+ - * /</td><td>Add, subtract, multiply, divide</td></tr>
+                <tr><td>10 % 3</td><td>1: the remainder</td></tr>
+                <tr><td>2 ** 3</td><td>8: power</td></tr>
+                <tr><td>x++ / x--</td><td>Add 1 / take away 1</td></tr>
+                <tr><td>x += 5</td><td>Short for <code>x = x + 5</code></td></tr>
+                <tr><td>=== / !==</td><td>Equal / not equal (value and type)</td></tr>
+                <tr><td>&gt; &lt; &gt;= &lt;=</td><td>Greater, less, or equal</td></tr>
+                <tr><td>&amp;&amp;</td><td>AND: both sides must be true</td></tr>
+                <tr><td>||</td><td>OR: at least one side true</td></tr>
+                <tr><td>!</td><td>NOT: turns true into false and back</td></tr>
+                <tr><td>name ?? "Guest"</td><td>Uses "Guest" when <code>name</code> is null or undefined</td></tr>
             </table>
         </div>
 
-        <!-- String Methods -->
         <div class="cheat-card" id="card-string-methods">
             <div class="cheat-card-header js-hdr">📝 String Methods</div>
             <table class="cheat-table js-table">
-                <tr><td>"hello".length</td><td>5 — number of characters</td></tr>
+                <tr><td>"hello".length</td><td>5: number of characters</td></tr>
+                <tr><td>"hello"[0]</td><td>"h": first character (counting starts at 0)</td></tr>
                 <tr><td>"hello".toUpperCase()</td><td>"HELLO"</td></tr>
                 <tr><td>"HELLO".toLowerCase()</td><td>"hello"</td></tr>
-                <tr><td>"hello".includes("ell")</td><td>true — checks if text is inside</td></tr>
-                <tr><td>"hello".startsWith("he")</td><td>true — checks the start</td></tr>
-                <tr><td>"hello".endsWith("lo")</td><td>true — checks the end</td></tr>
-                <tr><td>"hello".slice(1, 3)</td><td>"el" — extract part of string</td></tr>
-                <tr><td>"a,b,c".split(",")</td><td>["a","b","c"] — string to array</td></tr>
-                <tr><td>"  hi  ".trim()</td><td>"hi" — remove extra spaces</td></tr>
-                <tr><td>"hi".replace("h","b")</td><td>"bi" — replace text</td></tr>
-                <tr><td>"hi".repeat(3)</td><td>"hihihi"</td></tr>
-                <tr><td>"hello"[0]</td><td>"h" — access character by index</td></tr>
+                <tr><td>"hello".includes("ell")</td><td>true: is this text inside?</td></tr>
+                <tr><td>"hello".startsWith("he")</td><td>true</td></tr>
+                <tr><td>"hello".endsWith("lo")</td><td>true</td></tr>
+                <tr><td>"hello".slice(1, 3)</td><td>"el": from index 1 up to (not including) 3</td></tr>
+                <tr><td>"a,b,c".split(",")</td><td>["a", "b", "c"]: text to array</td></tr>
+                <tr><td>"  hi  ".trim()</td><td>"hi": removes spaces at both ends</td></tr>
+                <tr><td>"hi hi".replace("hi", "yo")</td><td>"yo hi": first match only (<code>replaceAll</code> for every one)</td></tr>
+                <tr><td>"ab".repeat(3)</td><td>"ababab"</td></tr>
             </table>
         </div>
 
-        <!-- Array Methods -->
         <div class="cheat-card" id="card-array-methods">
             <div class="cheat-card-header js-hdr">📋 Array Methods</div>
             <table class="cheat-table js-table">
-                <tr><td>arr.length</td><td>Number of items in the array</td></tr>
-                <tr><td>arr.push(item)</td><td>Add item to the END</td></tr>
-                <tr><td>arr.pop()</td><td>Remove and return last item</td></tr>
-                <tr><td>arr.unshift(item)</td><td>Add item to the BEGINNING</td></tr>
-                <tr><td>arr.shift()</td><td>Remove and return first item</td></tr>
-                <tr><td>arr.includes(item)</td><td>true/false — is item in array?</td></tr>
-                <tr><td>arr.indexOf(item)</td><td>Find position (-1 if not found)</td></tr>
-                <tr><td>arr.join(", ")</td><td>Convert array to a string</td></tr>
-                <tr><td>arr.reverse()</td><td>Reverse the array order</td></tr>
-                <tr><td>arr.sort()</td><td>Sort alphabetically</td></tr>
-                <tr><td>arr.slice(1, 3)</td><td>Copy part of array (start, end)</td></tr>
-                <tr><td>arr.splice(1, 1)</td><td>Remove 1 item at position 1</td></tr>
-                <tr><td>arr.forEach(item =&gt; { })</td><td>Loop through every item</td></tr>
-                <tr><td>arr.map(item =&gt; item * 2)</td><td>Create new array with modified values</td></tr>
-                <tr><td>arr.filter(item =&gt; item &gt; 5)</td><td>Create new array with matching items</td></tr>
-                <tr><td>arr.find(item =&gt; item &gt; 5)</td><td>Find first matching item</td></tr>
+                <tr><td>arr.length</td><td>How many items</td></tr>
+                <tr><td>arr[0]</td><td>The first item</td></tr>
+                <tr><td>arr.push(item)</td><td>Adds to the end</td></tr>
+                <tr><td>arr.pop()</td><td>Removes and gives back the last item</td></tr>
+                <tr><td>arr.unshift(item)</td><td>Adds to the start</td></tr>
+                <tr><td>arr.shift()</td><td>Removes and gives back the first item</td></tr>
+                <tr><td>arr.includes(item)</td><td>true or false: is it in the list?</td></tr>
+                <tr><td>arr.indexOf(item)</td><td>Its position, or -1 if not found</td></tr>
+                <tr><td>arr.join(", ")</td><td>Joins the items into one string</td></tr>
+                <tr><td>arr.slice(1, 3)</td><td>A copy of items 1 and 2 (the original stays)</td></tr>
+                <tr><td>arr.splice(1, 1)</td><td>Removes 1 item at position 1 (changes the array)</td></tr>
+                <tr><td>arr.reverse()</td><td>Reverses the order (changes the array)</td></tr>
+                <tr><td>names.sort()</td><td>Sorts text A–Z (changes the array)</td></tr>
+                <tr><td>nums.sort((a, b) =&gt; a - b)</td><td>Sorts numbers small to big; plain <code>[10, 9, 1].sort()</code> gives [1, 10, 9]</td></tr>
+                <tr><td>arr.forEach(item =&gt; { })</td><td>Runs code for every item</td></tr>
+                <tr><td>arr.map(n =&gt; n * 2)</td><td>New array with every item changed</td></tr>
+                <tr><td>arr.filter(n =&gt; n &gt; 5)</td><td>New array with only matching items</td></tr>
+                <tr><td>arr.find(n =&gt; n &gt; 5)</td><td>The first matching item (or undefined)</td></tr>
+                <tr><td>arr.reduce((sum, n) =&gt; sum + n, 0)</td><td>Combines all items into one value (here the total)</td></tr>
             </table>
         </div>
 
-        <!-- Math -->
         <div class="cheat-card" id="card-math-object">
             <div class="cheat-card-header js-hdr">🔢 Math Object</div>
             <table class="cheat-table js-table">
-                <tr><td>Math.round(4.6)</td><td>5 — round to nearest integer</td></tr>
-                <tr><td>Math.floor(4.9)</td><td>4 — always round DOWN</td></tr>
-                <tr><td>Math.ceil(4.1)</td><td>5 — always round UP</td></tr>
-                <tr><td>Math.random()</td><td>Random decimal between 0 and 0.999...</td></tr>
-                <tr><td>Math.floor(Math.random() * 10)</td><td>Random whole number 0–9</td></tr>
-                <tr><td>Math.max(1, 5, 3)</td><td>5 — the biggest number</td></tr>
-                <tr><td>Math.min(1, 5, 3)</td><td>1 — the smallest number</td></tr>
-                <tr><td>Math.abs(-7)</td><td>7 — absolute value (removes minus)</td></tr>
-                <tr><td>Math.sqrt(16)</td><td>4 — square root</td></tr>
-                <tr><td>Math.PI</td><td>3.14159... — the value of pi</td></tr>
+                <tr><td>Math.round(4.6)</td><td>5: nearest whole number</td></tr>
+                <tr><td>Math.floor(4.9)</td><td>4: always rounds down</td></tr>
+                <tr><td>Math.ceil(4.1)</td><td>5: always rounds up</td></tr>
+                <tr><td>Math.random()</td><td>A decimal from 0 up to (not including) 1</td></tr>
+                <tr><td>Math.floor(Math.random() * 10)</td><td>A whole number from 0 to 9, e.g. to pick a quiz question</td></tr>
+                <tr><td>Math.max(1, 5, 3) / Math.min(1, 5, 3)</td><td>5 / 1: biggest and smallest</td></tr>
+                <tr><td>Math.abs(-7)</td><td>7: removes the minus</td></tr>
+                <tr><td>Math.sqrt(16)</td><td>4: square root</td></tr>
+                <tr><td>Math.PI</td><td>3.14159…</td></tr>
+                <tr><td>(2.567).toFixed(2)</td><td>"2.57": rounds to 2 decimals (gives a string)</td></tr>
             </table>
         </div>
 
-        <!-- Conditionals -->
         <div class="cheat-card" id="card-conditionals">
             <div class="cheat-card-header js-hdr">🤔 Conditionals</div>
             <table class="cheat-table js-table">
-                <tr><td>if (x &gt; 10) { }</td><td>Run code if condition is true</td></tr>
-                <tr><td>else if (x &gt; 5) { }</td><td>Check next condition</td></tr>
-                <tr><td>else { }</td><td>Fallback — runs if nothing matched</td></tr>
-                <tr><td>x &gt; 5 ? "big" : "small"</td><td>Ternary — short if/else in one line</td></tr>
-                <tr><td>switch(color) { case "red": break; }</td><td>Check multiple possible values</td></tr>
-                <tr><td>default:</td><td>The fallback inside a switch</td></tr>
+                <tr><td>if (x &gt; 10) { }</td><td>Runs the code when the condition is true</td></tr>
+                <tr><td>else if (x &gt; 5) { }</td><td>Checks the next condition</td></tr>
+                <tr><td>else { }</td><td>Runs when nothing above matched</td></tr>
+                <tr><td>x &gt; 5 ? "big" : "small"</td><td>Ternary: a short if/else that gives a value</td></tr>
+                <tr><td>switch (day) { case "Fri": …; break; }</td><td>Compares one value with many cases</td></tr>
+                <tr><td>default:</td><td>The switch case for "none of these"</td></tr>
             </table>
         </div>
 
-        <!-- Loops -->
         <div class="cheat-card" id="card-loops">
             <div class="cheat-card-header js-hdr">🔄 Loops</div>
             <table class="cheat-table js-table">
-                <tr><td>for (let i=0; i&lt;5; i++)</td><td>Classic for loop — run 5 times</td></tr>
-                <tr><td>while (x &lt; 10) { x++; }</td><td>Loop while condition is true</td></tr>
-                <tr><td>for (const item of arr) { }</td><td>Loop over each item in an array</td></tr>
-                <tr><td>for (const key in obj) { }</td><td>Loop over keys of an object</td></tr>
-                <tr><td>break</td><td>Exit the loop immediately</td></tr>
-                <tr><td>continue</td><td>Skip this iteration, keep looping</td></tr>
+                <tr><td>for (let i = 0; i &lt; 5; i++) { }</td><td>Counts 0, 1, 2, 3, 4: runs 5 times</td></tr>
+                <tr><td>while (x &lt; 10) { x++; }</td><td>Repeats while the condition is true (change x or it never stops)</td></tr>
+                <tr><td>for (const item of arr) { }</td><td>Each item of an array</td></tr>
+                <tr><td>for (const key in obj) { }</td><td>Each key (name) of an object</td></tr>
+                <tr><td>break</td><td>Leaves the loop at once</td></tr>
+                <tr><td>continue</td><td>Skips to the next round</td></tr>
             </table>
         </div>
 
-        <!-- Functions -->
         <div class="cheat-card" id="card-functions">
             <div class="cheat-card-header js-hdr">⚙️ Functions</div>
             <table class="cheat-table js-table">
-                <tr><td>function greet(name) { return "Hi " + name; }</td><td>Named function declaration</td></tr>
-                <tr><td>const greet = function(name) { }</td><td>Function expression</td></tr>
-                <tr><td>const greet = (name) =&gt; "Hi " + name</td><td>Arrow function (shortest form)</td></tr>
-                <tr><td>const greet = (name) =&gt; { return "Hi " + name; }</td><td>Arrow function with block body</td></tr>
-                <tr><td>function add(a, b = 0) { }</td><td>Default parameter value</td></tr>
-                <tr><td>function sum(...nums) { }</td><td>Rest parameter — collects extra args</td></tr>
-                <tr><td>return value</td><td>Send a value back to the caller</td></tr>
-                <tr><td>greet("Ali")</td><td>Call a function</td></tr>
+                <tr><td>function greet(name) { return "Hi " + name; }</td><td>A function declaration</td></tr>
+                <tr><td>greet("Ali")</td><td>Calls it: gives back "Hi Ali"</td></tr>
+                <tr><td>const greet = function (name) { };</td><td>A function stored in a variable</td></tr>
+                <tr><td>const greet = (name) =&gt; "Hi " + name;</td><td>Arrow function: returns the value after =&gt;</td></tr>
+                <tr><td>const greet = (name) =&gt; { return "Hi " + name; };</td><td>Arrow function with { }: needs <code>return</code></td></tr>
+                <tr><td>function add(a, b = 0) { }</td><td>Default value when b is not given</td></tr>
+                <tr><td>function sum(...nums) { }</td><td>Collects any number of values into an array</td></tr>
+                <tr><td>return value;</td><td>Sends a value back and ends the function</td></tr>
             </table>
         </div>
 
-        <!-- Objects -->
         <div class="cheat-card" id="card-objects">
             <div class="cheat-card-header js-hdr">🗂️ Objects</div>
             <table class="cheat-table js-table">
-                <tr><td>const student = { name: "Ali", age: 12 }</td><td>Create an object</td></tr>
-                <tr><td>student.name</td><td>Access property with dot notation</td></tr>
-                <tr><td>student["name"]</td><td>Access property with bracket notation</td></tr>
-                <tr><td>student.grade = "A"</td><td>Add a new property</td></tr>
-                <tr><td>delete student.age</td><td>Remove a property</td></tr>
-                <tr><td>Object.keys(obj)</td><td>Array of all property names</td></tr>
-                <tr><td>Object.values(obj)</td><td>Array of all property values</td></tr>
-                <tr><td>const { name, age } = student</td><td>Destructuring — extract properties</td></tr>
-                <tr><td>{ ...obj1, ...obj2 }</td><td>Spread — merge two objects</td></tr>
+                <tr><td>const student = { name: "Ali", age: 12 };</td><td>Creates an object</td></tr>
+                <tr><td>student.name</td><td>"Ali": dot notation</td></tr>
+                <tr><td>student["name"]</td><td>"Ali": bracket notation (key in a string or variable)</td></tr>
+                <tr><td>student.grade = "A";</td><td>Adds or changes a property (works on a const object)</td></tr>
+                <tr><td>delete student.age;</td><td>Removes a property</td></tr>
+                <tr><td>Object.keys(student)</td><td>["name", "grade"]: all the keys</td></tr>
+                <tr><td>Object.values(student)</td><td>["Ali", "A"]: all the values</td></tr>
+                <tr><td>const { name } = student;</td><td>Destructuring: copies a property into a variable</td></tr>
+                <tr><td>{ ...obj1, ...obj2 }</td><td>Spread: a new object with both sets of properties</td></tr>
             </table>
         </div>
 
-        <!-- DOM -->
         <div class="cheat-card" id="card-dom-finding-elements">
-            <div class="cheat-card-header js-hdr">🌐 DOM — Finding Elements</div>
+            <div class="cheat-card-header js-hdr">🌐 DOM: Finding Elements</div>
             <table class="cheat-table js-table">
-                <tr><td>document.getElementById("id")</td><td>Find element by its id</td></tr>
-                <tr><td>document.querySelector(".class")</td><td>Find first match (CSS selector)</td></tr>
-                <tr><td>document.querySelectorAll("p")</td><td>Find ALL matching elements</td></tr>
-                <tr><td>document.querySelector("input")</td><td>Find first input on the page</td></tr>
-                <tr><td>element.parentElement</td><td>The element's parent</td></tr>
-                <tr><td>element.children</td><td>All direct children</td></tr>
-                <tr><td>element.nextElementSibling</td><td>The next element</td></tr>
+                <tr><td>document.getElementById("total")</td><td>The element with id="total"</td></tr>
+                <tr><td>document.querySelector(".card")</td><td>The first match for a CSS selector</td></tr>
+                <tr><td>document.querySelectorAll("li")</td><td>All matches (a list you can loop with forEach)</td></tr>
+                <tr><td>el.parentElement</td><td>The element around it</td></tr>
+                <tr><td>el.children</td><td>The elements directly inside it</td></tr>
+                <tr><td>el.nextElementSibling</td><td>The next element beside it</td></tr>
+                <tr><td>input.value</td><td>The text typed in an input (always a string)</td></tr>
             </table>
         </div>
 
-        <!-- DOM Manipulation -->
         <div class="cheat-card" id="card-dom-changing-elements">
-            <div class="cheat-card-header js-hdr">✏️ DOM — Changing Elements</div>
+            <div class="cheat-card-header js-hdr">✏️ DOM: Changing Elements</div>
             <table class="cheat-table js-table">
-                <tr><td>element.innerHTML = "&lt;b&gt;Hi&lt;/b&gt;"</td><td>Set HTML content (can use tags)</td></tr>
-                <tr><td>element.textContent = "Hello"</td><td>Set text only (no HTML tags)</td></tr>
-                <tr><td>element.style.color = "red"</td><td>Change a CSS style directly</td></tr>
-                <tr><td>element.style.display = "none"</td><td>Hide element via JS</td></tr>
-                <tr><td>element.setAttribute("href", "...")</td><td>Set any HTML attribute</td></tr>
-                <tr><td>element.getAttribute("href")</td><td>Get the value of an attribute</td></tr>
-                <tr><td>element.classList.add("active")</td><td>Add a CSS class</td></tr>
-                <tr><td>element.classList.remove("active")</td><td>Remove a CSS class</td></tr>
-                <tr><td>element.classList.toggle("active")</td><td>Add if missing, remove if present</td></tr>
-                <tr><td>element.classList.contains("active")</td><td>true/false — does class exist?</td></tr>
-                <tr><td>document.createElement("div")</td><td>Create a new element</td></tr>
-                <tr><td>parent.appendChild(element)</td><td>Add element inside parent</td></tr>
-                <tr><td>element.remove()</td><td>Delete element from the page</td></tr>
+                <tr><td>el.textContent = "Saved!";</td><td>Sets the text. Use this for anything a user typed</td></tr>
+                <tr><td>el.innerHTML = "&lt;b&gt;Hi&lt;/b&gt;";</td><td>Sets HTML tags. Only for your own fixed text: user text here can run harmful code (XSS)</td></tr>
+                <tr><td>el.style.color = "green";</td><td>Changes one CSS property</td></tr>
+                <tr><td>el.classList.add("done")</td><td>Adds a CSS class (better than many style lines)</td></tr>
+                <tr><td>el.classList.remove("done")</td><td>Removes a class</td></tr>
+                <tr><td>el.classList.toggle("done")</td><td>Adds it if missing, removes it if there</td></tr>
+                <tr><td>el.classList.contains("done")</td><td>true or false</td></tr>
+                <tr><td>el.hidden = true;</td><td>Hides the element</td></tr>
+                <tr><td>el.setAttribute("href", "about.html")</td><td>Sets an attribute</td></tr>
+                <tr><td>el.getAttribute("href")</td><td>Reads an attribute</td></tr>
+                <tr><td>const li = document.createElement("li");</td><td>Makes a new element (not on the page yet)</td></tr>
+                <tr><td>list.appendChild(li)</td><td>Puts it inside <code>list</code>, at the end</td></tr>
+                <tr><td>el.remove()</td><td>Removes it from the page</td></tr>
             </table>
         </div>
 
-        <!-- Events -->
         <div class="cheat-card" id="card-events">
             <div class="cheat-card-header js-hdr">🖱️ Events</div>
             <table class="cheat-table js-table">
-                <tr><td>el.addEventListener("click", fn)</td><td>When element is clicked</td></tr>
-                <tr><td>el.addEventListener("dblclick", fn)</td><td>When element is double-clicked</td></tr>
-                <tr><td>el.addEventListener("mouseover", fn)</td><td>When mouse enters element</td></tr>
-                <tr><td>el.addEventListener("mouseout", fn)</td><td>When mouse leaves element</td></tr>
-                <tr><td>el.addEventListener("keydown", fn)</td><td>When a key is pressed down</td></tr>
-                <tr><td>el.addEventListener("keyup", fn)</td><td>When a key is released</td></tr>
-                <tr><td>el.addEventListener("change", fn)</td><td>When input value changes</td></tr>
-                <tr><td>el.addEventListener("input", fn)</td><td>Fires on every keystroke</td></tr>
-                <tr><td>el.addEventListener("submit", fn)</td><td>When a form is submitted</td></tr>
-                <tr><td>window.addEventListener("load", fn)</td><td>When the whole page has loaded</td></tr>
-                <tr><td>event.preventDefault()</td><td>Stop the default browser action</td></tr>
-                <tr><td>event.target</td><td>The element that triggered the event</td></tr>
+                <tr><td>btn.addEventListener("click", save)</td><td>Runs <code>save</code> when clicked (pass the name, no brackets)</td></tr>
+                <tr><td>"dblclick"</td><td>Double-click</td></tr>
+                <tr><td>"mouseenter" / "mouseleave"</td><td>Mouse moves onto / off the element</td></tr>
+                <tr><td>"keydown" / "keyup"</td><td>A key is pressed / let go</td></tr>
+                <tr><td>"input"</td><td>The input's value changes (typing, pasting)</td></tr>
+                <tr><td>"change"</td><td>The value is finished (leaving the box, picking an option)</td></tr>
+                <tr><td>form.addEventListener("submit", fn)</td><td>The form is sent</td></tr>
+                <tr><td>event.preventDefault()</td><td>Stops the browser's normal action (e.g. reloading on submit)</td></tr>
+                <tr><td>event.target</td><td>The element the event happened on</td></tr>
+                <tr><td>event.key</td><td>Which key was pressed, e.g. "Enter"</td></tr>
+                <tr><td>&lt;script src="app.js" defer&gt;</td><td>Runs the script after the page is built</td></tr>
             </table>
         </div>
 
-        <!-- Useful Patterns -->
         <div class="cheat-card" id="card-useful-patterns">
             <div class="cheat-card-header js-hdr">🛠️ Useful Patterns</div>
             <table class="cheat-table js-table">
-                <tr><td>console.log("text")</td><td>Print to the browser console</td></tr>
-                <tr><td>console.error("oops")</td><td>Print an error in red</td></tr>
-                <tr><td>alert("message")</td><td>Show a popup dialog</td></tr>
-                <tr><td>confirm("sure?")</td><td>Show OK/Cancel popup (returns boolean)</td></tr>
-                <tr><td>prompt("name?")</td><td>Show input popup (returns string)</td></tr>
-                <tr><td>setTimeout(fn, 1000)</td><td>Run function after 1 second</td></tr>
-                <tr><td>setInterval(fn, 1000)</td><td>Repeat function every 1 second</td></tr>
-                <tr><td>clearInterval(id)</td><td>Stop a setInterval</td></tr>
-                <tr><td>JSON.stringify(obj)</td><td>Convert object → JSON string</td></tr>
-                <tr><td>JSON.parse(str)</td><td>Convert JSON string → object</td></tr>
-                <tr><td>localStorage.setItem("k", "v")</td><td>Save data in the browser</td></tr>
-                <tr><td>localStorage.getItem("k")</td><td>Read saved data</td></tr>
-                <tr><td>localStorage.removeItem("k")</td><td>Delete saved data</td></tr>
-                <tr><td>Number("42")</td><td>Convert string to number</td></tr>
-                <tr><td>String(42)</td><td>Convert number to string</td></tr>
-                <tr><td>Boolean(0)</td><td>Convert to true/false</td></tr>
+                <tr><td>console.log("text")</td><td>Prints to the Console (F12)</td></tr>
+                <tr><td>console.error("oops")</td><td>Prints an error message in red</td></tr>
+                <tr><td>alert("Saved")</td><td>A pop-up message</td></tr>
+                <tr><td>confirm("Delete?")</td><td>OK / Cancel: gives true or false</td></tr>
+                <tr><td>prompt("Your name?")</td><td>Gives the typed string, or null if Cancel</td></tr>
+                <tr><td>const id = setTimeout(fn, 1000)</td><td>Runs <code>fn</code> once after 1 second</td></tr>
+                <tr><td>clearTimeout(id)</td><td>Cancels it before it runs</td></tr>
+                <tr><td>const id = setInterval(fn, 1000)</td><td>Runs <code>fn</code> every second</td></tr>
+                <tr><td>clearInterval(id)</td><td>Stops it</td></tr>
+                <tr><td>Number("42") / parseInt("42px")</td><td>42 / 42: text to number</td></tr>
+                <tr><td>Number.isNaN(Number("abc"))</td><td>true: the text was not a number</td></tr>
+                <tr><td>String(42)</td><td>"42": number to text</td></tr>
+                <tr><td>Boolean(0)</td><td>false (0, "", null, undefined and NaN are all false)</td></tr>
+                <tr><td>JSON.stringify(obj) / JSON.parse(text)</td><td>Object to JSON text / back to an object</td></tr>
+                <tr><td>localStorage.setItem("theme", "dark")</td><td>Saves a string on this device</td></tr>
+                <tr><td>localStorage.getItem("theme")</td><td>Reads it back (null if missing)</td></tr>
+                <tr><td>localStorage.removeItem("theme")</td><td>Deletes it</td></tr>
+                <tr><td>try { … } catch (error) { … }</td><td>Runs code and handles an error instead of crashing</td></tr>
             </table>
         </div>
 
     </div>
 
     <div class="cheat-tip" style="margin-top: 2rem;">
-        <strong>Debugging Tip:</strong> When your code breaks, always check the browser Console first (press F12 → Console tab). The error message will tell you exactly which line has the problem!
+        <strong>Amānah (trust) rule:</strong> what people type into your page is entrusted to you. Show it with <code>textContent</code>, keep only what you need, and never save passwords or private details in <code>localStorage</code>. When something breaks, open the Console (F12): the error names the file and line.
     </div>
 
-    <div style="text-align:center; margin-top: 3rem;">
-        <a href="Learning JS/learningjs.html" class="btn-primary" style="background: linear-gradient(135deg,#eab308,#f59e0b); color:#0f172a; margin-right:1rem;">Back to JS Course</a>
-        <a href="ai-roadmap.html" class="btn-primary">🤖 AI Roadmap →</a>
+    <div style="text-align:center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="book-js/index.html" class="btn-primary" style="background: linear-gradient(135deg, #d97706, #92400e); color: white;">📖 Read the JavaScript Textbook (23 Ch)</a>
+        <a href="Learning%20JS/exercises.html" class="btn-primary" style="background: linear-gradient(135deg, #16a34a, #166534); color: white;">🧪 JavaScript exercises</a>
+        <a href="cheatsheet-php.html" class="btn-primary" style="background: linear-gradient(135deg, #7c3aed, #5b21b6); color: white;">Next: PHP Cheat Sheet →</a>
+        <a href="library/cheatsheets/index.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">📋 All cheat sheets</a>
     </div>
 
 </div>
 <script src="js/bei-nav.js"></script>
 <script src="js/tts-voices.js"></script>
 <script src="js/core.js"></script>
-    <script src="js/pdf-download.js"></script>
+<script src="js/pdf-download.js"></script>
 </body>
 </html>

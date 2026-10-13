@@ -4,173 +4,200 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MySQL Cheat Sheet | Junior Coders</title>
-    <meta name="description" content="A complete MySQL cheat sheet for Class 9 students. Queries, joins, indexes — one page.">
+    <meta name="description" content="A one-page MySQL cheat sheet for Grades 9–10 on the school_db database: tables, data types, SELECT, INSERT, UPDATE, DELETE, transactions, aggregates, joins, subqueries and keys.">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/bei-core.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .cheat-hero.mysql-hero {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(30, 41, 59, 0.9) 100%);
+            border-bottom: 2px solid #0284c7;
+        }
+        .cheat-card-header.mysql-hdr {
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.2), rgba(2, 132, 199, 0.05));
+            color: #38bdf8;
+            border-bottom: 1px solid rgba(2, 132, 199, 0.3);
+        }
+        .mysql-table td:first-child {
+            font-family: var(--font-mono);
+            color: #7dd3fc;
+            font-weight: 600;
+            white-space: normal;
+            overflow-wrap: anywhere;
+        }
+    </style>
 </head>
 <body>
 <div class="cheatsheet-container">
 
     <header class="cheat-hero mysql-hero">
-        <span class="course-level mysql-level" style="background:rgba(255,255,255,0.2);color:white;border-color:rgba(255,255,255,0.3);">Grades 9–10</span>
-        <h1>MySQL Cheat Sheet</h1>
-        <p>Every SQL query you need — from SELECT to JOINs, one page, always ready!</p>
+        <span class="course-level" style="background:rgba(2,132,199,0.25); color:#7dd3fc; border: 1px solid rgba(2,132,199,0.4);">Grades 9–10</span>
+        <h1>🗄️ MySQL Cheat Sheet</h1>
+        <p>The SQL you use most, written on the textbook's school_db: classes, students, books, loans and donations.</p>
     </header>
 
     <div class="cheat-tip">
-        <strong>SQL Structure:</strong> <code style="color:#00b4d8;">COMMAND</code> <code style="color:#10b981;">column/table</code> <code style="color:#eab308;">condition</code> — SQL keywords are written in UPPERCASE by convention. Statements end with a <code>;</code>.
+        <strong>SQL basics:</strong> a statement reads like a sentence (<code>SELECT name FROM students WHERE grade = 8;</code>) and ends with <code>;</code>. Keywords are written in UPPERCASE by habit, text values go in 'single quotes', numbers do not. Practise these queries in the SQL Sandbox or in phpMyAdmin.
     </div>
 
     <div class="cheat-grid">
 
-        <!-- Database & Table Commands -->
         <div class="cheat-card" id="card-database-commands">
             <div class="cheat-card-header mysql-hdr">🗄️ Database Commands</div>
             <table class="cheat-table mysql-table">
-                <tr><td>CREATE DATABASE school;</td><td>Create a new database</td></tr>
-                <tr><td>DROP DATABASE school;</td><td>Delete a database (careful!)</td></tr>
-                <tr><td>USE school;</td><td>Switch to a database</td></tr>
-                <tr><td>SHOW DATABASES;</td><td>List all databases</td></tr>
-                <tr><td>SHOW TABLES;</td><td>List all tables in current database</td></tr>
-                <tr><td>DESCRIBE students;</td><td>Show columns of a table</td></tr>
-                <tr><td>DROP TABLE students;</td><td>Delete a table completely</td></tr>
-                <tr><td>TRUNCATE TABLE students;</td><td>Delete all rows but keep structure</td></tr>
+                <tr><td>CREATE DATABASE IF NOT EXISTS school_db CHARACTER SET utf8mb4;</td><td>Make a database (utf8mb4 stores every language)</td></tr>
+                <tr><td>USE school_db;</td><td>Work inside this database</td></tr>
+                <tr><td>SELECT DATABASE();</td><td>Which database is active?</td></tr>
+                <tr><td>SHOW DATABASES; &nbsp; SHOW TABLES;</td><td>List databases / tables</td></tr>
+                <tr><td>DESCRIBE students;</td><td>Show a table's columns and types</td></tr>
+                <tr><td>DROP TABLE IF EXISTS old_table;</td><td>Delete a table and its rows (no undo)</td></tr>
+                <tr><td>TRUNCATE TABLE old_table;</td><td>Empty a table but keep its columns</td></tr>
+                <tr><td>DROP DATABASE IF EXISTS practice_db;</td><td>Delete a whole database (back up first!)</td></tr>
             </table>
         </div>
 
-        <!-- CREATE TABLE -->
         <div class="cheat-card" id="card-create-table">
             <div class="cheat-card-header mysql-hdr">🏗️ CREATE TABLE</div>
             <table class="cheat-table mysql-table">
-                <tr><td>INT</td><td>Whole number (age, count)</td></tr>
+                <tr><td colspan="2"><code>CREATE TABLE classes (<br>&nbsp;&nbsp;id INT AUTO_INCREMENT PRIMARY KEY,<br>&nbsp;&nbsp;name VARCHAR(50) NOT NULL,<br>&nbsp;&nbsp;teacher VARCHAR(50) NOT NULL<br>);</code></td></tr>
+                <tr><td>INT</td><td>Whole number (grade, pages)</td></tr>
                 <tr><td>VARCHAR(100)</td><td>Text up to 100 characters</td></tr>
-                <tr><td>TEXT</td><td>Long text (descriptions)</td></tr>
-                <tr><td>DECIMAL(8,2)</td><td>Money: 8 digits, 2 decimal places</td></tr>
-                <tr><td>BOOLEAN</td><td>True (1) or False (0)</td></tr>
-                <tr><td>DATE</td><td>Date: YYYY-MM-DD</td></tr>
-                <tr><td>DATETIME</td><td>Date + time combined</td></tr>
-                <tr><td>PRIMARY KEY (id)</td><td>Unique identifier column</td></tr>
-                <tr><td>AUTO_INCREMENT</td><td>ID increases automatically</td></tr>
-                <tr><td>NOT NULL</td><td>Column cannot be empty</td></tr>
-                <tr><td>DEFAULT 'active'</td><td>Use this value if none given</td></tr>
-                <tr><td>UNIQUE</td><td>No duplicate values allowed</td></tr>
+                <tr><td>TEXT</td><td>Long text (a description)</td></tr>
+                <tr><td>DECIMAL(3,2)</td><td>Exact decimal: 3 digits, 2 after the point (3.95)</td></tr>
+                <tr><td>BOOLEAN</td><td>TRUE (1) or FALSE (0)</td></tr>
+                <tr><td>DATE &nbsp; DATETIME</td><td>'2026-09-02' / date + time</td></tr>
+                <tr><td>AUTO_INCREMENT</td><td>MySQL numbers new rows 1, 2, 3...</td></tr>
+                <tr><td>NOT NULL</td><td>A value is required</td></tr>
+                <tr><td>DEFAULT 'No'</td><td>Used when no value is given</td></tr>
             </table>
         </div>
 
-        <!-- SELECT -->
+        <div class="cheat-card" id="card-change-a-table">
+            <div class="cheat-card-header mysql-hdr">🔧 Change a Table</div>
+            <table class="cheat-table mysql-table">
+                <tr><td>ALTER TABLE books ADD COLUMN author VARCHAR(80);</td><td>Add a column</td></tr>
+                <tr><td>ALTER TABLE books MODIFY pages SMALLINT;</td><td>Change a column's type</td></tr>
+                <tr><td>ALTER TABLE books CHANGE pages page_count INT;</td><td>Rename a column (give its type again)</td></tr>
+                <tr><td>ALTER TABLE books DROP COLUMN author;</td><td>Remove a column and its data</td></tr>
+                <tr><td>RENAME TABLE classes TO school_classes;</td><td>Rename a table</td></tr>
+            </table>
+        </div>
+
         <div class="cheat-card" id="card-select-read">
             <div class="cheat-card-header mysql-hdr">🔍 SELECT (Read)</div>
             <table class="cheat-table mysql-table">
-                <tr><td>SELECT * FROM students;</td><td>Get all rows and columns</td></tr>
-                <tr><td>SELECT name, grade FROM students;</td><td>Get specific columns only</td></tr>
-                <tr><td>SELECT DISTINCT grade FROM students;</td><td>Remove duplicate values</td></tr>
-                <tr><td>WHERE grade = 'A'</td><td>Filter rows by condition</td></tr>
-                <tr><td>WHERE age &gt; 13</td><td>Greater than filter</td></tr>
-                <tr><td>WHERE name LIKE 'A%'</td><td>Names starting with A</td></tr>
-                <tr><td>WHERE name LIKE '%ali%'</td><td>Names containing "ali"</td></tr>
-                <tr><td>WHERE grade IN ('A','B')</td><td>Match any of these values</td></tr>
-                <tr><td>WHERE age BETWEEN 12 AND 15</td><td>Range filter (inclusive)</td></tr>
-                <tr><td>WHERE email IS NULL</td><td>No email set</td></tr>
-                <tr><td>ORDER BY name ASC</td><td>Sort A→Z</td></tr>
-                <tr><td>ORDER BY grade DESC</td><td>Sort Z→A (descending)</td></tr>
-                <tr><td>LIMIT 10</td><td>Only return 10 rows</td></tr>
-                <tr><td>LIMIT 10 OFFSET 20</td><td>Skip 20, then get 10 (pagination)</td></tr>
+                <tr><td>SELECT * FROM students;</td><td>Every row and column</td></tr>
+                <tr><td>SELECT name, gpa FROM students;</td><td>Only some columns</td></tr>
+                <tr><td>SELECT DISTINCT city FROM students;</td><td>Each city once</td></tr>
+                <tr><td>WHERE grade = 8</td><td>Rows that match</td></tr>
+                <tr><td>WHERE gpa &gt;= 3.5 AND city = 'Lahore'</td><td>Both must be true (OR: either)</td></tr>
+                <tr><td>WHERE grade &lt;&gt; 9</td><td>Not equal (also !=)</td></tr>
+                <tr><td>WHERE title LIKE 'Clean%'</td><td>Starts with "Clean" (% = any text)</td></tr>
+                <tr><td>WHERE title LIKE '%code%'</td><td>Contains "code"</td></tr>
+                <tr><td>WHERE city IN ('Lahore', 'Karachi')</td><td>Matches any value in the list</td></tr>
+                <tr><td>WHERE pages BETWEEN 200 AND 300</td><td>A range (both ends included)</td></tr>
+                <tr><td>WHERE city IS NULL &nbsp; IS NOT NULL</td><td>Empty / not empty (never <code>= NULL</code>)</td></tr>
+                <tr><td>ORDER BY gpa DESC, name ASC</td><td>Sort: highest GPA first, then A→Z</td></tr>
+                <tr><td>LIMIT 3 &nbsp; LIMIT 3 OFFSET 3</td><td>First 3 rows / skip 3, then 3 (page 2)</td></tr>
             </table>
         </div>
 
-        <!-- INSERT, UPDATE, DELETE -->
         <div class="cheat-card" id="card-insert-update-delete">
             <div class="cheat-card-header mysql-hdr">✏️ INSERT / UPDATE / DELETE</div>
             <table class="cheat-table mysql-table">
-                <tr><td colspan="2" style="color:#10b981; font-weight:600;">INSERT</td></tr>
-                <tr><td>INSERT INTO students (name, grade) VALUES ('Ali', 'A');</td><td>Add one row</td></tr>
-                <tr><td>INSERT INTO students VALUES (NULL, 'Sara', 'B', 14);</td><td>All columns in order</td></tr>
-                <tr><td colspan="2" style="color:#eab308; font-weight:600;">UPDATE</td></tr>
-                <tr><td>UPDATE students SET grade='A' WHERE id=1;</td><td>Change a value (always use WHERE!)</td></tr>
-                <tr><td>UPDATE students SET grade='A', age=15 WHERE name='Ali';</td><td>Update multiple columns</td></tr>
-                <tr><td colspan="2" style="color:#f43f5e; font-weight:600;">DELETE</td></tr>
-                <tr><td>DELETE FROM students WHERE id=1;</td><td>Delete specific row (always use WHERE!)</td></tr>
-                <tr><td>DELETE FROM students WHERE grade='F';</td><td>Delete by condition</td></tr>
+                <tr><td>INSERT INTO students (name, grade, class_id) VALUES ('Yusuf', 8, 2);</td><td>Add one row (list the columns)</td></tr>
+                <tr><td>INSERT INTO books (title, pages) VALUES ('Tafsir Notes', 150), ('Garden Guide', 96);</td><td>Add several rows at once</td></tr>
+                <tr><td>UPDATE books SET available = 'Yes' WHERE id = 3;</td><td>Change a value (always with WHERE)</td></tr>
+                <tr><td>UPDATE loans SET returned = 'Yes' WHERE id = 2;</td><td>Mark a library loan as returned</td></tr>
+                <tr><td>DELETE FROM loans WHERE id = 10;</td><td>Delete one row (always with WHERE)</td></tr>
+                <tr><td>SELECT * FROM loans WHERE id = 10;</td><td>Run the same WHERE as a SELECT first</td></tr>
+                <tr><td>START TRANSACTION; ... COMMIT;</td><td>Keep several changes together</td></tr>
+                <tr><td>ROLLBACK;</td><td>Undo the changes since START TRANSACTION</td></tr>
             </table>
         </div>
 
-        <!-- Aggregate Functions -->
         <div class="cheat-card" id="card-aggregate-functions">
             <div class="cheat-card-header mysql-hdr">📊 Aggregate Functions</div>
             <table class="cheat-table mysql-table">
-                <tr><td>COUNT(*)</td><td>Count all rows</td></tr>
-                <tr><td>COUNT(email)</td><td>Count non-null values in email</td></tr>
-                <tr><td>SUM(price)</td><td>Add up all prices</td></tr>
-                <tr><td>AVG(age)</td><td>Average of all ages</td></tr>
-                <tr><td>MAX(grade)</td><td>Highest value</td></tr>
-                <tr><td>MIN(age)</td><td>Lowest value</td></tr>
-                <tr><td>GROUP BY grade</td><td>Group rows by a column value</td></tr>
-                <tr><td>HAVING COUNT(*) &gt; 5</td><td>Filter groups (like WHERE for groups)</td></tr>
+                <tr><td>COUNT(*)</td><td>Number of rows</td></tr>
+                <tr><td>COUNT(city)</td><td>Rows where city is not NULL</td></tr>
+                <tr><td>COUNT(DISTINCT city)</td><td>Number of different cities</td></tr>
+                <tr><td>SUM(amount) &nbsp; AVG(gpa)</td><td>Total / average</td></tr>
+                <tr><td>MAX(gpa) &nbsp; MIN(pages)</td><td>Largest / smallest</td></tr>
+                <tr><td>SELECT cause, SUM(amount) AS total FROM donations GROUP BY cause;</td><td>One total per charity cause</td></tr>
+                <tr><td>HAVING SUM(amount) &gt; 2000</td><td>Filter groups (WHERE filters rows first)</td></tr>
+                <tr><td>ROUND(AVG(gpa), 2)</td><td>Round to 2 decimal places</td></tr>
             </table>
         </div>
 
-        <!-- JOINs -->
         <div class="cheat-card" id="card-joins">
             <div class="cheat-card-header mysql-hdr">🔗 JOINs</div>
             <table class="cheat-table mysql-table">
-                <tr><td>INNER JOIN</td><td>Only rows that match in BOTH tables</td></tr>
-                <tr><td>LEFT JOIN</td><td>All rows from left table + matching right rows</td></tr>
-                <tr><td>RIGHT JOIN</td><td>All rows from right table + matching left rows</td></tr>
-                <tr><td colspan="2" style="padding-top:0.75rem; color: #64748b; font-size:0.85rem;">Example — students with their classroom:</td></tr>
-                <tr><td colspan="2"><code>SELECT s.name, c.name AS class<br>FROM students s<br>INNER JOIN classrooms c ON s.class_id = c.id;</code></td></tr>
-                <tr><td>ON s.class_id = c.id</td><td>The matching condition between tables</td></tr>
-                <tr><td>table_alias.column</td><td>Prefix with alias to avoid ambiguity</td></tr>
+                <tr><td>INNER JOIN</td><td>Only rows that match in both tables</td></tr>
+                <tr><td>LEFT JOIN</td><td>Every row of the left table, NULL where no match</td></tr>
+                <tr><td>RIGHT JOIN</td><td>Every row of the right table</td></tr>
+                <tr><td colspan="2"><code>SELECT s.name, c.name AS class<br>FROM students s<br>INNER JOIN classes c ON s.class_id = c.id;</code></td></tr>
+                <tr><td colspan="2"><code>SELECT s.name, COUNT(l.id) AS loans<br>FROM students s<br>LEFT JOIN loans l ON l.student_id = s.id<br>GROUP BY s.id, s.name;</code></td></tr>
+                <tr><td>ON l.student_id = s.id</td><td>How the rows are matched</td></tr>
+                <tr><td>students s &nbsp; s.name</td><td>Short alias; prefix columns to avoid mix-ups</td></tr>
             </table>
         </div>
 
-        <!-- Constraints & Keys -->
+        <div class="cheat-card" id="card-subqueries">
+            <div class="cheat-card-header mysql-hdr">🪆 Subqueries</div>
+            <table class="cheat-table mysql-table">
+                <tr><td>SELECT name FROM students WHERE gpa &gt; (SELECT AVG(gpa) FROM students);</td><td>Students above the average GPA</td></tr>
+                <tr><td>SELECT title FROM books WHERE id IN (SELECT book_id FROM loans WHERE returned = 'No');</td><td>Books that are out on loan now</td></tr>
+                <tr><td>(SELECT ...)</td><td>The inner query runs first; its answer feeds the outer one</td></tr>
+            </table>
+        </div>
+
         <div class="cheat-card" id="card-keys-constraints">
             <div class="cheat-card-header mysql-hdr">🔑 Keys &amp; Constraints</div>
             <table class="cheat-table mysql-table">
-                <tr><td>PRIMARY KEY</td><td>Unique row identifier — only one per table</td></tr>
-                <tr><td>FOREIGN KEY (class_id) REFERENCES classrooms(id)</td><td>Link to another table's primary key</td></tr>
-                <tr><td>UNIQUE (email)</td><td>No two rows can have the same email</td></tr>
-                <tr><td>NOT NULL</td><td>Field must always have a value</td></tr>
-                <tr><td>CHECK (age &gt;= 10)</td><td>Value must satisfy a condition</td></tr>
-                <tr><td>ON DELETE CASCADE</td><td>Delete child rows when parent is deleted</td></tr>
-                <tr><td>CREATE INDEX idx ON t(col);</td><td>Speed up searches on a column</td></tr>
+                <tr><td>id INT AUTO_INCREMENT PRIMARY KEY</td><td>Unique ID for each row (one per table)</td></tr>
+                <tr><td>FOREIGN KEY (class_id) REFERENCES classes(id)</td><td>Must point to a real class</td></tr>
+                <tr><td>ON DELETE SET NULL</td><td>Parent deleted → link becomes NULL</td></tr>
+                <tr><td>ON DELETE CASCADE</td><td>Parent deleted → child rows deleted too</td></tr>
+                <tr><td>UNIQUE (email)</td><td>No two rows with the same value</td></tr>
+                <tr><td>CHECK (amount &gt; 0)</td><td>Value must pass a rule</td></tr>
+                <tr><td>CREATE INDEX idx_city ON students(city);</td><td>Faster searches on a column</td></tr>
             </table>
         </div>
 
-        <!-- Useful Extras -->
         <div class="cheat-card" id="card-useful-extras">
             <div class="cheat-card-header mysql-hdr">💡 Useful Extras</div>
             <table class="cheat-table mysql-table">
-                <tr><td>SELECT CONCAT(first,' ',last) AS full_name</td><td>Join two columns into one</td></tr>
-                <tr><td>SELECT UPPER(name) FROM students;</td><td>Uppercase text in query</td></tr>
-                <tr><td>SELECT LOWER(email) FROM students;</td><td>Lowercase text</td></tr>
-                <tr><td>SELECT LENGTH(name) FROM students;</td><td>Character count of value</td></tr>
-                <tr><td>SELECT NOW();</td><td>Current date and time</td></tr>
-                <tr><td>SELECT CURDATE();</td><td>Current date only</td></tr>
-                <tr><td>WHERE YEAR(dob) = 2010</td><td>Filter by year of a date column</td></tr>
-                <tr><td>IFNULL(grade, 'N/A')</td><td>Return 'N/A' if value is NULL</td></tr>
-                <tr><td>-- This is a comment</td><td>SQL comment (single line)</td></tr>
+                <tr><td>SELECT CONCAT(name, ' (', city, ')') AS label FROM students;</td><td>Join text into one column</td></tr>
+                <tr><td>UPPER(name) &nbsp; LOWER(name) &nbsp; LENGTH(name)</td><td>UPPERCASE, lowercase, length</td></tr>
+                <tr><td>COALESCE(city, 'Unknown')</td><td>First value that is not NULL (also IFNULL)</td></tr>
+                <tr><td>NOW() &nbsp; CURDATE()</td><td>Date + time now / today's date</td></tr>
+                <tr><td>WHERE YEAR(loan_date) = 2026</td><td>Filter by the year of a date</td></tr>
+                <tr><td>DATEDIFF(CURDATE(), loan_date)</td><td>Days since the loan</td></tr>
+                <tr><td>-- comment</td><td>One-line comment (space after --)</td></tr>
+                <tr><td>$pdo-&gt;prepare("... WHERE id = ?")</td><td>From PHP: always a prepared statement</td></tr>
             </table>
         </div>
 
     </div>
 
     <div class="cheat-tip" style="margin-top: 2rem;">
-        <strong>Safety Rule:</strong> <strong>Always</strong> use <code>WHERE</code> in <code>UPDATE</code> and <code>DELETE</code> statements — without it you'll update or delete <em>every single row</em> in the table!
+        <strong>Amānah (trust) rule:</strong> student and donor records are a trust. Put <code>WHERE</code> on every <code>UPDATE</code> and <code>DELETE</code> (test it as a <code>SELECT</code> first), make a backup (phpMyAdmin → Export) before big changes, store only the data you need, and never build SQL by joining user input into the text.
     </div>
 
-    <div style="text-align:center; margin-top: 3rem;">
-        <a href="Learning MySQL/learningmysql.html" class="btn-primary" style="background: linear-gradient(135deg, var(--mysql-brand), #0369a1); margin-right:1rem;">Back to MySQL Course</a>
-        <a href="cheatsheet-laravel.html" class="btn-primary" style="background: linear-gradient(135deg, var(--laravel-brand), #dc2626); color: white;">Laravel Cheat Sheet →</a>
+    <div style="text-align:center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="book-mysql/index.html" class="btn-primary" style="background: linear-gradient(135deg, #0284c7, #075985); color: white;">📖 Read the MySQL Textbook (22 Ch)</a>
+        <a href="Learning%20MySQL/exercises.html" class="btn-primary" style="background: linear-gradient(135deg, #16a34a, #166534); color: white;">🧪 MySQL exercises</a>
+        <a href="cheatsheet-laravel.html" class="btn-primary" style="background: linear-gradient(135deg, #dc2626, #991b1b); color: white;">Next: Laravel Cheat Sheet →</a>
+        <a href="library/cheatsheets/index.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">📋 All cheat sheets</a>
     </div>
 
 </div>
 <script src="js/bei-nav.js"></script>
 <script src="js/tts-voices.js"></script>
 <script src="js/core.js"></script>
-    <script src="js/pdf-download.js"></script>
+<script src="js/pdf-download.js"></script>
 </body>
 </html>
