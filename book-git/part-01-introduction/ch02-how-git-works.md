@@ -36,7 +36,7 @@ The staging area is also called the **index**. The first three areas are all on 
 
 ## 👁️ The Journey of a Change
 
-![Git Three Trees & GitHub Remote](../../assets/diagrams/git/git-three-trees.svg)
+![Git Three Trees & GitHub Remote](../assets/diagrams/git/git-three-trees.svg)
 
 ```text
 ┌──────────────────────────┐

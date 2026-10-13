@@ -21,7 +21,7 @@ You and a classmate are writing the first line of an article for the school maga
 
 ## 👁️ Anatomy of a Conflict
 
-![Merge Conflict Anatomy](../../assets/diagrams/git/merge-conflict-anatomy.svg)
+![Merge Conflict Anatomy](../assets/diagrams/git/merge-conflict-anatomy.svg)
 
 A conflict happens when **both** branches changed the **same lines** of the same file. Git writes both versions into the file between markers:
 

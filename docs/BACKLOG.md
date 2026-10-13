@@ -38,6 +38,10 @@ _Last updated: 2026-10-13 (textbook overhaul complete)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 One list of books: `js/data/books.js`; `scripts/build-books.js` (run by `bundle-books.js`) generates
+  book pages, bundles (now plain line endings, no more rebuild noise), Textbooks cards with counted chapters and
+  lessons, the Library line, site-search entries and "N Textbooks" numbers; `check-books.js` reports anything stale
+  and any chapter image/link that does not resolve (fixed 4 Git diagrams that only worked on Vercel by luck).
 - 2026-10-13 One shared textbook reader: `js/book-reader.js` builds all 11 books from a small `JC_BOOK` settings
   block; chapter menus come from the bundle (cannot drift); pinned local marked 15.0.12 (books work offline, CDN
   changes cannot break them); same "Practise this chapter" box per subject; JS scratchpad kept; 11 pages went from

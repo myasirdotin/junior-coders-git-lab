@@ -109,6 +109,16 @@ function checkFile(file) {
     if ((practice.match(/<details>/g) || []).length < 3) err(where, 'Practice needs a hidden answer (<details>) for each level');
   }
 
+  // images and links in the text: the reader shows chapters on the book page (book-KEY/index.html), so a relative
+  // path must work from the book folder, not from the chapter file; and never start at the site root (GEMINI §7.3)
+  const bookDir = path.join(ROOT, rel(file).split('/')[0]);
+  for (const m of prose.matchAll(/!?\[[^\]]*\]\(([^)\s]+)[^)]*\)|(?:src|href)="([^"]+)"/g)) {
+    const url = (m[1] || m[2]).split('#')[0].split('?')[0];
+    if (!url || /^(https?:|mailto:|data:|#|\{\{)/i.test(url)) continue;
+    if (url.startsWith('/')) { err(where, `link starts at the site root: ${url}`); continue; }
+    if (!fs.existsSync(path.join(bookDir, decodeURIComponent(url)))) err(where, `link does not resolve from the book page: ${url}`);
+  }
+
   // details balance, LaTeX
   const open = (text.match(/<details[\s>]/g) || []).length, close = (text.match(/<\/details>/g) || []).length;
   if (open !== close) err(where, `<details> opened ${open} times but closed ${close} times`);
@@ -175,6 +185,14 @@ for (const book of books) {
   const card = libraryPage.match(new RegExp(`data-book="${book}"[\\s\\S]*?class="tb-chapters[^"]*">([^<]*)<`));
   if (!card) warn('library/books/index.html', `no card for ${book}`);
   else if (!new RegExp(`^${chapters} chapters$`).test(card[1].trim())) err('library/books/index.html', `${book} card says "${card[1].trim()}", files have ${chapters} chapters`);
+}
+
+// generated files (book pages, bundles, Textbooks cards, Library line, site search) match js/data/books.js
+if (!ONLY.length) {
+  try {
+    const { build } = require('./build-books.js');
+    build({ write: false }).stale.forEach((f) => err(f, 'out of date with js/data/books.js or the chapter files (run node scripts/bundle-books.js)'));
+  } catch (e) { err('scripts/build-books.js', 'could not run: ' + e.message); }
 }
 
 const show = (title, list) => { if (list.length) console.log(`\n${title} (${list.length})\n  ` + list.join('\n  ')); };

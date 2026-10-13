@@ -140,6 +140,12 @@ content for their subject, then make edits yourself following this file.
      (label from its `# Chapter N:` title, address `#chN`); other files appear only if listed in `JC_BOOK.extras`.
      Adding a chapter = write the file, run `node scripts/bundle-books.js`; the menu, counts in the sidebar and filter
      tabs follow. Change the reader once in `js/book-reader.js`, never in a single book.
+   - **One list of books:** `js/data/books.js` holds every book's details (title, grades, colours, parts, links,
+     extras, practice tool, Textbooks-page text). `node scripts/bundle-books.js` (= `scripts/build-books.js`) generates
+     from it and the chapter files: each `book-*/index.html`, the bundles, the Textbooks page cards and counts, the
+     Library page line, the site-search entries and the "N Textbooks" numbers. Never edit those generated parts by
+     hand; `node scripts/check-books.js` reports any that are out of date. Images and links inside chapters are
+     written relative to the book page (`../assets/...`), not to the chapter file.
 4. **Maintenance & Verification Commands**:
    - Run `node scripts/bundle-books.js` whenever markdown chapters are edited or added to keep offline bundles in sync.
    - Run `powershell .\audit.ps1` to verify chapter integrity, bundle coverage, and parser health across all 11 books.
@@ -231,7 +237,7 @@ These rules come from real bugs found in this site. Follow them for every change
    files); it must report 0 errors before a textbook change is committed.
 8. **Check before you finish:**
    ```bash
-   node scripts/bundle-books.js          # after editing textbook chapters (.md)
+   node scripts/bundle-books.js          # after editing textbook chapters (.md) or js/data/books.js
    node scripts/check-books.js           # textbooks follow §7j: template, hidden answers, menus, bundles, counts
    node scripts/build-cheat-index.js     # after editing a cheatsheet-*.html (search index + card ids)
    node scripts/sync-vercel-redirects.js # after adding a folder with an index.html (trailing slash + short links)

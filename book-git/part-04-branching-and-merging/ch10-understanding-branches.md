@@ -22,7 +22,7 @@ Look at a great Chinar tree in a Srinagar garden. It has one strong trunk, and m
 
 ## 👁️ The Branching Timeline
 
-![Git Branching Lifecycle](../../assets/diagrams/git/git-branching-lifecycle.svg)
+![Git Branching Lifecycle](../assets/diagrams/git/git-branching-lifecycle.svg)
 
 ```text
 main:     C1 -- C2 ---------- C5 -- C6

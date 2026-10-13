@@ -26,7 +26,7 @@ Your class builds a small weather station in the school garden. It records tempe
 
 ## 📡 The Remote Connection Workflow
 
-![Git Remote Push & Pull](../../assets/diagrams/git/git-remote-workflow.svg)
+![Git Remote Push & Pull](../assets/diagrams/git/git-remote-workflow.svg)
 
 ```text
 [ Your laptop ]           [ Remote ]
