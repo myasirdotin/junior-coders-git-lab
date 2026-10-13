@@ -1,129 +1,334 @@
 # Chapter 19: Aggregate Functions (COUNT, SUM, AVG, MIN, MAX)
 
-> **Key Idea**: Aggregate functions crunch numbers across hundreds or thousands of rows to produce a single summary metric: total counts, sums, averages, and extremes.
+> **Key Idea**: An aggregate function looks at many rows and gives back **one** summary number: how many, the total, the average, the smallest or the largest.
 
 ---
 
-## 1. The 5 Core Aggregate Functions
+## 🌟 Real-Life Story
 
-| Function | What It Calculates | Typical Example |
+After the charity week, the club leader does not read out all eight donation slips at assembly. She says: "We received 8 gifts, 27,500 rupees in total. The biggest gift was 8,000 rupees." Each of those sentences squeezes a whole pile of slips into one number. In SQL, the tools that do this squeezing are called aggregate functions.
+
+## 🎯 What You Will Learn
+
+- Count rows with `COUNT(*)`, `COUNT(column)` and `COUNT(DISTINCT column)`.
+- Add up a column with `SUM`.
+- Work out an average with `AVG` and tidy it with `ROUND`.
+- Find the smallest and largest values with `MIN` and `MAX`.
+- Combine several aggregates and a `WHERE` in one summary query.
+
+---
+
+## 🧮 The Five Aggregate Functions
+
+| Function | Gives back | Example question |
 | :--- | :--- | :--- |
-| `COUNT()` | Total number of rows or non-null values | Total active students |
-| `SUM()` | Mathematical total of a numeric column | Total charitable donations collected |
-| `AVG()` | Arithmetic mean of a numeric column | Average class test score |
-| `MIN()` | Smallest / earliest value | Lowest textbook price |
-| `MAX()` | Largest / latest value | Highest exam marks achieved |
+| `COUNT()` | how many rows (or values) | How many students are there? |
+| `SUM()` | the total of a number column | How much was donated? |
+| `AVG()` | the average (mean) | What is the average GPA? |
+| `MIN()` | the smallest or earliest value | Which book is shortest? |
+| `MAX()` | the largest or latest value | When was the last gift? |
 
 ```
-Individual Rows:             Aggregate Function:
-┌─────────────────┐
-│ Student 1:  85  │
-│ Student 2:  92  │ ────────► AVG(score) ──►  89.33 (Single Summary Value)
-│ Student 3:  91  │
-└─────────────────┘
+pages of 8 books
+464, 320, 210, 288,
+352, 180, 240, 120
+        │
+        ▼  MAX(pages)
+       464   (one row, one value)
 ```
+
+The **average** (or *mean*) is the total divided by how many values there are.
 
 ---
 
-## 2. Practical Examples: Real-World Aggregations
+## 🔢 Counting with `COUNT`
 
-### 1. Counting Records with `COUNT()`
 ```sql
--- Total number of students registered in the academy
-SELECT COUNT(*) AS total_students 
-FROM students;
-
--- Total number of students who have provided an email address
-SELECT COUNT(email) AS students_with_email 
-FROM students;
-
--- Total number of distinct grade levels
-SELECT COUNT(DISTINCT grade_level) AS total_grades 
-FROM students;
+SELECT COUNT(*) AS students FROM students;
 ```
 
-> 💡 **Tip**: `COUNT(*)` counts all rows in the table. `COUNT(column_name)` counts only rows where that column is **not NULL**.
+| students |
+| ---: |
+| 8 |
+
+`COUNT(*)` counts rows. Combine it with `WHERE` to count only some of them. How many books are still out?
+
+```sql
+SELECT COUNT(*) AS not_returned
+FROM loans
+WHERE returned = 'No';
+```
+
+| not_returned |
+| ---: |
+| 5 |
+
+How many **different** cities do students come from?
+
+```sql
+SELECT COUNT(DISTINCT city) AS cities FROM students;
+```
+
+| cities |
+| ---: |
+| 4 |
+
+### `COUNT(*)` vs `COUNT(column)`
+
+`COUNT(column)` skips `NULL` values. Suppose Yusuf joins with no city (as in Chapter 8):
+
+```sql
+SELECT COUNT(*) AS rows_, COUNT(city) AS with_city FROM students;
+```
+
+| rows_ | with_city |
+| ---: | ---: |
+| 9 | 8 |
+
+Nine students, but only eight have a city on record.
 
 ---
 
-### 2. Calculating Totals with `SUM()`
+## ➕ Totals with `SUM`
+
 ```sql
--- Total value of all book inventory currently in stock
-SELECT 
-    SUM(price * available_copies) AS total_inventory_value 
+SELECT SUM(amount) AS total FROM donations;
+```
+
+| total |
+| ---: |
+| 27500 |
+
+Only the *Clean Water* cause:
+
+```sql
+SELECT SUM(amount) AS clean_water FROM donations
+WHERE cause = 'Clean Water';
+```
+
+| clean_water |
+| ---: |
+| 15000 |
+
+---
+
+## ⚖️ Averages with `AVG` and `ROUND`
+
+```sql
+SELECT AVG(gpa) AS average_gpa FROM students;
+```
+
+| average_gpa |
+| ---: |
+| 3.668750 |
+
+That is a lot of digits. `ROUND(value, 2)` keeps 2 decimal places:
+
+```sql
+SELECT ROUND(AVG(gpa), 2) AS average_gpa FROM students;
+```
+
+| average_gpa |
+| ---: |
+| 3.67 |
+
+`AVG` ignores `NULL` values. A student with no GPA does not pull the average down to zero.
+
+> 🧪 **Sandbox note:** MySQL prints `AVG(amount)` on donations as `3437.5000` (4 decimals). SQLite prints `3437.5`, and shows `AVG(gpa)` as `3.66875`. The value is the same; only the display differs.
+
+---
+
+## 📏 Smallest and Largest: `MIN` and `MAX`
+
+```sql
+SELECT MIN(pages) AS shortest, MAX(pages) AS longest FROM books;
+```
+
+| shortest | longest |
+| ---: | ---: |
+| 120 | 464 |
+
+They work on dates too (earliest and latest):
+
+```sql
+SELECT MIN(donated_on) AS first_gift, MAX(donated_on) AS last_gift
+FROM donations;
+```
+
+| first_gift | last_gift |
+| :--- | :--- |
+| 2026-09-01 | 2026-10-02 |
+
+---
+
+## 📊 A Summary Card in One Query
+
+You can put several aggregates in one `SELECT`. Here is a library summary card:
+
+```sql
+SELECT COUNT(*)              AS books,
+       SUM(pages)            AS total_pages,
+       MIN(pages)            AS shortest,
+       MAX(pages)            AS longest,
+       ROUND(AVG(pages), 1)  AS average
 FROM books;
-
--- Total voluntary charity donations (Sadaqah) collected this month
-SELECT 
-    SUM(donation_amount) AS total_charity_collected 
-FROM charity_donations 
-WHERE donation_date >= '2025-09-01';
 ```
 
----
+| books | total_pages | shortest | longest | average |
+| ---: | ---: | ---: | ---: | ---: |
+| 8 | 2174 | 120 | 464 | 271.8 |
 
-### 3. Finding Averages with `AVG()`
-```sql
--- Calculate the average exam score in Computer Science
-SELECT 
-    ROUND(AVG(exam_score), 2) AS average_score 
-FROM exam_marks 
-WHERE course_name = 'Computer Science';
-```
-
----
-
-### 4. Extremes with `MIN()` and `MAX()`
-```sql
-SELECT 
-    MIN(exam_score) AS lowest_score,
-    MAX(exam_score) AS highest_score 
-FROM exam_marks;
-```
-
----
-
-## 3. Combining Aggregates in a Single Dashboard Query
-
-You can combine all five aggregates in a single powerful summary query:
+Aggregates also work after a join. How many loans were made by students from Lahore?
 
 ```sql
-SELECT 
-    COUNT(*) AS total_books,
-    SUM(available_copies) AS total_physical_copies,
-    MIN(price) AS cheapest_book,
-    MAX(price) AS most_expensive_book,
-    ROUND(AVG(price), 2) AS average_book_price
-FROM books;
+SELECT COUNT(*) AS lahore_loans
+FROM loans l
+JOIN students s ON l.student_id = s.id
+WHERE s.city = 'Lahore';
 ```
 
-Result set:
+| lahore_loans |
+| ---: |
+| 5 |
+
+### When nothing matches
+
+If `WHERE` keeps no rows, `COUNT` gives `0`, but `SUM`, `AVG`, `MIN` and `MAX` give `NULL` (there is nothing to add up):
+
+```sql
+SELECT COUNT(*) AS gifts, SUM(amount) AS total
+FROM donations WHERE cause = 'Space Camp';
 ```
-+-------------+-----------------------+---------------+---------------------+--------------------+
-| total_books | total_physical_copies | cheapest_book | most_expensive_book | average_book_price |
-+-------------+-----------------------+---------------+---------------------+--------------------+
-| 145         | 820                   | 450.00        | 2500.00             | 1120.45            |
-+-------------+-----------------------+---------------+---------------------+--------------------+
-```
+
+| gifts | total |
+| ---: | ---: |
+| 0 | NULL |
+
+Use `COALESCE(SUM(amount), 0)` (Chapter 18) if you want `0` instead.
 
 ---
 
-## 4. Review & Practice
+## ⚠️ Common Mistake
+
+**Mistake 1: mixing a plain column with an aggregate.** "Who has the highest GPA?"
+
+```sql
+SELECT name, MAX(gpa) FROM students;
+```
+
+| name | MAX(gpa) |
+| :--- | ---: |
+| Zayd | 3.95 |
+
+Wrong! Bilal has 3.95, not Zayd. `MAX` squeezes all rows into one, and MySQL just picks a name from some row. (Strict servers refuse this query instead.)
+
+**Fixed version:** sort and take one row (Chapter 11):
+
+```sql
+SELECT name, gpa FROM students ORDER BY gpa DESC LIMIT 1;
+```
+
+| name | gpa |
+| :--- | ---: |
+| Bilal | 3.95 |
+
+**Mistake 2: an aggregate inside `WHERE`.**
+
+```sql
+SELECT name FROM students WHERE gpa > AVG(gpa);
+```
+
+```
+ERROR 1111 (HY000): Invalid use of group function
+```
+
+`WHERE` checks one row at a time, but `AVG` needs all rows. Chapter 22 shows the fix: a subquery.
+
+---
+
+## ✍️ Try It
+
+In the [SQL Sandbox](../studios/sql-sandbox/), make a summary for the *Books* cause: number of gifts, total, and average rounded to a whole number.
+
+*Hint: `COUNT(*)`, `SUM(amount)`, `ROUND(AVG(amount))` with `WHERE cause = 'Books'`. The total should be 5500.*
+
+---
+
+## 📝 Recap
+
+- Aggregates turn many rows into one value.
+- `COUNT(*)` counts rows; `COUNT(column)` skips `NULL`; `COUNT(DISTINCT column)` counts different values.
+- `SUM` totals, `AVG` averages (use `ROUND` to tidy), `MIN`/`MAX` find extremes, also for dates.
+- `WHERE` filters rows **before** they are summarised.
+- Do not mix plain columns with aggregates (that needs `GROUP BY`, Chapter 20), and do not put aggregates in `WHERE`.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. Name the five primary SQL aggregate functions.
-2. What is the difference between `COUNT(*)` and `COUNT(email)`?
-3. What does `ROUND(AVG(score), 2)` do?
+1. Name the five aggregate functions.
+2. What is the difference between `COUNT(*)` and `COUNT(city)`?
+3. What does `ROUND(AVG(gpa), 2)` do?
 
-### 🟡 Level 2: Write Aggregation Queries
-Given a `community_welfare` table with `(id, donor_name, amount, campaign)`:
-1. Write a query to find the total amount of money donated to the `'Winter Warmth'` campaign.
-2. Write a query to find the average donation size across all donors.
-3. Write a query to find the largest single donation ever made.
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Level 3: Common Pitfall
-A student writes:
+1. `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`.
+2. `COUNT(*)` counts every row. `COUNT(city)` counts only rows where `city` is not `NULL`.
+3. It works out the average GPA and rounds it to 2 decimal places (3.67).
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Find the total amount given to the *Food Pantry* cause.
+2. Find how many loans there are, the first loan date and the latest loan date.
+3. Find the average number of pages of *Ethics* books.
+
+<details>
+<summary>Show answer</summary>
+
 ```sql
-SELECT full_name, MAX(exam_score) FROM exam_marks;
+SELECT SUM(amount) FROM donations WHERE cause = 'Food Pantry';
+-- 7000
+
+SELECT COUNT(*) AS loans, MIN(loan_date) AS first, MAX(loan_date) AS latest
+FROM loans;
+-- 10 | 2026-09-02 | 2026-10-01
+
+SELECT AVG(pages) FROM books WHERE category = 'Ethics';
+-- 195.0000  (210 + 180 = 390, ÷ 2 = 195)
 ```
-Explain why combining an un-aggregated column (`full_name`) with an aggregate function (`MAX`) without a `GROUP BY` clause produces misleading or invalid results in SQL.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build a "charity dashboard" query for the club noticeboard.
+
+1. In one query, show the number of gifts, the total, the largest gift, the smallest gift, and the average rounded to whole rupees.
+2. Explain why `SELECT donor, MAX(amount) FROM donations;` is **not** a safe way to find the biggest donor, and write a correct query.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```sql
+SELECT COUNT(*)            AS gifts,
+       SUM(amount)         AS total,
+       MAX(amount)         AS largest,
+       MIN(amount)         AS smallest,
+       ROUND(AVG(amount))  AS average
+FROM donations;
+```
+
+| gifts | total | largest | smallest | average |
+| ---: | ---: | ---: | ---: | ---: |
+| 8 | 27500 | 8000 | 1000 | 3438 |
+
+2. `MAX(amount)` gives 8000, but `donor` comes from some row MySQL picks, not necessarily Yusuf's. Correct:
+
+```sql
+SELECT donor, amount FROM donations ORDER BY amount DESC LIMIT 1;
+-- Yusuf | 8000
+```
+
+</details>

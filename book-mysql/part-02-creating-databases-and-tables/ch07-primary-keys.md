@@ -1,118 +1,251 @@
 # Chapter 7: Primary Keys, Constraints, and Integrity
 
-> **Key Idea**: Constraints are the guardrails of a database. A Primary Key uniquely identifies every row, while constraints prevent duplicate, missing, or illegal values from corrupting your records.
+> **Key Idea**: Constraints are the safety rails of a table. A primary key gives every row a unique ID. Other constraints stop empty, repeated or impossible values from getting in.
 
 ---
 
-## 1. What is a Primary Key?
+## 🌟 Real-Life Story
 
-In any society, every citizen has a unique National Identity Card number or passport number. Even if two people have identical names and birthdays, their government ID distinguishes them completely.
+Every student at school gets an ID card with a number. Two students may both be called Fatima, but their card numbers are always different. The office also has rules: every form must have a name, no two students share a card number, and nobody may borrow more than five books. Constraints are those office rules, written into the table so the database checks them every time.
 
-In MySQL, a **Primary Key** fulfills this exact role for table rows:
-- Every table should have **exactly one** primary key.
-- A primary key value must be **unique** across the entire table.
-- A primary key cannot contain `NULL` (it can never be empty).
+## 🎯 What You Will Learn
+
+- Explain what a primary key is and its two rules.
+- Use `AUTO_INCREMENT` to number rows for you.
+- Add `NOT NULL`, `UNIQUE`, `DEFAULT` and `CHECK` constraints.
+- Read the error MySQL gives when a rule is broken.
+- Explain why numeric ids are better keys than names or emails.
+
+---
+
+## 🪪 What is a Primary Key?
+
+A **primary key** is the column that identifies each row. It has two rules:
+
+1. **Unique**: no two rows may have the same value.
+2. **Never empty**: it can never be `NULL`.
+
+A table has **one** primary key.
 
 ```
-Table: students
-┌────┬─────────────────┬──────────────────┐
-│ id │ full_name       │ email            │
-├────┼─────────────────┼──────────────────┤
-│ 1  │ Tariq Siddiq    │ tariq1@email.com │ ◄── PK = 1
-│ 2  │ Tariq Siddiq    │ tariq2@email.com │ ◄── PK = 2 (Different student!)
-└────┴─────────────────┴──────────────────┘
+students
+┌────┬────────┬───────────┐
+│ id │ name   │ city      │
+├────┼────────┼───────────┤
+│ 4  │ Fatima │ Islamabad │ ← PK 4
+│ 9  │ Fatima │ Lahore    │ ← PK 9
+└────┴────────┴───────────┘
+  same name, different id
 ```
 
 ---
 
-## 2. Setting Up a Primary Key with `AUTO_INCREMENT`
+## 🔢 `AUTO_INCREMENT`: Numbers For Free
 
-In 95% of web applications, developers use a synthetic surrogate key: an integer column called `id` configured with `AUTO_INCREMENT`:
+Most tables use a plain number called `id` as the key, with `AUTO_INCREMENT`:
 
 ```sql
-CREATE TABLE courses (
-    id           INT AUTO_INCREMENT,
-    course_code  VARCHAR(20) NOT NULL,
-    course_name  VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id)
+id INT AUTO_INCREMENT PRIMARY KEY
+```
+
+When you add a row without an id, MySQL picks the next number: 1, then 2, then 3. You never have to remember the last number used. All five `school_db` tables use this pattern.
+
+> 💡 Ids may have **gaps**. If an insert fails or a row is deleted, MySQL does not reuse that number. That is normal. An id is a label, not a count.
+
+> 🧪 **Sandbox note:** SQLite writes this as `INTEGER PRIMARY KEY` (optionally `AUTOINCREMENT`, spelled without the underscore).
+
+---
+
+## 🛡️ The Constraint Family
+
+A **constraint** is a rule attached to a column. MySQL checks it on every new or changed row.
+
+| Constraint | Rule | Example |
+| :--- | :--- | :--- |
+| `NOT NULL` | the value is required | `name VARCHAR(50) NOT NULL` |
+| `UNIQUE` | no two rows may repeat it | `card_code VARCHAR(10) UNIQUE` |
+| `DEFAULT` | value used when none is given | `status VARCHAR(10) DEFAULT 'active'` |
+| `CHECK` | value must pass a test | `CHECK (max_books BETWEEN 1 AND 5)` |
+| `PRIMARY KEY` | unique **and** not null | `id INT PRIMARY KEY` |
+
+**`PRIMARY KEY` vs `UNIQUE`:** a table has one primary key, but it can have many `UNIQUE` columns. A student's id is the primary key; their library card code can also be unique.
+
+---
+
+## 🏫 Example: Library Cards
+
+The library wants to issue cards. Each card needs a unique code, a student's name, a status, and a borrowing limit of 1 to 5 books.
+
+```sql
+CREATE TABLE library_cards (
+    id           INT AUTO_INCREMENT PRIMARY KEY,
+    card_code    VARCHAR(10) NOT NULL UNIQUE,
+    student_name VARCHAR(50) NOT NULL,
+    status       VARCHAR(10) NOT NULL DEFAULT 'active',
+    max_books    INT NOT NULL DEFAULT 2
+                 CHECK (max_books BETWEEN 1 AND 5),
+    issued_on    DATE DEFAULT (CURRENT_DATE)
 );
 ```
 
-When inserting data, you do not supply an ID. MySQL calculates and assigns the next number automatically:
-- First inserted course gets `id = 1`
-- Second inserted course gets `id = 2`
-- Third inserted course gets `id = 3`
+`BETWEEN 1 AND 5` means "from 1 up to 5, including both". `CURRENT_DATE` is today's date.
+
+```sql
+DESCRIBE library_cards;
+```
+
+| Field | Type | Null | Key | Default | Extra |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| id | int(11) | NO | PRI | NULL | auto_increment |
+| card_code | varchar(10) | NO | UNI | NULL | |
+| student_name | varchar(50) | NO | | NULL | |
+| status | varchar(10) | NO | | active | |
+| max_books | int(11) | NO | | 2 | |
+| issued_on | date | YES | | curdate() | |
+
+`UNI` marks the unique column. The `Default` column shows the values MySQL will fill in.
+
+### Watching the rules work
+
+To test the rules we need to add rows. The command is `INSERT INTO`, which Chapter 8 teaches fully. Here, just watch what MySQL says.
+
+Two good cards (Zayd gives no limit, so he gets the default 2):
+
+```sql
+INSERT INTO library_cards (card_code, student_name) VALUES ('LC-001', 'Zayd');
+INSERT INTO library_cards (card_code, student_name, max_books) VALUES ('LC-002', 'Maryam', 3);
+```
+
+| id | card_code | student_name | status | max_books |
+| ---: | :--- | :--- | :--- | ---: |
+| 1 | LC-001 | Zayd | active | 2 |
+| 2 | LC-002 | Maryam | active | 3 |
+
+Now four rows that break a rule:
+
+| Attempt | MySQL's answer | Rule broken |
+| :--- | :--- | :--- |
+| card `'LC-001'` again for Bilal | `ERROR 1062: Duplicate entry 'LC-001' for key 'card_code'` | `UNIQUE` |
+| card `'LC-003'` with no name | `ERROR 1364: Field 'student_name' doesn't have a default value` | `NOT NULL` |
+| Aisha with `max_books` 9 | ``ERROR 4025: CONSTRAINT `library_cards.max_books` failed`` | `CHECK` |
+| a row with `id` 1 again | `ERROR 1062: Duplicate entry '1' for key 'PRIMARY'` | `PRIMARY KEY` |
+
+None of these rows were saved. The table stays clean.
+
+> 💡 `CHECK` is enforced by MariaDB 10.2+ and MySQL 8.0.16+. Very old MySQL versions read it but ignored it.
 
 ---
 
-## 3. The Family of Table Constraints
+## 🤔 Why Not Use Names or Emails as Keys?
 
-Beyond the primary key, MySQL offers several essential constraints:
-
-### 1. `NOT NULL`
-Ensures that a column cannot be left empty. If an application tries to save a record without supplying this field, MySQL rejects the insert:
-```sql
-full_name VARCHAR(100) NOT NULL
-```
-
-### 2. `UNIQUE`
-Guarantees that all values in this column are distinct from one another:
-```sql
-email VARCHAR(150) NOT NULL UNIQUE
-```
-
-### 3. `DEFAULT`
-Supplies an automatic fallback value if the insertion query does not specify one:
-```sql
-status VARCHAR(20) NOT NULL DEFAULT 'active',
-enrolled_date DATE DEFAULT (CURRENT_DATE)
-```
-
-### 4. `CHECK`
-Validates that values satisfy a specific logical condition before being saved:
-```sql
-age INT CHECK (age >= 5 AND age <= 100),
-price DECIMAL(8,2) CHECK (price >= 0.00)
-```
+- **Names repeat.** Two students can be called Fatima.
+- **Emails change.** A student may get a new address, and every link to the old one breaks.
+- **Numbers are small and fast** to compare and store.
+- **Privacy (*Amānah*).** An id like `4` shows nothing personal when it appears in links or other tables.
 
 ---
 
-## 4. Complete Schema Demonstration
+## ⚠️ Common Mistake
 
-Notice how all constraints work together to guarantee total data integrity:
+**Mistake: thinking `NOT NULL` always blocks a missing value.**
+
+On a standard XAMPP (relaxed mode), leaving out `student_name` does **not** stop the insert. MariaDB saves an empty text `''` and only gives a warning:
+
+| id | card_code | student_name | status |
+| ---: | :--- | :--- | :--- |
+| 4 | LC-009 | | active |
+
+**Fixed version:** turn on strict mode (Chapter 6) so the rule becomes a real error:
 
 ```sql
-CREATE TABLE IF NOT EXISTS academy_members (
-    id            INT AUTO_INCREMENT PRIMARY KEY,
-    member_code   VARCHAR(12) NOT NULL UNIQUE,
-    full_name     VARCHAR(100) NOT NULL,
-    email         VARCHAR(150) NOT NULL UNIQUE,
-    age           INT NOT NULL CHECK (age >= 10),
-    membership    VARCHAR(20) NOT NULL DEFAULT 'Student',
-    dues_paid     DECIMAL(8, 2) NOT NULL DEFAULT 0.00 CHECK (dues_paid >= 0.00),
-    is_active     BOOLEAN NOT NULL DEFAULT TRUE,
-    created_at    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+SET SESSION sql_mode = 'STRICT_TRANS_TABLES';
 ```
 
-If anyone attempts to insert a member with an age of `-5` or a negative payment, MySQL refuses to save the corrupted record.
+Notice also that the id is 4, not 3. The failed attempts used up number 3. Gaps are normal.
 
 ---
 
-## 5. Review & Practice
+## ✍️ Try It
+
+Add constraints to your `school_db.donations` idea. Write (on paper or in phpMyAdmin with a test table) a column rule that stops a donation `amount` of zero or less.
+
+*Hint: use `CHECK (amount > 0)`.*
+
+---
+
+## 📝 Recap
+
+- A **primary key** is unique and never empty; each table has one.
+- `AUTO_INCREMENT` numbers new rows; gaps are normal.
+- `NOT NULL` = required, `UNIQUE` = no repeats, `DEFAULT` = automatic value, `CHECK` = must pass a test.
+- When a rule is broken, MySQL refuses the row and says which rule.
+- Use strict mode so relaxed XAMPP does not quietly save bad data.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. What are the two core rules of a Primary Key?
+1. What are the two rules of a primary key?
 2. What does `AUTO_INCREMENT` do?
-3. What is the difference between a `PRIMARY KEY` and a `UNIQUE` constraint?
+3. How is `PRIMARY KEY` different from `UNIQUE`?
 
-### 🟡 Level 2: Constraint Application
-Add appropriate constraints to this draft column list for a `teachers` table:
-- `id`: primary key, auto increment
-- `national_id`: 15-character string, must be unique and cannot be empty
-- `full_name`: text up to 100 chars, cannot be empty
-- `salary`: decimal number, cannot be negative
-- `joining_date`: date, cannot be empty
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Level 3: Real-World Reflection
-Why is using `AUTO_INCREMENT` integer IDs safer and cleaner than using a student's full name or email address as the primary key?
+1. Every value is unique, and it is never `NULL`.
+2. It gives each new row the next number automatically.
+3. A table has only one primary key, which is also never null. A table can have many `UNIQUE` columns.
+
+</details>
+
+### 🟡 Level 2: Apply
+Write a `CREATE TABLE` for `teachers`:
+- `id`: whole number, auto-numbered, primary key
+- `staff_code`: 8 characters, required and unique
+- `full_name`: up to 100 characters, required
+- `subject`: up to 40 characters, default `'General'`
+- `joining_date`: date, required
+
+<details>
+<summary>Show answer</summary>
+
+```sql
+CREATE TABLE teachers (
+    id           INT AUTO_INCREMENT PRIMARY KEY,
+    staff_code   CHAR(8) NOT NULL UNIQUE,
+    full_name    VARCHAR(100) NOT NULL,
+    subject      VARCHAR(40) NOT NULL DEFAULT 'General',
+    joining_date DATE NOT NULL
+);
+```
+
+`VARCHAR(8)` for `staff_code` is also fine.
+
+</details>
+
+### 🔴 Level 3: Challenge
+The charity club wants a `pledges` table for promises to donate to a cause.
+
+1. Give it an auto-numbered primary key.
+2. Add a required `donor` name and a required `cause`.
+3. Add an `amount` that must be more than 0.
+4. Add a `status` that defaults to `'promised'`.
+5. Explain why the key should be `id` and not `donor`.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```sql
+CREATE TABLE pledges (
+    id     INT AUTO_INCREMENT PRIMARY KEY,
+    donor  VARCHAR(50) NOT NULL,
+    cause  VARCHAR(50) NOT NULL,
+    amount INT NOT NULL CHECK (amount > 0),
+    status VARCHAR(10) NOT NULL DEFAULT 'promised'
+);
+```
+
+The same donor can make many pledges, so `donor` is not unique and cannot be the key. An `id` is unique for every pledge.
+
+</details>

@@ -1,119 +1,233 @@
 # Chapter 6: SQL Data Types
 
-> **Key Idea**: Choosing the right data type ensures storage efficiency, prevents invalid data from entering the database, and guarantees accurate mathematical calculations.
+> **Key Idea**: Every column has a data type. The right type saves space, keeps wrong data out, and makes sums and dates work correctly.
 
 ---
 
-## 1. Why Data Types Matter
+## 🌟 Real-Life Story
 
-Computers treat numbers differently from text. If you store product prices as text (`"1500"`), you cannot accurately calculate total sums or averages. If you store dates as plain words (`"Next Tuesday"`), you cannot sort records chronologically.
+A school office has different boxes for different things. Exam papers go in the paper tray. Coins for the charity drive go in a locked coin box. Library cards go in a card file. If someone dropped coins into the paper tray, counting the money would be a mess. Data types are the database's labelled boxes: numbers go with numbers, dates with dates, text with text.
 
-By assigning a specific **data type** to each column, MySQL strictly enforces data validity:
+## 🎯 What You Will Learn
+
+- Explain why each column needs a data type.
+- Choose between `INT`, `DECIMAL`, `FLOAT`, `VARCHAR`, `CHAR`, `TEXT`, `DATE` and `BOOLEAN`.
+- Explain why money must use `DECIMAL`, not `FLOAT`.
+- Understand why each `school_db` column has the type it has.
+- Turn on strict mode so MySQL rejects wrong data.
+
+---
+
+## ❓ Why Data Types Matter
+
+A computer treats `15` (a number) and `'15'` (text) differently.
+
+- Store prices as text and you cannot add them up properly.
+- Store dates as words like `'next Tuesday'` and you cannot sort them by time.
+
+With a data type, MySQL checks every value that goes into the column:
 
 ```
 Column: age INT
-Input: 15       ──► ✅ Accepted
-Input: "Fifteen"──► ❌ Rejected with Data Type Error!
+15          → accepted
+'Fifteen'   → rejected (or turned into 0!)
 ```
 
 ---
 
-## 2. Core SQL Data Types
+## 🔢 Family 1: Number Types
 
-MySQL categorizes data types into four main families:
-
-### Family 1: Numeric Types
-
-| Data Type | Description | Size / Range | Typical Use Case |
+| Type | What it holds | Range or size | Good for |
 | :--- | :--- | :--- | :--- |
-| `INT` | Standard 32-bit whole number | -2.1 billion to +2.1 billion | Record IDs, student counts, quantity |
-| `BIGINT` | Large 64-bit whole number | Massive values | High-traffic transaction IDs |
-| `DECIMAL(M, D)` | **Exact fixed-point decimal** | $M$ total digits, $D$ decimal places | **Financial amounts, currency, prices** |
-| `FLOAT` / `DOUBLE` | Approximate floating-point numbers | Scientific floating values | Sensor readings, scientific measurements |
+| `INT` | whole numbers | about −2.1 billion to +2.1 billion | ids, page counts, grades |
+| `BIGINT` | very large whole numbers | about ±9 × 10¹⁸ | huge counters |
+| `DECIMAL(M,D)` | **exact** decimals | M digits in total, D after the point | money, GPA, marks |
+| `FLOAT` / `DOUBLE` | **approximate** decimals | very large or tiny | science readings |
 
-> ⚠️ **Financial Rule (*Halal Commerce*)**: Never use `FLOAT` or `DOUBLE` for financial pricing or charitable donations! Floats suffer from internal rounding errors (e.g., $0.1 + 0.2 = 0.30000000000000004$). Always use `DECIMAL(10, 2)` for currency to maintain exact monetary fairness and precision.
+`DECIMAL(3,2)` means 3 digits in total, 2 of them after the point. So the largest value is `9.99`. That is perfect for a GPA from 0 to 4.
+
+### Why money needs `DECIMAL`
+
+`FLOAT` and `DOUBLE` store numbers in binary (base 2). Many decimals, such as 0.1, cannot be stored exactly in binary. Tiny errors creep in. Here we store 0.1 in a `DOUBLE` column, then add 0.2:
+
+| dbl |
+| ---: |
+| 0.30000000000000004 |
+
+And `1234567.89` stored in a `FLOAT` column comes back as:
+
+| f (FLOAT) | d (DECIMAL(10,2)) |
+| ---: | ---: |
+| 1234570 | 1234567.89 |
+
+The `FLOAT` lost the paise! For charity donations, fees or Zakat, fairness means being exact. Always use `DECIMAL(10,2)` for money (up to 99,999,999.99).
 
 ---
 
-### Family 2: String & Text Types
+## 🔤 Family 2: Text Types
 
-| Data Type | Description | Max Length | Typical Use Case |
-| :--- | :--- | :--- | :--- |
-| `VARCHAR(N)` | Variable-length text up to $N$ chars | Up to 65,535 chars | Names, emails, titles, usernames |
-| `CHAR(N)` | Fixed-length text | 1 to 255 chars | Country codes (`'IN'`, `'US'`), postal codes |
-| `TEXT` | Long paragraph text | Up to 64 KB | Book summaries, blog article bodies |
-| `LONGTEXT` | Very large text | Up to 4 GB | Complete electronic book manuscripts |
-
-```sql
--- VARCHAR only uses as much storage as the string requires:
-name VARCHAR(100) -- Storing "Aisha" uses 5 bytes + 1 length byte (6 bytes total)
-
--- CHAR always reserves the exact specified width:
-country_code CHAR(2) -- Storing "IN" uses exactly 2 bytes
-```
-
-
----
-
-### Family 3: Date and Time Types
-
-| Data Type | Format | Typical Use Case |
+| Type | What it holds | Good for |
 | :--- | :--- | :--- |
-| `DATE` | `YYYY-MM-DD` | Date of birth, enrollment date, publication date |
-| `TIME` | `HH:MM:SS` | Class start time, store opening hours |
-| `DATETIME` | `YYYY-MM-DD HH:MM:SS` | Exact order timestamp, account creation time |
-| `TIMESTAMP` | UTC timestamp with auto-update | `created_at`, `updated_at` system logs |
+| `VARCHAR(N)` | text up to N characters; uses only the space needed | names, titles, cities |
+| `CHAR(N)` | text of exactly N characters | codes like `'PK'` or `'IN'` |
+| `TEXT` | long text, up to about 64 KB | a book summary |
+| `LONGTEXT` | very long text, up to 4 GB | a whole e-book |
+
+`VARCHAR(50)` storing `'Aisha'` uses only 5 characters of space plus a tiny length marker. `CHAR(50)` would always reserve the full 50.
+
+> 💡 **Phone numbers are text, not numbers.** You never add phone numbers together, and they can start with `0` or `+`. Use `VARCHAR(20)`.
+
+---
+
+## 📅 Family 3: Date and Time Types
+
+| Type | Format | Good for |
+| :--- | :--- | :--- |
+| `DATE` | `YYYY-MM-DD` | borrowing date, birthday |
+| `TIME` | `HH:MM:SS` | class start time |
+| `DATETIME` | `YYYY-MM-DD HH:MM:SS` | exact moment of an event |
+| `TIMESTAMP` | same look, stored in UTC | when a row was created or changed |
+
+Dates are written year first: `'2026-09-02'` means 2 September 2026. This order sorts correctly from oldest to newest.
+
+A common pattern lets MySQL fill in the time for you:
 
 ```sql
--- Automatic timestamp columns in modern tables
-created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ```
 
 ---
 
-### Family 4: Boolean Type
+## ✅ Family 4: True or False (`BOOLEAN`)
 
-| Data Type | Underlying Implementation | Allowed Values | Typical Use Case |
-| :--- | :--- | :--- | :--- |
-| `BOOLEAN` / `BOOL` | Stored internally as `TINYINT(1)` | `1` (TRUE) or `0` (FALSE) | `is_active`, `is_published`, `paid` |
+`BOOLEAN` (or `BOOL`) holds true or false. MySQL really stores it as a tiny number: `1` for TRUE and `0` for FALSE. If you insert `TRUE` and read it back, you see `1`.
 
 ---
 
-## 3. Real-World Schema Demonstration: Ethical Organic Farm
+## 🏫 The Types in `school_db`
 
-Let's see all four families working together in an ethical farm inventory table:
+Here is why Chapter 5 chose each type:
+
+| Column | Type | Why |
+| :--- | :--- | :--- |
+| `students.name` | `VARCHAR(50)` | names vary in length |
+| `students.grade` | `INT` | a whole number like 8 |
+| `students.gpa` | `DECIMAL(3,2)` | exact, like 3.95; max 9.99 |
+| `books.pages` | `INT` | whole number |
+| `books.available` | `VARCHAR(3)` | holds `'Yes'` or `'No'` |
+| `loans.loan_date` | `DATE` | can be sorted by time |
+| `donations.amount` | `INT` | whole rupees only |
+
+`available` could also be a `BOOLEAN`. We kept `'Yes'`/`'No'` text because it is easy to read for beginners. Both are fine; just choose one and stay consistent.
+
+> 🧪 **Sandbox note:** SQLite (the sandbox) is relaxed about types. It will store `'Fifteen'` in a number column without complaint. MySQL checks types; SQLite mostly does not.
+
+---
+
+## ⚠️ Common Mistake
+
+**Mistake: trusting MySQL to always reject bad data.**
+
+A standard XAMPP install runs MariaDB in a relaxed mode. Watch what happens:
 
 ```sql
-CREATE TABLE IF NOT EXISTS honey_products (
-    id             INT AUTO_INCREMENT PRIMARY KEY,
-    product_name   VARCHAR(120) NOT NULL,
-    category       VARCHAR(50) NOT NULL DEFAULT 'Organic Honey',
-    weight_grams   INT NOT NULL,
-    retail_price   DECIMAL(8, 2) NOT NULL,
-    harvest_date   DATE NOT NULL,
-    is_in_stock    BOOLEAN NOT NULL DEFAULT TRUE,
-    created_at     TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+INSERT INTO t (age) VALUES ('Fifteen');
+INSERT INTO t (gpa) VALUES (12.5);      -- gpa is DECIMAL(3,2)
+INSERT INTO t (dt)  VALUES ('next Tuesday');
 ```
+
+No error appears! Only a warning. The stored values are:
+
+| age | gpa | dt |
+| ---: | ---: | :--- |
+| 0 | 9.99 | 0000-00-00 |
+
+`'Fifteen'` became `0`, `12.5` was cut down to `9.99`, and the date became zeros. That is wrong data, silently saved.
+
+**Fixed version:** turn on **strict mode** for your session:
+
+```sql
+SET SESSION sql_mode = 'STRICT_TRANS_TABLES';
+```
+
+Now the same insert stops with a clear error:
+
+```
+ERROR 1366 (22007): Incorrect integer value: 'Fifteen' for column ... `age`
+```
+
+Most hosting servers already use strict mode. Turn it on while you practise so you see your mistakes.
 
 ---
 
-## 4. Review & Practice
+## ✍️ Try It
+
+In phpMyAdmin (database `school_db`), run `DESCRIBE donations;`. Then answer:
+
+1. Which column would you change to `DECIMAL(10,2)` if donors could give 1500.50 rupees?
+2. Which type is `donated_on`, and why is that better than `VARCHAR`?
+
+*Hint: think about which column holds money and which column you would sort by time.*
+
+---
+
+## 📝 Recap
+
+- A data type says what kind of value a column can hold.
+- Use `INT` for whole numbers and `DECIMAL(M,D)` for exact decimals and money.
+- `FLOAT`/`DOUBLE` are approximate; never use them for money.
+- Use `VARCHAR` for most text, including phone numbers; `DATE` for dates written `YYYY-MM-DD`.
+- XAMPP is relaxed by default; strict mode makes MySQL reject wrong data.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. Why is `DECIMAL(10, 2)` preferred over `FLOAT` when storing currency or Zakat amounts?
-2. What date format does MySQL expect for a `DATE` column?
+1. Why is `DECIMAL(10,2)` better than `FLOAT` for donation amounts?
+2. In what format does MySQL expect a `DATE`?
 3. What is the difference between `VARCHAR(50)` and `CHAR(50)`?
 
-### 🟡 Level 2: Type Selection
-For each of the following real-world values, choose the most appropriate MySQL data type:
-- A student's birth date (`2008-04-15`)
-- A phone number (`"+91-94190-12345"`)
-- Whether a book is currently borrowed (`TRUE` / `FALSE`)
-- Price of an educational textbook in rupees (`1450.75`)
-- The full chapter text of an encyclopedia article
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Level 3: Design Evaluation
-A developer stores phone numbers as `INT`. What two serious problems will happen when users enter phone numbers like `"+919419012345"` or numbers starting with a leading zero like `"09419012345"`?
+1. `DECIMAL` is exact. `FLOAT` is approximate, so amounts can come back slightly wrong (for example 1234567.89 became 1234570).
+2. `YYYY-MM-DD`, for example `'2026-09-02'`.
+3. `VARCHAR(50)` uses only the space the text needs, up to 50 characters. `CHAR(50)` always takes the full 50.
 
+</details>
+
+### 🟡 Level 2: Apply
+Choose the best type for each value:
+1. A student's birth date: `2012-04-15`
+2. A phone number: `+92-300-1234567`
+3. Whether a book is on the shelf: true/false
+4. A textbook price in rupees: `1450.75`
+5. The full text of a long encyclopedia article
+
+<details>
+<summary>Show answer</summary>
+
+1. `DATE`
+2. `VARCHAR(20)` (it has `+` and dashes, and is never used in sums)
+3. `BOOLEAN` (or `VARCHAR(3)` holding `'Yes'`/`'No'`, as in `school_db`)
+4. `DECIMAL(10,2)`
+5. `TEXT` (or `LONGTEXT` if it is extremely long)
+
+</details>
+
+### 🔴 Level 3: Challenge
+A developer stores phone numbers in an `INT` column.
+
+1. Predict what happens to `'03001234567'` in relaxed mode and in strict mode.
+2. Explain two problems with this design.
+3. Write a corrected column definition.
+
+<details>
+<summary>Show one possible answer</summary>
+
+1. The number 3001234567 is larger than the biggest `INT` (2,147,483,647). In relaxed mode MariaDB stores `2147483647` with a warning, so every long number turns into the same wrong value. In strict mode the insert fails with `ERROR 1264 ... Out of range value`.
+2. Problems: the leading `0` is lost; `+` and dashes cannot be stored; long numbers do not fit.
+3. `phone VARCHAR(20)`
+
+</details>

@@ -1,101 +1,278 @@
 # Chapter 14: Safe Updates, Transactions & Data Protection
 
-> **Key Idea**: Data is a trust (*Amānah*). Database transactions guarantee that multiple linked changes either succeed together completely or fail together without leaving corrupted records.
+> **Key Idea**: Data is a trust (*Amānah*). A transaction groups several changes so they all succeed together or all get cancelled together. Safe-updates mode blocks risky `UPDATE` and `DELETE` statements.
 
 ---
 
-## 1. What is a Database Transaction?
+## 🌟 Real-Life Story
 
-Imagine you are transferring Rs 1,000 from a school library fund into a book-purchasing account:
-1. **Step 1**: Deduct Rs 1,000 from `Account A`.
-2. **Step 2**: Add Rs 1,000 to `Account B`.
+When Hamza borrows a book, the librarian does two things. She writes a new line in the borrowing notebook, and she moves the book's card from "on shelf" to "out". If the bell rings after the first step, the notebook says Hamza has the book, but the card still says it is on the shelf. The records now disagree. A transaction is like a rule: "finish both steps, or undo the first one".
 
-What happens if a power failure or network crash occurs right after Step 1?
-- Rs 1,000 vanished from Account A, but never arrived at Account B! The financial record is corrupted.
+## 🎯 What You Will Learn
 
-A **Transaction** bundles multiple SQL operations into a single atomic unit:
-- If all steps succeed: **`COMMIT`** (Permanently save changes).
-- If any step fails: **`ROLLBACK`** (Revert everything back to the exact moment before the transaction started).
+- Explain what a transaction is and why it is "all or nothing".
+- Use `START TRANSACTION`, `COMMIT` and `ROLLBACK`.
+- Describe the four ACID promises in plain words.
+- Turn on safe-updates mode to block `UPDATE`/`DELETE` without a key.
+- Know where transactions work (InnoDB, the command line, one phpMyAdmin run).
+
+---
+
+## 🔗 What is a Transaction?
+
+Borrowing a library book needs **two** changes:
+
+1. **Add** a row to `loans`.
+2. **Update** the book: `available = 'No'`.
+
+If the computer crashes between steps 1 and 2, the data is half-done. The loan exists, but the catalogue still shows the book as available. Another student might be told it is on the shelf.
+
+A **transaction** wraps several statements into one unit:
+
+- If everything works: **`COMMIT`** saves all the changes for good.
+- If anything goes wrong: **`ROLLBACK`** cancels all of them, as if nothing happened.
 
 ```
-┌────────────────────────────────────────────────────────┐
-│                   START TRANSACTION;                   │
-├────────────────────────────────────────────────────────┤
-│ 1. UPDATE accounts SET balance = balance - 1000 ...   │
-│ 2. UPDATE accounts SET balance = balance + 1000 ...   │
-├────────────────────────────────────────────────────────┤
-│   If Successful: COMMIT;   │   If Error: ROLLBACK;     │
-│   (Saved permanently)      │   (Zero money is lost!)   │
-└────────────────────────────┴───────────────────────────┘
+START TRANSACTION;
+ ├ 1. INSERT INTO loans ...
+ └ 2. UPDATE books ...
+        │
+   ┌────┴─────┐
+   ▼          ▼
+COMMIT;    ROLLBACK;
+(save all) (undo all)
 ```
 
 ---
 
-## 2. Using Transactions in MySQL (InnoDB)
+## 🧪 A Transaction You Can Watch
 
-Transactions require the `InnoDB` storage engine (MySQL's default).
+Before we start, *Arabic Calligraphy Basics* is on the shelf:
 
 ```sql
--- Step 1: Begin the transaction
+SELECT id, title, available FROM books WHERE id = 8;
+```
+
+| id | title | available |
+| ---: | :--- | :--- |
+| 8 | Arabic Calligraphy Basics | Yes |
+
+### Try it, then cancel
+
+```sql
 START TRANSACTION;
 
--- Step 2: Perform the first modification
-UPDATE community_funds 
-SET balance = balance - 5000.00 
-WHERE fund_name = 'General Welfare';
+INSERT INTO loans (student_id, book_id, loan_date, returned)
+VALUES (7, 8, '2026-10-13', 'No');
 
--- Step 3: Perform the second modification
-UPDATE community_funds 
-SET balance = balance + 5000.00 
-WHERE fund_name = 'Winter Warmth Project';
-
--- Step 4: If no errors occurred, permanently commit the changes
-COMMIT;
+UPDATE books SET available = 'No' WHERE id = 8;
 ```
 
-If something went wrong during Step 3, you simply issue:
+Inside the transaction, the change is visible to you:
+
+| id | title | available |
+| ---: | :--- | :--- |
+| 8 | Arabic Calligraphy Basics | No |
+
+Now Hamza changes his mind:
+
 ```sql
--- Reverses Step 2 and Step 3 entirely!
 ROLLBACK;
 ```
 
----
+Check again:
 
-## 3. The ACID Principles
+| id | title | available |
+| ---: | :--- | :--- |
+| 8 | Arabic Calligraphy Basics | Yes |
 
-Reliable relational databases adhere to the four **ACID** properties:
+And `SELECT * FROM loans WHERE student_id = 7;` gives `Empty set`. **Both** changes were undone.
 
-1. **Atomicity (All or Nothing)**: Either the entire transaction succeeds, or nothing changes at all.
-2. **Consistency (Rules are Respected)**: Constraints (Foreign Keys, NOT NULL, CHECK) are never violated.
-3. **Isolation (No Interference)**: Transactions running simultaneously do not corrupt or read each other's half-finished work.
-4. **Durability (Permanent Once Saved)**: Once `COMMIT` is executed, the data is guaranteed to survive power outages and crashes.
-
----
-
-## 4. Enabling Safe Updates Mode in MySQL
-
-To prevent disastrous `UPDATE` or `DELETE` queries that forget a `WHERE` clause, MySQL provides `SQL_SAFE_UPDATES`:
+### Do it for real
 
 ```sql
--- Turn ON safe updates mode
-SET sql_safe_updates = 1;
+START TRANSACTION;
 
--- Now, this query will be safely BLOCKED by MySQL:
--- ERROR 1175: You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column.
-UPDATE students SET grade_level = 10;
+INSERT INTO loans (student_id, book_id, loan_date, returned)
+VALUES (7, 8, '2026-10-13', 'No');
+
+UPDATE books SET available = 'No' WHERE id = 8;
+
+COMMIT;
 ```
+
+```sql
+SELECT * FROM loans WHERE student_id = 7;
+```
+
+| id | student_id | book_id | loan_date | returned |
+| ---: | ---: | ---: | :--- | :--- |
+| 12 | 7 | 8 | 2026-10-13 | No |
+
+Why id 12 and not 11? The cancelled insert had already used number 11. A rollback undoes the row, not the counter. Gaps again, and that is fine.
+
+### Where transactions work
+
+- Tables must use the **InnoDB** storage engine. It is the default in MySQL and MariaDB, so your `school_db` tables already use it.
+- Normally MySQL is in **autocommit** mode: each statement is saved the moment it runs. `START TRANSACTION` pauses that until you `COMMIT` or `ROLLBACK`.
+- In **phpMyAdmin**, put the whole transaction in **one** SQL box and press Go once. Each Go is a fresh connection, so a transaction cannot stretch across two clicks. The command line has no such limit.
+- `TRUNCATE`, `DROP` and `CREATE TABLE` save immediately and cannot be rolled back.
+
+> 🧪 **Sandbox note:** SQLite writes `BEGIN TRANSACTION;` (or just `BEGIN;`) instead of `START TRANSACTION;`. `COMMIT` and `ROLLBACK` are the same. MySQL also accepts `BEGIN;`.
 
 ---
 
-## 5. Review & Practice
+## 🧱 The ACID Promises
+
+A trustworthy database keeps four promises, known by the letters **ACID**:
+
+| Letter | Name | Plain words |
+| :--- | :--- | :--- |
+| **A** | Atomicity | All steps happen, or none do. (*Atomic* means "cannot be split".) |
+| **C** | Consistency | The rules (`NOT NULL`, `UNIQUE`, `CHECK`...) are never broken. |
+| **I** | Isolation | Two people working at once do not see each other's half-finished work. |
+| **D** | Durability | After `COMMIT`, the data survives a crash or power cut. |
+
+---
+
+## 🦺 Safe-Updates Mode
+
+Chapters 12 and 13 showed how one missing `WHERE` can change every row. MySQL has a guard for this:
+
+```sql
+SET sql_safe_updates = 1;
+```
+
+Now try a careless update:
+
+```sql
+UPDATE students SET grade = 10;
+```
+
+```
+ERROR 1175 (HY000): You are using safe update mode and you tried
+to update a table without a WHERE that uses a KEY column
+```
+
+Blocked! A **key column** is an indexed column such as the primary key `id`. This still works:
+
+```sql
+DELETE FROM loans WHERE id = 1;
+```
+
+Safe mode is strict. Even `DELETE FROM loans WHERE returned = 'Yes';` is blocked, because `returned` is not a key. If you really mean it, turn the guard off for one statement with `SET sql_safe_updates = 0;`, run it carefully, and turn it back on.
+
+The setting lasts until you log out. MySQL Workbench, another MySQL tool, switches it on by default.
+
+> 🧪 **Sandbox note:** SQLite has no safe-updates mode. The sandbox's **Reset** button is your safety net there.
+
+---
+
+## 🤲 Protecting Data Is an *Amānah*
+
+- **Wrap linked changes in a transaction**, so records never disagree.
+- **Back up** before big changes (phpMyAdmin → Export).
+- **Keep a history** of who changed what and when. Many apps add `updated_at` and `updated_by` columns, so mistakes or misuse can be traced honestly.
+- **Give the website's database user only the rights it needs.** A web page should never be able to `DROP` a table.
+
+---
+
+## ⚠️ Common Mistake
+
+**Mistake: forgetting to finish the transaction.**
+
+```sql
+START TRANSACTION;
+UPDATE books SET available = 'No' WHERE id = 2;
+-- ... then the student closes the window
+```
+
+What happens: there was no `COMMIT`. When the connection closes, MySQL rolls the change back. The student thinks it was saved, but it was not.
+
+**Fixed version:** always end with `COMMIT;` (to save) or `ROLLBACK;` (to cancel), then check with a `SELECT`.
+
+---
+
+## ✍️ Try It
+
+In the [SQL Sandbox](../studios/sql-sandbox/):
+
+1. Run `BEGIN;`
+2. Delete every donation with `DELETE FROM donations;`
+3. Run `SELECT * FROM donations;` — empty!
+4. Run `ROLLBACK;` and select again.
+
+*Hint: after the rollback all 8 donations are back, without pressing Reset.*
+
+---
+
+## 📝 Recap
+
+- A transaction groups changes: `START TRANSACTION; ... COMMIT;` or `ROLLBACK;`.
+- `COMMIT` saves all the changes; `ROLLBACK` cancels all of them.
+- ACID = all-or-nothing, rules kept, no interference, safe after commit.
+- Use one phpMyAdmin run (or the command line) for a whole transaction.
+- `SET sql_safe_updates = 1;` blocks `UPDATE`/`DELETE` that do not use a key column.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. What does the `COMMIT` statement do in a database transaction?
-2. What does `ROLLBACK` do if an error occurs during a transaction?
-3. What does each letter in **ACID** stand for?
+1. What does `COMMIT` do?
+2. What does `ROLLBACK` do?
+3. What do the letters of **ACID** stand for?
 
-### 🟡 Level 2: Transaction Script
-Write a transaction block that transfers 3 copies of `"Web Development Book"` from `warehouse_stock` to `library_shelf_stock`.
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Level 3: Ethical Responsibility (*Amānah*)
-Explain why financial transactions and student mark alterations must always be recorded with audit timestamps and user IDs.
+1. It saves every change made since `START TRANSACTION`, permanently.
+2. It cancels every change made since `START TRANSACTION`.
+3. **A**tomicity, **C**onsistency, **I**solation, **D**urability.
+
+</details>
+
+### 🟡 Level 2: Apply
+Fatima (student 4) returns *Digital Stewardship* (book 6) from loan 6. Write a transaction that marks the loan as returned **and** marks the book as available.
+
+<details>
+<summary>Show answer</summary>
+
+```sql
+START TRANSACTION;
+
+UPDATE loans SET returned = 'Yes' WHERE id = 6;
+UPDATE books SET available = 'Yes' WHERE id = 6;
+
+COMMIT;
+```
+
+(In the original data, loan 6 is already marked `'Yes'` and book 6 is already available, so MySQL reports `Changed: 0` for both. The pattern is what matters.)
+
+</details>
+
+### 🔴 Level 3: Challenge
+The charity club moves Layla's gift (donation 8) from *Clean Water* to *Books*, and records a note in a `donation_changes` table at the same time.
+
+1. Write a transaction with both steps.
+2. Say what should happen if the second step fails.
+3. Explain why keeping such a change log is part of *Amānah*.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```sql
+START TRANSACTION;
+
+UPDATE donations SET cause = 'Books' WHERE id = 8;
+
+INSERT INTO donation_changes (donation_id, old_cause, new_cause, changed_on)
+VALUES (8, 'Clean Water', 'Books', '2026-10-13');
+
+COMMIT;
+```
+
+2. Run `ROLLBACK;` instead of `COMMIT;`. Then the cause is not changed without a record of the change.
+3. Donors trusted the club with their money for a cause. A log shows honestly who moved a gift, when and why, so it can be checked later.
+
+</details>
