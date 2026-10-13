@@ -177,8 +177,9 @@
                 <div>
                     <h2 style="margin: 0; font-size: 1.2rem; color: #34d399;">Password Entropy &amp; GPU Cracking Estimator</h2>
                     <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: #94a3b8;">Test password strength, calculate bits of entropy, and estimate resistance to an RTX 4090 GPU cluster.</p>
+                    <p style="margin: 0.2rem 0 0; font-size: 0.78rem; color: #94a3b8;">The passphrase button picks 5 words at random from a small demo list of 64. Real passphrase tools use a list of 7,776 words, which makes each word much harder to guess.</p>
                 </div>
-                <button type="button" class="btn-action" onclick="generatePassphrase()">Generate 4-Word Passphrase 🎲</button>
+                <button type="button" class="btn-action" onclick="generatePassphrase()">Make a 5-Word Passphrase 🔑</button>
             </div>
 
             <div class="studio-card-body">
@@ -459,18 +460,24 @@
             `;
         }
 
+        // Passphrase demo: 5 words from a 64-word list, picked with the browser's secure random
+        // generator (crypto.getRandomValues), not Math.random(). Real generators use 7,776 words.
         function generatePassphrase() {
             const words = [
-                'falcon', 'olive', 'river', 'meadow', 'cedar', 'summit',
-                'harbor', 'galaxy', 'canyon', 'breeze', 'oasis', 'lantern',
-                'starlight', 'amber', 'citadel', 'compass', 'valley', 'horizon'
+                'falcon', 'olive', 'river', 'meadow', 'cedar', 'summit', 'harbor', 'galaxy',
+                'canyon', 'breeze', 'oasis', 'lantern', 'starlight', 'amber', 'citadel', 'compass',
+                'valley', 'horizon', 'pebble', 'orchard', 'glacier', 'maple', 'comet', 'island',
+                'thunder', 'willow', 'saffron', 'meteor', 'harvest', 'quartz', 'lagoon', 'prairie',
+                'beacon', 'coral', 'dune', 'ember', 'fern', 'granite', 'heron', 'iris',
+                'jasmine', 'kestrel', 'lotus', 'marble', 'nectar', 'orbit', 'pine', 'quill',
+                'raven', 'sapphire', 'tide', 'urchin', 'velvet', 'walnut', 'zephyr', 'atlas',
+                'birch', 'cobalt', 'delta', 'falls', 'garnet', 'hazel', 'ivory', 'juniper'
             ];
-            const p1 = words[Math.floor(Math.random() * words.length)];
-            const p2 = words[Math.floor(Math.random() * words.length)];
-            const p3 = words[Math.floor(Math.random() * words.length)];
-            const p4 = words[Math.floor(Math.random() * words.length)];
+            const picks = new Uint32Array(5);
+            crypto.getRandomValues(picks);
+            const phrase = Array.from(picks, n => words[n % words.length]).join('-');
 
-            document.getElementById('pwdInput').value = `${p1}-${p2}-${p3}-${p4}`;
+            document.getElementById('pwdInput').value = phrase;
             evaluatePassword();
         }
 

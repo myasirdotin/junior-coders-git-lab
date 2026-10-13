@@ -3,9 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Code Studios &amp; Sandboxes | Junior Coders</title>
-    <meta name="description" content="Zero-setup interactive coding sandboxes for school students: Web Studio (HTML/CSS/JS), Python in-browser console, and SQL playground.">
+    <title>Studios | Junior Coders</title>
+    <meta name="description" content="Run real HTML, CSS, JavaScript, Python, PHP and SQL in your browser with nothing to install, plus security and networking labs.">
     <link rel="stylesheet" href="../styles/bei-core.css">
+    <style>
+        /* Studios hub. Colours come from bei-core.css tokens, so light and dark both work. */
+        .st-header { margin-bottom: 1.25rem; }
+        .st-pick { margin: 0 0 2rem; padding: 1rem 1.1rem; border-radius: var(--radius-lg); background: var(--bg-surface); border: 1px solid var(--border-subtle); }
+        .st-pick h2 { font-size: 1.1rem; margin: 0 0 0.6rem; }
+        .st-pick ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.45rem; }
+        .st-pick li { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; min-height: 44px; padding: 0.35rem 0.4rem 0.35rem 0.8rem;
+                      border-radius: 10px; background: var(--bg-surface-elevated); color: var(--text-secondary); font-size: 0.9rem; }
+        .st-pick a { flex: none; padding: 0.4rem 0.7rem; border-radius: 8px; background: var(--brand-primary); color: #fff; font-weight: 800; font-size: 0.84rem; text-decoration: none; }
+
+        .st-group { margin-bottom: 2.25rem; }
+        .st-group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; margin-bottom: 0.9rem; }
+        .st-group-head h2 { font-size: 1.3rem; margin: 0; scroll-margin-top: 84px; }
+        .st-group-head p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+        .st-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr)); gap: 1rem; }
+
+        .st-card { display: flex; flex-direction: column; gap: 0.6rem; padding: 1.15rem; border-radius: var(--radius-lg);
+                   background: var(--bg-surface); border: 1px solid var(--border-subtle); transition: border-color 0.2s ease, transform 0.2s ease; }
+        .st-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
+        .st-head { display: flex; gap: 0.8rem; align-items: center; }
+        .st-icon { flex: none; width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center; font-size: 1.55rem; background: var(--bg-surface-elevated); }
+        .st-card h3 { font-size: 1.12rem; margin: 0 0 0.15rem; }
+        .st-meta { margin: 0; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+        .st-desc { margin: 0; color: var(--text-primary); font-size: 0.94rem; line-height: 1.5; }
+        .st-points { flex: 1; margin: 0; padding-left: 1.1rem; display: grid; gap: 0.3rem; color: var(--text-secondary); font-size: 0.86rem; line-height: 1.45; }
+        .st-pairs { margin: 0; font-size: 0.84rem; color: var(--text-secondary); }
+        .st-pairs a { color: var(--brand-cyan); font-weight: 700; }
+        .st-btn { display: flex; align-items: center; justify-content: center; min-height: 44px; border-radius: 10px; background: var(--brand-primary);
+                  color: #fff; font-weight: 800; font-size: 0.92rem; text-decoration: none; }
+        .st-btn:hover { filter: brightness(1.1); }
+
+        .st-tips { margin: 1rem 0 3rem; padding: 1.25rem 1.4rem; border-radius: var(--radius-lg); background: var(--bg-surface); border: 1px solid var(--border-subtle); }
+        .st-tips h2 { font-size: 1.15rem; margin: 0 0 0.6rem; }
+        .st-tips ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.45rem; color: var(--text-secondary); line-height: 1.5; }
+
+        @media (max-width: 640px) {
+            .st-header h1 { font-size: 1.9rem; }
+            .st-pick { padding: 0.85rem; margin-bottom: 1.5rem; }
+            .st-pick ul { grid-template-columns: 1fr; }
+            .st-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+            .st-card { padding: 0.95rem; }
+            .st-tips { padding: 1rem; }
+        }
+    </style>
 </head>
 <body>
 
@@ -34,112 +78,161 @@
         </div>
     </nav>
 
-    <main class="container">
-        <header class="learn-header">
+    <main class="container st-page">
+        <header class="learn-header st-header">
             <div class="breadcrumbs">
                 <a href="../index.html">Home</a> <span>/</span>
                 <span>Studios</span>
             </div>
-            <h1>Interactive Code Studios &amp; Sandboxes ⚡</h1>
-            <p class="lead">Zero setup. No software installs. Instant feedback. Test concepts immediately in your browser with live syntax validation and educational templates.</p>
+            <h1>Studios ⚡</h1>
+            <p class="lead">Write and run real code right here in your browser. Nothing to install, and nothing you type is sent anywhere.</p>
         </header>
 
-        <div class="gateways-grid">
-            <!-- 1. Web Studio -->
-            <div class="gateway-card web">
-                <div class="gateway-header">
-                    <div class="gateway-icon">🌐</div>
-                    <div>
-                        <span class="gateway-meta" style="color: var(--brand-cyan);">HTML • CSS • JS</span>
-                        <h3 class="gateway-title">Web Studio</h3>
-                    </div>
-                </div>
-                <p class="gateway-desc">A full-featured multi-tab code editor with instant live browser preview, desktop/tablet/mobile viewport toggles, and console output.</p>
-                <ul class="gateway-topics">
-                    <li>Side-by-side HTML, CSS &amp; JavaScript editing</li>
-                    <li>Preset starter templates (Charity, Portfolio, Game)</li>
-                    <li>Built-in live console and device simulation</li>
-                    <li>Export project as single-file bundle or zip</li>
-                </ul>
-                <a href="web-studio/index.html" class="btn-gateway">Launch Web Studio 🚀</a>
-            </div>
+        <section class="st-pick" aria-labelledby="st-pick-h">
+            <h2 id="st-pick-h">Which one do I need?</h2>
+            <ul>
+                <li><span>Making a web page?</span> <a href="web-studio/index.html">🌐 Web Studio</a></li>
+                <li><span>Learning Python?</span> <a href="python-console/index.html">🐍 Python Console</a></li>
+                <li><span>Learning PHP?</span> <a href="php-console/index.html">🐘 PHP Console</a></li>
+                <li><span>Learning SQL?</span> <a href="sql-sandbox/index.html">🗄️ SQL Sandbox</a></li>
+                <li><span>Security or networks?</span> <a href="#st-labs-h">🧪 Labs below</a></li>
+            </ul>
+        </section>
 
-            <!-- 2. Python Console -->
-            <div class="gateway-card ai">
-                <div class="gateway-header">
-                    <div class="gateway-icon">🐍</div>
-                    <div>
-                        <span class="gateway-meta" style="color: var(--brand-purple);">Python 3 In-Browser</span>
-                        <h3 class="gateway-title">Python Console</h3>
-                    </div>
-                </div>
-                <p class="gateway-desc">Run real Python algorithms, data structures, and math scripts directly in your browser with zero terminal installations.</p>
-                <ul class="gateway-topics">
-                    <li>Instant Python 3 syntax execution</li>
-                    <li>Preset algorithms (Sorting, Zakat math, Text analysis)</li>
-                    <li>Interactive standard input/output simulation</li>
-                    <li>Clear execution metrics and error highlights</li>
-                </ul>
-                <a href="python-console/index.html" class="btn-gateway">Open Python Console 🐍</a>
+        <section class="st-group" aria-labelledby="st-code-h">
+            <div class="st-group-head">
+                <h2 id="st-code-h">💻 Code studios</h2>
+                <p>Type code, run it, see the result.</p>
             </div>
+            <div class="st-grid">
+                <article class="st-card">
+                    <div class="st-head">
+                        <span class="st-icon" aria-hidden="true">🌐</span>
+                        <div>
+                            <h3>Web Studio</h3>
+                            <p class="st-meta">HTML · CSS · JavaScript · Grades 6–10</p>
+                        </div>
+                    </div>
+                    <p class="st-desc">Write HTML, CSS and JavaScript in three tabs and watch the page change as you type.</p>
+                    <ul class="st-points">
+                        <li>Live preview and a console that shows <code>console.log</code> and errors</li>
+                        <li>Starter templates: Welcome, Profile Card, Counter, Blank</li>
+                        <li>On phones, a Code / Preview switch</li>
+                        <li>Export your work as one <code>.html</code> file</li>
+                    </ul>
+                    <p class="st-pairs"><strong>Use it with:</strong> <a href="../projects/index.html">Projects (5 web projects open here)</a> · <a href="../Learning%20HTML/learninghtml.html">HTML lessons</a></p>
+                    <a class="st-btn" href="web-studio/index.html">⚡ Open Web Studio</a>
+                </article>
+                <article class="st-card">
+                    <div class="st-head">
+                        <span class="st-icon" aria-hidden="true">🐍</span>
+                        <div>
+                            <h3>Python Console</h3>
+                            <p class="st-meta">Python 3.11 in the browser · Grades 8–10</p>
+                        </div>
+                    </div>
+                    <p class="st-desc">Run real Python on this device. Good for loops, lists, dictionaries, functions and files.</p>
+                    <ul class="st-points">
+                        <li>Five ready-made examples: Welcome & Loop, Zakat Calculator, Grade Analyzer, Fibonacci, Word Counter</li>
+                        <li>Real Python engine (Pyodide); it downloads once, which takes a moment on first use</li>
+                        <li><code>input()</code> does not work here: put values straight into your code</li>
+                        <li>Errors are shown in the output so you can fix them</li>
+                    </ul>
+                    <p class="st-pairs"><strong>Use it with:</strong> <a href="../Learning%20Python/learningpython.html">Python lessons</a> · <a href="../projects/index.html#p-pantry-python">Pantry & Zakat project</a></p>
+                    <a class="st-btn" href="python-console/index.html">🐍 Open Python Console</a>
+                </article>
+                <article class="st-card">
+                    <div class="st-head">
+                        <span class="st-icon" aria-hidden="true">🐘</span>
+                        <div>
+                            <h3>PHP Console</h3>
+                            <p class="st-meta">PHP 8.3 in the browser · Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="st-desc">Write and run real PHP without a server. Try variables, decisions, loops, functions, arrays and classes.</p>
+                    <ul class="st-points">
+                        <li>Eight examples: variables, if/else, loops, functions, arrays, strings, classes, dates</li>
+                        <li>Real PHP 8.3 engine: about 12 MB the first time, then saved by your browser</li>
+                        <li>Ctrl+Enter runs your code; errors are shown clearly</li>
+                        <li>Forms and databases need XAMPP: see the PHP and MySQL lessons</li>
+                    </ul>
+                    <p class="st-pairs"><strong>Use it with:</strong> <a href="../Learning%20PHP/exercises.html">15 PHP exercises</a> · <a href="../Learning%20PHP/learningphp.html">PHP lessons</a></p>
+                    <a class="st-btn" href="php-console/index.html">🐘 Open PHP Console</a>
+                </article>
+                <article class="st-card">
+                    <div class="st-head">
+                        <span class="st-icon" aria-hidden="true">🗄️</span>
+                        <div>
+                            <h3>SQL Sandbox</h3>
+                            <p class="st-meta">SQL · school library database · Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="st-desc">Ask questions of a real database in your browser: a school library with classes, students, books, loans and donations.</p>
+                    <ul class="st-points">
+                        <li>Runs real SQL (SQLite engine) and shows results as a table</li>
+                        <li>Five tables to explore: classes, students, books, loans, donations</li>
+                        <li>Change anything you like, then press Reset to start fresh</li>
+                        <li>A few commands differ from MySQL; the lessons point them out</li>
+                    </ul>
+                    <p class="st-pairs"><strong>Use it with:</strong> <a href="../Learning%20MySQL/exercises.html">14 SQL exercises</a> · <a href="../Learning%20MySQL/learningmysql.html">MySQL lessons</a></p>
+                    <a class="st-btn" href="sql-sandbox/index.html">🗄️ Open SQL Sandbox</a>
+                </article>
+            </div>
+        </section>
 
-            <!-- 3. SQL Sandbox -->
-            <div class="gateway-card" style="border-top: 5px solid #0284c7;">
-                <div class="gateway-header">
-                    <div class="gateway-icon">🗄️</div>
-                    <div>
-                        <span class="gateway-meta" style="color: #0284c7;">Relational Database</span>
-                        <h3 class="gateway-title">SQL Sandbox</h3>
-                    </div>
-                </div>
-                <p class="gateway-desc">Query relational database tables in memory. Test <code>SELECT</code>, <code>WHERE</code>, <code>JOIN</code>, and <code>GROUP BY</code> on pre-loaded educational datasets.</p>
-                <ul class="gateway-topics">
-                    <li>Pre-loaded tables: Students, Courses, Books, Donations</li>
-                    <li>Instant tabular query result rendering</li>
-                    <li>Visual table schema inspector</li>
-                    <li>Safe playground: reset database in 1 click</li>
-                </ul>
-                <a href="sql-sandbox/index.html" class="btn-gateway">Open SQL Sandbox 🗄️</a>
+        <section class="st-group" aria-labelledby="st-labs-h">
+            <div class="st-group-head">
+                <h2 id="st-labs-h">🧪 Interactive labs</h2>
+                <p>Press buttons and watch what happens inside.</p>
             </div>
+            <div class="st-grid">
+                <article class="st-card">
+                    <div class="st-head">
+                        <span class="st-icon" aria-hidden="true">🛡️</span>
+                        <div>
+                            <h3>Cyber Defense Studio</h3>
+                            <p class="st-meta">Cybersecurity · Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="st-desc">Five safe experiments that show how attacks work and how to stop them.</p>
+                    <ul class="st-points">
+                        <li>Password strength checker and passphrase maker</li>
+                        <li>XSS: unsafe output next to safely escaped output</li>
+                        <li>SQL injection: joined-up query next to a prepared statement</li>
+                        <li>Phishing detective and the SHA-256 "avalanche" lab</li>
+                    </ul>
+                    <p class="st-pairs"><strong>Use it with:</strong> <a href="../Learning%20Cybersecurity/learningcybersecurity.html">Cybersecurity lessons</a></p>
+                    <a class="st-btn" href="../Learning%20Cybersecurity/playground.html">🛡️ Open the lab</a>
+                </article>
+                <article class="st-card">
+                    <div class="st-head">
+                        <span class="st-icon" aria-hidden="true">📡</span>
+                        <div>
+                            <h3>Network Protocol Studio</h3>
+                            <p class="st-meta">Networks · Grades 9–10</p>
+                        </div>
+                    </div>
+                    <p class="st-desc">See what really travels between your browser and a server, step by step.</p>
+                    <ul class="st-points">
+                        <li>HTTP request and response, shown as the raw text on the wire</li>
+                        <li>DNS lookup, one step at a time</li>
+                        <li>TCP three-way handshake and sending data</li>
+                        <li>Subnet (CIDR) calculator</li>
+                    </ul>
+                    <p class="st-pairs"><strong>Use it with:</strong> <a href="../Learning%20Networks/learningnetworks.html">Networks lessons</a></p>
+                    <a class="st-btn" href="../Learning%20Networks/playground.html">📡 Open the lab</a>
+                </article>
+            </div>
+        </section>
 
-            <!-- 3b. PHP Console -->
-            <div class="gateway-card" style="border-top: 5px solid #7c3aed;">
-                <div class="gateway-header">
-                    <div class="gateway-icon">🐘</div>
-                    <div>
-                        <span class="gateway-meta" style="color: #a78bfa;">Server-Side Scripting</span>
-                        <h3 class="gateway-title">PHP Console</h3>
-                    </div>
-                </div>
-                <p class="gateway-desc">Write and run real PHP 8 on your own device: no server, no installation. Variables, loops, functions, arrays and classes with instant output.</p>
-                <ul class="gateway-topics">
-                    <li>Real PHP 8.3 engine (downloads once, then cached)</li>
-                    <li>8 ready-made examples to edit</li>
-                    <li>Ctrl+Enter to run, exit codes and errors shown</li>
-                    <li>Pairs with 15 auto-checked PHP exercises</li>
-                </ul>
-                <a href="php-console/index.html" class="btn-gateway">Open PHP Console 🐘</a>
-            </div>
-
-            <!-- 4. Cyber Defense Studio -->
-            <div class="gateway-card foundations">
-                <div class="gateway-header">
-                    <div class="gateway-icon">🛡️</div>
-                    <div>
-                        <span class="gateway-meta" style="color: var(--brand-accent);">Security &amp; Hygiene</span>
-                        <h3 class="gateway-title">Cyber Defense Studio</h3>
-                    </div>
-                </div>
-                <p class="gateway-desc">5 interactive defensive tools: Password Entropy Calculator, XSS Sanitizer Sandbox, SQLi Visualizer, Phishing Detective, and SHA-256 Avalanche.</p>
-                <ul class="gateway-topics">
-                    <li>Password strength &amp; GPU cracking estimator</li>
-                    <li>Contextual HTML entity sanitization</li>
-                    <li>SQL injection exploit vs prepared statement</li>
-                    <li>Email header inspection for phishing detection</li>
-                </ul>
-                <a href="../Learning Cybersecurity/playground.html" class="btn-gateway">Open Defense Studio 🛡️</a>
-            </div>
-        </div>
+        <section class="st-tips" aria-labelledby="st-tips-h">
+            <h2 id="st-tips-h">Good to know</h2>
+            <ul>
+                <li><strong>💾 Keep your work.</strong> The studios do not save for you. Use <em>Export .html</em> in the Web Studio, or copy your code into a file before you close the tab.</li>
+                <li><strong>📶 First visit.</strong> The Python and PHP engines download once (PHP is about 12 MB), so the first start can take a little while on a slow connection.</li>
+                <li><strong>🧭 Also inside lessons.</strong> The HTML, CSS, JavaScript and Python tracks each have their own practice playground, linked from their lessons.</li>
+            </ul>
+        </section>
     </main>
 
     <!-- Footer -->

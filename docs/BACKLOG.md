@@ -34,6 +34,9 @@ _Last updated: 2026-10-12 (mobile + content review: all four steps done)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 Studios page rebuilt: "which one do I need?" guide, accurate cards for the 4 code studios, the 2 labs
+  (Network Protocol Studio was missing), how to keep your work; Cyber passphrase maker now 5 words with
+  crypto.getRandomValues (was 4 words, Math.random, dice emoji); Python tutor notes the console is Python 3.11.
 - 2026-10-13 Projects page rebuilt: 10 real briefs (Bronze/Silver/Gold) with prerequisites, step checklists saved
   per device (`jc_project_progress`), a 4-row 12-mark rubric, starter code; web projects open the Web Studio
   pre-filled. Removed fake "Unlocked/Locked" pathway, fake XP, fake rubric links and the made-up student gallery.
