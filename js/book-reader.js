@@ -42,8 +42,15 @@
   const extrasByFile = {};
   (B.extras || []).forEach((x) => { extrasByFile[x.file] = x; });
 
+  const minutesFor = (md) => {
+    const words = String(md).replace(/<details>[\s\S]*?<\/details>/g, ' ').replace(/<[^>]+>/g, ' ')
+      .replace(/[#>*_`|~\[\]()!-]+/g, ' ').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
+    return Math.max(1, Math.ceil(words / 185));
+  };
+  window.JC_CHAPTER_MINUTES = {};
   const entries = [];
   Object.keys(DATA).sort().forEach((file) => {
+    window.JC_CHAPTER_MINUTES[file] = minutesFor(DATA[file]);
     const ch = file.match(/^part-\d+[^/]*\/ch0*(\d+)[^/]*\.md$/);
     if (ch) {
       entries.push({ file, key: 'ch' + ch[1], num: +ch[1], label: ch[1] + '. ' + shortTitle(titleOf(DATA[file])), part: partOf(file) });
@@ -66,13 +73,18 @@
   const groupCount = (g) => entries.filter((e) => partInfo(e.part).group === g).length;
   const tabs = Object.keys(groups).length ? `
         <div class="book-subject-tabs" role="group" aria-label="Show part of the book">
-          <button type="button" class="subject-tab active" data-group="all">All (${entries.length})</button>
-          ${Object.entries(groups).map(([g, label]) => `<button type="button" class="subject-tab" data-group="${esc(g)}">${esc(label)} (${groupCount(g)})</button>`).join('')}
+          <button type="button" class="subject-tab active" data-group="all" aria-pressed="true">All (${entries.length})</button>
+          ${Object.entries(groups).map(([g, label]) => `<button type="button" class="subject-tab" data-group="${esc(g)}" aria-pressed="false">${esc(label)} (${groupCount(g)})</button>`).join('')}
         </div>` : '';
   const nav = partOrder.map((p) => {
     const info = partInfo(p);
     const items = entries.filter((e) => e.part === p).sort((a, b) => (a.num || 999) - (b.num || 999) || a.file.localeCompare(b.file))
-      .map((e) => `<li class="chapter-nav-item"><a href="#${esc(e.key)}" data-file="${esc(e.file)}">${esc(e.label)}</a></li>`).join('');
+      .map((e) => {
+        const m = e.label.match(/^(\d+)\.\s+(.*)$/);
+        const text = m ? `<span class="cn-num">${m[1]}</span><span class="cn-title">${esc(m[2])}</span>` : `<span class="cn-title">${esc(e.label)}</span>`;
+        const mins = e.num ? `<span class="cn-time" aria-label="${window.JC_CHAPTER_MINUTES[e.file]} minute read">${window.JC_CHAPTER_MINUTES[e.file]} min</span>` : '';
+        return `<li class="chapter-nav-item"><a href="#${esc(e.key)}" data-file="${esc(e.file)}" data-label="${esc(e.label)}">${text}${mins}</a></li>`;
+      }).join('');
     return `<div class="part-group" data-group="${esc(info.group)}"><div class="part-title">${esc(info.title)}</div><ul class="chapter-nav-list">${items}</ul></div>`;
   }).join('');
   // links to other sites (e.g. Kotlin Playground) open in a new tab so the reader keeps its place
@@ -92,17 +104,17 @@
   <div class="book-layout">
     <aside class="book-sidebar" id="bookSidebar" aria-label="Chapters">
       <div class="book-return-bar">
-        <a href="../index.html" class="book-back-home"><span class="back-icon">←</span><span>Home</span></a>
+        <a href="../index.html" class="book-back-home"><span class="back-icon" aria-hidden="true">←</span><span>Home</span></a>
         <a href="../library/books/index.html" class="book-back-home"><span>All textbooks</span></a>
+        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close the chapters menu">✕</button>
       </div>
       <div class="book-brand">
         <div class="book-brand-icon" aria-hidden="true">${esc(B.icon)}</div>
-        <div>
-          <span class="book-brand-badge">${esc(B.badge)}</span>
+        <div class="book-brand-text">
           <h1>${esc(B.title)}</h1>
-          <span class="book-brand-sub">${entries.filter((e) => e.num).length} chapters · ${esc(B.subtitle)}</span>
+          <p class="book-brand-meta"><span class="book-brand-badge">${esc(B.badge)}</span><span class="book-brand-count">${entries.filter((e) => e.num).length} chapters</span></p>
+          <p class="book-brand-sub">${esc(B.subtitle)}</p>
         </div>
-        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close the chapters menu">✕</button>
       </div>
       ${tabs}
       <div class="sidebar-search">
@@ -164,12 +176,12 @@
   // ── sidebar: filters and search ──────────────────────────────────────────────────────────────────────
   document.querySelectorAll('.subject-tab').forEach((tab) => tab.addEventListener('click', () => {
     const g = tab.dataset.group;
-    document.querySelectorAll('.subject-tab').forEach((t) => t.classList.toggle('active', t === tab));
+    document.querySelectorAll('.subject-tab').forEach((t) => { t.classList.toggle('active', t === tab); t.setAttribute('aria-pressed', String(t === tab)); });
     document.querySelectorAll('.part-group').forEach((pg) => { pg.style.display = g === 'all' || pg.dataset.group === g ? '' : 'none'; });
   }));
   document.getElementById('chapterFilter').addEventListener('input', (e) => {
     const q = e.target.value.trim().toLowerCase();
-    document.querySelectorAll('.chapter-nav-item').forEach((li) => { li.style.display = !q || li.textContent.toLowerCase().includes(q) ? '' : 'none'; });
+    document.querySelectorAll('.chapter-nav-item').forEach((li) => { const a = li.querySelector('a'); li.style.display = !q || ((a && a.dataset.label) || li.textContent).toLowerCase().includes(q) ? '' : 'none'; });
     document.querySelectorAll('.part-group').forEach((pg) => {
       pg.style.display = [...pg.querySelectorAll('.chapter-nav-item')].some((li) => li.style.display !== 'none') ? '' : 'none';
     });
@@ -243,6 +255,7 @@
       return;
     }
     current = file;
+    window.JC_CURRENT_MINUTES = window.JC_CHAPTER_MINUTES[file];
     document.querySelectorAll('.chapter-nav-item').forEach((li) => li.classList.toggle('active', !!link && li.contains(link)));
     area.innerHTML = window.marked.parse(md) + practiceBox();
     enhanceCode(area);

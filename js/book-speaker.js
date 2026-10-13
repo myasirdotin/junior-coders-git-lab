@@ -373,15 +373,24 @@
       if (sidebar) sidebar.classList.add('is-open');
       if (backdrop) backdrop.classList.add('is-active');
       document.body.classList.add('sidebar-open');
+      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'true');
+      // keyboard users land inside the drawer; the current chapter is scrolled into view
+      if (closeBtn) closeBtn.focus({ preventScroll: true });
+      const act = sidebar && sidebar.querySelector('.chapter-nav-item.active');
+      if (act) act.scrollIntoView({ block: 'center' });
     };
 
     // Books open the drawer with their own inline scripts too, using other class names
     // ('open' / 'visible'); closing must clear every variant or the drawer stays on screen.
     const closeDrawer = () => {
+      const wasOpen = sidebar && (sidebar.classList.contains('is-open') || sidebar.classList.contains('open'));
       if (sidebar) sidebar.classList.remove('is-open', 'open');
       if (backdrop) backdrop.classList.remove('is-active', 'visible');
       document.body.classList.remove('sidebar-open');
+      if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
+      if (wasOpen && toggleBtn && sidebar.contains(document.activeElement) && window.innerWidth <= 900) toggleBtn.focus({ preventScroll: true });
     };
+    if (toggleBtn) toggleBtn.setAttribute('aria-expanded', 'false');
 
     if (toggleBtn && !toggleBtn.dataset.bound) {
       toggleBtn.dataset.bound = 'true';
@@ -507,7 +516,7 @@
     
     const text = cleanText(contentArea.innerText);
     const words = text.split(/\s+/).filter(w => w.length > 0).length;
-    const minutes = Math.max(1, Math.ceil(words / 185));
+    const minutes = window.JC_CURRENT_MINUTES || Math.max(1, Math.ceil(words / 185));
 
     const statusEl = document.getElementById('book-speaker-status-text');
     if (statusEl) {

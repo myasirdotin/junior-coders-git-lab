@@ -3285,3 +3285,108 @@ h2:hover > .book-section-speaker-btn, h3:hover > .book-section-speaker-btn,
 
 /* shared reader: part headings in the book's own colour (an older rule made them purple in every book) */
 #sidebarNav .part-title { color: var(--book-accent-dark, var(--book-accent)) !important; }
+
+/* ==========================================================================
+   CHAPTER SIDEBAR (all textbooks; markup in js/book-reader.js, drawer in js/book-speaker.js)
+   One compact top row (Home, All textbooks, close on phones), one book block (icon, title, grade, chapters),
+   one row of filter pills that scrolls sideways, a search box, and a scannable chapter list with reading time.
+   Desktop: fixed left column with its own scroll. Up to 900px: an off-canvas drawer.
+   #bookSidebar raises these rules above the older layered ones earlier in this file.
+   ========================================================================== */
+#bookSidebar { width: 300px; padding: 1rem 0.9rem 2rem; }
+#bookSidebar .book-return-bar {
+  display: flex; align-items: center; gap: 0.5rem; margin: 0 0 0.9rem; padding: 0 0 0.75rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+}
+#bookSidebar .book-back-home {
+  display: inline-flex; align-items: center; gap: 0.3rem; height: 34px; padding: 0 0.7rem; border-radius: 8px;
+  font-size: 0.8rem; font-weight: 600; line-height: 1; white-space: nowrap; transform: none;
+  color: var(--text-secondary, #475569); background: #fff; border: 1px solid var(--border-color, #e2e8f0);
+}
+#bookSidebar .book-back-home:hover { color: var(--book-accent-dark, var(--book-accent)); border-color: var(--book-accent); background: #fff; transform: none; }
+#bookSidebar .sidebar-close-btn { display: none !important; }
+
+#bookSidebar .book-brand {
+  display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 0.7rem;
+  margin: 0 0 0.9rem; padding: 0; border: 0;
+}
+#bookSidebar .book-brand-icon { width: 40px; height: 40px; border-radius: 10px; font-size: 1.15rem; }
+#bookSidebar .book-brand-text { min-width: 0; }
+#bookSidebar .book-brand h1 {
+  margin: 0; font-size: clamp(1rem, 0.94rem + 0.35vw, 1.12rem) !important; line-height: 1.25; font-weight: 800;  /* beats the phone-wide "h1 { 1.65rem !important }" */
+  color: var(--book-accent-dark, var(--book-accent)); overflow-wrap: anywhere;
+}
+#bookSidebar .book-brand-meta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 0.45rem; margin: 0.25rem 0 0;
+  font-size: 0.76rem; color: var(--text-muted, #64748b);
+}
+#bookSidebar .book-brand .book-brand-badge {
+  display: inline-flex; align-items: center; margin: 0; padding: 0.1rem 0.45rem; border-radius: 6px;
+  font-size: 0.66rem !important; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap;
+  background: var(--book-accent-light) !important; color: var(--book-accent-dark, var(--book-accent)) !important;
+}
+#bookSidebar .book-brand-count { font-weight: 600; }
+#bookSidebar .book-brand .book-brand-sub { display: block; margin: 0.2rem 0 0; font-size: 0.78rem; line-height: 1.4; }
+
+/* filter pills: one row; on narrow screens it scrolls sideways instead of wrapping */
+#bookSidebar .book-subject-tabs {
+  display: flex; flex-wrap: nowrap; gap: 0.35rem; margin: 0 -0.9rem 0.75rem; padding: 2px 0.9rem;
+  overflow-x: auto; scrollbar-width: none; background: none; border: 0; border-radius: 0;
+}
+#bookSidebar .book-subject-tabs::-webkit-scrollbar { display: none; }
+#bookSidebar .subject-tab {
+  flex: none; height: 32px; padding: 0 0.75rem; border-radius: 8px; font: inherit; font-size: 0.8rem; font-weight: 600;
+  white-space: nowrap; cursor: pointer; color: var(--text-secondary, #475569); background: #fff;
+  border: 1px solid var(--border-color, #e2e8f0); box-shadow: none;
+}
+#bookSidebar .subject-tab:hover { border-color: var(--book-accent); color: var(--book-accent-dark, var(--book-accent)); }
+#bookSidebar .subject-tab.active { background: var(--book-accent) !important; border-color: var(--book-accent) !important; color: #fff !important; }
+#bookSidebar .subject-tab:focus-visible,
+#bookSidebar .book-back-home:focus-visible,
+#bookSidebar .sidebar-close-btn:focus-visible { outline: 2px solid var(--book-accent); outline-offset: 2px; }
+
+#bookSidebar .sidebar-search { margin: 0 0 0.6rem; }
+#bookSidebar .sidebar-search input { min-height: 38px; border-radius: 8px; font-size: 0.86rem; }
+
+/* chapter list: number, title, reading time; the current chapter is tinted with a bar on the left */
+#bookSidebar .part-title {
+  margin: 0.9rem 0 0.3rem; padding: 0 0.55rem; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.06em;
+  text-transform: uppercase; line-height: 1.4;
+}
+#bookSidebar .part-group:first-child .part-title { margin-top: 0.4rem; }
+#bookSidebar .chapter-nav-list { margin: 0; padding: 0; list-style: none; }
+#bookSidebar .chapter-nav-item { margin: 0 0 2px; }
+#bookSidebar .chapter-nav-item a {
+  display: grid; grid-template-columns: 1.5rem minmax(0, 1fr) auto; align-items: baseline; gap: 0.45rem;
+  min-height: 40px; padding: 0.55rem 0.55rem 0.55rem 0.4rem; border-radius: 8px; border-left: 3px solid transparent;
+  font-size: 0.87rem; font-weight: 500; line-height: 1.35; color: var(--text-primary, #1e293b); text-decoration: none; background: none;
+}
+#bookSidebar .chapter-nav-item a:hover { background: #f8fafc; color: var(--book-accent-dark, var(--book-accent)); }
+#bookSidebar .chapter-nav-item a:focus-visible { outline: 2px solid var(--book-accent); outline-offset: -2px; }
+#bookSidebar .cn-num { text-align: right; font-size: 0.78rem; font-weight: 700; color: var(--text-muted, #64748b); font-variant-numeric: tabular-nums; }
+#bookSidebar .cn-title { overflow-wrap: anywhere; }
+#bookSidebar .cn-title:first-child { grid-column: 1 / 3; padding-left: 0.2rem; }
+#bookSidebar .cn-time { font-size: 0.72rem; color: var(--text-muted, #64748b); white-space: nowrap; }
+#bookSidebar .chapter-nav-item.active a {
+  background: var(--book-accent-light); border-left-color: var(--book-accent); font-weight: 700;
+  color: var(--book-accent-dark, var(--book-accent));
+}
+#bookSidebar .chapter-nav-item.active .cn-num { color: var(--book-accent-dark, var(--book-accent)); }
+
+@media (max-width: 900px) {
+  #bookSidebar { width: min(340px, 88vw); max-width: 88vw; padding: 0.75rem 0.85rem 3rem; }
+  #bookSidebar .book-return-bar { margin-bottom: 0.75rem; padding-bottom: 0.65rem; }
+  #bookSidebar .sidebar-close-btn {
+    display: inline-flex !important; align-items: center; justify-content: center; margin-left: auto; flex: none;
+    width: 36px; height: 34px; padding: 0; border-radius: 8px; font-size: 1rem; font-weight: 700; line-height: 1; cursor: pointer;
+    color: var(--text-secondary, #475569); background: #f1f5f9; border: 1px solid var(--border-color, #e2e8f0);
+  }
+  #bookSidebar .book-brand { margin-bottom: 0.7rem; }
+  #bookSidebar .book-brand .book-brand-sub { display: none; }
+  #bookSidebar .book-subject-tabs { margin: 0 -0.85rem 0.6rem; padding: 2px 0.85rem; }
+  #bookSidebar .chapter-nav-item a { min-height: 44px; }
+}
+/* desktop: there is room and no swipe, so the pills wrap instead of scrolling sideways */
+@media (min-width: 901px) {
+  #bookSidebar .book-subject-tabs { flex-wrap: wrap; overflow: visible; margin: 0 0 0.75rem; padding: 0; }
+}

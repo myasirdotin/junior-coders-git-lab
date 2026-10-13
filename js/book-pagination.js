@@ -95,7 +95,7 @@
           <span class="dir-arrow">←</span>
           <span class="dir-label">Previous Lesson</span>
         </div>
-        <div class="page-title-text">${escapeHtml(prevLink.textContent.trim())}</div>
+        <div class="page-title-text">${escapeHtml(((prevLink.dataset && prevLink.dataset.label) || prevLink.textContent).trim())}</div>
       `;
       prevCard.onclick = (e) => {
         e.preventDefault();
@@ -120,7 +120,7 @@
           <span class="dir-label">Next Lesson</span>
           <span class="dir-arrow">→</span>
         </div>
-        <div class="page-title-text">${escapeHtml(nextLink.textContent.trim())}</div>
+        <div class="page-title-text">${escapeHtml(((nextLink.dataset && nextLink.dataset.label) || nextLink.textContent).trim())}</div>
       `;
       nextCard.onclick = (e) => {
         e.preventDefault();
@@ -199,10 +199,10 @@
     const nextLink = currentIndex < allLinks.length - 1 ? allLinks[currentIndex + 1] : null;
 
     quickNav.innerHTML = `
-      <button type="button" class="header-nav-btn prev" ${!prevLink ? 'disabled' : ''} title="${prevLink ? 'Previous: ' + prevLink.textContent.trim() + ' (Alt+←)' : 'First Lesson'}">
+      <button type="button" class="header-nav-btn prev" ${!prevLink ? 'disabled' : ''} title="${prevLink ? 'Previous: ' + ((prevLink.dataset && prevLink.dataset.label) || prevLink.textContent).trim() + ' (Alt+←)' : 'First Lesson'}">
         <span class="nav-arrow">←</span> <span>Prev</span>
       </button>
-      <button type="button" class="header-nav-btn next" ${!nextLink ? 'disabled' : ''} title="${nextLink ? 'Next: ' + nextLink.textContent.trim() + ' (Alt+→)' : 'Last Lesson'}">
+      <button type="button" class="header-nav-btn next" ${!nextLink ? 'disabled' : ''} title="${nextLink ? 'Next: ' + ((nextLink.dataset && nextLink.dataset.label) || nextLink.textContent).trim() + ' (Alt+→)' : 'Last Lesson'}">
         <span>Next</span> <span class="nav-arrow">→</span>
       </button>
     `;

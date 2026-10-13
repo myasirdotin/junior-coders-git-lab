@@ -35,6 +35,11 @@ _Last updated: 2026-10-13 (Android book added)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 Textbook chapter sidebar redesigned (all 12 books): one compact top row (Home, All textbooks, close),
+  one book block (40px icon, title, grade, chapter count), filter pills on one sideways-scrolling row on phones (wrap
+  on desktop), chapter rows with number, title and reading time (same minutes as the reader badge), clear current
+  chapter; drawer moves focus in/out and scrolls to the current chapter. First chapter starts at 241px instead of
+  467px on a 375px phone. Styles: last block of styles/book-theme.css.
 - 2026-10-13 Fewer emoji in the textbooks: only the signpost headings keep one (Real-Life Story … Practice levels,
   Predict the Output, Code Detective, Real-World Connection, Key Terms, Amānah); 1,495 removed from chapter titles
   and topic headings in all 243 chapters (about 16 → 10 per chapter). `scripts/clean-heading-emoji.js`; check-books
