@@ -1,154 +1,279 @@
-# Chapter 3: Setting Up Git & Your Identity 💻👤
+# Chapter 3: Setting Up Git & Your Identity 💻
 
 ---
 
-## 1. 🌟 Real-Life Situation: Signing an Official Certificate
+## 🌟 Real-Life Story
 
-When an architect drafts a blueprint for a hospital or school, they don't leave it anonymous. They sign their name and date at the bottom so everyone knows who created the plan, who is responsible for its safety, and who can answer questions about it.
+**Signing Your Work**
 
-In Git, **every single commit you ever make is permanently stamped with your author identity**:
-- Your Name
-- Your Email Address
-- The Date and Time of the commit
-
-Before you can create your first commit, Git requires you to introduce yourself. Setting up your identity ensures that when your code is uploaded to GitHub, your contributions are properly credited to you!
+When an architect draws the plan for a new school, she signs and dates it. Everyone then knows who made the plan and who can answer questions about it. Git does the same thing for code. Every commit is stamped with a name, an email address and the date and time. So before your first commit, you must tell Git who you are.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Verify if Git is installed on your computer (`git --version`).
-- Configure your global author name and email using `git config`.
-- Set modern Git defaults, such as setting the default branch name to `main`.
-- Inspect and edit your Git configuration settings.
-- Understand where Git stores global settings (`.gitconfig`).
+- Check that Git is installed with `git --version`.
+- Set your name and email with `git config --global`.
+- Set the first branch name of new projects to `main`.
+- Read your settings back and fix a wrong one.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 🛠️ Installing Git
 
-### The Anatomy of `.gitconfig`
+Git is free. Download it from the official site, **git-scm.com**, or ask your teacher to install it in the computer lab.
 
-```text
-  ┌─────────────────────────────────────────────────────────────┐
-  │ ~/.gitconfig (Your Global Developer Passport)                │
-  ├─────────────────────────────────────────────────────────────┤
-  │ [user]                                                      │
-  │     name = Yasir Rasool                                     │
-  │     email = y.rasool@srinagar.edu.in                        │
-  │ [init]                                                      │
-  │     defaultBranch = main                                    │
-  │ [core]                                                      │
-  │     editor = code --wait                                    │
-  └─────────────────────────────────────────────────────────────┘
-```
+- **Windows**: run the installer and keep the default choices. It also installs **Git Bash**, a terminal for Git.
+- **macOS**: type `git --version` in Terminal. If Git is missing, the Mac offers to install it.
+- **Linux (Ubuntu)**: `sudo apt install git` (ask an adult or teacher before installing software).
 
-When you run `git commit`, Git automatically opens this digital passport, copies your name and email, and permanently embeds them into the commit metadata!
-
----
-
-## 4. 💻 Code Example: Initial One-Time Configuration
-
-Open your terminal (PowerShell, Command Prompt, or Bash) and run these commands:
+Then open a terminal (PowerShell, Command Prompt, Terminal or Git Bash) and check:
 
 ```bash
-# 1. Verify Git is installed
 git --version
-# Output: git version 2.45.0.windows.1 (or similar)
-
-# 2. Configure your Full Name
-git config --global user.name "Yasir Rasool"
-
-# 3. Configure your Email Address
-git config --global user.email "y.rasool@srinagar.edu.in"
-
-# 4. Set the default primary branch name to 'main'
-git config --global init.defaultBranch main
-
-# 5. Verify your settings
-git config --list
 ```
 
----
+```text
+git version 2.54.0.windows.1
+```
 
-## 5. 🔍 Code Explanation: Breaking It Down
-
-- `--global`: Applies these settings to **all** Git projects on your entire computer. You only have to run this once!
-- `user.name`: The human name that appears next to your commits in `git log` and GitHub.
-- `user.email`: Should match the email address associated with your GitHub account so GitHub links commits to your profile avatar.
-- `init.defaultBranch main`: Ensures that whenever you create a new repository (`git init`), the starting branch is named `main` (the modern universal industry standard).
+Your number may be different. Any recent version works with this book.
 
 ---
 
-## 6. 🌍 Real-World Connection: Open Source Attribution
+## 👁️ Your Git "Passport": the `.gitconfig` File
 
-- When programmers contribute bug fixes to global projects like Python, Linux, or Laravel, their names and emails remain in the repository history for decades!
-- Employers and university admissions officers frequently check GitHub profiles to see verified commit histories, review code quality, and observe collaboration habits.
-- Writing your honest, real name embodies the Islamic virtue of **Truthfulness (*Ṣidq*)** and professional pride.
+Git keeps your personal settings in a file called `.gitconfig` in your home folder. Think of it as a passport that Git reads every time you commit:
+
+```text
+┌────────────────────────────────┐
+│ ~/.gitconfig                   │
+├────────────────────────────────┤
+│ [user]                         │
+│     name = Zainab Ahmed        │
+│     email = zainab@example.org │
+│ [init]                         │
+│     defaultBranch = main       │
+└────────────────────────────────┘
+```
+
+`~` means "your home folder", for example `C:\Users\Zainab` on Windows. When you run `git commit`, Git copies your name and email from this file into the commit.
 
 ---
 
-## 7. ⚠️ Common Beginner Traps
+## 💻 Example: One-Time Setup
 
-1. **Typing fake or throwaway emails**:
-   - If you type `user.email "asdf@fake.com"`, GitHub won't recognize your commits, and your green contribution squares won't light up!
-2. **Forgetting quotes around names with spaces**:
-   - `git config --global user.name Yasir Rasool` (May produce an error or only save `Yasir`).
-   - *Fix*: Always wrap in quotes: `"Yasir Rasool"`.
+Run these three commands once on your computer. Use your own name and email.
+
+```bash
+git config --global user.name "Zainab Ahmed"
+git config --global user.email "zainab@example.org"
+git config --global init.defaultBranch main
+```
+
+These commands print nothing when they work. Check your settings like this:
+
+```bash
+git config --list --global
+```
+
+```text
+user.name=Zainab Ahmed
+user.email=zainab@example.org
+init.defaultbranch=main
+```
+
+Git shows setting names in small letters, so `defaultBranch` appears as `defaultbranch`. That is normal.
+
+> **Note:** Plain `git config --list` shows *all* settings, including many that came with Git. It is a longer list, but your three lines are in it.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🔍 How It Works
 
-If you type:
+- `git config`: reads or changes Git settings.
+- `--global`: the setting applies to **every** Git project for your user on this computer. You only do this once.
+- `user.name`: the name shown next to your commits.
+- `user.email`: the email stored in your commits. Later, GitHub uses it to link commits to your account.
+- `init.defaultBranch main`: new projects start with a branch called `main`. Without it, Git still uses the older name `master` and prints a hint. This book uses `main`.
+
+**Keep your email private (*Amānah*).** Every commit you share shows its email to anyone who can see the project. Use a school email your teacher gives you, or, once you have a GitHub account, the private "noreply" address GitHub offers in its email settings. Never put a parent's phone number or home address anywhere in Git.
+
+---
+
+## 🌍 Real-World Connection
+
+- When people fix bugs in big open-source projects such as Python or Linux, their names stay in the history for many years.
+- Being honest about who wrote what reflects the value of **truthfulness (*Ṣidq*)**. Never commit under another person's name.
+- On a shared lab computer, check `git config user.name` first. The last student's name might still be set.
+
+---
+
+## 🔮 Predict the Output
+
+After the setup above, you type:
 
 ```bash
 git config user.name
 ```
 
-**Question**: What will Git output on your terminal?
+**Question**: What does Git print?
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> It will print your configured name (e.g., <code>Yasir Rasool</code>) without modifying anything!
+
+**Answer:** It prints the name you saved, and changes nothing:
+
+```text
+Zainab Ahmed
+```
+
+Giving a setting name with no value means "show me this setting".
+
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Anonymous Commit Warning
+## 🕵️ Code Detective
 
-A student tried to run `git commit` for the first time and got this error message:
+**The Anonymous Commit**
+
+A student tried to commit on a new computer and saw this:
 
 ```text
 Author identity unknown
+
 *** Please tell me who you are.
-Run:
+
+Run
+
   git config --global user.email "you@example.com"
   git config --global user.name "Your Name"
+
+to set your account's default identity.
+Omit --global to set the identity only in this repository.
 ```
 
-- **What happened?** Git refuses to create an anonymous commit because accountability is essential in software development.
-- **The Fix**: Run the two suggested `git config --global` commands, and re-run `git commit`!
+- **What happened?** Git will not make a commit without a name and email. Every change must have an owner.
+- **The fix**: run the two `git config --global` commands with your own details, then run `git commit` again.
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**Forgetting quotes around a name with a space**
+
+**Wrong:**
+
+```bash
+git config --global user.name Zainab Ahmed
+```
+
+**What happens:** there is no error, but Git saves only the first word:
+
+```text
+Zainab
+```
+
+**Fixed:**
+
+```bash
+git config --global user.name "Zainab Ahmed"
+```
+
+**Typing a made-up email** such as `asdf@fake.com` is a second common slip. Your commits will not be linked to your account later. Use a real email you are allowed to use, as explained above.
+
+---
+
+## ✍️ Try It
+
+On your own computer (or the lab computer your teacher gives you):
+
+1. Run `git --version`.
+2. Set your name, email and `init.defaultBranch main`.
+3. Run `git config --list --global` and check all three lines.
+
+<details>
+<summary>Hint</summary>
+
+If a line is wrong, just run the same `git config --global ...` command again with the right value. The new value replaces the old one.
+
+</details>
+
+---
+
+## 📝 Recap
+
+- `git --version` checks that Git is installed.
+- Git needs your name and email before your first commit.
+- `--global` saves a setting once for all your projects, in `~/.gitconfig`.
+- `init.defaultBranch main` makes new projects start on `main`.
+- Put quotes around values with spaces, and keep personal details private.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. What flag is used with `git config` to apply settings computer-wide?
-2. What command lists all current Git configuration values?
-3. What is the modern standard default branch name?
 
-### 🟡 Level 2: Understand
-4. Why does Git require an email address before allowing commits?
-5. What is the difference between global configuration and repository-specific (`--local`) configuration?
+1. Which flag makes a `git config` setting apply to all your projects?
+2. Which command lists your global settings?
+3. What branch name does this book use for new projects?
 
-### 🟠 Level 3: Apply
-6. Open your terminal right now, run `git config --list`, and verify that `user.name`, `user.email`, and `init.defaultBranch` are properly configured.
+<details>
+<summary>Show answer</summary>
 
-### 🔵 Level 4: Think & Troubleshoot
-7. If you change your email address in the future, will your past commits retroactively change their author email? Why or why not? (Hint: Commits are cryptographically immutable!).
+1. `--global`
+2. `git config --list --global` (or `git config --list` for every setting)
+3. `main`
 
-### 🟣 Level 5: Create & Build
-8. Write a quick setup guide for students in your computer lab explaining how to install and configure Git on Windows, Mac, or Ubuntu Linux.
+</details>
+
+### 🟡 Level 2: Apply
+
+1. Why does Git need an email address before you can commit?
+2. What is the difference between `--global` settings and settings made inside one project with `--local`?
+3. Write the command that changes your saved email to `zainab.ahmed@example.org`.
+
+<details>
+<summary>Show answer</summary>
+
+1. Every commit records who made it, so the team knows whom to ask about a change.
+2. `--global` applies to all projects for your user. `--local` applies only to the one repository you are in, and it wins over the global value there. (`--local` is the default when you are inside a repository and give no flag.)
+3. Run:
+
+```bash
+git config --global user.email "zainab.ahmed@example.org"
+```
+
+</details>
+
+### 🔴 Level 3: Challenge
+
+Write a one-page setup guide for students in your computer lab.
+
+1. Explain how to install Git on Windows, macOS and Ubuntu Linux.
+2. List the three `git config --global` commands, with placeholders for name and email.
+3. Add a "check it worked" step.
+4. Add a privacy tip about emails.
+5. Extra question: if you change your email next month, do your **old** commits change too? Why?
+
+<details>
+<summary>Show one possible answer</summary>
+
+**Lab Setup Guide**
+
+1. Install: Windows, download from git-scm.com and keep the defaults. macOS, type `git --version` and accept the install. Ubuntu, a teacher runs `sudo apt install git`.
+2. Configure:
+
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your-school-email@example.org"
+git config --global init.defaultBranch main
+```
+
+3. Check: `git config --list --global` shows the three lines.
+4. Privacy: use your school email, never a parent's personal details.
+5. No. Old commits keep the old email. A commit never changes after it is made; the new email is used only for new commits.
+
+</details>

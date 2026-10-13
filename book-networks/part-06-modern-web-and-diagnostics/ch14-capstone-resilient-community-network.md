@@ -1,99 +1,260 @@
-# Chapter 14: Capstone: Architecting a Resilient Community Network 🌐🏗️
+# Chapter 14: Capstone: Architecting a Resilient Community Network 🏗️
 
-Congratulations on reaching the final capstone chapter of **Computer Networking & Web Protocols**! You now command the mental models of layers, packets, sockets, handshakes, DNS, HTTP/3, and cryptography.
+## 🌟 Real-Life Story
 
-In this capstone project, you will synthesize everything you have learned to design an ethical, secure, and fault-tolerant network architecture for a real-world humanitarian initiative: **The Global Oasis Humanitarian & Education Network**.
+A town is building a new community centre. The architect does not start with bricks. She first asks: who will use it, what must it survive, and where should the doors and locks go? Only then does she draw the plan, room by room. In this capstone, you are the architect. You will plan the network for a town's school, library and charity clinic, using every idea from this book.
 
----
+## 🎯 What You Will Learn
 
-## 🎯 Project Mission: The Oasis Portal
-
-Your team is tasked with architecting the digital infrastructure for an international non-profit providing clean water, solar education, and emergency disaster relief to rural communities across multiple continents.
-
-### Core Architectural Requirements:
-1. **Global High Availability**: Low latency for users in Africa, the Middle East, Southeast Asia, and the Americas.
-2. **Offline-First & Low Bandwidth**: Village health clinics often operate on intermittent, 2G/3G mobile networks.
-3. **Ironclad Digital Stewardship (*Amānah*)**: Zero plaintext data. Donor information, volunteer locations, and medical logs must be strictly encrypted.
-4. **Resilience to Network Partitions**: If an undersea fiber cable is severed, the network must gracefully degrade and route through alternative paths.
+- Turn real needs (speed, safety, slow connections, failures) into network design choices.
+- Plan addresses and subnets for a small cloud network using CIDR.
+- Explain, in plain words, the building blocks of a real website: load balancer, bastion host, NAT, CDN and firewall.
+- Write the DNS records, HTTPS settings and firewall rules for the design.
+- Plan how to diagnose problems when something goes wrong.
 
 ---
 
-## 🗺️ The Complete Systems Architecture
+## 🎯 The Mission: The Oasis Community Portal
 
-Here is the end-to-end blueprint integrating every layer of the networking stack:
+The town of Oasis has a school, a public library and a small charity clinic. They want one website, `oasis.example.org`, where:
+
+- students check timetables and library books,
+- families book clinic appointments,
+- donors give to the clinic's clean-water fund.
+
+### The four requirements
+
+1. **Always available.** If one server breaks, the site must keep working.
+2. **Works on slow connections.** Many families use weak mobile signals.
+3. **Private and safe (*Amānah*).** Health records and donor details must never travel or sit unprotected.
+4. **Easy to fix.** When something goes wrong, staff must be able to find the cause quickly.
+
+---
+
+## 📖 The Building Blocks, in Plain Words
+
+Real websites use a few extra parts. Each one is explained in one sentence here. The rest of the chapter shows where each one fits.
+
+| Term | What it is, in one sentence |
+| :--- | :--- |
+| **Cloud network (VPC)** | A **Virtual Private Cloud** is a private, fenced-off network that you rent inside a cloud provider's data centre. |
+| **Subnet** | A smaller slice of a network's addresses, made with CIDR, like `10.20.1.0/24` (Chapter 3). |
+| **Load balancer** | A server that receives every visitor first and shares them out between several web servers, so no single one is overloaded. |
+| **Reverse proxy** | A server that answers the public on behalf of the hidden servers behind it; a load balancer is one kind. |
+| **Bastion host** | One specially guarded computer that staff must log in to first, before they can reach any other server. |
+| **NAT gateway** | A device that lets private servers send requests out to the Internet, for example to download updates, while no one outside can start a connection in (Chapter 3). |
+| **Firewall** | A set of rules that allows or blocks traffic by address and port (Chapter 5). |
+| **WAF** | A **Web Application Firewall** reads HTTP requests and blocks known attack patterns before they reach the website. |
+| **CDN** | A **Content Delivery Network** keeps copies of images, CSS and scripts on servers in many cities, so each visitor downloads them from somewhere nearby. |
+| **Anycast** | Many servers share one IP address, and each visitor is routed to the nearest one (Chapter 6). |
+
+---
+
+## 🗺️ The Big Picture
 
 ```
-  [ Rural Clinic Device / Donor Laptop ]
-                 │
-                 ▼  (1. DNS Lookup with Geo-routing: 1.1.1.1 / Anycast)
-   [ Anycast Edge CDN / Reverse Proxy ] ──► Serves cached static assets & bundles
-                 │
-                 ▼  (2. HTTP/3 over QUIC with 0-RTT TLS 1.3)
-   [ Cloudflare / Edge Security WAF ]   ──► Blocks DDoS, enforces CORS & HSTS
-                 │
-                 ▼  (3. TLS Termination & Load Balancer: Port 443)
-       ┌─────────┴─────────┐
-       ▼                   ▼
- [ Web Server Cluster A ] [ Web Server Cluster B ]  ──► Nginx / Apache
-       │                   │
-       └─────────┬─────────┘
-                 │ (Private Subnet: 10.0.2.0/24 with strict Firewalls)
-                 ▼
-     [ Primary Database & Redis Cache ]
+ Families, students, donors
+            │ HTTPS
+            ▼
+   [ CDN: images, CSS, JS ]
+            │
+            ▼
+ [ Load balancer + WAF ]
+   public 203.0.113.20
+       ┌────┴────┐
+       ▼         ▼
+ [ Web A ]   [ Web B ]
+       └────┬────┘
+            ▼
+     [ Database ]
 ```
+
+Visitors only ever talk to the CDN and the load balancer. The web servers and the database have **no public addresses**. Two web servers mean that if Web A fails, the load balancer sends everyone to Web B.
 
 ---
 
-## 🛠️ Step-by-Step Technical Blueprint
+## 🛠️ Step-by-Step Blueprint
 
-### Step 1: Network Layer & Addressing (CIDR Plan)
-We divide the organization's cloud Virtual Private Cloud (VPC) into dedicated subnets:
-- **Public Subnet (`10.0.1.0/24`)**:
-  - Houses Load Balancers and Bastion Hosts.
-  - Internet Gateway attached with NAT for outbound security updates.
-- **Application Subnet (`10.0.2.0/24`)**:
-  - Houses Node.js / Laravel API microservices.
-  - No direct public IP addresses! Traffic only permitted from Load Balancer.
-- **Database Subnet (`10.0.3.0/24`)**:
-  - Houses MySQL & Redis clusters.
-  - Ingress strictly restricted to Application Subnet on ports `3306` and `6379`.
+### Step 1: Addresses and subnets
 
-### Step 2: DNS Strategy
-- Configure **Anycast DNS** so user queries automatically route to the geographically nearest server.
-- Set up records:
-  - `oasis-aid.org` $\rightarrow$ `A` / `AAAA` pointing to Cloudflare Anycast IPs.
-  - `api.oasis-aid.org` $\rightarrow$ `CNAME` pointing to Regional Load Balancer.
-  - `TTL`: Set to `300` seconds for APIs and `86400` seconds (24h) for static assets.
+The cloud network gets the private block `10.20.0.0/16`. A /16 has 65,536 addresses. We cut it into /24 subnets of 256 addresses each, one for each job:
 
-### Step 3: Transport & Protocol Tuning
-- Enable **HTTP/3 (QUIC)** to ensure seamless connection migration when field volunteers travel between spotty cell towers and clinic Wi-Fi.
-- Enable **Brotli / Gzip compression** on all text responses to compress JSON payloads by 75%, saving vital mobile data for users on metered cellular plans.
+| Subnet | CIDR | What lives here | Public? |
+| :--- | :--- | :--- | :--- |
+| Public | `10.20.1.0/24` | Load balancer, bastion host, NAT gateway | Faces the Internet |
+| Web | `10.20.2.0/24` | Web A, Web B | Private |
+| Data | `10.20.3.0/24` | Database | Private |
 
-### Step 4: Security Headers & Ethical Compliance (*Amānah*)
-Every web server response injects strict defense headers:
+```
+10.20.0.0/16  (cloud network)
+ ├─ 10.20.1.0/24  public
+ ├─ 10.20.2.0/24  web
+ └─ 10.20.3.0/24  data
+```
+
+Splitting by job lets us put a different firewall rule around each subnet. The database sits deepest, two walls away from the Internet.
+
+### Step 2: Firewall rules
+
+Allow only what is needed. Block everything else.
+
+| From | To | Port | Why |
+| :--- | :--- | :--- | :--- |
+| Internet | Load balancer | TCP 443, UDP 443 | HTTPS and HTTP/3 |
+| Internet | Load balancer | TCP 80 | Only to redirect to HTTPS |
+| Load balancer | Web subnet | TCP 443 | Pass visitors on |
+| Web subnet | Data subnet | TCP 3306 | Web servers read the database |
+| School office `198.51.100.7` | Bastion host | TCP 22 | Staff log in with SSH |
+| Bastion host | Web and data subnets | TCP 22 | Staff maintenance |
+
+The database port `3306` is **never** open to the Internet (Chapter 5).
+
+### Step 3: DNS records
+
+```
+oasis.example.org      A      203.0.113.20
+oasis.example.org      AAAA   2001:db8:20::20
+www.oasis.example.org  CNAME  oasis.example.org
+oasis.example.org      MX 10  mail.oasis.example.org
+```
+
+A TTL of `3600` is fine day to day. Lower it to `300` a day before any planned move (Chapter 6).
+
+### Step 4: HTTPS everywhere
+
+- The load balancer holds a TLS certificate for `oasis.example.org` and renews it automatically (Chapter 10).
+- Port 80 only sends a `301 Moved Permanently` to the HTTPS address (Chapter 7).
+- HTTP/3 is switched on, so phones that move between Wi-Fi and mobile data keep their connection (Chapter 8).
+
+Security headers on every response (Chapter 11):
+
 ```http
-Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+Strict-Transport-Security: max-age=31536000
+Content-Security-Policy: default-src 'self'
 X-Content-Type-Options: nosniff
-X-Frame-Options: DENY
-Content-Security-Policy: default-src 'self'; script-src 'self'; object-src 'none';
-Access-Control-Allow-Origin: https://app.oasis-aid.org
+Set-Cookie: sid=...; Secure; HttpOnly; SameSite=Lax
 ```
+
+### Step 5: Fast on slow connections
+
+- **Compression.** The server compresses text with gzip or Brotli, so pages and JSON become much smaller.
+- **Caching.** Files like `app.3f9a1c.js` get `Cache-Control: max-age=31536000, immutable`. Clinic records get `no-store` (Chapter 9).
+- **CDN.** Images and scripts come from a nearby CDN server, so they travel a shorter distance.
+- **Offline reading.** The timetable page can be saved on the phone by a small browser script called a **service worker**, so it opens even with no signal.
+
+### Step 6: A plan for problems
+
+When the clinic says "the site is slow", staff follow the ladder from Chapter 13:
+
+1. `ping` and `tracert -d oasis.example.org` from the clinic: is the path OK?
+2. `nslookup oasis.example.org`: does the name give `203.0.113.20`?
+3. `curl.exe -I https://oasis.example.org`: what status code comes back?
+4. DevTools waterfall: is the delay in the network or in **TTFB** (the server)?
 
 ---
 
 ## 🌟 The Moral Dimension of Network Engineering
 
-Network engineering is not merely moving binary numbers between silicon chips; it is building bridges of human connection, safety, and empowerment.
+Network engineering is not just moving bits between chips. It is building bridges of trust between people.
 
-When you:
-- Optimize an asset so a family in a rural village can load emergency flood warnings,
-- Secure an API with TLS so a donor's charity is protected against fraud,
-- Structure subnets and firewalls to safeguard medical confidentiality,
-
-You are living the highest calling of digital stewardship (**Amānah**) and excellence (**Iḥsān**). May your knowledge be a source of continuous benefit to society (*'Ilm Nāfi'*).
-
----
+When you shrink a page so a family on a weak signal can read a flood warning, when you keep health records behind three walls, and when you lock donors' details inside HTTPS, you are practising *Amānah* (trust) and *Iḥsān* (excellence). May your knowledge be a continuing benefit to others (*'Ilm Nāfi'*).
 
 ## 🎓 Textbook Completion Milestone
 
-Congratulations! You have completed all 14 chapters of the **Computer Networking & Web Protocols** curriculum. You are now prepared to explore the interactive **Network Lab Studio**, solve the **Mastery Challenges**, and build high-performance distributed systems.
+Congratulations! You have finished all 14 chapters of **Computer Networking & Web Protocols**. Next, try the interactive **Network Lab**, the practice exercises and the quiz in the Learning Networks track.
+
+---
+
+## ⚠️ Common Mistake
+
+**Giving every server a public address.**
+
+- ❌ Wrong: Web A, Web B and the database each get a public IP "to make things easy".
+- What happens: anyone on the Internet can knock on the database port and try passwords.
+- ✅ Right: only the load balancer (and the bastion host, for one office address) faces the Internet. Everything else stays private.
+
+**Having only one of everything.**
+
+- ❌ Wrong: one web server with no spare.
+- What happens: one broken disk takes the whole portal offline.
+- ✅ Right: at least two web servers behind a load balancer, plus regular database backups.
+
+---
+
+## ✍️ Try It
+
+Draw the Oasis design from memory on paper, as a text diagram no wider than your notebook page.
+Label each box with its subnet, and mark every arrow with its port number.
+
+> 💡 Hint: there are three subnets and five arrows that need ports: 443 (twice), 3306 and 22 (twice).
+
+---
+
+## 📝 Recap
+
+- Start a design from needs: availability, slow connections, privacy and easy fixing.
+- Split a private cloud network (VPC) into subnets by job, and guard each with firewall rules.
+- Only the load balancer and a guarded bastion host face the Internet.
+- DNS, HTTPS, HTTP/3, security headers and caching all play a part.
+- Plan diagnostics before trouble starts.
+
+---
+
+## 🏆 Practice
+
+### 🟢 Level 1: Recall
+In one sentence each, what is a **load balancer**, a **bastion host** and a **CDN**?
+
+<details>
+<summary>Show answer</summary>
+
+- A **load balancer** receives every visitor first and shares them between several servers.
+- A **bastion host** is one guarded computer that staff log in to before they can reach any other server.
+- A **CDN** keeps copies of files on servers in many places, so visitors download from somewhere nearby.
+
+</details>
+
+### 🟡 Level 2: Apply
+The Oasis team wants a fourth subnet for a reporting server, inside `10.20.0.0/16`.
+1. Give a suitable /24 subnet that does not overlap the others.
+2. How many usable host addresses does it have?
+3. Write one firewall rule so the reporting server can read the database.
+
+<details>
+<summary>Show answer</summary>
+
+1. `10.20.4.0/24` (any unused `10.20.X.0/24` works).
+2. 256 − 2 = **254** usable hosts.
+3. `ALLOW  10.20.4.0/24 → 10.20.3.0/24  TCP 3306`
+
+</details>
+
+### 🔴 Level 3: Challenge
+Design a smaller network for a village library with a reading room and a staff office.
+1. Choose a private block and split it into two subnets. Give each subnet's CIDR and usable host range.
+2. List three firewall rules.
+3. Write the A record for `library.example.org` using a documentation address.
+4. Give two ways to make the library website fast on slow mobile connections.
+
+<details>
+<summary>Show one possible answer</summary>
+
+1. Block `192.168.50.0/24`, split into two /25 subnets:
+
+```
+192.168.50.0/25    hosts .1 – .126    reading room
+192.168.50.128/25  hosts .129 – .254  staff office
+```
+
+2. Firewall rules:
+
+```
+ALLOW  staff  → Internet       TCP 443
+ALLOW  reading room → Internet TCP 443
+BLOCK  reading room → staff    all ports
+```
+
+3. `library.example.org  A  203.0.113.50`
+4. Compress text responses with gzip or Brotli, and give images and scripts long `Cache-Control` lifetimes so returning visitors do not download them again.
+
+</details>

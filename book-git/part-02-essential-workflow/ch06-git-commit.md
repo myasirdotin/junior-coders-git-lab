@@ -1,141 +1,181 @@
-# Chapter 6: Crafting Meaningful Commits 📝💎
+# Chapter 6: Crafting Meaningful Commits 📝
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Captain's Ship Logbook
+## 🌟 Real-Life Story
 
-Imagine you are the captain of a cargo ship navigating across the Indian Ocean:
-- In your ship’s official logbook, you don't write:
-  > *"Did some stuff today. Moved the ship. Wrote things."*
-- That is useless to anyone investigating the voyage!
-- Instead, professional captains write precise, dated, and meaningful records:
-  > *"08:00 AM: Steered 15 degrees East to avoid coastal monsoon winds. Checked fuel reserves."*
+**The Captain's Logbook**
 
-In programming, **a commit message is your entry in the project's permanent logbook**.
-When another programmer (or you, 6 months from now!) looks at the repository history, a crystal-clear commit message explains **why** a change was made and **what problem** it solved!
+A ship's captain keeps a logbook of the whole voyage. A useless entry says: *"Did some stuff. Moved the ship."* A helpful entry says: *"08:00. Turned 15 degrees east to avoid strong monsoon winds."* Anyone reading it later knows what happened and why. In Git, **a commit message is your entry in the project's logbook**, and the next reader may be you, six months from now.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Seal staged changes into an immutable commit using `git commit -m`.
-- Understand the structure of an **atomic commit**.
-- Apply the industry-standard **Conventional Commits** format (`feat:`, `fix:`, `docs:`, `style:`).
-- Write polite, professional, and descriptive commit summaries (*Adab*).
-- Modify the most recent commit message using `git commit --amend`.
+- Save staged changes as a commit with `git commit -m`.
+- Write clear commit messages in the present tense ("Add", "Fix", "Update").
+- Use the **Conventional Commits** labels `feat:`, `fix:`, `docs:` and `style:`.
+- Keep each commit to one idea (an **atomic commit**).
+- Fix your last commit with `git commit --amend`.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
-
-### The Anatomy of an Industry-Standard Commit
+## 👁️ The Shape of a Good Commit Message
 
 ```text
-       TYPE      SCOPE                DESCRIPTION (Imperative mood)
-      ┌────┐    ┌─────┐              ┌───────────────────────────────┐
-      feat(auth): Add secure password hashing with argon2
-      
-      │                                                              │
-      └──────────────────────────────────────────────────────────────┘
-                       Short, clear, under 72 chars
+ TYPE  DESCRIPTION
+ ┌──┐  ┌──────────────────────────┐
+ feat: Add attendance table
+       └─ present tense verb first
+ Keep the whole line under 72 characters.
 ```
 
-### Good Commits vs. Bad Commits
+- **Type** says what kind of change it is (see the table below).
+- **Description** says what the commit does, starting with a verb in the present tense.
 
-| Bad Commit Messages ❌ | Professional Commit Messages ✅ |
+| Type | Use it for | Example |
+| :--- | :--- | :--- |
+| `feat:` | a new feature | `feat: Add student attendance table` |
+| `fix:` | a bug fix | `fix: Close the footer div on mobile` |
+| `docs:` | documentation only | `docs: Update setup steps in README` |
+| `style:` | look or formatting | `style: Improve button colour contrast` |
+| `refactor:` | tidier code, same result | `refactor: Simplify the grade loop` |
+
+### Bad vs. good messages
+
+| Bad message ❌ | Clear message ✅ |
 | :--- | :--- |
-| `"Update stuff"` | `"feat: Add student attendance table"` |
-| `"Fix bug"` | `"fix: Resolve unclosed div on mobile footer"` |
-| `"Asdf"` | `"docs: Update installation guide in README"` |
-| `"Finally done omg"` | `"style: Improve button contrast for accessibility"` |
-| `"Changes"` | `"refactor: Simplify loop logic in grade calculator"` |
+| `Update stuff` | `feat: Add student attendance table` |
+| `Fix bug` | `fix: Close the footer div on mobile` |
+| `asdf` | `docs: Update setup steps in README` |
+| `Finally done!!!` | `style: Improve button colour contrast` |
+
+**Present tense trick:** a good message completes the sentence *"This commit will…"*
+
+- *This commit will…* **Add student login form** ✅
+- *This commit will…* **Added student login form** ❌
 
 ---
 
-## 4. 💻 Code Example: Making Commits Like a Senior Developer
+## 💻 Example: Making Commits
+
+The Eco Club website already has a first commit. Now we add a navigation bar.
 
 ```bash
-# 1. Stage the files you want to record
-git add index.html styles/theme.css
-
-# 2. Check that everything is green and ready
+git add nav.html style.css
 git status
-
-# 3. Create the commit with a concise, professional message
-git commit -m "feat: Add responsive navigation bar with hamburger menu"
-
-# Output:
-# [main b7c19a2] feat: Add responsive navigation bar with hamburger menu
-#  2 files changed, 48 insertions(+), 6 deletions(-)
 ```
 
-### What if You Made a Typo in Your Commit Message?
-If you just made a commit and realized you misspelled a word, you can fix it instantly:
+```text
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	new file:   nav.html
+	new file:   style.css
+```
+
+Both files are staged. Now save them as a commit:
 
 ```bash
-git commit --amend -m "feat: Add responsive navigation bar with dropdown menu"
+git commit -m "feat: Add navigation bar with links"
 ```
 
----
+```text
+[main c3898ce] feat: Add navigation bar with links
+ 2 files changed, 5 insertions(+)
+ create mode 100644 nav.html
+ create mode 100644 style.css
+```
 
-## 5. 🔍 Code Explanation: Breaking It Down
-
-- `git commit`: Takes everything currently in the Staging Area, creates a new snapshot object, points `HEAD` to it, and logs the author and timestamp.
-- `-m "..."`: Passes the commit message directly on the command line without opening a text editor.
-- **The Imperative Mood Tradition**:
-  - In Git tradition, commit messages often start with an active imperative verb: *"Add"*, *"Fix"*, *"Update"*, *"Remove"* (rather than *"Added"* or *"Fixing"*).
-  - Mental trick: Prepend the phrase: *"This commit will..."*
-    - *This commit will... [Add student login form]* ✅
-    - *This commit will... [Added student login form]* ❌
-- `--amend`: Rewrites the very latest commit, allowing you to update its message or bundle in a file you accidentally left out.
+Your commit ID (here `c3898ce`) will be different. The very first commit in a repository also says `(root-commit)`, like this: `[main (root-commit) b9a401f] Add HTML skeleton for club home page`.
 
 ---
 
-## 6. 🌍 Real-World Connection: Atomic Commits
+## 🔍 How It Works
 
-What is an **Atomic Commit**?
-- In science, an atom is an indivisible unit.
-- In Git, an atomic commit means **one logical change per commit**.
-- If you fix a login bug AND redesign the header colors:
-  - DO NOT bundle them into one commit!
-  - Make one commit for the login bug fix, and a second commit for the header styling!
-- If the new styling causes a visual glitch tomorrow, your team can easily revert the style commit without breaking your working login fix!
+- `git commit` takes **only what is in the staging area** and saves it as a new snapshot. It records your name, email and the time.
+- `-m "..."` gives the message straight on the command line. Without `-m`, Git opens a text editor.
+- `[main c3898ce]` shows the branch and the short commit ID.
+- `2 files changed, 5 insertions(+)` counts the lines added (`+`) and removed (`-`).
+- After the commit, `git status` says `nothing to commit, working tree clean`.
 
 ---
 
-## 7. ⚠️ Common Beginner Traps
+## 🩹 Fixing the Last Commit with `--amend`
 
-1. **Running `git commit` without `-m`**:
-   - If you type just `git commit`, Git launches a terminal text editor (like Vim or Nano). Beginners often get trapped inside Vim!
-   - *How to escape Vim*: Press `Esc`, type `:q!` and hit `Enter`!
-   - *Best Practice*: Always use the `-m "Your message"` flag.
-2. **Amending commits that have already been pushed to GitHub**:
-   - Only use `git commit --amend` on local commits that have **not** been pushed yet. Rewriting pushed commits can disrupt teammates' histories.
+You spot a typo right after committing:
+
+```bash
+git commit -m "feat: Add navigation bar wiht links"
+git commit --amend -m "feat: Add navigation bar with links"
+```
+
+```text
+[main ce0aaf0] feat: Add navigation bar with links
+ Date: Tue Oct 13 08:06:26 2026 +0530
+ 2 files changed, 5 insertions(+)
+ create mode 100644 nav.html
+ create mode 100644 style.css
+```
+
+`--amend` **replaces** the last commit with a new one. Notice the ID changed (`ce0aaf0`). You can also use it to add a forgotten file:
+
+```bash
+git add contact.html
+git commit --amend --no-edit
+```
+
+`--no-edit` keeps the old message. Only amend commits that are still on your own computer. Once commits are shared with others (Chapter 14), changing them causes confusion for the team.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🌍 Real-World Connection
 
-A developer edits `readme.txt`.
-They run:
+**Atomic commits**
+
+- In science, an atom was once thought to be the smallest piece that cannot be split.
+- An **atomic commit** holds **one** logical change and nothing else.
+- Fixed a login bug **and** changed the header colours? Make **two** commits.
+- If the new colours cause a problem tomorrow, the team can undo just that commit. The login fix stays safe.
+
+---
+
+## 🔮 Predict the Output
+
+A student edits `readme.txt`, forgets `git add`, and runs:
+
 ```bash
 git commit -m "Update docs"
 ```
-(Notice they forgot `git add readme.txt`!).
 
-**Question**: What does Git do?
+What does Git do?
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> Git refuses to commit and displays: <code>no changes added to commit (use "git add" to track)</code>! Remember: Commits only record what is in the Staging Area!
+
+Git refuses to make a commit and shows:
+
+```text
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+A commit only saves what is in the staging area. Run `git add readme.txt` first.
+
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Vague Git History
+## 🕵️ Code Detective
 
-A new student joins a web agency and inspects the project log:
+**The Vague History**
+
+A new volunteer joins the school library website team and reads the log:
 
 ```text
 c4f210a fixed it
@@ -144,34 +184,145 @@ c4f210a fixed it
 33ba9f0 changed things
 ```
 
-- **Why is this terrible?** Nobody knows what was changed, which bugs were resolved, or which commit broke the shopping cart on Friday!
-- **Professional Standard**: Maintain clean, respectful (*Adab*), informative commit messages that save hours of debugging for everyone.
+- **The problem:** nobody can tell what changed, which bug was fixed, or which commit broke the book search on Friday.
+- **The fix:** clear, respectful (*Adab*) messages such as `fix: Show results when the search box has spaces`. They save everyone hours of detective work.
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**Typing `git commit` without `-m`**
+
+❌ **Wrong:**
+
+```bash
+git commit
+```
+
+**What happens:** Git opens a text editor inside the terminal. On many computers this is **Vim**, which feels like a trap for beginners. Typing letters does nothing you expect.
+
+✅ **Fixed version:** to escape Vim, press `Esc`, type `:q!` and press `Enter`. Git cancels and prints:
+
+```text
+Aborting commit due to empty commit message.
+```
+
+Then commit the easy way:
+
+```bash
+git commit -m "docs: Add contact details to README"
+```
+
+**Past tense messages** (`Added footer`) are the other common slip. Write `Add footer`: the message describes what the commit **does**.
+
+---
+
+## ✍️ Try It
+
+1. In a practice repository, create `index.html` with a heading and commit it.
+2. Add a `<p>` line to the file and commit again with a `feat:` message.
+3. Run `git log --oneline` to see both commits.
+
+<details>
+<summary>Hint</summary>
+
+The pattern each time is: edit → `git add index.html` → `git commit -m "feat: Add welcome paragraph"`. `git log --oneline` shows one line per commit, newest first. You will learn more about `git log` in Chapter 7.
+
+</details>
+
+---
+
+## 📝 Recap
+
+- `git commit -m "message"` saves the staging area as a new snapshot.
+- Nothing staged means nothing to commit.
+- Start messages with a present tense verb: "Add", "Fix", "Update".
+- Labels like `feat:`, `fix:` and `docs:` show the kind of change.
+- One idea per commit (atomic) makes undoing easy.
+- `git commit --amend` replaces the last commit; use it only before sharing.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. What flag allows passing a commit message directly in the terminal?
-2. What does an atomic commit mean?
-3. What command edits the message of the most recent commit?
 
-### 🟡 Level 2: Understand
-4. Why is writing in the imperative mood (*"Fix bug"* instead of *"Fixed bug"*) favored in open-source Git communities?
-5. How does clean commit hygiene reflect the Islamic value of **Excellence (*Iḥsān*)**?
+1. Which flag lets you type the commit message directly in the terminal?
+2. What is an atomic commit?
+3. Which command changes the message of the most recent commit?
 
-### 🟠 Level 3: Apply
-6. Rewrite these 3 poor commit messages into professional Conventional Commit format:
+<details>
+<summary>Show answer</summary>
+
+1. `-m`, as in `git commit -m "Add footer"`.
+2. A commit that contains one logical change only.
+3. `git commit --amend -m "New message"`.
+
+</details>
+
+### 🟡 Level 2: Apply
+
+1. Why do Git teams write "Fix bug" instead of "Fixed bug"?
+2. How do clean commits show the Islamic value of excellence (*Iḥsān*)?
+3. Rewrite these messages in Conventional Commits style:
    - *"I changed the logo and color of footer"*
    - *"Fixed that broken table thing on mobile"*
    - *"Wrote contact us page"*
 
-### 🔵 Level 4: Think & Troubleshoot
-7. You made a commit, but forgot to include `contact.html`. How can you use `git add` and `git commit --amend --no-edit` to add `contact.html` into your last commit without creating a messy second commit?
+<details>
+<summary>Show answer</summary>
 
-### 🟣 Level 5: Create & Build
-8. Create a mini Git repository with 3 separate atomic commits:
-   - Commit 1: Initial HTML skeleton.
-   - Commit 2: Added navigation bar.
-   - Commit 3: Added hero banner.
-   Print `git log --oneline` to verify your clean milestone history!
+1. The message describes what the commit **does** when it is applied, like an instruction. It reads like a label on the change: *"This commit will fix bug."*
+2. *Iḥsān* means doing work carefully and beautifully, even the parts nobody praises. Clear commits are a gift to your teammates and to your future self.
+3. Possible answers. The first message mixes two ideas, so it becomes two commits:
+   - `style: Update club logo` and `style: Change footer colour`
+   - `fix: Make results table scroll on mobile`
+   - `feat: Add contact page`
+
+</details>
+
+### 🔴 Level 3: Challenge
+
+**Build a clean history.**
+
+1. Create a new repository called `bakery-site`.
+2. Make three atomic commits:
+   - Commit 1: an HTML skeleton.
+   - Commit 2: a navigation bar.
+   - Commit 3: a welcome banner.
+3. After commit 3, you notice you forgot `contact.html`. Add it **into** commit 3 without making a fourth commit.
+4. Print `git log --oneline` and check you still have exactly three commits.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```bash
+mkdir bakery-site
+cd bakery-site
+git init
+echo "<h1>Halal Bakery</h1>" > index.html
+git add index.html
+git commit -m "feat: Add HTML skeleton"
+echo "<nav>Home | Menu</nav>" > nav.html
+git add nav.html
+git commit -m "feat: Add navigation bar"
+echo "<p>Fresh bread every morning</p>" > banner.html
+git add banner.html
+git commit -m "feat: Add welcome banner"
+echo "<p>Contact us</p>" > contact.html
+git add contact.html
+git commit --amend --no-edit
+git log --oneline
+```
+
+The log shows three lines, for example:
+
+```text
+ded9177 (HEAD -> main) feat: Add welcome banner
+518e477 feat: Add navigation bar
+d3396d3 feat: Add HTML skeleton
+```
+
+Your IDs will be different.
+
+</details>

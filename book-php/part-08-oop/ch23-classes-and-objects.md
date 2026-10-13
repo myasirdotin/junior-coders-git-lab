@@ -1,165 +1,161 @@
-# Chapter 23: Classes & Objects (OOP) 🏛️🧱
+# Chapter 23: Classes & Objects (OOP) 🏛️
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Architect's Blueprint
+## 🌟 Real-Life Story
 
-Imagine an architect designing a house:
-- The architect sits at their drafting table and draws a detailed **Blueprint** on blue paper.
-- The blueprint specifies: 3 bedrooms, 2 bathrooms, a front porch, a kitchen, and a front doorbell.
-- You cannot sleep inside a paper blueprint! It is merely a plan.
-- But from that **one single blueprint**, builders can construct **100 real physical houses** in a new suburban neighborhood.
-- One house can be painted yellow with a red door; another can be painted white with a blue door. They share the same structure, but are distinct physical homes!
-
-In computer science, this is the essence of **Object-Oriented Programming (OOP)**:
-- A **Class** is the architectural Blueprint.
-- An **Object** is the real, functioning house built from that blueprint!
+An architect draws a **blueprint** for a house: three bedrooms, a kitchen and a front door. You cannot live inside a paper plan. But builders can use that one blueprint to build a whole street of real houses. One house is painted yellow and another white, yet they share the same design. In programming, the blueprint is a **class** and each real house is an **object**.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Define what Object-Oriented Programming is and why large codebases use it.
-- Declare a class blueprint using the `class` keyword.
-- Instantiate objects from a class using the `new` keyword.
-- Define member properties (variables inside a class).
-- Define member methods (functions inside a class).
+- Explain what **Object-Oriented Programming (OOP)** is and why big projects use it.
+- Declare a class with the `class` keyword.
+- Create objects from a class with the `new` keyword.
+- Add **properties** (variables inside a class) and **methods** (functions inside a class).
+- Use the arrow `->` to reach an object's properties and methods.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
+
+**Object-Oriented Programming (OOP)** is a way of organising code. You group the data about a thing and the actions it can do into one unit, called an **object**.
 
 ### The Blueprint vs. Object Architecture
 
 ```text
-    THE BLUEPRINT (Class)                  REAL HOUSES (Objects)
-   ┌───────────────────────┐            ┌───────────────────────────┐
-   │ class Student {       │            │ $student1 = new Student() │
-   │   public $name;       │ ---------> │ $student1->name = "Ali"   │
-   │   public $grade;      │            └───────────────────────────┘
-   │   public function...  │            ┌───────────────────────────┐
-   │ }                     │ ---------> │ $student2 = new Student() │
-   └───────────────────────┘            │ $student2->name = "Sara"  │
-                                        └───────────────────────────┘
+  CLASS (blueprint)
+  ┌────────────────────┐
+  │ class Student {    │
+  │   public $name;    │
+  │   public $grade;   │
+  │ }                  │
+  └─────────┬──────────┘
+      new   │   new
+    ┌───────┴────────┐
+    v                v
+  ┌────────────┐  ┌────────────┐
+  │ $student1  │  │ $student2  │
+  │ name: Ali  │  │ name: Sara │
+  │ grade: 9   │  │ grade: 10  │
+  └────────────┘  └────────────┘
+   OBJECT           OBJECT
 ```
 
 ### Procedural vs Object-Oriented Programming
 
+**Procedural** code is the style you have used so far: separate variables and functions, run from top to bottom.
+
 | Concept | Procedural PHP | Object-Oriented PHP (OOP) |
 | :--- | :--- | :--- |
-| **Organization** | Standalone functions and scattered variables | Data and actions grouped together into objects |
-| **Scalability** | Gets messy when projects exceed 20 files | Modular, clean, and easy to maintain in large teams |
-| **Real-World Modeling** | Hard to represent complex entities | Natural representation of Users, Cars, Products |
-| **Modern Frameworks** | Seldom used in enterprise development | The foundation of **Laravel**, **Symfony**, & **WordPress** |
+| **Organisation** | Separate functions and variables | Data and actions grouped into objects |
+| **Large projects** | Can get messy as files grow | Easier to split into tidy parts |
+| **Modelling things** | Harder to represent a student or a book | Each thing becomes an object |
+| **Frameworks** | Used in many older scripts | The base of **Laravel** and **Symfony** |
 
 ---
 
-## 4. 💻 Code Example: Creating Your First Class and Objects
+## 💻 Code Example: Creating Your First Class and Objects
 
 ```php
 <?php
-  // 1. Defining the Blueprint (Class)
+  // 1. Define the blueprint (class)
   class Student {
-    // Properties (State / Attributes)
+    // Properties (the data)
     public $name;
     public $grade;
     public $houseColor;
 
-    // Methods (Behavior / Actions)
+    // Methods (the actions)
     public function introduce() {
       return "Hello! My name is {$this->name}, and I am in Grade {$this->grade}.";
     }
 
     public function cheerForHouse() {
-      return "Go House {$this->houseColor}!! 🏆";
+      return "Go House {$this->houseColor}!";
     }
   }
 
-  // 2. Instantiating the First Object
+  // 2. Create the first object
   $student1 = new Student();
   $student1->name = "Zainab Ali";
   $student1->grade = 9;
   $student1->houseColor = "Emerald Green";
 
-  // 3. Instantiating a Second Object from the same Blueprint!
+  // 3. Create a second object from the same blueprint
   $student2 = new Student();
   $student2->name = "Bilal Khan";
   $student2->grade = 9;
   $student2->houseColor = "Sapphire Blue";
 
-  // 4. Calling Methods on the Objects
-  echo "<h2>Student Introductions</h2>";
-  echo "<p>" . $student1->introduce() . "</p>";
-  echo "<p>" . $student1->cheerForHouse() . "</p>";
-
-  echo "<hr>";
-
-  echo "<p>" . $student2->introduce() . "</p>";
-  echo "<p>" . $student2->cheerForHouse() . "</p>";
+  // 4. Call methods on each object
+  echo "<p>" . $student1->introduce() . "</p>\n";
+  echo "<p>" . $student1->cheerForHouse() . "</p>\n";
+  echo "<p>" . $student2->introduce() . "</p>\n";
+  echo "<p>" . $student2->cheerForHouse() . "</p>\n";
 ?>
+```
+
+Output:
+
+```text
+<p>Hello! My name is Zainab Ali, and I am in Grade 9.</p>
+<p>Go House Emerald Green!</p>
+<p>Hello! My name is Bilal Khan, and I am in Grade 9.</p>
+<p>Go House Sapphire Blue!</p>
 ```
 
 ---
 
-## 5. 🔍 Code Explanation: Breaking It Down Line by Line
+## 🔍 Code Explanation: Breaking It Down Line by Line
 
-- `class Student { ... }`: Creates the blueprint. Class names conventionally begin with an uppercase letter in PascalCase.
-- `public $name;`: Declares a **Property**. In OOP, variables belonging to a class are called properties.
-- `public function introduce() { ... }`: Declares a **Method**. In OOP, functions belonging to a class are called methods.
-- `$student1 = new Student();`: The `new` keyword instantiates a fresh, living object in server memory based on the `Student` blueprint.
-- `->`: The **Object Operator** (arrow). Used to access properties and call methods on an object (e.g. `$student1->name`).
-
----
-
-## 6. 🌍 Real-World Connection: Modern Web Frameworks
-
-If you inspect modern PHP frameworks like **Laravel**:
-- Every database table has a class: `class User extends Model`, `class Product extends Model`.
-- To create a new user:
-  ```php
-  $user = new User();
-  $user->name = "Hamza";
-  $user->save();
-  ```
-- OOP is the language of professional software engineering!
+- `class Student { ... }`: Creates the blueprint. Class names start with a capital letter, in **PascalCase** (each word capitalised, no spaces).
+- `public $name;`: Declares a **property**, a variable that belongs to the class. `public` means code outside the class may use it (Chapter 24 explains this).
+- `public function introduce() { ... }`: Declares a **method**, a function that belongs to the class.
+- `$this->name`: Inside a method, `$this` means "the object this method was called on". For `$student1`, it is Zainab's object.
+- `{$this->name}`: The curly braces help PHP find the whole property inside a double-quoted string.
+- `$student1 = new Student();`: `new` builds a fresh object from the blueprint. This is called **instantiating** (making an *instance*).
+- `->`: The **object operator** (arrow). It reaches a property or calls a method on an object, as in `$student1->name`.
 
 ---
 
-## 7. ⚠️ Common Beginner Traps
+## 🌍 Real-World Connection: Modern Web Frameworks
 
-1. **Using `$` after the arrow**:
-   ```php
-   $student1->$name = "Ali"; // ❌ Wrong! Variable variable lookup!
-   $student1->name = "Ali";  // ✅ Correct! No $ after the arrow!
-   ```
-2. **Confusing Class with Object**:
-   A class is just the code definition; an object is the actual instance holding real data in memory.
+In the **Laravel** framework, each database table has a class, such as `class User extends Model`. Saving a new user looks like this:
+
+```php
+$user = new User();
+$user->name = "Hamza";
+$user->save();
+```
+
+You can already read most of it: a new object, a property set with `->`, and a method call. (`extends` is Chapter 25.)
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 ```php
 <?php
-  class Car {
+  class Lamp {
     public $color = "Silver";
   }
-  $car1 = new Car();
-  $car2 = new Car();
-  $car1->color = "Red";
-  echo $car2->color;
+  $lamp1 = new Lamp();
+  $lamp2 = new Lamp();
+  $lamp1->color = "Red";
+  echo $lamp2->color;
 ?>
 ```
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> <code>Silver</code>! Changing <code>$car1</code>'s color does not affect <code>$car2</code>. They are completely separate objects!
+<strong>Answer:</strong> <code>Silver</code>. Changing <code>$lamp1</code>'s colour does not affect <code>$lamp2</code>. They are separate objects. The <code>= "Silver"</code> in the class is a <strong>default value</strong> that every new object starts with.
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Arrow
+## 🕵️ Code Detective: The Broken Arrow
 
 ```php
 <?php
@@ -171,28 +167,165 @@ If you inspect modern PHP frameworks like **Laravel**:
 ?>
 ```
 
-- **Find the bug**: The developer used a dot `.` instead of an arrow `->`!
-- **Explain**: JavaScript uses dots for objects (`pet.name`), but in PHP, dots are for string concatenation. PHP uses `->` for objects!
-- **Fix**: `$myPet->name = "Rocky";`.
+PHP stops with: `Parse error: syntax error, unexpected token "="`.
+
+- **Find the bug**: The coder used a dot `.` instead of an arrow `->`.
+- **Explain**: JavaScript uses dots for objects (`pet.name`). In PHP, the dot joins strings. PHP uses `->` for objects.
+- **Fix**: `$myPet->name = "Rocky";`
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**Putting `$` after the arrow.**
+
+- ❌ *Wrong*:
+  ```php
+  $student1->$name = "Ali";
+  ```
+- 😕 *What happens*: PHP reads `$name` as a variable and uses **its value** as the property name. If `$name` does not exist, you get `Warning: Undefined variable $name`, and the value is not stored in the `name` property at all.
+- ✅ *Fixed*: Write the property name with no `$`:
+  ```php
+  $student1->name = "Ali";
+  ```
+
+Remember also: a **class** is only the plan. An **object** is a real copy made with `new` that holds data.
+
+---
+
+## ✍️ Try It
+
+Open the [PHP Console](../studios/php-console/) and type:
+
+```php
+<?php
+class Book {
+  public $title;
+  public $pages;
+
+  public function summary() {
+    return "{$this->title} has {$this->pages} pages.";
+  }
+}
+
+$book = new Book();
+$book->title = "Stars and Planets";
+$book->pages = 120;
+echo $book->summary();
+```
+
+Output:
+
+```text
+Stars and Planets has 120 pages.
+```
+
+*Hint*: Make a second `Book` object with a different title. Call `summary()` on both. Then try `var_dump($book);` to see what is inside an object.
+
+---
+
+## 📝 Recap
+
+- A **class** is a blueprint; an **object** is a real thing built from it with `new`.
+- **Properties** are variables inside a class; **methods** are functions inside a class.
+- Use `->` (no `$` after it) to reach a property or call a method.
+- Inside a method, `$this` means "this object".
+- Each object keeps its own values: changing one does not change another.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. What keyword defines a new class in PHP?
-2. What keyword creates an object from a class blueprint?
-3. What operator accesses methods and properties of an object?
+1. Which keyword defines a new class?
+2. Which keyword creates an object from a class?
+3. Which operator reaches an object's properties and methods?
 
-### 🟡 Level 2: Understand
-4. What is the difference between a property and a regular variable?
-5. What is the difference between a method and a regular function?
+<details>
+<summary>Show answer</summary>
 
-### 🟠 Level 3: Apply
-6. Create a `Book` class with properties `$title`, `$author`, and `$price`. Instantiate two different books and echo their summaries.
+1. `class`
+2. `new`
+3. `->` (the object operator, or arrow)
 
-### 🔵 Level 4: Think & Troubleshoot
-7. How does `var_dump($student1)` reveal the internal structure of an object?
+</details>
 
-### 🟣 Level 5: Create & Build
-8. Build a Bank Account Class: define `BankAccount` with properties `$accountHolder` and `$balance`. Add methods `deposit($amount)`, `withdraw($amount)`, and `checkBalance()`. Test with multiple transactions!
+### 🟡 Level 2: Apply
+1. What is the difference between a property and an ordinary variable? Between a method and an ordinary function?
+2. What does this print?
+   ```php
+   <?php
+   class Counter {
+     public $count = 0;
+   }
+   $a = new Counter();
+   $b = new Counter();
+   $a->count = 5;
+   echo $a->count + $b->count;
+   ```
+
+<details>
+<summary>Show answer</summary>
+
+1. A property is a variable that **belongs to an object**; each object has its own copy. A method is a function that **belongs to a class** and can use `$this` to reach the object's own data.
+2. `5`. `$a->count` is 5 and `$b->count` is still its default, 0.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build a `CharityBox` class for a school food drive.
+
+1. Give it properties `$cause` and `$total` (start `$total` at `0`).
+2. Add a method `addDonation($amount)` that adds to `$total`.
+3. Add a method `report()` that returns a sentence such as `Food Drive: 350 collected.`
+4. Make two boxes for two causes, add a few donations to each, and echo both reports.
+5. Extra: use `var_dump()` on one box and explain what each line shows.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```php
+<?php
+class CharityBox {
+  public $cause;
+  public $total = 0;
+
+  public function addDonation($amount) {
+    $this->total = $this->total + $amount;
+  }
+
+  public function report() {
+    return "{$this->cause}: {$this->total} collected.";
+  }
+}
+
+$food = new CharityBox();
+$food->cause = "Food Drive";
+$food->addDonation(200);
+$food->addDonation(150);
+
+$books = new CharityBox();
+$books->cause = "Library Books";
+$books->addDonation(75);
+
+echo $food->report() . "\n";
+echo $books->report() . "\n";
+var_dump($books);
+```
+
+Output:
+
+```text
+Food Drive: 350 collected.
+Library Books: 75 collected.
+object(CharityBox)#2 (2) {
+  ["cause"]=>
+  string(13) "Library Books"
+  ["total"]=>
+  int(75)
+}
+```
+
+`var_dump()` shows the class name, the object's number (`#2`, the second object made), how many properties it has, and each property with its type and value.
+
+</details>

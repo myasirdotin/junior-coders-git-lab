@@ -1,168 +1,287 @@
-# Chapter 17: Pull Requests & Polite Code Reviews 📬🤝
+# Chapter 17: Pull Requests & Polite Code Reviews 📬
 
 ---
 
-## 1. 🌟 Real-Life Situation: Submitting a Proposal to the Student Council
+## 🌟 Real-Life Story
 
-Imagine you have a fantastic idea to build an automated weather garden at your school:
-- You don't just sneak into the school courtyard at midnight and start digging trenches in the lawn!
-- That would be disrespectful, confusing, and potentially dangerous.
-- Instead, you write a polite, structured **Formal Proposal**:
-  - What the project is.
-  - What benefits it brings to the students.
-  - Exactly which flowerbed will be used.
-- You submit the proposal to the Student Council and Principal.
-- The Council reviews your plan, praises your initiative, suggests one minor tweak (*"Make sure the watering pipe doesn't block the pathway"*), and upon your approval, stamps it: **ACCEPTED & MERGED!**
+**Submitting a proposal to the Student Council.**
+You have an idea: a small weather garden in the school courtyard.
+You do not start digging up the lawn on your own. That would be rude and confusing.
+Instead, you write a short proposal: what the garden is, why it helps, and which flowerbed it uses.
+The Student Council reads it, praises the idea and asks for one change: "Keep the watering pipe off the path."
+You fix that, they approve, and the plan becomes part of the school. In software, this polite conversation is called a **Pull Request**.
 
-In professional software development, this respectful conversation is called a **Pull Request (PR)**!
+> **Age check:** GitHub accounts are only for people aged 13 or older. If you are younger, practise the Git steps locally, or use a classroom account your teacher manages. Never sign up on your own.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Understand what a **Pull Request** is and why professional teams require them.
-- Push a feature branch to GitHub and open a formal Pull Request.
-- Write a clear, courteous PR summary with screenshots or bullet points.
-- Conduct a constructive, encouraging code review following the ethics of **Modesty & Respect (*Adab*)**.
-- Approve and merge a Pull Request on GitHub.
+- Explain what a **Pull Request** (PR) is and why teams use them.
+- Push a feature branch to GitHub and open a Pull Request.
+- Write a clear, friendly PR description.
+- Review a classmate's code with kindness and respect (*Adab*).
+- Update an open PR by pushing more commits.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ The Pull Request Conversation
 
-### The Pull Request Conversation Workflow
+A **Pull Request** is a request to merge your branch into another branch (usually `main`).
+It is also a conversation page where teammates can read your changes and comment on them before they are merged.
 
 ```text
-[ Developer's Feature Branch ]  ──( git push origin feature/modal )──>  [ GitHub Web UI ]
-                                                                                │
-                                                                                ▼
-                                                                     [ Open Pull Request 📬 ]
-                                                                                │
-                                                        Teammates inspect diff line-by-line 🔍
-                                                        "Looks wonderful! One small typo on line 12."
-                                                                                │
-                                                                                ▼
-                                                                     [ Developer pushes fix ✍️ ]
-                                                                                │
-                                                                                ▼
-                                                                     [ PR Approved & Merged! 🟢 ]
-                                                                     (Code is now live on main!)
+[ your feature branch ]
+          │  git push
+          ▼
+[ GitHub: open Pull Request ]
+          │
+          ▼
+[ teammates read the changes ]
+  "Lovely work! One typo on line 12."
+          │
+          ▼
+[ you push a small fix ]
+          │
+          ▼
+[ PR approved and merged into main ]
 ```
+
+The name sounds odd at first. You are asking the project owner to **pull** your changes into their branch.
 
 ---
 
-## 4. 💻 Code Example: Opening a Pull Request
+## 💻 Step 1: Push Your Feature Branch
 
-### Step 1: Push your feature branch to GitHub
+You already know how to make a branch (Chapter 10) and push it (Chapter 14).
+Here, Zainab adds a search box to a school's student directory site:
+
 ```bash
 git switch -c feature/student-search
-# (Write your code in search.js and commit...)
-git commit -am "feat: Add instant name filtering in student directory"
-
-# Push the feature branch to GitHub
+git add search.js
+git commit -m "feat: Add instant name filter to student directory"
 git push -u origin feature/student-search
 ```
 
-### Step 2: Open the PR on GitHub
-1. Open your repository page on GitHub.
-2. A yellow notification banner appears:
-   > *"feature/student-search had recent pushes 1 minute ago. [ Compare & pull request ]"*
-3. Click **Compare & pull request**.
-4. Fill in the template:
+Output:
 
-```markdown
-### 🎯 What does this PR do?
-Adds an instant live search filter to the student directory page so teachers can find student records in under 2 seconds.
-
-### 🧪 How was this tested?
-- Tested with 50 mock student names in Chrome and Firefox.
-- Verified that pressing 'Escape' clears the search input.
-
-### 📸 Visual Preview
-*(Attached screenshot of the new search bar)*
+```text
+Switched to a new branch 'feature/student-search'
+[feature/student-search 63b2c1c] feat: Add instant name filter to student directory
+ 1 file changed, 1 insertion(+)
+ create mode 100644 search.js
+To github.com:zainab-codes/school-directory.git
+ * [new branch]      feature/student-search -> feature/student-search
+branch 'feature/student-search' set up to track 'origin/feature/student-search'.
 ```
 
-5. Click **Create Pull Request**!
+Your commit hash will be different. When you push to GitHub, it also prints a link that starts a pull request for this branch.
 
 ---
 
-## 5. 🔍 Code Explanation: The Ethics of Code Review (*Adab*)
+## 📬 Step 2: Open the Pull Request on GitHub
 
-When a teammate asks you to review their Pull Request, you have a sacred responsibility to be constructive, polite, and helpful:
+1. Open your repository page on GitHub.
+2. A yellow banner appears: *"feature/student-search had recent pushes"*.
+3. Click **Compare & pull request**.
+4. Check the two branch boxes at the top: **base: main** ← **compare: feature/student-search**.
+5. Write a clear title and description, for example:
 
-### The Golden Rules of Ethical Code Review:
-1. **Praise Good Craftsmanship First**:
-   - Always start with encouraging words: *"MashaAllah, fantastic clean architecture on this navbar!"* or *"Great job handling edge cases in the form validation!"*
-2. **Critique the Code, Never the Person**:
-   - ❌ Bad / Disrespectful: *"Why did you write such terrible CSS? This looks broken."*
-   - ✅ Courteous & Constructive: *"I noticed on smaller screens (under 400px), this card might overflow. What do you think about using `flex-wrap: wrap` here to keep it responsive?"*
-3. **Assume Best Intentions**:
-   - Everyone is learning. Be patient with junior peers and explain the **why** behind your suggestions.
+```markdown
+### What does this PR do?
+Adds a search box to the student directory.
+Teachers can type a name and the list filters at once.
 
----
+### How was it tested?
+- Tried it with 50 sample student names.
+- Checked that pressing Escape clears the box.
 
-## 6. 🌍 Real-World Connection: How Tech Companies Protect Production
+### Screenshot
+(attach a picture of the new search box)
+```
 
-At companies like Google, Microsoft, and Stripe:
-- **No engineer is allowed to push directly to `main`!**
-- All code must pass through a Pull Request.
-- At least **two peer engineers** must review and click **Approve** before GitHub allows the `Merge` button to be pressed.
-- Automated robots (Continuous Integration) run unit tests and security scanners on the PR before humans even read it!
+6. Click **Create pull request**.
 
----
+A teammate can now open the **Files changed** tab. There they see every added line in green and every removed line in red, just like `git diff` (Chapter 7).
 
-## 7. ⚠️ Common Beginner Traps
+### Updating an open PR
 
-1. **Creating giant, 2,000-line Pull Requests**:
-   - Nobody can review 2,000 lines of code thoroughly!
-   - *Best Practice*: Keep PRs small and focused (under 200 lines). Small PRs get reviewed and merged 10x faster!
-2. **Merging your own PR without asking for feedback**:
-   - If you work on a team, wait for your partner to review and approve your work.
+Did a reviewer ask for a change? You do **not** need a new PR.
+Fix the file, commit, and push to the same branch again.
+GitHub adds the new commit to the open PR by itself.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🤝 The Manners of Code Review (*Adab*)
 
-You have an open Pull Request on GitHub for branch `feature/navbar`.
-You notice a small CSS mistake on your laptop. You fix it, commit it, and run `git push origin feature/navbar`.
+When a teammate asks you to review their PR, they are trusting you. Be kind, clear and helpful.
 
-**Question**: Do you have to close the old PR and open a brand-new one?
+1. **Start with what is good.**
+   "MashaAllah, this navbar code is very clean!" or "Great job checking empty form fields!"
+2. **Talk about the code, never the person.**
+   - ❌ Unkind: "Why did you write such bad CSS? It looks broken."
+   - ✅ Kind and useful: "On small screens (under 400px) this card may overflow. What do you think about `flex-wrap: wrap` here?"
+3. **Assume good intentions.**
+   Everyone is learning. Explain **why** you suggest a change.
+4. **Ask, do not order.** "Could we...?" invites a conversation. "Change this." ends one.
+
+---
+
+## 🌍 Real-World Connection
+
+Many software teams never push straight to `main`.
+On GitHub, a repository owner can turn on **branch protection rules**. These rules can require a Pull Request before any change reaches `main`. They can also require one or more teammates to click **Approve** first.
+Many teams also run automatic checks on every PR. These programs test the code before a person even reads it.
+
+---
+
+## 🔮 Predict the Output
+
+You have an open Pull Request for the branch `feature/navbar`.
+You notice a small CSS mistake. You fix it, commit, and run `git push`.
+
+**Question:** Do you have to close the old PR and open a new one?
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> NO! GitHub automatically detects the new commit you just pushed, updates the open PR, and refreshes the diff for your reviewers automatically!
+
+**Answer:** No. GitHub sees the new commit on `feature/navbar` and adds it to the open PR. The **Files changed** tab updates for your reviewers.
+
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Review Tone
+## 🕵️ Code Detective
 
-A student commented on a classmate's PR:
+**The broken review tone.** A student wrote this on a classmate's PR:
+
 `"Delete this entire file, it is completely wrong and makes no sense."`
 
-- **Why does this violate our coding guidelines?** It is harsh, unhelpful, and violates the Islamic ethical standard of **Dignity & Good Character (*Adab & Akhlāq*)**.
-- **The Rewrite**:
-  `"Thank you for tackling this difficult feature! I think we might need a different approach for storing this array so we don't duplicate memory. Let's sit together during lab time and sketch it on the whiteboard!"`
+- **What is wrong?** It is harsh and does not help. It goes against good character (*Adab* and *Akhlāq*).
+- **A better comment:**
+  `"Thank you for taking on this hard feature! I think the list might be stored twice here. Shall we sketch another way together at lab time?"`
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**1. Using `git commit -am` for a brand-new file.**
+
+Wrong:
+
+```bash
+git switch -c feature/student-search
+git commit -am "feat: Add search"
+```
+
+What happens: `-a` only stages files Git is **already tracking**. The new file `search.js` is left out. Git prints `nothing added to commit but untracked files present`, and your PR has no search code.
+
+Fixed:
+
+```bash
+git add search.js
+git commit -m "feat: Add search"
+```
+
+**2. One giant PR.**
+A PR with 2,000 changed lines across 30 files is very hard to review well. Keep each PR about **one** idea, like "add search box", so a reviewer can read it carefully.
+
+---
+
+## ✍️ Try It
+
+Write a PR description (title plus three short parts) for this change: *"I added a 'Back to top' button to the bottom of the library's book list page."* Use the template from Step 2.
+
+<details>
+<summary>Hint</summary>
+
+Answer three questions: **What** does it do? **How** did you test it? What will the reviewer **see**? Start the title with `feat:`.
+
+</details>
+
+---
+
+## 📝 Recap
+
+- A **Pull Request** asks to merge your branch into another branch, usually `main`.
+- First push your feature branch with `git push -u origin <branch>`, then click **Compare & pull request**.
+- A good PR description says what changed, how you tested it and what it looks like.
+- Pushing more commits to the same branch updates the open PR.
+- Review with *Adab*: praise first, talk about the code, explain why, ask instead of order.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
 1. What is a Pull Request?
-2. Can a developer add more commits to a PR after it has already been opened?
-3. What is the role of a peer reviewer in a software team?
+2. Can you add more commits to a PR after it is opened?
+3. What does a reviewer do in a software team?
 
-### 🟡 Level 2: Understand
-4. Why do professional engineering teams prohibit direct pushes to the `main` branch?
-5. How does a well-documented PR description save time for reviewers?
+<details>
+<summary>Show answer</summary>
 
-### 🟠 Level 3: Apply
-6. Push a practice branch to GitHub, open a formal Pull Request with a clear title and description, and invite a classmate to review it.
+1. A request (and a conversation page on GitHub) to merge one branch into another, usually a feature branch into `main`.
+2. Yes. Commit and push to the same branch. GitHub adds the commits to the open PR.
+3. A reviewer reads the changes, checks they work and are clear, asks questions, suggests kind improvements, and approves when the code is ready.
 
-### 🔵 Level 4: Think & Troubleshoot
-7. If your PR shows a red box saying: *"This branch has conflicts that must be resolved"*, what does that mean? How do you resolve them locally using `git merge main`?
+</details>
 
-### 🟣 Level 5: Create & Build
-8. Write a 4-point "Code Review Etiquette Pledge" for your school coding club embodying the Islamic virtues of patience, kindness, and mutual encouragement.
+### 🟡 Level 2: Apply
+4. Why do many teams stop people pushing straight to `main`?
+5. How does a clear PR description save the reviewer time?
+6. Rewrite this review comment so it is kind and helpful: `"This colour is ugly."`
+
+<details>
+<summary>Show answer</summary>
+
+4. `main` is the working version everyone shares. Sending all changes through PRs means another person checks each change first, so mistakes are caught before they reach everyone.
+5. The reviewer knows at once what the change is for, what to look at and how it was tested. They do not have to guess from the code alone.
+6. For example: `"Nice layout! The light yellow text on white is hard to read. Could we try a darker colour so everyone can read it easily?"`
+
+</details>
+
+### 🔴 Level 3: Challenge
+Practise the whole PR flow with a partner (or with your teacher's classroom account if you are under 13).
+
+1. In a practice repository on GitHub, create a branch `feature/footer` with `git switch -c`.
+2. Add a footer to `index.html`, stage it and commit with a clear message.
+3. Push the branch with `-u` and open a Pull Request with a title and a three-part description.
+4. Ask your partner to leave one kind comment. Fix what they suggest, commit and push again.
+5. Extra: your PR shows *"This branch has conflicts that must be resolved"*. What does it mean, and how do you fix it on your computer?
+6. Extra: write a 4-point "Code Review Pledge" for your school coding club, based on patience, kindness and encouragement.
+
+<details>
+<summary>Show one possible answer</summary>
+
+Steps 1–4:
+
+```bash
+git switch -c feature/footer
+git add index.html
+git commit -m "feat: Add footer with school contact details"
+git push -u origin feature/footer
+```
+
+Then click **Compare & pull request**, fill in the description and click **Create pull request**. After the review, edit the file, then `git add index.html`, `git commit -m "fix: ..."`, and `git push`. The PR updates by itself.
+
+Step 5: someone changed the same lines on `main` after you made your branch. Bring `main` into your branch and solve the conflict (Chapter 12):
+
+```bash
+git switch main
+git pull
+git switch feature/footer
+git merge main
+# edit the file: keep the right lines, remove the <<<<<<< ======= >>>>>>> markers
+git add index.html
+git commit -m "merge: Bring in latest main and resolve footer conflict"
+git push
+```
+
+Step 6, a sample pledge:
+1. I will start every review by thanking my classmate and naming something good.
+2. I will comment on the code, never on the person.
+3. I will explain **why** I suggest a change, and ask instead of order.
+4. I will be patient with beginners, because I was one too.
+
+</details>

@@ -1,93 +1,254 @@
-# Chapter 6: DNS — The Internet's Global Phonebook 📖🔍
+# Chapter 6: DNS — The Internet's Global Phonebook 📖
 
-Humans excel at remembering words and names, like `juniorcoders.org` or `wikipedia.org`. Computers, on the other hand, only route packets using numerical IP addresses, like `151.101.65.140`.
+## 🌟 Real-Life Story
 
-The **Domain Name System (DNS)** bridges this divide. It is the distributed, hierarchical database that translates human-friendly domain names into machine-readable IP addresses in milliseconds.
+Bilal wants a copy of *The Canon of Medicine* by Ibn Sina. He asks the librarian at the front desk. She checks her notes first. If the answer is not there, she phones the national library, which sends her to the medicine section, which sends her to the special collection. Finally someone says, "Shelf 4, Row B." She tells Bilal and writes it in her notes for the next student. That is how **DNS** finds the address of a website.
 
----
+## 🎯 What You Will Learn
 
-## 💡 The Mental Model: The Library Reference Desk
-
-Imagine looking up a rare manuscript in a massive university library system:
-1. You ask the **Local Librarian** (**Recursive Resolver**): "Where is *The Canon of Medicine* by Ibn Sina?"
-2. The librarian checks their desk memory (**DNS Cache**). If not there:
-3. They contact the **National Archive Director** (**Root Name Server `.`**), who says: "I don't have the book, but here is the desk for all Medical texts (**TLD Server `.org`**)."
-4. The librarian asks the `.org` TLD Server, who says: "Go ask the **Special Collections Library** (**Authoritative Name Server**)."
-5. The Authoritative Server checks its catalog and replies: "It is on Shelf 4, Row B (**IP Address: 198.51.100.25**)!"
-6. The librarian rushes back to give you the answer and notes it on their desk so they can answer the next person immediately.
+- Explain why we need **DNS** to turn names into IP addresses.
+- Read a domain name from right to left and name its parts.
+- Describe the four kinds of DNS servers in a lookup.
+- Recognise common record types: **A**, **AAAA**, **CNAME**, **MX**, **TXT** and **NS**.
+- Explain **TTL** and caching, and look up records with `nslookup`.
 
 ---
 
-## 🌳 The Hierarchical Tree of DNS
+## 🤔 Why Do We Need DNS?
 
-Every domain name is read from **right to left**:
+People remember names, like `example.org`. Routers only understand numbers, like `203.0.113.10` (Chapter 3).
+
+The **Domain Name System** (DNS) connects the two. It is a huge, shared database spread across many servers in the world. When you type a name, DNS finds the matching IP address, usually in a few milliseconds.
+
+DNS lookups usually travel over **UDP port 53** (Chapters 4 and 5). UDP fits well: a question and an answer are small, and a quick retry is easy if one is lost. Large answers can use TCP port 53 instead.
+
+---
+
+## 🌳 Reading a Domain Name
+
+A domain name is read from **right to left**, from the most general part to the most specific.
 
 ```
-           [ Root Domain: "." (13 Global Server Clusters) ]
-                               │
-            ┌──────────────────┴──────────────────┐
-            ▼                                     ▼
-     [ TLD: ".com" ]                       [ TLD: ".org" ]
-            │                                     │
-            ▼                                     ▼
-  [ Domain: "google.com" ]             [ Domain: "juniorcoders.org" ]
-                                                  │
-                                                  ▼
-                                       [ Subdomain: "learn.juniorcoders.org" ]
+learn . school . example . org .
+  │       │        │       │   │
+  │       │        │       │   └ root
+  │       │        │       └ TLD
+  │       │        └ domain
+  │       └ subdomain
+  └ sub-subdomain
 ```
 
-### The 4 DNS Servers in Every Query:
-1. **DNS Recursive Resolver (ISP / 1.1.1.1 / 8.8.8.8)**: The intermediary that does the legwork of querying the other servers for you.
-2. **Root Nameserver (`.`)**: Directs the resolver to the appropriate Top-Level Domain (TLD) server.
-3. **TLD Nameserver (`.com`, `.org`, `.net`, `.edu`)**: Directs the resolver to the specific authoritative server for that domain.
-4. **Authoritative Nameserver**: The definitive home of the domain's official DNS records.
+- The **root** is written as a dot at the very end. We usually leave it out.
+- The **TLD** (Top-Level Domain) is the last word, like `.org`, `.com` or a country code like `.pk`.
+- The **domain** is the name an organisation registers, like `example.org`.
+- Anything further left is a **subdomain**, which the owner can create freely.
+
+The DNS tree looks like this:
+
+```
+              . (root)
+         ┌────┴─────┐
+       .com       .org
+                    │
+               example.org
+                    │
+            school.example.org
+```
+
+---
+
+## 🗂️ The Four Servers in a Lookup
+
+1. **Recursive resolver.** This is the "front desk librarian". Your ISP, school or a public service runs it. It does all the asking for you.
+2. **Root name server.** It knows where every TLD lives. There are 13 root server names (`a.root-servers.net` to `m.root-servers.net`). They are copied onto more than a thousand machines around the world. Your question goes to the nearest copy, a trick called **anycast**.
+3. **TLD name server.** For `.org`, it knows which servers hold the records for `example.org`.
+4. **Authoritative name server.** It holds the real, official records for the domain. It gives the final answer.
+
+```
+ You ──► Resolver ──► Root
+            │  "ask .org"
+            ├────────► .org TLD
+            │  "ask ns1.example.org"
+            ├────────► Authoritative
+            │  "203.0.113.10"
+ You ◄──────┘  (answer is cached)
+```
+
+The resolver saves each answer in its **cache** (short-term memory). The next person who asks gets the answer at once.
 
 ---
 
 ## 📑 Common DNS Record Types
 
-When you configure a domain for your web applications, you manage different **Resource Records (RRs)**:
+A domain's settings are stored as **records**. Each record has a type.
 
-| Record Type | Purpose | Example Value |
+| Type | What it does | Example |
 | :--- | :--- | :--- |
-| **A** | Maps a domain name to an **IPv4** address | `juniorcoders.org` $\rightarrow$ `104.21.55.2` |
-| **AAAA** | Maps a domain name to an **IPv6** address (128-bit) | `juniorcoders.org` $\rightarrow$ `2606:4700:3037::ac43` |
-| **CNAME** | Canonical Name (an alias pointing to another domain) | `www.mysite.com` $\rightarrow$ `mysite.com` |
-| **MX** | Mail Exchanger (where emails sent to the domain go) | `mail.google.com` (Priority: 10) |
-| **TXT** | Arbitrary text (SPF/DKIM email verification, ownership verification) | `"v=spf1 include:_spf.google.com ~all"` |
-| **NS** | Name Server (delegates authority for the zone) | `ns1.cloudflare.com` |
+| **A** | Name → IPv4 address | `example.org` → `203.0.113.10` |
+| **AAAA** | Name → IPv6 address | `example.org` → `2001:db8::10` |
+| **CNAME** | Name → another name (an alias) | `www.example.org` → `example.org` |
+| **MX** | Where email for the domain goes | `mail.example.org`, preference 10 |
+| **TXT** | Free text, often to prove you own a domain or protect email | `"v=spf1 mx -all"` |
+| **NS** | Which servers are authoritative | `ns1.example.org` |
+
+For MX records, a **lower** preference number means "try this mail server first".
 
 ---
 
-## ⏱️ TTL: Time To Live & DNS Caching
+## ⏱️ TTL: Time To Live and Caching
 
-DNS queries generate heavy traffic. To keep the internet fast, every DNS record comes with a **TTL (Time to Live)** in seconds (e.g., `TTL: 3600` = 1 hour).
-- Once a resolver or your browser gets the answer, it **caches** the IP address locally for 3600 seconds.
-- During that hour, all subsequent requests resolve instantly without leaving your device!
+Every record comes with a **TTL** (Time To Live). It is a number of seconds. It tells resolvers how long they may keep the answer in their cache.
 
-> ⚠️ **Developer Tip**: When planning to migrate a website to a new server IP address, reduce your DNS record's TTL to `300` (5 minutes) a few days in advance so the change propagates globally almost immediately!
+- `TTL 3600` means "you may reuse this for 1 hour".
+- `TTL 300` means "check again after 5 minutes".
 
----
+A long TTL makes lookups faster and reduces traffic. A short TTL means changes spread faster.
 
-## 🧠 Checkpoint Quiz
-
-1. **What is the difference between an `A` record and a `CNAME` record?**
-   - *Answer: An `A` record maps a domain directly to an IPv4 address; a `CNAME` record aliases one domain name to another domain name.*
-2. **Which DNS server has the final, definitive answer for a domain's IP address?**
-   - *Answer: The Authoritative Nameserver.*
-3. **What does TTL stand for and why is it important?**
-   - *Answer: Time To Live; it tells resolvers how long to cache the record before asking for fresh data.*
+> 💡 **Developer tip:** Before moving a website to a new server, lower its TTL to `300` a day or two early. When you change the IP address, most resolvers will notice within minutes.
 
 ---
 
-## 🎯 Hands-On Mission
+## 🔍 See It Yourself: `nslookup`
 
-Run a DNS lookup from your terminal to inspect the `A` and `MX` records of a domain:
-```bash
-# Query an A record:
-nslookup juniorcoders.org
+On Windows, run in Command Prompt or PowerShell:
 
-# Or on Linux / Mac / WSL:
-dig +short A google.com
 ```
-Notice how fast cached responses return!
+nslookup example.org
+```
+
+Example output (addresses changed to documentation addresses; yours will differ):
+
+```
+Server:  UnKnown
+Address:  192.168.1.1
+
+Non-authoritative answer:
+Name:    example.org
+Addresses:  2001:db8::10
+          203.0.113.10
+```
+
+How to read it:
+
+- `Server` and `Address` show **your resolver**. Here it is the home router. `UnKnown` only means the resolver has no name of its own.
+- `Non-authoritative answer` means the answer came from a resolver's cache, not straight from the official server.
+- `Addresses` lists the AAAA (IPv6) and A (IPv4) records.
+
+To ask for one record type, add `-type=`:
+
+```
+nslookup -type=mx school.example.org
+```
+
+Example output (sample domain):
+
+```
+Non-authoritative answer:
+school.example.org  MX preference = 10, mail exchanger = mail.school.example.org
+```
+
+### Seeing the TTL in PowerShell
+
+PowerShell's `Resolve-DnsName` also shows the TTL:
+
+```
+Resolve-DnsName example.org -Type A
+```
+
+Example output (addresses changed to documentation addresses):
+
+```
+Name          Type   TTL   Section    IPAddress
+----          ----   ---   -------    ---------
+example.org   A      113   Answer     203.0.113.10
+```
+
+Run it twice, a few seconds apart. The TTL counts **down**, because the resolver is reusing its cached copy.
+
+Windows keeps its own small DNS cache too. `ipconfig /displaydns` shows it, and `ipconfig /flushdns` clears it.
+
+On macOS and Linux, you can also use `dig example.org`.
+
+---
+
+## ⚠️ Common Mistake
+
+**Expecting a DNS change to appear everywhere at once.**
+
+- ❌ Wrong: "I changed my A record. Why do some students still reach the old server?"
+- What happens: resolvers keep the old answer until its TTL runs out.
+- ✅ Right: lower the TTL before the change, then wait. On your own PC, `ipconfig /flushdns` clears the local copy.
+
+**Pointing a CNAME at an IP address.**
+
+- ❌ Wrong: `www.example.org  CNAME  203.0.113.10`
+- ✅ Right: a CNAME must point to a **name**. Use an A record for an IP address: `www.example.org  A  203.0.113.10`.
+
+---
+
+## ✍️ Try It
+
+Run `nslookup example.org` and `nslookup -type=ns example.org`.
+Write down your resolver's address, the A and AAAA answers, and the names of the authoritative servers.
+
+> 💡 Hint: the NS answer lines look like `example.org  nameserver = ...`.
+
+---
+
+## 📝 Recap
+
+- DNS turns names into IP addresses, mostly over UDP port 53.
+- Names are read right to left: root, TLD, domain, subdomain.
+- A lookup goes resolver → root → TLD → authoritative server, and the answer is cached.
+- A = IPv4, AAAA = IPv6, CNAME = alias, MX = mail, TXT = text, NS = name servers.
+- **TTL** says how many seconds an answer may be cached.
+
+---
+
+## 🏆 Practice
+
+### 🟢 Level 1: Recall
+What is the difference between an **A** record and a **CNAME** record? Which server gives the final, official answer?
+
+<details>
+<summary>Show answer</summary>
+
+An **A** record maps a name straight to an IPv4 address. A **CNAME** maps a name to *another name*.
+The **authoritative name server** gives the final, official answer.
+
+</details>
+
+### 🟡 Level 2: Apply
+A record has `TTL 7200`. A resolver fetched it at 09:00.
+1. Until what time may the resolver reuse it?
+2. The owner changes the IP address at 09:30. When will this resolver see the new address at the latest?
+
+<details>
+<summary>Show answer</summary>
+
+1. 7200 seconds = 2 hours, so until **11:00**.
+2. At the latest **11:00**, when the cached copy expires and the resolver asks again.
+
+</details>
+
+### 🔴 Level 3: Challenge
+A charity, `relief.example.org`, is setting up its DNS. Write the records it needs:
+1. The website on IPv4 `198.51.100.20` and IPv6 `2001:db8::20`.
+2. `www.relief.example.org` as an alias of the main name.
+3. Email delivered to `mail.relief.example.org`.
+4. Choose a TTL for each and explain your choice.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```
+relief.example.org      A      198.51.100.20
+relief.example.org      AAAA   2001:db8::20
+www.relief.example.org  CNAME  relief.example.org
+relief.example.org      MX 10  mail.relief.example.org
+```
+
+TTL `3600` (1 hour) for all of them is a good normal choice: fast for visitors, and changes still spread within an hour.
+Before a planned move, lower the A and AAAA TTL to `300`.
+
+</details>

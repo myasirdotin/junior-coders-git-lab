@@ -1,58 +1,75 @@
-# Chapter 8: If / Else Decisions 🚦🔀
+# Chapter 8: If / Else Decisions 🚦
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Roller Coaster Height Check
+## 🌟 Real-Life Story
 
-Imagine waiting in line for a gigantic roller coaster at an amusement park:
-- At the entrance stands a measurement pole with a line marked at **140 cm**.
-- **IF** you are 140 cm or taller: The ride operator smiles and says: *"Welcome aboard! Step right in."*
-- **ELSE**: The operator politely says: *"Sorry! You must be at least 140 cm to ride. Check out the bumper cars!"*
-
-Computers don't just execute code from top to bottom blindly—they make decisions based on rules! In PHP, **Conditional Statements** allow your programs to think, branch, and respond differently to different users.
+You walk up to the school library desk with a book. The librarian asks one question: "Do you have your library card?" **If** you do, she stamps the book and you take it home. **Else** she kindly sends you to the office to get a card first. Programs make choices in the same way, using `if` and `else`.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Formulate conditional logic using `if`, `else`, and `elseif`.
-- Master comparison operators: `==`, `===`, `!=`, `!==`, `<`, `>`, `<=`, `>=`.
-- Understand the critical difference between loose (`==`) and strict (`===`) equality.
-- Combine multiple conditions using logical operators: `&&` (AND), `||` (OR), and `!` (NOT).
-- Write clean nested conditionals and ternary operators.
+- Write decisions with `if`, `elseif` and `else`.
+- Compare values with `==`, `===`, `!=`, `!==`, `<`, `>`, `<=` and `>=`.
+- Explain the difference between loose (`==`) and strict (`===`) equality.
+- Join conditions with `&&` (AND), `||` (OR) and `!` (NOT).
+- Write a short if/else with the ternary operator `? :`.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
+
+A **condition** is a question whose answer is `true` or `false`, such as `$score >= 50`. A value that is only true or false is called a **boolean**.
 
 ### Decision Flowchart
 
 ```text
-                ┌──────────────────┐
-                │   $score >= 50   │
-                └────────┬─────────┘
-                         │
-             ┌───────────┴───────────┐
-             │ YES                   │ NO
-             ▼                       ▼
-     ┌───────────────┐       ┌───────────────┐
-     │  echo "PASS"  │       │  echo "FAIL"  │
-     └───────────────┘       └───────────────┘
+          ┌──────────────────┐
+          │   $score >= 50   │
+          └────────┬─────────┘
+           YES     │     NO
+        ┌──────────┴──────────┐
+        ▼                     ▼
+ ┌──────────────┐     ┌──────────────┐
+ │ echo "PASS"  │     │ echo "FAIL"  │
+ └──────────────┘     └──────────────┘
 ```
+
+### Comparison Operators
+
+| Operator | Meaning | Example | Result |
+| :--- | :--- | :--- | :--- |
+| `==` | equal value | `5 == "5"` | `true` |
+| `===` | equal value AND same type | `5 === "5"` | `false` |
+| `!=` | not equal | `4 != 5` | `true` |
+| `!==` | not identical | `5 !== "5"` | `true` |
+| `<` `>` | less / greater than | `3 < 7` | `true` |
+| `<=` `>=` | less / greater or equal | `50 >= 50` | `true` |
 
 ### Loose (`==`) vs. Strict (`===`) Equality: The Golden Lesson
 
 ```text
-5 == "5"   --> TRUE!  (Loose: PHP converts the string "5" to number 5)
-5 === "5"  --> FALSE! (Strict: Number is NOT the same data type as String!)
-
-🛡️ PROFESSIONAL RULE: Always prefer strict equality (===) to prevent sneaky security bugs!
+5 == "5"   --> true  (loose: PHP turns "5"
+                      into the number 5)
+5 === "5"  --> false (strict: an integer is
+                      not the same type as
+                      a string)
 ```
+
+🛡️ **Professional rule:** prefer strict equality (`===`). It avoids surprise bugs.
+
+### Logical Operators
+
+| Operator | Name | True when… |
+| :--- | :--- | :--- |
+| `&&` | AND | **both** sides are true |
+| `\|\|` | OR | **at least one** side is true |
+| `!` | NOT | flips true to false, and false to true |
 
 ---
 
-## 4. 💻 Code Example: Exam Grading Engine
+## 💻 Code Example: Exam Grading Engine
 
 ```php
 <?php
@@ -65,95 +82,105 @@ By the end of this chapter, you will be able to:
   // Multi-tier grading logic
   if ($score >= 90) {
     $grade = "A+ (Distinction)";
-    $badge = "🏆 Gold Medalist";
   } elseif ($score >= 80) {
     $grade = "A (Excellent)";
-    $badge = "🌟 High Achiever";
   } elseif ($score >= 70) {
     $grade = "B (Good)";
-    $badge = "👍 Solid Progress";
   } elseif ($score >= 50) {
     $grade = "C (Pass)";
-    $badge = "📘 Review Needed";
   } else {
-    $grade = "F (Fail)";
-    $badge = "⚠️ Urgent Tutoring Required";
+    $grade = "F (Needs extra help)";
   }
 
   echo "<p>Final Score: <strong>$score%</strong></p>";
   echo "<p>Letter Grade: <strong>$grade</strong></p>";
-  echo "<p>Honor Badge: $badge</p>";
 
-  // Logical Operators (AND / OR)
+  // Logical operator AND
   if ($score >= 80 && $attendance >= 90) {
-    echo "<div style='color:green;'>🎉 Qualified for Academic Scholarship!</div>";
+    echo "<p>Qualified for the Merit Certificate!</p>";
   }
 
-  // Ternary Operator: shorthand if/else
-  // (condition) ? true_value : false_value;
+  // Ternary operator: a short if/else
+  // (condition) ? value_if_true : value_if_false;
   $status = ($score >= 50) ? "Passed" : "Retake";
   echo "<p>Official Status: <strong>$status</strong></p>";
-?>
+```
+
+Output (what the browser shows):
+
+```text
+Academic Report for Khadija
+
+Final Score: 87%
+
+Letter Grade: A (Excellent)
+
+Qualified for the Merit Certificate!
+
+Official Status: Passed
 ```
 
 ---
 
-## 5. 🔍 Code Explanation: Breaking It Down Line by Line
+## 🔍 Code Explanation: Breaking It Down Line by Line
 
-- `if ($score >= 90)`: Evaluates whether `$score` is greater than or equal to 90. If true, it runs that block and **skips all other `elseif` branches**!
-- `elseif (...)`: Checked only if the previous conditions were false.
-- `else`: The catch-all safety net. If no previous condition was met, `else` runs.
-- `&&` (Logical AND): Both `$score >= 80` AND `$attendance >= 90` must be true for the scholarship alert to show.
-- `($score >= 50) ? "Passed" : "Retake"`: The **ternary operator**, an elegant one-line shorthand for simple if-else assignments.
-
----
-
-## 6. 🌍 Real-World Connection: Student Access & Educational Portals
-
-Educational platforms and online academies (like university portals and research archives) use conditionals on every single click:
-- `if (!$student->isEnrolled()) { showEnrollmentPrompt(); }`
-- `if ($user->role === 'teacher') { showTeacherDashboard(); }`
-
-Conditionals are the digital security guards protecting private learning materials and student dashboards!
+- `if ($score >= 90)`: Checks if `$score` is 90 or more. If true, PHP runs that block and **skips every other branch**.
+- `elseif (...)`: Checked only when all the conditions above it were false. 87 fails `>= 90` but passes `>= 80`.
+- `else`: The safety net. It runs when no condition above was true.
+- `&&` (AND): Both `$score >= 80` and `$attendance >= 90` must be true for the certificate message.
+- `($score >= 50) ? "Passed" : "Retake"`: The **ternary operator**. It is a one-line if/else that picks one of two values.
 
 ---
 
-## 7. ⚠️ Common Beginner Traps
+## 🌍 Real-World Connection: Student Access & Educational Portals
 
-1. **The Single Equals Mistake**:
-   ```php
-   if ($role = "admin") // ❌ BUG! This assigns "admin" to $role instead of comparing!
-   if ($role === "admin") // ✅ Correct comparison!
-   ```
-2. **Confusing AND (`&&`) with OR (`||`)**:
-   - `&&` requires **every** condition to be true.
-   - `||` requires **at least one** condition to be true.
+School portals and online academies make decisions on every click:
+
+```php
+<?php
+  $isEnrolled = true;
+  $role = "teacher";
+
+  if (!$isEnrolled) {
+    echo "Please enrol to see this course.<br>";
+  }
+  if ($role === "teacher") {
+    echo "Showing the teacher dashboard.";
+  }
+```
+
+Output (what the browser shows):
+
+```text
+Showing the teacher dashboard.
+```
+
+Conditions are the digital guards that protect private lessons and student records.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 ```php
 <?php
   $isMember = false;
-  $coupon = true;
+  $hasVoucher = true;
 
-  if ($isMember || $coupon) {
-    echo "Discount Granted!";
+  if ($isMember || $hasVoucher) {
+    echo "Free entry to the book fair!";
   } else {
-    echo "Full Price";
+    echo "Please buy a ticket.";
   }
-?>
 ```
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> <code>Discount Granted!</code> Because the OR (<code>||</code>) operator needs only one condition to be true, and <code>$coupon</code> is true!
+<strong>Answer:</strong> <code>Free entry to the book fair!</code> The OR (<code>||</code>) operator needs only one side to be true, and <code>$hasVoucher</code> is true.
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Age Gate
+## 🕵️ Code Detective: The Broken Age Gate
 
 ```php
 <?php
@@ -163,31 +190,145 @@ Conditionals are the digital security guards protecting private learning materia
   } else ($age < 18) {
     echo "Minor";
   }
-?>
 ```
 
-- **Find the bug**: `else` cannot take a condition in parentheses!
-- **Explain**: `else` is strictly a fallback with no condition. If you want a condition, use `elseif`.
-- **Fix**: Change `else ($age < 18)` to `else` or `elseif ($age < 18)`.
+Output:
+
+```text
+Parse error: syntax error, unexpected token "echo" in ... on line 6
+```
+
+- **Find the bug**: `else` cannot have a condition in brackets.
+- **Explain**: `else` is a plain fallback with no question. If you need a question, use `elseif`.
+- **Fix**: Change `else ($age < 18)` to `else` (or `elseif ($age < 18)`).
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**Using one equals sign inside `if`.**
+
+- ❌ *Wrong*:
+  ```php
+  <?php
+  $role = "student";
+  if ($role = "admin") {
+    echo "Welcome, admin!";
+  }
+  ```
+- 😕 *What happens*: `=` **stores** "admin" in `$role` instead of comparing. The condition becomes true, and the page prints `Welcome, admin!` for a student.
+- ✅ *Fixed*: `if ($role === "admin") {` compares, and prints nothing for a student.
+
+**Mixing up AND and OR.** `&&` needs **every** condition to be true. `||` needs **at least one**.
+
+---
+
+## ✍️ Try It
+
+Open the [PHP Console](../studios/php-console/) and check if a student may borrow another library book:
+
+```php
+<?php
+$hasCard = true;
+$booksBorrowed = 3;
+
+if ($hasCard && $booksBorrowed < 3) {
+  echo "You may borrow another book.";
+} elseif ($hasCard) {
+  echo "Please return a book first (limit is 3).";
+} else {
+  echo "Please get a library card at the office.";
+}
+```
+
+Output:
+
+```text
+Please return a book first (limit is 3).
+```
+
+*Hint*: Change `$booksBorrowed` to `1`, then `$hasCard` to `false`. Predict each message before you run it.
+
+---
+
+## 📝 Recap
+
+- `if` runs code only when its condition is true; `elseif` adds more checks; `else` catches the rest.
+- PHP checks branches from top to bottom and runs only the first true one.
+- `===` checks value **and** type; prefer it to `==`.
+- `&&` means both, `||` means at least one, `!` flips true and false.
+- One `=` stores a value; `===` compares two values.
+- The ternary `condition ? a : b` is a short if/else that picks a value.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. Name the operator that checks if two values are equal in both value and data type.
-2. What symbol represents the logical AND operator?
-3. What is the shorthand syntax for a simple if/else called?
+1. Which operator checks that two values are equal in both value and type?
+2. What symbol is the logical AND operator?
+3. What is the one-line `? :` form of if/else called?
 
-### 🟡 Level 2: Understand
-4. Explain why `5 == "5"` is true, but `5 === "5"` is false.
-5. What does the exclamation point (`!`) do when placed before a boolean expression?
+<details>
+<summary>Show answer</summary>
 
-### 🟠 Level 3: Apply
-6. Write an age gate script for a driving school: if age is under 16, output `"Too young"`; if between 16 and 17, output `"Eligible for Learner Permit"`; if 18 or older, output `"Eligible for Full Driver's License"`.
+1. **`===`** (strict equality).
+2. **`&&`**.
+3. The **ternary operator**.
 
-### 🔵 Level 4: Think & Troubleshoot
-7. How does **short-circuit evaluation** work in PHP when using `&&` and `||`?
+</details>
 
-### 🟣 Level 5: Create & Build
-8. Build a Science Museum & Planetarium Ticket Pricing Calculator: Adult ticket is $12, Child (under 12) is $8, Senior (65+) is $9. On Community Discovery Tuesdays, everyone gets a $2 educational discount! Output a personalized ticket summary.
+### 🟡 Level 2: Apply
+1. Explain why `5 == "5"` is true but `5 === "5"` is false.
+2. What does `!` do? What does `var_dump(!true);` print?
+
+<details>
+<summary>Show answer</summary>
+
+1. `==` changes the string `"5"` into the number 5 before comparing, so the values match. `===` also compares types: an integer is not a string, so it is false.
+2. `!` flips a boolean. `var_dump(!true);` prints `bool(false)`.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build a planetarium ticket price checker.
+
+1. Store `$age` and `$isCommunityDay` (true or false).
+2. Under 12 pays Rs 80; 65 or older pays Rs 90; everyone else pays Rs 120.
+3. On a community day, everyone gets Rs 20 off.
+4. Print the final price.
+5. Extra: also print `"Child"`, `"Senior"` or `"Adult"` using `if / elseif / else`.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```php
+<?php
+$age = 10;
+$isCommunityDay = true;
+
+if ($age < 12) {
+  $price = 80;
+  $group = "Child";
+} elseif ($age >= 65) {
+  $price = 90;
+  $group = "Senior";
+} else {
+  $price = 120;
+  $group = "Adult";
+}
+
+if ($isCommunityDay) {
+  $price -= 20;
+}
+
+echo "$group ticket: Rs $price";
+```
+
+Output:
+
+```text
+Child ticket: Rs 60
+```
+
+</details>

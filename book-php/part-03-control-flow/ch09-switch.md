@@ -1,72 +1,78 @@
-# Chapter 9: The Switch Statement 🎛️🔄
+# Chapter 9: The Switch Statement 🎛️
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Vending Machine
+## 🌟 Real-Life Story
 
-Imagine standing in front of a cold drink vending machine:
-- You press **Button 1**: Out drops a Lemonade.
-- You press **Button 2**: Out drops an Orange Juice.
-- You press **Button 3**: Out drops an Iced Tea.
-- You press **Button 99**: The machine beeps and displays: *"Invalid Selection!"*
-
-If you wrote this with `if / elseif / elseif / elseif ...`, your code would look long, messy, and repetitive. The **Switch Statement** is designed specifically for this exact scenario: checking a single value against a list of possible matches!
+Picture the drinks machine in the school canteen. Press button 1 and out comes lemonade. Press button 2 and you get orange juice. Press button 3 for water. Press button 99 and the screen says "Invalid selection". The machine checks **one value** (the button) against a list of choices, and that is exactly what a `switch` statement does.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Construct clean `switch` blocks with `case`, `break`, and `default`.
-- Understand how fall-through works and why `break` is critical.
-- Group multiple cases that share the same output action.
-- Compare `switch` vs `if / elseif` chains to choose the cleanest syntax.
-- Understand the modern PHP 8 `match` expression alternative.
+- Build a `switch` block with `case`, `break` and `default`.
+- Explain fall-through and why `break` matters.
+- Group several cases that share the same action.
+- Choose between `switch` and an `if / elseif` ladder.
+- Use the PHP 8 `match` expression as a stricter, shorter choice.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### Anatomy of a Switch Statement
 
 ```text
-  switch ($userRole) {
-    case 'admin':       <--- Matches if $userRole === 'admin'
-      showDashboard();
-      break;            <--- STOPS execution and exits switch!
+switch ($userRole) {
+  case 'admin':   <-- runs if
+                      $userRole == 'admin'
+    echo "Admin panel";
+    break;        <-- stop, leave the switch
 
-    case 'editor':      <--- Matches if $userRole === 'editor'
-      showEditor();
-      break;
+  case 'teacher':
+    echo "Teacher tools";
+    break;
 
-    default:            <--- Runs if NO case matched!
-      showGuestHome();
-      break;
-  }
+  default:     <-- runs if NO case matched
+    echo "Student home";
+    break;
+}
 ```
+
+A `switch` compares with **loose** equality (`==`), like the `==` you met in Chapter 8.
 
 ### What Happens If You Forget `break;`? (Fall-Through Bug)
 
-```text
-case 'apple':
-  echo "Red";
-  // NO BREAK! Execution slides directly into the next case!
-case 'banana':
-  echo "Yellow";
-  break;
-
-Output if $fruit = 'apple': "RedYellow" 😱!
+```php
+<?php
+$fruit = "apple";
+switch ($fruit) {
+  case "apple":
+    echo "Red";
+    // NO break! PHP slides into the next case
+  case "banana":
+    echo "Yellow";
+    break;
+}
 ```
+
+Output:
+
+```text
+RedYellow
+```
+
+This sliding into the next case is called **fall-through**.
 
 ---
 
-## 4. 💻 Code Example: School Timetable Selector
+## 💻 Code Example: School Timetable Selector
 
 ```php
 <?php
-  $day = date("l"); // Reads today's day name, e.g. "Tuesday"
+  $day = "Tuesday"; // a real page could use date("l") for today
 
-  echo "<h2>Class 9 Schedule for Today: $day</h2>";
+  echo "<h2>Class 9 Schedule for $day</h2>";
 
   switch ($day) {
     case "Monday":
@@ -94,111 +100,290 @@ Output if $fruit = 'apple': "RedYellow" 😱!
       echo "<p>11:00 AM: Physical Education</p>";
       break;
 
-    // Grouping Saturday and Sunday together!
+    // Grouping Saturday and Sunday together
     case "Saturday":
     case "Sunday":
-      echo "<p style='color: green;'>🎉 Weekend! No classes today. Time to build side projects!</p>";
+      echo "<p>Weekend! No classes today.</p>";
       break;
 
     default:
-      echo "<p>Unknown day specified.</p>";
+      echo "<p>Unknown day.</p>";
       break;
   }
-?>
+```
+
+Output (what the browser shows):
+
+```text
+Class 9 Schedule for Tuesday
+
+09:00 AM: English Literature
+
+11:00 AM: Computer Science (PHP Lab!)
 ```
 
 ---
 
-## 5. 🔍 Code Explanation: Breaking It Down Line by Line
+## 🔍 Code Explanation: Breaking It Down Line by Line
 
-- `switch ($day)`: Specifies the target variable we are evaluating.
-- `case "Monday":`: Compares `$day == "Monday"`. If matched, execution enters here.
-- `break;`: Halts execution and jumps to the line immediately following the closing brace `}` of the switch.
-- `case "Saturday": case "Sunday":`: When two cases share the exact same logic, stacking them without a `break` between them groups them together seamlessly!
-- `default:`: Acts just like the final `else` in an `if` block, handling unexpected values.
-
----
-
-## 6. 🌍 Real-World Connection: Handling HTTP Status Codes
-
-When web servers return responses, they use status codes:
-- 200: OK
-- 301: Permanent Redirect
-- 404: Not Found
-- 500: Internal Server Error
-
-PHP APIs route these codes through switch statements to attach the proper error messages!
+- `switch ($day)`: Names the one value we are checking.
+- `case "Monday":`: Asks "is `$day == "Monday"`?" If yes, PHP starts running here.
+- `break;`: Stops and jumps to the line after the switch's closing `}`.
+- `case "Saturday": case "Sunday":`: Two cases with no `break` between them share the same code.
+- `default:`: Works like the final `else`. It handles any value no case matched.
 
 ---
 
-## 7. ⚠️ Common Beginner Traps
+## 🆕 The Modern Alternative: `match` (PHP 8)
 
-1. **Forgetting `break`**:
-   Accidentally omitting `break;` leads to fall-through bugs where unintended cases execute.
-2. **Type Coercion in Classic Switch**:
-   Classic `switch` uses loose comparison (`==`), which means `case 0:` will match the string `"hello"` in older PHP versions! (In PHP 8, this was made much safer).
-
----
-
-## 8. 🔮 Predict the Output
+`match` checks one value too, but it **returns** a value and uses strict `===` comparison. You do not need `break`.
 
 ```php
 <?php
-  $tier = "gold";
-  switch ($tier) {
-    case "bronze": echo "10% ";
-    case "silver": echo "20% ";
-    case "gold":   echo "30% ";
-    case "vip":    echo "50% ";
-    default:       echo "Done";
+$button = 2;
+$drink = match ($button) {
+  1 => "Lemonade",
+  2 => "Orange juice",
+  3, 4 => "Water",
+  default => "Invalid selection",
+};
+echo $drink;
+```
+
+Output:
+
+```text
+Orange juice
+```
+
+| | `switch` | `match` |
+| :--- | :--- | :--- |
+| Comparison | loose `==` | strict `===` |
+| Needs `break` | yes | no |
+| Gives back a value | no | yes |
+| No match and no `default` | does nothing | stops with an `UnhandledMatchError` |
+
+---
+
+## 🌍 Real-World Connection: Handling HTTP Status Codes
+
+Web servers answer every request with a **status code**, a number that says how it went:
+- 200: OK
+- 301: Moved permanently
+- 404: Not found
+- 500: Internal server error
+
+PHP code often uses `switch` or `match` to turn these codes into friendly messages.
+
+---
+
+## 🔮 Predict the Output
+
+```php
+<?php
+  $badge = "gold";
+  switch ($badge) {
+    case "bronze":   echo "10 ";
+    case "silver":   echo "20 ";
+    case "gold":     echo "30 ";
+    case "platinum": echo "50 ";
+    default:         echo "Done";
   }
-?>
 ```
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> <code>30% 50% Done</code>! Because there are NO <code>break;</code> statements, once it matches "gold", it executes every subsequent case and default!
+<strong>Answer:</strong> <code>30 50 Done</code>. There are NO <code>break;</code> statements, so after matching "gold" PHP runs every case below it, and the default too.
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Mismatched Default
+## 🕵️ Code Detective: The Misplaced Default
 
 ```php
 <?php
-  $cmd = "start";
+  $cmd = "stop";
   switch ($cmd) {
     default:
-      echo "Unknown command";
+      echo "Unknown command. ";
     case "start":
-      echo "Starting engine...";
+      echo "Starting the lab timer...";
       break;
   }
-?>
 ```
 
-- **Find the surprise**: `default` is placed at the top without a `break;`!
-- **Explain**: While placing `default` at the top is legal syntax, without a `break`, if an unknown command hits `default`, it will fall through into `"start"`!
-- **Fix**: Always put `default` at the very bottom of your switch block.
+Output:
+
+```text
+Unknown command. Starting the lab timer...
+```
+
+- **Find the surprise**: `default` sits at the top with no `break;`.
+- **Explain**: "stop" matches no case, so PHP runs `default`. With no `break`, it falls through into `"start"` and starts the timer by mistake.
+- **Fix**: Put `default` at the bottom, and end every case with `break;`.
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**Forgetting `break`.**
+
+- ❌ *Wrong*:
+  ```php
+  <?php
+  $light = "red";
+  switch ($light) {
+    case "red":
+      echo "Stop. ";
+    case "green":
+      echo "Go.";
+  }
+  ```
+- 😕 *What happens*: It prints `Stop. Go.`, which is a dangerous instruction!
+- ✅ *Fixed*: Add `break;` after `echo "Stop. ";` (and after `echo "Go.";`). Now it prints only `Stop. `.
+
+---
+
+## ✍️ Try It
+
+Open the [PHP Console](../studios/php-console/) and turn a grade letter into a message:
+
+```php
+<?php
+$grade = "B";
+switch ($grade) {
+  case "A":
+    echo "Excellent work!";
+    break;
+  case "B":
+  case "C":
+    echo "Good effort. Keep going!";
+    break;
+  default:
+    echo "Let's practise together.";
+}
+```
+
+Output:
+
+```text
+Good effort. Keep going!
+```
+
+*Hint*: Try `"A"`, `"C"` and `"E"`. Then rewrite the same idea with `match`.
+
+---
+
+## 📝 Recap
+
+- `switch` checks one value against many `case` labels.
+- `break` stops the switch; without it, PHP falls through into the next case.
+- Stack cases with no `break` between them to share one action.
+- `default` runs when nothing matched; keep it at the bottom.
+- `match` (PHP 8) is strict (`===`), needs no `break` and returns a value.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. What keyword terminates a case block in a switch statement?
-2. What keyword handles unmatched cases?
-3. Can multiple cases share the same output block?
+1. Which keyword ends a case block?
+2. Which keyword handles values that match no case?
+3. Can several cases share the same code?
 
-### 🟡 Level 2: Understand
-4. When is a `switch` statement cleaner to read than an `if / elseif` ladder?
-5. How does fall-through work, and can it ever be used intentionally?
+<details>
+<summary>Show answer</summary>
 
-### 🟠 Level 3: Apply
-6. Write a switch statement that takes a traffic light color (`"red"`, `"yellow"`, `"green"`) and prints the driver instruction. Handle casing safely using `strtolower()`.
+1. **`break`**.
+2. **`default`**.
+3. **Yes.** Stack them with no `break` between them, like `case "Saturday": case "Sunday":`.
 
-### 🔵 Level 4: Think & Troubleshoot
-7. Research PHP 8's new `match` expression. How does `match` differ from `switch` regarding strict equality (`===`) and return values?
+</details>
 
-### 🟣 Level 5: Create & Build
-8. Build a Simple Calculator in `calc.php`: variables `$num1 = 20`, `$num2 = 4`, and `$operator = "*"`. Use a switch statement to perform `+`, `-`, `*`, `/`, and `%`, preventing division by zero.
+### 🟡 Level 2: Apply
+1. When is `switch` easier to read than an `if / elseif` ladder?
+2. How is `match` different from `switch` in the way it compares values?
+
+<details>
+<summary>Show answer</summary>
+
+1. When you compare **one** value with many exact choices, such as a day name or a menu number. For ranges like `$score >= 80`, `if / elseif` is better.
+2. `switch` uses loose `==`; `match` uses strict `===`. So `match` treats the string `"7"` and the integer `7` as different.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build a simple calculator.
+
+1. Create `$num1 = 20`, `$num2 = 4` and `$operator = "*"`.
+2. Use `switch` to handle `+`, `-`, `*`, `/` and `%`.
+3. For `/` and `%`, print `"Cannot divide by zero"` if `$num2` is 0.
+4. Extra: a traffic-light helper. Take `"RED"`, `"Yellow"` or `"green"`, use `strtolower()` (Chapter 6) and print the instruction.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```php
+<?php
+$num1 = 20;
+$num2 = 4;
+$operator = "*";
+
+switch ($operator) {
+  case "+":
+    echo $num1 + $num2;
+    break;
+  case "-":
+    echo $num1 - $num2;
+    break;
+  case "*":
+    echo $num1 * $num2;
+    break;
+  case "/":
+  case "%":
+    if ($num2 === 0) {
+      echo "Cannot divide by zero";
+    } elseif ($operator === "/") {
+      echo $num1 / $num2;
+    } else {
+      echo $num1 % $num2;
+    }
+    break;
+  default:
+    echo "Unknown operator";
+}
+```
+
+Output:
+
+```text
+80
+```
+
+Traffic light:
+
+```php
+<?php
+$light = strtolower("RED");
+switch ($light) {
+  case "red":
+    echo "Stop";
+    break;
+  case "yellow":
+    echo "Get ready";
+    break;
+  case "green":
+    echo "Go carefully";
+    break;
+  default:
+    echo "Light is broken";
+}
+```
+
+Output:
+
+```text
+Stop
+```
+
+</details>

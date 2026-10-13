@@ -1,135 +1,178 @@
-# Chapter 2: How Git Works Under the Hood ⚙️📦
+# Chapter 2: How Git Works Under the Hood ⚙️
 
 ---
 
-## 1. 🌟 Real-Life Situation: Preparing a Parcel for Shipment
+## 🌟 Real-Life Story
 
-Imagine preparing a package to send to a cousin in Jammu or Delhi:
+**Packing a Parcel**
 
-1. **Your Bedroom Desk (Working Directory)**:
-   - You have gifts, books, sweets, and wrapping paper spread across your desk.
-   - You are still testing, cutting, and arranging things. Nothing is final yet.
-2. **The Cardboard Shipping Box (Staging Area / Index)**:
-   - You don't dump your entire messy desk into the parcel!
-   - You carefully pick up the book and the hand-written letter and place them inside the box.
-   - You have chosen *specifically* what is ready to be sent.
-3. **Sealing and Stamping with Wax (Local Repository)**:
-   - You tape the box shut, stick a formal shipping label with a unique tracking number, and deposit it into your family archives.
-   - Once sealed, that parcel is a permanent historical package that cannot be tampered with.
-4. **The Courier Van (Remote / GitHub)**:
-   - The courier collects your sealed parcel and delivers a synchronized copy to the central depot online so family members anywhere can access it!
-
-**Git works using these exact same distinct stages!**
+Bilal is sending a parcel of books to his cousin in Jammu. His desk is covered with books, letters and wrapping paper. He does not tip the whole messy desk into the parcel. He picks only the two books and the letter, and puts them in the box. Then he seals the box and writes a tracking number on it. Git moves your work through the same steps: desk, box, sealed parcel.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Identify and describe the **Three Local Trees of Git**: Working Directory, Staging Area, and Local Repository.
-- Understand the role of the **Staging Area** as a pre-commit review station.
-- Explain why Git does not automatically commit every modified file.
-- Understand the relationship between your local machine and remote platforms like GitHub.
-- Trace the complete journey of code from editor to cloud.
+- Name Git's three local areas: the **working tree**, the **staging area** and the **repository**.
+- Explain why `git add` comes before `git commit`.
+- Describe what the hidden `.git` folder holds.
+- Trace the journey of a file from your editor to a commit (and later to GitHub).
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 📦 The Parcel and the Three Areas
 
-### The Three Local Trees & Cloud Remote Architecture
+Each part of the parcel story matches a part of Git:
+
+| Parcel story | Git name | What it is |
+|---|---|---|
+| Messy desk | **Working tree** | The files you can see and edit in your folder |
+| Open box | **Staging area** | The changes you have picked for the next commit |
+| Sealed parcel | **Repository** | The saved commits inside the `.git` folder |
+| Courier van | **Remote** (e.g. GitHub) | A copy of the repository on another computer |
+
+The staging area is also called the **index**. The first three areas are all on your own computer. That is why they are called **local**.
+
+---
+
+## 👁️ The Journey of a Change
 
 ![Git Three Trees & GitHub Remote](../../assets/diagrams/git/git-three-trees.svg)
 
 ```text
-+-------------------+      git add       +-------------------+     git commit     +-------------------+     git push     +-------------------+
-| 1. WORKING TREE   | -----------------> |  2. STAGING AREA  | -----------------> | 3. LOCAL REPO     | ---------------> | 4. GITHUB CLOUD   |
-| (Your active files|                    | (Selected files   |                    | (Permanent .git   |                  | (Remote backup &  |
-|  in VS Code)      |                    |  ready to record) |                    |  commit history)  |                  |  collaboration)   |
-+-------------------+                    +-------------------+                    +-------------------+                  +-------------------+
+┌──────────────────────────┐
+│ 1. WORKING TREE          │
+│    files you edit        │
+└────────────┬─────────────┘
+             │ git add
+             ▼
+┌──────────────────────────┐
+│ 2. STAGING AREA          │
+│    picked for next save  │
+└────────────┬─────────────┘
+             │ git commit
+             ▼
+┌──────────────────────────┐
+│ 3. LOCAL REPOSITORY      │
+│    commits in .git       │
+└────────────┬─────────────┘
+             │ git push (Ch 14)
+             ▼
+┌──────────────────────────┐
+│ 4. REMOTE (GitHub)       │
+│    shared online copy    │
+└──────────────────────────┘
 ```
 
 ---
 
-## 4. 💻 Code Example: Watching Files Move Across the 3 Trees
+## 💻 Example: Watching a File Move
 
-Let's see this in action using terminal commands:
+Ayesha has a school website that already has one commit. She adds a welcome banner to `index.html` and also makes a new file, `logo.png`. She asks Git what it sees:
 
 ```bash
-# 1. Check current status (Git inspects the Working Tree)
 git status
-
-# 2. Add an updated file from Working Tree to the Staging Area
-git add index.html
-
-# 3. Check status again: notice index.html is now green (Staged!)
-git status
-
-# 4. Seal the staged files into a permanent commit in Local Repo
-git commit -m "feat: Add welcome banner to home page"
-
-# 5. Push the commit to GitHub so teammates can see it
-git push origin main
 ```
 
+```text
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logo.png
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+Both changes are only in the **working tree**. Now she puts `index.html` in the box (the staging area):
+
+```bash
+git add index.html
+git status
+```
+
+```text
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+	modified:   index.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	logo.png
+```
+
+`index.html` is now under **Changes to be committed** (green in most terminals). `logo.png` is still **untracked** (red), which means Git is not looking after it yet. Finally, she seals the box:
+
+```bash
+git commit -m "Add welcome banner to home page"
+```
+
+```text
+[main e1b4138] Add welcome banner to home page
+ 1 file changed, 1 insertion(+)
+```
+
+Only `index.html` went into the commit. Later, `git push` sends commits to GitHub. You will learn that in Chapter 14. You will learn each command step by step in Chapters 4 to 6.
+
 ---
 
-## 5. 🔍 Code Explanation: Why Do We Need the Staging Area?
+## 🔍 Why Have a Staging Area?
 
-Beginners often ask: *"Why does Git make me run `git add` before `git commit`? Why can't I just commit immediately?"*
+Many beginners ask: *"Why must I run `git add` before `git commit`?"*
 
-### The Power of Intentional Commits:
-Imagine you worked on two different tasks this afternoon:
-1. You designed a brand-new **Navbar** in `navbar.html`.
-2. While testing, you noticed a spelling error in `about.html` and fixed it.
+Imagine you did two jobs this afternoon:
 
-Because of the **Staging Area**:
-- You can stage ONLY `navbar.html` and commit: `"Add responsive navigation bar"`.
-- Then stage `about.html` and commit: `"Fix spelling mistake in principal bio"`.
+1. You built a new menu in `navbar.html`.
+2. You fixed a spelling mistake in `about.html`.
 
-Your history stays clean, modular, and easy for other developers to review!
+The staging area lets you save them as **two separate commits**:
 
----
+- Stage only `navbar.html`, then commit `Add navigation menu`.
+- Stage `about.html`, then commit `Fix spelling in principal's welcome note`.
 
-## 6. 🌍 Real-World Connection: The Hidden `.git` Folder
-
-When you initialize a project with Git, it creates a hidden folder named `.git`:
-- Everything that Git knows—all historical commits, branch pointers, remote addresses, and staging indexes—is stored inside `.git`.
-- If you copy your project folder without `.git`, you lose all history.
-- If you keep `.git`, you can delete all visible files on your desktop and restore them completely in 2 seconds!
+Each commit does one job. Your history stays clean and easy for others to read. You also never save something by accident, such as a file with a password in it.
 
 ---
 
-## 7. ⚠️ Common Beginner Traps
+## 🌍 Real-World Connection
 
-1. **Running `git commit` without running `git add` first**:
-   - *Error*: `nothing added to commit but untracked files present`.
-   - *Fix*: You must tell Git which files to put into the staging box using `git add` first!
-2. **Deleting the `.git` directory**:
-   - *Mistake*: Thinking `.git` is useless junk and putting it in the Recycle Bin.
-   - *Consequence*: Your project instantly ceases to be a Git repository!
+**The hidden `.git` folder**
+
+When you turn a folder into a Git repository, Git makes a hidden folder called `.git` inside it.
+
+- Everything Git knows is inside `.git`: every commit, every branch and the staging area.
+- If you copy your project **without** `.git`, you copy the files but lose all the history.
+- If `.git` is safe, you can bring back any committed file, even after deleting it from the folder.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
-A developer modifies two files: `contact.html` and `secrets.env`.
-They run:
+A developer changes two files: `contact.html` and `secrets.env`. They run:
 
 ```bash
 git add contact.html
 git commit -m "Update office phone number"
 ```
 
-**Question**: Is `secrets.env` included in the new commit?
+**Question**: Is `secrets.env` in the new commit?
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> No! Because <code>secrets.env</code> was never added to the Staging Area, it remains safely untracked in the Working Tree!
+
+**Answer:** No. Only files in the staging area go into a commit. `secrets.env` was never added, so it stays in the working tree and is not saved by Git.
+
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Red and Green Files
+## 🕵️ Code Detective
+
+**The Red and Green Files**
 
 A student types `git status` and sees:
 
@@ -143,27 +186,131 @@ Untracked files:
 	logo.png
 ```
 
-- **What does green `index.html` mean?** It is sitting in the **Staging Area**, ready to be committed!
-- **What does red `logo.png` mean?** It is in the **Working Directory**, but Git has not been told to track or stage it yet!
+- **Green `index.html`**: it is in the **staging area**, ready for the next commit.
+- **Red `logo.png`**: it is only in the **working tree**. Git has not been told to track it yet.
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**Mistake 1: Committing without adding first**
+
+**Wrong:**
+
+```bash
+git commit -m "Add banner"
+```
+
+**What happens:** nothing is saved. Git shows:
+
+```text
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+(If the only new files are untracked, the last line says `nothing added to commit but untracked files present (use "git add" to track)`.)
+
+**Fixed:**
+
+```bash
+git add index.html
+git commit -m "Add banner"
+```
+
+**Mistake 2: Deleting the `.git` folder**
+
+- **Wrong idea**: "`.git` looks like junk. I will delete it to tidy up."
+- **What happens**: your folder stops being a Git repository. All commits and history are gone.
+- **Fixed idea**: leave `.git` alone. It is Git's memory.
+
+---
+
+## ✍️ Try It
+
+Draw the parcel journey on paper (or in a notes app) for a real task. Choose a file such as `timetable.html`.
+
+1. Draw four boxes: working tree, staging area, repository, remote.
+2. Write the command on each arrow between them.
+3. Write where `timetable.html` is after each command.
+
+<details>
+<summary>Hint</summary>
+
+The arrows are `git add`, then `git commit`, then `git push`. After `git add`, the file's change is in the staging area. After `git commit`, it is saved in `.git`.
+
+</details>
+
+---
+
+## 📝 Recap
+
+- Git has three local areas: the working tree, the staging area and the repository.
+- `git add` puts chosen changes in the staging area (the box).
+- `git commit` seals the staged changes into a permanent snapshot.
+- Everything Git knows lives in the hidden `.git` folder.
+- A remote such as GitHub is a shared copy you send commits to with `git push`.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. Name the three local areas of Git in sequential order.
-2. What terminal command moves a modified file from the Working Directory into the Staging Area?
-3. In which hidden folder does Git store its commit database?
 
-### 🟡 Level 2: Understand
-4. Explain the difference between `git add` and `git commit` using your own real-world analogy.
-5. Why is having a staging area safer than auto-saving everything directly to the repository?
+1. Name Git's three local areas in order.
+2. Which command moves a changed file from the working tree to the staging area?
+3. Which hidden folder holds Git's history?
 
-### 🟠 Level 3: Apply
-6. Draw a diagram of your computer showing where `app.js`, the Staging Area, and `.git` live. Trace a line showing how `git add app.js` updates the staging index.
+<details>
+<summary>Show answer</summary>
 
-### 🔵 Level 4: Think & Troubleshoot
-7. If you edit a file, run `git add file.html`, and then edit `file.html` AGAIN before committing, what will `git status` show? (Hint: The file will appear in BOTH staged and unstaged sections!).
+1. Working tree → staging area → local repository.
+2. `git add`, for example `git add index.html`.
+3. The `.git` folder.
 
-### 🟣 Level 5: Create & Build
-8. Write a clear guideline for your coding club explaining why we must never commit secret passwords or private student data (*Amānah*) to any Git stage.
+</details>
+
+### 🟡 Level 2: Apply
+
+1. Explain the difference between `git add` and `git commit` with your own everyday example.
+2. Why is a staging area safer than saving every change straight into the history?
+3. You edited `app.js` and `notes.txt`, but only `app.js` is ready. Which commands save only `app.js`?
+
+<details>
+<summary>Show answer</summary>
+
+1. Example: packing a school bag. `git add` is putting chosen books into the bag. `git commit` is zipping the bag and writing the date on a label.
+2. You choose exactly what goes in. Half-finished work or private files are not saved by accident.
+3. Stage only `app.js`, then commit:
+
+```bash
+git add app.js
+git commit -m "Add search to library page"
+```
+
+</details>
+
+### 🔴 Level 3: Challenge
+
+1. You edit `index.html`, run `git add index.html`, then edit `index.html` **again** before committing. Predict what `git status` shows.
+2. Which version of the file would `git commit` save: the first edit, or both edits?
+3. Write a short rule (3–4 lines) for your coding club explaining why passwords and private student data must never be added to any Git commit (*Amānah*).
+
+<details>
+<summary>Show one possible answer</summary>
+
+1. The file appears **twice**: once under "Changes to be committed" and once under "Changes not staged for commit":
+
+   ```text
+   Changes to be committed:
+     (use "git restore --staged <file>..." to unstage)
+   	modified:   index.html
+
+   Changes not staged for commit:
+     (use "git add <file>..." to update what will be committed)
+     (use "git restore <file>..." to discard changes in working directory)
+   	modified:   index.html
+   ```
+
+2. Only the first edit, because that is what was staged. Run `git add index.html` again to include the second edit.
+3. Example rule: "Passwords and student details are a trust (*Amānah*). Once they are in a commit, anyone with a copy of the repository can read them. Keep them in files that Git ignores. If a secret is ever committed, tell your teacher and change it."
+
+</details>

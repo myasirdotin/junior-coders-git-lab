@@ -1,154 +1,136 @@
-# Chapter 3: PHP in HTML Templates 🎨🧩
+# Chapter 3: PHP in HTML Templates 🎨
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Personalized Certificate
+## 🌟 Real-Life Story
 
-Have you ever received a certificate of achievement at school?
-- The certificate has an ornate gold border, the school emblem, official signatures, and standard text: *"This is proudly awarded to ____________ for outstanding excellence in Grade 9."*
-- That paper is a **pre-printed template** (HTML & CSS).
-- When you win the prize, the teacher uses a calligraphy pen to fill in your specific name, score, and today's date into the blank spaces.
-- That calligraphy pen is **PHP**!
-
-PHP allows you to build standard, gorgeous HTML pages and inject live, customized data directly into headings, paragraphs, and input values.
+At the end of term, your school gives out certificates. Each certificate is printed ahead of time with a border, the school logo and the words *"Awarded to ________"*. The printed paper is the same for everyone. On prize day, the teacher writes each student's name and the date in the blank spaces. The printed paper is the **HTML template**, and the teacher's pen is **PHP**.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Seamlessly blend `<?php ... ?>` blocks inside standard HTML5 markup.
-- Use the convenient short echo tag `<?= $variable ?>`.
-- Understand how web designers and backend engineers collaborate on templates.
-- Dynamically generate HTML attributes (like `class`, `id`, `src`, and `href`) with PHP.
-- Render dynamic timestamps and copyright notices that update automatically.
+- Mix small `<?php ... ?>` blocks into normal HTML pages.
+- Use the short echo tag `<?= ... ?>` to print a value.
+- Put PHP values inside HTML attributes such as `src`, `alt` and `href`.
+- Print the current year so a footer never goes out of date.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
+
+A **template** is a page layout with gaps that get filled in later. A `.php` file can hold normal HTML with small PHP "gaps" inside it.
 
 ### The Template Injection Workflow
 
 ```text
-+-------------------------------------------------------------+
-|                     index.php FILE                          |
-+-------------------------------------------------------------+
-| <!DOCTYPE html>                                             |
-| <html>                                                      |
-|   <body>                                                    |
-|     <h1>Welcome to Student Portal</h1>                      |
-|                                                             |
-|     <!-- Static HTML border & styling -->                   |
-|     <div class="user-badge">                                |
-|                                                             |
-|       <!-- PHP INJECTION POINT -->                          |
-|       User: <?= $userName ?>                                |
-|       Status: <?= $userStatus ?>                            |
-|                                                             |
-|     </div>                                                  |
-|     <footer>© <?= date('Y') ?> Junior Coders</footer>        |
-|   </body>                                                   |
-| </html>                                                     |
-+-------------------------------------------------------------+
++------------------------------------------+
+| index.php                                |
++------------------------------------------+
+| <h1>Welcome to Student Portal</h1>       |
+| <div class="user-badge">                 |
+|   User: <?= $userName ?>    <-- gap      |
+|   Status: <?= $userStatus ?> <-- gap     |
+| </div>                                   |
+| <footer>                                 |
+|   &copy; <?= date('Y') ?>   <-- gap      |
+| </footer>                                |
++------------------------------------------+
 ```
+
+The server fills each gap, then sends plain HTML to the browser.
 
 ### Standard Tag vs Short Echo Tag
 
 ```text
-STANDARD SYNTAX:    <?php echo $studentName; ?>
-SHORT ECHO SYNTAX:  <?= $studentName ?>
-
-Both produce the EXACT same HTML output!
-The short echo tag is cleaner, faster to type, and easier to read inside HTML.
+STANDARD:   <?php echo $studentName; ?>
+SHORT ECHO: <?= $studentName ?>
 ```
+
+Both give exactly the same HTML. The short echo tag is quicker to type and easier to read inside HTML.
+
+> 💡 A word starting with `$`, such as `$studentName`, is a **variable**: a named box that holds a value. Chapter 4 explains variables fully.
 
 ---
 
-## 4. 💻 Code Example: Dynamic Student Profile Page
+## 💻 Code Example: Dynamic Student Profile Page
 
 Save this file as `profile.php`:
 
 ```php
 <?php
-  // Define our dynamic backend data
+  // Prepare the data first
   $studentName = "Amina Tariq";
   $grade = 9;
   $section = "Emerald-A";
   $attendanceRate = 98.5;
-  $avatarUrl = "https://api.dicebear.com/7.x/bottts/svg?seed=Amina";
-  $isHonorRoll = true;
+  $photo = "images/amina.png";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title><?= $studentName ?> - Student Portal</title>
-  <style>
-    body { font-family: 'Outfit', sans-serif; background: #f8fafc; padding: 2rem; }
-    .card { background: white; border-radius: 12px; padding: 24px; max-width: 400px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-    .avatar { width: 80px; height: 80px; border-radius: 50%; background: #f5f3ff; }
-    .badge { display: inline-block; padding: 4px 10px; border-radius: 99px; font-size: 0.8rem; font-weight: 700; }
-    .badge-honor { background: #dcfce7; color: #166534; }
-  </style>
 </head>
 <body>
-
   <div class="card">
-    <img src="<?= $avatarUrl ?>" alt="<?= $studentName ?>" class="avatar">
+    <img src="<?= $photo ?>" alt="Photo of <?= $studentName ?>">
     <h2><?= $studentName ?></h2>
     <p>Grade <?= $grade ?> &bull; Section <?= $section ?></p>
     <p>Attendance: <strong><?= $attendanceRate ?>%</strong></p>
-
-    <?php if ($isHonorRoll): ?>
-      <span class="badge badge-honor">🌟 Honor Roll Student</span>
-    <?php endif; ?>
-
-    <hr style="margin: 1.5rem 0; border: 0; border-top: 1px solid #e2e8f0;">
-    <footer style="font-size: 0.8rem; color: #64748b;">
-      Generated by PHP on <?= date("F j, Y - g:i A") ?><br>
-      &copy; <?= date("Y") ?> Junior Coders Academy
-    </footer>
+    <footer>&copy; <?= date("Y") ?> Junior Coders Academy</footer>
   </div>
+</body>
+</html>
+```
 
+Output (in 2026):
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Amina Tariq - Student Portal</title>
+</head>
+<body>
+  <div class="card">
+    <img src="images/amina.png" alt="Photo of Amina Tariq">
+    <h2>Amina Tariq</h2>
+    <p>Grade 9 &bull; Section Emerald-A</p>
+    <p>Attendance: <strong>98.5%</strong></p>
+    <footer>&copy; 2026 Junior Coders Academy</footer>
+  </div>
 </body>
 </html>
 ```
 
 ---
 
-## 5. 🔍 Code Explanation: Breaking It Down Line by Line
+## 🔍 Code Explanation: Breaking It Down Line by Line
 
-- `<?php $studentName = "..."; ?>`: At the top of the file, we prepare our data. Keeping calculations and data definitions at the top keeps your HTML below clean and tidy!
-- `<title><?= $studentName ?> - ...</title>`: Injects the student's name directly into the browser tab title!
-- `<img src="<?= $avatarUrl ?>">`: Injects the image link right into the HTML `src` attribute.
-- `<?php if ($isHonorRoll): ?> ... <?php endif; ?>`: This is PHP's **alternative syntax for control structures**. It allows you to wrap raw HTML blocks without messy `echo "<div>...";` statements!
-- `&copy; <?= date("Y") ?>`: Automatically prints `2026` (or whatever the current year is). Your copyright notice will never go out of date again!
+- `<?php $studentName = "..."; ?>`: The data is prepared at the top. This keeps the HTML below clean.
+- `<title><?= $studentName ?> - ...</title>`: Puts the student's name in the browser tab title.
+- `<img src="<?= $photo ?>">`: Puts the image path inside the `src` **attribute** (the extra settings inside an HTML tag).
+- `&copy; <?= date("Y") ?>`: `date("Y")` gives the current 4-digit year. The footer updates itself every January.
+- The PHP tags disappear in the output. Only the values are left.
 
----
+> 🔒 Here the values are typed by us, so they are safe to print. When values come from visitors, you must clean them first with `htmlspecialchars()`. Chapter 19 teaches this.
 
-## 6. 🌍 Real-World Connection: Modern CMS Themes
-
-Every theme you see in **WordPress**, **Drupal**, or **Shopify** works on this exact pattern:
-- The design agency creates the HTML/CSS layout.
-- The PHP developer replaces dummy text with PHP template tags like `the_title()`, `the_content()`, and `the_author()`.
-- When thousands of articles are published, they all share one elegant template!
+> 💡 Later, in Chapter 8, you will learn `if`. With it, a template can show or hide whole blocks of HTML.
 
 ---
 
-## 7. ⚠️ Common Beginner Traps
+## 🌍 Real-World Connection: Modern CMS Themes
 
-1. **Forgetting the Equals Sign in Short Echo**:
-   ```html
-   <p>Hello <?p $name ?></p>  <!-- ❌ Syntax error! -->
-   <p>Hello <? $name ?></p>   <!-- ❌ Doesn't echo! -->
-   <p>Hello <?= $name ?></p>  <!-- ✅ Correct! Short echo requires '=' -->
-   ```
-2. **Spaghetti Code**:
-   Mixing huge paragraphs of HTML inside hundreds of `echo "..."` statements instead of dipping into PHP only when needed.
+A **CMS** (content management system) is a tool for running a website without writing every page by hand. Themes in **WordPress** and **Drupal**, both written in PHP, use this exact pattern:
+- A designer builds the HTML and CSS layout.
+- A PHP developer replaces sample text with PHP tags, such as WordPress's `the_title()` and `the_content()`.
+- Thousands of articles then share one tidy template.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this snippet:
 
@@ -159,18 +141,18 @@ Look at this snippet:
 </button>
 ```
 
-**Question**: What does the browser inspect element tool show when you right-click the button?
+**Question**: What HTML does the browser receive?
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> It shows <code>&lt;button style="background: #7c3aed; color: white;"&gt;Submit&lt;/button&gt;</code>. The PHP tag was replaced on the server with the hex color code!
+<strong>Answer:</strong> <code>&lt;button style="background: #7c3aed; color: white;"&gt;</code> followed by <code>Submit</code> and <code>&lt;/button&gt;</code>. The PHP tag was replaced on the server by the colour code.
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Copyright
+## 🕵️ Code Detective: The Broken Copyright
 
-A developer wanted their website footer to show the dynamic copyright year:
+A developer wanted the footer to show the current year:
 
 ```html
 <footer>
@@ -178,10 +160,10 @@ A developer wanted their website footer to show the dynamic copyright year:
 </footer>
 ```
 
-When opened in the browser, the year was completely blank!
+In the browser, the year was blank: `© Junior Coders`.
 
-- **Find the mistake**: The developer put `echo` nowhere, and enclosed the function call in quotes as a literal string!
-- **Explain**: Without `echo` or `<?=`, nothing is output. Furthermore, `"date('Y')"` is just plain text, not a function call.
+- **Find the mistake**: There is no `echo`, and the function call is wrapped in quotes.
+- **Explain**: Without `echo` or `<?=`, nothing is printed. Also, `"date('Y')"` in quotes is only text, not a call to `date()`.
 - **Fix**:
   ```html
   <footer>
@@ -191,22 +173,121 @@ When opened in the browser, the year was completely blank!
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**Forgetting the `=` in the short echo tag.**
+
+- ❌ *Wrong*: `<p>Hello <? $name ?></p>`
+- 😕 *What happens*: `<?` without `=` is an old "short tag" that is switched off in most setups. PHP does not run it. The browser receives the raw text `<? $name ?>` and the name never appears.
+- ✅ *Fixed*: `<p>Hello <?= $name ?></p>`. The `=` means "print this".
+
+A second, softer mistake is **spaghetti code**: a whole page written as hundreds of `echo "..."` lines. Write normal HTML and dip into PHP only where a value is needed.
+
+---
+
+## ✍️ Try It
+
+Open the [PHP Console](../studios/php-console/) and type:
+
+```php
+<?php
+  $schoolName = "Green Valley School";
+  $motto = "Learn, Serve, Grow";
+?>
+<header>
+  <h1><?= $schoolName ?></h1>
+  <p><?= $motto ?></p>
+</header>
+<p>Today is <?= date("l") ?>.</p>
+```
+
+Output (on a Tuesday):
+
+```text
+<header>
+  <h1>Green Valley School</h1>
+  <p>Learn, Serve, Grow</p>
+</header>
+<p>Today is Tuesday.</p>
+```
+
+*Hint*: `date("l")` (a small L) gives the day name. Try `date("Y")` for the year.
+
+---
+
+## 📝 Recap
+
+- A `.php` file can hold normal HTML with small PHP gaps inside.
+- `<?= $value ?>` is the short way to write `<?php echo $value; ?>`.
+- PHP values can go inside text, titles and attributes like `src` and `alt`.
+- `date("Y")` prints the current year, so footers stay up to date.
+- The visitor sees only the finished HTML, never the PHP tags.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. What is the shorthand syntax for `<?php echo $val; ?>`?
-2. What format character in `date()` outputs the 4-digit current year?
-3. Can PHP code be placed inside HTML attribute values like `href` and `class`?
+1. What is the short way to write `<?php echo $val; ?>`?
+2. Which letter in `date()` gives the 4-digit year?
+3. Can PHP print a value inside an HTML attribute such as `href`?
 
-### 🟡 Level 2: Understand
-4. Explain why opening and closing PHP tags inside HTML is preferable to writing entire HTML documents inside a giant `echo` statement.
-5. What is the difference between `<?php if ($x): ?>` and `if ($x) {` when writing HTML templates?
+<details>
+<summary>Show answer</summary>
 
-### 🟠 Level 3: Apply
-6. Create an HTML navigation bar where 4 menu items (`Home`, `Courses`, `Projects`, `Contact`) are displayed. Use PHP to dynamically mark the `Projects` link with class `active`.
+1. `<?= $val ?>`
+2. `"Y"`, as in `date("Y")`.
+3. Yes, for example `<a href="<?= $link ?>">`.
 
-### 🔵 Level 4: Think & Troubleshoot
-7. If someone views the source code of your page, can they tell what PHP variables you used in `profile.php`? Why or why not?
+</details>
 
-### 🟣 Level 5: Create & Build
-8. Build a dynamic product card in `product.php` for a student laptop. Include title, price, discount percentage, calculated sale price (`$price * (1 - $discount)`), and an in-stock badge that changes color if stock is greater than 0.
+### 🟡 Level 2: Apply
+1. Why is it better to write normal HTML with small PHP gaps than one giant `echo` with all the HTML inside?
+2. A visitor clicks "View Page Source" on `profile.php`. Can they see the name `$studentName`? Why?
+
+<details>
+<summary>Show answer</summary>
+
+1. The HTML stays easy to read and edit. You avoid long quoted strings, quote mix-ups and missing semicolons.
+2. No. The server replaces every PHP tag with its value before sending the page. They see `Amina Tariq`, not the variable name.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build `book.php`, a card for a library book.
+
+1. At the top, store the book title, author, shelf number and cover image path in variables.
+2. Below, write HTML: an `<img>` with `src` and `alt` filled by PHP, an `<h2>` for the title, and a `<p>` for author and shelf.
+3. Add a footer with `&copy;` and the current year.
+4. Extra: add a second line showing today's day name with `date("l")`.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```php
+<?php
+  $title = "Stars of the Night Sky";
+  $author = "Fatima Noor";
+  $shelf = "B-12";
+  $cover = "covers/stars.png";
+?>
+<div class="book">
+  <img src="<?= $cover ?>" alt="Cover of <?= $title ?>">
+  <h2><?= $title ?></h2>
+  <p>By <?= $author ?> &bull; Shelf <?= $shelf ?></p>
+  <footer>&copy; <?= date("Y") ?> School Library</footer>
+</div>
+```
+
+Output (in 2026):
+
+```html
+<div class="book">
+  <img src="covers/stars.png" alt="Cover of Stars of the Night Sky">
+  <h2>Stars of the Night Sky</h2>
+  <p>By Fatima Noor &bull; Shelf B-12</p>
+  <footer>&copy; 2026 School Library</footer>
+</div>
+```
+
+</details>

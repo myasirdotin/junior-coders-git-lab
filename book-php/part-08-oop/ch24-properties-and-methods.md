@@ -1,149 +1,145 @@
-# Chapter 24: Properties, Methods & Encapsulation 🛡️⚙️
+# Chapter 24: Properties, Methods & Encapsulation 🛡️
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Digital Wristwatch
+## 🌟 Real-Life Story
 
-Look at a digital wristwatch:
-- On the outside, you see the digital screen showing the time, and two simple buttons: **"Mode"** and **"Set"**.
-- You cannot reach inside the watch with a screwdriver to manually twist the vibrating quartz crystal or change the battery voltage directly.
-- The fragile internal gears are safely sealed inside a waterproof casing (**Encapsulation**).
-- If you want to change the time, you press the authorized "Set" button!
-
-In Object-Oriented Programming:
-- **Encapsulation** means protecting an object's internal data from accidental tampering from the outside world.
-- We use **Access Modifiers** (`public`, `private`, `protected`) and **Getters/Setters** to safeguard data integrity!
+Look at a digital wristwatch. On the outside you see a screen and two buttons, "Mode" and "Set". You cannot reach inside to twist the tiny parts by hand; they are sealed in a case. To change the time, you must press the "Set" button, which only accepts sensible times. Programmers protect an object's data in the same way, and they call it **encapsulation**.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Master the three PHP access modifiers: `public`, `private`, and `protected`.
-- Understand and use the `$this` pseudo-variable inside methods.
-- Protect critical properties from invalid data using **private** visibility.
-- Implement **Getter** and **Setter** methods for secure data access.
-- Understand how encapsulation prevents bugs in large applications.
+- Use the three access modifiers: `public`, `private` and `protected`.
+- Use `$this` inside a method to reach the object's own properties and methods.
+- Protect important properties with `private` so outside code cannot break them.
+- Write **getter** and **setter** methods that check data before changing it.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
+
+**Encapsulation** means keeping an object's data safe inside it. Outside code may only change the data through methods that check the rules. An **access modifier** is the word in front of a property or method that says who may use it.
 
 ### The Three Access Modifiers
 
 ```text
-┌───────────┬─────────────────────────────────────────────────────────────┐
-│ Modifier  │ Where Can It Be Accessed?                                   │
-├───────────┼─────────────────────────────────────────────────────────────┤
-│ public    │ Everywhere! Outside code, subclasses, and inside the class. │
-│ private   │ STRICT: ONLY code INSIDE this exact class can touch it!     │
-│ protected │ Inside this class and its child subclasses (inheritance).   │
-└───────────┴─────────────────────────────────────────────────────────────┘
+┌───────────┬────────────────────────────┐
+│ Modifier  │ Who can use it?            │
+├───────────┼────────────────────────────┤
+│ public    │ Everyone: outside code too │
+│ private   │ Only code inside this class│
+│ protected │ This class + child classes │
+└───────────┴────────────────────────────┘
 ```
+
+Child classes arrive in Chapter 25. Until then, `protected` behaves like `private`.
 
 ### The $this Pseudo-Variable
 
 ```text
-Inside a class method:
+Inside a method:
   $this->balance
-
-Means:
-  "The property called 'balance' belonging to THIS SPECIFIC OBJECT instance!"
+means:
+  "the balance of THIS object,
+   the one the method was called on"
 ```
+
+It is called a **pseudo-variable** because you never create it yourself. PHP fills it in for you.
+
+### Getters and Setters
+
+- A **getter** is a method that lets outside code **read** a private value, for example `getBalance()`.
+- A **setter** is a method that lets outside code **change** a private value, but only after checking it, for example `addMoney()`.
 
 ---
 
-## 4. 💻 Code Example: Encapsulated Bank Account
+## 💻 Code Example: Encapsulated School Wallet
+
+Each student has a school wallet for buying stationery at the school shop.
 
 ```php
 <?php
-  class BankAccount {
-    public $accountHolder;
-    // Private property: CANNOT be modified directly from outside!
+  class SchoolWallet {
+    public $owner;
+    // Private: outside code cannot change this directly
     private $balance = 0.0;
 
-    // Setter method with validation!
-    public function deposit(float $amount) {
+    // Setter with a check: only positive amounts
+    public function addMoney(float $amount) {
       if ($amount <= 0) {
-        return "Error: Deposit amount must be positive!";
+        return "Error: The amount must be positive.";
       }
       $this->balance += $amount;
-      return "Deposited $" . number_format($amount, 2) . " successfully.";
+      return "Added ₹" . number_format($amount, 2) . ".";
     }
 
-    // Setter method with security guard!
-    public function withdraw(float $amount) {
+    // Setter with a guard: cannot spend more than you have
+    public function spend(float $amount) {
       if ($amount <= 0) {
-        return "Error: Withdrawal amount must be positive!";
+        return "Error: The amount must be positive.";
       }
       if ($amount > $this->balance) {
-        return "Error: Insufficient funds! Current balance: $" . number_format($this->balance, 2);
+        return "Error: Not enough money. Balance: ₹"
+          . number_format($this->balance, 2);
       }
       $this->balance -= $amount;
-      return "Withdrew $" . number_format($amount, 2) . " successfully.";
+      return "Spent ₹" . number_format($amount, 2) . ".";
     }
 
-    // Getter method: Read-only access!
+    // Getter: read-only view of the balance
     public function getBalance(): string {
-      return "$" . number_format($this->balance, 2);
+      return "₹" . number_format($this->balance, 2);
     }
   }
 
-  // Interacting with the Encapsulated Object
-  $account = new BankAccount();
-  $account->accountHolder = "Sara Khan";
+  $wallet = new SchoolWallet();
+  $wallet->owner = "Sara Khan";
 
-  echo "<h2>Account for {$account->accountHolder}</h2>";
-  echo "<p>" . $account->deposit(150.50) . "</p>";
-  echo "<p>Current Balance: <strong>" . $account->getBalance() . "</strong></p>";
+  echo "Wallet of {$wallet->owner}\n";
+  echo $wallet->addMoney(150.50) . "\n";
+  echo "Balance: " . $wallet->getBalance() . "\n";
+  echo $wallet->spend(200.00) . "\n";   // too much: refused
+  echo $wallet->spend(50.00) . "\n";    // allowed
+  echo "Final balance: " . $wallet->getBalance() . "\n";
 
-  // Attempting an illegal withdrawal
-  echo "<p>" . $account->withdraw(200.00) . "</p>";
-
-  // Legal withdrawal
-  echo "<p>" . $account->withdraw(50.00) . "</p>";
-  echo "<p>Final Balance: <strong>" . $account->getBalance() . "</strong></p>";
-
-  // What happens if an external script tries to hack the balance directly?
-  // $account->balance = 1000000; // ❌ Fatal Error: Cannot access private property!
+  // $wallet->balance = 1000000;  // Error: cannot access private property
 ?>
+```
+
+Output:
+
+```text
+Wallet of Sara Khan
+Added ₹150.50.
+Balance: ₹150.50
+Error: Not enough money. Balance: ₹150.50
+Spent ₹50.00.
+Final balance: ₹100.50
 ```
 
 ---
 
-## 5. 🔍 Code Explanation: Breaking It Down Line by Line
+## 🔍 Code Explanation: Breaking It Down Line by Line
 
-- `private $balance = 0.0;`: Sealed inside the vault! No external code can write `$account->balance = 50000;`.
-- `$this->balance`: Refers to the current account's private balance.
-- `deposit()` & `withdraw()`: These methods act as authorized bank tellers. They validate transactions, ensure deposits are positive, and prevent overdrawing before touching `$this->balance`!
-- `getBalance()`: A **Getter** method. It lets the world view the balance without allowing anyone to directly tamper with it.
+- `private $balance = 0.0;`: Sealed inside the object. Outside code cannot write `$wallet->balance = 50000;`.
+- `$this->balance`: The balance of the wallet the method was called on.
+- `addMoney()` and `spend()`: **Setters**. They act like a careful shopkeeper: they check the amount first, then change `$this->balance`.
+- `float $amount`: A **typed parameter**. It tells PHP the method expects a number with a decimal part.
+- `getBalance(): string`: A **getter**. The `: string` after the brackets says the method returns a string. Anyone can read the balance, but nobody can change it this way.
 
 ---
 
-## 6. 🌍 Real-World Connection: Preventing Chaos in a Library System
+## 🌍 Real-World Connection: Preventing Chaos in a Library System
 
-Imagine the online system of a school library:
+Think of the online system of a school library:
 - A member object has `private $booksBorrowed = 0;`.
-- If `$booksBorrowed` were `public`, a careless script could execute: `$member->booksBorrowed = -50;`!
-- With encapsulation, the only way the count changes is through `borrowBook()` or `returnBook()`, where the library server enforces the rules (for example, at most 3 books at a time)!
+- If it were `public`, a careless script could write `$member->booksBorrowed = -50;`.
+- With encapsulation, the count only changes through `borrowBook()` and `returnBook()`. Those methods enforce the rules, for example "at most 3 books at a time".
 
 ---
 
-## 7. ⚠️ Common Beginner Traps
-
-1. **Forgetting `$this->` inside methods**:
-   ```php
-   public function deposit($amount) {
-     $balance += $amount; // ❌ Creates a temporary local variable, leaves object balance unchanged!
-     $this->balance += $amount; // ✅ Correct! Modifies object property!
-   }
-   ```
-2. **Making everything `public`**:
-   Defaulting all properties to public defeats the entire purpose of OOP encapsulation!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 ```php
 <?php
@@ -157,12 +153,12 @@ Imagine the online system of a school library:
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> <strong>Fatal Error!</strong> <code>Cannot access private property Lock::$code</code>. Private properties can never be read from outside the class!
+<strong>Answer:</strong> An error: <code>Fatal error: Uncaught Error: Cannot access private property Lock::$code</code>. Private properties cannot be read from outside the class.
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Method Call
+## 🕵️ Code Detective: The Broken Method Call
 
 ```php
 <?php
@@ -174,31 +170,196 @@ Imagine the online system of a school library:
       return getSalutation() . " " . $name;
     }
   }
+  $g = new Greeter();
+  echo $g->greetUser("Amina");
 ?>
 ```
 
-- **Find the bug**: `greetUser()` calls `getSalutation()` without `$this->`!
-- **Explain**: PHP looks for a standalone global function named `getSalutation()`, which does not exist.
-- **Fix**: Change to `$this->getSalutation() . " " . $name;`.
+PHP stops with: `Fatal error: Uncaught Error: Call to undefined function getSalutation()`.
+
+- **Find the bug**: `greetUser()` calls `getSalutation()` without `$this->`.
+- **Explain**: PHP looks for an ordinary function named `getSalutation()` outside the class. There is none.
+- **Fix**: `return $this->getSalutation() . " " . $name;` Now it prints `Welcome! Amina`.
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**Forgetting `$this->` inside a method.**
+
+- ❌ *Wrong*:
+  ```php
+  public function addMoney($amount) {
+    $balance += $amount;
+  }
+  ```
+- 😕 *What happens*: `$balance` here is a new **local** variable that exists only inside the method. PHP warns `Undefined variable $balance`, and the object's real balance stays the same.
+- ✅ *Fixed*:
+  ```php
+  public function addMoney($amount) {
+    $this->balance += $amount;
+  }
+  ```
+
+A second mistake is making every property `public`. Then any line of code anywhere can put wrong data in, and encapsulation is lost.
+
+---
+
+## ✍️ Try It
+
+Open the [PHP Console](../studios/php-console/) and type:
+
+```php
+<?php
+class Thermometer {
+  private $celsius = 20;
+
+  public function setCelsius($value) {
+    if ($value < -50 || $value > 60) {
+      return "Rejected: $value is not a sensible room reading.";
+    }
+    $this->celsius = $value;
+    return "Saved.";
+  }
+
+  public function getCelsius() {
+    return $this->celsius;
+  }
+}
+
+$t = new Thermometer();
+echo $t->setCelsius(500) . "\n";
+echo $t->setCelsius(24) . "\n";
+echo "Now: " . $t->getCelsius() . " °C";
+```
+
+Output:
+
+```text
+Rejected: 500 is not a sensible room reading.
+Saved.
+Now: 24 °C
+```
+
+*Hint*: Add the line `$t->celsius = 500;` at the end. What error do you get, and why?
+
+---
+
+## 📝 Recap
+
+- **Encapsulation** keeps an object's data safe inside it.
+- `public` = everyone; `private` = only this class; `protected` = this class and its children.
+- `$this->` reaches the current object's own properties and methods.
+- **Setters** check data before changing a private property; **getters** let others read it.
+- Without `$this->`, a method makes a new local variable and the object stays unchanged.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. Name the three visibility access modifiers in PHP.
-2. What pseudo-variable refers to the current object instance inside a class?
-3. What is a "Getter" method?
+1. Name the three access modifiers in PHP.
+2. Which pseudo-variable means "the current object" inside a class?
+3. What is a getter method?
 
-### 🟡 Level 2: Understand
-4. Why is keeping sensitive properties `private` better than making them `public`?
-5. How does a "Setter" method allow you to validate data before saving it?
+<details>
+<summary>Show answer</summary>
 
-### 🟠 Level 3: Apply
-6. Create a `Student` class with a private `$gradeScore`. Add a setter `setScore($score)` that only accepts numbers between 0 and 100, and a getter `getScore()`.
+1. `public`, `private`, `protected`.
+2. `$this`.
+3. A public method that returns (lets others read) the value of a private property, such as `getBalance()`.
 
-### 🔵 Level 4: Think & Troubleshoot
-7. How does the `protected` modifier bridge the gap between `public` and `private` when dealing with class inheritance?
+</details>
 
-### 🟣 Level 5: Create & Build
-8. Build a User Profile Class: properties include `private $email`, `private $passwordHash`, and `public $username`. Add a secure method `setPassword($plainTextPassword)` that hashes the password with `password_hash()`, and `verifyPassword($testPassword)` using `password_verify()`.
+### 🟡 Level 2: Apply
+1. Why is it better to keep a wallet's `$balance` private?
+2. Write a `Student` class with a private `$score`. Add `setScore($score)` that only accepts numbers from 0 to 100, and `getScore()`.
+
+<details>
+<summary>Show answer</summary>
+
+1. If it were public, any code could set it to a wrong value, such as `-500` or `1000000`. Private means the only way to change it is through methods that check the rules.
+2. One way:
+   ```php
+   <?php
+   class Student {
+     private $score = 0;
+
+     public function setScore($score) {
+       if ($score < 0 || $score > 100) {
+         return "Score must be 0 to 100.";
+       }
+       $this->score = $score;
+       return "Score saved.";
+     }
+
+     public function getScore() {
+       return $this->score;
+     }
+   }
+
+   $s = new Student();
+   echo $s->setScore(140) . "\n";
+   echo $s->setScore(88) . "\n";
+   echo $s->getScore();
+   ```
+   Output:
+   ```text
+   Score must be 0 to 100.
+   Score saved.
+   88
+   ```
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build a `UserProfile` class that keeps a password safe (*Amānah*: a password is a trust).
+
+1. Add `public $username` and `private $passwordHash`.
+2. Add `setPassword($plain)`. Refuse passwords shorter than 8 characters. Otherwise store `password_hash($plain, PASSWORD_DEFAULT)`. Never store the plain password.
+3. Add `checkPassword($attempt)` that returns `true` or `false` using `password_verify()`.
+4. Test with one right and one wrong password.
+5. Extra: explain why there is **no** `getPassword()` method.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```php
+<?php
+class UserProfile {
+  public $username;
+  private $passwordHash = "";
+
+  public function setPassword($plain) {
+    if (strlen($plain) < 8) {
+      return "Password must have at least 8 characters.";
+    }
+    $this->passwordHash = password_hash($plain, PASSWORD_DEFAULT);
+    return "Password saved.";
+  }
+
+  public function checkPassword($attempt) {
+    return password_verify($attempt, $this->passwordHash);
+  }
+}
+
+$user = new UserProfile();
+$user->username = "maryam";
+echo $user->setPassword("abc") . "\n";
+echo $user->setPassword("cedar-tree-42") . "\n";
+var_dump($user->checkPassword("cedar-tree-42"));
+var_dump($user->checkPassword("guess123"));
+```
+
+Output:
+
+```text
+Password must have at least 8 characters.
+Password saved.
+bool(true)
+bool(false)
+```
+
+Extra: the class never stores the real password, only its hash. A hash cannot be turned back into the password, so there is nothing safe to "get". Outside code may only **check** a password.
+
+</details>

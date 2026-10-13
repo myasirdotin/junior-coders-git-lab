@@ -1,71 +1,212 @@
-# Chapter 9: Hashing vs. Encryption vs. Encoding 🔐🧮
+# Chapter 9: Hashing vs. Encryption vs. Encoding 🔐
 
-In computer science, developers frequently confuse three distinct data transformations: **Encoding**, **Encryption**, and **Hashing**. Using the wrong one can turn a secure architecture into an open vulnerability.
+## 🌟 Real-Life Story
 
-Let's master the differences once and for all!
+Think of three things you might do with a school letter. You could **translate** it into Urdu so your grandmother can read it. Anyone who knows both languages can translate it back. You could **lock it in a box** and give the key only to your teacher. Only someone with the key can open it. Or you could **press your thumb in ink** at the bottom. The thumbprint does not contain the letter, but it proves the letter is yours and that nobody swapped the page. Translating, locking and fingerprinting: in computing, these are **encoding**, **encryption** and **hashing**.
 
----
+People mix up these three all the time. Using the wrong one can leave data wide open.
 
-## 🧭 The Core Comparison Matrix
+## 🎯 What You Will Learn
 
-| Concept | Purpose | Requires a Key? | Reversible? | Primary Example |
+- Tell apart **encoding**, **encryption** and **hashing** by purpose, key and reversibility.
+- Show why Base64 is not a way to hide secrets.
+- Explain **symmetric** and **asymmetric** encryption in simple words.
+- Describe the properties of a good hash, including the **avalanche effect**.
+
+## 🧭 The Three at a Glance
+
+| | Purpose | Needs a key? | Can it be reversed? | Examples |
 | :--- | :--- | :--- | :--- | :--- |
-| **Encoding** | Usability & data transport across systems | ❌ No | ✅ Yes (Trivial) | `Base64`, URL Encoding, ASCII |
-| **Encryption** | Confidentiality (Secret communications) | ✅ Yes | ✅ Yes (With secret key) | `AES-256`, `RSA`, `TLS 1.3` |
-| **Hashing** | Integrity verification & password storage | ❌ No | ❌ **No (One-way only!)** | `SHA-256`, `bcrypt`, `Argon2` |
+| **Encoding** | Change the format so data travels safely | No | Yes, by anyone | Base64, URL encoding |
+| **Encryption** | Keep data secret | Yes | Yes, but only with the key | AES, RSA, TLS |
+| **Hashing** | Make a fingerprint to check data | No | No (one-way) | SHA-256; bcrypt and Argon2id for passwords |
 
----
+## 🔤 Encoding: Changing the Format (Not Security)
 
-## 1. Encoding: Changing the Format (NOT Security!)
+**Encoding** changes data into another format so it can travel without being damaged. For example, **Base64** turns any bytes, such as a picture, into plain letters and digits that can sit inside an email or a text file.
 
-Encoding transforms data into standard text formats so it can be safely transmitted across systems without corruption (e.g. sending binary image bytes inside a JSON text payload).
-
-```
-"Hello"  ──[ Base64 Encode ]──►  "SGVsbG8="
-"SGVsbG8="  ──[ Base64 Decode ]──►  "Hello"
-```
-> ⚠️ **Critical Warning**: **Base64 is NOT encryption!** Anyone in the world can decode Base64 in one second without needing any secret key. Never use Base64 to hide passwords!
-
----
-
-## 2. Encryption: Two-Way Secret Communication
-
-Encryption converts plaintext into unreadable ciphertext using a mathematical key. The process is **completely reversible**, but *only* for someone possessing the correct key:
-
-- **Symmetric Encryption (AES-256)**: The sender and receiver use the **same secret key** to encrypt and decrypt.
-- **Asymmetric Encryption (RSA / ECC)**: Uses a **Public Key** to lock the message and a **Private Key** to unlock it.
-
----
-
-## 3. Cryptographic Hashing: The One-Way Fingerprint
-
-A **Cryptographic Hash Function** takes an input of any length and produces a fixed-size mathematical fingerprint (e.g. SHA-256 always outputs 256 bits / 64 hex characters):
-
-```
-"Bismillah" ──[ SHA-256 ]──► 4c2e64b73b5b6375059d68249dcbb181...
+```php
+<?php
+echo base64_encode('Hello'), "\n";
+echo base64_decode('SGVsbG8='), "\n";
 ```
 
-### The 4 Properties of a Secure Hash:
-1. **Deterministic**: The exact same input always produces the exact same hash output.
-2. **One-Way (Pre-image Resistance)**: It is computationally impossible to reverse the hash back into the original input. (Like baking a cake: you cannot turn the baked cake back into raw eggs and flour!).
-3. **The Avalanche Effect**: Changing even **one tiny comma or letter** causes the entire hash to flip dramatically into an unrecognizable value.
-4. **Collision Resistant**: It is statistically impossible to find two different inputs that produce the exact same hash.
+Output:
 
----
+```
+SGVsbG8=
+Hello
+```
 
-## 🧠 Checkpoint Quiz
+> ⚠️ **Base64 is not encryption.** There is no key. Anyone can decode it in a second with free tools. If you see a "hidden" password stored in Base64, it is not hidden at all.
 
-1. **Why is Base64 encoding not considered a security measure?**
-   - *Answer: Because encoding does not use any secret key and can be instantly reversed by anyone using standard decoding algorithms.*
-2. **What is the difference between encryption and hashing regarding reversibility?**
-   - *Answer: Encryption is designed to be reversed using a secret key; hashing is strictly a one-way mathematical function that can never be reversed.*
-3. **What is the "Avalanche Effect" in cryptographic hash functions?**
-   - *Answer: A property where modifying even a single bit of the input produces an entirely different, unpredictable hash output.*
+Another common encoding is **URL encoding**: a space becomes `%20` so it can travel safely in a web address.
 
----
+## 🔒 Encryption: A Lock and a Key
 
-## 🎯 Hands-On Mission
+**Encryption** turns readable data (the **plaintext**) into scrambled data (the **ciphertext**) using a **key**. Only someone with the right key can turn it back.
 
-Visit the **Crypto Hash Lab** in our Cybersecurity Lab Studio:
-1. Type a word and observe its SHA-256 hash.
-2. Change a single punctuation mark and watch the entire 64-character hex hash transform completely!
+### Symmetric encryption: one shared key
+The same key locks and unlocks. **AES** is the most widely used method. It is fast and very strong. Here is AES in PHP:
+
+```php
+<?php
+$key = random_bytes(32);          // a secret 256-bit key
+$iv  = random_bytes(12);          // a fresh random starting value
+$secret = 'Meet at the library at 4';
+
+$cipher = openssl_encrypt($secret, 'aes-256-gcm', $key, 0, $iv, $tag);
+
+echo openssl_decrypt($cipher, 'aes-256-gcm', $key, 0, $iv, $tag), "\n";
+var_dump(openssl_decrypt($cipher, 'aes-256-gcm', random_bytes(32), 0, $iv, $tag));
+```
+
+Output:
+
+```
+Meet at the library at 4
+bool(false)
+```
+
+With the right key, the message comes back. With a wrong key, decryption fails (`false`). The scrambled `$cipher` itself looks like random characters and changes on every run, because the starting value `$iv` is new each time.
+
+The hard part of symmetric encryption is sharing the key safely. If you send the key along with the message, anyone who catches both can read it.
+
+### Asymmetric encryption: a padlock and its key
+**Asymmetric** encryption uses a **pair** of keys:
+
+- A **public key**, which you can give to anyone. It works like an open padlock: anyone can snap it shut on a box.
+- A **private key**, which you never share. Only it can open that padlock.
+
+RSA and elliptic-curve cryptography (ECC) work this way. It is slower than AES, so real systems combine them. When you visit an HTTPS website, **TLS** uses asymmetric methods to agree a fresh shared key safely, then uses fast symmetric encryption for everything else. Chapter 10 shows why this matters on public Wi-Fi.
+
+## 👆 Hashing: A One-Way Fingerprint
+
+A **hash function** takes input of any length and produces a short, fixed-size fingerprint. SHA-256 always produces 256 bits, shown as **64 hexadecimal characters** (the digits 0–9 and letters a–f).
+
+```php
+<?php
+echo hash('sha256', 'Bismillah'), "\n";
+echo hash('sha256', 'Bismillah!'), "\n";
+echo strlen(hash('sha256', 'A whole library of books')), "\n";
+```
+
+Output:
+
+```
+1c1b72aee1bf62759f34d254e0fb8ce2dafb480d42bc5ab1f5af0bdb6e53d108
+0f4fda5d526f94ba2c244a5c7a5bc4d576300a68d9c821bca26dfb716ed0bf74
+64
+```
+
+Adding one `!` changed 56 of the 64 characters. A long sentence still gives exactly 64 characters.
+
+### Four properties of a good hash
+1. **Same in, same out:** the same input always gives the same hash.
+2. **One-way:** you cannot work backwards from the hash to the input. It is like baking: you cannot turn a cake back into eggs and flour.
+3. **Avalanche effect:** a tiny change in the input changes the hash completely, as you just saw.
+4. **Collision resistant:** it is practically impossible to find two different inputs with the same hash. (Collisions must exist in theory, because there are endless inputs and a limited number of hashes. Nobody has ever found one for SHA-256.)
+
+### What hashes are used for
+- **Checking downloads:** a website publishes the SHA-256 of a file. After downloading, you hash your copy. If the two match, the file was not damaged or swapped.
+- **Storing passwords:** but only with a **slow, salted** password hash such as bcrypt or Argon2id, as in Chapter 2. Plain SHA-256 is too fast for passwords.
+
+## 🧩 Choosing the Right Tool
+
+| Job | Use |
+| :--- | :--- |
+| Put an image inside a text message format | Encoding (Base64) |
+| Send a private message only the receiver can read | Encryption |
+| Store user passwords | Password hashing (`password_hash()`) |
+| Check a download was not changed | Hashing (SHA-256) |
+| Put a space in a web address | Encoding (URL encoding) |
+
+## 🏠 What to Do at Home
+
+- Never use Base64 to "hide" anything secret.
+- Store passwords only with `password_hash()`, never with Base64 or plain SHA-256.
+- Use HTTPS for every site you build.
+- Keep encryption keys out of your code files and out of Git.
+- When a download page shows a SHA-256 value, check it.
+
+## ⚠️ Common Mistake
+
+**Mistake:** a student stores passwords like this, thinking it is "encrypted":
+
+```php
+// ❌ Encoding is not protection
+$stored = base64_encode($password);
+```
+
+**What happens:** anyone who sees the database can run `base64_decode()` and read every password in seconds.
+
+**Fixed version:**
+
+```php
+// ✅ Slow, salted, one-way password hash
+$stored = password_hash($password, PASSWORD_DEFAULT);
+```
+
+## ✍️ Try It
+
+Open the **Crypto** tab in the Cybersecurity Lab Studio.
+
+1. Type a short word and look at its SHA-256 hash.
+2. Change one letter, or add one full stop.
+3. Count roughly how many of the 64 characters changed.
+
+*Hint:* compare the first ten characters of each hash.
+
+## 📝 Recap
+
+- **Encoding** changes the format; anyone can reverse it; it is not security.
+- **Encryption** keeps data secret; it can be reversed only with the key.
+- Symmetric encryption uses one shared key (AES); asymmetric uses a public and private pair (RSA, ECC).
+- **Hashing** makes a one-way, fixed-size fingerprint; a tiny change makes a totally different hash.
+- Passwords need slow, salted password hashes, not encoding and not plain SHA-256.
+
+## 🏆 Practice
+
+### 🟢 Level 1: Recall
+Which of the three (encoding, encryption, hashing) can be reversed, and what is needed to reverse it?
+
+<details>
+<summary>Show answer</summary>
+
+- **Encoding:** reversible by anyone; no key needed.
+- **Encryption:** reversible only with the correct key.
+- **Hashing:** not reversible; it is one-way.
+
+</details>
+
+### 🟡 Level 2: Apply
+A website stores this as a user's password: `b2xpdmUgdHJlZXM=`. It ends in `=` and uses only letters, digits, `+`, `/` and `=`. What is it most likely, and why is it a problem?
+
+<details>
+<summary>Show answer</summary>
+
+It is most likely **Base64 encoding**. It decodes to `olive trees`. Anyone who sees it can read the real password, because encoding needs no key. The site should use `password_hash()` instead.
+
+</details>
+
+### 🔴 Level 3: Challenge
+A school club website does three jobs. For each, choose encoding, encryption or hashing, and explain your choice in one sentence.
+
+1. Saving members' passwords.
+2. Keeping members' medical notes private in the database, readable later by the club nurse.
+3. Checking that the club's setup file, downloaded from the internet, has not been changed.
+
+Then write the PHP line for job 1.
+
+<details>
+<summary>Show one possible answer</summary>
+
+1. **Password hashing**: the site never needs the real password back, only to check it.
+2. **Encryption**: the nurse must be able to read the notes again, so it must be reversible, but only with a key.
+3. **Hashing (SHA-256)**: compare the file's hash with the one published by the maker.
+
+```php
+$stored = password_hash($_POST['password'], PASSWORD_DEFAULT);
+```
+
+</details>

@@ -1,89 +1,75 @@
-# Chapter 25: Class Inheritance (Extends) 🧬👨‍👩‍👧
+# Chapter 25: Class Inheritance (Extends) 🧬
 
 ---
 
-## 1. 🌟 Real-Life Situation: Biological Inheritance
+## 🌟 Real-Life Story
 
-Think about your own family:
-- You inherited traits from your parents: eye color, hair texture, height, and blood type.
-- You didn't have to invent human DNA from scratch!
-- However, you are also your own unique individual: you might play the violin, speak three languages, or build robots—skills that your parents never practiced.
-
-In Object-Oriented Programming, **Inheritance** allows a child class to automatically inherit all properties and methods from a parent class:
-- You write the foundational code once in a **Parent Class** (or Base Class).
-- Specialized **Child Classes** (or Subclasses) inherit everything automatically and add their own specialized superpowers using the `extends` keyword!
+Think about your own family. You may have your mother's eyes or your father's height; you did not have to invent them yourself. Yet you are also your own person: you might speak three languages or build robots, which your parents never did. Classes can work the same way. A **child class** receives everything from a **parent class** and then adds its own extra skills.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Create child subclasses that inherit from parent classes using `extends`.
-- Understand the role of `protected` visibility in inheritance hierarchies.
-- **Override** parent methods to provide specialized behavior in child classes.
-- Call original parent methods from an overridden child method using `parent::`.
-- Promote maximum code reuse and eliminate duplicate class logic.
+- Create a child class that inherits from a parent class with `extends`.
+- Use `protected` so a child class can use a parent's data while outside code cannot.
+- **Override** a parent method to give a child class its own version.
+- Call the parent's version from inside the child with `parent::`.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
+
+**Inheritance** means one class receives all the properties and methods of another. The class that gives is the **parent** (or *base class*). The class that receives is the **child** (or *subclass*). You write shared code once, in the parent.
 
 ### The Inheritance Family Tree
 
 ```text
-                    ┌─────────────────────────┐
-                    │      class Person       │  (Parent Class)
-                    │  $name, $email          │
-                    │  introduce()            │
-                    └────────────┬────────────┘
-                                 │
-                 ┌───────────────┴───────────────┐
-                 │ extends                       │ extends
-                 ▼                               ▼
-  ┌─────────────────────────────┐ ┌─────────────────────────────┐
-  │        class Student        │ │        class Teacher        │
-  │  (Inherits name & email!)   │ │  (Inherits name & email!)   │
-  │  $gradeLevel, $gpa          │ │  $subject, $salary          │
-  │  study()                    │ │  gradeExam()                │
-  └─────────────────────────────┘ └─────────────────────────────┘
+        ┌──────────────────┐
+        │  class Person    │  parent
+        │  $name, $email   │
+        │  getDetails()    │
+        └────────┬─────────┘
+       extends   │   extends
+       ┌─────────┴─────────┐
+       v                   v
+┌──────────────┐   ┌──────────────┐
+│class Student │   │class Teacher │
+│+ $grade      │   │+ $subject    │
+│+ submit...() │   │+ teach...()  │
+└──────────────┘   └──────────────┘
+  child: gets $name, $email and
+  getDetails() for free
 ```
+
+### Overriding and `parent::`
+
+If a child class writes a method with the **same name** as the parent's method, the child's version wins. This is called **overriding**.
+
+Inside the child, `parent::methodName()` still calls the parent's original version. The `::` is called the **scope resolution operator**; here it means "the method that belongs to the parent class".
 
 ---
 
-## 4. 💻 Code Example: School Community Hierarchy
+## 💻 Code Example: School Community Hierarchy
 
 ```php
 <?php
-  // 1. Base Parent Class
+  // 1. Parent class
   class Person {
     public $name;
     public $email;
-
-    public function __construct(string $name, string $email) {
-      $this->name = $name;
-      $this->email = $email;
-    }
 
     public function getDetails(): string {
       return "{$this->name} ({$this->email})";
     }
   }
 
-  // 2. Child Class: Student (Inherits Person)
+  // 2. Child class: Student
   class Student extends Person {
     public $grade;
-    public $gpa;
 
-    public function __construct(string $name, string $email, int $grade, float $gpa) {
-      // Call parent constructor to initialize inherited properties!
-      parent::__construct($name, $email);
-      $this->grade = $grade;
-      $this->gpa = $gpa;
-    }
-
-    // Overriding getDetails() to add student specifics!
+    // Override: same name as the parent's method
     public function getDetails(): string {
-      return parent::getDetails() . " &bull; Grade: {$this->grade} (GPA: {$this->gpa})";
+      return parent::getDetails() . ", Grade {$this->grade}";
     }
 
     public function submitHomework(string $assignment): string {
@@ -91,124 +77,301 @@ By the end of this chapter, you will be able to:
     }
   }
 
-  // 3. Child Class: Teacher (Inherits Person)
+  // 3. Child class: Teacher
   class Teacher extends Person {
     public $subject;
 
-    public function __construct(string $name, string $email, string $subject) {
-      parent::__construct($name, $email);
-      $this->subject = $subject;
-    }
-
     public function teachLesson(): string {
-      return "{$this->name} is now teaching a lesson on {$this->subject}!";
+      return "{$this->name} is teaching {$this->subject}.";
     }
   }
 
-  // Creating instances
-  $student = new Student("Zainab Ali", "z.ali@srinagar.edu.in", 9, 3.95);
-  $teacher = new Teacher("Mr. Yasir Rasool", "y.rasool@srinagar.edu.in", "Computer Science");
+  $student = new Student();
+  $student->name = "Zainab Ali";
+  $student->email = "zainab@example.org";
+  $student->grade = 9;
 
-  echo "<h2>School Directory</h2>";
-  echo "<p><strong>Student:</strong> " . $student->getDetails() . "</p>";
-  echo "<p><em>" . $student->submitHomework("PHP Loops Lab") . "</em></p>";
+  $teacher = new Teacher();
+  $teacher->name = "Mr. Idris";
+  $teacher->email = "idris@example.org";
+  $teacher->subject = "Computer Science";
 
-  echo "<hr>";
-
-  echo "<p><strong>Teacher:</strong> " . $teacher->getDetails() . "</p>";
-  echo "<p><em>" . $teacher->teachLesson() . "</em></p>";
+  echo "Student: " . $student->getDetails() . "\n";
+  echo $student->submitHomework("PHP Loops Lab") . "\n";
+  echo "Teacher: " . $teacher->getDetails() . "\n";
+  echo $teacher->teachLesson() . "\n";
 ?>
 ```
 
----
+Output:
 
-## 5. 🔍 Code Explanation: Breaking It Down Line by Line
+```text
+Student: Zainab Ali (zainab@example.org), Grade 9
+Zainab Ali submitted 'PHP Loops Lab'.
+Teacher: Mr. Idris (idris@example.org)
+Mr. Idris is teaching Computer Science.
+```
 
-- `class Student extends Person`: Declares that `Student` is a child of `Person`. `Student` gets `$name`, `$email`, and `getDetails()` automatically!
-- `parent::__construct(...)`: Uses the `parent::` scope resolution operator to invoke the parent class's constructor, ensuring base properties are properly initialized.
-- **Method Overriding**: `Student` provides its own version of `getDetails()`. When called on a student, the child version runs!
-- `parent::getDetails()`: Calls the parent's implementation first, then appends extra student-specific text.
-
----
-
-## 6. 🌍 Real-World Connection: E-Commerce Product Catalogs
-
-In stores like Amazon:
-- Base class: `Product` (properties: `$id`, `$title`, `$price`, `$sku`).
-- Subclasses:
-  - `PhysicalProduct extends Product` (adds `$shippingWeight`, `$dimensions`).
-  - `DigitalBook extends Product` (adds `$downloadUrl`, `$fileSizeBytes`).
-- All products can be added to a cart using the common inherited `Product` methods!
+Notice that `Teacher` did not override `getDetails()`, so it uses the parent's version unchanged.
 
 ---
 
-## 7. ⚠️ Common Beginner Traps
+## 🔍 Code Explanation: Breaking It Down Line by Line
 
-1. **Multiple Inheritance Myth**:
-   In PHP, a class can only extend **ONE** parent class (`class C extends A, B` is illegal!). For sharing logic across multiple branches, PHP provides **Traits** and **Interfaces**.
-2. **Forgetting `parent::`**:
-   If you override a parent method and forget to call `parent::method()`, the parent's original logic is completely bypassed.
+- `class Student extends Person`: `Student` is a child of `Person`. It gets `$name`, `$email` and `getDetails()` automatically.
+- `public function getDetails()` inside `Student`: **Overrides** the parent's method. For a student, this version runs.
+- `parent::getDetails()`: Runs the parent's original method first, then the child adds `", Grade 9"`.
+- `class Teacher extends Person`: A second child of the same parent. It adds `$subject` and `teachLesson()`.
+- `$teacher->getDetails()`: `Teacher` has no own version, so PHP uses the one from `Person`.
 
----
+### Where `protected` Fits
 
-## 8. 🔮 Predict the Output
+In Chapter 24 you met `protected`. Now it makes sense:
 
 ```php
 <?php
-  class Animal {
-    public function speak() { return "Generic sound"; }
+class Member {
+  protected $cardNumber = "LIB-0042";
+}
+class JuniorMember extends Member {
+  public function showCard(): string {
+    return "Card: " . $this->cardNumber;
   }
-  class Dog extends Animal {
-    public function speak() { return "Woof!"; }
+}
+$m = new JuniorMember();
+echo $m->showCard();
+```
+
+Output:
+
+```text
+Card: LIB-0042
+```
+
+The child can use `$cardNumber`. Outside code still cannot: `echo $m->cardNumber;` stops with `Cannot access protected property`. If it were `private`, even the child could not use it.
+
+---
+
+## 🌍 Real-World Connection: Online Bookshop Catalogue
+
+An online bookshop might organise its products like this:
+- Parent class: `Product` with `$title`, `$price` and a method to add it to the basket.
+- `PrintedBook extends Product` adds `$weight` for posting.
+- `EBook extends Product` adds `$fileSize` for downloading.
+
+Every product can go in the basket, because the basket method lives once in `Product`.
+
+---
+
+## 🔮 Predict the Output
+
+```php
+<?php
+  class Bird {
+    public function move() { return "Flying"; }
   }
-  $d = new Dog();
-  echo $d->speak();
+  class Penguin extends Bird {
+    public function move() { return "Swimming"; }
+  }
+  $p = new Penguin();
+  echo $p->move();
 ?>
 ```
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> <code>Woof!</code> Because the child class Dog overrides the parent speak() method!
+<strong>Answer:</strong> <code>Swimming</code>. The child class <code>Penguin</code> overrides the parent's <code>move()</code> method, so the child's version runs.
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Inheritance
+## 🕵️ Code Detective: The Broken Inheritance
 
 ```php
 <?php
   class Vehicle {
     public $brand;
   }
-  // Developer wanted Car to inherit Vehicle:
-  class Car inherits Vehicle {
-    public $wheels = 4;
+  class Bus inherits Vehicle {
+    public $seats = 40;
   }
 ?>
 ```
 
-- **Find the bug**: The keyword `inherits` is invalid in PHP!
-- **Explain**: PHP uses the keyword `extends` for class inheritance.
-- **Fix**: `class Car extends Vehicle`.
+PHP stops with: `Parse error: syntax error, unexpected identifier "inherits", expecting "{"`.
+
+- **Find the bug**: `inherits` is not a PHP keyword.
+- **Explain**: PHP uses `extends` for inheritance.
+- **Fix**: `class Bus extends Vehicle`.
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**Trying to extend two parents at once.**
+
+- ❌ *Wrong*:
+  ```php
+  class Monitor extends Student, Teacher { }
+  ```
+- 😕 *What happens*: PHP stops with a parse error. In PHP a class can extend only **one** parent.
+- ✅ *Fixed*: Choose one parent, and add the extra properties and methods in the child:
+  ```php
+  class Monitor extends Student {
+    public $duty = "Library";
+  }
+  ```
+
+A second mistake: overriding a method and forgetting `parent::`. Then the parent's original work is skipped completely. Call `parent::method()` when you want to **add to** the parent's work rather than replace it.
+
+---
+
+## ✍️ Try It
+
+Open the [PHP Console](../studios/php-console/) and type:
+
+```php
+<?php
+class Plant {
+  public $name;
+  public function care(): string {
+    return "Water the {$this->name}.";
+  }
+}
+class Cactus extends Plant {
+  public function care(): string {
+    return parent::care() . " Only once a week!";
+  }
+}
+$c = new Cactus();
+$c->name = "cactus";
+echo $c->care();
+```
+
+Output:
+
+```text
+Water the cactus. Only once a week!
+```
+
+*Hint*: Delete `parent::care() . ` from the `Cactus` class. What changes in the output? Then make a `Fern extends Plant` with no `care()` method of its own.
+
+---
+
+## 📝 Recap
+
+- `class Child extends ParentClass` gives the child all the parent's properties and methods.
+- A child can add new properties and methods of its own.
+- A method with the same name in the child **overrides** the parent's method.
+- `parent::method()` calls the parent's original version from inside the child.
+- `protected` data can be used by child classes but not by outside code.
+- A PHP class can extend only one parent.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. What keyword is used in PHP to inherit from a parent class?
-2. How do you call a parent class method from inside an overridden child method?
-3. Can a PHP class extend more than one parent class simultaneously?
+1. Which keyword makes a class inherit from another?
+2. How do you call a parent's method from inside an overriding child method?
+3. Can a PHP class extend two parent classes?
 
-### 🟡 Level 2: Understand
-4. What is "Method Overriding" and why is it useful?
-5. How does inheritance help maintain the DRY principle?
+<details>
+<summary>Show answer</summary>
 
-### 🟠 Level 3: Apply
-6. Create a base class `Shape` with property `$color` and method `describe()`. Create a child class `Circle extends Shape` with property `$radius` and method `calculateArea()`.
+1. `extends`
+2. `parent::methodName()`
+3. No. A PHP class extends at most **one** parent.
 
-### 🔵 Level 4: Think & Troubleshoot
-7. What does the `final` keyword do when placed in front of a class or method? (Hint: It prevents any child class from extending or overriding it!).
+</details>
 
-### 🟣 Level 5: Create & Build
-8. Build a Role-Based User Permission System: create base class `User` with `$username`, `$email`. Create subclasses `AdminUser` (with method `deleteDatabase()`) and `GuestUser` (with read-only restrictions). Demonstrate polymorphic calls on an array of users!
+### 🟡 Level 2: Apply
+1. What is method overriding, and why is it useful?
+2. Make a parent class `Shape` with `$color` and a method `describe()`. Make `Circle extends Shape` with `$radius` and a method `area()` that returns 3.14 × radius × radius.
+
+<details>
+<summary>Show answer</summary>
+
+1. Overriding means a child class writes its own version of a parent's method, with the same name. It lets each child behave in its own way while sharing everything else.
+2. One way:
+   ```php
+   <?php
+   class Shape {
+     public $color;
+     public function describe(): string {
+       return "A {$this->color} shape.";
+     }
+   }
+   class Circle extends Shape {
+     public $radius;
+     public function area(): float {
+       return 3.14 * $this->radius * $this->radius;
+     }
+   }
+   $c = new Circle();
+   $c->color = "green";
+   $c->radius = 5;
+   echo $c->describe() . "\n";
+   echo "Area: " . $c->area();
+   ```
+   Output:
+   ```text
+   A green shape.
+   Area: 78.5
+   ```
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build a small school-library user system.
+
+1. Make a parent class `User` with `$username` and a method `canBorrow()` that returns `"Can borrow 3 books."`.
+2. Make `Librarian extends User` that overrides `canBorrow()` to return `"Can borrow 10 books."`.
+3. Make `Visitor extends User` that overrides `canBorrow()` to return `"Can only read in the library."`.
+4. Put one of each in an array and use `foreach` to print each username with `canBorrow()`.
+5. Extra: look up the `final` keyword. What happens if you write `final public function canBorrow()` in `User`?
+
+<details>
+<summary>Show one possible answer</summary>
+
+```php
+<?php
+class User {
+  public $username;
+  public function canBorrow(): string {
+    return "Can borrow 3 books.";
+  }
+}
+class Librarian extends User {
+  public function canBorrow(): string {
+    return "Can borrow 10 books.";
+  }
+}
+class Visitor extends User {
+  public function canBorrow(): string {
+    return "Can only read in the library.";
+  }
+}
+
+$a = new User();      $a->username = "hana";
+$b = new Librarian(); $b->username = "mr_tariq";
+$c = new Visitor();   $c->username = "guest";
+
+foreach ([$a, $b, $c] as $person) {
+  echo $person->username . ": " . $person->canBorrow() . "\n";
+}
+```
+
+Output:
+
+```text
+hana: Can borrow 3 books.
+mr_tariq: Can borrow 10 books.
+guest: Can only read in the library.
+```
+
+The same line `$person->canBorrow()` runs a different method for each object. This idea is called **polymorphism** ("many shapes").
+
+Extra: `final` stops child classes from overriding that method. `Librarian` and `Visitor` would then cause a fatal error: `Cannot override final method User::canBorrow()`.
+
+</details>

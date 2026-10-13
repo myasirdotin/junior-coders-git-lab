@@ -1,35 +1,26 @@
-# Chapter 2: Your First PHP Script 🚀📝
+# Chapter 2: Your First PHP Script 🚀
 
 ---
 
-## 1. 🌟 Real-Life Situation: The PA System Announcement
+## 🌟 Real-Life Story
 
-Think about your school's Public Address (PA) system. When the principal wants to make an announcement:
-1. They press the **Mic Switch ON** (`<?php`).
-2. They speak clearly into the microphone: *"Good morning, students! Assembly begins in 10 minutes."* (`echo "Good morning...";`).
-3. They end their sentence with a clear pause (`;`).
-4. They flip the **Mic Switch OFF** (`?>`).
-
-The speakers throughout the hallways broadcast the voice to every classroom. In PHP:
-- `<?php` turns on the PHP microphone.
-- `echo` broadcasts words, numbers, and HTML markup to the web page.
-- Semicolons (`;`) tell the engine that a command is complete.
-- `?>` turns off the PHP microphone.
+Think about your school's loudspeaker system. The principal switches the microphone **on**, which is like `<?php`. She speaks a clear sentence, which is like `echo "Assembly begins in 10 minutes.";`. She pauses at the end of the sentence, which is like the semicolon `;`. Then she switches the microphone **off**, which is like `?>`. Every classroom hears only the words, never the switch.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Correctly open and close PHP blocks using `<?php` and `?>`.
-- Output text, numbers, and HTML tags using the `echo` command.
-- Master PHP statement termination using semicolons (`;`).
-- Write clean single-line and multi-line comments.
-- Understand PHP case-sensitivity rules for keywords vs variables.
+- Open and close PHP blocks with `<?php` and `?>`.
+- Print text, numbers and HTML tags with `echo`.
+- End every statement with a semicolon (`;`).
+- Write single-line and multi-line comments.
+- Tell which parts of PHP care about capital letters and which do not.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
+
+A **statement** is one complete instruction to PHP, like one sentence in English.
 
 ### Anatomy of a Basic PHP Statement
 
@@ -43,7 +34,11 @@ By the end of this chapter, you will be able to:
   Execution    Output                     Send to Browser            Instruction
 ```
 
+A **string** is a piece of text inside quotes, such as `"Hello"`.
+
 ### Case Sensitivity in PHP: What Matters?
+
+**Case-sensitive** means PHP treats `A` and `a` as different.
 
 ```text
 +------------------------------+------------------------------+
@@ -57,9 +52,11 @@ By the end of this chapter, you will be able to:
 +------------------------------+------------------------------+
 ```
 
+You will meet variables, functions and the other items in later chapters. For now, remember: always write keywords like `echo` in lowercase.
+
 ---
 
-## 4. 💻 Code Example: Writing and Documenting PHP
+## 💻 Code Example: Writing and Documenting PHP
 
 Create a file named `hello.php` in your XAMPP `htdocs/` folder:
 
@@ -93,45 +90,37 @@ Create a file named `hello.php` in your XAMPP `htdocs/` folder:
 ?>
 ```
 
----
+Output (the HTML that PHP sends, all on one line):
 
-## 5. 🔍 Code Explanation: Breaking It Down Line by Line
+```text
+Hello, World!<br><h2>Backend Web Development is Fun!</h2><p style='color: #7c3aed;'>Styled directly from PHP echo!</p>Current Year: 2026<br>Calculation (15 * 4): 60
+```
 
-- `//`: Starts a **single-line comment**. The server skips these completely.
-- `#`: Another syntax for single-line comments (derived from Unix shell scripts).
-- `/* ... */`: Encloses a **multi-line comment** block for detailed documentation.
-- `echo`: The primary language construct used to print strings and values to the browser output.
-- `"<br>"`: Generates an HTML line break so the browser moves the next output to a fresh line.
-- `echo 15 * 4;`: Evaluates the arithmetic expression (`60`) on the server and outputs the result.
-- `;`: Every individual PHP statement MUST conclude with a semicolon.
+The browser turns this HTML into a heading, a purple paragraph and line breaks.
 
 ---
 
-## 6. 🌍 Real-World Connection: Comments in Large Teams
+## 🔍 Code Explanation: Breaking It Down Line by Line
 
-At software companies like Automattic (makers of WordPress), hundreds of software engineers work on the same PHP codebase simultaneously.
-- Without comments explaining **why** a certain algorithm was written, other developers would spend days trying to decipher the code.
-- Professional developers write code for **humans first** and computers second!
-
----
-
-## 7. ⚠️ Common Beginner Traps
-
-1. **The Missing Semicolon**:
-   ```php
-   echo "Hello World"  // ❌ Fatal Parse Error: syntax error, unexpected token
-   echo "Next Line";
-   ```
-   *Fix*: Always conclude statements with `;`.
-2. **Unescaped Quotes**:
-   ```php
-   echo "<h1 class="title">Hello</h1>"; // ❌ Syntax error!
-   ```
-   *Fix*: Use single quotes inside double quotes (`"<h1 class='title'>Hello</h1>"`) or escape them with backslashes (`"<h1 class="title">Hello</h1>"`).
+- `//`: Starts a **single-line comment**. A **comment** is a note for humans; PHP skips it.
+- `#`: Another way to write a single-line comment.
+- `/* ... */`: Wraps a **multi-line comment** that can cover many lines.
+- `echo`: Prints strings and numbers into the page.
+- `"<br>"`: An HTML line break, so the browser starts a new line.
+- `echo 15 * 4;`: PHP works out the sum (`60`) on the server and prints only the answer.
+- `;`: Every PHP statement must end with a semicolon.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🌍 Real-World Connection: Comments in Large Teams
+
+Big PHP projects such as WordPress have hundreds of people working on the same code.
+- Comments explain **why** a piece of code was written. Without them, others waste hours guessing.
+- Good developers write code for **humans first** and computers second.
+
+---
+
+## 🔮 Predict the Output
 
 Look at this PHP code:
 
@@ -143,52 +132,154 @@ Look at this PHP code:
 ?>
 ```
 
-**Question**: Will PHP produce an error because `echo` is written in three different casings?
+**Question**: Will PHP show an error because `echo` is written in three different ways?
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> No error! It will cleanly output <code>Hello Class 9!</code> because PHP keywords and function names are case-insensitive. However, standard professional practice is to always write <code>echo</code> in all-lowercase.
+<strong>Answer:</strong> No error. It prints <code>Hello Class 9!</code> because PHP keywords are case-insensitive. Still, always write <code>echo</code> in lowercase. That is the normal style.
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Quotation
+## 🕵️ Code Detective: The Broken Quotation
 
 ```php
 <?php
   // Find the bug in this script:
-  echo 'It's a fantastic day to code PHP!';
+  echo 'It's a fine day to code PHP!';
 ?>
 ```
 
-- **Find the mistake**: The apostrophe in `It's` prematurely closes the single-quoted string!
-- **Explain the mistake**: PHP thinks the string ends at `'It'`, leaving `s a fantastic day to code PHP!';` as illegal, invalid code.
+- **Find the mistake**: The apostrophe in `It's` closes the single-quoted string too early.
+- **Explain the mistake**: PHP thinks the string is just `'It'`. The rest, `s a fine day...`, is not valid code, so PHP stops with a parse error.
 - **Fix**:
   ```php
   // Option A: Use double quotes
-  echo "It's a fantastic day to code PHP!";
+  echo "It's a fine day to code PHP!";
   // Option B: Escape the single quote with a backslash
-  echo 'It's a fantastic day to code PHP!';
+  echo 'It\'s a fine day to code PHP!';
   ```
+  Both print: `It's a fine day to code PHP!`
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**1. Forgetting the semicolon.**
+
+- ❌ *Wrong*:
+  ```php
+  <?php
+  echo "Hello World"
+  echo "Next Line";
+  ```
+- 😕 *What happens*: PHP stops with an error and prints nothing else:
+  ```text
+  Parse error: syntax error, unexpected token "echo", expecting "," or ";" in hello.php on line 3
+  ```
+  Notice the error points to line 3, the line *after* the real mistake.
+- ✅ *Fixed*: `echo "Hello World";` (add the `;`).
+
+**2. Double quotes inside double quotes.**
+
+- ❌ *Wrong*: `echo "<h1 class="title">Hello</h1>";`
+- 😕 *What happens*: The string ends at `class=`, so PHP shows a parse error.
+- ✅ *Fixed*: Use single quotes inside (`echo "<h1 class='title'>Hello</h1>";`) or escape them with a backslash (`echo "<h1 class=\"title\">Hello</h1>";`). The second prints `<h1 class="title">Hello</h1>`.
+
+---
+
+## ✍️ Try It
+
+Open the [PHP Console](../studios/php-console/) and type:
+
+```php
+<?php
+echo "Name: Maryam";
+echo "<br>";
+echo "Books read this term: ";
+echo 4 * 3;
+```
+
+Output:
+
+```text
+Name: Maryam<br>Books read this term: 12
+```
+
+*Hint*: Change the name to your own and the sum to `5 * 3`. Then remove one semicolon and read the error message.
+
+---
+
+## 📝 Recap
+
+- PHP code goes between `<?php` and `?>`. In a file that is only PHP, you may leave out the final `?>`.
+- `echo` prints text, numbers and HTML into the page.
+- Every statement ends with `;`. A missing one causes a parse error.
+- Comments (`//`, `#`, `/* ... */`) are notes for humans; PHP skips them.
+- Keywords like `echo` ignore capital letters, but variables do not.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. Which command outputs data to the web page?
-2. What symbol ends every standard statement in PHP?
-3. Name two ways to write a single-line comment in PHP.
+1. Which command prints data to the web page?
+2. What symbol ends every PHP statement?
+3. Name two ways to write a single-line comment.
 
-### 🟡 Level 2: Understand
-4. Why does `echo 10 + 20;` output `30`, whereas `echo "10 + 20";` outputs `10 + 20`?
-5. What happens if you forget to place a closing `?>` tag at the end of a pure PHP file? (Hint: In modern PHP standards, omitting `?>` at the end of pure PHP files is actually recommended!).
+<details>
+<summary>Show answer</summary>
 
-### 🟠 Level 3: Apply
-6. Write a PHP script that outputs a complete HTML card containing your full name, class, school name, and current date using separate `echo` statements.
+1. `echo`
+2. The semicolon `;`
+3. `//` and `#`
 
-### 🔵 Level 4: Think & Troubleshoot
-7. Why is `print` sometimes used instead of `echo`, and what is the technical difference between them?
+</details>
 
-### 🟣 Level 5: Create & Build
-8. Build a mini PHP script called `math-card.php` that outputs an HTML table listing the multiplication table of 9 from 1 to 10, computing each answer directly in PHP.
+### 🟡 Level 2: Apply
+1. Why does `echo 10 + 20;` print `30`, but `echo "10 + 20";` prints `10 + 20`?
+2. Fix this line so it prints `Ali's book`: `echo 'Ali's book';`
+
+<details>
+<summary>Show answer</summary>
+
+1. Without quotes, PHP works out the sum. With quotes, it is a string, so PHP prints the text exactly.
+2. `echo "Ali's book";` or `echo 'Ali\'s book';`
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build `my-card.php`:
+
+1. Use separate `echo` statements to print a `<div>` card.
+2. Inside, print your name in an `<h2>`, and your class and school in a `<p>`.
+3. Print today's date in another `<p>`.
+4. Extra: print a small HTML table with the first three rows of the 9 times table. Let PHP work out each answer.
+5. Extra: `print` also outputs text. Find one difference between `print` and `echo`.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```php
+<?php
+echo "<div class='card'>";
+echo "<h2>Maryam Shah</h2>";
+echo "<p>Class 9, Green Valley School</p>";
+echo "<p>Date: 13 October 2026</p>";
+echo "</div>";
+echo "<table>";
+echo "<tr><td>9 x 1</td><td>"; echo 9 * 1; echo "</td></tr>";
+echo "<tr><td>9 x 2</td><td>"; echo 9 * 2; echo "</td></tr>";
+echo "<tr><td>9 x 3</td><td>"; echo 9 * 3; echo "</td></tr>";
+echo "</table>";
+```
+
+Output:
+
+```text
+<div class='card'><h2>Maryam Shah</h2><p>Class 9, Green Valley School</p><p>Date: 13 October 2026</p></div><table><tr><td>9 x 1</td><td>9</td></tr><tr><td>9 x 2</td><td>18</td></tr><tr><td>9 x 3</td><td>27</td></tr></table>
+```
+
+`print` takes only one value and always gives back `1`. `echo` can print several values separated by commas and gives back nothing. For printing a page, both work.
+
+</details>

@@ -1,153 +1,331 @@
-# Chapter 7: Inspecting History & Differences (`log` & `diff`) 📜🔍
+# Chapter 7: Inspecting History & Differences (`log` & `diff`) 🔍
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Flight Black Box
+## 🌟 Real-Life Story
 
-When an airplane completes a flight, it contains an onboard flight data recorder (the "Black Box") that tracks every altitude change, speed reading, and pilot command. If the flight crew needs to review how a smooth landing was executed, they don't have to guess—they open the flight logs and see every millisecond mapped with total precision.
+**The Flight Recorder**
 
-In Git, you have two superpower inspection tools:
-1. **`git log`**: Your project’s **Flight Diary**. It displays every commit, author, date, and commit message from the day the project began.
-2. **`git diff`**: Your project’s **Magnifying Glass**. It shows you the exact line-by-line differences between what you wrote 5 minutes ago and what was previously committed.
+Every passenger plane carries a flight data recorder. It notes every change in height, speed and every pilot command during the flight. Afterwards, engineers can replay the whole journey instead of guessing. Git gives you two tools like this. **`git log`** is the project's diary of every commit, and **`git diff`** is a magnifying glass that shows exactly which lines changed.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Navigate project history using `git log` and its compact flag `--oneline`.
-- Filter commit logs by author, date, and file.
-- Visualize branch structures and merges with `git log --graph`.
-- Inspect unstaged modifications line-by-line using `git diff`.
-- Inspect staged modifications using `git diff --staged`.
+- Read the project history with `git log` and the short form `git log --oneline`.
+- Filter the history by author, by file and by date.
+- See unstaged changes line by line with `git diff`.
+- See staged changes with `git diff --staged`.
+- Leave the `git log` screen with `q`.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 📜 Reading History with `git log`
 
-### Reading a `git diff` Output
+Our example is a school library website with three commits. Two people worked on it: Zainab and Omar.
+
+```bash
+git log
+```
 
 ```text
---- a/index.html   (Old committed version)
-+++ b/index.html   (Your new edited version)
-@@ -10,4 +10,4 @@
-  <h1>Welcome to Srinagar Junior Coders</h1>
-- <p>Learn coding in class 6 and 7.</p>          <--- RED (-) means deleted/removed!
-+ <p>Master Full-Stack Web Development!</p>       <--- GREEN (+) means added/new!
+commit d6f001ce98483742cffa4ed7c0992c3d0663eac7 (HEAD -> main)
+Author: Omar Khan <omar@example.org>
+Date:   Tue Oct 13 08:06:46 2026 +0530
+
+    Update opening days
+
+commit e80a3e7833258ea754aa313af019d8b4661ee7c1
+Author: Zainab Ahmed <zainab@example.org>
+Date:   Tue Oct 13 08:06:46 2026 +0530
+
+    Add heading colour
+
+commit 2c23e920fccfecf7e270d3366c2aa4a3ec76fc5a
+Author: Zainab Ahmed <zainab@example.org>
+Date:   Tue Oct 13 08:06:45 2026 +0530
+
+    Add library home page
 ```
 
----
+The newest commit is at the top. Each one shows its full ID (the long **hash**), the author, the date and the message. `(HEAD -> main)` marks where you are now.
 
-## 4. 💻 Code Example: Mastering `git log` and `git diff`
+That is a lot of text. The short form shows one line per commit:
 
-### 1. Inspecting History
 ```bash
-# Full detailed log (Author, Date, Full Message, Hash)
-git log
-
-# Compact one-line view (Best for quick glances!)
 git log --oneline
-
-# View the last 3 commits with a visual branch graph
-git log --oneline --graph -n 3
-
-# View all commits made by a specific author
-git log --author="Yasir Rasool"
-
-# View commit history of a single specific file
-git log -p index.html
 ```
 
-### 2. Inspecting Code Differences with `git diff`
+```text
+d6f001c (HEAD -> main) Update opening days
+e80a3e7 Add heading colour
+2c23e92 Add library home page
+```
+
+The 7-character code is the start of the hash. It is enough to point to a commit.
+
+### Filtering the history
+
+| Command | What it shows |
+| :--- | :--- |
+| `git log --oneline -n 2` | only the newest 2 commits |
+| `git log --oneline --author="Omar"` | only Omar's commits |
+| `git log --oneline -- style.css` | only commits that changed `style.css` |
+| `git log --oneline --since="7 days ago"` | commits from the last week |
+| `git log --oneline --graph` | a drawing of the history (useful later for branches) |
+
+Try two of them:
+
 ```bash
-# 1. Compare Working Directory vs Staging Area (Unstaged changes)
-git diff
-
-# 2. Compare Staging Area vs Last Commit (What is about to be committed!)
-git diff --staged
-
-# 3. Compare two specific commits
-git diff ea8c136 8a2e411
+git log --oneline --author="Omar"
 ```
 
----
+```text
+d6f001c (HEAD -> main) Update opening days
+```
 
-## 5. 🔍 Code Explanation: Breaking It Down
+```bash
+git log --oneline -- style.css
+```
 
-- `git log`:
-  - If the log is longer than one screen, Git puts you in the terminal pager.
-  - Press `Spacebar` to scroll down.
-  - Press **`q`** to quit and return to your command prompt!
-- `--oneline`: Condenses each commit to a 7-character short hash and the first line of the commit message.
-- `--graph`: Draws an ASCII branch tree showing when feature branches split and converged.
-- `git diff`:
-  - Lines starting with `-` in red were removed.
-  - Lines starting with `+` in green were added.
-  - White lines are unchanged context lines to show you where the edit happened.
+```text
+e80a3e7 Add heading colour
+```
 
----
+The `--` means "what follows is a file name". `--graph` draws a star `*` for each commit:
 
-## 6. 🌍 Real-World Connection: Code Reviews in Tech Companies
+```bash
+git log --oneline --graph -n 2
+```
 
-Before any code is deployed to bank portals, flight control software, or hospital databases:
-- Senior engineers open a **Pull Request Diff**.
-- They inspect every single green and red line using `git diff` to make sure:
-  1. No security vulnerabilities or leaked keys exist.
-  2. No accidental debugging `console.log()` statements were left behind.
-  3. All code adheres to architectural quality (*Iḥsān*).
+```text
+* d6f001c (HEAD -> main) Update opening days
+* e80a3e7 Add heading colour
+```
 
----
-
-## 7. ⚠️ Common Beginner Traps
-
-1. **Getting stuck in `git log`**:
-   - Beginners often think their terminal froze when they see an `(END)` marker at the bottom of the screen.
-   - *Fix*: Simply tap **`q`** on your keyboard to instantly return to your terminal prompt!
-2. **Running `git diff` and seeing nothing**:
-   - If you run `git diff` and get zero output, your working tree has no *unstaged* changes. If your files are already staged, run `git diff --staged`!
+With one straight line of commits the drawing is simple. In Chapter 10 you will see it split into branches.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🔎 Seeing Changes with `git diff`
 
-You edit line 15 of `style.css` to change `color: blue` to `color: teal`.
-You have NOT run `git add` yet.
-You type `git diff`.
+Now Zainab changes the heading colour in `style.css` from `blue` to `teal`. She has **not** run `git add` yet.
 
-**Question**: Will you see `- color: blue` and `+ color: teal`?
+```bash
+git diff
+```
+
+```text
+diff --git a/style.css b/style.css
+index ccf22a0..24cddd2 100644
+--- a/style.css
++++ b/style.css
+@@ -1,3 +1,3 @@
+ h1 {
+-  color: blue;
++  color: teal;
+ }
+```
+
+How to read it:
+
+```text
+--- a/style.css   the old version
++++ b/style.css   your new version
+@@ -1,3 +1,3 @@   lines 1 to 3
+-  color: blue;   removed (red)
++  color: teal;   added (green)
+ h1 {             unchanged (context)
+```
+
+A changed line shows up as one `-` line plus one `+` line.
+
+### Staged changes need `--staged`
+
+Zainab now stages the file and runs `git diff` again:
+
+```bash
+git add style.css
+git diff
+```
+
+This prints **nothing**. Plain `git diff` compares your files with the **staging area**, and they now match. To see what is about to be committed, add `--staged`:
+
+```bash
+git diff --staged
+```
+
+```text
+diff --git a/style.css b/style.css
+index ccf22a0..24cddd2 100644
+--- a/style.css
++++ b/style.css
+@@ -1,3 +1,3 @@
+ h1 {
+-  color: blue;
++  color: teal;
+ }
+```
+
+| Command | Compares |
+| :--- | :--- |
+| `git diff` | your files ↔ staging area (not yet staged) |
+| `git diff --staged` | staging area ↔ last commit (about to be committed) |
+| `git diff 2c23e92 d6f001c` | one commit ↔ another commit |
+
+---
+
+## 🔍 How It Works
+
+- When the output is longer than your screen, Git shows it in a **pager** (a viewer that shows one screen at a time). Press `Space` for the next page, `b` to go back, and **`q` to quit**.
+- `--oneline` shortens each commit to the short hash and the first line of the message.
+- In `git diff`, `-` lines were removed, `+` lines were added, and lines starting with a space are unchanged context, so you can see where the edit happened.
+- A good habit: run `git diff --staged` just before every `git commit`. You check exactly what you are about to save.
+
+---
+
+## 🌍 Real-World Connection
+
+**Code reviews**
+
+- Before code goes into hospital systems or flight software, other engineers read it first. This is called a **code review**.
+- They read a diff: every red and green line.
+- They check that no password was left in, that no test messages like `console.log("here")` remain, and that the code is careful and clear (*Iḥsān*).
+- On GitHub, reviews happen in **pull requests**, which you will meet in Chapter 17.
+
+---
+
+## 🔮 Predict the Output
+
+You change `color: blue` to `color: teal` in `style.css`. You have **not** run `git add`. You type `git diff`. Will you see `-  color: blue;` and `+  color: teal;`?
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> Yes! Because <code>git diff</code> without flags compares your unstaged working directory directly against your last committed state!
+
+**Yes.** Plain `git diff` compares your files with the staging area. Your edit is not staged yet, so it shows up. If you ran `git add style.css` first, `git diff` would print nothing, and you would need `git diff --staged`.
+
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Accidental Deletion
+## 🕵️ Code Detective
 
-A junior developer edited `script.js` and accidentally highlighted and deleted a 40-line function.
-Before committing, they ran `git diff`.
+**The Accidental Deletion**
 
-- **What saved them?** They immediately noticed 40 red minus lines (`-`) flying across their terminal! They realized their mistake, ran `git restore script.js`, and recovered the code in half a second!
+A student edited `script.js` and, without noticing, selected and deleted a 40-line function. Before committing, she ran `git diff`.
+
+- **The clue:** 40 red `-` lines scrolled past, all from a function she never meant to touch.
+- **The rescue:** she did not commit. She brought the file back to its last saved version with `git restore script.js`. You will learn `git restore` properly in Chapter 8.
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**Thinking the terminal froze inside `git log`**
+
+❌ **Wrong:** you run `git log` on a long project. The screen fills up, a `:` or `(END)` appears at the bottom, and typing new commands does nothing. You close the whole terminal window.
+
+**What happens:** you are inside the pager. It is waiting for keys like `Space` or `q`.
+
+✅ **Fixed version:** press **`q`**. You are back at your prompt. For short output, use `git log --oneline -n 5`.
+
+**Seeing nothing from `git diff`** is the other surprise. It does not mean your edits are lost. They are probably staged already, so run `git diff --staged`.
+
+---
+
+## ✍️ Try It
+
+1. In a practice repository with at least one commit, edit `README.md` (add one line).
+2. Run `git diff` and find your new line with a `+`.
+3. Run `git add README.md`, then `git diff` (empty) and `git diff --staged` (your line again).
+4. Commit, then run `git log --oneline`.
+
+<details>
+<summary>Hint</summary>
+
+If `git diff` shows nothing in step 2, check that you saved the file in your editor. In step 4 your newest commit should be at the top with `(HEAD -> main)` next to it.
+
+</details>
+
+---
+
+## 📝 Recap
+
+- `git log` shows every commit, newest first; `git log --oneline` shows one line each.
+- Filter with `--author`, `-- <file>`, `-n` and `--since`.
+- Press `q` to leave the `git log` pager.
+- `git diff` shows changes that are not staged; `git diff --staged` shows what will be committed.
+- `-` lines were removed, `+` lines were added.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. What command displays project commit history?
-2. What key quits the `git log` screen?
-3. What does a green line starting with `+` mean in a `git diff`?
 
-### 🟡 Level 2: Understand
-4. What is the difference between `git diff` and `git diff --staged`?
-5. Why is reviewing `git diff` before running `git commit` considered a best practice for clean software craftsmanship?
+1. Which command shows the commit history?
+2. Which key quits the `git log` screen?
+3. What does a line starting with `+` mean in `git diff`?
 
-### 🟠 Level 3: Apply
-6. Make a small edit in `README.md`, run `git diff` to inspect the change, stage the file with `git add`, run `git diff --staged`, and then commit.
+<details>
+<summary>Show answer</summary>
 
-### 🔵 Level 4: Think & Troubleshoot
-7. How can you view the commit history for only the last 7 days? (Hint: `git log --since="7 days ago"`).
+1. `git log` (or `git log --oneline` for the short form).
+2. `q`
+3. A line that was added.
 
-### 🟣 Level 5: Create & Build
-8. Set up a handy Git alias on your computer so that typing `git lg` runs `git log --oneline --graph --decorate --all`! (Hint: `git config --global alias.lg "log --oneline --graph --decorate --all"`).
+</details>
+
+### 🟡 Level 2: Apply
+
+1. What is the difference between `git diff` and `git diff --staged`?
+2. Why is it good practice to read the diff before you commit?
+3. Write the commands to: edit `README.md`, see the change, stage it, see the staged change, and commit it.
+
+<details>
+<summary>Show answer</summary>
+
+1. `git diff` shows changes you have **not** staged yet. `git diff --staged` shows changes that **are** staged and will go into the next commit.
+2. You catch mistakes before they become part of the history: a deleted function, a test message, or a password.
+3. Commands:
+
+```bash
+echo "Open Monday to Saturday." >> README.md
+git diff
+git add README.md
+git diff --staged
+git commit -m "docs: Add opening days to README"
+```
+
+</details>
+
+### 🔴 Level 3: Challenge
+
+**Become a history detective.**
+
+1. Show only the commits from the last 7 days, one line each.
+2. Show only the commits that changed `index.html`.
+3. Compare your oldest and newest commits with `git diff <old> <new>`.
+4. Make a shortcut so that typing `git lg` runs `git log --oneline --graph --decorate --all`, then try it.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```bash
+git log --oneline --since="7 days ago"
+git log --oneline -- index.html
+git diff 2c23e92 d6f001c
+git config --global alias.lg "log --oneline --graph --decorate --all"
+git lg
+```
+
+Use the hashes from your own `git log --oneline`. An **alias** is a nickname for a longer command. In the library example, `git lg` prints:
+
+```text
+* fabef20 (HEAD -> main) Change heading colour to teal
+* d6f001c Update opening days
+* e80a3e7 Add heading colour
+* 2c23e92 Add library home page
+```
+
+</details>

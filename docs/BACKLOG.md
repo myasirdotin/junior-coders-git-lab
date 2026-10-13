@@ -4,11 +4,27 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-10-12 (mobile + content review: all four steps done)._
+_Last updated: 2026-10-13 (textbook overhaul in progress: INCOMPLETE, see Now)._
 
 ## 🔧 Now (in progress)
 
-- Nothing in progress. Last completed: the 2026-10-12 review (honest data, phone layout, Start here, content depth).
+- **Textbook overhaul: INCOMPLETE (stopped mid-way on 2026-10-13).** Owner approved the plan "go with your order":
+  1. ✅ Bugs: raw LaTeX removed, text diagrams shown as figures and shrunk to fit (`js/book-speaker.js`), badge contrast.
+  2. ✅ One reader design for all 11 books (`styles/book-theme.css` "ONE READER DESIGN"), "In this chapter" outline.
+  3. ⏳ One chapter template for every chapter (GEMINI.md §7j). **Committed and pushed: Git, PHP, Networks,
+     Cybersecurity.** Not yet committed (helpers were still editing the .md files when the owner asked to push):
+     HTML (17/17 converted, unchecked), CSS (21/22), JavaScript (17/22; the part-11..15 extras still to do),
+     Python (11/15), Terminal/cmd (11/14), MySQL (11/24). Those files may sit modified but uncommitted in the
+     working tree: run `git status`, finish the missing chapters to §7j, then check and commit.
+  4. ⏳ Deepen thin books (Python, Terminal, MySQL, Cybersecurity ✅, Networks ✅): goes with step 3 above.
+  5. ⏳ Laravel textbook: being converted from inline `book-laravel/index.html` to chapter files
+     (`book-laravel/part-*/chNN-*.md`, 16 of 24 written when stopped) plus a reader like book-python and a
+     `book-laravel` entry in `scripts/bundle-books.js`; library card still says "3 of 24 chapters ready" until done.
+  - **How to finish:** for each unfinished book, every chapter must have the §7j headings in order and three hidden
+    Practice levels; then `node scripts/bundle-books.js` (restore bundles of books you did not change),
+    `node scripts/validate-scripts.js`, `node scripts/render-check.mjs .render 390 844 1 <book urls>`, commit, push both.
+  - **Owner to check:** book-cybersecurity ch05 lists the OWASP Top 10:2025 written from memory; confirm it against
+    owasp.org. book-php ch20/21 "Try It" tasks write files: confirm the browser PHP Console allows file writes.
 
 ## ⏭️ Next (agreed order)
 
@@ -34,6 +50,10 @@ _Last updated: 2026-10-12 (mobile + content review: all four steps done)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 Textbooks: raw LaTeX fixed (13), diagrams as figures that fit phones, one reader design for all 11
+  books (≈75 characters per line, no nested cards on phones, text width 358px instead of ~210), "In this chapter"
+  outline, Show-answer box style, GEMINI §7j chapter template; Git (19), PHP (29), Networks (14) and Cybersecurity (14)
+  chapters rewritten to the template with hidden answers, verified code output and many factual fixes.
 - 2026-10-13 Desktop top menu: Start here · Learn ▾ · Practice ▾ · Library ▾ · Teachers + Search + theme (was 8 links
   + a "Launch Studio" button that ran off the screen at 1280–1366px). Dropdown panels on wide screens, tap-to-open
   sections in the ☰ drawer; drawer background made solid.

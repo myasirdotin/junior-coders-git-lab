@@ -1,140 +1,126 @@
-# Chapter 11: Defining Custom Functions 🧩🛠️
+# Chapter 11: Defining Custom Functions 🧩
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Blender Button
+## 🌟 Real-Life Story
 
-Imagine your kitchen blender:
-- Inside the blender base is a complex electrical motor, rotating gears, safety fuses, and sharpened steel blades.
-- But when you want to make a fruit smoothie, you don't rewire the motor with pliers every morning!
-- You simply put in strawberries, put on the lid, and press one button: **"SMOOTHIE"**.
-- The blender runs its complex pre-programmed sequence and delivers a delicious drink.
-
-In computer programming, a **Function** is your very own custom machine button:
-- You pack 10 or 20 lines of logic into a named function.
-- Whenever you need that task done anywhere in your application, you simply call its name!
-- Write once, reuse forever!
+Think of a blender in a kitchen. Inside it are a motor, gears and blades, but you never rewire them to make a smoothie. You put in the fruit, press one button, and the blender runs its whole routine for you. A **function** is your own button in code. You pack some lines into a named block once, then "press" it by its name whenever you need that job done.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Define and invoke custom PHP functions using the `function` keyword.
-- Understand the **DRY Principle** (Don't Repeat Yourself).
-- Master variable scope: **Local Scope** vs **Global Scope**.
-- Access outer variables safely using the `global` keyword.
-- Organize your code into clean, modular, reusable building blocks.
+- Define a function with the `function` keyword and call it by its name.
+- Explain the **DRY** principle: Don't Repeat Yourself.
+- Tell the difference between **local** and **global** scope.
+- Reach an outside variable with the `global` keyword, and know why to use it rarely.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
+
+To **call** (or **invoke**) a function means to run it by writing its name followed by `()`.
 
 ### Anatomy of a Function Definition and Invocation
 
 ```text
- Function Keyword     Function Name     Parameter List       Function Body
-      ┌──────┐          ┌────────┐           ┌──┐        ┌───────────────────────┐
-      │function│          │sayHello│           │()│        │{ echo "Hello World!"; }│
-      └──────┘          └────────┘           └──┘        └───────────────────────┘
-         ▲                  ▲                  ▲                     ▲
-     Declares a        Descriptive         Inputs             The code that executes
-     new function      identifier         (if any)            when function is called
+function sayHello() {
+   │        │     │
+   │        │     └ () holds inputs
+   │        │       (none here; Ch 12)
+   │        └ the function's name
+   └ keyword: "a new function"
+
+  echo "Hello World!";   <- the body
+}
+
+sayHello();   <- the call: runs the body
 ```
 
 ### Local Scope vs Global Scope
 
+**Scope** means *where a variable can be seen*. A variable made outside every function is **global**. A variable made inside a function is **local**: it lives only inside that function.
+
 ```text
-+-------------------------------------------------------------+
-|                      GLOBAL SCOPE                           |
-|  $schoolName = "Junior Coders Academy";                     |
-|                                                             |
-|  function showInfo() {                                      |
-|    // ❌ Cannot see $schoolName by default!                 |
-|    // Variables inside functions live in LOCAL SCOPE!       |
-|                                                             |
-|    global $schoolName; // 🔑 Bridge to the outside world!   |
-|    echo $schoolName;   // ✅ Now visible!                    |
-|  }                                                          |
-+-------------------------------------------------------------+
++----------------------------------------+
+| GLOBAL SCOPE                           |
+| $schoolName = "Junior Coders Academy"; |
+|                                        |
+|  +----------------------------------+  |
+|  | function showInfo() LOCAL SCOPE  |  |
+|  |  echo $schoolName;  // not seen! |  |
+|  |  global $schoolName; // bridge   |  |
+|  |  echo $schoolName;  // now seen  |  |
+|  +----------------------------------+  |
++----------------------------------------+
 ```
 
 ---
 
-## 4. 💻 Code Example: Function Declaration and Scope
+## 💻 Code Example: Function Declaration and Scope
 
 ```php
 <?php
-  // Global variable
-  $academyName = "Junior Coders Global";
+  // Global variables
+  $academyName = "Junior Coders Academy";
   $studentCount = 450;
 
-  // 1. Defining a simple function
+  // 1. A simple function
   function printDivider() {
-    echo "<hr style='border:0; border-top:2px dashed #7c3aed; margin:1rem 0;'>";
+    echo "<hr>";
   }
 
-  // 2. Defining a function with local variables
+  // 2. A function with a local variable
   function showCampusWelcome() {
-    $welcomeMessage = "Welcome to the Class 9 PHP Computer Lab!"; // Local scope
-    echo "<p style='color:#7c3aed; font-weight:700;'>$welcomeMessage</p>";
+    $welcomeMessage = "Welcome to the Class 9 PHP Computer Lab!"; // local
+    echo "<p>$welcomeMessage</p>";
   }
 
-  // 3. Accessing global variables with the 'global' keyword
+  // 3. Reaching global variables with the 'global' keyword
   function displayAcademyStats() {
-    global $academyName, $studentCount; // Import from global scope
-    echo "<div class='stats-box'>";
+    global $academyName, $studentCount; // bring them in
     echo "<h3>$academyName</h3>";
-    echo "<p>Total Enrolled Scholars: <strong>$studentCount</strong></p>";
-    echo "</div>";
+    echo "<p>Students enrolled: <strong>$studentCount</strong></p>";
   }
 
-  // Invoking our custom functions
+  // Calling our functions
   showCampusWelcome();
   printDivider();
   displayAcademyStats();
   printDivider();
-?>
+```
+
+Output (what the browser shows):
+
+```text
+Welcome to the Class 9 PHP Computer Lab!
+────────────────────────────────
+Junior Coders Academy
+
+Students enrolled: 450
+────────────────────────────────
 ```
 
 ---
 
-## 5. 🔍 Code Explanation: Breaking It Down Line by Line
+## 🔍 Code Explanation: Breaking It Down Line by Line
 
-- `function printDivider() { ... }`: Registers a new function in PHP memory. Code inside does NOT run yet—it waits patiently until called!
-- `printDivider();`: Invokes the function, causing the server to execute its body.
-- `$welcomeMessage`: A local variable. It is created when `showCampusWelcome()` starts, and is erased from RAM when the function finishes. It cannot be accessed outside!
-- `global $academyName, $studentCount;`: Instructs PHP to link the local function scope to the outer global variables.
-
----
-
-## 6. 🌍 Real-World Connection: The DRY Principle in Tech
-
-At Google and GitHub, engineering teams enforce **DRY**: *Don't Repeat Yourself*.
-- If you copy and paste the same 10 lines of code in 5 different files, you introduce 5 places where a future bug can hide.
-- If you wrap those 10 lines into a function `calculateTax()`, and tax rates change next year, you only update **one single place**!
+- `function printDivider() { ... }`: Defines a function. The code inside does **not** run yet. It waits until it is called.
+- `printDivider();`: Calls the function, so PHP runs its body. Calling it twice prints two dividers.
+- `$welcomeMessage`: A local variable. It is created when `showCampusWelcome()` starts and disappears when the function ends.
+- `global $academyName, $studentCount;`: Links these names inside the function to the global variables outside.
 
 ---
 
-## 7. ⚠️ Common Beginner Traps
+## 🌍 Real-World Connection: The DRY Principle in Tech
 
-1. **Trying to read global variables without `global`**:
-   ```php
-   $user = "Sara";
-   function greet() {
-     echo "Hi, $user"; // ⚠️ Warning: Undefined variable $user!
-   }
-   ```
-2. **Naming collisions**:
-   Function names in PHP are global. You cannot define two functions with the exact same name:
-   ```php
-   function alert() {}
-   function alert() {} // ❌ Fatal error: Cannot redeclare alert()
-   ```
+Professional teams follow **DRY**: *Don't Repeat Yourself*.
+- Copy the same 10 lines into 5 files, and a bug now hides in 5 places.
+- Put those lines in one function, such as `printSchoolFooter()`. When the footer changes, you update **one** place.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 ```php
 <?php
@@ -144,17 +130,16 @@ At Google and GitHub, engineering teams enforce **DRY**: *Don't Repeat Yourself*
   }
   changeValue();
   echo $val;
-?>
 ```
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> <code>10</code>! Because <code>$val = 99;</code> inside the function created a brand-new <strong>local</strong> variable. The outer global <code>$val</code> was completely untouched!
+<strong>Answer:</strong> <code>10</code>. <code>$val = 99;</code> inside the function made a brand-new <strong>local</strong> variable. The global <code>$val</code> outside was not touched.
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Banner
+## 🕵️ Code Detective: The Broken Banner
 
 ```php
 <?php
@@ -163,31 +148,161 @@ At Google and GitHub, engineering teams enforce **DRY**: *Don't Repeat Yourself*
   }
   makeBanner();
   echo $banner;
-?>
 ```
 
-- **Find the bug**: `$banner` is printed outside the function where it does not exist!
-- **Explain**: `$banner` is trapped in local scope and was destroyed when `makeBanner()` finished.
-- **Fix**: Either have the function `return $banner;` (learned in Ch 12) or echo it directly inside the function!
+Output:
+
+```text
+Warning: Undefined variable $banner in ... on line 6
+```
+
+- **Find the bug**: `$banner` is printed outside the function, where it does not exist.
+- **Explain**: `$banner` was local. It disappeared when `makeBanner()` finished.
+- **Fix**: Put `echo $banner;` inside the function. (Chapter 12 shows a better way: `return`.)
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**Reading a global variable inside a function without `global`.**
+
+- ❌ *Wrong*:
+  ```php
+  <?php
+  $user = "Sara";
+  function greet() {
+    echo "Hi, $user";
+  }
+  greet();
+  ```
+- 😕 *What happens*: PHP shows `Warning: Undefined variable $user`, then prints `Hi, ` with no name.
+- ✅ *Fixed*: Add `global $user;` as the first line inside `greet()`. It prints `Hi, Sara`. (In Chapter 12 you will pass the name in as a parameter, which is cleaner.)
+
+**Two functions with the same name.** Function names are shared across the whole program. Defining `function alert() {}` twice stops the script with `Fatal error: Cannot redeclare alert()`.
+
+---
+
+## ✍️ Try It
+
+Open the [PHP Console](../studios/php-console/) and make a reusable reminder:
+
+```php
+<?php
+function showReminder() {
+  echo "Remember: bring your library book on Friday.<br>";
+}
+
+showReminder();
+showReminder();
+```
+
+Output (what the browser shows):
+
+```text
+Remember: bring your library book on Friday.
+Remember: bring your library book on Friday.
+```
+
+*Hint*: Change the text once inside the function. Both lines change, because there is only one place to edit.
+
+---
+
+## 📝 Recap
+
+- A function is a named block of code; define it once with `function name() { ... }`.
+- The body runs only when you call it: `name();`.
+- Functions keep code DRY: one place to write, one place to fix.
+- Variables made inside a function are local and vanish when it ends.
+- `global` lets a function reach an outside variable, but use it rarely.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. What keyword is used to declare a function in PHP?
-2. What happens to a local variable when a function finishes executing?
-3. What keyword allows a function to access a variable defined in the global scope?
+1. Which keyword starts a function definition?
+2. What happens to a local variable when its function finishes?
+3. Which keyword lets a function use a variable from the global scope?
 
-### 🟡 Level 2: Understand
-4. Why is code duplication considered dangerous in software engineering?
-5. Can a function call another function from inside its own body?
+<details>
+<summary>Show answer</summary>
 
-### 🟠 Level 3: Apply
-6. Write a function `renderPageHeader()` that outputs an HTML `<header>` with an `<h1>` website title and a `<nav>` with 3 links. Call it twice.
+1. **`function`**.
+2. It is **destroyed**; it no longer exists.
+3. **`global`**.
 
-### 🔵 Level 4: Think & Troubleshoot
-7. Why is overusing the `global` keyword considered a bad programming practice? (Hint: It creates hidden dependencies and makes functions harder to test!).
+</details>
 
-### 🟣 Level 5: Create & Build
-8. Create a reusable UI component library in PHP: define 3 functions `renderAlert($msg)`, `renderCard($title, $content)`, and `renderFooter()`. Use them to construct a full web page.
+### 🟡 Level 2: Apply
+1. Why is copying the same code into many places risky?
+2. Can a function call another function inside its body? Write a tiny example.
+
+<details>
+<summary>Show answer</summary>
+
+1. If the code has a bug or needs a change, you must find and fix every copy. Missing one leaves the bug behind.
+2. **Yes.**
+```php
+<?php
+function line() {
+  echo "-----<br>";
+}
+function title() {
+  line();
+  echo "Science Fair<br>";
+  line();
+}
+title();
+```
+
+Output (what the browser shows):
+
+```text
+-----
+Science Fair
+-----
+```
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build reusable page parts.
+
+1. Write `renderPageHeader()` that prints a `<header>` with an `<h1>` title and a `<nav>` with 3 links.
+2. Write `renderFooter()` that prints a `<footer>` with a copyright line.
+3. Call them to build a small page: header, one paragraph, footer.
+4. Think: why do many programmers avoid using `global` a lot? (Hint: the function secretly depends on outside variables, so it is harder to reuse and test.)
+
+<details>
+<summary>Show one possible answer</summary>
+
+```php
+<?php
+function renderPageHeader() {
+  echo "<header><h1>Green Valley School</h1>";
+  echo "<nav><a href='index.php'>Home</a> | ";
+  echo "<a href='library.php'>Library</a> | ";
+  echo "<a href='contact.php'>Contact</a></nav></header>";
+}
+
+function renderFooter() {
+  echo "<footer>&copy; 2026 Green Valley School</footer>";
+}
+
+renderPageHeader();
+echo "<p>Welcome to our science week!</p>";
+renderFooter();
+```
+
+What the browser shows:
+
+```text
+Green Valley School
+Home | Library | Contact
+Welcome to our science week!
+© 2026 Green Valley School
+```
+
+**Why avoid `global`:** a function that uses `global` only works if the right outside variable exists with the right name. Moving it to another page can break it silently. Passing values in as parameters (Chapter 12) makes the function's needs clear.
+
+</details>

@@ -1,67 +1,61 @@
-# Chapter 14: Indexed Arrays 📚📦
+# Chapter 14: Indexed Arrays 📚
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Egg Carton
+## 🌟 Real-Life Story
 
-Imagine opening a carton of 12 fresh eggs:
-- The carton has 12 individual compartments molded in a neat line.
-- You don't give every individual egg its own separate refrigerator shelf!
-- You keep all 12 eggs together inside one single carton.
-- To pick an egg, you reference its compartment position.
-
-In computer science, an **Indexed Array** is a single variable that holds an ordered list of items:
-- Instead of creating 50 variables for 50 students (`$student1`, `$student2`, ...), you create **one** array: `$students`.
-- In computer programming, the compartments are numbered starting at **0**!
+Think of a carton of 12 eggs. You do not give each egg its own shelf in the fridge. All 12 sit together in one carton, each in its own numbered cup. To pick an egg, you say which cup it is in. An **indexed array** works the same way: one variable holds an ordered list, and each item has a position number that starts at **0**.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Create indexed arrays using modern bracket syntax `[...]`.
-- Access, update, and append elements using 0-based numerical indices.
-- Count total elements in an array using `count()`.
-- Iterate through arrays with both `for` loops and `foreach` loops.
-- Prevent `Undefined array key` offset notices.
+- Create indexed arrays with the short bracket syntax `[...]`.
+- Read, change and add items using 0-based **indexes** (position numbers).
+- Count the items in an array with `count()`.
+- Loop through an array with `for` and `foreach`.
+- Avoid the `Undefined array key` warning.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
+
+An **array** is one variable that stores many values. In an **indexed array**, each value has a number called its **index**.
 
 ### The 0-Based Index Rule
 
 ```text
-Array Items:     ["Apple", "Banana", "Cherry", "Date"]
-                    │         │         │        │
-Indices:            0         1         2        3
+Items:   ["Apple", "Banana", "Cherry", "Date"]
+             |        |         |        |
+Index:       0        1         2        3
 ```
 
 ```text
-FIRST ITEM:   $fruits[0]  --> "Apple"
-THIRD ITEM:   $fruits[2]  --> "Cherry"
-LAST ITEM:    $fruits[count($fruits) - 1] --> "Date"
-
-⚠️ Computer scientists ALWAYS count starting from 0!
+FIRST ITEM:  $fruits[0]  --> "Apple"
+THIRD ITEM:  $fruits[2]  --> "Cherry"
+LAST ITEM:   $fruits[count($fruits) - 1]
+             --> "Date"
 ```
+
+⚠️ Arrays in PHP always start counting at 0.
 
 ---
 
-## 4. 💻 Code Example: Managing a Student Roster
+## 💻 Code Example: Managing a Student Roster
 
 ```php
 <?php
   // 1. Creating an indexed array
-  $roster = ["Amina", "Bilal", "Chaudhry", "Dania"];
+  $roster = ["Amina", "Bilal", "Chandni", "Dania"];
 
-  // 2. Reading elements by index
+  // 2. Reading items by index
   echo "First student: " . $roster[0] . "<br>"; // Amina
-  echo "Third student: " . $roster[2] . "<br>"; // Chaudhry
+  echo "Third student: " . $roster[2] . "<br>"; // Chandni
 
-  // 3. Updating an element
+  // 3. Changing an item
   $roster[1] = "Babar"; // Replaces Bilal with Babar
 
-  // 4. Appending a new student to the end (empty bracket syntax)
+  // 4. Adding new students to the end (empty brackets)
   $roster[] = "Erum";
   $roster[] = "Farhan";
 
@@ -77,7 +71,7 @@ LAST ITEM:    $fruits[count($fruits) - 1] --> "Date"
   }
   echo "</ol>";
 
-  // 7. Looping with for loop and numerical index
+  // 7. Looping with a for loop and the index
   echo "<h3>Index Mapping:</h3>";
   for ($i = 0; $i < count($roster); $i++) {
     echo "Seat #$i: " . $roster[$i] . "<br>";
@@ -85,36 +79,35 @@ LAST ITEM:    $fruits[count($fruits) - 1] --> "Date"
 ?>
 ```
 
----
+Output:
 
-## 5. 🔍 Code Explanation: Breaking It Down Line by Line
-
-- `$roster = ["Amina", ...];`: Modern short array syntax introduced in PHP 5.4.
-- `$roster[] = "Erum";`: Empty square brackets `[]` tells PHP: *"Find the next highest index and append this item to the end of the array!"*
-- `count($roster)`: Returns the total count of elements (here, `6`).
-- `foreach ($roster as $student)`: The cleanest way to loop. It visits each item from first to last without needing manual index counter variables.
+```text
+First student: Amina<br>Third student: Chandni<br>Total Students Enrolled: <strong>6</strong><br><h3>Class 9 Roll Call:</h3><ol><li>Amina</li><li>Babar</li><li>Chandni</li><li>Dania</li><li>Erum</li><li>Farhan</li></ol><h3>Index Mapping:</h3>Seat #0: Amina<br>Seat #1: Babar<br>Seat #2: Chandni<br>Seat #3: Dania<br>Seat #4: Erum<br>Seat #5: Farhan<br>
+```
 
 ---
 
-## 6. 🌍 Real-World Connection: Lecture Playlists & Audio Archives
+## 🔍 Code Explanation: Breaking It Down Line by Line
 
-Look at a **Digital Audio Archive or Educational Course**:
-- When you open a playlist with 50 recorded lectures or audio lessons, the web app stores those tracks in an indexed array: `[$lecture0, $lecture1, $lecture2, ...]`.
-- When you tap "Next Lesson", the audio player simply increments the current index: `$currentIndex++`!
-
----
-
-## 7. ⚠️ Common Beginner Traps
-
-1. **The Off-By-One Error**:
-   If an array has 5 items, their indices are `0, 1, 2, 3, 4`.
-   Trying to access `$array[5]` throws a `Warning: Undefined array key 5`!
-2. **Thinking Arrays Count from 1**:
-   Remember: `$array[1]` is the **second** item, not the first!
+- `$roster = ["Amina", ...];`: The short array syntax. It has worked since PHP 5.4 and is the modern style.
+- `$roster[1] = "Babar";`: Puts a new value into position 1, replacing the old one.
+- `$roster[] = "Erum";`: Empty brackets `[]` tell PHP: *"Add this item at the next free index, at the end."*
+- `count($roster)`: Returns how many items the array has (here, `6`).
+- `foreach ($roster as $student)`: The simplest loop for arrays. It visits each item from first to last, so you need no counter variable.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🌍 Real-World Connection: Recorded Lecture Lists
+
+Think of an online course with 50 recorded lessons.
+
+- The web app keeps the lessons in an indexed array: lesson 0, lesson 1, lesson 2 and so on.
+- When you tap "Next Lesson", the app adds 1 to the current index: `$currentIndex++`.
+- When the index reaches `count($lessons) - 1`, the app knows you are on the last lesson.
+
+---
+
+## 🔮 Predict the Output
 
 ```php
 <?php
@@ -126,45 +119,202 @@ Look at a **Digital Audio Archive or Educational Course**:
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> <code>40</code>! The initial indices were 0, 1, 2. The empty bracket appended 40 at index 3.
+<strong>Answer:</strong> <code>40</code>. The first indexes were 0, 1 and 2. The empty brackets added 40 at index 3.
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Loop Boundary
+## 🕵️ Code Detective: The Broken Loop Boundary
 
 ```php
 <?php
   $colors = ["Red", "Green", "Blue"];
-  // Trying to print all colors:
+  // Trying to print all colours:
   for ($i = 0; $i <= count($colors); $i++) {
     echo $colors[$i] . " ";
   }
 ?>
 ```
 
-- **Find the bug**: The loop uses `<= count($colors)` instead of `< count($colors)`!
-- **Explain**: `count($colors)` is 3. The loop tries to access `$colors[3]`, which does not exist!
+Output (the colours, then a warning):
+
+```text
+Red Green Blue
+Warning: Undefined array key 3
+```
+
+- **Find the bug**: The loop uses `<= count($colors)` instead of `< count($colors)`.
+- **Explain**: `count($colors)` is 3, so the loop also runs with `$i = 3`. `$colors[3]` does not exist.
 - **Fix**: Change `$i <= count($colors)` to `$i < count($colors)`.
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**The off-by-one error: thinking arrays count from 1.**
+
+- ❌ *Wrong*:
+  ```php
+  <?php
+  $planets = ["Mercury", "Venus", "Earth"];
+  echo "The first planet is " . $planets[1];
+  echo "<br>The last planet is " . $planets[3];
+  ```
+- 😕 *What happens*: The first line prints `Venus`, the **second** item. The second line shows *Warning: Undefined array key 3*, because a 3-item array only has indexes 0, 1 and 2.
+- ✅ *Fixed*:
+  ```php
+  <?php
+  $planets = ["Mercury", "Venus", "Earth"];
+  echo "The first planet is " . $planets[0];
+  echo "<br>The last planet is " . $planets[count($planets) - 1];
+  ```
+  Output:
+  ```text
+  The first planet is Mercury<br>The last planet is Earth
+  ```
+
+---
+
+## ✍️ Try It
+
+Open the [PHP Console](../studios/php-console/) and type:
+
+```php
+<?php
+$tasks = ["Revise maths", "Read chapter 3"];
+$tasks[] = "Pack sports kit";
+echo "I have " . count($tasks) . " tasks:<br>";
+foreach ($tasks as $task) {
+  echo "- $task<br>";
+}
+```
+
+Output:
+
+```text
+I have 3 tasks:<br>- Revise maths<br>- Read chapter 3<br>- Pack sports kit<br>
+```
+
+*Hint*: Add one more task with `$tasks[] = ...;`. Then print only the first task using its index.
+
+---
+
+## 📝 Recap
+
+- An indexed array keeps an ordered list in **one** variable.
+- Indexes start at **0**, so the last index is `count($array) - 1`.
+- `$array[] = value;` adds an item at the end; `$array[2] = value;` changes item number 2.
+- `count()` tells you how many items there are.
+- `foreach` is the safest way to visit every item; a `for` loop must use `<`, not `<=`.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. What index represents the very first element of an indexed array?
-2. What function returns the number of elements in an array?
-3. How do you append a new item to an existing array using shorthand brackets?
+1. What index does the very first item of an indexed array have?
+2. Which function returns the number of items in an array?
+3. How do you add a new item to the end of an array using empty brackets?
 
-### 🟡 Level 2: Understand
-4. If an array has a `count()` of 8, what is the index of the last element?
-5. Why is a `foreach` loop generally safer than a `for` loop for iterating through arrays?
+<details>
+<summary>Show answer</summary>
 
-### 🟠 Level 3: Apply
-6. Create an array of 5 top science fiction books. Use a loop to print them as an HTML bulleted list with alternating background colors.
+1. **`0`**.
+2. **`count()`**.
+3. `$array[] = "new item";`
 
-### 🔵 Level 4: Think & Troubleshoot
-7. How does `array_values()` re-index an array after deleting an element with `unset($arr[1])`?
+</details>
 
-### 🟣 Level 5: Create & Build
-8. Build a Quiz Score Analyzer: store 10 student exam scores in an array. Calculate the class average, find the highest and lowest scores, and count how many students scored above 80.
+### 🟡 Level 2: Apply
+1. An array has a `count()` of 8. What is the index of its last item?
+2. Why is `foreach` usually safer than `for` for looping through an array?
+3. Create an array of 3 science books and print them as an HTML list (`<ul>` and `<li>`) with `foreach`.
+
+<details>
+<summary>Show answer</summary>
+
+1. **7** (8 - 1).
+2. `foreach` visits exactly the items that exist. It cannot go one step too far, so there is no off-by-one error.
+3. One possible answer:
+
+```php
+<?php
+$books = ["A Journey into Space", "Wonders of the Ocean", "The Living Cell"];
+echo "<ul>";
+foreach ($books as $book) {
+  echo "<li>$book</li>";
+}
+echo "</ul>";
+```
+
+Output:
+
+```text
+<ul><li>A Journey into Space</li><li>Wonders of the Ocean</li><li>The Living Cell</li></ul>
+```
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build a quiz score analyser.
+
+1. Store 10 exam scores in an array: `[72, 88, 95, 64, 81, 90, 55, 78, 84, 69]`.
+2. With one `foreach` loop, work out the total, the highest score, the lowest score, and how many scores are above 80.
+3. Print the class average (rounded to 1 decimal place) and the other three results.
+4. Extra: print the scores as a list where every second row has a light background (hint: `$i % 2` in a `for` loop).
+
+<details>
+<summary>Show one possible answer</summary>
+
+```php
+<?php
+$scores = [72, 88, 95, 64, 81, 90, 55, 78, 84, 69];
+$total = 0;
+$highest = $scores[0];
+$lowest = $scores[0];
+$above80 = 0;
+
+foreach ($scores as $score) {
+  $total += $score;
+  if ($score > $highest) {
+    $highest = $score;
+  }
+  if ($score < $lowest) {
+    $lowest = $score;
+  }
+  if ($score > 80) {
+    $above80++;
+  }
+}
+
+$average = round($total / count($scores), 1);
+echo "Average: $average<br>";
+echo "Highest: $highest<br>";
+echo "Lowest: $lowest<br>";
+echo "Above 80: $above80";
+```
+
+Output:
+
+```text
+Average: 77.6<br>Highest: 95<br>Lowest: 55<br>Above 80: 5
+```
+
+Extra:
+
+```php
+<?php
+$scores = [72, 88, 95];
+for ($i = 0; $i < count($scores); $i++) {
+  $bg = ($i % 2 == 1) ? "#eef" : "#fff";
+  echo "<p style='background:$bg'>Student $i: " . $scores[$i] . "</p>";
+}
+```
+
+Output:
+
+```text
+<p style='background:#fff'>Student 0: 72</p><p style='background:#eef'>Student 1: 88</p><p style='background:#fff'>Student 2: 95</p>
+```
+
+</details>

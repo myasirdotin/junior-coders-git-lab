@@ -1,124 +1,265 @@
 # Chapter 7: Anatomy of an HTTP Request & Response 📬
 
-The **Hypertext Transfer Protocol (HTTP)** is the foundation of the World Wide Web. Whenever you click a link, submit a form, or fetch data from an API, your browser formats an HTTP Request and sends it to a web server, which replies with an HTTP Response.
+## 🌟 Real-Life Story
 
-Under the hood, HTTP is a straightforward, human-readable text protocol. Let's inspect the raw bytes sent across the wire!
+Zainab fills in a book request slip at the library desk. The slip has a clear layout: what she wants, her name and class, and a box for notes. The librarian replies on a return slip: "Found", "Not in stock" or "Ask at the other desk", plus the book itself. Because both slips always follow the same layout, any librarian can handle any request. The web works the same way, using **HTTP**.
+
+## 🎯 What You Will Learn
+
+- Name the parts of an HTTP **request**: request line, headers, blank line and body.
+- Name the parts of an HTTP **response**: status line, headers, blank line and body.
+- Choose the right **HTTP method** (GET, POST, PUT, PATCH, DELETE) and explain **safe** and **idempotent**.
+- Read the five classes of **status codes**.
+- Watch a real HTTP conversation with `curl.exe -v`.
 
 ---
 
-## 📨 The HTTP Request: What Your Browser Sends
+## 🌐 What Is HTTP?
 
-An HTTP request consists of three distinct parts:
-1. **The Request Line**: Method, URI path, and Protocol version.
-2. **Request Headers**: Key-value pairs containing metadata about the client.
-3. **Empty Line (`\r\n`)**: Signals the end of headers.
-4. **Request Body (Optional)**: Payload data (used in POST, PUT, PATCH).
+**HTTP** (Hypertext Transfer Protocol) is the language browsers and web servers use. It is an Application-layer protocol (Chapter 2). It usually runs over a TCP connection to port 80 (Chapters 4 and 5).
 
-### Example Raw HTTP Request:
-```http
-POST /api/v1/relief-donations HTTP/1.1
-Host: api.humanitarian-aid.org
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-Content-Type: application/json
-Content-Length: 58
-Authorization: Bearer secret_token_xyz
+Every exchange has two halves:
 
-{"beneficiary": "Clean Water Wells", "amount_usd": 250.00}
+```
+ Browser (client)          Web server
+       │   HTTP request        │
+       ├──────────────────────►│
+       │   HTTP response       │
+       │◄──────────────────────┤
 ```
 
+HTTP/1.1 is plain text, so people can read it. Its secure version, **HTTPS**, wraps the same messages in encryption. Chapter 10 explains how.
+
 ---
 
-## 🏷️ The Standard HTTP Methods (Verbs)
+## 📨 The HTTP Request
 
-HTTP methods describe the intended action:
+A request has four parts:
+
+1. **Request line**: the method, the path and the HTTP version.
+2. **Headers**: `Name: value` lines with extra information.
+3. **A blank line**: it marks the end of the headers.
+4. **Body** (optional): data being sent, such as a form.
+
+Example request: a donation form sends JSON (JavaScript Object Notation, a text format for data):
+
+```http
+POST /api/donations HTTP/1.1
+Host: relief.example.org
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
+Content-Type: application/json
+Content-Length: 42
+
+{"cause":"Clean Water Wells","amount":250}
+```
+
+- `POST` is the method. `/api/donations` is the path on the server.
+- `Host` names the website. One server can host many websites, so this header is required in HTTP/1.1.
+- `Content-Type` says the body is JSON.
+- `Content-Length: 42` is the size of the body in bytes. That body is exactly 42 characters long.
+
+In the raw bytes, each line ends with two characters: **CR LF** (carriage return, line feed), written `\r\n`. The blank line is just `\r\n` on its own.
+
+---
+
+## 🏷️ HTTP Methods
+
+The **method** says what the client wants to do.
 
 | Method | Purpose | Safe? | Idempotent? |
 | :--- | :--- | :--- | :--- |
-| **`GET`** | Retrieve data (reads only, never modifies) | ✅ Yes | ✅ Yes |
-| **`POST`** | Create a new record or trigger an action | ❌ No | ❌ No |
-| **`PUT`** | Completely replace an existing record | ❌ No | ✅ Yes |
-| **`PATCH`** | Partially update specific fields of a record | ❌ No | ❌ No |
-| **`DELETE`** | Remove a resource | ❌ No | ✅ Yes |
-| **`HEAD`** | Same as GET, but returns headers only (no body) | ✅ Yes | ✅ Yes |
-| **`OPTIONS`**| Asks the server what methods/origins are allowed | ✅ Yes | ✅ Yes |
+| `GET` | Read data | ✅ Yes | ✅ Yes |
+| `POST` | Create something or start an action | ❌ No | ❌ No |
+| `PUT` | Replace a whole record | ❌ No | ✅ Yes |
+| `PATCH` | Change some fields of a record | ❌ No | ❌ Not guaranteed |
+| `DELETE` | Remove something | ❌ No | ✅ Yes |
+| `HEAD` | Like GET, but headers only, no body | ✅ Yes | ✅ Yes |
+| `OPTIONS` | Ask what is allowed | ✅ Yes | ✅ Yes |
 
-> 💡 **What is Idempotence?**  
-> An operation is **idempotent** if running it 1 time produces the exact same outcome on the server as running it 100 times.  
-> - Sending `DELETE /books/42` once deletes the book. Sending it 5 more times still leaves the book deleted.
-> - Sending `POST /donations` 5 times might charge your card 5 times!
+- **Safe** means the request should only read. It must not change anything on the server.
+- **Idempotent** means sending it once or ten times leaves the server in the same final state.
+
+> 💡 **Example:** `DELETE /books/42` removes book 42. Sending it again does not remove anything more. But sending `POST /donations` five times could record five donations! That is why browsers warn you before resending a form.
 
 ---
 
-## 📬 The HTTP Response: What the Server Replies
+## 📬 The HTTP Response
 
-When the server processes the request, it replies with a structured response:
-1. **Status Line**: Protocol version, Status Code, and Reason phrase.
-2. **Response Headers**: Metadata from the server (content type, caching, date, cookies).
-3. **Empty Line (`\r\n`)**.
-4. **Response Body**: The requested HTML, JSON, image, or text.
+The server's reply also has four parts:
 
-### Example Raw HTTP Response:
+1. **Status line**: the HTTP version, a **status code** and a short reason.
+2. **Headers**: information about the reply.
+3. **A blank line**.
+4. **Body**: the HTML page, JSON, image or file.
+
+Example response:
+
 ```http
-HTTP/1.1 200 OK
-Date: Fri, 25 Sep 2026 14:20:00 GMT
-Server: Apache/2.4.52 (Ubuntu)
+HTTP/1.1 201 Created
+Date: Tue, 13 Oct 2026 09:20:00 GMT
+Server: Apache/2.4.58 (Win64)
 Content-Type: application/json; charset=UTF-8
-Content-Length: 82
+Content-Length: 42
 Connection: keep-alive
 
-{"status": "success", "receipt_id": "REC-98214", "message": "Donation recorded"}
+{"status":"success","receipt":"REC-98214"}
 ```
 
----
-
-## 🚦 The 5 HTTP Status Code Classes
-
-HTTP status codes are 3-digit numbers grouped into 5 logical categories:
-
-### 1. `1xx` Informational (Hold on)
-- `101 Switching Protocols` (Upgrading to WebSocket)
-
-### 2. `2xx` Success (Everything went well!)
-- `200 OK`: Request succeeded.
-- `201 Created`: Resource successfully created (standard for `POST`).
-- `204 No Content`: Action succeeded, but no body returned (common for `DELETE`).
-
-### 3. `3xx` Redirection (Look over there!)
-- `301 Moved Permanently`: URL has permanently changed (SEO updates).
-- `302 Found`: Temporary redirect.
-- `304 Not Modified`: Cached copy in your browser is still fresh.
-
-### 4. `4xx` Client Errors (You made a mistake!)
-- `400 Bad Request`: Malformed syntax or invalid parameters.
-- `401 Unauthorized`: Authentication missing (need login).
-- `403 Forbidden`: Authenticated, but you lack permission to view this resource.
-- `404 Not Found`: The requested URL does not exist.
-- `429 Too Many Requests`: Rate limit exceeded.
-
-### 5. `5xx` Server Errors (The server crashed!)
-- `500 Internal Server Error`: Unhandled bug or exception in backend code.
-- `502 Bad Gateway`: Reverse proxy received an invalid response from backend.
-- `503 Service Unavailable`: Server overloaded or undergoing maintenance.
-- `504 Gateway Timeout`: Upstream server took too long to reply.
+- `201 Created` means the donation record was made.
+- `Content-Type` tells the browser how to read the body.
+- `Connection: keep-alive` means the TCP connection stays open for the next request (Chapter 8).
 
 ---
 
-## 🧠 Checkpoint Quiz
+## 🚦 The Five Classes of Status Codes
 
-1. **What is the difference between `401 Unauthorized` and `403 Forbidden`?**
-   - *Answer: 401 means "Who are you? (You must authenticate)"; 403 means "I know who you are, but you do not have permission to view this".*
-2. **Why is `GET` considered a "safe" HTTP method?**
-   - *Answer: Because a GET request should only read data without modifying server state.*
-3. **What character sequence separates HTTP headers from the request/response body?**
-   - *Answer: An empty line composed of Carriage Return and Line Feed (`\r\n\r\n`).*
+A status code is a 3-digit number. The first digit tells you the class.
+
+| Class | Meaning | Common codes |
+| :--- | :--- | :--- |
+| `1xx` | Information, keep going | `101 Switching Protocols` |
+| `2xx` | Success | `200 OK`, `201 Created`, `204 No Content` |
+| `3xx` | Look somewhere else | `301 Moved Permanently`, `302 Found`, `304 Not Modified` |
+| `4xx` | The **client** made a mistake | `400 Bad Request`, `401 Unauthorized`, `403 Forbidden`, `404 Not Found`, `429 Too Many Requests` |
+| `5xx` | The **server** failed | `500 Internal Server Error`, `502 Bad Gateway`, `503 Service Unavailable`, `504 Gateway Timeout` |
+
+A few need care:
+
+- `401 Unauthorized` really means "not logged in". The server does not know who you are.
+- `403 Forbidden` means "I know who you are, but you are not allowed".
+- `304 Not Modified` means "your saved copy is still good" (Chapter 9).
+- `502` and `504` come from a **gateway**, a server that passes requests on to another server behind it.
 
 ---
 
-## 🎯 Hands-On Mission
+## 🔍 See It Yourself: `curl.exe -v`
 
-Send a raw HTTP inspection request using `curl`:
-```bash
-# -i prints the response status line and headers alongside the body
-curl -i https://httpbin.org/get
+`curl` is a command-line tool that speaks HTTP. It comes with Windows 10 and 11.
+
+In Windows PowerShell 5, plain `curl` is a nickname (alias) for a different command, `Invoke-WebRequest`. Always type **`curl.exe`** to get the real curl.
+
 ```
-Examine the returned headers and status line!
+curl.exe -v -o NUL http://example.org/
+```
+
+- `-v` (verbose) shows the request and response headers.
+- `-o NUL` throws the page body away, so the screen stays tidy.
+
+Example output (shortened; addresses changed to documentation addresses; yours will differ):
+
+```
+*   Trying 203.0.113.10:80...
+* Connected to example.org (203.0.113.10) port 80
+> GET / HTTP/1.1
+> Host: example.org
+> User-Agent: curl/8.21.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Date: Tue, 13 Oct 2026 02:39:53 GMT
+< Content-Type: text/html; charset=utf-8
+< Connection: keep-alive
+< Last-Modified: Fri, 09 Oct 2026 20:18:28 GMT
+```
+
+How to read it:
+
+- Lines with `*` are curl's own notes. `Trying ...:80` is the TCP connection to port 80.
+- Lines with `>` are the **request** that curl sent.
+- The empty `>` line is the blank line that ends the headers.
+- Lines with `<` are the **response**. `200 OK` means success.
+
+To print only the response headers, use `curl.exe -I http://example.org/`. It sends a `HEAD` request.
+
+---
+
+## ⚠️ Common Mistake
+
+**Using GET to change data.**
+
+- ❌ Wrong: a link like `GET /books/42/delete`.
+- What happens: browsers, link checkers and search engines follow GET links freely. One visit could delete the book.
+- ✅ Right: use `DELETE /books/42` (or a `POST` from a form). Keep GET for reading only.
+
+**Mixing up 401 and 403.**
+
+- ❌ Wrong: returning `401` to a logged-in student who opens the teachers' page.
+- ✅ Right: return `403 Forbidden`. The server knows who they are; they just lack permission.
+
+---
+
+## ✍️ Try It
+
+Run `curl.exe -I http://example.org/` and `curl.exe -I http://example.org/no-such-page`.
+Write down the status line of each. Which header tells you what kind of content the page is?
+
+> 💡 Hint: look for the first line starting with `HTTP/1.1`, and for `Content-Type`.
+
+---
+
+## 📝 Recap
+
+- HTTP is the Application-layer language of the web, usually over TCP port 80.
+- A request = request line + headers + blank line + optional body.
+- A response = status line + headers + blank line + body.
+- GET and HEAD are **safe**; GET, PUT and DELETE are **idempotent**; POST is neither.
+- Status codes: 1xx info, 2xx success, 3xx redirect, 4xx client error, 5xx server error.
+- Use `curl.exe` (not `curl`) in Windows PowerShell 5.
+
+---
+
+## 🏆 Practice
+
+### 🟢 Level 1: Recall
+What separates the headers from the body in an HTTP message? What is the difference between `401` and `403`?
+
+<details>
+<summary>Show answer</summary>
+
+A **blank line** (a lone `\r\n`, so the headers end with `\r\n\r\n`).
+`401 Unauthorized` means "log in first: I don't know who you are". `403 Forbidden` means "I know who you are, but you are not allowed".
+
+</details>
+
+### 🟡 Level 2: Apply
+Choose the method and a likely success status code for each:
+1. Show the list of library books.
+2. Add a new book to the catalogue.
+3. Remove book 15 from the catalogue (no body in the reply).
+
+<details>
+<summary>Show answer</summary>
+
+1. `GET /books` → `200 OK`
+2. `POST /books` → `201 Created`
+3. `DELETE /books/15` → `204 No Content`
+
+</details>
+
+### 🔴 Level 3: Challenge
+Write a complete raw HTTP/1.1 request that adds a volunteer to `clinic.example.org` at the path `/api/volunteers`. The body is the JSON `{"name":"Hamza","day":"Friday"}`.
+1. Include the request line, `Host`, `Content-Type` and `Content-Length`.
+2. Write a sensible response with a status line, one header and a JSON body.
+
+<details>
+<summary>Show one possible answer</summary>
+
+The body `{"name":"Hamza","day":"Friday"}` is 31 characters, so 31 bytes.
+
+```http
+POST /api/volunteers HTTP/1.1
+Host: clinic.example.org
+Content-Type: application/json
+Content-Length: 31
+
+{"name":"Hamza","day":"Friday"}
+```
+
+```http
+HTTP/1.1 201 Created
+Content-Type: application/json
+
+{"id":7,"name":"Hamza","day":"Friday"}
+```
+
+</details>

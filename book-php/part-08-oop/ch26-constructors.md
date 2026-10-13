@@ -1,72 +1,68 @@
-# Chapter 26: Constructors & Destructors 🪄⚙️
+# Chapter 26: Constructors & Destructors ⚙️
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Factory Assembly Line
+## 🌟 Real-Life Story
 
-Imagine a brand-new smartphone rolling down the factory conveyor belt:
-- As soon as the metal chassis is assembled, the factory robots don't leave it blank and powered off!
-- They execute an **Initialization Routine**:
-  1. Burn the unique Serial Number into the chip.
-  2. Install the operating system.
-  3. Pre-load the battery with a 50% charge.
-- The phone leaves the factory **ready to turn on immediately**.
-
-In PHP, a **Constructor** is a special magic method that runs automatically the exact millisecond an object is born with `new`:
-- It eliminates tedious manual property setting.
-- You pass initial data right into `new Car("Red", "Sedan")` in one clean, beautiful line!
+Think of a new library card being made at the school office. The clerk does not hand you a blank card and hope you fill it in later. Your name, class and card number are printed on it the moment it is made. The card leaves the office complete and ready to use. In PHP, a **constructor** does the same job: it fills in an object's data the moment `new` creates it.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this chapter, you will be able to:
-- Define magic constructors using `__construct()`.
-- Pass arguments directly into `new ClassName(...)`.
-- Understand modern **Constructor Property Promotion** (PHP 8+).
-- Use `__destruct()` to clean up files and database connections when an object dies.
-- Prevent incomplete, broken objects by making required data mandatory at birth.
+- Write a constructor with `__construct()` and pass data into `new ClassName(...)`.
+- Use **constructor property promotion** (PHP 8) to write shorter classes.
+- Call a parent's constructor from a child class with `parent::__construct()`.
+- Use `__destruct()` to run tidy-up code when an object is destroyed.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
+
+A **constructor** is a special method named `__construct()`. PHP runs it automatically when you write `new`. A **destructor**, named `__destruct()`, runs automatically when the object is no longer needed.
+
+Methods whose names start with two underscores (`__`) are called **magic methods** in PHP. "Magic" here is just PHP's name for "PHP calls it for you"; you never call them by name yourself.
 
 ### Before vs. After Constructors
 
 ```text
-OLD WAY (Tedious & Error-Prone):
+OLD WAY (easy to forget a line):
 $book = new Book();
-$book->title = "PHP Guide";
-$book->author = "Yasir";
-$book->pages = 320;
-// 4 lines of code! What if someone forgets to set $pages? Bug!
+$book->title  = "PHP Guide";
+$book->author = "Amina Shah";
+$book->pages  = 320;
+// Forget $pages? The object is incomplete.
 
-MODERN CONSTRUCTOR WAY:
-$book = new Book("PHP Guide", "Yasir", 320);
-// 1 line! The object is guaranteed to be 100% complete at birth! ⚡
+CONSTRUCTOR WAY:
+$book = new Book("PHP Guide",
+                 "Amina Shah", 320);
+// PHP refuses to build it without all 3.
 ```
 
-### The Magic Lifecycle
+### The Object Lifecycle
 
 ```text
-$obj = new Student("Ali");  -->  __construct() fires automatically!
-... object does its work ...
-unset($obj) or script ends  -->  __destruct() fires automatically for cleanup!
+$obj = new Student("Ali");
+   --> __construct() runs
+... the object does its work ...
+unset($obj) or the script ends
+   --> __destruct() runs
 ```
+
+`unset($obj)` deletes a variable. When nothing points to the object any more, PHP destroys it.
 
 ---
 
-## 4. 💻 Code Example: Modern Constructor & Property Promotion
+## 💻 Code Example: Classic Constructor & Property Promotion
 
 ```php
 <?php
-  // 1. Classic Constructor Syntax
+  // 1. Classic constructor
   class Book {
     public $title;
     public $author;
     public $pages;
 
-    // Magic constructor
     public function __construct(string $title, string $author, int $pages) {
       $this->title = $title;
       $this->author = $author;
@@ -78,68 +74,120 @@ unset($obj) or script ends  -->  __destruct() fires automatically for cleanup!
     }
   }
 
-  // 2. Modern PHP 8 Constructor Property Promotion!
-  // Notice: We declare visibility (public/private) directly in the parameter list!
-  // PHP creates and assigns the properties automatically in 1 line!
+  // 2. PHP 8 constructor property promotion:
+  //    "public" in the parameter list creates AND fills the property.
   class Course {
     public function __construct(
       public string $code,
       public string $title,
-      public int $creditHours = 3,
-      private bool $isActive = true
+      public int $creditHours = 3
     ) {}
 
     public function getInfo(): string {
-      return "[$this->code] $this->title ($this->creditHours Credit Hours)";
+      return "[{$this->code}] {$this->title} ({$this->creditHours} credit hours)";
     }
   }
 
-  // Instantiating with constructor arguments
   $book1 = new Book("PHP for Class 9", "Junior Coders", 320);
-  $book2 = new Book("Mastering Web Semantics", "Yasir Rasool", 240);
+  $book2 = new Book("Web Pages with Meaning", "Amina Shah", 240);
+  echo $book1->getSummary() . "\n";
+  echo $book2->getSummary() . "\n";
 
-  echo "<h2>Library Books</h2>";
-  echo "<p>" . $book1->getSummary() . "</p>";
-  echo "<p>" . $book2->getSummary() . "</p>";
-
-  echo "<h2>Academic Courses (PHP 8 Promotion)</h2>";
-  $cs101 = new Course("CS-901", "Introduction to Server Programming", 4);
-  echo "<p>" . $cs101->getInfo() . "</p>";
+  $cs = new Course("CS-901", "Introduction to Server Programming", 4);
+  $art = new Course("AR-101", "Islamic Geometric Art");
+  echo $cs->getInfo() . "\n";
+  echo $art->getInfo() . "\n";
 ?>
 ```
 
+Output:
+
+```text
+'PHP for Class 9' by Junior Coders (320 pages)
+'Web Pages with Meaning' by Amina Shah (240 pages)
+[CS-901] Introduction to Server Programming (4 credit hours)
+[AR-101] Islamic Geometric Art (3 credit hours)
+```
+
 ---
 
-## 5. 🔍 Code Explanation: Breaking It Down Line by Line
+## 🔍 Code Explanation: Breaking It Down Line by Line
 
-- `public function __construct(...)`: Two leading underscores (`__`) signify a **PHP Magic Method**.
-- `$book1 = new Book("PHP for Class 9", ...)`: Arguments passed into `new Book(...)` are routed straight into `__construct()`.
-- **PHP 8 Property Promotion**: In `class Course`, putting `public string $code` inside the constructor signature tells PHP to automatically create the property, type it, and assign it! It cuts boilerplate code in half!
+- `public function __construct(...)`: The two underscores mark a **magic method**. PHP calls it during `new`.
+- `new Book("PHP for Class 9", "Junior Coders", 320)`: The values in the brackets go straight into the constructor's parameters, in order.
+- `public string $code` inside the constructor's brackets: **Property promotion**. PHP creates the property `$code`, gives it the type `string`, and stores the value. No `$this->code = $code;` line is needed.
+- `public int $creditHours = 3`: A **default value**. `$art` did not pass a third value, so it got `3`.
+- `{}` after the constructor: The constructor body is empty, because promotion already did all the work.
+
+### Destructors in Action
+
+```php
+<?php
+class LabSession {
+  public function __construct(public string $room) {
+    echo "Lab $room opened.\n";
+  }
+  public function __destruct() {
+    echo "Lab {$this->room} closed and lights off.\n";
+  }
+}
+
+$lab = new LabSession("Physics");
+echo "Students are doing experiments...\n";
+unset($lab);
+echo "Next lesson.\n";
+```
+
+Output:
+
+```text
+Lab Physics opened.
+Students are doing experiments...
+Lab Physics closed and lights off.
+Next lesson.
+```
+
+Destructors are useful for tidy-up work, such as closing a file the object opened.
+
+### Constructors and Inheritance
+
+If a child class writes its own constructor, PHP does **not** run the parent's constructor automatically. You must call it with `parent::__construct(...)`:
+
+```php
+<?php
+class Person {
+  public function __construct(public string $name) {}
+}
+class Student extends Person {
+  public function __construct(string $name, public int $grade) {
+    parent::__construct($name);
+  }
+}
+$s = new Student("Yusuf", 8);
+echo "{$s->name} is in Grade {$s->grade}.";
+```
+
+Output:
+
+```text
+Yusuf is in Grade 8.
+```
 
 ---
 
-## 6. 🌍 Real-World Connection: Database Connection Objects
+## 🌍 Real-World Connection: Database Connection Objects
 
-When connecting to MySQL using PHP Data Objects (PDO):
+In the MySQL track you will connect to a database with **PDO** (PHP Data Objects). The connection is made by a constructor:
+
 ```php
 $db = new PDO("mysql:host=localhost;dbname=school", "root", "");
 ```
-The constructor immediately contacts the MySQL server, authenticates your username and password, and opens the connection! If credentials are bad, it throws an exception right at object creation.
+
+The constructor contacts the MySQL server and logs in at once. If the details are wrong, it stops with an error right there, so you never get a half-working connection object.
 
 ---
 
-## 7. ⚠️ Common Beginner Traps
-
-1. **One Underscore Instead of Two**:
-   ```php
-   public function _construct() // ❌ Won't work as magic constructor! Needs TWO underscores: __construct()
-   ```
-2. **Returning Values from Constructors**:
-   Constructors cannot return values (`return "done";` is illegal). Their sole job is initialization.
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 ```php
 <?php
@@ -155,51 +203,214 @@ The constructor immediately contacts the MySQL server, authenticates your userna
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> <code>Hello! Hello! </code> (The constructor executes automatically every time a new object is created!).
+<strong>Answer:</strong> <code>Hello! Hello! </code> The constructor runs every time a new object is created.
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Inheritance Call
+## 🕵️ Code Detective: The Broken Inheritance Call
 
 ```php
 <?php
   class Vehicle {
     public function __construct(public string $color) {}
   }
-  class Car extends Vehicle {
-    public function __construct(string $color, public int $doors) {
+  class Bus extends Vehicle {
+    public function __construct(string $color, public int $seats) {
       // Missing parent constructor call!
-      $this->doors = $doors;
     }
   }
-  $c = new Car("Red", 4);
-  echo $c->color;
+  $b = new Bus("Yellow", 40);
+  echo $b->color;
 ?>
 ```
 
-- **Find the bug**: `$c->color` is uninitialized and throws an error!
-- **Explain**: Child classes that define their own constructor must call `parent::__construct($color);` to run the parent's initialization!
-- **Fix**: Add `parent::__construct($color);` inside `Car`'s constructor.
+PHP stops with: `Fatal error: Uncaught Error: Typed property Vehicle::$color must not be accessed before initialization`.
+
+- **Find the bug**: `Bus` has its own constructor but never calls the parent's one.
+- **Explain**: The parent's constructor is the one that stores `$color`. Because it never ran, `$color` was never given a value.
+- **Fix**: Add `parent::__construct($color);` inside the `Bus` constructor. Now it prints `Yellow`.
 
 ---
 
-## 10. 🏆 5 Levels of Mastery Exercises
+## ⚠️ Common Mistake
+
+**Typing one underscore instead of two.**
+
+- ❌ *Wrong*:
+  ```php
+  class Badge {
+    public $name;
+    public function _construct($name) {
+      $this->name = $name;
+    }
+  }
+  $b = new Badge("Huda");
+  var_dump($b->name);
+  ```
+- 😕 *What happens*: `_construct` (one underscore) is just an ordinary method, so PHP never calls it. There is no error, but the name is never stored: the output is `NULL`.
+- ✅ *Fixed*: Use **two** underscores: `public function __construct($name)`. Now the output is `string(4) "Huda"`.
+
+Also remember: a constructor's job is to set up the object. If it uses `return` with a value, `new` simply ignores that value.
+
+---
+
+## ✍️ Try It
+
+Open the [PHP Console](../studios/php-console/) and type:
+
+```php
+<?php
+class Planet {
+  public function __construct(
+    public string $name,
+    public int $moons = 0
+  ) {}
+
+  public function describe(): string {
+    return "{$this->name} has {$this->moons} moon(s).";
+  }
+}
+
+$earth = new Planet("Earth", 1);
+$venus = new Planet("Venus");
+echo $earth->describe() . "\n";
+echo $venus->describe();
+```
+
+Output:
+
+```text
+Earth has 1 moon(s).
+Venus has 0 moon(s).
+```
+
+*Hint*: Try `new Planet();` with no values at all. Read the error message: which argument is missing?
+
+---
+
+## 📝 Recap
+
+- A **constructor** (`__construct`) runs automatically when `new` creates an object.
+- Values in `new ClassName(...)` go straight into the constructor's parameters.
+- **Property promotion** (`public string $name` in the brackets) creates and fills a property in one step.
+- A child class with its own constructor must call `parent::__construct(...)`.
+- A **destructor** (`__destruct`) runs when the object is destroyed, for tidy-up work.
+- Magic method names need **two** underscores.
+
+---
+
+## 🏆 Practice
 
 ### 🟢 Level 1: Recall
-1. How many underscores precede the name of magic methods like `__construct()`?
-2. When does a constructor execute?
-3. What is the counterpart magic method that runs when an object is destroyed?
+1. How many underscores start the name of a magic method such as `__construct()`?
+2. When does a constructor run?
+3. Which magic method runs when an object is destroyed?
 
-### 🟡 Level 2: Understand
-4. How does Constructor Property Promotion in PHP 8 save development time?
-5. Why should mandatory object properties always be required in the constructor parameters?
+<details>
+<summary>Show answer</summary>
 
-### 🟠 Level 3: Apply
-6. Create a `User` class with a constructor requiring `$username`, `$email`, and optional `$role = 'student'`. Instantiate two users.
+1. Two (`__`).
+2. Automatically, every time an object is created with `new`.
+3. `__destruct()`.
 
-### 🔵 Level 4: Think & Troubleshoot
-7. What happens if a class defines a constructor with 3 required parameters, but a developer writes `$obj = new MyClass();` with no arguments?
+</details>
 
-### 🟣 Level 5: Create & Build
-8. Build an Image File Model: define `ImageAttachment` whose constructor takes `$filePath`. The constructor verifies `file_exists()`, reads image dimensions using `getimagesize()`, and calculates aspect ratio. Add methods `getWidth()`, `getHeight()`, and `renderHtmlTag()`.
+### 🟡 Level 2: Apply
+1. A class has a constructor with 3 required parameters. What happens with `$obj = new MyClass();`?
+2. Write a `User` class with property promotion: `$username`, `$email`, and `$role` with the default `"student"`. Create two users, one of them a `"teacher"`, and print their roles.
+
+<details>
+<summary>Show answer</summary>
+
+1. PHP stops with an `ArgumentCountError`: *Too few arguments to function MyClass::__construct(), 0 passed ... and exactly 3 expected*. Required data must be given when the object is made.
+2. One way:
+   ```php
+   <?php
+   class User {
+     public function __construct(
+       public string $username,
+       public string $email,
+       public string $role = "student"
+     ) {}
+   }
+   $u1 = new User("rahma", "rahma@example.org");
+   $u2 = new User("mr_saleem", "saleem@example.org", "teacher");
+   echo "{$u1->username}: {$u1->role}\n";
+   echo "{$u2->username}: {$u2->role}";
+   ```
+   Output:
+   ```text
+   rahma: student
+   mr_saleem: teacher
+   ```
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build a `ScienceProject` class for a science fair.
+
+1. Use property promotion for `$title`, `$student` and `$category` (default `"General"`).
+2. In the constructor, refuse an empty title: if `$title` is `""`, set it to `"Untitled project"`.
+3. Add a method `label()` that returns the title, student and category in one line.
+4. Add `__destruct()` that prints `Project "<title>" packed away.`
+5. Create two projects, print both labels, then `unset()` one of them.
+6. Extra: make a child class `TeamProject extends ScienceProject` that adds `public int $members` and calls `parent::__construct()`.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```php
+<?php
+class ScienceProject {
+  public function __construct(
+    public string $title,
+    public string $student,
+    public string $category = "General"
+  ) {
+    if ($this->title === "") {
+      $this->title = "Untitled project";
+    }
+  }
+
+  public function label(): string {
+    return "{$this->title} by {$this->student} [{$this->category}]";
+  }
+
+  public function __destruct() {
+    echo "Project \"{$this->title}\" packed away.\n";
+  }
+}
+
+class TeamProject extends ScienceProject {
+  public function __construct(string $title, string $student, public int $members) {
+    parent::__construct($title, $student, "Team");
+  }
+}
+
+$p1 = new ScienceProject("Solar Water Heater", "Fatima", "Energy");
+$p2 = new ScienceProject("", "Omar");
+$p3 = new TeamProject("Rainwater Collector", "Class 8B", 4);
+
+echo $p1->label() . "\n";
+echo $p2->label() . "\n";
+echo $p3->label() . " with {$p3->members} members\n";
+unset($p2);
+echo "Fair closed.\n";
+```
+
+Output:
+
+```text
+Solar Water Heater by Fatima [Energy]
+Untitled project by Omar [General]
+Rainwater Collector by Class 8B [Team] with 4 members
+Project "Untitled project" packed away.
+Fair closed.
+Project "Rainwater Collector" packed away.
+Project "Solar Water Heater" packed away.
+```
+
+The last two lines appear when the script ends and PHP destroys the remaining objects. Do not rely on the order in which that happens.
+
+</details>
