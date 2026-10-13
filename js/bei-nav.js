@@ -840,7 +840,7 @@
             footer([item('studios/index.html', '⚡', 'All studios', '')]);
         const libraryMenu =
             section('Read and look up', [
-                item('library/books/index.html', '📖', 'Textbooks', '11 books that read aloud'),
+                item('library/books/index.html', '📖', 'Textbooks', '12 books that read aloud'),
                 item('library/cheatsheets/index.html', '📋', 'Cheat sheets', 'Search all 11 at once')]) +
             footer([item('library/index.html', '🏛️', 'Library home', '')]);
 
@@ -1285,6 +1285,7 @@
         ['book-python/index.html', '📖', "Python & Machine Learning (textbook)", 'Textbook', "python ml ai"],
         ['book-networks/index.html', '📖', "Networks & Web Protocols (textbook)", 'Textbook', "network internet dns http tcp"],
         ['book-cybersecurity/index.html', '📖', "Cybersecurity & Digital Safety (textbook)", 'Textbook', "security password phishing"],
+        ['book-android/index.html', '📖', "Android Apps with Kotlin (textbook)", 'Textbook', "android app kotlin compose mobile phone"],
         // BOOKS-SEARCH:END
         ['cheatsheet-html.html', '📋', 'HTML Cheat Sheet', 'Cheat sheet', 'html'],
         ['cheatsheet-css.html', '📋', 'CSS Cheat Sheet', 'Cheat sheet', 'css'],

@@ -110,6 +110,7 @@ const STAGES = [
   ['first', '🌱', 'First steps', 'Start here if you are new. Grades 6–7.'],
   ['web', '⚙️', 'Websites that think', 'Logic, servers and databases. Grades 7–10.'],
   ['python', '🤖', 'Python, networks and safety', 'Data, AI and staying safe online. Grades 8–10.'],
+  ['apps', '📱', 'Apps for phones', 'Build real Android apps with Kotlin. Grades 9–10.'],
 ];
 
 function cardsText(books, counts) {

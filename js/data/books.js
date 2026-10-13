@@ -910,5 +910,81 @@ window.JC_BOOKS = [
     "metaDescription": "The Junior Coders cybersecurity textbook for Grades 9–10: strong passwords, spotting scams, protecting websites, encryption and backups. Defence only.",
     "lessonsFolder": "Learning Cybersecurity",
     "search": "security password phishing"
+  },
+  {
+    "key": "android",
+    "stage": "apps",
+    "title": "Android Apps with Kotlin",
+    "short": "Android",
+    "subtitle": "Build real phone apps with Kotlin",
+    "icon": "📱",
+    "color": "#16a34a",
+    "colorDark": "#166534",
+    "colorSoft": "#f0fdf4",
+    "links": [
+      {
+        "href": "../book-js/index.html",
+        "label": "⚡ JavaScript book"
+      },
+      {
+        "href": "https://play.kotlinlang.org/",
+        "label": "🟣 Kotlin Playground"
+      }
+    ],
+    "parts": {
+      "part-01-getting-started": [
+        "Getting Started",
+        "start"
+      ],
+      "part-02-kotlin-basics": [
+        "Kotlin Basics",
+        "kotlin"
+      ],
+      "part-03-compose-screens": [
+        "Building Screens with Compose",
+        "screens"
+      ],
+      "part-04-real-apps": [
+        "Real Apps",
+        "apps"
+      ],
+      "part-05-responsible-apps": [
+        "Responsible Apps",
+        "apps"
+      ],
+      "part-06-capstone-project": [
+        "Final Capstone",
+        "apps"
+      ]
+    },
+    "groups": {
+      "start": "Start",
+      "kotlin": "Kotlin",
+      "screens": "Screens",
+      "apps": "Real Apps"
+    },
+    "extras": [
+      {
+        "file": "reference/quick-reference-and-glossary.md",
+        "key": "ref",
+        "label": "Quick Reference & Glossary"
+      },
+      {
+        "file": "teacher-guide/teachers-guide-and-rubrics.md",
+        "key": "teacher",
+        "label": "Teacher's Guide & Rubrics"
+      }
+    ],
+    "practice": {
+      "href": "https://play.kotlinlang.org/",
+      "label": "Open Kotlin Playground",
+      "icon": "🟣",
+      "text": "Run this chapter’s plain Kotlin examples in your browser. Screen (Compose) code runs in Android Studio."
+    },
+    "grades": "Grades 9–10",
+    "card": "Build real Android phone apps with Kotlin and Jetpack Compose: screens, lists, saving data and privacy.",
+    "metaDescription": "The Junior Coders Android textbook for Grades 9–10: Kotlin, Android Studio, Jetpack Compose screens, state, lists, navigation, saving data, permissions and privacy, and a Study Planner project.",
+    "lessonsFolder": null,
+    "search": "android app kotlin compose mobile phone"
   }
 ];

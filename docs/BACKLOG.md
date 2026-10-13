@@ -4,7 +4,7 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-10-13 (JavaScript book aligned with the other books)._
+_Last updated: 2026-10-13 (Android book added)._
 
 ## 🔧 Now (in progress)
 
@@ -35,6 +35,12 @@ _Last updated: 2026-10-13 (JavaScript book aligned with the other books)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 New textbook: **Android Apps with Kotlin** (`book-android/`, Grades 9–10, 19 chapters + reference +
+  teacher guide): Android Studio, Kotlin basics, Jetpack Compose screens, state, lists, navigation, DataStore, design and
+  accessibility, permissions and privacy, testing and sharing, Study Planner capstone; one School Library app grows
+  through chapters 9–16. Plain Kotlin examples were run (portable JDK + kotlinc) with exact outputs; the Compose code
+  was reviewed but not compiled. New "Apps for phones" group on the Textbooks page, `@android-tutor`, Kotlin
+  Playground practice box; external links in the reader open in a new tab.
 - 2026-10-13 JavaScript book on the same method as the others: the five special parts and the final project are
   now Chapters 18–23 (Computational Thinking, Debugging, Maths, Mini Projects, Creative Coding, Final Project) with
   the full §7j template; Practice is the last section in every chapter (checklists folded into Recap, homework and
@@ -105,6 +111,8 @@ _Last updated: 2026-10-13 (JavaScript book aligned with the other books)._
 
 ## 🧪 Not yet verified by a human
 
+- Android book: build the School Library and Study Planner code in the newest Android Studio (the Compose code could
+  not be compiled here), and check the install steps and menu names against the current version.
 - Web Studio Code/Preview switch and the compact lesson layout on a real phone (only headless Chrome so far).
 - Narration audio actually playing in a real browser (headless tests cannot play sound).
 - PHP console on a slow school network (12 MB first download).

@@ -62,6 +62,12 @@ A dedicated 14-chapter defensive security and privacy textbook with built-in def
 - 📚 **[Browse Cybersecurity Chapters & Curriculum Guide](book-cybersecurity/README.md)**
 - **Curriculum Highlights**: The CIA Triad, threat modeling, cryptographic hashing (SHA-256) vs encryption, password entropy math, Argon2id/bcrypt key derivation, OWASP Top 10 web vulnerabilities (SQLi, XSS, CSRF, IDOR, SSRF), HTTP security headers, anti-phishing hygiene, and the 3-2-1 backup resiliency rule (*Amānah & Iḥsān*).
 
+### 6. “Android Apps with Kotlin”
+A 19-chapter textbook (Grades 9–10) for building real Android phone apps:
+- 📱 **[Launch Interactive Android Reader](book-android/index.html)**
+- 📚 **[Browse Android Chapters & Curriculum Guide](book-android/README.md)**
+- **Curriculum Highlights**: Android Studio, Kotlin basics, Jetpack Compose screens, state, scrolling lists, navigation, saving data, design and accessibility, permissions and privacy (*Amānah*), testing and sharing, and a Study Planner final project.
+
 ---
 
 ## 🗺️ Learning Roadmap

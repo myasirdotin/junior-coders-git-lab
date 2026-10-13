@@ -10,7 +10,7 @@ this file. Change them in `GEMINI.md`.
 ## Quick facts for working here
 
 - **What it is:** a static, offline-first computer-science learning site for school students (Grades 6–10) and their
-  teachers: 11 interactive textbooks (`book-*/`), interactive modules (`Learning */`), cheatsheets, studios
+  teachers: 12 interactive textbooks (`book-*/`), interactive modules (`Learning */`), cheatsheets, studios
   (web, SQL, Python), practice arena, learning paths and a teacher hub.
 - **Repo:** `github.com/myasirdotin/junior-coders-git-lab` (branch `main`), deployed on Vercel.
   Local: `C:\xampp\htdocs\junior-coders-git-lab` → `http://localhost/junior-coders-git-lab/`.

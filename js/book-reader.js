@@ -75,7 +75,9 @@
       .map((e) => `<li class="chapter-nav-item"><a href="#${esc(e.key)}" data-file="${esc(e.file)}">${esc(e.label)}</a></li>`).join('');
     return `<div class="part-group" data-group="${esc(info.group)}"><div class="part-title">${esc(info.title)}</div><ul class="chapter-nav-list">${items}</ul></div>`;
   }).join('');
-  const links = (B.links || []).map((l) => `<a href="${esc(l.href)}" class="btn-action">${esc(l.label)}</a>`).join('');
+  // links to other sites (e.g. Kotlin Playground) open in a new tab so the reader keeps its place
+  const ext = (href) => (/^https?:/.test(href) ? ' target="_blank" rel="noopener"' : '');
+  const links = (B.links || []).map((l) => `<a href="${esc(l.href)}"${ext(l.href)} class="btn-action">${esc(l.label)}</a>`).join('');
 
   document.body.classList.add('book-theme-body');
   document.body.insertAdjacentHTML('afterbegin', `
@@ -226,7 +228,7 @@
     if (!p) return '';
     return `<aside class="chapter-practice-box"><span class="cp-icon" aria-hidden="true">${esc(p.icon)}</span>` +
       `<div><strong>Practise this chapter</strong><p>${esc(p.text)}</p></div>` +
-      `<a class="cp-btn" href="${esc(p.href)}">${esc(p.label)}</a></aside>`;
+      `<a class="cp-btn" href="${esc(p.href)}"${ext(p.href)}>${esc(p.label)}</a></aside>`;
   };
 
   // ── loading a chapter ────────────────────────────────────────────────────────────────────────────────

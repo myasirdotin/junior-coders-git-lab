@@ -4,7 +4,7 @@ const vm = require('vm');
 
 const books = [
   'book-cmd', 'book-css', 'book-cybersecurity', 'book-git', 'book-html',
-  'book-js', 'book-laravel', 'book-mysql', 'book-networks', 'book-php', 'book-python'
+  'book-js', 'book-laravel', 'book-mysql', 'book-networks', 'book-php', 'book-python', 'book-android'
 ];
 const root = path.resolve(__dirname, '..');
 
@@ -31,7 +31,7 @@ for (const b of books) {
 }
 
 if (allGood) {
-  console.log('✅ ALL scripts across all 11 book readers have 100% valid JavaScript syntax!');
+  console.log(`✅ ALL scripts across all ${books.length} book readers have 100% valid JavaScript syntax!`);
 } else {
   process.exit(1);
 }

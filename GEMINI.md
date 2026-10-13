@@ -83,12 +83,13 @@ content for their subject, then make edits yourself following this file.
 - `@python-tutor`: Python syntax, data structures, scripting, clean OOP, data handling, **and** machine-learning fundamentals and ethical AI stewardship (*Amānah*) (`Learning Python/`, `book-python/`).
 - `@network-tutor`: OSI & TCP/IP models, IP subnetting & CIDR, DNS, HTTP/3, TLS, and web diagnostics (`Learning Networks/`, `book-networks/`).
 - `@security-tutor`: Defensive cybersecurity, threat modeling, hashing & key derivation, OWASP Top 10 mitigation, security headers, and digital stewardship (*Amānah*) (`Learning Cybersecurity/`, `book-cybersecurity/`).
+- `@android-tutor`: Android apps with Kotlin and Jetpack Compose: Android Studio, screens, state, lists, navigation, saving data, permissions and privacy (*Amānah*), testing and sharing (`book-android/`).
 
 ---
 
 ## 3. Educational Priorities & Pedagogical Architecture
 
-1. **Textbooks as Single Source of Truth**: The interactive textbooks (`book-html/`, `book-css/`, `book-js/`, `book-cmd/`, `book-git/`, `book-php/`, `book-mysql/`, `book-laravel/`, `book-python/`, `book-networks/`, `book-cybersecurity/`) define the curriculum, mental models, code examples, and mastery questions. Interactive learning pages (`Learning HTML/`, `Learning CSS/`, `Learning Python/`, `Learning Networks/`, `Learning Cybersecurity/`, etc.) directly mirror textbook chapters.
+1. **Textbooks as Single Source of Truth**: The interactive textbooks (`book-html/`, `book-css/`, `book-js/`, `book-cmd/`, `book-git/`, `book-php/`, `book-mysql/`, `book-laravel/`, `book-python/`, `book-networks/`, `book-cybersecurity/`, `book-android/`) define the curriculum, mental models, code examples, and mastery questions. Interactive learning pages (`Learning HTML/`, `Learning CSS/`, `Learning Python/`, `Learning Networks/`, `Learning Cybersecurity/`, etc.) directly mirror textbook chapters.
 2. **Scaffolded Learning Flow (No Leaps, No Premature Concepts)**:
    - Concepts must be taught in strict prerequisite order. Never use a concept, syntax, or method before it has been formally introduced.
    - Always bridge the gap from *mental analogy* $\rightarrow$ *syntax breakdown* $\rightarrow$ *isolated example* $\rightarrow$ *interactive practice* $\rightarrow$ *real-world application*.
@@ -114,6 +115,7 @@ content for their subject, then make edits yourself following this file.
 - **Learning Laravel**: 8 modules covering MVC, routing, controllers, Blade, migrations, Eloquent, validation, and authentication aligned with `book-laravel/`.
 - **Learning Python & Machine Learning**: 8 core modules + 15 textbook chapters covering Python foundations, data processing, machine learning concepts, ethical AI stewardship (*Amānah*), and capstone classifiers aligned with `book-python/`.
 - **Computer Networking & Web Protocols**: 8 interactive modules + 14 textbook chapters covering OSI/TCP-IP models, IP subnetting, TCP/UDP, DNS, HTTP/3, TLS 1.3 encryption, and diagnostic tools aligned with `book-networks/`.
+- **Android Apps with Kotlin**: 19 textbook chapters (Grades 9–10) covering Android Studio, Kotlin basics, Jetpack Compose screens, state, scrolling lists, navigation, saving data with DataStore, design and accessibility, permissions and privacy (*Amānah*), testing and sharing, and a Study Planner capstone, in `book-android/`. No lesson track; plain Kotlin runs in Kotlin Playground.
 - **Cybersecurity & Digital Hygiene**: 8 interactive modules + 14 textbook chapters covering CIA Triad, cryptographic primitives, authentication & password derivation, OWASP Top 10 web defenses, security headers, anti-phishing hygiene, and 3-2-1 backup resilience aligned with `book-cybersecurity/`.
 
 ---
@@ -148,7 +150,7 @@ content for their subject, then make edits yourself following this file.
      written relative to the book page (`../assets/...`), not to the chapter file.
 4. **Maintenance & Verification Commands**:
    - Run `node scripts/bundle-books.js` whenever markdown chapters are edited or added to keep offline bundles in sync.
-   - Run `powershell .\audit.ps1` to verify chapter integrity, bundle coverage, and parser health across all 11 books.
+   - Run `powershell .\audit.ps1` to verify chapter integrity, bundle coverage, and parser health across all 12 books.
 
 ---
 
@@ -242,7 +244,7 @@ These rules come from real bugs found in this site. Follow them for every change
    node scripts/build-cheat-index.js     # after editing a cheatsheet-*.html (search index + card ids)
    node scripts/sync-vercel-redirects.js # after adding a folder with an index.html (trailing slash + short links)
    python scripts/build-favicons.py      # only if the icon design in favicon.svg changes (favicon.ico, apple-touch-icon.png)
-   powershell .udit.ps1                # all 11 books: chapters, bundles, parser
+   powershell .udit.ps1                # all 12 books: chapters, bundles, parser
    node scripts/validate-scripts.js      # JavaScript syntax in the book readers
    node scripts/render-check.mjs .render 390 844 1 <page urls...>   # phone width: scroll, JS errors, 404s, screenshots
    ```
