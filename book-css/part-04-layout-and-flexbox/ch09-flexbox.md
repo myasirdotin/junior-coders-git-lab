@@ -1,13 +1,15 @@
-# Chapter 9: Flexbox 🧘‍♂️📐
+# Chapter 9: Flexbox 📐
 
 ---
 
-## 1. 🌟 Real-Life Situation: Arranging Books on a Magical Shelf
+## 🌟 Real-Life Story
 
-Imagine you have a magical wooden bookshelf in your bedroom:
-- When you place 4 books on the shelf, you can snap your fingers and tell the shelf: *"Push all books to the right side!"* Swish—they slide to the right!
-- Snap your fingers again: *"Center all books directly in the middle of the room!"* Glide—they center perfectly!
-- Snap your fingers again: *"Spread out with equal breathing room between every single book!"* Snap—they space themselves out with mathematical perfection!
+**Arranging Books on a Smart Shelf**
+
+Imagine you have a smart wooden bookshelf with a row of buttons:
+- When you place 4 books on the shelf, you can press a button and tell the shelf: *"Push all books to the right side!"* Swish—they slide to the right!
+- Press another button: *"Center all books directly in the middle of the room!"* Glide—they center perfectly!
+- Press a third button: *"Spread out with equal breathing room between every single book!"* Click—they space themselves out with mathematical perfection!
 - Even better, if you turn the shelf sideways into a tall tower, all the books automatically stack into a neat vertical column!
 
 For over twenty years, web developers struggled to align things horizontally and center items vertically. Then, **CSS Flexbox** was invented! 
@@ -16,20 +18,17 @@ Flexbox (short for **Flexible Box Layout**) is the greatest superpower in modern
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
-- Activate Flexbox using `display: flex;` on a parent container.
-- Understand the difference between the **Flex Container** (parent) and **Flex Items** (children).
-- Switch alignment directions using `flex-direction: row` and `flex-direction: column`.
-- Distribute items horizontally along the main axis using `justify-content`.
-- Align items vertically along the cross axis using `align-items: center`.
-- Create clean, uniform spacing between elements using the modern `gap` property.
-- Build a responsive, professional Navigation Bar.
+- Turn on Flexbox with `display: flex;` on a **flex container** (the parent) to arrange its **flex items** (the children).
+- Change the direction with `flex-direction: row` or `column`.
+- Place items along the **main axis** with `justify-content` and across the **cross axis** with `align-items`.
+- Space items evenly with `gap` and build a navigation bar.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Flexbox Axes Architecture
 
@@ -38,29 +37,30 @@ By the end of this chapter, you will be able to:
 ### The Flexbox Parent-Child Relationship
 
 ```text
- ┌─────────────────────────────────────────────────────────────┐
- │ FLEX CONTAINER (Parent: display: flex;)                     │
- │                                                             │
- │   ┌──────────────┐    ┌──────────────┐    ┌──────────────┐  │
- │   │  Flex Item 1 │    │  Flex Item 2 │    │  Flex Item 3 │  │
- │   └──────────────┘    └──────────────┘    └──────────────┘  │
- └─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────┐
+│ FLEX CONTAINER (display: flex;)  │
+│                                  │
+│ ┌────────┐ ┌────────┐ ┌────────┐ │
+│ │ item 1 │ │ item 2 │ │ item 3 │ │
+│ └────────┘ └────────┘ └────────┘ │
+│ ── main axis (in a row) ──────>  │
+└──────────────────────────────────┘
 ```
 
 ### The 4 Most Popular `justify-content` Alignments
 
 ```text
- 1. justify-content: flex-start; (Default: Packed to the left)
-    [ Item 1 ][ Item 2 ][ Item 3 ]────────────────────────────
+flex-start (the default)
+[1][2][3]─────────────────
 
- 2. justify-content: center; (Centered in the middle)
-    ────────────[ Item 1 ][ Item 2 ][ Item 3 ]────────────
+center
+────────[1][2][3]────────
 
- 3. justify-content: flex-end; (Packed to the right)
-    ────────────────────────────[ Item 1 ][ Item 2 ][ Item 3 ]
+flex-end
+─────────────────[1][2][3]
 
- 4. justify-content: space-between; (Pushed to opposite ends!)
-    [ Item 1 ]────────────────[ Item 2 ]────────────────[ Item 3 ]
+space-between
+[1]──────────[2]──────────[3]
 ```
 
 ### Centering Anything Perfectly in 3 Lines of Code!
@@ -68,14 +68,16 @@ By the end of this chapter, you will be able to:
 ```css
 .parent-box {
   display: flex;
-  justify-content: center; /* Centers horizontally (Left-to-Right) */
-  align-items: center;     /* Centers vertically (Top-to-Bottom) */
+  justify-content: center; /* centres along the main axis */
+  align-items: center;     /* centres along the cross axis */
 }
 ```
 
+In the default `flex-direction: row`, the **main axis** runs left to right and the **cross axis** runs top to bottom. So here `justify-content` centres across and `align-items` centres up and down. If you change to `flex-direction: column`, the axes swap.
+
 ---
 
-## 4. 💻 Code Example: The Modern Navigation Bar
+## 💻 Code Example: The Modern Navigation Bar
 
 Type this into your editor and save it as `navbar-flex.html`:
 
@@ -164,16 +166,16 @@ Type this into your editor and save it as `navbar-flex.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Breaking Down the Magic
+## 🔍 Code Explanation: How the Navbar Works
 
 - `display: flex;` on `.navbar`: Instantly converts `.navbar` into a Flex container. The logo and the `<ul>` list automatically pop side-by-side!
 - `justify-content: space-between;`: Takes whatever spare whitespace exists in the browser window and distributes it between the logo and the link list, shoving the logo to the far left and the links to the far right!
-- `align-items: center;`: Aligns everything along the vertical cross axis so the logo and links are balanced and centered from top to bottom.
+- `align-items: center;`: Aligns everything along the cross axis (top to bottom in a row) so the logo and links are balanced and centered from top to bottom.
 - `display: flex;` and `gap: 24px;` on `.nav-links`: Flex containers can be nested inside other Flex containers! By applying `display: flex` to the `<ul>`, all the `<li>` items lay out horizontally, and `gap: 24px` puts an exact 24px space between them without needing messy margins!
 
 ---
 
-## 6. 🌍 Real-World Connection: How Top Apps Use Flexbox
+## 🌍 Real-World Connection: How Top Apps Use Flexbox
 
 Every single navigation bar on **Wikipedia**, **GitHub**, **BBC Bitesize**, and **Khan Academy** is powered by Flexbox!
 - On **BBC News** and **Al Jazeera**, the top navigation bar uses `justify-content: space-between;`:
@@ -184,20 +186,7 @@ Every single navigation bar on **Wikipedia**, **GitHub**, **BBC Bitesize**, and 
 
 ---
 
-## 7. ✍️ Try It Yourself: The Column Switch
-
-Open `navbar-flex.html` in your editor:
-1. In the `.navbar` CSS, add:
-   ```css
-   flex-direction: column;
-   gap: 16px;
-   ```
-2. Save and refresh your browser.
-3. **Look at what happened!** The navigation bar instantly transformed into a mobile-style vertical stack with the logo sitting right above the links!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this CSS:
 
@@ -217,7 +206,7 @@ Look at this CSS:
 
 ---
 
-## 9. 🕵️ Code Detective: The Childish Mistake
+## 🕵️ Code Detective: The Childish Mistake
 
 A student wanted to center three cards, so they wrote this CSS:
 
@@ -243,7 +232,7 @@ A student wanted to center three cards, so they wrote this CSS:
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: The Power of `gap`
+## 🎨 Think Like a Web Designer: The Power of `gap`
 
 In the old days of CSS, developers had to write `margin-right: 15px;` on every child item, and then write `margin-right: 0;` on the very last item to prevent overflow.
 - Modern CSS introduced the **`gap` property**:
@@ -254,16 +243,59 @@ In the old days of CSS, developers had to write `margin-right: 15px;` on every c
 
 ---
 
-## 11. 🚀 Mini Challenge: The 3-Button Social Bar
+## 🚀 Mini Challenge: The 3-Button Club Bar
 
-Build a social media button strip:
+Build a strip of club buttons:
 - Create a parent container with `display: flex;`, `justify-content: center;`, and `gap: 15px;`.
-- Add 3 buttons inside: *YouTube*, *Discord*, and *GitHub*.
-- Give each button a smooth border radius, padding, and distinct brand colors!
+- Add 3 buttons inside: *Library*, *Science Club* and *Eco Club*.
+- Give each button a smooth border radius, padding, and its own colour!
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+A common mistake is using `justify-content` to centre items up and down in a row.
+
+```css
+/* Wrong: the student wants the logo centred top to bottom */
+.header {
+  display: flex;
+  height: 80px;
+  justify-content: center;
+}
+```
+
+**What happens:** in a row, `justify-content` works along the **main axis**, which runs left to right. The logo moves to the middle of the width, but it still sits at the top.
+
+```css
+/* Fixed */
+.header {
+  display: flex;
+  height: 80px;
+  align-items: center; /* cross axis: top to bottom in a row */
+}
+```
+
+A second slip: after switching to `flex-direction: column`, students still expect `justify-content` to move items sideways. In a column the axes swap: now `align-items` moves items sideways.
+
+---
+
+## ✍️ Try It
+
+**The Column Switch**
+
+Open `navbar-flex.html` in your editor:
+1. In the `.navbar` CSS, add:
+   ```css
+   flex-direction: column;
+   gap: 16px;
+   ```
+2. Save and refresh your browser.
+3. **Look at what happened!** The navigation bar instantly transformed into a mobile-style vertical stack with the logo sitting right above the links!
+
+---
+
+## 📝 Recap
 
 - Flexbox is enabled by setting `display: flex;` on a parent container.
 - The parent is the **Flex Container**; direct children are **Flex Items**.
@@ -275,7 +307,7 @@ Build a social media button strip:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -288,16 +320,92 @@ Build a social media button strip:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. What CSS property activates Flexbox on a container?
-2. Which `justify-content` value pushes items to the far left and far right with space in between?
-3. What property sets the spacing between flex items without using margins?
+### 🟢 Level 1: Recall
+1. Which CSS property and value turn on Flexbox?
+2. Which `justify-content` value pushes the first and last items to the two ends, with space between?
+3. Which property sets the space between flex items without margins?
 
-### 🟡 Medium (Application)
-4. Write the 3 lines of CSS required to center an item horizontally and vertically inside a parent container.
-5. What happens when you apply `flex-direction: column;` to a flex container?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Research `flex-wrap: wrap;`. What happens when you have 10 cards inside a flex container and the browser window is resized to be very small? Write a test to demonstrate how `flex-wrap: wrap` prevents items from getting crushed!
+1. `display: flex;` on the parent container.
+2. `space-between`.
+3. `gap` (for example `gap: 16px;`).
+
+</details>
+
+### 🟡 Level 2: Apply
+4. Write the three lines of CSS that centre an item in both directions inside its parent.
+5. What happens when you add `flex-direction: column;` to a flex container?
+
+<details>
+<summary>Show answer</summary>
+
+4.
+```css
+.parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+```
+
+The parent also needs a height (for example `min-height: 300px;`), or there is no extra space to centre in.
+
+5. The items stack **top to bottom** instead of side by side. The main axis now runs downwards, so `justify-content` works up and down and `align-items` works side to side.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Stop cards from being squashed.
+1. Make a flex container with 10 cards, each `width: 150px;`.
+2. Make the window narrow and watch the cards get thinner.
+3. Add `flex-wrap: wrap;` to the container and try again.
+4. Describe the difference.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex Wrap Test</title>
+    <style>
+      .shelf {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .card {
+        width: 150px;
+        padding: 16px;
+        background-color: #dbeafe;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shelf">
+      <div class="card">Book 1</div>
+      <div class="card">Book 2</div>
+      <div class="card">Book 3</div>
+      <div class="card">Book 4</div>
+      <div class="card">Book 5</div>
+      <div class="card">Book 6</div>
+      <div class="card">Book 7</div>
+      <div class="card">Book 8</div>
+      <div class="card">Book 9</div>
+      <div class="card">Book 10</div>
+    </div>
+  </body>
+</html>
+```
+
+Without `flex-wrap`, all 10 cards stay on one line: they shrink below 150px, and the words get squashed. With `flex-wrap: wrap;`, cards that do not fit move down to a new line, so every card keeps its 150px width.
+
+</details>

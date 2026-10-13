@@ -1,13 +1,15 @@
-# Chapter 16: Hover Effects 🖱️✨
+# Chapter 16: Hover Effects 🖱️
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Firefly Garden
+## 🌟 Real-Life Story
+
+**The Firefly Garden**
 
 Imagine walking through an enchanted garden at dusk:
 - As your hand gently brushes against tall green grass blades, a sleeping firefly glows with soft amber light.
 - As your foot steps near a smooth river stone, ripples of iridescent water swirl around your boot.
-- Every physical touch produces an immediate, magical reaction that confirms you are interacting with a living world!
+- Every touch produces an immediate reaction that tells you the garden noticed you.
 
 If you pushed a light switch in your bedroom and nothing clicked, made a sound, or moved for 10 seconds, you would wonder: *"Is the switch broken?"*
 
@@ -16,47 +18,53 @@ When a user moves their mouse over a link, card, photo, or button, a subtle chan
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
-- Master the `:hover` pseudo-class syntax on various elements.
-- Change text and background colors dynamically on hover.
-- Scale and grow elements using `transform: scale()`.
-- Add interactive elevation with changing `box-shadow` depths.
-- Keep hover effects tasteful, accessible, and comfortable for the eyes.
-- Build an interactive "Feature Cards Trio" with distinct hover behaviors.
+- Write `:hover` rules for links, buttons and cards.
+- Change text and background colours when the mouse is over an element.
+- Grow and lift elements with `transform: scale()` and `translateY()`.
+- Add depth with a bigger `box-shadow` on hover.
+- Keep hover effects gentle, readable and useful on touch screens too.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Hover State Timeline
 
 ```text
- 1. DEFAULT STATE (Mouse is elsewhere on the page)
-    ┌─────────────────────────────┐
-    │  [ Flat Gray Button ]       │  <-- Calm, waiting
-    └─────────────────────────────┘
+1. NORMAL STATE (mouse elsewhere)
+   ┌──────────────────────┐
+   │  [ flat grey box ]   │  calm
+   └──────────────────────┘
 
- 2. HOVER STATE (User glides mouse pointer over the box!)
-    ┌─────────────────────────────┐
-    │  [ GLOWING BLUE BUTTON! ]   │  <-- Color lights up!
-    └─────────────────────────────┘      Shadow appears!
-                                         Grows 5% larger!
+2. HOVER STATE (mouse over the box)
+   ┌──────────────────────┐
+   │  [ BRIGHT BLUE BOX ] │  colour
+   └──────────────────────┘  changes,
+                             shadow
+                             appears,
+                             grows 5%
 ```
 
 ### Four Classic Types of Hover Reactions
 
 ```text
- 1. COLOR SHIFT:       background-color: blue -> darkblue;
- 2. SCALE / GROW:      transform: scale(1.05); (Expands gently by 5%)
- 3. ELEVATE / FLOAT:   transform: translateY(-4px); (Floats up)
- 4. GLOW / SHADOW:     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+1. COLOUR SHIFT
+   background-color: blue -> darkblue;
+2. GROW
+   transform: scale(1.05);   (5% bigger)
+3. LIFT
+   transform: translateY(-4px); (up 4px)
+4. SHADOW
+   box-shadow: 0 10px 20px
+               rgba(0,0,0,0.15);
 ```
 
 ---
 
-## 4. 💻 Code Example: The Interactive Feature Showcase
+## 💻 Code Example: The Interactive Feature Showcase
 
 Type this into your editor and save it as `hover-lab.html`:
 
@@ -146,7 +154,7 @@ Type this into your editor and save it as `hover-lab.html`:
     </style>
   </head>
   <body>
-    <h1>Touch the Magic: CSS Hover States</h1>
+    <h1>Point and See: CSS Hover States</h1>
 
     <div class="cards-container">
       <!-- Card 1: Grow & Float -->
@@ -176,7 +184,7 @@ Type this into your editor and save it as `hover-lab.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Behind the Scenes
+## 🔍 Code Explanation: Behind the Scenes
 
 - `.hover-card { transition: all 0.3s ease; }`: The secret hero of hover effects! Without this line, changes would snap instantly like a harsh lightning flash. With `0.3s ease`, the colors and shadows blend like butter!
 - `.card-grow:hover`:
@@ -187,32 +195,16 @@ Type this into your editor and save it as `hover-lab.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: YouTube Video Thumbnails
+## 🌍 Real-World Connection: Online Library Catalogues
 
-Next time you open **YouTube**:
-- Hover your mouse over any video thumbnail on the home page.
-- Notice how the thumbnail slightly enlarges, a subtle black border appears, and a preview starts playing!
-- Hover states keep the web dynamic, responsive, and alive under your fingers.
-
----
-
-## 7. ✍️ Try It Yourself: The Growing Photo
-
-Add this CSS to any image on your page:
-```css
-img.zoom-pic {
-  transition: transform 0.4s ease;
-  border-radius: 12px;
-}
-img.zoom-pic:hover {
-  transform: scale(1.1); /* Expands by 10% */
-}
-```
-Open it in your browser and hover over the picture! Notice how it smoothly zooms outward toward you!
+Next time you search an online library catalogue on a computer:
+- Move your mouse over a book cover in the search results.
+- Often the cover lifts slightly, a shadow appears, or the title changes colour.
+- These hover states tell you "this can be clicked" before you click it.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this CSS selector:
 
@@ -232,7 +224,7 @@ Changing <code>font-size</code> on hover alters the physical dimensions of the t
 
 ---
 
-## 9. 🕵️ Code Detective: The Missing Colon
+## 🕵️ Code Detective: The Missing Colon
 
 A student wrote this CSS to make a link turn orange, but nothing happened on hover:
 
@@ -255,7 +247,7 @@ a hover {
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Subtlety is Elegance
+## 🎨 Think Like a Web Designer: Subtlety is Elegance
 
 When beginners discover hover effects, they often make elements spin 360 degrees, flash fluorescent rainbow colors, and scale up by 300%.
 - It makes the website feel chaotic and nauseating!
@@ -263,10 +255,10 @@ When beginners discover hover effects, they often make elements spin 360 degrees
 
 ---
 
-## 11. 🚀 Mini Challenge: The Interactive Menu List
+## 🚀 Mini Challenge: The Interactive Menu List
 
-Build an interactive restaurant menu list:
-- A clean list of 4 dishes: *Wood-fired Margherita Pizza*, *Crispy Calamari*, *Truffle Pasta*, *Gelato Trio*.
+Build an interactive school lunch menu list:
+- A clean list of 4 dishes: *Margherita Pizza*, *Lentil Soup*, *Vegetable Pasta*, *Fruit Salad*.
 - Each item has a light background with subtle padding.
 - When hovered:
   - The background shifts to soft amber gold (`#fef3c7`).
@@ -275,7 +267,56 @@ Build an interactive restaurant menu list:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+A common mistake is putting important information **only** in a hover effect.
+
+```css
+/* Wrong: the price appears only on hover */
+.book-card .price {
+  display: none;
+}
+.book-card:hover .price {
+  display: block;
+}
+```
+
+**What happens:** phones and tablets have no mouse, so there is no real hover. Touch users may never see the price at all.
+
+```css
+/* Fixed: always show it, and use hover only as a bonus */
+.book-card .price {
+  display: block;
+  color: #475569;
+}
+.book-card:hover .price {
+  color: #1d4ed8;
+}
+```
+
+A second slip is a hover colour with poor contrast, such as light yellow text on white. Check that the hover colours are as readable as the normal ones.
+
+---
+
+## ✍️ Try It
+
+**The Growing Photo**
+
+Add this CSS to any image on your page:
+```css
+img.zoom-pic {
+  transition: transform 0.4s ease;
+  border-radius: 12px;
+}
+img.zoom-pic:hover {
+  transform: scale(1.1); /* Expands by 10% */
+}
+```
+Open it in your browser and hover over the picture! Notice how it smoothly zooms outward toward you!
+
+---
+
+## 📝 Recap
 
 - The `:hover` pseudo-class applies styles when the pointer device hovers over an element.
 - Hover states provide critical feedback that confirms an element is clickable.
@@ -285,7 +326,7 @@ Build an interactive restaurant menu list:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -297,16 +338,92 @@ Build an interactive restaurant menu list:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. What punctuation mark connects a selector to its pseudo-class (e.g. `a` and `hover`)?
+### 🟢 Level 1: Recall
+1. Which punctuation mark joins a selector to its pseudo-class (for example `a` and `hover`)?
 2. What does `transform: scale(1.05);` do to an element?
-3. Why does changing `font-size` on hover cause layout jitter?
+3. Why does changing `font-size` on hover make the page jump?
 
-### 🟡 Medium (Application)
-4. Write a CSS rule that turns a button's background from dark green (`#059669`) to darker forest green (`#047857`) and rotates an icon inside it by 20 degrees on hover.
-5. Explain how `box-shadow` depth enhances the illusion of a card floating toward the screen.
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Smartphone touchscreens do not have a continuous mouse hover state. Research the `@media (hover: hover)` media query feature that lets you apply hover effects ONLY to computers with physical mouse cursors!
+1. A colon, with no spaces: `a:hover`.
+2. It makes the element 5% bigger (1.05 times its size), without moving the elements around it.
+3. Bigger text makes the box bigger, so everything after it is pushed down or sideways. `transform: scale()` grows the element visually without changing the layout, so nothing jumps.
+
+</details>
+
+### 🟡 Level 2: Apply
+4. Write CSS that changes a `.save-btn` button from green (`#059669`) to darker green (`#047857`) on hover, and turns the `.icon` inside it by 20 degrees.
+5. How does a bigger `box-shadow` make a card look like it is rising towards you?
+
+<details>
+<summary>Show answer</summary>
+
+4.
+```css
+.save-btn {
+  background-color: #059669;
+}
+.save-btn:hover {
+  background-color: #047857;
+}
+.save-btn .icon {
+  display: inline-block; /* transform needs a box */
+}
+.save-btn:hover .icon {
+  transform: rotate(20deg);
+}
+```
+
+`rotate(20deg)` turns an element by 20 degrees.
+
+5. In real life, an object further from a table casts a larger, softer shadow. A bigger, more blurred shadow on hover copies this, so our eyes read the card as lifting up.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Show hover effects only where a mouse exists.
+1. Look up the media feature `@media (hover: hover)`.
+2. Make a `.card` with a light background.
+3. Inside `@media (hover: hover)`, make the card lift 4px and get a shadow on hover.
+4. Test it on a computer and in device mode (or on a phone).
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover Only With a Mouse</title>
+    <style>
+      .card {
+        max-width: 280px;
+        padding: 20px;
+        background-color: #f1f5f9;
+        border-radius: 12px;
+      }
+      @media (hover: hover) {
+        .card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h3>Planetarium Visit</h3>
+      <p>Friday, 10 am. Meet at the school gate.</p>
+    </div>
+  </body>
+</html>
+```
+
+`(hover: hover)` is true only when the main pointer can hover, such as a mouse. On a computer the card lifts; on most phones the rule is skipped, so a tap does not leave the card stuck in its hover look.
+
+</details>

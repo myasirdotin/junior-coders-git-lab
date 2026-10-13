@@ -1,8 +1,10 @@
-# Chapter 2: Adding CSS 🔌🎨
+# Chapter 2: Adding CSS 🔌
 
 ---
 
-## 1. 🌟 Real-Life Situation: Three Ways to Add Seasoning to Food
+## 🌟 Real-Life Story
+
+**Three Ways to Add Seasoning to Food**
 
 Imagine you are preparing a delicious meal and you want to add flavour:
 1. **Method 1: Sprinkling a pinch of salt directly onto one bite before eating it.** It works for that one mouthful instantly, but you have to season every single bite individually — exhausting and inconsistent!
@@ -16,46 +18,44 @@ Imagine you are preparing a delicious meal and you want to add flavour:
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
-- Identify and compare the three ways to add CSS: **Inline**, **Internal**, and **External**.
-- Write inline styles using the `style="..."` attribute.
-- Write internal styles using the `<style>` tag inside `<head>`.
-- Create a standalone `.css` file and link it using `<link rel="stylesheet">`.
-- Understand why professional developers almost always choose **External CSS**.
+- Compare the three ways to add CSS: **inline**, **internal** and **external**.
+- Write inline styles with the `style="..."` attribute and internal styles in a `<style>` tag.
+- Create a separate `.css` file and connect it with `<link rel="stylesheet">`.
+- Explain why professional developers usually choose **external CSS**.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Three Methods Compared
 
 ```text
- 1. INLINE CSS (Inside the HTML Tag itself)
-    <h1 style="color: blue;">Hello</h1>
-    Pros: Fast for a 2-second test.
-    Cons: Clutters HTML; impossible to maintain on large sites!
+1. INLINE (inside the tag)
+   <h1 style="color: blue;">Hi</h1>
+   + quick for a small test
+   - messy; hard to change later
 
- 2. INTERNAL CSS (Inside the <style> tag in <head>)
-    <head>
-      <style>
-        h1 { color: blue; }
-      </style>
-    </head>
-    Pros: Keeps styles in one place for a single-page document.
-    Cons: Must copy-paste code if you build a 5-page site!
+2. INTERNAL (<style> in <head>)
+   <style>
+     h1 { color: blue; }
+   </style>
+   + one place for one page
+   - copy it again for every page
 
- 3. EXTERNAL CSS (A separate .css file linked to all pages)
-    index.html ──┐
-    about.html ──┼───> <link rel="stylesheet" href="style.css"> ───> style.css
-    contact.html ┘
-    Pros: Change ONE line in style.css, and ALL 100 pages update instantly! (THE GOLD STANDARD)
+3. EXTERNAL (a separate .css file)
+   index.html   ─┐
+   about.html   ─┼─> style.css
+   contact.html ─┘
+   + change one file, every page
+     updates (best choice)
 ```
 
 ---
 
-## 4. 💻 Code Example: Linking HTML and External CSS
+## 💻 Code Example: Linking HTML and External CSS
 
 ### File 1: `index.html`
 ```html
@@ -114,7 +114,7 @@ p {
 
 ---
 
-## 5. 🔍 Code Explanation: The Magic of the `<link>` Tag
+## 🔍 Code Explanation: How the `<link>` Tag Works
 
 Look at line 8 of `index.html`:
 ```html
@@ -127,27 +127,17 @@ Look at line 8 of `index.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: How Big Sites Redesign Overnight
+## 🌍 Real-World Connection: How Big Sites Redesign Overnight
 
-Imagine you are the chief web designer for **YouTube** or **Wikipedia**:
-- YouTube has over **5 billion** individual video pages!
-- If YouTube used inline CSS or internal CSS, how could they change their header to dark mode? A programmer would have to edit 5 billion files by hand! That would take 10,000 years!
-- But because YouTube uses **External CSS**, they simply change `background: #0f0f0f;` inside their main `style.css` file. 
-- **In less than one second, all 5 billion pages transform across the entire planet!**
-
----
-
-## 7. ✍️ Try It Yourself: Create the Connection
-
-1. Create a folder called `css-project`.
-2. Inside it, create `index.html` and copy the code from File 1.
-3. Inside the same folder, create `style.css` and copy the code from File 2.
-4. Double-click `index.html` to open it in your browser.
-5. **Magic!** You will see your dark space theme with cyan headings and a hot pink pill button!
+Imagine you are a web designer for **Wikipedia**, the free online encyclopedia:
+- Wikipedia has **millions** of article pages.
+- If every page had its own inline or internal CSS, changing the heading colour would mean editing millions of pages by hand. That could take years!
+- Because the pages share **External CSS** files, the team changes one rule in one stylesheet.
+- The next time readers open any article, they all see the new look.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 What will happen if you apply two different colors using different methods:
 
@@ -168,7 +158,7 @@ h1 { color: blue; }
 
 ---
 
-## 9. 🕵️ Code Detective: The Mismatched Link
+## 🕵️ Code Detective: The Mismatched Link
 
 A student created their HTML and CSS files, but the web page remained plain black and white with no styles applied:
 
@@ -186,7 +176,7 @@ Filename in folder: style.css
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Clean Project Folders
+## 🎨 Think Like a Web Designer: Clean Project Folders
 
 As your websites grow, having 20 HTML files, 5 CSS files, and 30 photos in one messy folder gets overwhelming.
 Professional web designers use clean folder organization:
@@ -196,9 +186,13 @@ my-website/
   ├── index.html
   ├── about.html
   ├── css/
-  │    └── style.css      <-- <link rel="stylesheet" href="css/style.css">
+  │    └── style.css
   └── images/
        └── logo.png
+
+In index.html:
+<link rel="stylesheet"
+      href="css/style.css">
 ```
 
 > 💡 **Think Before You Code**:
@@ -206,7 +200,7 @@ my-website/
 
 ---
 
-## 11. 🚀 Mini Challenge: The Multi-Page Style Test
+## 🚀 Mini Challenge: The Multi-Page Style Test
 
 Create a mini 2-page website:
 - `page1.html`: "Page 1 - Home"
@@ -217,7 +211,43 @@ Create a mini 2-page website:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+A common mistake is putting a `<style>` tag inside a `.css` file.
+
+```css
+/* Wrong: inside style.css */
+<style>
+  h1 { color: teal; }
+</style>
+```
+
+**What happens:** a `.css` file may only contain CSS. The browser reads `<style>` as broken CSS, so the first rule is thrown away. Your heading does not turn teal.
+
+```css
+/* Fixed: inside style.css */
+h1 {
+  color: teal;
+}
+```
+
+A second slip is writing `<link>` in the `<body>` or forgetting `rel="stylesheet"`. Put the `<link>` inside `<head>` and always include `rel="stylesheet"`.
+
+---
+
+## ✍️ Try It
+
+**Create the Connection**
+
+1. Create a folder called `css-project`.
+2. Inside it, create `index.html` and copy the code from File 1.
+3. Inside the same folder, create `style.css` and copy the code from File 2.
+4. Double-click `index.html` to open it in your browser.
+5. **It works!** You will see your dark space theme with cyan headings and a hot pink pill button!
+
+---
+
+## 📝 Recap
 
 - There are three ways to add CSS: **Inline**, **Internal**, and **External**.
 - Inline CSS uses the `style="..."` attribute inside individual HTML tags.
@@ -227,7 +257,7 @@ Create a mini 2-page website:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -239,16 +269,69 @@ Create a mini 2-page website:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. Where inside an HTML document should the `<link>` tag be placed?
-2. Which attribute in a `<link>` tag specifies that the file is a stylesheet?
-3. True or False: You should put `<style>` tags inside a `.css` file.
+### 🟢 Level 1: Recall
+1. Where in an HTML document should the `<link>` tag go?
+2. Which attribute in a `<link>` tag says that the file is a stylesheet?
+3. True or false: you should put `<style>` tags inside a `.css` file.
 
-### 🟡 Medium (Application)
-4. List two reasons why professional web developers prefer External CSS over Inline CSS.
-5. Write the exact `<link>` code to connect an HTML file to a stylesheet named `theme.css` located inside a subfolder named `assets`.
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Write an HTML file with an internal stylesheet that styles paragraphs with blue text. Then, on one specific paragraph, add an inline style making it red. Open the page in your browser and explain why that specific paragraph turned red while all others remained blue!
+1. Inside the `<head>` section.
+2. `rel="stylesheet"`.
+3. **False.** A `.css` file contains only CSS rules. `<style>` tags belong inside an HTML file.
+
+</details>
+
+### 🟡 Level 2: Apply
+4. Give two reasons why developers prefer external CSS over inline CSS.
+5. Write the `<link>` tag that connects an HTML file to `theme.css` inside a subfolder named `assets`.
+
+<details>
+<summary>Show answer</summary>
+
+4. Any two of these: one file styles every page; changing one rule updates the whole site; the HTML stays clean and easy to read; the browser can save (cache) the CSS file and load pages faster.
+
+5.
+```html
+<link rel="stylesheet" href="assets/theme.css">
+```
+
+</details>
+
+### 🔴 Level 3: Challenge
+Find out which style wins.
+1. Make an HTML file with an internal stylesheet that makes every `<p>` blue.
+2. Add three paragraphs.
+3. Give the second paragraph an inline style that makes it red.
+4. Open the page and explain why only that paragraph is red.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Which Style Wins?</title>
+    <style>
+      p {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <p>The library opens at 8 am.</p>
+    <p style="color: red;">The library is closed on Friday.</p>
+    <p>New books arrive every Monday.</p>
+  </body>
+</html>
+```
+
+The first and third paragraphs are blue. The second is red. An inline style is written on the element itself, so it is the most specific and wins over the internal rule.
+
+</details>

@@ -1,8 +1,10 @@
-# Chapter 7: Borders and Rounded Corners 🔲🔘
+# Chapter 7: Borders and Rounded Corners 🔲
 
 ---
 
-## 1. 🌟 Real-Life Situation: Sharp Bricks vs. Smooth River Stones
+## 🌟 Real-Life Story
+
+**Sharp Bricks vs. Smooth River Stones**
 
 Imagine walking along a riverbank:
 - You pick up a freshly chipped construction brick. The corners are sharp, 90-degree right angles. If you brush against it, it feels rigid and industrial.
@@ -14,47 +16,54 @@ In modern website design, sharp harsh corners often look dated and aggressive, w
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
-- Control border thickness (`border-width`), style (`border-style`), and color (`border-color`).
-- Use the powerful 3-in-1 `border` shorthand declaration.
-- Explore different border styles: `solid`, `dashed`, `dotted`, `double`.
-- Soften corners using the `border-radius` property in pixels and percentages.
-- Turn square avatars into perfect circles using `border-radius: 50%`.
-- Build buttons, pill badges, and rounded card components.
+- Set a border's width, style and colour, alone or with the 3-in-1 `border` shorthand.
+- Choose between `solid`, `dashed`, `dotted` and `double` borders.
+- Round corners with `border-radius` in pixels and percentages.
+- Turn a square picture into a circle with `border-radius: 50%`.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Anatomy of the `border` Shorthand
 
 Instead of writing 3 separate lines of CSS, you can write them all in one line:
 
 ```text
-               Width       Style        Color
-                 │           │            │
-                 ▼           ▼            ▼
-   border:      2px        solid       #3b82f6;
+        width  style   colour
+          │      │       │
+          ▼      ▼       ▼
+border:  2px   solid  #3b82f6;
 ```
 
-### The Magic of `border-radius`
+### How `border-radius` Rounds Corners
 
 ```text
- 1. border-radius: 0px;             2. border-radius: 12px;        3. border-radius: 50%;
-    (Default Sharp Box)                (Modern Curved Card)           (Perfect Circle!)
+border-radius: 0;     sharp corners
+┌──────────────┐
+│              │
+└──────────────┘
 
-    ┌─────────────────────┐            ╭─────────────────────╮             .─────.
-    │                     │            │                     │           (         )
-    │                     │   ─────>   │                     │   ─────> (  Avatar   )
-    │                     │            │                     │           (         )
-    └─────────────────────┘            ╰─────────────────────╯             `─────'
+border-radius: 12px;  soft corners
+╭──────────────╮
+│              │
+╰──────────────╯
+
+border-radius: 50%;   a circle
+(on a square box)
+     .─────.
+   (         )
+  (  avatar   )
+   (         )
+     `─────'
 ```
 
 ---
 
-## 4. 💻 Code Example: The Modern UI Component Lab
+## 💻 Code Example: The Modern UI Component Lab
 
 Type this code into your editor and save it as `borders.html`:
 
@@ -147,7 +156,7 @@ Type this code into your editor and save it as `borders.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Mastering the Curves
+## 🔍 Code Explanation: Mastering the Curves
 
 - `border: 1px solid #e2e8f0;`: Specifies width (`1px`), style (`solid`), and color (`#e2e8f0`) in one elegant line.
 - `border: 2px dashed #f59e0b;`: Replaces the continuous line with dashed stitches, making it look like a physical paper coupon you can cut out with scissors!
@@ -157,32 +166,16 @@ Type this code into your editor and save it as `borders.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: Apple's "Squircle" Design
+## 🌍 Real-World Connection: Apple's "Squircle" Design
 
 Have you ever noticed the app icons on an iPad or iPhone?
 - They aren't sharp squares, and they aren't simple circles either.
 - Apple uses carefully rounded corners (called "squircles" or continuous corners) across every button, notification bubble, and hardware device.
-- Rounded corners are naturally easier for the human brain to process because our eyes don't get jarred by sharp point transitions!
+- Many designers feel that rounded corners look softer and friendlier than sharp ones.
 
 ---
 
-## 7. ✍️ Try It Yourself: The Leaf Card
-
-Did you know you can round each corner individually?
-In CSS, you can write:
-```css
-border-radius: 30px 0px 30px 0px;
-```
-Try adding this to a box in your editor:
-- Top-left gets `30px` curve.
-- Top-right stays sharp (`0px`).
-- Bottom-right gets `30px` curve.
-- Bottom-left stays sharp (`0px`).
-- **Result**: The box looks like an organic plant leaf! 🍃
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 What will happen if you apply `border-radius: 50%` to an image that is **300px wide and only 100px tall** (a long rectangle)?
 - **Option A**: It will become a perfect circle.
@@ -196,7 +189,7 @@ What will happen if you apply `border-radius: 50%` to an image that is **300px w
 
 ---
 
-## 9. 🕵️ Code Detective: The Invisible Border
+## 🕵️ Code Detective: The Invisible Border
 
 A student wrote this CSS to frame a photo, but nothing appeared around the picture:
 
@@ -220,7 +213,7 @@ img {
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Border Consistency
+## 🎨 Think Like a Web Designer: Border Consistency
 
 Look across professional websites like Stripe or GitHub:
 - Notice that they don't mix `0px` sharp corners on one card, `30px` round corners on another, and `8px` on a third.
@@ -231,7 +224,7 @@ Look across professional websites like Stripe or GitHub:
 
 ---
 
-## 11. 🚀 Mini Challenge: The VIP Member Badge
+## 🚀 Mini Challenge: The VIP Member Badge
 
 Create a web page named `vip-badge.html`:
 - Build a rectangular VIP Pass card (`width: 300px;`).
@@ -243,7 +236,54 @@ Create a web page named `vip-badge.html`:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+A common mistake is using `border-radius: 50%` on a picture that is not square.
+
+```css
+/* Wrong: the photo is 200px wide and 120px tall */
+.avatar {
+  width: 200px;
+  height: 120px;
+  border-radius: 50%;
+}
+```
+
+**What happens:** 50% of the width and 50% of the height are different, so the photo becomes an **oval**, not a circle.
+
+```css
+/* Fixed: make it square first */
+.avatar {
+  width: 120px;
+  height: 120px;
+  object-fit: cover; /* crops the photo instead of squashing it */
+  border-radius: 50%;
+}
+```
+
+A second slip is writing the shorthand values with commas: `border: 2px, solid, red;`. The shorthand uses **spaces**, not commas: `border: 2px solid red;`.
+
+---
+
+## ✍️ Try It
+
+**The Leaf Card**
+
+Did you know you can round each corner individually?
+In CSS, you can write:
+```css
+border-radius: 30px 0px 30px 0px;
+```
+Try adding this to a box in your editor:
+- Top-left gets `30px` curve.
+- Top-right stays sharp (`0px`).
+- Bottom-right gets `30px` curve.
+- Bottom-left stays sharp (`0px`).
+- **Result**: The box looks like an organic plant leaf! 🍃
+
+---
+
+## 📝 Recap
 
 - The `border` shorthand combines width, style, and color in one line: `border: 2px solid #3b82f6;`.
 - Common border styles include `solid`, `dashed`, `dotted`, and `none`.
@@ -254,7 +294,7 @@ Create a web page named `vip-badge.html`:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -266,16 +306,80 @@ Create a web page named `vip-badge.html`:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. What three values does the `border` shorthand require?
-2. What border-radius percentage turns a 100px × 100px square into a circle?
-3. Which border style produces a dotted pattern?
+### 🟢 Level 1: Recall
+1. What three values does the `border` shorthand take?
+2. What `border-radius` percentage turns a 100px × 100px square into a circle?
+3. Which border style makes a line of dots?
 
-### 🟡 Medium (Application)
-4. Write the CSS rule to create a pill button with a red background, no border, white text, and rounded ends.
-5. Why does an image that is 200px wide and 100px tall turn into an oval instead of a circle when `border-radius: 50%` is applied?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Research the `border-top`, `border-bottom`, `border-left`, and `border-right` properties. Write a CSS class for a "Quote Callout Box" that has NO border on the top, right, or bottom, but has a thick `6px solid #2563eb` accent bar on the left side only!
+1. Width, style and colour, for example `border: 2px solid #3b82f6;`. The style is the one you must not leave out.
+2. `50%`.
+3. `dotted`.
+
+</details>
+
+### 🟡 Level 2: Apply
+4. Write CSS for a `.pill` button with a red background, no border, white text and fully rounded ends.
+5. Why does a picture 200px wide and 100px tall become an oval, not a circle, with `border-radius: 50%`?
+
+<details>
+<summary>Show answer</summary>
+
+4.
+```css
+.pill {
+  background-color: #dc2626;
+  border: none;
+  color: #ffffff;
+  padding: 10px 24px;
+  border-radius: 999px;
+}
+```
+
+A very large radius such as `999px` gives round ends on any width.
+
+5. The percentage is measured from each side: 50% of 200px is 100px across, but 50% of 100px is only 50px down. The corners are curved differently, which makes an oval. A circle needs a square box.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Make a quote callout box.
+1. Look up the properties `border-top`, `border-right`, `border-bottom` and `border-left`.
+2. Make a class `.callout` with a border **only on the left**: `6px solid #2563eb`.
+3. Give it a light background, some padding and slightly rounded corners on the right side.
+4. Put a short quote inside it.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quote Callout</title>
+    <style>
+      .callout {
+        border-left: 6px solid #2563eb;
+        background-color: #eff6ff;
+        padding: 16px 20px;
+        border-radius: 0 8px 8px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="callout">
+      "The best way to learn is to teach someone else."
+    </p>
+  </body>
+</html>
+```
+
+You see a pale blue box with a thick blue bar on the left side only. `border-radius: 0 8px 8px 0;` follows the corners clockwise from the top-left, so only the two right corners are rounded.
+
+</details>

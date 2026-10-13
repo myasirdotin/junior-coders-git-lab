@@ -1,267 +1,451 @@
-# Chapter 22: Final Project Planning & Showcase 🎓🏆
+# Chapter 22: CSS Capstone: Style Your Own Website 🎓
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Architect's Master Plan
+## 🌟 Real-Life Story
 
-Think about how a new school building is made:
-- An architect doesn't just hire a digger on Monday morning and shout: *"Start building!"* without any idea of what the school needs!
-- First, the architect talks to teachers and students to learn which rooms they need.
-- Then the architect draws a floor plan, so the builders know where every classroom, lab and library will go.
-- The designers pick wall colors and furniture that make the rooms bright and calm.
-- The engineers check the plan for safety, light and fresh air.
-- **Only after careful planning and checking does building begin!**
+**Furnishing the New Library**
 
-**Building a real website is exactly like planning a new school building!**
-If you sit at your keyboard and start typing random tags without a plan, you get stuck, confused, and overwhelmed. When you follow the **Professional 9-Step Web Development Workflow**, building even the largest website becomes clear, exciting, fun, and deeply rewarding!
+Imagine your school has just finished building a new library. The walls, doors and shelves are all in place. That is like your **HTML capstone**: the structure is done.
+
+But the library is still grey and bare. Now the design team chooses calm wall colours, clear signs and comfortable reading corners. They make sure the signs are big enough to read from the door, and that the aisles are wide enough for a wheelchair.
+
+That is your job in this chapter. You will take the website you built in the HTML book's capstone (Chapter 17) and **style and lay it out with CSS**, step by step, until it looks good and works for everyone on every screen.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
-By the end of this capstone chapter, you will be able to:
-- Master the **9-Step Web Project Blueprint**: Idea, Audience, Pages, Content, Colors, Fonts, Layout, Testing, and Improvements.
-- Choose a capstone project theme tailored to your creative passions.
-- Sketch paper wireframes and architectural content roadmaps.
-- Perform a thorough multi-device Quality Assurance (QA) inspection.
-- Celebrate your graduation as an official Class 7 Web Creator!
+By the end of this chapter, you will be able to:
+- Plan a colour palette and check that its text colours have enough contrast.
+- Choose and style fonts for headings and body text.
+- Lay out your pages with Flexbox and Grid, starting with the phone layout.
+- Add media queries so the site adapts to tablets and computers.
+- Check your finished site against a CSS rubric before you share it.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 🗺️ The CSS Capstone Workflow
 
-### The 9-Step Professional Web Development Workflow
+Work in this order. Each step builds on the one before.
 
 ```text
- 1. THE BIG IDEA       │ "What problem does this site solve? What is its mission?"
-          │
-          ▼
- 2. TARGET AUDIENCE    │ "Who is visiting? (Kids, parents, teachers, book lovers?)"
-          │
-          ▼
- 3. PAGE SITEMAP       │ Plan the pages: Home, About, Gallery, Contact.
-          │
-          ▼
- 4. CONTENT WRITING    │ Write headlines, paragraphs, and collect royalty-free photos.
-          │
-          ▼
- 5. COLOR PALETTE      │ Select 60-30-10 colors: Canvas, Text, and Accent Pop!
-          │
-          ▼
- 6. TYPOGRAPHY         │ Choose clean Serif or Sans-Serif font pairings.
-          │
-          ▼
- 7. CODE LAYOUT        │ Write semantic HTML5 first, then style with modern CSS!
-          │
-          ▼
- 8. DEVICE TESTING     │ Test on Desktop, Laptop, Tablet, and Mobile screens.
-          │
-          ▼
- 9. SHIP & CELEBRATE!  │ Publish your creation and share it with family and friends! 🎉
+1. COLLECT   your HTML capstone files
+      │
+      ▼
+2. PALETTE   3 to 5 colours + contrast
+      │
+      ▼
+3. FONTS     headings, body text, sizes
+      │
+      ▼
+4. BOX MODEL spacing, borders, cards
+      │
+      ▼
+5. LAYOUT    Flexbox (rows) + Grid
+             (cards), phone first
+      │
+      ▼
+6. RESPONSIVE media queries for wider
+             screens
+      │
+      ▼
+7. POLISH    hover, focus, transitions
+      │
+      ▼
+8. CHECK     rubric + test at 390px
 ```
 
----
-
-## 4. 💻 Code Example: The Project Starter Blueprint
-
-Here is your master starter boilerplate containing modern metadata, accessibility hooks, and CSS reset:
+Before you start, make sure your HTML capstone has a `<link rel="stylesheet" href="css/style.css">` in the `<head>` of **every** page, and the viewport meta tag:
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Official website project created by Class 7 Web Creator">
-    <title>My Dream Website | Capstone Project</title>
-    
-    <!-- Link to your external stylesheet -->
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-
-    <!-- 1. Master Sticky Navigation -->
-    <header class="site-header">
-      <nav class="navbar">
-        <a href="#" class="brand-logo">🌟 ProjectBrand</a>
-        <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contact" class="btn-nav">Contact Us</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- 2. Main Page Content -->
-    <main>
-      <!-- Hero Section -->
-      <section class="hero-section">
-        <h1>Inspiring Headline That Grabs Attention</h1>
-        <p>A welcoming subtitle that explains the mission of your dream project.</p>
-        <a href="#features" class="btn-primary">Explore Now 🚀</a>
-      </section>
-
-      <!-- Content Sections will live here -->
-    </main>
-
-    <!-- 3. Footer -->
-    <footer class="site-footer">
-      <p>&copy; 2026 My Dream Website. Handcrafted with semantic HTML & CSS.</p>
-    </footer>
-
-  </body>
-</html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 ```
 
----
-
-## 5. 🔍 Code Explanation: The Capstone Architecture
-
-- **Semantic Cleanliness**: Notice how clean and readable the code is. We don't have messy unclosed tags or scrambled inline styles.
-- **Accessibility Hooks**: We included `<html lang="en">`, `<meta name="viewport">`, descriptive `<title>`, and semantic `<header>`, `<nav>`, `<main>`, and `<footer>` landmarks.
-- **Scalability**: Because this code links to an external `style.css`, you can expand this single page into a 10-page website without rewriting your layout rules!
+Without the viewport tag, your media queries will not work on phones (Chapter 12).
 
 ---
 
-## 6. 🌍 Real-World Connection: 8 Exciting Capstone Project Ideas
+## 🎨 Step 1: Choose a Colour Palette
 
-Pick one of these 8 exciting real-world project themes for your final masterpiece:
+A **palette** is the small set of colours your whole site uses. Five is plenty. Write your palette as a comment at the top of `style.css`, so you use the same codes everywhere:
 
-| Project Theme | Core Features to Include |
-| :--- | :--- |
-| **1. Personal Portfolio** | About bio, skill chips, hobby cards, project demos, contact form. |
-| **2. School Club Portal** | Club mission, officer directory, upcoming meetings table, sign-up form. |
-| **3. Travel & Nature Guide** | National park cards, photo gallery, trail difficulty badges, packing list. |
-| **4. Family Restaurant** | Daily specials, menu cards with prices, dietary tags, reservation form. |
-| **5. Science Fair Showcase** | Project cards, judges' results table, experiment photo grid, tips. |
-| **6. Book Review Sanctuary** | Book cover posters, star ratings, quotes, author summaries. |
-| **7. Photography Gallery** | 3-column CSS Grid, smooth image zoom on hover, captions. |
-| **8. Local Community Pet Rescue** | Animal adoption cards, pet photo badges, volunteer sign-up. |
-
----
-
-## 7. ✍️ Try It Yourself: The Wireframe Sketchpad
-
-Before typing code into your editor, complete this 10-minute planning activity:
-1. Take a blank sheet of paper and a pencil.
-2. At the top, write your **Website Mission Statement** in one sentence.
-3. Draw 4 rectangular boxes representing your page sections:
-   - Box 1: Navigation & Hero
-   - Box 2: About / Story
-   - Box 3: 3-Card Grid
-   - Box 4: Contact & Footer
-4. Choose your 3 core colors and write down their names or Hex codes!
-
----
-
-## 8. 🔮 Predict the Output
-
-If you test your website on a friend's phone and notice that the photos look squashed and the navigation runs off the screen:
-- **What step of the 9-Step Plan did you skip?**
-
-<details>
-<summary>👀 Click to check your answer</summary>
-<strong>Answer: Step 8: Multi-Device Testing!</strong> 
-Always test your website using your browser's Device Mode or on actual smartphones before declaring your project finished!
-</details>
-
----
-
-## 9. 🕵️ Code Detective: The Launch Checklist Audit
-
-A student said their capstone project was finished, but the teacher found 3 issues in their audit:
-
-```text
-Issue 1: An image tag had src="dog.jpg" but no alt attribute!
-Issue 2: The browser tab said "Document" instead of the site name!
-Issue 3: An external link took over the student's website tab!
+```css
+/* =========================================
+   MY PALETTE: Green Valley Eco Club
+   text         #1e293b  (dark slate)
+   background   #f8fafc  (near white)
+   main colour  #0f766e  (deep teal)
+   accent       #f59e0b  (warm amber)
+   soft text    #475569  (grey for captions)
+   ========================================= */
 ```
 
-- **How do you fix all 3 issues?**
-  1. Add a rich alternative description: `alt="A golden retriever puppy"`.
-  2. Give the page an exciting title: `<title>Paw Rescue | Adopt a Friend</title>`.
-  3. Add `target="_blank"` so external links open safely in a new tab!
+Use the **60-30-10 rule** from Chapter 3: about 60% background, 30% main colour, 10% accent.
+
+### Check the contrast
+
+**Contrast ratio** compares how light two colours are, from 1 : 1 (the same) to 21 : 1 (black on white). Normal text needs **at least 4.5 : 1**; large headings need at least 3 : 1. You can measure pairs with a free online contrast checker or in browser DevTools (inspect some text and click its colour swatch).
+
+| Text colour | Background | Ratio | Normal text OK? |
+| :--- | :--- | :--- | :--- |
+| `#1e293b` | `#ffffff` | 14.63 : 1 | ✅ Yes |
+| `#475569` | `#ffffff` | 7.58 : 1 | ✅ Yes |
+| `#ffffff` | `#0f766e` | 5.47 : 1 | ✅ Yes |
+| `#ffffff` | `#2563eb` | 5.17 : 1 | ✅ Yes |
+| `#94a3b8` | `#ffffff` | 2.56 : 1 | ❌ No |
+| `#facc15` | `#ffffff` | 1.53 : 1 | ❌ No |
+
+A pale colour like `#facc15` can still be used, but as a border or background, **not** as text on white. And never use colour alone to show meaning: write "Closed" as a word, not only as red.
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: The Polish That Makes It Shine
+## 🔤 Step 2: Style the Text
 
-What turns a "good" student website into an **unforgettable** masterpiece?
-- **Consistent Spacing**: Generous padding and margins using the Box Model.
-- **Color Discipline**: Sticking strictly to your 3-color palette.
-- **Micro-Interactions**: Smooth 0.3s transitions on buttons and card hovers.
-- **Pride in Detail**: Clean code indentation that reads like poetry!
+Pick **two fonts at most**: one for headings and one for body text (Chapter 4). Give each a fallback.
+
+```css
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f8fafc;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Merriweather', Georgia, serif;
+  color: #0f766e;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+```
+
+You will see calm, readable body text and coloured serif headings. Body text of 16px or more is comfortable on phones.
 
 ---
 
-## 11. 🚀 Mini Challenge: Complete Your Capstone Website!
+## 📦 Step 3: Spacing and Cards
 
-It is time to unleash your creativity!
-- Choose your project idea.
-- Follow the 9 steps from planning to deployment.
-- Write your HTML and CSS.
-- Test it across screens.
-- Present your live creation to your class, teacher, or family!
+Start every stylesheet with `box-sizing: border-box` (Chapter 6), so widths stay the size you set. Then style your repeated blocks, such as cards, once with a class.
+
+```css
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+```
+
+The `.container` keeps lines from becoming too long on wide screens, and its 16px side padding stops text touching the edge of a phone screen.
 
 ---
 
-## 12. 📝 Chapter Recap
+## 📐 Step 4: Lay Out the Page, Phone First
 
-- Professional web development begins with thoughtful planning and wireframing.
-- The 9-step workflow guarantees clarity, focus, and design quality.
-- Comprehensive testing across desktop and mobile screens is mandatory before launch.
-- Attention to detail—accessibility, contrast, smooth transitions—elevates your website to professional caliber.
-- You now possess the complete toolkit to build beautiful, responsive websites!
+Write the **phone layout first**. Most things simply stack, so you need little CSS. Use Flexbox for one row of items (the header) and Grid for groups of cards.
+
+```css
+/* Header: logo and menu */
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background-color: #0f766e;
+}
+
+.site-header a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 10px 8px; /* bigger tap area */
+}
+
+/* Cards: one column on phones */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+```
+
+At 390px wide, you see the logo with the links wrapping beneath it, and the cards stacked one under another.
 
 ---
 
-## 13. 📖 Key Terms
+## 📱 Step 5: Add Breakpoints
+
+Now add `min-width` media queries at the **end** of your stylesheet (Chapter 12). A **breakpoint** is the width where your layout changes. Choose it where your design starts to look stretched, not for a particular device.
+
+```css
+/* Tablets: 600px and wider */
+@media (min-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Computers: 960px and wider */
+@media (min-width: 960px) {
+  h1 {
+    font-size: 44px;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+```
+
+Drag your browser narrower and wider: 1 column, then 2, then 3.
+
+---
+
+## ✨ Step 6: Polish and Accessibility
+
+Small details make a site feel finished, and some of them help people who use a keyboard.
+
+```css
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+```
+
+`:focus-visible` shows a clear amber ring when someone moves through links with the **Tab** key. Try it: press Tab on your page and check you can always see where you are.
+
+---
+
+## 🌍 Real-World Connection: Design Reviews
+
+Professional teams rarely publish a design without a **review**: someone else checks it against a list before it goes live. They test it on real phones, check the contrast, and try it with only a keyboard. Doing the same with a classmate is good practice, and it is also *iḥsān*: doing your work with care and excellence.
+
+---
+
+## 🕵️ Code Detective: The Page That Scrolls Sideways
+
+A student's site scrolls left and right on a phone. Find the cause:
+
+```css
+/* Broken Code */
+.banner {
+  width: 1000px;
+  padding: 40px;
+}
+```
+
+- **Find the mistake**: The banner has a fixed `width: 1000px`.
+- **Explain the mistake**: A phone screen is about 390px wide. A 1000px box is far wider, so the whole page can be scrolled sideways.
+- **Fix the code**:
+  ```css
+  /* Fixed Code */
+  .banner {
+    max-width: 1000px; /* never wider than 1000px... */
+    width: 100%;       /* ...but shrinks to fit */
+    padding: 40px 16px;
+  }
+  ```
+
+---
+
+## ⚠️ Common Mistake
+
+A common capstone mistake is styling each page separately with internal `<style>` tags.
+
+```html
+<!-- Wrong: in index.html, about.html and contact.html -->
+<style>
+  h1 { color: #0f766e; }
+</style>
+```
+
+**What happens:** the three pages slowly drift apart. You change the heading colour on one page and forget the others, so the site looks like three different websites.
+
+```html
+<!-- Fixed: every page links the same file -->
+<link rel="stylesheet" href="css/style.css">
+```
+
+A second mistake is copying a whole stylesheet from another website. It breaks your layout in ways you cannot explain, and it is not your own work. Learn from other sites, then write your CSS yourself (*amānah* and honesty).
+
+---
+
+## ✍️ Try It
+
+**The 390px Check**
+
+1. Open your styled capstone in Chrome or Edge.
+2. Press **F12** and turn on device mode (the phone icon).
+3. Set the width to **390px**.
+4. Scroll every page. Is there any sideways scrolling? Is any text too small or any button too small to tap?
+5. Fix one problem you find, then check again.
+
+Hint: if the page scrolls sideways, look for a fixed `width` in pixels or an image without `max-width: 100%`.
+
+---
+
+## 📝 Recap
+
+- Style your HTML capstone in order: palette, fonts, spacing, layout, breakpoints, polish.
+- Keep one external stylesheet for every page, with your palette written at the top.
+- Normal text needs a contrast ratio of at least 4.5 : 1. Never show meaning by colour alone.
+- Build the phone layout first, then add `min-width` media queries for wider screens.
+- Check the finished site at 390px wide and with only the keyboard.
+
+---
+
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
-| **Wireframe** | A simplified visual sketch outlining the structure and layout of a web page. |
-| **Sitemap** | A hierarchical diagram showing how all pages within a website connect together. |
-| **Quality Assurance (QA)** | The process of systematically testing a website for bugs, broken links, and errors. |
-| **Accessibility (a11y)** | Designing web content so it can be navigated by people of all abilities. |
-| **Deployment** | Uploading and publishing your website files to a live web server on the internet. |
+| **Palette** | The small set of colours a website uses everywhere. |
+| **Contrast ratio** | How different two colours are in lightness, from 1 : 1 to 21 : 1. |
+| **Breakpoint** | The screen width where a media query changes the layout. |
+| **Mobile-first** | Writing the phone styles first, then adding rules for wider screens. |
+| **`:focus-visible`** | A pseudo-class that styles an element when it is reached with the keyboard. |
+| **Design review** | Checking a design against a list, often with another person, before publishing. |
 
 ---
 
-## 14. 🏆 Final Graduation Checklist
+## 🏆 Practice
 
-Congratulations, Web Creator! Before you launch your final project, verify your code against this master checklist:
+### 🟢 Level 1: Recall
+1. What is the minimum contrast ratio for normal text?
+2. In a mobile-first stylesheet, do you use `min-width` or `max-width` media queries?
+3. Name the two layout tools you use for a row of links and for a group of cards.
 
-```text
- [ ] 1. Doctype & Boilerplate: Modern HTML5 <!DOCTYPE html> present.
- [ ] 2. Mobile Viewport: <meta name="viewport" ...> included in <head>.
- [ ] 3. Tab Title: <title> has a descriptive, exciting name.
- [ ] 4. Semantic Structure: Built using <header>, <nav>, <main>, <section>, <footer>.
- [ ] 5. Accessibility: Every <img> tag has a descriptive alt="" attribute.
- [ ] 6. Heading Hierarchy: Logical <h1> -> <h2> -> <h3> sequence without skipped ranks.
- [ ] 7. Clean CSS: Styles organized in external style.css with box-sizing: border-box.
- [ ] 8. Responsive Layout: Flexbox and Grid adapt smoothly across all screen sizes.
- [ ] 9. Tactile Physics: Interactive buttons and cards include silky :hover transitions.
- [ ] 10. Indentation: Every line indented with surgical precision!
+<details>
+<summary>Show answer</summary>
+
+1. **4.5 : 1** (large headings: at least 3 : 1).
+2. `min-width`: the phone styles come first, and each query adds rules for wider screens.
+3. **Flexbox** for a single row (like the header links) and **Grid** for groups of cards in rows and columns.
+
+</details>
+
+### 🟡 Level 2: Apply
+4. Your palette's grey caption colour `#94a3b8` on white has a ratio of 2.56 : 1. What should you do?
+5. Write CSS for a `.gallery` that shows 1 column on phones, 2 from 600px and 4 from 1000px.
+
+<details>
+<summary>Show answer</summary>
+
+4. It fails for normal text. Choose a darker grey, such as `#475569` (7.58 : 1 on white), or use the pale grey only for borders and decorations.
+
+5.
+```css
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 600px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
 ```
 
----
+</details>
 
-## 🎓 Official Certificate of Completion
+### 🔴 Level 3: Challenge
+Finish and review your capstone with this **CSS rubric**. Score each line from 0 to 2 (0 = not yet, 1 = partly, 2 = fully), for a total out of 20.
 
-```text
-╔══════════════════════════════════════════════════════════════════════════════╗
-║                                                                              ║
-║                 OFFICIAL CERTIFICATE OF WEB MASTERY                          ║
-║                                                                              ║
-║   This certifies that the young creator of this project has successfully    ║
-║   mastered the foundational principles of HTML5 and modern CSS3 design.     ║
-║                                                                              ║
-║   From raw tags and semantic layout, to responsive Flexbox, 2D Grid,        ║
-║   color theory, typography, and interactive components, you now possess      ║
-║   the creative superpowers to design and build the future of the web!       ║
-║                                                                              ║
-║                      🚀 WELCOME TO THE FELLOWSHIP OF CODERS!                 ║
-║                                                                              ║
-╚══════════════════════════════════════════════════════════════════════════════╝
+1. **One stylesheet**: every page links the same external CSS file; no inline styles.
+2. **Palette**: 3 to 5 colours, written as a comment and used consistently.
+3. **Contrast**: all body text is at least 4.5 : 1; meaning never relies on colour alone.
+4. **Typography**: at most two fonts with fallbacks; body text at least 16px; comfortable `line-height`.
+5. **Box model**: `box-sizing: border-box`; even spacing; text never touches the screen edge.
+6. **Layout**: Flexbox and/or Grid used correctly (no floats or absolute positioning for page layout).
+7. **Mobile-first**: works at 390px with no sideways scrolling; tap targets about 44px tall.
+8. **Breakpoints**: at least two `min-width` media queries that improve wider screens.
+9. **Polish and focus**: gentle hover effects, smooth transitions and a visible `:focus-visible` style.
+10. **Clean code**: clear class names, comments for each section, consistent indentation.
+
+Then swap with a classmate, score each other's sites honestly, and fix your two lowest lines.
+
+<details>
+<summary>Show one possible answer</summary>
+
+There is no single right website, but a strong stylesheet is usually organised like this outline:
+
+```css
+/* 1. PALETTE (comment with 3 to 5 colours) */
+
+/* 2. BASE */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #1e293b;
+  background-color: #f8fafc;
+  margin: 0;
+}
+
+/* 3. HEADER (Flexbox) */
+/* 4. CARDS and GRID (one column) */
+/* 5. FORMS and BUTTONS */
+/* 6. HOVER and FOCUS */
+
+/* 7. BREAKPOINTS (at the end) */
+@media (min-width: 600px) {
+  /* 2 columns */
+}
+@media (min-width: 960px) {
+  /* 3 columns, bigger headings */
+}
 ```
+
+A site that scores 16 or more out of 20 is ready to share. Congratulations: you have finished the CSS book! 🎉
+
+</details>

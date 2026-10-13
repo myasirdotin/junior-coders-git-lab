@@ -1,8 +1,10 @@
-# Chapter 6: CSS Box Model 📦📐
+# Chapter 6: CSS Box Model 📦
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Framed Family Photograph
+## 🌟 Real-Life Story
+
+**The Framed Family Photograph**
 
 Imagine you have a cherished photograph of you and your family on a summer vacation:
 1. **The Photograph Itself**: That's the actual picture with faces and smiles. In CSS, this is your **Content** (text, image, or video).
@@ -14,48 +16,37 @@ Imagine you have a cherished photograph of you and your family on a summer vacat
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
-- Memorize and draw the 4 layers of the **CSS Box Model**: Content, Padding, Border, Margin.
-- Distinguish between **Padding** (inside the border) and **Margin** (outside the border).
-- Control element dimensions using `width` and `height`.
-- Apply individual side values (`top`, `right`, `bottom`, `left`) using shorthand syntax.
-- Understand how `box-sizing: border-box` solves sizing headaches.
-- Build a polished, balanced Profile Card.
+- Name and draw the 4 layers of the **box model**: content, padding, border, margin.
+- Explain the difference between **padding** (inside the border) and **margin** (outside it).
+- Set sizes with `width` and `height`, and side values with the clockwise shorthand.
+- Use `box-sizing: border-box` so a box stays the width you set.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Universal Box Model Diagram
 
 ![The CSS Box Model](../assets/diagrams/css/css-box-model.svg)
 
 ```text
- ┌─────────────────────────────────────────────────────────────┐
- │                         MARGIN                              │
- │  (Outer personal space pushing away neighboring elements)   │
- │                                                             │
- │   ┌─────────────────────────────────────────────────────┐   │
- │   │                     BORDER                          │   │
- │   │  (The solid, dashed, or colored frame around box)   │   │
- │   │                                                     │   │
- │   │   ┌─────────────────────────────────────────────┐   │   │
- │   │   │                 PADDING                     │   │   │
- │   │   │  (Inner breathing room cushion for content) │   │   │
- │   │   │                                             │   │   │
- │   │   │   ┌─────────────────────────────────────┐   │   │   │
- │   │   │   │              CONTENT                │   │   │   │
- │   │   │   │     (Text, Image, Video, Button)    │   │   │   │
- │   │   │   │            width x height           │   │   │   │
- │   │   │   └─────────────────────────────────────┘   │   │   │
- │   │   │                                             │   │   │
- │   │   └─────────────────────────────────────────────┘   │   │
- │   │                                                     │   │
- │   └─────────────────────────────────────────────────────┘   │
- │                                                             │
- └─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────┐
+│ MARGIN (space outside the box)   │
+│  ┌────────────────────────────┐  │
+│  │ BORDER (the frame)         │  │
+│  │  ┌──────────────────────┐  │  │
+│  │  │ PADDING (cushion)    │  │  │
+│  │  │  ┌────────────────┐  │  │  │
+│  │  │  │    CONTENT     │  │  │  │
+│  │  │  │ text or image  │  │  │  │
+│  │  │  │ width x height │  │  │  │
+│  │  │  └────────────────┘  │  │  │
+│  │  └──────────────────────┘  │  │
+│  └────────────────────────────┘  │
+└──────────────────────────────────┘
 ```
 
 ### The Clockwise Shorthand Secret (TRouBLe!)
@@ -63,20 +54,23 @@ By the end of this chapter, you will be able to:
 When you set padding or margin with 4 numbers, CSS goes clockwise starting at the top:
 
 ```text
-                    TOP (12 o'clock)
-                          │
-       LEFT (9 o'clock) ──┼── RIGHT (3 o'clock)
-                          │
-                   BOTTOM (6 o'clock)
+          TOP (12 o'clock)
+               │
+LEFT (9) ──────┼────── RIGHT (3)
+               │
+         BOTTOM (6 o'clock)
 
-  margin: 10px 20px 15px 5px;
-  Top = 10px | Right = 20px | Bottom = 15px | Left = 5px
-  (Memory trick: Think of the word "TRBL" -> Top, Right, Bottom, Left!)
+margin: 10px 20px 15px 5px;
+  top    = 10px
+  right  = 20px
+  bottom = 15px
+  left   = 5px
+Memory trick: TRBL = "trouble".
 ```
 
 ---
 
-## 4. 💻 Code Example: The Student Profile Card
+## 💻 Code Example: The Student Profile Card
 
 Type this into your editor and save it as `profile-card.html`:
 
@@ -159,7 +153,7 @@ Type this into your editor and save it as `profile-card.html`:
       <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200" alt="Avatar" class="avatar">
       <h2 class="student-name">Zara Chen</h2>
       <p class="student-bio">
-        Class 7 Web Enthusiast • Loves solving math riddles and coding games with HTML & CSS.
+        Class 7 Web Enthusiast • Loves solving maths riddles and building web pages with HTML & CSS.
       </p>
       <span class="badge">Code Cadet Level 2</span>
     </div>
@@ -169,7 +163,7 @@ Type this into your editor and save it as `profile-card.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Breaking Down the Box
+## 🔍 Code Explanation: Breaking Down the Box
 
 - `box-sizing: border-box;`: By default, in older CSS, if you made a box 300px wide and added 20px of padding, the browser stretched the box to 340px! With `box-sizing: border-box;`, the width you specify (`320px`) is the **exact total width**, and the padding is tucked neatly inside!
 - `padding: 24px;`: Provides a generous 24-pixel buffer around the avatar, name, and bio, ensuring text never touches the card edge!
@@ -178,7 +172,7 @@ Type this into your editor and save it as `profile-card.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: Google Chrome DevTools Box Model
+## 🌍 Real-World Connection: Google Chrome DevTools Box Model
 
 Want to see proof that every website is made of boxes?
 1. Open any website in Google Chrome.
@@ -188,17 +182,7 @@ Want to see proof that every website is made of boxes?
 
 ---
 
-## 7. ✍️ Try It Yourself: The Zero-Padding Test
-
-Open `profile-card.html` in your editor:
-1. Change `padding: 24px;` to `padding: 0px;`.
-2. Save and refresh your browser.
-3. Look at how awful it looks: The avatar and text are glued directly to the edges of the card!
-4. Change it back to `padding: 24px;` and sigh with relief as your content gets its breathing room back!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this CSS declaration:
 
@@ -220,7 +204,7 @@ When you provide 2 values to margin or padding, the first number controls vertic
 
 ---
 
-## 9. 🕵️ Code Detective: The Glued Cards
+## 🕵️ Code Detective: The Glued Cards
 
 A student created two profile cards, but they are smashing against each other like bumper cars:
 
@@ -248,19 +232,19 @@ A student created two profile cards, but they are smashing against each other li
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Whitespace is Luxury
+## 🎨 Think Like a Web Designer: Whitespace is Luxury
 
 In graphic and web design, empty space is called **Whitespace** or **Negative Space**:
 - Amateur websites cram elements into every millimeter of screen space.
-- Luxury websites (like Apple or Porsche) use vast, elegant cushions of padding and margin.
-- Generous whitespace makes your content feel calm, organized, and premium!
+- Well-designed websites, such as a good online library, use generous padding and margin.
+- Generous whitespace makes your content feel calm, organised and easy to read.
 
 > 💡 **Think Before You Code**:
 > When in doubt, give your content a little more padding than you think it needs. Breathing room makes text instantly easier to read!
 
 ---
 
-## 11. 🚀 Mini Challenge: The Planet Fact Card
+## 🚀 Mini Challenge: The Planet Fact Card
 
 Create a web page named `planet-facts.html`:
 - Build a planet fact box (`width: 280px;`).
@@ -269,7 +253,48 @@ Create a web page named `planet-facts.html`:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+A common mistake is forgetting that padding and border are **added** to the width, when `box-sizing: border-box` is not used.
+
+```css
+/* Wrong: the student wants a 300px card */
+.card {
+  width: 300px;
+  padding: 20px;
+  border: 5px solid #2563eb;
+}
+```
+
+**What happens:** with the default `box-sizing: content-box`, the card is 300 + 20 + 20 + 5 + 5 = **350px** wide. On a small screen it may not fit, and two cards may not sit side by side.
+
+```css
+/* Fixed */
+.card {
+  box-sizing: border-box;
+  width: 300px; /* now 300px in total */
+  padding: 20px;
+  border: 5px solid #2563eb;
+}
+```
+
+A second slip is trying to centre a block with `margin: auto;` without giving it a `width`. A block with no width already fills the whole line, so there is no space to share. Add a `width` or `max-width`.
+
+---
+
+## ✍️ Try It
+
+**The Zero-Padding Test**
+
+Open `profile-card.html` in your editor:
+1. Change `padding: 24px;` to `padding: 0px;`.
+2. Save and refresh your browser.
+3. Look at how awful it looks: The avatar and text are glued directly to the edges of the card!
+4. Change it back to `padding: 24px;` and sigh with relief as your content gets its breathing room back!
+
+---
+
+## 📝 Recap
 
 - Every HTML element is modeled as a rectangular box.
 - The 4 layers from inside out: **Content -> Padding -> Border -> Margin**.
@@ -280,7 +305,7 @@ Create a web page named `planet-facts.html`:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -292,16 +317,75 @@ Create a web page named `planet-facts.html`:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. Which layer of the Box Model is closest to the text content?
-2. Which layer of the Box Model pushes neighboring elements away?
-3. What is the clockwise order of the 4 values in `padding: 5px 10px 15px 20px;`?
+### 🟢 Level 1: Recall
+1. Which layer of the box model is closest to the content?
+2. Which layer pushes neighbouring elements away?
+3. In `padding: 5px 10px 15px 20px;`, which side gets each value?
 
-### 🟡 Medium (Application)
-4. If a button has no border, how can you make it bigger and easier to tap on mobile screens using the Box Model?
-5. Write the CSS to give a box `15px` of top/bottom margin and `30px` of left/right margin using the 2-value shorthand.
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Research what happens when two adjacent vertical blocks touch: their margins often "collapse" into a single margin instead of adding together. Create two boxes in an HTML file with `margin-bottom: 30px;` on the first and `margin-top: 20px;` on the second. Measure the gap between them!
+1. **Padding.**
+2. **Margin.**
+3. Clockwise from the top: top 5px, right 10px, bottom 15px, left 20px.
+
+</details>
+
+### 🟡 Level 2: Apply
+4. A button has no border. How can you make it bigger and easier to tap on a phone, using the box model?
+5. Write CSS that gives `.box` 15px margin on the top and bottom and 30px on the left and right, using the 2-value shorthand.
+
+<details>
+<summary>Show answer</summary>
+
+4. Add more **padding**, for example `padding: 12px 24px;`. Padding makes the clickable area larger, so it is easier to tap.
+
+5.
+```css
+.box {
+  margin: 15px 30px;
+}
+```
+
+</details>
+
+### 🔴 Level 3: Challenge
+Discover **margin collapse**.
+1. Make two `<div>` boxes, one above the other, each with a background colour.
+2. Give the first `margin-bottom: 30px;` and the second `margin-top: 20px;`.
+3. Guess the gap: 50px or something else?
+4. Measure it with DevTools (right-click, **Inspect**).
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Margin Collapse</title>
+    <style>
+      .first {
+        background-color: #bfdbfe;
+        margin-bottom: 30px;
+      }
+      .second {
+        background-color: #bbf7d0;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="first">Box one</div>
+    <div class="second">Box two</div>
+  </body>
+</html>
+```
+
+The gap is **30px**, not 50px. When the top and bottom margins of two blocks touch, they **collapse**: only the larger margin is used. This only happens with vertical (top and bottom) margins of normal blocks, not inside Flexbox or Grid.
+
+</details>

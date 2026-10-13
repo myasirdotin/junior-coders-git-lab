@@ -1,8 +1,10 @@
-# Chapter 8: Display Property 🧱🔤
+# Chapter 8: Display Property 🧱
 
 ---
 
-## 1. 🌟 Real-Life Situation: Heavy Wooden Blocks vs. Rolling Marbles
+## 🌟 Real-Life Story
+
+**Heavy Wooden Blocks vs. Rolling Marbles**
 
 Imagine sitting at a craft table with two types of toys:
 1. **Large Heavy Wooden Building Blocks**: Each block is wide and solid. If you put one block down on the table, it claims the entire width of that row. If you want to place a second block, you cannot squeeze it beside the first—you have to place it on a new row below!
@@ -13,48 +15,47 @@ Understanding the `display` property—`block`, `inline`, and `inline-block`—i
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
-- Understand how browsers classify elements into default display types.
-- Identify common **Block elements** (`<div>`, `<h1>`, `<p>`, `<ul>`).
-- Identify common **Inline elements** (`<span>`, `<a>`, `<strong>`, `<em>`).
-- Master the hybrid superpower: `display: inline-block`.
-- Switch elements from block to inline and vice-versa using the `display` property.
-- Prevent common layout bugs where width and height refuse to work.
+- Identify common **block** elements (`<div>`, `<h1>`, `<p>`, `<ul>`) and **inline** elements (`<span>`, `<a>`, `<strong>`).
+- Use `display: inline-block` to place boxes side by side that still accept a width and height.
+- Switch an element between block and inline with the `display` property.
+- Hide an element completely with `display: none`.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Three Core Display Personalities
 
 ```text
- 1. DISPLAY: BLOCK (e.g. <div>, <h1>, <p>)
-    - Starts on a BRAND NEW line.
-    - Stretches horizontally to fill 100% of the container width.
-    - Honors width, height, padding, and margin.
-    ┌─────────────────────────────────────────────────────────┐
-    │  [ BLOCK ELEMENT - Claims full width of the row! ]      │
-    └─────────────────────────────────────────────────────────┘
+1. display: block  (<div>, <h1>, <p>)
+   - starts on a NEW line
+   - fills the full width of its parent
+   - accepts width, height, padding,
+     margin
+   ┌──────────────────────────────┐
+   │ block: takes the whole row   │
+   └──────────────────────────────┘
 
- 2. DISPLAY: INLINE (e.g. <span>, <a>, <strong>)
-    - Sits SIDE-BY-SIDE with other elements on the same line.
-    - Takes up only as much width as its text content needs!
-    - IGNORES width and height properties (you cannot resize it!).
-    [Word 1] [Word 2] [Word 3] (All on one line!)
+2. display: inline  (<span>, <a>)
+   - sits on the SAME line as text
+   - only as wide as its words
+   - IGNORES width and height
+   [word] [word] [word]
 
- 3. DISPLAY: INLINE-BLOCK (The Best of Both Worlds!)
-    - Sits SIDE-BY-SIDE like an inline marble...
-    - BUT respects width, height, and vertical padding like a heavy block!
-    ┌─────────────┐  ┌─────────────┐  ┌─────────────┐
-    │ Width:120px │  │ Width:120px │  │ Width:120px │
-    └─────────────┘  └─────────────┘  └─────────────┘
+3. display: inline-block
+   - sits side by side like inline
+   - BUT accepts width and height
+   ┌────────┐ ┌────────┐ ┌────────┐
+   │ 120px  │ │ 120px  │ │ 120px  │
+   └────────┘ └────────┘ └────────┘
 ```
 
 ---
 
-## 4. 💻 Code Example: The Display Trio Laboratory
+## 💻 Code Example: The Display Trio Laboratory
 
 Type this into your editor and save it as `display.html`:
 
@@ -131,7 +132,7 @@ Type this into your editor and save it as `display.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Observing Behaviors
+## 🔍 Code Explanation: Observing Behaviors
 
 - `.box-block`: Notice how Block Box 1 and Block Box 2 refuse to sit next to each other! Even though their text is short, each `<div>` expands to fill the entire horizontal screen, pushing the next box downward.
 - `.tag-inline`: The `<span>` elements only occupy as many pixels as their letters need. They flow seamlessly inside the paragraph without breaking the sentence!
@@ -139,7 +140,7 @@ Type this into your editor and save it as `display.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: Turning Links into Buttons
+## 🌍 Real-World Connection: Turning Links into Buttons
 
 By default, an anchor tag (`<a>`) is an **inline element**:
 - If you try to give an `<a>` tag `padding-top: 20px;` or `width: 200px;`, it will look glitchy and weird because inline tags don't respect vertical block spacing.
@@ -154,17 +155,7 @@ By default, an anchor tag (`<a>`) is an **inline element**:
 
 ---
 
-## 7. ✍️ Try It Yourself: The Invisible Element
-
-Did you know there is a fourth display value called `display: none;`?
-1. Open `display.html` in your editor.
-2. Add `display: none;` to `.box-block`.
-3. Save and refresh your browser.
-4. **Whoa!** Both block boxes have completely vanished! The browser removes them from the page as if they never existed! (This is how popups and dropdown menus hide before you click them!).
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this CSS:
 
@@ -184,7 +175,7 @@ span {
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Button Size
+## 🕵️ Code Detective: The Broken Button Size
 
 A student wanted to make an anchor link button bigger, but setting `width: 200px;` did nothing:
 
@@ -212,7 +203,7 @@ a.buy-btn {
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Horizontal Navigation
+## 🎨 Think Like a Web Designer: Horizontal Navigation
 
 Before modern layout engines, how did designers turn a vertical list of links into a horizontal top bar?
 They targeted the `<li>` items and wrote:
@@ -225,7 +216,7 @@ Instantly, the bulleted list lined up horizontally like soldiers!
 
 ---
 
-## 11. 🚀 Mini Challenge: The 3-Tier Pricing Table
+## 🚀 Mini Challenge: The 3-Tier Pricing Table
 
 Create a web page named `pricing-table.html`:
 - Build 3 pricing boxes: *Starter*, *Pro*, and *Legend*.
@@ -235,7 +226,46 @@ Create a web page named `pricing-table.html`:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+A common mistake is adding top and bottom **margin** to an inline element and expecting it to move away from the lines above and below.
+
+```css
+/* Wrong */
+span.tag {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+```
+
+**What happens:** nothing moves. Inline elements ignore top and bottom margin. Their vertical padding is painted, but it does not push other lines away, so it can overlap the text above.
+
+```css
+/* Fixed */
+span.tag {
+  display: inline-block;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+```
+
+A second slip: using `display: none` to hide text "for later" and forgetting it. Screen readers and search engines also skip hidden content, so do not hide important information.
+
+---
+
+## ✍️ Try It
+
+**The Invisible Element**
+
+Did you know there is a fourth display value called `display: none;`?
+1. Open `display.html` in your editor.
+2. Add `display: none;` to `.box-block`.
+3. Save and refresh your browser.
+4. **Whoa!** Both block boxes have completely vanished! The browser removes them from the page as if they never existed! (This is how popups and dropdown menus hide before you click them!).
+
+---
+
+## 📝 Recap
 
 - The `display` property dictates how an element behaves in the document flow.
 - `display: block` elements begin on a new line and expand to 100% width.
@@ -245,7 +275,7 @@ Create a web page named `pricing-table.html`:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -257,16 +287,91 @@ Create a web page named `pricing-table.html`:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
+### 🟢 Level 1: Recall
 1. Name two HTML elements that are `block` by default.
 2. Name two HTML elements that are `inline` by default.
 3. What happens to an element when you set `display: none;`?
 
-### 🟡 Medium (Application)
-4. Why does adding `height: 100px;` to a `<strong>` tag have no visual effect? How can you fix it?
-5. Write the CSS to transform an unordered list (`<ul>` and `<li>`) into a horizontal menu where list items sit side-by-side.
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. What is the difference between `display: none;` and `visibility: hidden;`? Write an HTML test with two boxes to prove how each behaves when hidden!
+1. Any two of: `<div>`, `<p>`, `<h1>` to `<h6>`, `<ul>`, `<li>`, `<section>`.
+2. Any two of: `<span>`, `<a>`, `<strong>`, `<em>`, `<img>` (an image is inline but can take a width and height).
+3. It disappears completely. It takes up no space, and the elements around it close the gap.
+
+</details>
+
+### 🟡 Level 2: Apply
+4. Why does `height: 100px;` on a `<strong>` tag do nothing? How can you fix it?
+5. Write CSS that turns a `<ul>` list into a row of menu items that sit side by side.
+
+<details>
+<summary>Show answer</summary>
+
+4. `<strong>` is inline, and inline elements ignore `width` and `height`. Fix it with `display: inline-block;` (or `block`).
+
+5.
+```css
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin-right: 16px;
+}
+```
+
+</details>
+
+### 🔴 Level 3: Challenge
+Compare two ways of hiding.
+1. Make three coloured boxes in a row (use `display: inline-block;`).
+2. Give the second box `display: none;` and look at the gap.
+3. Change it to `visibility: hidden;` and look again.
+4. Write one sentence about the difference.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiding Test</title>
+    <style>
+      .box {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        background-color: #60a5fa;
+      }
+      .gone {
+        display: none;
+      }
+      .invisible {
+        visibility: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <p>Test 1: display: none</p>
+    <div class="box">1</div>
+    <div class="box gone">2</div>
+    <div class="box">3</div>
+
+    <p>Test 2: visibility: hidden</p>
+    <div class="box">1</div>
+    <div class="box invisible">2</div>
+    <div class="box">3</div>
+  </body>
+</html>
+```
+
+In Test 1, box 3 moves next to box 1: the hidden box takes **no space**. In Test 2, there is an empty gap where box 2 was: it is invisible but **still takes up its space**.
+
+</details>

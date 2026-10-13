@@ -1,8 +1,10 @@
-# Chapter 14: Website Cards 🃏🖼️
+# Chapter 14: Website Cards 🃏
 
 ---
 
-## 1. 🌟 Real-Life Situation: Fact Cards and Museum Plaques
+## 🌟 Real-Life Story
+
+**Fact Cards and Museum Plaques**
 
 Think about printed fact cards—like animal fact cards, planet cards, or revision flash cards:
 - Every card is an individual, self-contained package:
@@ -12,53 +14,49 @@ Think about printed fact cards—like animal fact cards, planet cards, or revisi
   - At the bottom, there is a small badge, such as "Endangered" or "Gas Giant".
 - You can shuffle them, place three of them side-by-side on your desk, or browse through a binder of dozens.
 
-In modern web design, **The Card Pattern** is the undisputed king of user interfaces!
+In modern web design, **the card pattern** is one of the most common ways to show information.
 Whether you are browsing products on an online bookstore, research articles in a digital library, or courses in an academy portal, almost everything you click on is a **Card**!
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
-- Understand the 4 standard structural components of a modern card: **Image**, **Title**, **Description**, and **Action Button**.
-- Combine Box Model padding, borders, and shadows to give cards depth.
-- Master image containment with `object-fit: cover` and `border-radius` clipping.
-- Use Flexbox inside the card body to align buttons perfectly at the bottom.
-- Add hover elevation to make cards feel physically responsive.
-- Build an E-Commerce Product Card.
+- Name the 4 usual parts of a card: **image**, **title**, **description** and **action button**.
+- Give cards depth with padding, borders, rounded corners and shadows.
+- Keep photos neat with `object-fit: cover` and clip them to round corners with `overflow: hidden`.
+- Line up the card footer with Flexbox and lift the card on hover.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### Anatomy of a High-Converting Modern Card
 
 ```text
- ┌─────────────────────────────────────────────────────────────┐
- │ .card Container                                             │
- │ (border-radius: 16px; overflow: hidden; box-shadow)         │
- │                                                             │
- │   ┌─────────────────────────────────────────────────────┐   │
- │   │                   IMAGE HEADER                      │   │
- │   │       (object-fit: cover; height: 200px;)           │   │
- │   └─────────────────────────────────────────────────────┘   │
- │                                                             │
- │   ┌─ .card-body (Padding: 20px) ────────────────────────┐   │
- │   │  [Category Tag]                                     │   │
- │   │  <h3> Card Title Headline </h3>                     │   │
- │   │  <p> Brief 2-line description explaining the value. │   │
- │   │      Comfortable reading font and line-height. </p> │   │
- │   │                                                     │   │
- │   │  ┌───────────────────────┐  ┌────────────────────┐  │   │
- │   │  │ Price: $29.99         │  │ [ ADD TO CART 🛒 ] │  │   │
- │   │  └───────────────────────┘  └────────────────────┘  │   │
- │   └─────────────────────────────────────────────────────┘   │
- └─────────────────────────────────────────────────────────────┘
+┌─ .card ──────────────────────────┐
+│ border-radius: 16px;             │
+│ overflow: hidden; box-shadow     │
+│ ┌──────────────────────────────┐ │
+│ │        IMAGE HEADER          │ │
+│ │ object-fit: cover;           │ │
+│ │ height: 200px;               │ │
+│ └──────────────────────────────┘ │
+│ ┌─ .card-body (padding: 20px) ─┐ │
+│ │ [category tag]               │ │
+│ │ <h3> Card title </h3>        │ │
+│ │ <p> A short description,     │ │
+│ │     easy to read. </p>       │ │
+│ │ ┌──────────┐ ┌─────────────┐ │ │
+│ │ │ $29.99   │ │ ADD TO CART │ │ │
+│ │ └──────────┘ └─────────────┘ │ │
+│ └──────────────────────────────┘ │
+└──────────────────────────────────┘
 ```
 
 ---
 
-## 4. 💻 Code Example: The Smart Gadget Product Card
+## 💻 Code Example: The Smart Gadget Product Card
 
 Type this into your editor and save it as `product-card.html`:
 
@@ -216,7 +214,7 @@ Type this into your editor and save it as `product-card.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: The Craft of Card Building
+## 🔍 Code Explanation: The Craft of Card Building
 
 - `overflow: hidden;` on `.product-card`:
   - When you give `.product-card` a `border-radius: 20px;`, the square corners of the image at the top would normally poke out past the rounded corners of the card!
@@ -229,7 +227,7 @@ Type this into your editor and save it as `product-card.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: Component-Driven Web Design
+## 🌍 Real-World Connection: Component-Driven Web Design
 
 Why is every big tech framework (React, Vue, Tailwind) built around cards?
 - Because a card is a **Reusable Component**!
@@ -237,32 +235,20 @@ Why is every big tech framework (React, Vue, Tailwind) built around cards?
 
 ---
 
-## 7. ✍️ Try It Yourself: The 3-Card Storefront
-
-Wrap the `.product-card` inside a container:
-```html
-<div class="store-grid" style="display: flex; gap: 24px; flex-wrap: wrap;">
-  <!-- Duplicate the product card 3 times with different headphones or watches! -->
-</div>
-```
-Preview in browser: You now have a complete, professional e-commerce product row ready for customers!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 What will happen if you forget `overflow: hidden;` on `.product-card`?
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> The top-left and top-right corners of the image will poke out with sharp 90-degree points, ruining the smooth rounded look of your card! <code>overflow: hidden</code> is the magic glue that clips everything inside the card boundaries!
+<strong>Answer:</strong> The top-left and top-right corners of the image will poke out with sharp 90-degree points, ruining the smooth rounded look of your card! <code>overflow: hidden</code> is the rule that clips everything inside the card boundaries!
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Squashed Image
+## 🕵️ Code Detective: The Squashed Image
 
-A student tried to build a card, but the photo of a tall guitar got squashed down like a flat pancake:
+A student tried to build a card, but the photo of a tall lighthouse got squashed down like a flat pancake:
 
 ```css
 /* Broken Code */
@@ -286,7 +272,7 @@ A student tried to build a card, but the photo of a tall guitar got squashed dow
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Card Breathing Room
+## 🎨 Think Like a Web Designer: Card Breathing Room
 
 Look inside `.card-body`:
 - Many beginners put `padding: 5px;` and smash the text against the card borders.
@@ -295,7 +281,7 @@ Look inside `.card-body`:
 
 ---
 
-## 11. 🚀 Mini Challenge: The Recipe Card
+## 🚀 Mini Challenge: The Recipe Card
 
 Create a recipe card for *Homemade Berry Pancakes*:
 - Top image of golden pancakes with syrup.
@@ -306,7 +292,45 @@ Create a recipe card for *Homemade Berry Pancakes*:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+A common mistake is giving cards a fixed `height` so they "line up".
+
+```css
+/* Wrong */
+.card {
+  height: 350px;
+}
+```
+
+**What happens:** when a title or description is longer, or the text is bigger on a phone, the words spill out of the bottom of the card and cover the next one.
+
+```css
+/* Fixed: let the content decide the height */
+.card {
+  min-height: 350px; /* at least 350px, but can grow */
+}
+```
+
+A second slip is forgetting `alt` text on card images. Every card photo needs a short `alt` that says what it shows, such as `alt="Solar desk lamp"`, so screen-reader users know what the card is about.
+
+---
+
+## ✍️ Try It
+
+**The 3-Card Storefront**
+
+Wrap the `.product-card` inside a container:
+```html
+<div class="store-grid" style="display: flex; gap: 24px; flex-wrap: wrap;">
+  <!-- Duplicate the product card 3 times with different headphones or watches! -->
+</div>
+```
+Preview in browser: You now have a complete, professional e-commerce product row ready for customers!
+
+---
+
+## 📝 Recap
 
 - The Card Pattern is the foundational layout building block of modern web applications.
 - The 4 core components are Media Header, Title, Description, and Action Footer.
@@ -317,7 +341,7 @@ Create a recipe card for *Homemade Berry Pancakes*:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -329,16 +353,100 @@ Create a recipe card for *Homemade Berry Pancakes*:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. What property prevents image corners from poking outside a rounded card container?
-2. Which property ensures an image fills its allotted height without distorting?
-3. Name the 4 standard structural elements of a web card.
+### 🟢 Level 1: Recall
+1. Which property stops a photo's corners poking out of a rounded card?
+2. Which property makes an image fill its height without stretching?
+3. Name the 4 usual parts of a web card.
 
-### 🟡 Medium (Application)
-4. Write the CSS for a card footer that places a star rating on the left and a "Read More" button on the right using Flexbox.
-5. Why is the card pattern considered one of the most mobile-friendly layout patterns in web history?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Build a "Course Enrollment Card" that includes a glowing progress bar (`height: 8px; background-color: #2563eb;`) positioned immediately between the photo and the card body, indicating "75% Completed"!
+1. `overflow: hidden;` on the card.
+2. `object-fit: cover;`
+3. Image, title, description and action button.
+
+</details>
+
+### 🟡 Level 2: Apply
+4. Write CSS for a `.card-footer` that puts a reading time on the left and a "Read More" button on the right using Flexbox.
+5. Why do cards work so well on phones?
+
+<details>
+<summary>Show answer</summary>
+
+4.
+```css
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+```
+
+5. Each card is a small, complete block of information. On a wide screen cards sit side by side; on a phone they simply stack in one column, and each one still makes sense on its own.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build a course progress card.
+1. Make a `.card` with a photo at the top and a body with a title and short text.
+2. Between the photo and the body, add a grey track `<div>` 8px tall.
+3. Inside the track, add a blue bar that is 75% wide.
+4. Under the bar, write "75% completed" in text, so the meaning does not rely on colour alone.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Card</title>
+    <style>
+      .card {
+        max-width: 320px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+      }
+      .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+      }
+      .track {
+        height: 8px;
+        background-color: #e2e8f0;
+      }
+      .bar {
+        width: 75%;
+        height: 8px;
+        background-color: #2563eb;
+      }
+      .card-body {
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <img src="microscope.jpg" alt="A student looking into a microscope">
+      <div class="track"><div class="bar"></div></div>
+      <div class="card-body">
+        <h3>Biology Basics</h3>
+        <p>75% completed: 6 of 8 lessons done.</p>
+      </div>
+    </div>
+  </body>
+</html>
+```
+
+You see a blue bar across three quarters of the grey track, right under the photo, and the text below says the same thing in words.
+
+</details>

@@ -1,8 +1,10 @@
-# Chapter 21: Portfolio Website 💼🎨
+# Chapter 21: Portfolio Website 💼
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Architect's Blueprint Gallery
+## 🌟 Real-Life Story
+
+**The Architect's Blueprint Gallery**
 
 Imagine an architect applying to design a new science museum:
 - They don't just hand the committee a sheet of paper with their name on it.
@@ -17,49 +19,48 @@ Your portfolio is the single most valuable project you will build in this entire
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
-- Build a polished, agency-grade Web Developer Portfolio.
-- Create a dynamic Hero Introduction with dual Call-To-Action buttons.
-- Showcase live web development projects using interactive **Project Cards**.
-- Include "Live Demo" and "View Code" action links on every card.
-- Build an interactive Skills Grid highlighting languages, tools, and platforms.
-- Deploy a modern, responsive footer with active social and coding links.
+- Build a dark-themed developer portfolio with a hero and two call-to-action buttons.
+- Show your projects as cards with tech badges and "Live Demo" and "View Code" links.
+- Lay out a skills grid and a contact section.
+- Make the hero title and grid fit phone screens with media queries.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Developer Portfolio Blueprint
 
 ```text
- ┌─────────────────────────────────────────────────────────────┐
- │ HEADER: [ ⚡ LeoVance.dev ]       [Projects] [Skills] [Contact]│
- ├─────────────────────────────────────────────────────────────┤
- │ HERO SECTION:                                               │
- │  "Hi, I'm Leo! I build clean, accessible, interactive web   │
- │   experiences."                                             │
- │   [ View My Work 🚀 ]   [ Contact Me 📬 ]                   │
- ├─────────────────────────────────────────────────────────────┤
- │ FEATURED PROJECTS (2x2 GRID OF PROJECT CARDS)               │
- │  ┌─────────────────────────┐   ┌─────────────────────────┐  │
- │  │ [ Preview Image ]       │   │ [ Preview Image ]       │  │
- │  │ 🎮 Retro Arcade Game    │   │ 🍕 Italian Bistro Site  │  │
- │  │ [HTML5] [CSS3] [Flexbox]│   │ [HTML5] [Grid] [Forms]  │  │
- │  │ [Live Demo] [Code]      │   │ [Live Demo] [Code]      │  │
- │  └─────────────────────────┘   └─────────────────────────┘  │
- ├─────────────────────────────────────────────────────────────┤
- │ SKILLS & TOOLS (Interactive Chips)                          │
- │  [HTML5] [CSS3] [Responsive RWD] [Git] [VS Code] [Chrome Dev]│
- ├─────────────────────────────────────────────────────────────┤
- │ GET IN TOUCH: Contact Form + Direct Email + GitHub Profile  │
- └─────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────┐
+│ HEADER: LeoVance.dev            │
+│ Projects  Skills  Contact       │
+├─────────────────────────────────┤
+│ HERO: "Hi, I'm Leo! I build     │
+│ clean, accessible web pages."   │
+│ [View My Work] [Contact Me]     │
+├─────────────────────────────────┤
+│ PROJECTS (2 x 2 grid)           │
+│ ┌──────────────┐┌─────────────┐ │
+│ │ [preview]    ││ [preview]   │ │
+│ │ Halal        ││ School      │ │
+│ │ Restaurant   ││ Portal      │ │
+│ │ [HTML][Grid] ││ [HTML][CSS] │ │
+│ │ [Demo][Code] ││ [Demo][Code]│ │
+│ └──────────────┘└─────────────┘ │
+├─────────────────────────────────┤
+│ SKILLS: [HTML5] [CSS3] [Git]    │
+│ [VS Code] [DevTools]            │
+├─────────────────────────────────┤
+│ CONTACT: form, email, GitHub    │
+└─────────────────────────────────┘
 ```
 
 ---
 
-## 4. 💻 Code Example: The Complete Developer Portfolio
+## 💻 Code Example: The Complete Developer Portfolio
 
 Type this into your editor and save it as `portfolio.html`:
 
@@ -345,7 +346,7 @@ Type this into your editor and save it as `portfolio.html`:
           <div class="project-body">
             <h3 class="project-title">Bella Vista Trattoria</h3>
             <p class="project-desc">
-              A responsive Italian restaurant portal featuring digital menus, chef specials, and table reservation forms.
+              A responsive halal family restaurant site with a digital menu, chef specials and a table booking form.
             </p>
             <div class="tech-tags">
               <span class="tag">HTML5</span>
@@ -399,7 +400,7 @@ Type this into your editor and save it as `portfolio.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Agency-Grade Dark Mode
+## 🔍 Code Explanation: Agency-Grade Dark Mode
 
 - **Dark Theme Palette**: Dark slate background (`#0f172a`), lighter card container (`#1e293b`), borders (`#334155`), and vibrant cyan accents (`#38bdf8`). Dark mode saves battery on OLED screens and looks ultra-modern!
 - Tech Tags: Small pills showing the technologies used (`<span class="tag">HTML5</span>`) communicate technical competence to recruiters and teachers.
@@ -407,23 +408,16 @@ Type this into your editor and save it as `portfolio.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: GitHub Pages & Hosting
+## 🌍 Real-World Connection: GitHub Pages & Hosting
 
 How do web developers share their portfolios with the world?
 - You can upload your code repository to **GitHub** and turn on **GitHub Pages** with one click!
 - GitHub gives you a free live web address (e.g. `yourname.github.io`) so anyone with an internet connection can view your portfolio live!
+- GitHub accounts are for people aged 13 and over. If you are younger, ask a teacher or parent to publish it with you.
 
 ---
 
-## 7. ✍️ Try It Yourself: Link Your Real Chapter Projects
-
-Look inside the `.projects-grid` in `portfolio.html`:
-1. Change the links on Project 1 to point directly to the files you created in Chapter 19 and Chapter 20!
-2. Click the "Live Demo" link: Watch your browser seamlessly launch your actual restaurant and school websites!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 What will happen when you hover over any project card?
 
@@ -434,7 +428,7 @@ What will happen when you hover over any project card?
 
 ---
 
-## 9. 🕵️ Code Detective: The Squashed Hero Title
+## 🕵️ Code Detective: The Squashed Hero Title
 
 A student tested their portfolio on an iPhone, but the giant 48px hero title was so wide that it broke through the screen edges:
 
@@ -459,7 +453,7 @@ A student tested their portfolio on an iPhone, but the giant 48px hero title was
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Show, Don't Just Tell!
+## 🎨 Think Like a Web Designer: Show, Don't Just Tell!
 
 Anyone can write on a resume: *"I know how to code websites."*
 A portfolio allows you to **PROVE IT** visually:
@@ -469,14 +463,48 @@ A portfolio allows you to **PROVE IT** visually:
 
 ---
 
-## 11. 🚀 Mini Challenge: Add a "Testimonials" Quote Box
+## 🚀 Mini Challenge: Add a "Testimonials" Quote Box
 
 Add a recommendation quote underneath your projects:
-- *"Leo built our science club website and it was fast, colorful, and super easy to navigate on phones!" — Ms. Davis, Science Club Advisor.*
+- Ask a real teacher or club leader for one honest sentence, and quote it exactly. For practice, use a clearly marked sample: *"Leo built our science club website, and it is easy to use on phones." (sample quote)*
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+A common mistake on dark pages is grey text that is too dark to read.
+
+```css
+/* Wrong: on a #0f172a background */
+.project-desc {
+  color: #334155;
+}
+```
+
+**What happens:** dark grey on dark navy has very low contrast, far under 4.5 : 1. The project descriptions almost vanish, especially on a phone outside.
+
+```css
+/* Fixed */
+.project-desc {
+  color: #cbd5e1; /* light grey: easy to read on navy */
+}
+```
+
+A second slip is project links that go nowhere, like `href="#"`. Visitors click "Live Demo" and nothing happens. Link only to pages that really exist, or leave the button out until the project is online.
+
+---
+
+## ✍️ Try It
+
+**Link Your Real Chapter Projects**
+
+Look inside the `.projects-grid` in `portfolio.html`:
+1. Change the links on Project 1 to point directly to the files you created in Chapter 19 and Chapter 20!
+2. Click the "Live Demo" link: Watch your browser seamlessly launch your actual restaurant and school websites!
+
+---
+
+## 📝 Recap
 
 - A developer portfolio is your primary showcase of technical and design competence.
 - Dark mode interfaces use deep slates (`#0f172a`) paired with bright, glowing accents (`#38bdf8`).
@@ -485,7 +513,7 @@ Add a recommendation quote underneath your projects:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -496,16 +524,87 @@ Add a recommendation quote underneath your projects:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. What is the primary purpose of a web developer portfolio?
-2. What hex color did we use for our portfolio dark background?
-3. Name two interactive links every project card should include.
+### 🟢 Level 1: Recall
+1. What is the main purpose of a web developer portfolio?
+2. Which hex colour did we use for the portfolio's dark background?
+3. Name two links every project card should include.
 
-### 🟡 Medium (Application)
-4. Write a media query that reduces the hero title from 48px to 30px on screens narrower than 550px.
-5. Why are tech stack badges helpful for people viewing your projects?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Add a "Filter by Category" button row (e.g. *All*, *Websites*, *Games*, *Tools*) above the projects grid and style the active filter button with a glowing border!
+1. To show your best work in one place, so teachers, clubs or future employers can see what you can build.
+2. `#0f172a` (a dark navy slate). Check your `body` rule if you changed it.
+3. "Live Demo" (the working page) and "View Code" (the source code, for example on GitHub).
+
+</details>
+
+### 🟡 Level 2: Apply
+4. The hero title is 30px on phones. Write mobile-first CSS that makes it 48px on screens 550px and wider.
+5. Why are tech-stack badges helpful for people looking at your projects?
+
+<details>
+<summary>Show answer</summary>
+
+4.
+```css
+.hero-title {
+  font-size: 30px;
+}
+
+@media (min-width: 550px) {
+  .hero-title {
+    font-size: 48px;
+  }
+}
+```
+
+5. They show at a glance which tools you used (for example HTML, Grid, Forms). A reader can quickly find the project that shows the skill they care about.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Add a row of category buttons above the projects.
+1. Add a `<div class="filters">` with four buttons: *All*, *Websites*, *Tools*, *School Projects*.
+2. Lay them out with Flexbox, `gap` and `flex-wrap: wrap;`.
+3. Give one button the class `active` and style it with a glowing blue border.
+4. Check that the buttons wrap neatly on a 390px-wide screen.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<div class="filters">
+  <button class="filter active">All</button>
+  <button class="filter">Websites</button>
+  <button class="filter">Tools</button>
+  <button class="filter">School Projects</button>
+</div>
+```
+
+```css
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.filter {
+  background-color: transparent;
+  color: #e2e8f0;
+  border: 1px solid #334155;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.filter.active {
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+  color: #ffffff;
+}
+```
+
+The "All" button has a bright blue border with a soft glow. The buttons only look selectable for now; making them actually filter the cards needs JavaScript, which you will learn later.
+
+</details>

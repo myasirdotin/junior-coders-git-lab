@@ -1,8 +1,10 @@
-# Chapter 5: Backgrounds 🖼️🌌
+# Chapter 5: Backgrounds 🖼️
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Themed Birthday Party
+## 🌟 Real-Life Story
+
+**The Themed Birthday Party**
 
 Imagine you are planning an underwater ocean-themed birthday party in your school auditorium:
 - If the walls are plain, boring beige concrete, it doesn't feel like the deep sea.
@@ -14,60 +16,64 @@ Imagine you are planning an underwater ocean-themed birthday party in your schoo
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
-- Use `background-color` as a solid foundation.
-- Load image backdrops with `background-image: url(...)`.
-- Prevent repetitive image tiling using `background-repeat: no-repeat`.
-- Scale background photos perfectly across full screens with `background-size: cover`.
-- Center backgrounds with `background-position: center`.
-- Combine all properties into the powerful `background` shorthand.
+- Fill boxes with `background-color` and add photos with `background-image: url(...)`.
+- Stop tiling with `background-repeat: no-repeat`.
+- Fit and place photos with `background-size: cover` and `background-position: center`.
+- Combine everything in the `background` shorthand (one property that sets many at once).
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Background Properties Toolkit
 
 ```text
- 1. background-color: #0f172a;
-    Fills the container with a solid color.
+1. background-color: #0f172a;
+   fills the box with one colour
 
- 2. background-image: url('ocean.jpg');
-    Paints a photo or graphic behind the content.
+2. background-image: url('ocean.jpg');
+   paints a picture behind the content
 
- 3. background-repeat: no-repeat;
-    Prevents the photo from repeating like bathroom tiles!
-    (Options: repeat, repeat-x, repeat-y, no-repeat)
+3. background-repeat: no-repeat;
+   stops the picture tiling like a floor
+   (repeat, repeat-x, repeat-y,
+    no-repeat)
 
- 4. background-size: cover;
-    Stretches and scales the photo so it completely fills the box!
-    (Options: auto, contain, cover)
+4. background-size: cover;
+   scales the picture to fill the box
+   (auto, contain, cover)
 
- 5. background-position: center center;
-    Aligns the photo directly in the middle of the box!
+5. background-position: center;
+   puts the middle of the picture in
+   the middle of the box
 ```
 
 ### Visualizing `background-size: cover` vs. `contain`
 
 ```text
- 1. contain: The entire image is visible, even if it leaves empty bars on sides.
-    ┌──────────────────────────┐
-    │  [ Full Image Fits Here ]│
-    └──────────────────────────┘
+contain: the WHOLE picture shows.
+Empty bars may appear at the sides.
+┌──────────────────────────┐
+│   ┌──────────────────┐   │
+│   │   whole image    │   │
+│   └──────────────────┘   │
+└──────────────────────────┘
 
- 2. cover: The image fills every single corner of the box with zero empty gaps!
-    ┌──────────────────────────┐
-    │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│
-    │▓▓▓  Image Covers All  ▓▓▓│
-    │▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│
-    └──────────────────────────┘
+cover: the picture fills EVERY corner.
+Some edges may be cut off.
+┌──────────────────────────┐
+│▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│
+│▓▓▓ image fills the box ▓▓│
+│▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓│
+└──────────────────────────┘
 ```
 
 ---
 
-## 4. 💻 Code Example: The Hero Banner
+## 💻 Code Example: The Hero Banner
 
 Type this into your editor and save it as `hero-banner.html`:
 
@@ -136,7 +142,7 @@ Type this into your editor and save it as `hero-banner.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Building the Hero Banner
+## 🔍 Code Explanation: Building the Hero Banner
 
 - `background-color: #0b132b;`: **Always provide a background color!** If the user is on a slow cell connection and the image takes 3 seconds to download, they won't see white text on a white screen—they will see white text on dark blue!
 - `background-image: url('...');`: The `url('...')` function tells the browser where to fetch the wallpaper image.
@@ -145,7 +151,7 @@ Type this into your editor and save it as `hero-banner.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: Website Hero Sections
+## 🌍 Real-World Connection: Website Hero Sections
 
 Visit **National Geographic**, **Khan Academy**, or **Wikimedia**:
 - The very first thing you see at the top of their home page is a huge, high-resolution, full-width photo banner.
@@ -153,16 +159,7 @@ Visit **National Geographic**, **Khan Academy**, or **Wikimedia**:
 
 ---
 
-## 7. ✍️ Try It Yourself: The Tiling Pattern Experiment
-
-1. Find a tiny 50x50 pixel icon or pattern image.
-2. Set `background-repeat: repeat;` on your `body`.
-3. Notice how the browser multiplies the tiny image across the screen like a seamless checkerboard or wallpaper pattern!
-4. Now change it to `background-repeat: no-repeat;` and watch it shrink back to a single solitary icon in the top-left corner!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 What will happen if you forget to write `background-repeat: no-repeat` when using a small photo as a background on a giant 27-inch desktop monitor?
 
@@ -173,7 +170,7 @@ What will happen if you forget to write `background-repeat: no-repeat` when usin
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken URL Path
+## 🕵️ Code Detective: The Broken URL Path
 
 A student tried to load an image, but the background remained plain white:
 
@@ -196,7 +193,7 @@ A student tried to load an image, but the background remained plain white:
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: The Readability Test
+## 🎨 Think Like a Web Designer: The Readability Test
 
 Placing text directly over photographic backgrounds can be risky:
 - If a photo has light and dark patches, white text will disappear when it passes over a white cloud.
@@ -208,7 +205,7 @@ Placing text directly over photographic backgrounds can be risky:
 
 ---
 
-## 11. 🚀 Mini Challenge: The Rainforest Sanctuary Banner
+## 🚀 Mini Challenge: The Rainforest Sanctuary Banner
 
 Create a web page named `rainforest.html`:
 - Build a `.banner` container with a height of `400px`.
@@ -219,7 +216,48 @@ Create a web page named `rainforest.html`:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+A common mistake is putting light text on a busy photo with no dark layer.
+
+```css
+/* Wrong */
+.hero {
+  background-image: url('forest.jpg');
+  background-size: cover;
+  color: white;
+}
+```
+
+**What happens:** where the photo has bright sky or white flowers, the white words almost disappear. Many readers cannot read them.
+
+```css
+/* Fixed: a half-dark layer on top of the photo */
+.hero {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url('forest.jpg');
+  background-size: cover;
+  color: white;
+}
+```
+
+A second slip is a background image on an **empty** box. A `<div>` with no content and no `height` is 0 pixels tall, so the picture has nowhere to show. Give it content, padding or a `min-height`.
+
+---
+
+## ✍️ Try It
+
+**The Tiling Pattern Experiment**
+
+1. Find a tiny 50x50 pixel icon or pattern image.
+2. Set `background-repeat: repeat;` on your `body`.
+3. Notice how the browser multiplies the tiny image across the screen like a seamless checkerboard or wallpaper pattern!
+4. Now change it to `background-repeat: no-repeat;` and watch it shrink back to a single solitary icon in the top-left corner!
+
+---
+
+## 📝 Recap
 
 - `background-color` fills elements with a solid tint.
 - `background-image: url(...)` attaches image backdrops.
@@ -230,7 +268,7 @@ Create a web page named `rainforest.html`:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -242,16 +280,83 @@ Create a web page named `rainforest.html`:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. What CSS function must wrap the file path in `background-image`?
-2. What is the default repeat behavior of a background image if you don't specify `background-repeat`?
-3. Which property centers the focal point of a background image?
+### 🟢 Level 1: Recall
+1. Which CSS function must wrap the file path in `background-image`?
+2. What does a background image do if you do not set `background-repeat`?
+3. Which property moves the focus point of a background image to the centre?
 
-### 🟡 Medium (Application)
-4. Write the CSS rules for a class called `.ocean-card` with a dark blue fallback color, an image named `waves.jpg`, no repeat, and `cover` sizing.
+<details>
+<summary>Show answer</summary>
+
+1. `url(...)`, for example `url('waves.jpg')`.
+2. It **repeats** (tiles) across and down to fill the box. The default is `repeat`.
+3. `background-position` (for example `background-position: center;`).
+
+</details>
+
+### 🟡 Level 2: Apply
+4. Write CSS for `.ocean-card` with a dark blue fallback colour, the image `waves.jpg`, no repeat and `cover` sizing.
 5. What is the difference between `background-size: cover` and `background-size: contain`?
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Write a CSS rule that applies a fixed background (`background-attachment: fixed;`) to a section. Open the page in your browser and scroll. Describe the parallax illusion you observe!
+<details>
+<summary>Show answer</summary>
+
+4.
+```css
+.ocean-card {
+  background-color: #1e3a8a;
+  background-image: url('waves.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+```
+
+The colour shows while the picture loads, or if it fails to load.
+
+5. `cover` fills the whole box, even if some edges of the picture are cut off. `contain` shows the whole picture, even if empty space is left around it.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Make a "still background" effect.
+1. Make a page with three tall sections (use `min-height: 100vh;`, which means the full height of the screen).
+2. Give the middle section a background image with `background-attachment: fixed;`.
+3. Scroll the page slowly on a computer and describe what you see.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain Trip</title>
+    <style>
+      section {
+        min-height: 100vh;
+        padding: 40px;
+      }
+      .still {
+        background-image: url('mountains.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <section><h2>Our School Trip</h2></section>
+    <section class="still"><h2>The Mountains</h2></section>
+    <section><h2>What We Learned</h2></section>
+  </body>
+</html>
+```
+
+As you scroll, the text moves but the mountain picture stays still, like looking through a window. This is often called a **parallax** effect. Many phone browsers ignore `fixed`, so the picture simply scrolls there.
+
+</details>

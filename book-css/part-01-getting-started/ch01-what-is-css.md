@@ -1,18 +1,20 @@
-# Chapter 1: What Is CSS? 🎨✨
+# Chapter 1: What Is CSS? 🎨
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Black-and-White Coloring Book
+## 🌟 Real-Life Story
+
+**The Black-and-White Coloring Book**
 
 Imagine opening a brand-new coloring book. On the crisp white pages, you see clean black ink outlines:
-- A brave dragon guarding a mountain castle.
+- A tall lighthouse standing on a rocky shore.
 - A futuristic starship flying past asteroids.
 - A friendly sea turtle swimming above a coral reef.
 
-The black ink outlines are clear and well-drawn. You know exactly what everything is. **That is HTML!** It provides the outline, the characters, and the structure.
+The black ink outlines are clear and well-drawn. You know exactly what everything is. **That is HTML!** It provides the outline and the structure.
 
 Now, imagine opening a fresh tin of 64 colored pencils, watercolor paints, and glitter pens!
-- You paint the dragon deep emerald green with gleaming golden scales.
+- You paint the lighthouse bright white with a cherry-red roof.
 - You shade the sky sunset violet and fiery orange.
 - You give the starship polished silver wings and a glowing blue engine trail.
 
@@ -21,33 +23,33 @@ CSS breathes life, mood, beauty, and personality into the black-and-white skelet
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
-- Explain what CSS stands for (**Cascading Style Sheets**).
-- Understand the difference between a page *Before CSS* and *After CSS*.
-- Master the fundamental anatomy of a **CSS Rule Set**: Selector, Property, and Value.
-- Use curly braces (`{}`) and semicolons (`;`) accurately in CSS syntax.
-- Write your first CSS rules to style headings, text, and page backgrounds.
+- Explain what CSS stands for (**Cascading Style Sheets**) and what it does to a page.
+- Name the three parts of a **CSS rule**: selector, property and value.
+- Use curly braces (`{}`), colons (`:`) and semicolons (`;`) correctly.
+- Write your first CSS rules to style headings, text and page backgrounds.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### Before CSS vs. After CSS
 
 ```text
-BEFORE CSS (Pure HTML)                AFTER CSS (Styled with Love)
-┌──────────────────────────────┐      ┌──────────────────────────────┐
-│ My Super Club                │      │       MY SUPER CLUB          │ <- Deep Blue, Centered
-│ Welcome to our club. We code │      │  Welcome to our club. We code│ <- Modern font, navy text
-│ every day.                   │      │  every day!                  │
-│                              │      │                              │
-│ [Click here to join]         │      │      ┌───────────────┐       │
-│                              │      │      │ JOIN THE CLUB │       │ <- Rounded green button
-└──────────────────────────────┘      │      └───────────────┘       │
-(Boring, plain, left-aligned)         └──────────────────────────────┘
-                                      (Vibrant, balanced, beautiful!)
+BEFORE CSS        AFTER CSS
+┌───────────────┐ ┌───────────────┐
+│My Super Club  │ │ MY SUPER CLUB │
+│Welcome to our │ │ Welcome to our│
+│club. We code  │ │ club. We code!│
+│every day.     │ │  ┌─────────┐  │
+│[Join the club]│ │  │  JOIN   │  │
+│               │ │  └─────────┘  │
+└───────────────┘ └───────────────┘
+ plain, left-      centred, blue
+ aligned, grey     title, green
+                   rounded button
 ```
 
 ### The Anatomy of a CSS Rule
@@ -55,15 +57,14 @@ BEFORE CSS (Pure HTML)                AFTER CSS (Styled with Love)
 Every CSS rule has three core parts:
 
 ```text
-        Property (What do you want to change?)
-             │
-             ▼
-   h1 {    color: #2563eb;    font-size: 32px;    }
-   ▲              ▲                               ▲
-   │              │                               │
-Selector        Value                           Closing
-(Who gets     (What do you want                Curly Brace
-the style?)   it to look like?)
+    h1 { color: #2563eb; }
+    ▲    ▲      ▲
+    │    │      └─ value
+    │    │        (how it looks)
+    │    └─ property
+    │      (what to change)
+    └─ selector
+       (who gets the style)
 ```
 
 > ⚠️ **Common Mistake**: 
@@ -71,7 +72,7 @@ the style?)   it to look like?)
 
 ---
 
-## 4. 💻 Code Example: Transforming a Web Page
+## 💻 Code Example: Transforming a Web Page
 
 Type this code into an editor and save it as `first-style.html`:
 
@@ -116,7 +117,7 @@ Type this code into an editor and save it as `first-style.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Deciphering the Syntax
+## 🔍 Code Explanation: Deciphering the Syntax
 
 - `<style>`: This tag sits inside the `<head>` of your HTML document. It tells the browser: *"Everything inside here is CSS styling instructions!"*
 - `body { ... }`: The **selector** is `body`. This means the background color, font, and text color will apply to the entire window canvas!
@@ -132,7 +133,7 @@ Type this code into an editor and save it as `first-style.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: The CSS Zen Garden
+## 🌍 Real-World Connection: The CSS Zen Garden
 
 In 2003, a famous web designer created an experiment called **The CSS Zen Garden**:
 - Hundreds of designers from across the globe took the **exact same HTML file**. Not a single letter of HTML was allowed to be changed!
@@ -142,16 +143,7 @@ In 2003, a famous web designer created an experiment called **The CSS Zen Garden
 
 ---
 
-## 7. ✍️ Try It Yourself: Change the Theme
-
-Open `first-style.html` in your editor and experiment:
-1. Change `color: #2563eb;` on the `h1` to `color: #059669;` (a calm forest green).
-2. Change `text-align: center;` to `text-align: right;`.
-3. Save the file and refresh your browser! Watch the heading instantly transform!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this CSS snippet:
 
@@ -173,7 +165,7 @@ p {
 
 ---
 
-## 9. 🕵️ Code Detective: The Missing Semicolon Mystery
+## 🕵️ Code Detective: The Missing Semicolon Mystery
 
 A student wrote this CSS, but the font size refused to change:
 
@@ -198,7 +190,7 @@ h1 {
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Contrast and Readability
+## 🎨 Think Like a Web Designer: Contrast and Readability
 
 Have you ever tried reading bright yellow text on a pure white background? It makes your eyes water!
 - A great web designer always checks **contrast**:
@@ -211,7 +203,7 @@ Have you ever tried reading bright yellow text on a pure white background? It ma
 
 ---
 
-## 11. 🚀 Mini Challenge: The Candy Shop Palette
+## 🚀 Mini Challenge: The Candy Shop Palette
 
 Create a web page named `candy-store.html`:
 - Give it an `<h1>`: `The Sweet Tooth Bakery`
@@ -223,7 +215,42 @@ Create a web page named `candy-store.html`:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+Beginners often use an equals sign `=` (like in HTML attributes) instead of a colon `:`.
+
+```css
+/* Wrong */
+p {
+  color = navy;
+}
+```
+
+**What happens:** the browser does not understand `color = navy`, so it skips the line. The text stays black.
+
+```css
+/* Fixed */
+p {
+  color: navy;
+}
+```
+
+A second slip is forgetting the closing brace `}`. Then the browser thinks the next rule is still inside the first one, and both rules can break. Always close every `{` with a `}`.
+
+---
+
+## ✍️ Try It
+
+**Change the Theme**
+
+Open `first-style.html` in your editor and experiment:
+1. Change `color: #2563eb;` on the `h1` to `color: #059669;` (a calm forest green).
+2. Change `text-align: center;` to `text-align: right;`.
+3. Save the file and refresh your browser! Watch the heading instantly transform!
+
+---
+
+## 📝 Recap
 
 - **CSS** stands for *Cascading Style Sheets*.
 - HTML provides structure; CSS controls appearance and layout.
@@ -234,7 +261,7 @@ Create a web page named `candy-store.html`:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -246,16 +273,80 @@ Create a web page named `candy-store.html`:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
+### 🟢 Level 1: Recall
 1. What does CSS stand for?
 2. What punctuation mark separates a CSS property from its value?
 3. What punctuation mark finishes every CSS declaration?
 
-### 🟡 Medium (Application)
-4. Write a CSS rule that targets all `<h2>` headings, changes their text color to dark green (`#047857`), and sets their font size to `28px`.
-5. Explain why CSS rules are described as "cascading".
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Write an HTML file with three paragraphs. Write CSS to make the entire page background dark slate gray (`#0f172a`), the heading bright electric cyan (`#38bdf8`), and the text soft white (`#f1f5f9`). Preview your high-tech "Dark Mode" web page!
+1. **Cascading Style Sheets.**
+2. A **colon** `:` (for example `color: blue;`).
+3. A **semicolon** `;`.
+
+</details>
+
+### 🟡 Level 2: Apply
+4. Write a CSS rule that targets all `<h2>` headings, changes their text colour to dark green (`#047857`) and sets their font size to `28px`.
+5. Explain why CSS is called "cascading".
+
+<details>
+<summary>Show answer</summary>
+
+4.
+```css
+h2 {
+  color: #047857;
+  font-size: 28px;
+}
+```
+
+5. "Cascading" means many rules can apply to the same element, and the browser decides which one wins. Styles also flow down like a waterfall: a later rule for the same element usually wins over an earlier one.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build a calm "dark mode" page for your class newsletter.
+1. Make an HTML file with one `<h1>` and three `<p>` paragraphs.
+2. Make the page background dark slate (`#0f172a`).
+3. Make the heading light blue (`#38bdf8`).
+4. Make the paragraph text soft white (`#f1f5f9`).
+5. Open it in your browser and check that the text is easy to read.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Newsletter</title>
+    <style>
+      body {
+        background-color: #0f172a;
+      }
+      h1 {
+        color: #38bdf8;
+      }
+      p {
+        color: #f1f5f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Class 7 Newsletter</h1>
+    <p>Our science fair is next Friday.</p>
+    <p>The library has 40 new books.</p>
+    <p>Thank you to everyone who helped clean the garden.</p>
+  </body>
+</html>
+```
+
+You see a dark blue page, a light blue heading and soft white paragraphs. Light text on a dark background has strong contrast, so it is easy to read.
+
+</details>

@@ -1,8 +1,10 @@
-# Chapter 19: School Website 🏫🎒
+# Chapter 19: School Website 🏫
 
 ---
 
-## 1. 🌟 Real-Life Situation: Open House Day
+## 🌟 Real-Life Story
+
+**Open House Day**
 
 Imagine your school is hosting an annual Open House for new families:
 - Parents and students arrive at the front gates. The school principal greets them in the auditorium with an inspiring welcome address explaining the school’s history and core values.
@@ -15,47 +17,46 @@ Parents, teachers, and students visit every day to check announcements, explore 
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
-- Structure a multi-tier educational portal layout.
-- Build a welcoming school banner with announcements.
-- Construct a **Courses & Programs Grid** with thematic subject cards.
-- Design a **Teacher Directory** featuring circular instructor portraits and subjects.
-- Display school operating hours and contact info using a clean 2-column layout.
-- Use color accents to reflect school spirit and pride.
+- Plan a school website with a header, banner, courses, teachers and contact sections.
+- Build a banner with a darkened photo so white text stays readable.
+- Make a courses grid and a teacher directory that adapt to the screen with `auto-fit` and `minmax()`.
+- Use school colours as accents while keeping good contrast.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The School Website Blueprint
 
 ```text
- ┌─────────────────────────────────────────────────────────────┐
- │ HEADER: [ 🎓 Crest ] Greenwood Academy     [Nav Links...]   │
- ├─────────────────────────────────────────────────────────────┤
- │ HERO BANNER: "Inspiring Curiosity, Shaping Future Leaders"  │
- │              [ Enroll Now ]  [ Virtual Tour ]               │
- ├─────────────────────────────────────────────────────────────┤
- │ ABOUT SECTION: School history, values, and campus motto     │
- ├─────────────────────────────────────────────────────────────┤
- │ FEATURED COURSES (3-COLUMN GRID)                            │
- │  ┌────────────────┐  ┌────────────────┐  ┌────────────────┐ │
- │  │ 💻 Web Coding  │  │ 🌿 Bio Ecology │  │ 🎨 Visual Arts │ │
- │  └────────────────┘  └────────────────┘  └────────────────┘ │
- ├─────────────────────────────────────────────────────────────┤
- │ MEET OUR TEACHERS (FACULTY CARDS)                           │
- │  (•) Ms. Davies (CS)     (•) Mr. Zhang (Math)               │
- ├─────────────────────────────────────────────────────────────┤
- │ CAMPUS INFO & CONTACT FOOTER                                │
- │  Location, Office Hours, Phone, Emergency Hotline           │
- └─────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────┐
+│ HEADER: crest, Greenwood        │
+│ Academy, nav links              │
+├─────────────────────────────────┤
+│ BANNER: "Inspiring Curiosity"   │
+│ [Enrol Now] [Virtual Tour]      │
+├─────────────────────────────────┤
+│ ABOUT: history, values, motto   │
+├─────────────────────────────────┤
+│ COURSES (3-column grid)         │
+│ ┌─────────┐┌─────────┐┌───────┐ │
+│ │ Coding  ││ Ecology ││ Art   │ │
+│ └─────────┘└─────────┘└───────┘ │
+├─────────────────────────────────┤
+│ MEET OUR TEACHERS               │
+│ (•) Ms. Davies  (•) Mr. Zhang   │
+├─────────────────────────────────┤
+│ CONTACT FOOTER: address,        │
+│ office hours, phone             │
+└─────────────────────────────────┘
 ```
 
 ---
 
-## 4. 💻 Code Example: The Complete School Website
+## 💻 Code Example: The Complete School Website
 
 Type this code into an editor and save it as `school-website.html`:
 
@@ -364,7 +365,7 @@ Type this code into an editor and save it as `school-website.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Visual Hierarchy & School Branding
+## 🔍 Code Explanation: Visual Hierarchy & School Branding
 
 - **School Color Palette**: Notice how the primary color is a calm, academic forest green (`#059669`), paired with a warm golden amber CTA button (`#f59e0b`). Colors create instant identity and trustworthiness!
 - `background: linear-gradient(...), url(...)`: Combines a dark translucent green wash with a campus photo backdrop so white headline text remains 100% readable!
@@ -372,7 +373,7 @@ Type this code into an editor and save it as `school-website.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: School Portals Everywhere
+## 🌍 Real-World Connection: School Portals Everywhere
 
 Visit top educational websites like *Stanford Online*, *MIT OpenCourseWare*, or your local district school board:
 - Notice how every page clearly divides into: **School Brand -> Hero Announcement -> Courses -> Staff -> Contact**.
@@ -380,18 +381,7 @@ Visit top educational websites like *Stanford Online*, *MIT OpenCourseWare*, or 
 
 ---
 
-## 7. ✍️ Try It Yourself: Add an "Events Notice Board"
-
-Open `school-website.html` in your editor:
-1. Add an `<h2>Campus Announcements</h2>` section.
-2. Build an HTML table listing:
-   - Date: *October 15* | Event: *Annual Science Fair* | Location: *Gymnasium*
-   - Date: *November 3* | Event: *Robotics Tournament* | Location: *Lab 4*
-3. Save and refresh: You just gave the school an interactive calendar!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 If a parent opens this school site on a smartphone (390px wide), what will happen to the 3 course cards?
 
@@ -402,9 +392,9 @@ If a parent opens this school site on a smartphone (390px wide), what will happe
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Background Wash
+## 🕵️ Code Detective: The Broken Background Wash
 
-A student tried to create a tinted photo banner, but the screen showed a black box:
+A student tried to create a darkened photo banner, but the photo showed with no dark tint, and the white heading was hard to read:
 
 ```css
 /* Broken Code */
@@ -425,7 +415,7 @@ A student tried to create a tinted photo banner, but the screen showed a black b
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Trust and Accessibility
+## 🎨 Think Like a Web Designer: Trust and Accessibility
 
 Educational websites serve diverse audiences: children, elderly grandparents, and visitors with disabilities.
 - Use high contrast text.
@@ -434,7 +424,7 @@ Educational websites serve diverse audiences: children, elderly grandparents, an
 
 ---
 
-## 11. 🚀 Mini Challenge: The School Mascot Badge
+## 🚀 Mini Challenge: The School Mascot Badge
 
 Add a floating school mascot crest in the top right corner:
 - Create a badge reading: `🦅 Home of the Golden Eagles`.
@@ -443,7 +433,47 @@ Add a floating school mascot crest in the top right corner:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+A common mistake is choosing school colours that look nice but are hard to read.
+
+```css
+/* Wrong: pale gold text on white */
+.announcement {
+  background-color: #ffffff;
+  color: #facc15;
+}
+```
+
+**What happens:** the **contrast ratio** (how different the text and background colours are in brightness) is far below 4.5 : 1, the minimum for normal text. Many visitors, including grandparents and people with weak eyesight, cannot read it.
+
+```css
+/* Fixed: keep gold as a border accent, use dark text */
+.announcement {
+  background-color: #fefce8;
+  border-left: 6px solid #facc15;
+  color: #1e293b;
+}
+```
+
+A second slip is a fixed number of columns, such as `repeat(3, 1fr)`, for the course cards. On a phone each card becomes very thin. `repeat(auto-fit, minmax(280px, 1fr))` lets the grid choose how many columns fit.
+
+---
+
+## ✍️ Try It
+
+**Add an "Events Notice Board"**
+
+Open `school-website.html` in your editor:
+1. Add an `<h2>Campus Announcements</h2>` section.
+2. Build an HTML table listing:
+   - Date: *October 15* | Event: *Annual Science Fair* | Location: *Gymnasium*
+   - Date: *November 3* | Event: *Robotics Tournament* | Location: *Lab 4*
+3. Save and refresh: You just gave the school an interactive calendar!
+
+---
+
+## 📝 Recap
 
 - School portals require clean, welcoming visual structure and clear navigation.
 - Consistent school branding is maintained through thematic colors (e.g., forest green and gold).
@@ -453,7 +483,7 @@ Add a floating school mascot crest in the top right corner:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -465,16 +495,85 @@ Add a floating school mascot crest in the top right corner:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. In a multi-background CSS declaration, which layer sits on top?
-2. What grid property ensures course cards never shrink smaller than 280px?
-3. Which HTML tag wraps the contact and copyright details at the bottom of the page?
+### 🟢 Level 1: Recall
+1. When you list several backgrounds in one declaration, which layer is on top?
+2. Which grid setting keeps course cards at least 280px wide while filling the row?
+3. Which HTML tag holds the contact and copyright details at the bottom of the page?
 
-### 🟡 Medium (Application)
-4. Write the HTML link to make the school phone number `+91-94190-12345` immediately dialable when tapped on a smartphone.
-5. Why is a dark overlay recommended when placing white text on top of photography?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Add a "Daily Cafeteria Specials" card to the school site with alternating colored table rows (Zebra striping using `:nth-child(even)` in CSS)!
+1. The **first** one written.
+2. `grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));`
+3. `<footer>`.
+
+</details>
+
+### 🟡 Level 2: Apply
+4. Write a link that lets phone users call the school office at `+91-94190-12345` with one tap.
+5. Why should you add a dark overlay when you put white text on a photo?
+
+<details>
+<summary>Show answer</summary>
+
+4.
+```html
+<a href="tel:+919419012345">+91-94190-12345</a>
+```
+
+The `tel:` link opens the phone's dialler. Remove spaces and dashes inside `href`.
+
+5. Photos have light and dark areas. White text on a bright sky or white wall almost disappears. A half-dark layer makes the whole photo darker, so the white text always has strong contrast.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Add a "Daily Lunch Specials" card with a striped table.
+1. Make a card with an `<h3>` and a `<table>` of 5 days and their dishes.
+2. Give the table `width: 100%` and `border-collapse: collapse;` (this joins the cell borders into single lines).
+3. Use `tr:nth-child(even)` to give every second row a light background ("zebra stripes").
+4. Add padding to the cells.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<div class="lunch-card">
+  <h3>Daily Lunch Specials</h3>
+  <table>
+    <tr><th>Day</th><th>Dish</th></tr>
+    <tr><td>Monday</td><td>Vegetable biryani</td></tr>
+    <tr><td>Tuesday</td><td>Lentil soup and bread</td></tr>
+    <tr><td>Wednesday</td><td>Chicken wrap</td></tr>
+    <tr><td>Thursday</td><td>Pasta with tomato sauce</td></tr>
+    <tr><td>Friday</td><td>Rice, beans and salad</td></tr>
+  </table>
+</div>
+```
+
+```css
+.lunch-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.lunch-card table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.lunch-card th,
+.lunch-card td {
+  padding: 10px;
+  text-align: left;
+}
+.lunch-card tr:nth-child(even) {
+  background-color: #f1f5f9;
+}
+```
+
+The header row is row 1, so rows 2, 4 and 6 (Monday, Wednesday, Friday) get the light grey stripe. Stripes help the eye follow each line across.
+
+</details>

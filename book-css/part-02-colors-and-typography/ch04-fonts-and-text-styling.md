@@ -1,8 +1,10 @@
-# Chapter 4: Fonts and Text Styling 🔤📖
+# Chapter 4: Fonts and Text Styling 🔤
 
 ---
 
-## 1. 🌟 Real-Life Situation: Handwriting and Personality
+## 🌟 Real-Life Story
+
+**Handwriting and Personality**
 
 Think about how different types of handwriting make you feel:
 - A handwritten invitation to a formal royal banquet is written in elegant, flowing cursive calligraphy.
@@ -16,54 +18,58 @@ In CSS, you have complete control over font styles, letter sizes, line spacing, 
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
-- Choose font styles using `font-family` and understand font fallbacks.
-- Distinguish between **Serif** and **Sans-Serif** fonts.
-- Size text accurately with `font-size` using pixels (`px`).
-- Control thickness with `font-weight` (normal, bold, numeric weights).
-- Align text with `text-align` (left, center, right, justify).
-- Give paragraphs comfortable breathing room using `line-height`.
-- Transform capitalization with `text-transform` (uppercase, lowercase, capitalize).
-- Create a beautifully styled Motivational Quote Poster page.
+- Choose fonts with `font-family`, including a fallback **font stack**.
+- Tell **serif** fonts from **sans-serif** fonts.
+- Size and thicken text with `font-size` and `font-weight`.
+- Align and space text with `text-align` and `line-height`.
+- Change capital letters with `text-transform`.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### Serif vs. Sans-Serif: What's the Difference?
 
 ```text
- 1. SERIF FONTS (Times New Roman, Georgia)
-    Have tiny decorative "feet" or hooks on the ends of letters:
-       │  ┌───┐  │
-       └──┤ T ├──┘    <-- Look at the tiny feet on the top bar!
-          └───┘
-    Mood: Traditional, formal, academic, like classic printed books.
+1. SERIF (Times New Roman, Georgia)
+   Small "feet" on the ends of letters:
+     ┬──┬──┬
+        │
+       ─┴─   <- the little feet
+   Mood: formal, like a printed book.
 
- 2. SANS-SERIF FONTS (Arial, Helvetica, Inter)
-    "Sans" means "without" in French. Crisp, clean, straight edges:
-       │  ┌───┐  │
-       ───┤ T ├───    <-- Clean, modern, no feet!
-          └───┘
-    Mood: Modern, friendly, tech-savvy, easy to read on mobile screens!
+2. SANS-SERIF (Arial, Inter)
+   "Sans" is French for "without".
+   No feet, clean straight edges:
+     ───┬───
+        │
+        │    <- no feet
+   Mood: modern, easy to read on screens.
 ```
 
 ### Key Text Styling Properties
 
 ```text
- font-family: 'Inter', Arial, sans-serif;  <-- Typeface choice (with fallbacks)
- font-size: 24px;                          <-- Text size
- font-weight: 700;                         <-- Boldness (100 to 900)
- line-height: 1.6;                         <-- Vertical space between lines
- text-align: center;                       <-- Left, center, or right
- text-transform: uppercase;                <-- ALL CAPS or normal
+font-family: 'Inter', Arial, sans-serif;
+  -> which font (with fallbacks)
+font-size: 24px;
+  -> how big the letters are
+font-weight: 700;
+  -> how thick (100 to 900)
+line-height: 1.6;
+  -> space between lines
+text-align: center;
+  -> left, center, right, justify
+text-transform: uppercase;
+  -> ALL CAPS, lowercase, Capitalize
 ```
 
 ---
 
-## 4. 💻 Code Example: The Motivational Quote Page
+## 💻 Code Example: The Motivational Quote Page
 
 Type this into your editor and save it as `quote.html`:
 
@@ -133,7 +139,7 @@ Type this into your editor and save it as `quote.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Typography Magic
+## 🔍 Code Explanation: How the Text Styles Work
 
 - `font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;`:
   - This is called a **Font Stack**.
@@ -144,25 +150,17 @@ Type this into your editor and save it as `quote.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: Google Fonts
+## 🌍 Real-World Connection: Google Fonts
 
-Open modern websites like **Wikipedia**, **GitHub**, or **Apple**:
-- They don't use boring default fonts.
-- They load custom web fonts using services like **Google Fonts** (such as *Inter*, *Roboto*, *Poppins*, or *Outfit*).
-- Typography gives a brand its entire visual identity!
-
----
-
-## 7. ✍️ Try It Yourself: The Alignment Experiment
-
-Open your browser with `quote.html`:
-1. Change `text-align: center;` to `text-align: left;`.
-2. Notice how the card immediately feels more formal and editorial!
-3. Now add `text-transform: uppercase;` to `.quote-author`. Notice how the author's name shifts into sharp capital letters!
+Many modern websites do not rely only on the fonts already on your computer:
+- They load **web fonts** (fonts downloaded with the page) from free services like **Google Fonts**.
+- Popular choices include *Inter*, *Roboto*, *Poppins* and *Outfit*.
+- Other sites, such as Wikipedia and GitHub, use a **system font stack**: the clean font your device already has.
+- Either way, **typography** (the choice and styling of text) gives a website much of its personality.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this CSS:
 
@@ -182,19 +180,19 @@ p {
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Font Name
+## 🕵️ Code Detective: The Broken Font Name
 
-A student tried to use the font "Trebuchet MS", but the browser showed generic Times New Roman:
+A student tried to use the font "Trebuchet MS", but the browser showed its plain default font (often Times New Roman):
 
 ```css
 /* Broken Code */
 p {
-  font-family: Trebuchet MS, sans-serif;
+  font-family: 'Trebuchet MS' sans-serif;
 }
 ```
 
-- **Find the mistake**: Look at `Trebuchet MS`!
-- **Explain the mistake**: Whenever a font name contains **spaces** between words, it MUST be enclosed in quotation marks (`'Trebuchet MS'`)! Otherwise, the computer thinks `MS` is a separate, broken command!
+- **Find the mistake**: Look between `'Trebuchet MS'` and `sans-serif`!
+- **Explain the mistake**: The comma is missing. Each font in a font stack must be separated by a comma. Without it, the whole line is invalid, so the browser ignores it.
 - **Fix the code**:
   ```css
   /* Fixed Code */
@@ -205,7 +203,7 @@ p {
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Don't Mix 10 Fonts!
+## 🎨 Think Like a Web Designer: Don't Mix 10 Fonts!
 
 Beginner coders often get so excited by fonts that they put 6 different wacky fonts on one page:
 - One font for the header, one for paragraphs, one for buttons, one for dates...
@@ -216,7 +214,7 @@ Beginner coders often get so excited by fonts that they put 6 different wacky fo
 
 ---
 
-## 11. 🚀 Mini Challenge: The Book Cover Poster
+## 🚀 Mini Challenge: The Book Cover Poster
 
 Create a web page named `book-cover.html`:
 - Center a decorative book cover card on the screen.
@@ -226,7 +224,42 @@ Create a web page named `book-cover.html`:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+A common mistake is writing `bold` on the wrong property.
+
+```css
+/* Wrong */
+h2 {
+  font-style: bold;
+}
+```
+
+**What happens:** `font-style` is only for `normal` or `italic` text. `bold` is not a valid value, so the line is ignored and the heading keeps its usual weight.
+
+```css
+/* Fixed */
+h2 {
+  font-weight: bold; /* or 700 */
+}
+```
+
+Another slip is forgetting the unit: `font-size: 18;` is ignored. Write `font-size: 18px;` (a `px` or `rem` unit is needed).
+
+---
+
+## ✍️ Try It
+
+**The Alignment Experiment**
+
+Open your browser with `quote.html`:
+1. Change `text-align: center;` to `text-align: left;`.
+2. Notice how the card immediately feels more formal and editorial!
+3. Now add `text-transform: uppercase;` to `.quote-author`. Notice how the author's name shifts into sharp capital letters!
+
+---
+
+## 📝 Recap
 
 - `font-family` sets the typeface, backed up by a fallback list.
 - **Serif** fonts have decorative feet; **Sans-serif** fonts are clean and geometric.
@@ -238,7 +271,7 @@ Create a web page named `book-cover.html`:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -251,16 +284,80 @@ Create a web page named `book-cover.html`:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
+### 🟢 Level 1: Recall
 1. What does the word "sans" mean in sans-serif?
 2. Which property makes text bold in CSS?
-3. What happens if a font name with spaces is written without quotes?
+3. What does a comma do inside a `font-family` list?
 
-### 🟡 Medium (Application)
-4. Write a CSS rule for `.announcement` that aligns text in the center, capitalizes all letters, and sets line-height to `1.8`.
-5. Why is a unitless `line-height: 1.6;` safer than a fixed pixel `line-height: 16px;`?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Visit Google Fonts (`fonts.google.com`), choose two complementary fonts, and write the HTML `<link>` tag and CSS rules to use them on a school newspaper article page!
+1. "Sans" is French for **without**: a sans-serif font has no small feet on its letters.
+2. `font-weight` (for example `font-weight: bold;` or `font-weight: 700;`).
+3. It separates the fonts in the stack. The browser uses the first font it has, then tries the next one.
+
+</details>
+
+### 🟡 Level 2: Apply
+4. Write a CSS rule for `.announcement` that centres the text, makes all letters capitals and sets `line-height` to `1.8`.
+5. Why is a unitless `line-height: 1.6;` safer than `line-height: 16px;`?
+
+<details>
+<summary>Show answer</summary>
+
+4.
+```css
+.announcement {
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.8;
+}
+```
+
+5. `1.6` means "1.6 times the font size", so the spacing grows when the text grows. A fixed `16px` stays the same: if the font becomes 24px, the lines overlap.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Style a school newspaper article with two web fonts.
+1. Open Google Fonts (`fonts.google.com`) and choose a serif font for headings (for example *Merriweather*) and a sans-serif font for text (for example *Inter*).
+2. Copy the `<link>` tag Google Fonts gives you into your `<head>`.
+3. Use the heading font for `h1` and the text font for `p`, each with a fallback.
+4. Give paragraphs a comfortable `line-height`.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School News</title>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter&family=Merriweather:wght@700&display=swap">
+    <style>
+      h1 {
+        font-family: 'Merriweather', Georgia, serif;
+        font-size: 32px;
+      }
+      p {
+        font-family: 'Inter', Arial, sans-serif;
+        font-size: 18px;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Class 8 Plants 50 Trees</h1>
+    <p>On Saturday our class planted fifty trees around the sports field.</p>
+  </body>
+</html>
+```
+
+The heading appears in a bold serif font and the paragraph in a clean sans-serif font. If the fonts cannot download, the fallbacks (Georgia, Arial) are used.
+
+</details>
