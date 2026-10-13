@@ -137,7 +137,7 @@ Open the [SQL Sandbox](../studios/sql-sandbox/) and look at the `donations` tabl
 2. How many rows?
 3. What is the value in the `cause` column of row 2?
 
-*Hint: in the sandbox, type `SELECT * FROM donations;` and press Run. You will learn exactly what this means in Chapter 9.*
+*Hint: in the sandbox, type `SELECT * FROM donations;` and press Run. You will learn exactly what this means in Chapter 10.*
 
 ---
 

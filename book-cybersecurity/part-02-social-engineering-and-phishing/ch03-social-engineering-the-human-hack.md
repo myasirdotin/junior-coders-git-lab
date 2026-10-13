@@ -36,7 +36,7 @@ A **pretext** is a false reason given to hide the real one. The trickster invent
 Look at the tools used: **authority** ("IT support"), **fear** ("someone tried to log in") and **urgency** ("so I can lock them out"). Real IT staff never need your code. The code is what *they* would need to get in.
 
 ### Baiting (a tempting gift)
-A USB stick labelled "Exam Answers 2026" is left in the school car park. Curiosity tempts someone to plug it in. The stick may hold **malware**: software built to cause harm (Chapter 11 covers it). Never plug in a found USB device. Hand it to a teacher or the office.
+A USB stick labelled "Exam Answers 2026" is left in the school car park. Curiosity tempts someone to plug it in. The stick may hold **malware**: software built to cause harm (Chapter 12 covers it). Never plug in a found USB device. Hand it to a teacher or the office.
 
 ### Phishing, smishing and vishing (fake messages)
 - **Phishing:** a fake email that pretends to come from a school, a delivery company or a charity.

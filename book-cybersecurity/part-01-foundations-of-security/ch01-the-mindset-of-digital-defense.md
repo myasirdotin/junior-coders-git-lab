@@ -54,7 +54,7 @@ Knowing how systems break is powerful knowledge. What matters is how you use it.
 
 > 🌟 **The Principle of Trust (*Amānah*)**: Private data is a trust placed in someone's care. Testing a website without written permission is like trying the locks on a neighbour's house "just to check". Even if you take nothing, you have broken their trust. Breaking into accounts or systems without permission is **illegal** and against school rules.
 
-So where can you practise? Only on things you own, or on labs built for practice. This book's **Cybersecurity Lab Studio** is one of those safe places. If you ever find a weakness in a real site, tell the owner or a teacher. Chapter 13 shows you how.
+So where can you practise? Only on things you own, or on labs built for practice. This book's **Cybersecurity Lab Studio** is one of those safe places. If you ever find a weakness in a real site, tell the owner or a teacher. Chapter 14 shows you how.
 
 ## 🧅 Defense in Depth (The Onion Model)
 

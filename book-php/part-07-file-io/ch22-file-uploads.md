@@ -71,7 +71,7 @@ echo $finfo->file($tmpPath); // e.g. image/png
 
 For a real PNG picture this prints `image/png`. For a PHP file that was renamed `cat.png`, it prints `text/x-php`, so the trick is caught.
 
-`new finfo(...)` creates a helper object, and `->file()` asks it about one file. You will learn how objects work in Chapter 23; for now, copy this pattern.
+`new finfo(...)` creates a helper object, and `->file()` asks it about one file. You will learn how objects work in Chapter 24; for now, copy this pattern.
 
 ---
 

@@ -168,7 +168,7 @@ What does `$_GET['id']` contain?
 
 - **Find the security flaw**: The method is `GET`.
 - **Explain**: After Submit, the address bar shows `register.php?pwd=MyPassword123`. It is saved in the history and in server logs.
-- **Fix**: Change `method="GET"` to `method="POST"`. Also use HTTPS, and store only a hash of the password made with `password_hash()` (Chapter 29 shows this).
+- **Fix**: Change `method="GET"` to `method="POST"`. Also use HTTPS, and store only a hash of the password made with `password_hash()` (Chapter 32 shows this).
 
 ---
 

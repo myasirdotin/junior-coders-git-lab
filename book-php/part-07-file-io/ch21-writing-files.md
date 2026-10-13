@@ -199,7 +199,7 @@ Output:
 ]
 ```
 
-`json_decode(file_get_contents("posts.json"), true)` turns it back into an array. The blog project in Chapter 28 uses this idea.
+`json_decode(file_get_contents("posts.json"), true)` turns it back into an array. The blog project in Chapter 31 uses this idea.
 
 ---
 

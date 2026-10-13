@@ -26,10 +26,6 @@ _Last updated: 2026-10-13 (Android book added)._
 6. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
    `.gemini/agents/css-tutor.md`, run `node scripts/sync-curriculum.js`.
 
-7. **Textbook gaps found while linking the cheat sheets** (boxes link to the closest chapter for now):
-   HTML entities; CSS `@keyframes`, selectors/specificity and custom properties (see item 6); PHP `try`/`catch`
-   and PDO in depth; MySQL `ALTER TABLE`, indexes and date functions; a Cybersecurity chapter on security headers.
-
 ## ❓ Decisions pending from the owner
 
 - **Confirm** book-cybersecurity ch05's OWASP Top 10:2025 list against owasp.org (written from memory).
@@ -39,6 +35,12 @@ _Last updated: 2026-10-13 (Android book added)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 11 new textbook chapters for the gaps found while linking the cheat sheets: HTML 7 (special characters
+  & comments), CSS 3 (selectors & specificity), 7 (variables), 20 (@keyframes), PHP 23 (errors & try/catch), 28–29
+  (PDO, new Part 9), MySQL 8 (ALTER TABLE), 23 (dates & times), 25 (indexes), Cybersecurity 9 (security headers).
+  Later chapters renumbered with every "Chapter N" mention and #chN link on the site (lessons, playgrounds, cheat
+  sheets, READMEs, teacher guides); the CSS exercises page had stale chapter links and now links by topic.
+  Old bookmarks or "Continue reading" places in these five books may open a neighbouring chapter.
 - 2026-10-13 Cheat sheets made readable (GEMINI §7l): all 12 on the `cheat-v2` layout (two wide boxes on laptops,
   code on its own line with the meaning below, ~16px text), a plain-words explanation in all 122 boxes and
   "Learn more" links to the textbook chapters; code shown without font ligatures; `build-cheat-index.js` now

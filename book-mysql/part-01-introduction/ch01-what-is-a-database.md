@@ -96,7 +96,7 @@ Spreadsheets are great for small lists, quick sums and simple charts. But a real
 
 SQL is the shared language of relational databases. MySQL, MariaDB, PostgreSQL and SQLite all use it. Each has small differences, but the core words are the same.
 
-Here is a preview. You will learn every part of it in Chapters 9–11. For now, just read it like English:
+Here is a preview. You will learn every part of it in Chapters 10–12. For now, just read it like English:
 
 ```sql
 -- Show the name, grade and city of students in Grade 9 or above
@@ -130,7 +130,7 @@ Every chapter uses one running example, a database called `school_db`. It has fi
 | `loans` | One time a student **borrowed a library book** |
 | `donations` | One gift to a school charity drive |
 
-You will build these tables yourself in Chapters 4–8. The same tables are already loaded in the site's [SQL Sandbox](../studios/sql-sandbox/), so you can practise any time.
+You will build these tables yourself in Chapters 4–9. The same tables are already loaded in the site's [SQL Sandbox](../studios/sql-sandbox/), so you can practise any time.
 
 ---
 

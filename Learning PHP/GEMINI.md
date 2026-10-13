@@ -32,8 +32,8 @@ All learning modules and practice pages in `Learning PHP/` maintain direct align
 - **Module 5**: Arrays (Indexed, Associative & Array Functions) (Book Part 5: Ch 14–16)
 - **Module 6**: Forms, GET vs POST & Validation / XSS Security (Book Part 6: Ch 17–19)
 - **Module 7**: File I/O, Appending & Secure File Uploads (Book Part 7: Ch 20–22)
-- **Module 8**: Object-Oriented PHP (Classes, Objects, Encapsulation, Inheritance, Constructors) (Book Part 8: Ch 23–26)
-- **Capstone Projects**: Dynamic Contact Form, JSON Mini Blog, and Authentication Session System (Book Part 9: Ch 27–29)
+- **Module 8**: Object-Oriented PHP (Classes, Objects, Encapsulation, Inheritance, Constructors) (Book Part 8: Ch 24–27)
+- **Capstone Projects**: Dynamic Contact Form, JSON Mini Blog, and Authentication Session System (Book Part 9: Ch 30–32)
 
 ---
 

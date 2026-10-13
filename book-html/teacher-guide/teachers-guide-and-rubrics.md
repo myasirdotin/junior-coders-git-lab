@@ -25,16 +25,16 @@ This textbook follows a progressive 5-stage scaffolding methodology:
 | :--- | :--- | :--- |
 | **Week 1** | Part 1: Ch 1–2 (What is a Website? How the Web Works) | First HTML Boilerplate |
 | **Week 2** | Part 1: Ch 3 & Part 2: Ch 4 (First Page & HTML Tags) | My First Heading & Bio |
-| **Week 3** | Part 2: Ch 5–6 (Headings, Paragraphs & Text Formatting) | Illustrated Story Article |
-| **Week 4** | Part 3: Ch 7 (Hyperlinks, Navigation & Anchors) | Multi-Page Interlinked Mini-Site |
-| **Week 5** | Part 3: Ch 8 (Images, Figure & Media Attributes) | Photo Gallery with Accessible Alt Tags |
-| **Week 6** | Part 4: Ch 9 (Ordered, Unordered & Nested Lists) | Step-by-Step Cooking Recipe |
-| **Week 7** | Part 4: Ch 10 (Tables, Headers & Data Cells) | School Timetable & Marksheet |
-| **Week 8** | Part 5: Ch 11 (Interactive Forms & Form Inputs) | Club Membership Signup Form |
-| **Week 9** | Part 6: Ch 12 (Semantic Structure: Nav, Main, Footer) | Full Semantic Layout Prototype |
-| **Week 10** | Part 7: Ch 13–14 (Personal Profile & School Website) | Complete Profile Capstone |
-| **Week 11** | Part 7: Ch 15–16 (Restaurant Menu & Portfolio) | Polished Student Portfolio |
-| **Week 12** | Part 8: Ch 17 (Final Project Guide & Presentation) | Capstone Showcase Day 🏆 |
+| **Week 3** | Part 2: Ch 5–7 (Headings, Paragraphs, Text Formatting, Special Characters & Comments) | Illustrated Story Article |
+| **Week 4** | Part 3: Ch 8 (Hyperlinks, Navigation & Anchors) | Multi-Page Interlinked Mini-Site |
+| **Week 5** | Part 3: Ch 9 (Images, Figure & Media Attributes) | Photo Gallery with Accessible Alt Tags |
+| **Week 6** | Part 4: Ch 10 (Ordered, Unordered & Nested Lists) | Step-by-Step Cooking Recipe |
+| **Week 7** | Part 4: Ch 11 (Tables, Headers & Data Cells) | School Timetable & Marksheet |
+| **Week 8** | Part 5: Ch 12 (Interactive Forms & Form Inputs) | Club Membership Signup Form |
+| **Week 9** | Part 6: Ch 13 (Semantic Structure: Nav, Main, Footer) | Full Semantic Layout Prototype |
+| **Week 10** | Part 7: Ch 14–15 (Personal Profile & School Website) | Complete Profile Capstone |
+| **Week 11** | Part 7: Ch 16–17 (Restaurant Menu & Portfolio) | Polished Student Portfolio |
+| **Week 12** | Part 8: Ch 18 (Final Project Guide & Presentation) | Capstone Showcase Day 🏆 |
 
 ---
 

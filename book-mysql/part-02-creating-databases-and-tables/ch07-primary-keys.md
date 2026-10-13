@@ -107,7 +107,7 @@ DESCRIBE library_cards;
 
 ### Watching the rules work
 
-To test the rules we need to add rows. The command is `INSERT INTO`, which Chapter 8 teaches fully. Here, just watch what MySQL says.
+To test the rules we need to add rows. The command is `INSERT INTO`, which Chapter 9 teaches fully. Here, just watch what MySQL says.
 
 Two good cards (Zayd gives no limit, so he gets the default 2):
 

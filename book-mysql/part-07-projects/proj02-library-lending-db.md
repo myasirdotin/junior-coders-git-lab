@@ -203,7 +203,7 @@ WHERE id NOT IN (SELECT member_id FROM borrow_records);
 
 ## 🔁 Step 5: Lending and Returning Safely
 
-Lending a book changes **two** tables. A transaction (Chapter 14) keeps them in step.
+Lending a book changes **two** tables. A transaction (Chapter 15) keeps them in step.
 
 ### Lend a book
 
@@ -258,7 +258,7 @@ A volunteer adds a borrow record but forgets to lower `available_copies`. The ca
 
 **Fix:** always lend and return inside one transaction, as in Step 5, and check the "Rows matched" number before you commit.
 
-**Mistake: testing `return_date = NULL`.** It never matches (Chapter 10). Use `return_date IS NULL`.
+**Mistake: testing `return_date = NULL`.** It never matches (Chapter 11). Use `return_date IS NULL`.
 
 ---
 

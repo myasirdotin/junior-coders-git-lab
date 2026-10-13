@@ -17,18 +17,18 @@ Learning CSS can feel overwhelming when students simply copy and paste values wi
 
 | Week | Units Covered | Key Project Milestone |
 | :--- | :--- | :--- |
-| **Week 1** | Part 1: Ch 1–2 (What is CSS? Adding CSS) | Inline vs External Styles |
-| **Week 2** | Part 2: Ch 3–5 (Colors, Typography & Backgrounds) | Vibrant Hero Header Banner |
-| **Week 3** | Part 3: Ch 6–7 (Box Model, Margins, Borders & Radius) | Product Card Box Model |
-| **Week 4** | Part 4: Ch 8–9 (Display Property & Flexbox Alignment) | Responsive Nav Bar with Flexbox |
-| **Week 5** | Part 5: Ch 10 (CSS Grid 2D Systems) | 3-Column Image Gallery |
-| **Week 6** | Part 5: Ch 11 (CSS Positioning: Relative, Absolute, Sticky) | Notification Badges & Sticky Header |
-| **Week 7** | Part 6: Ch 12 (Responsive Design & Media Queries) | Mobile-First Layout Stack |
-| **Week 8** | Part 7: Ch 13–15 (Buttons, Cards, & Navigation Bars) | Modern Glassmorphic Card |
-| **Week 9** | Part 8: Ch 16–17 (Hover States, Transitions & Animations) | Animated Interactive Button Suite |
-| **Week 10** | Part 9: Ch 18–19 (Personal Profile & School Portal) | Profile & School Styling |
-| **Week 11** | Part 9: Ch 20–21 (Restaurant Website & Portfolio) | Complete Responsive Portfolio |
-| **Week 12** | Part 10: Ch 22 (Final Capstone Project Guide) | Class 7 Design Expo Day 🏆 |
+| **Week 1** | Part 1: Ch 1–3 (What is CSS? Adding CSS, Selectors & Specificity) | Inline vs External Styles |
+| **Week 2** | Part 2: Ch 4–7 (Colors, Typography, Backgrounds & CSS Variables) | Vibrant Hero Header Banner |
+| **Week 3** | Part 3: Ch 8–9 (Box Model, Margins, Borders & Radius) | Product Card Box Model |
+| **Week 4** | Part 4: Ch 10–11 (Display Property & Flexbox Alignment) | Responsive Nav Bar with Flexbox |
+| **Week 5** | Part 5: Ch 12 (CSS Grid 2D Systems) | 3-Column Image Gallery |
+| **Week 6** | Part 5: Ch 13 (CSS Positioning: Relative, Absolute, Sticky) | Notification Badges & Sticky Header |
+| **Week 7** | Part 6: Ch 14 (Responsive Design & Media Queries) | Mobile-First Layout Stack |
+| **Week 8** | Part 7: Ch 15–17 (Buttons, Cards, & Navigation Bars) | Modern Glassmorphic Card |
+| **Week 9** | Part 8: Ch 18–20 (Hover States, Transitions & @keyframes Animations) | Animated Interactive Button Suite |
+| **Week 10** | Part 9: Ch 21–22 (Personal Profile & School Portal) | Profile & School Styling |
+| **Week 11** | Part 9: Ch 23–24 (Restaurant Website & Portfolio) | Complete Responsive Portfolio |
+| **Week 12** | Part 10: Ch 25 (Final Capstone Project Guide) | Class 7 Design Expo Day 🏆 |
 
 ---
 

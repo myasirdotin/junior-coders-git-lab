@@ -58,17 +58,22 @@ Every chapter is structured according to the Junior Coders pedagogy:
 - **Chapter 20**: Reading Files in PHP (`part-07-file-io/ch20-reading-files.md`)
 - **Chapter 21**: Writing & Appending Files (`part-07-file-io/ch21-writing-files.md`)
 - **Chapter 22**: File Uploads in PHP (`part-07-file-io/ch22-file-uploads.md`)
+- **Chapter 23**: Errors & Exceptions (try / catch) (`part-07-file-io/ch23-errors-and-exceptions.md`)
 
 ### Part 8: Object-Oriented PHP
-- **Chapter 23**: Classes & Objects (OOP) (`part-08-oop/ch23-classes-and-objects.md`)
-- **Chapter 24**: Properties, Methods & Encapsulation (`part-08-oop/ch24-properties-and-methods.md`)
-- **Chapter 25**: Class Inheritance (`part-08-oop/ch25-inheritance.md`)
-- **Chapter 26**: Constructors & Destructors (`part-08-oop/ch26-constructors.md`)
+- **Chapter 24**: Classes & Objects (OOP) (`part-08-oop/ch24-classes-and-objects.md`)
+- **Chapter 25**: Properties, Methods & Encapsulation (`part-08-oop/ch25-properties-and-methods.md`)
+- **Chapter 26**: Class Inheritance (`part-08-oop/ch26-inheritance.md`)
+- **Chapter 27**: Constructors & Destructors (`part-08-oop/ch27-constructors.md`)
 
-### Part 9: Real-World Capstone Projects
-- **Project 1**: Production-Ready Dynamic Contact Form (`part-09-projects/ch27-project-contact-form.md`)
-- **Project 2**: JSON File-Based Mini Blog Engine (`part-09-projects/ch28-project-simple-blog.md`)
-- **Project 3**: User Authentication & Session Dashboard (`part-09-projects/ch29-project-login-system.md`)
+### Part 9: Databases with PDO
+- **Chapter 28**: Connecting to MySQL with PDO (`part-09-databases/ch28-connecting-with-pdo.md`)
+- **Chapter 29**: Saving Data Safely with PDO (`part-09-databases/ch29-saving-data-with-pdo.md`)
+
+### Part 10: Real-World Capstone Projects
+- **Project 1**: Production-Ready Dynamic Contact Form (`part-10-projects/ch30-project-contact-form.md`)
+- **Project 2**: JSON File-Based Mini Blog Engine (`part-10-projects/ch31-project-simple-blog.md`)
+- **Project 3**: User Authentication & Session Dashboard (`part-10-projects/ch32-project-login-system.md`)
 
 ### Reference & Pedagogical Guides
 - **Quick Reference & Glossary**: Complete Syntax Cheatsheet (`reference/quick-reference-and-glossary.md`)

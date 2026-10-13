@@ -13,7 +13,7 @@ The **Class 9 PHP Server-Side Curriculum** is designed to transition secondary s
 
 ---
 
-## 2. 📅 12-Week Curriculum Schedule
+## 2. 📅 13-Week Curriculum Schedule
 
 | Week | Chapters Covered | Core Topics & Milestones | Laboratory Practical |
 | :--- | :--- | :--- | :--- |
@@ -25,10 +25,11 @@ The **Class 9 PHP Server-Side Curriculum** is designed to transition secondary s
 | **Week 6** | Chapters 11 – 13 | Custom Functions, Scope, Default Parameters, Date/Time | Reusable UI Component Library |
 | **Week 7** | Chapters 14 – 16 | Indexed & Associative Arrays, Stacks, Queues, Sorting | Student Roster & Leaderboard |
 | **Week 8** | Chapters 17 – 19 | Forms, GET vs POST, Input Sanitization & XSS Defense | Secure Event RSVP Form |
-| **Week 9** | Chapters 20 – 22 | File Reading, Appending with Locks, File Upload Validation| Digital Guestbook & Photo Uploader |
-| **Week 10**| Chapters 23 – 24 | Classes, Objects, `$this`, Public/Private Encapsulation | Bank Account Model |
-| **Week 11**| Chapters 25 – 26 | Class Inheritance (`extends`), Overriding, Constructors | School Directory OOP Tree |
-| **Week 12**| Capstone Projects | Contact Form, JSON Mini Blog, or Session Login Portal | Capstone Exhibition & Review |
+| **Week 9** | Chapters 20 – 23 | File Reading, Appending with Locks, File Upload Validation, Errors & try/catch | Digital Guestbook & Photo Uploader |
+| **Week 10**| Chapters 24 – 25 | Classes, Objects, `$this`, Public/Private Encapsulation | Bank Account Model |
+| **Week 11**| Chapters 26 – 27 | Class Inheritance (`extends`), Overriding, Constructors | School Directory OOP Tree |
+| **Week 12**| Chapters 28 – 29 | Connecting to MySQL with PDO, prepared statements, saving data safely, transactions | School Library Loans Page |
+| **Week 13**| Capstone Projects | Contact Form, JSON Mini Blog, or Session Login Portal | Capstone Exhibition & Review |
 
 ---
 

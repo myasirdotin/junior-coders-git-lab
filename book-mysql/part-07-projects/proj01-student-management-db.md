@@ -93,7 +93,7 @@ Design choices to notice:
 
 - `DECIMAL(5,2)` holds marks like `94.50` exactly (Chapter 6).
 - The `UNIQUE KEY` on three columns together means a student cannot be enrolled in the same course twice in one semester. Each column alone may repeat; the **combination** may not.
-- Both foreign keys use the safe default (`RESTRICT`, Chapter 15). Marks are an official record, so deleting a student must not silently delete their marks. Use the `is_active` flag (a soft delete, Chapter 13) when a student leaves.
+- Both foreign keys use the safe default (`RESTRICT`, Chapter 16). Marks are an official record, so deleting a student must not silently delete their marks. Use the `is_active` flag (a soft delete, Chapter 14) when a student leaves.
 - `students` and `courses` are created before `enrollments`, because parents come first.
 
 ---

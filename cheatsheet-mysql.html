@@ -57,7 +57,7 @@
                 <tr><td>TRUNCATE TABLE old_table;</td><td>Empty a table but keep its columns</td></tr>
                 <tr><td>DROP DATABASE IF EXISTS practice_db;</td><td>Delete a whole database (back up first!)</td></tr>
             </table>
-            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch4">Chapter 4: CREATE DATABASE and USE</a> · <a href="book-mysql/index.html#ch13">Chapter 13: The DELETE Statement &amp; TRUNCATE</a></p>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch4">Chapter 4: CREATE DATABASE and USE</a> · <a href="book-mysql/index.html#ch14">Chapter 14: The DELETE Statement &amp; TRUNCATE</a></p>
         </div>
 
         <div class="cheat-card" id="card-create-table">
@@ -88,7 +88,7 @@
                 <tr><td>ALTER TABLE books DROP COLUMN author;</td><td>Remove a column and its data</td></tr>
                 <tr><td>RENAME TABLE classes TO school_classes;</td><td>Rename a table</td></tr>
             </table>
-            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch5">Chapter 5: CREATE TABLE and Schema Design</a> · <a href="book-mysql/index.html#ch15">Chapter 15: Table Relationships &amp; Foreign Keys</a></p>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch8">Chapter 8: ALTER TABLE</a> · <a href="book-mysql/index.html#ch16">Chapter 16: Table Relationships &amp; Foreign Keys</a></p>
         </div>
 
         <div class="cheat-card" id="card-select-read">
@@ -109,7 +109,7 @@
                 <tr><td>ORDER BY gpa DESC, name ASC</td><td>Sort: highest GPA first, then A→Z</td></tr>
                 <tr><td>LIMIT 3 &nbsp; LIMIT 3 OFFSET 3</td><td>First 3 rows / skip 3, then 3 (page 2)</td></tr>
             </table>
-            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch9">Chapter 9: SELECT Basics &amp; Aliases</a> · <a href="book-mysql/index.html#ch10">Chapter 10: The WHERE Clause &amp; Logical Filters</a></p>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch10">Chapter 10: SELECT Basics &amp; Aliases</a> · <a href="book-mysql/index.html#ch11">Chapter 11: The WHERE Clause &amp; Logical Filters</a></p>
         </div>
 
         <div class="cheat-card" id="card-insert-update-delete">
@@ -125,7 +125,7 @@
                 <tr><td>START TRANSACTION; ... COMMIT;</td><td>Keep several changes together</td></tr>
                 <tr><td>ROLLBACK;</td><td>Undo the changes since START TRANSACTION</td></tr>
             </table>
-            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch8">Chapter 8: INSERT INTO</a> · <a href="book-mysql/index.html#ch14">Chapter 14: Safe Updates, Transactions &amp; Data Protection</a></p>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch9">Chapter 9: INSERT INTO</a> · <a href="book-mysql/index.html#ch15">Chapter 15: Safe Updates, Transactions &amp; Data Protection</a></p>
         </div>
 
         <div class="cheat-card" id="card-aggregate-functions">
@@ -141,7 +141,7 @@
                 <tr><td>HAVING SUM(amount) &gt; 2000</td><td>Filter groups (WHERE filters rows first)</td></tr>
                 <tr><td>ROUND(AVG(gpa), 2)</td><td>Round to 2 decimal places</td></tr>
             </table>
-            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch19">Chapter 19: Aggregate Functions</a> · <a href="book-mysql/index.html#ch20">Chapter 20: GROUP BY &amp; HAVING Clauses</a></p>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch20">Chapter 20: Aggregate Functions</a> · <a href="book-mysql/index.html#ch21">Chapter 21: GROUP BY &amp; HAVING Clauses</a></p>
         </div>
 
         <div class="cheat-card" id="card-joins">
@@ -156,7 +156,7 @@
                 <tr><td>ON l.student_id = s.id</td><td>How the rows are matched</td></tr>
                 <tr><td>students s &nbsp; s.name</td><td>Short alias; prefix columns to avoid mix-ups</td></tr>
             </table>
-            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch17">Chapter 17: The INNER JOIN in Depth</a> · <a href="book-mysql/index.html#ch18">Chapter 18: LEFT JOIN, RIGHT JOIN &amp; Finding Missing Records</a></p>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch18">Chapter 18: The INNER JOIN in Depth</a> · <a href="book-mysql/index.html#ch19">Chapter 19: LEFT JOIN, RIGHT JOIN &amp; Finding Missing Records</a></p>
         </div>
 
         <div class="cheat-card" id="card-subqueries">
@@ -167,7 +167,7 @@
                 <tr><td>SELECT title FROM books WHERE id IN (SELECT book_id FROM loans WHERE returned = 'No');</td><td>Books that are out on loan now</td></tr>
                 <tr><td>(SELECT ...)</td><td>The inner query runs first; its answer feeds the outer one</td></tr>
             </table>
-            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch22">Chapter 22: Introduction to Subqueries</a></p>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch24">Chapter 24: Introduction to Subqueries</a></p>
         </div>
 
         <div class="cheat-card" id="card-keys-constraints">
@@ -182,7 +182,7 @@
                 <tr><td>CHECK (amount &gt; 0)</td><td>Value must pass a rule</td></tr>
                 <tr><td>CREATE INDEX idx_city ON students(city);</td><td>Faster searches on a column</td></tr>
             </table>
-            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch7">Chapter 7: Primary Keys, Constraints, and Integrity</a> · <a href="book-mysql/index.html#ch15">Chapter 15: Table Relationships &amp; Foreign Keys</a></p>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch7">Chapter 7: Primary Keys, Constraints, and Integrity</a> · <a href="book-mysql/index.html#ch25">Chapter 25: Indexes</a></p>
         </div>
 
         <div class="cheat-card" id="card-useful-extras">
@@ -198,7 +198,7 @@
                 <tr><td>-- comment</td><td>One-line comment (space after --)</td></tr>
                 <tr><td>$pdo-&gt;prepare("... WHERE id = ?")</td><td>From PHP: always a prepared statement</td></tr>
             </table>
-            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch9">Chapter 9: SELECT Basics &amp; Aliases</a> · <a href="book-mysql/index.html#ch19">Chapter 19: Aggregate Functions</a></p>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch10">Chapter 10: SELECT Basics &amp; Aliases</a> · <a href="book-mysql/index.html#ch23">Chapter 23: Dates &amp; Times in SQL</a></p>
         </div>
 
     </div>

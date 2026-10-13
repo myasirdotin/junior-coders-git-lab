@@ -94,7 +94,7 @@ Save as `register.php` in `htdocs`:
     // 5. No errors? Success!
     if (empty($errors)) {
       $success = true;
-      // Later, in the MySQL track, you will save this to a database.
+      // Chapter 29 shows how to save this in a database.
     }
   }
 ?>
@@ -192,7 +192,7 @@ The fields still show `Al`, `sana@` and `25`, so the student only fixes the mist
 
 - Security testers type tricky input into every box, such as `<img src=x onerror=alert(1)>`, to see if a site prints it unescaped.
 - `htmlspecialchars()` on output protects against this kind of XSS.
-- For databases, the MySQL track teaches **PDO prepared statements**, which keep input separate from SQL code.
+- For databases, Chapters 28 and 29 teach **PDO prepared statements**, which keep input separate from SQL code.
 - No single function makes a site perfectly safe. Good sites clean, validate **and** escape every time.
 
 ---

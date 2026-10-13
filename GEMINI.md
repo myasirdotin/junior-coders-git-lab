@@ -116,7 +116,7 @@ content for their subject, then make edits yourself following this file.
 - **Learning Python & Machine Learning**: 8 core modules + 15 textbook chapters covering Python foundations, data processing, machine learning concepts, ethical AI stewardship (*Amānah*), and capstone classifiers aligned with `book-python/`.
 - **Computer Networking & Web Protocols**: 8 interactive modules + 14 textbook chapters covering OSI/TCP-IP models, IP subnetting, TCP/UDP, DNS, HTTP/3, TLS 1.3 encryption, and diagnostic tools aligned with `book-networks/`.
 - **Android Apps with Kotlin**: 19 textbook chapters (Grades 9–10) covering Android Studio, Kotlin basics, Jetpack Compose screens, state, scrolling lists, navigation, saving data with DataStore, design and accessibility, permissions and privacy (*Amānah*), testing and sharing, and a Study Planner capstone, in `book-android/`. No lesson track; plain Kotlin runs in Kotlin Playground.
-- **Cybersecurity & Digital Hygiene**: 8 interactive modules + 14 textbook chapters covering CIA Triad, cryptographic primitives, authentication & password derivation, OWASP Top 10 web defenses, security headers, anti-phishing hygiene, and 3-2-1 backup resilience aligned with `book-cybersecurity/`.
+- **Cybersecurity & Digital Hygiene**: 8 interactive modules + 15 textbook chapters covering CIA Triad, cryptographic primitives, authentication & password derivation, OWASP Top 10 web defenses, security headers, anti-phishing hygiene, and 3-2-1 backup resilience aligned with `book-cybersecurity/`.
 
 ---
 

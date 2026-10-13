@@ -50,7 +50,7 @@ A **data type** tells PHP what kind of value a variable holds, and so what you c
 | **Float** | Number with a decimal part | Price, GPA, temperature | `$gpa = 3.92;` |
 | **Boolean** | Only `true` or `false` | Logged in, passed exam | `$hasPassed = true;` |
 | **Array** | Many values in one variable (Chapter 14) | List of subjects | `$subs = ["Math", "CS"];` |
-| **Object** | Made from a class (Chapter 23) | A student record | `$s = new Student();` |
+| **Object** | Made from a class (Chapter 24) | A student record | `$s = new Student();` |
 | **NULL** | A variable with no value | Cleared search box | `$search = null;` |
 | **Resource** | A handle to something outside PHP (Chapter 20) | An open file | `$f = fopen("log.txt", "r");` |
 

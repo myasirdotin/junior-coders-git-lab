@@ -25,29 +25,32 @@ This textbook is constructed strictly in alignment with the **Core Islamic Ethic
   - `ch05-create-table.md`: `CREATE TABLE` syntax, schema blueprints, and `DESCRIBE`.
   - `ch06-data-types.md`: `INT`, `VARCHAR`, `TEXT`, `DECIMAL(10,2)`, `DATE`, `TIMESTAMP`.
   - `ch07-primary-keys.md`: Primary Keys, `AUTO_INCREMENT`, `UNIQUE`, `NOT NULL`, and `CHECK`.
+  - `ch08-alter-table.md`: `ALTER TABLE`: `ADD COLUMN` (`AFTER`/`FIRST`), `MODIFY`, `CHANGE`, `DROP COLUMN`, constraints, `RENAME TABLE`.
 
 - **Part 3: Inserting & Querying Data (DML)**
-  - `ch08-insert-into.md`: Single and batch `INSERT INTO` statements.
-  - `ch09-select-basics.md`: Column projections, `AS` aliases, calculated columns, and `DISTINCT`.
-  - `ch10-where-clause.md`: Filtering with `WHERE`, comparison operators, `AND`, `OR`, `BETWEEN`, `IN`, `IS NULL`.
-  - `ch11-order-by-and-limit.md`: Sorting with `ORDER BY (ASC/DESC)` and pagination with `LIMIT` & `OFFSET`.
+  - `ch09-insert-into.md`: Single and batch `INSERT INTO` statements.
+  - `ch10-select-basics.md`: Column projections, `AS` aliases, calculated columns, and `DISTINCT`.
+  - `ch11-where-clause.md`: Filtering with `WHERE`, comparison operators, `AND`, `OR`, `BETWEEN`, `IN`, `IS NULL`.
+  - `ch12-order-by-and-limit.md`: Sorting with `ORDER BY (ASC/DESC)` and pagination with `LIMIT` & `OFFSET`.
 
 - **Part 4: Updating & Deleting Data (DML)**
-  - `ch12-update-statement.md`: `UPDATE ... SET ... WHERE`, batch modifications, and missing WHERE dangers.
-  - `ch13-delete-statement.md`: `DELETE FROM`, `TRUNCATE TABLE`, `DROP TABLE`, and Soft Deletes.
-  - `ch14-safe-updates.md`: `SQL_SAFE_UPDATES`, ACID principles, and `COMMIT` / `ROLLBACK` transactions.
+  - `ch13-update-statement.md`: `UPDATE ... SET ... WHERE`, batch modifications, and missing WHERE dangers.
+  - `ch14-delete-statement.md`: `DELETE FROM`, `TRUNCATE TABLE`, `DROP TABLE`, and Soft Deletes.
+  - `ch15-safe-updates.md`: `SQL_SAFE_UPDATES`, ACID principles, and `COMMIT` / `ROLLBACK` transactions.
 
 - **Part 5: Table Relationships & JOINs**
-  - `ch15-foreign-keys.md`: Relational theory, parent-child tables, normalization, and Foreign Keys.
-  - `ch16-what-is-a-join.md`: Combining tables, table aliases, and the `ON` condition.
-  - `ch17-inner-join.md`: `INNER JOIN` in depth, Venn diagram matching, and 3-table joins.
-  - `ch18-left-and-right-joins.md`: `LEFT JOIN`, `COALESCE`, and detecting orphaned records (anti-joins).
+  - `ch16-foreign-keys.md`: Relational theory, parent-child tables, normalization, and Foreign Keys.
+  - `ch17-what-is-a-join.md`: Combining tables, table aliases, and the `ON` condition.
+  - `ch18-inner-join.md`: `INNER JOIN` in depth, Venn diagram matching, and 3-table joins.
+  - `ch19-left-and-right-joins.md`: `LEFT JOIN`, `COALESCE`, and detecting orphaned records (anti-joins).
 
 - **Part 6: Aggregations & Advanced Queries**
-  - `ch19-aggregate-functions.md`: `COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()`.
-  - `ch20-group-by-and-having.md`: Grouping categories with `GROUP BY` and group filtering with `HAVING`.
-  - `ch21-like-and-wildcards.md`: Pattern searching with `LIKE`, `%` and `_` wildcards, and escaping.
-  - `ch22-subqueries.md`: Subqueries in `WHERE` and `FROM` clauses, and dynamic aggregations.
+  - `ch20-aggregate-functions.md`: `COUNT()`, `SUM()`, `AVG()`, `MIN()`, `MAX()`.
+  - `ch21-group-by-and-having.md`: Grouping categories with `GROUP BY` and group filtering with `HAVING`.
+  - `ch22-like-and-wildcards.md`: Pattern searching with `LIKE`, `%` and `_` wildcards, and escaping.
+  - `ch23-dates-and-times.md`: `DATE`/`DATETIME`/`TIMESTAMP`, `NOW()`, `DATE_FORMAT()`, `DATE_ADD()`, `DATEDIFF()`, overdue loans, monthly totals.
+  - `ch24-subqueries.md`: Subqueries in `WHERE` and `FROM` clauses, and dynamic aggregations.
+  - `ch25-indexes.md`: `CREATE INDEX`, unique and composite indexes, the left-most rule, `EXPLAIN`, `SHOW INDEX`.
 
 - **Part 7: Capstone Projects & Reference**
   - `proj01-student-management-db.md`: School Student & Grade Management Database (4 relational tables).

@@ -127,7 +127,7 @@ Teacher: Mr. Imran Shah teaches Computer Science<br>
 
 ## 🌍 Real-World Connection: Database Rows & JSON
 
-When PHP reads a row from a MySQL database (you will learn how in the MySQL track):
+When PHP reads a row from a MySQL database (Chapter 28 shows how):
 
 - Each row arrives as an associative array, for example
   `["id" => 101, "title" => "The Living Cell", "copies" => 4]`.

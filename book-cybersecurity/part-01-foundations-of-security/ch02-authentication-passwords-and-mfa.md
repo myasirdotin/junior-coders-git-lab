@@ -58,7 +58,7 @@ You cannot remember 40 different passphrases. A **password manager** is an app t
 What if a website's database is stolen? It depends on how passwords were stored.
 
 - ❌ **Plain text** (`secret123`): the thief reads every password directly.
-- ❌ **A fast hash** like MD5 or SHA-256: a **hash** turns a password into a fixed "fingerprint" that cannot be turned back (Chapter 9 explains more). But fast hashes can be checked billions of times per second, so guessing is quick.
+- ❌ **A fast hash** like MD5 or SHA-256: a **hash** turns a password into a fixed "fingerprint" that cannot be turned back (Chapter 10 explains more). But fast hashes can be checked billions of times per second, so guessing is quick.
 - ✅ **A slow password hash** like **bcrypt** or **Argon2id**: each guess is made deliberately slow. With bcrypt at normal settings, a strong graphics card manages only thousands of guesses per second, instead of billions.
 
 PHP has this built in. `password_hash()` makes the slow hash and adds a salt for you. `password_verify()` checks a login attempt.

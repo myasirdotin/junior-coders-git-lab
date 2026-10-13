@@ -26,10 +26,10 @@ In this textbook, students will:
 | :--- | :--- | :--- |
 | **Part 1** | Foundations of Security & Authentication | Ch 1 - Ch 2 |
 | **Part 2** | Social Engineering & Phishing Defense | Ch 3 - Ch 4 |
-| **Part 3** | Web Application Vulnerabilities (OWASP) | Ch 5 - Ch 8 |
-| **Part 4** | Cryptography & Secure Channels | Ch 9 - Ch 10 |
-| **Part 5** | Digital Hygiene & Privacy Protection | Ch 11 - Ch 12 |
-| **Part 6** | Incident Response & Capstone Hardening | Ch 13 - Ch 14 |
+| **Part 3** | Web Application Vulnerabilities (OWASP) & Security Headers | Ch 5 - Ch 9 |
+| **Part 4** | Cryptography & Secure Channels | Ch 10 - Ch 11 |
+| **Part 5** | Digital Hygiene & Privacy Protection | Ch 12 - Ch 13 |
+| **Part 6** | Incident Response & Capstone Hardening | Ch 14 - Ch 15 |
 
 ---
 

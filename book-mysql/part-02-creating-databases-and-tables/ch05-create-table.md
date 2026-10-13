@@ -93,7 +93,7 @@ CREATE TABLE students (
 );
 ```
 
-`grade`, `gpa`, `class_id` and `city` have no `NOT NULL`, so they may be left empty. `class_id` will hold the `id` of the student's class. Chapter 15 turns it into a proper link.
+`grade`, `gpa`, `class_id` and `city` have no `NOT NULL`, so they may be left empty. `class_id` will hold the `id` of the student's class. Chapter 16 turns it into a proper link.
 
 ### Tables 3–5: `books`, `loans`, `donations`
 

@@ -39,12 +39,12 @@ Every few years, OWASP studies data from many real web applications. It then pub
 | A01 Broken Access Control | Users can reach things they should not | A student opens another student's report by changing a number in the address (Chapter 8) |
 | A02 Security Misconfiguration | Unsafe settings | Error pages show the database password; a default admin password is never changed |
 | A03 Software Supply Chain Failures | Problems in code you did not write yourself | An add-on library has a known hole, or a fake package is installed |
-| A04 Cryptographic Failures | Secrets not protected properly | Passwords stored as plain text; no HTTPS (Chapters 2, 9, 10) |
+| A04 Cryptographic Failures | Secrets not protected properly | Passwords stored as plain text; no HTTPS (Chapters 2, 10, 11) |
 | A05 Injection | User text treated as commands | Typed text changes an SQL query or adds a script to a page (Chapters 6, 7) |
 | A06 Insecure Design | The plan itself is unsafe | "Forgot password" asks only for a birthday, which classmates know |
 | A07 Authentication Failures | Weak logins | No limit on password guesses; no 2FA for admins (Chapter 2) |
 | A08 Software or Data Integrity Failures | Trusting things that could be tampered with | Installing an update without checking it really came from the maker |
-| A09 Security Logging & Alerting Failures | Nobody notices an attack | No record of failed logins, so a break-in goes unseen (Chapter 13) |
+| A09 Security Logging & Alerting Failures | Nobody notices an attack | No record of failed logins, so a break-in goes unseen (Chapter 14) |
 | A10 Mishandling of Exceptional Conditions | Errors handled badly | When the database is busy, the login check crashes and lets people in |
 
 Words to know: a **library** (in coding) is ready-made code you add to your project. An **exception** is an error the program has to deal with while running.

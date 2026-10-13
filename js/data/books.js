@@ -518,7 +518,11 @@ window.JC_BOOKS = [
         "Object-Oriented PHP",
         "oop"
       ],
-      "part-09-projects": [
+      "part-09-databases": [
+        "Databases with PDO",
+        "data"
+      ],
+      "part-10-projects": [
         "Capstone Projects & Reference",
         "projects"
       ]

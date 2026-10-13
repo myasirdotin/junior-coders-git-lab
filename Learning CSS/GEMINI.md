@@ -24,17 +24,17 @@ All CSS templates, visual cards, component styling, and mini-projects must adher
 ## 2. Curriculum & Module Mapping
 All styling modules and practice pages in `Learning CSS/` maintain direct alignment with `book-css/`:
 Module pages as they are on the site (`Learning CSS/moduleN.html`), with the textbook chapters each one covers:
-- **Module 1**: Intro to CSS: syntax and linking methods (Book Part 1: Ch 1–3)
-- **Module 2**: Colors & Text (Book Part 1: Ch 1–3 colour systems; Book Part 3: Ch 6–7 typography)
-- **Module 3**: The Box Model (Book Part 4: Ch 8–9)
-- **Module 4**: Display & Positioning (Book Part 5: Ch 10–11)
-- **Module 5**: Intro to Flexbox (Book Part 6: Ch 12–13)
-- **Module 6**: Advanced Flexbox (Book Part 6: Ch 12–13)
-- **Module 7**: CSS Grid (Book Part 7: Ch 14–15)
-- **Module 8**: Responsive Design (Book Part 8: Ch 16–18)
+- **Module 1**: Intro to CSS: syntax and linking methods (Book Part 1: Ch 1–4)
+- **Module 2**: Colors & Text (Book Part 1: Ch 1–4 colour systems; Book Part 3: Ch 8–9 typography)
+- **Module 3**: The Box Model (Book Part 4: Ch 10–11)
+- **Module 4**: Display & Positioning (Book Part 5: Ch 12–13)
+- **Module 5**: Intro to Flexbox (Book Part 6: Ch 14–15)
+- **Module 6**: Advanced Flexbox (Book Part 6: Ch 14–15)
+- **Module 7**: CSS Grid (Book Part 7: Ch 16–17)
+- **Module 8**: Responsive Design (Book Part 8: Ch 18–21)
 
 **The page list above is the official module set (decided 2026-10-11).** Selectors, specificity and the cascade
-(Book Part 2: Ch 4–5) are covered inside Modules 1–2 and the textbook rather than a separate module; a dedicated
+(Book Part 2: Ch 5–6) are covered inside Modules 1–2 and the textbook rather than a separate module; a dedicated
 selectors module is a welcome future addition (insert it as Module 3 and renumber, updating this list and
 `.gemini/agents/css-tutor.md` in the same change).
 
