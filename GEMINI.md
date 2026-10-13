@@ -218,6 +218,13 @@ These rules come from real bugs found in this site. Follow them for every change
    use it. Exercises live in `js/data/php-exercises.js` in three kinds: `predict` and `fill` need no engine (tier 1);
    `code` tasks run the student's script and compare its output with the solution's output (the stored `expected` is
    only the fallback when the engine cannot load, so keep it identical to what PHP prints). Keys: `php:<id>`.
+7f2. **Kotlin practice runs on the Kotlin Playground compiler.** No Kotlin compiler fits in a browser, so
+   `js/kotlin-lab.js` sends the student's program (and nothing else) to JetBrains' free service behind
+   play.kotlinlang.org (`api.kotlinlang.org`, newest stable version, needs internet); the page says so plainly.
+   `studios/kotlin-practice/` uses it with `js/data/kotlin-exercises.js` (same kinds as PHP: `predict`, `fill`, `code`;
+   keys `kotlin:<id>`). `expected` is the reference output: after any edit run `node scripts/check-kotlin-exercises.js`,
+   which compiles every solution and predict program and must report no problems. Tasks are plain Kotlin from
+   book-android chapters 4–8 (Compose needs Android Studio). No `!!`.
 7g. **Three-tier practice uses one markup.** Every `moduleN.html` ends its teaching with one
    `<section class="content-section jc-tiers">` holding `.jc-tier.jc-tier-1` (🟢 Recall), `.jc-tier-2` (🟡 Apply) and
    `.jc-tier-3` (🔴 Challenge), each answer in `<details class="jc-answer">`. Styles live in `styles/bei-core.css` and

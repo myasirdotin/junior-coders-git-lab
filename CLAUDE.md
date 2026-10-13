@@ -36,7 +36,8 @@ commit, push both branches. The `session-keeper` agent (`.claude/agents/session-
 - Design system and the main.css palette bridge: `styles/bei-core.css`. Textbooks: one list `js/data/books.js` → `node scripts/bundle-books.js` generates the book pages, bundles, cards and search entries; one shared reader `js/book-reader.js`; `styles/book-theme.css`,
   `js/book-speaker.js`, `js/book-pagination.js`.
 - Engines: `js/sql-lab.js` (sql.js), `js/php-lab.js` (php-wasm), Python console uses Pyodide; voices: `js/tts-voices.js`.
-- Exercises data: `js/data/sql-exercises.js`, `js/data/php-exercises.js`.
+- Exercises data: `js/data/sql-exercises.js`, `js/data/php-exercises.js`, `js/data/kotlin-exercises.js`
+  (Kotlin runs on the Kotlin Playground compiler via `js/kotlin-lab.js`; check with `node scripts/check-kotlin-exercises.js`).
 - Checks: `node scripts/render-check.mjs <out> 390 844 1 <urls>` (env `WAIT`, `CLICK`, `SETUP`), `powershell .udit.ps1`,
   `node scripts/validate-scripts.js`.
 - Progress is per device (`localStorage` key `jc_user_state`); no page shows the XP dashboard; the skill tree runs on demo data.

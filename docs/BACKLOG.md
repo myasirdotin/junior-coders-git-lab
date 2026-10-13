@@ -35,6 +35,10 @@ _Last updated: 2026-10-13 (Android book added)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 Kotlin exercises (`studios/kotlin-practice/`): 15 tasks for book-android chapters 4–8 (6 warm-up predict/fill,
+  5 apply, 4 challenge); coding tasks compiled on the Kotlin Playground service (`js/kotlin-lab.js`, only the code is
+  sent, the page says so); `scripts/check-kotlin-exercises.js` verifies every answer (15/15 on Kotlin 2.4.21). Linked
+  from the Practice menu, search, Studios page, Android book and Kotlin sheet. GEMINI §7f2.
 - 2026-10-13 Kotlin & Android cheat sheet (`cheatsheet-kotlin.html`, 11 boxes, 84 rows, Kotlin facts checked with
   kotlinc): in the cheat-sheet search, a new "Apps for phones" group on the Cheat Sheets page, site search, and the
   Android book's links. "Android Apps" added to the Learn menu (desktop and phone drawer). Counts now 12 sheets.

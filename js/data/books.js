@@ -927,6 +927,10 @@ window.JC_BOOKS = [
         "label": "📋 Cheat sheet"
       },
       {
+        "href": "../studios/kotlin-practice/index.html",
+        "label": "🧪 Kotlin exercises"
+      },
+      {
         "href": "../book-js/index.html",
         "label": "⚡ JavaScript book"
       },

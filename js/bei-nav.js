@@ -838,6 +838,7 @@
                 item('Learning%20Cybersecurity/playground.html', '🛡️', 'Cyber Defense Studio', 'Security experiments'),
                 item('Learning%20Networks/playground.html', '📡', 'Network Studio', 'See packets travel'),
                 item('practice-arena.html', '⚔️', 'Practice Arena', 'Coding challenges'),
+                item('studios/kotlin-practice/index.html', '📱', 'Kotlin Exercises', '15 auto-checked tasks'),
                 item('projects/index.html', '🏆', 'Projects', '10 real project briefs')]) +
             footer([item('studios/index.html', '⚡', 'All studios', '')]);
         const libraryMenu =
@@ -1303,6 +1304,7 @@
         ['cheatsheet-kotlin.html', '📋', 'Kotlin & Android Cheat Sheet', 'Cheat sheet', 'kotlin android compose app'],
         ['studios/web-studio/index.html', '⚡', 'Web Studio (HTML, CSS & JS Lab)', 'Studio', 'playground ide code'],
         ['studios/sql-sandbox/index.html', '🗄️', 'SQL Sandbox', 'Studio', 'mysql database query'],
+        ['studios/kotlin-practice/index.html', '📱', 'Kotlin Exercises', 'Practice', 'kotlin android exercises practice'],
         ['studios/python-console/index.html', '🐍', 'Python Console', 'Studio', 'python run'],
         ['practice-arena.html', '⚔️', 'Practice Arena', 'Practice', 'challenges exercises xp'],
         ['learn/index.html', '📚', 'Learn: Curriculum & Pathways', 'Page', 'courses tracks'],
