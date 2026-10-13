@@ -2984,6 +2984,27 @@ html[data-theme="light"] .cheat-table td:first-child code { color: #1e293b; }
 html[data-theme="light"] .cheat-card-header { color: var(--text-primary); }
 html[data-theme="light"] .cheat-card-header span { color: inherit; }
 
+/* Cheat sheets, readable layout (container class "cheat-v2"): two wide boxes on laptops, one on phones;
+   every box opens with a short plain-words explanation (.cheat-intro) and ends with a link to the
+   textbook chapter (.cheat-more); bigger text; on phones each row shows the code on its own line
+   with the meaning underneath instead of two cramped columns. */
+.cheat-v2 .cheat-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 460px), 1fr)); gap: 1.5rem; align-items: start; }
+.cheat-v2 .cheat-card { display: flex; flex-direction: column; }
+.cheat-v2 .cheat-card-header { font-size: 1.15rem; text-transform: none; letter-spacing: 0; padding: 0.9rem 1.25rem; }
+.cheat-v2 .cheat-intro { margin: 0; padding: 0.9rem 1.25rem 0.75rem; font-size: 1rem; line-height: 1.6; color: var(--text-secondary); border-bottom: 1px solid var(--border-subtle); }
+.cheat-v2 .cheat-intro code, .cheat-v2 .cheat-table td code { font-size: 0.92em; }
+.cheat-v2 .cheat-table, .cheat-v2 .cheat-table tbody, .cheat-v2 .cheat-table tr, .cheat-v2 .cheat-table td { display: block; width: 100%; }
+.cheat-v2 .cheat-table tr { padding: 0.65rem 1.25rem; }
+.cheat-v2 .cheat-table td { padding: 0; font-size: 1rem; line-height: 1.5; }
+.cheat-v2 .cheat-table td:first-child { width: 100%; font-size: 0.97rem; overflow-wrap: break-word; }
+.cheat-v2 .cheat-table td + td { margin-top: 0.15rem; color: var(--text-secondary); }
+.cheat-v2 .cheat-more { margin: 0; margin-top: auto; padding: 0.75rem 1.25rem 0.9rem; font-size: 0.92rem; color: var(--text-muted); border-top: 1px solid var(--border-subtle); }
+.cheat-v2 .cheat-more a { font-weight: 700; color: #7dd3fc; text-decoration: underline; text-underline-offset: 2px; }
+html[data-theme="light"] .cheat-v2 .cheat-more a { color: var(--brand-cyan); }
+@media (max-width: 600px) {
+    .cheat-v2 .cheat-intro, .cheat-v2 .cheat-more, .cheat-v2 .cheat-table tr { padding-left: 1rem; padding-right: 1rem; }
+}
+
 /* ═════════════════════════════════════════════════════════════════════
    GROUPED TOP MENU (js/bei-nav.js): Start here · Learn ▾ · Practice ▾ · Library ▾ · Teachers
    Wide screens: each group opens a panel under its button. ≤1180px: the groups are sections

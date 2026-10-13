@@ -30,7 +30,7 @@
     </style>
 </head>
 <body>
-<div class="cheatsheet-container">
+<div class="cheatsheet-container cheat-v2">
 
     <header class="cheat-hero js-hero">
         <span class="course-level" style="background:rgba(217,119,6,0.25); color:#fcd34d; border: 1px solid rgba(217,119,6,0.4);">Grades 7–8</span>
@@ -46,6 +46,7 @@
 
         <div class="cheat-card" id="card-variables">
             <div class="cheat-card-header js-hdr">📦 Variables</div>
+            <p class="cheat-intro">A variable is a labelled box that holds a value, so you can use it again by its name. Use <code>const</code> for values that stay the same and <code>let</code> for values that change, like a score. Comments are notes for people: the computer skips them.</p>
             <table class="cheat-table js-table">
                 <tr><td>const name = "Ali";</td><td>Cannot be given a new value: use this by default</td></tr>
                 <tr><td>let score = 0;</td><td>Can change later: <code>score = 5;</code></td></tr>
@@ -54,10 +55,12 @@
                 <tr><td>// a note</td><td>A comment on one line (the computer skips it)</td></tr>
                 <tr><td>/* a longer note */</td><td>A comment over several lines</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch3">Chapter 3: Variables</a></p>
         </div>
 
         <div class="cheat-card" id="card-data-types">
             <div class="cheat-card-header js-hdr">🧪 Data Types</div>
+            <p class="cheat-intro">Every value has a type: text, a number, true or false, a list, or a group of named values. The type decides what you can do: numbers can be added, while text is joined. When you are not sure, ask with <code>typeof</code>.</p>
             <table class="cheat-table js-table">
                 <tr><td>"Hello" / 'World'</td><td>String: text inside quotes</td></tr>
                 <tr><td>`Salaam, ${name}!`</td><td>Template literal: puts a value inside text</td></tr>
@@ -70,10 +73,12 @@
                 <tr><td>typeof 42</td><td>"number": tells you the type</td></tr>
                 <tr><td>Array.isArray([1, 2])</td><td>true: the right way to check for an array</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch4">Chapter 4: Data Types</a></p>
         </div>
 
         <div class="cheat-card" id="card-operators">
             <div class="cheat-card-header js-hdr">➕ Operators</div>
+            <p class="cheat-intro">Operators do maths and compare values. A comparison always gives <code>true</code> or <code>false</code>, which is what <code>if</code> and loops use to decide. Compare with <code>===</code>: it checks both the value and the type.</p>
             <table class="cheat-table js-table">
                 <tr><td>+ - * /</td><td>Add, subtract, multiply, divide</td></tr>
                 <tr><td>10 % 3</td><td>1: the remainder</td></tr>
@@ -87,10 +92,12 @@
                 <tr><td>!</td><td>NOT: turns true into false and back</td></tr>
                 <tr><td>name ?? "Guest"</td><td>Uses "Guest" when <code>name</code> is null or undefined</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch5">Chapter 5: Operators</a> · <a href="book-js/index.html#ch7">Chapter 7: Boolean Logic</a></p>
         </div>
 
         <div class="cheat-card" id="card-string-methods">
             <div class="cheat-card-header js-hdr">📝 String Methods</div>
+            <p class="cheat-intro">A string is text. String methods are ready-made tools for it: measure it, change capital letters, search inside it or cut a piece out. They never change the original text; they give you a new string.</p>
             <table class="cheat-table js-table">
                 <tr><td>"hello".length</td><td>5: number of characters</td></tr>
                 <tr><td>"hello"[0]</td><td>"h": first character (counting starts at 0)</td></tr>
@@ -105,10 +112,12 @@
                 <tr><td>"hi hi".replace("hi", "yo")</td><td>"yo hi": first match only (<code>replaceAll</code> for every one)</td></tr>
                 <tr><td>"ab".repeat(3)</td><td>"ababab"</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch13">Chapter 13: Working With Strings</a></p>
         </div>
 
         <div class="cheat-card" id="card-array-methods">
             <div class="cheat-card-header js-hdr">📋 Array Methods</div>
+            <p class="cheat-intro">An array is a numbered list, and the numbering starts at 0. These methods add, remove, find and change items. Look for "changes the array": those change your original list, while the others give you a new one.</p>
             <table class="cheat-table js-table">
                 <tr><td>arr.length</td><td>How many items</td></tr>
                 <tr><td>arr[0]</td><td>The first item</td></tr>
@@ -130,10 +139,12 @@
                 <tr><td>arr.find(n =&gt; n &gt; 5)</td><td>The first matching item (or undefined)</td></tr>
                 <tr><td>arr.reduce((sum, n) =&gt; sum + n, 0)</td><td>Combines all items into one value (here the total)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch11">Chapter 11: Arrays</a> · <a href="book-js/index.html#ch12">Chapter 12: Array Methods</a></p>
         </div>
 
         <div class="cheat-card" id="card-math-object">
             <div class="cheat-card-header js-hdr">🔢 Math Object</div>
+            <p class="cheat-intro"><code>Math</code> is a toolbox of number functions that is always ready to use. Use it to round numbers, find the biggest or smallest, and pick a fair random number, for example a random quiz question.</p>
             <table class="cheat-table js-table">
                 <tr><td>Math.round(4.6)</td><td>5: nearest whole number</td></tr>
                 <tr><td>Math.floor(4.9)</td><td>4: always rounds down</td></tr>
@@ -146,10 +157,12 @@
                 <tr><td>Math.PI</td><td>3.14159…</td></tr>
                 <tr><td>(2.567).toFixed(2)</td><td>"2.57": rounds to 2 decimals (gives a string)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch20">Chapter 20: Maths in JavaScript</a></p>
         </div>
 
         <div class="cheat-card" id="card-conditionals">
             <div class="cheat-card-header js-hdr">🤔 Conditionals</div>
+            <p class="cheat-intro">Conditions let a program decide: if something is true, do this; otherwise, do that. JavaScript checks them from top to bottom and runs only the first block that matches.</p>
             <table class="cheat-table js-table">
                 <tr><td>if (x &gt; 10) { }</td><td>Runs the code when the condition is true</td></tr>
                 <tr><td>else if (x &gt; 5) { }</td><td>Checks the next condition</td></tr>
@@ -158,10 +171,12 @@
                 <tr><td>switch (day) { case "Fri": …; break; }</td><td>Compares one value with many cases</td></tr>
                 <tr><td>default:</td><td>The switch case for "none of these"</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch6">Chapter 6: Conditions</a> · <a href="book-js/index.html#ch7">Chapter 7: Boolean Logic</a></p>
         </div>
 
         <div class="cheat-card" id="card-loops">
             <div class="cheat-card-header js-hdr">🔄 Loops</div>
+            <p class="cheat-intro">A loop repeats code so you do not have to copy it. Use <code>for</code> when you know how many times, and <code>while</code> when you repeat until something changes. Always make sure the loop can stop.</p>
             <table class="cheat-table js-table">
                 <tr><td>for (let i = 0; i &lt; 5; i++) { }</td><td>Counts 0, 1, 2, 3, 4: runs 5 times</td></tr>
                 <tr><td>while (x &lt; 10) { x++; }</td><td>Repeats while the condition is true (change x or it never stops)</td></tr>
@@ -170,10 +185,12 @@
                 <tr><td>break</td><td>Leaves the loop at once</td></tr>
                 <tr><td>continue</td><td>Skips to the next round</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch8">Chapter 8: Loops</a> · <a href="book-js/index.html#ch9">Chapter 9: Nested Loops</a></p>
         </div>
 
         <div class="cheat-card" id="card-functions">
             <div class="cheat-card-header js-hdr">⚙️ Functions</div>
+            <p class="cheat-intro">A function is a named recipe: write the steps once, then use them as often as you like. Values go in through parameters, and <code>return</code> sends the answer back to where the function was called.</p>
             <table class="cheat-table js-table">
                 <tr><td>function greet(name) { return "Hi " + name; }</td><td>A function declaration</td></tr>
                 <tr><td>greet("Ali")</td><td>Calls it: gives back "Hi Ali"</td></tr>
@@ -184,10 +201,12 @@
                 <tr><td>function sum(...nums) { }</td><td>Collects any number of values into an array</td></tr>
                 <tr><td>return value;</td><td>Sends a value back and ends the function</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch10">Chapter 10: Functions</a></p>
         </div>
 
         <div class="cheat-card" id="card-objects">
             <div class="cheat-card-header js-hdr">🗂️ Objects</div>
+            <p class="cheat-intro">An object keeps facts that belong together under names, like a library card with a name and a class. Each fact is a property: you read it with a dot, as in <code>student.name</code>.</p>
             <table class="cheat-table js-table">
                 <tr><td>const student = { name: "Ali", age: 12 };</td><td>Creates an object</td></tr>
                 <tr><td>student.name</td><td>"Ali": dot notation</td></tr>
@@ -199,10 +218,12 @@
                 <tr><td>const { name } = student;</td><td>Destructuring: copies a property into a variable</td></tr>
                 <tr><td>{ ...obj1, ...obj2 }</td><td>Spread: a new object with both sets of properties</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch14">Chapter 14: Objects</a></p>
         </div>
 
         <div class="cheat-card" id="card-dom-finding-elements">
             <div class="cheat-card-header js-hdr">🌐 DOM: Finding Elements</div>
+            <p class="cheat-intro">The DOM is the web page as JavaScript sees it: a tree of elements. Before you can change something on the page, you find it, usually by its id or with a CSS selector.</p>
             <table class="cheat-table js-table">
                 <tr><td>document.getElementById("total")</td><td>The element with id="total"</td></tr>
                 <tr><td>document.querySelector(".card")</td><td>The first match for a CSS selector</td></tr>
@@ -212,10 +233,12 @@
                 <tr><td>el.nextElementSibling</td><td>The next element beside it</td></tr>
                 <tr><td>input.value</td><td>The text typed in an input (always a string)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch16">Chapter 16: JavaScript in a Web Page</a></p>
         </div>
 
         <div class="cheat-card" id="card-dom-changing-elements">
             <div class="cheat-card-header js-hdr">✏️ DOM: Changing Elements</div>
+            <p class="cheat-intro">Once you have found an element, you can change its text, its classes and its attributes, or add new elements. Use <code>textContent</code> for anything a user typed: it is shown as plain text and can never run as code.</p>
             <table class="cheat-table js-table">
                 <tr><td>el.textContent = "Saved!";</td><td>Sets the text. Use this for anything a user typed</td></tr>
                 <tr><td>el.innerHTML = "&lt;b&gt;Hi&lt;/b&gt;";</td><td>Sets HTML tags. Only for your own fixed text: user text here can run harmful code (XSS)</td></tr>
@@ -231,10 +254,12 @@
                 <tr><td>list.appendChild(li)</td><td>Puts it inside <code>list</code>, at the end</td></tr>
                 <tr><td>el.remove()</td><td>Removes it from the page</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch16">Chapter 16: JavaScript in a Web Page</a></p>
         </div>
 
         <div class="cheat-card" id="card-events">
             <div class="cheat-card-header js-hdr">🖱️ Events</div>
+            <p class="cheat-intro">An event is something that happens on the page: a click, a key press, a form being sent. <code>addEventListener</code> tells the browser which function to run when it happens.</p>
             <table class="cheat-table js-table">
                 <tr><td>btn.addEventListener("click", save)</td><td>Runs <code>save</code> when clicked (pass the name, no brackets)</td></tr>
                 <tr><td>"dblclick"</td><td>Double-click</td></tr>
@@ -248,10 +273,12 @@
                 <tr><td>event.key</td><td>Which key was pressed, e.g. "Enter"</td></tr>
                 <tr><td>&lt;script src="app.js" defer&gt;</td><td>Runs the script after the page is built</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch17">Chapter 17: Events</a></p>
         </div>
 
         <div class="cheat-card" id="card-useful-patterns">
             <div class="cheat-card-header js-hdr">🛠️ Useful Patterns</div>
+            <p class="cheat-intro">Small tools you will use in many projects: printing messages to find bugs, asking the user a question, timers, turning text into numbers, saving on this device, and catching errors so the page keeps working.</p>
             <table class="cheat-table js-table">
                 <tr><td>console.log("text")</td><td>Prints to the Console (F12)</td></tr>
                 <tr><td>console.error("oops")</td><td>Prints an error message in red</td></tr>
@@ -272,6 +299,7 @@
                 <tr><td>localStorage.removeItem("theme")</td><td>Deletes it</td></tr>
                 <tr><td>try { … } catch (error) { … }</td><td>Runs code and handles an error instead of crashing</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-js/index.html#ch15">Chapter 15: Taking Input</a> · <a href="book-js/index.html#ch19">Chapter 19: Debugging</a></p>
         </div>
 
     </div>
