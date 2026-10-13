@@ -22,7 +22,7 @@ Think of your computer as a large apartment high-rise:
 
 In computer science, a **Socket** is the combination of an **IP Address** and a **Port Number**:
 
-$$\text{Socket} = \text{IP Address} : \text{Port Number}$$
+**Socket = IP Address : Port Number**
 
 For example:
 - `198.51.100.4:443` (A secure web server)

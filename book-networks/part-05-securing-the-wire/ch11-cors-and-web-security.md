@@ -20,7 +20,7 @@ An origin is defined by the exact combination of three things:
 2. **Host / Domain** (`example.com` vs `api.example.com`)
 3. **Port** (`:80` vs `:3000`)
 
-$$\text{Origin} = \text{Protocol} + \text{Host} + \text{Port}$$
+**Origin = Protocol + Host + Port**
 
 ### Same-Origin Comparison Table (Target: `https://learncode.org/students`):
 | URL | Same Origin? | Reason |

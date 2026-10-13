@@ -10,7 +10,7 @@ In this chapter, we explore the mathematics of password entropy, how attackers c
 
 **Entropy** measures the unpredictability or randomness of a password, quantified in **bits**:
 
-$$E = L \times \log_2(R)$$
+**Entropy (E) = L × log₂(R)**, where L is the length and R is the number of possible characters.
 
 - $L$ = Length of the password
 - $R$ = Size of the character pool (digits = 10, lowercase = 26, mixed alphanumeric + symbols = 95)

@@ -1,4 +1,4 @@
-# Part 15: Creative Coding
+*Part 15 · Creative Coding*
 # Creative Coding with JavaScript & HTML5 Canvas 🎨
 
 ---

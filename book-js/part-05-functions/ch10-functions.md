@@ -1,4 +1,4 @@
-# Part 5: Functions
+*Part 5 · Functions*
 # Chapter 10: Functions — Your Code Recipe Machine
 
 ---

@@ -1,4 +1,4 @@
-# Part 8: Objects
+*Part 8 · Objects*
 # Chapter 14: Objects — Modeling the Real World
 
 ---

@@ -1,4 +1,4 @@
-# Part 10: DOM and Web
+*Part 10 · DOM and Web*
 # Chapter 17: Events — Listening and Reacting to the User
 
 ---

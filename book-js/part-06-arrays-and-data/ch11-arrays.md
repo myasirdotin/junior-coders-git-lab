@@ -1,4 +1,4 @@
-# Part 6: Arrays and Data
+*Part 6 · Arrays and Data*
 # Chapter 11: Arrays — Storing Lists of Superpowers
 
 ---

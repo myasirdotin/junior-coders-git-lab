@@ -249,4 +249,4 @@ Write a nested loop that prints a 4-row countdown pattern:
 ## 18. 🍎 Teacher Discussion Questions
 
 1. Walk students through a physical clock: Why would creating a clock without nested loops require 86,400 manual lines of code?
-2. Discuss why having 4 or 5 deeply nested loops can make programs run slowly (algorithmic complexity / $O(n^2)$).
+2. Discuss why having 4 or 5 deeply nested loops can make programs run slowly (computer scientists call this "n squared" work, written O(n²)).

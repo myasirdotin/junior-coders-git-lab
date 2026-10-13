@@ -12,8 +12,8 @@ An **IPv4 address** consists of **32 binary bits**, grouped into **four 8-bit oc
 Binary:   11000000 . 10101000 . 00000001 . 00000001
 Decimal:    192    .    168   .     1    .     1
 ```
-Because each octet is 8 bits ($2^8 = 256$), values range from `0` to `255`.  
-The total number of IPv4 addresses is $2^{32} \approx 4,294,967,296$ (about 4.3 billion).
+Because each octet is 8 bits (2⁸ = 256), values range from `0` to `255`.  
+The total number of IPv4 addresses is 2³² ≈ 4,294,967,296 (about 4.3 billion).
 
 ---
 
@@ -24,7 +24,7 @@ When IPv4 was created in 1981, 4.3 billion addresses seemed limitless. But with 
 Enter **IPv6**:
 - Uses **128 bits** (written as 8 groups of 4 hexadecimal digits).
 - Example: `2001:0db8:85a3:0000:0000:8a2e:0370:7334`
-- Provides $2^{128} \approx 3.4 \times 10^{38}$ unique addresses—enough to assign thousands of IP addresses to every grain of sand on Earth!
+- Provides 2¹²⁸ ≈ 3.4 × 10³⁸ unique addresses—enough to assign thousands of IP addresses to every grain of sand on Earth!
 
 ---
 
@@ -73,7 +73,7 @@ CIDR:         192.168.  1.  50 / 24
 ```
 
 ### Quick CIDR Reference Table:
-| CIDR Prefix | Subnet Mask | Total IPs | Usable Hosts ($2^H - 2$) |
+| CIDR Prefix | Subnet Mask | Total IPs | Usable Hosts (2ᴴ − 2) |
 | :--- | :--- | :--- | :--- |
 | `/24` | `255.255.255.0` | 256 | 254 |
 | `/25` | `255.255.255.128` | 128 | 126 |

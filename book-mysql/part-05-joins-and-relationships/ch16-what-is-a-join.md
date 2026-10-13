@@ -66,7 +66,7 @@ Notice how clean and readable this query is!
 > ⚠️ **Warning**: If you join two tables without specifying an `ON` condition, MySQL performs a **CROSS JOIN** (Cartesian product). Every single row in Table A is multiplied by every single row in Table B!
 
 If `students` has 100 rows and `courses` has 50 rows:
-$$100 \times 50 = 5,000 \text{ duplicate rows!}$$
+**100 × 50 = 5,000 duplicate rows!**
 
 Always specify your matching `ON` condition to ensure you only pair records that truly belong together.
 

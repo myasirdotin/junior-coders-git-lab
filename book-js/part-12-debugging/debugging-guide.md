@@ -1,4 +1,4 @@
-# Part 12: Debugging
+*Part 12 · Debugging*
 # The Junior Developer's Debugging Playbook 🐞
 
 ---

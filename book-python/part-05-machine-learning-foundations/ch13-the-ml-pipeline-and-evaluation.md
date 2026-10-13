@@ -39,7 +39,7 @@ To prevent this, we **always split our data**:
 
 Here is how you evaluate an algorithm's classification accuracy:
 
-$$\text{Accuracy} = \frac{\text{Number of Correct Predictions}}{\text{Total Predictions}} \times 100\%$$
+**Accuracy = (Number of Correct Predictions ÷ Total Predictions) × 100%**
 
 ```python
 # Real test labels (Ground Truth)

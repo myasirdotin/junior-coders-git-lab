@@ -1,4 +1,4 @@
-# Part 7: Strings and Text
+*Part 7 · Strings and Text*
 # Chapter 13: Working With Strings — The Magic of Words
 
 ---

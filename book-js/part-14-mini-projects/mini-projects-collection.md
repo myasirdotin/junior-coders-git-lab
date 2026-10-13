@@ -1,4 +1,4 @@
-# Part 14: Mini Projects
+*Part 14 · Mini Projects*
 # The Complete Collection of 21 Beginner JavaScript Projects 🚀
 
 ---

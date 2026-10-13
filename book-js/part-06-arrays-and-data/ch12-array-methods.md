@@ -1,4 +1,4 @@
-# Part 6: Arrays and Data
+*Part 6 · Arrays and Data*
 # Chapter 12: Array Methods — The Power Tools of Lists
 
 ---

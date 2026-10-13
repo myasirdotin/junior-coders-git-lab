@@ -1,4 +1,4 @@
-# Part 11: Think Like a Programmer
+*Part 11 · Think Like a Programmer*
 # Computational Thinking — How Developers Solve Impossible Problems
 
 ---

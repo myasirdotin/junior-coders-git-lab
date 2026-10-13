@@ -1,4 +1,4 @@
-# Part 9: User Input
+*Part 9 · User Input*
 # Chapter 15: Taking Input — Making Programs Interactive
 
 ---

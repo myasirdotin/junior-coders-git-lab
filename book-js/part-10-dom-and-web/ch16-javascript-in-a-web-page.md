@@ -1,4 +1,4 @@
-# Part 10: DOM and Web
+*Part 10 · DOM and Web*
 # Chapter 16: JavaScript in a Web Page — Bringing HTML & CSS to Life
 
 ---

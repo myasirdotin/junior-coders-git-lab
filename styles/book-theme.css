@@ -3079,3 +3079,118 @@ body.dark .concept-figure {
   background: transparent; color: inherit; font-size: 0.85rem; cursor: pointer; opacity: 0.8;
 }
 .jc-voice-hint-close:hover, .jc-voice-hint-close:focus-visible { opacity: 1; background: rgba(0, 0, 0, 0.08); }
+
+/* ==========================================================================
+   Text diagrams (boxes and trees drawn with ┌─│└├): shown as figures, not code.
+   js/book-speaker.js adds .is-diagram and shrinks the text to fit (minimum 9px).
+   ========================================================================== */
+.code-wrapper.is-diagram {
+  background: #f8fafc; border: 1px solid var(--border-color, #e2e8f0); box-shadow: none;
+}
+.code-wrapper.is-diagram .code-wrapper-header { display: none; }
+.code-wrapper.is-diagram pre { padding: 1rem !important; width: 100%; max-width: 100%; box-sizing: border-box; overflow-x: auto !important; }
+.code-wrapper.is-diagram code { color: #1e293b; line-height: 1.35; }
+@media (max-width: 640px) {
+  .code-wrapper.is-diagram pre { padding: 0.75rem 0.6rem !important; }
+}
+
+/* HTML book sidebar badge: another sidebar rule turned its white text orange on the orange badge */
+.html-brand-badge { color: #ffffff !important; }
+
+/* Long inline code (IPv6 addresses, binary masks, file paths) may break onto the next line on phones */
+#chapterContent :not(pre) > code, #chapterBody :not(pre) > code { overflow-wrap: anywhere; word-break: break-word; }
+/* Reading Mode toolbar: never wider than the screen */
+@media (max-width: 640px) {
+  .reading-mode-bar { max-width: calc(100vw - 16px) !important; flex-wrap: wrap !important; justify-content: center !important; }
+}
+
+/* ==========================================================================
+   ONE READER DESIGN FOR ALL 11 TEXTBOOKS (2026-10-13)
+   The books grew four layouts (reader-topbar / reader-top-nav, different link rows, nested cards).
+   This block makes them read the same: slim link row, compact controls, ~75 characters per line,
+   tighter lists, quiet section-speaker buttons, and on phones no cards inside cards.
+   ========================================================================== */
+
+/* 1. Top link row: one slim line; breadcrumb left, small links that scroll sideways instead of wrapping */
+.reader-topbar, .reader-top-nav {
+  display: flex !important; flex-wrap: wrap; align-items: center; gap: 0.4rem 1rem !important;
+  padding-top: 0.6rem !important; padding-bottom: 0.6rem !important; min-height: 0 !important;
+}
+.reader-topbar > div:first-child { display: flex; align-items: center; gap: 0.6rem; flex-wrap: nowrap; min-width: 0; }
+.reader-topbar .reader-actions, .reader-top-nav .reader-top-links, .reader-top-nav .reader-quick-actions {
+  display: flex !important; flex-wrap: nowrap !important; overflow-x: auto; scrollbar-width: none;
+  gap: 0.35rem !important; margin-left: auto; max-width: 100%;
+}
+.reader-topbar .reader-actions::-webkit-scrollbar, .reader-top-nav .reader-top-links::-webkit-scrollbar,
+.reader-top-nav .reader-quick-actions::-webkit-scrollbar { display: none; }
+.reader-topbar .btn-action, .reader-top-nav .reader-nav-btn {
+  flex: 0 0 auto; height: 32px !important; min-height: 32px !important; padding: 0 0.7rem !important;
+  font-size: 0.78rem !important; white-space: nowrap;
+}
+
+/* 2. Controls panel: a rounded rectangle (border-radius 9999px turned the two-row panel into an oval) */
+.book-reader-header {
+  border-radius: 14px !important; padding: 0.55rem 0.75rem !important; margin-bottom: 1rem !important;
+}
+.reader-header-main { row-gap: 0.45rem !important; }
+
+/* 3. Reading width and rhythm: about 75 characters per line, lists that do not feel stretched */
+#chapterContent.book-article, #chapterBody.chapter-body, .book-content-wrapper {
+  max-width: 780px !important; margin-left: auto !important; margin-right: auto !important;
+}
+#chapterContent p, #chapterBody p { line-height: 1.7 !important; margin-bottom: 0.9rem !important; }
+#chapterContent li, #chapterBody li { line-height: 1.6 !important; margin-bottom: 0.4rem !important; }
+#chapterContent ul, #chapterContent ol, #chapterBody ul, #chapterBody ol { margin-bottom: 1rem !important; }
+#chapterContent h2, #chapterBody h2 { margin-top: 2.2rem !important; line-height: 1.3 !important; }
+#chapterContent h3, #chapterBody h3 { margin-top: 1.5rem !important; line-height: 1.35 !important; }
+#chapterContent h1, #chapterBody h1 { line-height: 1.2 !important; }
+
+/* 4. Section "listen" buttons: small and quiet until the heading is hovered or the button is focused */
+.book-section-speaker-btn { width: 26px !important; height: 26px !important; font-size: 0.75rem !important; opacity: 0.35; vertical-align: middle; transition: opacity 0.2s ease; }
+h2:hover > .book-section-speaker-btn, h3:hover > .book-section-speaker-btn,
+.book-section-speaker-btn:focus-visible, .book-section-speaker-btn.active { opacity: 1; }
+@media (hover: none) { .book-section-speaker-btn { opacity: 0.6; } }
+
+/* 5. Phones: no cards inside cards; the chapter uses the full width with a 16px gutter */
+@media (max-width: 640px) {
+  main.book-reader, main.book-main, .book-layout > main.book-reader.book-content, .book-layout > main.book-main.book-reader {
+    width: auto !important; max-width: none !important;
+    margin: 0 !important; padding: 0 !important; border: 0 !important; border-radius: 0 !important;
+    box-shadow: none !important; background: transparent !important;
+  }
+  #chapterContent.book-article, #chapterBody.chapter-body {
+    width: auto !important;
+    margin: 0 !important; padding: 1.1rem 1rem 1.5rem !important; border-left: 0 !important; border-right: 0 !important;
+    border-radius: 0 !important; box-shadow: none !important; max-width: none !important;
+  }
+  .book-content-wrapper { margin: 0 !important; padding: 0 !important; max-width: none !important; }
+  .book-content-wrapper > #chapterBody { padding: 1.1rem 1rem 1.5rem !important; }
+  .reader-topbar, .reader-top-nav { padding-left: 1rem !important; padding-right: 1rem !important; }
+  .book-reader-header { width: auto !important; max-width: none !important; margin: 0.5rem 0.75rem 0.25rem !important; }
+  /* JS book: the "try JavaScript" widget sat above every chapter (331px); show it after the chapter */
+  main.book-reader > .js-runner-widget { order: 10; margin: 1rem 0.75rem !important; }
+  #chapterContent h1, #chapterBody h1 { font-size: 1.6rem !important; }
+  #chapterContent h2, #chapterBody h2 { font-size: 1.25rem !important; margin-top: 1.8rem !important; }
+  #chapterContent h3, #chapterBody h3 { font-size: 1.08rem !important; }
+  #chapterContent p, #chapterContent li, #chapterBody p, #chapterBody li { font-size: 1rem !important; }
+}
+
+/* "In this chapter" outline under the chapter title (js/book-speaker.js addChapterOutline) */
+.chapter-outline {
+  margin: 0.75rem 0 1.5rem; padding: 0.6rem 0.9rem; border-radius: 12px;
+  background: var(--bg-sidebar, #f8fafc); border: 1px solid var(--border-color, #e2e8f0);
+}
+.chapter-outline > summary {
+  display: flex; align-items: center; gap: 0.5rem; min-height: 36px; cursor: pointer; list-style: none;
+  font-weight: 800; font-size: 0.95rem; color: var(--text-primary, #0f172a);
+}
+.chapter-outline > summary::-webkit-details-marker { display: none; }
+.chapter-outline > summary::after { content: '▾'; margin-left: 0.25rem; color: var(--text-muted, #64748b); transition: transform 0.2s ease; }
+.chapter-outline[open] > summary::after { transform: rotate(180deg); }
+.chapter-outline > summary span { margin-left: auto; font-size: 0.78rem; font-weight: 600; color: var(--text-muted, #64748b); }
+.chapter-outline ol { margin: 0.35rem 0 0.25rem !important; padding-left: 1.4rem; columns: 2; column-gap: 2rem; }
+.chapter-outline li { margin-bottom: 0.25rem !important; font-size: 0.9rem !important; line-height: 1.4 !important; break-inside: avoid; }
+.chapter-outline a { color: var(--book-accent, #2563eb); text-decoration: none; }
+.chapter-outline a:hover { text-decoration: underline; }
+#chapterContent h2, #chapterBody h2 { scroll-margin-top: 80px; }
+@media (max-width: 640px) { .chapter-outline ol { columns: 1; } }

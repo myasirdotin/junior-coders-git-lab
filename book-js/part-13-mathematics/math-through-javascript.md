@@ -1,4 +1,4 @@
-# Part 13: Mathematics
+*Part 13 · Mathematics*
 # Math Through JavaScript — Exploring Numbers with Code 📐
 
 ---
@@ -86,7 +86,7 @@ let myCircle = circleMath(7);
 console.log(`Radius 7 -> Circumference: ${myCircle.circumference}, Area: ${myCircle.area}`);
 ```
 
-### Topic 3: Pythagorean Theorem ($a^2 + b^2 = c^2$)
+### Topic 3: Pythagorean Theorem (a² + b² = c²)
 Calculate the hypotenuse of a right-angled triangle:
 ```javascript
 function calculateHypotenuse(base, height) {
@@ -98,7 +98,7 @@ console.log("Hypotenuse of 3 and 4:", calculateHypotenuse(3, 4)); // 5.00
 ```
 
 ### Topic 4: Ethical Finance — Annual Zakat & Charity Calculation
-Formula: $\text{Zakat} = \text{Net Wealth} \times 0.025 \quad (2.5\%)$
+Formula: **Zakat = Net Wealth × 0.025** (that is 2.5%)
 ```javascript
 // Calculates annual Zakat contribution if wealth exceeds Nisab threshold
 function calculateZakat(netSavings, goldNisabThreshold) {

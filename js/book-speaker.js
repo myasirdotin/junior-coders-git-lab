@@ -234,7 +234,7 @@
     const elements = contentArea.querySelectorAll('h1, h2, h3, p, li, blockquote');
 
     elements.forEach(el => {
-      if (el.closest('.book-reader-header') || el.closest('.book-speaker-bar') || el.closest('pre') || el.closest('.js-runner-widget') || el.closest('.sidebar-search')) return;
+      if (el.closest('.book-reader-header') || el.closest('.book-speaker-bar') || el.closest('pre') || el.closest('.js-runner-widget') || el.closest('.sidebar-search') || el.closest('.chapter-outline')) return;
       const txt = getCleanElementText(el);
       if (txt.length > 1) {
         items.push({ el, text: txt });
@@ -430,6 +430,68 @@
     } catch (e) { /* storage blocked: nothing to remember */ }
   };
 
+  // Text diagrams (boxes and trees drawn with ┌─│└├ characters) were shown as code: a "PYTHON"/"BASH" label,
+  // a Copy button, and on phones far too wide. Show them as figures and shrink the text to fit, down to 9px;
+  // anything still wider scrolls inside its own box (styles: .is-diagram in styles/book-theme.css).
+  const BOX_CHARS = /[┌┐└┘├┤┬┴┼─│═║╔╗╚╝╠╣╦╩╬]/g;
+  const fitDiagram = (pre) => {
+    const text = pre.querySelector('code') || pre;   // the font size is set on <code>
+    text.style.fontSize = '';
+    const base = parseFloat(getComputedStyle(text).fontSize) || 14;
+    // some books make <code> its own scrolling block, others let <pre> scroll: measure whichever overflows
+    const box = text.scrollWidth - text.clientWidth > pre.scrollWidth - pre.clientWidth ? text : pre;
+    const room = box.clientWidth, need = box.scrollWidth;
+    if (need > room + 1) text.style.fontSize = Math.max(9, Math.floor(base * room / need * 10) / 10) + 'px';
+  };
+  const markDiagrams = (area) => {
+    area.querySelectorAll('.code-wrapper').forEach((wrap) => {
+      const pre = wrap.querySelector('pre');
+      if (!pre) return;
+      const text = pre.textContent;
+      const boxes = (text.match(BOX_CHARS) || []).length;
+      // mostly drawing, little code: at least 12 box characters and they make up a real share of the text
+      if (boxes < 12 || boxes / text.replace(/\s/g, '').length < 0.12) return;
+      wrap.classList.add('is-diagram');
+      fitDiagram(pre);
+    });
+  };
+  // "In this chapter": a short outline under the chapter title, built from the section (h2) headings.
+  // Open on wide screens, folded on phones. Links jump within the page without changing the #chN address.
+  const addChapterOutline = (area) => {
+    const old = area.querySelector('.chapter-outline');
+    if (old) old.remove();
+    const heads = Array.from(area.querySelectorAll('h2')).filter(h => h.textContent.trim());
+    const title = area.querySelector('h1');
+    if (heads.length < 3 || !title) return;
+    const clean = (h) => {
+      const c = h.cloneNode(true);
+      c.querySelectorAll('button').forEach(b => b.remove());
+      return c.textContent.replace(/^[\s\d.]+/, '').replace(/^[^\p{L}\p{N}]+/u, '').trim();
+    };
+    const box = document.createElement('details');
+    box.className = 'chapter-outline';
+    if (window.innerWidth > 900) box.open = true;
+    const list = heads.map((h, i) => {
+      if (!h.id) h.id = 'section-' + (i + 1);
+      return `<li><a href="#${h.id}" data-target="${h.id}">${clean(h).replace(/</g, '&lt;')}</a></li>`;
+    }).join('');
+    box.innerHTML = `<summary>In this chapter <span>${heads.length} sections</span></summary><ol>${list}</ol>`;
+    box.addEventListener('click', (e) => {
+      const a = e.target.closest('a[data-target]');
+      if (!a) return;
+      e.preventDefault();   // keep #chN in the address (it says which chapter is open)
+      const t = document.getElementById(a.dataset.target);
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    title.insertAdjacentElement('afterend', box);
+  };
+
+  let fitTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(fitTimer);
+    fitTimer = setTimeout(() => document.querySelectorAll('.is-diagram pre').forEach(fitDiagram), 150);
+  });
+
   window.initBookSpeaker = function() {
     stopSpeech();
     setupPermanentHeaderControls();
@@ -453,6 +515,8 @@
     }
 
     rememberChapter(chapterName);
+    markDiagrams(contentArea);
+    addChapterOutline(contentArea);
 
     // Attach Section Speaker buttons next to all h2 and h3 inside chapter
     contentArea.querySelectorAll('h2, h3').forEach(heading => {

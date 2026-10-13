@@ -88,7 +88,7 @@ SELECT id, full_name FROM students ORDER BY id ASC LIMIT 10 OFFSET 20;
 ```
 
 ### The Universal Pagination Formula:
-$$\text{OFFSET} = (\text{Page Number} - 1) \times \text{Items Per Page}$$
+**OFFSET = (Page Number − 1) × Items Per Page**
 
 In PHP or backend code:
 ```php
