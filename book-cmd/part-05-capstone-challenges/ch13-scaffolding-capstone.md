@@ -122,7 +122,7 @@ echo '</html>' >> index.html
 The `tree /f` command draws the folder as a tree, with **f**iles included. It works in both CMD and PowerShell:
 
 ```text
-C:\JuniorCoders\practice\kindness-pantry>tree /f
+...\kindness-pantry>tree /f
 Folder PATH listing
 Volume serial number is 1A2B-3C4D
 C:.

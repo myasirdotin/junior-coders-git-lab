@@ -83,9 +83,9 @@ The key fingerprint is:
 Two files now exist in the `.ssh` folder:
 
 ```text
-📁 .ssh/
-   ├── id_ed25519       🔒 private: never share
-   └── id_ed25519.pub   🔓 public: give to GitHub
+.ssh/
+├── id_ed25519      private: never share
+└── id_ed25519.pub  public: give to GitHub
 ```
 
 Show the public key and copy it:

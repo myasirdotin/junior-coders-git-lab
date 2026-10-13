@@ -25,13 +25,14 @@ A **statement** is one complete instruction to PHP, like one sentence in English
 ### Anatomy of a Basic PHP Statement
 
 ```text
-  PHP Tag      Command       Output String (Delimited by Quotes)     Semicolon
-   ┌─────┐      ┌────┐     ┌─────────────────────────────────────┐      ┌─┐
-   │<?php│      │echo│     │ "Welcome to Junior Coders Academy!" │      │;│
-   └─────┘      └────┘     └─────────────────────────────────────┘      └─┘
-      │           │                          │                           │
-  Starts PHP   Built-in                   Message to                 Ends the
-  Execution    Output                     Send to Browser            Instruction
+<?php echo "Welcome to Junior Coders!";
+└─┬─┘ └┬─┘ └────────────┬────────────┘│
+  1    2                3             4
+
+1 <?php  starts PHP code
+2 echo   prints output
+3 "..."  the message sent to the browser
+4 ;      ends the instruction
 ```
 
 A **string** is a piece of text inside quotes, such as `"Hello"`.
@@ -41,15 +42,22 @@ A **string** is a piece of text inside quotes, such as `"Hello"`.
 **Case-sensitive** means PHP treats `A` and `a` as different.
 
 ```text
-+------------------------------+------------------------------+
-|     CASE-INSENSITIVE         |        CASE-SENSITIVE        |
-|  (PHP DOES NOT care)         |     (PHP CARES DEEPLY!)      |
-+------------------------------+------------------------------+
-| • Keywords: echo, ECHO, Echo | • Variables: $name vs $Name  |
-| • Control: if, ELSE, while   | • Constants: SITE_URL        |
-| • Functions: date(), DATE()  | • Array keys: $user['id']    |
-| • Classes: Student vs student|                              |
-+------------------------------+------------------------------+
+┌─────────────────────────────────────┐
+│ CASE-INSENSITIVE: PHP does not care │
+├─────────────────────────────────────┤
+│ • Keywords: echo, ECHO, Echo        │
+│ • Control: if, ELSE, while          │
+│ • Functions: date(), DATE()         │
+│ • Classes: Student vs student       │
+└─────────────────────────────────────┘
+
+┌─────────────────────────────────────┐
+│ CASE-SENSITIVE: PHP cares           │
+├─────────────────────────────────────┤
+│ • Variables: $name vs $Name         │
+│ • Constants: SITE_URL               │
+│ • Array keys: $user['id']           │
+└─────────────────────────────────────┘
 ```
 
 You will meet variables, functions and the other items in later chapters. For now, remember: always write keywords like `echo` in lowercase.

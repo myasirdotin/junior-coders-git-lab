@@ -116,11 +116,12 @@ php artisan migrate
 If the `library_app` database does not exist yet, Laravel asks:
 
 ```text
- WARN  The database 'library_app' does not exist on the 'mysql' connection.
+ WARN  The database 'library_app' does
+ not exist on the 'mysql' connection.
 
- ┌ Would you like to create it? ────────────────────────────────┐
- │ Yes                                                          │
- └──────────────────────────────────────────────────────────────┘
+ ┌ Would you like to create it? ──┐
+ │ Yes                            │
+ └────────────────────────────────┘
 ```
 
 Choose **Yes**. Then you see something like this (times will differ):

@@ -32,6 +32,7 @@ const TEMPLATE = ['🌟 Real-Life Story', '🎯 What You Will Learn', '⚠️ Co
 const LEVELS = ['🟢 Level 1', '🟡 Level 2', '🔴 Level 3'];
 const EMOJI = /\p{Extended_Pictographic}/gu;
 const BOX = /[┌┐└┘├┤┬┴┼─│═║╔╗╚╝╠╣╦╩╬]/;
+const ASCII_BOX = /^\s*\+[-=]{3,}[-=+]*\+\s*$/; // boxes drawn with +----+ and |
 const LATEX = /\$[^$\n]{0,80}?(\\(frac|text|times|approx|log|cdot|sqrt|leq|geq)\b|\^\{|\^[0-9a-zA-Z])[^$\n]*?\$/;
 const FORBIDDEN = /\b(movies?|cinemas?|netflix|spotify|music|songs?|playlists?|concerts?|celebrit(y|ies)|casino|lottery|gambl\w*|betting|dice|pepperoni|bacon|pork|alcohol|beer|wine|minecraft|pok[eé]mon|marvel|superheroe?s?|harry potter|wizards?|sorcer\w*|instagram|tiktok)\b/i;
 
@@ -67,7 +68,7 @@ function checkFile(file) {
     const f = l.match(/^\s{0,3}(`{3,}|~{3,})(.*)$/);
     if (!fence && f && !(f[1][0] === '`' && f[2].includes('`'))) { fence = f[1]; block = []; return; }
     if (fence && f && f[1][0] === fence[0] && f[1].length >= fence.length && !f[2].trim()) {
-      if (block.some(b => BOX.test(b))) diagrams.push({ line: i + 1, width: Math.max(...block.map(b => [...b].length)) });
+      if (block.some(b => BOX.test(b) || ASCII_BOX.test(b))) diagrams.push({ line: i + 1, width: Math.max(...block.map(b => [...b].length)) });
       fence = null; block = []; return;
     }
     if (fence) { block.push(l); return; }
