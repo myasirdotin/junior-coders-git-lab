@@ -1,4 +1,4 @@
-# Chapter 28: Connecting to MySQL with PDO 🔌
+# Chapter 28: Connecting to MySQL with PDO
 
 ---
 
@@ -18,7 +18,7 @@ The school library keeps thousands of book records in a back room. Students do n
 
 ---
 
-## 👁️ PHP, PDO and MySQL
+## PHP, PDO and MySQL
 
 Until now your data lived in arrays and files (Chapters 14–21). Real school sites keep it in a **database**: an organised store of tables that many pages can read and change at the same time. The MySQL book teaches the SQL language. This chapter connects PHP to it.
 
@@ -58,7 +58,7 @@ books:    id, title, category,
 
 ---
 
-## 🧩 The DSN: the Database's Address
+## The DSN: the Database's Address
 
 A **DSN** (Data Source Name) is one string that tells PDO which database to open:
 
@@ -77,7 +77,7 @@ Parts are separated by semicolons, with **no spaces**.
 
 ---
 
-## 🔌 Connecting: `db.php`
+## Connecting: `db.php`
 
 Every page that needs the database will need the same connection. So we write it once, in `db.php`, and load it with `require` on each page.
 
@@ -137,7 +137,7 @@ The visitor sees only the friendly sentence. The error log (Chapter 23) gets the
 
 ---
 
-## 📋 `query()`: SQL With No Visitor Input
+## `query()`: SQL With No Visitor Input
 
 When the SQL is **fixed**, with nothing typed by a visitor inside it, use `query()`. It sends the SQL and returns a **statement** object holding the results.
 
@@ -170,7 +170,7 @@ Zayd (Lahore)
 
 ---
 
-## 📥 Getting the Rows: `fetch()`, `fetchAll()`, `fetchColumn()`
+## Getting the Rows: `fetch()`, `fetchAll()`, `fetchColumn()`
 
 | Method | Returns | Use it when |
 | :--- | :--- | :--- |
@@ -257,7 +257,7 @@ Books on the shelf: 6
 
 ---
 
-## 🔒 `prepare()` + `execute()`: SQL With Visitor Input
+## `prepare()` + `execute()`: SQL With Visitor Input
 
 Now a visitor chooses which student to see: `student.php?id=3`. The id comes from `$_GET`, so it is **untrusted** (Chapter 19). Never paste it into the SQL text. Instead:
 
@@ -321,7 +321,7 @@ If you are unsure, use `prepare()`. It is never wrong.
 
 ---
 
-## 🧾 Rows Into an HTML Table
+## Rows Into an HTML Table
 
 A teacher wants an honour roll for one grade: `honour-roll.php?grade=8`. Save this next to `db.php`:
 

@@ -1,4 +1,4 @@
-# Chapter 5: Headings and Paragraphs 📰
+# Chapter 5: Headings and Paragraphs
 
 ---
 
@@ -27,7 +27,7 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 👁️ Visual Concept Explanation
+## Visual Concept Explanation
 
 ### The Heading Hierarchy Pyramid
 
@@ -61,7 +61,7 @@ HTML gives you six levels of headings. Think of them as a pyramid from biggest a
 
 ---
 
-## 💻 Code Example: School Information Page
+## Code Example: School Information Page
 
 Type this code into a new file named `school.html`:
 
@@ -101,7 +101,7 @@ Type this code into a new file named `school.html`:
 
 ---
 
-## 🔍 Code Explanation: Heading Hierarchy in Action
+## Code Explanation: Heading Hierarchy in Action
 
 Look at the structure we built:
 - `<h1>`: There is **only ONE `<h1>` tag** on the whole page (*"Oakwood Junior High School"*). One main title per page is the usual good practice. It helps visitors, screen readers and search engines.
@@ -162,7 +162,7 @@ A classmate wrote this code, but their entire page looks huge and won't go back 
 
 ---
 
-## 🎨 Think Like a Web Designer: The 3-Second Rule
+## Think Like a Web Designer: The 3-Second Rule
 
 Many visitors scan a page for only a few seconds before deciding whether to stay or leave.
 - If you have good, bold headings (`<h1>`, `<h2>`), their eyes land on the key points instantly.
@@ -171,7 +171,7 @@ Many visitors scan a page for only a few seconds before deciding whether to stay
 
 ---
 
-## 🚀 Mini Challenge: The Book Review Page
+## Mini Challenge: The Book Review Page
 
 Write an HTML page reviewing your favorite book:
 - `<h1>`: The Book Title
