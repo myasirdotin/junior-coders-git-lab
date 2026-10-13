@@ -30,7 +30,7 @@
     </style>
 </head>
 <body>
-<div class="cheatsheet-container">
+<div class="cheatsheet-container cheat-v2">
 
     <header class="cheat-hero laravel-hero">
         <span class="course-level" style="background:rgba(220,38,38,0.25); color:#fca5a5; border: 1px solid rgba(220,38,38,0.4);">Grades 9–10</span>
@@ -46,6 +46,7 @@
 
         <div class="cheat-card" id="card-new-project-setup">
             <div class="cheat-card-header laravel-hdr">🚀 New Project &amp; Setup</div>
+            <p class="cheat-intro">Laravel is a PHP framework: a ready-made project structure with tools for routes, databases, forms and logins. Composer, PHP's package manager, downloads it into a new folder. Private settings such as the database password live in the <code>.env</code> file, which is never shared.</p>
             <table class="cheat-table laravel-table">
                 <tr><td>composer create-project laravel/laravel library-app</td><td>New plain Laravel 12 project</td></tr>
                 <tr><td>composer global require laravel/installer</td><td>Install the Laravel installer once</td></tr>
@@ -53,10 +54,12 @@
                 <tr><td>DB_CONNECTION=mysql<br>DB_DATABASE=library_app<br>DB_USERNAME=root<br>DB_PASSWORD=</td><td>Database settings in <code>.env</code> (never commit .env)</td></tr>
                 <tr><td>npm install &amp;&amp; npm run build</td><td>Build the CSS/JS (starter kits need Node.js)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-laravel/index.html#ch1">Chapter 1: What is Laravel?</a> · <a href="book-laravel/index.html#ch3">Chapter 3: Laravel Project Structure</a></p>
         </div>
 
         <div class="cheat-card" id="card-artisan-commands">
             <div class="cheat-card-header laravel-hdr">⚙️ Artisan Commands</div>
+            <p class="cheat-intro">Artisan is Laravel's command-line helper, run with <code>php artisan</code> inside the project folder. It creates files in the right place with the right starting code, runs migrations and starts a local test server. Type <code>php artisan list</code> to see every command.</p>
             <table class="cheat-table laravel-table">
                 <tr><td>php artisan serve</td><td>Start the local server (http://127.0.0.1:8000)</td></tr>
                 <tr><td>php artisan make:model Book -m</td><td>Model + migration</td></tr>
@@ -72,10 +75,12 @@
                 <tr><td>php artisan tinker</td><td>Try PHP and Eloquent in the terminal</td></tr>
                 <tr><td>php artisan optimize:clear</td><td>Clear all cached config, routes and views</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-laravel/index.html#ch3">Chapter 3: Laravel Project Structure</a> · <a href="book-laravel/index.html#ch17">Chapter 17: Creating Migrations</a></p>
         </div>
 
         <div class="cheat-card" id="card-routing">
             <div class="cheat-card-header laravel-hdr">🗺️ Routing</div>
+            <p class="cheat-intro">A route connects a web address to the code that answers it. Routes live in <code>routes/web.php</code>, one for each address and HTTP method, such as GET to view a page and POST to save a form. Naming a route lets your links keep working if the address changes.</p>
             <table class="cheat-table laravel-table">
                 <tr><td>Route::get('/about', fn () =&gt; view('about'));</td><td>Basic GET route</td></tr>
                 <tr><td>Route::get('/books', [BookController::class, 'index']);</td><td>Route to a controller method</td></tr>
@@ -88,10 +93,12 @@
                 <tr><td>route('books.show', $book)</td><td>Make a URL from a route name</td></tr>
                 <tr><td>-&gt;middleware('auth')</td><td>Only for logged-in users</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-laravel/index.html#ch4">Chapter 4: Basic Routes</a> · <a href="book-laravel/index.html#ch6">Chapter 6: Named Routes</a></p>
         </div>
 
         <div class="cheat-card" id="card-controllers">
             <div class="cheat-card-header laravel-hdr">🎮 Controllers</div>
+            <p class="cheat-intro">A controller is a class that groups the actions for one kind of thing, such as books. A route calls a controller method, which gets data from the model and returns a view or a redirect. A resource controller uses seven standard methods for create, read, update and delete.</p>
             <table class="cheat-table laravel-table">
                 <tr><td>index() &nbsp; create()</td><td>List all / show the "add" form</td></tr>
                 <tr><td>store(Request $request)</td><td>Validate + save a new row</td></tr>
@@ -104,10 +111,12 @@
                 <tr><td>return back();</td><td>Go back to the previous page</td></tr>
                 <tr><td>-&gt;with('success', 'Book saved.')</td><td>Flash a one-time message</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-laravel/index.html#ch7">Chapter 7: Creating Controllers</a> · <a href="book-laravel/index.html#ch8">Chapter 8: Resource Controllers</a></p>
         </div>
 
         <div class="cheat-card" id="card-eloquent-orm">
             <div class="cheat-card-header laravel-hdr">🗣️ Eloquent ORM</div>
+            <p class="cheat-intro">Eloquent lets you work with database rows as PHP objects instead of writing SQL. Each model class, like <code>Book</code>, matches one table, like <code>books</code>. <code>$fillable</code> lists the columns a form may fill, which protects every other column from being changed.</p>
             <table class="cheat-table laravel-table">
                 <tr><td>protected $fillable = ['title', 'author', 'isbn', 'copies'];</td><td>Columns allowed in create() / update()</td></tr>
                 <tr><td>Book::all()</td><td>Every row (a collection)</td></tr>
@@ -121,10 +130,12 @@
                 <tr><td>$book-&gt;title = 'New'; $book-&gt;save();</td><td>Change one field and save</td></tr>
                 <tr><td>$book-&gt;delete()</td><td>Delete the row</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-laravel/index.html#ch13">Chapter 13: Models &amp; Eloquent</a> · <a href="book-laravel/index.html#ch14">Chapter 14: CRUD with Eloquent</a></p>
         </div>
 
         <div class="cheat-card" id="card-blade-templates">
             <div class="cheat-card-header laravel-hdr">🌿 Blade Templates</div>
+            <p class="cheat-intro">Blade is Laravel's template language for views, the pages users see. <code>{{ }}</code> prints a value safely escaped, which stops harmful scripts (XSS) from running. Directives that start with <code>@</code> add decisions, loops and shared layouts, so every page can share one header and footer.</p>
             <table class="cheat-table laravel-table">
                 <tr><td>{{ $book-&gt;title }}</td><td>Print, HTML-escaped (safe)</td></tr>
                 <tr><td>{!! $html !!}</td><td>Print raw HTML (trusted content only)</td></tr>
@@ -142,10 +153,12 @@
                 <tr><td>@error('title') {{ $message }} @enderror</td><td>Show the field's error</td></tr>
                 <tr><td>@auth ... @endauth &nbsp; @guest ... @endguest</td><td>Only logged-in users / only visitors</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-laravel/index.html#ch10">Chapter 10: Blade Syntax</a> · <a href="book-laravel/index.html#ch11">Chapter 11: Layouts &amp; Sections</a></p>
         </div>
 
         <div class="cheat-card" id="card-validation-rules">
             <div class="cheat-card-header laravel-hdr">✅ Validation Rules</div>
+            <p class="cheat-intro">Validation checks form data before you save it. You list rules for each field, and Laravel checks them all. If one fails, the user goes back to the form with error messages and their typed input. Only the checked data, <code>$validated</code>, should reach the database.</p>
             <table class="cheat-table laravel-table">
                 <tr><td colspan="2"><code>$validated = $request-&gt;validate([<br>&nbsp;&nbsp;'title' =&gt; 'required|string|max:150',<br>&nbsp;&nbsp;'isbn' =&gt; 'required|unique:books,isbn',<br>&nbsp;&nbsp;'copies' =&gt; 'required|integer|min:1',<br>]);</code></td></tr>
                 <tr><td>(on failure)</td><td>Laravel goes back with errors and old input</td></tr>
@@ -159,10 +172,12 @@
                 <tr><td>confirmed</td><td>Must match <code>password_confirmation</code></td></tr>
                 <tr><td>image &nbsp; max:2048</td><td>An image file, up to 2048 KB</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-laravel/index.html#ch19">Chapter 19: Laravel Forms</a> · <a href="book-laravel/index.html#ch20">Chapter 20: Validation Rules</a></p>
         </div>
 
         <div class="cheat-card" id="card-auth-middleware">
             <div class="cheat-card-header laravel-hdr">🔐 Auth &amp; Middleware</div>
+            <p class="cheat-intro">Authentication means checking who a user is, usually with an email and a password. Middleware is a check that runs before a route's code; <code>auth</code> lets only logged-in users through. Renew the session at login and logout so an old, stolen session id becomes useless.</p>
             <table class="cheat-table laravel-table">
                 <tr><td>Auth::check() &nbsp; Auth::user() &nbsp; Auth::id()</td><td>Logged in? / the user / their id</td></tr>
                 <tr><td>if (Auth::attempt($credentials)) { $request-&gt;session()-&gt;regenerate(); }</td><td>Log in, then give a new session id</td></tr>
@@ -173,10 +188,12 @@
                 <tr><td>'password' =&gt; Hash::make($plain)</td><td>Store passwords hashed, never plain</td></tr>
                 <tr><td>session('key') &nbsp; session(['key' =&gt; 'value'])</td><td>Read / store a session value</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-laravel/index.html#ch23">Chapter 23: Login &amp; Register</a> · <a href="book-laravel/index.html#ch24">Chapter 24: Protecting Routes</a></p>
         </div>
 
         <div class="cheat-card" id="card-migration-column-types">
             <div class="cheat-card-header laravel-hdr">🗂️ Migration Column Types</div>
+            <p class="cheat-intro">A migration is a PHP file that describes a change to the database, such as creating a table. It works like version control for your tables: everyone runs the same files and gets the same structure. Each <code>$table</code> method adds one column or rule.</p>
             <table class="cheat-table laravel-table">
                 <tr><td>$table-&gt;id();</td><td>Auto-numbered BIGINT primary key</td></tr>
                 <tr><td>$table-&gt;string('title', 150);</td><td>VARCHAR (255 if no length)</td></tr>
@@ -190,10 +207,12 @@
                 <tr><td>$table-&gt;foreignId('book_id')-&gt;constrained();</td><td>Foreign key to books.id</td></tr>
                 <tr><td>-&gt;constrained()-&gt;cascadeOnDelete();</td><td>Delete loans when the book is deleted</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-laravel/index.html#ch16">Chapter 16: What are Migrations?</a> · <a href="book-laravel/index.html#ch17">Chapter 17: Creating Migrations</a></p>
         </div>
 
         <div class="cheat-card" id="card-eloquent-relationships">
             <div class="cheat-card-header laravel-hdr">🔗 Eloquent Relationships</div>
+            <p class="cheat-intro">Relationships tell Eloquent how tables connect through foreign keys. You write a short method in each model, such as <code>loans()</code> in <code>Book</code>, then use it like a property. <code>with()</code> loads related rows in one extra query instead of one query per row (the N+1 problem).</p>
             <table class="cheat-table laravel-table">
                 <tr><td>return $this-&gt;hasMany(Loan::class);</td><td>In Book: a book has many loans</td></tr>
                 <tr><td>return $this-&gt;belongsTo(Book::class);</td><td>In Loan: a loan belongs to one book</td></tr>
@@ -203,6 +222,7 @@
                 <tr><td>$book-&gt;loans()-&gt;whereNull('returned_on')-&gt;get()</td><td>Query through a relationship</td></tr>
                 <tr><td>Loan::with(['book', 'member'])-&gt;get()</td><td>Eager loading: avoids the N+1 problem</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-laravel/index.html#ch15">Chapter 15: Relationships</a></p>
         </div>
 
     </div>

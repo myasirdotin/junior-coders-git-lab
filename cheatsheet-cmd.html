@@ -30,7 +30,7 @@
     </style>
 </head>
 <body>
-<div class="cheatsheet-container">
+<div class="cheatsheet-container cheat-v2">
 
     <header class="cheat-hero cmd-hero">
         <span class="course-level" style="background:rgba(5,150,105,0.25); color:#6ee7b7; border: 1px solid rgba(5,150,105,0.4);">Grades 6–7</span>
@@ -46,6 +46,7 @@
 
         <div class="cheat-card" id="card-rosetta-stone-windows-cmd-vs-git-bash-li">
             <div class="cheat-card-header cmd-hdr">🔄 Three Terminals Side by Side</div>
+            <p class="cheat-intro">A terminal is a window where you type commands instead of clicking. Windows has CMD and PowerShell, and Git Bash comes with Git. They do the same jobs, but some words and symbols differ. So first check which prompt you see.</p>
             <table class="cheat-table cmd-table">
                 <tr><td>C:\Users\Amina&gt;</td><td>A CMD prompt</td></tr>
                 <tr><td>PS C:\Users\Amina&gt;</td><td>A PowerShell prompt: it starts with <code>PS</code></td></tr>
@@ -55,10 +56,12 @@
                 <tr><td>css\style.css · css/style.css</td><td>Windows paths use <code>\</code>, Git Bash uses <code>/</code> (PowerShell accepts both)</td></tr>
                 <tr><td>dir /? · Get-Help dir · ls --help</td><td>Help for a command (CMD · PowerShell · Git Bash)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-cmd/index.html#ch1">Chapter 1: What is the Terminal?</a> · <a href="book-cmd/index.html#ch2">Chapter 2: The Anatomy of a Prompt</a></p>
         </div>
 
         <div class="cheat-card" id="card-orientation-location">
             <div class="cheat-card-header cmd-hdr">🧭 Orientation &amp; Location</div>
+            <p class="cheat-intro">Before you change anything, find out where you are. A terminal works inside one folder at a time, called the current folder. These commands show its name and what is inside it, even hidden items.</p>
             <table class="cheat-table cmd-table">
                 <tr><td>cd · pwd</td><td>Where am I? (<code>cd</code> alone in CMD, <code>pwd</code> in PowerShell and Git Bash)</td></tr>
                 <tr><td>dir · ls</td><td>Lists the folder (<code>dir</code> in CMD and PowerShell, <code>ls</code> in PowerShell and Git Bash)</td></tr>
@@ -67,10 +70,12 @@
                 <tr><td>cls · clear</td><td>Clears the screen (<code>cls</code> in CMD and PowerShell, <code>clear</code> in PowerShell and Git Bash); files are safe</td></tr>
                 <tr><td>Ctrl + L</td><td>Clears the screen in PowerShell and Git Bash (not CMD)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-cmd/index.html#ch3">Chapter 3: Where Am I? &amp; What's Here?</a></p>
         </div>
 
         <div class="cheat-card" id="card-navigation-moving">
             <div class="cheat-card-header cmd-hdr">🚶 Navigation &amp; Moving</div>
+            <p class="cheat-intro">A path is the address of a folder, like a street address. <code>cd</code> means "change directory": it moves you into another folder. <code>..</code> always means the folder one level up. Press Tab and the terminal finishes long names for you.</p>
             <table class="cheat-table cmd-table">
                 <tr><td>cd science</td><td>Steps into a folder (type <code>cd sci</code> and press Tab)</td></tr>
                 <tr><td>cd ..</td><td>Up one level, to the parent folder (keep the space)</td></tr>
@@ -81,10 +86,12 @@
                 <tr><td>cd E:\folder</td><td>Changes drive and folder at once in PowerShell</td></tr>
                 <tr><td>doskey /history · history</td><td>Lists the commands you typed (CMD · PowerShell and Git Bash)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-cmd/index.html#ch4">Chapter 4: Moving Between Folders</a> · <a href="book-cmd/index.html#ch5">Chapter 5: Relative vs. Absolute Paths</a></p>
         </div>
 
         <div class="cheat-card" id="card-creation-scaffolding">
             <div class="cheat-card-header cmd-hdr">⚡ Creation &amp; Scaffolding</div>
+            <p class="cheat-intro">Scaffolding means building the empty folders and files of a new project before you write code. One line can make many folders at once. Each terminal makes an empty file in its own way, so read the notes.</p>
             <table class="cheat-table cmd-table">
                 <tr><td>mkdir css</td><td>Makes a folder (all three terminals)</td></tr>
                 <tr><td>mkdir css js images</td><td>Several folders in CMD and Git Bash</td></tr>
@@ -95,10 +102,12 @@
                 <tr><td>New-Item index.html</td><td>Empty file in PowerShell (refuses if the file exists)</td></tr>
                 <tr><td>touch index.html</td><td>Empty file in Git Bash (leaves an existing file alone)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-cmd/index.html#ch7">Chapter 7: Creating Folders &amp; Files at Lightning Speed</a></p>
         </div>
 
         <div class="cheat-card" id="card-moving-renaming-copying">
             <div class="cheat-card-header cmd-hdr">📦 Moving, Renaming &amp; Copying</div>
+            <p class="cheat-intro">Renaming and moving are really the same job: the file gets a new name or a new address. Copying makes a second file and keeps the first. Some commands replace a file with the same name without asking, so look first.</p>
             <table class="cheat-table cmd-table">
                 <tr><td>ren old.txt new.txt</td><td>Renames a file or folder (CMD and PowerShell)</td></tr>
                 <tr><td>move app.js js\</td><td>Moves a file into a folder (CMD and PowerShell)</td></tr>
@@ -109,10 +118,12 @@
                 <tr><td>mv old.txt new.txt · mv app.js js/</td><td>Renames or moves in Git Bash</td></tr>
                 <tr><td>cp a.txt b.txt · cp -r site backup</td><td>Copies a file / a folder in Git Bash</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-cmd/index.html#ch8">Chapter 8: Renaming, Moving &amp; Copying Files</a></p>
         </div>
 
         <div class="cheat-card" id="card-deletion-safety-nets">
             <div class="cheat-card-header cmd-hdr">🛑 Deletion &amp; Safety Nets</div>
+            <p class="cheat-intro">Files deleted in a terminal do not go to the Recycle Bin. They are gone. So always look first, then use the version that asks before it deletes. Caring for your files and other people's files is a trust (<em>Amānah</em>).</p>
             <table class="cheat-table cmd-table">
                 <tr><td>dir · ls</td><td>Look first: check you are in the right folder and the name is right</td></tr>
                 <tr><td>del /p notes.txt</td><td>Deletes a file after asking (CMD). There is no Recycle Bin</td></tr>
@@ -124,10 +135,12 @@
                 <tr><td>rm -r -i old-drafts</td><td>Removes a full folder, asking about each item (Git Bash). Never add <code>-f</code></td></tr>
                 <tr><td>Ctrl + C</td><td>The emergency brake: stops a running command</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-cmd/index.html#ch9">Chapter 9: Safe Deletion &amp; Digital Trust</a></p>
         </div>
 
         <div class="cheat-card" id="card-reading-searching">
             <div class="cheat-card-header cmd-hdr">🔍 Reading &amp; Searching</div>
+            <p class="cheat-intro">You can read a file without opening an editor. The <code>&gt;</code> sign sends output into a file and replaces what was there. <code>&gt;&gt;</code> adds to the end instead. The pipe <code>|</code> passes one command's result to the next one.</p>
             <table class="cheat-table cmd-table">
                 <tr><td>type notes.txt · cat notes.txt</td><td>Prints a file (CMD and PowerShell · Git Bash)</td></tr>
                 <tr><td>type long.txt | more</td><td>Shows a long file one page at a time</td></tr>
@@ -139,10 +152,12 @@
                 <tr><td>grep Wednesday visits.txt</td><td>Lines that contain a word (Git Bash)</td></tr>
                 <tr><td>type visits.txt | findstr Wednesday</td><td>The pipe <code>|</code> sends one command's output into the next</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-cmd/index.html#ch12">Chapter 12: Reading File Contents &amp; Output Redirection</a></p>
         </div>
 
         <div class="cheat-card" id="card-web-developer-workflow">
             <div class="cheat-card-header cmd-hdr">🛠️ Web Developer Workflow</div>
+            <p class="cheat-intro">Web developers use the terminal every day. You open your project in VS Code, check that your tools are installed, and start a small local server. A local server shows your site at a <code>localhost</code> address on your own computer.</p>
             <table class="cheat-table cmd-table">
                 <tr><td>code .</td><td>Opens this folder in VS Code (<code>.</code> = this folder)</td></tr>
                 <tr><td>start . · explorer .</td><td>Opens this folder in File Explorer (CMD and PowerShell · Git Bash)</td></tr>
@@ -154,6 +169,7 @@
                 <tr><td>python -m http.server 8000</td><td>Starts Python's simple local server</td></tr>
                 <tr><td>Ctrl + C</td><td>Stops the server and gives the prompt back</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-cmd/index.html#ch10">Chapter 10: Launching VS Code &amp; Verifying Developer Tools</a> · <a href="book-cmd/index.html#ch11">Chapter 11: Local Development Servers</a></p>
         </div>
 
     </div>

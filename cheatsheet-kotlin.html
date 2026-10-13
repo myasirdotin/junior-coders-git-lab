@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-<div class="cheatsheet-container">
+<div class="cheatsheet-container cheat-v2">
 
     <header class="cheat-hero kt-hero">
         <span class="course-level" style="background:rgba(127,82,255,0.25); color:#c4b5fd; border: 1px solid rgba(127,82,255,0.4);">Grades 9–10</span>
@@ -44,6 +44,7 @@
 
         <div class="cheat-card" id="card-variables-types">
             <div class="cheat-card-header kt-hdr">📦 Variables &amp; Types</div>
+            <p class="cheat-intro">A variable is a named box for a value. In Kotlin, <code>val</code> makes a box you fill once and <code>var</code> makes one you can change. Every value has a type, such as a whole number or text, and Kotlin usually works out the type for you.</p>
             <table class="cheat-table kt-table">
                 <tr><td>val name = "Amina"</td><td>Read-only: cannot be given a new value</td></tr>
                 <tr><td>var borrowed = 0</td><td>Can change later: <code>borrowed = 3</code></td></tr>
@@ -56,10 +57,12 @@
                 <tr><td>"42".toInt()</td><td>Text to number (crashes on "abc")</td></tr>
                 <tr><td>"abc".toIntOrNull() → null</td><td>Safe version: null when it is not a number</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-android/index.html#ch4">Chapter 4: Variables and Types</a></p>
         </div>
 
         <div class="cheat-card" id="card-decisions">
             <div class="cheat-card-header kt-hdr">🚦 Decisions</div>
+            <p class="cheat-intro">Programs choose what to do by testing a condition that is either true or false. <code>if</code> suits one or two choices. <code>when</code> is tidier when there are many, like turning a mark into a grade. Both can give back a value that you store directly.</p>
             <table class="cheat-table kt-table">
                 <tr><td>if (copies &gt; 0) { … } else { … }</td><td>Run one block or the other</td></tr>
                 <tr><td>val label = if (ok) "Yes" else "No"</td><td><code>if</code> can give back a value</td></tr>
@@ -68,10 +71,12 @@
                 <tr><td>when (mark) {<br>&nbsp; in 90..100 -&gt; "A"<br>&nbsp; in 75..89 -&gt; "B"<br>&nbsp; else -&gt; "Keep going"<br>}</td><td><code>when</code> picks the first matching branch; <code>90..100</code> is a range</td></tr>
                 <tr><td>when (day) { "Fri" -&gt; … }</td><td>Match exact values</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-android/index.html#ch5">Chapter 5: Decisions with if and when</a></p>
         </div>
 
         <div class="cheat-card" id="card-lists-loops">
             <div class="cheat-card-header kt-hdr">🔁 Lists &amp; Loops</div>
+            <p class="cheat-intro">A list keeps many values in order under one name. Each item has a position number, called an index, that starts at 0. A loop repeats code, usually once for each item in a list or for each number in a range like <code>1..5</code>.</p>
             <table class="cheat-table kt-table">
                 <tr><td>val subjects = listOf("Maths", "Physics")</td><td>A list that cannot change</td></tr>
                 <tr><td>val tasks = mutableListOf&lt;String&gt;()</td><td>An empty list you can change</td></tr>
@@ -83,10 +88,12 @@
                 <tr><td>for (i in 10 downTo 0 step 2)</td><td>10, 8, 6, 4, 2, 0</td></tr>
                 <tr><td>while (left &gt; 0) { … }</td><td>Repeat while the condition is true</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-android/index.html#ch6">Chapter 6: Lists and Loops</a></p>
         </div>
 
         <div class="cheat-card" id="card-functions-lambdas">
             <div class="cheat-card-header kt-hdr">🧩 Functions &amp; Lambdas</div>
+            <p class="cheat-intro">A function is a named set of steps you can reuse; parameters are the values you hand it. A lambda is a small function without a name, written inside <code>{ }</code>. List tools such as <code>filter</code> and <code>map</code> take a lambda that says what to do with each item.</p>
             <table class="cheat-table kt-table">
                 <tr><td>fun add(a: Int, b: Int): Int { return a + b }</td><td>Function with parameters and a return type</td></tr>
                 <tr><td>fun area(w: Int, h: Int) = w * h</td><td>Single-expression function</td></tr>
@@ -98,10 +105,12 @@
                 <tr><td>books.count { !it.available }</td><td>Count matching items</td></tr>
                 <tr><td>repeat(3) { println("Hi") }</td><td>Trailing lambda: the last lambda goes after the <code>( )</code></td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-android/index.html#ch7">Chapter 7: Functions and Lambdas</a></p>
         </div>
 
         <div class="cheat-card" id="card-classes-null-safety">
             <div class="cheat-card-header kt-hdr">🏗️ Classes &amp; Null Safety</div>
+            <p class="cheat-intro">A class is a plan for making objects, like a form every book record follows. Null means "no value". In Kotlin a type may hold null only if it ends with <code>?</code>, and the compiler makes you handle that missing case, so the app does not crash.</p>
             <table class="cheat-table kt-table">
                 <tr><td>class Student(val name: String)</td><td>A class with a property</td></tr>
                 <tr><td>data class Book(val id: Int, val title: String)</td><td>Data class: ready-made printing, comparing and copying</td></tr>
@@ -112,10 +121,12 @@
                 <tr><td>books.find { it.id == 3 }</td><td>First match, or null (type <code>Book?</code>)</td></tr>
                 <tr><td>enum class Level { EASY, HARD }</td><td>A fixed set of choices</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-android/index.html#ch8">Chapter 8: Classes and Null Safety</a></p>
         </div>
 
         <div class="cheat-card" id="card-compose-basics">
             <div class="cheat-card-header kt-hdr">🖼️ Compose Basics</div>
+            <p class="cheat-intro">Jetpack Compose builds Android screens from Kotlin functions. A function marked <code>@Composable</code> describes how part of the screen should look, and Compose draws it. Keep text in <code>strings.xml</code> and describe every picture, so the app can be translated and read by screen readers.</p>
             <table class="cheat-table kt-table">
                 <tr><td>@Composable fun BookCard(book: Book) { … }</td><td>A function that draws part of the screen</td></tr>
                 <tr><td>Text("Hello")</td><td>Show text</td></tr>
@@ -125,10 +136,12 @@
                 <tr><td>stringResource(R.string.app_name)</td><td>Text kept in <code>res/values/strings.xml</code></td></tr>
                 <tr><td>@Preview(showBackground = true)</td><td>See a composable in Android Studio without running</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-android/index.html#ch9">Chapter 9: Text and Images on the Screen</a> · <a href="book-android/index.html#ch3">Chapter 3: Your First App</a></p>
         </div>
 
         <div class="cheat-card" id="card-layout-modifiers">
             <div class="cheat-card-header kt-hdr">📐 Layout &amp; Modifiers</div>
+            <p class="cheat-intro">Compose places items with three containers: <code>Column</code>, <code>Row</code> and <code>Box</code>. Modifiers then adjust an item's size, spacing or behaviour, and they apply in the order you write them. Sizes use <code>dp</code>, a unit that looks about the same on every phone screen.</p>
             <table class="cheat-table kt-table">
                 <tr><td>Column { … } &nbsp; Row { … } &nbsp; Box { … }</td><td>Stack down, side by side, on top of each other</td></tr>
                 <tr><td>Spacer(Modifier.height(8.dp))</td><td>Empty space (<code>dp</code> for sizes)</td></tr>
@@ -139,10 +152,12 @@
                 <tr><td>horizontalAlignment = Alignment.CenterHorizontally</td><td>Centre children in a Column</td></tr>
                 <tr><td>Card { … }</td><td>A raised box from Material 3</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-android/index.html#ch10">Chapter 10: Layouts and Modifiers</a></p>
         </div>
 
         <div class="cheat-card" id="card-state-input">
             <div class="cheat-card-header kt-hdr">🔘 State &amp; Input</div>
+            <p class="cheat-intro">State is a value the screen depends on, like a counter or the text in a box. When state changes, Compose redraws the parts that use it. <code>remember</code> keeps the value safe when the screen redraws, so a tap or a typed letter is not lost.</p>
             <table class="cheat-table kt-table">
                 <tr><td>var count by remember { mutableIntStateOf(0) }</td><td>State: change it and the screen redraws</td></tr>
                 <tr><td>var name by rememberSaveable { mutableStateOf("") }</td><td>Also survives turning the phone</td></tr>
@@ -152,10 +167,12 @@
                 <tr><td>isError = name.isBlank()</td><td>Show the box in the error colour</td></tr>
                 <tr><td>Checkbox(checked = done, onCheckedChange = { done = it })</td><td>A tick box</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-android/index.html#ch11">Chapter 11: Buttons and State</a> · <a href="book-android/index.html#ch12">Chapter 12: Text Input and Forms</a></p>
         </div>
 
         <div class="cheat-card" id="card-lists-screens">
             <div class="cheat-card-header kt-hdr">📜 Lists &amp; Screens</div>
+            <p class="cheat-intro">Real apps show long lists and more than one screen. A lazy list draws only the rows you can see, so even a thousand books scroll smoothly. Navigation gives each screen a route, a name for where to go, and a back stack remembers where you came from.</p>
             <table class="cheat-table kt-table">
                 <tr><td>LazyColumn { items(books, key = { it.id }) { BookRow(it) } }</td><td>A long list that scrolls; draws only what is visible</td></tr>
                 <tr><td>Scaffold(topBar = { … }) { innerPadding -&gt; … }</td><td>Screen frame with a top bar</td></tr>
@@ -165,10 +182,12 @@
                 <tr><td>navController.navigate(BookDetail(3))</td><td>Go to a screen</td></tr>
                 <tr><td>navController.popBackStack()</td><td>Go back one screen</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-android/index.html#ch13">Chapter 13: Lists That Scroll</a> · <a href="book-android/index.html#ch14">Chapter 14: More Than One Screen</a></p>
         </div>
 
         <div class="cheat-card" id="card-saving-permissions">
             <div class="cheat-card-header kt-hdr">💾 Saving &amp; Permissions</div>
+            <p class="cheat-intro">Variables are lost when the app closes, so settings and saved items go into DataStore, a small store on the phone. Some features, like notifications, need the user's permission. Ask at the moment the feature is used, explain why, and keep the app working if the answer is no.</p>
             <table class="cheat-table kt-table">
                 <tr><td>val Context.dataStore by preferencesDataStore(name = "settings")</td><td>A small store on the phone (DataStore)</td></tr>
                 <tr><td>val SAVED = stringSetPreferencesKey("saved_ids")</td><td>A key to save under</td></tr>
@@ -177,10 +196,12 @@
                 <tr><td>&lt;uses-permission android:name="android.permission.POST_NOTIFICATIONS"/&gt;</td><td>Declare a permission in AndroidManifest.xml (notifications: Android 13+)</td></tr>
                 <tr><td>rememberLauncherForActivityResult(ActivityResultContracts.RequestPermission()) { granted -&gt; … }</td><td>Ask at the moment you need it; keep working if the answer is no</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-android/index.html#ch15">Chapter 15: Saving Data on the Phone</a> · <a href="book-android/index.html#ch17">Chapter 17: Permissions and Privacy</a></p>
         </div>
 
         <div class="cheat-card" id="card-android-studio">
             <div class="cheat-card-header kt-hdr">🛠️ Android Studio (Windows keys)</div>
+            <p class="cheat-intro">Android Studio is the free program for building Android apps. These shortcuts save time while you write, run and test. Logcat is the panel where your app's log messages appear, so you can see what the app was doing just before a problem.</p>
             <table class="cheat-table kt-table">
                 <tr><td>Shift + F10</td><td>Run the app</td></tr>
                 <tr><td>Alt + Enter</td><td>Quick fix: add a missing import, fix an error</td></tr>
@@ -190,6 +211,7 @@
                 <tr><td>Shift, Shift</td><td>Search everywhere</td></tr>
                 <tr><td>Log.d("Library", "Saved $id")</td><td>Print a message to Logcat while testing</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-android/index.html#ch2">Chapter 2: Installing Android Studio</a> · <a href="book-android/index.html#ch18">Chapter 18: Testing and Sharing Your App</a></p>
         </div>
 
     </div>

@@ -26,6 +26,10 @@ _Last updated: 2026-10-13 (Android book added)._
 6. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
    `.gemini/agents/css-tutor.md`, run `node scripts/sync-curriculum.js`.
 
+7. **Textbook gaps found while linking the cheat sheets** (boxes link to the closest chapter for now):
+   HTML entities; CSS `@keyframes`, selectors/specificity and custom properties (see item 6); PHP `try`/`catch`
+   and PDO in depth; MySQL `ALTER TABLE`, indexes and date functions; a Cybersecurity chapter on security headers.
+
 ## ❓ Decisions pending from the owner
 
 - **Confirm** book-cybersecurity ch05's OWASP Top 10:2025 list against owasp.org (written from memory).
@@ -35,6 +39,10 @@ _Last updated: 2026-10-13 (Android book added)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 Cheat sheets made readable (GEMINI §7l): all 12 on the `cheat-v2` layout (two wide boxes on laptops,
+  code on its own line with the meaning below, ~16px text), a plain-words explanation in all 122 boxes and
+  "Learn more" links to the textbook chapters; code shown without font ligatures; `build-cheat-index.js` now
+  warns about boxes without an explanation or with a broken chapter link (0 warnings).
 - 2026-10-13 Cheat sheets reviewed and rebuilt: all 12 on one template (spec in the commit, model `cheatsheet-kotlin.html`),
   content errors fixed in every sheet, essentials added, code wraps on phones, light theme made readable (contrast
   1.5:1 → 14.6:1, rule in `styles/bei-core.css`), search index 1029 rows.

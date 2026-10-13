@@ -61,7 +61,7 @@ for (const file of files) {
     return `<div class="cheat-card"${attrs}>${inner}`;
   });
 
-  fs.writeFileSync(full, html);
+  if (html !== fs.readFileSync(full, "utf8")) fs.writeFileSync(full, html);   // only touch a sheet when an id was added
   sheets[key] = { file, title: titleMatch ? text(titleMatch[1]) : key, cards: cardCount,
                   rows: rows.filter((r) => r[0] === key).length };
 }
@@ -71,3 +71,30 @@ fs.mkdirSync(path.dirname(OUT), { recursive: true });
 fs.writeFileSync(OUT, banner + 'window.JC_CHEAT_INDEX = ' + JSON.stringify({ sheets, rows }) + ';\n');
 console.log(`Indexed ${rows.length} rows from ${files.length} cheat sheets → ${path.relative(ROOT, OUT)}`);
 for (const [k, v] of Object.entries(sheets)) console.log(`  ${k.padEnd(14)} ${String(v.cards).padStart(2)} cards ${String(v.rows).padStart(3)} rows`);
+
+// Readable layout (class "cheat-v2", GEMINI §7l): every box needs a short explanation (.cheat-intro) and a
+// "Learn more" line (.cheat-more) whose chapter links exist in that textbook. Problems are listed as warnings.
+const warnings = [];
+const chapterExists = (book, n) => {
+  const dir = path.join(ROOT, book);
+  if (!fs.existsSync(dir)) return false;
+  const want = new RegExp('^ch0*' + n + '-.*\.md$');
+  const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).some((e) =>
+    e.isDirectory() ? walk(path.join(d, e.name)) : want.test(e.name));
+  return walk(dir);
+};
+for (const file of files) {
+  const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+  if (!/class="cheatsheet-container cheat-v2"/.test(html)) { warnings.push(`${file}: not on the readable layout (cheat-v2)`); continue; }
+  const cards = html.split('<div class="cheat-card"').slice(1);
+  cards.forEach((c) => {
+    const id = (c.match(/id="([^"]+)"/) || [])[1] || '?';
+    if (!/class="cheat-intro"/.test(c)) warnings.push(`${file} #${id}: no explanation (cheat-intro)`);
+    if (!/class="cheat-more"/.test(c)) warnings.push(`${file} #${id}: no Learn more line (cheat-more)`);
+    for (const m of c.matchAll(/href="(book-[a-z]+)\/index\.html#ch(\d+)"/g)) {
+      if (!chapterExists(m[1], m[2])) warnings.push(`${file} #${id}: ${m[1]} has no chapter ${m[2]}`);
+    }
+  });
+}
+if (warnings.length) console.log(`\nWARNINGS (${warnings.length}):\n  ` + warnings.join('\n  '));
+else console.log('\nAll boxes have an explanation and working chapter links.');

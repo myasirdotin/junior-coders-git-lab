@@ -28,7 +28,7 @@
     </style>
 </head>
 <body>
-<div class="cheatsheet-container">
+<div class="cheatsheet-container cheat-v2">
 
     <header class="cheat-hero python-hero">
         <span class="course-level" style="background:rgba(37,99,235,0.25); color:#bfdbfe; border: 1px solid rgba(37,99,235,0.4);">Grades 8–10</span>
@@ -44,6 +44,7 @@
 
         <div class="cheat-card" id="card-variables-core-types">
             <div class="cheat-card-header python-hdr">📦 Variables &amp; Core Types</div>
+            <p class="cheat-intro">A variable is a name for a value, and Python works out the type for you. The type matters: <code>"5" + "5"</code> joins text into <code>"55"</code>, while <code>5 + 5</code> adds numbers. Use <code>type()</code> to check a type, and <code>int()</code> or <code>str()</code> to convert one.</p>
             <table class="cheat-table python-table">
                 <tr><td>pages = 42</td><td>Integer (int): a whole number</td></tr>
                 <tr><td>price = 3.75</td><td>Float (float): a decimal number</td></tr>
@@ -54,10 +55,12 @@
                 <tr><td>7 // 2 → 3    7 % 2 → 1</td><td>Whole-number division and remainder</td></tr>
                 <tr><td># a comment</td><td>A note for people; Python ignores it</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-python/index.html#ch2">Chapter 2: Variables &amp; Data Types</a></p>
         </div>
 
         <div class="cheat-card" id="card-f-strings-formatting">
             <div class="cheat-card-header python-hdr">✨ Input, Output &amp; F-Strings</div>
+            <p class="cheat-intro"><code>print()</code> shows output and <code>input()</code> asks the user a question. <code>input()</code> always gives back text, so convert it with <code>int()</code> before doing maths. An f-string, a string with <code>f</code> before the quote, puts values inside text and formats numbers neatly.</p>
             <table class="cheat-table python-table">
                 <tr><td>print("Salaam")</td><td>Show output</td></tr>
                 <tr><td>name = input("Name: ")</td><td>Ask the user; the answer is always text</td></tr>
@@ -68,10 +71,12 @@
                 <tr><td>text.strip()</td><td>Remove spaces at the start and end</td></tr>
                 <tr><td>text.lower()   text.upper()</td><td>Change to small or capital letters</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-python/index.html#ch3">Chapter 3: User Input &amp; String Formatting</a></p>
         </div>
 
         <div class="cheat-card" id="card-decision-logic">
             <div class="cheat-card-header python-hdr">🚦 Decisions</div>
+            <p class="cheat-intro">Decisions let a program choose what to do. Python checks each condition from the top, runs the first block that is <code>True</code>, then skips the rest. The colon and the indentation, usually four spaces, show which lines belong to each block.</p>
             <table class="cheat-table python-table">
                 <tr><td>if marks &gt;= 90:</td><td>Run the indented block if True (note the colon)</td></tr>
                 <tr><td>elif marks &gt;= 75:</td><td>Another check if the ones before were False</td></tr>
@@ -80,10 +85,12 @@
                 <tr><td>&gt;   &lt;   &gt;=   &lt;=</td><td>Comparison operators</td></tr>
                 <tr><td>and   or   not</td><td>Join or flip conditions</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-python/index.html#ch4">Chapter 4: Conditional Logic &amp; Branching</a></p>
         </div>
 
         <div class="cheat-card" id="card-loops-sequences">
             <div class="cheat-card-header python-hdr">🔁 Loops &amp; Sequences</div>
+            <p class="cheat-intro">A loop repeats a block of code. Use <code>for</code> to visit each item in a list, or each number that <code>range()</code> makes. Use <code>while</code> to repeat until something changes, and make sure it does change, or the loop never ends.</p>
             <table class="cheat-table python-table">
                 <tr><td>for i in range(5):</td><td>Repeats 5 times: 0, 1, 2, 3, 4</td></tr>
                 <tr><td>range(2, 11, 2)</td><td>Start, stop (not included), step: 2, 4, 6, 8, 10</td></tr>
@@ -93,10 +100,12 @@
                 <tr><td>continue</td><td>Skip to the next round of the loop</td></tr>
                 <tr><td>len(books)</td><td>How many items</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-python/index.html#ch5">Chapter 5: Loops &amp; Sequences</a></p>
         </div>
 
         <div class="cheat-card" id="card-lists-dictionaries">
             <div class="cheat-card-header python-hdr">📋 Lists, Tuples, Dictionaries &amp; Sets</div>
+            <p class="cheat-intro">These four collections hold many values in one variable. A list is ordered and can change; a tuple is fixed. A dictionary finds a value by its key, like a word in a glossary. A set keeps each value only once, which is handy for removing repeats.</p>
             <table class="cheat-table python-table">
                 <tr><td>books = ["Atlas", "Quran", "Maths"]</td><td>List: ordered, can change, index starts at 0</td></tr>
                 <tr><td>books.append("Physics")</td><td>Add an item to the end</td></tr>
@@ -109,10 +118,12 @@
                 <tr><td>for k, v in stock.items():</td><td>Visit every key and value</td></tr>
                 <tr><td>ids = {1, 2, 2, 3}</td><td>Set: no repeats, no order → {1, 2, 3}</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-python/index.html#ch6">Chapter 6: Lists &amp; Tuples</a> · <a href="book-python/index.html#ch7">Chapter 7: Dictionaries &amp; Sets</a></p>
         </div>
 
         <div class="cheat-card" id="card-functions-context-managers">
             <div class="cheat-card-header python-hdr">🧩 Functions &amp; Modules</div>
+            <p class="cheat-intro">A function is a named, reusable block of code. You define it once with <code>def</code> and call it whenever you need it. Parameters are its inputs, and <code>return</code> sends the answer back. A module is a file of ready-made functions that you load with <code>import</code>.</p>
             <table class="cheat-table python-table">
                 <tr><td>def area(w, h):</td><td>Define a reusable function</td></tr>
                 <tr><td>return w * h</td><td>Give a value back to the caller</td></tr>
@@ -121,10 +132,12 @@
                 <tr><td>import statistics</td><td>statistics.mean([2, 4, 9]) → 5</td></tr>
                 <tr><td>round(3.14159, 2)</td><td>Round to 2 places → 3.14</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-python/index.html#ch8">Chapter 8: Functions &amp; Modularity</a></p>
         </div>
 
         <div class="cheat-card" id="card-files-errors">
             <div class="cheat-card-header python-hdr">📁 Files, CSV, JSON &amp; Errors</div>
+            <p class="cheat-intro">Files let a program keep data after it stops. <code>with open()</code> closes the file for you, even if something goes wrong. CSV files store tables and JSON stores nested data. <code>try</code> and <code>except</code> catch errors, such as a missing file, so the program explains the problem instead of crashing.</p>
             <table class="cheat-table python-table">
                 <tr><td>with open("notes.txt", "r") as f:</td><td>Open to read; closes itself at the end</td></tr>
                 <tr><td>with open("notes.txt", "w") as f:</td><td>Open to write ("w" replaces, "a" adds to the end)</td></tr>
@@ -134,10 +147,12 @@
                 <tr><td>except ValueError:</td><td>Run this instead if that error happens</td></tr>
                 <tr><td>except FileNotFoundError:</td><td>The file does not exist</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-python/index.html#ch9">Chapter 9: Working with Files &amp; Context Managers</a> · <a href="book-python/index.html#ch10">Chapter 10: Tabular Data (CSV &amp; JSON)</a></p>
         </div>
 
         <div class="cheat-card" id="card-machine-learning-essentials">
             <div class="cheat-card-header python-hdr">🧠 Machine Learning Words</div>
+            <p class="cheat-intro">Machine learning means a program learns patterns from examples instead of following rules a person wrote. You give it features (the inputs) and labels (the right answers). Always test it on data it has never seen; that is the honest way to measure what it learned.</p>
             <table class="cheat-table python-table">
                 <tr><td>Features (X)</td><td>Input measurements (e.g. humidity, leaf spots)</td></tr>
                 <tr><td>Label (y)</td><td>The right answer to learn (e.g. "Healthy")</td></tr>
@@ -147,10 +162,12 @@
                 <tr><td>Accuracy</td><td>Correct predictions ÷ total × 100%</td></tr>
                 <tr><td>Overfitting</td><td>Memorising the training data instead of learning the pattern</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-python/index.html#ch12">Chapter 12: Supervised vs. Unsupervised Learning</a> · <a href="book-python/index.html#ch13">Chapter 13: The Machine Learning Pipeline &amp; Evaluation</a></p>
         </div>
 
         <div class="cheat-card" id="card-ai-ethics-digital-trust-am-nah">
             <div class="cheat-card-header python-hdr">🛡️ AI Ethics &amp; Trust (Amānah)</div>
+            <p class="cheat-intro">AI decisions affect real people, so building them is a trust (<em>Amānah</em>). Collect only the data you need and keep it safe. Check that your data treats every group fairly, and report results honestly. Good AI serves people: health, clean water, education and charity.</p>
             <table class="cheat-table python-table">
                 <tr><td>Amānah</td><td>People's data is a trust: collect little, keep it safe</td></tr>
                 <tr><td>'Ilm Nāfi'</td><td>Beneficial knowledge: clean water, health, charity</td></tr>
@@ -158,6 +175,7 @@
                 <tr><td>Honest results</td><td>Report accuracy on test data, not on training data</td></tr>
                 <tr><td>Iḥsān</td><td>Excellence: clean code and decisions you can explain</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-python/index.html#ch14">Chapter 14: AI Ethics, Transparency &amp; Digital Trust</a></p>
         </div>
 
     </div>

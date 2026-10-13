@@ -30,7 +30,7 @@
     </style>
 </head>
 <body>
-<div class="cheatsheet-container">
+<div class="cheatsheet-container cheat-v2">
 
     <header class="cheat-hero php-hero">
         <span class="course-level" style="background:rgba(124,58,237,0.25); color:#c4b5fd; border: 1px solid rgba(124,58,237,0.4);">Grades 9–10</span>
@@ -46,6 +46,7 @@
 
         <div class="cheat-card" id="card-basics-output">
             <div class="cheat-card-header php-hdr">🖨️ Basics &amp; Output</div>
+            <p class="cheat-intro">PHP runs on the web server and sends plain HTML to the browser. Visitors see only the output, never your PHP code. <code>echo</code> puts text on the page, and while testing, <code>var_dump()</code> and <code>print_r()</code> show exactly what a variable holds.</p>
             <table class="cheat-table php-table">
                 <tr><td>&lt;?php ... ?&gt;</td><td>Open and close a PHP block</td></tr>
                 <tr><td>echo "Hello";</td><td>Print text to the page</td></tr>
@@ -55,10 +56,12 @@
                 <tr><td>print_r($arr);</td><td>Print an array in a readable way</td></tr>
                 <tr><td>phpinfo();</td><td>Show server settings (never leave it on a live site)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-php/index.html#ch2">Chapter 2: Your First PHP Script</a> · <a href="book-php/index.html#ch3">Chapter 3: PHP in HTML Templates</a></p>
         </div>
 
         <div class="cheat-card" id="card-variables-types">
             <div class="cheat-card-header php-hdr">📦 Variables &amp; Types</div>
+            <p class="cheat-intro">A variable is a named box for a value, and in PHP its name always starts with <code>$</code>. PHP decides the type from the value you store. Because <code>==</code> may convert types before comparing, use <code>===</code> to compare both value and type.</p>
             <table class="cheat-table php-table">
                 <tr><td>$name = "Amina";</td><td>String (text)</td></tr>
                 <tr><td>$age = 14;</td><td>Integer (whole number)</td></tr>
@@ -72,10 +75,12 @@
                 <tr><td>5 === "5" → false</td><td>Strict: value AND type (use this)</td></tr>
                 <tr><td>$name ?? "Guest"</td><td>Use "Guest" if $name is missing or null</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-php/index.html#ch4">Chapter 4: Variables in PHP</a> · <a href="book-php/index.html#ch5">Chapter 5: Data Types &amp; Inspection</a></p>
         </div>
 
         <div class="cheat-card" id="card-string-functions">
             <div class="cheat-card-header php-hdr">✏️ String Functions</div>
+            <p class="cheat-intro">A string is text. In PHP you join strings with a dot, not a plus. Double quotes fill in variables, while single quotes print the text exactly as written. String functions give you a new string and leave the original unchanged.</p>
             <table class="cheat-table php-table">
                 <tr><td>"Hi " . $name</td><td>Join strings with a dot</td></tr>
                 <tr><td>"Hi $name" &nbsp; "{$name}'s"</td><td>Variables inside double quotes</td></tr>
@@ -90,10 +95,12 @@
                 <tr><td>substr($s, 0, 5)</td><td>Take part of a string</td></tr>
                 <tr><td>explode(",", $s) &nbsp; implode(", ", $a)</td><td>Text → array; array → text</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-php/index.html#ch6">Chapter 6: Strings &amp; Operations</a> · <a href="book-php/index.html#ch13">Chapter 13: Top Built-in PHP Functions</a></p>
         </div>
 
         <div class="cheat-card" id="card-arrays">
             <div class="cheat-card-header php-hdr">📚 Arrays</div>
+            <p class="cheat-intro">An array holds many values under one name. An indexed array numbers its items from 0; an associative array gives each item a name, called a key. Array functions count, add, remove, sort and search items, so you do not have to write those loops yourself.</p>
             <table class="cheat-table php-table">
                 <tr><td>$a = [1, 2, 3];</td><td>Indexed array</td></tr>
                 <tr><td>$a = ["title" =&gt; "Clean Code"];</td><td>Associative array (key =&gt; value)</td></tr>
@@ -107,10 +114,12 @@
                 <tr><td>array_merge($a, $b)</td><td>Join two arrays</td></tr>
                 <tr><td>array_slice($a, 1, 3)</td><td>Copy out a part</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-php/index.html#ch14">Chapter 14: Indexed Arrays</a> · <a href="book-php/index.html#ch16">Chapter 16: Essential Array Functions</a></p>
         </div>
 
         <div class="cheat-card" id="card-control-flow">
             <div class="cheat-card-header php-hdr">🔀 Control Flow</div>
+            <p class="cheat-intro">Control flow decides which lines run and how many times. <code>if</code> and <code>match</code> choose a path using a condition that is true or false. Loops repeat a block of code: use <code>for</code> when you know the count and <code>foreach</code> for every item in an array.</p>
             <table class="cheat-table php-table">
                 <tr><td>if ($x &gt; 0) { } elseif ($x === 0) { } else { }</td><td>Decisions</td></tr>
                 <tr><td>&amp;&amp; &nbsp; || &nbsp; !</td><td>and, or, not</td></tr>
@@ -123,10 +132,12 @@
                 <tr><td>foreach ($a as $key =&gt; $value) { }</td><td>Loop over keys and values</td></tr>
                 <tr><td>break; &nbsp; continue;</td><td>Leave the loop / skip to the next turn</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-php/index.html#ch8">Chapter 8: If / Else Decisions</a> · <a href="book-php/index.html#ch10">Chapter 10: Loops in PHP</a></p>
         </div>
 
         <div class="cheat-card" id="card-functions">
             <div class="cheat-card-header php-hdr">⚙️ Functions</div>
+            <p class="cheat-intro">A function is a named block of code you can run again whenever you need it. Parameters are the inputs it receives, and <code>return</code> sends a result back. Anonymous and arrow functions have no name; you pass them to tools like <code>array_map()</code>.</p>
             <table class="cheat-table php-table">
                 <tr><td>function greet($name) { return "Hi $name"; }</td><td>Define a function that returns a value</td></tr>
                 <tr><td>function add($a, $b = 0) { }</td><td>Default value for a parameter</td></tr>
@@ -136,10 +147,12 @@
                 <tr><td>array_map($fn, $arr)</td><td>Apply a function to every item</td></tr>
                 <tr><td>array_filter($arr, $fn)</td><td>Keep items where $fn returns true</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-php/index.html#ch11">Chapter 11: Defining Custom Functions</a> · <a href="book-php/index.html#ch12">Chapter 12: Parameters &amp; Return Values</a></p>
         </div>
 
         <div class="cheat-card" id="card-oop-classes">
             <div class="cheat-card-header php-hdr">🏛️ OOP — Classes</div>
+            <p class="cheat-intro">A class is a blueprint, and each object made from it with <code>new</code> is one real thing, like one book. Properties hold an object's data and methods are its actions. <code>private</code> hides data inside the class, and <code>extends</code> lets a child class reuse its parent's code.</p>
             <table class="cheat-table php-table">
                 <tr><td>class Book { }</td><td>Define a class (a blueprint)</td></tr>
                 <tr><td>public string $title;</td><td>Property anyone can use</td></tr>
@@ -152,10 +165,12 @@
                 <tr><td>parent::__construct($title);</td><td>Call the parent's constructor</td></tr>
                 <tr><td>public static int $count = 0; &nbsp; Book::$count</td><td>Shared by all objects</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-php/index.html#ch23">Chapter 23: Classes &amp; Objects</a> · <a href="book-php/index.html#ch25">Chapter 25: Class Inheritance</a></p>
         </div>
 
         <div class="cheat-card" id="card-forms-superglobals">
             <div class="cheat-card-header php-hdr">📬 Forms, Sessions &amp; Superglobals</div>
+            <p class="cheat-intro">Superglobals are built-in arrays that PHP fills on every request: form fields, the URL, uploaded files and cookies. A session remembers a visitor across pages, for example who is logged in. Treat every value a visitor sends as untrusted: check it, and escape it before you print it.</p>
             <table class="cheat-table php-table">
                 <tr><td>$_GET['q']</td><td>Data from the URL (?q=...)</td></tr>
                 <tr><td>$_POST['email']</td><td>Data from a POST form</td></tr>
@@ -170,10 +185,12 @@
                 <tr><td>echo htmlspecialchars($name);</td><td>Escape before printing user input (stops XSS)</td></tr>
                 <tr><td>header('Location: thanks.php'); exit;</td><td>Redirect, then stop the script</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-php/index.html#ch18">Chapter 18: Superglobals: GET vs POST</a> · <a href="book-php/index.html#ch29">Chapter 29: Login &amp; Session System</a></p>
         </div>
 
         <div class="cheat-card" id="card-passwords-database-pdo">
             <div class="cheat-card-header php-hdr">🔐 Passwords &amp; Database (PDO)</div>
+            <p class="cheat-intro">Passwords are never stored as typed. <code>password_hash()</code> turns each one into a hash, a scrambled code that cannot be turned back. PDO is PHP's way to talk to MySQL. A prepared statement sends the SQL and the visitor's values separately, so typed text can never run as SQL (SQL injection).</p>
             <table class="cheat-table php-table">
                 <tr><td>$hash = password_hash($pass, PASSWORD_DEFAULT);</td><td>Store this hash, never the password</td></tr>
                 <tr><td>password_verify($pass, $hash)</td><td>true if the typed password matches</td></tr>
@@ -184,10 +201,12 @@
                 <tr><td>$rows = $stmt-&gt;fetchAll();</td><td>All rows as an array</td></tr>
                 <tr><td>"... WHERE id = $id"</td><td>Never build SQL from user input like this</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-php/index.html#ch19">Chapter 19: Form Validation &amp; Security</a> · <a href="book-php/index.html#ch29">Chapter 29: Login &amp; Session System</a></p>
         </div>
 
         <div class="cheat-card" id="card-math-dates">
             <div class="cheat-card-header php-hdr">🔢 Math &amp; Dates</div>
+            <p class="cheat-intro">PHP does maths with the usual operators plus ready-made functions for rounding and finding the largest or smallest value. <code>%</code> gives the remainder after division. Dates are often kept as a timestamp, the number of seconds since 1 January 1970, which <code>date()</code> turns into readable text.</p>
             <table class="cheat-table php-table">
                 <tr><td>+ &nbsp; - &nbsp; * &nbsp; / &nbsp; % &nbsp; **</td><td>Add, subtract, multiply, divide, remainder, power</td></tr>
                 <tr><td>intdiv(7, 2) → 3</td><td>Whole-number division</td></tr>
@@ -199,10 +218,12 @@
                 <tr><td>time()</td><td>Seconds since 1 Jan 1970 (Unix timestamp)</td></tr>
                 <tr><td>strtotime("+14 days")</td><td>Text → timestamp (e.g. a book's due date)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-php/index.html#ch7">Chapter 7: Math &amp; Numbers in PHP</a> · <a href="book-php/index.html#ch13">Chapter 13: Top Built-in PHP Functions</a></p>
         </div>
 
         <div class="cheat-card" id="card-file-error-handling">
             <div class="cheat-card-header php-hdr">📁 Files &amp; Errors</div>
+            <p class="cheat-intro">PHP can read and write text files on the server, which is useful for a message log or saved settings. <code>require</code> and <code>include</code> load code from another file, so shared parts are written once. <code>try</code> and <code>catch</code> handle an error calmly instead of stopping the page.</p>
             <table class="cheat-table php-table">
                 <tr><td>file_get_contents($path)</td><td>Read a whole file into a string</td></tr>
                 <tr><td>file_put_contents($path, $text)</td><td>Write a string to a file</td></tr>
@@ -214,6 +235,7 @@
                 <tr><td>throw new Exception("Not found");</td><td>Raise your own error</td></tr>
                 <tr><td>$e-&gt;getMessage()</td><td>The error's message</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-php/index.html#ch20">Chapter 20: Reading Files in PHP</a> · <a href="book-php/index.html#ch21">Chapter 21: Writing &amp; Appending Files</a></p>
         </div>
 
     </div>

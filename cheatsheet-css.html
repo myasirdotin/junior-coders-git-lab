@@ -30,7 +30,7 @@
     </style>
 </head>
 <body>
-<div class="cheatsheet-container">
+<div class="cheatsheet-container cheat-v2">
 
     <header class="cheat-hero css-hero">
         <span class="course-level" style="background:rgba(124,58,237,0.25); color:#c4b5fd; border: 1px solid rgba(124,58,237,0.4);">Grade 7</span>
@@ -46,6 +46,7 @@
 
         <div class="cheat-card" id="card-selectors">
             <div class="cheat-card-header css-hdr">🎯 Selectors</div>
+            <p class="cheat-intro">A selector picks which elements a CSS rule styles. It can pick by tag name, by class or by id. A colon picks elements in a special state, like a link under the mouse, or in a position, like the first list item.</p>
             <table class="cheat-table css-table">
                 <tr><td>p { }</td><td>Every &lt;p&gt; element</td></tr>
                 <tr><td>.box { }</td><td>Every element with class="box"</td></tr>
@@ -62,10 +63,12 @@
                 <tr><td>p::before { content: "★ "; }</td><td>Adds content before each p (needs <code>content</code>)</td></tr>
                 <tr><td>p::after { content: " ✓"; }</td><td>Adds content after each p</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-css/index.html#ch1">Chapter 1: What Is CSS?</a> · <a href="book-css/index.html#ch16">Chapter 16: Hover Effects</a></p>
         </div>
 
         <div class="cheat-card" id="card-colors">
             <div class="cheat-card-header css-hdr">🌈 Colors</div>
+            <p class="cheat-intro">CSS can write one colour in several ways: a name, a hex code, or amounts of red, green and blue. The <code>a</code> in <code>rgba</code> means alpha: how see-through it is. Pick colours with strong contrast so text is easy to read.</p>
             <table class="cheat-table css-table">
                 <tr><td>color: red</td><td>Text colour by name</td></tr>
                 <tr><td>color: #ff0000</td><td>Text colour as a hex code</td></tr>
@@ -76,10 +79,12 @@
                 <tr><td>background: linear-gradient(red, blue)</td><td>Background that fades from red to blue</td></tr>
                 <tr><td>opacity: 0.5</td><td>Makes the whole element half see-through</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-css/index.html#ch3">Chapter 3: CSS Colors</a> · <a href="book-css/index.html#ch5">Chapter 5: Backgrounds</a></p>
         </div>
 
         <div class="cheat-card" id="card-text-fonts">
             <div class="cheat-card-header css-hdr">✏️ Text &amp; Fonts</div>
+            <p class="cheat-intro">These properties control how words look: size, font, weight and spacing. Always give a fallback font in case the first one is missing. Sizes in <code>rem</code> grow when a reader zooms, which helps people who need bigger text.</p>
             <table class="cheat-table css-table">
                 <tr><td>font-size: 16px</td><td>Text size in pixels</td></tr>
                 <tr><td>font-size: 1.2rem</td><td>1.2 × the page's root text size (grows if the reader zooms)</td></tr>
@@ -94,10 +99,12 @@
                 <tr><td>word-spacing: 4px</td><td>Space between words</td></tr>
                 <tr><td>white-space: nowrap</td><td>Keeps the text on one line</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-css/index.html#ch4">Chapter 4: Fonts and Text Styling</a></p>
         </div>
 
         <div class="cheat-card" id="card-box-model">
             <div class="cheat-card-header css-hdr">📦 Box Model</div>
+            <p class="cheat-intro">Every element is a box. Inside is the content, then padding, then the border, then the margin outside. Padding is space inside the border; margin pushes other boxes away. <code>border-box</code> makes widths much easier to plan.</p>
             <table class="cheat-table css-table">
                 <tr><td>width: 200px</td><td>Element width</td></tr>
                 <tr><td>height: 100px</td><td>Element height</td></tr>
@@ -114,10 +121,12 @@
                 <tr><td>overflow: hidden</td><td>Hides anything that does not fit</td></tr>
                 <tr><td>box-shadow: 4px 4px 10px gray</td><td>Shadow: right, down, blur, colour</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-css/index.html#ch6">Chapter 6: CSS Box Model</a> · <a href="book-css/index.html#ch7">Chapter 7: Borders and Rounded Corners</a></p>
         </div>
 
         <div class="cheat-card" id="card-display">
             <div class="cheat-card-header css-hdr">👁️ Display</div>
+            <p class="cheat-intro"><code>display</code> decides how a box sits on the page. Block boxes start on a new line. Inline boxes flow inside a sentence. Flex and grid turn a box into a layout for the boxes inside it.</p>
             <table class="cheat-table css-table">
                 <tr><td>display: block</td><td>Starts on a new line and takes the full width</td></tr>
                 <tr><td>display: inline</td><td>Sits inside a line of text; width is ignored</td></tr>
@@ -128,10 +137,12 @@
                 <tr><td>visibility: hidden</td><td>Invisible but still takes up space</td></tr>
                 <tr><td>cursor: pointer</td><td>Shows a hand when the mouse is over it</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-css/index.html#ch8">Chapter 8: Display Property</a></p>
         </div>
 
         <div class="cheat-card" id="card-flexbox">
             <div class="cheat-card-header css-hdr">💪 Flexbox</div>
+            <p class="cheat-intro">Flexbox lines up items in one direction: a row or a column. That direction is the main axis; the other one is the cross axis. <code>justify-content</code> works along the main axis. <code>align-items</code> works across it.</p>
             <table class="cheat-table css-table">
                 <tr><td>display: flex</td><td>Turns on Flexbox for the children</td></tr>
                 <tr><td>flex-direction: row</td><td>Children left to right (default); the main axis runs across</td></tr>
@@ -148,10 +159,12 @@
                 <tr><td>flex: 1</td><td>The child grows to share the free space</td></tr>
                 <tr><td>order: 2</td><td>Changes where a child appears</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-css/index.html#ch9">Chapter 9: Flexbox</a></p>
         </div>
 
         <div class="cheat-card" id="card-css-grid">
             <div class="cheat-card-header css-hdr">🔲 CSS Grid</div>
+            <p class="cheat-intro">Grid places items in rows and columns at the same time, like a chessboard. <code>fr</code> means one share of the free space. Grid lines are numbered from 1, so an item can stretch from one line to another.</p>
             <table class="cheat-table css-table">
                 <tr><td>display: grid</td><td>Turns on Grid for the children</td></tr>
                 <tr><td>grid-template-columns: 1fr 1fr</td><td>Two equal columns</td></tr>
@@ -164,10 +177,12 @@
                 <tr><td>grid-column: 1 / -1</td><td>From the first line to the last: the full width</td></tr>
                 <tr><td>place-items: center</td><td>Centres every item in its cell</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-css/index.html#ch10">Chapter 10: CSS Grid</a></p>
         </div>
 
         <div class="cheat-card" id="card-positioning">
             <div class="cheat-card-header css-hdr">📍 Positioning</div>
+            <p class="cheat-intro">Positioning moves an element away from its normal place. Use it for small jobs, like a badge on a card or a menu that stays on screen. For whole page layouts, Flexbox and Grid are usually the better choice.</p>
             <table class="cheat-table css-table">
                 <tr><td>position: static</td><td>Default: normal page flow</td></tr>
                 <tr><td>position: relative</td><td>Nudged from its normal place; its space stays</td></tr>
@@ -177,10 +192,12 @@
                 <tr><td>top / right / bottom / left</td><td>Distance from that side, e.g. <code>top: 10px</code></td></tr>
                 <tr><td>z-index: 10</td><td>Layer order on positioned elements (higher = on top)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-css/index.html#ch11">Chapter 11: Positioning</a></p>
         </div>
 
         <div class="cheat-card" id="card-animations">
             <div class="cheat-card-header css-hdr">✨ Animations</div>
+            <p class="cheat-intro">A transition makes a change happen smoothly, for example when the mouse moves over a button. <code>transform</code> moves, turns or resizes an element without pushing others. Keep motion short and gentle, and respect readers who turn motion off.</p>
             <table class="cheat-table css-table">
                 <tr><td>transition: color 0.3s ease</td><td>Changes the colour smoothly instead of at once</td></tr>
                 <tr><td>transition: all 0.3s ease</td><td>Smooths every change (simple but slower)</td></tr>
@@ -192,10 +209,12 @@
                 <tr><td>animation: spin 2s linear infinite</td><td>Runs it: name, time, speed curve, repeats</td></tr>
                 <tr><td>@media (prefers-reduced-motion: reduce) { }</td><td>Calmer styles for readers who turn motion off</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-css/index.html#ch16">Chapter 16: Hover Effects</a> · <a href="book-css/index.html#ch17">Chapter 17: CSS Transitions</a></p>
         </div>
 
         <div class="cheat-card" id="card-responsive-design">
             <div class="cheat-card-header css-hdr">📱 Responsive Design</div>
+            <p class="cheat-intro">A responsive page fits every screen, from a small phone to a wide laptop. Write the phone styles first. Then add <code>@media</code> rules that only work on wider screens. Sizes in percent or <code>vw</code> grow and shrink with the screen.</p>
             <table class="cheat-table css-table">
                 <tr><td>/* phone styles first, no @media */</td><td>Mobile first: the base rules are for small screens</td></tr>
                 <tr><td>@media (min-width: 700px) { }</td><td>Extra rules for screens 700px wide or more (tablets)</td></tr>
@@ -206,10 +225,12 @@
                 <tr><td>vw / vh</td><td>1% of the screen's width / height</td></tr>
                 <tr><td>em / %</td><td>Relative to the parent's text size / the parent's size</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-css/index.html#ch12">Chapter 12: Responsive Web Design</a></p>
         </div>
 
         <div class="cheat-card" id="card-good-habits">
             <div class="cheat-card-header css-hdr">🧹 Good Habits</div>
+            <p class="cheat-intro">Good habits keep your CSS tidy as it grows. Keep styles in one linked file and leave short comments. When two rules clash, the more specific one wins; if they tie, the later one wins. Variables let you change a colour in one place.</p>
             <table class="cheat-table css-table">
                 <tr><td>&lt;link rel="stylesheet" href="style.css"&gt;</td><td>Links the CSS file (in the HTML <code>&lt;head&gt;</code>)</td></tr>
                 <tr><td>/* main menu */</td><td>A comment: a note that the browser ignores</td></tr>
@@ -218,6 +239,7 @@
                 <tr><td>:root { --brand: #7c3aed; }</td><td>A custom property (a CSS variable) for a colour you reuse</td></tr>
                 <tr><td>color: var(--brand);</td><td>Uses that variable</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-css/index.html#ch2">Chapter 2: Adding CSS</a> · <a href="book-css/index.html#ch22">Chapter 22: CSS Capstone</a></p>
         </div>
 
     </div>

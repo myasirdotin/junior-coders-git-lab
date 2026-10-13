@@ -30,7 +30,7 @@
     </style>
 </head>
 <body>
-<div class="cheatsheet-container">
+<div class="cheatsheet-container cheat-v2">
 
     <header class="cheat-hero git-hero">
         <span class="course-level" style="background:rgba(240,80,50,0.25); color:#fb923c; border: 1px solid rgba(240,80,50,0.4);">Grades 7–8</span>
@@ -46,6 +46,7 @@
 
         <div class="cheat-card" id="card-setup-configuration">
             <div class="cheat-card-header git-hdr">⚙️ Setup &amp; Configuration</div>
+            <p class="cheat-intro">Git is a tool that remembers every saved version of your project. Before your first commit, tell Git your name and email once. Git writes them on every snapshot, so others know who made each change.</p>
             <table class="cheat-table git-table">
                 <tr><td>git --version</td><td>Check that Git is installed</td></tr>
                 <tr><td>git config --global user.name "Amina Khan"</td><td>Your name on every commit</td></tr>
@@ -53,10 +54,12 @@
                 <tr><td>git config --global init.defaultBranch main</td><td>New repos start on <code>main</code></td></tr>
                 <tr><td>git config --list</td><td>Show your settings</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-git/index.html#ch3">Chapter 3: Setting Up Git &amp; Your Identity</a></p>
         </div>
 
         <div class="cheat-card" id="card-starting-status">
             <div class="cheat-card-header git-hdr">📁 Starting &amp; Status</div>
+            <p class="cheat-intro">A repository, or repo, is a project folder that Git is watching. Start one with <code>git init</code>, or copy one with <code>git clone</code>. Run <code>git status</code> often to see what changed. <code>git log</code> shows the saved history.</p>
             <table class="cheat-table git-table">
                 <tr><td>git init</td><td>Start a repo in the current folder</td></tr>
                 <tr><td>git clone &lt;url&gt;</td><td>Copy a GitHub repo to your computer</td></tr>
@@ -66,10 +69,12 @@
                 <tr><td>git log -p</td><td>History with each commit's changes</td></tr>
                 <tr><td>git show &lt;commit-id&gt;</td><td>One commit's message and changes</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-git/index.html#ch4">Chapter 4: Initializing Repositories &amp; Checking Status</a> · <a href="book-git/index.html#ch7">Chapter 7: Inspecting History &amp; Differences</a></p>
         </div>
 
         <div class="cheat-card" id="card-staging-commits">
             <div class="cheat-card-header git-hdr">💾 Staging &amp; Commits</div>
+            <p class="cheat-intro">Saving work in Git takes two steps. First you stage the files you want, like packing a box. Then you commit, which seals the box as a snapshot with a message. A clear message says what changed and why.</p>
             <table class="cheat-table git-table">
                 <tr><td>git add index.html</td><td>Stage one file for the next commit</td></tr>
                 <tr><td>git add .</td><td>Stage all new, changed and deleted files in this folder</td></tr>
@@ -78,20 +83,24 @@
                 <tr><td>git commit -m "feat: add contact form"</td><td>Save the staged changes as a snapshot</td></tr>
                 <tr><td>git commit --amend -m "new message"</td><td>Replace the last commit (also adds anything staged). Only before you push!</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-git/index.html#ch5">Chapter 5: Staging Changes &amp; The Sacred .gitignore</a> · <a href="book-git/index.html#ch6">Chapter 6: Crafting Meaningful Commits</a></p>
         </div>
 
         <div class="cheat-card" id="card-gitignore">
             <div class="cheat-card-header git-hdr">🛡️ .gitignore</div>
+            <p class="cheat-intro">A <code>.gitignore</code> file lists files Git must never track. Use it for secrets, like passwords in <code>.env</code>, and for big folders you can download again. Keeping secrets out of your repo protects the trust (<em>Amānah</em>) others give you.</p>
             <table class="cheat-table git-table">
                 <tr><td>.env</td><td>One line per file Git must never track</td></tr>
                 <tr><td>*.log</td><td>Every file ending in .log</td></tr>
                 <tr><td>node_modules/</td><td>A whole folder</td></tr>
                 <tr><td>git rm --cached .env</td><td>Stop tracking a file already committed (keeps your copy)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-git/index.html#ch5">Chapter 5: Staging Changes &amp; The Sacred .gitignore</a></p>
         </div>
 
         <div class="cheat-card" id="card-undoing-safety-nets">
             <div class="cheat-card-header git-hdr">🛟 Undoing &amp; Safety Nets</div>
+            <p class="cheat-intro">Git can undo mistakes, but pick the right tool. <code>restore</code> works on changes you have not committed. <code>reset</code> rewrites your own commits, so use it only before you push. <code>revert</code> safely undoes a shared commit. <code>stash</code> puts work aside.</p>
             <table class="cheat-table git-table">
                 <tr><td>git restore &lt;file&gt;</td><td>Throw away unsaved edits in a file (cannot be undone)</td></tr>
                 <tr><td>git restore --staged &lt;file&gt;</td><td>Unstage a file; your edits stay</td></tr>
@@ -101,10 +110,12 @@
                 <tr><td>git stash list</td><td>See what is put aside</td></tr>
                 <tr><td>git stash pop</td><td>Bring the latest stash back</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-git/index.html#ch8">Chapter 8: Undoing Mistakes Safely</a> · <a href="book-git/index.html#ch9">Chapter 9: Stashing Work in Progress</a></p>
         </div>
 
         <div class="cheat-card" id="card-branching-switching">
             <div class="cheat-card-header git-hdr">🌿 Branching &amp; Switching</div>
+            <p class="cheat-intro">A branch is a separate line of work, so you can try an idea without breaking <code>main</code>. You switch between branches whenever you need. When the work is ready, you merge it back into <code>main</code>.</p>
             <table class="cheat-table git-table">
                 <tr><td>git branch</td><td>List local branches (* = current)</td></tr>
                 <tr><td>git branch -a</td><td>Local and remote branches</td></tr>
@@ -113,10 +124,12 @@
                 <tr><td>git merge feature/dark-mode</td><td>Bring that branch into the current one</td></tr>
                 <tr><td>git branch -d feature/dark-mode</td><td>Delete a merged branch</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-git/index.html#ch10">Chapter 10: Understanding Branches</a> · <a href="book-git/index.html#ch11">Chapter 11: Merging Branches</a></p>
         </div>
 
         <div class="cheat-card" id="card-merge-conflicts">
             <div class="cheat-card-header git-hdr">🧩 Merge Conflicts</div>
+            <p class="cheat-intro">A conflict happens when two branches change the same lines in different ways. Git cannot guess which is right, so it asks you. It marks both versions in the file. You keep the right text, remove the markers and commit.</p>
             <table class="cheat-table git-table">
                 <tr><td>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</td><td>Start of your branch's version</td></tr>
                 <tr><td>=======</td><td>Line between the two versions</td></tr>
@@ -125,10 +138,12 @@
                 <tr><td>git add &lt;file&gt; then git commit</td><td>Mark it fixed and finish the merge</td></tr>
                 <tr><td>git merge --abort</td><td>Cancel the merge and go back to before it</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-git/index.html#ch12">Chapter 12: Resolving Merge Conflicts with Confidence</a></p>
         </div>
 
         <div class="cheat-card" id="card-remotes-github">
             <div class="cheat-card-header git-hdr">☁️ Remotes &amp; GitHub</div>
+            <p class="cheat-intro">A remote is a copy of your repo somewhere else, such as GitHub. <code>origin</code> is the usual name for it. You push to send your commits there. You pull to bring in commits from your team.</p>
             <table class="cheat-table git-table">
                 <tr><td>git remote add origin &lt;url&gt;</td><td>Link your repo to a GitHub repo</td></tr>
                 <tr><td>git remote -v</td><td>Show the linked addresses</td></tr>
@@ -137,10 +152,12 @@
                 <tr><td>git fetch</td><td>Download new commits without merging</td></tr>
                 <tr><td>git pull</td><td>Fetch + merge into your branch (do it before you start work)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-git/index.html#ch14">Chapter 14: Connecting to Remotes &amp; Pushing Code</a> · <a href="book-git/index.html#ch15">Chapter 15: Staying in Sync: Fetching &amp; Pulling</a></p>
         </div>
 
         <div class="cheat-card" id="card-pull-requests">
             <div class="cheat-card-header git-hdr">🤝 Pull Requests</div>
+            <p class="cheat-intro">A pull request asks a project's owner to review your branch and merge it. It is how people work together on GitHub, even on projects they do not own. Write a clear description and answer review comments kindly.</p>
             <table class="cheat-table git-table">
                 <tr><td>Fork (on GitHub)</td><td>Your own copy of someone else's repo</td></tr>
                 <tr><td>git switch -c fix/typo</td><td>Do each change on its own branch</td></tr>
@@ -148,6 +165,7 @@
                 <tr><td>Compare &amp; pull request</td><td>Ask the owner to review and merge it</td></tr>
                 <tr><td>Fixes #12</td><td>In the PR text: closes issue 12 when merged</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-git/index.html#ch17">Chapter 17: Pull Requests &amp; Polite Code Reviews</a> · <a href="book-git/index.html#ch16">Chapter 16: Cloning &amp; Forking Open Source Projects</a></p>
         </div>
 
     </div>

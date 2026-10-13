@@ -244,6 +244,13 @@ These rules come from real bugs found in this site. Follow them for every change
    The reader adds the "In this chapter" outline and shrinks text diagrams itself (`js/book-speaker.js`).
    `node scripts/check-books.js` checks all of this (and that menus, bundles and the Textbooks page counts match the
    files); it must report 0 errors before a textbook change is committed.
+7l. **Cheat sheets are explained, not just listed.** Every `cheatsheet-*.html` uses the shared template (hero, tip,
+   cards with `id="card-…"`, link row: textbook, exercises, next sheet, all sheets) and the readable layout
+   (`cheatsheet-container cheat-v2`, styles in `styles/bei-core.css`): two wide boxes on laptops, code on its own line
+   with the meaning below. Every box starts with `<p class="cheat-intro">` (2–3 plain sentences: what it is and when
+   you use it) and ends with `<p class="cheat-more">📖 Learn more: <a href="book-KEY/index.html#chN">…</a></p>`.
+   After editing a sheet run `node scripts/build-cheat-index.js`: it rebuilds the search and warns about boxes
+   without an explanation or with a chapter link that does not exist.
 8. **Check before you finish:**
    ```bash
    node scripts/bundle-books.js          # after editing textbook chapters (.md) or js/data/books.js

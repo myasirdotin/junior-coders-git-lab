@@ -30,7 +30,7 @@
     </style>
 </head>
 <body>
-<div class="cheatsheet-container">
+<div class="cheatsheet-container cheat-v2">
 
     <header class="cheat-hero mysql-hero">
         <span class="course-level" style="background:rgba(2,132,199,0.25); color:#7dd3fc; border: 1px solid rgba(2,132,199,0.4);">Grades 9–10</span>
@@ -46,6 +46,7 @@
 
         <div class="cheat-card" id="card-database-commands">
             <div class="cheat-card-header mysql-hdr">🗄️ Database Commands</div>
+            <p class="cheat-intro">A database is a container for related tables, like one cupboard for all the school's records. You create it once, then <code>USE</code> it so every command works inside it. <code>DROP</code> deletes for good, so check the name and keep a backup first.</p>
             <table class="cheat-table mysql-table">
                 <tr><td>CREATE DATABASE IF NOT EXISTS school_db CHARACTER SET utf8mb4;</td><td>Make a database (utf8mb4 stores every language)</td></tr>
                 <tr><td>USE school_db;</td><td>Work inside this database</td></tr>
@@ -56,10 +57,12 @@
                 <tr><td>TRUNCATE TABLE old_table;</td><td>Empty a table but keep its columns</td></tr>
                 <tr><td>DROP DATABASE IF EXISTS practice_db;</td><td>Delete a whole database (back up first!)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch4">Chapter 4: CREATE DATABASE and USE</a> · <a href="book-mysql/index.html#ch13">Chapter 13: The DELETE Statement &amp; TRUNCATE</a></p>
         </div>
 
         <div class="cheat-card" id="card-create-table">
             <div class="cheat-card-header mysql-hdr">🏗️ CREATE TABLE</div>
+            <p class="cheat-intro"><code>CREATE TABLE</code> sets the plan of a table: its columns, the type of value each column holds, and its rules. The right type keeps data correct, for example <code>DECIMAL</code> for exact amounts. Rules like <code>NOT NULL</code> stop missing or wrong data from getting in.</p>
             <table class="cheat-table mysql-table">
                 <tr><td colspan="2"><code>CREATE TABLE classes (<br>&nbsp;&nbsp;id INT AUTO_INCREMENT PRIMARY KEY,<br>&nbsp;&nbsp;name VARCHAR(50) NOT NULL,<br>&nbsp;&nbsp;teacher VARCHAR(50) NOT NULL<br>);</code></td></tr>
                 <tr><td>INT</td><td>Whole number (grade, pages)</td></tr>
@@ -72,10 +75,12 @@
                 <tr><td>NOT NULL</td><td>A value is required</td></tr>
                 <tr><td>DEFAULT 'No'</td><td>Used when no value is given</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch5">Chapter 5: CREATE TABLE and Schema Design</a> · <a href="book-mysql/index.html#ch6">Chapter 6: SQL Data Types</a></p>
         </div>
 
         <div class="cheat-card" id="card-change-a-table">
             <div class="cheat-card-header mysql-hdr">🔧 Change a Table</div>
+            <p class="cheat-intro"><code>ALTER TABLE</code> changes the plan of a table that already exists, without deleting its rows. Use it when a new need appears, such as an author column for books. Dropping a column also deletes all the data in it, so check before you run it.</p>
             <table class="cheat-table mysql-table">
                 <tr><td>ALTER TABLE books ADD COLUMN author VARCHAR(80);</td><td>Add a column</td></tr>
                 <tr><td>ALTER TABLE books MODIFY pages SMALLINT;</td><td>Change a column's type</td></tr>
@@ -83,10 +88,12 @@
                 <tr><td>ALTER TABLE books DROP COLUMN author;</td><td>Remove a column and its data</td></tr>
                 <tr><td>RENAME TABLE classes TO school_classes;</td><td>Rename a table</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch5">Chapter 5: CREATE TABLE and Schema Design</a> · <a href="book-mysql/index.html#ch15">Chapter 15: Table Relationships &amp; Foreign Keys</a></p>
         </div>
 
         <div class="cheat-card" id="card-select-read">
             <div class="cheat-card-header mysql-hdr">🔍 SELECT (Read)</div>
+            <p class="cheat-intro"><code>SELECT</code> reads data without changing it, so it is always safe to try. Name the columns you need, then use <code>WHERE</code> to keep only the matching rows. <code>ORDER BY</code> sorts the result, and <code>LIMIT</code> shows a few rows at a time, like pages.</p>
             <table class="cheat-table mysql-table">
                 <tr><td>SELECT * FROM students;</td><td>Every row and column</td></tr>
                 <tr><td>SELECT name, gpa FROM students;</td><td>Only some columns</td></tr>
@@ -102,10 +109,12 @@
                 <tr><td>ORDER BY gpa DESC, name ASC</td><td>Sort: highest GPA first, then A→Z</td></tr>
                 <tr><td>LIMIT 3 &nbsp; LIMIT 3 OFFSET 3</td><td>First 3 rows / skip 3, then 3 (page 2)</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch9">Chapter 9: SELECT Basics &amp; Aliases</a> · <a href="book-mysql/index.html#ch10">Chapter 10: The WHERE Clause &amp; Logical Filters</a></p>
         </div>
 
         <div class="cheat-card" id="card-insert-update-delete">
             <div class="cheat-card-header mysql-hdr">✏️ INSERT / UPDATE / DELETE</div>
+            <p class="cheat-intro">These commands change data: <code>INSERT</code> adds rows, <code>UPDATE</code> changes them and <code>DELETE</code> removes them. Without <code>WHERE</code>, <code>UPDATE</code> and <code>DELETE</code> affect every row in the table. A transaction groups changes so they all succeed together or can all be undone.</p>
             <table class="cheat-table mysql-table">
                 <tr><td>INSERT INTO students (name, grade, class_id) VALUES ('Yusuf', 8, 2);</td><td>Add one row (list the columns)</td></tr>
                 <tr><td>INSERT INTO books (title, pages) VALUES ('Tafsir Notes', 150), ('Garden Guide', 96);</td><td>Add several rows at once</td></tr>
@@ -116,10 +125,12 @@
                 <tr><td>START TRANSACTION; ... COMMIT;</td><td>Keep several changes together</td></tr>
                 <tr><td>ROLLBACK;</td><td>Undo the changes since START TRANSACTION</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch8">Chapter 8: INSERT INTO</a> · <a href="book-mysql/index.html#ch14">Chapter 14: Safe Updates, Transactions &amp; Data Protection</a></p>
         </div>
 
         <div class="cheat-card" id="card-aggregate-functions">
             <div class="cheat-card-header mysql-hdr">📊 Aggregate Functions</div>
+            <p class="cheat-intro">Aggregate functions turn many rows into one answer, such as a count, a total or an average. <code>GROUP BY</code> gives one answer per group, like one total per charity cause. <code>WHERE</code> filters rows before grouping; <code>HAVING</code> filters the groups afterwards.</p>
             <table class="cheat-table mysql-table">
                 <tr><td>COUNT(*)</td><td>Number of rows</td></tr>
                 <tr><td>COUNT(city)</td><td>Rows where city is not NULL</td></tr>
@@ -130,10 +141,12 @@
                 <tr><td>HAVING SUM(amount) &gt; 2000</td><td>Filter groups (WHERE filters rows first)</td></tr>
                 <tr><td>ROUND(AVG(gpa), 2)</td><td>Round to 2 decimal places</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch19">Chapter 19: Aggregate Functions</a> · <a href="book-mysql/index.html#ch20">Chapter 20: GROUP BY &amp; HAVING Clauses</a></p>
         </div>
 
         <div class="cheat-card" id="card-joins">
             <div class="cheat-card-header mysql-hdr">🔗 JOINs</div>
+            <p class="cheat-intro">Related data is kept in separate tables, linked by an id, so nothing is typed twice. A JOIN puts those tables back together in one result. <code>INNER JOIN</code> keeps only matching rows; <code>LEFT JOIN</code> keeps every row of the first table, even without a match.</p>
             <table class="cheat-table mysql-table">
                 <tr><td>INNER JOIN</td><td>Only rows that match in both tables</td></tr>
                 <tr><td>LEFT JOIN</td><td>Every row of the left table, NULL where no match</td></tr>
@@ -143,19 +156,23 @@
                 <tr><td>ON l.student_id = s.id</td><td>How the rows are matched</td></tr>
                 <tr><td>students s &nbsp; s.name</td><td>Short alias; prefix columns to avoid mix-ups</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch17">Chapter 17: The INNER JOIN in Depth</a> · <a href="book-mysql/index.html#ch18">Chapter 18: LEFT JOIN, RIGHT JOIN &amp; Finding Missing Records</a></p>
         </div>
 
         <div class="cheat-card" id="card-subqueries">
             <div class="cheat-card-header mysql-hdr">🪆 Subqueries</div>
+            <p class="cheat-intro">A subquery is a <code>SELECT</code> inside another query, written in brackets. It answers a smaller question first, such as the average GPA, and the outer query uses that answer. Use one when you would otherwise run two queries and copy a value across by hand.</p>
             <table class="cheat-table mysql-table">
                 <tr><td>SELECT name FROM students WHERE gpa &gt; (SELECT AVG(gpa) FROM students);</td><td>Students above the average GPA</td></tr>
                 <tr><td>SELECT title FROM books WHERE id IN (SELECT book_id FROM loans WHERE returned = 'No');</td><td>Books that are out on loan now</td></tr>
                 <tr><td>(SELECT ...)</td><td>The inner query runs first; its answer feeds the outer one</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch22">Chapter 22: Introduction to Subqueries</a></p>
         </div>
 
         <div class="cheat-card" id="card-keys-constraints">
             <div class="cheat-card-header mysql-hdr">🔑 Keys &amp; Constraints</div>
+            <p class="cheat-intro">A primary key gives each row its own id. A foreign key points to a row in another table, so a student cannot join a class that does not exist. Constraints are rules MySQL checks on every change, which keeps your data correct.</p>
             <table class="cheat-table mysql-table">
                 <tr><td>id INT AUTO_INCREMENT PRIMARY KEY</td><td>Unique ID for each row (one per table)</td></tr>
                 <tr><td>FOREIGN KEY (class_id) REFERENCES classes(id)</td><td>Must point to a real class</td></tr>
@@ -165,10 +182,12 @@
                 <tr><td>CHECK (amount &gt; 0)</td><td>Value must pass a rule</td></tr>
                 <tr><td>CREATE INDEX idx_city ON students(city);</td><td>Faster searches on a column</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch7">Chapter 7: Primary Keys, Constraints, and Integrity</a> · <a href="book-mysql/index.html#ch15">Chapter 15: Table Relationships &amp; Foreign Keys</a></p>
         </div>
 
         <div class="cheat-card" id="card-useful-extras">
             <div class="cheat-card-header mysql-hdr">💡 Useful Extras</div>
+            <p class="cheat-intro">Built-in functions tidy results as you read them: join text, change letter case, replace NULL with a word, or work with dates. They change only what is shown, not what is stored. When the SQL comes from PHP, always send values through a prepared statement.</p>
             <table class="cheat-table mysql-table">
                 <tr><td>SELECT CONCAT(name, ' (', city, ')') AS label FROM students;</td><td>Join text into one column</td></tr>
                 <tr><td>UPPER(name) &nbsp; LOWER(name) &nbsp; LENGTH(name)</td><td>UPPERCASE, lowercase, length</td></tr>
@@ -179,6 +198,7 @@
                 <tr><td>-- comment</td><td>One-line comment (space after --)</td></tr>
                 <tr><td>$pdo-&gt;prepare("... WHERE id = ?")</td><td>From PHP: always a prepared statement</td></tr>
             </table>
+            <p class="cheat-more">📖 Learn more: <a href="book-mysql/index.html#ch9">Chapter 9: SELECT Basics &amp; Aliases</a> · <a href="book-mysql/index.html#ch19">Chapter 19: Aggregate Functions</a></p>
         </div>
 
     </div>
