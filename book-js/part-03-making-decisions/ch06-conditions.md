@@ -1,19 +1,10 @@
-# Chapter 6: Conditions 🚦🤔
+# Chapter 6: Conditions 🚦
 
 ---
 
-## 1. 🎯 Learning Objectives
+## 🌟 Real-Life Story
 
-By the end of this chapter, you will be able to:
-- Use `if` statements to execute code only when a condition is `true`.
-- Use `else` statements to handle the "otherwise" fallback path.
-- Chain multiple checks together in order using `else if`.
-- Nest conditions inside other conditions for multi-step choices.
-- Build a Weather Decision Advisor program.
-
----
-
-## 2. ☀️ Warm-Up Activity: The Rainy Day Rule
+**The Rainy Day Rule**
 
 Think about what you say every morning when looking out the window:
 > *"IF it is raining outside, I will carry an umbrella. OTHERWISE, I will wear my sunglasses."*
@@ -27,7 +18,18 @@ You never do both at the exact same moment! **In JavaScript, `if...else` stateme
 
 ---
 
-## 3. 💡 Concept Explanation
+## 🎯 What You Will Learn
+
+By the end of this chapter, you will be able to:
+- Use `if` statements to execute code only when a condition is `true`.
+- Use `else` statements to handle the "otherwise" fallback path.
+- Chain multiple checks together in order using `else if`.
+- Nest conditions inside other conditions for multi-step choices.
+- Build a Weather Decision Advisor program.
+
+---
+
+## 💡 Concept Explanation
 
 ### The Anatomy of an `if...else` Statement
 
@@ -58,18 +60,27 @@ if (marks >= 90) {
 ### Nested Conditions (Decisions Inside Decisions)
 A **nested condition** is an `if` block placed inside another `if` block. It is used when a choice depends on two sequential steps:
 ```javascript
-if (hasTicket === true) {
+let hasPermissionSlip = true;
+let age = 11;
+
+if (hasPermissionSlip === true) {
   if (age >= 12) {
-    console.log("Welcome to the Rollercoaster!");
+    console.log("Welcome to the robotics workshop!");
   } else {
-    console.log("You have a ticket, but you are not tall enough yet.");
+    console.log("You have a permission slip, but the workshop is for ages 12 and up.");
   }
 }
 ```
 
+Output:
+
+```text
+You have a permission slip, but the workshop is for ages 12 and up.
+```
+
 ---
 
-## 4. 🌍 Real-World Example: Traffic Light System
+## 🌍 Real-World Example: Traffic Light System
 
 At a busy street intersection:
 - `if (lightColor === "green")`: Drive forward!
@@ -79,7 +90,7 @@ At a busy street intersection:
 
 ---
 
-## 5. 💻 Code Example: The Age Classifier
+## 💻 Code Example: The Age Classifier
 
 Type this into your editor or scratchpad:
 
@@ -95,9 +106,15 @@ if (age >= 18) {
 }
 ```
 
+Output:
+
+```text
+You are a teenager!
+```
+
 ---
 
-## 6. 🔍 Line-by-Line Explanation
+## 🔍 Line-by-Line Explanation
 
 - Line 1: `let age = 13;` stores the number 13.
 - Line 3: Checks `age >= 18`. Since 13 is not greater than or equal to 18, this evaluates to `false`. JavaScript skips down to line 5.
@@ -107,51 +124,7 @@ if (age >= 18) {
 
 ---
 
-## 7. ✍️ Try It Yourself
-
-Open your console:
-1. Change `age` to `9` and re-run. What prints?
-2. Change `age` to `21` and re-run. What prints?
-3. Notice how the computer dynamically shifts paths based purely on the number inside `age`!
-
----
-
-## 8. 📝 Practice Exercises (5 Levels of Mastery)
-
-### 🟢 Level 1 – Remember (Recall)
-1. Fill in the blank: The keyword used for "otherwise" in JavaScript is ______.
-2. Multiple Choice: Which condition runs if multiple `else if` statements match?
-   - (a) The `else` block
-   - (b) The last matching statement
-   - (c) The first matching statement
-   - (d) All of them
-
-### 🔵 Level 2 – Understand (Comprehension)
-3. Explain why we use `else if` instead of writing 5 separate, independent `if` statements.
-4. What happens if none of the `if` or `else if` conditions are true, and there is an `else` block at the end?
-
-### 🟡 Level 3 – Apply (Application)
-5. Write an `if...else` block that checks if `temperature > 30`. If true, print `"Stay hydrated!"`; otherwise, print `"Pleasant weather!"`.
-
-### 🟣 Level 4 – Think (Analysis)
-6. Scrambled Code: Arrange these lines into a valid grading script:
-   - `console.log("Pass");`
-   - `else {`
-   - `if (score >= 50) {`
-   - `console.log("Retake Test");`
-   - `}`
-   - `}`
-
-### 🔴 Level 5 – Create ⭐ (Challenge)
-7. Write a Science Discovery Center & Planetarium ticket pricing program:
-   - If age is under 5: Free ($0).
-   - If age is between 5 and 12: Child ticket ($8).
-   - If age is 65 or older: Senior discount ($10).
-   - Otherwise: Standard adult ticket ($14).
-
----
-
-## 9. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this code:
 
@@ -176,9 +149,44 @@ if (temperature > 35) {
 
 ---
 
-## 10. 🕵️ Debug It: The Missing Parentheses
+## 🧭 Think Like a Programmer: The Climbing Wall Gate
 
-A student wrote this conditional statement:
+The climbing wall at the sports centre has a safety rule:
+- A climber must be at least **120 cm tall**.
+- A climber must be at least **8 years old**.
+Plan the step-by-step logic to check height and age using nested conditions before coding!
+
+---
+
+## 🚀 Coding Challenge: The Sports Team Eligibility Checker
+
+Write a program that checks if a student can join the Class 7 football team:
+- Eligible age range: 11 to 14.
+- Must have passed medical clearance (`hasMedicalCheck === true`).
+- Print whether they can join or what they are missing!
+
+---
+
+## 🛠️ Mini Project: The Weather Decision Advisor
+
+Build a weather advisor program:
+- `isRaining = true;`
+- `temperature = 16;`
+- Use nested conditions:
+  - If it is raining:
+    - If cold (< 15°C): `"Wear a heavy raincoat and boots!"`
+    - Else: `"Take an umbrella with you!"`
+  - If not raining:
+    - If hot (> 28°C): `"Wear sunglasses and a t-shirt!"`
+    - Else: `"Perfect weather for a walk!"`
+
+---
+
+## ⚠️ Common Mistake
+
+**The Missing Parentheses**
+
+A student wrote this conditional statement. JavaScript refused to run it and showed `SyntaxError: Unexpected identifier 'marks'`:
 
 ```javascript
 let marks = 55;
@@ -199,40 +207,18 @@ if marks >= 40 {
 
 ---
 
-## 11. 🧭 Think Like a Programmer: The Rollercoaster Gate
+## ✍️ Try It
 
-A theme park ride rule states:
-- Rider must be at least **120 cm tall**.
-- Rider must be at least **8 years old**.
-Plan the step-by-step logic to check height and age using nested conditions before coding!
+Copy the Age Classifier from the Code Example above into your console:
+1. Change `age` to `9` and re-run. What prints?
+2. Change `age` to `21` and re-run. What prints?
+3. Notice how the computer dynamically shifts paths based purely on the number inside `age`!
 
----
-
-## 12. 🚀 Coding Challenge ⭐: The Sports Team Eligibility Checker
-
-Write a program that checks if a student can join the Class 7 soccer team:
-- Eligible age range: 11 to 14.
-- Must have passed medical clearance (`hasMedicalCheck === true`).
-- Print whether they can join or what they are missing!
+> 💡 **Hint:** Read the conditions from the top. `9` fails `age >= 18` and `age >= 13`, so the `else` runs. `21` passes the very first check.
 
 ---
 
-## 13. 🛠️ Mini Project: The Weather Decision Advisor
-
-Build a weather advisor program:
-- `isRaining = true;`
-- `temperature = 16;`
-- Use nested conditions:
-  - If it is raining:
-    - If cold (< 15°C): `"Wear a heavy raincoat and boots!"`
-    - Else: `"Take an umbrella with you!"`
-  - If not raining:
-    - If hot (> 28°C): `"Wear sunglasses and a t-shirt!"`
-    - Else: `"Perfect weather for a walk!"`
-
----
-
-## 14. 📝 Chapter Recap
+## 📝 Recap
 
 - Conditions evaluate to `true` or `false` to control program execution.
 - `if` blocks run code when the condition is met.
@@ -242,7 +228,7 @@ Build a weather advisor program:
 
 ---
 
-## 15. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -254,7 +240,91 @@ Build a weather advisor program:
 
 ---
 
-## 16. ✅ Self-Assessment Checklist
+## 🏆 Practice
+
+### 🟢 Level 1: Recall
+1. Fill in the blank: the keyword for "otherwise" in JavaScript is ______.
+2. If several `else if` conditions are true, which block runs?
+   (a) the `else` block (b) the last true one (c) the first true one (d) all of them
+
+<details>
+<summary>Show answer</summary>
+
+1. `else`
+2. **(c)** The first true one. JavaScript checks from top to bottom and stops at the first match.
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Write an `if...else` that checks `temperature > 30`. If true, print `"Stay hydrated!"`; otherwise print `"Pleasant weather!"`.
+2. Arrange these lines into a working grading script: `console.log("Pass");` · `} else {` · `if (score >= 50) {` · `console.log("Retake Test");` · `}`
+
+<details>
+<summary>Show answer</summary>
+
+1. ```javascript
+   let temperature = 34;
+   if (temperature > 30) {
+     console.log("Stay hydrated!");
+   } else {
+     console.log("Pleasant weather!");
+   }
+   ```
+   Output: `Stay hydrated!`
+2. ```javascript
+   let score = 62;
+   if (score >= 50) {
+     console.log("Pass");
+   } else {
+     console.log("Retake Test");
+   }
+   ```
+   Output: `Pass`
+
+</details>
+
+### 🔴 Level 3: Challenge
+Write a ticket price program for a science discovery centre and planetarium:
+1. Under 5: free (Rs 0).
+2. 5 to 12: child ticket (Rs 80).
+3. 65 or older: senior ticket (Rs 100).
+4. Everyone else: standard ticket (Rs 140).
+5. Print the age and the price.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```javascript
+let visitorAge = 9;
+let ticketPrice;
+
+if (visitorAge < 5) {
+  ticketPrice = 0;
+} else if (visitorAge <= 12) {
+  ticketPrice = 80;
+} else if (visitorAge >= 65) {
+  ticketPrice = 100;
+} else {
+  ticketPrice = 140;
+}
+
+console.log("Age:", visitorAge, "| Ticket price: Rs", ticketPrice);
+```
+
+Output:
+
+```text
+Age: 9 | Ticket price: Rs 80
+```
+
+Try other ages: `3` gives Rs 0, `40` gives Rs 140 and `70` gives Rs 100.
+Why must `visitorAge < 5` be checked before `visitorAge <= 12`? Because a 3-year-old is also "12 or under", and the first true check wins.
+
+</details>
+
+---
+
+## ✅ Self-Assessment Checklist
 
 - [ ] I can write a basic `if...else` block with correct syntax.
 - [ ] I remember to put parentheses around my conditions.
@@ -263,7 +333,7 @@ Build a weather advisor program:
 
 ---
 
-## 17. 🏡 Homework
+## 🏡 Homework
 
 Write a program that tests an exam mark (0 to 100) and prints:
 - 90–100: `"Grade A - Outstanding!"`
@@ -273,7 +343,7 @@ Write a program that tests an exam mark (0 to 100) and prints:
 
 ---
 
-## 18. 🍎 Teacher Discussion Questions
+## 🍎 Teacher Discussion Questions
 
 1. Ask students to share examples of classroom rules that act like nested conditions (e.g., *"If your assignment is submitted AND it is signed by a parent, you may join the club"*).
 2. Discuss why condition order matters in `else if` chains (e.g. what happens if you check `marks >= 40` before checking `marks >= 90`?).

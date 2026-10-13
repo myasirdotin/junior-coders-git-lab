@@ -3,15 +3,24 @@
 
 ---
 
-## 1. Welcome to the World of Creative Coding! ✨
+## 🎯 What You Will Learn
 
-Who said coding is only about business spreadsheets and math quizzes?
-JavaScript can also be used like a digital paintbrush, an animator's studio, and a science lab! 
-With the **HTML5 `<canvas>` element**, you can draw shapes, paint rainbow spirals, create bouncy physics particles, and even program your own 2D educational games!
+- Set up an HTML `<canvas>` and get its 2D drawing context.
+- Draw rectangles, outlines and circles in any colour.
+- Use loops to make patterns of shapes.
+- Animate a moving shape with `requestAnimationFrame()`.
 
 ---
 
-## 2. Setting Up the Canvas Playground 🖼️
+## ✨ Welcome to the World of Creative Coding!
+
+Who said coding is only about business spreadsheets and math quizzes?
+JavaScript can also be used like a digital paintbrush, an animator's studio, and a science lab! 
+With the **HTML5 `<canvas>` element**, you can draw shapes, paint rainbow spirals, create bouncy physics particles, and even program your own 2D science simulations!
+
+---
+
+## 🖼️ Setting Up the Canvas Playground
 
 The `<canvas>` tag provides a blank rectangular pixel grid. We use JavaScript to get its **2D Context** (`ctx`), which acts like our paintbrush.
 
@@ -35,9 +44,9 @@ The `<canvas>` tag provides a blank rectangular pixel grid. We use JavaScript to
 
 ---
 
-## 3. Basic Shapes and Colors 🖌️
+## 🖌️ Basic Shapes and Colors
 
-### Drawing Rectangles and Circles:
+### Drawing Rectangles and Circles
 ```javascript
 const canvas = document.getElementById("artCanvas");
 const ctx = canvas.getContext("2d");
@@ -61,9 +70,9 @@ ctx.closePath();
 
 ---
 
-## 4. Algorithmic Art: Generative Rainbow Spirals 🌀
+## 🌀 Algorithmic Art: Rainbow Rings
 
-When you combine loops, trigonometry (`Math.sin`, `Math.cos`), and colors, code creates breathtaking generative geometric patterns:
+When you combine loops and colours, a few lines of code create beautiful patterns. Each round of this loop draws a bigger ring in a new colour. (`hsl(...)` picks a colour by its position on the colour wheel, from 0 to 360.)
 
 ```javascript
 // Draw concentric colorful rings
@@ -81,10 +90,10 @@ for (let i = 1; i <= 20; i++) {
 
 ---
 
-## 5. Animation: The Bouncing Ball Simulation ⚽
+## ⚽ Animation: The Bouncing Ball Simulation
 
-Animations in JavaScript work using a magic function called `requestAnimationFrame()`.
-It calls our drawing function 60 times every second (60 FPS):
+Animations in JavaScript use a built-in function called `requestAnimationFrame()`.
+It asks the browser to run our drawing function again before the next screen refresh. On most screens that is about 60 times every second (60 FPS, frames per second):
 
 ```javascript
 let x = 100;
@@ -126,17 +135,96 @@ animate();
 
 ---
 
-## 6. Creative Coding Challenges 🌟
+## 📝 Recap
 
-1. **Rainbow Particle Trail:** Track the user's mouse position (`mousemove` event) and draw fading pastel circles everywhere their cursor goes!
-2. **Starry Night Sky:** Generate 200 random tiny white stars across a dark canvas using a `for` loop and `Math.random()`.
-3. **Sound-Reactive / Color-Shifting Pulse:** Make a circle expand and contract smoothly like a heartbeat using `Math.sin(Date.now() / 200)`.
+- `<canvas>` is a blank grid of pixels. `canvas.getContext("2d")` gives the "paintbrush" called `ctx`.
+- `fillRect`, `strokeRect` and `arc` draw shapes. `fillStyle` and `strokeStyle` choose colours.
+- Loops repeat drawings to make patterns.
+- An animation clears the canvas, draws, moves the shape, then asks for the next frame.
 
 ---
 
-## 7. Summary Checklist ✅
+## 🏆 Practice
+
+### 🟢 Level 1: Recall
+In `ctx.fillRect(50, 50, 150, 100)`, what do the four numbers mean?
+
+<details>
+<summary>Show answer</summary>
+
+`x` (50 pixels from the left), `y` (50 pixels from the top), `width` (150) and `height` (100).
+
+</details>
+
+### 🟡 Level 2: Apply
+Starry Night Sky: fill the canvas dark blue, then draw 200 tiny white stars at random places with a `for` loop and `Math.random()`.
+
+<details>
+<summary>Show answer</summary>
+
+```javascript
+const canvas = document.getElementById("artCanvas");
+const ctx = canvas.getContext("2d");
+
+// Dark night background
+ctx.fillStyle = "#0f172a";
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+// 200 tiny stars at random places
+ctx.fillStyle = "white";
+for (let i = 0; i < 200; i++) {
+    let x = Math.random() * canvas.width;
+    let y = Math.random() * canvas.height;
+    let size = Math.random() * 2 + 1; // 1 to 3 pixels
+    ctx.fillRect(x, y, size, size);
+}
+```
+
+Each time you reload, the stars appear in new places.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Pastel Particle Trail:
+1. Listen for the `mousemove` event on the canvas.
+2. Draw a small circle where the mouse is, in a random pastel colour.
+3. Make old circles fade by painting a see-through dark layer over the canvas each time.
+
+Extra idea: make a circle grow and shrink like a heartbeat using `Math.sin(Date.now() / 200)` inside an animation.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```javascript
+const canvas = document.getElementById("artCanvas");
+const ctx = canvas.getContext("2d");
+const pastels = ["#fbcfe8", "#bfdbfe", "#bbf7d0", "#fde68a", "#ddd6fe"];
+
+canvas.addEventListener("mousemove", function(event) {
+    // Paint a see-through layer to slowly fade old circles
+    ctx.fillStyle = "rgba(15, 23, 42, 0.1)";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Pick a random pastel colour
+    let colour = pastels[Math.floor(Math.random() * pastels.length)];
+
+    // Draw a circle where the mouse is
+    ctx.beginPath();
+    ctx.arc(event.offsetX, event.offsetY, 10, 0, Math.PI * 2);
+    ctx.fillStyle = colour;
+    ctx.fill();
+});
+```
+
+`event.offsetX` and `event.offsetY` give the mouse position inside the canvas. The see-through layer (`0.1` means 10% solid) makes older circles slowly disappear.
+
+</details>
+
+---
+
+## ✅ Summary Checklist
 
 - [ ] I know how to add a `<canvas>` element to HTML.
 - [ ] I can obtain the 2D rendering context using `canvas.getContext("2d")`.
 - [ ] I can draw rectangles, lines, and circles.
-- [ ] I understand how `requestAnimationFrame()` creates silky-smooth 60fps animations.
+- [ ] I understand how `requestAnimationFrame()` creates smooth animations (usually about 60 frames per second).

@@ -1,18 +1,14 @@
-# Chapter 2: Your First JavaScript Program 🚀⌨️
+# Chapter 2: Your First JavaScript Program 🚀
 
 ---
 
-## 1. 🎯 Learning Objectives
+## 🌟 Real-Life Story
 
-By the end of this chapter, you will be able to:
-- Run JavaScript code in multiple environments (Browser Console, Code Editor, Web Page).
-- Use `console.log()` to display both text messages and mathematical results.
-- Write helpful human notes using single-line (`//`) and multi-line (`/* */`) comments.
-- Read, understand, and remain calm when encountering basic JavaScript error messages.
+**The Secret Calculator**
 
----
-
-## 2. ☀️ Warm-Up Activity: The Secret Calculator
+Your science teacher keeps a calculator on her desk. You type a sum, and it shows the answer at once.
+Every web browser has a tool just like that, hidden inside it. It is called the **console**.
+It understands JavaScript, not only sums. Let us find it.
 
 Open any web browser on your computer:
 1. Press **F12** (or Right-Click anywhere on the blank page -> click **Inspect**).
@@ -26,7 +22,17 @@ Open any web browser on your computer:
 
 ---
 
-## 3. 💡 Concept Explanation
+## 🎯 What You Will Learn
+
+By the end of this chapter, you will be able to:
+- Run JavaScript code in multiple environments (Browser Console, Code Editor, Web Page).
+- Use `console.log()` to display both text messages and mathematical results.
+- Write helpful human notes using single-line (`//`) and multi-line (`/* */`) comments.
+- Read, understand, and remain calm when encountering basic JavaScript error messages.
+
+---
+
+## 💡 Concept Explanation
 
 ### The JavaScript Environment
 To run code, JavaScript needs an **environment** (an engine). The most common environment is your **Web Browser** (Google Chrome, Edge, Safari, Firefox). When you open a website, the browser's built-in JavaScript engine reads and executes the code instantly.
@@ -59,14 +65,14 @@ Errors are simply the computer's way of saying: *"I got confused on Line 4. Here
 
 ---
 
-## 4. 🌍 Real-World Example: The Friendly Guide
+## 🌍 Real-World Example: The Friendly Guide
 
 Imagine asking a foreign exchange student for directions. If you say a word they don't know, they say: *"I'm sorry, I don't recognize that word. Could you spell it or say it differently?"*
 That is all a JavaScript error is doing! It is guiding you toward fixing a small typo or misplaced bracket.
 
 ---
 
-## 5. 💻 Code Example: Mathematics and Strings
+## 💻 Code Example: Mathematics and Strings
 
 Type this complete program into your editor or scratchpad:
 
@@ -90,7 +96,7 @@ console.log((10 * 2) - 4);
 
 ---
 
-## 6. 🔍 Line-by-Line Explanation
+## 🔍 Line-by-Line Explanation
 
 - Lines 1–4: Single-line comments starting with `//`. The computer skips these lines entirely.
 - Line 6: Prints the greeting string `"Welcome to JavaScript class!"` to the screen.
@@ -100,52 +106,7 @@ console.log((10 * 2) - 4);
 
 ---
 
-## 7. ✍️ Try It Yourself
-
-Open your scratchpad or console:
-1. Predict what this line will output:
-   ```javascript
-   console.log("My age in months is:", 12 * 12);
-   ```
-2. Run the line to test your prediction!
-3. Notice how you can pass multiple values separated by commas, and JavaScript neatly prints them side-by-side with a space!
-
----
-
-## 8. 📝 Practice Exercises (5 Levels of Mastery)
-
-### 🟢 Level 1 – Remember (Recall)
-1. Fill in the blank: The symbol `//` starts a single-line ______.
-2. Multiple Choice: Which of the following correctly prints the word "Hi" to the console?
-   - (a) `console.log(Hi);`
-   - (b) `console.log("Hi");`
-   - (c) `print("Hi");`
-   - (d) `log.console("Hi");`
-
-### 🔵 Level 2 – Understand (Comprehension)
-3. Explain in your own words why `console.log(2 + 2);` prints `4`, while `console.log("2 + 2");` prints `2 + 2`.
-4. What is the purpose of writing comments if the computer simply ignores them?
-
-### 🟡 Level 3 – Apply (Application)
-5. Complete the code so that it prints your school's name and the year it was founded:
-   ```javascript
-   console.log("School:", ____);
-   console.log("Founded:", ____);
-   ```
-
-### 🟣 Level 4 – Think (Analysis)
-6. Find and fix the mistake in this line of code:
-   ```javascript
-   consle.log("Good morning!");
-   ```
-   What kind of error would the browser throw if you ran this typo?
-
-### 🔴 Level 5 – Create ⭐ (Challenge)
-7. Write a mini program that calculates how many seconds there are in a single 24-hour day using pure JavaScript arithmetic operators (`60 * 60 * 24`). Add a comment explaining your math!
-
----
-
-## 9. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this snippet:
 
@@ -165,24 +126,7 @@ Line 2 prints: <code>6</code> (as the mathematical result)
 
 ---
 
-## 10. 🕵️ Debug It: The Unmatched Quote
-
-Look at this broken code snippet:
-
-```javascript
-console.log("My favourite number is 7);
-```
-
-- **Find the mistake**: Count the quotation marks!
-- **Explain the mistake**: The string begins with a double quote (`"`), but forgets to close with a matching double quote before the closing parenthesis!
-- **Fix the code**:
-  ```javascript
-  console.log("My favourite number is 7");
-  ```
-
----
-
-## 11. 🧭 Think Like a Programmer: Why Comments Save Teams
+## 🧭 Think Like a Programmer: Why Comments Save Teams
 
 Imagine you write a brilliant, complex 500-line science quiz app over summer break.
 Six months later, a bug occurs and you open your code to fix it.
@@ -192,7 +136,7 @@ Six months later, a bug occurs and you open your code to fix it.
 
 ---
 
-## 12. 🚀 Coding Challenge ⭐: The ASCII Art Creator
+## 🚀 Coding Challenge: The ASCII Art Creator
 
 Can you use multiple `console.log()` lines to print an ASCII art spaceship launching into the stars?
 
@@ -210,18 +154,52 @@ Test it in your console to verify all the slashes line up!
 
 ---
 
-## 13. 🛠️ Mini Project: The Digital Name Tag
+## 🛠️ Mini Project: The Digital Name Tag
 
 Write a program that prints a personal digital student profile tag:
 - Top line comment explaining the program's purpose.
 - Student Name.
 - Class & Section.
-- One fun fact or secret superpower!
+- One fun fact or hobby.
 - A calculation of your age in days (`age * 365`).
 
 ---
 
-## 14. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+**The Unmatched Quote**
+
+Look at this broken code snippet:
+
+```javascript
+console.log("My favourite number is 7);
+```
+
+- **What happens**: JavaScript stops and shows `SyntaxError: Invalid or unexpected token`.
+- **Find the mistake**: Count the quotation marks!
+- **Explain the mistake**: The string begins with a double quote (`"`), but forgets to close with a matching double quote before the closing parenthesis!
+- **Fix the code**:
+  ```javascript
+  console.log("My favourite number is 7");
+  ```
+
+---
+
+## ✍️ Try It
+
+Open your scratchpad or console:
+1. Predict what this line will output:
+   ```javascript
+   console.log("My age in months is:", 12 * 12);
+   ```
+2. Run the line to test your prediction!
+3. Notice how you can pass multiple values separated by commas, and JavaScript neatly prints them side-by-side with a space!
+
+> 💡 **Hint:** 12 × 12 = 144, so the console prints `My age in months is: 144`. Now change `12 * 12` to your own age times 12.
+
+---
+
+## 📝 Recap
 
 - JavaScript runs inside execution environments like browser consoles and Node.js.
 - `console.log()` displays text and calculations.
@@ -231,7 +209,7 @@ Write a program that prints a personal digital student profile tag:
 
 ---
 
-## 15. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -243,7 +221,64 @@ Write a program that prints a personal digital student profile tag:
 
 ---
 
-## 16. ✅ Self-Assessment Checklist
+## 🏆 Practice
+
+### 🟢 Level 1: Recall
+1. Fill in the blank: the symbol `//` starts a single-line ______.
+2. Which line prints the word "Hi" to the console?
+   (a) `console.log(Hi);` (b) `console.log("Hi");` (c) `print("Hi");` (d) `log.console("Hi");`
+
+<details>
+<summary>Show answer</summary>
+
+1. **comment**
+2. **(b)** `console.log("Hi");`. Text needs quotation marks, and the command is spelled `console.log`.
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Explain why `console.log(2 + 2);` prints `4`, but `console.log("2 + 2");` prints `2 + 2`.
+2. Find and fix the mistake. What error will the browser show?
+   ```javascript
+   consle.log("Good morning!");
+   ```
+
+<details>
+<summary>Show answer</summary>
+
+1. Without quotes, `2 + 2` is a sum, so JavaScript works it out. With quotes, it is just text, so it is printed as it is.
+2. `console` is misspelled. JavaScript shows `ReferenceError: consle is not defined`. The fix:
+   ```javascript
+   console.log("Good morning!");
+   ```
+
+</details>
+
+### 🔴 Level 3: Challenge
+Write a mini program that works out how many seconds are in one 24-hour day.
+1. Start with a comment that explains your maths.
+2. Use `60 * 60 * 24` inside `console.log()`.
+3. Print a label before the number.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```javascript
+// 60 seconds in a minute, 60 minutes in an hour, 24 hours in a day
+console.log("Seconds in a day:", 60 * 60 * 24);
+```
+
+Output:
+
+```text
+Seconds in a day: 86400
+```
+
+</details>
+
+---
+
+## ✅ Self-Assessment Checklist
 
 - [ ] I know how to open the browser developer console using `F12`.
 - [ ] I can write single-line (`//`) and multi-line (`/* */`) comments.
@@ -252,7 +287,7 @@ Write a program that prints a personal digital student profile tag:
 
 ---
 
-## 17. 🏡 Homework
+## 🏡 Homework
 
 Write five distinct `console.log()` statements:
 1. Two lines printing sentences about your favorite books.
@@ -261,7 +296,7 @@ Write five distinct `console.log()` statements:
 
 ---
 
-## 18. 🍎 Teacher Discussion Questions
+## 🍎 Teacher Discussion Questions
 
 1. Have students share the exact text of one error message they saw during class today. Discuss what it meant and how they fixed it to normalize error reading without anxiety.
 2. Ask: *"Why does a computer calculate `5 + 3` as `8`, but when wrapped in quotes, it treats it like a picture of letters?"*

@@ -7,13 +7,22 @@ Welcome to the **Coding Workshop**! Here are all 21 mini projects designed speci
 
 ---
 
-## Table of Mini Projects
+## 🎯 What You Will Learn
+
+- Combine variables, conditions, loops, functions, arrays and objects in small, complete programs.
+- Read working starter code and predict what it prints before you run it.
+- Extend a project with your own features, one small step at a time.
+- Choose the right tool (loop, array method, object) for each everyday problem.
+
+---
+
+## 📋 Table of Mini Projects
 
 1. [Project 1: Personalized Greeting Generator](#project-1-personalized-greeting-generator)
 2. [Project 2: Simple Calculator](#project-2-simple-calculator)
 3. [Project 3: Age in Days, Hours, and Minutes](#project-3-age-in-days-hours-and-minutes)
 4. [Project 4: Temperature Converter](#project-4-temperature-converter)
-5. [Project 5: Coin Flip Simulator](#project-5-coin-flip-simulator)
+5. [Project 5: Fair Team Picker](#project-5-fair-team-picker)
 6. [Project 6: Grade Calculator](#project-6-grade-calculator)
 7. [Project 7: Leap Year Checker](#project-7-leap-year-checker)
 8. [Project 8: Multiplication Table Generator](#project-8-multiplication-table-generator)
@@ -87,18 +96,24 @@ console.log(`98.6°F is ${fToC(98.6)}°C`);
 
 ---
 
-### Project 5: Coin Flip Simulator
-- **Concepts:** `Math.random()`, conditionals.
+### Project 5: Fair Team Picker
+- **Concepts:** `Math.random()`, conditionals, objects.
 ```javascript
-function flipCoin() {
-    return Math.random() < 0.5 ? "Heads 🪙" : "Tails 🪙";
+function pickTeam() {
+    if (Math.random() < 0.5) {
+        return "Team A";
+    }
+    return "Team B";
 }
-let results = { Heads: 0, Tails: 0 };
+
+let results = { "Team A": 0, "Team B": 0 };
 for (let i = 0; i < 100; i++) {
-    flipCoin().includes("Heads") ? results.Heads++ : results.Tails++;
+    let team = pickTeam();
+    results[team]++;
 }
-console.log("100 Flips Result:", results);
+console.log("100 students placed:", results);
 ```
+The totals change every run (one run gave `{ 'Team A': 43, 'Team B': 57 }`), but each team gets about half.
 
 ---
 
@@ -365,3 +380,12 @@ function simulateGuessGame(secret, guesses) {
 }
 simulateGuessGame(42, [20, 60, 35, 42]);
 ```
+
+---
+
+## 📝 Recap
+
+- Every project here uses only ideas from the chapters: variables, conditions, loops, functions, arrays, strings, objects and input.
+- Start from the starter code, run it, then change one thing at a time.
+- Plan big projects in small steps (decomposition), and test after every step.
+- Some projects use extra shortcuts, such as `condition ? a : b` (a one-line `if...else`) and `switch`. You can always rewrite them with the `if...else` you already know.

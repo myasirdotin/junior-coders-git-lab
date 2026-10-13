@@ -1,19 +1,10 @@
-# Chapter 7: Boolean Logic ⚡🧩
+# Chapter 7: Boolean Logic ⚡
 
 ---
 
-## 1. 🎯 Learning Objectives
+## 🌟 Real-Life Story
 
-By the end of this chapter, you will be able to:
-- Combine multiple conditions using the **Logical AND (`&&`)** operator.
-- Combine alternative conditions using the **Logical OR (`||`)** operator.
-- Invert boolean values using the **Logical NOT (`!`)** operator.
-- Understand truth tables and evaluate complex logic expressions.
-- Build a Smart School Field Trip Eligibility Checker.
-
----
-
-## 2. ☀️ Warm-Up Activity: The Weekend Playground Puzzle
+**The Weekend Playground Puzzle**
 
 Solve this real-life permission puzzle:
 > *"You may go outside to ride your bike IF: It is NOT raining AND your math homework is completed."*
@@ -27,7 +18,18 @@ This is **Boolean Logic** in action!
 
 ---
 
-## 3. 💡 Concept Explanation
+## 🎯 What You Will Learn
+
+By the end of this chapter, you will be able to:
+- Combine multiple conditions using the **Logical AND (`&&`)** operator.
+- Combine alternative conditions using the **Logical OR (`||`)** operator.
+- Invert boolean values using the **Logical NOT (`!`)** operator.
+- Understand truth tables and evaluate complex logic expressions.
+- Build a Smart School Field Trip Eligibility Checker.
+
+---
+
+## 💡 Concept Explanation
 
 ### The 3 Logical Operators in JavaScript
 
@@ -59,7 +61,7 @@ This is **Boolean Logic** in action!
 
 ---
 
-## 4. 🌍 Real-World Connection: Library & Discounts
+## 🌍 Real-World Connection: Library & Discounts
 
 - **School Library**: You can borrow a laptop if you are a student `&&` your library account has no fines.
 - **Bus Pass**: You qualify for a discounted ticket if you are under 12 `||` you are a senior citizen over 65.
@@ -67,7 +69,7 @@ This is **Boolean Logic** in action!
 
 ---
 
-## 5. 💻 Code Example: Coding Club Admission
+## 💻 Code Example: Coding Club Admission
 
 Type this into your editor or scratchpad:
 
@@ -84,9 +86,15 @@ if (studentAge >= 11 && hasParentPermission && !isSuspended) {
 }
 ```
 
+Output:
+
+```text
+Welcome to the Junior Coders Club! 🚀
+```
+
 ---
 
-## 6. 🔍 Line-by-Line Explanation
+## 🔍 Line-by-Line Explanation
 
 - Line 6: Evaluates 3 boolean checks:
   1. `studentAge >= 11` (12 >= 11 is `true`).
@@ -97,48 +105,7 @@ if (studentAge >= 11 && hasParentPermission && !isSuspended) {
 
 ---
 
-## 7. ✍️ Try It Yourself
-
-Open your console:
-1. Test: `console.log(true && false);` -> What prints?
-2. Test: `console.log(true || false);` -> What prints?
-3. Test: `console.log(!false);` -> What prints?
-4. Test: `console.log((5 > 2) && (10 < 20));` -> What prints?
-
----
-
-## 8. 📝 Practice Exercises (5 Levels of Mastery)
-
-### 🟢 Level 1 – Remember (Recall)
-1. Multiple Choice: What does `true && false` evaluate to?
-   - (a) `true`
-   - (b) `false`
-   - (c) `undefined`
-   - (d) `null`
-2. Fill in the blank: The operator used for logical NOT is the symbol ______.
-
-### 🔵 Level 2 – Understand (Comprehension)
-3. Explain the difference between `&&` and `||` using your own everyday example.
-4. Why is `!isRaining` easier to read than `isRaining === false`?
-
-### 🟡 Level 3 – Apply (Application)
-5. Write a boolean expression that evaluates to `true` if a number stored in `x` is between `1` and `100` inclusive.
-
-### 🟣 Level 4 – Think (Analysis)
-6. Evaluate this expression step-by-step:
-   ```javascript
-   (10 > 5 && 3 < 1) || (8 === 8)
-   ```
-   What does the entire line evaluate to, and why?
-
-### 🔴 Level 5 – Create ⭐ (Challenge)
-7. Write a "Secret Agent Security Scanner" program:
-   - Agent enters `hasKeycard` (boolean) and `codeAttempt` (number).
-   - Door unlocks if `hasKeycard === true` AND `codeAttempt === 007`, OR if `isEmergencyOverride === true`.
-
----
-
-## 9. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this snippet:
 
@@ -162,36 +129,14 @@ Line 3: <code>true</code> (!false flips to true)
 
 ---
 
-## 10. 🕵️ Debug It: The Accidental Reset
-
-A student wrote this check to see if today is a holiday:
-
-```javascript
-let isHoliday = true;
-if (isHoliday = false) {
-  console.log("School today!");
-}
-```
-
-- **Find the mistake**: Look inside `if (isHoliday = false)`!
-- **Explain the mistake**: A single equals sign resets `isHoliday` to `false`. That turns the condition into `if (false)`, so the message never prints!
-- **Fix the code**: Use triple equals or the NOT operator:
-  ```javascript
-  if (isHoliday === false) { // OR: if (!isHoliday)
-    console.log("School today!");
-  }
-  ```
-
----
-
-## 11. 🧭 Think Like a Programmer: The Library Borrowing Rule
+## 🧭 Think Like a Programmer: The Library Borrowing Rule
 
 Write the boolean expression for this rule before writing any JavaScript:
 > *"A student can borrow a book if the book is in stock (`isAvailable`) AND the student currently has fewer than 3 books checked out (`booksCheckedOut < 3`)."*
 
 ---
 
-## 12. 🚀 Coding Challenge ⭐: Robotics Lab Access Safety Check
+## 🚀 Coding Challenge: Robotics Lab Access Safety Check
 
 Write a program that checks whether a student can operate high-precision robotics lab equipment:
 - Can operate if `age >= 14` OR `hasSafetySupervisorWithThem === true`.
@@ -199,7 +144,7 @@ Write a program that checks whether a student can operate high-precision robotic
 
 ---
 
-## 13. 🛠️ Mini Project: Smart Eligibility Checker
+## 🛠️ Mini Project: Smart Eligibility Checker
 
 Build a comprehensive school field trip eligibility checker:
 - `isGrade7 = true;`
@@ -217,7 +162,44 @@ Print a personalized congratulatory or remediation letter!
 
 ---
 
-## 14. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+**The Accidental Reset**
+
+A student wrote this check to see if today is a holiday:
+
+```javascript
+let isHoliday = true;
+if (isHoliday = false) {
+  console.log("School today!");
+}
+```
+
+- **What happens**: Nothing prints at all, and no error appears. These silent bugs are the hardest to spot.
+- **Find the mistake**: Look inside `if (isHoliday = false)`!
+- **Explain the mistake**: A single equals sign resets `isHoliday` to `false`. That turns the condition into `if (false)`, so the message never prints!
+- **Fix the code**: Use triple equals or the NOT operator:
+  ```javascript
+  if (isHoliday === false) { // OR: if (!isHoliday)
+    console.log("School today!");
+  }
+  ```
+
+---
+
+## ✍️ Try It
+
+Open your console:
+1. Test: `console.log(true && false);` -> What prints?
+2. Test: `console.log(true || false);` -> What prints?
+3. Test: `console.log(!false);` -> What prints?
+4. Test: `console.log((5 > 2) && (10 < 20));` -> What prints?
+
+> 💡 **Hint:** Use the truth tables above. You should get `false`, `true`, `true` and `true`. For step 4, work out each bracket first.
+
+---
+
+## 📝 Recap
 
 - Boolean logic evaluates complex conditions into single `true` or `false` outcomes.
 - `&&` (AND) requires all conditions to be `true`.
@@ -227,11 +209,11 @@ Print a personalized congratulatory or remediation letter!
 
 ---
 
-## 15. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
-| **Boolean Logic** | A branch of algebra centered on three truth values and operators (AND, OR, NOT). |
+| **Boolean Logic** | Combining `true` / `false` values with the operators AND, OR and NOT. |
 | **Logical AND (`&&`)** | Operator returning true if and only if all operands are true. |
 | **Logical OR (`||`)** | Operator returning true if at least one operand is true. |
 | **Logical NOT (`!`)** | Unary operator that negates the boolean value of its operand. |
@@ -239,7 +221,70 @@ Print a personalized congratulatory or remediation letter!
 
 ---
 
-## 16. ✅ Self-Assessment Checklist
+## 🏆 Practice
+
+### 🟢 Level 1: Recall
+1. What does `true && false` give? (a) `true` (b) `false` (c) `undefined` (d) `null`
+2. Fill in the blank: the symbol for logical NOT is ______.
+
+<details>
+<summary>Show answer</summary>
+
+1. **(b)** `false`. AND needs both sides to be true.
+2. `!`
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Write an expression that is `true` when the number in `x` is between 1 and 100 (including 1 and 100).
+2. Work out this expression step by step: `(10 > 5 && 3 < 1) || (8 === 8)`
+
+<details>
+<summary>Show answer</summary>
+
+1. `x >= 1 && x <= 100`. With `let x = 100;` it gives `true`.
+2. `10 > 5` is `true`, `3 < 1` is `false`, so the first bracket is `false`.
+   `8 === 8` is `true`. Then `false || true` is **`true`**.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Write a "Science Lab Door Scanner":
+1. Create `hasKeycard` (boolean), `codeAttempt` (number) and `isEmergencyOverride` (boolean).
+2. The door opens if the student has a keycard AND typed the correct code (4321).
+3. The door also opens if `isEmergencyOverride` is true.
+4. Otherwise, print a polite "access denied" message.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```javascript
+let hasKeycard = true;
+let codeAttempt = 4321;
+let isEmergencyOverride = false;
+
+const correctCode = 4321;
+
+if ((hasKeycard && codeAttempt === correctCode) || isEmergencyOverride) {
+  console.log("Door unlocked. Welcome to the science lab!");
+} else {
+  console.log("Access denied. Please ask your teacher for help.");
+}
+```
+
+Output:
+
+```text
+Door unlocked. Welcome to the science lab!
+```
+
+Change `codeAttempt` to `1111` and the output becomes `Access denied. Please ask your teacher for help.`
+
+</details>
+
+---
+
+## ✅ Self-Assessment Checklist
 
 - [ ] I can combine conditions using `&&`.
 - [ ] I can combine alternative choices using `||`.
@@ -248,7 +293,7 @@ Print a personalized congratulatory or remediation letter!
 
 ---
 
-## 17. 🏡 Homework
+## 🏡 Homework
 
 Write three real-life rules from your home or school as boolean logic statements:
 1. *"I can go to the park IF homework is done AND bedroom is clean."*
@@ -257,7 +302,7 @@ Write three real-life rules from your home or school as boolean logic statements
 
 ---
 
-## 18. 🍎 Teacher Discussion Questions
+## 🍎 Teacher Discussion Questions
 
 1. Introduce the concept of "Short-Circuit Evaluation" to advanced students: If the left side of an `&&` is `false`, why does JavaScript not bother checking the right side?
 2. Connect Boolean logic to search engine tricks (e.g. typing `dinosaurs AND fossils` in Google Search).

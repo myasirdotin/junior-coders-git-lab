@@ -3,7 +3,18 @@
 
 ---
 
-## 1. Learning Objectives 🎯
+## 🌟 Real-Life Story
+
+Imagine using the self-checkout machine at your school library:
+1. The screen asks: "Please enter your 4-digit library card number."
+2. You type your digits and press Enter.
+3. The machine reads what you typed, checks if it is valid, and then opens your library account.
+
+Up until now, our JavaScript variables were hardcoded in our scripts. In this chapter, we open the door for **real human users** to type their own values into our programs!
+
+---
+
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Prompt users for input in the browser using `prompt()`.
@@ -11,48 +22,36 @@ By the end of this chapter, you will be able to:
 - Understand that `prompt()` ALWAYS returns a string (or `null`).
 - Convert text input to numbers using `Number()`, `parseInt()`, or `parseFloat()`.
 - Validate user input against empty strings and `NaN` (Not-a-Number).
-- Build interactive CLI and dialog workflows.
 
 ---
 
-## 2. Warm-Up Activity 🚪
-
-Imagine walking up to a bank ATM:
-1. The ATM screen asks: "Please enter your 4-digit PIN."
-2. You type your digits and press Enter.
-3. The machine reads what you typed, checks if it's valid, and then unlocks your account.
-
-Up until now, our JavaScript variables were hardcoded in our scripts. In this chapter, we open the door for **real human users** to type their own values into our programs!
-
----
-
-## 3. Concept Explanation 💡
+## 💡 Concept Explanation
 
 In browser JavaScript, we have three built-in dialog windows:
 
-### 1. `alert(message)`
+### `alert(message)`
 Displays a pop-up window with a message and an "OK" button:
 ```javascript
-alert("Welcome to the Math Quest Game! 🎮");
+alert("Welcome to the Science Quiz! 🔬");
 ```
 
-### 2. `confirm(message)`
+### `confirm(message)`
 Asks a Yes/No question. Returns `true` if user clicks "OK", and `false` if they click "Cancel":
 ```javascript
-let wantsToPlay = confirm("Are you ready to start?");
-if (wantsToPlay) {
+let wantsToStart = confirm("Are you ready to start?");
+if (wantsToStart) {
     console.log("Let's go!");
 }
 ```
 
-### 3. `prompt(message, defaultValue)`
+### `prompt(message, defaultValue)`
 Asks the user to type something into a text field. Returns their text as a **String**:
 ```javascript
 let userName = prompt("What is your name?");
 console.log(`Hello, ${userName}!`);
 ```
 
-### The Critical Number Trap ⚠️:
+### ⚠️ The Critical Number Trap
 Because `prompt()` **always** returns a string:
 ```javascript
 let age = prompt("How old are you?"); // user enters 12
@@ -64,7 +63,7 @@ let age = Number(prompt("How old are you?"));
 console.log(age + 5); // Prints 17! Math addition!
 ```
 
-### Validating Input with `isNaN()`:
+### Validating Input with `isNaN()`
 If a user enters `"banana"` when you ask for age, `Number("banana")` produces `NaN` (Not-a-Number).
 ```javascript
 let score = Number(prompt("Enter test score:"));
@@ -75,7 +74,7 @@ if (isNaN(score)) {
 
 ---
 
-## 4. Real-World Example 🚆
+## 🌍 Real-World Example
 
 Think about booking a high-speed train pass or science center ticket:
 1. The site asks: "How many tickets would you like to purchase?"
@@ -85,7 +84,7 @@ Think about booking a high-speed train pass or science center ticket:
 
 ---
 
-## 5. Code Example 💻
+## 💻 Code Example
 
 ```javascript
 // Interactive Age & Discount Calculator
@@ -105,9 +104,9 @@ if (!nameInput || nameInput.trim() === "") {
 
         if (isStudent || age < 18) {
             ticketPrice = ticketPrice * 0.5; // 50% discount
-            alert(`Great news ${nameInput}! You qualify for a 50% discount. Ticket price: $${ticketPrice}`);
+            alert(`Great news ${nameInput}! You qualify for a 50% discount. Ticket price: Rs ${ticketPrice}`);
         } else {
-            alert(`Standard ticket price for ${nameInput}: $${ticketPrice}`);
+            alert(`Standard ticket price for ${nameInput}: Rs ${ticketPrice}`);
         }
     }
 }
@@ -115,54 +114,22 @@ if (!nameInput || nameInput.trim() === "") {
 
 ---
 
-## 6. Line-by-Line Explanation 🔍
+## 🔍 Line-by-Line Explanation
 
 - `let nameInput = prompt(...)`: Pops up a dialog box asking for the user's name.
 - `if (!nameInput || nameInput.trim() === "")`: Checks if the user clicked "Cancel" (`null`) or typed only whitespace.
-- `let age = Number(ageInput)`: Converts the text response into a real numerical float/integer.
+- `let age = Number(ageInput)`: Converts the text response into a real number (whole or decimal).
 - `if (isNaN(age) || age <= 0)`: Guard clause verifying that the input is a genuine number greater than 0.
 - `let isStudent = confirm(...)`: Presents an OK/Cancel dialog returning boolean `true` or `false`.
 - `alert(...)`: Displays the final result cleanly to the user.
 
----
-
-## 7. Try It Yourself 🚀
-
-1. Open your browser console on any web page.
-2. Run:
-   ```javascript
-   let favColor = prompt("What is your favorite color?");
-   alert(`Your favorite color is ${favColor}! That's a great choice.`);
-   ```
-3. Notice how execution pauses until you click "OK".
+**Example run:** you type `Amina`, then `12`, then click OK. The last alert says:
+`Great news Amina! You qualify for a 50% discount. Ticket price: Rs 50`.
+If you type `Bilal`, `30` and click Cancel, it says `Standard ticket price for Bilal: Rs 100`.
 
 ---
 
-## 8. Practice Exercises 📝
-
-### Level 1: Remember
-What data type is *always* returned by the `prompt()` function?
-
-### Level 2: Understand
-What does the `confirm()` function return when the user clicks "Cancel"?
-
-### Level 3: Apply
-Write a script that prompts the user for two numbers, multiplies them, and alerts the product: `"The product of X and Y is Z"`.
-
-### Level 4: Think
-Why is checking `isNaN(value)` safer than just doing `if (value === NaN)`? (Hint: in JavaScript, `NaN === NaN` is false!).
-
-### Level 5: Create ⭐
-Build a "Tip Calculator":
-- Prompt for total restaurant bill.
-- Prompt for tip percentage (e.g., 10, 15, or 20).
-- Prompt for how many people are splitting the bill.
-- Calculate total with tip and per-person cost.
-- Alert a clean final summary breakdown.
-
----
-
-## 9. Predict the Output 🔮
+## 🔮 Predict the Output
 
 ```javascript
 let num1 = "10";
@@ -174,20 +141,22 @@ console.log(num1 * num2); // Sneaky JavaScript automatic type coercion!
 ```
 *What are the three printed lines?*
 
----
+<details>
+<summary>👀 Click to check your answer</summary>
 
-## 10. Debug It 🐞
-
-Find the errors in this code:
-```javascript
-let userScore = prompt "Enter your score";
-let finalScore = userScore + 10;
-alert "Your final score is " + finalScore;
+```text
+1020
+30
+200
 ```
 
+`+` with two strings joins them. After `Number()`, `+` adds them. `*` has no "join" meaning, so JavaScript quietly turns both strings into numbers and multiplies (this is called **type coercion**).
+
+</details>
+
 ---
 
-## 11. Think Like a Programmer 🧠: Defensive Programming
+## 🧭 Think Like a Programmer: Defensive Programming
 
 Rule #1 of real-world software engineering:
 > **"Never trust user input!"**
@@ -202,30 +171,66 @@ Always validate and sanitize your input with checks (`isNaN()`, `trim()`, checki
 
 ---
 
-## 12. Coding Challenge ⭐
+## 🚀 Coding Challenge
 
-Write a "Number Guessing Game":
-- Generate a secret random number between 1 and 10: `Math.floor(Math.random() * 10) + 1`.
-- Give the player 3 chances using a `while` or `for` loop with `prompt()`.
-- Tell them if their guess was "Too High", "Too Low", or "Correct! 🎉".
-- If they don't guess in 3 tries, reveal the secret number!
+Write a "Times-Table Practice Quiz":
+- Pick a random number between 1 and 10: `Math.floor(Math.random() * 10) + 1`. (`Math.random()` gives a random decimal from 0 up to, but not including, 1.)
+- Ask the student "What is 7 × [number]?" using `prompt()`.
+- Give 3 chances using a `for` loop. Say "Too high", "Too low" or "Correct! 🎉".
+- If all 3 tries are wrong, show the right answer and explain it kindly.
 
 ---
 
-## 13. Mini Project: Interactive Story Generator (Mad Libs) 🎭
+## 🛠️ Mini Project: Interactive Story Builder
 
-Create a funny story game:
+Create a fill-in-the-words story:
 - Prompt the user for:
   1. A friend's name
-  2. An adjective (e.g., "sparkly", "smelly")
+  2. An adjective (e.g., "sparkly", "brave")
   3. An animal
   4. An action verb
   5. A food
-- Assemble all responses into a hilarious adventure story and display it using `alert()`!
+- Assemble all responses into a cheerful adventure story and display it using `alert()`!
 
 ---
 
-## 14. Chapter Recap 📌
+## ⚠️ Common Mistake
+
+Find the errors in this code:
+```javascript
+let userScore = prompt "Enter your score";
+let finalScore = userScore + 10;
+alert "Your final score is " + finalScore;
+```
+
+- **What happens**: JavaScript stops at once with `SyntaxError: Unexpected string`.
+- **Error 1**: `prompt` and `alert` are functions. They need round brackets: `prompt("...")`, `alert("...")`.
+- **Error 2**: `prompt()` always gives a string. If the user types `80`, then `"80" + 10` is `"8010"`, not `90`. Convert first with `Number()`.
+- **Fix the code**:
+  ```javascript
+  let userScore = Number(prompt("Enter your score"));
+  let finalScore = userScore + 10;
+  alert("Your final score is " + finalScore);
+  ```
+  If the user types `80`, the alert says `Your final score is 90`.
+
+---
+
+## ✍️ Try It
+
+1. Open your browser console on any web page.
+2. Run:
+   ```javascript
+   let favColor = prompt("What is your favorite color?");
+   alert(`Your favorite color is ${favColor}! That's a great choice.`);
+   ```
+3. Notice how execution pauses until you click "OK".
+
+> 💡 **Hint:** If you click **Cancel** on the prompt, `favColor` becomes `null`, and the alert shows "Your favorite color is null!". That is why we always check input before using it.
+
+---
+
+## 📝 Recap
 
 - `alert()` shows a message.
 - `confirm()` asks a True/False question.
@@ -236,7 +241,7 @@ Create a funny story game:
 
 ---
 
-## 15. Key Terms 📖
+## 📖 Key Terms
 
 - **Dialog / Modal:** A pop-up window overlaying the browser.
 - **Prompt:** A dialog asking for keyboard input.
@@ -246,7 +251,83 @@ Create a funny story game:
 
 ---
 
-## 16. Self-Assessment Checklist ✅
+## 🏆 Practice
+
+### 🟢 Level 1: Recall
+1. What data type does `prompt()` give back when the user types something and clicks OK?
+2. What does `confirm()` give back when the user clicks "Cancel"?
+
+<details>
+<summary>Show answer</summary>
+
+1. A **string**, even if they typed digits. (If they click Cancel, it gives `null`.)
+2. `false`
+
+</details>
+
+### 🟡 Level 2: Apply
+Write a script that asks for two numbers, multiplies them, and shows `"The product of X and Y is Z"` in an alert.
+
+Extra: why is `isNaN(value)` safer than `value === NaN`?
+
+<details>
+<summary>Show answer</summary>
+
+```javascript
+let a = Number(prompt("Enter the first number:"));
+let b = Number(prompt("Enter the second number:"));
+alert(`The product of ${a} and ${b} is ${a * b}`);
+```
+
+If you type `6` and `7`, the alert says `The product of 6 and 7 is 42`.
+
+Extra: `NaN` is never equal to anything, not even itself. `NaN === NaN` is `false`, so `value === NaN` is always `false`. `isNaN()` is the reliable check.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build a "Bill Splitter with Tip" for a class lunch:
+1. Ask for the total bill.
+2. Ask for the tip percentage (10, 15 or 20).
+3. Ask how many people are sharing.
+4. Check that all three are real numbers, and that people is more than 0.
+5. Show the tip, the total and the amount each person pays.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```javascript
+let bill = Number(prompt("What is the total bill?"));
+let tipPercent = Number(prompt("Tip percentage (10, 15 or 20)?"));
+let people = Number(prompt("How many people are sharing?"));
+
+if (isNaN(bill) || isNaN(tipPercent) || isNaN(people) || people <= 0) {
+    alert("Please enter valid numbers only.");
+} else {
+    let tip = bill * (tipPercent / 100);
+    let total = bill + tip;
+    let perPerson = total / people;
+    alert(`Bill: Rs ${bill}
+Tip (${tipPercent}%): Rs ${tip}
+Total: Rs ${total}
+Each person pays: Rs ${perPerson}`);
+}
+```
+
+With `1200`, `10` and `4`, the alert shows:
+
+```text
+Bill: Rs 1200
+Tip (10%): Rs 120
+Total: Rs 1320
+Each person pays: Rs 330
+```
+
+</details>
+
+---
+
+## ✅ Self-Assessment Checklist
 
 - [ ] I know how to ask a user for their name using `prompt()`.
 - [ ] I always convert numbers using `Number()` before addition.
@@ -255,7 +336,7 @@ Create a funny story game:
 
 ---
 
-## 17. Homework 📚
+## 🏡 Homework
 
 1. Write a program that asks for the user's birth year and calculates their approximate age.
 2. Ask the user for their favorite pizza topping. If they enter `"pineapple"`, make a funny alert!
@@ -263,7 +344,7 @@ Create a funny story game:
 
 ---
 
-## 18. Teacher Discussion Questions 💬
+## 🍎 Teacher Discussion Questions
 
 1. Why are browser alerts and prompts rarely used in modern professional web apps like GitHub, Wikipedia, or educational portals, and what do developers use instead?
 2. What happens if a malicious user types code into an input field? (Introduction to cybersecurity awareness).

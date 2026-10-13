@@ -3,19 +3,7 @@
 
 ---
 
-## 1. Learning Objectives 🎯
-
-By the end of this chapter, you will be able to:
-- Explain what an object is and how it differs from an array.
-- Create an object using key-value pairs inside curly braces `{}`.
-- Access properties using Dot Notation (`object.key`) and Bracket Notation (`object["key"]`).
-- Add, update, and delete properties on an object.
-- Create nested objects and arrays of objects.
-- Add methods (functions) inside objects.
-
----
-
-## 2. Warm-Up Activity 🤖
+## 🌟 Real-Life Story
 
 Think about a robot rover exploring the surface of Mars:
 A rover isn't just a single number or a plain list. A rover has distinct **attributes**:
@@ -29,56 +17,67 @@ In programming, we bundle all these related traits into a single unit called an 
 
 ---
 
-## 3. Concept Explanation 💡
+## 🎯 What You Will Learn
+
+By the end of this chapter, you will be able to:
+- Explain what an object is and how it differs from an array.
+- Create an object using key-value pairs inside curly braces `{}`.
+- Access properties using Dot Notation (`object.key`) and Bracket Notation (`object["key"]`).
+- Add, update, and delete properties on an object.
+- Group objects inside arrays, and add methods (functions) to objects.
+
+---
+
+## 💡 Concept Explanation
 
 An **Object** is a collection of key-value pairs (also called properties). While arrays store items by numerical order (`0, 1, 2`), objects store items by **meaningful names (keys)**.
 
-### Creating an Object:
+### Creating an Object
 ```javascript
-let player = {
+let student = {
     name: "Alex",
-    score: 350,
-    isAlive: true,
-    skills: ["archery", "crafting"]
+    marks: 350,
+    isPresent: true,
+    clubs: ["robotics", "gardening"]
 };
 ```
 
-### Accessing Properties:
+### Accessing Properties
 1. **Dot Notation:** `object.key` (cleanest and most common):
    ```javascript
-   console.log(player.name);  // "Alex"
-   console.log(player.score); // 350
+   console.log(student.name);  // Alex
+   console.log(student.marks); // 350
    ```
 2. **Bracket Notation:** `object["key"]` (used when keys have spaces or are stored in variables):
    ```javascript
-   console.log(player["isAlive"]); // true
+   console.log(student["isPresent"]); // true
    ```
 
-### Modifying and Adding Properties:
+### Modifying and Adding Properties
 ```javascript
-player.score = 500;       // Updates score
-player.level = 2;         // Adds a brand new property!
-delete player.isAlive;    // Removes a property
+student.marks = 380;      // Updates marks
+student.house = "Green";  // Adds a brand new property!
+delete student.isPresent; // Removes a property
 ```
 
-### Object Methods:
+### Object Methods
 When an object has a function as a property, we call it a **Method**:
 ```javascript
-let car = {
-    brand: "Tesla",
+let bus = {
+    route: "Route 7",
     speed: 0,
-    accelerate: function() {
-        car.speed += 20;
-        console.log(`Zoom! Speed is now ${car.speed} km/h`);
+    speedUp: function() {
+        bus.speed += 20;
+        console.log(`Speed is now ${bus.speed} km/h`);
     }
 };
 
-car.accelerate(); // "Zoom! Speed is now 20 km/h"
+bus.speedUp(); // Speed is now 20 km/h
 ```
 
 ---
 
-## 4. Real-World Example 📖
+## 🌍 Real-World Example
 
 Think of a library catalog card:
 ```javascript
@@ -94,7 +93,7 @@ When a student borrows the book, the library database simply sets:
 
 ---
 
-## 5. Code Example 💻
+## 💻 Code Example
 
 ```javascript
 // Array of student objects
@@ -113,9 +112,18 @@ for (let i = 0; i < classroom.length; i++) {
 }
 ```
 
+Output:
+
+```text
+Class Roster Report:
+Student: Sara | Average Marks: 90%
+Student: Zayd | Average Marks: 81%
+Student: Pooja | Average Marks: 95.5%
+```
+
 ---
 
-## 6. Line-by-Line Explanation 🔍
+## 🔍 Line-by-Line Explanation
 
 - `let classroom = [ ... ]`: An array containing three separate objects. Each object represents one student.
 - `let student = classroom[i];`: Grabs the student object at index `i`.
@@ -125,49 +133,7 @@ for (let i = 0; i < classroom.length; i++) {
 
 ---
 
-## 7. Try It Yourself 🚀
-
-1. Open your console.
-2. Create an object for your pet or a dream pet:
-   ```javascript
-   let pet = {
-       name: "Biscuit",
-       animal: "Golden Retriever",
-       age: 3,
-       favoriteToy: "Tennis Ball"
-   };
-   ```
-3. Celebrate their birthday: `pet.age += 1;`
-4. Add a new property: `pet.isVaccinated = true;`
-5. Print: `console.log(`${pet.name} is now ${pet.age} years old!`);`
-
----
-
-## 8. Practice Exercises 📝
-
-### Level 1: Remember
-In an object, what do we call the names on the left and the values on the right? (Hint: Key-____ pairs).
-
-### Level 2: Understand
-When must you use bracket notation (`person["first name"]`) instead of dot notation?
-
-### Level 3: Apply
-Create an object `smartphone` with keys `brand`, `model`, `batteryPercent`, and `storageGB`. Write code that decreases `batteryPercent` by 10.
-
-### Level 4: Think
-What is the difference between an Array of Objects `[{...}, {...}]` versus an Object with Arrays `{ friends: [...] }`? Give a real-life example of each.
-
-### Level 5: Create ⭐
-Create a `charityFund` object with:
-- `fundName: "Clean Water Initiative"`
-- `balance: 1000`
-- `deposit: function(amount)` (adds donation to balance)
-- `withdraw: function(amount)` (subtracts relief spending if enough funds exist)
-Test depositing 500 and withdrawing 200.
-
----
-
-## 9. Predict the Output 🔮
+## 🔮 Predict the Output
 
 ```javascript
 let documentary = {
@@ -182,41 +148,38 @@ console.log(documentary[propertyToLookUp]);
 ```
 *What will the two console logs show? (Hint: does `documentary` have a key named literal "propertyToLookUp"?)*
 
----
+<details>
+<summary>👀 Click to check your answer</summary>
 
-## 10. Debug It 🐞
-
-Find the 3 errors in this code:
-```javascript
-let robot = {
-    name = "Helper-Bot",
-    power: "Solar Energy"
-    isWorking: true;
-}
-
-console.log(robot->power);
+```text
+undefined
+2022
 ```
 
+Dot notation looks for a key literally called `propertyToLookUp`, and there is none. Bracket notation first reads the variable (`"year"`), then looks up that key.
+
+</details>
+
 ---
 
-## 11. Think Like a Programmer 🧠: Modeling Reality
+## 🧭 Think Like a Programmer: Modeling Reality
 
 Software engineering is about turning messy real-world problems into organized digital structures.
-- Use an **Array** when the order matters and items are identical in kind (e.g., list of high scores: `[100, 95, 90]`).
+- Use an **Array** when the order matters and items are identical in kind (e.g., a list of test marks: `[100, 95, 90]`).
 - Use an **Object** when describing a single entity with diverse attributes (e.g., a person, a product, a spaceship).
 - Combine them: An e-commerce store is an Array of Product Objects!
 
 ---
 
-## 12. Coding Challenge ⭐
+## 🚀 Coding Challenge
 
-Write a function `findTopScorer(players)`:
-- Takes an array of player objects: `[{ name: "A", score: 50 }, { name: "B", score: 85 }, { name: "C", score: 72 }]`.
-- Finds the player with the highest score and returns their name and score!
+Your school houses collected books for a charity book drive. Write a function `findTopCollector(houses)`:
+- Takes an array of house objects: `[{ name: "Red House", books: 50 }, { name: "Blue House", books: 85 }, { name: "Green House", books: 72 }]`.
+- Finds the house that collected the most books and returns its name and total!
 
 ---
 
-## 13. Mini Project: Mars Rover Control Sheet 🚀
+## 🛠️ Mini Project: Mars Rover Control Sheet
 
 Build a rover control program that defines:
 ```javascript
@@ -237,7 +200,61 @@ Write functions:
 
 ---
 
-## 14. Chapter Recap 📌
+## ⚠️ Common Mistake
+
+Find the 3 errors in this code:
+```javascript
+let robot = {
+    name = "Helper-Bot",
+    power: "Solar Energy"
+    isWorking: true;
+}
+
+console.log(robot->power);
+```
+
+- **What happens**: JavaScript stops at once with `SyntaxError: Invalid shorthand property initializer`.
+- **Error 1**: Inside an object, keys and values are joined with a colon `:`, not `=`.
+- **Error 2**: Properties are separated by commas. A comma is missing after `"Solar Energy"`, and `isWorking: true;` has a semicolon instead.
+- **Error 3**: JavaScript reads properties with a dot (`robot.power`), not an arrow `->`.
+- **Fix the code**:
+  ```javascript
+  let robot = {
+      name: "Helper-Bot",
+      power: "Solar Energy",
+      isWorking: true
+  };
+
+  console.log(robot.power);
+  ```
+  Output: `Solar Energy`
+
+---
+
+## ✍️ Try It
+
+1. Open your console.
+2. Create an object for a class pet:
+   ```javascript
+   let pet = {
+       name: "Biscuit",
+       animal: "Rabbit",
+       age: 3,
+       favoriteFood: "Carrots"
+   };
+   ```
+3. Celebrate its birthday: `pet.age += 1;`
+4. Add a new property: `pet.isVaccinated = true;`
+5. Print a sentence about it:
+   ```javascript
+   console.log(`${pet.name} is now ${pet.age} years old!`);
+   ```
+
+> 💡 **Hint:** You should see `Biscuit is now 4 years old!`. Type `pet` on its own and press Enter to see every property, including the new `isVaccinated`.
+
+---
+
+## 📝 Recap
 
 - Objects hold key-value pairs inside `{}`.
 - Keys are strings; values can be any data type (including arrays or functions).
@@ -248,7 +265,7 @@ Write functions:
 
 ---
 
-## 15. Key Terms 📖
+## 📖 Key Terms
 
 - **Object:** A collection of labeled key-value data.
 - **Property:** A single key-value pair.
@@ -260,7 +277,83 @@ Write functions:
 
 ---
 
-## 16. Self-Assessment Checklist ✅
+## 🏆 Practice
+
+### 🟢 Level 1: Recall
+1. In an object, what do we call the names on the left and the values on the right? (Key-____ pairs.)
+2. When must you use bracket notation (`person["first name"]`) instead of dot notation?
+
+<details>
+<summary>Show answer</summary>
+
+1. Key-**value** pairs.
+2. When the key has a space or a dash in it, or when the key name is stored in a variable.
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Create an object `tablet` with keys `brand`, `model`, `batteryPercent` and `storageGB`. Then lower `batteryPercent` by 10.
+2. What is the difference between an array of objects `[{...}, {...}]` and an object with an array `{ subjects: [...] }`? Give a real-life example of each.
+
+<details>
+<summary>Show answer</summary>
+
+1. ```javascript
+   let tablet = { brand: "Example", model: "S1", batteryPercent: 80, storageGB: 128 };
+   tablet.batteryPercent -= 10;
+   console.log(tablet.batteryPercent);
+   ```
+   Output: `70`
+2. An **array of objects** is a list of many similar things, like every student in a class. An **object with an array** is one thing that has a list inside it, like one student with a list of subjects.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Create a `charityFund` object:
+1. `fundName: "Clean Water Initiative"` and `balance: 1000`.
+2. A `deposit(amount)` method that adds a donation to the balance.
+3. A `withdraw(amount)` method that spends money on relief only if there is enough.
+4. Test a deposit of 500, a withdrawal of 200, and a withdrawal that is too big.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```javascript
+let charityFund = {
+    fundName: "Clean Water Initiative",
+    balance: 1000,
+    deposit: function(amount) {
+        charityFund.balance += amount;
+        console.log(`Donation received: Rs ${amount}. Balance: Rs ${charityFund.balance}`);
+    },
+    withdraw: function(amount) {
+        if (amount <= charityFund.balance) {
+            charityFund.balance -= amount;
+            console.log(`Spent on relief: Rs ${amount}. Balance: Rs ${charityFund.balance}`);
+        } else {
+            console.log("Not enough funds for this request.");
+        }
+    }
+};
+
+charityFund.deposit(500);
+charityFund.withdraw(200);
+charityFund.withdraw(5000);
+```
+
+Output:
+
+```text
+Donation received: Rs 500. Balance: Rs 1500
+Spent on relief: Rs 200. Balance: Rs 1300
+Not enough funds for this request.
+```
+
+</details>
+
+---
+
+## ✅ Self-Assessment Checklist
 
 - [ ] I can create an object with at least 4 properties.
 - [ ] I know how to access properties using dot notation.
@@ -269,7 +362,7 @@ Write functions:
 
 ---
 
-## 17. Homework 📚
+## 🏡 Homework
 
 1. Create a `recipe` object for your favorite dish with `name`, `prepTimeMinutes`, `ingredients` (array), and `servings`.
 2. Write a loop that counts how many books in a library array are marked `isAvailable: true`.
@@ -277,7 +370,7 @@ Write functions:
 
 ---
 
-## 18. Teacher Discussion Questions 💬
+## 🍎 Teacher Discussion Questions
 
 1. Why is JSON (JavaScript Object Notation) the most popular format for data exchange across the entire internet today?
 2. How do objects help make code self-documenting and easier for human teams to read?

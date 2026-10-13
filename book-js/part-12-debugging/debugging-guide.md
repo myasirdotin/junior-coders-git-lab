@@ -3,26 +3,35 @@
 
 ---
 
-## 1. Why Bugs Happen (And Why That's Completely Normal!) ❤️
+## 🎯 What You Will Learn
 
-In 1947, computer pioneer **Grace Hopper** found an actual moth trapped inside a relay of the Harvard Mark II computer that was causing calculation errors. She taped the moth into her logbook with the note: *"First actual case of bug being found."*
+- Tell the three kinds of errors apart: syntax, runtime and logic.
+- Read an error message to find what went wrong and on which line.
+- Use `console.log()` and the rubber duck method to track down bugs.
+- Recognise and fix the most common beginner bugs.
 
-Every programmer—whether they have been coding for 2 weeks or 20 years at Google—encounters bugs every single day.
+---
+
+## ❤️ Why Bugs Happen (And Why That's Completely Normal!)
+
+In 1947, the team working with computer pioneer **Grace Hopper** found a real moth trapped inside a relay of the Harvard Mark II computer. It was causing errors. They taped the moth into the logbook with the note: *"First actual case of bug being found."* Hopper loved telling this story, and it made the word "bug" famous.
+
+Every programmer—whether they have been coding for 2 weeks or 20 years—encounters bugs every single day.
 **A bug is not a failure; it is simply a puzzle waiting for you to solve it!**
 
 ---
 
-## 2. The 3 Types of Programming Errors 🚨
+## 🚨 The 3 Types of Programming Errors
 
 To fix a bug quickly, you first need to know what kind of error it is:
 
-### 1. Syntax Errors (Grammar Mistakes)
+### Syntax Errors (Grammar Mistakes)
 JavaScript cannot read or parse your code because rules were broken (missing closing bracket, misspelled keyword, missing quote).
 - *Example:* `let greeting = "Hello World;` (unclosed quote)
 - *What happens:* Code won't even start running!
-- *Console says:* `SyntaxError: Unexpected identifier`
+- *Console says:* `SyntaxError: Invalid or unexpected token`
 
-### 2. Runtime Errors (Crashes While Running)
+### Runtime Errors (Crashes While Running)
 Your code grammar is valid, but an illegal operation was attempted while running.
 - *Example:* Calling a function on something that is `null` or `undefined`.
   ```javascript
@@ -32,7 +41,7 @@ Your code grammar is valid, but an illegal operation was attempted while running
 - *What happens:* The program runs until that exact line, then halts.
 - *Console says:* `TypeError: Cannot read properties of null (reading 'name')`
 
-### 3. Logic Errors (The Sneaky Ones!)
+### Logic Errors (The Sneaky Ones!)
 The code runs smoothly from start to finish with zero red error messages, but it produces the **wrong answer**!
 - *Example:*
   ```javascript
@@ -44,16 +53,24 @@ The code runs smoothly from start to finish with zero red error messages, but it
 
 ---
 
-## 3. The 5-Step Debugging Method 🔍
+## 🔍 The 5-Step Debugging Method
 
 Follow this systematic checklist whenever your code doesn't work:
 
-```mermaid
-graph TD
-    A[1. Read the Error Message] --> B[2. Locate the Exact Line]
-    B --> C[3. Print Intermediate Values with console.log]
-    C --> D[4. Form a Hypothesis & Test Small Fix]
-    D --> E[5. Verify and Clean Up]
+```text
+1. Read the error message
+        |
+        v
+2. Find the exact line
+        |
+        v
+3. Print values with console.log()
+        |
+        v
+4. Guess the cause, test a small fix
+        |
+        v
+5. Check it works, remove extra logs
 ```
 
 ### Step 1: Read the Error Message
@@ -72,15 +89,15 @@ let result = computeScore(userInput);
 console.log("DEBUG: output is ->", result);
 ```
 
-### Step 4: The Rubber Duck Technique 🦆
+### 🦆 Step 4: The Rubber Duck Technique
 Software engineers keep a yellow rubber duck on their desks. When stuck:
 1. Explain the problem out loud to the rubber duck (or a classmate).
 2. Explain what every single line of code is supposed to do.
-3. In 80% of cases, while explaining it out loud, your brain will suddenly say: *"Wait! I never updated the counter variable!"*
+3. Very often, while explaining it out loud, your brain will suddenly say: *"Wait! I never updated the counter variable!"*
 
 ---
 
-## 4. Top 10 Most Common JavaScript Bugs for Beginners 🏆
+## 🐛 Top 10 Most Common JavaScript Bugs for Beginners
 
 | Bug | What it looks like | How to fix |
 |---|---|---|
@@ -97,32 +114,23 @@ Software engineers keep a yellow rubber duck on their desks. When stuck:
 
 ---
 
-## 5. Hands-On Debugging Clinic 🧪
+## 📝 Recap
 
-Fix the bugs in these 3 broken programs:
+- A bug is a puzzle, not a failure. Every programmer meets bugs every day.
+- **Syntax errors** stop the code before it starts. **Runtime errors** stop it at one line. **Logic errors** give a wrong answer with no message.
+- The error message tells you *what* went wrong and *which line*. Also check the line above.
+- `console.log()` shows what is really inside your variables.
+- Explaining your code out loud often reveals the bug.
 
-### Case 1: The Broken Age Gate
-```javascript
-let userAge = 14;
-if (userAge = 18) {
-    console.log("You may enter!");
-} else {
-    console.log("Too young!");
-}
-```
-*Why does it always print "You may enter!" even when userAge is 14?*
+---
 
-### Case 2: The Silent Loop
-```javascript
-let countdown = 5;
-while (countdown > 0) {
-    console.log("T-minus: " + countdown);
-    // Oops!
-}
-```
-*What happens if you run this? How do you fix the browser freeze?*
+## 🏆 Practice
 
-### Case 3: The Missing Total
+These three broken programs come from the Hands-On Debugging Clinic. Find each bug before you open the answer.
+
+### 🟢 Level 1: Recall
+The Missing Total: this prints `Score is: undefined`. Which keyword is missing inside `addBonus`?
+
 ```javascript
 function addBonus(score) {
     let final = score + 50;
@@ -131,11 +139,81 @@ function addBonus(score) {
 let myFinalScore = addBonus(100);
 console.log("Score is: " + myFinalScore); // Prints "Score is: undefined"
 ```
-*What one keyword is missing inside `addBonus`?*
+
+<details>
+<summary>Show answer</summary>
+
+`return`. Without it, the function gives back `undefined`. Add `return final;` as the last line inside the function. Then the output is `Score is: 150`.
+
+</details>
+
+### 🟡 Level 2: Apply
+The Broken Age Gate: why does it always print "You may enter!", even though `userAge` is 14? Fix it so only people aged 18 or over may enter.
+
+```javascript
+let userAge = 14;
+if (userAge = 18) {
+    console.log("You may enter!");
+} else {
+    console.log("Too young!");
+}
+```
+
+<details>
+<summary>Show answer</summary>
+
+`userAge = 18` **assigns** 18 instead of comparing, and 18 counts as true. Use a comparison:
+
+```javascript
+let userAge = 14;
+if (userAge >= 18) {
+    console.log("You may enter!");
+} else {
+    console.log("Too young!");
+}
+```
+
+Output: `Too young!`
+
+</details>
+
+### 🔴 Level 3: Challenge
+The Silent Loop: what happens when you run this? Fix it, then change the start value to 3 and write down the exact output.
+
+```javascript
+let countdown = 5;
+while (countdown > 0) {
+    console.log("T-minus: " + countdown);
+    // Oops!
+}
+```
+
+<details>
+<summary>Show one possible answer</summary>
+
+`countdown` never changes, so `countdown > 0` is always true. It is an infinite loop and the tab freezes. Add `countdown--;` inside the loop:
+
+```javascript
+let countdown = 3;
+while (countdown > 0) {
+    console.log("T-minus: " + countdown);
+    countdown--;
+}
+```
+
+Output:
+
+```text
+T-minus: 3
+T-minus: 2
+T-minus: 1
+```
+
+</details>
 
 ---
 
-## 6. Summary Checklist ✅
+## ✅ Summary Checklist
 
 - [ ] I always open DevTools Console to read error messages and line numbers.
 - [ ] I use `console.log()` to check variable states when math goes wrong.
