@@ -34,6 +34,9 @@ _Last updated: 2026-10-12 (mobile + content review: all four steps done)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 Desktop top menu: Start here · Learn ▾ · Practice ▾ · Library ▾ · Teachers + Search + theme (was 8 links
+  + a "Launch Studio" button that ran off the screen at 1280–1366px). Dropdown panels on wide screens, tap-to-open
+  sections in the ☰ drawer; drawer background made solid.
 - 2026-10-13 Studios page rebuilt: "which one do I need?" guide, accurate cards for the 4 code studios, the 2 labs
   (Network Protocol Studio was missing), how to keep your work; Cyber passphrase maker now 5 words with
   crypto.getRandomValues (was 4 words, Math.random, dice emoji); Python tutor notes the console is Python 3.11.

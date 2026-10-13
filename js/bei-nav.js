@@ -804,6 +804,46 @@
         else if (path.includes('/teacher-hub/')) activeKey = 'teachers';
         else if (path.includes('/learn/') || path.includes('learning')) activeKey = 'learn';
 
+        // Grouped menus (desktop: dropdown panels; phone drawer: sections that open on tap)
+        const group = ({ learn: 'learn', studios: 'practice', arena: 'practice', projects: 'practice',
+                         textbooks: 'library', cheatsheets: 'library' })[activeKey] || '';
+        const item = (href, icon, label, sub) =>
+            `<a class="bei-dd-item" href="${ROOT}${href}"><span class="bei-dd-ico" aria-hidden="true">${icon}</span>` +
+            `<span><span class="bei-dd-label">${label}</span>${sub ? `<span class="bei-dd-sub">${sub}</span>` : ''}</span></a>`;
+        const section = (title, items) => `<div class="bei-dd-section"><p class="bei-dd-title">${title}</p>${items.join('')}</div>`;
+        const footer = (links) => `<div class="bei-dd-footer">${links.join('')}</div>`;
+        const dropdown = (key, icon, label, body, active) => `
+                    <li class="bei-dd" data-dd="${key}">
+                        <button type="button" class="bei-nav-link bei-dd-btn ${active ? 'active' : ''}" aria-expanded="false" aria-controls="bei-dd-${key}">
+                            <span class="nav-icon">${icon}</span><span>${label}</span><span class="bei-dd-caret" aria-hidden="true">▾</span>
+                        </button>
+                        <div class="bei-dd-menu bei-dd-${key}" id="bei-dd-${key}">${body}</div>
+                    </li>`;
+
+        const trackOrder = ['html', 'css', 'js', 'python', 'php', 'mysql', 'laravel', 'networks', 'cybersecurity'];
+        const learnMenu =
+            section('Subjects', trackOrder.filter(k => CURRICULUM[k]).map(k =>
+                item(encodeURI(CURRICULUM[k].dir) + '/' + CURRICULUM[k].syllabus, TRACK_ICONS[k] || '📚',
+                     CURRICULUM[k].shortName.replace(/ Track$/, ''), CURRICULUM[k].modules.length + ' lessons'))) +
+            footer([item('learn/index.html', '🧭', 'All subjects', ''), item('paths/index.html', '🗺️', 'Learning paths', 'Week-by-week plans')]);
+        const practiceMenu =
+            section('Code studios', [
+                item('studios/web-studio/index.html', '🌐', 'Web Studio', 'HTML, CSS, JavaScript'),
+                item('studios/python-console/index.html', '🐍', 'Python Console', 'Run Python'),
+                item('studios/php-console/index.html', '🐘', 'PHP Console', 'Run PHP 8.3'),
+                item('studios/sql-sandbox/index.html', '🗄️', 'SQL Sandbox', 'School library database')]) +
+            section('Labs and challenges', [
+                item('Learning%20Cybersecurity/playground.html', '🛡️', 'Cyber Defense Studio', 'Security experiments'),
+                item('Learning%20Networks/playground.html', '📡', 'Network Studio', 'See packets travel'),
+                item('practice-arena.html', '⚔️', 'Practice Arena', 'Coding challenges'),
+                item('projects/index.html', '🏆', 'Projects', '10 real project briefs')]) +
+            footer([item('studios/index.html', '⚡', 'All studios', '')]);
+        const libraryMenu =
+            section('Read and look up', [
+                item('library/books/index.html', '📖', 'Textbooks', '11 books that read aloud'),
+                item('library/cheatsheets/index.html', '📋', 'Cheat sheets', 'Search all 11 at once')]) +
+            footer([item('library/index.html', '🏛️', 'Library home', '')]);
+
         const navHtml = `
             <div class="container bei-nav-inner">
                 <a href="${ROOT}index.html" class="bei-logo">
@@ -816,12 +856,9 @@
 
                 <ul class="bei-nav-links">
                     <li><a href="${ROOT}paths/index.html" class="bei-nav-link ${activeKey === 'paths' ? 'active' : ''}"><span class="nav-icon">🗺️</span><span>Start here</span></a></li>
-                    <li><a href="${ROOT}learn/index.html" class="bei-nav-link ${activeKey === 'learn' ? 'active' : ''}"><span class="nav-icon">📚</span><span>Learn</span></a></li>
-                    <li><a href="${ROOT}practice-arena.html" class="bei-nav-link ${activeKey === 'arena' ? 'active' : ''}"><span class="nav-icon">⚔️</span><span>Arena</span></a></li>
-                    <li><a href="${ROOT}studios/index.html" class="bei-nav-link ${activeKey === 'studios' ? 'active' : ''}"><span class="nav-icon">⚡</span><span>Studios</span></a></li>
-                    <li><a href="${ROOT}library/books/index.html" class="bei-nav-link ${activeKey === 'textbooks' ? 'active' : ''}"><span class="nav-icon">📖</span><span>Textbooks</span></a></li>
-                    <li><a href="${ROOT}library/cheatsheets/index.html" class="bei-nav-link ${activeKey === 'cheatsheets' ? 'active' : ''}"><span class="nav-icon">📋</span><span>Cheatsheets</span></a></li>
-                    <li><a href="${ROOT}projects/index.html" class="bei-nav-link ${activeKey === 'projects' ? 'active' : ''}"><span class="nav-icon">🏆</span><span>Projects</span></a></li>
+                    ${dropdown('learn', '📚', 'Learn', learnMenu, group === 'learn')}
+                    ${dropdown('practice', '⚡', 'Practice', practiceMenu, group === 'practice')}
+                    ${dropdown('library', '📖', 'Library', libraryMenu, group === 'library')}
                     <li><a href="${ROOT}teacher-hub/index.html" class="bei-nav-link ${activeKey === 'teachers' ? 'active' : ''}"><span class="nav-icon">🍎</span><span>Teachers</span></a></li>
                 </ul>
 
@@ -830,7 +867,6 @@
                         <span class="bei-search-ico" aria-hidden="true">🔍</span><span class="bei-search-text">Search</span><kbd class="bei-search-kbd">Ctrl K</kbd>
                     </button>
                     <button class="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Toggle theme">☀️</button>
-                    <a href="${ROOT}studios/web-studio/index.html" class="btn-nav-primary">Launch Studio ⚡</a>
                     <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
                 </div>
             </div>
@@ -859,6 +895,44 @@
             };
         }
 
+        // Grouped menus. Desktop: click (or hover with a mouse) opens a panel; Escape or a click outside closes it.
+        // Phone drawer (≤1180px): the same buttons open the group as a section inside the drawer.
+        const dds = Array.from(nav.querySelectorAll('.bei-dd'));
+        const isDrawer = () => window.matchMedia('(max-width: 1180px)').matches;
+        const setOpen = (dd, open) => {
+            dd.classList.toggle('open', open);
+            dd.querySelector('.bei-dd-btn').setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+        const closeAll = (except) => dds.forEach(d => { if (d !== except) setOpen(d, false); });
+        dds.forEach(dd => {
+            const btn = dd.querySelector('.bei-dd-btn');
+            let hoverTimer = null;
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const open = !dd.classList.contains('open');
+                if (!isDrawer()) closeAll(dd);
+                setOpen(dd, open);
+            });
+            // Mouse users on a wide screen: open on hover, close shortly after leaving
+            dd.addEventListener('mouseenter', () => {
+                if (isDrawer() || !window.matchMedia('(hover: hover)').matches) return;
+                clearTimeout(hoverTimer); closeAll(dd); setOpen(dd, true);
+            });
+            dd.addEventListener('mouseleave', () => {
+                if (isDrawer() || !window.matchMedia('(hover: hover)').matches) return;
+                hoverTimer = setTimeout(() => setOpen(dd, false), 180);
+            });
+            dd.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && dd.classList.contains('open')) { setOpen(dd, false); btn.focus(); }
+            });
+            // Leaving the panel with Tab closes it
+            dd.addEventListener('focusout', (e) => {
+                if (!isDrawer() && !dd.contains(e.relatedTarget)) setOpen(dd, false);
+            });
+        });
+        document.addEventListener('click', (e) => { if (!isDrawer() && !nav.contains(e.target)) closeAll(); });
+        window.addEventListener('pageshow', (e) => { if (e.persisted) closeAll(); });
+
         // Mobile Toggle & Responsive Drawer
         const toggle = nav.querySelector('.mobile-toggle');
         if (toggle) {
@@ -871,7 +945,7 @@
             });
 
             // Close when clicking nav links
-            nav.querySelectorAll('.bei-nav-link').forEach(link => {
+            nav.querySelectorAll('a.bei-nav-link, a.bei-dd-item').forEach(link => {
                 link.addEventListener('click', () => {
                     nav.classList.remove('mobile-active');
                     toggle.classList.remove('active');

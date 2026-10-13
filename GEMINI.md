@@ -177,7 +177,9 @@ These rules come from real bugs found in this site. Follow them for every change
    and on `moduleN.html` pages the breadcrumb, module switcher and bottom pager. Do not hand-write a `<nav>` or header
    in a page, and do not re-enable the old header in `js/core.js` (`injectNavigation`, `injectModuleNavigator`, the
    `.bottom-nav`): it is kept only as a fallback for pages without the shared nav. To add a menu item, edit
-   `renderGlobalNav()` / `renderTabBar()` in `js/bei-nav.js` once.
+   `renderGlobalNav()` / `renderTabBar()` in `js/bei-nav.js` once. The top menu has five entries (Start here, Learn ▾,
+   Practice ▾, Library ▾, Teachers): add a new page inside one of the three menus rather than as a new top-level link,
+   so the bar keeps fitting on 1280px laptop screens.
 7c. **One palette.** `styles/bei-core.css` is the design system (navy, dark by default, light via `data-theme`). Lesson
    pages still load the older `styles/main.css` for their content layout, but a bridge block at the end of
    `bei-core.css` maps its variables (`--primary`, `--bg-main`, `--bg-card`, `--border-dim`) onto the system palette
