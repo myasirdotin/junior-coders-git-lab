@@ -1,8 +1,8 @@
-# Chapter 6: Text Formatting 🎨🖋️
+# Chapter 6: Text Formatting 🎨
 
 ---
 
-## 1. 🌟 Real-Life Situation: Highlighting Your Notebook
+## 🌟 Real-Life Story
 
 Think about how you take notes in your class notebook:
 - When a teacher writes an important vocabulary word, you write it in **bold ink**.
@@ -14,7 +14,7 @@ Think about how you take notes in your class notebook:
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Use `<strong>` and `<b>` to make words bold.
@@ -26,19 +26,19 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Formatting Toolkit
 
 ```text
-  Tag Name          What It Does                           Visual Look
- ──────────        ─────────────────────────────────────  ─────────────
-  <strong>          High importance / urgent emphasis      BOLD
-  <em>              Spoken stress / tone emphasis          ITALICS
-  <b>               Stylistic bold without extra urgency   BOLD
-  <i>               Alternative voice, term, title         ITALICS
-  <br>              Line break (Drops to next line)        (Moves down)
-  <hr>              Thematic break (Horizontal ruler)      ─────────────
+ Tag       What it means      Looks like
+ ───────── ────────────────── ──────────
+ <strong>  very important     bold
+ <em>      stress this word   italics
+ <b>       bold, no urgency   bold
+ <i>       a term or title    italics
+ <br>      line break         next line
+ <hr>      change of topic    ─────────
 ```
 
 ### The Difference: Appearance vs. Meaning (Semantics)
@@ -46,19 +46,23 @@ By the end of this chapter, you will be able to:
 Why does HTML have two ways to make text bold (`<b>` and `<strong>`) and two ways to make text italic (`<i>` and `<em>`)?
 
 ```text
- <b>  = "Just make this text bold visually." (Visual only)
- <strong> = "THIS IS CRITICAL! Pay attention!" (Screen readers speak this with force!)
+<b>      = "Make this bold."
+           (looks only)
+<strong> = "This is IMPORTANT!"
+           (looks AND meaning)
 
- <i>  = "Just tilt this text sideways." (Visual only)
- <em> = "Stress this word when speaking aloud!" (Screen readers change voice tone!)
+<i>      = "Tilt this sideways."
+           (looks only)
+<em>     = "Stress this word."
+           (looks AND meaning)
 ```
 
 > 🌟 **Did You Know?**
-> People who are blind use special computer software called screen readers that read websites out loud. When a screen reader sees `<strong>Warning!</strong>`, it actually raises its voice with urgency so the user knows it's important!
+> People who are blind often use **screen readers**: software that reads websites out loud. `<strong>` and `<em>` store the *meaning* "important" or "stressed" inside the page. Most screen readers do not change their voice for them by default, but tools and future software can still use that meaning. `<b>` and `<i>` carry no such meaning.
 
 ---
 
-## 4. 💻 Code Example: Formatting Showcase
+## 💻 Code Example: Formatting Showcase
 
 Type this into your editor as `formatting.html`:
 
@@ -67,6 +71,7 @@ Type this into your editor as `formatting.html`:
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Formatting Lab</title>
   </head>
   <body>
@@ -98,7 +103,7 @@ Type this into your editor as `formatting.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Line-by-Line Breakdown
+## 🔍 Code Explanation: Line-by-Line Breakdown
 
 - `<strong>extreme care</strong>`: The words *"extreme care"* will appear in dark, thick bold lettering to warn the reader.
 - `<hr>`: Stands for *Horizontal Rule*. It draws a crisp, clean dividing line straight across the browser window. Notice it does NOT need a closing `</hr>` tag—it is a self-closing void tag!
@@ -107,9 +112,9 @@ Type this into your editor as `formatting.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: Recipe & Travel Sites
+## 🌍 Real-World Connection: Recipe & Travel Sites
 
-Open any cooking website like *Allrecipes* or a travel blog:
+Open any cooking website or travel guide:
 - Ingredients are listed with quantities using `<br>` lines so each ingredient sits on its own line.
 - Important safety warnings like *"Preheat oven to 375°F before touching the pan"* use `<strong>`.
 - Tips like *"For extra crunch, try using toasted pecans"* use `<em>`.
@@ -117,24 +122,7 @@ Open any cooking website like *Allrecipes* or a travel blog:
 
 ---
 
-## 7. ✍️ Try It Yourself: The Poem Creator
-
-Write a 4-line poem inside a single `<p>` tag using `<br>` tags to keep each line on its own row. Give one word in your poem `<strong>` and another word `<em>`.
-
-```html
-<p>
-  The autumn wind begins to blow,<br>
-  The leaves are falling <em>soft and slow</em>.<br>
-  Winter whispers in the night,<br>
-  Bringing dreams of <strong>glowing light</strong>.
-</p>
-```
-
-Preview it in your browser! Notice how `<br>` keeps the lines close together, unlike separate `<p>` tags which would leave large gaps!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this paragraph in an editor:
 
@@ -155,7 +143,7 @@ Look at this paragraph in an editor:
 
 ---
 
-## 9. 🕵️ Code Detective: The Ghost Closing Tags
+## 🕵️ Code Detective: The Ghost Closing Tags
 
 A beginner student tried to write this divider and line break:
 
@@ -166,7 +154,7 @@ A beginner student tried to write this divider and line break:
 ```
 
 - **Find the mistake**: Look at `</br>` and `</hr>`!
-- **Explain the mistake**: `<br>` and `<hr>` are **self-closing void elements**. They do not hold text inside them, so writing closing tags like `</br>` or `</hr>` is an error!
+- **Explain the mistake**: `<br>` and `<hr>` are **self-closing void elements**. They do not hold text inside them, so writing closing tags like `</br>` or `</hr>` is an error! (Browsers even read the stray `</br>` as one more line break.)
 - **Fix the code**:
   ```html
   <!-- Fixed Code -->
@@ -177,7 +165,7 @@ A beginner student tried to write this divider and line break:
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Don't Over-Decorate!
+## 🎨 Think Like a Web Designer: Don't Over-Decorate!
 
 Imagine reading a book where **EVERY** *SINGLE* **WORD** *IS* **EITHER** *BOLD* **OR** *ITALIC*!
 Your eyes would feel dizzy within 10 seconds!
@@ -187,7 +175,7 @@ Your eyes would feel dizzy within 10 seconds!
 
 ---
 
-## 11. 🚀 Mini Challenge: The "About Me" Profile
+## 🚀 Mini Challenge: The "About Me" Profile
 
 Create a new file named `about-me.html`. Build a personal profile card using what you learned:
 - An `<h1>` with your name.
@@ -198,7 +186,56 @@ Create a new file named `about-me.html`. Build a personal profile card using wha
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+**Pressing Enter instead of using `<br>`.**
+
+❌ Wrong: the student expects three lines.
+
+```html
+<p>
+  Green Valley School
+  12 Park Road
+  Lahore
+</p>
+```
+
+What happens: the browser shows **Green Valley School 12 Park Road Lahore** on one line. Browsers turn line breaks and extra spaces in your code into a single space.
+
+✅ Fixed: put `<br>` where each new line should start.
+
+```html
+<p>
+  Green Valley School<br>
+  12 Park Road<br>
+  Lahore
+</p>
+```
+
+---
+
+## ✍️ Try It
+
+**The Poem Creator**
+
+Write a 4-line poem inside a single `<p>` tag using `<br>` tags to keep each line on its own row. Give one word in your poem `<strong>` and another word `<em>`.
+
+```html
+<p>
+  The autumn wind begins to blow,<br>
+  The leaves are falling <em>soft and slow</em>.<br>
+  Winter whispers in the night,<br>
+  Bringing dreams of <strong>glowing light</strong>.
+</p>
+```
+
+Preview it in your browser! Notice how `<br>` keeps the lines close together, unlike separate `<p>` tags which would leave large gaps!
+
+> 💡 **Hint:** Put `<br>` at the end of lines 1, 2 and 3 only. The last line needs none, because the paragraph ends there.
+
+---
+
+## 📝 Recap
 
 - `<strong>` gives text strong importance and renders it in **bold**.
 - `<em>` gives text emphasis and renders it in *italics*.
@@ -209,7 +246,7 @@ Create a new file named `about-me.html`. Build a personal profile card using wha
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -221,17 +258,59 @@ Create a new file named `about-me.html`. Build a personal profile card using wha
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. Which tag creates a horizontal line across the screen?
-2. Which tag forces text to drop to the next line?
-3. True or False: You should write `</br>` at the end of a line.
+### 🟢 Level 1: Recall
+1. Which tag draws a horizontal line across the screen?
+2. Which tag makes text drop to the next line?
+3. True or false: you should write `</br>` at the end of a line.
 
-### 🟡 Medium (Application)
-4. Rewrite this sentence using proper semantic HTML so that "Never" has high importance and "very carefully" is emphasized:
-   *"Never open the door before checking very carefully."*
-5. Why does pressing Enter 10 times in your code editor not add 10 blank lines in the browser?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Create an official "Certificate of Achievement" web page for a classmate. Use an `<h1>` for the certificate title, an `<hr>` border separator, `<strong>` for the recipient's name, `<em>` for the reason for the award, and `<br>` for the signature lines!
+1. `<hr>`
+2. `<br>`
+3. False. `<br>` is a void tag and has no closing tag.
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Rewrite this sentence so that "Never" has high importance and "very carefully" is emphasized: *"Never open the door before checking very carefully."*
+2. Why does pressing Enter 10 times in your code editor not add 10 blank lines in the browser?
+
+<details>
+<summary>Show answer</summary>
+
+1.
+
+```html
+<p><strong>Never</strong> open the door before checking <em>very carefully</em>.</p>
+```
+
+2. Browsers collapse line breaks and extra spaces in HTML code into a single space. To start a new line you must write `<br>` (or start a new `<p>`).
+
+</details>
+
+### 🔴 Level 3: Challenge
+Make a "Certificate of Achievement" page for a classmate:
+1. Use an `<h1>` for the certificate title.
+2. Add an `<hr>` below it.
+3. Put the classmate's name in `<strong>` and the reason for the award in `<em>`.
+4. Add two signature lines (Teacher, Principal) inside one paragraph, separated by `<br>`.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<h1>Certificate of Achievement</h1>
+<hr>
+<p>This certificate is presented to <strong>Ayesha Siddiqui</strong></p>
+<p>for <em>helping younger students in the reading club every week</em>.</p>
+<hr>
+<p>
+  Teacher: ____________<br>
+  Principal: ____________
+</p>
+```
+
+</details>

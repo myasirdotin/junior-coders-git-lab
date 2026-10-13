@@ -1,8 +1,8 @@
-# Chapter 11: Forms 📝📬
+# Chapter 11: Forms 📝
 
 ---
 
-## 1. 🌟 Real-Life Situation: Joining the School Soccer Club
+## 🌟 Real-Life Story
 
 When you want to sign up for your school soccer team, the coach hands you a registration clipboard with a paper form:
 - You write your full name in a blank box.
@@ -13,11 +13,11 @@ When you want to sign up for your school soccer team, the coach hands you a regi
 - Finally, you hand the form to the coach!
 
 **HTML Forms allow websites to have this exact two-way conversation with visitors!**
-Without forms, you could never log in to your email, search for videos on YouTube, or buy tickets online. Forms let users send information back to the website!
+Without forms, you could never log in to your email, search a library catalogue, or register for a science fair online. Forms let users send information back to the website!
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Understand the `<form>` wrapper element.
@@ -31,36 +31,35 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Form Element Family
 
 ```text
- ┌─────────────────────────────────────────────────────────────┐
- │ <form> Container                                            │
- │                                                             │
- │  Text Input:      [ John Doe                  ]             │
- │  Email Input:     [ student@srinagar.edu.in   ]             │
- │                                                             │
- │  Checkboxes:      [✓] Coding   [ ] Robotics   [✓] Science   │
- │                   (Can pick multiple options!)              │
- │                                                             │
- │  Radio Buttons:   (•) Grade 7   ( ) Grade 8   ( ) Grade 9   │
- │                   (Can pick ONLY ONE option!)               │
- │                                                             │
- │  Dropdown List:   [ Choose a Club...      ▼ ]               │
- │                                                             │
- │  Text Area:       ┌────────────────────────┐                │
- │  (Multi-line)     │ Tell us about yourself │                │
- │                   └────────────────────────┘                │
- │                                                             │
- │  Submit Button:   [ Submit Registration ]                   │
- └─────────────────────────────────────────────────────────────┘
+┌─ <form> ──────────────────────────────┐
+│ Text:     [ Maya Lin             ]    │
+│ Email:    [ maya@example.org     ]    │
+│                                       │
+│ Checkboxes (pick ANY number):         │
+│   [✓] Coding [ ] Robotics [✓] Art     │
+│                                       │
+│ Radio buttons (pick ONLY ONE):        │
+│   (•) Grade 7 ( ) Grade 8 ( ) Grade 9 │
+│                                       │
+│ Dropdown: [ Choose a club...   ▼ ]    │
+│                                       │
+│ Text area (many lines):               │
+│   ┌──────────────────────────┐        │
+│   │ Tell us about yourself   │        │
+│   └──────────────────────────┘        │
+│                                       │
+│ [ Submit Registration ]               │
+└───────────────────────────────────────┘
 ```
 
 ---
 
-## 4. 💻 Code Example: Student Club Registration
+## 💻 Code Example: Student Club Registration
 
 Type this into your editor and save it as `registration.html`:
 
@@ -69,6 +68,7 @@ Type this into your editor and save it as `registration.html`:
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club Registration Form</title>
   </head>
   <body>
@@ -79,13 +79,13 @@ Type this into your editor and save it as `registration.html`:
       <!-- 1. Text Field with Label -->
       <p>
         <label for="studentName">Full Student Name:</label><br>
-        <input type="text" id="studentName" placeholder="e.g. Maya Lin" required>
+        <input type="text" id="studentName" name="studentName" placeholder="e.g. Maya Lin" required>
       </p>
 
       <!-- 2. Email Field -->
       <p>
         <label for="studentEmail">Parent / Student Email:</label><br>
-        <input type="email" id="studentEmail" placeholder="student@srinagar.edu.in" required>
+        <input type="email" id="studentEmail" name="studentEmail" placeholder="student@example.org" required>
       </p>
 
       <!-- 3. Radio Buttons (Select ONLY ONE grade) -->
@@ -111,7 +111,7 @@ Type this into your editor and save it as `registration.html`:
         <label for="apps">Educational App Programming</label><br>
 
         <input type="checkbox" id="robot" name="interests" value="robot">
-        <label for="robot">Lego Robotics</label>
+        <label for="robot">Robotics Kits</label>
       </p>
 
       <!-- 5. Dropdown Menu -->
@@ -119,7 +119,7 @@ Type this into your editor and save it as `registration.html`:
         <label for="experience">Coding Experience Level:</label><br>
         <select id="experience" name="experience">
           <option value="none">Total Beginner (Brand new!)</option>
-          <option value="scratch">I have made Scratch games</option>
+          <option value="scratch">I have made Scratch projects</option>
           <option value="html">I have written some HTML before</option>
         </select>
       </p>
@@ -141,7 +141,7 @@ Type this into your editor and save it as `registration.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Key Form Attributes
+## 🔍 Code Explanation: Key Form Attributes
 
 - `<label for="studentName">`: Labels make forms accessible. When you click the label text with your mouse, the browser automatically jumps the cursor into the matching input box (connected via the `id` attribute)!
 - `placeholder="..."`: The faint light-gray hint text that appears inside an empty box to show students what to type.
@@ -149,28 +149,20 @@ Type this into your editor and save it as `registration.html`:
 - `name="grade"` on radio buttons: **This is critical!** Giving all three radio buttons the exact same `name="grade"` binds them into a team, ensuring the user can only choose ONE option at a time!
 - `<select>` and `<option>`: Creates a neat dropdown menu that expands when clicked.
 - `<textarea>`: Unlike `<input>`, which is only one single line, `<textarea>` can stretch into multiple rows and columns for paragraphs and feedback.
+- `name="..."`: The name the data travels under when the form is sent. Without a `name`, a field's value is **not sent** at all.
+
+> 📬 **Where does the data go?** In this book we only *build* the form. Clicking Submit here just reloads the page. Receiving and saving the data is done later on the server, with PHP, in the PHP track.
 
 ---
 
-## 6. 🌍 Real-World Connection: How Google & GitHub Use Forms
+## 🌍 Real-World Connection: How Google & GitHub Use Forms
 
 - **Google Search**: The giant search bar on `google.com` is simply an `<input type="text">` inside a `<form>`! When you press Enter, the form submits your query to Google's server.
 - **GitHub & University Portals**: The login screen is an `<input type="email">` and an `<input type="password">`! The password input hides characters as black dots (••••••) so nobody standing behind you can steal your password!
 
 ---
 
-## 7. ✍️ Try It Yourself: The Password Shield
-
-Create a secret password box:
-```html
-<label for="secret">Enter Your Secret Clubhouse Password:</label><br>
-<input type="password" id="secret" placeholder="Enter password...">
-```
-Open it in your browser and type some letters. Notice how the browser automatically disguises your letters into dots!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at these two radio buttons:
 
@@ -188,7 +180,7 @@ Look at these two radio buttons:
 
 ---
 
-## 9. 🕵️ Code Detective: The Un-clickable Label
+## 🕵️ Code Detective: The Un-clickable Label
 
 A student wrote a form, but clicking on the text "I agree to the rules" does not check the box:
 
@@ -209,7 +201,7 @@ A student wrote a form, but clicking on the text "I agree to the rules" does not
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Friendly Forms
+## 🎨 Think Like a Web Designer: Friendly Forms
 
 Have you ever opened a form with 60 required questions in tiny font? You immediately close the tab!
 - **Good Form Design**: Only ask for the information you truly need.
@@ -218,7 +210,7 @@ Have you ever opened a form with 60 required questions in tiny font? You immedia
 
 ---
 
-## 11. 🚀 Mini Challenge: The Pizza Ordering Form
+## 🚀 Mini Challenge: The Pizza Ordering Form
 
 Create a web page named `pizza-order.html`:
 - `<h1>`: `Luigi's Custom Pizzeria`
@@ -229,7 +221,44 @@ Create a web page named `pizza-order.html`:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+**Forgetting the `name` attribute.**
+
+❌ Wrong:
+
+```html
+<label for="city">City:</label>
+<input type="text" id="city">
+```
+
+What happens: the box looks perfect and you can type in it. But when the form is sent, this value is left out, because it has no name to travel under. The server (PHP, later) never receives the city.
+
+✅ Fixed: give every field a `name`. Keep the `id` too, so the label still works.
+
+```html
+<label for="city">City:</label>
+<input type="text" id="city" name="city">
+```
+
+---
+
+## ✍️ Try It
+
+**The Password Shield**
+
+Create a secret password box:
+```html
+<label for="secret">Enter Your Secret Clubhouse Password:</label><br>
+<input type="password" id="secret" placeholder="Enter password...">
+```
+Open it in your browser and type some letters. Notice how the browser automatically disguises your letters into dots!
+
+> 💡 **Hint:** The dots only hide the password from people looking at the screen. Keeping passwords safe on the server is a trust (*Amānah*), and you will learn how to do it properly in the PHP track.
+
+---
+
+## 📝 Recap
 
 - Forms collect information from users through interactive controls.
 - `<form>` holds all form inputs.
@@ -242,7 +271,7 @@ Create a web page named `pizza-order.html`:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -255,16 +284,85 @@ Create a web page named `pizza-order.html`:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. Which input type hides typed characters with black dots?
-2. What attribute makes an input field mandatory before submitting?
+### 🟢 Level 1: Recall
+1. Which input type hides typed characters with dots?
+2. Which attribute makes a field required before the form can be sent?
 3. How do you group radio buttons so only one can be checked?
 
-### 🟡 Medium (Application)
-4. Write the HTML code for a search box with placeholder text saying "Search tutorials...".
-5. What is the difference between `<input type="checkbox">` and `<input type="radio">`?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Build a complete "Student Council Voting Ballot" form where students enter their Student ID, vote for a Class President using radio buttons, select their favorite school clubs with checkboxes, and write an essay suggestion in a `<textarea>`!
+1. `type="password"`
+2. `required`
+3. Give them all the **same** `name`, e.g. `name="grade"`.
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Write a labelled search box with the placeholder "Search tutorials...".
+2. What is the difference between `<input type="checkbox">` and `<input type="radio">`?
+
+<details>
+<summary>Show answer</summary>
+
+1.
+
+```html
+<label for="search">Search:</label>
+<input type="text" id="search" name="search" placeholder="Search tutorials...">
+```
+
+(HTML also has `type="search"`, which works the same way.)
+
+2. Checkboxes are independent: you can tick any number. Radio buttons in the same group allow only **one** choice.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Build a "Student Council Voting Ballot" form:
+1. A text box for the Student ID.
+2. Radio buttons to vote for one of three Class President candidates.
+3. Checkboxes for favourite school clubs.
+4. A `<textarea>` for one suggestion to improve the school.
+5. A submit button. Every field needs a `<label for>` and a `name`.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<form>
+  <p>
+    <label for="sid">Student ID:</label><br>
+    <input type="text" id="sid" name="sid" required>
+  </p>
+
+  <p>
+    <strong>Class President:</strong><br>
+    <input type="radio" id="c1" name="president" value="amina">
+    <label for="c1">Amina</label><br>
+    <input type="radio" id="c2" name="president" value="bilal">
+    <label for="c2">Bilal</label><br>
+    <input type="radio" id="c3" name="president" value="sara">
+    <label for="c3">Sara</label>
+  </p>
+
+  <p>
+    <strong>Favourite clubs:</strong><br>
+    <input type="checkbox" id="k1" name="clubs" value="science">
+    <label for="k1">Science Club</label><br>
+    <input type="checkbox" id="k2" name="clubs" value="library">
+    <label for="k2">Library Helpers</label>
+  </p>
+
+  <p>
+    <label for="idea">One suggestion for our school:</label><br>
+    <textarea id="idea" name="idea" rows="4" cols="40"></textarea>
+  </p>
+
+  <p><button type="submit">Cast My Vote</button></p>
+</form>
+```
+
+</details>

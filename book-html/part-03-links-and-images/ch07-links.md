@@ -1,22 +1,22 @@
-# Chapter 7: Links 🔗🌍
+# Chapter 7: Links 🔗
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Magic Portal Doors
+## 🌟 Real-Life Story
 
-Imagine walking through the corridors of a grand magical castle. Along the hallway are dozens of glowing wooden doors. 
-- Over one door, a golden plaque reads: **“Library of Astronomy”**.
-- Over another, a sign says: **“Courtyard Gardens”**.
-- Over a third door, a sign reads: **“Teleport to Mount Everest Base Camp”**!
+Imagine stepping into the lift of a tall city library. Next to the doors is a panel of labelled buttons.
+- One button reads: **“Floor 3: Astronomy Books”**.
+- Another reads: **“Floor 5: Reading Garden”**.
+- A third reads: **“Floor 7: Science Lab”**.
 
-When you turn the brass knob and step through, you don't have to walk for miles; you are instantly transported to that exact room or destination!
+You press one button, and a moment later the doors open on exactly that floor. You never had to search the stairs!
 
-**This is what made the World Wide Web world-famous!**
-Before hyperlinks, computer files were isolated islands trapped on single hard drives. The letter **"H"** in HTML stands for **HyperText**—text that contains magical links capable of transporting you across your own website or across the planet with a single click!
+**Links work the same way, and they are what made the World Wide Web famous!**
+Before hyperlinks, computer files sat alone on single hard drives. The letter **"H"** in HTML stands for **HyperText**: text that contains links. One click takes you to another page on your own website, or to a website on the other side of the planet.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Understand the anatomy of the anchor tag (`<a>`) and the `href` attribute.
@@ -27,43 +27,51 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### Anatomy of an Anchor Tag
 
 ```text
-    Tag Name    Attribute Name   Destination URL
-       │              │               │
-       ▼              ▼               ▼
-     < a            href = "https://www.nasa.gov" > Explore NASA < /a >
-     ──┬─           ──────────────────────────────   ────────────   ──┬─
-       │                                                   │          │
-   Opening Tag                                         Link Text    Closing Tag
-                                                    (What User Sees)
+ tag   attribute   destination (URL)
+  │       │            │
+  ▼       ▼            ▼
+ <a  href="https://www.nasa.gov">
+
+      Explore NASA     </a>
+           ▲             ▲
+      link text     closing tag
+   (what users see)
 ```
 
 ### Internal vs. External Links
 
 ```text
-1. INTERNAL LINK (Inside Your Own Website Folder)
-   index.html ──────────> about.html
-   href="about.html" (No need for https://www.!)
+1. INTERNAL LINK (your own folder)
+   index.html ──────> about.html
+   href="about.html"
+   (no https:// needed)
 
-2. EXTERNAL LINK (Traveling to Another Website Worldwide)
-   your-site.html ──────> www.wikipedia.org
-   href="https://www.wikipedia.org" (Requires full web protocol!)
+2. EXTERNAL LINK (another website)
+   my-page.html ────> wikipedia.org
+   href="https://www.wikipedia.org"
+   (full address with https://)
 ```
 
 ### Target Attribute: Same Tab vs. New Tab
 
 ```text
- <a href="page.html">                  <-- Opens in the SAME tab (replaces your page)
- <a href="page.html" target="_blank">   <-- Opens in a BRAND NEW tab (keeps your page open!)
+<a href="page.html">
+   -> opens in the SAME tab
+      (replaces your page)
+
+<a href="page.html" target="_blank">
+   -> opens in a NEW tab
+      (your page stays open)
 ```
 
 ---
 
-## 4. 💻 Code Example: Educational Links Directory
+## 💻 Code Example: Educational Links Directory
 
 Type this into an editor and save it as `links.html`:
 
@@ -72,6 +80,7 @@ Type this into an editor and save it as `links.html`:
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Great Learning Portals</title>
   </head>
   <body>
@@ -91,7 +100,7 @@ Type this into an editor and save it as `links.html`:
       <a href="https://scratch.mit.edu" target="_blank">
         Scratch by MIT
       </a>
-      - Create interactive games and animated stories with blocks.
+      - Build interactive stories and science animations with blocks.
     </p>
 
     <h2>Internal Navigation</h2>
@@ -105,7 +114,7 @@ Type this into an editor and save it as `links.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Breaking Down Attributes
+## 🔍 Code Explanation: Breaking Down Attributes
 
 Look closely at how attributes work:
 - `<a>`: Stands for **anchor**. It anchors a link to text or images.
@@ -116,7 +125,7 @@ Look closely at how attributes work:
 
 ---
 
-## 6. 🌍 Real-World Connection: How Wikipedia Connects Knowledge
+## 🌍 Real-World Connection: How Wikipedia Connects Knowledge
 
 Open any article on **Wikipedia** (e.g., *Dinosaurs*):
 - Within the first paragraph, you will see blue underlined words like *Fossils*, *Mesozoic Era*, *Reptiles*, and *Extinction*.
@@ -124,28 +133,11 @@ Open any article on **Wikipedia** (e.g., *Dinosaurs*):
 - Hyperlinks turn reading into an interactive journey of curiosity, where you can follow your interests wherever they lead.
 
 > 🌟 **Did You Know?**
-> By default, browsers paint unvisited links **blue with an underline**, and links you have already visited **purple**! With CSS (which we will learn in Part 3), you can make links look like modern rounded buttons with glowing hover effects!
+> By default, browsers paint unvisited links **blue with an underline**, and links you have already visited **purple**! With CSS (which you will learn in the CSS track), you can make links look like modern rounded buttons with glowing hover effects!
 
 ---
 
-## 7. ✍️ Try It Yourself: The 2-Page Website
-
-Let's build a real 2-page connected website!
-1. In your project folder, create `page1.html` with:
-   ```html
-   <h1>This is Page 1</h1>
-   <p>Welcome! Click to travel to <a href="page2.html">Go to Page 2</a></p>
-   ```
-2. In the same folder, create `page2.html` with:
-   ```html
-   <h1>This is Page 2</h1>
-   <p>You made it! Click here to <a href="page1.html">Go back to Page 1</a></p>
-   ```
-3. Open `page1.html` in your browser and click the link. You can now surf back and forth between your own pages!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this line of code:
 
@@ -162,7 +154,7 @@ Look at this line of code:
 
 ---
 
-## 9. 🕵️ Code Detective: The Missing Attribute
+## 🕵️ Code Detective: The Missing Attribute
 
 A student was confused because the text turned blue, but clicking it didn't take them anywhere!
 
@@ -181,7 +173,7 @@ A student was confused because the text turned blue, but clicking it didn't take
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: The "Click Here" Trap
+## 🎨 Think Like a Web Designer: The "Click Here" Trap
 
 Have you ever seen a page that says:
 *"To see our timetable click here. For teacher emails click here. For lunch menu click here."*
@@ -194,7 +186,7 @@ Have you ever seen a page that says:
 
 ---
 
-## 11. 🚀 Mini Challenge: The Classroom Resource Launchpad
+## 🚀 Mini Challenge: The Classroom Resource Launchpad
 
 Create an HTML page titled `my-launchpad.html`. Include:
 - A prominent `<h1>` headline: `My Learning Launchpad`
@@ -206,7 +198,48 @@ Create an HTML page titled `my-launchpad.html`. Include:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+**Leaving out `https://` on an external link.**
+
+❌ Wrong:
+
+```html
+<a href="www.wikipedia.org">Wikipedia</a>
+```
+
+What happens: without `https://`, the browser thinks `www.wikipedia.org` is a **file in your own folder**. It looks for it next to your page and shows a "file not found" error.
+
+✅ Fixed: external links need the full address.
+
+```html
+<a href="https://www.wikipedia.org">Wikipedia</a>
+```
+
+---
+
+## ✍️ Try It
+
+**The 2-Page Website**
+
+Let's build a real 2-page connected website!
+1. In your project folder, create `page1.html` with:
+   ```html
+   <h1>This is Page 1</h1>
+   <p>Welcome! Click to travel to <a href="page2.html">Go to Page 2</a></p>
+   ```
+2. In the same folder, create `page2.html` with:
+   ```html
+   <h1>This is Page 2</h1>
+   <p>You made it! Click here to <a href="page1.html">Go back to Page 1</a></p>
+   ```
+3. Open `page1.html` in your browser and click the link. You can now surf back and forth between your own pages!
+
+> 💡 **Hint:** If the link says "file not found", check that both files are in the **same folder** and that the spelling in `href` matches the file name exactly.
+
+---
+
+## 📝 Recap
 
 - The anchor element (`<a>`) creates clickable hyperlinks.
 - The `href` attribute specifies the destination URL or file path.
@@ -217,7 +250,7 @@ Create an HTML page titled `my-launchpad.html`. Include:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -230,16 +263,50 @@ Create an HTML page titled `my-launchpad.html`. Include:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
+### 🟢 Level 1: Recall
 1. What does the `href` attribute stand for?
 2. Which attribute makes a link open in a new tab?
 3. What happens if you forget to close an `<a>` tag with `</a>`?
 
-### 🟡 Medium (Application)
-4. Why should you use `target="_blank"` when linking to an external website, but avoid it when linking between pages of your own site?
-5. Write an HTML link that points to `contact.html` with the link text "Get in Touch With Our Team".
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Can you put an `<em>` or `<strong>` tag inside an `<a>` tag? Write an example and test it in your browser. Does the link still work? Does the styling show through?
+1. **H**ypertext **Ref**erence.
+2. `target="_blank"`
+3. The link does not stop where you wanted. The text after it also becomes part of the link.
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Many sites open external links in a new tab but keep links between their own pages in the same tab. Why?
+2. Write a link to `contact.html` with the link text "Get in Touch With Our Team".
+
+<details>
+<summary>Show answer</summary>
+
+1. A new tab keeps your site open, so visitors can come back after reading the other site. Inside your own site, a new tab for every click would fill the screen with tabs, so the same tab is better.
+2.
+
+```html
+<a href="contact.html">Get in Touch With Our Team</a>
+```
+
+</details>
+
+### 🔴 Level 3: Challenge
+1. Write a link that has an `<em>` or `<strong>` tag inside the `<a>` tag.
+2. Test it in your browser.
+3. Answer: does the link still work? Does the bold or italic style show?
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<p>Read the <a href="rules.html">library <strong>borrowing rules</strong></a> first.</p>
+```
+
+Yes, it works. The whole text "library borrowing rules" is one link, and "borrowing rules" is also bold. Formatting tags can sit inside a link, as long as they close **before** `</a>`.
+
+</details>

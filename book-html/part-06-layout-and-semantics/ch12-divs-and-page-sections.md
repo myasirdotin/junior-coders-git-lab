@@ -1,8 +1,8 @@
-# Chapter 12: Divs and Page Sections 🏛️📦
+# Chapter 12: Divs and Page Sections 🏛️
 
 ---
 
-## 1. 🌟 Real-Life Situation: Organizing Your School Backpack
+## 🌟 Real-Life Story
 
 Think about what happens if you open your backpack and dump your textbooks, pencils, rulers, gym shoes, lunch sandwich, and art brushes into one single giant heap inside the main pouch.
 - Your sandwich gets squished under your heavy math textbook!
@@ -19,7 +19,7 @@ That's why modern backpacks have distinct, specialized compartments:
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain why we organize web pages into logical sections.
@@ -30,34 +30,31 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### Anatomy of a Professional Modern Website
 
 ```text
- ┌─────────────────────────────────────────────────────────────┐
- │ <header>                                                    │
- │   Logo, School Name, Welcome Banner                         │
- ├─────────────────────────────────────────────────────────────┤
- │ <nav>                                                       │
- │   [ Home ]   [ About ]   [ Courses ]   [ Contact ]          │
- ├─────────────────────────────────────────────────────────────┤
- │ <main>                                                      │
- │                                                             │
- │   ┌─────────────────────────────────────────────────────┐   │
- │   │ <section id="hero">                                 │   │
- │   │   Big headline, introduction image, call-to-action  │   │
- │   └─────────────────────────────────────────────────────┘   │
- │                                                             │
- │   ┌─────────────────────────────────────────────────────┐   │
- │   │ <section id="articles">                             │   │
- │   │   Latest news, blog posts, projects                 │   │
- │   └─────────────────────────────────────────────────────┘   │
- │                                                             │
- ├─────────────────────────────────────────────────────────────┤
- │ <footer>                                                    │
- │   Copyright © 2026, Privacy Policy, Social Media Links      │
- └─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────┐
+│ <header>                             │
+│   logo, school name, welcome         │
+├──────────────────────────────────────┤
+│ <nav>                                │
+│   [Home] [About] [Courses] [Contact] │
+├──────────────────────────────────────┤
+│ <main>                               │
+│  ┌────────────────────────────────┐  │
+│  │ <section id="hero">            │  │
+│  │   big headline, intro image    │  │
+│  └────────────────────────────────┘  │
+│  ┌────────────────────────────────┐  │
+│  │ <section id="articles">        │  │
+│  │   latest news, projects        │  │
+│  └────────────────────────────────┘  │
+├──────────────────────────────────────┤
+│ <footer>                             │
+│   © 2026, privacy, contact links     │
+└──────────────────────────────────────┘
 ```
 
 ### Semantic Containers vs. Generic `<div>`
@@ -68,12 +65,12 @@ By the end of this chapter, you will be able to:
 | `<nav>` | Navigation links bar | Knows these are the main site links |
 | `<main>` | The core unique content of the page | Jumps straight to reading the page |
 | `<section>` | A themed chapter/topic on the page | Groups related headings and text |
-| `<footer>>` | The bottom closing credits & info | Identifies copyright and contact info |
+| `<footer>` | The bottom closing credits & info | Identifies copyright and contact info |
 | `<div>` | A generic invisible box for styling | Has no special meaning; just a box! |
 
 ---
 
-## 4. 💻 Code Example: The Complete Semantic Skeleton
+## 💻 Code Example: The Complete Semantic Skeleton
 
 Type this into your editor and save it as `website-layout.html`:
 
@@ -82,6 +79,7 @@ Type this into your editor and save it as `website-layout.html`:
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maya Lin | Junior Web Developer</title>
   </head>
   <body>
@@ -106,7 +104,7 @@ Type this into your editor and save it as `website-layout.html`:
         <h2>About Me</h2>
         <p>
           Hello! I am a Class 7 student who loves coding in HTML, reading sci-fi books, 
-          and building LEGO robots.
+          and building robots from a kit.
         </p>
       </section>
 
@@ -138,40 +136,29 @@ Type this into your editor and save it as `website-layout.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Why Semantics Rule the Web
+## 🔍 Code Explanation: Why Semantics Rule the Web
 
 - `<header>`: Sits at the top of the body. It introduces the site.
 - `<nav>`: Wraps navigation links. When blind visitors use screen readers, they can tell their computer: *"Skip to navigation!"* and it jumps right here.
 - `<main>`: Wraps the unique content of this specific page. Every page should have only one `<main>` element!
 - `<section>`: Divides the content into logical chapters. Each `<section>` should ideally have its own heading (`<h2>`).
 - `<div>`: Stands for **division**. Notice how we used `<div class="project-card">`. A `<div>` doesn't mean anything special on its own, but it acts like a neat plastic tub where we can group a title and a paragraph together so we can paint a border or card around them later in CSS!
+- `class="project-card"`: A **class** is a label you stick on an element. Many elements can share the same class, and CSS uses it to style them all at once.
+- `id="about"`: An **id** is a unique name: only one element on the page may use it. The nav link `href="#about"` jumps straight to the element with that id.
 - `<footer>`: The closing credits at the very bottom.
 
 ---
 
-## 6. 🌍 Real-World Connection: How Tech Giants Structure Code
+## 🌍 Real-World Connection: How Tech Giants Structure Code
 
-Inspect the source code of **The New York Times**, **BBC**, or **GitHub**:
-- You will see `<header>`, `<nav>`, `<main>`, and `<footer>` on every single page!
-- In the early days of the web (before 2014), developers had to use `<div id="header">`, `<div id="nav">`, `<div id="footer">`.
+View the source code of a big news site, an encyclopedia, or **GitHub**:
+- You will usually see `<header>`, `<nav>`, `<main>`, and `<footer>` on the pages!
+- Before HTML5 (finished in 2014), developers had to use `<div id="header">`, `<div id="nav">`, `<div id="footer">`.
 - Modern HTML5 introduced semantic tags so code is universally understood by browsers, search bots, and accessibility tools across the world.
 
 ---
 
-## 7. ✍️ Try It Yourself: Add a Contact Section
-
-Open `website-layout.html` and add a new section inside the `<main>` element:
-```html
-<section id="contact">
-  <h2>Get In Touch</h2>
-  <p>Send me an email at: <em>maya@srinagar.edu.in</em></p>
-</section>
-```
-Preview it in your browser! Notice how it creates a clean new chapter on your page.
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 If you write this code:
 
@@ -189,7 +176,7 @@ If you write this code:
 
 ---
 
-## 9. 🕵️ Code Detective: The Stray Main
+## 🕵️ Code Detective: The Stray Main
 
 A student wrote this code:
 
@@ -205,33 +192,34 @@ A student wrote this code:
 ```
 
 - **Find the mistake**: There are two `<main>` tags on the same page!
-- **Explain the mistake**: By web standards, a web page must have **only ONE `<main>` element**, representing the unique primary content of that specific document.
+- **Explain the mistake**: By web standards, a web page must have **only ONE visible `<main>` element**, representing the unique primary content of that specific document. (There are also two `<h1>` tags, and a page should have just one.)
 - **Fix the code**: Keep one `<main>` and use `<section>` tags inside it to divide topics!
   ```html
   <!-- Fixed Code -->
   <main>
+    <h1>My Page</h1>
     <section>
-      <h1>Page One Content</h1>
+      <h2>Part One</h2>
     </section>
     <section>
-      <h1>Page Two Content</h1>
+      <h2>Part Two</h2>
     </section>
   </main>
   ```
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: The Foundation for CSS
+## 🎨 Think Like a Web Designer: The Foundation for CSS
 
 Think of Chapter 12 as the end of your **HTML Structural Training**!
 - You now know how to build headers, navigation menus, text, links, photos, lists, tables, forms, and semantic page sections!
 - Right now, your pages might look like plain black-and-white documents.
 - But because your structure is built with `<header>`, `<nav>`, `<section>`, and `<div>`, you have created the **perfect hooks** for CSS!
-- In the very next chapter, we will pick up our digital paintbrushes and begin styling everything with color, fonts, animations, and beautiful modern layouts!
+- In the next chapters you will build four complete websites. Then the CSS track will hand you the paintbrushes: colours, fonts and modern layouts!
 
 ---
 
-## 11. 🚀 Mini Challenge: Sketch Your Personal Site Layout
+## 🚀 Mini Challenge: Sketch Your Personal Site Layout
 
 Create an HTML file called `my-personal-blueprint.html`:
 - A `<header>` with your name and a tagline.
@@ -244,7 +232,60 @@ Create an HTML file called `my-personal-blueprint.html`:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+**Using `<div>` for everything ("div soup").**
+
+❌ Wrong:
+
+```html
+<div>
+  <div>Green Valley School</div>
+</div>
+<div>
+  <a href="#news">News</a>
+</div>
+<div>
+  <p>Welcome to our new term!</p>
+</div>
+```
+
+What happens: the page may look the same, but nothing says which part is the banner, the menu or the main content. Screen reader users cannot jump to "navigation" or "main content". The title is not even a heading.
+
+✅ Fixed: use the semantic tag that matches each job. Save `<div>` for boxes that have no special meaning.
+
+```html
+<header>
+  <h1>Green Valley School</h1>
+</header>
+<nav>
+  <a href="#news">News</a>
+</nav>
+<main>
+  <p>Welcome to our new term!</p>
+</main>
+```
+
+---
+
+## ✍️ Try It
+
+**Add a Contact Section**
+
+Open `website-layout.html` and add a new section inside the `<main>` element:
+```html
+<section id="contact">
+  <h2>Get In Touch</h2>
+  <p>Send me an email at: <em>maya@example.org</em></p>
+</section>
+```
+Preview it in your browser! Notice how it creates a clean new chapter on your page.
+
+> 💡 **Hint:** Paste it just before `</main>`. Then the "Contact" link in your `<nav>` (which points to `#contact`) will jump straight to it.
+
+---
+
+## 📝 Recap
 
 - Semantic tags give clear meaning to both humans and machines.
 - `<header>` holds the top introduction and logo.
@@ -256,7 +297,7 @@ Create an HTML file called `my-personal-blueprint.html`:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -269,16 +310,59 @@ Create an HTML file called `my-personal-blueprint.html`:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. How many `<main>` tags should appear on a single web page?
-2. Which tag is best suited for wrapping the main navigation bar of a site?
-3. True or False: A `<div>` tag automatically changes text to italics.
+### 🟢 Level 1: Recall
+1. How many visible `<main>` tags should a web page have?
+2. Which tag is best for wrapping the main navigation bar of a site?
+3. True or false: a `<div>` tag automatically changes text to italics.
 
-### 🟡 Medium (Application)
-4. What is the difference between a `<section>` and a `<div>`? When would you choose one over the other?
-5. Write the HTML structure for a blog post with a `<header>` (title and date), a `<section>` for the article body, and a `<footer>` with author details.
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Why are semantic tags so important for users with disabilities? Research how screen readers navigate a web page using landmarks like `<nav>` and `<main>`!
+1. One.
+2. `<nav>`
+3. False. A `<div>` has no look of its own. It only groups things (and starts on a new line).
+
+</details>
+
+### 🟡 Level 2: Apply
+1. What is the difference between a `<section>` and a `<div>`? When would you choose each?
+2. Write the structure for a blog post: a `<header>` (title and date), a `<section>` for the article body, and a `<footer>` with the author's name.
+
+<details>
+<summary>Show answer</summary>
+
+1. A `<section>` is a themed part of the page with its own heading, and it carries that meaning. A `<div>` has no meaning: it is just a box for grouping or styling. Choose `<section>` for a real topic ("Our Projects"); choose `<div>` for a styling box (a card).
+2.
+
+```html
+<header>
+  <h1>Our Tree-Planting Day</h1>
+  <p>12 March 2026</p>
+</header>
+<section>
+  <h2>What We Did</h2>
+  <p>Class 7 planted 40 saplings along the school wall.</p>
+</section>
+<footer>
+  <p>Written by Hamza Ali</p>
+</footer>
+```
+
+</details>
+
+### 🔴 Level 3: Challenge
+Explain why semantic tags matter for people who use screen readers.
+1. Find out what a **landmark** is (search "screen reader landmarks").
+2. Name three tags that act as landmarks.
+3. Describe, in two or three sentences, how a blind visitor uses them.
+
+<details>
+<summary>Show one possible answer</summary>
+
+1. A landmark is a labelled region of the page that a screen reader can list and jump to.
+2. `<header>` (banner), `<nav>` (navigation), `<main>` (main content); `<footer>` also counts.
+3. Instead of listening to the whole page from the top, the visitor presses a key to list the landmarks. They choose "main" and jump straight to the content, or "navigation" to find the menu. With only `<div>` tags, there are no landmarks, so they must listen to everything.
+
+</details>

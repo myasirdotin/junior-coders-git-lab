@@ -2,7 +2,7 @@
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Digital Library
+## 🌟 Real-Life Story
 
 Imagine walking into your school library. When you want to find a book about space exploration, you don't just wander aimlessly. You go to the librarian's desk, ask for the astronomy shelf, pick up a book with a colorful cover, and flip through its pages.
 
@@ -16,7 +16,7 @@ Each book has a unique title and code so the librarian can find it. Inside the b
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Clearly define what a website and a web page are.
@@ -27,34 +27,35 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Journey of a Web Page Request
 
-When you sit at your computer and type `www.wikipedia.org` or `www.youtube.com`, an incredible digital chain reaction occurs:
+When you sit at your computer and type `www.wikipedia.org` or your school's address, a fast digital chain reaction happens:
 
 ```text
 +-------------------+
-|    1. STUDENT     |  "I want to see the Science Page!"
-|  (At Computer)    |
+|    1. STUDENT     | "Show me the
+|  (at computer)    |  Science page!"
 +---------+---------+
-          |  Types web address (URL) into address bar
+          | types the web address (URL)
           v
 +---------+---------+
-|    2. BROWSER     |  (Chrome, Edge, Safari, Firefox)
-|   (The Courier)   |  "Hold on! Let me fetch that page for you."
+|    2. BROWSER     | Chrome, Edge,
+|   (the courier)   | Safari, Firefox
 +---------+---------+
-          |  Sends request across the Internet
+          | sends a request over
+          | the Internet
           v
 +---------+---------+
-|    3. SERVER      |  A computer that never sleeps,
-| (Digital Storage) |  storing HTML, CSS, images, and videos.
+|    3. SERVER      | stores the HTML,
+| (digital storage) | CSS and images
 +---------+---------+
-          |  Sends back HTML & CSS files (the raw recipe)
+          | sends the files back
           v
 +---------+---------+
-|    4. SCREEN      |  Browser translates code into colors,
-|   (The Result!)   |  headings, pictures, and buttons!
+|    4. SCREEN      | browser turns code
+|   (the result)    | into a real page
 +-------------------+
 ```
 
@@ -68,14 +69,16 @@ When you sit at your computer and type `www.wikipedia.org` or `www.youtube.com`,
 
 ---
 
-## 4. 💻 Code Example: Peeking Behind the Curtain
+## 💻 Code Example: Peeking Behind the Curtain
 
 Browsers do not see words and pictures the way human eyes do. They read text instructions written in code! Here is what a simple, raw web page instruction looks like:
 
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My First Discovery</title>
   </head>
   <body>
@@ -87,13 +90,15 @@ Browsers do not see words and pictures the way human eyes do. They read text ins
 
 ---
 
-## 5. 🔍 Code Explanation: Breaking It Down Line by Line
+## 🔍 Code Explanation: Breaking It Down Line by Line
 
 Let's inspect the code above like digital scientists:
 
 - `<!DOCTYPE html>`: Tells the browser: *"Get ready! This document is written in modern HTML5!"*
-- `<html>`: The outer container. Everything on your web page lives inside this tag.
+- `<html lang="en">`: The outer container. Everything on your web page lives inside this tag. `lang="en"` says the page is in English.
 - `<head>`: The "brain" of the web page. It holds hidden information that the page needs (like its title or search settings), but does not show directly on the white canvas.
+- `<meta charset="UTF-8">`: Lets the page show letters from every language, plus symbols like ₹ and é.
+- `<meta name="viewport" ...>`: Makes the page fit neatly on a phone screen.
 - `<title>`: Sets the name shown on the browser tab at the very top of your screen.
 - `<body>`: The "canvas" or physical page. Everything you put here—words, images, buttons, videos—is visible to visitors!
 - `<h1>`: A big, bold main heading.
@@ -101,30 +106,19 @@ Let's inspect the code above like digital scientists:
 
 ---
 
-## 6. 🌍 Real-World Connection: How Big Sites Use This
+## 🌍 Real-World Connection: How Big Sites Use This
 
 Think about your favorite websites:
-- **YouTube**: The entire site contains millions of web pages. When you watch a video, you are looking at one specific web page designed with a video player, comment section, and title.
+- **A public library catalogue**: The whole site holds thousands of web pages. When you look up one book, you are looking at one web page with its title, author and shelf number.
 - **Wikipedia**: Every topic—from dinosaurs to black holes—is an individual web page tied together by links.
 - **School Portal**: Your homework page, exam timetable, and notice board are distinct web pages living under your school's website.
 
 > 🌟 **Did You Know?**
-> The very first website in the world was created in **1991** by a British scientist named **Sir Tim Berners-Lee**. It had no images, no colors, and no videos—just plain text and links! Today, there are over 1.8 billion websites on Earth!
+> The very first website in the world was created in **1991** by a British scientist named **Sir Tim Berners-Lee**. It had no images, no colors, and no videos—just plain text and links! Today, there are more than a billion websites!
 
 ---
 
-## 7. ✍️ Try It Yourself: The Web Detective Tour
-
-Grab your computer mouse and try this quick 3-minute exploration:
-1. Open any modern web browser (Google Chrome, Edge, or Firefox).
-2. Visit `www.example.com` (this is an official, clean demonstration page).
-3. **Right-click** anywhere on the white empty background.
-4. Click **"View Page Source"** (or press `Ctrl + U` on Windows / `Cmd + Option + U` on Mac).
-5. **Look at the screen!** You will see the exact HTML code that built the page! You just peeked into the secret engine room of the web!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Take a look at this tiny snippet:
 
@@ -142,13 +136,15 @@ Take a look at this tiny snippet:
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Address
+## 🕵️ Code Detective: The Broken Address
 
 A junior coder tried to explain how a browser works, but wrote something confused:
 
 ```text
-"When you type www.kidsnews.com, your browser prints the page on paper, 
-sends a letter to the post office, and your monitor turns off until the letter arrives."
+"When you type www.example.org, your
+browser prints the page on paper and
+posts a letter. Your screen turns off
+until the letter arrives."
 ```
 
 - **Find the mistake**: The computer does not use paper mail or turn off!
@@ -158,7 +154,7 @@ sends a letter to the post office, and your monitor turns off until the letter a
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: First Impressions Matter
+## 🎨 Think Like a Web Designer: First Impressions Matter
 
 When a student lands on a school website, what do they want to see first?
 - A wall of 1,000 tiny words in gray text? **OR**
@@ -169,7 +165,7 @@ When a student lands on a school website, what do they want to see first?
 
 ---
 
-## 11. 🚀 Mini Challenge: Sketch Your Dream Website
+## 🚀 Mini Challenge: Sketch Your Dream Website
 
 Before coders write a single line of code, they draw what they want to build!
 Take a blank sheet of paper and a pencil. Draw a website idea for:
@@ -186,7 +182,36 @@ Save this sketch—we will code it as we progress through this book!
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+**Mixing up the browser and the website.**
+
+❌ Wrong: *"Google is my browser."*
+
+What happens: you mix up the tool with the place you visit. When a teacher says "open your browser", you may not know which icon to click.
+
+✅ Fixed: *"Chrome (or Edge) is my browser. Google Search and Wikipedia are websites I open inside it."*
+
+> 💡 Remember: the **browser** is the courier. The **website** is the book it fetches for you.
+
+---
+
+## ✍️ Try It
+
+**The Web Detective Tour**
+
+Grab your computer mouse and try this quick 3-minute exploration:
+1. Open any modern web browser (Google Chrome, Edge, or Firefox).
+2. Visit `www.example.com` (this is an official, clean demonstration page).
+3. **Right-click** anywhere on the white empty background.
+4. Click **"View Page Source"** (or press `Ctrl + U` on Windows / `Cmd + Option + U` on Mac).
+5. **Look at the screen!** You will see the exact HTML code that built the page! You just peeked into the secret engine room of the web!
+
+> 💡 **Hint:** Right-click on plain text or empty space. Right-clicking a picture or a link shows a different menu.
+
+---
+
+## 📝 Recap
 
 - A **website** is a collection of connected pages, like a book.
 - A **web page** is an individual document within that website.
@@ -196,28 +221,59 @@ Save this sketch—we will code it as we progress through this book!
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means (In Plain English) |
 | :--- | :--- |
 | **Web Browser** | Software (like Chrome or Edge) used to visit and view websites. |
 | **Web Server** | A powerful computer that stores website files and sends them to visitors. |
-| **URL** | Uniform Resource Locator: The web address you type (e.g., `google.com`). |
+| **URL** | Uniform Resource Locator: The web address you type (e.g., `example.org`). |
 | **HTML** | HyperText Markup Language: The skeleton and building blocks of web pages. |
 | **Web Page** | A single document displayed in a web browser. |
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
+### 🟢 Level 1: Recall
 1. Name three web browsers people use today.
 2. What is the difference between a website and a web page?
 3. What is the full name of HTML?
 
-### 🟡 Medium (Application)
-4. Explain in your own words what a server does when you type a web address.
-5. Why doesn't the text inside `<title>` appear directly on the white canvas of the page? Where does it show up instead?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Imagine the internet suddenly had no web browsers. Could you still read web pages just by looking at raw HTML files? What would be hard about that for ordinary people?
+1. Any three of: Google Chrome, Microsoft Edge, Mozilla Firefox, Safari.
+2. A **website** is the whole collection of pages (the book). A **web page** is one single page inside it.
+3. **H**yper**T**ext **M**arkup **L**anguage.
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Explain in your own words what a server does when you type a web address.
+2. Why doesn't the text inside `<title>` appear on the white canvas of the page? Where does it show up instead?
+
+<details>
+<summary>Show answer</summary>
+
+1. The server stores the website's files. When your browser asks for a page, the server finds the files (HTML, CSS, images) and sends them back over the Internet.
+2. `<title>` lives inside `<head>`, the hidden "brain" of the page. Only `<body>` content is drawn on the canvas. The title appears on the **browser tab** (and in bookmarks and search results).
+
+</details>
+
+### 🔴 Level 3: Challenge
+Imagine the Internet suddenly had no web browsers.
+1. Could you still read a web page by opening its raw HTML file?
+2. Write two things that would be hard about this for ordinary people.
+
+<details>
+<summary>Show one possible answer</summary>
+
+1. Yes. HTML is plain text, so you could open it in Notepad and read it.
+2. For example:
+   - You would see tags like `<h1>` and `<p>` everywhere, mixed with the words, so it is slow to read.
+   - Images would only appear as file names like `mars.jpg`, and links would not be clickable.
+
+The browser's job is to turn this code into a clean page that anyone can use.
+
+</details>

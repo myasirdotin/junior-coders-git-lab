@@ -1,8 +1,8 @@
-# Chapter 15: Restaurant Website 🍕🍝
+# Chapter 15: Restaurant Website 🍕
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Cozy Italian Bistro
+## 🌟 Real-Life Story
 
 Imagine walking down a cobblestone street on a rainy evening:
 - You look through the warm glass window of *Luigi’s Trattoria*.
@@ -11,12 +11,14 @@ Imagine walking down a cobblestone street on a rainy evening:
 - A framed menu displays mouth-watering photos of pastas, desserts, and fresh salads, complete with prices and dietary tags (*Vegetarian*, *Gluten-Free*).
 
 When people visit a restaurant website, they want to feel that exact same appetite and warmth! 
-**A great restaurant website makes your mouth water in 3 seconds flat!**
-In this capstone chapter, you will build a complete, appetite-inducing restaurant website with a digital menu, mouth-watering food cards, chef story, and table reservation form!
+**A great restaurant website makes your mouth water at first glance!**
+In this project chapter, you will build a complete restaurant website with a digital menu, food cards, a chef's story and a table booking form!
+
+> 🎨 **About the `<style>` block:** the page comes with ready-made CSS so it looks polished. You will learn to write CSS like this in the CSS track. For now, copy it as it is and focus on the HTML.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Establish a warm, appetizing visual theme using rustic earthy colors.
@@ -28,32 +30,34 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Restaurant Website Architecture
 
 ```text
- ┌─────────────────────────────────────────────────────────────┐
- │ HEADER: [ 🍕 Bella Vista ]     [Home] [Menu] [Story] [Book] │
- ├─────────────────────────────────────────────────────────────┤
- │ HERO BANNER: "Authentic Italian Wood-Fired Kitchen"         │
- │              [ Reserve a Table ]  [ View Today's Menu ]     │
- ├─────────────────────────────────────────────────────────────┤
- │ FEATURED CHEF SPECIALS (3-COLUMN FOOD CARDS)                │
- │  ┌────────────────┐  ┌────────────────┐  ┌────────────────┐ │
- │  │ 🍕 Margherita  │  │ 🍝 Truffle Pen │  │ 🍨 Tiramisu    │ │
- │  │ $14.50         │  │ $18.00         │  │ $8.50          │ │
- │  └────────────────┘  └────────────────┘  └────────────────┘ │
- ├─────────────────────────────────────────────────────────────┤
- │ OUR STORY: 30 years of authentic family recipes             │
- ├─────────────────────────────────────────────────────────────┤
- │ RESERVATIONS FORM: Date, Time, Number of Guests, Submit     │
- └─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────┐
+│ <header> 🍕 Bella Vista              │
+│   <nav> Menu  Story  Book  Hours     │
+├──────────────────────────────────────┤
+│ HERO: "Handmade Italian Tradition"   │
+│   [ Reserve Your Table ]             │
+├──────────────────────────────────────┤
+│ <section id="menu">  3 food cards    │
+│ ┌──────────┐┌──────────┐┌──────────┐ │
+│ │Margherita││Tagliatell││Tiramisù  │ │
+│ │ $15.50   ││ $18.90   ││ $8.50    │ │
+│ └──────────┘└──────────┘└──────────┘ │
+├──────────────────────────────────────┤
+│ <section id="book">  booking form    │
+│   name, phone, date, guests, submit  │
+├──────────────────────────────────────┤
+│ <footer id="contact">  address, hours│
+└──────────────────────────────────────┘
 ```
 
 ---
 
-## 4. 💻 Code Example: Complete Restaurant Website
+## 💻 Code Example: Complete Restaurant Website
 
 Type this into your editor and save it as `restaurant.html`:
 
@@ -340,7 +344,7 @@ Type this into your editor and save it as `restaurant.html`:
 
           <!-- Dish 2 -->
           <div class="food-card">
-            <img src="https://images.unsplash.com/photo-1621996346565-e3d5d628169b?w=500" alt="Pasta Bolognese">
+            <img src="https://images.unsplash.com/photo-1621996346565-e3d5d628169b?w=500" alt="A plate of ribbon pasta">
             <div class="food-info">
               <div class="food-header">
                 <span class="food-name">Tagliatelle al Tartufo</span>
@@ -352,13 +356,13 @@ Type this into your editor and save it as `restaurant.html`:
 
           <!-- Dish 3 -->
           <div class="food-card">
-            <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500" alt="Tiramisu Dessert">
+            <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500" alt="Chocolate and date layer cake">
             <div class="food-info">
               <div class="food-header">
-                <span class="food-name">Classic Tiramisù</span>
+                <span class="food-name">Chocolate &amp; Date Layer Cake</span>
                 <span class="food-price">$8.50</span>
               </div>
-              <p class="food-desc">Espresso-soaked ladyfinger cookies layered with velvety mascarpone and rich cocoa dusting.</p>
+              <p class="food-desc">Soft chocolate sponge layered with date cream and a dusting of cocoa.</p>
               <span class="badge-vegan">🌱 Vegetarian</span>
             </div>
           </div>
@@ -375,22 +379,22 @@ Type this into your editor and save it as `restaurant.html`:
             <div class="form-row">
               <div class="form-field">
                 <label for="bookName">Guest Name</label>
-                <input type="text" id="bookName" placeholder="Full Name" required>
+                <input type="text" id="bookName" name="bookName" placeholder="Full Name" required>
               </div>
               <div class="form-field">
                 <label for="bookPhone">Phone Number</label>
-                <input type="tel" id="bookPhone" placeholder="+91-94190-00000" required>
+                <input type="tel" id="bookPhone" name="bookPhone" placeholder="+91-12345-67890" required>
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-field">
                 <label for="bookDate">Date</label>
-                <input type="date" id="bookDate" required>
+                <input type="date" id="bookDate" name="bookDate" required>
               </div>
               <div class="form-field">
                 <label for="guests">Guests</label>
-                <select id="guests">
+                <select id="guests" name="guests">
                   <option>2 Guests</option>
                   <option>4 Guests</option>
                   <option>6 Guests</option>
@@ -420,34 +424,24 @@ Type this into your editor and save it as `restaurant.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Food Psychology in Web Design
+## 🔍 Code Explanation: Food Psychology in Web Design
 
-- **Appetite Color Palette**: Warm tones (warm terracotta orange `#ea580c`, golden yellow `#fef08a`, and vanilla cream `#fffbeb`) are proven by psychology to stimulate hunger and comfort!
+- **Warm Colour Palette**: Warm tones (terracotta orange `#ea580c`, golden yellow `#fef08a`, and vanilla cream `#fffbeb`) are often chosen by food businesses because they feel cosy and inviting.
 - `font-family: Georgia, serif;`: Traditional serif typography on restaurant titles suggests timeless recipe heritage, artisan quality, and elegance.
 - Dietary Badges: Small pill tags (`🌱 Vegetarian`, `🌾 Gluten-Free`) help guests with dietary needs spot safe dishes instantly.
 
 ---
 
-## 6. 🌍 Real-World Connection: Menu Scanning Habits
+## 🌍 Real-World Connection: Menu Scanning Habits
 
-Eye-tracking studies on restaurant websites show:
-- Visitors glance first at the food photo, second at the dish name, and third at the price.
-- If a restaurant has no photos or tiny blurry photos, guests order 40% less food!
-- Clear, bright photography with crisp typography drives business success!
-
----
-
-## 7. ✍️ Try It Yourself: Add a Dessert Card
-
-Open `restaurant.html` and add a fourth dish to the `.menu-grid`:
-- Photo: Homemade Gelato
-- Name: *Artisan Pistachio Gelato*
-- Price: *$6.50*
-- Tag: *🌱 Vegetarian*
+Think about how you read a menu yourself:
+- Most people look at the food photo first, then the dish name, then the price.
+- Tiny or blurry photos make it hard to choose, so visitors may leave.
+- Clear, honest photos (showing the real dish) and readable text build trust.
 
 ---
 
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 If you place 4 food cards in the `.menu-grid`, how will they arrange themselves on a wide 1200px desktop screen?
 
@@ -458,7 +452,7 @@ If you place 4 food cards in the `.menu-grid`, how will they arrange themselves 
 
 ---
 
-## 9. 🕵️ Code Detective: The Misaligned Prices
+## 🕵️ Code Detective: The Misaligned Prices
 
 A student created food cards, but the prices appeared under the dish description instead of next to the title:
 
@@ -485,33 +479,75 @@ A student created food cards, but the prices appeared under the dish description
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Mobile Table Reservations
+## 🎨 Think Like a Web Designer: Mobile Table Reservations
 
-Over 70% of restaurant reservations happen on a smartphone while people are walking or riding in a car.
+Many people book a table on their phone, often with one hand.
 - Ensure the reservation date picker and submit button are easy to tap with one thumb!
 - Keep form fields stacked in 1 column on screens under 600px!
 
 ---
 
-## 11. 🚀 Mini Challenge: Add a Customer Reviews Section
+## 🚀 Mini Challenge: Add a Customer Reviews Section
 
 Add a testimonial section:
 - 3 customer review quote cards.
 - Star rating emojis (⭐⭐⭐⭐⭐).
-- Guest name: *"The crispiest crust in the city!" — Marco T.*
+- Guest name: *"The crispiest crust in the city!" — Marco T.* (Label these as sample reviews. A real site must only show reviews from real guests.)
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
 
-- Restaurant websites succeed through mouth-watering imagery and warm color palettes.
-- Food cards combine high-resolution photography, dish titles, prices, and dietary tags.
-- Internal Flexbox keeps prices aligned horizontally with dish names.
-- Reservation forms allow two-way customer engagement directly from the site.
+**Using a `<div>` and plain text instead of a real form control.**
+
+❌ Wrong:
+
+```html
+<div>Guests: 2 / 4 / 6</div>
+<div>Book Now</div>
+```
+
+What happens: it looks like a form, but visitors cannot choose anything or press anything. Keyboard and screen reader users cannot reach it at all.
+
+✅ Fixed: use real controls inside a `<form>`, each with a label and a name.
+
+```html
+<form>
+  <label for="guests">Guests</label>
+  <select id="guests" name="guests">
+    <option>2 Guests</option>
+    <option>4 Guests</option>
+  </select>
+  <button type="submit">Book Now</button>
+</form>
+```
 
 ---
 
-## 13. 📖 Key Terms
+## ✍️ Try It
+
+**Add a Dessert Card**
+
+Open `restaurant.html` and add a fourth dish to the `.menu-grid`:
+- Photo: Homemade Gelato
+- Name: *Artisan Pistachio Gelato*
+- Price: *$6.50*
+- Tag: *🌱 Vegetarian*
+
+> 💡 **Hint:** Copy one whole `<div class="food-card">` block, from its opening tag to its matching `</div>`, paste it after the third card, and change the text, price and `alt`.
+
+---
+
+## 📝 Recap
+
+- A restaurant site needs a clear outline: header and nav, hero, menu, booking form, footer with hours.
+- Each food card groups a photo (with honest `alt` text), a dish name, a price, a description and a dietary tag.
+- Where an element sits in the HTML decides where the ready-made CSS can place it.
+- The booking form uses `type="tel"`, `type="date"` and `<select>`, each with a label and a name; PHP will process it later.
+
+---
+
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -522,16 +558,63 @@ Add a testimonial section:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. What input type provides a native calendar picker?
-2. Which color spectrum (cool blues or warm reds/oranges) is traditionally used to stimulate appetite in culinary design?
-3. What CSS property pairs a dish title on the left and price on the right?
+### 🟢 Level 1: Recall
+1. Which input type shows a calendar to pick a date?
+2. Which input type is meant for phone numbers?
+3. Which tag makes a drop-down list of choices?
 
-### 🟡 Medium (Application)
-4. Write the HTML and CSS for a green dietary badge reading "100% Organic".
-5. Why are high-resolution food images so critical for a restaurant's online presence?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Add an interactive menu tab switcher (e.g. *Breakfast*, *Lunch*, *Dinner*) using radio buttons and CSS sibling selectors (`input[type="radio"]:checked + label`) without writing any JavaScript!
+1. `type="date"`
+2. `type="tel"`
+3. `<select>` with `<option>` items inside.
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Write a dietary badge reading "🌾 Gluten-Free" using the same class as the existing badges.
+2. Why should a food photo's `alt` describe the real dish, and why should the photo show the real dish?
+
+<details>
+<summary>Show answer</summary>
+
+1.
+
+```html
+<span class="badge-vegan">🌾 Gluten-Free</span>
+```
+
+2. The `alt` tells screen reader users what the dish looks like. An honest photo (and honest alt) means guests get what they expected. Showing a different or "improved" dish would mislead people, and truthfulness (*Ṣidq*) matters in business.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Add an "Opening Hours" section to the restaurant:
+1. Add `<section id="hours">` inside `<main>`, after the booking form, with an `<h2>`.
+2. Build a table with the columns Day and Hours (Monday to Thursday in one row, Friday, and Saturday to Sunday).
+3. Change the nav link "Hours" so it points to `#hours`.
+4. Test the link.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!-- in the nav -->
+<li><a href="#hours">Hours</a></li>
+
+<!-- inside <main>, after the booking section -->
+<section id="hours">
+  <h2 class="section-title">Opening Hours</h2>
+  <table border="1">
+    <tr><th>Day</th><th>Hours</th></tr>
+    <tr><td>Monday to Thursday</td><td>11:30 AM – 10:00 PM</td></tr>
+    <tr><td>Friday</td><td>2:30 PM – 10:30 PM</td></tr>
+    <tr><td>Saturday to Sunday</td><td>11:00 AM – 11:00 PM</td></tr>
+  </table>
+</section>
+```
+
+</details>

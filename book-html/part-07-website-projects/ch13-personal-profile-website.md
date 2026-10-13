@@ -1,23 +1,25 @@
-# Chapter 13: Personal Profile Website 🧑‍🚀🌐
+# Chapter 13: Personal Profile Website 🌐
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Digital Astronaut Badge
+## 🌟 Real-Life Story
 
 Imagine being selected as a student astronaut for a mission to Mars:
 - Before the rocket lifts off, mission control publishes an official astronaut biography page on the space agency website:
   - At the top: Your official mission portrait wearing your space flight suit.
   - A summary of who you are and why you were chosen.
   - A breakdown of your special skills: *Orbital Navigation*, *Botany*, *Robotics*, and *Problem Solving*.
-  - A showcase of your personal hobbies so kids around the world get to know the real you: *Calligraphy*, *Astrophotography*, and *Chess*.
+  - A showcase of your personal hobbies so kids around the world get to know the real you: *Calligraphy*, *Astrophotography*, and *Gardening*.
   - A message portal where students can send radio questions to your spacecraft!
 
 **A Personal Profile Website is your digital passport to the world!**
-In this capstone project chapter, you will take everything you learned about HTML semantic structure, CSS styling, the Box Model, Flexbox, and buttons, and combine them to build a complete, professional personal profile website from scratch!
+In this project chapter, you will combine everything you learned about HTML (headings, links, images, lists, forms and semantic sections) to build a complete personal profile website!
+
+> 🎨 **About the `<style>` block:** the page comes with a ready-made `<style>` block so it looks polished. You will learn to write CSS like this in the CSS track. For now, copy it as it is and focus on the HTML.
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Plan and assemble a multi-section personal web page.
@@ -29,36 +31,38 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Personal Profile Architecture
 
 ```text
- ┌─────────────────────────────────────────────────────────────┐
- │ HEADER / HERO SECTION                                       │
- │  [ Circular Avatar (border-radius: 50%) ]                   │
- │  <h1> Alex Rivera </h1>                                     │
- │  <span class="badge"> Class 7 Junior Coder & Creator </span> │
- ├─────────────────────────────────────────────────────────────┤
- │ ABOUT ME SECTION                                            │
- │  Two friendly paragraphs introducing passions and goals     │
- ├─────────────────────────────────────────────────────────────┤
- │ SKILLS SECTION (FLEXBOX BADGES)                             │
- │  [HTML5 ⭐⭐⭐⭐⭐]  [CSS3 ⭐⭐⭐⭐]  [Robotics ⭐⭐⭐]             │
- ├─────────────────────────────────────────────────────────────┤
- │ HOBBIES CARDS (3-COLUMN GRID)                               │
- │  ┌──────────────┐   ┌──────────────┐   ┌──────────────┐     │
- │  │ 🔭 Stargazing│   │ 🛹 Skate     │   │ ♟️ Chess     │     │
- │  └──────────────┘   └──────────────┘   └──────────────┘     │
- ├─────────────────────────────────────────────────────────────┤
- │ CONTACT SECTION (FORM) & FOOTER                             │
- │  [Name]  [Email]  [Message Box]  [ Send Message 🚀 ]        │
- └─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────┐
+│ <nav>  About Skills Hobbies Contact  │
+├──────────────────────────────────────┤
+│ <header>  HERO                       │
+│   round photo (avatar)               │
+│   <h1> Alex Rivera                   │
+│   tagline: Class 7 Web Creator       │
+├──────────────────────────────────────┤
+│ <section id="about">                 │
+│   two friendly paragraphs            │
+├──────────────────────────────────────┤
+│ <section id="skills">                │
+│   [HTML] [CSS] [Robotics] [Python]   │
+├──────────────────────────────────────┤
+│ <section id="hobbies">  3 cards      │
+│   [Stargazing] [Skating] [Lettering] │
+├──────────────────────────────────────┤
+│ <section id="contact">  form         │
+│   [Name] [Email] [Message] [Send]    │
+├──────────────────────────────────────┤
+│ <footer>  © 2026 Alex Rivera         │
+└──────────────────────────────────────┘
 ```
 
 ---
 
-## 4. 💻 Code Example: Complete Personal Profile Website
+## 💻 Code Example: Complete Personal Profile Website
 
 Create a file named `personal-profile.html` and write the complete production code:
 
@@ -284,7 +288,7 @@ Create a file named `personal-profile.html` and write the complete production co
       <h1>Alex Rivera</h1>
       <span class="tagline">Class 7 Junior Web Creator 🚀</span>
       <p style="max-width: 500px; margin: 0 auto; color: #64748b;">
-        Passionate about crafting colorful websites, coding retro games, and exploring astronomy.
+        Passionate about crafting colorful websites, building science quizzes, and exploring astronomy.
       </p>
     </header>
 
@@ -301,7 +305,7 @@ Create a file named `personal-profile.html` and write the complete production co
         </p>
         <p>
           My dream is to become a front-end web designer and software engineer who creates educational tools 
-          that help kids around the world learn through fun games!
+          that help kids around the world learn through interactive lessons!
         </p>
       </section>
 
@@ -312,7 +316,7 @@ Create a file named `personal-profile.html` and write the complete production co
           <div class="skill-pill">🌐 HTML5 Semantics</div>
           <div class="skill-pill">🎨 CSS3 & Flexbox</div>
           <div class="skill-pill">📱 Responsive Design</div>
-          <div class="skill-pill">🤖 Lego Mindstorms</div>
+          <div class="skill-pill">🤖 Robotics Kits</div>
           <div class="skill-pill">🐍 Python Basics</div>
         </div>
       </section>
@@ -332,9 +336,9 @@ Create a file named `personal-profile.html` and write the complete production co
             <p style="color:#64748b; font-size:14px;">Practicing kickflips and cruising through the local park.</p>
           </div>
           <div class="hobby-card">
-            <div class="hobby-icon">♟️</div>
-            <h3>Chess Strategy</h3>
-            <p style="color:#64748b; font-size:14px;">Playing fast-paced blitz games and solving daily puzzles.</p>
+            <div class="hobby-icon">✒️</div>
+            <h3>Calligraphy</h3>
+            <p style="color:#64748b; font-size:14px;">Practising neat Arabic and English lettering every weekend.</p>
           </div>
         </div>
       </section>
@@ -346,15 +350,15 @@ Create a file named `personal-profile.html` and write the complete production co
           <form>
             <div class="form-group">
               <label for="name">Your Name</label>
-              <input type="text" id="name" placeholder="e.g. Maya Chen" required>
+              <input type="text" id="name" name="name" placeholder="e.g. Maya Chen" required>
             </div>
             <div class="form-group">
               <label for="email">Your Email</label>
-              <input type="email" id="email" placeholder="maya@example.com" required>
+              <input type="email" id="email" name="email" placeholder="maya@example.com" required>
             </div>
             <div class="form-group">
               <label for="msg">Message</label>
-              <textarea id="msg" rows="4" placeholder="Say hello or suggest a project idea!"></textarea>
+              <textarea id="msg" name="msg" rows="4" placeholder="Say hello or suggest a project idea!"></textarea>
             </div>
             <button type="submit" class="btn-submit">Send Message 🚀</button>
           </form>
@@ -374,7 +378,7 @@ Create a file named `personal-profile.html` and write the complete production co
 
 ---
 
-## 5. 🔍 Code Explanation: Key Project Techniques
+## 🔍 Code Explanation: Key Project Techniques
 
 - `html { scroll-behavior: smooth; }`: **A delightful modern touch!** When a visitor taps `<a href="#hobbies">Hobbies</a>` in the top navbar, the browser glides down smoothly to the section instead of teleporting abruptly!
 - `grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));`:
@@ -385,23 +389,14 @@ Create a file named `personal-profile.html` and write the complete production co
 
 ---
 
-## 6. 🌍 Real-World Connection: Professional Resumes & Portfolios
+## 🌍 Real-World Connection: Professional Resumes & Portfolios
 
 Every web designer, engineer, and digital creator has their own personal website:
 - When you apply for a high school robotics team, a summer coding camp, or a university scholarship, sending a link to your live, custom-built website makes you stand out miles ahead of everyone else!
 
 ---
 
-## 7. ✍️ Try It Yourself: Personalize Alex's Page
-
-Open `personal-profile.html` and make it your own:
-1. Change the `<h1>` to your real name.
-2. Update the tagline to your favorite interest (e.g., *"Junior Game Developer & Soccer Fan"*).
-3. Replace the 3 hobbies with your actual favorite weekend passions!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 If you click `<a href="#contact">Contact</a>` in the navigation bar, how does the browser know where on the page to jump?
 
@@ -413,7 +408,7 @@ The link has <code>href="#contact"</code>, and the section has <code>id="contact
 
 ---
 
-## 9. 🕵️ Code Detective: The Mismatched Anchor Link
+## 🕵️ Code Detective: The Mismatched Anchor Link
 
 A student clicked their "About" link, but nothing happened:
 
@@ -432,7 +427,7 @@ A student clicked their "About" link, but nothing happened:
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Color Palette Harmony
+## 🎨 Think Like a Web Designer: Color Palette Harmony
 
 Notice the colors used in Alex's profile:
 - Primary Blue: `#2563eb`
@@ -443,26 +438,64 @@ Notice the colors used in Alex's profile:
 
 ---
 
-## 11. 🚀 Mini Challenge: Add a "Project Showcase" Section
+## 🚀 Mini Challenge: Add a "Project Showcase" Section
 
 Add a new `<section id="projects">` between Skills and Hobbies:
 - Add an `<h2>Projects I've Built</h2>`.
-- Add 2 project cards showcasing games or websites you have made.
+- Add 2 project cards showcasing websites or school projects you have made.
 - Add an anchor link in the top `<nav>`: `<a href="#projects">Projects</a>`.
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
 
-- A personal profile site integrates all foundational HTML and CSS skills into a coherent project.
-- Use semantic `<nav>`, `<header>`, `<main>`, `<section>`, and `<footer>` containers.
-- `scroll-behavior: smooth` creates elegant internal link navigation.
-- Flexbox and CSS Grid organize skills badges and hobby cards effortlessly.
-- Forms collect visitor messages with clean inputs and action buttons.
+**Forgetting the `#` in an in-page link.**
+
+❌ Wrong:
+
+```html
+<a href="contact">Contact</a>
+...
+<section id="contact">
+```
+
+What happens: without `#`, the browser looks for a **file or folder** called `contact` next to your page. You get a "not found" error instead of a jump down the page.
+
+✅ Fixed: `#` means "an element on this page with this id".
+
+```html
+<a href="#contact">Contact</a>
+...
+<section id="contact">
+```
 
 ---
 
-## 13. 📖 Key Terms
+## ✍️ Try It
+
+**Personalize Alex's Page**
+
+Open `personal-profile.html` and make it your own:
+1. Change the `<h1>` to your real name.
+2. Update the tagline to your favorite interest (e.g., *"Junior Web Creator & Football Player"*).
+3. Replace the 3 hobbies with your actual favorite weekend passions!
+
+> 💡 **Hint:** Change one thing, save, and refresh before changing the next. If something breaks, you know exactly which edit caused it.
+
+---
+
+## 📝 Recap
+
+- A personal profile site brings all your HTML skills together in one project.
+- Semantic `<nav>`, `<header>`, `<main>`, `<section>` and `<footer>` give the page a clear outline.
+- In-page links (`href="#skills"`) jump to the element with the matching `id`.
+- A short, meaningful `alt` describes your photo for screen reader users.
+- The contact form needs a `<label for>` and a `name` on every field; PHP will process it later.
+- The ready-made CSS (smooth scrolling, grid of cards) is a preview of the CSS track.
+
+---
+
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -474,16 +507,67 @@ Add a new `<section id="projects">` between Skills and Hobbies:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. What CSS property makes in-page anchor jumps glide smoothly?
-2. How do you link an anchor tag to a section with `id="skills"`?
-3. What percentage `border-radius` turns a square image into a circular profile avatar?
+### 🟢 Level 1: Recall
+1. How do you write a link that jumps to a section with `id="skills"`?
+2. Which attribute describes the profile photo for screen reader users?
+3. Which ready-made CSS line in this project makes in-page jumps glide smoothly?
 
-### 🟡 Medium (Application)
-4. Write the HTML and CSS for a 3-badge row displaying "HTML", "CSS", and "JavaScript" with soft blue backgrounds.
-5. Why is it important to include `id` attributes on your `<section>` elements when building a single-page site?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Add social media icon buttons (GitHub, YouTube, Scratch) directly underneath the avatar in the Hero section, styled using Flexbox and hover scale animations!
+1. `<a href="#skills">Skills</a>`
+2. `alt`, e.g. `alt="Portrait of Alex Rivera"`.
+3. `scroll-behavior: smooth;` on `html` (you will learn it properly in the CSS track).
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Why must each `<section>` on a one-page site have an `id`?
+2. Write a `<nav>` with three links that jump to sections with the ids `about`, `skills` and `contact`.
+
+<details>
+<summary>Show answer</summary>
+
+1. The `id` is the target that in-page links jump to. Without it, a link like `href="#skills"` has nowhere to go. Each `id` must also be unique on the page.
+2.
+
+```html
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+```
+
+</details>
+
+### 🔴 Level 3: Challenge
+Add a "Books I Recommend" section to your profile:
+1. Add `<section id="books">` between Hobbies and Contact.
+2. Give it an `<h2>` and an ordered list of three books, with the author of each in `<em>`.
+3. Add a "Books" link to the `<nav>` that jumps to it.
+4. Test the link in your browser.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!-- in the nav -->
+<a href="#books">Books</a>
+
+<!-- between Hobbies and Contact -->
+<section id="books">
+  <h2 class="section-title">Books I Recommend</h2>
+  <ol>
+    <li>The Little Prince by <em>Antoine de Saint-Exupéry</em></li>
+    <li>Wonder by <em>R. J. Palacio</em></li>
+    <li>Ada's Ideas by <em>Fiona Robinson</em></li>
+  </ol>
+</section>
+```
+
+Reusing `class="section-title"` gives the new heading the same ready-made style as the others.
+
+</details>

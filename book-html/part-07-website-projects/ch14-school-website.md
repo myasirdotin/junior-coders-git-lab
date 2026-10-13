@@ -1,8 +1,8 @@
-# Chapter 14: School Website 🏫🎒
+# Chapter 14: School Website 🏫
 
 ---
 
-## 1. 🌟 Real-Life Situation: Open House Day
+## 🌟 Real-Life Story
 
 Imagine your school is hosting an annual Open House for new families:
 - Parents and students arrive at the front gates. The school principal greets them in the auditorium with an inspiring welcome address explaining the school’s history and core values.
@@ -13,9 +13,11 @@ Imagine your school is hosting an annual Open House for new families:
 **A School Website serves as your school’s 24/7 digital Open House!**
 Parents, teachers, and students visit every day to check announcements, explore courses, learn about teachers, and stay connected. In this chapter, you will build a complete, welcoming, professional school portal!
 
+> 🎨 **About the `<style>` block:** the page comes with ready-made CSS so it looks polished. You will learn to write CSS like this in the CSS track. For now, copy it as it is and focus on the HTML.
+
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Structure a multi-tier educational portal layout.
@@ -27,35 +29,35 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The School Website Blueprint
 
 ```text
- ┌─────────────────────────────────────────────────────────────┐
- │ HEADER: [ 🎓 Crest ] Greenwood Academy     [Nav Links...]   │
- ├─────────────────────────────────────────────────────────────┤
- │ HERO BANNER: "Inspiring Curiosity, Shaping Future Leaders"  │
- │              [ Enroll Now ]  [ Virtual Tour ]               │
- ├─────────────────────────────────────────────────────────────┤
- │ ABOUT SECTION: School history, values, and campus motto     │
- ├─────────────────────────────────────────────────────────────┤
- │ FEATURED COURSES (3-COLUMN GRID)                            │
- │  ┌────────────────┐  ┌────────────────┐  ┌────────────────┐ │
- │  │ 💻 Web Coding  │  │ 🌿 Bio Ecology │  │ 🎨 Visual Arts │ │
- │  └────────────────┘  └────────────────┘  └────────────────┘ │
- ├─────────────────────────────────────────────────────────────┤
- │ MEET OUR TEACHERS (FACULTY CARDS)                           │
- │  (•) Ms. Davies (CS)     (•) Mr. Zhang (Math)               │
- ├─────────────────────────────────────────────────────────────┤
- │ CAMPUS INFO & CONTACT FOOTER                                │
- │  Location, Office Hours, Phone, Emergency Hotline           │
- └─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────┐
+│ <header> 🎓 Greenwood Academy        │
+│   <nav> About Courses Faculty Contact│
+├──────────────────────────────────────┤
+│ HERO: "Inspiring Tomorrow's Leaders" │
+│   [ Explore Our Programs ]           │
+├──────────────────────────────────────┤
+│ <section id="about">                 │
+│   history, values, motto             │
+├──────────────────────────────────────┤
+│ <section id="courses">  3 cards      │
+│   [Web Coding] [Ecology] [Art]       │
+├──────────────────────────────────────┤
+│ <section id="faculty">  teachers     │
+│   (photo) name + subject  x 3        │
+├──────────────────────────────────────┤
+│ <footer id="contact">                │
+│   address, phone, email, ©           │
+└──────────────────────────────────────┘
 ```
 
 ---
 
-## 4. 💻 Code Example: The Complete School Website
+## 💻 Code Example: The Complete School Website
 
 Type this code into an editor and save it as `school-website.html`:
 
@@ -354,7 +356,7 @@ Type this code into an editor and save it as `school-website.html`:
     <!-- Footer -->
     <footer id="contact">
       <p style="font-weight: 700; margin-bottom: 8px;">Greenwood Junior Academy</p>
-      <p style="margin-bottom: 16px;">Rajbagh, Srinagar, Jammu and Kashmir • +91-94190-12345 • admissions@greenwood.edu.in</p>
+      <p style="margin-bottom: 16px;">Rajbagh, Srinagar, Jammu and Kashmir • +91-12345-67890 • admissions@greenwood.example.org</p>
       <p>&copy; 2026 Greenwood Academy. All rights reserved.</p>
     </footer>
 
@@ -364,7 +366,7 @@ Type this code into an editor and save it as `school-website.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Visual Hierarchy & School Branding
+## 🔍 Code Explanation: Visual Hierarchy & School Branding
 
 - **School Color Palette**: Notice how the primary color is a calm, academic forest green (`#059669`), paired with a warm golden amber CTA button (`#f59e0b`). Colors create instant identity and trustworthiness!
 - `background: linear-gradient(...), url(...)`: Combines a dark translucent green wash with a campus photo backdrop so white headline text remains 100% readable!
@@ -372,7 +374,7 @@ Type this code into an editor and save it as `school-website.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: School Portals Everywhere
+## 🌍 Real-World Connection: School Portals Everywhere
 
 Visit top educational websites like *Stanford Online*, *MIT OpenCourseWare*, or your local district school board:
 - Notice how every page clearly divides into: **School Brand -> Hero Announcement -> Courses -> Staff -> Contact**.
@@ -380,18 +382,7 @@ Visit top educational websites like *Stanford Online*, *MIT OpenCourseWare*, or 
 
 ---
 
-## 7. ✍️ Try It Yourself: Add an "Events Notice Board"
-
-Open `school-website.html` in your editor:
-1. Add an `<h2>Campus Announcements</h2>` section.
-2. Build an HTML table listing:
-   - Date: *October 15* | Event: *Annual Science Fair* | Location: *Gymnasium*
-   - Date: *November 3* | Event: *Robotics Tournament* | Location: *Lab 4*
-3. Save and refresh: You just gave the school an interactive calendar!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 If a parent opens this school site on a smartphone (390px wide), what will happen to the 3 course cards?
 
@@ -402,9 +393,9 @@ If a parent opens this school site on a smartphone (390px wide), what will happe
 
 ---
 
-## 9. 🕵️ Code Detective: The Broken Background Wash
+## 🕵️ Code Detective: The Broken Background Wash
 
-A student tried to create a tinted photo banner, but the screen showed a black box:
+*(A CSS preview: you will meet backgrounds properly in the CSS track.)* A student tried to create a tinted photo banner, but the tint did not appear over the photo:
 
 ```css
 /* Broken Code */
@@ -425,7 +416,7 @@ A student tried to create a tinted photo banner, but the screen showed a black b
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Trust and Accessibility
+## 🎨 Think Like a Web Designer: Trust and Accessibility
 
 Educational websites serve diverse audiences: children, elderly grandparents, and visitors with disabilities.
 - Use high contrast text.
@@ -434,7 +425,7 @@ Educational websites serve diverse audiences: children, elderly grandparents, an
 
 ---
 
-## 11. 🚀 Mini Challenge: The School Mascot Badge
+## 🚀 Mini Challenge: The School Mascot Badge
 
 Add a floating school mascot crest in the top right corner:
 - Create a badge reading: `🦅 Home of the Golden Eagles`.
@@ -443,17 +434,55 @@ Add a floating school mascot crest in the top right corner:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
 
-- School portals require clean, welcoming visual structure and clear navigation.
-- Consistent school branding is maintained through thematic colors (e.g., forest green and gold).
-- Grids dynamically arrange academic courses and faculty profiles.
-- Translucent gradient overlays keep text legible over background images.
-- Comprehensive footers store vital contact information and office hours.
+**Leaving out `tel:` or `mailto:` on contact links.**
+
+❌ Wrong:
+
+```html
+<a href="+91-12345-67890">Call the office</a>
+<a href="admissions@greenwood.example.org">Email us</a>
+```
+
+What happens: the browser thinks these are **file names** in your folder. Tapping them gives a "not found" error instead of opening the phone dialler or email app.
+
+✅ Fixed: start the address with the right scheme.
+
+```html
+<a href="tel:+911234567890">Call the office</a>
+<a href="mailto:admissions@greenwood.example.org">Email us</a>
+```
 
 ---
 
-## 13. 📖 Key Terms
+## ✍️ Try It
+
+**Add an "Events Notice Board"**
+
+Open `school-website.html` in your editor:
+1. Add an `<h2>Campus Announcements</h2>` section.
+2. Build an HTML table listing:
+   - Date: *October 15* | Event: *Annual Science Fair* | Location: *Gymnasium*
+   - Date: *November 3* | Event: *Robotics Tournament* | Location: *Lab 4*
+3. Save and refresh: you just gave the school a notice board!
+
+> 💡 **Hint:** Start with a header row of `<th>` cells (Date, Event, Location), then add one `<tr>` per event, just like in Chapter 10. Put the new section inside `<main>`.
+
+---
+
+## 📝 Recap
+
+- A school portal needs a clear outline: header and nav, hero, about, courses, teachers, contact.
+- Each `<section>` gets an `id` so the nav links can jump to it.
+- Teacher photos need meaningful `alt` text.
+- `tel:` and `mailto:` links make phone numbers and emails tappable.
+- The footer holds the address, contact details and copyright.
+- The ready-made CSS (colours, grid of cards, tinted banner) is a preview of the CSS track.
+
+---
+
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -465,16 +494,66 @@ Add a floating school mascot crest in the top right corner:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. In a multi-background CSS declaration, which layer sits on top?
-2. What grid property ensures course cards never shrink smaller than 280px?
-3. Which HTML tag wraps the contact and copyright details at the bottom of the page?
+### 🟢 Level 1: Recall
+1. Which HTML tag wraps the contact and copyright details at the bottom of the page?
+2. Which link prefix opens the email app?
+3. Which link prefix opens the phone dialler?
 
-### 🟡 Medium (Application)
-4. Write the HTML link to make the school phone number `+91-94190-12345` immediately dialable when tapped on a smartphone.
-5. Why is a dark overlay recommended when placing white text on top of photography?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Add a "Daily Cafeteria Specials" card to the school site with alternating colored table rows (Zebra striping using `:nth-child(even)` in CSS)!
+1. `<footer>`
+2. `mailto:`
+3. `tel:`
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Write a link that makes the school phone number `+91-12345-67890` dialable when tapped on a phone.
+2. A teacher photo has `alt="img1"`. Write a better `alt` and explain why it is better.
+
+<details>
+<summary>Show answer</summary>
+
+1.
+
+```html
+<a href="tel:+911234567890">+91-12345-67890</a>
+```
+
+(Inside `tel:` it is safest to write the number without spaces or dashes.)
+
+2. `alt="Portrait of Ms. Robinson, Computer Science teacher"`. It tells a screen reader user who is in the photo and what she teaches. "img1" tells them nothing.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Add a "Cafeteria Menu" section to the school site:
+1. Add `<section id="menu">` inside `<main>`, with an `<h2>`.
+2. Build a table with the columns Day, Main Dish, Fruit, and rows for Monday to Wednesday.
+3. Add a "Menu" link to the nav.
+4. Below the table, add a paragraph with a `mailto:` link for parents' questions.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!-- in the nav menu -->
+<li><a href="#menu">Menu</a></li>
+
+<!-- inside <main> -->
+<section id="menu">
+  <h2 class="section-heading">Cafeteria Menu</h2>
+  <table border="1">
+    <tr><th>Day</th><th>Main Dish</th><th>Fruit</th></tr>
+    <tr><td>Monday</td><td>Vegetable pulao</td><td>Apple</td></tr>
+    <tr><td>Tuesday</td><td>Dal and rice</td><td>Banana</td></tr>
+    <tr><td>Wednesday</td><td>Chicken wrap</td><td>Orange</td></tr>
+  </table>
+  <p>Questions? <a href="mailto:cafeteria@greenwood.example.org">Email the cafeteria</a>.</p>
+</section>
+```
+
+</details>

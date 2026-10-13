@@ -1,8 +1,8 @@
-# Chapter 5: Headings and Paragraphs 📰✍️
+# Chapter 5: Headings and Paragraphs 📰
 
 ---
 
-## 1. 🌟 Real-Life Situation: Reading a Newspaper
+## 🌟 Real-Life Story
 
 When you pick up a morning newspaper, look at how the stories are laid out:
 - At the very top, there is a giant, bold headline: **“ROBOT LANDS ON MARS!”** (This grabs your attention across the breakfast table).
@@ -16,7 +16,7 @@ Imagine if every word in the entire newspaper was printed in the exact same font
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Use the six levels of HTML headings from `<h1>` down to `<h6>`.
@@ -27,44 +27,41 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Heading Hierarchy Pyramid
 
 HTML gives you six levels of headings. Think of them as a pyramid from biggest and most important to smallest:
 
 ```text
- ┌──────────────────────────────────────────────────┐
- │  <h1> Most Important Headline (Page Title)       │  <-- Biggest font
- └─────────────────┬────────────────────────────────┘
-                   ▼
-  ┌────────────────────────────────────────────────┐
-  │  <h2> Major Chapter / Section Title            │
-  └────────────────┬───────────────────────────────┘
-                   ▼
-   ┌──────────────────────────────────────────────┐
-   │  <h3> Subsection Topic                       │
-   └───────────────┬──────────────────────────────┘
-                   ▼
-    ┌─────────────────────────────────────────────┐
-    │  <h4> Sub-topic                             │
-    └──────────────┬──────────────────────────────┘
-                   ▼
-     ┌────────────────────────────────────────────┐
-     │  <h5> Minor Heading                        │
-     └─────────────┬──────────────────────────────┘
-                   ▼
-      ┌───────────────────────────────────────────┐
-      │  <h6> Smallest Heading                    │  <-- Smallest font
-      └───────────────────────────────────────────┘
+┌────────────────────────────────────┐
+│ <h1> page title       <- biggest   │
+└─────────────────┬──────────────────┘
+                  ▼
+ ┌──────────────────────────────────┐
+ │ <h2> main section                │
+ └────────────────┬─────────────────┘
+                  ▼
+  ┌────────────────────────────────┐
+  │ <h3> topic inside a section    │
+  └───────────────┬────────────────┘
+                  ▼
+   ┌──────────────────────────────┐
+   │ <h4> smaller sub-topic       │
+   └──────────────┬───────────────┘
+                  ▼
+    ┌────────────────────────────┐
+    │ <h5> minor heading         │
+    └─────────────┬──────────────┘
+                  ▼
+     ┌──────────────────────────┐
+     │ <h6>       <- smallest   │
+     └──────────────────────────┘
 ```
-
-> ⚠️ **Common Mistake**: 
-> Never use `<h1>` just because you want big text, and never use `<h6>` just because you want tiny text! Use headings to describe the **outline and importance** of your content. You can always change the visual size later with CSS!
 
 ---
 
-## 4. 💻 Code Example: School Information Page
+## 💻 Code Example: School Information Page
 
 Type this code into a new file named `school.html`:
 
@@ -73,6 +70,7 @@ Type this code into a new file named `school.html`:
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oakwood Junior High School</title>
   </head>
   <body>
@@ -103,38 +101,27 @@ Type this code into a new file named `school.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Heading Hierarchy in Action
+## 🔍 Code Explanation: Heading Hierarchy in Action
 
 Look at the structure we built:
-- `<h1>`: There is **only ONE `<h1>` tag** on the whole page (*"Oakwood Junior High School"*). This is standard best practice worldwide for search engines like Google!
+- `<h1>`: There is **only ONE `<h1>` tag** on the whole page (*"Oakwood Junior High School"*). One main title per page is the usual good practice. It helps visitors, screen readers and search engines.
 - `<h2>`: We used `<h2>` for the two main chapters: *"Our Academic Programs"* and *"Upcoming School Events"*.
 - `<h3>`: We used `<h3>` for the topics that live *inside* those chapters (*Computer Science*, *Environmental Science*, *Science Fair*).
 - `<p>`: Holds the explanatory paragraphs. Notice that browsers automatically insert a neat empty gap before and after every paragraph so words never smash together.
 
 ---
 
-## 6. 🌍 Real-World Connection: How Google Reads Headings
+## 🌍 Real-World Connection: How Google Reads Headings
 
 When you search for something on Google:
 1. Google's search robots (called crawlers) read billions of web pages.
-2. The robots don't have human eyes; they inspect the `<h1>` and `<h2>` tags first to discover what the web page is all about!
+2. The robots don't have human eyes. Headings like `<h1>` and `<h2>` are one of the clues they use to work out what a page is about.
 3. If your `<h1>` says `"Oakwood Junior High"`, Google knows that is the page's primary identity.
 4. Screen readers (used by blind and visually impaired people) also let users press a key to jump directly from heading to heading like a table of contents!
 
 ---
 
-## 7. ✍️ Try It Yourself: The Pet Encyclopedia
-
-Create a small HTML page about your favorite animal:
-1. Put the animal's name in an `<h1>` (e.g., `<h1>The Golden Retriever</h1>`).
-2. Add a `<p>` with a general intro.
-3. Add an `<h2>` titled `Appearance` followed by a paragraph describing their fur and size.
-4. Add another `<h2>` titled `Diet & Care` followed by what they eat.
-5. Save the file as `pet.html` and view it in your browser!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this code snippet:
 
@@ -154,7 +141,7 @@ Look at this code snippet:
 
 ---
 
-## 9. 🕵️ Code Detective: The Stray Slashing
+## 🕵️ Code Detective: The Stray Slashing
 
 A classmate wrote this code, but their entire page looks huge and won't go back to normal text!
 
@@ -175,16 +162,16 @@ A classmate wrote this code, but their entire page looks huge and won't go back 
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: The 3-Second Rule
+## 🎨 Think Like a Web Designer: The 3-Second Rule
 
-When visitors arrive on a website, they spend an average of **3 seconds** scanning before deciding whether to stay or click away.
+Many visitors scan a page for only a few seconds before deciding whether to stay or leave.
 - If you have good, bold headings (`<h1>`, `<h2>`), their eyes land on the key points instantly.
 - If you have huge 20-line blocks of continuous text with no subheadings, they feel overwhelmed and leave!
 - **Web Designer Rule**: Break every 2 or 3 paragraphs with an appetizing `<h2>` or `<h3>` subheading!
 
 ---
 
-## 11. 🚀 Mini Challenge: The Book Review Page
+## 🚀 Mini Challenge: The Book Review Page
 
 Write an HTML page reviewing your favorite book:
 - `<h1>`: The Book Title
@@ -200,7 +187,46 @@ Write an HTML page reviewing your favorite book:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+**Choosing a heading because of its size.**
+
+❌ Wrong: using `<h1>` just to get big text, or `<h6>` just to get small text.
+
+```html
+<h1>Welcome!</h1>
+<h1>School opens at 8 AM.</h1>
+<h6>Bring your own water bottle.</h6>
+```
+
+What happens: the page now has two main titles, and a normal sentence is marked as a tiny heading. Screen reader users who jump from heading to heading get a confusing outline.
+
+✅ Fixed: headings describe the **outline**. Normal sentences go in `<p>`. You will change sizes later with CSS.
+
+```html
+<h1>Welcome!</h1>
+<p>School opens at 8 AM.</p>
+<p>Bring your own water bottle.</p>
+```
+
+---
+
+## ✍️ Try It
+
+**The Pet Encyclopedia**
+
+Create a small HTML page about your favorite animal:
+1. Put the animal's name in an `<h1>` (e.g., `<h1>The Golden Retriever</h1>`).
+2. Add a `<p>` with a general intro.
+3. Add an `<h2>` titled `Appearance` followed by a paragraph describing their fur and size.
+4. Add another `<h2>` titled `Diet & Care` followed by what they eat.
+5. Save the file as `pet.html` and view it in your browser!
+
+> 💡 **Hint:** You only need one `<h1>`. Both "Appearance" and "Diet & Care" are main sections, so they are both `<h2>`.
+
+---
+
+## 📝 Recap
 
 - HTML provides 6 levels of headings: `<h1>` (largest) to `<h6>` (smallest).
 - A web page should generally have **one primary `<h1>`** tag representing the title of that page.
@@ -210,7 +236,7 @@ Write an HTML page reviewing your favorite book:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -222,16 +248,75 @@ Write an HTML page reviewing your favorite book:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
+### 🟢 Level 1: Recall
 1. How many levels of HTML headings exist?
 2. Which heading level is the largest by default?
-3. What tag is used to create a standard paragraph of text?
+3. Which tag makes a normal paragraph of text?
 
-### 🟡 Medium (Application)
-4. Why is it considered bad practice to place five different `<h1>` tags on a single page?
-5. Write an HTML snippet that outlines a recipe for chocolate chip cookies, using an `<h1>`, two `<h2>` tags (Ingredients and Instructions), and three paragraphs.
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Write a complete news article page about an imaginary scientific breakthrough (e.g., "Scientists Invent Flying Bicycle!"). Use `<h1>`, `<h2>`, `<h3>`, and multiple paragraphs to create a realistic, well-organized newspaper layout!
+1. Six: `<h1>` to `<h6>`.
+2. `<h1>`.
+3. `<p>`.
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Why is it bad practice to put five different `<h1>` tags on one page?
+2. Write an HTML snippet for a cookie recipe with one `<h1>`, two `<h2>` tags (Ingredients and Instructions) and three paragraphs.
+
+<details>
+<summary>Show answer</summary>
+
+1. `<h1>` means "the main title of this page". Five of them make it unclear what the page is about, for visitors, screen readers and search engines.
+2. One possible answer:
+
+```html
+<h1>Chocolate Chip Cookies</h1>
+<p>Soft cookies for the class bake sale.</p>
+<h2>Ingredients</h2>
+<p>Flour, butter, sugar, eggs and chocolate chips.</p>
+<h2>Instructions</h2>
+<p>Mix everything, shape small balls and bake for 12 minutes.</p>
+```
+
+</details>
+
+### 🔴 Level 3: Challenge
+Write a news article page about an imaginary science discovery (e.g. "Students Build a Solar-Powered Bicycle!").
+1. Use the full page structure.
+2. Use one `<h1>`, at least two `<h2>` sections and at least one `<h3>` inside a section.
+3. Write a paragraph under every heading.
+4. Check that no heading level is skipped.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Bicycle News</title>
+  </head>
+  <body>
+    <h1>Students Build a Solar-Powered Bicycle!</h1>
+    <p>Grade 9 students have built a bicycle that charges in the sun.</p>
+
+    <h2>How It Works</h2>
+    <p>A small solar panel charges a battery that helps the rider uphill.</p>
+
+    <h3>The Solar Panel</h3>
+    <p>The panel sits on a rack behind the seat.</p>
+
+    <h2>What Happens Next</h2>
+    <p>The team will show the bicycle at the city science fair.</p>
+  </body>
+</html>
+```
+
+</details>

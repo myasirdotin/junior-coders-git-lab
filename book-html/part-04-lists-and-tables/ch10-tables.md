@@ -1,8 +1,8 @@
-# Chapter 10: Tables 📊🗓️
+# Chapter 10: Tables 📊
 
 ---
 
-## 1. 🌟 Real-Life Situation: The School Timetable Grid
+## 🌟 Real-Life Story
 
 Look at your school diary or classroom wall. Every Monday through Friday, how do you know what subject you have at 9:00 AM, 11:00 AM, and 2:00 PM?
 
@@ -15,7 +15,7 @@ Whenever you have information with multiple categories—like sports scores, tra
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Understand the 4 core table tags: `<table>`, `<tr>`, `<th>`, and `<td>`.
@@ -26,36 +26,35 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The 4 Pillars of an HTML Table
 
 ```text
- 1. <table>   <--- The outer wrapper holding the entire grid
- 2. <tr>      <--- Table Row: Creates a horizontal row from left to right
- 3. <th>      <--- Table Header: Bold, centered title at the top of a column
- 4. <td>      <--- Table Data: A single standard content cell
+1. <table>  <- wraps the whole grid
+2. <tr>     <- table row (left to right)
+3. <th>     <- header cell (bold title)
+4. <td>     <- data cell (normal cell)
 ```
 
 ### Table Grid Architecture
 
 ```text
-               Column 1         Column 2         Column 3
-            ┌────────────────┬────────────────┬────────────────┐
-  Row 1:    │   <th>Time     │   <th>Subject  │   <th>Room     │  <- Table Row (tr)
-            ├────────────────┼────────────────┼────────────────┤
-  Row 2:    │   <td>9:00 AM  │   <td>Science  │   <td>Lab 4    │  <- Table Row (tr)
-            ├────────────────┼────────────────┼────────────────┤
-  Row 3:    │   <td>10:00 AM │   <td>History  │   <td>Room 102 │  <- Table Row (tr)
-            └────────────────┴────────────────┴────────────────┘
+         col 1      col 2      col 3
+       ┌──────────┬──────────┬──────────┐
+ <tr>  │th Time   │th Subject│th Room   │
+       ├──────────┼──────────┼──────────┤
+ <tr>  │td 9:00   │td Science│td Lab 4  │
+       ├──────────┼──────────┼──────────┤
+ <tr>  │td 10:00  │td History│td Rm 102 │
+       └──────────┴──────────┴──────────┘
 ```
 
-> ⚠️ **Common Mistake**: 
-> HTML builds tables **row by row**, NOT column by column! You always declare `<tr>` first for the horizontal slice, and then put all the cells for that row inside it!
+HTML builds a table **row by row**: one `<tr>` for each line, with that line's cells inside it.
 
 ---
 
-## 4. 💻 Code Example: Class Timetable & Marks Sheet
+## 💻 Code Example: Class Timetable & Marks Sheet
 
 Type this into your editor and save it as `timetable.html`:
 
@@ -64,6 +63,7 @@ Type this into your editor and save it as `timetable.html`:
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Class 7 Timetable</title>
   </head>
   <body>
@@ -110,36 +110,25 @@ Type this into your editor and save it as `timetable.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Stepping Through the Grid
+## 🔍 Code Explanation: Stepping Through the Grid
 
-- `<table>`: Opens the table. The attribute `border="1"` tells the browser to draw simple black gridlines around the cells so you can clearly see the structure (later, in Part 3, we will use modern CSS borders instead!).
+- `<table>`: Opens the table. The attribute `border="1"` tells the browser to draw simple gridlines around the cells so you can clearly see the structure. It is an old attribute that is fine for practice; in the CSS track you will draw borders with CSS instead.
 - `<tr>`: Stands for **Table Row**. Every horizontal line on the screen is contained within its own `<tr>` and `</tr>`.
 - `<th>`: Stands for **Table Header**. Notice that browsers automatically make the words inside `<th>` **bold and centered**!
 - `<td>`: Stands for **Table Data**. This is a standard cell holding regular text, numbers, or even images.
 
 ---
 
-## 6. 🌍 Real-World Connection: Sports Leaderboards & Flight Trackers
+## 🌍 Real-World Connection: Sports Leaderboards & Flight Trackers
 
 Where do professional websites rely on HTML tables?
-- **FIFA World Cup & Premier League**: The team standings table (Played, Won, Drawn, Lost, Points, Goal Difference) is an HTML table.
-- **Airport Flight Departure Screens**: The giant screen at the airport showing Flight Number, Destination, Departure Time, and Gate is an HTML table.
-- **Online Banking**: Your monthly statement showing transactions, dates, and account balance is laid out with table elements.
+- **Sports Day results**: A school's results page (House, Gold, Silver, Bronze, Points) is a perfect HTML table.
+- **Flight and train times**: An airport or railway website lists Number, Destination, Time and Gate/Platform in a table.
+- **Library history**: A library account page lists each book you borrowed, with dates, in a table.
 
 ---
 
-## 7. ✍️ Try It Yourself: The Student Marks Sheet
-
-Create a 3-column table showing your recent quiz scores:
-1. Header row (`<th>`): `Subject`, `Total Marks`, `Marks Obtained`.
-2. Row 2 (`<td>`): `Math`, `50`, `48`.
-3. Row 3 (`<td>`): `Computer Science`, `50`, `50`.
-4. Row 4 (`<td>`): `History`, `50`, `45`.
-5. Preview in browser and check that every column aligns vertically!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 Look at this table snippet:
 
@@ -161,12 +150,12 @@ Look at this table snippet:
 
 <details>
 <summary>👀 Click to check your answer</summary>
-<strong>Answer:</strong> The table will look distorted! The second row will stick out with an extra cell on the right that has no header above it. Every row in a clean table should have the same number of cells, or use <code>colspan</code> to bridge the gap!
+<strong>Answer:</strong> The table will look distorted! The second row will stick out with an extra cell on the right that has no header above it. Every row in a clean table should have the same number of cells, or use <code>colspan</code> (see Practice Level 3) to bridge the gap!
 </details>
 
 ---
 
-## 9. 🕵️ Code Detective: The Flipped Tags
+## 🕵️ Code Detective: The Flipped Tags
 
 A student created a table, but the rows are appearing inside each other like a scrambled mess:
 
@@ -195,18 +184,18 @@ A student created a table, but the rows are appearing inside each other like a s
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Readability & Zebra Striping
+## 🎨 Think Like a Web Designer: Readability & Zebra Striping
 
 Have you ever tried reading a wide table with 20 columns where all the text is squished together in black and white? Your eyes drift to the wrong row and you get confused!
 
 Professional web designers use two secrets:
 1. **Cell Padding**: Giving cells generous breathing room so numbers don't touch the borders.
 2. **Zebra Striping**: Alternating row background colors between white and light gray (`#f1f5f9`).
-You will master these with CSS in Chapter 15!
+You will master these in the CSS track!
 
 ---
 
-## 11. 🚀 Mini Challenge: The Science Fair Results Table
+## 🚀 Mini Challenge: The Science Fair Results Table
 
 Build a web page named `science-fair.html`:
 - An `<h1>`: `Class 7 Science Fair: Project Results`
@@ -219,7 +208,49 @@ Build a web page named `science-fair.html`:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+**Building a table column by column.**
+
+❌ Wrong: the student puts each *column* in a `<tr>`.
+
+```html
+<table border="1">
+  <tr><td>Math</td><td>Science</td></tr>
+  <tr><td>48</td><td>45</td></tr>
+</table>
+```
+
+What happens: the subjects end up side by side on the first line and the marks on the second. The table reads sideways, and there are no headings.
+
+✅ Fixed: one `<tr>` per **row** (one subject per row), with `<th>` headings on top.
+
+```html
+<table border="1">
+  <tr><th>Subject</th><th>Marks</th></tr>
+  <tr><td>Math</td><td>48</td></tr>
+  <tr><td>Science</td><td>45</td></tr>
+</table>
+```
+
+---
+
+## ✍️ Try It
+
+**The Student Marks Sheet**
+
+Create a 3-column table showing your recent quiz scores:
+1. Header row (`<th>`): `Subject`, `Total Marks`, `Marks Obtained`.
+2. Row 2 (`<td>`): `Math`, `50`, `48`.
+3. Row 3 (`<td>`): `Computer Science`, `50`, `50`.
+4. Row 4 (`<td>`): `History`, `50`, `45`.
+5. Preview in browser and check that every column aligns vertically!
+
+> 💡 **Hint:** Count the cells. Every `<tr>` should hold exactly three cells, the same as the header row.
+
+---
+
+## 📝 Recap
 
 - HTML tables display structured information across rows and columns.
 - `<table>` wraps the whole table.
@@ -230,7 +261,7 @@ Build a web page named `science-fair.html`:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -242,16 +273,71 @@ Build a web page named `science-fair.html`:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
+### 🟢 Level 1: Recall
 1. Which tag creates a table row?
-2. Which tag is used for the header cells at the top of columns?
+2. Which tag makes the header cells at the top of columns?
 3. What is the difference between `<th>` and `<td>`?
 
-### 🟡 Medium (Application)
-4. Write the HTML code for a 2-column table displaying 3 of your favorite books and their authors.
-5. What happens if one row in a table has 4 cells and the next row has only 2 cells?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Research the HTML attributes `colspan` and `rowspan`. Write a table where one cell stretches across two columns (like a "Lunch Break" banner that spans all 5 days of the week)!
+1. `<tr>`
+2. `<th>`
+3. `<th>` is a **header** cell: a title for its column (bold and centred by default). `<td>` is a normal **data** cell.
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Write a 2-column table with 3 of your favourite books and their authors.
+2. What happens if one row has 4 cells and the next row has only 2?
+
+<details>
+<summary>Show answer</summary>
+
+1.
+
+```html
+<table border="1">
+  <tr><th>Book</th><th>Author</th></tr>
+  <tr><td>The Little Prince</td><td>Antoine de Saint-Exupéry</td></tr>
+  <tr><td>Charlotte's Web</td><td>E. B. White</td></tr>
+  <tr><td>Matilda</td><td>Roald Dahl</td></tr>
+</table>
+```
+
+2. The table becomes uneven. The short row ends early and leaves empty space on the right. Every row should have the same number of cells.
+
+</details>
+
+### 🔴 Level 3: Challenge
+`colspan` makes one cell stretch across several columns. For example, `<td colspan="3">` covers three columns.
+1. Build a timetable with a header row: Time, Monday, Tuesday, Wednesday.
+2. Add one row of lessons.
+3. Add a "Lunch Break" row: the time in the first cell, and one cell that spans all three days.
+4. Add one more row of lessons.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<table border="1">
+  <tr>
+    <th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th>
+  </tr>
+  <tr>
+    <td>9:00</td><td>Math</td><td>Science</td><td>English</td>
+  </tr>
+  <tr>
+    <td>12:00</td><td colspan="3">Lunch Break</td>
+  </tr>
+  <tr>
+    <td>12:45</td><td>Art</td><td>History</td><td>Robotics</td>
+  </tr>
+</table>
+```
+
+(`rowspan` works the same way, but stretches a cell down across rows.)
+
+</details>

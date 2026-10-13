@@ -1,8 +1,8 @@
-# Chapter 16: Portfolio Website 💼🎨
+# Chapter 16: Portfolio Website 💼
 
 ---
 
-## 1. 🌟 Real-Life Situation: The Architect's Blueprint Gallery
+## 🌟 Real-Life Story
 
 Imagine an architect applying to design a new science museum:
 - They don't just hand the committee a sheet of paper with their name on it.
@@ -15,9 +15,11 @@ Imagine an architect applying to design a new science museum:
 When employers, clients, or judges want to know if you can truly code, they don't test you with paper exams. **They look at your Web Developer Portfolio!**
 Your portfolio is the single most valuable project you will build in this entire book—it proves with live, working code that you are a genuine web creator!
 
+> 🎨 **About the `<style>` block:** the page comes with ready-made CSS (a dark theme) so it looks polished. You will learn to write CSS like this in the CSS track. For now, copy it as it is and focus on the HTML.
+
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Build a polished, agency-grade Web Developer Portfolio.
@@ -25,41 +27,39 @@ By the end of this chapter, you will be able to:
 - Showcase live web development projects using interactive **Project Cards**.
 - Include "Live Demo" and "View Code" action links on every card.
 - Build an interactive Skills Grid highlighting languages, tools, and platforms.
-- Deploy a modern, responsive footer with active social and coding links.
+- Build a footer with a working `mailto:` contact link.
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### The Developer Portfolio Blueprint
 
 ```text
- ┌─────────────────────────────────────────────────────────────┐
- │ HEADER: [ ⚡ LeoVance.dev ]       [Projects] [Skills] [Contact]│
- ├─────────────────────────────────────────────────────────────┤
- │ HERO SECTION:                                               │
- │  "Hi, I'm Leo! I build clean, accessible, interactive web   │
- │   experiences."                                             │
- │   [ View My Work 🚀 ]   [ Contact Me 📬 ]                   │
- ├─────────────────────────────────────────────────────────────┤
- │ FEATURED PROJECTS (2x2 GRID OF PROJECT CARDS)               │
- │  ┌─────────────────────────┐   ┌─────────────────────────┐  │
- │  │ [ Preview Image ]       │   │ [ Preview Image ]       │  │
- │  │ 🎮 Retro Arcade Game    │   │ 🍕 Italian Bistro Site  │  │
- │  │ [HTML5] [CSS3] [Flexbox]│   │ [HTML5] [Grid] [Forms]  │  │
- │  │ [Live Demo] [Code]      │   │ [Live Demo] [Code]      │  │
- │  └─────────────────────────┘   └─────────────────────────┘  │
- ├─────────────────────────────────────────────────────────────┤
- │ SKILLS & TOOLS (Interactive Chips)                          │
- │  [HTML5] [CSS3] [Responsive RWD] [Git] [VS Code] [Chrome Dev]│
- ├─────────────────────────────────────────────────────────────┤
- │ GET IN TOUCH: Contact Form + Direct Email + GitHub Profile  │
- └─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────┐
+│ <nav> ⚡ LeoVance.dev                │
+│   Projects  Skills  Contact          │
+├──────────────────────────────────────┤
+│ <header> HERO                        │
+│   "Hi there! I am Leo Vance"         │
+│   [View My Projects] [Let's Connect] │
+├──────────────────────────────────────┤
+│ <main id="projects">                 │
+│ ┌────────────────┐┌────────────────┐ │
+│ │ [preview]      ││ [preview]      │ │
+│ │ Bella Vista    ││ Greenwood      │ │
+│ │ [HTML5][Grid]  ││ [HTML5][Flex]  │ │
+│ │ [Demo] [Code]  ││ [Demo] [Code]  │ │
+│ └────────────────┘└────────────────┘ │
+│   <section id="skills">  tag chips   │
+├──────────────────────────────────────┤
+│ <footer id="contact">  email link    │
+└──────────────────────────────────────┘
 ```
 
 ---
 
-## 4. 💻 Code Example: The Complete Developer Portfolio
+## 💻 Code Example: The Complete Developer Portfolio
 
 Type this into your editor and save it as `portfolio.html`:
 
@@ -341,7 +341,7 @@ Type this into your editor and save it as `portfolio.html`:
       <div class="projects-grid">
         <!-- Project 1 -->
         <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500" alt="Restaurant Project">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=500" alt="Preview of the Bella Vista restaurant website">
           <div class="project-body">
             <h3 class="project-title">Bella Vista Trattoria</h3>
             <p class="project-desc">
@@ -361,7 +361,7 @@ Type this into your editor and save it as `portfolio.html`:
 
         <!-- Project 2 -->
         <div class="project-card">
-          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500" alt="School Project">
+          <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=500" alt="Preview of the Greenwood Academy school website">
           <div class="project-body">
             <h3 class="project-title">Greenwood Academy Portal</h3>
             <p class="project-desc">
@@ -379,6 +379,18 @@ Type this into your editor and save it as `portfolio.html`:
           </div>
         </div>
       </div>
+
+      <!-- Skills Section (the nav's "Skills" link jumps here) -->
+      <section id="skills" class="section-header" style="margin-top: 60px;">
+        <h2>Skills &amp; Tools</h2>
+        <div class="tech-tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">Semantic Layout</span>
+          <span class="tag">Forms</span>
+          <span class="tag">Tables</span>
+          <span class="tag">VS Code</span>
+        </div>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -387,7 +399,7 @@ Type this into your editor and save it as `portfolio.html`:
       <p style="color: #94a3b8; max-width: 500px; margin: 0 auto 24px auto;">
         Have a question or want to collaborate on a coding project? Feel free to reach out!
       </p>
-      <a href="mailto:leo@juniordev.com" class="btn-primary" style="display: inline-block;">Email Me Directly 📬</a>
+      <a href="mailto:leo@example.org" class="btn-primary" style="display: inline-block;">Email Me Directly 📬</a>
       <p style="margin-top: 40px; color: #64748b; font-size: 13px;">
         &copy; 2026 Leo Vance. Handcrafted with semantic HTML & CSS.
       </p>
@@ -399,7 +411,7 @@ Type this into your editor and save it as `portfolio.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Agency-Grade Dark Mode
+## 🔍 Code Explanation: Agency-Grade Dark Mode
 
 - **Dark Theme Palette**: Dark slate background (`#0f172a`), lighter card container (`#1e293b`), borders (`#334155`), and vibrant cyan accents (`#38bdf8`). Dark mode saves battery on OLED screens and looks ultra-modern!
 - Tech Tags: Small pills showing the technologies used (`<span class="tag">HTML5</span>`) communicate technical competence to recruiters and teachers.
@@ -407,7 +419,7 @@ Type this into your editor and save it as `portfolio.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: GitHub Pages & Hosting
+## 🌍 Real-World Connection: GitHub Pages & Hosting
 
 How do web developers share their portfolios with the world?
 - You can upload your code repository to **GitHub** and turn on **GitHub Pages** with one click!
@@ -415,15 +427,7 @@ How do web developers share their portfolios with the world?
 
 ---
 
-## 7. ✍️ Try It Yourself: Link Your Real Chapter Projects
-
-Look inside the `.projects-grid` in `portfolio.html`:
-1. Change the links on Project 1 to point directly to the files you created in Chapter 14 and Chapter 15!
-2. Click the "Live Demo" link: Watch your browser seamlessly launch your actual restaurant and school websites!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 What will happen when you hover over any project card?
 
@@ -434,9 +438,9 @@ What will happen when you hover over any project card?
 
 ---
 
-## 9. 🕵️ Code Detective: The Squashed Hero Title
+## 🕵️ Code Detective: The Squashed Hero Title
 
-A student tested their portfolio on an iPhone, but the giant 48px hero title was so wide that it broke through the screen edges:
+*(A CSS preview: you will learn media queries in the CSS track.)* A student tested their portfolio on a phone, but the giant 48px hero title was so wide that it broke through the screen edges:
 
 ```css
 /* Broken Code */
@@ -459,7 +463,7 @@ A student tested their portfolio on an iPhone, but the giant 48px hero title was
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Show, Don't Just Tell!
+## 🎨 Think Like a Web Designer: Show, Don't Just Tell!
 
 Anyone can write on a resume: *"I know how to code websites."*
 A portfolio allows you to **PROVE IT** visually:
@@ -469,23 +473,66 @@ A portfolio allows you to **PROVE IT** visually:
 
 ---
 
-## 11. 🚀 Mini Challenge: Add a "Testimonials" Quote Box
+## 🚀 Mini Challenge: Add a "Testimonials" Quote Box
 
 Add a recommendation quote underneath your projects:
 - *"Leo built our science club website and it was fast, colorful, and super easy to navigate on phones!" — Ms. Davis, Science Club Advisor.*
+- On your real portfolio, only use words that a real person actually said to you, and ask their permission first.
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
 
-- A developer portfolio is your primary showcase of technical and design competence.
-- Dark mode interfaces use deep slates (`#0f172a`) paired with bright, glowing accents (`#38bdf8`).
-- Project cards combine imagery, descriptions, technology badges, and demo links.
-- Dual CTAs in hero sections guide visitors toward exploring work or initiating contact.
+**A nav link that points to a section that does not exist.**
+
+❌ Wrong: the menu has a "Skills" link, but no element has `id="skills"`.
+
+```html
+<li><a href="#skills">Skills</a></li>
+...
+<main id="projects"> ... </main>
+```
+
+What happens: clicking "Skills" does nothing. Visitors think the site is broken, which is the opposite of what a portfolio should show!
+
+✅ Fixed: every in-page link needs a matching `id` somewhere on the page.
+
+```html
+<li><a href="#skills">Skills</a></li>
+...
+<section id="skills">
+  <h2>Skills &amp; Tools</h2>
+</section>
+```
+
+Before you share your portfolio, click **every** link once.
 
 ---
 
-## 13. 📖 Key Terms
+## ✍️ Try It
+
+**Link Your Real Chapter Projects**
+
+Look inside the `.projects-grid` in `portfolio.html`:
+1. Change the links on Project 1 to point directly to the files you created in Chapter 14 and Chapter 15!
+2. Click the "Live Demo" link: Watch your browser seamlessly launch your actual restaurant and school websites!
+
+> 💡 **Hint:** Put `portfolio.html`, `restaurant.html` and `school-website.html` in the **same folder**. Then `href="restaurant.html"` finds the file with no folder path needed.
+
+---
+
+## 📝 Recap
+
+- A portfolio proves your skills by showing real, working projects.
+- Each project card groups a preview image (with meaningful `alt`), a title, a description, tech tags and links.
+- "Live Demo" links can point to your own HTML files in the same folder.
+- Every nav link (`#projects`, `#skills`, `#contact`) needs a matching `id`.
+- Only show honest work and real quotes, shared with permission (*Amānah*).
+- The ready-made CSS (dark theme, hover effects) is a preview of the CSS track.
+
+---
+
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -496,16 +543,64 @@ Add a recommendation quote underneath your projects:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. What is the primary purpose of a web developer portfolio?
-2. What hex color did we use for our portfolio dark background?
-3. Name two interactive links every project card should include.
+### 🟢 Level 1: Recall
+1. What is the main purpose of a web developer portfolio?
+2. Name the two links every project card in this chapter includes.
+3. Which link prefix opens the visitor's email app?
 
-### 🟡 Medium (Application)
-4. Write a media query that reduces the hero title from 48px to 30px on screens narrower than 550px.
-5. Why are tech stack badges helpful for people viewing your projects?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Add a "Filter by Category" button row (e.g. *All*, *Websites*, *Games*, *Tools*) above the projects grid and style the active filter button with a glowing border!
+1. To show real, working examples of your work, so people can see what you can build.
+2. "Live Demo" and "View Code".
+3. `mailto:`
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Why are tech tags (like "HTML5" or "Forms") helpful for people viewing your projects?
+2. Write a better `alt` than `alt="Project"` for a preview image of your school website.
+
+<details>
+<summary>Show answer</summary>
+
+1. They show at a glance which skills each project used, without reading the whole description.
+2. `alt="Preview of the Greenwood Academy school website"`. It says what the picture shows and which project it belongs to.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Add a third project card for your Chapter 13 profile page:
+1. Copy one whole `<div class="project-card">` block and paste it after the second card.
+2. Change the title, description and `alt` text.
+3. Use three tech tags that match what you used.
+4. Point "Live Demo" to `personal-profile.html` and test it.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<!-- Project 3 -->
+<div class="project-card">
+  <img src="images/profile-preview.jpg" alt="Preview of my personal profile website">
+  <div class="project-body">
+    <h3 class="project-title">My Personal Profile</h3>
+    <p class="project-desc">
+      A one-page profile with my skills, hobbies and a contact form.
+    </p>
+    <div class="tech-tags">
+      <span class="tag">HTML5</span>
+      <span class="tag">In-page Links</span>
+      <span class="tag">Forms</span>
+    </div>
+    <div class="project-links">
+      <a href="personal-profile.html" target="_blank">Live Demo 🔗</a>
+      <a href="#">View Code 💻</a>
+    </div>
+  </div>
+</div>
+```
+
+</details>

@@ -1,8 +1,8 @@
-# Chapter 8: Images 📸🖼️
+# Chapter 8: Images 📸
 
 ---
 
-## 1. 🌟 Real-Life Situation: A Picture Book vs. A Plain Dictionary
+## 🌟 Real-Life Story
 
 Have you ever flipped through a children's wildlife encyclopedia filled with full-color photos of Siberian tigers, deep-sea jellyfish, and towering giraffes? 
 
@@ -13,7 +13,7 @@ On the web, images bring life, emotion, color, and excitement to your pages. Whe
 
 ---
 
-## 2. 🎯 Learning Objectives
+## 🎯 What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Use the `<img>` tag to embed pictures onto any web page.
@@ -25,45 +25,50 @@ By the end of this chapter, you will be able to:
 
 ---
 
-## 3. 👁️ Visual Concept Explanation
+## 👁️ Visual Concept Explanation
 
 ### Anatomy of an Image Tag
 
 Unlike paragraphs or headings, the `<img>` tag is a **void (self-closing) element**. It does NOT have a closing `</img>` tag!
 
 ```text
-  Tag Name    Image Source File      Alternative Text Description
-     │             │                            │
-     ▼             ▼                            ▼
-   <img  src="cute-puppy.jpg"  alt="A golden retriever puppy playing on green grass"  width="300" >
-                                                                                        ▲
-                                                                                        │
-                                                                           Image Width in Pixels
+<img              <- tag name
+  src="puppy.jpg" <- the image file
+  alt="A golden retriever puppy
+       playing on green grass"
+                  <- description
+  width="300"     <- width in pixels
+>                 <- no </img> needed
 ```
 
 ### Where Does the Browser Find the Image?
 
 ```text
-Scenario A: Local Image (In the same folder on your computer)
+A: Same folder as the page
   my-folder/
     ├── gallery.html
     └── sunset.jpg
-  Code: <img src="sunset.jpg" alt="...">
+  <img src="sunset.jpg" alt="...">
 
-Scenario B: Images Subfolder (Best practice for clean projects!)
+B: An images subfolder (tidiest!)
   my-folder/
     ├── gallery.html
     └── images/
           └── sunset.jpg
-  Code: <img src="images/sunset.jpg" alt="...">
+  <img src="images/sunset.jpg"
+       alt="...">
 
-Scenario C: Web URL (Hosted elsewhere on the internet)
-  Code: <img src="https://example.com/photos/tiger.jpg" alt="...">
+C: A web address (another server)
+  <img src="https://example.com/
+            photos/tiger.jpg"
+       alt="...">
 ```
+
+(In real code, case C is written on one line, with no spaces in the address.)
 
 ---
 
-## 4. 💻 Code Example: The Wildlife Photo Gallery
+## 💻 Code Example: The Wildlife Photo Gallery
 
 Type this into an editor and save it as `gallery.html`:
 
@@ -72,6 +77,7 @@ Type this into an editor and save it as `gallery.html`:
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nature Discovery Gallery</title>
   </head>
   <body>
@@ -85,7 +91,7 @@ Type this into an editor and save it as `gallery.html`:
       alt="Close-up of an orange and black monarch butterfly resting on a purple flower"
       width="400"
     >
-    <p>Monarch butterflies travel over 3,000 miles during their annual migration!</p>
+    <p>Some monarch butterflies fly up to 4,800 km (3,000 miles) on their yearly migration!</p>
 
     <!-- Photo 2: Mountain landscape -->
     <h2>The Rocky Mountains</h2>
@@ -101,7 +107,7 @@ Type this into an editor and save it as `gallery.html`:
 
 ---
 
-## 5. 🔍 Code Explanation: Key Attributes Explained
+## 🔍 Code Explanation: Key Attributes Explained
 
 - `<img>`: The image tag.
 - `src="..."`: Stands for **source**. This tells the browser: *"Go find the image file at this exact location or web address!"* If the file path is misspelled by even one letter, the image will fail to load and show a broken icon.
@@ -110,28 +116,16 @@ Type this into an editor and save it as `gallery.html`:
 
 ---
 
-## 6. 🌍 Real-World Connection: The Alt Text Superpower
+## 🌍 Real-World Connection: The Alt Text Superpower
 
-Why does every tech company (like Google, Apple, and Amazon) enforce strict `alt` text rules?
-1. **Accessibility**: Over 285 million people worldwide have visual impairments. Screen readers read `alt="A chocolate frosted birthday cake with 10 lit candles"` so blind children can understand what is happening in the picture!
+Why do careful web teams always write `alt` text?
+1. **Accessibility**: Millions of people around the world are blind or have low vision. A screen reader reads `alt="A tray of fresh bread rolls at the school bake sale"` aloud, so a blind student knows what the picture shows!
 2. **Slow Internet**: When internet connections are weak or data is limited, browsers display the `alt` text box instead of downloading heavy pictures.
 3. **Google Image Search**: Google’s search engine cannot look at pixels with human eyes; it uses your `alt` text to understand what the photo shows and index it in image search results!
 
 ---
 
-## 7. ✍️ Try It Yourself: The Broken Image Test
-
-Want to see how `alt` text saves the day?
-1. Open your code and intentionally misspell the `src` attribute:
-   ```html
-   <img src="ghost-unicorn-that-does-not-exist.jpg" alt="A magical rainbow unicorn galloping across the clouds">
-   ```
-2. Save and refresh your browser.
-3. You will see a small broken image icon, but right next to it, your descriptive `alt` text will appear clearly on the screen!
-
----
-
-## 8. 🔮 Predict the Output
+## 🔮 Predict the Output
 
 What will happen if you set `width="500"` and `height="100"` on a tall, vertical portrait photo of a giraffe?
 
@@ -146,9 +140,9 @@ What will happen if you set `width="500"` and `height="100"` on a tall, vertical
 
 ---
 
-## 9. 🕵️ Code Detective: The Case of the Missing Quote
+## 🕵️ Code Detective: The Case of the Missing Quote
 
-A student is crying because their web page shows scrambled text instead of an image:
+A student's photo shows up, but when a screen reader reads it, it only says **"A"**:
 
 ```html
 <!-- Broken Code -->
@@ -156,7 +150,7 @@ A student is crying because their web page shows scrambled text instead of an im
 ```
 
 - **Find the mistake**: Look at the values for `src`, `alt`, and `width`—there are NO quotation marks!
-- **Explain the mistake**: In the `alt` text, because there are spaces between the words, the browser thinks `fluffy`, `golden`, and `retriever` are brand new, unknown HTML attributes! Attribute values should always be wrapped in quotes (`"..."`).
+- **Explain the mistake**: Without quotes, a value stops at the first space. So `alt` is only `"A"`, and the browser thinks `fluffy`, `golden` and `retriever` are new, unknown attributes! Always wrap attribute values in quotes (`"..."`).
 - **Fix the code**:
   ```html
   <!-- Fixed Code -->
@@ -165,7 +159,7 @@ A student is crying because their web page shows scrambled text instead of an im
 
 ---
 
-## 10. 🎨 Think Like a Web Designer: Good Alt Text vs. Bad Alt Text
+## 🎨 Think Like a Web Designer: Good Alt Text vs. Bad Alt Text
 
 Writing great alternative text is an art form. Check out these examples for a photo of a kitten sleeping in a red teacup:
 
@@ -177,7 +171,7 @@ Writing great alternative text is an art form. Check out these examples for a ph
 
 ---
 
-## 11. 🚀 Mini Challenge: The 3-Photo Hobby Showcase
+## 🚀 Mini Challenge: The 3-Photo Hobby Showcase
 
 Create a new file named `my-hobbies.html`:
 - Give it an `<h1>`: `My Favorite Weekend Activities`
@@ -186,7 +180,44 @@ Create a new file named `my-hobbies.html`:
 
 ---
 
-## 12. 📝 Chapter Recap
+## ⚠️ Common Mistake
+
+**Leaving out `alt`, or writing a useless one.**
+
+❌ Wrong:
+
+```html
+<img src="images/library.jpg">
+<img src="images/library.jpg" alt="image">
+```
+
+What happens: a screen reader may read out the file name, "library dot jpg", or just "image". If the picture fails to load, nothing useful appears.
+
+✅ Fixed: describe what the picture shows, in one short sentence.
+
+```html
+<img src="images/library.jpg" alt="Students reading at long tables in the school library">
+```
+
+---
+
+## ✍️ Try It
+
+**The Broken Image Test**
+
+Want to see how `alt` text saves the day?
+1. Open your code and intentionally misspell the `src` attribute:
+   ```html
+   <img src="missing-telescope.jpg" alt="A student looking at the Moon through a telescope">
+   ```
+2. Save and refresh your browser.
+3. You will see a small broken image icon, and your descriptive `alt` text will appear on the screen instead of the picture!
+
+> 💡 **Hint:** Different browsers draw the broken image a little differently. Some show only the `alt` text, with no icon at all.
+
+---
+
+## 📝 Recap
 
 - The `<img>` tag embeds pictures into HTML documents.
 - `<img>` is a self-closing void element (no `</img>` closing tag).
@@ -197,7 +228,7 @@ Create a new file named `my-hobbies.html`:
 
 ---
 
-## 13. 📖 Key Terms
+## 📖 Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -209,16 +240,55 @@ Create a new file named `my-hobbies.html`:
 
 ---
 
-## 14. 🏆 Practice Exercises
+## 🏆 Practice
 
-### 🟢 Easy (Recall)
-1. True or False: The `<img>` tag requires a closing `</img>` tag.
+### 🟢 Level 1: Recall
+1. True or false: the `<img>` tag needs a closing `</img>` tag.
 2. What does the `src` attribute tell the browser?
-3. What unit of measurement do `width="300"` numbers represent by default in HTML?
+3. What unit do the numbers in `width="300"` use?
 
-### 🟡 Medium (Application)
-4. Write the HTML tag to insert an image named `dinosaur.png` located inside an `assets` folder, with an alt description of "A green Tyrannosaurus Rex roaring", and a width of 450 pixels.
-5. Why is it dangerous to set both a fixed `width` and a fixed `height` in pixels on an image without checking its original dimensions?
+<details>
+<summary>Show answer</summary>
 
-### 🔴 Challenge (Creative Problem-Solving)
-6. Can an image also act as a clickable button or link? How could you wrap an `<img>` tag inside an `<a>` tag so that clicking on a photo of a rocket launches NASA's website? Write out the code and test it!
+1. False. `<img>` is a void element.
+2. Where to find the image file (a file path or a web address).
+3. Pixels.
+
+</details>
+
+### 🟡 Level 2: Apply
+1. Write the tag for an image named `dinosaur.png` inside an `assets` folder, with the alt text "A Tyrannosaurus Rex skeleton in a museum", and a width of 450 pixels.
+2. Why is it risky to set both a fixed `width` and a fixed `height` without checking the image's real size?
+
+<details>
+<summary>Show answer</summary>
+
+1.
+
+```html
+<img src="assets/dinosaur.png" alt="A Tyrannosaurus Rex skeleton in a museum" width="450">
+```
+
+2. If the two numbers do not match the image's real shape (aspect ratio), the picture is squashed or stretched. Setting only `width` lets the browser work out the height.
+
+</details>
+
+### 🔴 Level 3: Challenge
+Make a picture that works as a link:
+1. Put an `<img>` of a rocket inside an `<a>` tag.
+2. The link goes to `https://www.nasa.gov` and opens in a new tab.
+3. Write `alt` text that tells a screen reader user where the link goes.
+4. Test it: click the picture.
+
+<details>
+<summary>Show one possible answer</summary>
+
+```html
+<a href="https://www.nasa.gov" target="_blank">
+  <img src="images/rocket.jpg" alt="Visit the NASA website" width="300">
+</a>
+```
+
+When an image is the only thing inside a link, its `alt` text becomes the link's name. So it should say where the link goes, not only what the picture shows.
+
+</details>
