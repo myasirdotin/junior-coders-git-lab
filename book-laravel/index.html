@@ -16,147 +16,322 @@
       } catch(e) {}
     })();
   </script>
-  <title>Laravel for Class 9: PHP Framework | Junior Coders</title>
-  <meta name="description" content="Official Class 9 Laravel Textbook: Learn routing, controllers, Blade templates, Eloquent ORM, migrations, forms, and authentication.">
+  <title>Laravel: PHP Framework | Junior Coders</title>
+  <meta name="description" content="Laravel textbook for Grades 9–10: routes, controllers, Blade, Eloquent, migrations, forms, validation and authentication, built step by step as a school library app.">
   <link rel="stylesheet" href="../styles/book-theme.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    :root { --primary-blue: #ef4444; }
-    .book-brand-icon { background:linear-gradient(135deg,#ef4444,#dc2626)!important; color:#fff; font-weight:800; display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:10px; flex-shrink:0; }
-    .chapter-nav-item.active a { background:#fef2f2; color:#ef4444; border-left:3px solid #ef4444; }
-    .chapter-nav-item a:hover { color:#ef4444; background:#fef2f2; }
-    .code-wrapper { position:relative; background:#0f172a; border:1px solid #334155; border-radius:10px; margin:1.5rem 0; overflow:hidden; box-shadow:0 4px 16px rgba(0,0,0,0.25); }
-    .code-wrapper-header { display:flex; justify-content:space-between; align-items:center; background:#1e293b; padding:0.5rem 1rem; border-bottom:1px solid #334155; font-size:0.8rem; }
-    .code-lang-label { font-family:var(--font-mono,monospace); font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:0.05em; }
-    .code-actions { display:flex; align-items:center; gap:0.5rem; }
-    .btn-copy-code { display:inline-flex; align-items:center; gap:0.35rem; padding:0.3rem 0.65rem; font-size:0.78rem; font-weight:600; font-family:inherit; border-radius:6px; cursor:pointer; background:#334155; color:#cbd5e1; border:1px solid #475569; transition:background 0.15s; }
-    .btn-copy-code:hover { background:#475569; }
-    .btn-copy-code.copied { background:#059669; color:#fff; border-color:#059669; }
-    .copy-toast { position:fixed; bottom:1.5rem; left:50%; transform:translateX(-50%) translateY(2rem); background:#1e293b; color:#e2e8f0; border:1px solid #334155; border-radius:10px; padding:0.7rem 1.2rem; font-size:0.88rem; font-weight:600; display:flex; align-items:center; gap:0.5rem; z-index:9999; opacity:0; pointer-events:none; transition:all 0.25s ease; }
-    .copy-toast.show { opacity:1; transform:translateX(-50%) translateY(0); }
+    :root {
+      --primary-blue: #dc2626;
+      --primary-accent: #b91c1c;
+    }
+    .book-brand-icon {
+      background: linear-gradient(135deg, #ef4444, #b91c1c) !important;
+      color: #fff;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      flex-shrink: 0;
+      font-size: 20px;
+      font-family: var(--font-mono, monospace);
+    }
+    .laravel-brand-badge {
+      display: inline-block;
+      background: rgba(220, 38, 38, 0.1);
+      color: #b91c1c;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .chapter-nav-item.active a {
+      background: #fef2f2;
+      color: #b91c1c;
+      border-left: 3px solid #dc2626;
+      font-weight: 700;
+    }
+    .chapter-nav-item a:hover {
+      color: #b91c1c;
+      background: #fee2e2;
+    }
+    .book-subject-tabs {
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .subject-tab {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 0.28rem 0.55rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #475569;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.15s ease;
+    }
+    .subject-tab:hover {
+      background: #e2e8f0;
+      color: #0f172a;
+    }
+    .subject-tab.active {
+      background: #dc2626;
+      color: #ffffff;
+      border-color: #dc2626;
+    }
+    .code-wrapper {
+      position: relative;
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+    .code-wrapper-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e293b;
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid #334155;
+      font-size: 0.8rem;
+    }
+    .code-lang-label {
+      font-family: var(--font-mono, monospace);
+      color: #94a3b8;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+    }
+    .copy-btn {
+      background: #334155;
+      color: #cbd5e1;
+      border: none;
+      border-radius: 4px;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .copy-btn:hover {
+      background: #475569;
+      color: #fff;
+    }
+    .copy-btn.copied {
+      background: #059669;
+      color: #fff;
+    }
+    pre code {
+      display: block;
+      padding: 1.25rem;
+      overflow-x: auto;
+      font-family: var(--font-mono, monospace);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #f8fafc;
+    }
+    .reading-mode-active #bookSidebar,
+    .reading-mode-active .reader-top-nav {
+      display: none !important;
+    }
+    .reading-mode-active .book-reader {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
   </style>
 </head>
-<body>
-  <div class="book-mobile-bar" id="bookMobileBar">
-    <button type="button" class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Open Chapters Menu">
-      <span class="toggle-icon">&#9776;</span><span class="toggle-text">Chapters</span>
+<body class="book-theme-body">
+  <!-- Mobile Navigation Header -->
+  <header class="book-mobile-header">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle Table of Contents">
+      <span></span><span></span><span></span>
     </button>
-    <div class="mobile-brand-title">Laravel for Class 9</div>
-    <a href="../index.html" class="mobile-home-link" title="Platform Home">&#127968;</a>
-  </div>
-  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+    <div class="mobile-book-title">
+      <span class="book-badge" style="background:#dc2626; color:#fff;">LARAVEL</span>
+      <span>Junior Coders</span>
+    </div>
+    <a href="../index.html" class="mobile-home-btn" title="Back to Main Hub">🏠</a>
+  </header>
+
   <div class="book-layout">
+    <!-- Sidebar / Table of Contents -->
     <aside class="book-sidebar" id="bookSidebar">
-      <div class="book-return-bar">
-        <a href="../index.html" class="book-back-home" title="Return to Junior Coders Home">
-          <span class="back-icon">←</span>
-          <span>Return Home</span>
-        </a>
-        <a href="../Learning Laravel/learninglaravel.html" class="book-back-home" title="Laravel Course Track">
-          <span>Laravel Track</span>
-        </a>
+      <div class="book-sidebar-header">
+        <a href="../index.html" class="book-back-link">← Back to Hub</a>
+        <div class="book-brand">
+          <div class="book-brand-icon">🔥</div>
+          <div>
+            <div class="laravel-brand-badge">Grades 9–10 Track</div>
+            <h1 class="book-main-title">Laravel</h1>
+            <p class="book-subtitle">24 Chapters • PHP Framework</p>
+          </div>
+        </div>
       </div>
-      <div class="book-brand">
-        <div class="book-brand-icon">&#128293;</div>
-        <div><h1>Class 9 Laravel</h1><span>PHP Web Framework</span></div>
-        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn">&#10005;</button>
+
+      <div class="book-sidebar-search">
+        <input type="text" id="chapterSearch" placeholder="🔍 Search chapters..." aria-label="Search chapters">
       </div>
-      <div class="sidebar-search" style="margin-bottom:1rem;">
-        <input type="text" id="chapterFilter" placeholder="Search chapters..." style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);font-size:0.85rem;">
+
+      <!-- Subject / Section filter tabs -->
+      <div style="padding: 0 1rem;">
+        <div class="book-subject-tabs" role="tablist" aria-label="Filter parts">
+          <button type="button" class="subject-tab active" onclick="filterLaravelGroup('all', this)">All</button>
+          <button type="button" class="subject-tab" onclick="filterLaravelGroup('basics', this)">Basics</button>
+          <button type="button" class="subject-tab" onclick="filterLaravelGroup('data', this)">Views &amp; Data</button>
+          <button type="button" class="subject-tab" onclick="filterLaravelGroup('secure', this)">Forms &amp; Auth</button>
+        </div>
       </div>
-      <nav id="sidebarNav">
-        <div class="part-group"><div class="part-title">Part 1: Introduction to Laravel</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('ch1',this)">1. What is Laravel?</a></li>
-          <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('ch2',this)">2. MVC Architecture</a></li>
-          <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('ch3',this)">3. Laravel Project Structure</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 2: Routing</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('ch4',this)">4. Basic Routes</a></li>
-          <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('ch5',this)">5. Route Parameters</a></li>
-          <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('ch6',this)">6. Named Routes</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 3: Controllers</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('ch7',this)">7. Creating Controllers</a></li>
-          <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('ch8',this)">8. Resource Controllers</a></li>
-          <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('ch9',this)">9. Middleware Basics</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 4: Blade Templates</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('ch10',this)">10. Blade Syntax</a></li>
-          <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('ch11',this)">11. Layouts &amp; Sections</a></li>
-          <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('ch12',this)">12. Loops &amp; Conditionals</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 5: Eloquent ORM</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('ch13',this)">13. Models &amp; Eloquent</a></li>
-          <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('ch14',this)">14. CRUD with Eloquent</a></li>
-          <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('ch15',this)">15. Relationships</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 6: Migrations</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('ch16',this)">16. What are Migrations?</a></li>
-          <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('ch17',this)">17. Creating Migrations</a></li>
-          <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('ch18',this)">18. Seeders &amp; Factories</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 7: Forms &amp; Validation</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('ch19',this)">19. Laravel Forms</a></li>
-          <li class="chapter-nav-item"><a href="#ch20" onclick="loadChapter('ch20',this)">20. Validation Rules</a></li>
-          <li class="chapter-nav-item"><a href="#ch21" onclick="loadChapter('ch21',this)">21. CSRF Protection</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Part 8: Authentication</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#ch22" onclick="loadChapter('ch22',this)">22. Auth Scaffolding</a></li>
-          <li class="chapter-nav-item"><a href="#ch23" onclick="loadChapter('ch23',this)">23. Login &amp; Register</a></li>
-          <li class="chapter-nav-item"><a href="#ch24" onclick="loadChapter('ch24',this)">24. Protecting Routes</a></li>
-        </ul></div>
-        <div class="part-group"><div class="part-title">Projects &amp; Reference</div>
-        <ul class="chapter-nav-list">
-          <li class="chapter-nav-item"><a href="#proj1" onclick="loadChapter('proj1',this)">&#127959; Project 1: Todo App</a></li>
-          <li class="chapter-nav-item"><a href="#proj2" onclick="loadChapter('proj2',this)">&#127959; Project 2: Blog with Auth</a></li>
-          <li class="chapter-nav-item"><a href="#ref" onclick="loadChapter('ref',this)">&#128203; Laravel Quick Reference</a></li>
-        </ul></div>
+
+      <nav class="book-nav" id="bookNav">
+        <!-- Part 1: Introduction to Laravel -->
+        <div class="part-group" data-group="basics">
+          <div class="part-title">Part 1: Introduction to Laravel</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-01-introduction/ch01-what-is-laravel.md', this)">1. What is Laravel?</a></li>
+            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-01-introduction/ch02-mvc-architecture.md', this)">2. MVC Architecture</a></li>
+            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-01-introduction/ch03-project-structure.md', this)">3. Laravel Project Structure</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 2: Routing -->
+        <div class="part-group" data-group="basics">
+          <div class="part-title">Part 2: Routing</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-02-routing/ch04-basic-routes.md', this)">4. Basic Routes</a></li>
+            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-02-routing/ch05-route-parameters.md', this)">5. Route Parameters</a></li>
+            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-02-routing/ch06-named-routes.md', this)">6. Named Routes</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 3: Controllers -->
+        <div class="part-group" data-group="basics">
+          <div class="part-title">Part 3: Controllers</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-03-controllers/ch07-creating-controllers.md', this)">7. Creating Controllers</a></li>
+            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-03-controllers/ch08-resource-controllers.md', this)">8. Resource Controllers</a></li>
+            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-03-controllers/ch09-middleware-basics.md', this)">9. Middleware Basics</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 4: Blade Templates -->
+        <div class="part-group" data-group="data">
+          <div class="part-title">Part 4: Blade Templates</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-04-blade-templates/ch10-blade-syntax.md', this)">10. Blade Syntax</a></li>
+            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-04-blade-templates/ch11-layouts-and-sections.md', this)">11. Layouts &amp; Sections</a></li>
+            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-04-blade-templates/ch12-loops-and-conditionals.md', this)">12. Loops &amp; Conditionals</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 5: Eloquent ORM -->
+        <div class="part-group" data-group="data">
+          <div class="part-title">Part 5: Eloquent ORM</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-05-eloquent-orm/ch13-models-and-eloquent.md', this)">13. Models &amp; Eloquent</a></li>
+            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-05-eloquent-orm/ch14-crud-with-eloquent.md', this)">14. CRUD with Eloquent</a></li>
+            <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-05-eloquent-orm/ch15-relationships.md', this)">15. Relationships</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 6: Migrations -->
+        <div class="part-group" data-group="data">
+          <div class="part-title">Part 6: Migrations</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('part-06-migrations/ch16-what-are-migrations.md', this)">16. What are Migrations?</a></li>
+            <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('part-06-migrations/ch17-creating-migrations.md', this)">17. Creating Migrations</a></li>
+            <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('part-06-migrations/ch18-seeders-and-factories.md', this)">18. Seeders &amp; Factories</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 7: Forms & Validation -->
+        <div class="part-group" data-group="secure">
+          <div class="part-title">Part 7: Forms &amp; Validation</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('part-07-forms-and-validation/ch19-laravel-forms.md', this)">19. Laravel Forms</a></li>
+            <li class="chapter-nav-item"><a href="#ch20" onclick="loadChapter('part-07-forms-and-validation/ch20-validation-rules.md', this)">20. Validation Rules</a></li>
+            <li class="chapter-nav-item"><a href="#ch21" onclick="loadChapter('part-07-forms-and-validation/ch21-csrf-protection.md', this)">21. CSRF Protection</a></li>
+          </ul>
+        </div>
+
+        <!-- Part 8: Authentication -->
+        <div class="part-group" data-group="secure">
+          <div class="part-title">Part 8: Authentication</div>
+          <ul class="chapter-nav-list">
+            <li class="chapter-nav-item"><a href="#ch22" onclick="loadChapter('part-08-authentication/ch22-auth-scaffolding.md', this)">22. Auth Scaffolding</a></li>
+            <li class="chapter-nav-item"><a href="#ch23" onclick="loadChapter('part-08-authentication/ch23-login-and-register.md', this)">23. Login &amp; Register</a></li>
+            <li class="chapter-nav-item"><a href="#ch24" onclick="loadChapter('part-08-authentication/ch24-protecting-routes.md', this)">24. Protecting Routes</a></li>
+          </ul>
+        </div>
       </nav>
     </aside>
-    <main class="book-reader book-content">
-      <!-- Reader Top Navigation Bar -->
-      <nav class="reader-top-nav" aria-label="Breadcrumb and quick navigation">
-        <div class="reader-breadcrumb">
-          <a href="../index.html"><span>🏠</span> Home</a>
-          <span>/</span>
-          <a href="../Learning Laravel/learninglaravel.html">Laravel Track</a>
-          <span>/</span>
-          <span class="active-book" style="color: #ef4444;">Class 9 Laravel Textbook</span>
-        </div>
-        <div class="reader-top-links">
-          <a href="../index.html" class="reader-nav-btn"><span>🏠</span> Home</a>
-          <a href="../Learning Laravel/learninglaravel.html" class="reader-nav-btn"><span>📚</span> Laravel Modules</a>
-          <a href="../book-git/index.html" class="reader-nav-btn"><span>🐙</span> Git Book</a>
-          <a href="../studios/web-studio/index.html" class="reader-nav-btn primary-btn" style="background: #ef4444; border-color: #ef4444;"><span>💻</span> Code Lab</a>
-        </div>
-      </nav>
 
+    <!-- Main Content Reader -->
+    <main class="book-reader book-content">
+      <div class="reader-top-nav">
+        <div class="reader-breadcrumb">
+          <a href="../index.html">Junior Coders</a>
+          <span class="sep">/</span>
+          <span class="current" id="breadcrumbCurrent">Part 1: Introduction to Laravel</span>
+        </div>
+        <div class="reader-quick-actions">
+          <a href="../cheatsheet-laravel.html" class="reader-nav-btn"><span>⚡</span> Laravel Cheatsheet</a>
+          <a href="../Learning Laravel/learninglaravel.html" class="reader-nav-btn"><span>📚</span> Laravel Lessons</a>
+          <a href="../Learning Laravel/quiz.html" class="reader-nav-btn"><span>📝</span> Laravel Quiz</a>
+        </div>
+      </div>
+
+      <!-- Speaker Bar & Reader Controls -->
+      <!-- Reader controls (same markup in every book; styled in styles/book-theme.css, wired by js/book-speaker.js) -->
       <header class="book-reader-header" id="bookReaderHeader" role="region" aria-label="Book Reader Controls">
         <div class="reader-header-main">
           <div class="reader-controls-left">
-            <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read chapter"><span class="btn-icon">&#128266;</span><span class="btn-text">Read Chapter</span></button>
-            <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop"><span class="btn-icon">&#9209;&#65039;</span><span class="btn-text">Stop</span></button>
-            <div class="reader-speed-pill"><span class="speed-caption">Speed</span>
-              <select class="book-speaker-speed-select" id="book-speaker-speed-select">
-                <option value="0.85">0.85x</option><option value="1.0" selected>1.0x</option>
-                <option value="1.25">1.25x</option><option value="1.5">1.5x</option>
+            <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read entire chapter aloud">
+              <span class="btn-icon">🔊</span>
+              <span class="btn-text">Read Chapter</span>
+            </button>
+            <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop audio narration">
+              <span class="btn-icon">⏹️</span>
+              <span class="btn-text">Stop</span>
+            </button>
+            <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true">
+              <span></span><span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="reader-divider" aria-hidden="true"></div>
+          <div class="reader-status-center">
+            <div class="reader-chapter-badge">
+              <span class="status-dot" style="background: var(--book-accent, #dc2626);"></span>
+              <span class="status-text" id="book-speaker-status-text">Ready to read</span>
+            </div>
+          </div>
+          <div class="reader-divider" aria-hidden="true"></div>
+          <div class="reader-controls-right">
+            <div class="reader-speed-pill">
+              <span class="speed-caption">Speed</span>
+              <select class="book-speaker-speed-select" id="book-speaker-speed-select" aria-label="Narration speed">
+                <option value="0.85">0.85x</option>
+                <option value="1.0" selected>1.0x</option>
+                <option value="1.25">1.25x</option>
+                <option value="1.5">1.5x</option>
               </select>
             </div>
-            <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
-          </div>
-          <div class="reader-status-center"><div class="reader-chapter-badge"><span class="status-dot"></span><span class="status-text" id="book-speaker-status-text">Ready to read</span></div></div>
-          <div class="reader-controls-right">
-            <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn"><span class="btn-icon">&#128214;</span><span class="btn-text">Reading Mode</span></button>
+            <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn" title="Toggle Distraction-Free Reading Mode">
+              <span class="btn-icon">📖</span>
+              <span class="btn-text">Reading Mode</span>
+            </button>
             <button type="button" class="book-download-pdf-btn" id="book-download-pdf-btn" title="Download current chapter as PDF">
               <span class="btn-icon">⬇️</span>
               <span class="btn-text">Download PDF</span>
@@ -164,157 +339,250 @@
           </div>
         </div>
       </header>
+
       <article class="book-article" id="chapterContent">
-        <div style="text-align:center;padding:3rem 1rem;">
-          <span class="chapter-badge">Official Class 9 Textbook</span>
-          <h1 class="chapter-title" style="margin-top:0.5rem;">Laravel for Class 9</h1>
-          <p style="font-size:1.15rem;color:var(--text-secondary);max-width:650px;margin:0 auto 2rem auto;">
-            Master the #1 PHP framework. Build complete web applications with routing, Blade templates, Eloquent ORM, and authentication.
-          </p>
-          <div style="display:flex;gap:0.85rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
-            <a href="#ch1" onclick="loadChapter('ch1',document.querySelector('.chapter-nav-item a'))" style="background:linear-gradient(135deg,#ef4444,#dc2626);color:#fff;padding:0.85rem 1.6rem;font-size:0.95rem;text-decoration:none;border-radius:8px;font-weight:700;box-shadow:0 4px 12px rgba(239,68,68,0.3);">
-              Start Chapter 1: What is Laravel? &#128293;
-            </a>
-            <a href="../Learning Laravel/learninglaravel.html" style="background:rgba(239,68,68,0.1);color:#ef4444;border:2px solid #ef4444;padding:0.85rem 1.6rem;font-size:0.95rem;text-decoration:none;border-radius:8px;font-weight:700;">
-              &#128218; Interactive Laravel Modules
-            </a>
-          </div>
-          <div class="pedagogy-box" style="text-align:left;max-width:650px;margin:0 auto;">
-            <h3>&#128218; What you will learn</h3>
-            <ul style="list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 1rem;">
-              <li>&#9989; MVC architecture</li><li>&#9989; Routes &amp; controllers</li>
-              <li>&#9989; Blade templating</li><li>&#9989; Eloquent ORM</li>
-              <li>&#9989; Database migrations</li><li>&#9989; Form validation</li>
-              <li>&#9989; User authentication</li><li>&#9989; 2 complete web apps</li>
-            </ul>
-          </div>
+        <div id="chapterBody">
+          <!-- Chapter content dynamically rendered here -->
         </div>
       </article>
+
+      <div class="chapter-footer-nav" id="chapterFooterNav">
+        <!-- Previous / Next links dynamically inserted here -->
+      </div>
     </main>
   </div>
+
+  <!-- Markdown Parser & Bundle Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    const CHAPTERS = {
-      ch1: { content: `<span class="chapter-badge">Chapter 1</span><h1 class="chapter-title">What is Laravel?</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Understand what Laravel is and why developers use it</li><li>Know the benefits of using a framework over plain PHP</li></ul></div><h2>&#128293; What is Laravel?</h2><p><strong>Laravel</strong> is a free, open-source <strong>PHP web framework</strong> created by Taylor Otwell in 2011. It provides a structured way to build web applications, so you don't have to write everything from scratch.</p><div class="fun-fact-box"><span class="fun-fact-label">&#128161; Framework Analogy</span><p>Think of Laravel as a pre-built <strong>toolkit for construction workers</strong>. Instead of making your own hammer and nails, you pick them up from the toolkit and focus on building the actual structure!</p></div><h2>&#127775; Why Use Laravel?</h2><table class="data-table"><thead><tr><th>Plain PHP</th><th>Laravel</th></tr></thead><tbody><tr><td>Write everything manually</td><td>Tools provided out of the box</td></tr><tr><td>No organized structure</td><td>MVC architecture enforced</td></tr><tr><td>Manual database queries</td><td>Eloquent ORM — elegant queries</td></tr><tr><td>Security handled by you</td><td>Built-in CSRF, auth, encryption</td></tr><tr><td>No routing system</td><td>Clean, readable routes</td></tr></tbody></table><h2>&#128295; What Can You Build with Laravel?</h2><ul><li>&#128421;&#65039; Social media platforms</li><li>&#128722; E-commerce stores</li><li>&#128203; Blog and news websites</li><li>&#128274; User authentication systems</li><li>&#128241; REST APIs for mobile apps</li></ul><div class="challenge-box"><h3>&#127942; Quick Check</h3><ol><li>What is Laravel and who created it?</li><li>Name 3 benefits of using Laravel over plain PHP.</li><li>What does MVC stand for?</li></ol></div>` },
-      ch4: { content: `<span class="chapter-badge">Chapter 4</span><h1 class="chapter-title">Basic Routes in Laravel</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Understand how Laravel routing works</li><li>Define basic GET routes in web.php</li></ul></div><h2>&#128736;&#65039; What is a Route?</h2><p>A <strong>route</strong> tells Laravel what to do when a user visits a specific URL. All routes are defined in <code>routes/web.php</code>.</p><h2>&#128203; Basic GET Routes</h2><pre><code class="language-php">// routes/web.php
-
-// Simple text response
-Route::get('/', function () {
-    return 'Welcome to my Laravel app!';
-});
-
-// Return a view
-Route::get('/about', function () {
-    return view('about');
-});
-
-// Return JSON
-Route::get('/api/status', function () {
-    return response()->json(['status' => 'OK']);
-});</code></pre><h2>&#128260; Route to Controller</h2><pre><code class="language-php">// routes/web.php
-use App\Http\Controllers\HomeController;
-
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/about', [HomeController::class, 'about']);</code></pre><div class="challenge-box"><h3>&#127942; Practice</h3><p>Add routes for a school website with pages: home, about, students, and contact. Link each to a controller method.</p></div>` },
-      ch10: { content: `<span class="chapter-badge">Chapter 10</span><h1 class="chapter-title">Blade Syntax</h1><div class="pedagogy-box"><h3>&#127919; Learning Goals</h3><ul><li>Use Blade template directives</li><li>Output variables and use control structures in Blade</li></ul></div><h2>&#128203; Blade Basics</h2><p>Blade is Laravel's templating engine. Blade files use the <code>.blade.php</code> extension and live in the <code>resources/views/</code> folder.</p><pre><code class="language-php">{{-- resources/views/welcome.blade.php --}}
-
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-&lt;body&gt;
-    &lt;h1&gt;{{ $title }}&lt;/h1&gt;      {{-- Echo a variable --}}
-    &lt;p&gt;{{ $message }}&lt;/p&gt;
-
-    {{-- If/Else --}}
-    @if ($user)
-        &lt;p&gt;Welcome, {{ $user->name }}!&lt;/p&gt;
-    @else
-        &lt;p&gt;Please log in.&lt;/p&gt;
-    @endif
-
-    {{-- Loop --}}
-    @foreach ($students as $student)
-        &lt;li&gt;{{ $student->name }}&lt;/li&gt;
-    @endforeach
-&lt;/body&gt;
-&lt;/html&gt;</code></pre><div class="challenge-box"><h3>&#127942; Practice</h3><p>Create a Blade view that displays a list of 5 subjects. Use @foreach to loop through them and display each in a list item.</p></div>` },
-      ref: { content: `<span class="chapter-badge">Quick Reference</span><h1 class="chapter-title">Laravel Quick Reference</h1><h2>&#128736;&#65039; Routes (web.php)</h2><pre><code class="language-php">Route::get('/', [HomeController::class, 'index']);
-Route::post('/store', [PostController::class, 'store']);
-Route::put('/update/{id}', [PostController::class, 'update']);
-Route::delete('/delete/{id}', [PostController::class, 'destroy']);
-Route::resource('posts', PostController::class);</code></pre><h2>&#128203; Blade Templates</h2><pre><code class="language-php">{{-- Output variable --}}
-{{ $name }}
-
-{{-- If/Else --}}
-@if ($condition) ... @else ... @endif
-
-{{-- Loop --}}
-@foreach ($items as $item) {{ $item }} @endforeach
-
-{{-- Extend layout --}}
-@extends('layouts.app')
-@section('content') ... @endsection</code></pre><h2>&#127759; Eloquent ORM</h2><pre><code class="language-php">// All records
-Post::all();
-
-// Find by ID
-Post::find(1);
-
-// Where condition
-Post::where('status', 'active')->get();
-
-// Create
-Post::create(['title' => 'Hello', 'body' => '...']);
-
-// Update
-$post->update(['title' => 'Updated']);
-
-// Delete
-$post->delete();</code></pre><h2>&#128260; Artisan Commands</h2><pre><code class="language-bash">php artisan serve              # Start dev server
-php artisan make:controller   # Create controller
-php artisan make:model Post   # Create model
-php artisan make:migration    # Create migration
-php artisan migrate           # Run migrations
-php artisan db:seed           # Seed database</code></pre>` }
-    };
-
-    function loadChapter(id, el) {
-      if(el){document.querySelectorAll('.chapter-nav-item').forEach(e=>e.classList.remove('active'));el.parentElement.classList.add('active');}
-      const area=document.getElementById('chapterContent');
-      const ch=CHAPTERS[id];
-      if(ch){area.innerHTML=ch.content;enhanceCodeBlocks(area);window.scrollTo({top:0,behavior:'smooth'});if (window.initBookSpeaker) window.initBookSpeaker();
-        if (window.renderChapterPagination) window.renderChapterPagination();}
-      else{area.innerHTML=`<div class="pedagogy-box" style="text-align:center;padding:3rem 1rem;"><h2>&#128679; Chapter Coming Soon</h2><p>This chapter is being prepared. Check back soon!</p><p style="margin-top:1rem;"><a href="../Learning Laravel/learninglaravel.html" style="color:#ef4444;font-weight:700;">&#128218; Visit Interactive Laravel Modules &#8594;</a></p></div>`;window.scrollTo({top:0,behavior:'smooth'});}
+    // Offline fallback: robust markdown parser if CDN unavailable (e.g. local XAMPP)
+    if (typeof marked === 'undefined') {
+      window.marked = { parse: function(md) {
+        var h = (md || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n'), cb = [], ic = [];
+        h = h.replace(/```([\s\S]*?)```/g, function(_, c) {
+          var lm = c.match(/^([a-zA-Z0-9_-]+)\n/), lang = lm ? lm[1] : '', body = lm ? c.slice(lang.length + 1) : c;
+          cb.push('<pre><code class="language-' + lang + '">' + body.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code></pre>');
+          return '\x00CB' + (cb.length - 1) + '\x00';
+        });
+        h = h.replace(/`([^`\n]+)`/g, function(_, c) {
+          ic.push('<code>' + c.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code>');
+          return '\x00IC' + (ic.length - 1) + '\x00';
+        });
+        h = h.replace(/^([*-]|\d+\.)\s+\[([ xX])\]\s+(.+)$/gm, function(_, bullet, checked, text) {
+          var isChecked = checked.toLowerCase() === 'x' ? ' checked' : '';
+          return bullet + ' <label class="task-list-item"><input type="checkbox" disabled' + isChecked + '> ' + text + '</label>';
+        });
+        h = h.replace(/((?:\|[^\n]+\|\n?)+)/g, function(block) {
+          var rows = block.trim().split('\n').filter(function(r) { return r.trim().length > 0; });
+          if (rows.length < 2 || !/^\|[-|: ]+\|/.test(rows[1])) return block;
+          var hdr = rows[0].trim().split('|').slice(1, -1).map(function(c) { return '<th>' + c.trim() + '</th>'; }).join('');
+          var bdy = rows.slice(2).map(function(r) {
+            return '<tr>' + r.trim().split('|').slice(1, -1).map(function(c) { return '<td>' + c.trim() + '</td>'; }).join('') + '</tr>';
+          }).join('');
+          return '<table><thead><tr>' + hdr + '</tr></thead><tbody>' + bdy + '</tbody></table>\n';
+        });
+        h = h.replace(/^(#{1,6})\s+(.+)$/gm, function(_, s, t) { return '<h' + s.length + '>' + t + '</h' + s.length + '>'; });
+        h = h.replace(/^[-*_]{3,}$/gm, '<hr>');
+        h = h.replace(/((?:^>\s?.*$\n?)+)/gm, function(b) {
+          var inner = b.trim().split('\n').map(function(l) { return l.replace(/^>\s?/, ''); }).join('<br>');
+          return '<blockquote>' + inner + '</blockquote>\n';
+        });
+        h = h.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
+             .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+             .replace(/\*\*(.+?)\*\*/g, '<em>$1</em>')
+             .replace(/___(.+?)___/g, '<strong><em>$1</em></strong>')
+             .replace(/__(.+?)__/g, '<strong>$1</strong>')
+             .replace(/~~(.+?)~~/g, '<del>$1</del>');
+        h = h.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
+             .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
+        h = h.replace(/((?:^[*-]\s+.+$\n?)+)/gm, function(b) {
+          return '<ul>' + b.trim().split('\n').map(function(l) { return '<li>' + l.replace(/^[*-]\s+/, '') + '</li>'; }).join('') + '</ul>\n';
+        });
+        h = h.replace(/((?:^\d+\.\s+.+$\n?)+)/gm, function(b) {
+          return '<ol>' + b.trim().split('\n').map(function(l) { return '<li>' + l.replace(/^\d+\.\s+/, '') + '</li>'; }).join('') + '</ol>\n';
+        });
+        h = h.split(/\n{2,}/).map(function(b) {
+          b = b.trim();
+          if (!b) return '';
+          if (/^<(h[1-6]|ul|ol|blockquote|pre|table|hr|details|summary|div)/i.test(b) || b.indexOf('\x00CB') !== -1) return b;
+          return '<p>' + b.replace(/\n/g, '<br>') + '</p>';
+        }).join('\n');
+        ic.forEach(function(c, i) { h = h.split('\x00IC' + i + '\x00').join(c); });
+        cb.forEach(function(c, i) { h = h.split('\x00CB' + i + '\x00').join(c); });
+        return h;
+      }};
     }
+  </script>
+  <script src="chapters-bundle.js"></script>
+  <script>
+    let currentChapterPath = '';
 
-    function showCopyToast(msg){let t=document.getElementById('copyToast');if(!t){t=document.createElement('div');t.id='copyToast';t.className='copy-toast';document.body.appendChild(t);}t.innerHTML='<span>&#128203;</span> <span>'+(msg||'Copied!')+'</span>';t.classList.add('show');clearTimeout(window.ctt);window.ctt=setTimeout(()=>t.classList.remove('show'),2500);}
+    function filterLaravelGroup(group, el) {
+      document.querySelectorAll('.subject-tab').forEach(b => b.classList.remove('active'));
+      if (el) el.classList.add('active');
 
-    function enhanceCodeBlocks(container){
-      if(!container)return;
-      container.querySelectorAll('pre').forEach(pre=>{
-        if(pre.parentElement.classList.contains('code-wrapper'))return;
-        const ce=pre.querySelector('code');const raw=ce?ce.innerText:pre.innerText;
-        let lang='PHP';if(ce&&ce.className){const m=ce.className.match(/language-([a-zA-Z0-9_-]+)/);if(m)lang=m[1].toUpperCase();}
-        const w=document.createElement('div');w.className='code-wrapper';
-        const h=document.createElement('div');h.className='code-wrapper-header';
-        const lb=document.createElement('span');lb.className='code-lang-label';lb.textContent=lang;
-        const ac=document.createElement('div');ac.className='code-actions';
-        const cb=document.createElement('button');cb.type='button';cb.className='btn-copy-code';cb.innerHTML='<span>&#128203;</span> <span>Copy</span>';
-        cb.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(raw);}catch(e){const ta=document.createElement('textarea');ta.value=raw;ta.style.position='fixed';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();document.execCommand('copy');ta.remove();}cb.classList.add('copied');cb.innerHTML='<span>&#9989;</span> <span>Copied!</span>';showCopyToast('Copied!');setTimeout(()=>{cb.classList.remove('copied');cb.innerHTML='<span>&#128203;</span> <span>Copy</span>';},2000);});
-        ac.appendChild(cb);h.appendChild(lb);h.appendChild(ac);
-        pre.parentNode.insertBefore(w,pre);w.appendChild(h);w.appendChild(pre);
+      document.querySelectorAll('.part-group').forEach(pg => {
+        if (group === 'all' || pg.getAttribute('data-group') === group) {
+          pg.style.display = '';
+        } else {
+          pg.style.display = 'none';
+        }
       });
     }
 
-    document.getElementById('mobileSidebarToggle').addEventListener('click',()=>{document.getElementById('bookSidebar').classList.add('open');document.getElementById('sidebarBackdrop').classList.add('visible');});
-    document.getElementById('sidebarCloseBtn').addEventListener('click',()=>{document.getElementById('bookSidebar').classList.remove('open');document.getElementById('sidebarBackdrop').classList.remove('visible');});
-    document.getElementById('sidebarBackdrop').addEventListener('click',()=>{document.getElementById('bookSidebar').classList.remove('open');document.getElementById('sidebarBackdrop').classList.remove('visible');});
-    document.getElementById('chapterFilter').addEventListener('input',function(e){const q=e.target.value.toLowerCase();document.querySelectorAll('.chapter-nav-item').forEach(i=>{i.style.display=i.textContent.toLowerCase().includes(q)?'':'none';});});
-      // Open the chapter named in the address (e.g. #ch4 from "Continue reading"); back/forward between chapters
-    const openFromHash = () => {
+    async function loadChapter(path, navElement) {
+      currentChapterPath = path;
+
+      // Update navigation active state
+      document.querySelectorAll('.chapter-nav-item').forEach(i => i.classList.remove('active'));
+      if (navElement) {
+        const item = navElement.closest('.chapter-nav-item');
+        if (item) item.classList.add('active');
+      }
+
+      const chapterBody = document.getElementById('chapterBody');
+      chapterBody.innerHTML = '<div style="text-align:center;padding:3rem;color:#64748b;">Loading chapter...</div>';
+
+      try {
+        let md = '';
+        if (window.BOOK_LARAVEL_CHAPTERS && window.BOOK_LARAVEL_CHAPTERS[path]) {
+          md = window.BOOK_LARAVEL_CHAPTERS[path];
+        } else {
+          let resp = null;
+          try {
+            resp = await fetch(path);
+          } catch (_) {}
+          if (!resp || !resp.ok) {
+            const segs = window.location.pathname.split('/').filter(Boolean);
+            const folder = segs.length ? segs[segs.length - 1] : '';
+            if (folder && folder.startsWith('book-') && !path.startsWith(folder)) {
+              try {
+                resp = await fetch(folder + '/' + path);
+              } catch (_) {}
+            }
+          }
+          if (resp && resp.ok) {
+            md = await resp.text();
+          } else {
+            throw new Error('Failed to fetch chapter file: ' + path);
+          }
+        }
+
+        // Render Markdown
+        chapterBody.innerHTML = marked.parse(md);
+
+        // Enhance code blocks with copy button
+        enhanceCodeBlocks();
+
+        // Update read time estimate
+        const wordCount = md.split(/\s+/).length;
+        // Refresh the reader bar: chapter title + read time in the status badge, section speaker buttons
+        if (window.initBookSpeaker) window.initBookSpeaker();
+
+        // Update breadcrumb
+        const partGroup = navElement ? navElement.closest('.part-group') : null;
+        if (partGroup) {
+          const partTitle = partGroup.querySelector('.part-title').textContent;
+          document.getElementById('breadcrumbCurrent').textContent = partTitle;
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        // Close mobile sidebar if open
+        document.getElementById('bookSidebar').classList.remove('open');
+
+      } catch (err) {
+        console.error(err);
+        chapterBody.innerHTML = `
+          <div style="background: #fef2f2; border: 1px solid #f87171; padding: 2rem; border-radius: 12px; color: #991b1b;">
+            <h3>⚠️ Unable to Load Chapter</h3>
+            <p>Could not load: <code>${path}</code></p>
+            <p style="font-size: 0.9rem; color: #b91c1c;">If viewing via file:///, ensure chapters-bundle.js exists by running <code>node scripts/bundle-books.js</code>.</p>
+          </div>
+        `;
+      }
+    }
+
+    function enhanceCodeBlocks() {
+      document.querySelectorAll('#chapterBody pre').forEach(pre => {
+        if (pre.closest('.code-wrapper')) return;
+
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-wrapper';
+
+        const header = document.createElement('div');
+        header.className = 'code-wrapper-header';
+
+        const codeEl = pre.querySelector('code');
+        const lang = codeEl ? (codeEl.className.match(/language-(\w+)/) || [, 'code'])[1] : 'code';
+
+        header.innerHTML = `
+          <span class="code-lang-label">${lang}</span>
+          <button type="button" class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+        `;
+
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(header);
+        wrapper.appendChild(pre);
+      });
+    }
+
+    function copyCode(btn) {
+      const code = btn.closest('.code-wrapper').querySelector('pre code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = 'Copied! ✓';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy Code';
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+
+    // Reading Mode toggle
+    document.getElementById('book-reading-mode-btn').addEventListener('click', function() {
+      document.body.classList.toggle('reading-mode-active');
+      this.classList.toggle('active');
+    });
+
+    // Mobile sidebar toggle
+    const bookSidebar = document.getElementById('bookSidebar');
+    document.getElementById('mobileMenuBtn').addEventListener('click', function(e) {
+      e.stopPropagation();
+      bookSidebar.classList.toggle('open');
+    });
+    // Close the chapter drawer when tapping outside it, or with Escape (picking a chapter already closes it)
+    document.addEventListener('click', (e) => {
+      if (bookSidebar.classList.contains('open') && !bookSidebar.contains(e.target)) bookSidebar.classList.remove('open');
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') bookSidebar.classList.remove('open');
+    });
+
+    // Search filter
+    document.getElementById('chapterSearch').addEventListener('input', function(e) {
+      const query = e.target.value.toLowerCase();
+      document.querySelectorAll('.chapter-nav-item').forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? '' : 'none';
+      });
+    });
+
+    // Initial load of first chapter
+    document.addEventListener('DOMContentLoaded', () => {
+      // Open the chapter named in the address (e.g. #ch4 from "Continue reading"), else chapter 1
+      const startHash = window.location.hash.toLowerCase();
+      const startLink = /^#ch\d+$/.test(startHash) && document.querySelector(`#bookSidebar a[href="${startHash}"]`);
+      if (startLink) startLink.click();
+      else loadChapter('part-01-introduction/ch01-what-is-laravel.md', document.querySelector('.chapter-nav-item a'));
+    });
+
+    // Back/forward between chapters
+    window.addEventListener('hashchange', () => {
       const h = window.location.hash.toLowerCase();
       const link = /^#ch\d+$/.test(h) && document.querySelector(`#bookSidebar a[href="${h}"]`);
       if (link && !link.parentElement.classList.contains('active')) link.click();
-    };
-    openFromHash();
-    window.addEventListener('hashchange', openFromHash);
+    });
   </script>
   <script src="../js/pdf-download.js"></script>
   <script src="../js/tts-voices.js"></script>

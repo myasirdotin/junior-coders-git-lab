@@ -64,3 +64,6 @@ if (fs.existsSync(path.join(root, 'book-cybersecurity'))) {
   bundleDir(path.join(root, 'book-cybersecurity'), path.join(root, 'book-cybersecurity', 'chapters-bundle.js'), 'BOOK_CYBERSECURITY_CHAPTERS');
 }
 
+if (fs.existsSync(path.join(root, 'book-laravel'))) {
+  bundleDir(path.join(root, 'book-laravel'), path.join(root, 'book-laravel', 'chapters-bundle.js'), 'BOOK_LARAVEL_CHAPTERS');
+}
