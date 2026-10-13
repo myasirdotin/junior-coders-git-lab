@@ -35,6 +35,9 @@ _Last updated: 2026-10-13 (Android book added)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 Cheat sheets reviewed and rebuilt: all 12 on one template (spec in the commit, model `cheatsheet-kotlin.html`),
+  content errors fixed in every sheet, essentials added, code wraps on phones, light theme made readable (contrast
+  1.5:1 → 14.6:1, rule in `styles/bei-core.css`), search index 1029 rows.
 - 2026-10-13 Kotlin exercises (`studios/kotlin-practice/`): 15 tasks for book-android chapters 4–8 (6 warm-up predict/fill,
   5 apply, 4 challenge); coding tasks compiled on the Kotlin Playground service (`js/kotlin-lab.js`, only the code is
   sent, the page says so); `scripts/check-kotlin-exercises.js` verifies every answer (15/15 on Kotlin 2.4.21). Linked
