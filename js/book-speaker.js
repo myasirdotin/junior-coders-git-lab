@@ -5,6 +5,21 @@
 (function() {
   'use strict';
 
+  // Site icons (favicon.svg, favicon.ico, apple-touch-icon.png from scripts/build-favicons.py), linked from the
+  // site root worked out from this script's own address, so they work on Vercel and in a local subfolder.
+  (function addSiteIcons() {
+      if (document.querySelector('link[rel~="icon"]')) return;
+      const me = document.currentScript && document.currentScript.src;
+      const root = me ? me.replace(/js\/[^/]+\.js(\?.*)?$/, '') : '';
+      [['icon', 'favicon.svg', 'image/svg+xml'], ['alternate icon', 'favicon.ico', 'image/x-icon'], ['apple-touch-icon', 'apple-touch-icon.png', '']]
+          .forEach(([rel, file, type]) => {
+            const link = document.createElement('link');
+            link.rel = rel; link.href = root + file;
+            if (type) link.type = type;
+            document.head.appendChild(link);
+          });
+  })();
+
   let queue = [];
   let currentIndex = -1;
   let isPaused = false;

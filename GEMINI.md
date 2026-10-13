@@ -217,6 +217,7 @@ These rules come from real bugs found in this site. Follow them for every change
    node scripts/bundle-books.js          # after editing textbook chapters (.md)
    node scripts/build-cheat-index.js     # after editing a cheatsheet-*.html (search index + card ids)
    node scripts/sync-vercel-redirects.js # after adding a folder with an index.html (trailing slash + short links)
+   python scripts/build-favicons.py      # only if the icon design in favicon.svg changes (favicon.ico, apple-touch-icon.png)
    powershell .udit.ps1                # all 11 books: chapters, bundles, parser
    node scripts/validate-scripts.js      # JavaScript syntax in the book readers
    node scripts/render-check.mjs .render 390 844 1 <page urls...>   # phone width: scroll, JS errors, 404s, screenshots
