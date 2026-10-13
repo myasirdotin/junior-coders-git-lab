@@ -5,7 +5,8 @@
   <script id="jc-folder-slash">/* folder page: add the missing trailing slash so relative links work (scripts/sync-vercel-redirects.js) */(function(){var p=location.pathname;if(p.slice(-1)!=='/'&&!/\.[a-z0-9]+$/i.test(p)){location.replace(p+'/'+location.search+location.hash);}})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>
-    (function() {
+    // GEMINI.md §5.2: relative files resolve to this book's folder under any server or iframe
+    (function () {
       try {
         var p = window.location.pathname;
         if (window.location.protocol !== 'file:' && !p.endsWith('/') && !p.endsWith('.html')) {
@@ -13,721 +14,114 @@
           b.href = window.location.origin + p + '/';
           document.head.appendChild(b);
         }
-      } catch(e) {}
+      } catch (e) {}
     })();
   </script>
-  <title>MySQL for Class 9: Databases &amp; Queries | Junior Coders</title>
-  <meta name="description" content="Official Class 9 MySQL Textbook: Master relational databases, SQL queries, DDL, DML, JOINs, aggregations, and data architecture.">
+  <title>MySQL: Databases | Junior Coders</title>
+  <meta name="description" content="The Junior Coders MySQL textbook for Grades 9–10: tables, SELECT, INSERT, UPDATE, DELETE, JOINs and totals, using one school library database.">
   <link rel="stylesheet" href="../styles/book-theme.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    :root { 
-      --primary-blue: #0284c7; 
-      --primary-accent: #0ea5e9;
-      --mysql-badge: #0369a1;
-    }
-    .book-brand-icon { 
-      background: linear-gradient(135deg, #0ea5e9, #0284c7) !important; 
-      color: #fff; 
-      font-weight: 800; 
-      display: inline-flex; 
-      align-items: center; 
-      justify-content: center; 
-      width: 42px; 
-      height: 42px; 
-      border-radius: 10px; 
-      flex-shrink: 0; 
-    }
-    .mysql-brand-badge {
-      display: inline-block;
-      background: rgba(14, 165, 233, 0.12);
-      color: #0284c7;
-      font-size: 0.75rem;
-      font-weight: 800;
-      padding: 0.25rem 0.65rem;
-      border-radius: 20px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-    }
-    .chapter-nav-item.active a { 
-      background: #f0f9ff; 
-      color: #0284c7; 
-      border-left: 3px solid #0284c7; 
-      font-weight: 700;
-    }
-    .chapter-nav-item a:hover { 
-      color: #0284c7; 
-      background: #e0f2fe; 
-    }
-    .book-subject-tabs {
-      display: flex;
-      gap: 0.35rem;
-      flex-wrap: wrap;
-      margin-bottom: 1rem;
-    }
-    .subject-tab {
-      background: #f1f5f9;
-      border: 1px solid #cbd5e1;
-      border-radius: 6px;
-      padding: 0.28rem 0.55rem;
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: #475569;
-      cursor: pointer;
-      font-family: inherit;
-      transition: all 0.15s ease;
-    }
-    .subject-tab:hover {
-      background: #e2e8f0;
-      color: #0f172a;
-    }
-    .subject-tab.active {
-      background: #0284c7;
-      border-color: #0284c7;
-      color: #ffffff;
-    }
-    .code-wrapper { 
-      position: relative; 
-      background: #0f172a; 
-      border: 1px solid #334155; 
-      border-radius: 10px; 
-      margin: 1.5rem 0; 
-      overflow: hidden; 
-      box-shadow: 0 4px 16px rgba(0,0,0,0.25); 
-    }
-    .code-wrapper-header { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      background: #1e293b; 
-      padding: 0.5rem 1rem; 
-      border-bottom: 1px solid #334155; 
-      font-size: 0.8rem; 
-    }
-    .code-lang-label { 
-      font-family: var(--font-mono, monospace); 
-      font-weight: 700; 
-      color: #38bdf8; 
-      text-transform: uppercase; 
-      letter-spacing: 0.05em; 
-    }
-    .code-actions { 
-      display: flex; 
-      align-items: center; 
-      gap: 0.5rem; 
-    }
-    .btn-copy-code { 
-      display: inline-flex; 
-      align-items: center; 
-      gap: 0.35rem; 
-      padding: 0.3rem 0.65rem; 
-      font-size: 0.78rem; 
-      font-weight: 600; 
-      font-family: inherit; 
-      border-radius: 6px; 
-      cursor: pointer; 
-      background: #334155; 
-      color: #cbd5e1; 
-      border: 1px solid #475569; 
-      transition: background 0.15s; 
-    }
-    .btn-copy-code:hover { background: #475569; }
-    .btn-copy-code.copied { background: #059669; color: #fff; border-color: #059669; }
-    .btn-open-lab {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.3rem 0.65rem;
-      font-size: 0.78rem;
-      font-weight: 700;
-      font-family: inherit;
-      border-radius: 6px;
-      cursor: pointer;
-      background: #0284c7;
-      color: #ffffff;
-      border: 1px solid #0284c7;
-      text-decoration: none;
-      transition: opacity 0.15s;
-    }
-    .btn-open-lab:hover { opacity: 0.9; }
-    .copy-toast { 
-      position: fixed; 
-      bottom: 1.5rem; 
-      left: 50%; 
-      transform: translateX(-50%) translateY(2rem); 
-      background: #1e293b; 
-      color: #e2e8f0; 
-      border: 1px solid #334155; 
-      border-radius: 10px; 
-      padding: 0.7rem 1.2rem; 
-      font-size: 0.88rem; 
-      font-weight: 600; 
-      display: flex; 
-      align-items: center; 
-      gap: 0.5rem; 
-      z-index: 9999; 
-      opacity: 0; 
-      pointer-events: none; 
-      transition: all 0.25s ease; 
-    }
-    .copy-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-    .companion-lab-box {
-      margin: 2.5rem 0 1.5rem 0;
-      padding: 1.5rem;
-      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
-      border: 1.5px solid #7dd3fc;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
-    }
-  </style>
 </head>
 <body>
-  <!-- Mobile Navigation Bar -->
-  <div class="book-mobile-bar" id="bookMobileBar">
-    <button type="button" class="mobile-sidebar-toggle" id="mobileSidebarToggle" aria-label="Open Chapters Menu">
-      <span class="toggle-icon">&#9776;</span><span class="toggle-text">Chapters</span>
-    </button>
-    <div class="mobile-brand-title">Class 9 MySQL</div>
-    <a href="../index.html" class="mobile-home-link" title="Platform Home">&#127968;</a>
-  </div>
-
-  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
-
-  <div class="book-layout">
-    <!-- Sidebar Navigation -->
-    <aside class="book-sidebar" id="bookSidebar">
-      <div class="book-return-bar">
-        <a href="../index.html" class="book-back-home" title="Return to Junior Coders Home">
-          <span class="back-icon">←</span>
-          <span>Home</span>
-        </a>
-        <a href="../Learning MySQL/learningmysql.html" class="book-back-home" title="MySQL Interactive Course">
-          <span>MySQL Track</span>
-        </a>
-      </div>
-
-      <div class="book-brand">
-        <div class="book-brand-icon">&#128451;&#65039;</div>
-        <div>
-          <span class="mysql-brand-badge">Official Textbook</span>
-          <h1 style="color: #0284c7;">Class 9 MySQL</h1>
-          <span>Databases &amp; Queries</span>
-        </div>
-        <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close chapters menu">&#10005;</button>
-      </div>
-
-      <!-- Quick Subject Category Tabs -->
-      <div class="book-subject-tabs" id="bookSubjectTabs">
-        <button type="button" class="subject-tab active" data-filter="all" onclick="filterMysqlGroup('all', this)">All (25)</button>
-        <button type="button" class="subject-tab" data-filter="basics" onclick="filterMysqlGroup('basics', this)">Basics (3)</button>
-        <button type="button" class="subject-tab" data-filter="ddl" onclick="filterMysqlGroup('ddl', this)">DDL (4)</button>
-        <button type="button" class="subject-tab" data-filter="queries" onclick="filterMysqlGroup('queries', this)">Queries (4)</button>
-        <button type="button" class="subject-tab" data-filter="updates" onclick="filterMysqlGroup('updates', this)">Updates (3)</button>
-        <button type="button" class="subject-tab" data-filter="joins" onclick="filterMysqlGroup('joins', this)">JOINs (4)</button>
-        <button type="button" class="subject-tab" data-filter="advanced" onclick="filterMysqlGroup('advanced', this)">Advanced (4)</button>
-        <button type="button" class="subject-tab" data-filter="projects" onclick="filterMysqlGroup('projects', this)">Projects (3)</button>
-      </div>
-
-      <div class="sidebar-search" style="margin-bottom:1rem;">
-        <input type="text" id="chapterFilter" placeholder="Search SQL chapters &amp; topics..." style="width:100%;padding:0.5rem 0.75rem;border:1px solid var(--border-color);border-radius:var(--radius-sm);font-size:0.85rem;">
-      </div>
-
-      <nav id="sidebarNav">
-        <!-- Part 1: Introduction to Databases -->
-        <div class="part-group" data-group="basics">
-          <div class="part-title">Part 1: Introduction to Databases</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item active"><a href="#ch1" onclick="loadChapter('part-01-introduction/ch01-what-is-a-database.md', this)">1. What is a Database?</a></li>
-            <li class="chapter-nav-item"><a href="#ch2" onclick="loadChapter('part-01-introduction/ch02-tables-rows-and-columns.md', this)">2. Tables, Rows &amp; Columns</a></li>
-            <li class="chapter-nav-item"><a href="#ch3" onclick="loadChapter('part-01-introduction/ch03-setting-up-mysql.md', this)">3. Setting Up MySQL &amp; CLI</a></li>
-          </ul>
-        </div>
-
-        <!-- Part 2: Creating Databases & Tables -->
-        <div class="part-group" data-group="ddl">
-          <div class="part-title">Part 2: Creating Databases &amp; Tables</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch4" onclick="loadChapter('part-02-creating-databases-and-tables/ch04-create-database.md', this)">4. CREATE DATABASE &amp; USE</a></li>
-            <li class="chapter-nav-item"><a href="#ch5" onclick="loadChapter('part-02-creating-databases-and-tables/ch05-create-table.md', this)">5. CREATE TABLE &amp; Blueprint</a></li>
-            <li class="chapter-nav-item"><a href="#ch6" onclick="loadChapter('part-02-creating-databases-and-tables/ch06-data-types.md', this)">6. SQL Data Types</a></li>
-            <li class="chapter-nav-item"><a href="#ch7" onclick="loadChapter('part-02-creating-databases-and-tables/ch07-primary-keys.md', this)">7. Primary Keys &amp; Constraints</a></li>
-          </ul>
-        </div>
-
-        <!-- Part 3: INSERT & SELECT -->
-        <div class="part-group" data-group="queries">
-          <div class="part-title">Part 3: INSERT &amp; SELECT</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch8" onclick="loadChapter('part-03-insert-and-select/ch08-insert-into.md', this)">8. INSERT INTO (Adding Rows)</a></li>
-            <li class="chapter-nav-item"><a href="#ch9" onclick="loadChapter('part-03-insert-and-select/ch09-select-basics.md', this)">9. SELECT Basics &amp; Aliases</a></li>
-            <li class="chapter-nav-item"><a href="#ch10" onclick="loadChapter('part-03-insert-and-select/ch10-where-clause.md', this)">10. WHERE Clause &amp; Logic</a></li>
-            <li class="chapter-nav-item"><a href="#ch11" onclick="loadChapter('part-03-insert-and-select/ch11-order-by-and-limit.md', this)">11. ORDER BY &amp; LIMIT</a></li>
-          </ul>
-        </div>
-
-        <!-- Part 4: UPDATE & DELETE -->
-        <div class="part-group" data-group="updates">
-          <div class="part-title">Part 4: UPDATE &amp; DELETE</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch12" onclick="loadChapter('part-04-update-and-delete/ch12-update-statement.md', this)">12. UPDATE Statement</a></li>
-            <li class="chapter-nav-item"><a href="#ch13" onclick="loadChapter('part-04-update-and-delete/ch13-delete-statement.md', this)">13. DELETE &amp; TRUNCATE</a></li>
-            <li class="chapter-nav-item"><a href="#ch14" onclick="loadChapter('part-04-update-and-delete/ch14-safe-updates.md', this)">14. Safe Updates &amp; Integrity</a></li>
-          </ul>
-        </div>
-
-        <!-- Part 5: JOINs & Relationships -->
-        <div class="part-group" data-group="joins">
-          <div class="part-title">Part 5: Table Relationships &amp; JOINs</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch15" onclick="loadChapter('part-05-joins-and-relationships/ch15-foreign-keys.md', this)">15. Relational Keys &amp; Normalization</a></li>
-            <li class="chapter-nav-item"><a href="#ch16" onclick="loadChapter('part-05-joins-and-relationships/ch16-what-is-a-join.md', this)">16. What is a JOIN?</a></li>
-            <li class="chapter-nav-item"><a href="#ch17" onclick="loadChapter('part-05-joins-and-relationships/ch17-inner-join.md', this)">17. INNER JOIN in Depth</a></li>
-            <li class="chapter-nav-item"><a href="#ch18" onclick="loadChapter('part-05-joins-and-relationships/ch18-left-and-right-joins.md', this)">18. LEFT JOIN &amp; Anti-Joins</a></li>
-          </ul>
-        </div>
-
-        <!-- Part 6: Advanced Queries -->
-        <div class="part-group" data-group="advanced">
-          <div class="part-title">Part 6: Aggregations &amp; Advanced Queries</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#ch19" onclick="loadChapter('part-06-advanced-queries/ch19-aggregate-functions.md', this)">19. Aggregate Functions</a></li>
-            <li class="chapter-nav-item"><a href="#ch20" onclick="loadChapter('part-06-advanced-queries/ch20-group-by-and-having.md', this)">20. GROUP BY &amp; HAVING</a></li>
-            <li class="chapter-nav-item"><a href="#ch21" onclick="loadChapter('part-06-advanced-queries/ch21-like-and-wildcards.md', this)">21. LIKE &amp; Wildcards</a></li>
-            <li class="chapter-nav-item"><a href="#ch22" onclick="loadChapter('part-06-advanced-queries/ch22-subqueries.md', this)">22. Introduction to Subqueries</a></li>
-          </ul>
-        </div>
-
-        <!-- Part 7: Capstone Projects & Reference -->
-        <div class="part-group" data-group="projects">
-          <div class="part-title">Part 7: Capstones &amp; Reference</div>
-          <ul class="chapter-nav-list">
-            <li class="chapter-nav-item"><a href="#proj1" onclick="loadChapter('part-07-projects/proj01-student-management-db.md', this)">&#127959; Project 1: Student Database</a></li>
-            <li class="chapter-nav-item"><a href="#proj2" onclick="loadChapter('part-07-projects/proj02-library-lending-db.md', this)">&#127959; Project 2: Library Lending System</a></li>
-            <li class="chapter-nav-item"><a href="#ref" onclick="loadChapter('reference/mysql-cheatsheet.md', this)">&#128203; MySQL Quick Reference</a></li>
-          </ul>
-        </div>
-      </nav>
-    </aside>
-
-    <!-- Main Content Reader -->
-    <main class="book-reader book-content">
-      <!-- Reader Top Navigation Bar -->
-      <nav class="reader-top-nav" aria-label="Breadcrumb and quick navigation">
-        <div class="reader-breadcrumb">
-          <a href="../index.html"><span>&#127968;</span> Home</a>
-          <span>/</span>
-          <a href="../Learning MySQL/learningmysql.html">MySQL Track</a>
-          <span>/</span>
-          <span class="active-book" style="color: #0284c7;">Class 9 MySQL Textbook</span>
-        </div>
-        <div class="reader-top-links">
-          <a href="../index.html" class="reader-nav-btn"><span>&#127968;</span> Home</a>
-          <a href="../Learning MySQL/learningmysql.html" class="reader-nav-btn"><span>&#128218;</span> MySQL Track</a>
-          <a href="../book-html/index.html" class="reader-nav-btn"><span>&#127760;</span> HTML</a>
-          <a href="../book-css/index.html" class="reader-nav-btn"><span>&#127912;</span> CSS</a>
-          <a href="../book-js/index.html" class="reader-nav-btn"><span>&#9889;</span> JS</a>
-          <a href="../book-git/index.html" class="reader-nav-btn"><span>🐙</span> Git</a>
-          <a href="../book-php/index.html" class="reader-nav-btn"><span>&#128024;</span> PHP</a>
-          <a href="../studios/web-studio/index.html" class="reader-nav-btn primary-btn" style="background: #0284c7; border-color: #0284c7;"><span>&#128187;</span> Code Lab</a>
-        </div>
-      </nav>
-
-      <!-- Sticky Audio Speaker & Reading Mode Bar -->
-      <header class="book-reader-header" id="bookReaderHeader" role="region" aria-label="Book Reader Controls">
-        <div class="reader-header-main">
-          <div class="reader-controls-left">
-            <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read chapter aloud">
-              <span class="btn-icon">&#128266;</span><span class="btn-text">Read Chapter</span>
-            </button>
-            <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop audio narration">
-              <span class="btn-icon">&#9209;&#65039;</span><span class="btn-text">Stop</span>
-            </button>
-            <div class="reader-speed-pill">
-              <span class="speed-caption">Speed</span>
-              <select class="book-speaker-speed-select" id="book-speaker-speed-select" aria-label="Narration speed">
-                <option value="0.85">0.85x</option>
-                <option value="1.0" selected>1.0x</option>
-                <option value="1.25">1.25x</option>
-                <option value="1.5">1.5x</option>
-              </select>
-            </div>
-            <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
-            </div>
-          </div>
-
-          <div class="reader-status-center">
-            <div class="reader-chapter-badge">
-              <span class="status-dot" style="background: #0284c7;"></span>
-              <span class="status-text" id="book-speaker-status-text">MySQL for Class 9</span>
-            </div>
-          </div>
-
-          <div class="reader-controls-right">
-            <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn" title="Reading Mode">
-              <span class="btn-icon">&#128214;</span><span class="btn-text">Reading Mode</span>
-            </button>
-            <button type="button" class="book-download-pdf-btn" id="book-download-pdf-btn" title="Download current chapter as PDF">
-              <span class="btn-icon">⬇️</span>
-              <span class="btn-text">Download PDF</span>
-            </button>
-          </div>
-        </div>
-      </header>
-
-      <article class="book-article" id="chapterContent">
-        <div style="text-align:center;padding:3rem 1rem;">
-          <span class="mysql-brand-badge">Official Class 9 Textbook</span>
-          <h1 class="chapter-title" style="margin-top:0.5rem; color: #0284c7;">MySQL for Class 9</h1>
-          <p style="font-size:1.15rem;color:var(--text-secondary);max-width:650px;margin:0 auto 2rem auto;">
-            Master relational databases, SQL queries, DDL, DML, multi-table JOINs, aggregations, and data architecture with real-world, ethical coding practices.
-          </p>
-          <div style="display:flex;gap:0.85rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem;">
-            <a href="#ch1" onclick="loadChapter('part-01-introduction/ch01-what-is-a-database.md', document.querySelector('.chapter-nav-item a'))" style="background:linear-gradient(135deg,#0ea5e9,#0284c7);color:#fff;padding:0.85rem 1.6rem;font-size:0.95rem;text-decoration:none;border-radius:8px;font-weight:700;box-shadow:0 4px 12px rgba(14,165,233,0.3);">
-              Start Chapter 1: What is a Database? &#128451;&#65039;
-            </a>
-            <a href="../Learning MySQL/learningmysql.html" style="background:rgba(14,165,233,0.1);color:#0284c7;border:2px solid #0284c7;padding:0.85rem 1.6rem;font-size:0.95rem;text-decoration:none;border-radius:8px;font-weight:700;">
-              &#128218; Interactive MySQL Modules
-            </a>
-          </div>
-
-          <div class="pedagogy-box" style="text-align:left;max-width:680px;margin:0 auto;">
-            <h3>&#128218; What You Will Master</h3>
-            <ul style="list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 1rem;font-size:0.95rem;">
-              <li>&#9989; Database Schema Design</li>
-              <li>&#9989; DDL: CREATE &amp; Constraints</li>
-              <li>&#9989; Primary &amp; Foreign Keys</li>
-              <li>&#9989; SELECT, WHERE, ORDER BY</li>
-              <li>&#9989; UPDATE &amp; DELETE Safety</li>
-              <li>&#9989; INNER JOIN &amp; LEFT JOIN</li>
-              <li>&#9989; COUNT, SUM, AVG &amp; GROUP BY</li>
-              <li>&#9989; 2 Complete Capstone Projects</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-    </main>
-  </div>
-
-  <!-- Markdown Engine & Offline Chapter Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!--
+    This book uses the shared reader (js/book-reader.js). The page is built from JC_BOOK below and the chapter
+    files: add or rename a chapter in part-NN-*/chNN-*.md, run `node scripts/bundle-books.js`, and the menu follows.
+    Check with `node scripts/check-books.js`.
+  -->
   <script>
-    // Offline fallback: robust markdown parser if CDN unavailable (e.g. local XAMPP)
-    if (typeof marked === 'undefined') {
-      window.marked = { parse: function(md) {
-        var h = (md || '').replace(/\r\n/g, '\n').replace(/\r/g, '\n'), cb = [], ic = [];
-        h = h.replace(/```([\s\S]*?)```/g, function(_, c) {
-          var lm = c.match(/^([a-zA-Z0-9_-]+)\n/), lang = lm ? lm[1] : '', body = lm ? c.slice(lang.length + 1) : c;
-          cb.push('<pre><code class="language-' + lang + '">' + body.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code></pre>');
-          return '\x00CB' + (cb.length - 1) + '\x00';
-        });
-        h = h.replace(/`([^`\n]+)`/g, function(_, c) {
-          ic.push('<code>' + c.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</code>');
-          return '\x00IC' + (ic.length - 1) + '\x00';
-        });
-        h = h.replace(/^([*-]|\d+\.)\s+\[([ xX])\]\s+(.+)$/gm, function(_, bullet, checked, text) {
-          var isChecked = checked.toLowerCase() === 'x' ? ' checked' : '';
-          return bullet + ' <label class="task-list-item"><input type="checkbox" disabled' + isChecked + '> ' + text + '</label>';
-        });
-        h = h.replace(/((?:\|[^\n]+\|\n?)+)/g, function(block) {
-          var rows = block.trim().split('\n').filter(function(r) { return r.trim().length > 0; });
-          if (rows.length < 2 || !/^\|[-|: ]+\|/.test(rows[1])) return block;
-          var hdr = rows[0].trim().split('|').slice(1, -1).map(function(c) { return '<th>' + c.trim() + '</th>'; }).join('');
-          var bdy = rows.slice(2).map(function(r) {
-            return '<tr>' + r.trim().split('|').slice(1, -1).map(function(c) { return '<td>' + c.trim() + '</td>'; }).join('') + '</tr>';
-          }).join('');
-          return '<table><thead><tr>' + hdr + '</tr></thead><tbody>' + bdy + '</tbody></table>\n';
-        });
-        h = h.replace(/^(#{1,6})\s+(.+)$/gm, function(_, s, t) { return '<h' + s.length + '>' + t + '</h' + s.length + '>'; });
-        h = h.replace(/^[-*_]{3,}$/gm, '<hr>');
-        h = h.replace(/((?:^>\s?.*$\n?)+)/gm, function(b) {
-          var inner = b.trim().split('\n').map(function(l) { return l.replace(/^>\s?/, ''); }).join('<br>');
-          return '<blockquote>' + inner + '</blockquote>\n';
-        });
-        h = h.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>')
-             .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-             .replace(/\*(.+?)\*/g, '<em>$1</em>')
-             .replace(/___(.+?)___/g, '<strong><em>$1</em></strong>')
-             .replace(/__(.+?)__/g, '<strong>$1</strong>')
-             .replace(/~~(.+?)~~/g, '<del>$1</del>');
-        h = h.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1">')
-             .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>');
-        h = h.replace(/((?:^[*-]\s+.+$\n?)+)/gm, function(b) {
-          return '<ul>' + b.trim().split('\n').map(function(l) { return '<li>' + l.replace(/^[*-]\s+/, '') + '</li>'; }).join('') + '</ul>\n';
-        });
-        h = h.replace(/((?:^\d+\.\s+.+$\n?)+)/gm, function(b) {
-          return '<ol>' + b.trim().split('\n').map(function(l) { return '<li>' + l.replace(/^\d+\.\s+/, '') + '</li>'; }).join('') + '</ol>\n';
-        });
-        h = h.split(/\n{2,}/).map(function(b) {
-          b = b.trim();
-          if (!b) return '';
-          if (/^<(h[1-6]|ul|ol|blockquote|pre|table|hr|details|summary|div)/i.test(b) || b.indexOf('\x00CB') !== -1) return b;
-          return '<p>' + b.replace(/\n/g, '<br>') + '</p>';
-        }).join('\n');
-        ic.forEach(function(c, i) { h = h.split('\x00IC' + i + '\x00').join(c); });
-        cb.forEach(function(c, i) { h = h.split('\x00CB' + i + '\x00').join(c); });
-        return h;
-      }};
-    }
-  </script>
-  <script src="chapters-bundle.js"></script>
-
-  <script>
-    // Companion Lab Challenge Database for MySQL
-    const MYSQL_CHAPTER_LABS = {
-      ch1: { chapter: "1", title: "Database vs Spreadsheet Concept", desc: "Test your understanding of RDBMS speed, concurrency, and data integrity." },
-      ch2: { chapter: "2", title: "Tables, Rows & Columns Inspection", desc: "Design a clean schema and identify atomic attributes for books and students." },
-      ch3: { chapter: "3", title: "Setting Up MySQL & Diagnostic Queries", desc: "Run SELECT NOW(), SELECT USER(), and SHOW DATABASES." },
-      ch4: { chapter: "4", title: "CREATE DATABASE & Character Encoding", desc: "Create database schemas with utf8mb4 universal character support." },
-      ch5: { chapter: "5", title: "CREATE TABLE & Schema Blueprints", desc: "Define column constraints, NOT NULL rules, and default values." },
-      ch6: { chapter: "6", title: "SQL Data Types & Storage Precision", desc: "Compare INT, VARCHAR, DECIMAL(10,2), and DATE data types." },
-      ch7: { chapter: "7", title: "Primary Keys & Integrity Constraints", desc: "Configure AUTO_INCREMENT, UNIQUE, and CHECK constraints." },
-      ch8: { chapter: "8", title: "INSERT INTO & Batch Inserts", desc: "Insert single records and multi-row student batches efficiently." },
-      ch9: { chapter: "9", title: "SELECT Basics & Output Aliases", desc: "Select specific columns, rename headers with AS, and compute fields." },
-      ch10: { chapter: "10", title: "WHERE Clause & Boolean Filters", desc: "Filter records using AND, OR, NOT, BETWEEN, and IN operators." },
-      ch11: { chapter: "11", title: "ORDER BY & Pagination Limits", desc: "Sort records with ASC/DESC and paginate output with LIMIT and OFFSET." },
-      ch12: { chapter: "12", title: "UPDATE Statement & Precision Modifiers", desc: "Update existing rows selectively without corrupting the table." },
-      ch13: { chapter: "13", title: "DELETE & TRUNCATE Operations", desc: "Remove specific rows and compare DELETE vs TRUNCATE behavior." },
-      ch14: { chapter: "14", title: "Safe Updates & ACID Transactions", desc: "Execute atomic transactions with START TRANSACTION, COMMIT, and ROLLBACK." },
-      ch15: { chapter: "15", title: "Relational Design & Foreign Keys", desc: "Build parent-child relationships and enforce referential integrity." },
-      ch16: { chapter: "16", title: "SQL JOINs Visualized", desc: "Explore the visual diagram and master table aliases and ON conditions." },
-      ch17: { chapter: "17", title: "INNER JOIN Multi-Table Queries", desc: "Connect students, enrollments, and courses in 3-table queries." },
-      ch18: { chapter: "18", title: "LEFT JOIN & Anti-Join Filtering", desc: "Detect orphaned records and preserve left rows with NULL handling." },
-      ch19: { chapter: "19", title: "Aggregate Functions (COUNT, SUM, AVG)", desc: "Crunch statistical metrics across hundreds of table records." },
-      ch20: { chapter: "20", title: "GROUP BY & HAVING Clauses", desc: "Group records by category and filter aggregated groups." },
-      ch21: { chapter: "21", title: "Pattern Matching with LIKE & Wildcards", desc: "Perform search queries using % and _ wildcards." },
-      ch22: { chapter: "22", title: "Subqueries & Nested Queries", desc: "Embed dynamic subqueries inside WHERE and FROM clauses." },
-      proj1: { chapter: "P1", title: "Capstone: Student Management DB", desc: "Complete 4-table academic database with marks, grades, and enrollments." },
-      proj2: { chapter: "P2", title: "Capstone: Library Lending System", desc: "Track books, members, active loans, and overdue loan detection." },
-      ref: { chapter: "Ref", title: "MySQL Quick Reference Cheatsheet", desc: "Comprehensive quick reference for DDL, DML, JOINs, and security." }
+    window.JC_BOOK = {
+      "bundle": "BOOK_MYSQL_CHAPTERS",
+      "title": "MySQL: Databases",
+      "short": "MySQL",
+      "badge": "Grades 9–10",
+      "subtitle": "Tables and SQL questions",
+      "icon": "🗄️",
+      "color": "#0284c7",
+      "colorDark": "#0369a1",
+      "colorSoft": "#f0f9ff",
+      "links": [
+        {
+          "href": "../Learning%20MySQL/learningmysql.html",
+          "label": "📚 MySQL lessons"
+        },
+        {
+          "href": "../cheatsheet-mysql.html",
+          "label": "📋 Cheat sheet"
+        },
+        {
+          "href": "../Learning%20MySQL/exercises.html",
+          "label": "✅ Exercises"
+        }
+      ],
+      "parts": {
+        "part-01-introduction": [
+          "Introduction to Databases",
+          "basics"
+        ],
+        "part-02-creating-databases-and-tables": [
+          "Creating Databases & Tables",
+          "ddl"
+        ],
+        "part-03-insert-and-select": [
+          "INSERT & SELECT",
+          "queries"
+        ],
+        "part-04-update-and-delete": [
+          "UPDATE & DELETE",
+          "updates"
+        ],
+        "part-05-joins-and-relationships": [
+          "Table Relationships & JOINs",
+          "joins"
+        ],
+        "part-06-advanced-queries": [
+          "Aggregations & Advanced Queries",
+          "advanced"
+        ],
+        "part-07-projects": [
+          "Capstones & Reference",
+          "projects"
+        ]
+      },
+      "groups": {
+        "basics": "Basics",
+        "ddl": "DDL",
+        "queries": "Queries",
+        "updates": "Updates",
+        "joins": "JOINs",
+        "advanced": "Advanced",
+        "projects": "Projects"
+      },
+      "extras": [
+        {
+          "file": "part-07-projects/proj01-student-management-db.md",
+          "key": "proj1",
+          "label": "Project 1: Student Database"
+        },
+        {
+          "file": "part-07-projects/proj02-library-lending-db.md",
+          "key": "proj2",
+          "label": "Project 2: Library Lending System"
+        },
+        {
+          "file": "reference/mysql-cheatsheet.md",
+          "key": "ref",
+          "label": "MySQL Quick Reference"
+        }
+      ],
+      "practice": {
+        "href": "../studios/sql-sandbox/index.html",
+        "label": "Open the SQL Sandbox",
+        "icon": "🗄️",
+        "text": "Run this chapter’s queries on the same school library database."
+      }
     };
-
-    function attachChapterLab(container, path) {
-      if (!container || !path) return;
-      let key = null;
-      if (path.includes('ch01-')) key = 'ch1';
-      else if (path.includes('ch02-')) key = 'ch2';
-      else if (path.includes('ch03-')) key = 'ch3';
-      else if (path.includes('ch04-')) key = 'ch4';
-      else if (path.includes('ch05-')) key = 'ch5';
-      else if (path.includes('ch06-')) key = 'ch6';
-      else if (path.includes('ch07-')) key = 'ch7';
-      else if (path.includes('ch08-')) key = 'ch8';
-      else if (path.includes('ch09-')) key = 'ch9';
-      else if (path.includes('ch10-')) key = 'ch10';
-      else if (path.includes('ch11-')) key = 'ch11';
-      else if (path.includes('ch12-')) key = 'ch12';
-      else if (path.includes('ch13-')) key = 'ch13';
-      else if (path.includes('ch14-')) key = 'ch14';
-      else if (path.includes('ch15-')) key = 'ch15';
-      else if (path.includes('ch16-')) key = 'ch16';
-      else if (path.includes('ch17-')) key = 'ch17';
-      else if (path.includes('ch18-')) key = 'ch18';
-      else if (path.includes('ch19-')) key = 'ch19';
-      else if (path.includes('ch20-')) key = 'ch20';
-      else if (path.includes('ch21-')) key = 'ch21';
-      else if (path.includes('ch22-')) key = 'ch22';
-      else if (path.includes('proj01-')) key = 'proj1';
-      else if (path.includes('proj02-')) key = 'proj2';
-      else if (path.includes('cheatsheet')) key = 'ref';
-
-      const lab = key ? MYSQL_CHAPTER_LABS[key] : null;
-      if (!lab) return;
-
-      const labBox = document.createElement('div');
-      labBox.className = 'companion-lab-box';
-      labBox.innerHTML = `
-        <div style="display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;">
-          <div>
-            <span style="display: inline-block; background: #0284c7; color: #fff; font-size: 0.72rem; font-weight: 800; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase;">Lab ${lab.chapter}</span>
-            <h3 style="margin: 0.4rem 0 0.2rem 0; color: #0f172a; font-size: 1.15rem;">${lab.title}</h3>
-            <p style="margin: 0; color: #475569; font-size: 0.9rem;">${lab.desc}</p>
-          </div>
-          <div style="display: flex; gap: 0.5rem; align-items: center;">
-            <a href="../Learning MySQL/learningmysql.html" class="btn-open-lab" title="Launch Interactive MySQL Modules">
-              <span>📚</span> <span>Interactive Modules</span>
-            </a>
-            <a href="../studios/web-studio/index.html" class="btn-open-lab" style="background: #0369a1; border-color: #0369a1;" title="Open Code Lab">
-              <span>💻</span> <span>Code Lab</span>
-            </a>
-          </div>
-        </div>
-      `;
-      container.appendChild(labBox);
-    }
-
-    async function loadChapter(path, element) {
-      if (element) {
-        document.querySelectorAll('.chapter-nav-item').forEach(el => el.classList.remove('active'));
-        element.parentElement.classList.add('active');
-      }
-
-      const contentArea = document.getElementById('chapterContent');
-      contentArea.innerHTML = '<div style="padding: 2rem; text-align: center; color: var(--text-muted);">Loading Chapter...</div>';
-
-      let markdown = '';
-      // 1. Check pre-bundled offline cache (works 100% locally with file:// and offline!)
-      const cache = window.BOOK_MYSQL_CHAPTERS || window.BOOK_CHAPTERS;
-      if (cache && cache[path]) {
-        markdown = cache[path];
-      } else {
-        // 2. Fallback to HTTP fetch if running under a local server
-        // 2. Fallback to HTTP fetch with directory resilience
-        try {
-          let response = await fetch(path);
-          if (!response.ok && !path.startsWith('/') && !path.startsWith('http')) {
-            const segs = window.location.pathname.split('/').filter(Boolean);
-            const folder = segs.length ? segs[segs.length - 1] : '';
-            if (folder && folder.startsWith('book-') && !path.startsWith(folder)) {
-              try {
-                const alt = await fetch(folder + '/' + path);
-                if (alt.ok) response = alt;
-              } catch (_) {}
-            }
-          }
-          if (response && response.ok) {
-            markdown = await response.text();
-          }
-        } catch (err) {
-          console.warn('Offline cache used, fetch fallback failed for:', path, err);
-        }
-      }
-
-      if (markdown) {
-        contentArea.innerHTML = marked.parse(markdown);
-        enhanceCodeBlocks(contentArea);
-        attachChapterLab(contentArea, path);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        if (window.initBookSpeaker) window.initBookSpeaker();
-        if (window.renderChapterPagination) window.renderChapterPagination();
-      } else {
-        contentArea.innerHTML = `
-          <div class="pedagogy-section" style="text-align:center;padding:3rem 1rem;">
-            <h2>📖 Chapter Notice</h2>
-            <p>Could not load markdown for <code>${path}</code>.</p>
-            <p style="margin-top:1rem;"><a href="../Learning MySQL/learningmysql.html" style="color:#0284c7;font-weight:700;">Visit Interactive MySQL Track →</a></p>
-          </div>
-        `;
-        if (window.initBookSpeaker) window.initBookSpeaker();
-        if (window.renderChapterPagination) window.renderChapterPagination();
-      }
-    }
-
-    function filterMysqlGroup(group, tabElement) {
-      document.querySelectorAll('.subject-tab').forEach(t => t.classList.remove('active'));
-      if (tabElement) tabElement.classList.add('active');
-
-      document.querySelectorAll('.part-group').forEach(part => {
-        if (group === 'all' || part.getAttribute('data-group') === group) {
-          part.style.display = 'block';
-        } else {
-          part.style.display = 'none';
-        }
-      });
-    }
-
-    function showCopyToast(msg) {
-      let t = document.getElementById('copyToast');
-      if (!t) {
-        t = document.createElement('div');
-        t.id = 'copyToast';
-        t.className = 'copy-toast';
-        document.body.appendChild(t);
-      }
-      t.innerHTML = '<span>📋</span> <span>' + (msg || 'Copied!') + '</span>';
-      t.classList.add('show');
-      clearTimeout(window.ctt);
-      window.ctt = setTimeout(() => t.classList.remove('show'), 2500);
-    }
-
-    function enhanceCodeBlocks(container) {
-      if (!container) return;
-      container.querySelectorAll('pre').forEach(pre => {
-        if (pre.parentElement.classList.contains('code-wrapper')) return;
-        const ce = pre.querySelector('code');
-        const raw = ce ? ce.innerText : pre.innerText;
-        let lang = 'SQL';
-        if (ce && ce.className) {
-          const m = ce.className.match(/language-([a-zA-Z0-9_-]+)/);
-          if (m) lang = m[1].toUpperCase();
-        }
-        const w = document.createElement('div');
-        w.className = 'code-wrapper';
-        const h = document.createElement('div');
-        h.className = 'code-wrapper-header';
-        const lb = document.createElement('span');
-        lb.className = 'code-lang-label';
-        lb.textContent = lang;
-        const ac = document.createElement('div');
-        ac.className = 'code-actions';
-        const cb = document.createElement('button');
-        cb.type = 'button';
-        cb.className = 'btn-copy-code';
-        cb.innerHTML = '<span>📋</span> <span>Copy</span>';
-        cb.addEventListener('click', async () => {
-          try {
-            await navigator.clipboard.writeText(raw);
-          } catch (e) {
-            const ta = document.createElement('textarea');
-            ta.value = raw;
-            ta.style.position = 'fixed';
-            ta.style.left = '-9999px';
-            document.body.appendChild(ta);
-            ta.select();
-            document.execCommand('copy');
-            ta.remove();
-          }
-          cb.classList.add('copied');
-          cb.innerHTML = '<span>✅</span> <span>Copied!</span>';
-          showCopyToast('Copied to clipboard!');
-          setTimeout(() => {
-            cb.classList.remove('copied');
-            cb.innerHTML = '<span>📋</span> <span>Copy</span>';
-          }, 2000);
-        });
-        ac.appendChild(cb);
-        h.appendChild(lb);
-        h.appendChild(ac);
-        pre.parentNode.insertBefore(w, pre);
-        w.appendChild(h);
-        w.appendChild(pre);
-      });
-    }
-
-    // Mobile sidebar triggers
-    document.getElementById('mobileSidebarToggle').addEventListener('click', () => {
-      document.getElementById('bookSidebar').classList.add('open');
-      document.getElementById('sidebarBackdrop').classList.add('visible');
-    });
-    document.getElementById('sidebarCloseBtn').addEventListener('click', () => {
-      document.getElementById('bookSidebar').classList.remove('open');
-      document.getElementById('sidebarBackdrop').classList.remove('visible');
-    });
-    document.getElementById('sidebarBackdrop').addEventListener('click', () => {
-      document.getElementById('bookSidebar').classList.remove('open');
-      document.getElementById('sidebarBackdrop').classList.remove('visible');
-    });
-
-    // Sidebar search filter
-    document.getElementById('chapterFilter').addEventListener('input', function(e) {
-      const q = e.target.value.toLowerCase();
-      document.querySelectorAll('.chapter-nav-item').forEach(i => {
-        i.style.display = i.textContent.toLowerCase().includes(q) ? '' : 'none';
-      });
-    });
-
-    // Auto-load first chapter if hash is present
-    window.addEventListener('DOMContentLoaded', () => {
-      const hash = window.location.hash;
-      if (hash) {
-        const targetLink = document.querySelector(`.chapter-nav-item a[href="${hash}"]`);
-        if (targetLink) targetLink.click();
-      }
-    });
   </script>
+  <script src="../js/vendor/marked-15.0.12.min.js"></script>
+  <script src="chapters-bundle.js"></script>
+  <script src="../js/book-reader.js"></script>
   <script src="../js/pdf-download.js"></script>
   <script src="../js/tts-voices.js"></script>
   <script src="../js/book-speaker.js"></script>

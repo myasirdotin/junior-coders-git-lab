@@ -131,12 +131,30 @@ for (const book of books) {
   files.forEach(f => { if (checkFile(f)) chapters++; });
   chapterCount += chapters;
 
-  // sidebar menu ↔ files
+  // sidebar menu ↔ files. Books on the shared reader (js/book-reader.js) build the menu from the bundle, so only the
+  // extras they list (projects, reference, teacher guide) need checking; older pages list every chapter in
+  // loadChapter('…') links.
   const index = fs.readFileSync(path.join(ROOT, book, 'index.html'), 'utf8');
-  const linked = new Set([...index.matchAll(/loadChapter\('([^']+\.md)'/g)].map(m => m[1]));
   const onDisk = new Set(files.map(f => path.relative(path.join(ROOT, book), f).replace(/\\/g, '/')));
-  linked.forEach(l => { if (!onDisk.has(l) && !fs.existsSync(path.join(ROOT, book, l))) err(`${book}/index.html`, `menu links to missing file ${l}`); });
-  onDisk.forEach(f => { if (!linked.has(f)) err(`${book}/index.html`, `chapter file not in the menu: ${f}`); });
+  if (index.includes('book-reader.js')) {
+    const m = index.match(/window\.JC_BOOK\s*=\s*(\{[\s\S]*?\});\s*<\/script>/);
+    let conf = null;
+    try { conf = m && JSON.parse(m[1].split('<\\/').join('</')); } catch (e) { err(`${book}/index.html`, 'JC_BOOK settings are not valid JSON: ' + e.message); }
+    if (!m) err(`${book}/index.html`, 'no window.JC_BOOK settings found');
+    if (conf) {
+      const extras = conf.extras || [];
+      extras.forEach(x => { if (!fs.existsSync(path.join(ROOT, book, x.file))) err(`${book}/index.html`, `extra "${x.label}" points to missing file ${x.file}`); });
+      onDisk.forEach(f => {
+        if (!/^part-\d+[^/]*\/ch\d+/.test(f) && !extras.some(x => x.file === f)) err(`${book}/index.html`, `not a chapter and not in JC_BOOK.extras, so the menu hides it: ${f}`);
+      });
+      const want = `BOOK_${book.slice(5).toUpperCase()}_CHAPTERS`;
+      if (conf.bundle !== want) err(`${book}/index.html`, `JC_BOOK.bundle should be ${want}`);
+    }
+  } else {
+    const linked = new Set([...index.matchAll(/loadChapter\('([^']+\.md)'/g)].map(x => x[1]));
+    linked.forEach(l => { if (!onDisk.has(l) && !fs.existsSync(path.join(ROOT, book, l))) err(`${book}/index.html`, `menu links to missing file ${l}`); });
+    onDisk.forEach(f => { if (!linked.has(f)) err(`${book}/index.html`, `chapter file not in the menu: ${f}`); });
+  }
 
   // offline bundle up to date
   const bundleFile = path.join(ROOT, book, 'chapters-bundle.js');

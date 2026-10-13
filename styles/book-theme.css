@@ -3210,3 +3210,78 @@ h2:hover > .book-section-speaker-btn, h3:hover > .book-section-speaker-btn,
 #chapterContent details:not(.chapter-outline) > *:not(summary), #chapterBody details > *:not(summary) { margin-left: 0.85rem; margin-right: 0.85rem; }
 #chapterContent details:not(.chapter-outline) > *:last-child, #chapterBody details > *:last-child { margin-bottom: 0.8rem; }
 #chapterContent details:not(.chapter-outline) > summary + *, #chapterBody details > summary + * { margin-top: 0.7rem; }
+
+/* ==========================================================================
+   SHARED READER (js/book-reader.js builds every book page; each book sets only its colours in JC_BOOK)
+   ========================================================================== */
+.book-brand-icon {
+  flex: none; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center;
+  background: var(--book-accent); color: #fff; font-size: 1.3rem; font-weight: 800; font-family: var(--font-mono, monospace);
+}
+.book-brand-badge {
+  display: inline-block; margin-bottom: 0.25rem; padding: 0.15rem 0.55rem; border-radius: 999px;
+  background: var(--book-accent); color: #fff; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase;
+}
+.book-brand h1 { color: var(--book-accent-dark, var(--book-accent)); }
+.book-brand-sub { display: block; font-size: 0.78rem; color: var(--text-muted, #64748b); margin-top: 0.1rem; }
+.chapter-nav-item.active a { background: var(--book-accent-light); color: var(--book-accent-dark, var(--book-accent)); border-left-color: var(--book-accent); font-weight: 700; }
+.chapter-nav-item a:hover { color: var(--book-accent-dark, var(--book-accent)); }
+.subject-tab.active { background: var(--book-accent) !important; border-color: var(--book-accent) !important; color: #fff !important; }
+.book-subject-tabs { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0 0 0.75rem; }
+.reader-topbar .breadcrumb .sep { margin: 0 0.25rem; opacity: 0.6; }
+.reader-topbar .breadcrumb .bc-book { font-weight: 700; color: var(--book-accent-dark, var(--book-accent)); }
+
+/* code blocks: language label and Copy button */
+.code-wrapper-header .code-actions { display: flex; gap: 0.35rem; }
+.copy-btn {
+  min-height: 30px; padding: 0 0.65rem; border: 0; border-radius: 6px; cursor: pointer;
+  background: #334155; color: #e2e8f0; font: inherit; font-size: 0.75rem; font-weight: 700;
+}
+.copy-btn:hover { background: #475569; color: #fff; }
+.copy-btn.copied { background: #059669; color: #fff; }
+
+/* "Practise this chapter" box at the end of a chapter */
+.chapter-practice-box {
+  display: flex; align-items: center; gap: 0.9rem; margin: 2rem 0 0.5rem; padding: 1rem 1.1rem; border-radius: 14px;
+  background: var(--book-accent-light); border: 1px solid var(--book-accent);
+}
+.chapter-practice-box .cp-icon { font-size: 1.8rem; }
+.chapter-practice-box strong { display: block; color: var(--text-primary, #0f172a); }
+.chapter-practice-box p { margin: 0.15rem 0 0 !important; font-size: 0.9rem !important; color: var(--text-secondary, #475569); }
+.chapter-practice-box .cp-btn {
+  margin-left: auto; flex: none; display: inline-flex; align-items: center; min-height: 42px; padding: 0 1rem; border-radius: 10px;
+  background: var(--book-accent); color: #fff; font-weight: 800; font-size: 0.88rem; text-decoration: none;
+}
+@media (max-width: 640px) {
+  .chapter-practice-box { flex-wrap: wrap; }
+  .chapter-practice-box .cp-btn { margin-left: 0; width: 100%; justify-content: center; }
+}
+.chapter-error { padding: 1.5rem; border-radius: 12px; background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+
+/* JS book scratchpad */
+.js-runner-widget { margin: 1.5rem auto 2rem; max-width: 780px; border-radius: 14px; overflow: hidden; border: 1px solid #334155; background: #0f172a; }
+.js-runner-header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; padding: 0.6rem 0.9rem; background: #1e293b; }
+.js-runner-title { color: #fde68a; font-weight: 800; }
+.js-runner-badge { margin-left: 0.5rem; padding: 0.1rem 0.5rem; border-radius: 999px; background: rgba(250, 204, 21, 0.15); color: #fde68a; font-size: 0.7rem; font-weight: 700; }
+.js-runner-actions { display: flex; gap: 0.4rem; }
+.btn-scratchpad-clear, .btn-scratchpad-run { min-height: 36px; padding: 0 0.8rem; border: 0; border-radius: 8px; cursor: pointer; font: inherit; font-weight: 700; font-size: 0.82rem; }
+.btn-scratchpad-clear { background: #334155; color: #e2e8f0; }
+.btn-scratchpad-run { background: #f59e0b; color: #1f2937; display: inline-flex; align-items: center; gap: 0.35rem; }
+.btn-scratchpad-run .shortcut-hint { opacity: 0.7; font-size: 0.7rem; }
+.js-editor-container textarea { display: block; width: 100%; min-height: 150px; padding: 0.9rem; border: 0; resize: vertical; background: #0b1220; color: #e2e8f0; font-family: var(--font-mono, monospace); font-size: 0.88rem; line-height: 1.6; }
+.js-console-header { display: flex; justify-content: space-between; padding: 0.4rem 0.9rem; background: #111827; color: #94a3b8; font-size: 0.75rem; font-weight: 700; }
+.js-console-output { margin: 0 !important; padding: 0.8rem 0.9rem !important; min-height: 60px; background: #020617 !important; color: #a7f3d0; font-size: 0.85rem; white-space: pre-wrap; }
+.console-status.ok { color: #34d399; }
+.console-status.error { color: #f87171; }
+/* shared reader: older ".book-brand span" rules recoloured the badge text; and the chapter search box */
+.book-brand .book-brand-badge { color: #ffffff !important; background: var(--book-accent) !important; font-size: 0.68rem !important; }
+.book-brand .book-brand-sub { color: var(--text-muted, #64748b) !important; }
+.sidebar-search { margin: 0 0 0.9rem; }
+.sidebar-search input {
+  width: 100%; min-height: 40px; padding: 0.45rem 0.75rem; border-radius: 10px; font: inherit; font-size: 0.88rem;
+  border: 1px solid var(--border-color, #e2e8f0); background: #ffffff; color: var(--text-primary, #0f172a); outline: none;
+}
+.sidebar-search input:focus { border-color: var(--book-accent); box-shadow: 0 0 0 3px var(--book-accent-light); }
+
+/* shared reader: part headings in the book's own colour (an older rule made them purple in every book) */
+#sidebarNav .part-title { color: var(--book-accent-dark, var(--book-accent)) !important; }

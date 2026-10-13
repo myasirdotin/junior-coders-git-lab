@@ -38,6 +38,10 @@ _Last updated: 2026-10-13 (textbook overhaul complete)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 One shared textbook reader: `js/book-reader.js` builds all 11 books from a small `JC_BOOK` settings
+  block; chapter menus come from the bundle (cannot drift); pinned local marked 15.0.12 (books work offline, CDN
+  changes cannot break them); same "Practise this chapter" box per subject; JS scratchpad kept; 11 pages went from
+  ~7,000 to ~1,300 lines. `scripts/check-books.js` (0 errors) understands it.
 - 2026-10-13 Textbook overhaul finished: every chapter of all 11 books on the GEMINI §7j template (HTML 17,
   CSS 22, JS 17 + parts 11–15, Terminal 14, Git 19, PHP 29, MySQL 24, Laravel 24, Python 15, Networks 14,
   Cybersecurity 14); Python, Terminal, MySQL, Networks and Cybersecurity deepened (~2–3×); the Laravel book written
