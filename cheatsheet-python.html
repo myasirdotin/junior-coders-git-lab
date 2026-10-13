@@ -3,212 +3,180 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python &amp; Machine Learning Cheat Sheet | Junior Coders</title>
-    <meta name="description" content="A complete Python & Machine Learning cheat sheet for junior coders. Syntax, data types, lists, dictionaries, file I/O, ML workflow, and ethical AI on one page.">
+    <title>Python Cheat Sheet | Junior Coders</title>
+    <meta name="description" content="A one-page Python cheat sheet for Grades 8–10: variables, input and f-strings, decisions, loops, lists, tuples, dictionaries, sets, functions, files, errors, machine learning words and ethical AI (Amānah).">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/bei-core.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         .python-hero {
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(15, 23, 42, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.25) 0%, rgba(30, 41, 59, 0.9) 100%);
             border-bottom: 2px solid #2563eb;
         }
         .python-hdr {
             background: linear-gradient(135deg, rgba(37, 99, 235, 0.2), rgba(37, 99, 235, 0.05));
-            color: #60a5fa;
+            color: #93c5fd;
             border-bottom: 1px solid rgba(37, 99, 235, 0.3);
         }
         .python-table td:first-child {
-            font-family: var(--font-mono, monospace);
-            color: #38bdf8;
+            font-family: var(--font-mono);
+            color: #bfdbfe;
             font-weight: 600;
-            white-space: nowrap;
-        }
-        .rosetta-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.88rem;
-            margin-top: 1rem;
-        }
-        .rosetta-table th {
-            background: rgba(37, 99, 235, 0.15);
-            color: #93c5fd;
-            padding: 0.6rem 0.8rem;
-            text-align: left;
-            border-bottom: 2px solid #2563eb;
-        }
-        .rosetta-table td {
-            padding: 0.55rem 0.8rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-        }
-        .rosetta-table tr:hover {
-            background: rgba(255, 255, 255, 0.03);
-        }
-        .pill-badge {
-            display: inline-block;
-            background: rgba(37, 99, 235, 0.15);
-            color: #60a5fa;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-family: var(--font-mono, monospace);
         }
     </style>
 </head>
 <body>
+<div class="cheatsheet-container">
 
-    <header class="cheatsheet-hero python-hero">
-        <div class="cheatsheet-nav">
-            <a href="index.html" class="nav-back">← Back to Hub</a>
-            <span class="nav-tag">Grades 8–10 • Quick Reference</span>
-        </div>
-        <h1>Python &amp; Machine Learning Cheat Sheet 🐍🤖</h1>
-        <p>Everything you need on one page: syntax, data structures, loops, file I/O, ML pipelines, and ethical AI stewardship.</p>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
-            <a href="book-python/index.html" class="btn-hero-primary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">📖 15 Ch Textbook</a>
-            <a href="Learning Python/learningpython.html" class="btn-hero-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">📚 8 Lessons Portal</a>
-            <a href="Learning Python/playground.html" class="btn-hero-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">🧪 Python Studio</a>
-        </div>
+    <header class="cheat-hero python-hero">
+        <span class="course-level" style="background:rgba(37,99,235,0.25); color:#bfdbfe; border: 1px solid rgba(37,99,235,0.4);">Grades 8–10</span>
+        <h1>🐍 Python Cheat Sheet</h1>
+        <p>Python basics, data, files and the first ideas of machine learning on one page, in the same order as the Python textbook.</p>
     </header>
 
-    <main class="cheatsheet-grid">
+    <div class="cheat-tip">
+        <strong>Two habits:</strong> indent every block by 4 spaces (Python uses the indentation, not brackets), and remember that <code>input()</code> always gives back text: turn it into a number with <code>int()</code> or <code>float()</code> before doing maths.
+    </div>
 
-        <!-- 1. Variables & Data Types -->
+    <div class="cheat-grid">
+
         <div class="cheat-card" id="card-variables-core-types">
-            <div class="cheat-card-header python-hdr">
-                <span>📦</span> Variables &amp; Core Types
-            </div>
+            <div class="cheat-card-header python-hdr">📦 Variables &amp; Core Types</div>
             <table class="cheat-table python-table">
-                <tr><td><code>x = 42</code></td><td>Integer (<code>int</code>): whole numbers</td></tr>
-                <tr><td><code>pi = 3.14</code></td><td>Float (<code>float</code>): decimal precision</td></tr>
-                <tr><td><code>msg = "Peace"</code></td><td>String (<code>str</code>): text in quotes</td></tr>
-                <tr><td><code>active = True</code></td><td>Boolean (<code>bool</code>): <code>True</code> or <code>False</code></td></tr>
-                <tr><td><code>type(var)</code></td><td>Check variable data type</td></tr>
-                <tr><td><code>int("10")</code></td><td>Type casting: text to integer</td></tr>
-                <tr><td><code>str(50)</code></td><td>Type casting: number to text</td></tr>
+                <tr><td>pages = 42</td><td>Integer (int): a whole number</td></tr>
+                <tr><td>price = 3.75</td><td>Float (float): a decimal number</td></tr>
+                <tr><td>msg = "Peace"</td><td>String (str): text in quotes</td></tr>
+                <tr><td>active = True</td><td>Boolean (bool): True or False</td></tr>
+                <tr><td>type(pages)</td><td>Shows the type: &lt;class 'int'&gt;</td></tr>
+                <tr><td>int("10")   str(50)</td><td>Change type: text to number, number to text</td></tr>
+                <tr><td>7 // 2 → 3    7 % 2 → 1</td><td>Whole-number division and remainder</td></tr>
+                <tr><td># a comment</td><td>A note for people; Python ignores it</td></tr>
             </table>
         </div>
 
-        <!-- 2. Modern F-Strings & Output -->
         <div class="cheat-card" id="card-f-strings-formatting">
-            <div class="cheat-card-header python-hdr">
-                <span>✨</span> F-Strings &amp; Formatting
-            </div>
+            <div class="cheat-card-header python-hdr">✨ Input, Output &amp; F-Strings</div>
             <table class="cheat-table python-table">
-                <tr><td><code>print(val)</code></td><td>Display output in terminal</td></tr>
-                <tr><td><code>input("Prompt: ")</code></td><td>Capture user string input</td></tr>
-                <tr><td><code>f"Hello {name}"</code></td><td>F-String variable interpolation</td></tr>
-                <tr><td><code>f"{price:.2f}"</code></td><td>Round float to 2 decimal places</td></tr>
-                <tr><td><code>f"{val:,}"</code></td><td>Format number with comma separators</td></tr>
-                <tr><td><code>s.strip()</code></td><td>Remove leading &amp; trailing whitespace</td></tr>
-                <tr><td><code>s.lower() / s.upper()</code></td><td>Convert case</td></tr>
+                <tr><td>print("Salaam")</td><td>Show output</td></tr>
+                <tr><td>name = input("Name: ")</td><td>Ask the user; the answer is always text</td></tr>
+                <tr><td>age = int(input("Age: "))</td><td>Ask for a whole number</td></tr>
+                <tr><td>f"Hello {name}"</td><td>F-string: puts a value inside text</td></tr>
+                <tr><td>f"{price:.2f}"</td><td>Show 2 decimal places: 3.75</td></tr>
+                <tr><td>f"{1234567:,}"</td><td>Comma separators: 1,234,567</td></tr>
+                <tr><td>text.strip()</td><td>Remove spaces at the start and end</td></tr>
+                <tr><td>text.lower()   text.upper()</td><td>Change to small or capital letters</td></tr>
             </table>
         </div>
 
-        <!-- 3. Logic & Conditionals -->
         <div class="cheat-card" id="card-decision-logic">
-            <div class="cheat-card-header python-hdr">
-                <span>🚦</span> Decision Logic
-            </div>
+            <div class="cheat-card-header python-hdr">🚦 Decisions</div>
             <table class="cheat-table python-table">
-                <tr><td><code>if condition:</code></td><td>Execute block if True (indented 4 spaces)</td></tr>
-                <tr><td><code>elif condition:</code></td><td>Alternative check if previous was False</td></tr>
-                <tr><td><code>else:</code></td><td>Default fallback if all were False</td></tr>
-                <tr><td><code>==  !=</code></td><td>Equal to / Not equal to</td></tr>
-                <tr><td><code>&gt;  &lt;  &gt;=  &lt;=</code></td><td>Comparison operators</td></tr>
-                <tr><td><code>and / or / not</code></td><td>Logical connectors</td></tr>
+                <tr><td>if marks &gt;= 90:</td><td>Run the indented block if True (note the colon)</td></tr>
+                <tr><td>elif marks &gt;= 75:</td><td>Another check if the ones before were False</td></tr>
+                <tr><td>else:</td><td>Runs when every check was False</td></tr>
+                <tr><td>==   !=</td><td>Equal to / not equal to (= alone stores a value)</td></tr>
+                <tr><td>&gt;   &lt;   &gt;=   &lt;=</td><td>Comparison operators</td></tr>
+                <tr><td>and   or   not</td><td>Join or flip conditions</td></tr>
             </table>
         </div>
 
-        <!-- 4. Loops & Repetition -->
         <div class="cheat-card" id="card-loops-sequences">
-            <div class="cheat-card-header python-hdr">
-                <span>🔁</span> Loops &amp; Sequences
-            </div>
+            <div class="cheat-card-header python-hdr">🔁 Loops &amp; Sequences</div>
             <table class="cheat-table python-table">
-                <tr><td><code>for i in range(5):</code></td><td>Loops 5 times (0, 1, 2, 3, 4)</td></tr>
-                <tr><td><code>for x in collection:</code></td><td>Iterate through items in sequence</td></tr>
-                <tr><td><code>while condition:</code></td><td>Repeat as long as condition is True</td></tr>
-                <tr><td><code>break</code></td><td>Exit the loop immediately</td></tr>
-                <tr><td><code>continue</code></td><td>Skip to the next loop iteration</td></tr>
-                <tr><td><code>len(sequence)</code></td><td>Returns count of elements</td></tr>
+                <tr><td>for i in range(5):</td><td>Repeats 5 times: 0, 1, 2, 3, 4</td></tr>
+                <tr><td>range(2, 11, 2)</td><td>Start, stop (not included), step: 2, 4, 6, 8, 10</td></tr>
+                <tr><td>for book in books:</td><td>Visit every item</td></tr>
+                <tr><td>while stock &gt; 0:</td><td>Repeat while the condition is True</td></tr>
+                <tr><td>break</td><td>Leave the loop now</td></tr>
+                <tr><td>continue</td><td>Skip to the next round of the loop</td></tr>
+                <tr><td>len(books)</td><td>How many items</td></tr>
             </table>
         </div>
 
-        <!-- 5. Collections -->
         <div class="cheat-card" id="card-lists-dictionaries">
-            <div class="cheat-card-header python-hdr">
-                <span>📋</span> Lists &amp; Dictionaries
-            </div>
+            <div class="cheat-card-header python-hdr">📋 Lists, Tuples, Dictionaries &amp; Sets</div>
             <table class="cheat-table python-table">
-                <tr><td><code>lst = [1, 2, 3]</code></td><td>Ordered, mutable list (0-indexed)</td></tr>
-                <tr><td><code>lst.append(item)</code></td><td>Add item to end of list</td></tr>
-                <tr><td><code>lst.pop(0)</code></td><td>Remove and return item at index</td></tr>
-                <tr><td><code>lst[start:stop]</code></td><td>Slice list elements</td></tr>
-                <tr><td><code>d = {"k": "v"}</code></td><td>Dictionary: key-value mapping</td></tr>
-                <tr><td><code>d["key"]</code></td><td>Access value by key</td></tr>
-                <tr><td><code>d.get("key", default)</code></td><td>Safe access avoiding KeyError</td></tr>
-                <tr><td><code>s = {1, 2, 2, 3}</code></td><td>Set: unique unordered items (yields {1,2,3})</td></tr>
+                <tr><td>books = ["Atlas", "Quran", "Maths"]</td><td>List: ordered, can change, index starts at 0</td></tr>
+                <tr><td>books.append("Physics")</td><td>Add an item to the end</td></tr>
+                <tr><td>books.pop(0)</td><td>Remove and give back the item at index 0</td></tr>
+                <tr><td>books[1:3]</td><td>Slice: items 1 and 2 (stop is not included)</td></tr>
+                <tr><td>point = (3, 4)   x, y = point</td><td>Tuple: fixed values; unpack into variables</td></tr>
+                <tr><td>stock = {"Atlas": 5}</td><td>Dictionary: key → value</td></tr>
+                <tr><td>stock["Atlas"]</td><td>Read a value by its key</td></tr>
+                <tr><td>stock.get("Map", 0)</td><td>Safe read: 0 instead of a KeyError</td></tr>
+                <tr><td>for k, v in stock.items():</td><td>Visit every key and value</td></tr>
+                <tr><td>ids = {1, 2, 2, 3}</td><td>Set: no repeats, no order → {1, 2, 3}</td></tr>
             </table>
         </div>
 
-        <!-- 6. Functions & Files -->
         <div class="cheat-card" id="card-functions-context-managers">
-            <div class="cheat-card-header python-hdr">
-                <span>🧩</span> Functions &amp; Context Managers
-            </div>
+            <div class="cheat-card-header python-hdr">🧩 Functions &amp; Modules</div>
             <table class="cheat-table python-table">
-                <tr><td><code>def func(param):</code></td><td>Define reusable function</td></tr>
-                <tr><td><code>return result</code></td><td>Hand back value to caller</td></tr>
-                <tr><td><code>with open("f.txt", "r") as f:</code></td><td>Safe context manager for reading</td></tr>
-                <tr><td><code>with open("f.txt", "w") as f:</code></td><td>Safe context manager for writing</td></tr>
-                <tr><td><code>import csv</code></td><td>Work with comma-separated tables</td></tr>
-                <tr><td><code>import json</code></td><td>Work with JSON APIs &amp; datasets</td></tr>
+                <tr><td>def area(w, h):</td><td>Define a reusable function</td></tr>
+                <tr><td>return w * h</td><td>Give a value back to the caller</td></tr>
+                <tr><td>def greet(name="friend"):</td><td>Default value for a parameter</td></tr>
+                <tr><td>import math</td><td>Use a module: math.sqrt(144) → 12.0</td></tr>
+                <tr><td>import statistics</td><td>statistics.mean([2, 4, 9]) → 5</td></tr>
+                <tr><td>round(3.14159, 2)</td><td>Round to 2 places → 3.14</td></tr>
             </table>
         </div>
 
-        <!-- 7. Machine Learning Pipeline -->
+        <div class="cheat-card" id="card-files-errors">
+            <div class="cheat-card-header python-hdr">📁 Files, CSV, JSON &amp; Errors</div>
+            <table class="cheat-table python-table">
+                <tr><td>with open("notes.txt", "r") as f:</td><td>Open to read; closes itself at the end</td></tr>
+                <tr><td>with open("notes.txt", "w") as f:</td><td>Open to write ("w" replaces, "a" adds to the end)</td></tr>
+                <tr><td>import csv</td><td>Read and write tables (comma-separated)</td></tr>
+                <tr><td>import json</td><td>Read and write JSON data</td></tr>
+                <tr><td>try:</td><td>Try code that might fail</td></tr>
+                <tr><td>except ValueError:</td><td>Run this instead if that error happens</td></tr>
+                <tr><td>except FileNotFoundError:</td><td>The file does not exist</td></tr>
+            </table>
+        </div>
+
         <div class="cheat-card" id="card-machine-learning-essentials">
-            <div class="cheat-card-header python-hdr">
-                <span>🧠</span> Machine Learning Essentials
-            </div>
+            <div class="cheat-card-header python-hdr">🧠 Machine Learning Words</div>
             <table class="cheat-table python-table">
-                <tr><td><code>Features (X)</code></td><td>Input data measurements (e.g. humidity, spots)</td></tr>
-                <tr><td><code>Label (y)</code></td><td>Target ground-truth answer (e.g. "Healthy")</td></tr>
-                <tr><td><code>Train / Test Split</code></td><td>80% training / 20% independent testing</td></tr>
-                <tr><td><code>Classification</code></td><td>Predicting discrete categories</td></tr>
-                <tr><td><code>Regression</code></td><td>Predicting continuous numbers (kWh, rainfall)</td></tr>
-                <tr><td><code>Accuracy</code></td><td>(Correct Predictions / Total) * 100%</td></tr>
-                <tr><td><code>Overfitting</code></td><td>Memorizing data rather than generalizing</td></tr>
+                <tr><td>Features (X)</td><td>Input measurements (e.g. humidity, leaf spots)</td></tr>
+                <tr><td>Label (y)</td><td>The right answer to learn (e.g. "Healthy")</td></tr>
+                <tr><td>Train / test split</td><td>Often 80% to train, 20% kept aside to test</td></tr>
+                <tr><td>Classification</td><td>Predicting a category</td></tr>
+                <tr><td>Regression</td><td>Predicting a number (kWh, rainfall)</td></tr>
+                <tr><td>Accuracy</td><td>Correct predictions ÷ total × 100%</td></tr>
+                <tr><td>Overfitting</td><td>Memorising the training data instead of learning the pattern</td></tr>
             </table>
         </div>
 
-        <!-- 8. Islamic Ethical AI Framework -->
         <div class="cheat-card" id="card-ai-ethics-digital-trust-am-nah">
-            <div class="cheat-card-header python-hdr">
-                <span>🛡️</span> AI Ethics &amp; Digital Trust (Amānah)
-            </div>
+            <div class="cheat-card-header python-hdr">🛡️ AI Ethics &amp; Trust (Amānah)</div>
             <table class="cheat-table python-table">
-                <tr><td><code>Amānah</code></td><td>Data privacy as a sacred trust; no data leaks</td></tr>
-                <tr><td><code>'Ilm Nāfi'</code></td><td>Beneficial knowledge: clean water, health, charity</td></tr>
-                <tr><td><code>No Ribā</code></td><td>Strictly no algorithmic interest/usury simulators</td></tr>
-                <tr><td><code>No Maysir</code></td><td>No gambling, betting odds, or lottery models</td></tr>
-                <tr><td><code>Bias Auditing</code></td><td>Test datasets for balanced representation</td></tr>
-                <tr><td><code>Iḥsān</code></td><td>Excellence, clean code, and transparent decisions</td></tr>
+                <tr><td>Amānah</td><td>People's data is a trust: collect little, keep it safe</td></tr>
+                <tr><td>'Ilm Nāfi'</td><td>Beneficial knowledge: clean water, health, charity</td></tr>
+                <tr><td>Bias check</td><td>Test that every group is fairly represented in the data</td></tr>
+                <tr><td>Honest results</td><td>Report accuracy on test data, not on training data</td></tr>
+                <tr><td>Iḥsān</td><td>Excellence: clean code and decisions you can explain</td></tr>
             </table>
         </div>
 
-    </main>
+    </div>
 
-    <footer class="cheatsheet-footer">
-        <p>Junior Coders Educational Platform • Dedicated to Ethical Engineering</p>
-        <p><a href="index.html">Back to Home</a> • <a href="book-python/index.html">Python Textbook</a> • <a href="Learning Python/learningpython.html">Python Lessons</a></p>
-    </footer>
+    <div class="cheat-tip" style="margin-top: 2rem;">
+        <strong>Amānah (trust) rule:</strong> a program that learns from data learns from people. Use only the data a project needs, remove names before you analyse it, and never build models for interest-based lending, betting or anything else that harms people.
+    </div>
 
-    <script src="js/pdf-download.js"></script>
-    <script src="js/bei-nav.js"></script>
+    <div style="text-align:center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="book-python/index.html" class="btn-primary" style="background: linear-gradient(135deg, #2563eb, #1e40af); color: white;">📖 Read the Python Textbook (15 Ch)</a>
+        <a href="Learning%20Python/exercises.html" class="btn-primary" style="background: linear-gradient(135deg, #16a34a, #166534); color: white;">🧪 Python exercises</a>
+        <a href="cheatsheet-networks.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">Next: Networks Cheat Sheet →</a>
+        <a href="library/cheatsheets/index.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">📋 All cheat sheets</a>
+    </div>
+
+</div>
+<script src="js/bei-nav.js"></script>
+<script src="js/tts-voices.js"></script>
+<script src="js/core.js"></script>
+<script src="js/pdf-download.js"></script>
 </body>
 </html>

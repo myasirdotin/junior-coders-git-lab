@@ -3,217 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Networking &amp; Web Protocols Cheat Sheet | Junior Coders</title>
-    <meta name="description" content="A complete Computer Networking & Web Protocols cheat sheet for junior coders. OSI layers, TCP/UDP, CIDR subnets, DNS records, HTTP status codes, TLS, and CLI diagnostics on one page.">
+    <title>Networks Cheat Sheet | Junior Coders</title>
+    <meta name="description" content="A one-page networking cheat sheet for Grades 9–10: OSI and TCP/IP layers, ports, subnets, private addresses, the TCP handshake, TLS 1.3, HTTP/3, HTTP methods and status codes, DNS records, security headers and diagnostic commands.">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/bei-core.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         .networks-hero {
-            background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(15, 23, 42, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.25) 0%, rgba(30, 41, 59, 0.9) 100%);
             border-bottom: 2px solid #0284c7;
         }
         .networks-hdr {
-            background: linear-gradient(135deg, rgba(2, 132, 199, 0.2), rgba(13, 148, 136, 0.08));
-            color: #38bdf8;
+            background: linear-gradient(135deg, rgba(2, 132, 199, 0.2), rgba(2, 132, 199, 0.05));
+            color: #7dd3fc;
             border-bottom: 1px solid rgba(2, 132, 199, 0.3);
         }
         .networks-table td:first-child {
-            font-family: var(--font-mono, monospace);
-            color: #38bdf8;
+            font-family: var(--font-mono);
+            color: #bae6fd;
             font-weight: 600;
-            white-space: nowrap;
-        }
-        .pill-badge {
-            display: inline-block;
-            background: rgba(2, 132, 199, 0.15);
-            color: #38bdf8;
-            font-size: 0.75rem;
-            font-weight: 700;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-family: var(--font-mono, monospace);
         }
     </style>
 </head>
 <body>
+<div class="cheatsheet-container">
 
-    <header class="cheatsheet-hero networks-hero">
-        <div class="cheatsheet-nav">
-            <a href="index.html" class="nav-back">← Back to Hub</a>
-            <span class="nav-tag">Grades 9–10 • Quick Reference</span>
-        </div>
-        <h1>Computer Networking &amp; Web Protocols Cheat Sheet 🌐⚡</h1>
-        <p>Everything you need on one page: OSI layers, IP subnets, TCP/UDP, DNS records, HTTP status codes, TLS cryptography, and network diagnostics.</p>
-        <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem;">
-            <a href="book-networks/index.html" class="btn-hero-primary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">📖 14 Ch Textbook</a>
-            <a href="Learning Networks/learningnetworks.html" class="btn-hero-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">📚 8 Lessons Portal</a>
-            <a href="Learning Networks/playground.html" class="btn-hero-secondary" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">🧪 Protocol Studio</a>
-        </div>
+    <header class="cheat-hero networks-hero">
+        <span class="course-level" style="background:rgba(2,132,199,0.25); color:#bae6fd; border: 1px solid rgba(2,132,199,0.4);">Grades 9–10</span>
+        <h1>📡 Networks Cheat Sheet</h1>
+        <p>Layers, addresses, ports, the web's protocols and the commands to test them on one page, in the same order as the Networks textbook.</p>
     </header>
 
-    <main class="cheatsheet-grid">
+    <div class="cheat-tip">
+        <strong>Key idea:</strong> every message travels in layers. An <strong>IP address</strong> finds the computer, a <strong>port</strong> finds the program on it, <strong>TCP</strong> or <strong>UDP</strong> carries the data, and <strong>TLS</strong> keeps it private. On Windows PowerShell type <code>curl.exe</code>, not <code>curl</code>.
+    </div>
 
-        <!-- 1. The OSI & TCP/IP Layer Stack -->
+    <div class="cheat-grid">
+
         <div class="cheat-card" id="card-osi-tcp-ip-models">
-            <div class="cheat-card-header networks-hdr">
-                <span>🧱</span> OSI &amp; TCP/IP Models
-            </div>
+            <div class="cheat-card-header networks-hdr">🧱 OSI &amp; TCP/IP Models</div>
             <table class="cheat-table networks-table">
-                <tr><td><code>7. Application</code></td><td>User software: HTTP, HTTPS, DNS, SSH, SMTP</td></tr>
-                <tr><td><code>6. Presentation</code></td><td>Encoding, TLS/SSL encryption, JSON, gzip</td></tr>
-                <tr><td><code>5. Session</code></td><td>Connection sessions, RPC, NetBIOS</td></tr>
-                <tr><td><code>4. Transport</code></td><td>End-to-end reliability: TCP (segments), UDP (datagrams)</td></tr>
-                <tr><td><code>3. Network</code></td><td>Logical routing: IP packets, ICMP, Routers</td></tr>
-                <tr><td><code>2. Data Link</code></td><td>Local physical hop: Ethernet frames, MAC addresses</td></tr>
-                <tr><td><code>1. Physical</code></td><td>Raw bits (0s &amp; 1s): Fiber cables, Cat6, Wi-Fi radio</td></tr>
+                <tr><td>7 Application</td><td>Programs' protocols: HTTP, DNS, SSH, SMTP</td></tr>
+                <tr><td>6 Presentation</td><td>Format, compress, encrypt: JSON, gzip, JPEG (TLS is often placed here)</td></tr>
+                <tr><td>5 Session</td><td>Opening and keeping a conversation going</td></tr>
+                <tr><td>4 Transport</td><td>TCP (segments, reliable) or UDP (datagrams, fast)</td></tr>
+                <tr><td>3 Network</td><td>IP packets, routers, ICMP</td></tr>
+                <tr><td>2 Data Link</td><td>Ethernet and Wi-Fi frames, MAC addresses</td></tr>
+                <tr><td>1 Physical</td><td>Bits as signals: cable, fibre, radio</td></tr>
+                <tr><td>TCP/IP: 4 layers</td><td>Application (7–5), Transport, Internet, Link (2–1)</td></tr>
             </table>
         </div>
 
-        <!-- 2. Essential Port Numbers -->
         <div class="cheat-card" id="card-common-port-numbers">
-            <div class="cheat-card-header networks-hdr">
-                <span>🚪</span> Common Port Numbers
-            </div>
+            <div class="cheat-card-header networks-hdr">🚪 Common Port Numbers</div>
             <table class="cheat-table networks-table">
-                <tr><td><code>Port 20, 21</code></td><td>FTP (File Transfer Protocol)</td></tr>
-                <tr><td><code>Port 22</code></td><td>SSH (Secure Shell encrypted terminal)</td></tr>
-                <tr><td><code>Port 25</code></td><td>SMTP (Outgoing email delivery)</td></tr>
-                <tr><td><code>Port 53</code></td><td>DNS (Domain Name queries via UDP/TCP)</td></tr>
-                <tr><td><code>Port 80</code></td><td>HTTP (Standard unencrypted web)</td></tr>
-                <tr><td><code>Port 443</code></td><td>HTTPS (Encrypted TLS web traffic)</td></tr>
-                <tr><td><code>Port 3306</code></td><td>MySQL Database service</td></tr>
-                <tr><td><code>Port 5432</code></td><td>PostgreSQL Database service</td></tr>
-                <tr><td><code>Port 6379</code></td><td>Redis In-Memory Data Store</td></tr>
-                <tr><td><code>Port 8080</code></td><td>Alternative HTTP / Local Web Development</td></tr>
+                <tr><td>20, 21</td><td>FTP file transfer (not encrypted; use SFTP on 22)</td></tr>
+                <tr><td>22</td><td>SSH: secure remote login</td></tr>
+                <tr><td>25</td><td>SMTP: sending email between servers</td></tr>
+                <tr><td>53</td><td>DNS: names to addresses (UDP, and TCP for big answers)</td></tr>
+                <tr><td>80</td><td>HTTP: web pages, not encrypted</td></tr>
+                <tr><td>443 (TCP)</td><td>HTTPS: web pages over TLS</td></tr>
+                <tr><td>443 (UDP)</td><td>HTTP/3 over QUIC</td></tr>
+                <tr><td>3000</td><td>Node.js development servers</td></tr>
+                <tr><td>3306   5432</td><td>MySQL / MariaDB and PostgreSQL databases</td></tr>
+                <tr><td>8000 / 8080</td><td>Other web servers, e.g. <code>php artisan serve</code> (8000)</td></tr>
             </table>
         </div>
 
-        <!-- 3. IPv4 CIDR Subnetting Matrix -->
         <div class="cheat-card" id="card-cidr-subnetting-matrix">
-            <div class="cheat-card-header networks-hdr">
-                <span>✂️</span> CIDR Subnetting Matrix
-            </div>
+            <div class="cheat-card-header networks-hdr">✂️ CIDR Subnets</div>
             <table class="cheat-table networks-table">
-                <tr><td><code>/24</code></td><td>255.255.255.0 ➔ 256 total ➔ <strong>254 usable hosts</strong></td></tr>
-                <tr><td><code>/25</code></td><td>255.255.255.128 ➔ 128 total ➔ <strong>126 usable hosts</strong></td></tr>
-                <tr><td><code>/26</code></td><td>255.255.255.192 ➔ 64 total ➔ <strong>62 usable hosts</strong></td></tr>
-                <tr><td><code>/27</code></td><td>255.255.255.224 ➔ 32 total ➔ <strong>30 usable hosts</strong></td></tr>
-                <tr><td><code>/28</code></td><td>255.255.255.240 ➔ 16 total ➔ <strong>14 usable hosts</strong></td></tr>
-                <tr><td><code>/30</code></td><td>255.255.255.252 ➔ 4 total ➔ <strong>2 point-to-point hosts</strong></td></tr>
-                <tr><td><code>/32</code></td><td>255.255.255.255 ➔ <strong>Single host address</strong></td></tr>
+                <tr><td>/24  255.255.255.0</td><td>256 addresses → 254 usable hosts</td></tr>
+                <tr><td>/25  255.255.255.128</td><td>128 → 126 usable</td></tr>
+                <tr><td>/26  255.255.255.192</td><td>64 → 62 usable</td></tr>
+                <tr><td>/27  255.255.255.224</td><td>32 → 30 usable</td></tr>
+                <tr><td>/28  255.255.255.240</td><td>16 → 14 usable</td></tr>
+                <tr><td>/30  255.255.255.252</td><td>4 → 2 usable (a link between two routers)</td></tr>
+                <tr><td>/32  255.255.255.255</td><td>One single address</td></tr>
+                <tr><td>usable = 2^(32 − n) − 2</td><td>Minus the network and broadcast addresses</td></tr>
             </table>
         </div>
 
-        <!-- 4. Private IP Ranges (RFC 1918) -->
         <div class="cheat-card" id="card-special-ip-address-ranges">
-            <div class="cheat-card-header networks-hdr">
-                <span>🏠</span> Special IP Address Ranges
-            </div>
+            <div class="cheat-card-header networks-hdr">🏠 Special IP Addresses</div>
             <table class="cheat-table networks-table">
-                <tr><td><code>10.0.0.0/8</code></td><td>Class A Private: <code>10.0.0.0</code> – <code>10.255.255.255</code></td></tr>
-                <tr><td><code>172.16.0.0/12</code></td><td>Class B Private: <code>172.16.0.0</code> – <code>172.31.255.255</code></td></tr>
-                <tr><td><code>192.168.0.0/16</code></td><td>Class C Private: <code>192.168.0.0</code> – <code>192.168.255.255</code></td></tr>
-                <tr><td><code>127.0.0.1</code></td><td>Loopback / Localhost (your current machine)</td></tr>
-                <tr><td><code>0.0.0.0</code></td><td>All interfaces / Default route wildcard</td></tr>
-                <tr><td><code>::1</code></td><td>IPv6 Loopback equivalent of 127.0.0.1</td></tr>
+                <tr><td>10.0.0.0/8</td><td>Private: 10.0.0.0 – 10.255.255.255</td></tr>
+                <tr><td>172.16.0.0/12</td><td>Private: 172.16.0.0 – 172.31.255.255</td></tr>
+                <tr><td>192.168.0.0/16</td><td>Private: 192.168.0.0 – 192.168.255.255 (most homes)</td></tr>
+                <tr><td>NAT</td><td>The router shares one public address with many private ones</td></tr>
+                <tr><td>127.0.0.1</td><td>Loopback: this computer (localhost)</td></tr>
+                <tr><td>0.0.0.0</td><td>"Every address on this computer" when a server listens; 0.0.0.0/0 is the default route</td></tr>
+                <tr><td>2001:db8::1</td><td>IPv6: 128 bits in hex; :: stands for a run of zeros</td></tr>
+                <tr><td>::1</td><td>IPv6 loopback, like 127.0.0.1</td></tr>
             </table>
         </div>
 
-        <!-- 5. HTTP Methods -->
+        <div class="cheat-card" id="card-tcp-tls-http-3">
+            <div class="cheat-card-header networks-hdr">🤝 TCP, TLS 1.3 &amp; HTTP/3</div>
+            <table class="cheat-table networks-table">
+                <tr><td>SYN → SYN-ACK → ACK</td><td>TCP 3-way handshake before any data is sent</td></tr>
+                <tr><td>TCP vs UDP</td><td>TCP resends and orders; UDP is faster, no resending</td></tr>
+                <tr><td>TLS 1.3 handshake</td><td>One round trip (1-RTT) after the TCP handshake</td></tr>
+                <tr><td>ECDHE key exchange</td><td>Both sides make the same secret; it is never sent</td></tr>
+                <tr><td>Certificate + CA</td><td>A trusted Certificate Authority proves the site's identity</td></tr>
+                <tr><td>AES / ChaCha20</td><td>Fast shared-key encryption for the actual data</td></tr>
+                <tr><td>HTTP/1.1 → HTTP/2</td><td>HTTP/2 sends many streams over one TCP connection</td></tr>
+                <tr><td>HTTP/3 = QUIC on UDP</td><td>TLS 1.3 built in; a lost packet delays only its own stream</td></tr>
+            </table>
+        </div>
+
         <div class="cheat-card" id="card-http-methods-verbs">
-            <div class="cheat-card-header networks-hdr">
-                <span>🏷️</span> HTTP Methods (Verbs)
-            </div>
+            <div class="cheat-card-header networks-hdr">🏷️ HTTP Methods</div>
             <table class="cheat-table networks-table">
-                <tr><td><code>GET</code></td><td>Retrieve resource (Safe &amp; Idempotent)</td></tr>
-                <tr><td><code>POST</code></td><td>Create resource / trigger action (Not Idempotent)</td></tr>
-                <tr><td><code>PUT</code></td><td>Replace resource completely (Idempotent)</td></tr>
-                <tr><td><code>PATCH</code></td><td>Partial update of resource fields</td></tr>
-                <tr><td><code>DELETE</code></td><td>Remove resource (Idempotent)</td></tr>
-                <tr><td><code>OPTIONS</code></td><td>CORS Preflight: check permitted methods/headers</td></tr>
-                <tr><td><code>HEAD</code></td><td>Same as GET, returns headers only (no body)</td></tr>
+                <tr><td>GET</td><td>Read a resource (safe, idempotent)</td></tr>
+                <tr><td>POST</td><td>Create something or start an action (not idempotent)</td></tr>
+                <tr><td>PUT</td><td>Replace a resource completely (idempotent)</td></tr>
+                <tr><td>PATCH</td><td>Change some fields of a resource</td></tr>
+                <tr><td>DELETE</td><td>Remove a resource (idempotent)</td></tr>
+                <tr><td>HEAD</td><td>Like GET, but headers only, no body</td></tr>
+                <tr><td>OPTIONS</td><td>Ask what is allowed (CORS preflight)</td></tr>
             </table>
         </div>
 
-        <!-- 6. HTTP Status Codes -->
         <div class="cheat-card" id="card-common-http-status-codes">
-            <div class="cheat-card-header networks-hdr">
-                <span>🚦</span> Common HTTP Status Codes
-            </div>
+            <div class="cheat-card-header networks-hdr">🚦 HTTP Status Codes</div>
             <table class="cheat-table networks-table">
-                <tr><td><code>200 OK</code></td><td>Successful request with body</td></tr>
-                <tr><td><code>201 Created</code></td><td>Resource successfully created (POST)</td></tr>
-                <tr><td><code>204 No Content</code></td><td>Action succeeded, no response body (DELETE)</td></tr>
-                <tr><td><code>301 Moved</code></td><td>Permanent redirect (updates SEO index)</td></tr>
-                <tr><td><code>304 Not Modified</code></td><td>Cached version is valid, zero body transferred</td></tr>
-                <tr><td><code>400 Bad Request</code></td><td>Malformed syntax or invalid input</td></tr>
-                <tr><td><code>401 Unauthorized</code></td><td>Authentication missing (login required)</td></tr>
-                <tr><td><code>403 Forbidden</code></td><td>Authenticated, but lacks permission</td></tr>
-                <tr><td><code>404 Not Found</code></td><td>Requested URL does not exist</td></tr>
-                <tr><td><code>429 Rate Limit</code></td><td>Too Many Requests sent in short window</td></tr>
-                <tr><td><code>500 Server Error</code></td><td>Crash or unhandled exception in backend code</td></tr>
-                <tr><td><code>502 Bad Gateway</code></td><td>Reverse proxy received invalid upstream reply</td></tr>
+                <tr><td>200 OK</td><td>Success, with a body</td></tr>
+                <tr><td>201 Created</td><td>A new resource was made (often after POST)</td></tr>
+                <tr><td>204 No Content</td><td>Success, no body (often after DELETE)</td></tr>
+                <tr><td>301 Moved Permanently</td><td>The page has a new address for good</td></tr>
+                <tr><td>304 Not Modified</td><td>Your cached copy is still fine; no body sent</td></tr>
+                <tr><td>400 Bad Request</td><td>The request was malformed or invalid</td></tr>
+                <tr><td>401 Unauthorized</td><td>Not logged in (no valid login sent)</td></tr>
+                <tr><td>403 Forbidden</td><td>Logged in, but not allowed</td></tr>
+                <tr><td>404 Not Found</td><td>Nothing at this address</td></tr>
+                <tr><td>429 Too Many Requests</td><td>Too many requests in a short time (rate limit)</td></tr>
+                <tr><td>500 Internal Server Error</td><td>The server's code failed</td></tr>
+                <tr><td>502 Bad Gateway</td><td>A proxy got a bad answer from the server behind it</td></tr>
             </table>
         </div>
 
-        <!-- 7. DNS Record Types -->
         <div class="cheat-card" id="card-dns-record-types">
-            <div class="cheat-card-header networks-hdr">
-                <span>📖</span> DNS Record Types
-            </div>
+            <div class="cheat-card-header networks-hdr">📖 DNS Records</div>
             <table class="cheat-table networks-table">
-                <tr><td><code>A</code></td><td>Domain name ➔ IPv4 Address (32-bit)</td></tr>
-                <tr><td><code>AAAA</code></td><td>Domain name ➔ IPv6 Address (128-bit)</td></tr>
-                <tr><td><code>CNAME</code></td><td>Canonical Name: alias pointing to another domain</td></tr>
-                <tr><td><code>MX</code></td><td>Mail Exchanger server and delivery priority</td></tr>
-                <tr><td><code>TXT</code></td><td>Text strings (SPF, DKIM, site ownership verification)</td></tr>
-                <tr><td><code>NS</code></td><td>Authoritative Name Server for the zone</td></tr>
-                <tr><td><code>PTR</code></td><td>Pointer record for Reverse DNS (IP ➔ Hostname)</td></tr>
-                <tr><td><code>TTL</code></td><td>Time To Live: seconds resolvers may cache record</td></tr>
+                <tr><td>A</td><td>Name → IPv4 address (32 bits)</td></tr>
+                <tr><td>AAAA</td><td>Name → IPv6 address (128 bits)</td></tr>
+                <tr><td>CNAME</td><td>Alias: this name points to another name</td></tr>
+                <tr><td>MX</td><td>Mail server for the domain, with a priority number</td></tr>
+                <tr><td>TXT</td><td>Text: SPF, DKIM, proof of site ownership</td></tr>
+                <tr><td>NS</td><td>The name servers in charge of the domain</td></tr>
+                <tr><td>PTR</td><td>Reverse lookup: IP address → name</td></tr>
+                <tr><td>TTL (a field, not a type)</td><td>Seconds a resolver may keep any record in its cache</td></tr>
             </table>
         </div>
 
-        <!-- 8. Web Security & Headers -->
         <div class="cheat-card" id="card-security-cors-headers">
-            <div class="cheat-card-header networks-hdr">
-                <span>🛡️</span> Security &amp; CORS Headers
-            </div>
+            <div class="cheat-card-header networks-hdr">🛡️ Security &amp; CORS Headers</div>
             <table class="cheat-table networks-table">
-                <tr><td><code>Strict-Transport-Security</code></td><td>HSTS: Enforce HTTPS connections exclusively</td></tr>
-                <tr><td><code>Access-Control-Allow-Origin</code></td><td>CORS: Designate permitted client origins</td></tr>
-                <tr><td><code>Content-Security-Policy</code></td><td>CSP: Restrict authorized sources for scripts/media</td></tr>
-                <tr><td><code>Set-Cookie: HttpOnly</code></td><td>Blocks JavaScript from reading session cookies</td></tr>
-                <tr><td><code>Set-Cookie: Secure</code></td><td>Ensures cookies only transmit over encrypted TLS</td></tr>
-                <tr><td><code>Cache-Control: max-age</code></td><td>Specifies caching duration in seconds</td></tr>
+                <tr><td>Strict-Transport-Security</td><td>HSTS: browser must use HTTPS for this site</td></tr>
+                <tr><td>Content-Security-Policy</td><td>CSP: which sources may load scripts and media</td></tr>
+                <tr><td>Access-Control-Allow-Origin</td><td>CORS: which other sites may read the response</td></tr>
+                <tr><td>Set-Cookie: …; HttpOnly</td><td>JavaScript cannot read the cookie</td></tr>
+                <tr><td>Set-Cookie: …; Secure</td><td>Cookie is sent over HTTPS only</td></tr>
+                <tr><td>Cache-Control: max-age=3600</td><td>May be cached for 3600 seconds</td></tr>
             </table>
         </div>
 
-        <!-- 9. Essential Diagnostic Commands -->
         <div class="cheat-card" id="card-cli-diagnostic-commands">
-            <div class="cheat-card-header networks-hdr">
-                <span>💻</span> CLI Diagnostic Commands
-            </div>
+            <div class="cheat-card-header networks-hdr">💻 Diagnostic Commands</div>
             <table class="cheat-table networks-table">
-                <tr><td><code>ping &lt;host&gt;</code></td><td>Test ICMP reachability and round-trip latency</td></tr>
-                <tr><td><code>tracert / traceroute</code></td><td>Trace every intermediate router hop across the globe</td></tr>
-                <tr><td><code>curl -i &lt;url&gt;</code></td><td>Fetch URL and display status line &amp; HTTP headers</td></tr>
-                <tr><td><code>curl -X POST -d '{}'</code></td><td>Send custom HTTP POST request with JSON payload</td></tr>
-                <tr><td><code>nslookup &lt;domain&gt;</code></td><td>Query DNS records from local or remote resolver</td></tr>
-                <tr><td><code>netstat -ano</code></td><td>List active network sockets, PIDs, and listening ports</td></tr>
-                <tr><td><code>ipconfig / ip addr</code></td><td>Display local IP addresses, subnet masks, and gateway</td></tr>
+                <tr><td>ping example.org</td><td>Is it reachable? How long is the round trip?</td></tr>
+                <tr><td>tracert (Windows) / traceroute</td><td>List each router on the way</td></tr>
+                <tr><td>nslookup example.org</td><td>Ask DNS for a name's records</td></tr>
+                <tr><td>ipconfig (Windows) / ip addr</td><td>Your IP address, subnet mask and gateway</td></tr>
+                <tr><td>netstat -ano</td><td>Open connections, listening ports and process IDs</td></tr>
+                <tr><td>curl.exe -i https://example.org</td><td>Fetch a page and show the status line and headers</td></tr>
+                <tr><td>curl.exe -i -X POST http://localhost:8000/books.php -H "Content-Type: application/json" --data-binary "@book.json"</td><td>Send JSON from a file with POST</td></tr>
             </table>
         </div>
 
-    </main>
+    </div>
 
-    <footer style="text-align: center; padding: 2rem; color: #64748b; font-size: 0.88rem; border-top: 1px solid #1e293b; margin-top: 3rem;">
-        Junior Coders • Computer Networking &amp; Web Protocols • Digital Stewardship (Amānah &amp; Iḥsān)
-    </footer>
+    <div class="cheat-tip" style="margin-top: 2rem;">
+        <strong>Amānah (trust) rule:</strong> test only your own computer, your own server and sites you are allowed to test. Never send passwords over plain HTTP, and treat every shared Wi-Fi as public.
+    </div>
 
-    <script src="js/pdf-download.js"></script>
-    <script src="js/bei-nav.js"></script>
+    <div style="text-align:center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <a href="book-networks/index.html" class="btn-primary" style="background: linear-gradient(135deg, #0284c7, #075985); color: white;">📖 Read the Networks Textbook (14 Ch)</a>
+        <a href="Learning%20Networks/exercises.html" class="btn-primary" style="background: linear-gradient(135deg, #16a34a, #166534); color: white;">🧪 Networks exercises</a>
+        <a href="cheatsheet-cybersecurity.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">Next: Cybersecurity Cheat Sheet →</a>
+        <a href="library/cheatsheets/index.html" class="btn-primary" style="background: rgba(255,255,255,0.1); color: var(--text-primary); border: 1px solid var(--border-dim);">📋 All cheat sheets</a>
+    </div>
+
+</div>
+<script src="js/bei-nav.js"></script>
+<script src="js/tts-voices.js"></script>
+<script src="js/core.js"></script>
+<script src="js/pdf-download.js"></script>
 </body>
 </html>
