@@ -3194,3 +3194,19 @@ h2:hover > .book-section-speaker-btn, h3:hover > .book-section-speaker-btn,
 .chapter-outline a:hover { text-decoration: underline; }
 #chapterContent h2, #chapterBody h2 { scroll-margin-top: 80px; }
 @media (max-width: 640px) { .chapter-outline ol { columns: 1; } }
+
+/* "Show answer" boxes in chapters (<details><summary>Show answer</summary> … </details>, see GEMINI.md §7j) */
+#chapterContent details:not(.chapter-outline), #chapterBody details {
+  margin: 0.6rem 0 1.1rem; border: 1px solid var(--border-color, #e2e8f0); border-radius: 10px;
+  background: var(--bg-sidebar, #f8fafc); overflow: hidden;
+}
+#chapterContent details:not(.chapter-outline) > summary, #chapterBody details > summary {
+  display: flex; align-items: center; gap: 0.4rem; min-height: 40px; padding: 0 0.85rem; cursor: pointer; list-style: none;
+  font-weight: 700; font-size: 0.9rem; color: var(--book-accent, #2563eb);
+}
+#chapterContent details:not(.chapter-outline) > summary::-webkit-details-marker, #chapterBody details > summary::-webkit-details-marker { display: none; }
+#chapterContent details:not(.chapter-outline) > summary::before, #chapterBody details > summary::before { content: '👀'; }
+#chapterContent details:not(.chapter-outline)[open] > summary, #chapterBody details[open] > summary { border-bottom: 1px solid var(--border-color, #e2e8f0); }
+#chapterContent details:not(.chapter-outline) > *:not(summary), #chapterBody details > *:not(summary) { margin-left: 0.85rem; margin-right: 0.85rem; }
+#chapterContent details:not(.chapter-outline) > *:last-child, #chapterBody details > *:last-child { margin-bottom: 0.8rem; }
+#chapterContent details:not(.chapter-outline) > summary + *, #chapterBody details > summary + * { margin-top: 0.7rem; }

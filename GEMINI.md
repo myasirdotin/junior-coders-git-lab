@@ -214,6 +214,13 @@ These rules come from real bugs found in this site. Follow them for every change
 7i. **Phones get one clear screen.** On lesson pages the lesson text should start on the first phone screen: keep the
    title card compact, one narrator row, one PDF button per page. The phone rules sit in `styles/bei-core.css`
    ("LESSON PAGES" and "WEB STUDIO ON PHONES") and `styles/book-theme.css` (end of file).
+7j. **One chapter template for all textbooks.** Every `book-*/part-*/chNN-*.md` has, in this order: `# Chapter N: Title`
+   (N = the file number), `## 🌟 Real-Life Story`, `## 🎯 What You Will Learn`, topic sections (each with an example and
+   its exact output), `## ⚠️ Common Mistake`, `## ✍️ Try It`, `## 📝 Recap`, `## 🏆 Practice` with `### 🟢 Level 1: Recall`,
+   `### 🟡 Level 2: Apply`, `### 🔴 Level 3: Challenge`, each answer in `<details><summary>Show answer</summary>` + blank
+   line + markdown + blank line + `</details>`. Good extras (Predict the Output, Code Detective, Key Terms, Amānah)
+   may stay. At most one emoji per heading, no section numbers, no raw LaTeX, diagrams at most 44 characters wide.
+   The reader adds the "In this chapter" outline and shrinks text diagrams itself (`js/book-speaker.js`).
 8. **Check before you finish:**
    ```bash
    node scripts/bundle-books.js          # after editing textbook chapters (.md)

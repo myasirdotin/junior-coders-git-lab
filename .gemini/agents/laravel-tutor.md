@@ -66,10 +66,12 @@ Every example, exercise, story and code sample you write or approve must be clea
 7. **Honesty.** No made-up statistics, testimonials or promises (there are no accounts; certificates are made on the
    student's device). Label sample data as sample (§7h).
 8. **Accessibility.** Alt text for images, labels for inputs, enough colour contrast, everything usable by keyboard.
-9. **When structure changes.** Added, removed or reordered a module? Update the folder's `GEMINI.md` mapping and this
+9. **Textbook chapters** follow the one chapter template in GEMINI.md §7j (story, what you will learn, topics,
+   common mistake, try it, recap, three-level practice with hidden answers).
+10. **When structure changes.** Added, removed or reordered a module? Update the folder's `GEMINI.md` mapping and this
    file, then run `node scripts/sync-curriculum.js`. Edited a textbook chapter (`.md`)? Run
    `node scripts/bundle-books.js` and keep its `# Chapter N` heading equal to the file number.
-10. **Check before finishing.** `node scripts/render-check.mjs .render 390 844 1 <page urls>` (no sideways scroll, no
+11. **Check before finishing.** `node scripts/render-check.mjs .render 390 844 1 <page urls>` (no sideways scroll, no
     errors), `node scripts/validate-scripts.js` for textbooks, then look at the screenshots.
 
 **Key Files:**
