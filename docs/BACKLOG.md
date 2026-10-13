@@ -4,27 +4,11 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-10-13 (textbook overhaul in progress: INCOMPLETE, see Now)._
+_Last updated: 2026-10-13 (textbook overhaul complete)._
 
 ## 🔧 Now (in progress)
 
-- **Textbook overhaul: INCOMPLETE (stopped mid-way on 2026-10-13).** Owner approved the plan "go with your order":
-  1. ✅ Bugs: raw LaTeX removed, text diagrams shown as figures and shrunk to fit (`js/book-speaker.js`), badge contrast.
-  2. ✅ One reader design for all 11 books (`styles/book-theme.css` "ONE READER DESIGN"), "In this chapter" outline.
-  3. ⏳ One chapter template for every chapter (GEMINI.md §7j). **Committed and pushed: Git, PHP, Networks,
-     Cybersecurity.** Not yet committed (helpers were still editing the .md files when the owner asked to push):
-     HTML (17/17 converted, unchecked), CSS (21/22), JavaScript (17/22; the part-11..15 extras still to do),
-     Python (11/15), Terminal/cmd (11/14), MySQL (11/24). Those files may sit modified but uncommitted in the
-     working tree: run `git status`, finish the missing chapters to §7j, then check and commit.
-  4. ⏳ Deepen thin books (Python, Terminal, MySQL, Cybersecurity ✅, Networks ✅): goes with step 3 above.
-  5. ⏳ Laravel textbook: being converted from inline `book-laravel/index.html` to chapter files
-     (`book-laravel/part-*/chNN-*.md`, 16 of 24 written when stopped) plus a reader like book-python and a
-     `book-laravel` entry in `scripts/bundle-books.js`; library card still says "3 of 24 chapters ready" until done.
-  - **How to finish:** for each unfinished book, every chapter must have the §7j headings in order and three hidden
-    Practice levels; then `node scripts/bundle-books.js` (restore bundles of books you did not change),
-    `node scripts/validate-scripts.js`, `node scripts/render-check.mjs .render 390 844 1 <book urls>`, commit, push both.
-  - **Owner to check:** book-cybersecurity ch05 lists the OWASP Top 10:2025 written from memory; confirm it against
-    owasp.org. book-php ch20/21 "Try It" tasks write files: confirm the browser PHP Console allows file writes.
+- Nothing in progress. Last completed: the textbook overhaul (all five steps, all 11 books).
 
 ## ⏭️ Next (agreed order)
 
@@ -41,15 +25,24 @@ _Last updated: 2026-10-13 (textbook overhaul in progress: INCOMPLETE, see Now)._
 5. **Pre-recorded narration**: generate neural MP3s for chapter 1 of each book, play when present, fall back to Web Speech.
 6. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
    `.gemini/agents/css-tutor.md`, run `node scripts/sync-curriculum.js`.
-7. **Laravel textbook**: only 3 of 24 chapters written, inline in `book-laravel/index.html`. Write and convert to chapter files.
 
 ## ❓ Decisions pending from the owner
 
-- None right now. (PHP runtime: decided "both" — php-wasm console + runtime-free warm-ups. Brand: Junior Coders.
-  Module page order: official for HTML/CSS/JS. Push: always both `main` and `master`.)
+- **JS book "Mini Projects"** (`book-js/part-14-mini-projects/`) still has Rock-Paper-Scissors and a "WINNER!"
+  number-guessing game (games of chance, close to the §1 Maysir rule) and syntax the book does not teach
+  (switch, ternary, for...of, Date). Replace, rewrite or keep?
+- **Confirm** book-cybersecurity ch05's OWASP Top 10:2025 list against owasp.org (written from memory).
+- **Confirm** the browser PHP Console allows file writes (book-php ch20/21 "Try It").
+- **XAMPP MariaDB does not start** (InnoDB data errors in its log, seen 2026-10-13; not caused by this project's
+  work, data untouched). Other XAMPP projects that use MySQL (bei, ehsas) need it; repair from the XAMPP panel.
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 Textbook overhaul finished: every chapter of all 11 books on the GEMINI §7j template (HTML 17,
+  CSS 22, JS 17 + parts 11–15, Terminal 14, Git 19, PHP 29, MySQL 24, Laravel 24, Python 15, Networks 14,
+  Cybersecurity 14); Python, Terminal, MySQL, Networks and Cybersecurity deepened (~2–3×); the Laravel book written
+  (21 new chapters) and moved to chapter files; CSS capstone rewritten; outputs produced by running the code;
+  many factual fixes; MySQL book uses the sandbox's school_db throughout.
 - 2026-10-13 Textbooks: raw LaTeX fixed (13), diagrams as figures that fit phones, one reader design for all 11
   books (≈75 characters per line, no nested cards on phones, text width 358px instead of ~210), "In this chapter"
   outline, Show-answer box style, GEMINI §7j chapter template; Git (19), PHP (29), Networks (14) and Cybersecurity (14)
