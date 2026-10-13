@@ -9,7 +9,8 @@ Work with a lab partner, or play both roles yourself in two different folders.
 
 > **Age check:** GitHub accounts are only for people aged 13 or older. If you are younger, use a classroom account your teacher manages, or practise with a "remote" folder on your own computer (see the tip below). Never sign up on your own.
 
-You will practise:
+## 🎯 What You Will Learn
+
 1. Adding a teammate as a **collaborator** (a person allowed to push to the repository).
 2. Working only on feature branches, never straight on `main`.
 3. Opening and reviewing a **Pull Request** with kind, helpful comments (*Adab*).
@@ -20,7 +21,7 @@ You will practise:
 
 ---
 
-## 🎯 Scenario and Roles
+## 👥 Scenario and Roles
 
 - **Project:** *Srinagar Heritage Portal*, a small website about the city's historic places.
 - **Maryam (Developer A, team lead):** creates the repository, builds the home page and reviews Pull Requests.

@@ -102,7 +102,7 @@ WHERE c.teacher = 'Ms. Noor';
 
 ---
 
-## 🔗🔗 Three Tables: Who Borrowed What?
+## 🔗 Three Tables: Who Borrowed What?
 
 A loan links a student **and** a book, so we join three tables. Start from `loans` and join each parent:
 

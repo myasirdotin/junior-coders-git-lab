@@ -18,7 +18,17 @@ In this project you use everything from this book to build, save, document and p
 
 ---
 
-## 🎯 Chapters You Will Use
+## 🎯 What You Will Learn
+
+- Set up a project with Git from the very first file.
+- Keep unwanted files out of your history with `.gitignore`.
+- Write small commits with clear messages that tell a story.
+- Explain your project to visitors with a `README.md`.
+- Publish a website with GitHub Pages (with your teacher if you are under 13).
+
+---
+
+## 📚 Chapters You Will Use
 
 - **Chapter 3:** setting your Git name and email.
 - **Chapters 4 and 5:** `git init`, staging and `.gitignore`.

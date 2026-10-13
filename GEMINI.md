@@ -221,9 +221,12 @@ These rules come from real bugs found in this site. Follow them for every change
    line + markdown + blank line + `</details>`. Good extras (Predict the Output, Code Detective, Key Terms, Amānah)
    may stay. At most one emoji per heading, no section numbers, no raw LaTeX, diagrams at most 44 characters wide.
    The reader adds the "In this chapter" outline and shrinks text diagrams itself (`js/book-speaker.js`).
+   `node scripts/check-books.js` checks all of this (and that menus, bundles and the Textbooks page counts match the
+   files); it must report 0 errors before a textbook change is committed.
 8. **Check before you finish:**
    ```bash
    node scripts/bundle-books.js          # after editing textbook chapters (.md)
+   node scripts/check-books.js           # textbooks follow §7j: template, hidden answers, menus, bundles, counts
    node scripts/build-cheat-index.js     # after editing a cheatsheet-*.html (search index + card ids)
    node scripts/sync-vercel-redirects.js # after adding a folder with an index.html (trailing slash + short links)
    python scripts/build-favicons.py      # only if the icon design in favicon.svg changes (favicon.ico, apple-touch-icon.png)

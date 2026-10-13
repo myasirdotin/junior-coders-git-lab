@@ -74,7 +74,7 @@ Every example, exercise, story and code sample you write or approve must be clea
    file, then run `node scripts/sync-curriculum.js`. Edited a textbook chapter (`.md`)? Run
    `node scripts/bundle-books.js` and keep its `# Chapter N` heading equal to the file number.
 11. **Check before finishing.** `node scripts/render-check.mjs .render 390 844 1 <page urls>` (no sideways scroll, no
-    errors), `node scripts/validate-scripts.js` for textbooks, then look at the screenshots.
+    errors), `node scripts/validate-scripts.js` and `node scripts/check-books.js` (0 errors) for textbooks, then look at the screenshots.
 
 **Key Files:**
 - `Learning JS/learningjs.html`: syllabus.
