@@ -34,6 +34,9 @@ _Last updated: 2026-10-12 (mobile + content review: all four steps done)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-13 Projects page rebuilt: 10 real briefs (Bronze/Silver/Gold) with prerequisites, step checklists saved
+  per device (`jc_project_progress`), a 4-row 12-mark rubric, starter code; web projects open the Web Studio
+  pre-filled. Removed fake "Unlocked/Locked" pathway, fake XP, fake rubric links and the made-up student gallery.
 - 2026-10-12 Cheat Sheets page rebuilt: one search across all 848 rows of the 11 sheets (results jump to the
   exact box, `js/data/cheat-index.js` from `scripts/build-cheat-index.js`), sheets grouped like the textbooks,
   accurate descriptions; sheet grade badges aligned; dice emoji and raw LaTeX removed from the security sheet.

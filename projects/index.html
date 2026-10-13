@@ -7,91 +7,102 @@
     <meta name="description" content="Graded computer science project catalog for school students in Grades 6–10. Starter kits, downloadable briefs, rubrics, and difficulty tiers (Bronze, Silver, Gold).">
     <link rel="stylesheet" href="../styles/bei-core.css">
     <style>
-        .projects-filter-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
+        /* Projects page. Colours come from bei-core.css tokens, so light and dark both work. */
+        .pj-header { margin-bottom: 1.25rem; }
+        .pj-how { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.6rem; margin: 0 0 1.25rem; padding: 0; }
+        .pj-how li {
+            padding: 0.75rem 0.9rem; border-radius: 12px; background: var(--bg-surface); border: 1px solid var(--border-subtle);
+            color: var(--text-secondary); font-size: 0.9rem; line-height: 1.4;
         }
-        .filter-pills {
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
+        .pj-how strong { color: var(--text-primary); }
+        .pj-chips { display: flex; gap: 0.5rem; overflow-x: auto; scrollbar-width: none; margin-bottom: 1.5rem; }
+        .pj-chips::-webkit-scrollbar { display: none; }
+        .pj-chip {
+            flex: none; min-height: 40px; padding: 0 0.95rem; border-radius: 999px; cursor: pointer; white-space: nowrap;
+            background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-secondary);
+            font: inherit; font-size: 0.88rem; font-weight: 700;
         }
-        .filter-pill {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            color: var(--text-secondary);
-            padding: 0.4rem 0.9rem;
-            border-radius: 9999px;
-            font-size: 0.82rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.2s;
+        .pj-chip.active { background: var(--brand-primary); border-color: var(--brand-primary); color: #fff; }
+
+        .pj-group { margin-bottom: 2.25rem; }
+        .pj-group[hidden] { display: none; }
+        .pj-group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.25rem 0.75rem; margin-bottom: 0.9rem; }
+        .pj-group-head h2 { font-size: 1.3rem; margin: 0; }
+        .pj-group-head p { margin: 0; color: var(--text-muted); font-size: 0.9rem; }
+        .pj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; align-items: start; }
+
+        .pj-card {
+            display: flex; flex-direction: column; gap: 0.6rem; padding: 1.15rem; border-radius: var(--radius-lg);
+            background: var(--bg-surface); border: 1px solid var(--border-subtle); scroll-margin-top: 84px;
         }
-        .filter-pill.active, .filter-pill:hover {
-            background: var(--brand-primary);
-            color: white;
-            border-color: var(--brand-primary);
+        .pj-card:target { outline: 3px solid var(--brand-cyan); outline-offset: 3px; }
+        .pj-head { display: flex; gap: 0.8rem; align-items: center; }
+        .pj-icon { flex: none; width: 48px; height: 48px; border-radius: 12px; display: grid; place-items: center; font-size: 1.55rem; background: var(--bg-surface-elevated); }
+        .pj-card h3 { font-size: 1.12rem; margin: 0 0 0.2rem; line-height: 1.25; }
+        .pj-meta { margin: 0; font-size: 0.8rem; color: var(--text-muted); font-weight: 600; }
+        .pj-tier { display: inline-block; padding: 0.05rem 0.5rem; margin-right: 0.3rem; border-radius: 999px; font-size: 0.72rem; font-weight: 800; }
+        .pj-tier-bronze { background: rgba(205, 127, 50, 0.18); color: #d08a4a; }
+        .pj-tier-silver { background: rgba(148, 163, 184, 0.2); color: var(--text-secondary); }
+        .pj-tier-gold { background: rgba(234, 179, 8, 0.18); color: #ca8a04; }
+        .pj-goal { margin: 0; color: var(--text-primary); font-size: 0.95rem; line-height: 1.5; }
+        .pj-before { margin: 0; font-size: 0.86rem; color: var(--text-secondary); }
+        .pj-before a { color: var(--brand-cyan); font-weight: 700; }
+        .pj-note { margin: 0; padding: 0.55rem 0.75rem; border-radius: 10px; font-size: 0.84rem; line-height: 1.45;
+                   background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); color: var(--text-secondary); }
+
+        .pj-progress { height: 8px; border-radius: 999px; background: var(--bg-surface-elevated); overflow: hidden; }
+        .pj-progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #10b981, #38bdf8); transition: width 0.3s ease; }
+        .pj-progress-text { margin: -0.3rem 0 0; font-size: 0.78rem; color: var(--text-muted); font-weight: 700; }
+
+        .pj-more { border-top: 1px solid var(--border-subtle); padding-top: 0.5rem; }
+        .pj-more > summary {
+            display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; min-height: 40px;
+            cursor: pointer; font-weight: 800; font-size: 0.92rem; color: var(--text-primary); list-style: none;
         }
-        .project-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.25s ease;
-            margin-bottom: 1.5rem;
+        .pj-more > summary::-webkit-details-marker { display: none; }
+        .pj-more > summary::after { content: '▾'; color: var(--text-muted); transition: transform 0.2s ease; }
+        .pj-more[open] > summary::after { transform: rotate(180deg); }
+        .pj-more > summary span { margin-left: auto; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); }
+        .pj-steps { list-style: none; margin: 0.25rem 0 0.25rem; padding: 0; display: grid; gap: 0.35rem; counter-reset: step; }
+        .pj-steps label { display: flex; gap: 0.6rem; align-items: flex-start; cursor: pointer; font-size: 0.88rem; line-height: 1.45; color: var(--text-secondary); }
+        .pj-steps input { flex: none; width: 20px; height: 20px; margin-top: 0.1rem; accent-color: #10b981; cursor: pointer; }
+        .pj-steps input:checked + span { color: var(--text-muted); text-decoration: line-through; }
+        .pj-rubric { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 0.25rem; }
+        .pj-rubric th, .pj-rubric td { text-align: left; vertical-align: top; padding: 0.45rem 0.5rem; border-bottom: 1px solid var(--border-subtle); }
+        .pj-rubric th { width: 34%; color: var(--text-primary); font-weight: 800; }
+        .pj-rubric td { color: var(--text-secondary); }
+        .pj-scale { margin: 0.4rem 0 0.2rem; font-size: 0.78rem; color: var(--text-muted); }
+        .pj-starter { position: relative; margin-top: 0.25rem; }
+        .pj-starter pre { margin: 0; padding: 0.8rem 0.9rem; padding-top: 2.2rem; border-radius: 10px; overflow-x: auto;
+                          background: #0b1220; color: #e2e8f0; font-size: 0.8rem; line-height: 1.5; }
+        .pj-copy { position: absolute; top: 0.4rem; right: 0.4rem; min-height: 30px; padding: 0 0.7rem; border-radius: 8px; cursor: pointer;
+                   border: 1px solid rgba(255, 255, 255, 0.2); background: rgba(255, 255, 255, 0.08); color: #e2e8f0; font: inherit; font-size: 0.78rem; font-weight: 700; }
+
+        .pj-actions { display: flex; gap: 0.5rem; margin-top: 0.2rem; }
+        .pj-btn {
+            flex: 1; display: flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 0.8rem; border-radius: 10px;
+            font: inherit; font-size: 0.9rem; font-weight: 800; text-decoration: none; text-align: center; cursor: pointer; border: 0;
         }
-        .project-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--border-hover);
-            box-shadow: var(--shadow-card);
+        .pj-btn-primary { background: var(--brand-primary); color: #fff; }
+        .pj-btn-primary:hover { filter: brightness(1.1); }
+
+        .pj-teachers { margin: 1rem 0 3rem; padding: 1.25rem 1.4rem; border-radius: var(--radius-lg); background: var(--bg-surface); border: 1px solid var(--border-subtle); }
+        .pj-teachers h2 { font-size: 1.15rem; margin: 0 0 0.6rem; }
+        .pj-teachers ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.4rem; color: var(--text-secondary); line-height: 1.5; }
+        .pj-teachers a { color: var(--brand-cyan); font-weight: 700; }
+
+        @media (max-width: 640px) {
+            .pj-header h1 { font-size: 1.9rem; }
+            .pj-how { grid-template-columns: 1fr 1fr; }
+            .pj-how li { padding: 0.6rem 0.7rem; font-size: 0.84rem; }
+            .pj-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+            .pj-card { padding: 0.95rem; }
+            .pj-teachers { padding: 1rem; }
         }
-        .project-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 0.75rem;
-        }
-        .project-meta-row {
-            display: flex;
-            gap: 0.5rem;
-            align-items: center;
-        }
-        .tier-badge {
-            font-size: 0.75rem;
-            font-weight: 800;
-            padding: 0.25rem 0.65rem;
-            border-radius: var(--radius-sm);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-        .tier-bronze { background: rgba(217, 119, 6, 0.15); color: #f59e0b; border: 1px solid rgba(217, 119, 6, 0.3); }
-        .tier-silver { background: rgba(148, 163, 184, 0.15); color: #cbd5e1; border: 1px solid rgba(148, 163, 184, 0.3); }
-        .tier-gold { background: rgba(234, 179, 8, 0.2); color: #facc15; border: 1px solid rgba(234, 179, 8, 0.4); }
-        .project-specs {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            background: var(--bg-surface-elevated);
-            padding: 1.25rem;
-            border-radius: var(--radius-md);
-            margin: 1.25rem 0;
-            font-size: 0.85rem;
-        }
-        .spec-item strong {
-            display: block;
-            color: var(--text-primary);
-            margin-bottom: 0.2rem;
-        }
-        .spec-item span {
-            color: var(--text-secondary);
+        @media print {
+            .pj-chips, .pj-actions, .pj-copy, .pj-progress, .pj-progress-text { display: none !important; }
+            .pj-more { display: block; }
+            .pj-card { break-inside: avoid; }
         }
     </style>
 </head>
@@ -122,387 +133,608 @@
         </div>
     </nav>
 
-    <main class="container">
-        <header class="learn-header">
+    <main class="container pj-page">
+        <header class="learn-header pj-header">
             <div class="breadcrumbs">
                 <a href="../index.html">Home</a> <span>/</span>
                 <span>Projects</span>
             </div>
-            <h1>Graded Project Catalog 🏆</h1>
-            <p class="lead">Hands-on milestone projects with starter kits, rubrics, and difficulty tiers. Designed to build an impressive portfolio while solving genuine real-world community problems.</p>
+            <h1>Projects 🏆</h1>
+            <p class="lead">Ten projects that put your lessons to work for real people: a food pantry, a library, a community clean-up. Each one has steps, starter code and the marks your teacher will look for.</p>
         </header>
 
-        <!-- ═════════════════════════════════════════════════════════════
-             THE 8-STAGE SEQUENTIAL PROJECT PATHWAY
-             ═════════════════════════════════════════════════════════════ -->
-        <section style="background: linear-gradient(135deg, #070d1e 0%, #0f172a 100%); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: var(--radius-xl); padding: 2rem; margin-bottom: 3rem; box-shadow: 0 12px 30px rgba(0,0,0,0.35);">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <span class="placement-badge" style="background: rgba(99, 102, 241, 0.15); color: #818cf8;">Sequential Journey</span>
-                <h2 style="font-size: 1.9rem; color: #fff; margin: 0.4rem 0 0.25rem;">The 8-Stage Project Pathway 🛤️</h2>
-                <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">
-                    Don't build in isolation. Each milestone unlocks only after the prerequisite coding skills are mastered!
-                </p>
-            </div>
+        <ol class="pj-how" aria-label="How projects work">
+            <li><strong>1. Pick one</strong> for your level.</li>
+            <li><strong>2. Check</strong> "Before you start".</li>
+            <li><strong>3. Build</strong> and tick each step.</li>
+            <li><strong>4. Mark yourself</strong>, then show your teacher.</li>
+        </ol>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem;">
-                <div style="background: rgba(16, 185, 129, 0.08); border: 1.5px solid #10b981; border-radius: var(--radius-md); padding: 1.25rem; text-align: center;">
-                    <div style="font-size: 1.8rem; margin-bottom: 0.25rem;">👤</div>
-                    <span style="font-size: 0.72rem; color: #34d399; font-weight: 800; text-transform: uppercase;">Project 1 • Unlocked</span>
-                    <h3 style="color: #fff; font-size: 1.05rem; margin: 0.25rem 0;">Personal Profile</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin: 0;">Semantic HTML tags, accessibility, CSS cards.</p>
-                </div>
-                <div style="background: rgba(16, 185, 129, 0.08); border: 1.5px solid #10b981; border-radius: var(--radius-md); padding: 1.25rem; text-align: center;">
-                    <div style="font-size: 1.8rem; margin-bottom: 0.25rem;">⏰</div>
-                    <span style="font-size: 0.72rem; color: #34d399; font-weight: 800; text-transform: uppercase;">Project 2 • Unlocked</span>
-                    <h3 style="color: #fff; font-size: 1.05rem; margin: 0.25rem 0;">Digital Clock</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin: 0;">DOM manipulation, Date objects, setInterval.</p>
-                </div>
-                <div style="background: rgba(16, 185, 129, 0.08); border: 1.5px solid #10b981; border-radius: var(--radius-md); padding: 1.25rem; text-align: center;">
-                    <div style="font-size: 1.8rem; margin-bottom: 0.25rem;">🧮</div>
-                    <span style="font-size: 0.72rem; color: #34d399; font-weight: 800; text-transform: uppercase;">Project 3 • Unlocked</span>
-                    <h3 style="color: #fff; font-size: 1.05rem; margin: 0.25rem 0;">Clean Calculator</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin: 0;">Functions, math operators, event listeners.</p>
-                </div>
-                <div style="background: rgba(99, 102, 241, 0.12); border: 1.5px solid #6366f1; border-radius: var(--radius-md); padding: 1.25rem; text-align: center; box-shadow: 0 0 16px rgba(99,102,241,0.25);">
-                    <div style="font-size: 1.8rem; margin-bottom: 0.25rem;">❓</div>
-                    <span style="font-size: 0.72rem; color: #818cf8; font-weight: 800; text-transform: uppercase;">Project 4 • Current Target</span>
-                    <h3 style="color: #fff; font-size: 1.05rem; margin: 0.25rem 0;">Quiz Game Engine</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin: 0;">Object state, arrays, dynamic radio choices.</p>
-                </div>
-                <div style="background: rgba(255, 255, 255, 0.02); border: 1.5px dashed rgba(255, 255, 255, 0.12); border-radius: var(--radius-md); padding: 1.25rem; text-align: center; opacity: 0.65;">
-                    <div style="font-size: 1.8rem; margin-bottom: 0.25rem;">🎙️</div>
-                    <span style="font-size: 0.72rem; color: #94a3b8; font-weight: 800; text-transform: uppercase;">Project 5 • Locked 🔒</span>
-                    <h3 style="color: #fff; font-size: 1.05rem; margin: 0.25rem 0;">Science Trivia Challenge</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin: 0;">Countdown timers, score multiplier audio.</p>
-                </div>
-                <div style="background: rgba(255, 255, 255, 0.02); border: 1.5px dashed rgba(255, 255, 255, 0.12); border-radius: var(--radius-md); padding: 1.25rem; text-align: center; opacity: 0.65;">
-                    <div style="font-size: 1.8rem; margin-bottom: 0.25rem;">📊</div>
-                    <span style="font-size: 0.72rem; color: #94a3b8; font-weight: 800; text-transform: uppercase;">Project 6 • Locked 🔒</span>
-                    <h3 style="color: #fff; font-size: 1.05rem; margin: 0.25rem 0;">Student Grade Card</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin: 0;">Arrays, percentage math, grade thresholds.</p>
-                </div>
-                <div style="background: rgba(255, 255, 255, 0.02); border: 1.5px dashed rgba(255, 255, 255, 0.12); border-radius: var(--radius-md); padding: 1.25rem; text-align: center; opacity: 0.65;">
-                    <div style="font-size: 1.8rem; margin-bottom: 0.25rem;">📁</div>
-                    <span style="font-size: 0.72rem; color: #94a3b8; font-weight: 800; text-transform: uppercase;">Project 7 • Locked 🔒</span>
-                    <h3 style="color: #fff; font-size: 1.05rem; margin: 0.25rem 0;">Student Management</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin: 0;">Full CRUD operations, LocalStorage save/load.</p>
-                </div>
-                <div style="background: rgba(255, 255, 255, 0.02); border: 1.5px dashed rgba(255, 255, 255, 0.12); border-radius: var(--radius-md); padding: 1.25rem; text-align: center; opacity: 0.65;">
-                    <div style="font-size: 1.8rem; margin-bottom: 0.25rem;">🏫</div>
-                    <span style="font-size: 0.72rem; color: #94a3b8; font-weight: 800; text-transform: uppercase;">Project 8 • Capstone 🔒</span>
-                    <h3 style="color: #fff; font-size: 1.05rem; margin: 0.25rem 0;">Full-Stack School LMS</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; margin: 0;">PHP, MySQL database schemas, Laravel MVC.</p>
-                </div>
+        <div class="pj-chips" role="group" aria-label="Show projects">
+            <button type="button" class="pj-chip active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="pj-chip" data-filter="bronze" aria-pressed="false">🥉 Bronze</button>
+            <button type="button" class="pj-chip" data-filter="silver" aria-pressed="false">🥈 Silver</button>
+            <button type="button" class="pj-chip" data-filter="gold" aria-pressed="false">🥇 Gold</button>
+        </div>
+
+        <section class="pj-group" data-tier-group="bronze" aria-labelledby="pj-h-bronze">
+            <div class="pj-group-head">
+                <h2 id="pj-h-bronze"><span aria-hidden="true">🥉</span> Bronze</h2>
+                <p>First projects · Grades 6–7</p>
+            </div>
+            <div class="pj-grid">
+                <article class="pj-card" id="p-folder-git" data-tier="bronze">
+                    <div class="pj-head">
+                        <span class="pj-icon" aria-hidden="true">🗂️</span>
+                        <div>
+                            <h3>My Project Folder &amp; First Commits</h3>
+                            <p class="pj-meta"><span class="pj-tier pj-tier-bronze">Bronze</span> Grades 6–7 · Terminal · Git</p>
+                        </div>
+                    </div>
+                    <p class="pj-goal">Build a tidy folder for your website using only the keyboard, then save three snapshots of it with Git.</p>
+                    <p class="pj-before"><strong>Before you start:</strong> <a href="../book-cmd/index.html#ch1">Terminal book, chapters 1–8</a> · <a href="../book-git/index.html#ch1">Git book, chapters 1–7</a></p>
+                    <p class="pj-note">💡 Use Git on your own computer. A GitHub account needs you to be 13 or older, so ask your teacher before you put work online.</p>
+                    <div class="pj-progress" aria-hidden="true"><span></span></div>
+                    <p class="pj-progress-text">Not started yet</p>
+                    <details class="pj-more" open>
+                        <summary>✅ Steps to build it</summary>
+                        <ol class="pj-steps">
+                            <li><label><input type="checkbox" class="pj-step" data-step="0"> <span>Open a terminal and make a folder called <code>my-portfolio</code> inside your practice folder.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="1"> <span>Inside it, make the folders <code>css</code>, <code>images</code> and <code>pages</code>.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="2"> <span>Create the empty files <code>index.html</code> and <code>css/style.css</code>.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="3"> <span>Run <code>git init</code>, then <code>git status</code> to see your new files.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="4"> <span>Make three small commits with clear messages, for example "Add folder structure".</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="5"> <span>Run <code>git log --oneline</code> and take a screenshot for your teacher.</span></label></li>
+                        </ol>
+                    </details>
+                    <details class="pj-more">
+                        <summary>📋 How it is marked <span>12 marks</span></summary>
+                        <table class="pj-rubric">
+                            <tbody>
+                                <tr><th scope="row">It works</th><td>All folders and files exist and the log shows three commits.</td></tr>
+                                <tr><th scope="row">Clean names</th><td>Lowercase names with no spaces, and commit messages that say what changed.</td></tr>
+                                <tr><th scope="row">Safe habits</th><td>You only created and deleted things inside your project folder. No passwords in any file.</td></tr>
+                                <tr><th scope="row">Your own, honest work</th><td>The screenshot is of your own log.</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="pj-scale">Each row: 0 not yet · 1 started · 2 mostly there · 3 great.</p>
+                    </details>
+                    <details class="pj-more">
+                        <summary>🧰 Starter code <span>Commands (Windows CMD)</span></summary>
+                        <div class="pj-starter">
+                            <button type="button" class="pj-copy" data-copy="p-folder-git">Copy</button>
+                            <pre><code id="starter-p-folder-git">cd %USERPROFILE%\Documents
+mkdir my-portfolio
+cd my-portfolio
+mkdir css images pages
+type nul &gt; index.html
+type nul &gt; css\style.css
+git init
+git status</code></pre>
+                        </div>
+                    </details>
+                    <div class="pj-actions"><a class="pj-btn pj-btn-primary" href="../book-cmd/index.html#ch7">📖 Open the Terminal book</a></div>
+                </article>
+                <article class="pj-card" id="p-about-me" data-tier="bronze">
+                    <div class="pj-head">
+                        <span class="pj-icon" aria-hidden="true">🙋</span>
+                        <div>
+                            <h3>About Me Page</h3>
+                            <p class="pj-meta"><span class="pj-tier pj-tier-bronze">Bronze</span> Grades 6–7 · HTML</p>
+                        </div>
+                    </div>
+                    <p class="pj-goal">Make a one-page profile about your interests, the books you like and a goal for this school year.</p>
+                    <p class="pj-before"><strong>Before you start:</strong> <a href="../Learning%20HTML/learninghtml.html">HTML modules 1–8</a></p>
+                    <p class="pj-note">💡 Protect your privacy (Amānah): no home address, phone number, school name or photos of yourself.</p>
+                    <div class="pj-progress" aria-hidden="true"><span></span></div>
+                    <p class="pj-progress-text">Not started yet</p>
+                    <details class="pj-more" open>
+                        <summary>✅ Steps to build it</summary>
+                        <ol class="pj-steps">
+                            <li><label><input type="checkbox" class="pj-step" data-step="0"> <span>Use one <code>&lt;h1&gt;</code> for your page title and <code>&lt;h2&gt;</code> headings for each part.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="1"> <span>Write a short paragraph that says what you enjoy learning.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="2"> <span>Add a list of three hobbies and an ordered list of your top three books.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="3"> <span>Add a small table: your study plan for the week (day and subject).</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="4"> <span>Add one image with helpful <code>alt</code> text (a drawing of yours, or an emoji is fine).</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="5"> <span>Add a link to a website you learn from, with link text that says where it goes.</span></label></li>
+                        </ol>
+                    </details>
+                    <details class="pj-more">
+                        <summary>📋 How it is marked <span>12 marks</span></summary>
+                        <table class="pj-rubric">
+                            <tbody>
+                                <tr><th scope="row">It works</th><td>All six parts are there and the page shows correctly.</td></tr>
+                                <tr><th scope="row">Good structure</th><td>One h1, headings in order, every tag closed in the right place.</td></tr>
+                                <tr><th scope="row">Easy for everyone</th><td>Alt text on the image; link text that makes sense on its own.</td></tr>
+                                <tr><th scope="row">Safe and honest</th><td>No private details; everything written by you.</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="pj-scale">Each row: 0 not yet · 1 started · 2 mostly there · 3 great.</p>
+                    </details>
+                    <div class="pj-actions"><button type="button" class="pj-btn pj-btn-primary pj-start-web" data-project="p-about-me">⚡ Start in Web Studio</button></div>
+                </article>
+                <article class="pj-card" id="p-food-pantry" data-tier="bronze">
+                    <div class="pj-head">
+                        <span class="pj-icon" aria-hidden="true">🥫</span>
+                        <div>
+                            <h3>Community Food Pantry Page</h3>
+                            <p class="pj-meta"><span class="pj-tier pj-tier-bronze">Bronze</span> Grade 7 · HTML · CSS</p>
+                        </div>
+                    </div>
+                    <p class="pj-goal">Build a friendly page for a neighbourhood food pantry: when it is open, what it needs, and a form to pledge help.</p>
+                    <p class="pj-before"><strong>Before you start:</strong> <a href="../Learning%20HTML/learninghtml.html">HTML modules 1–11</a> · <a href="../Learning%20CSS/learningcss.html">CSS modules 1–5</a></p>
+                    <p class="pj-note">💡 The form only needs to look right. Saving what people type comes later, in the PHP track.</p>
+                    <div class="pj-progress" aria-hidden="true"><span></span></div>
+                    <p class="pj-progress-text">Not started yet</p>
+                    <details class="pj-more" open>
+                        <summary>✅ Steps to build it</summary>
+                        <ol class="pj-steps">
+                            <li><label><input type="checkbox" class="pj-step" data-step="0"> <span>Add a header with the pantry name and a short welcome sentence.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="1"> <span>Add a table of opening hours (day, time).</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="2"> <span>Add a list of the items most needed this week.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="3"> <span>Add a pledge form: name, what you will bring, and a submit button. Every input has a label.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="4"> <span>Style each part as a card with padding, a border and rounded corners.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="5"> <span>Use Flexbox to place the cards side by side on wide screens.</span></label></li>
+                        </ol>
+                    </details>
+                    <details class="pj-more">
+                        <summary>📋 How it is marked <span>12 marks</span></summary>
+                        <table class="pj-rubric">
+                            <tbody>
+                                <tr><th scope="row">It works</th><td>Every step in the checklist is done and works when you test it.</td></tr>
+                                <tr><th scope="row">Clean code</th><td>Tidy indentation, clear names, a short comment where something is tricky.</td></tr>
+                                <tr><th scope="row">Easy for everyone</th><td>Headings in order, alt text on images, labels on inputs, readable colours.</td></tr>
+                                <tr><th scope="row">Your own, honest work</th><td>You wrote it yourself, credited anything you borrowed, and the content is wholesome.</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="pj-scale">Each row: 0 not yet · 1 started · 2 mostly there · 3 great.</p>
+                    </details>
+                    <div class="pj-actions"><button type="button" class="pj-btn pj-btn-primary pj-start-web" data-project="p-food-pantry">⚡ Start in Web Studio</button></div>
+                </article>
             </div>
         </section>
 
-        <!-- ═════════════════════════════════════════════════════════════
-             PUBLIC STUDENT PROJECT SHOWCASE GALLERY (Item 18 & 19)
-             ═════════════════════════════════════════════════════════════ -->
-        <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 2rem; margin-bottom: 3.5rem; box-shadow: var(--shadow-card);">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
-                <div>
-                    <span class="placement-badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24;">Example projects · made-up students</span>
-                    <h2 style="font-size: 1.8rem; color: #fff; margin: 0.35rem 0 0.2rem;">What a Finished Project Looks Like 🎨✨</h2>
-                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">These are examples, not real students. Each one shows the kind of project and teacher feedback to aim for.</p>
-                </div>
-                <a href="../studios/web-studio/index.html" class="btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.88rem; border-radius: var(--radius-sm);">➕ Start a project in Web Studio</a>
+        <section class="pj-group" data-tier-group="silver" aria-labelledby="pj-h-silver">
+            <div class="pj-group-head">
+                <h2 id="pj-h-silver"><span aria-hidden="true">🥈</span> Silver</h2>
+                <p>Interactive projects · Grades 7–9</p>
             </div>
+            <div class="pj-grid">
+                <article class="pj-card" id="p-calculator" data-tier="silver">
+                    <div class="pj-head">
+                        <span class="pj-icon" aria-hidden="true">🧮</span>
+                        <div>
+                            <h3>Class Calculator</h3>
+                            <p class="pj-meta"><span class="pj-tier pj-tier-silver">Silver</span> Grades 7–8 · HTML · CSS · JavaScript</p>
+                        </div>
+                    </div>
+                    <p class="pj-goal">Make a calculator for two numbers with add, subtract, multiply and divide buttons, and a kind warning when someone divides by zero.</p>
+                    <p class="pj-before"><strong>Before you start:</strong> <a href="../Learning%20JS/learningjs.html">JavaScript modules 1–4, 7 and 9</a></p>
+                    <div class="pj-progress" aria-hidden="true"><span></span></div>
+                    <p class="pj-progress-text">Not started yet</p>
+                    <details class="pj-more" open>
+                        <summary>✅ Steps to build it</summary>
+                        <ol class="pj-steps">
+                            <li><label><input type="checkbox" class="pj-step" data-step="0"> <span>Two number inputs with labels, four operation buttons and an answer area are already in the starter.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="1"> <span>Write a function <code>calculate(a, b, operation)</code> that returns the answer.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="2"> <span>Read the inputs with <code>Number(...)</code> when a button is clicked (<code>addEventListener</code>).</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="3"> <span>Show the answer with <code>textContent</code>.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="4"> <span>If the second number is 0 and the operation is divide, show "You cannot divide by zero" instead.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="5"> <span>Style the buttons so they are big enough to tap on a phone.</span></label></li>
+                        </ol>
+                    </details>
+                    <details class="pj-more">
+                        <summary>📋 How it is marked <span>12 marks</span></summary>
+                        <table class="pj-rubric">
+                            <tbody>
+                                <tr><th scope="row">It works</th><td>Every step in the checklist is done and works when you test it.</td></tr>
+                                <tr><th scope="row">Clean code</th><td>Tidy indentation, clear names, a short comment where something is tricky.</td></tr>
+                                <tr><th scope="row">Easy for everyone</th><td>Headings in order, alt text on images, labels on inputs, readable colours.</td></tr>
+                                <tr><th scope="row">Your own, honest work</th><td>You wrote it yourself, credited anything you borrowed, and the content is wholesome.</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="pj-scale">Each row: 0 not yet · 1 started · 2 mostly there · 3 great.</p>
+                    </details>
+                    <div class="pj-actions"><button type="button" class="pj-btn pj-btn-primary pj-start-web" data-project="p-calculator">⚡ Start in Web Studio</button></div>
+                </article>
+                <article class="pj-card" id="p-science-quiz" data-tier="silver">
+                    <div class="pj-head">
+                        <span class="pj-icon" aria-hidden="true">🔭</span>
+                        <div>
+                            <h3>Science Quiz</h3>
+                            <p class="pj-meta"><span class="pj-tier pj-tier-silver">Silver</span> Grade 8 · HTML · CSS · JavaScript</p>
+                        </div>
+                    </div>
+                    <p class="pj-goal">Build a five-question science quiz that shows one question at a time, checks each answer and gives a kind message at the end.</p>
+                    <p class="pj-before"><strong>Before you start:</strong> <a href="../Learning%20JS/learningjs.html">JavaScript modules 1–9</a></p>
+                    <p class="pj-note">💡 Keep it calm: no countdown timers or pressure. The goal is learning, not racing.</p>
+                    <div class="pj-progress" aria-hidden="true"><span></span></div>
+                    <p class="pj-progress-text">Not started yet</p>
+                    <details class="pj-more" open>
+                        <summary>✅ Steps to build it</summary>
+                        <ol class="pj-steps">
+                            <li><label><input type="checkbox" class="pj-step" data-step="0"> <span>Store the questions in an array of objects: question, choices and the right answer.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="1"> <span>Show the first question and put its three choices on the three buttons.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="2"> <span>When a choice is clicked, say "Correct!" or show the right answer.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="3"> <span>Add a Next button that moves to the next question and keeps the score.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="4"> <span>At the end, show the score and an encouraging message for every result.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="5"> <span>Write your own five questions about the planets, plants or the human body.</span></label></li>
+                        </ol>
+                    </details>
+                    <details class="pj-more">
+                        <summary>📋 How it is marked <span>12 marks</span></summary>
+                        <table class="pj-rubric">
+                            <tbody>
+                                <tr><th scope="row">It works</th><td>Every step in the checklist is done and works when you test it.</td></tr>
+                                <tr><th scope="row">Clean code</th><td>Tidy indentation, clear names, a short comment where something is tricky.</td></tr>
+                                <tr><th scope="row">Easy for everyone</th><td>Headings in order, alt text on images, labels on inputs, readable colours.</td></tr>
+                                <tr><th scope="row">Your own, honest work</th><td>You wrote it yourself, credited anything you borrowed, and the content is wholesome.</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="pj-scale">Each row: 0 not yet · 1 started · 2 mostly there · 3 great.</p>
+                    </details>
+                    <div class="pj-actions"><button type="button" class="pj-btn pj-btn-primary pj-start-web" data-project="p-science-quiz">⚡ Start in Web Studio</button></div>
+                </article>
+                <article class="pj-card" id="p-library" data-tier="silver">
+                    <div class="pj-head">
+                        <span class="pj-icon" aria-hidden="true">📚</span>
+                        <div>
+                            <h3>School Library Catalogue</h3>
+                            <p class="pj-meta"><span class="pj-tier pj-tier-silver">Silver</span> Grades 8–9 · HTML · CSS Grid · JavaScript</p>
+                        </div>
+                    </div>
+                    <p class="pj-goal">Show the school library&#x27;s books as cards in a grid, with a search box and buttons to filter by subject.</p>
+                    <p class="pj-before"><strong>Before you start:</strong> <a href="../Learning%20CSS/module7.html">CSS module 7 (Grid)</a> · <a href="../Learning%20JS/learningjs.html">JavaScript modules 5–9</a></p>
+                    <p class="pj-note">💡 Stretch goal: remember a student&#x27;s favourite books with localStorage. It is not in the lessons yet, so look it up together with your teacher.</p>
+                    <div class="pj-progress" aria-hidden="true"><span></span></div>
+                    <p class="pj-progress-text">Not started yet</p>
+                    <details class="pj-more" open>
+                        <summary>✅ Steps to build it</summary>
+                        <ol class="pj-steps">
+                            <li><label><input type="checkbox" class="pj-step" data-step="0"> <span>Store at least eight books in an array of objects: title, author, subject, available.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="1"> <span>Write a function that draws every book as a card inside the grid.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="2"> <span>Use CSS Grid so cards sit in rows and fit a phone screen too.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="3"> <span>Make the search box show only books whose title includes what was typed.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="4"> <span>Add subject buttons (Science, History, Stories, All) that filter the cards.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="5"> <span>Show "On loan" in a different colour when a book is not available.</span></label></li>
+                        </ol>
+                    </details>
+                    <details class="pj-more">
+                        <summary>📋 How it is marked <span>12 marks</span></summary>
+                        <table class="pj-rubric">
+                            <tbody>
+                                <tr><th scope="row">It works</th><td>Every step in the checklist is done and works when you test it.</td></tr>
+                                <tr><th scope="row">Clean code</th><td>Tidy indentation, clear names, a short comment where something is tricky.</td></tr>
+                                <tr><th scope="row">Easy for everyone</th><td>Headings in order, alt text on images, labels on inputs, readable colours.</td></tr>
+                                <tr><th scope="row">Your own, honest work</th><td>You wrote it yourself, credited anything you borrowed, and the content is wholesome.</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="pj-scale">Each row: 0 not yet · 1 started · 2 mostly there · 3 great.</p>
+                    </details>
+                    <div class="pj-actions"><button type="button" class="pj-btn pj-btn-primary pj-start-web" data-project="p-library">⚡ Start in Web Studio</button></div>
+                </article>
+                <article class="pj-card" id="p-pantry-python" data-tier="silver">
+                    <div class="pj-head">
+                        <span class="pj-icon" aria-hidden="true">🐍</span>
+                        <div>
+                            <h3>Pantry Stock &amp; Zakat Report</h3>
+                            <p class="pj-meta"><span class="pj-tier pj-tier-silver">Silver</span> Grades 8–9 · Python</p>
+                        </div>
+                    </div>
+                    <p class="pj-goal">Write a Python program that reads a pantry&#x27;s stock list, adds up each category, warns about items running low, and works out 2.5% zakat on a practice savings amount.</p>
+                    <p class="pj-before"><strong>Before you start:</strong> <a href="../Learning%20Python/learningpython.html">Python modules 1–6</a></p>
+                    <p class="pj-note">💡 The nisab really depends on today&#x27;s gold or silver price. Use a made-up practice number in your program and say so in a comment.</p>
+                    <div class="pj-progress" aria-hidden="true"><span></span></div>
+                    <p class="pj-progress-text">Not started yet</p>
+                    <details class="pj-more" open>
+                        <summary>✅ Steps to build it</summary>
+                        <ol class="pj-steps">
+                            <li><label><input type="checkbox" class="pj-step" data-step="0"> <span>Run the starter: it saves a small CSV file and reads it back with the <code>csv</code> module.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="1"> <span>Use a dictionary to add up the quantity in each category (rice, tins, fruit…).</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="2"> <span>Print every item with fewer than 10 left under the heading "Running low".</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="3"> <span>Write a function <code>zakat(savings, nisab)</code> that returns 2.5% of the savings when they are at least the nisab, and 0 otherwise.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="4"> <span>Print a tidy report with <code>round()</code> for money values.</span></label></li>
+                        </ol>
+                    </details>
+                    <details class="pj-more">
+                        <summary>📋 How it is marked <span>12 marks</span></summary>
+                        <table class="pj-rubric">
+                            <tbody>
+                                <tr><th scope="row">It works</th><td>Totals, the running-low list and the zakat answer are all correct for the sample data.</td></tr>
+                                <tr><th scope="row">Clean code</th><td>Functions with clear names, 4-space indentation, no repeated code.</td></tr>
+                                <tr><th scope="row">Clear report</th><td>Headings and rounded numbers that a pantry volunteer could read.</td></tr>
+                                <tr><th scope="row">Your own, honest work</th><td>You wrote it yourself and the practice nisab is labelled as practice.</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="pj-scale">Each row: 0 not yet · 1 started · 2 mostly there · 3 great.</p>
+                    </details>
+                    <details class="pj-more">
+                        <summary>🧰 Starter code <span>Python</span></summary>
+                        <div class="pj-starter">
+                            <button type="button" class="pj-copy" data-copy="p-pantry-python">Copy</button>
+                            <pre><code id="starter-p-pantry-python">import csv
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-                <!-- Showcase Card 1 -->
-                <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem; display: flex; flex-direction: column;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                        <span style="font-weight: 700; color: #38bdf8; font-size: 0.82rem;">Ahmed Rasool • Class 8A</span>
-                        <span style="font-size: 0.75rem; background: rgba(99,102,241,0.15); color: #818cf8; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 700;">JavaScript</span>
-                    </div>
-                    <h3 style="color: #fff; margin: 0 0 0.5rem; font-size: 1.2rem;">Ahmed's Multi-Theme Calculator</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">
-                        Clean tactile calculator with keyboard input shortcuts, memory buttons, and dark/light color themes.
-                    </p>
-                    <!-- Teacher Code Review Box -->
-                    <div style="background: rgba(0,0,0,0.3); border-left: 3px solid #10b981; padding: 0.75rem 1rem; border-radius: 4px; font-size: 0.82rem; margin-bottom: 1rem;">
-                        <strong style="color: #34d399; display: block; margin-bottom: 0.2rem;">Teacher Code Review:</strong>
-                        <span style="color: #cbd5e1;">"Excellent event delegation on number buttons. Next step: add decimal validation to prevent multiple dots."</span>
-                    </div>
-                    <div style="display: flex; gap: 0.5rem;">
-                        <a href="../studios/web-studio/index.html" class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem; border-radius: 6px;">Build one like it 🚀</a>
-                    </div>
-                </div>
+DATA = &quot;&quot;&quot;name,category,quantity
+Basmati rice,rice,24
+Chickpeas,tins,8
+Apples,fruit,15
+Lentils,tins,30
+Dates,fruit,6
+&quot;&quot;&quot;
 
-                <!-- Showcase Card 2 -->
-                <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem; display: flex; flex-direction: column;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                        <span style="font-weight: 700; color: #fbbf24; font-size: 0.82rem;">Sara Al-Mansoor • Class 8B</span>
-                        <span style="font-size: 0.75rem; background: rgba(16,185,129,0.15); color: #34d399; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 700;">HTML • CSS • JS</span>
-                    </div>
-                    <h3 style="color: #fff; margin: 0 0 0.5rem; font-size: 1.2rem;">Sara's Science Quiz Engine</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">
-                        Interactive astronomy &amp; physics quiz with instant scoring, celebratory audio chimes, and progress meters.
-                    </p>
-                    <div style="background: rgba(0,0,0,0.3); border-left: 3px solid #10b981; padding: 0.75rem 1rem; border-radius: 4px; font-size: 0.82rem; margin-bottom: 1rem;">
-                        <strong style="color: #34d399; display: block; margin-bottom: 0.2rem;">Teacher Code Review:</strong>
-                        <span style="color: #cbd5e1;">"Well-structured data array of questions. Great use of modern CSS Flexbox for responsiveness."</span>
-                    </div>
-                    <div style="display: flex; gap: 0.5rem;">
-                        <a href="../studios/web-studio/index.html" class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem; border-radius: 6px;">Build one like it 🚀</a>
-                    </div>
-                </div>
+with open(&quot;pantry.csv&quot;, &quot;w&quot;) as f:
+    f.write(DATA)
 
-                <!-- Showcase Card 3 -->
-                <div style="background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.5rem; display: flex; flex-direction: column;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                        <span style="font-weight: 700; color: #a78bfa; font-size: 0.82rem;">Bilal Tariq • Class 7A</span>
-                        <span style="font-size: 0.75rem; background: rgba(56,189,248,0.15); color: #38bdf8; padding: 0.2rem 0.5rem; border-radius: 4px; font-weight: 700;">HTML5 &amp; CSS Grid</span>
-                    </div>
-                    <h3 style="color: #fff; margin: 0 0 0.5rem; font-size: 1.2rem;">Bilal's Neighborhood Library Portal</h3>
-                    <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.5; margin-bottom: 1rem; flex-grow: 1;">
-                        Accessible catalog displaying available book titles, donor acknowledgments, and clean typography.
-                    </p>
-                    <div style="background: rgba(0,0,0,0.3); border-left: 3px solid #10b981; padding: 0.75rem 1rem; border-radius: 4px; font-size: 0.82rem; margin-bottom: 1rem;">
-                        <strong style="color: #34d399; display: block; margin-bottom: 0.2rem;">Teacher Code Review:</strong>
-                        <span style="color: #cbd5e1;">"High color contrast scores and 100% semantic HTML elements. Excellent adherence to Iḥsān."</span>
-                    </div>
-                    <div style="display: flex; gap: 0.5rem;">
-                        <a href="../studios/web-studio/index.html" class="btn-primary" style="padding: 0.45rem 1rem; font-size: 0.85rem; border-radius: 6px;">Build one like it 🚀</a>
-                    </div>
-                </div>
+totals = {}
+with open(&quot;pantry.csv&quot;) as f:
+    for row in csv.DictReader(f):
+        quantity = int(row[&quot;quantity&quot;])
+        # TODO: add quantity to totals[row[&quot;category&quot;]]
+        print(row[&quot;name&quot;], quantity)
+
+
+def zakat(savings, nisab):
+    # TODO: return 2.5% of savings if savings &gt;= nisab, else 0
+    return 0
+
+
+PRACTICE_NISAB = 5000  # practice number only; the real nisab depends on gold/silver prices
+print(&quot;Zakat on 8000:&quot;, round(zakat(8000, PRACTICE_NISAB), 2))
+</code></pre>
+                        </div>
+                    </details>
+                    <div class="pj-actions"><a class="pj-btn pj-btn-primary" href="../studios/python-console/index.html">🐍 Open the Python Console</a></div>
+                </article>
             </div>
         </section>
 
-        <!-- Filter Bar -->
-        <div class="projects-filter-bar">
-            <div class="filter-pills" id="projectPills">
-                <button class="filter-pill active" onclick="filterProjects('all', this)">All Graded Projects</button>
-                <button class="filter-pill" onclick="filterProjects('bronze', this)">🥉 Bronze (Grades 6–7)</button>
-                <button class="filter-pill" onclick="filterProjects('silver', this)">🥈 Silver (Grades 7–9)</button>
-                <button class="filter-pill" onclick="filterProjects('gold', this)">🥇 Gold (Grades 9–10)</button>
+        <section class="pj-group" data-tier-group="gold" aria-labelledby="pj-h-gold">
+            <div class="pj-group-head">
+                <h2 id="pj-h-gold"><span aria-hidden="true">🥇</span> Gold</h2>
+                <p>Real-world projects · Grades 9–10</p>
             </div>
-            <div style="font-size: 0.85rem; color: var(--text-muted);">
-                Grading Rubric included with every project
-            </div>
-        </div>
+            <div class="pj-grid">
+                <article class="pj-card" id="p-volunteers" data-tier="gold">
+                    <div class="pj-head">
+                        <span class="pj-icon" aria-hidden="true">🤝</span>
+                        <div>
+                            <h3>Volunteer Sign-up Website</h3>
+                            <p class="pj-meta"><span class="pj-tier pj-tier-gold">Gold</span> Grades 9–10 · PHP · MySQL</p>
+                        </div>
+                    </div>
+                    <p class="pj-goal">Build a real sign-up site for a community clean-up on your own XAMPP: a form, checks on what people type, saving to MySQL, and a page that lists volunteers safely.</p>
+                    <p class="pj-before"><strong>Before you start:</strong> <a href="../Learning%20PHP/learningphp.html">PHP modules 1–8</a> · <a href="../Learning%20MySQL/learningmysql.html">MySQL modules 1–5</a></p>
+                    <p class="pj-note">💡 Collect only what you need (Amānah). Stretch goal: rebuild it with Laravel after the Laravel lessons.</p>
+                    <div class="pj-progress" aria-hidden="true"><span></span></div>
+                    <p class="pj-progress-text">Not started yet</p>
+                    <details class="pj-more" open>
+                        <summary>✅ Steps to build it</summary>
+                        <ol class="pj-steps">
+                            <li><label><input type="checkbox" class="pj-step" data-step="0"> <span>In phpMyAdmin, create a database <code>cleanup</code> and run the starter SQL to make the <code>volunteers</code> table.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="1"> <span>Make <code>signup.php</code> with a form: name, email and the day you can help (POST).</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="2"> <span>Check the input: name not empty, email valid with <code>filter_var</code>, day from your list. Show friendly errors.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="3"> <span>Save each sign-up with a PDO prepared statement, never by joining strings into SQL.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="4"> <span>Make <code>list.php</code> that shows all volunteers, printing every value with <code>htmlspecialchars()</code>.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="5"> <span>Test with a name like <code>&lt;b&gt;Sami&lt;/b&gt;</code>: it must show as plain text, not bold.</span></label></li>
+                        </ol>
+                    </details>
+                    <details class="pj-more">
+                        <summary>📋 How it is marked <span>12 marks</span></summary>
+                        <table class="pj-rubric">
+                            <tbody>
+                                <tr><th scope="row">It works</th><td>Sign-ups are saved and listed; wrong input shows a helpful message.</td></tr>
+                                <tr><th scope="row">Safe code</th><td>Prepared statements, htmlspecialchars on every printed value, POST for the form.</td></tr>
+                                <tr><th scope="row">Clean code</th><td>Small files with clear names; database settings in one place.</td></tr>
+                                <tr><th scope="row">Your own, honest work</th><td>Your own code, with a short README that says how to run it.</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="pj-scale">Each row: 0 not yet · 1 started · 2 mostly there · 3 great.</p>
+                    </details>
+                    <details class="pj-more">
+                        <summary>🧰 Starter code <span>SQL (run in phpMyAdmin)</span></summary>
+                        <div class="pj-starter">
+                            <button type="button" class="pj-copy" data-copy="p-volunteers">Copy</button>
+                            <pre><code id="starter-p-volunteers">CREATE TABLE volunteers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(80) NOT NULL,
+  email VARCHAR(120) NOT NULL,
+  help_day VARCHAR(20) NOT NULL,
+  signed_up_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);</code></pre>
+                        </div>
+                    </details>
+                    <div class="pj-actions"><a class="pj-btn pj-btn-primary" href="../Learning%20PHP/module6.html">🐘 Review PHP forms (module 6)</a></div>
+                </article>
+                <article class="pj-card" id="p-security-checkup" data-tier="gold">
+                    <div class="pj-head">
+                        <span class="pj-icon" aria-hidden="true">🛡️</span>
+                        <div>
+                            <h3>Security Check-up</h3>
+                            <p class="pj-meta"><span class="pj-tier pj-tier-gold">Gold</span> Grades 9–10 · Cybersecurity · PHP</p>
+                        </div>
+                    </div>
+                    <p class="pj-goal">Review four short pieces of code from a pretend charity website, find what makes each one risky, fix it, and explain the fix in your own words.</p>
+                    <p class="pj-before"><strong>Before you start:</strong> <a href="../Learning%20Cybersecurity/learningcybersecurity.html">Cybersecurity modules 1–6</a></p>
+                    <p class="pj-note">💡 Defence only: practise on this code or your own local copy. Testing other people&#x27;s websites without written permission is illegal.</p>
+                    <div class="pj-progress" aria-hidden="true"><span></span></div>
+                    <p class="pj-progress-text">Not started yet</p>
+                    <details class="pj-more" open>
+                        <summary>✅ Steps to build it</summary>
+                        <ol class="pj-steps">
+                            <li><label><input type="checkbox" class="pj-step" data-step="0"> <span>Read snippet 1 (a greeting that prints <code>$_GET['name']</code> straight onto the page). Fix it with <code>htmlspecialchars()</code>.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="1"> <span>Read snippet 2 (a search that joins the visitor's words into SQL). Fix it with a prepared statement.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="2"> <span>Read snippet 3 (passwords saved with <code>md5()</code>). Fix it with <code>password_hash()</code> and <code>password_verify()</code>.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="3"> <span>Read snippet 4 (a delete form with no CSRF token). Explain the risk and add a token check.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="4"> <span>Write a one-page report: for each snippet, the risk, who could be hurt, and your fix.</span></label></li>
+                        </ol>
+                    </details>
+                    <details class="pj-more">
+                        <summary>📋 How it is marked <span>12 marks</span></summary>
+                        <table class="pj-rubric">
+                            <tbody>
+                                <tr><th scope="row">Risks found</th><td>All four problems named correctly.</td></tr>
+                                <tr><th scope="row">Correct fixes</th><td>Each fix works and uses the safe tool from the lessons.</td></tr>
+                                <tr><th scope="row">Clear report</th><td>Plain words a website owner could follow.</td></tr>
+                                <tr><th scope="row">Your own, honest work</th><td>Your own explanations; sources credited.</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="pj-scale">Each row: 0 not yet · 1 started · 2 mostly there · 3 great.</p>
+                    </details>
+                    <details class="pj-more">
+                        <summary>🧰 Starter code <span>PHP (the four risky snippets)</span></summary>
+                        <div class="pj-starter">
+                            <button type="button" class="pj-copy" data-copy="p-security-checkup">Copy</button>
+                            <pre><code id="starter-p-security-checkup">&lt;?php
+// 1. Greeting
+echo &quot;Welcome, &quot; . $_GET[&quot;name&quot;];
 
-        <!-- Project 1: Portfolio Scaffold (Bronze) -->
-        <div class="project-card" data-tier="bronze">
-            <div class="project-top">
-                <div class="project-meta-row">
-                    <span class="tier-badge tier-bronze">Bronze Level</span>
-                    <span class="placement-badge badge-foundations">Foundations &amp; CLI</span>
-                    <span style="font-size: 0.82rem; color: var(--text-muted);">Grade 6–7</span>
-                </div>
-                <span style="font-size: 0.85rem; color: var(--brand-accent); font-weight: 700;">+100 XP</span>
-            </div>
-            <h2>1. My Digital Portfolio Scaffold &amp; Git History</h2>
-            <p style="color: var(--text-secondary); margin-top: 0.4rem;">
-                Construct a clean web project repository without using a mouse. Scaffold directories using dual-shell Terminal commands, create semantic placeholder files, initialize Git, and document your milestones with three atomic commits.
-            </p>
-            <div class="project-specs">
-                <div class="spec-item">
-                    <strong>Tech Stack</strong>
-                    <span>Terminal (CMD / Bash), Git CLI</span>
-                </div>
-                <div class="spec-item">
-                    <strong>Key Skills</strong>
-                    <span>Path addressing, bulk folder creation, commit history</span>
-                </div>
-                <div class="spec-item">
-                    <strong>Deliverable</strong>
-                    <span>Git log screenshot + structured folder zip</span>
-                </div>
-            </div>
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                <a href="../cheatsheet-cmd.html" class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; background: var(--brand-accent);">View Starter Kit 📁</a>
-                <a href="../teacher-hub/index.html" class="btn-hero-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">Teacher Rubric 📋</a>
-            </div>
-        </div>
+// 2. Search
+$sql = &quot;SELECT * FROM donations WHERE donor = &#x27;&quot; . $_GET[&quot;q&quot;] . &quot;&#x27;&quot;;
+$rows = $pdo-&gt;query($sql);
 
-        <!-- Project 2: Community Food Pantry Website (Bronze) -->
-        <div class="project-card" data-tier="bronze">
-            <div class="project-top">
-                <div class="project-meta-row">
-                    <span class="tier-badge tier-bronze">Bronze Level</span>
-                    <span class="placement-badge badge-web">HTML &amp; CSS</span>
-                    <span style="font-size: 0.82rem; color: var(--text-muted);">Grade 7</span>
-                </div>
-                <span style="font-size: 0.85rem; color: var(--brand-accent); font-weight: 700;">+150 XP</span>
-            </div>
-            <h2>2. Ethical Food Pantry Landing Page</h2>
-            <p style="color: var(--text-secondary); margin-top: 0.4rem;">
-                Build an accessible, semantic HTML5 landing page for a local neighborhood food bank. Include an interactive food pledge donation form, operational hours table, and modern CSS card styling.
-            </p>
-            <div class="project-specs">
-                <div class="spec-item">
-                    <strong>Tech Stack</strong>
-                    <span>HTML5, CSS3 (Box Model &amp; Flexbox)</span>
-                </div>
-                <div class="spec-item">
-                    <strong>Key Skills</strong>
-                    <span>Semantic tags, accessible forms, color contrast</span>
-                </div>
-                <div class="spec-item">
-                    <strong>Deliverable</strong>
-                    <span>Live site in Web Studio + single-file export</span>
-                </div>
-            </div>
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                <a href="../studios/web-studio/index.html" class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; background: var(--brand-cyan);">Open in Web Studio ⚡</a>
-                <a href="../teacher-hub/index.html" class="btn-hero-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">Teacher Rubric 📋</a>
-            </div>
-        </div>
+// 3. Saving a password
+$stored = md5($_POST[&quot;password&quot;]);
 
-        <!-- Project 3: Library & Book Exchange (Silver) -->
-        <div class="project-card" data-tier="silver">
-            <div class="project-top">
-                <div class="project-meta-row">
-                    <span class="tier-badge tier-silver">Silver Level</span>
-                    <span class="placement-badge badge-web">HTML • CSS • JS</span>
-                    <span style="font-size: 0.82rem; color: var(--text-muted);">Grade 8</span>
-                </div>
-                <span style="font-size: 0.85rem; color: #818cf8; font-weight: 700;">+250 XP</span>
+// 4. Deleting a record (form posts here)
+if ($_SERVER[&quot;REQUEST_METHOD&quot;] === &quot;POST&quot;) {
+    $pdo-&gt;prepare(&quot;DELETE FROM donations WHERE id = ?&quot;)-&gt;execute([$_POST[&quot;id&quot;]]);
+}</code></pre>
+                        </div>
+                    </details>
+                    <div class="pj-actions"><a class="pj-btn pj-btn-primary" href="../Learning%20Cybersecurity/playground.html">🧪 Open the Cyber Defense Studio</a></div>
+                </article>
+                <article class="pj-card" id="p-network-detective" data-tier="gold">
+                    <div class="pj-head">
+                        <span class="pj-icon" aria-hidden="true">📡</span>
+                        <div>
+                            <h3>Network Detective Report</h3>
+                            <p class="pj-meta"><span class="pj-tier pj-tier-gold">Gold</span> Grades 9–10 · Networks</p>
+                        </div>
+                    </div>
+                    <p class="pj-goal">Use real network commands on your own home or school-approved network and explain, in your own words, what each result tells you.</p>
+                    <p class="pj-before"><strong>Before you start:</strong> <a href="../Learning%20Networks/learningnetworks.html">Networks modules 1–6</a></p>
+                    <p class="pj-note">💡 Only test your own network or one your teacher approves. Never scan or probe other people&#x27;s devices or networks.</p>
+                    <div class="pj-progress" aria-hidden="true"><span></span></div>
+                    <p class="pj-progress-text">Not started yet</p>
+                    <details class="pj-more" open>
+                        <summary>✅ Steps to build it</summary>
+                        <ol class="pj-steps">
+                            <li><label><input type="checkbox" class="pj-step" data-step="0"> <span>Run <code>ipconfig</code> and write down your device's IP address and default gateway. Is the address private?</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="1"> <span>Run <code>ping example.org</code> four times and record the average time.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="2"> <span>Run <code>tracert example.org</code> and count the hops. Which hop is your own router?</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="3"> <span>Run <code>nslookup example.org</code> and note the IP address it returns.</span></label></li>
+                            <li><label><input type="checkbox" class="pj-step" data-step="4"> <span>Put all results in a table and explain each one in two plain sentences.</span></label></li>
+                        </ol>
+                    </details>
+                    <details class="pj-more">
+                        <summary>📋 How it is marked <span>12 marks</span></summary>
+                        <table class="pj-rubric">
+                            <tbody>
+                                <tr><th scope="row">Correct results</th><td>All four commands run and recorded accurately.</td></tr>
+                                <tr><th scope="row">Understanding</th><td>Each explanation uses the right words: packet, hop, gateway, DNS.</td></tr>
+                                <tr><th scope="row">Clear report</th><td>A neat table and short, plain explanations.</td></tr>
+                                <tr><th scope="row">Safe and honest</th><td>Only your own or an approved network; your own words.</td></tr>
+                            </tbody>
+                        </table>
+                        <p class="pj-scale">Each row: 0 not yet · 1 started · 2 mostly there · 3 great.</p>
+                    </details>
+                    <details class="pj-more">
+                        <summary>🧰 Starter code <span>Commands (Windows)</span></summary>
+                        <div class="pj-starter">
+                            <button type="button" class="pj-copy" data-copy="p-network-detective">Copy</button>
+                            <pre><code id="starter-p-network-detective">ipconfig
+ping example.org
+tracert example.org
+nslookup example.org</code></pre>
+                        </div>
+                    </details>
+                    <div class="pj-actions"><a class="pj-btn pj-btn-primary" href="../Learning%20Networks/playground.html">📡 Open the Network Studio</a></div>
+                </article>
             </div>
-            <h2>3. Neighborhood Library &amp; Book Exchange Hub</h2>
-            <p style="color: var(--text-secondary); margin-top: 0.4rem;">
-                A complete dynamic web application for a local library. Features a responsive CSS Grid book catalog, interactive category filter tabs, search query input, and persistent user bookmarks saved in browser <code>localStorage</code>.
-            </p>
-            <div class="project-specs">
-                <div class="spec-item">
-                    <strong>Tech Stack</strong>
-                    <span>HTML5, CSS Grid, JavaScript ES6+</span>
-                </div>
-                <div class="spec-item">
-                    <strong>Key Skills</strong>
-                    <span>DOM manipulation, event delegation, LocalStorage state</span>
-                </div>
-                <div class="spec-item">
-                    <strong>Deliverable</strong>
-                    <span>Interactive web application with README</span>
-                </div>
-            </div>
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                <a href="../studios/web-studio/index.html" class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; background: var(--brand-primary);">Open in Web Studio ⚡</a>
-                <a href="../teacher-hub/index.html" class="btn-hero-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">Teacher Rubric 📋</a>
-            </div>
-        </div>
+        </section>
 
-        <!-- Project 4: Python Zakat & Community Pantry (Silver) -->
-        <div class="project-card" data-tier="silver">
-            <div class="project-top">
-                <div class="project-meta-row">
-                    <span class="tier-badge tier-silver">Silver Level</span>
-                    <span class="placement-badge badge-ai">Python 3 Data</span>
-                    <span style="font-size: 0.82rem; color: var(--text-muted);">Grade 8–9</span>
-                </div>
-                <span style="font-size: 0.85rem; color: #818cf8; font-weight: 700;">+250 XP</span>
-            </div>
-            <h2>4. Python Community Pantry &amp; Zakat Calculator</h2>
-            <p style="color: var(--text-secondary); margin-top: 0.4rem;">
-                Write an automated command-line Python application that reads item inventories from a CSV file, calculates category statistics using dictionaries and lists, and computes accurate 2.5% charitable zakat allocation reports.
-            </p>
-            <div class="project-specs">
-                <div class="spec-item">
-                    <strong>Tech Stack</strong>
-                    <span>Python 3, CSV module, modular functions</span>
-                </div>
-                <div class="spec-item">
-                    <strong>Key Skills</strong>
-                    <span>File I/O, dictionary data modeling, mathematical accuracy</span>
-                </div>
-                <div class="spec-item">
-                    <strong>Deliverable</strong>
-                    <span><code>pantry.py</code> script + sample CSV audit report</span>
-                </div>
-            </div>
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                <a href="../studios/python-console/index.html" class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; background: var(--brand-purple);">Open in Python Console 🐍</a>
-                <a href="../teacher-hub/index.html" class="btn-hero-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">Teacher Rubric 📋</a>
-            </div>
-        </div>
-
-        <!-- Project 5: Student Aid & Scholarship Portal (Gold) -->
-        <div class="project-card" data-tier="gold">
-            <div class="project-top">
-                <div class="project-meta-row">
-                    <span class="tier-badge tier-gold">Gold Level</span>
-                    <span class="placement-badge" style="background: rgba(239,68,68,0.15); color: #f87171;">Full-Stack Track</span>
-                    <span style="font-size: 0.82rem; color: var(--text-muted);">Grade 9–10</span>
-                </div>
-                <span style="font-size: 0.85rem; color: #facc15; font-weight: 700;">+400 XP</span>
-            </div>
-            <h2>5. Student Aid &amp; Scholarship Portal</h2>
-            <p style="color: var(--text-secondary); margin-top: 0.4rem;">
-                An enterprise-level full-stack web application built with PHP/Laravel and MySQL. Includes student authentication, application form submissions, relational database schemas, secure PDO prepared statements, and role-based staff review.
-            </p>
-            <div class="project-specs">
-                <div class="spec-item">
-                    <strong>Tech Stack</strong>
-                    <span>PHP 8, MySQL, Laravel 11, Blade, PDO</span>
-                </div>
-                <div class="spec-item">
-                    <strong>Key Skills</strong>
-                    <span>MVC architecture, database normalization, auth &amp; CSRF protection</span>
-                </div>
-                <div class="spec-item">
-                    <strong>Deliverable</strong>
-                    <span>Full-stack GitHub repository + database migration scripts</span>
-                </div>
-            </div>
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                <a href="../learn/web-dev/full-stack/index.html" class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; background: #ef4444;">Full-Stack Guide 🏗️</a>
-                <a href="../teacher-hub/index.html" class="btn-hero-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">Teacher Rubric 📋</a>
-            </div>
-        </div>
-
-        <!-- Project 6: Security Audit & Hardening Lab (Gold) -->
-        <div class="project-card" data-tier="gold">
-            <div class="project-top">
-                <div class="project-meta-row">
-                    <span class="tier-badge tier-gold">Gold Level</span>
-                    <span class="placement-badge" style="background: rgba(16,185,129,0.15); color: #10b981;">Cybersecurity</span>
-                    <span style="font-size: 0.82rem; color: var(--text-muted);">Grade 9–10</span>
-                </div>
-                <span style="font-size: 0.85rem; color: #facc15; font-weight: 700;">+400 XP</span>
-            </div>
-            <h2>6. Web Application Hardening &amp; Threat Audit</h2>
-            <p style="color: var(--text-secondary); margin-top: 0.4rem;">
-                Take an intentionally vulnerable charity donation web app and eliminate all critical vulnerabilities: convert SQL concatenations into PDO prepared statements, implement contextual output encoding, inject CSP and HSTS headers, and configure cookie flags.
-            </p>
-            <div class="project-specs">
-                <div class="spec-item">
-                    <strong>Tech Stack</strong>
-                    <span>PHP, MySQL, HTTP Headers, Argon2id</span>
-                </div>
-                <div class="spec-item">
-                    <strong>Key Skills</strong>
-                    <span>OWASP Top 10 remediation, defense-in-depth, security auditing</span>
-                </div>
-                <div class="spec-item">
-                    <strong>Deliverable</strong>
-                    <span>Hardened source code + formal threat remediation audit</span>
-                </div>
-            </div>
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
-                <a href="../Learning Cybersecurity/playground.html" class="btn-hero-primary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem; background: var(--brand-accent);">Open Defense Studio 🧪</a>
-                <a href="../teacher-hub/index.html" class="btn-hero-secondary" style="padding: 0.5rem 1.1rem; font-size: 0.85rem;">Teacher Rubric 📋</a>
-            </div>
-        </div>
+        <section class="pj-teachers" aria-labelledby="pj-teachers-h">
+            <h2 id="pj-teachers-h">🍎 For teachers</h2>
+            <ul>
+                <li>Every brief lists its prerequisite lessons, so you can set a project straight after a unit.</li>
+                <li>The rubric is the same shape for every project: four rows, 0–3 marks each, 12 in total.</li>
+                <li>Students' ticks are saved only on their own device; there are no accounts. Ask for a screenshot, a file or a link as evidence.</li>
+                <li>Print a brief from your browser (Ctrl+P) to hand out on paper. Lesson plans are in the <a href="../teacher-hub/index.html">Teacher Hub</a>.</li>
+            </ul>
+        </section>
     </main>
+    <script type="application/json" id="projectStarters">{"p-about-me": {"title": "About Me Page", "level": "Bronze project", "instructions": "Make a one-page profile about your interests, the books you like and a goal for this school year. Tick the steps on the Projects page as you go.", "html": "<h1>About Me<\/h1>\n\n<h2>What I enjoy learning<\/h2>\n<p>Write two or three sentences here.<\/p>\n\n<h2>My hobbies<\/h2>\n<ul>\n  <li>Hobby one<\/li>\n  <!-- Add two more hobbies -->\n<\/ul>\n\n<h2>My top three books<\/h2>\n<!-- Use an ordered list here -->\n\n<h2>My study plan<\/h2>\n<!-- Make a table: Day | Subject -->\n\n<h2>A website I learn from<\/h2>\n<!-- Add a link with clear link text -->\n", "css": "", "js": "", "sourceUrl": "../../projects/index.html#p-about-me", "sourceTitle": "Project brief"}, "p-food-pantry": {"title": "Community Food Pantry Page", "level": "Bronze project", "instructions": "Build a friendly page for a neighbourhood food pantry: when it is open, what it needs, and a form to pledge help. Tick the steps on the Projects page as you go.", "html": "<header>\n  <h1>Green Valley Food Pantry<\/h1>\n  <p>Sharing food with our neighbours every week.<\/p>\n<\/header>\n\n<main class=\"cards\">\n  <section class=\"card\">\n    <h2>Opening hours<\/h2>\n    <!-- Table: Day | Time -->\n  <\/section>\n\n  <section class=\"card\">\n    <h2>Most needed this week<\/h2>\n    <!-- List of items -->\n  <\/section>\n\n  <section class=\"card\">\n    <h2>Pledge to help<\/h2>\n    <form>\n      <label for=\"name\">Your name<\/label>\n      <input type=\"text\" id=\"name\" name=\"name\">\n      <!-- Add: what you will bring, and a submit button -->\n    <\/form>\n  <\/section>\n<\/main>\n", "css": "body {\n  font-family: Arial, sans-serif;\n  margin: 0;\n  padding: 1rem;\n  background: #f4f7f2;\n  color: #1f2d1f;\n}\n\n/* TODO: style .card with padding, a border and rounded corners */\n\n/* TODO: make .cards a flex row that wraps */\n", "js": "", "sourceUrl": "../../projects/index.html#p-food-pantry", "sourceTitle": "Project brief"}, "p-calculator": {"title": "Class Calculator", "level": "Silver project", "instructions": "Make a calculator for two numbers with add, subtract, multiply and divide buttons, and a kind warning when someone divides by zero. Tick the steps on the Projects page as you go.", "html": "<h1>Class Calculator<\/h1>\n\n<label for=\"first\">First number<\/label>\n<input type=\"number\" id=\"first\">\n\n<label for=\"second\">Second number<\/label>\n<input type=\"number\" id=\"second\">\n\n<div class=\"buttons\">\n  <button id=\"add\">+<\/button>\n  <button id=\"subtract\">−<\/button>\n  <button id=\"multiply\">×<\/button>\n  <button id=\"divide\">÷<\/button>\n<\/div>\n\n<p>Answer: <strong id=\"answer\">?<\/strong><\/p>\n", "css": "body { font-family: Arial, sans-serif; padding: 1rem; }\nlabel, input { display: block; margin-bottom: 0.5rem; }\n/* TODO: make the buttons at least 44px tall */\n", "js": "function calculate(a, b, operation) {\n  // TODO: return a + b, a - b, a * b or a / b\n}\n\nfunction show(operation) {\n  const a = Number(document.getElementById(\"first\").value);\n  const b = Number(document.getElementById(\"second\").value);\n  // TODO: if dividing by zero, show a kind warning instead\n  document.getElementById(\"answer\").textContent = calculate(a, b, operation);\n}\n\ndocument.getElementById(\"add\").addEventListener(\"click\", function () { show(\"add\"); });\n// TODO: do the same for subtract, multiply and divide\n", "sourceUrl": "../../projects/index.html#p-calculator", "sourceTitle": "Project brief"}, "p-science-quiz": {"title": "Science Quiz", "level": "Silver project", "instructions": "Build a five-question science quiz that shows one question at a time, checks each answer and gives a kind message at the end. Tick the steps on the Projects page as you go.", "html": "<h1>Science Quiz<\/h1>\n<p id=\"question\">Question appears here<\/p>\n<div id=\"choices\">\n  <button id=\"choice0\"><\/button>\n  <button id=\"choice1\"><\/button>\n  <button id=\"choice2\"><\/button>\n<\/div>\n<p id=\"feedback\"><\/p>\n<button id=\"next\">Next<\/button>\n<p>Score: <span id=\"score\">0<\/span><\/p>\n", "css": "body { font-family: Arial, sans-serif; padding: 1rem; }\n#choices button { display: block; margin: 0.4rem 0; min-height: 44px; }\n", "js": "const questions = [\n  { question: \"Which planet is closest to the Sun?\", choices: [\"Mercury\", \"Venus\", \"Mars\"], answer: \"Mercury\" },\n  // TODO: add four more questions\n];\n\nlet current = 0;\nlet score = 0;\n\nfunction showQuestion() {\n  const q = questions[current];\n  document.getElementById(\"question\").textContent = q.question;\n  document.getElementById(\"choice0\").textContent = q.choices[0];\n  // TODO: fill choice1 and choice2, then check the answer when a choice is clicked\n}\n\nshowQuestion();\n", "sourceUrl": "../../projects/index.html#p-science-quiz", "sourceTitle": "Project brief"}, "p-library": {"title": "School Library Catalogue", "level": "Silver project", "instructions": "Show the school library's books as cards in a grid, with a search box and buttons to filter by subject. Tick the steps on the Projects page as you go.", "html": "<h1>School Library<\/h1>\n<label for=\"search\">Search by title<\/label>\n<input type=\"search\" id=\"search\">\n<div class=\"filters\">\n  <button data-subject=\"All\">All<\/button>\n  <button data-subject=\"Science\">Science<\/button>\n  <!-- Add History and Stories -->\n<\/div>\n<div id=\"books\" class=\"grid\"><\/div>\n", "css": "body { font-family: Arial, sans-serif; padding: 1rem; }\n/* TODO: make .grid a CSS grid with repeat(auto-fill, minmax(160px, 1fr)) */\n.card { border: 1px solid #ccc; border-radius: 8px; padding: 0.75rem; }\n", "js": "const books = [\n  { title: \"The Secret Garden\", author: \"F. H. Burnett\", subject: \"Stories\", available: true },\n  { title: \"Our Solar System\", author: \"Science Club\", subject: \"Science\", available: false },\n  // TODO: add six more books\n];\n\nfunction showBooks(list) {\n  let cards = \"\";\n  for (let i = 0; i < list.length; i++) {\n    cards += `<div class=\"card\"><strong>${list[i].title}<\/strong><br>${list[i].author}<\/div>`;\n  }\n  // innerHTML is fine here because the book list is ours.\n  // Anything a visitor types must go on the page with textContent.\n  document.getElementById(\"books\").innerHTML = cards;\n}\n\nshowBooks(books);\n// TODO: search box and subject buttons\n", "sourceUrl": "../../projects/index.html#p-library", "sourceTitle": "Project brief"}}</script>
 
     <!-- Project Filtering Script -->
     <script>
-        function filterProjects(tier, btn) {
-            document.querySelectorAll('#projectPills .filter-pill').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    // Projects page: tier filter, step ticks saved on this device (jc_project_progress), starter code
+    (function () {
+        var KEY = 'jc_project_progress';
+        var saved = {};
+        try { saved = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch (e) { saved = {}; }
+        var store = function () { try { localStorage.setItem(KEY, JSON.stringify(saved)); } catch (e) { /* storage blocked */ } };
 
-            const cards = document.querySelectorAll('.project-card');
-            cards.forEach(card => {
-                if (tier === 'all' || card.getAttribute('data-tier') === tier) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
+        // Step ticks and progress bars
+        document.querySelectorAll('.pj-card').forEach(function (card) {
+            var id = card.id;
+            var boxes = Array.prototype.slice.call(card.querySelectorAll('.pj-step'));
+            var bar = card.querySelector('.pj-progress span');
+            var label = card.querySelector('.pj-progress-text');
+            function update() {
+                var done = boxes.filter(function (b) { return b.checked; }).length;
+                bar.style.width = Math.round(done / boxes.length * 100) + '%';
+                label.textContent = done === 0 ? 'Not started yet'
+                    : done === boxes.length ? 'All ' + done + ' steps done. Mark yourself with the rubric, then show your teacher!'
+                    : done + ' of ' + boxes.length + ' steps done';
+            }
+            // Phones: keep the step list folded until the student has started this project
+            var started = saved[id] && saved[id].some(Boolean);
+            if (window.innerWidth <= 640 && !started) card.querySelector('.pj-more').open = false;
+            boxes.forEach(function (b, i) {
+                b.checked = !!(saved[id] && saved[id][i]);
+                b.addEventListener('change', function () {
+                    saved[id] = boxes.map(function (x) { return x.checked; });
+                    store(); update();
+                });
             });
-        }
+            update();
+        });
+
+        // Tier filter
+        document.querySelectorAll('.pj-chip').forEach(function (chip) {
+            chip.addEventListener('click', function () {
+                var f = chip.getAttribute('data-filter');
+                document.querySelectorAll('.pj-chip').forEach(function (c) {
+                    var on = c === chip; c.classList.toggle('active', on); c.setAttribute('aria-pressed', on ? 'true' : 'false');
+                });
+                document.querySelectorAll('.pj-group').forEach(function (g) {
+                    g.hidden = f !== 'all' && g.getAttribute('data-tier-group') !== f;
+                });
+            });
+        });
+
+        // Start in Web Studio with the project's starter code (js/playground.js reads 'pendingExercise')
+        var starters = {};
+        try { starters = JSON.parse(document.getElementById('projectStarters').textContent); } catch (e) { starters = {}; }
+        document.querySelectorAll('.pj-start-web').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var data = starters[btn.getAttribute('data-project')];
+                try { if (data) localStorage.setItem('pendingExercise', JSON.stringify(data)); } catch (e) { /* opens with the default template */ }
+                window.location.href = '../studios/web-studio/index.html';
+            });
+        });
+
+        // Copy starter code
+        document.querySelectorAll('.pj-copy').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var code = document.getElementById('starter-' + btn.getAttribute('data-copy')).textContent;
+                var done = function () { btn.textContent = 'Copied ✓'; setTimeout(function () { btn.textContent = 'Copy'; }, 1500); };
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(code).then(done, function () { btn.textContent = 'Select and copy'; });
+                } else { btn.textContent = 'Select and copy'; }
+            });
+        });
+    })();
     </script>
 
     <!-- Footer -->

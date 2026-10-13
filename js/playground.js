@@ -138,6 +138,8 @@
                     if (htmlCode) masterHtml.value = htmlCode;
                     if (cssCode) masterCss.value = cssCode;
                     if (jsCode && masterJs) masterJs.value = jsCode;
+                    // The preview was drawn before this code arrived: draw it again
+                    if (window.refreshStudioPreview) window.refreshStudioPreview();
 
                     // Tab switching
                     if (exercise.type === 'css' || (!htmlCode && cssCode)) {
