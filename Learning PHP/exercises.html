@@ -186,6 +186,15 @@
             }
         });
 
+        // Tab in a code box inserts 4 spaces instead of leaving the box
+        list.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab' && !e.shiftKey && e.target.classList.contains('phpx-editor')) {
+                e.preventDefault();
+                const t = e.target, s = t.selectionStart;
+                t.setRangeText('    ', s, t.selectionEnd, 'end');
+            }
+        });
+
         const engineEl = document.getElementById('phpxEngine');
         PHPLab.ready().then(() => {
             engineOk = true;

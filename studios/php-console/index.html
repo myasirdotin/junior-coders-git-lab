@@ -115,11 +115,22 @@ foreach ($books as $i => $title) {
             } catch (err) {
                 output.className = 'php-output err';
                 output.textContent = err.message;
+            } finally {
+                runBtn.disabled = false;
             }
-            runBtn.disabled = false;
         }
         runBtn.addEventListener('click', runPhp);
-        input.addEventListener('keydown', (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); runPhp(); } });
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab' && !e.shiftKey) {
+                e.preventDefault();
+                const s = input.selectionStart;
+                input.setRangeText('    ', s, input.selectionEnd, 'end');
+                input.dispatchEvent(new Event('input'));
+            } else if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                e.preventDefault();
+                runPhp();
+            }
+        });
 
         PHPLab.ready().then(() => {
             status.textContent = '✅ PHP ' + PHPLab.version + ' ready';

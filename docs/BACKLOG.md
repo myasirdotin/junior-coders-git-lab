@@ -8,7 +8,7 @@ _Last updated: 2026-10-13 (Android book added)._
 
 ## 🔧 Now (in progress)
 
-- Nothing in progress. Last completed: the textbook overhaul (all five steps, all 11 books).
+- Nothing in progress. Last completed: JS modules 4–6 practice textareas starter code fix and Studio editor Tab indentation & shortcut support.
 
 ## ⏭️ Next (agreed order)
 
@@ -18,7 +18,6 @@ _Last updated: 2026-10-13 (Android book added)._
 3. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
    a teacher can import.
 4. **Leftover content gaps** found in the review:
-   - JS modules 4–6: the practice textareas already contain the full solutions.
    - Python module 7 was not deepened (modules 1–6 and 8 were).
    - Networks module title cards still set old inline "Level" badge colours.
    - `tips.html` and `best-practices.html` overlap in the HTML, CSS and JS tracks.
@@ -35,6 +34,9 @@ _Last updated: 2026-10-13 (Android book added)._
 
 ## ✅ Done (most recent first)
 
+- 2026-10-15 Editor ergonomics & JS practice fixes:
+  - JS modules 4, 5, and 6 drills & challenges no longer leak complete answers in the starter textareas; proper starter comments and templates provided.
+  - In-browser code editors updated with Tab key indentation (`setRangeText`) and `Ctrl+Enter` execution across Python Console (`studios/python-console/`), PHP Console (`studios/php-console/`), SQL Sandbox (`studios/sql-sandbox/`), Learning PHP exercises (`Learning PHP/exercises.html`), and Learning MySQL exercises (`Learning MySQL/exercises.html`).
 - 2026-10-13 Textbook chapter sidebar redesigned (all 12 books): one compact top row (Home, All textbooks, close),
   one book block (40px icon, title, grade, chapter count), filter pills on one sideways-scrolling row on phones (wrap
   on desktop), chapter rows with number, title and reading time (same minutes as the reader badge), clear current

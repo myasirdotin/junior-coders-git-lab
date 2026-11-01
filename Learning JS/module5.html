@@ -267,8 +267,8 @@ console.log("Total items:", fruits.length);</textarea>
                             <div class="eval-editor-area">
                                 <textarea class="eval-code-input" spellcheck="false" style="min-height: 140px;">let library = ["Quran Stories", "Science Almanac", "Math Atlas"];
 
-// Your code here: print the first book to the console!
-console.log(library[0]);</textarea>
+// Your code here: print the first book (index 0) to the console:
+</textarea>
                             </div>
                             <div class="eval-results-container" style="display: none;">
                                 <div class="eval-summary-header">
@@ -298,9 +298,7 @@ console.log(library[0]);</textarea>
                             <div class="eval-editor-area">
                                 <textarea class="eval-code-input" spellcheck="false" style="min-height: 140px;">let supplies = ["Pencil", "Notebook"];
 
-// Your code here: push "Ruler" and "Eraser"!
-supplies.push("Ruler");
-supplies.push("Eraser");
+// Your code here: push "Ruler" and "Eraser" to supplies:
 
 console.log(supplies);</textarea>
                             </div>
@@ -332,8 +330,8 @@ console.log(supplies);</textarea>
                             <div class="eval-editor-area">
                                 <textarea class="eval-code-input" spellcheck="false" style="min-height: 140px;">let boxes = ["Box A", "Box B", "Box C", "Damaged Box"];
 
-// Your code here: remove the last damaged box!
-boxes.pop();
+// Your code here: remove the last damaged box using .pop()!
+
 console.log("Remaining boxes:", boxes.length);</textarea>
                             </div>
                             <div class="eval-results-container" style="display: none;">
@@ -386,15 +384,15 @@ console.log("Remaining boxes:", boxes.length);</textarea>
                 </div>
 
                 <div class="eval-editor-area">
-                    <textarea class="eval-code-input" spellcheck="false">// 1. Create an array called 'students' with 5 names
-let students = ["Ali", "Sara", "Zayd", "Fatima", "Bilal"];
+                    <textarea class="eval-code-input" spellcheck="false">// 1. Create an array called 'students' with 5 names:
 
-// 2. Add a 6th student to the end of the list using .push()
-students.push("Maryam");
+
+// 2. Add a 6th student to the end of the list using .push():
+
 
 // 3. Inspect the roster in the console
-console.log("Total students enrolled:", students.length);
-console.log("Student roster:", students);</textarea>
+console.log("Total students enrolled:", typeof students !== "undefined" && students.length);
+console.log("Student roster:", typeof students !== "undefined" ? students : "not defined yet");</textarea>
                 </div>
 
                 <!-- Progressive Multi-Tier Hints -->

@@ -262,7 +262,17 @@ ORDER BY gpa DESC;</textarea>
 
         sqlPresets.addEventListener('change', () => { sqlInput.value = presets[sqlPresets.value]; executeQuery(); });
         runBtn.addEventListener('click', executeQuery);
-        sqlInput.addEventListener('keydown', (e) => { if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); executeQuery(); } });
+        sqlInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab' && !e.shiftKey) {
+                e.preventDefault();
+                const s = sqlInput.selectionStart;
+                sqlInput.setRangeText('  ', s, sqlInput.selectionEnd, 'end');
+                sqlInput.dispatchEvent(new Event('input'));
+            } else if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                e.preventDefault();
+                executeQuery();
+            }
+        });
         document.getElementById('resetDbBtn').addEventListener('click', () => { SQLLab.reset(); renderSchema(); resultCount.innerText = 'Database reset to the original data'; tableOutput.innerHTML = ''; });
 
         runBtn.disabled = true;

@@ -328,6 +328,19 @@ for word, count in counts.items():
             appendOutput('\n[Finished in offline execution]');
         }
 
+        // Tab indentation (4 spaces) and Ctrl+Enter execution
+        editorEl.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab' && !e.shiftKey) {
+                e.preventDefault();
+                const s = editorEl.selectionStart;
+                editorEl.setRangeText('    ', s, editorEl.selectionEnd, 'end');
+                editorEl.dispatchEvent(new Event('input'));
+            } else if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                e.preventDefault();
+                runBtn.click();
+            }
+        });
+
         // Initialize engine in background
         loadPyodideEngine();
     </script>

@@ -181,6 +181,15 @@
             }
         });
 
+        // Tab in a SQL code box inserts 2 spaces instead of leaving the box
+        list.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab' && !e.shiftKey && e.target.classList.contains('sqlx-editor')) {
+                e.preventDefault();
+                const t = e.target, s = t.selectionStart;
+                t.setRangeText('  ', s, t.selectionEnd, 'end');
+            }
+        });
+
         const engineEl = document.getElementById('sqlxEngine');
         document.querySelectorAll('.sqlx-run').forEach(b => b.disabled = true);
         SQLLab.ready().then(() => {
