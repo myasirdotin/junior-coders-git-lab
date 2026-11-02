@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A carpentry student first learns each tool on its own: the saw, the drill, the ruler. Then the teacher says, "Now build a small bookshelf." Suddenly the tools work together. The student measures, cuts and joins, one step at a time. This chapter is your bookshelf moment. You already know the tools of JavaScript. Now you will build 21 small, complete programs with them.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Combine variables, conditions, loops, functions, arrays and objects in small, complete programs.
 - Read working starter code and predict what it prints before you run it.
@@ -635,7 +635,7 @@ Library2024: Medium
 GreenTreesAndRivers7: Strong
 ```
 
-> 🔐 **Amānah (trust):** a password is a secret someone trusts you with. A real app never prints it, never stores it as plain text and never shares it. Here we only test made-up examples.
+> **Amānah (trust):** a password is a secret someone trusts you with. A real app never prints it, never stores it as plain text and never shares it. Here we only test made-up examples.
 
 **Extend it:** add a point for a symbol such as `#` or `!`. Hint: a symbol is a character that is not a letter or a digit.
 
@@ -829,7 +829,7 @@ Halving is powerful. For any number from 1 to 100, this detective needs at most 
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Putting the running total inside the loop.** Many projects add numbers up (Projects 12 and 14). If the total is created inside the loop, it starts again at 0 every round.
 
@@ -873,15 +873,15 @@ Total so far: 162
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Pick **one** project above. Type its starter code into the browser console or the Web Studio, run it, and check that your output matches. Then do its **Extend it** task.
 
-> 💡 **Hint:** change one line, run, and check. If the output is wrong, add a `console.log()` to see what is inside each variable (Chapter 19).
+> **Hint:** change one line, run, and check. If the output is wrong, add a `console.log()` to see what is inside each variable (Chapter 19).
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Every project uses only ideas from earlier chapters: variables, conditions, loops, functions, arrays, strings and objects.
 - Start from working code, run it, then change one thing at a time.
@@ -891,9 +891,9 @@ Pick **one** project above. Type its starter code into the browser console or th
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Name three projects in this chapter that use the remainder operator `%`, and say what `%` does in each.
 
 <details>
@@ -907,7 +907,7 @@ Project 10 (Primes) also uses `%` to test for a divisor.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Extend Project 12. Print the classes that collected **40 books or more**.
 
 <details>
@@ -933,7 +933,7 @@ Class 7A collected 58 books.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a **Library Return Checker**. Library books may be kept for 14 days. There are no fines; the program only sends a friendly reminder.
 
 1. Make an array of objects. Each object has a `title` and `daysKept`.

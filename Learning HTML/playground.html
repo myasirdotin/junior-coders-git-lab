@@ -633,19 +633,19 @@
 
         <nav class="lab-nav-links">
             <a href="../book-html/index.html" class="lab-btn lab-btn-outline" title="Open official HTML Textbook">
-                <span>📖</span> <span>HTML Book</span>
+                <span></span> <span>HTML Book</span>
             </a>
             <a href="exercises.html" class="lab-btn lab-btn-outline" title="Practice HTML Challenges">
-                <span>🎯</span> <span>Exercises</span>
+                <span></span> <span>Exercises</span>
             </a>
             <a href="quiz.html" class="lab-btn lab-btn-outline" title="Take Master Quiz">
-                <span>🏆</span> <span>Quiz</span>
+                <span></span> <span>Quiz</span>
             </a>
             <a href="glossary.html" class="lab-btn lab-btn-outline" title="View Tag Glossary">
-                <span>📋</span> <span>Glossary</span>
+                <span></span> <span>Glossary</span>
             </a>
             <a href="../studios/web-studio/index.html" class="lab-btn lab-btn-primary" title="Integrated HTML + CSS + JS Studio">
-                <span>💻</span> <span>Web Studio</span>
+                <span></span> <span>Web Studio</span>
             </a>
         </nav>
     </header>
@@ -653,7 +653,7 @@
     <!-- Challenge Selector Toolbar -->
     <section class="challenge-toolbar">
         <div class="challenge-selector-group">
-            <label for="challengeSelect">🎯 Mission:</label>
+            <label for="challengeSelect">Mission:</label>
             <select id="challengeSelect" class="challenge-select" onchange="onSelectChallenge(this.value)">
                 <optgroup label="Part 1: Getting Started">
                     <option value="ch1">Ch 1: What is a Website? (Structure Inspection)</option>
@@ -687,23 +687,23 @@
                     <option value="ch17">Ch 18: Capstone: Final Website Masterpiece</option>
                 </optgroup>
                 <optgroup label="Freeform Sandbox">
-                    <option value="sandbox">🧪 Freeform Scratchpad (Blank Canvas)</option>
+                    <option value="sandbox">Freeform Scratchpad (Blank Canvas)</option>
                 </optgroup>
             </select>
         </div>
 
         <div class="toolbar-actions">
             <a id="review-book-btn" href="../book-html/index.html#ch3" class="lab-btn lab-btn-outline" target="_blank" title="Read corresponding chapter theory in textbook">
-                <span>📖</span> <span>Read in Book</span>
+                <span></span> <span>Read in Book</span>
             </a>
             <button type="button" class="lab-btn lab-btn-outline" onclick="openModal('hintModal')" title="Get a hint for this challenge">
-                <span>💡</span> <span>Hint</span>
+                <span></span> <span>Hint</span>
             </button>
             <button type="button" class="lab-btn lab-btn-outline" onclick="openModal('solutionModal')" title="Inspect model solution">
-                <span>📝</span> <span>Solution</span>
+                <span></span> <span>Solution</span>
             </button>
             <button type="button" class="lab-btn lab-btn-outline" onclick="resetActiveChallenge()" title="Reset to starter code">
-                <span>🔄</span> <span>Reset</span>
+                <span></span> <span>Reset</span>
             </button>
         </div>
     </section>
@@ -719,8 +719,8 @@
 
     <!-- Quick Tag Ribbon -->
     <section class="tag-ribbon-bar">
-        <span class="tag-ribbon-label">🏷️ Quick Tags:</span>
-        <button type="button" class="tag-btn tag-btn-special" onclick="insertTagTemplate('boilerplate')" title="Insert full HTML5 Starter Skeleton">⚡ Boilerplate</button>
+        <span class="tag-ribbon-label">Quick Tags:</span>
+        <button type="button" class="tag-btn tag-btn-special" onclick="insertTagTemplate('boilerplate')" title="Insert full HTML5 Starter Skeleton">Boilerplate</button>
         <button type="button" class="tag-btn" onclick="wrapTag('h1')" title="Insert Top-Level Heading <h1>">&lt;h1&gt;</button>
         <button type="button" class="tag-btn" onclick="wrapTag('h2')" title="Insert Subheading <h2>">&lt;h2&gt;</button>
         <button type="button" class="tag-btn" onclick="wrapTag('p')" title="Insert Paragraph <p>">&lt;p&gt;</button>
@@ -741,13 +741,13 @@
         <section class="editor-section">
             <div class="editor-header-bar">
                 <span class="editor-tab-pill">
-                    <span>📄</span> <span>index.html</span>
+                    <span></span> <span>index.html</span>
                 </span>
                 <div class="editor-quick-tools">
-                    <button type="button" class="editor-mini-btn" onclick="formatHTML()" title="Format and auto-indent HTML code">🧹 Format</button>
-                    <button type="button" class="editor-mini-btn" onclick="copyCode()" title="Copy code to clipboard">📋 Copy</button>
-                    <button type="button" class="editor-mini-btn" onclick="downloadHTML()" title="Download file to computer">💾 Download</button>
-                    <button type="button" class="editor-mini-btn" onclick="clearEditor()" title="Clear editor content">🗑️ Clear</button>
+                    <button type="button" class="editor-mini-btn" onclick="formatHTML()" title="Format and auto-indent HTML code">Format</button>
+                    <button type="button" class="editor-mini-btn" onclick="copyCode()" title="Copy code to clipboard">Copy</button>
+                    <button type="button" class="editor-mini-btn" onclick="downloadHTML()" title="Download file to computer">Download</button>
+                    <button type="button" class="editor-mini-btn" onclick="clearEditor()" title="Clear editor content">Clear</button>
                 </div>
             </div>
 
@@ -757,7 +757,7 @@
 
             <div class="editor-status-bar">
                 <div id="htmlDoctor" class="html-doctor-pill">
-                    <span>🩺</span> <span id="doctorMsg">HTML Healthy: All tags closed</span>
+                    <span></span> <span id="doctorMsg">HTML Healthy: All tags closed</span>
                 </div>
                 <div style="display: flex; gap: 1rem;">
                     <span id="lineColStatus">Lines: 1 | Chars: 0</span>
@@ -770,16 +770,16 @@
         <section class="preview-section">
             <div class="preview-header">
                 <div class="viewport-controls">
-                    <button type="button" class="viewport-btn active" onclick="setViewport('100%', this)">💻 Desktop</button>
-                    <button type="button" class="viewport-btn" onclick="setViewport('768px', this)">📟 Tablet</button>
-                    <button type="button" class="viewport-btn" onclick="setViewport('375px', this)">📱 Mobile</button>
+                    <button type="button" class="viewport-btn active" onclick="setViewport('100%', this)">Desktop</button>
+                    <button type="button" class="viewport-btn" onclick="setViewport('768px', this)">Tablet</button>
+                    <button type="button" class="viewport-btn" onclick="setViewport('375px', this)">Mobile</button>
                 </div>
                 <div style="display: flex; gap: 0.4rem;">
                     <button type="button" class="lab-btn lab-btn-outline" style="padding: 0.25rem 0.6rem;" onclick="openFullscreenPreview()" title="View in Fullscreen Mode">
                         <span>⛶</span> Fullscreen
                     </button>
                     <button type="button" class="lab-btn lab-btn-outline" style="padding: 0.25rem 0.6rem;" onclick="refreshPreview()" title="Refresh live preview">
-                        <span>🔄</span> Refresh
+                        <span></span> Refresh
                     </button>
                 </div>
             </div>
@@ -796,7 +796,7 @@
     <div class="modal-overlay" id="hintModal">
         <div class="modal-card">
             <div class="modal-header">
-                <h3>💡 Challenge Hint</h3>
+                <h3>Challenge Hint</h3>
                 <button type="button" class="modal-close" onclick="closeModal('hintModal')">✕</button>
             </div>
             <div class="modal-body" id="hintModalContent">
@@ -809,7 +809,7 @@
     <div class="modal-overlay" id="solutionModal">
         <div class="modal-card">
             <div class="modal-header">
-                <h3>📝 Challenge Solution</h3>
+                <h3>Challenge Solution</h3>
                 <button type="button" class="modal-close" onclick="closeModal('solutionModal')">✕</button>
             </div>
             <div class="modal-body">
@@ -838,7 +838,7 @@
 
     <!-- Toast Notification -->
     <div id="labToast" class="lab-toast">
-        <span id="toastIcon">📋</span>
+        <span id="toastIcon"></span>
         <span id="toastMsg">Code copied to clipboard!</span>
     </div>
 

@@ -1,10 +1,10 @@
 # Chapter 21: CSRF Protection
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The library only accepts official request slips that carry the librarian's **secret stamp**. One day, a slip appears in the tray: "Remove all science books from the register." It looks real, but it has no stamp. Someone else wrote it and slipped it in. The librarian refuses it, and the books stay safe. Laravel stamps every form it makes with a secret **token**, and refuses any form that arrives without the right one. That protection is called **CSRF protection**.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a **CSRF attack** is, in plain words.
 - Describe how Laravel's CSRF token stops it.
@@ -158,7 +158,7 @@ CSRF protection checks **where a request came from**. It does not:
 
 Laravel gives you each tool. A safe app uses all of them.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **"Fixing" a 419 error by turning protection off.**
 
@@ -175,13 +175,13 @@ The error disappears, and so does the protection for every form. Fix the real ca
 
 **Putting `@csrf` outside the form.** If `@csrf` sits above `<form>`, the hidden input is not part of the form, and the token is not sent. Put it **inside**, just after the opening tag.
 
-## ✍️ Try It
+## Try It
 
 Open your "Add a Book" page and view the source. Find the `_token` input. Then remove `@csrf`, submit the form, and see the 419 page. Put `@csrf` back.
 
 *Hint:* in most browsers, **Ctrl+U** opens the page source.
 
-## 📝 Recap
+## Recap
 
 - CSRF is a forged request from another site that uses a logged-in user's cookie.
 - Laravel puts a secret token in each form and checks it on POST, PUT, PATCH and DELETE.
@@ -189,9 +189,9 @@ Open your "Add a Book" page and view the source. Find the `_token` input. Then r
 - JavaScript sends the token in the `X-CSRF-TOKEN` header.
 - GET must never change data; logout is a POST form with `@csrf`.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does CSRF stand for, and what HTTP code does Laravel show when the token is missing?
 
 <details>
@@ -201,7 +201,7 @@ Cross-Site Request Forgery. Laravel shows **419 Page Expired**.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A classmate writes this logout link. Explain the problem and rewrite it.
 
 ```blade
@@ -222,7 +222,7 @@ A link sends GET, which has no CSRF check, so any website could log users out wi
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Audit your library app for CSRF safety.
 
 1. List every form in your views and check each has `@csrf` inside it.

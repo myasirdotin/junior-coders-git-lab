@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 On a library slip, the librarian does not write out Zayd's full name, class, teacher and city every time he borrows a book. She writes his **student number** and the **book number**. Anyone can look those numbers up in the student register and the book catalogue. But imagine a slip with student number 99, when no student 99 exists. That slip points nowhere. A foreign key is the rule that stops such slips from ever being written.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Spot the problems caused by repeating data in one table.
 - Explain parent tables, child tables and foreign keys.
@@ -168,7 +168,7 @@ Zayd still has loans. Deleting him would leave loans pointing nowhere.
 
 But `DELETE FROM students WHERE id = 7;` **works**, because Hamza has no loans. Nothing would be left pointing at him.
 
-> 🧪 **Sandbox note:** SQLite only checks foreign keys after `PRAGMA foreign_keys = ON;`, and the sandbox's tables have no foreign keys declared. So these errors only appear in MySQL.
+> **Sandbox note:** SQLite only checks foreign keys after `PRAGMA foreign_keys = ON;`, and the sandbox's tables have no foreign keys declared. So these errors only appear in MySQL.
 
 ---
 
@@ -203,7 +203,7 @@ There is also `ON UPDATE CASCADE`: if a parent's id changes, the children's link
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: making the child table first.**
 
@@ -218,7 +218,7 @@ What happens: `ERROR 1005 ... errno: 150 "Foreign key constraint is incorrectly 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In phpMyAdmin, on your own `school_db`:
 
@@ -230,7 +230,7 @@ In phpMyAdmin, on your own `school_db`:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Repeating data causes waste and update and delete problems.
 - Split data into tables and link them with ids (normalization).
@@ -240,9 +240,9 @@ In phpMyAdmin, on your own `school_db`:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is a foreign key?
 2. Which must be created first: the parent or the child table?
 3. Name one benefit of splitting data into linked tables.
@@ -256,7 +256,7 @@ In phpMyAdmin, on your own `school_db`:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A `book_reviews` table records short reviews students write for the library. It has `id`, `book_id`, `student_id`, `review` (up to 300 characters) and `written_on`. Write its `CREATE TABLE` with **both** foreign keys.
 
 <details>
@@ -278,7 +278,7 @@ CREATE TABLE book_reviews (
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 With the foreign keys from this chapter in place (default `RESTRICT`):
 
 1. Predict what happens with `DELETE FROM classes WHERE id = 3;` and explain why.

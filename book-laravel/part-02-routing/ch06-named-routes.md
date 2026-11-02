@@ -1,10 +1,10 @@
 # Chapter 6: Named Routes
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Your school library moves from the first floor to a new building. If every poster in school says "Library: Room 104", someone must find and fix every single poster. But if the posters just say "Library", and only the front office map shows the room number, you change one map and you are done. **Named routes** are like that. Your pages say "the books page", and only one line says where it lives.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Give a route a name with `->name()`.
 - Build URLs from route names with the `route()` helper.
@@ -141,7 +141,7 @@ Output (spacing depends on your window):
 
 The name appears on the right. The `--name` option shows only routes whose name contains `books`.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Using a name that does not exist.**
 
@@ -159,13 +159,13 @@ return route('books.show');   // which book?
 
 What happens: `Missing required parameter for [Route: books.show] [URI: books/{id}] [Missing parameter: id].` Pass the value: `route('books.show', ['id' => 42])`.
 
-## ✍️ Try It
+## Try It
 
 Name your `/about` and `/rules` routes `about` and `rules`. Then add a route `/links` that returns both URLs joined with a space.
 
 *Hint:* `return route('about') . ' ' . route('rules');`
 
-## 📝 Recap
+## Recap
 
 - `->name('books.index')` gives a route a name.
 - `route('name')` builds the URL; pass parameters as a second argument.
@@ -173,9 +173,9 @@ Name your `/about` and `/rules` routes `about` and `rules`. Then add a route `/l
 - Names keep links working when URLs change.
 - `Route::prefix()->name()->group()` shares a URL start and name start.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does `route('books.show', ['id' => 5])` return while `php artisan serve` is running, if the route is `/books/{id}`?
 
 <details>
@@ -185,7 +185,7 @@ What does `route('books.show', ['id' => 5])` return while `php artisan serve` is
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a route `/members/{id}` named `members.show`, and a Blade link to member 12.
 
 <details>
@@ -204,7 +204,7 @@ Route::get('/members/{id}', function ($id) {
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build the librarian area with a group.
 
 1. Use the prefix `librarian` and the name prefix `librarian.`.

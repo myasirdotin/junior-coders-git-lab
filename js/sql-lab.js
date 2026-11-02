@@ -15,11 +15,11 @@
     const SQLJS_BASE = 'https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/';
 
     const SCHEMA = [
-        { table: 'classes',   icon: '🏫', columns: 'id INT, name TEXT, teacher TEXT' },
-        { table: 'students',  icon: '🎓', columns: 'id INT, name TEXT, grade INT, gpa REAL, class_id INT, city TEXT' },
-        { table: 'books',     icon: '📖', columns: 'id INT, title TEXT, category TEXT, pages INT, available TEXT' },
-        { table: 'loans',     icon: '🔗', columns: 'id INT, student_id INT, book_id INT, loan_date TEXT, returned TEXT' },
-        { table: 'donations', icon: '🤲', columns: 'id INT, donor TEXT, amount INT, cause TEXT, donated_on TEXT' }
+        { table: 'classes',   icon: '', columns: 'id INT, name TEXT, teacher TEXT' },
+        { table: 'students',  icon: '', columns: 'id INT, name TEXT, grade INT, gpa REAL, class_id INT, city TEXT' },
+        { table: 'books',     icon: '', columns: 'id INT, title TEXT, category TEXT, pages INT, available TEXT' },
+        { table: 'loans',     icon: '', columns: 'id INT, student_id INT, book_id INT, loan_date TEXT, returned TEXT' },
+        { table: 'donations', icon: '', columns: 'id INT, donor TEXT, amount INT, cause TEXT, donated_on TEXT' }
     ];
 
     const SEED = `

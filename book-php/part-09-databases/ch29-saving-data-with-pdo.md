@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The school library keeps a lending register. When Aisha borrows a book, the librarian does two things: writes the loan in the register and takes the book off the shelf. Doing only one of them would cause trouble. A book missing with no record, or a record for a book still on the shelf. A careful librarian also checks every slip before writing in pen, because ink is hard to remove. Saving data in a database needs the same care: check first, write safely, and finish every job completely or not at all.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Save a new row from a form with `INSERT` and **named placeholders** such as `:title`.
 - Get the new row's number with `lastInsertId()`, and count changed rows with `rowCount()`.
@@ -253,7 +253,7 @@ Two safety rules for deleting:
 
 This section shows a **dangerous** example so that you can recognise it. Never use it in a real page.
 
-❌ **BAD CODE (do not copy):** a donor search that glues the visitor's text into the SQL.
+**BAD CODE (do not copy):** a donor search that glues the visitor's text into the SQL.
 
 ```php
 <?php
@@ -282,7 +282,7 @@ Found 8 donations
 
 Look at the SQL that was built. The attacker's quote mark **closed** our string early. Their `OR '1'='1'` became part of the **command**. `'1'='1'` is always true, so the database returned every donor's private record. With other inputs an attacker could read other tables, such as user accounts. This is **SQL injection**, one of the most common attacks on websites.
 
-✅ **SAFE CODE:** the same search with a placeholder.
+**SAFE CODE:** the same search with a placeholder.
 
 ```php
 <?php
@@ -415,7 +415,7 @@ The `UPDATE` did run, but `rollBack()` undid it. The register and the shelf stil
 
 ---
 
-## 🤝 Amānah: Stored Data Is a Trust
+## Amānah: Stored Data Is a Trust
 
 Every row you save belongs to a real person: a student's name, a family's donation, a borrower's history. Keeping it safe is an *Amānah*, a trust.
 
@@ -428,17 +428,17 @@ Every row you save belongs to a real person: a student's name, a family's donati
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Thinking `htmlspecialchars()` protects SQL.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   $name = htmlspecialchars($_GET["donor"]);
   $rows = $pdo->query("SELECT * FROM donations WHERE donor = '$name'");
   ```
-- 😕 *What happens*: `htmlspecialchars()` is made for HTML, not SQL. It does nothing for a number written without quotes (`WHERE id = $id`), it changes the stored text (`Qur'an Club` is saved as `Qur&#039;an Club`), and the next query written in a hurry will forget it. SQL needs its own tool.
-- ✅ *Fixed*: Placeholders for SQL; `htmlspecialchars()` only when printing:
+- *What happens*: `htmlspecialchars()` is made for HTML, not SQL. It does nothing for a number written without quotes (`WHERE id = $id`), it changes the stored text (`Qur'an Club` is saved as `Qur&#039;an Club`), and the next query written in a hurry will forget it. SQL needs its own tool.
+- *Fixed*: Placeholders for SQL; `htmlspecialchars()` only when printing:
   ```php
   $stmt = $pdo->prepare("SELECT * FROM donations WHERE donor = :donor");
   $stmt->execute(["donor" => $_GET["donor"] ?? ""]);
@@ -448,7 +448,7 @@ A second mistake: **a placeholder name that does not match the array key**, such
 
 ---
 
-## ✍️ Try It
+## Try It
 
 With XAMPP's MySQL running, create `return-book.php`:
 
@@ -477,7 +477,7 @@ Book 5 is back on the shelf.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `INSERT` with named placeholders (`:title`) and an array in `execute()`; `lastInsertId()` gives the new row's id.
 - `UPDATE` and `DELETE` always need a `WHERE`; `rowCount()` says how many rows changed.
@@ -488,9 +488,9 @@ Book 5 is back on the shelf.
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which method returns the id of the row you just inserted?
 2. Which method tells you how many rows an `UPDATE` changed?
 3. What do the letters PRG stand for?
@@ -506,7 +506,7 @@ Book 5 is back on the shelf.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Rewrite this unsafe line with a named placeholder:
    ```php
    $pdo->query("DELETE FROM loans WHERE id = " . $_POST["loan_id"]);
@@ -529,7 +529,7 @@ Book 5 is back on the shelf.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build `return-loan.php`, which records a returned book with a transaction.
 
 1. Read `loan_id` from a `POST` form and validate it as a whole number of 1 or more.

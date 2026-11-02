@@ -1,12 +1,12 @@
 # Chapter 11: Local Development Servers & The Emergency Brake (<kbd>Ctrl</kbd> + <kbd>C</kbd>)
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 During the school book fair, Khadija runs the information desk. While the desk is open, she is busy answering visitors. She cannot leave to do other jobs. At the end of the day, the teacher rings a bell. Khadija closes the desk, tidies up, and is free again. A local web server is like that desk. While it runs, it is busy answering your browser. <kbd>Ctrl</kbd> + <kbd>C</kbd> is the bell that closes it.
 
 > **Key Idea**: Some web pages, such as PHP pages, need a **web server** to work. The terminal can start a small server in seconds. <kbd>Ctrl</kbd> + <kbd>C</kbd> stops it and gives you your prompt back.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a local web server is, and what `localhost` means.
 - Start PHP's built-in server and Python's simple server.
@@ -115,7 +115,7 @@ C:\JuniorCoders\practice\my-site>
 
 <kbd>Ctrl</kbd> + <kbd>C</kbd> works in CMD, PowerShell, Git Bash and macOS. It is the most important "stop" key in the terminal.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **A small `s` instead of a capital `S`.**
 
@@ -134,7 +134,7 @@ Small `-s` is a different option. PHP thinks `localhost:8000` is a file name. Fi
 
 `404` means *"I cannot find that page"*. The server serves the folder you **started it in**. Fix: press <kbd>Ctrl</kbd> + <kbd>C</kbd>, `cd` into the website folder, then press <kbd>↑</kbd> to bring back the start command and press <kbd>Enter</kbd>.
 
-## ✍️ Try It
+## Try It
 
 1. In `C:\JuniorCoders\practice`, make a folder `my-site` and go into it.
 2. Run `echo ^<h1^>Hello from Localhost^</h1^> > index.html` in CMD, or `echo '<h1>Hello from Localhost</h1>' > index.html` in PowerShell.
@@ -144,7 +144,7 @@ Small `-s` is a different option. PHP thinks `localhost:8000` is a file name. Fi
 
 *Hint*: In CMD, `<` and `>` are special signs. The `^` in front of each one tells CMD to treat it as normal text.
 
-## 📝 Recap
+## Recap
 
 - A **web server** sends pages to browsers. A **local server** runs on your own computer at `localhost`.
 - `php -S localhost:8000` starts PHP's server (capital `S`). `python -m http.server 8000` starts Python's.
@@ -152,9 +152,9 @@ Small `-s` is a different option. PHP thinks `localhost:8000` is a file name. Fi
 - `200` means OK. `404` means not found.
 - <kbd>Ctrl</kbd> + <kbd>C</kbd> stops the server, or any stuck command, and returns the prompt.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command starts PHP's built-in server on port 8000?
 2. Which keys stop a running server?
 3. What happens to the prompt while a server is running?
@@ -168,7 +168,7 @@ Small `-s` is a different option. PHP thinks `localhost:8000` is a file name. Fi
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Read this server log:
 
 ```text
@@ -190,7 +190,7 @@ Read this server log:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Mariam has a page `index.php` that shows today's date using PHP.
 
 1. She double-clicks the file in File Explorer. What does she see, and why?

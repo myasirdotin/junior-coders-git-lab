@@ -12,7 +12,7 @@
     <main class="module-container">
         <header class="module-header path-laravel">
             <span class="badge" style="background: white; color: var(--laravel-brand);">Practice</span>
-            <h1>Laravel Exercises 🔥</h1>
+            <h1>Laravel Exercises</h1>
             <p>Read, fix and write Laravel code for the school library app. Laravel cannot run inside a browser, so this page checks your answers itself; then build the real thing on your own XAMPP.</p>
         </header>
 
@@ -23,10 +23,10 @@
             </div>
             <div class="sqlx-tiers">
                 <button type="button" class="sqlx-tier-btn active" data-tier="all">All</button>
-                <button type="button" class="sqlx-tier-btn" data-tier="1">🟢 Warm-up</button>
-                <button type="button" class="sqlx-tier-btn" data-tier="2">🟡 Apply</button>
-                <button type="button" class="sqlx-tier-btn" data-tier="3">🔴 Challenge</button>
-                <button type="button" class="sqlx-tier-btn" data-tier="build">🛠️ Build it</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="1">Warm-up</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="2">Apply</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="3">Challenge</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="build">Build it</button>
             </div>
             <p class="sqlx-note">Written answers are checked for the key parts, not run. To see your code really work, follow <a href="#build">Build it on your own XAMPP</a> below.</p>
         </section>
@@ -34,7 +34,7 @@
         <section id="pcList" class="sqlx-list" aria-live="polite"></section>
 
         <section id="build" class="lrvx-build">
-            <h2>🛠️ Build it on your own XAMPP</h2>
+            <h2>Build it on your own XAMPP</h2>
             <p class="sqlx-task">Four small builds that grow one library app, in the same order as the textbook. Tick each step when it works on your computer. This page cannot see your computer, so the ticks are only a reminder for you; they are saved in this browser and earn no XP.</p>
             <div id="lrvxBuilds" class="sqlx-list"></div>
         </section>
@@ -76,7 +76,7 @@
                     <h3>${esc(b.title)}</h3>
                     <span class="lrvx-build-count">${buildCount(b)}</span>
                 </header>
-                <p class="lrvx-learn">📖 Textbook chapters ${esc(b.chapters)}</p>
+                <p class="lrvx-learn">Textbook chapters ${esc(b.chapters)}</p>
                 <ul class="lrvx-checklist">
                     ${b.steps.map((s, i) => `<li><label><input type="checkbox" data-build="${b.id}" data-i="${i}"${(ticks[b.id] || []).includes(i) ? ' checked' : ''}> <span>${s}</span></label></li>`).join('')}
                 </ul>

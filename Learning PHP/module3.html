@@ -12,12 +12,12 @@
         <header class="module-header path-php">
             <span class="badge" style="background:white;color:var(--php-brand);">Level 1</span>
             <h1>Control Flow</h1>
-            <p>Tell PHP what to do and when! 🚦</p>
+            <p>Tell PHP what to do and when!</p>
         </header>
 
         <!-- Section 1: If / Else -->
         <section class="content-section">
-            <h2>🚦 Making Decisions with if / else</h2>
+            <h2>Making Decisions with if / else</h2>
             <p>In real life, you make decisions all the time: <em>"If it is raining, I will take an umbrella. Otherwise, I will wear sunglasses."</em> PHP can make decisions the same way!</p>
 
             <div class="code-block">
@@ -44,7 +44,7 @@
             </ul>
 
             <div class="connection-box">
-                <p>🔢 <strong>Comparison operators</strong> (symbols that compare two values) <strong>you'll use in conditions:</strong></p>
+                <p><strong>Comparison operators</strong> (symbols that compare two values) <strong>you'll use in conditions:</strong></p>
                 <ul style="margin: 0.5rem 0 0 1.5rem; line-height: 2;">
                     <li><code>==</code> — Equal to (value only)</li>
                     <li><code>===</code> — Identical (value AND type)</li>
@@ -59,7 +59,7 @@
 
         <!-- Section 2: Switch -->
         <section class="content-section">
-            <h2>🎛️ The Switch Statement</h2>
+            <h2>The Switch Statement</h2>
             <p>When you have many possible values for one variable, a <code>switch</code> is cleaner than many <code>elseif</code> blocks. Think of it like the buttons in a lift — each button (case) takes you somewhere different!</p>
 
             <div class="code-block">
@@ -85,17 +85,17 @@
             </div>
 
             <div class="connection-box">
-                <p>⚠️ <strong>Don't forget <code>break</code>!</strong> Without it, PHP will keep running through all the cases below, even if they don't match. This is called "fall-through".</p>
+                <p><strong>Don't forget <code>break</code>!</strong> Without it, PHP will keep running through all the cases below, even if they don't match. This is called "fall-through".</p>
             </div>
         </section>
 
         <!-- Section 3: For Loop -->
         <section class="content-section">
-            <h2>🔁 The for Loop</h2>
+            <h2>The for Loop</h2>
             <p>Loops let you repeat code many times without writing it over and over. A <code>for</code> loop is perfect when you know exactly <strong>how many times</strong> to repeat.</p>
 
             <div class="connection-box">
-                <p>🧠 <strong>Analogy:</strong> Imagine a teacher saying: <em>"Write your name 10 times."</em> You would not write 10 separate lines. You would just count and keep writing until you reached 10.</p>
+                <p><strong>Analogy:</strong> Imagine a teacher saying: <em>"Write your name 10 times."</em> You would not write 10 separate lines. You would just count and keep writing until you reached 10.</p>
             </div>
 
             <div class="code-block">
@@ -124,14 +124,14 @@
 
         <!-- Section 4: While Loop -->
         <section class="content-section">
-            <h2>⏳ The while Loop</h2>
+            <h2>The while Loop</h2>
             <p>A <code>while</code> loop keeps running <strong>as long as a condition is true</strong>. Use it when you don't know in advance how many times to loop.</p>
 
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
 <span class="code-comment">// Simulate a number guessing game</span>
-<span class="code-keyword">$secret</span>  = <span class="code-val">7</span>;
-<span class="code-keyword">$guess</span>   = <span class="code-val">1</span>;
+<span class="code-keyword">$secret</span> = <span class="code-val">7</span>;
+<span class="code-keyword">$guess</span> = <span class="code-val">1</span>;
 
 <span class="code-keyword">while</span> (<span class="code-keyword">$guess</span> != <span class="code-keyword">$secret</span>) {
     <span class="code-keyword">echo</span> <span class="code-string">"Guessing: "</span> . <span class="code-keyword">$guess</span> . <span class="code-string">"&lt;br&gt;"</span>;
@@ -144,13 +144,13 @@
             </div>
 
             <div class="connection-box">
-                <p>⚠️ <strong>Infinite Loop Warning!</strong> If your condition never becomes false, the loop never stops. The page never finishes loading, until PHP gives up at its time limit. Always make sure your loop variable changes inside the loop!</p>
+                <p><strong>Infinite Loop Warning!</strong> If your condition never becomes false, the loop never stops. The page never finishes loading, until PHP gives up at its time limit. Always make sure your loop variable changes inside the loop!</p>
             </div>
         </section>
 
         <!-- Section 5: foreach Loop -->
         <section class="content-section">
-            <h2>📋 The foreach Loop</h2>
+            <h2>The foreach Loop</h2>
             <p>The <code>foreach</code> loop is specially designed for <strong>arrays</strong> (lists of items). It automatically goes through each item one by one — perfect for looping over data!</p>
 
             <div class="code-block">
@@ -178,13 +178,13 @@
             </div>
 
             <div class="connection-box">
-                <p>💡 <strong>PHP loops work just like JavaScript loops!</strong> If you know JavaScript, you already understand the logic. The main difference is PHP uses <code>$</code> for variables and has the handy <code>foreach</code> for arrays.</p>
+                <p><strong>PHP loops work just like JavaScript loops!</strong> If you know JavaScript, you already understand the logic. The main difference is PHP uses <code>$</code> for variables and has the handy <code>foreach</code> for arrays.</p>
             </div>
         </section>
 
         <!-- Section 6: Real Example -->
         <section class="content-section">
-            <h2>🎯 Real Example: The Grade Calculator</h2>
+            <h2>Real Example: The Grade Calculator</h2>
             <p>Let's combine everything we've learned to build a grade checker:</p>
 
             <div class="code-block">
@@ -208,14 +208,14 @@
 
         <!-- Practice: three levels -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
 <p>How many times does this loop run: <code>for ($i = 1; $i &lt;= 4; $i++)</code>? And what does <code>break</code> do inside a <code>switch</code>?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>It runs 4 times (for 1, 2, 3 and 4). <code>break</code> stops the <code>switch</code> so PHP does not run the next cases too.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
 <p>The library counts how many books come back each day: <code>[12, 7, 15, 4, 10]</code>. Use <code>foreach</code> and <code>if / else</code> to print <em>Busy day</em> when 10 or more books came back, and <em>Quiet day</em> otherwise.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
 <pre><code>&lt;?php
@@ -233,7 +233,7 @@ foreach ($returned as $books) {
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
 <p>Your class is collecting water bottles for a charity drive. The target is 100 bottles. Each day the class brings 15 bottles.</p>
 <ol>
 <li>Make <code>$target = 100</code>, <code>$total = 0</code> and <code>$day = 0</code>.</li>
@@ -263,7 +263,7 @@ echo "Target reached in " . $day . " days!";
 
         <!-- Quiz -->
         <section class="content-section">
-            <h2>Quick Quiz! 🧠</h2>
+            <h2>Quick Quiz!</h2>
             <div id="quiz-form-1" class="quiz-section">
                 <div class="quiz-question" data-answer="b">
                     <p>Q1: Which loop is best for going through each item in an array?</p>

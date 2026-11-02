@@ -13,14 +13,14 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 3</span>
-            <h1 style="color: white; margin: 0.5rem 0;">WebSockets, REST &amp; Diagnostics ⚡🛠️</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">WebSockets, REST &amp; Diagnostics</h1>
             <p>Two-way live connections, tidy API design and the tools developers use to find network problems.</p>
         </header>
         <!-- REST -->
         <section class="content-section">
-            <h2>REST: Tidy Rules for Web APIs 🗂️</h2>
+            <h2>REST: Tidy Rules for Web APIs</h2>
             <div class="connection-box">
-                <p>🧠 <strong>Real-life analogy:</strong> A well-run library has a clear system. Every shelf has a label ("Science", "History"). You fill in the same kinds of slips to borrow, return or reserve a book. <strong>REST</strong> gives web services the same kind of tidy system.</p>
+                <p><strong>Real-life analogy:</strong> A well-run library has a clear system. Every shelf has a label ("Science", "History"). You fill in the same kinds of slips to borrow, return or reserve a book. <strong>REST</strong> gives web services the same kind of tidy system.</p>
             </div>
             <p>An <strong>API</strong> (application programming interface) is a way for one program to ask another program for data. A web API uses HTTP (Module 6). <strong>REST</strong> is a popular style for designing web APIs. Its main ideas:</p>
             <ul>
@@ -91,7 +91,7 @@ often several hundred bytes of headers</code></pre>
 
         <!-- Essential CLI Diagnostic Suite -->
         <section class="content-section">
-            <h2>The Developer's Network Diagnostic Toolkit 🧰</h2>
+            <h2>The Developer's Network Diagnostic Toolkit</h2>
             <p>You have met these tools one by one. Here they are together, each matched to the layer it tests:</p>
             <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8; overflow-x: auto;">
                 # 1. Can I reach it, and how long does it take? (Layer 3)<br>
@@ -151,7 +151,7 @@ or the domain's DNS records.</code></pre>
 
         <!-- Common misunderstanding -->
         <section class="content-section">
-            <h2>Common Misunderstanding ⚠️</h2>
+            <h2>Common Misunderstanding</h2>
             <div class="tip-box">
                 <p><strong>"Stars and 'Request timed out' in tracert mean the network is broken."</strong></p>
                 <p>Not always. Many routers are set not to answer trace packets, but they still pass normal traffic. If the final hop answers, the path works.</p>
@@ -161,20 +161,20 @@ or the domain's DNS records.</code></pre>
                 <p>A WebSocket keeps a connection open the whole time, which uses server memory. For loading a page or saving a form, plain HTTP requests are simpler and work well with caches. Use WebSockets only when you need live, two-way updates.</p>
             </div>
             <div class="connection-box">
-                <p>🔐 <strong>Amānah:</strong> Use these tools only on networks and sites you own or have permission to test. Diagnostics are for fixing and caring for networks, never for spying on others.</p>
+                <p><strong>Amānah:</strong> Use these tools only on networks and sites you own or have permission to test. Diagnostics are for fixing and caring for networks, never for spying on others.</p>
             </div>
         </section>
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>What does CRUD stand for? Give the usual HTTP method for each letter. Which status code means a WebSocket upgrade was accepted?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>Create (POST), Read (GET), Update (PUT or PATCH), Delete (DELETE). The upgrade answer is <code>101 Switching Protocols</code>.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>A remote-classroom app sends the 20-byte message <code>"Question 3: answer B"</code> over a WebSocket. How many bytes travel (header + message) from the browser to the server? How many when the server sends the same message to each student?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
                     <pre class="code-block"><code>Browser → server: 2 + 4 (mask) + 20 = 26 bytes
@@ -183,7 +183,7 @@ Server → browser: 2 + 20             = 22 bytes</code></pre>
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>The school library says: "Our catalogue at <code>catalogue.example.org</code> will not open." You collect these results:</p>
                 <pre class="code-block"><code>ping 192.168.1.1          → replies, 1 ms
 ping 1.1.1.1              → replies, 15 ms
@@ -208,7 +208,7 @@ curl -I https://catalogue.example.org/
 
         <!-- Course Completion -->
         <section class="content-section" style="background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 16px; padding: 1.5rem;">
-            <h2 style="color: #166534; margin-top: 0;">🎉 Curriculum Modules Complete!</h2>
+            <h2 style="color: #166534; margin-top: 0;">Curriculum Modules Complete!</h2>
             <p style="color: #1e293b;">You have finished all 8 modules of Computer Networking &amp; Web Protocols! Ready to test your skills? Take the <a href="quiz.html" style="color: #059669; font-weight: 700;">10-question Networks Quiz</a>, complete the <a href="exercises.html" style="color: #059669; font-weight: 700;">Mastery Exercises</a> or explore the <a href="playground.html" style="color: #059669; font-weight: 700;">Protocol Lab Studio</a>.</p>
         </section>
     </main>

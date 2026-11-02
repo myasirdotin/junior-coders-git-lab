@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the exit of a science museum lies a big guestbook. You write: *"The planets room was amazing! (Ali, Class 9)"*. You do not rub out the hundreds of notes written before yours. You turn to the next empty line and add yours at the end. In PHP, adding to the end of a file is called **appending**, and wiping the page to start again is called **overwriting**.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Write and overwrite a file with `file_put_contents()`.
 - Add to the end of a file with the `FILE_APPEND` flag.
@@ -174,7 +174,7 @@ Sara's `<b>` tags are shown as text, not run as HTML.
 
 ---
 
-## 🌍 Real-World Connection: JSON Files as Tiny Databases
+## Real-World Connection: JSON Files as Tiny Databases
 
 Small projects often save a whole array to a `.json` file. **JSON** is a text format for data that many languages can read.
 
@@ -203,7 +203,7 @@ Output:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -214,13 +214,13 @@ Output:
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>Beta</code>. Without <code>FILE_APPEND</code>, the second call overwrote the first.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Squashed Log
+## Code Detective: The Squashed Log
 
 ```php
 <?php
@@ -238,16 +238,16 @@ Output:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting `FILE_APPEND`.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   file_put_contents("attendance.txt", "Amina present" . PHP_EOL);
   ```
-- 😕 *What happens*: Every call wipes the file first. After the whole class signs in, only the last name is left.
-- ✅ *Fixed*:
+- *What happens*: Every call wipes the file first. After the whole class signs in, only the last name is left.
+- *Fixed*:
   ```php
   file_put_contents("attendance.txt", "Amina present" . PHP_EOL, FILE_APPEND | LOCK_EX);
   ```
@@ -262,7 +262,7 @@ if (file_put_contents("log.txt", "Hi" . PHP_EOL, FILE_APPEND) === false) {
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and run:
 
@@ -286,7 +286,7 @@ Fatima
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `file_put_contents()` **overwrites** a file, and creates it if it does not exist.
 - Add `FILE_APPEND` to add to the end; add `LOCK_EX` so two writers do not clash.
@@ -296,9 +296,9 @@ Fatima
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which flag makes `file_put_contents()` add to the end of a file?
 2. Which constant gives the right line ending for the server?
 3. Which flag locks a file while writing?
@@ -312,7 +312,7 @@ Fatima
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why does a busy guestbook need `LOCK_EX`?
 2. What happens when you call `file_put_contents()` on a file that does not exist yet?
 
@@ -324,7 +324,7 @@ Fatima
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a **visitor counter** and a **study to-do list**.
 
 1. `counter.php`: read a number from `counter.txt` (start at 0 if the file is missing), add 1, save it, and print *"You are visitor number N."*

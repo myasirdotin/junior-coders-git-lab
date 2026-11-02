@@ -91,6 +91,20 @@
   const ext = (href) => (/^https?:/.test(href) ? ' target="_blank" rel="noopener"' : '');
   const links = (B.links || []).map((l) => `<a href="${esc(l.href)}"${ext(l.href)} class="btn-action">${esc(l.label)}</a>`).join('');
 
+  // the reader's icons: inline SVG in the text colour, one stroke weight (no emoji anywhere, GEMINI §7c)
+  const svg = (d) => `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+  const ICONS = {
+    home: svg('<path d="M3 11 12 3l9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/>'),
+    speaker: svg('<path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/>'),
+    stop: svg('<rect x="6" y="6" width="12" height="12" rx="1.5"/>'),
+    pause: svg('<path d="M8 5v14M16 5v14"/>'),
+    play: svg('<path d="m7 4 13 8-13 8z"/>'),
+    book: svg('<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21z"/><path d="M4 19V5.5"/>'),
+    download: svg('<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/>'),
+    warn: svg('<path d="M12 3 2 20h20z"/><path d="M12 9v5M12 17h.01"/>')
+  };
+  window.JC_ICONS = ICONS;   // js/book-speaker.js and js/pdf-download.js use the same icons
+
   document.body.classList.add('book-theme-body');
   document.body.insertAdjacentHTML('afterbegin', `
   <div class="book-mobile-bar" id="bookMobileBar">
@@ -98,7 +112,7 @@
       <span class="toggle-icon">☰</span><span class="toggle-text">Chapters</span>
     </button>
     <div class="mobile-brand-title">${esc(B.short || B.title)}</div>
-    <a href="../index.html" class="mobile-home-link" title="Junior Coders home" aria-label="Junior Coders home">🏠</a>
+    <a href="../index.html" class="mobile-home-link" title="Junior Coders home" aria-label="Junior Coders home">${ICONS.home}</a>
   </div>
   <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
   <div class="book-layout">
@@ -109,7 +123,6 @@
         <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close the chapters menu">✕</button>
       </div>
       <div class="book-brand">
-        <div class="book-brand-icon" aria-hidden="true">${esc(B.icon)}</div>
         <div class="book-brand-text">
           <h1>${esc(B.title)}</h1>
           <p class="book-brand-meta"><span class="book-brand-badge">${esc(B.badge)}</span><span class="book-brand-count">${entries.filter((e) => e.num).length} chapters</span></p>
@@ -135,10 +148,10 @@
         <div class="reader-header-main">
           <div class="reader-controls-left">
             <button type="button" class="book-speaker-btn-main" id="book-speaker-main-btn" title="Read the chapter aloud">
-              <span class="btn-icon">🔊</span><span class="btn-text">Read Chapter</span>
+              <span class="btn-icon">${ICONS.speaker}</span><span class="btn-text">Read Chapter</span>
             </button>
             <button type="button" class="book-speaker-btn-stop" id="book-speaker-stop-btn" title="Stop reading">
-              <span class="btn-icon">⏹️</span><span class="btn-text">Stop</span>
+              <span class="btn-icon">${ICONS.stop}</span><span class="btn-text">Stop</span>
             </button>
             <div class="book-speaker-waveform" id="book-speaker-waveform" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
           </div>
@@ -159,10 +172,10 @@
               </select>
             </div>
             <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn" title="Reading mode: hide everything except the chapter">
-              <span class="btn-icon">📖</span><span class="btn-text">Reading Mode</span>
+              <span class="btn-icon">${ICONS.book}</span><span class="btn-text">Reading Mode</span>
             </button>
             <button type="button" class="book-download-pdf-btn" id="book-download-pdf-btn" title="Download this chapter as a PDF">
-              <span class="btn-icon">⬇️</span><span class="btn-text">Download PDF</span>
+              <span class="btn-icon">${ICONS.download}</span><span class="btn-text">Download PDF</span>
             </button>
           </div>
         </div>
@@ -218,7 +231,7 @@
       actions.appendChild(copyBtn);
       if (B.scratchpad && /^(js|javascript)$/i.test(lang)) {
         const tryBtn = document.createElement('button');
-        tryBtn.type = 'button'; tryBtn.className = 'copy-btn btn-try-code'; tryBtn.textContent = '⚡ Test in Scratchpad';
+        tryBtn.type = 'button'; tryBtn.className = 'copy-btn btn-try-code'; tryBtn.textContent = 'Test in Scratchpad';
         tryBtn.addEventListener('click', () => {
           const input = document.getElementById('jsCodeInput');
           input.value = (code || pre).innerText;
@@ -251,7 +264,7 @@
   function loadChapter(file, link) {
     const md = DATA[file];
     if (md === undefined) {
-      area.innerHTML = '<div class="chapter-error"><h2>⚠️ This chapter could not be loaded</h2><p>The offline chapter file is missing. Run <code>node scripts/bundle-books.js</code> and reload.</p></div>';
+      area.innerHTML = '<div class="chapter-error"><h2>This chapter could not be loaded</h2><p>The offline chapter file is missing. Run <code>node scripts/bundle-books.js</code> and reload.</p></div>';
       return;
     }
     current = file;
@@ -293,9 +306,9 @@
     return `
       <section class="js-runner-widget" id="jsScratchpad" aria-label="JavaScript scratchpad">
         <div class="js-runner-header">
-          <div class="js-runner-title-group"><span class="js-runner-title">⚡ JavaScript Scratchpad</span><span class="js-runner-badge">Try it here</span></div>
+          <div class="js-runner-title-group"><span class="js-runner-title">JavaScript Scratchpad</span><span class="js-runner-badge">Try it here</span></div>
           <div class="js-runner-actions">
-            <button type="button" class="btn-scratchpad-clear" id="jsClearBtn">🧹 Clear</button>
+            <button type="button" class="btn-scratchpad-clear" id="jsClearBtn">Clear</button>
             <button type="button" class="btn-scratchpad-run" id="jsRunBtn"><span class="run-icon">▶</span><span>Run</span><span class="shortcut-hint">Ctrl+↵</span></button>
           </div>
         </div>

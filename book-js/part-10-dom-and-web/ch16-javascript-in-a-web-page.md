@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think of a home:
 - **HTML** is the concrete foundation, brick walls, doors, and windows (Structure).
@@ -13,7 +13,7 @@ When JavaScript connects to your HTML, static web pages turn into living, breath
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain what the DOM (Document Object Model) is.
@@ -68,7 +68,7 @@ let heading = document.getElementById("main-heading");
 heading.textContent = "Welcome to Junior Coders! 🚀";
 ```
 
-> 🔒 **Safety rule:** Put anything a user typed on the page with `.textContent`, never `.innerHTML`. With `.innerHTML`, typed text could be read as real HTML code, and someone could sneak a harmful script into your page. This attack is called **XSS** (cross-site scripting).
+> **Safety rule:** Put anything a user typed on the page with `.textContent`, never `.innerHTML`. With `.innerHTML`, typed text could be read as real HTML code, and someone could sneak a harmful script into your page. This attack is called **XSS** (cross-site scripting).
 
 ### Changing Styles Dynamically
 You can edit CSS properties using camelCase:
@@ -148,11 +148,11 @@ scoreSpan.classList.add("winner");
 - `scoreSpan.textContent = currentScore`: Replaces `"0"` with `"10"`.
 - `scoreSpan.classList.add("winner")`: Adds the `.winner` CSS class so it turns bold green.
 
-**Result on the page:** the box now shows the heading **Golden Eagles 🦅** in amber, and `Score: 10` with the 10 in bold green.
+**Result on the page:** the box now shows the heading **Golden Eagles** in amber, and `Score: 10` with the 10 in bold green.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```html
 <p id="msg">Hello <b>World</b></p>
@@ -165,7 +165,7 @@ console.log(p.innerHTML);
 *What is the difference between what `textContent` and `innerHTML` return?*
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 ```text
 Hello World
@@ -214,7 +214,7 @@ Build a single-page business card:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 Find the 3 errors in this code:
 ```javascript
@@ -236,7 +236,7 @@ myTitle.style.background-color = "blue";
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. Open any web page in your browser (for example, `https://example.org`).
 2. Right-click anywhere and select **Inspect** to open DevTools.
@@ -248,11 +248,11 @@ myTitle.style.background-color = "blue";
    ```
 5. Press Enter and watch the live website change instantly before your eyes!
 
-> 💡 **Hint:** The change happens only in **your** browser, not on the real website. Refresh the page and everything goes back. If you see `Cannot set properties of null`, that page has no `<h1>`: try `"h2"` instead.
+> **Hint:** The change happens only in **your** browser, not on the real website. Refresh the page and everything goes back. If you see `Cannot set properties of null`, that page has no `<h1>`: try `"h2"` instead.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - The DOM is the browser's JavaScript representation of HTML.
 - Select elements using `getElementById` or `querySelector`.
@@ -270,7 +270,7 @@ myTitle.style.background-color = "blue";
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 - **DOM:** Document Object Model.
 - **Node / Element:** An individual HTML tag inside the DOM tree.
@@ -281,9 +281,9 @@ myTitle.style.background-color = "blue";
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does DOM stand for?
 2. Which property safely changes only the text inside an element?
 
@@ -295,7 +295,7 @@ myTitle.style.background-color = "blue";
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Given `<p id="status">Loading...</p>`, write JavaScript that changes its text to `"Complete!"` and its colour to green.
 
 Extra: why do we put the `<script>` tag at the bottom of the `<body>`?
@@ -315,7 +315,7 @@ Extra: the browser reads HTML from top to bottom. If the script runs first, the 
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a student profile card:
 1. Write HTML with empty elements for name, class and school, each with an `id`.
 2. In `script.js`, create a `student` object with those three values.

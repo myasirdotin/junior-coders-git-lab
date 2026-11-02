@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A neighbourhood library runs on trust. Members borrow a book for two weeks and bring it back. The volunteers want three things: to know which copies are on the shelf, to send a polite reminder when a book is past its due date, and to see which books the community loves most. There are no fines. A kind reminder is enough. This project builds the database behind that library.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Design a lending system with three linked tables.
 - Use `NULL` to mean "not returned yet".
@@ -18,7 +18,7 @@ A neighbourhood library runs on trust. Members borrow a book for two weeks and b
 
 ---
 
-## 🗺️ Step 1: Plan the Tables
+## Step 1: Plan the Tables
 
 Members and books have a many-to-many relationship: one member borrows many books, and one book is borrowed by many members over time. The junction table is `borrow_records`. Each row is one borrowing.
 
@@ -51,7 +51,7 @@ We store a phone number only because the library needs it for reminders. Nothing
 
 ---
 
-## 🛠️ Step 2: Create the Database
+## Step 2: Create the Database
 
 ```sql
 CREATE DATABASE IF NOT EXISTS community_library_db
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS borrow_records (
 
 ---
 
-## 📥 Step 3: Add Sample Data
+## Step 3: Add Sample Data
 
 ```sql
 INSERT INTO members (card_number, full_name, phone, joined_date) VALUES
@@ -125,7 +125,7 @@ All names, numbers and books are sample data. Check that the counts agree: three
 
 ---
 
-## 📊 Step 4: Everyday Queries
+## Step 4: Everyday Queries
 
 ### Query 1: What is out right now?
 
@@ -167,7 +167,7 @@ ORDER BY days_late DESC;
 
 In a real app, write `CURRENT_DATE` (today's date) instead of `'2026-10-13'`. We used a fixed date so your result matches the book.
 
-> 🧪 **Sandbox note:** SQLite has no `DATEDIFF`. There you would write `julianday('2026-10-13') - julianday(due_date)`.
+> **Sandbox note:** SQLite has no `DATEDIFF`. There you would write `julianday('2026-10-13') - julianday(due_date)`.
 
 ### Query 3: The community's favourite books
 
@@ -201,7 +201,7 @@ WHERE id NOT IN (SELECT member_id FROM borrow_records);
 
 ---
 
-## 🔁 Step 5: Lending and Returning Safely
+## Step 5: Lending and Returning Safely
 
 Lending a book changes **two** tables. A transaction (Chapter 15) keeps them in step.
 
@@ -250,7 +250,7 @@ Book 1 is back to 5 of 5 copies on the shelf.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: updating only one table.**
 
@@ -262,7 +262,7 @@ A volunteer adds a borrow record but forgets to lower `available_copies`. The ca
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Aisha returns *Ethics in the Digital Age* (record 2). Write the transaction, then re-run Query 1 and Query 2.
 
@@ -270,7 +270,7 @@ Aisha returns *Ethics in the Digital Age* (record 2). Write the transaction, the
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `borrow_records` links members and books; `return_date IS NULL` means "still out".
 - `CHECK (available_copies >= 0)` makes lending a missing copy impossible.
@@ -280,9 +280,9 @@ Aisha returns *Ethics in the Digital Age* (record 2). Write the transaction, the
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does `return_date = NULL` mean in this design, and how do you search for it?
 2. Why does `books` store both `total_copies` and `available_copies`?
 3. Why is a transaction used when lending a book?
@@ -296,7 +296,7 @@ Aisha returns *Ethics in the Digital Age* (record 2). Write the transaction, the
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Show each book category with its total copies and the copies on the shelf (use the starting data).
 
 <details>
@@ -319,7 +319,7 @@ ORDER BY category;
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add a **renewal** feature: a member may extend a loan by 14 days, once.
 
 1. Add a column `renewed` (`BOOLEAN`, default `FALSE`) to `borrow_records`.

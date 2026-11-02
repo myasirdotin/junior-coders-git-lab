@@ -1,10 +1,10 @@
 # Chapter 9: Text and Images on the Screen
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Walk into the school library and look at the display board near the door. Each new book has a small card pinned to it: a picture of the cover, the title in big letters, and the author's name in smaller letters underneath. The librarian did not paint each card by hand. She has one card design and fills in different details for each book. In this chapter you build that card design for your phone. In Jetpack Compose it is a small function called `BookCard`, and it can show any book you give it.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what the `@Composable` word means and why screen functions need it.
 - Show words with `Text` and change their size, weight and style.
@@ -383,7 +383,7 @@ Everything is squeezed into the top-left corner with no space around it. That is
 
 Change `sampleBooks[0]` to `sampleBooks[3]` and run again. Now the card shows "Kotlin for Young Builders" by Omar Farooq on shelf Computing D4. One design, any book: that is the librarian's card from the story.
 
-## 🔮 Predict the Screen
+## Predict the Screen
 
 What does this show, and how big is the text?
 
@@ -402,7 +402,7 @@ It shows `Library opens at 8:00`. The text is 30 sp, not the normal `bodyLarge` 
 
 </details>
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Calling a composable from a normal function.**
 
@@ -425,7 +425,7 @@ fun BookTitle(book: Book) {        // fixed, and a capital letter
 
 You drag in `Book Cover.png`. The build fails with an error saying a character in the file name is not valid. Rename the file to `book_cover.png` (right-click → **Refactor → Rename**), then write `R.drawable.book_cover`.
 
-## ✍️ Try It
+## Try It
 
 Add a second line under the welcome text that shows the library's opening hours from `strings.xml`.
 
@@ -435,7 +435,7 @@ Add a second line under the welcome text that shows the library's opening hours 
 
 *Hint:* the call is `Text(text = stringResource(R.string.hours), style = MaterialTheme.typography.bodySmall)`.
 
-## 📝 Recap
+## Recap
 
 - `@Composable` marks a function that draws part of the screen. Its name starts with a capital letter.
 - `Text` shows words. Use `sp` for text size and Material `typography` styles for a tidy, matching look.
@@ -444,7 +444,7 @@ Add a second line under the welcome text that shows the library's opening hours 
 - Every meaningful picture needs a `contentDescription` for TalkBack; decoration gets `null`.
 - `@Preview` shows a composable inside Android Studio without starting the emulator.
 
-## 📖 Key Terms
+## Key Terms
 
 - **Composable**: a function marked `@Composable` that describes part of the screen.
 - **Annotation**: a note that starts with `@`, read by the compiler.
@@ -453,9 +453,9 @@ Add a second line under the welcome text that shows the library's opening hours 
 - **Drawable**: a picture resource in `res/drawable`.
 - **TalkBack**: Android's screen reader, which reads the screen aloud.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the difference between `sp` and `dp`?
 2. Which file holds the words shown to users?
 3. When should `contentDescription` be `null`?
@@ -469,7 +469,7 @@ Add a second line under the welcome text that shows the library's opening hours 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a composable `AuthorLine(book: Book)` that shows `by ` followed by the author's name in italic, using the `bodyMedium` style. Add a preview for the third sample book.
 
 <details>
@@ -498,7 +498,7 @@ The preview shows *by Maryam Khan* in italic. `FontStyle` comes from `androidx.c
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make a "Book of the Week" card for the library's display board.
 
 1. Add a string `book_of_week` with the text `Book of the Week` to `strings.xml`.

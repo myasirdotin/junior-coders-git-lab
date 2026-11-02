@@ -1,9 +1,9 @@
-# Teacher's Guide & Assessment Rubrics 🎨📋
+# Teacher's Guide & Assessment Rubrics
 # CSS for Class 7: Curriculum Overview & Design Rubrics
 
 ---
 
-## 1. Pedagogical Methodology 💡
+## 1. Pedagogical Methodology
 
 Learning CSS can feel overwhelming when students simply copy and paste values without intuition. This curriculum builds a deep mental model through:
 1. **Visual Contrast Discovery**: Comparing ugly/unformatted text vs beautifully styled typography and cards.
@@ -13,7 +13,7 @@ Learning CSS can feel overwhelming when students simply copy and paste values wi
 
 ---
 
-## 2. 12-Week Suggested Curriculum Pacing 📅
+## 2. 12-Week Suggested Curriculum Pacing
 
 | Week | Units Covered | Key Project Milestone |
 | :--- | :--- | :--- |
@@ -28,11 +28,11 @@ Learning CSS can feel overwhelming when students simply copy and paste values wi
 | **Week 9** | Part 8: Ch 18–20 (Hover States, Transitions & @keyframes Animations) | Animated Interactive Button Suite |
 | **Week 10** | Part 9: Ch 21–22 (Personal Profile & School Portal) | Profile & School Styling |
 | **Week 11** | Part 9: Ch 23–24 (Restaurant Website & Portfolio) | Complete Responsive Portfolio |
-| **Week 12** | Part 10: Ch 25 (Final Capstone Project Guide) | Class 7 Design Expo Day 🏆 |
+| **Week 12** | Part 10: Ch 25 (Final Capstone Project Guide) | Class 7 Design Expo Day |
 
 ---
 
-## 3. Design & Styling Assessment Rubric 🎯
+## 3. Design & Styling Assessment Rubric
 
 | Criterion | Exemplary (4 pts) | Proficient (3 pts) | Developing (2 pts) | Beginning (1 pt) |
 | :--- | :--- | :--- | :--- | :--- |

@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A loan slip says only "student 1, book 2". The librarian wants to print a friendly reminder: *"Zayd, please return Algorithm Design."* So she puts the slip next to the student register and finds number 1, then next to the catalogue and finds number 2. Matching numbers across lists like this is exactly what a `JOIN` does, only much faster.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why we need `JOIN` after splitting data into tables.
 - Write a `JOIN ... ON` that matches a foreign key to a primary key.
@@ -156,11 +156,11 @@ MySQL pairs **every** student with **every** class. This is called a **cross joi
 
 There are rare real uses for a cross join (for example, listing every student with every club to plan a timetable). Then write `CROSS JOIN` on purpose so readers know you meant it.
 
-> 🧪 **Sandbox note:** Every query in this chapter runs the same way in the SQL Sandbox (SQLite).
+> **Sandbox note:** Every query in this chapter runs the same way in the SQL Sandbox (SQLite).
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: an unclear column name.**
 
@@ -186,7 +186,7 @@ JOIN classes ON students.class_id = classes.id;
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/), show each book that is **not yet returned**, with the borrower's name. Columns: `student`, `book`.
 
@@ -194,7 +194,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), show each book that is **not yet 
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A `JOIN` combines rows from linked tables in a result; stored tables do not change.
 - Write `JOIN other_table ON child.foreign_key = parent.id`.
@@ -204,9 +204,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/), show each book that is **not yet 
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Why do we need `JOIN` in a database that uses foreign keys?
 2. Which keyword gives the matching condition?
 3. What is a table alias, and why is it useful?
@@ -220,7 +220,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), show each book that is **not yet 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Using aliases `s` and `c`, list every Grade 7 student with their class name and teacher.
 
 <details>
@@ -240,7 +240,7 @@ WHERE s.grade = 7;
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A student wrote:
 
 ```sql

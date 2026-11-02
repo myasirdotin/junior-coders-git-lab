@@ -1,10 +1,10 @@
 # Chapter 14: Capstone: Architecting a Resilient Community Network
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A town is building a new community centre. The architect does not start with bricks. She first asks: who will use it, what must it survive, and where should the doors and locks go? Only then does she draw the plan, room by room. In this capstone, you are the architect. You will plan the network for a town's school, library and charity clinic, using every idea from this book.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Turn real needs (speed, safety, slow connections, failures) into network design choices.
 - Plan addresses and subnets for a small cloud network using CIDR.
@@ -165,32 +165,32 @@ Congratulations! You have finished all 14 chapters of **Computer Networking & We
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Giving every server a public address.**
 
-- ❌ Wrong: Web A, Web B and the database each get a public IP "to make things easy".
+- Wrong: Web A, Web B and the database each get a public IP "to make things easy".
 - What happens: anyone on the Internet can knock on the database port and try passwords.
-- ✅ Right: only the load balancer (and the bastion host, for one office address) faces the Internet. Everything else stays private.
+- Right: only the load balancer (and the bastion host, for one office address) faces the Internet. Everything else stays private.
 
 **Having only one of everything.**
 
-- ❌ Wrong: one web server with no spare.
+- Wrong: one web server with no spare.
 - What happens: one broken disk takes the whole portal offline.
-- ✅ Right: at least two web servers behind a load balancer, plus regular database backups.
+- Right: at least two web servers behind a load balancer, plus regular database backups.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Draw the Oasis design from memory on paper, as a text diagram no wider than your notebook page.
 Label each box with its subnet, and mark every arrow with its port number.
 
-> 💡 Hint: there are three subnets and five arrows that need ports: 443 (twice), 3306 and 22 (twice).
+> Hint: there are three subnets and five arrows that need ports: 443 (twice), 3306 and 22 (twice).
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Start a design from needs: availability, slow connections, privacy and easy fixing.
 - Split a private cloud network (VPC) into subnets by job, and guard each with firewall rules.
@@ -200,9 +200,9 @@ Label each box with its subnet, and mark every arrow with its port number.
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 In one sentence each, what is a **load balancer**, a **bastion host** and a **CDN**?
 
 <details>
@@ -214,7 +214,7 @@ In one sentence each, what is a **load balancer**, a **bastion host** and a **CD
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 The Oasis team wants a fourth subnet for a reporting server, inside `10.20.0.0/16`.
 1. Give a suitable /24 subnet that does not overlap the others.
 2. How many usable host addresses does it have?
@@ -229,7 +229,7 @@ The Oasis team wants a fourth subnet for a reporting server, inside `10.20.0.0/1
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Design a smaller network for a village library with a reading room and a staff office.
 1. Choose a private block and split it into two subnets. Give each subnet's CIDR and usable host range.
 2. List three firewall rules.

@@ -114,7 +114,7 @@
             const match = msg.match(/([a-zA-Z0-9_$]+) is not defined/);
             const varName = match ? match[1] : 'a name';
             return {
-                title: `JavaScript cannot find "${varName}"! 🔍`,
+                title: `JavaScript cannot find "${varName}"!`,
                 explanation: `Your code tried to use <code>${varName}</code>, but JavaScript has never heard of it yet.`,
                 checklist: [
                     `Check if you created it first using <code>let ${varName} = ...</code> or <code>const ${varName} = ...</code>`,
@@ -130,7 +130,7 @@
             const match = msg.match(/([a-zA-Z0-9_$.]+) is not a function/);
             const funcName = match ? match[1] : 'this item';
             return {
-                title: `"${funcName}" is not a function! ⚙️`,
+                title: `"${funcName}" is not a function!`,
                 explanation: `Your code put parentheses <code>()</code> after <code>${funcName}</code> to call it, but it isn't an action or function.`,
                 checklist: [
                     `If it's an array, remember we access items using square brackets like <code>list[0]</code>, not <code>list(0)</code>.`,
@@ -144,7 +144,7 @@
         // 3. TypeError: Cannot read properties of undefined/null
         if (msg.includes('Cannot read properties of undefined') || msg.includes('Cannot read property') || msg.includes('is undefined')) {
             return {
-                title: `You are looking inside an empty box! 📦`,
+                title: `You are looking inside an empty box!`,
                 explanation: `Your code tried to read a property or index from something that doesn't exist yet (it is <code>undefined</code>).`,
                 checklist: [
                     `Are you trying to access an array item that doesn't exist? (e.g. index 5 in a list with only 3 items).`,
@@ -158,7 +158,7 @@
         // 4. SyntaxError: Unexpected token
         if (msg.includes('Unexpected token') || msg.includes('Unexpected identifier')) {
             return {
-                title: `Missing Bracket, Quote, or Comma! 🧩`,
+                title: `Missing Bracket, Quote, or Comma!`,
                 explanation: `JavaScript got confused by the structure of your code. Usually, this means an opened quote or bracket was never closed.`,
                 checklist: [
                     `Check that every opening <code>[</code> has a matching closing <code>]</code>.`,
@@ -172,7 +172,7 @@
         // 5. Infinite Loop / Script Timeout
         if (msg.includes('Timeout') || msg.includes('Execution timed out')) {
             return {
-                title: `Infinite Loop Detected! 🔄`,
+                title: `Infinite Loop Detected!`,
                 explanation: `Your code took too long to finish. This usually means a loop is running forever and cannot stop!`,
                 checklist: [
                     `Does your loop counter update inside the loop? (e.g. <code>i++</code>).`,
@@ -184,7 +184,7 @@
 
         // Generic fallback
         return {
-            title: `Code Execution Paused ⚠️`,
+            title: `Code Execution Paused`,
             explanation: `Your code encountered an error during testing: <em>${escapeHtml(msg)}</em>`,
             checklist: [
                 `Review the instructions and starter code carefully.`,
@@ -331,7 +331,7 @@
                 passedTests: 0,
                 results: [{ name: 'Code provided', passed: false, message: 'Please write some code before running tests.' }],
                 friendlyDiagnostic: {
-                    title: 'Empty Code Editor 📝',
+                    title: 'Empty Code Editor',
                     explanation: 'The code editor is empty! Type your solution and click "Run Automatic Tests".',
                     checklist: ['Read the requirements carefully.', 'Start with the starter code provided.'],
                     suggestion: null
@@ -423,7 +423,7 @@
                 const firstFail = results.find(r => !r.passed);
                 if (firstFail) {
                     friendlyDiagnostic = {
-                        title: `Test Checkpoint: ${firstFail.description} ❌`,
+                        title: `Test Checkpoint: ${firstFail.description}`,
                         explanation: firstFail.message || `The test did not receive the expected result.`,
                         checklist: [
                             firstFail.hint || 'Review your variable names and array methods.',

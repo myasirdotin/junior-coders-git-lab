@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Black-and-White Coloring Book**
 
@@ -23,7 +23,7 @@ CSS breathes life, mood, beauty, and personality into the black-and-white skelet
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain what CSS stands for (**Cascading Style Sheets**) and what it does to a page.
@@ -67,7 +67,7 @@ Every CSS rule has three core parts:
        (who gets the style)
 ```
 
-> ⚠️ **Common Mistake**: 
+> **Common Mistake**: 
 > Every CSS declaration MUST end with a **semicolon (`;`)**! If you forget the semicolon, the browser gets confused and ignores your next style rule!
 
 ---
@@ -133,7 +133,7 @@ Type this code into an editor and save it as `first-style.html`:
 
 ---
 
-## 🌍 Real-World Connection: The CSS Zen Garden
+## Real-World Connection: The CSS Zen Garden
 
 In 2003, a famous web designer created an experiment called **The CSS Zen Garden**:
 - Hundreds of designers from across the globe took the **exact same HTML file**. Not a single letter of HTML was allowed to be changed!
@@ -143,7 +143,7 @@ In 2003, a famous web designer created an experiment called **The CSS Zen Garden
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this CSS snippet:
 
@@ -159,13 +159,13 @@ p {
 **Question**: What color will paragraphs be in the browser: Red or Blue? Why?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: Blue!</strong> The "C" in CSS stands for <strong>Cascading</strong>. When two rules have the exact same priority, the rule written lower down in the stylesheet wins because it cascades over the earlier one!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Missing Semicolon Mystery
+## Code Detective: The Missing Semicolon Mystery
 
 A student wrote this CSS, but the font size refused to change:
 
@@ -198,7 +198,7 @@ Have you ever tried reading bright yellow text on a pure white background? It ma
   - Light text on a dark background (e.g. white text on midnight blue).
 - Good design is not just about making things colorful—it's about making words effortless to read!
 
-> 💡 **Think Before You Code**:
+> **Think Before You Code**:
 > If your best friend or grandmother has to squint to read your website, the colors need more contrast!
 
 ---
@@ -215,7 +215,7 @@ Create a web page named `candy-store.html`:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 Beginners often use an equals sign `=` (like in HTML attributes) instead of a colon `:`.
 
@@ -239,7 +239,7 @@ A second slip is forgetting the closing brace `}`. Then the browser thinks the n
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Change the Theme**
 
@@ -250,7 +250,7 @@ Open `first-style.html` in your editor and experiment:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - **CSS** stands for *Cascading Style Sheets*.
 - HTML provides structure; CSS controls appearance and layout.
@@ -261,7 +261,7 @@ Open `first-style.html` in your editor and experiment:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -273,9 +273,9 @@ Open `first-style.html` in your editor and experiment:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does CSS stand for?
 2. What punctuation mark separates a CSS property from its value?
 3. What punctuation mark finishes every CSS declaration?
@@ -289,7 +289,7 @@ Open `first-style.html` in your editor and experiment:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write a CSS rule that targets all `<h2>` headings, changes their text colour to dark green (`#047857`) and sets their font size to `28px`.
 5. Explain why CSS is called "cascading".
 
@@ -308,7 +308,7 @@ h2 {
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a calm "dark mode" page for your class newsletter.
 1. Make an HTML file with one `<h1>` and three `<p>` paragraphs.
 2. Make the page background dark slate (`#0f172a`).

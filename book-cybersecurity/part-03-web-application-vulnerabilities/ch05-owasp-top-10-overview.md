@@ -1,10 +1,10 @@
 # Chapter 5: The OWASP Top 10 — Defending the Web
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Before a school opens each morning, the caretaker uses a printed checklist. Are the fire doors closed? Are the gas taps off in the science lab? Is the first-aid box full? He did not invent this list himself. It was written by safety experts who studied many real accidents. Following it means he does not have to remember everything alone. Web developers have a similar checklist, written by experts who studied many real website problems.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what OWASP is and what the **OWASP Top 10** list is for.
 - Name the ten risk areas in the 2025 list in simple words.
@@ -53,7 +53,7 @@ Words to know: a **library** (in coding) is ready-made code you add to your proj
 
 If you remember one rule from this part of the book, make it this one:
 
-> ⚠️ **All data from outside your program is untrusted until you have checked it.**
+> **All data from outside your program is untrusted until you have checked it.**
 
 "Outside" includes much more than form boxes:
 
@@ -126,7 +126,7 @@ When you build any form:
 - Use prepared statements for every database query.
 - Show friendly error messages to users, and keep the detailed errors in a private log.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake:** "My form uses `<input type="number" min="5" max="19">`, so the age is always safe."
 
@@ -134,7 +134,7 @@ When you build any form:
 
 **Fixed version:** keep the HTML rules for a friendly form, **and** validate again on the server, as in the `filter_var()` example above.
 
-## ✍️ Try It
+## Try It
 
 Take any form you have built in the HTML or PHP tracks, such as a book-review or contact form.
 
@@ -144,7 +144,7 @@ Take any form you have built in the HTML or PHP tracks, such as a book-review or
 
 *Hint:* hidden fields and the address bar count as input too.
 
-## 📝 Recap
+## Recap
 
 - OWASP is a non-profit community; its Top 10 lists the most important website risk areas.
 - In the 2025 list, Broken Access Control is still number one.
@@ -152,9 +152,9 @@ Take any form you have built in the HTML or PHP tracks, such as a book-review or
 - Validation checks the shape, escaping makes text safe to show, parameterization keeps data out of commands.
 - Browser checks are for convenience; server checks are for security.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is number one (A01) in the OWASP Top 10 for 2025, and what does it mean?
 
 <details>
@@ -164,7 +164,7 @@ What is number one (A01) in the OWASP Top 10 for 2025, and what does it mean?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 For each case, choose the shield that fits best: validation, escaping or parameterization.
 
 1. A comment is shown on the class news page.
@@ -180,7 +180,7 @@ For each case, choose the shield that fits best: validation, escaping or paramet
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A science-fair sign-up form has: student name, year group (6–10), project title and email.
 
 1. Write a validation rule for each field.

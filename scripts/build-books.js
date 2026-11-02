@@ -107,23 +107,22 @@ function pageText(b) {
 }
 
 const STAGES = [
-  ['first', '🌱', 'First steps', 'Start here if you are new. Grades 6–7.'],
-  ['web', '⚙️', 'Websites that think', 'Logic, servers and databases. Grades 7–10.'],
-  ['python', '🤖', 'Python, networks and safety', 'Data, AI and staying safe online. Grades 8–10.'],
-  ['apps', '📱', 'Apps for phones', 'Build real Android apps with Kotlin. Grades 9–10.'],
+  ['first', '', 'First steps', 'Start here if you are new. Grades 6–7.'],
+  ['web', '', 'Websites that think', 'Logic, servers and databases. Grades 7–10.'],
+  ['python', '', 'Python, networks and safety', 'Data, AI and staying safe online. Grades 8–10.'],
+  ['apps', '', 'Apps for phones', 'Build real Android apps with Kotlin. Grades 9–10.'],
 ];
 
 function cardsText(books, counts, titles) {
   const card = (b) => {
     const lessons = lessonCount(b.lessonsFolder);
     const second = lessons
-      ? `<a href="../../${encodeURI(b.lessonsFolder)}/${b.lessonsFolder.replace('Learning ', 'learning').toLowerCase().replace(/ /g, '')}.html" class="tb-btn tb-btn-secondary">🧪 ${lessons} lessons</a>`
+      ? `<a href="../../${encodeURI(b.lessonsFolder)}/${b.lessonsFolder.replace('Learning ', 'learning').toLowerCase().replace(/ /g, '')}.html" class="tb-btn tb-btn-secondary">${lessons} lessons</a>`
       : `<a href="../../${b.links[0].href.replace(/^\.\.\//, '')}" class="tb-btn tb-btn-secondary">${esc(b.links[0].label)}</a>`;
     // the page's search box also finds a book by any of its chapter titles ("loops", "forms", "joins")
     const search = esc(`${b.title} ${b.card} ${b.key} ${(titles[b.key] || []).map((t) => t.title).join(' ')}`.toLowerCase());
     return `                <article class="tb-card" data-book="book-${b.key}" data-search="${search}">
                     <div class="tb-card-head">
-                        <span class="tb-icon" aria-hidden="true">${b.cardIcon || b.icon}</span>
                         <div>
                             <h3>${esc(b.title)}</h3>
                             <p class="tb-meta"><span class="tb-chapters">${counts[b.key]} chapters</span> · ${esc(b.grades)}</p>
@@ -132,14 +131,14 @@ function cardsText(books, counts, titles) {
                     <p class="tb-desc">${esc(b.card)}</p>
                     <p class="tb-resume" hidden></p>
                     <div class="tb-actions">
-                        <a href="../../book-${b.key}/index.html" class="tb-btn tb-btn-primary tb-read">📖 Read</a>
+                        <a href="../../book-${b.key}/index.html" class="tb-btn tb-btn-primary tb-read">Read</a>
                         ${second}
                     </div>
                 </article>`;
   };
   return STAGES.map(([key, icon, title, sub]) => `        <section class="tb-group" data-group="${key}" aria-labelledby="tb-h-${key}">
             <div class="tb-group-head">
-                <h2 id="tb-h-${key}"><span aria-hidden="true">${icon}</span> ${title}</h2>
+                <h2 id="tb-h-${key}">${title}</h2>
                 <p>${sub}</p>
             </div>
             <div class="tb-grid">
@@ -154,7 +153,7 @@ function libraryLines(books, counts) {
 }
 
 function searchLines(books) {
-  return books.map((b) => `        ['book-${b.key}/index.html', '📖', ${JSON.stringify(b.title + ' (textbook)')}, 'Textbook', ${JSON.stringify(b.search)}],`).join('\n');
+  return books.map((b) => `        ['book-${b.key}/index.html', '', ${JSON.stringify(b.title + ' (textbook)')}, 'Textbook', ${JSON.stringify(b.search)}],`).join('\n');
 }
 
 // every chapter's number and title, from its "# Chapter N: Title" line

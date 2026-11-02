@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Before builders lay a single brick, an architect draws a plan. The plan says where each room goes and how big it is. Nobody starts pouring concrete and "sees what happens". A database table needs a plan too. In SQL, that plan is written with `CREATE TABLE`.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a schema is.
 - Write a `CREATE TABLE` statement with columns, types and rules.
@@ -125,7 +125,7 @@ CREATE TABLE donations (
 
 A row in `loans` means **a student borrowed a library book**. `available` and `returned` hold the text `'Yes'` or `'No'`.
 
-> 🧪 **Sandbox note:** The SQL Sandbox (SQLite) already has these five tables. SQLite is relaxed about types and writes `INTEGER PRIMARY KEY` instead of `INT AUTO_INCREMENT PRIMARY KEY`.
+> **Sandbox note:** The SQL Sandbox (SQLite) already has these five tables. SQLite is relaxed about types and writes `INTEGER PRIMARY KEY` instead of `INT AUTO_INCREMENT PRIMARY KEY`.
 
 ---
 
@@ -187,7 +187,7 @@ DROP TABLE IF EXISTS old_practice_table;
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: a missing comma between columns.**
 
@@ -218,7 +218,7 @@ ERROR 1050 (42S01): Table 'classes' already exists
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In phpMyAdmin, select `school_db` and open the **SQL** tab. Type (do not paste) the five `CREATE TABLE` statements above. Then run `SHOW TABLES;` and `DESCRIBE books;`.
 
@@ -226,7 +226,7 @@ In phpMyAdmin, select `school_db` and open the **SQL** tab. Type (do not paste) 
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **schema** is the plan of the database's tables and rules.
 - `CREATE TABLE name ( column TYPE rules, ... );` builds a table.
@@ -236,9 +236,9 @@ In phpMyAdmin, select `school_db` and open the **SQL** tab. Type (do not paste) 
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command shows the columns and types of a table?
 2. What does `NOT NULL` do?
 3. What does `AUTO_INCREMENT` do when a new row is added?
@@ -252,7 +252,7 @@ In phpMyAdmin, select `school_db` and open the **SQL** tab. Type (do not paste) 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a `CREATE TABLE` for a `science_fair_projects` table:
 - `id`: whole number, auto-numbered, primary key
 - `title`: text up to 150 characters, required
@@ -275,7 +275,7 @@ CREATE TABLE science_fair_projects (
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The school starts a reading club. Design and create a `club_members` table.
 
 1. Decide on at least four columns (one must be the primary key).

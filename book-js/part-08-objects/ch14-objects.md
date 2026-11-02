@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about a robot rover exploring the surface of Mars:
 A rover isn't just a single number or a plain list. A rover has distinct **attributes**:
@@ -16,7 +16,7 @@ In programming, we bundle all these related traits into a single unit called an 
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain what an object is and how it differs from an array.
@@ -132,7 +132,7 @@ Student: Pooja | Average Marks: 95.5%
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```javascript
 let documentary = {
@@ -148,7 +148,7 @@ console.log(documentary[propertyToLookUp]);
 *What will the two console logs show? (Hint: does `documentary` have a key named literal "propertyToLookUp"?)*
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 ```text
 undefined
@@ -199,7 +199,7 @@ Write functions:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 Find the 3 errors in this code:
 ```javascript
@@ -230,7 +230,7 @@ console.log(robot->power);
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. Open your console.
 2. Create an object for a class pet:
@@ -249,11 +249,11 @@ console.log(robot->power);
    console.log(`${pet.name} is now ${pet.age} years old!`);
    ```
 
-> 💡 **Hint:** You should see `Biscuit is now 4 years old!`. Type `pet` on its own and press Enter to see every property, including the new `isVaccinated`.
+> **Hint:** You should see `Biscuit is now 4 years old!`. Type `pet` on its own and press Enter to see every property, including the new `isVaccinated`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Objects hold key-value pairs inside `{}`.
 - Keys are strings; values can be any data type (including arrays or functions).
@@ -271,7 +271,7 @@ console.log(robot->power);
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 - **Object:** A collection of labeled key-value data.
 - **Property:** A single key-value pair.
@@ -283,9 +283,9 @@ console.log(robot->power);
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. In an object, what do we call the names on the left and the values on the right? (Key-____ pairs.)
 2. When must you use bracket notation (`person["first name"]`) instead of dot notation?
 
@@ -297,7 +297,7 @@ console.log(robot->power);
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Create an object `tablet` with keys `brand`, `model`, `batteryPercent` and `storageGB`. Then lower `batteryPercent` by 10.
 2. What is the difference between an array of objects `[{...}, {...}]` and an object with an array `{ subjects: [...] }`? Give a real-life example of each.
 
@@ -314,7 +314,7 @@ console.log(robot->power);
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Create a `charityFund` object:
 1. `fundName: "Clean Water Initiative"` and `balance: 1000`.
 2. A `deposit(amount)` method that adds a donation to the balance.

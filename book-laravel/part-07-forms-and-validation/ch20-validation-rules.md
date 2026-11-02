@@ -1,10 +1,10 @@
 # Chapter 20: Validation Rules
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A careful librarian never adds a donation form to the register without checking it first. Is the title filled in? Is the number of copies a real number, not "lots"? Is this ISBN already in our register? If something is wrong, she hands the form back with a kind note: "Please fill in the author." She does not make you write everything again; she circles only the problem. Laravel **validation** does exactly this for your forms.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Check form input with `$request->validate([...])`.
 - Use common rules: `required`, `string`, `max`, `integer`, `min`, `email`, `unique`, `exists`, `date`.
@@ -202,7 +202,7 @@ php artisan make:request StoreBookRequest
 
 Put the rules in its `rules()` method, return `true` from its `authorize()` method for now, and type-hint it: `public function store(StoreBookRequest $request)`. Then `$request->validated()` gives the clean data. It works the same way, just tidier.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Saving `$request->all()` instead of the validated data.**
 
@@ -220,13 +220,13 @@ Book::create($validated);         // right
 
 **Missing `old()`.** The form comes back with errors, and every field is empty. Users must type everything again. Add `value="{{ old('field') }}"` to every input.
 
-## ✍️ Try It
+## Try It
 
 Add validation to your book `store` and `update` methods. Then try to save an empty form, a negative number of copies and a duplicate ISBN. Check each message appears next to the right field.
 
 *Hint:* one book from your seeder has ISBN `978-0-00-000001-1`.
 
-## 📝 Recap
+## Recap
 
 - Always validate on the server with `$validated = $request->validate([...])`.
 - If a rule fails, Laravel goes back to the form with `$errors` and the old input.
@@ -234,9 +234,9 @@ Add validation to your book `store` and `update` methods. Then try to save an em
 - `unique` and `exists` check the database; use `Rule::unique(...)->ignore($book)` when updating.
 - Save only the validated data.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does `$request->validate()` do when a rule fails, and what does it return when all rules pass?
 
 <details>
@@ -246,7 +246,7 @@ When a rule fails, it stops the method and sends the user back to the form with 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write rules for a new member: name required, at most 100 characters; email required, a valid email, not already used in `members`; grade required, a whole number from 6 to 10.
 
 <details>
@@ -264,7 +264,7 @@ $validated = $request->validate([
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build the "Borrow a book" form with full validation.
 
 1. The form has a `<select>` of members and a `<select>` of books with copies left, plus a due date.

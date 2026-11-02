@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about sending a postcard. Everyone who carries it, from the mail carrier to the sorting office, can read the words on it. A sealed envelope is different: the letter is inside, out of plain sight. Web forms can send data in the same two ways. **GET** is the postcard, with data written in the address bar. **POST** is the envelope, with data tucked inside the request.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a **superglobal** is in PHP.
 - Read values from the address bar with `$_GET`.
@@ -136,27 +136,27 @@ The address bar still shows only `join.php`.
 
 ---
 
-## 🌍 Real-World Connection: Shareable URLs vs Privacy
+## Real-World Connection: Shareable URLs vs Privacy
 
 - When you search on a search engine or a library catalogue, the URL looks like `search?q=php+tutorials`. You can send that link to a classmate, and they see the same results. That is why searches use GET.
 - When you log in or pay at an online bookshop, the details must never sit in the URL. That is why logins and payments use POST, over HTTPS.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 A user visits: `http://localhost/view.php?id=42&view=summary`
 
 What does `$_GET['id']` contain?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> The string <code>"42"</code>. Values from the URL are always strings.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Password Gate
+## Code Detective: The Broken Password Gate
 
 ```html
 <!-- A developer wrote this registration form: -->
@@ -172,19 +172,19 @@ What does `$_GET['id']` contain?
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Thinking POST makes a password safe.**
 
-- ❌ *Wrong idea*: "My login form uses POST, so the password is protected."
-- 😕 *What happens*: POST only keeps the password out of the address bar. On plain `http://`, anyone watching the network (for example, on shared Wi-Fi) can still read it.
-- ✅ *Fixed*: Use POST **and** HTTPS (`https://`), which encrypts the whole request. On the server, never save or compare a plain password. Save `password_hash($password, PASSWORD_DEFAULT)` and check with `password_verify()`.
+- *Wrong idea*: "My login form uses POST, so the password is protected."
+- *What happens*: POST only keeps the password out of the address bar. On plain `http://`, anyone watching the network (for example, on shared Wi-Fi) can still read it.
+- *Fixed*: Use POST **and** HTTPS (`https://`), which encrypts the whole request. On the server, never save or compare a plain password. Save `password_hash($password, PASSWORD_DEFAULT)` and check with `password_verify()`.
 
 A second mistake: using GET for a password form. The password then appears in the URL, the history and the logs.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Save this as `greet.php` in `htdocs`:
 
@@ -204,7 +204,7 @@ Open `http://localhost/greet.php?name=Bilal`. You see:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - **Superglobals** such as `$_GET` and `$_POST` are built-in arrays you can use anywhere.
 - `$_GET` reads the query string in the URL. Use it for searches, filters and page links.
@@ -214,9 +214,9 @@ Open `http://localhost/greet.php?name=Bilal`. You see:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Name two differences between `$_GET` and `$_POST`.
 2. Can a page opened with GET data be bookmarked?
 3. Which symbol joins two pairs in a query string?
@@ -230,7 +230,7 @@ Open `http://localhost/greet.php?name=Bilal`. You see:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why is GET a good choice for search filters and page numbers?
 2. A function needs a form value. Why can it use `$_POST` without writing `global $_POST`?
 
@@ -242,7 +242,7 @@ Open `http://localhost/greet.php?name=Bilal`. You see:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a **Book Catalogue Filter**: `books.php?subject=science&sort=title`.
 
 1. Read `subject` and `sort` with `$_GET`, using `??` defaults `"all"` and `"title"`.

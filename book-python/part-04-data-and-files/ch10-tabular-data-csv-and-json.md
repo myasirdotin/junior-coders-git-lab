@@ -1,10 +1,10 @@
 # Chapter 10: Tabular Data (CSV & JSON)
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Two schools want to share their recycling results. One school writes a long paragraph: "On Monday we collected about twelve kilos, and on Tuesday…". The other sends a neat table with columns for day and kilograms. Which one can a computer read? The table, of course. Data science runs on **structured data**: information arranged in rows, columns and labels. The two most common formats for it are **CSV** and **JSON**.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Describe the CSV and JSON formats and when to use each.
 - Write and read CSV files with Python's `csv` module.
@@ -287,7 +287,7 @@ All borrows this term: 255
 
 `.writeheader()` writes the column names. `.writerows()` writes every dictionary in the list as a row.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Comparing CSV numbers while they are still text.** Strings are compared letter by letter, like words in a dictionary, so `"110"` comes **before** `"45"`.
 
@@ -325,13 +325,13 @@ json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes:
 
 **Fix:** write `'{"done": true}'`, or build a Python dictionary and let `json.dumps()` write the JSON for you.
 
-## ✍️ Try It
+## Try It
 
 Create a CSV file `cleanup.csv` with the header `street,bags` and three streets with bag counts. Read it with `csv.DictReader` and print the total number of bags.
 
 **Hint:** remember `newline=""` when writing, and `int(row["bags"])` when reading.
 
-## 📝 Recap
+## Recap
 
 - CSV stores a flat table as text: one row per line, commas between columns, a header first.
 - `csv.writer` / `csv.DictWriter` write rows; `csv.reader` / `csv.DictReader` read them.
@@ -339,9 +339,9 @@ Create a CSV file `cleanup.csv` with the header `street,bags` and three streets 
 - JSON stores labelled, nested data. `json.dump`/`json.load` work with files; `json.dumps`/`json.loads` work with strings.
 - In JSON: `true`, `false`, `null` and double quotes only.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 How do you write the Python value `None` in JSON? What type is every value that `csv.DictReader` gives you?
 
 <details>
@@ -351,7 +351,7 @@ How do you write the Python value `None` in JSON? What type is every value that 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Turn this dictionary into JSON text with `json.dumps` and print it:
 `{"club": "Robotics", "members": 14, "active": True}`.
 
@@ -372,7 +372,7 @@ Output:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Convert a CSV gradebook into a JSON report.
 
 1. Write `grades.csv` with columns `name,score` and four students: Amina 88, Bilal 74, Hana 95, Idris 61.

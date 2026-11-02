@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Sending Weather Data to the Science Centre**
 
@@ -10,7 +10,7 @@ Your class builds a small weather station in the school garden. It records tempe
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Connect a local repository to a remote with `git remote add`.
 - Check which remotes are set up with `git remote -v`.
@@ -169,7 +169,7 @@ To github.com:zainab-codes/eco-club.git
 branch 'main' set up to track 'origin/main'.
 ```
 
-Refresh the GitHub page: your files and full history are online. 🚀
+Refresh the GitHub page: your files and full history are online.
 
 ---
 
@@ -200,7 +200,7 @@ branch 'feature/footer' set up to track 'origin/feature/footer'.
 
 ---
 
-## 🌍 Real-World Connection: Distributed Backups
+## Real-World Connection: Distributed Backups
 
 Git is a **distributed** version control system: every copy holds the full history.
 
@@ -210,7 +210,7 @@ Git is a **distributed** version control system: every copy holds the full histo
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 You pushed once with `git push -u origin main`. Then you make a new commit and type only:
 
@@ -221,7 +221,7 @@ git push
 **Question**: Does Git know where to send it, or does it complain?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Answer:** It pushes without complaint. The `-u` flag linked your local `main` to `origin/main`, so Git remembers where it goes.
 
@@ -229,7 +229,7 @@ git push
 
 ---
 
-## 🕵️ Code Detective: The "Remote Origin Already Exists" Error
+## Code Detective: The "Remote Origin Already Exists" Error
 
 A student ran `git remote add origin ...` a second time. Git replied:
 
@@ -243,11 +243,11 @@ error: remote origin already exists.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: Creating the GitHub repository with a README, then pushing an existing project.**
 
-- ❌ **Wrong:** ticking *"Add a README"* on GitHub, then running `git push -u origin main` from your project.
+- **Wrong:** ticking *"Add a README"* on GitHub, then running `git push -u origin main` from your project.
 - **What happens:** the remote already has a commit your laptop does not have, so Git rejects the push:
 
 ```text
@@ -255,11 +255,11 @@ error: remote origin already exists.
 error: failed to push some refs to 'github.com:zainab-codes/eco-club.git'
 ```
 
-- ✅ **Fixed:** when you push a project that already exists, create the GitHub repository **empty**. (If it is too late, Chapter 15 shows how to pull first.)
+- **Fixed:** when you push a project that already exists, create the GitHub repository **empty**. (If it is too late, Chapter 15 shows how to pull first.)
 
 **Mistake 2: A typo in the remote address.**
 
-- ❌ **Wrong:** `git remote add origin ../club-remot.git` (missing "e").
+- **Wrong:** `git remote add origin ../club-remot.git` (missing "e").
 - **What happens:** `git push` fails because nothing exists at that address:
 
 ```text
@@ -267,7 +267,7 @@ fatal: '../club-remot.git' does not appear to be a git repository
 fatal: Could not read from remote repository.
 ```
 
-- ✅ **Fixed:** you do not need to start again. Correct the address:
+- **Fixed:** you do not need to start again. Correct the address:
 
 ```bash
 git remote set-url origin ../club-remote.git
@@ -275,7 +275,7 @@ git remote set-url origin ../club-remote.git
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Make your own offline remote and push to it.
 
@@ -293,7 +293,7 @@ The `../` means "go up one folder". Your project and `club-remote.git` must sit 
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **remote** is another copy of your repository; `origin` is its usual nickname.
 - `git remote add origin <address>` saves the address; `git remote -v` shows it.
@@ -303,9 +303,9 @@ The `../` means "go up one folder". Your project and `club-remote.git` must sit 
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command links a local repository to a remote address?
 2. What is the usual nickname for the main remote?
 3. What does `-u` set up in `git push -u origin main`?
@@ -319,7 +319,7 @@ The `../` means "go up one folder". Your project and `club-remote.git` must sit 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Why is a remote copy safer than keeping code only on one flash drive?
 5. What does `git remote -v` show?
 6. `git status` says `Your branch is ahead of 'origin/main' by 2 commits.` What does it mean, and what should you run?
@@ -333,7 +333,7 @@ The `../` means "go up one folder". Your project and `club-remote.git` must sit 
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Set up a club repository with a remote and share a feature branch.
 
 1. Create a bare "pretend GitHub" `club-remote.git` (or, if you are 13+, an empty GitHub repository).

@@ -1,10 +1,10 @@
 # Chapter 2: The OSI & TCP/IP Layer Models
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think of a school sending a book parcel to a sister school abroad. The librarian chooses the book and writes a note. A clerk wraps it and numbers the parcels. The post office stamps the city and postcode. A van driver carries it along the road. Each person does one job and passes the parcel on. Nobody needs to know how the others do their work. Networks are built in the same way, in **layers**.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why networks are split into **layers**.
 - List the seven layers of the **OSI model** in order.
@@ -46,7 +46,7 @@ The **OSI model** (Open Systems Interconnection) is a teaching model made by ISO
 
 Most names in the table are taught later in this book. For now, just notice which layer each one lives in.
 
-> 💡 **Memory trick (top to bottom):**
+> **Memory trick (top to bottom):**
 > **A**ll **P**eople **S**eem **T**o **N**eed **D**ata **P**rocessing.
 > (Application, Presentation, Session, Transport, Network, Data Link, Physical)
 
@@ -100,7 +100,7 @@ Frame: [ETH|IP|TCP|Salam|FCS]
 
 The receiving computer does the opposite. It removes one header at each layer, going **up**. This is called **decapsulation**. In the end, only the message `Salam` reaches the program.
 
-> 📏 A normal Ethernet frame can carry up to 1,500 bytes of payload. This limit is called the **MTU** (Maximum Transmission Unit). Those 1,500 bytes include the IP and TCP headers, not just your data.
+> A normal Ethernet frame can carry up to 1,500 bytes of payload. This limit is called the **MTU** (Maximum Transmission Unit). Those 1,500 bytes include the IP and TCP headers, not just your data.
 
 ---
 
@@ -147,30 +147,30 @@ Network engineers often check layers from the bottom up. Fix the lowest broken l
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mixing up the names of the data units.**
 
-- ❌ Wrong: "The switch reads the packet's MAC address."
+- Wrong: "The switch reads the packet's MAC address."
 - What really happens: MAC addresses live in the **frame** header (layer 2). A packet is the layer 3 unit.
-- ✅ Right: "The switch reads the **frame's** MAC address. The router reads the **packet's** IP address."
+- Right: "The switch reads the **frame's** MAC address. The router reads the **packet's** IP address."
 
 **Thinking the OSI model is what computers actually run.**
 
-- ❌ Wrong: "My laptop has seven separate network programs, one per layer."
-- ✅ Right: OSI is a map for learning and talking about problems. Real systems follow the TCP/IP model.
+- Wrong: "My laptop has seven separate network programs, one per layer."
+- Right: OSI is a map for learning and talking about problems. Real systems follow the TCP/IP model.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Run `ipconfig /all` on your computer. Copy four lines from it and label each one with its layer (Link, Internet or Application).
 
-> 💡 Hint: anything with "Address" made of six pairs like `00-1A-...` is a MAC address. Four numbers with dots are IP addresses.
+> Hint: anything with "Address" made of six pairs like `00-1A-...` is a MAC address. Four numbers with dots are IP addresses.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Layers split hard network work into small jobs that can change on their own.
 - **OSI** has 7 layers: Application, Presentation, Session, Transport, Network, Data Link, Physical.
@@ -181,9 +181,9 @@ Run `ipconfig /all` on your computer. Copy four lines from it and label each one
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 At which OSI layer do HTTP, DNS and SSH work? And what is the data unit called at layers 4, 3 and 2?
 
 <details>
@@ -194,7 +194,7 @@ Layer 4 = **segment** (TCP) or **datagram** (UDP), layer 3 = **packet**, layer 2
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Match each problem to the most likely layer:
 1. A laptop's network cable is cut.
 2. The laptop has no IP address after joining Wi-Fi.
@@ -209,7 +209,7 @@ Match each problem to the most likely layer:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A student sends the message `Hello` to a web server.
 1. Draw the frame that leaves the computer, showing every header in order.
 2. Say which device reads the outer header first: a switch or a router?

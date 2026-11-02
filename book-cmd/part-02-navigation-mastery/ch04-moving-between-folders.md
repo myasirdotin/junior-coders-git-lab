@@ -1,12 +1,12 @@
 # Chapter 4: Moving Between Folders (`cd` Mastery)
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think of a big school building. To reach the science lab, you walk through the main door, then down a corridor, then into Room 12. To leave, you walk back out the same way, one door at a time. If you get lost, you can always go back to the main entrance. Moving between folders in the terminal works exactly like this.
 
 > **Key Idea**: In File Explorer you double-click a folder to go in, and press the "Up" arrow to go out. In the terminal you use `cd`, which means **c**hange **d**irectory.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Step into a folder with `cd` and step out with `cd ..`.
 - Jump several levels up or down in one command.
@@ -159,7 +159,7 @@ PS E:\my-code>
 | Home folder | `cd %USERPROFILE%` | `cd ~` | `cd ~` |
 | Go to drive E | `E:` or `cd /d E:\` | `cd E:\` | `cd /e/` |
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **A small spelling mistake in the folder name.**
 
@@ -186,7 +186,7 @@ C:\Users\Amina\Desktop>
 
 **Forgetting the space.** `cd..` happens to work in CMD and PowerShell. But PowerShell rejects `cd..\..` with *"The term 'cd..\..' is not recognized"*. Git Bash rejects even `cd..` with *"command not found"*. Always type the space: `cd ..`.
 
-## ✍️ Try It
+## Try It
 
 Use the practice folder you made in Chapter 3.
 
@@ -198,7 +198,7 @@ Use the practice folder you made in Chapter 3.
 
 *Hint*: From `C:\JuniorCoders\practice`, you need to climb two levels. Then use the home command from the table.
 
-## 📝 Recap
+## Recap
 
 - `cd name` steps into a folder. The prompt changes to show where you are.
 - `cd ..` steps out one level. `cd ..\..` steps out two.
@@ -206,9 +206,9 @@ Use the practice folder you made in Chapter 3.
 - In CMD, switch drives with `E:` or `cd /d E:\folder`. In PowerShell, `cd E:\folder` is enough.
 - A wrong name gives an error but changes nothing. Check the spelling and try again.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does `cd` stand for?
 2. What does `..` mean?
 3. How do you jump to the root of the current drive?
@@ -222,7 +222,7 @@ Use the practice folder you made in Chapter 3.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Your prompt shows `C:\JuniorCoders\practice\lessons\day-01>`.
 
 1. Write the command to move up to `lessons`.
@@ -238,7 +238,7 @@ Your prompt shows `C:\JuniorCoders\practice\lessons\day-01>`.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Zainab is in CMD at `C:\Users\Zainab>`. She types `cd E:\science-fair` to open her flash drive. She says: *"Nothing happened! It still says `C:\Users\Zainab>`."*
 
 1. Explain what happened.

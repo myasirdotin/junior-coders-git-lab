@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Open House Day**
 
@@ -17,7 +17,7 @@ Parents, teachers, and students visit every day to check announcements, explore 
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Plan a school website with a header, banner, courses, teachers and contact sections.
@@ -373,7 +373,7 @@ Type this code into an editor and save it as `school-website.html`:
 
 ---
 
-## 🌍 Real-World Connection: School Portals Everywhere
+## Real-World Connection: School Portals Everywhere
 
 Visit top educational websites like *Stanford Online*, *MIT OpenCourseWare*, or your local district school board:
 - Notice how every page clearly divides into: **School Brand -> Hero Announcement -> Courses -> Staff -> Contact**.
@@ -381,18 +381,18 @@ Visit top educational websites like *Stanford Online*, *MIT OpenCourseWare*, or 
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 If a parent opens this school site on a smartphone (390px wide), what will happen to the 3 course cards?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> The course cards will automatically collapse into a neat, 1-column vertical stack! Because we used <code>grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));</code>, each card refuses to get smaller than 280px, forcing them onto separate rows on narrow screens!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Background Wash
+## Code Detective: The Broken Background Wash
 
 A student tried to create a darkened photo banner, but the photo showed with no dark tint, and the white heading was hard to read:
 
@@ -433,7 +433,7 @@ Add a floating school mascot crest in the top right corner:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is choosing school colours that look nice but are hard to read.
 
@@ -460,7 +460,7 @@ A second slip is a fixed number of columns, such as `repeat(3, 1fr)`, for the co
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Add an "Events Notice Board"**
 
@@ -473,7 +473,7 @@ Open `school-website.html` in your editor:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - School portals require clean, welcoming visual structure and clear navigation.
 - Consistent school branding is maintained through thematic colors (e.g., forest green and gold).
@@ -483,7 +483,7 @@ Open `school-website.html` in your editor:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -495,9 +495,9 @@ Open `school-website.html` in your editor:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. When you list several backgrounds in one declaration, which layer is on top?
 2. Which grid setting keeps course cards at least 280px wide while filling the row?
 3. Which HTML tag holds the contact and copyright details at the bottom of the page?
@@ -511,7 +511,7 @@ Open `school-website.html` in your editor:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write a link that lets phone users call the school office at `+91-94190-12345` with one tap.
 5. Why should you add a dark overlay when you put white text on a photo?
 
@@ -529,7 +529,7 @@ The `tel:` link opens the phone's dialler. Remove spaces and dashes inside `href
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add a "Daily Lunch Specials" card with a striped table.
 1. Make a card with an `<h3>` and a `<table>` of 5 days and their dishes.
 2. Give the table `width: 100%` and `border-collapse: collapse;` (this joins the cell borders into single lines).

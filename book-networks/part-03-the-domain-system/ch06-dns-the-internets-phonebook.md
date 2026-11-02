@@ -1,10 +1,10 @@
 # Chapter 6: DNS — The Internet's Global Phonebook
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Bilal wants a copy of *The Canon of Medicine* by Ibn Sina. He asks the librarian at the front desk. She checks her notes first. If the answer is not there, she phones the national library, which sends her to the medicine section, which sends her to the special collection. Finally someone says, "Shelf 4, Row B." She tells Bilal and writes it in her notes for the next student. That is how **DNS** finds the address of a website.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why we need **DNS** to turn names into IP addresses.
 - Read a domain name from right to left and name its parts.
@@ -104,7 +104,7 @@ Every record comes with a **TTL** (Time To Live). It is a number of seconds. It 
 
 A long TTL makes lookups faster and reduces traffic. A short TTL means changes spread faster.
 
-> 💡 **Developer tip:** Before moving a website to a new server, lower its TTL to `300` a day or two early. When you change the IP address, most resolvers will notice within minutes.
+> **Developer tip:** Before moving a website to a new server, lower its TTL to `300` a day or two early. When you change the IP address, most resolvers will notice within minutes.
 
 ---
 
@@ -171,31 +171,31 @@ On macOS and Linux, you can also use `dig example.org`.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Expecting a DNS change to appear everywhere at once.**
 
-- ❌ Wrong: "I changed my A record. Why do some students still reach the old server?"
+- Wrong: "I changed my A record. Why do some students still reach the old server?"
 - What happens: resolvers keep the old answer until its TTL runs out.
-- ✅ Right: lower the TTL before the change, then wait. On your own PC, `ipconfig /flushdns` clears the local copy.
+- Right: lower the TTL before the change, then wait. On your own PC, `ipconfig /flushdns` clears the local copy.
 
 **Pointing a CNAME at an IP address.**
 
-- ❌ Wrong: `www.example.org  CNAME  203.0.113.10`
-- ✅ Right: a CNAME must point to a **name**. Use an A record for an IP address: `www.example.org  A  203.0.113.10`.
+- Wrong: `www.example.org  CNAME  203.0.113.10`
+- Right: a CNAME must point to a **name**. Use an A record for an IP address: `www.example.org  A  203.0.113.10`.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Run `nslookup example.org` and `nslookup -type=ns example.org`.
 Write down your resolver's address, the A and AAAA answers, and the names of the authoritative servers.
 
-> 💡 Hint: the NS answer lines look like `example.org  nameserver = ...`.
+> Hint: the NS answer lines look like `example.org  nameserver = ...`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - DNS turns names into IP addresses, mostly over UDP port 53.
 - Names are read right to left: root, TLD, domain, subdomain.
@@ -205,9 +205,9 @@ Write down your resolver's address, the A and AAAA answers, and the names of the
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is the difference between an **A** record and a **CNAME** record? Which server gives the final, official answer?
 
 <details>
@@ -218,7 +218,7 @@ The **authoritative name server** gives the final, official answer.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A record has `TTL 7200`. A resolver fetched it at 09:00.
 1. Until what time may the resolver reuse it?
 2. The owner changes the IP address at 09:30. When will this resolver see the new address at the latest?
@@ -231,7 +231,7 @@ A record has `TTL 7200`. A resolver fetched it at 09:00.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A charity, `relief.example.org`, is setting up its DNS. Write the records it needs:
 1. The website on IPv4 `198.51.100.20` and IPv6 `2001:db8::20`.
 2. `www.relief.example.org` as an alias of the main name.

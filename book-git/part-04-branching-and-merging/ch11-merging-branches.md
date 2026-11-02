@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Two Mountain Streams Become One River**
 
@@ -10,7 +10,7 @@ High in the Himalayas, two streams run down different valleys. One carries glaci
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Merge a finished feature branch into `main` with `git merge`.
 - Tell a **fast-forward merge** from a **three-way merge**.
@@ -143,13 +143,13 @@ The two lines split and join again at the merge commit.
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 Many teams use **continuous integration** (CI): when work is merged into `main`, a computer automatically runs tests. Some teams also publish the website automatically after the tests pass. So a broken merge into `main` can reach real users quickly. Merging only tested, working code is part of doing your work with excellence (*Iḥsān*).
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Branch `nav` has two new commits. `main` has none. You run:
 
@@ -163,7 +163,7 @@ Git prints `Fast-forward`.
 **Question:** Does Git create a new commit called `Merge branch 'nav'`?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **No.** In a fast-forward, Git only moves the `main` label forward to the same commit that `nav` points to. No new commit is made.
 
@@ -171,7 +171,7 @@ Git prints `Fast-forward`.
 
 ---
 
-## 🕵️ Code Detective: The Ghost Branches
+## Code Detective: The Ghost Branches
 
 Ahmad merged `feature/header` into `main` last week, but `git branch` still lists it:
 
@@ -188,7 +188,7 @@ Ahmad merged `feature/header` into `main` last week, but `git branch` still list
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: Merging while standing on the wrong branch.**
 
@@ -225,7 +225,7 @@ Fixed version: merge first (`git switch main`, `git merge feature/gallery`), the
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In a practice repository:
 
@@ -242,7 +242,7 @@ After committing on `feature-gallery`, run `git switch main`, then `git merge fe
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `git merge <branch>` brings that branch's work into the branch you are on.
 - Always switch to the receiving branch (usually `main`) first.
@@ -252,9 +252,9 @@ After committing on `feature-gallery`, run `git switch main`, then `git merge fe
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 
 1. Which branch should you be on before running `git merge feature-x` to add it to `main`?
 2. What is a fast-forward merge?
@@ -269,7 +269,7 @@ After committing on `feature-gallery`, run `git switch main`, then `git merge fe
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 
 1. When does Git do a three-way merge instead of a fast-forward?
 2. Why does a three-way merge need a merge commit?
@@ -288,7 +288,7 @@ After committing on `feature-gallery`, run `git switch main`, then `git merge fe
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 
 Create a true three-way merge:
 

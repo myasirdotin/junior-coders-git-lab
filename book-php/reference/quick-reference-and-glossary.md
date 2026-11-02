@@ -1,8 +1,8 @@
-# PHP Quick Reference & Glossary 📖⚡
+# PHP Quick Reference & Glossary
 
 ---
 
-## 1. 🚀 Essential PHP Syntax Cheatsheet
+## 1. Essential PHP Syntax Cheatsheet
 
 ### PHP Tags & Output
 ```php
@@ -98,7 +98,7 @@ $s = new Student("Zainab", 3.92);
 
 ---
 
-## 2. 📚 Comprehensive Glossary of Terms
+## 2. Comprehensive Glossary of Terms
 
 | Term | Plain English Definition |
 | :--- | :--- |

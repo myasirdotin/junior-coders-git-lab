@@ -13,15 +13,15 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #2563eb, #0284c7); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #2563eb; font-weight: 800;">Level 6</span>
-            <h1 style="color: white; margin: 0.5rem 0;">The Persistent Archive 📁📊</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">The Persistent Archive</h1>
             <p>Save information permanently to disk. Read and write text files, CSV tables, and JSON datasets.</p>
         </header>
 
         <!-- Analogy -->
         <section class="content-section">
-            <h2>🗄️ Why Save to a File?</h2>
+            <h2>Why Save to a File?</h2>
             <div class="tip-box" style="border-left-color: #2563eb;">
-                <p>🧠 <strong>Real-life analogy:</strong> Variables are like writing on a whiteboard. When the lesson ends, the board is wiped. A <strong>file</strong> is like a notebook in your drawer. It is still there tomorrow.</p>
+                <p><strong>Real-life analogy:</strong> Variables are like writing on a whiteboard. When the lesson ends, the board is wiped. A <strong>file</strong> is like a notebook in your drawer. It is still there tomorrow.</p>
             </div>
             <p>When a Python program ends, all its variables are lost. To keep data, the program must save it in a file on the disk (the computer's long-term storage).</p>
             <p>Working with a file has three steps: <strong>open</strong> it, <strong>read or write</strong>, then <strong>close</strong> it.</p>
@@ -90,7 +90,7 @@ Wednesday: 50.1 kWh</code></pre>
 
         <!-- CSV and JSON Worked Examples -->
         <section class="content-section">
-            <h2>📊 Reading a Dataset</h2>
+            <h2>Reading a Dataset</h2>
             <p>A <strong>dataset</strong> is a collection of records, often kept in a CSV file. The first line of a CSV file is the <strong>header</strong>. It names each column.</p>
             <p><code>csv.DictReader</code> turns each row into a dictionary. The header words become the keys. First, write <code>import csv</code> at the top, as you learned in Module 5.</p>
             <p>Everything read from a text file is a string, even <code>"42"</code>. To do maths, change it into a number with <code>int()</code> for whole numbers or <code>float()</code> for decimals.</p>
@@ -142,7 +142,7 @@ Large</code></pre>
             <p>Unlike CSV, JSON keeps numbers as numbers. That is why <code>loaded["members"] + 2</code> works without <code>int()</code>.</p>
 
             <div class="tip-box" style="border-left-color: #ef4444;">
-                <p>⚠️ <strong>Common mistake: using <code>"w"</code> when you meant <code>"a"</code></strong></p>
+                <p><strong>Common mistake: using <code>"w"</code> when you meant <code>"a"</code></strong></p>
                 <p>Mode <code>"w"</code> wipes the file before writing. If you open your journal with <code>"w"</code> each day, only today's entry survives. Use <code>"a"</code> to add to the end.</p>
                 <p>A second trap is reading a file that does not exist yet, or misspelling its name:</p>
                 <pre class="code-block"><code>FileNotFoundError: [Errno 2] No such file or directory: 'missing_notes.txt'</code></pre>
@@ -150,13 +150,13 @@ Large</code></pre>
             </div>
 
             <div class="tip-box" style="border-left-color: #2563eb;">
-                <p>🧪 <strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a> and run worked examples 1 and 2 together. The console runs Python inside your browser, so its files are kept only while the page is open. Reloading the page clears them.</p>
+                <p><strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a> and run worked examples 1 and 2 together. The console runs Python inside your browser, so its files are kept only while the page is open. Reloading the page clears them.</p>
             </div>
         </section>
 
         <!-- Practice Challenge -->
         <section class="content-section jc-your-turn">
-            <h2>🧪 Your Turn: Logging Science Lab Observations</h2>
+            <h2>Your Turn: Logging Science Lab Observations</h2>
             <p>Add one new observation to the end of a science journal file called <code>seedling_journal.txt</code>, without erasing the older entries. Then print a confirmation message.</p>
             <details class="jc-answer"><summary>Show answer</summary><div>
             <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Append a new observation to log
@@ -173,14 +173,14 @@ print("Observation safely recorded in seedling_journal.txt!")</code></pre>
         </section>
 
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Which mode adds to the end of a file: <code>"r"</code>, <code>"w"</code> or <code>"a"</code>? Why do we open files with <code>with</code>?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div><code>"a"</code> (append) adds to the end. <code>with</code> closes the file for us automatically when the indented block ends, so the data is saved safely.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>Write three book titles to <code>reading_list.txt</code>, one per line. Then read the file back with a loop and print each title with a number in front: <code>1. The Story of Water</code>.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
 <pre><code>with open("reading_list.txt", "w", encoding="utf-8") as file:
@@ -197,7 +197,7 @@ with open("reading_list.txt", "r", encoding="utf-8") as file:
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>The school library ran a book donation week. Build a small report.</p>
                 <ol>
                     <li>Write <code>donations.csv</code> with the header <code>donor,books</code> and three rows: Amina 5, Yusuf 12, Hana 8.</li>

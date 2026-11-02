@@ -1,10 +1,10 @@
 # Chapter 4: Transport Protocols: TCP vs. UDP
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine two ways a school shares news. The first is a signed letter to each parent. Every page is numbered, and the parent signs a slip to say it arrived. If a page is missing, the office sends it again. The second is an announcement over the school loudspeaker. It is instant, but if you missed a word, nobody repeats it. Networks have both kinds of delivery: **TCP** is the signed letter, and **UDP** is the loudspeaker.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what the **Transport layer** (layer 4) adds on top of IP.
 - Describe how **TCP** makes delivery reliable with the **3-way handshake**, sequence numbers and acknowledgements.
@@ -135,31 +135,31 @@ To show only active TCP connections, use `netstat -an | findstr ESTABLISHED`.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Thinking UDP is "bad" because it is unreliable.**
 
-- ❌ Wrong: "Always use TCP, it is safer."
+- Wrong: "Always use TCP, it is safer."
 - What happens: a live voice call over plain TCP can freeze while it waits for one lost packet.
-- ✅ Right: choose by the app's needs. Use TCP when every byte matters. Use UDP when fresh data matters more than perfect data.
+- Right: choose by the app's needs. Use TCP when every byte matters. Use UDP when fresh data matters more than perfect data.
 
 **Thinking TCP makes the network itself reliable.**
 
-- ❌ Wrong: "With TCP, packets never get lost."
-- ✅ Right: packets still get lost on the network. TCP *notices* the loss and sends them again.
+- Wrong: "With TCP, packets never get lost."
+- Right: packets still get lost on the network. TCP *notices* the loss and sends them again.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open a web page in your browser, then quickly run `netstat -an | findstr ESTABLISHED`.
 Count how many connections use remote port `443`. Then close the browser, wait a minute, and run it again. What changed?
 
-> 💡 Hint: the remote port is the number after the colon in the `Foreign Address` column.
+> Hint: the remote port is the number after the colon in the `Foreign Address` column.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - IP is best effort; the Transport layer adds ports and, with TCP, reliability.
 - TCP starts with a 3-way handshake: **SYN, SYN-ACK, ACK**.
@@ -169,9 +169,9 @@ Count how many connections use remote port `443`. Then close the browser, wait a
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Name the three messages of the TCP 3-way handshake, in order. How big is a UDP header?
 
 <details>
@@ -182,7 +182,7 @@ A UDP header is **8 bytes**. A TCP header is 20 to 60 bytes.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 For each app, choose TCP or UDP and give one reason:
 1. Downloading a PDF of the school timetable.
 2. A live voice call between two classrooms.
@@ -197,7 +197,7 @@ For each app, choose TCP or UDP and give one reason:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A client starts a TCP handshake with sequence number `4000`. The server chooses `9000`.
 1. Write the three handshake messages with their `seq` and `ack` numbers.
 2. The client then sends 100 bytes of data starting at its next sequence number. What `ack` number will the server reply with?

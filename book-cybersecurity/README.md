@@ -1,10 +1,10 @@
-# Cybersecurity & Digital Hygiene for Junior Coders 🛡️🔐
+# Cybersecurity & Digital Hygiene for Junior Coders
 
 Welcome to the official **Cybersecurity & Digital Hygiene Textbook** of the Junior Coders curriculum!
 
 ---
 
-## 🎯 Course Overview
+## Course Overview
 
 Security is not an afterthought added at the end of development; it is the foundation of digital trust. This textbook equips students to think like ethical defenders—understanding how attackers exploit human psychology, web code, and network packets, and building impenetrable defenses.
 
@@ -20,7 +20,7 @@ In this textbook, students will:
 
 ---
 
-## 🗺️ Curriculum Roadmap
+## Curriculum Roadmap
 
 | Part | Focus | Chapters |
 | :--- | :--- | :--- |
@@ -33,7 +33,7 @@ In this textbook, students will:
 
 ---
 
-## 🌟 Islamic Ethical Framework (*Amānah & Ṣidq*)
+## Islamic Ethical Framework (*Amānah & Ṣidq*)
 
 All lessons in this curriculum adhere to our core ethical standards:
 

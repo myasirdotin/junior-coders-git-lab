@@ -2,7 +2,7 @@
 
 This guide helps a teacher run "Android Apps with Kotlin" with a Grade 9 or 10 class. It covers the computer lab, a pacing plan of about twenty weeks, marking rubrics, safety and privacy rules, and homework and discussion questions for every chapter.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Prepare a computer lab for Android Studio, with a plan for slow internet and older computers.
 - Choose between emulators, real phones and the Kotlin Playground for each part of the course.
@@ -10,7 +10,7 @@ This guide helps a teacher run "Android Apps with Kotlin" with a Grade 9 or 10 c
 - Mark chapter work and the final Study Planner with clear, fair rubrics.
 - Keep students and their families safe: privacy, permissions, sharing APKs and publishing.
 
-## 🧭 Course Overview
+## Course Overview
 
 | Part | Chapters | Students learn | Where the code runs |
 |------|----------|----------------|--------------------|
@@ -27,7 +27,7 @@ This guide helps a teacher run "Android Apps with Kotlin" with a Grade 9 or 10 c
 
 **Teaching values.** The book treats user data as an *Amānah*, avoids ads, tracking, streaks and games of chance, and uses school, library, charity and study examples. Keep class projects within the same rules.
 
-## 🖥️ Lab Setup
+## Lab Setup
 
 ### Computers
 
@@ -74,7 +74,7 @@ Chapters 4 to 8 use only plain Kotlin programs with `fun main()`. They run in th
 
 Compose screens cannot run in the Playground. Students on weak computers can pair with a classmate for Chapters 9 to 19.
 
-## 📅 Pacing Plan (about 20 weeks)
+## Pacing Plan (about 20 weeks)
 
 Assumes two or three lessons a week of 45–60 minutes. Adjust to your timetable.
 
@@ -103,15 +103,15 @@ Assumes two or three lessons a week of 45–60 minutes. Adjust to your timetable
 
 **If you have less time** (about 14 weeks): put Chapters 4 and 5 in one week, 6 and 7 in one week, and 17 and 18 in one week, and give two weeks to the project instead of three.
 
-## 📊 Rubrics
+## Rubrics
 
 ### Chapter work (each chapter's Practice)
 
 | Level | Full marks when the student... |
 |-------|-------------------------------|
-| 🟢 Recall (1 mark) | Answers correctly in their own words |
-| 🟡 Apply (2 marks) | Writes code that runs and gives the expected output or screen |
-| 🔴 Challenge (3 marks) | Completes all steps, code is tidy, and they can explain one design choice |
+| Recall (1 mark) | Answers correctly in their own words |
+| Apply (2 marks) | Writes code that runs and gives the expected output or screen |
+| Challenge (3 marks) | Completes all steps, code is tidy, and they can explain one design choice |
 
 Answers are hidden under "Show answer" in the book. Ask students to try first, then compare. Copying an answer without trying is not learning (academic integrity, *Ṣidq*).
 
@@ -137,7 +137,7 @@ Use the 4-row, 12-mark rubric printed in Chapter 19 (Features, Code quality, Des
 
 Add a short **presentation** (2–3 minutes): the student shows the app, one bug they fixed and how they found it, and why the app needs no permissions.
 
-## 🛡️ Safety and Privacy Notes
+## Safety and Privacy Notes
 
 - **No real personal data.** Example apps use made-up books and tasks. Students do not collect names, photos, locations or contacts of classmates.
 - **No accounts, ads, analytics or tracking libraries** in class projects. If a student wants to add a library, they ask first and explain why.
@@ -148,7 +148,7 @@ Add a short **presentation** (2–3 minutes): the student shows the app, one bug
 - **Own phones.** Only with parent consent. Never look through a student's phone. Uninstall test apps at the end of the course.
 - **Wellbeing.** Apps in this course help people; they do not compete for attention. No streaks, pressure notifications or points for time spent in the app.
 
-## 🏠 Homework and Discussion Questions
+## Homework and Discussion Questions
 
 Each homework takes about 20–30 minutes. Plain Kotlin homework can be done in the Kotlin Playground on any device.
 
@@ -174,7 +174,7 @@ Each homework takes about 20–30 minutes. Plain Kotlin homework can be done in 
 | 18 | Write two unit tests for a function from an earlier chapter | Why must a keystore stay private? |
 | 19 | Plan your Study Planner: features, screens, data, files | Which extension would help your family most, and why? |
 
-## 💡 Teaching Tips
+## Teaching Tips
 
 - **Errors first.** When a build fails, start with the first red error in Android Studio and read it aloud together. Most errors are a missing import (Alt + Enter) or a typo.
 - **Type, do not paste.** Students learn more when they type code themselves. Allow copying only for long import lists.
@@ -183,7 +183,7 @@ Each homework takes about 20–30 minutes. Plain Kotlin homework can be done in 
 - **Differentiation.** Fast students take the Level 3 tasks and the Chapter 19 extensions. Students who need support focus on Level 1 and 2 and receive the previous chapter's finished code.
 - **Praise effort and good questions**, not only working apps. A well-explained bug fix deserves credit.
 
-## 📝 Recap
+## Recap
 
 - Prepare the lab before term: one tested setup, copied to all PCs, with the emulator, the template project and the Chapter 14–15 libraries built once.
 - Use the Kotlin Playground for Chapters 4–8 and on weak computers; Android Studio for screens.

@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 On a school nature trip, nobody makes their own scissors, knife and torch from raw metal. A teacher simply opens a ready-made toolkit. Each tool has already been designed, tested and sharpened by experts. PHP comes with a toolkit like this: thousands of **built-in functions** that are ready to use. You will use them to read the date, check variables, stop a script and send a visitor to another page.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Format dates and times with `date()`, `time()` and `strtotime()`.
 - Check whether a variable has a value with `isset()` and `empty()`.
@@ -26,10 +26,10 @@ A **built-in function** is a function that comes with PHP. You call it; you neve
 
 | Category | Star functions |
 | :--- | :--- |
-| 📅 Date & time | `date()`, `time()`, `strtotime()` |
-| 🔍 Checking variables | `isset()`, `empty()`, `is_null()` |
-| 🛑 Stopping a script | `exit`, `die()` |
-| 🌐 Headers & redirects | `header()`, `http_response_code()` |
+| Date & time | `date()`, `time()`, `strtotime()` |
+| Checking variables | `isset()`, `empty()`, `is_null()` |
+| Stopping a script | `exit`, `die()` |
+| Headers & redirects | `header()`, `http_response_code()` |
 
 ### `isset()` vs `empty()`: The Famous Comparison
 
@@ -105,7 +105,7 @@ Output (the dates and times depend on when you run it; this run was on 13 Octobe
 
 ---
 
-## 🌍 Real-World Connection: Due Dates & Page Guards
+## Real-World Connection: Due Dates & Page Guards
 
 - **Library systems**: "Book due back on 2026-10-27" is worked out with `strtotime("+2 weeks")` and `date()`.
 - **Page guards**: a teachers-only page checks who is logged in. If nobody is, it sends the visitor to the login page and stops. You will build this in the login project:
@@ -118,7 +118,7 @@ Output (the dates and times depend on when you run it; this run was on 13 Octobe
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -128,13 +128,13 @@ Output (the dates and times depend on when you run it; this run was on 13 Octobe
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>bool(true)</code>. The text <code>"0"</code> is one of the values PHP treats as empty, even though it is a string with one character in it.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Flawed Zero Check
+## Code Detective: The Flawed Zero Check
 
 ```php
 <?php
@@ -160,18 +160,18 @@ No score entered!
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Printing something before `header()`.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   <?php
   echo "Hello";
   header("Location: home.php");
   ```
-- 😕 *What happens*: PHP shows *Warning: Cannot modify header information - headers already sent*, and the redirect does not happen. Headers travel **before** the page content, so once any output has been sent, it is too late.
-- ✅ *Fixed*: Call `header()` before any `echo`, HTML or even a blank line outside `<?php`.
+- *What happens*: PHP shows *Warning: Cannot modify header information - headers already sent*, and the redirect does not happen. Headers travel **before** the page content, so once any output has been sent, it is too late.
+- *Fixed*: Call `header()` before any `echo`, HTML or even a blank line outside `<?php`.
   ```php
   <?php
   header("Location: home.php");
@@ -182,7 +182,7 @@ A second mistake: **forgetting `exit` after a redirect**. Without it, the rest o
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -206,7 +206,7 @@ bool(true)
 
 ---
 
-## 📝 Recap
+## Recap
 
 - PHP has thousands of ready-made **built-in functions**; look for one before writing your own.
 - `date()` formats a time; `time()` gives the current timestamp; `strtotime()` turns words like `"+2 weeks"` into a timestamp.
@@ -216,9 +216,9 @@ bool(true)
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which `date()` format letter gives the hour in 12-hour format, with a leading zero?
 2. What type of value does `isset()` return?
 3. Which built-in stops the script and can print a message first?
@@ -232,7 +232,7 @@ bool(true)
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why does `isset($x)` return `true` for `$x = ""` but `false` for `$x = null`?
 2. Why must `header()` be called before any HTML or `echo`?
 3. Write two lines that print the weekday of 1 January 2027.
@@ -258,7 +258,7 @@ Friday
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a maintenance guard for the school website.
 
 1. Create `$isMaintenanceMode = true;`.

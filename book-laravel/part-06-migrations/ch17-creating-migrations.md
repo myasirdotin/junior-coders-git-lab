@@ -1,10 +1,10 @@
 # Chapter 17: Creating Migrations
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A carpenter is asked to build the same bookshelf for five schools. He does not guess each time. He writes a **plan**: "Three shelves, each 90 cm wide, the top one for large atlases." Any carpenter can follow the plan and build an identical shelf. When a school later asks for a fourth shelf, he writes a **new note** on the plan instead of rubbing out the old one. You are now going to write the plans for your library's tables.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Create a migration with `php artisan make:migration`.
 - Choose column types and modifiers such as `nullable()`, `default()` and `unique()`.
@@ -190,7 +190,7 @@ Output:
 
 `-m` means "also make a migration". Laravel names the table `donations` for you.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Creating the loans migration before the books migration.**
 
@@ -206,13 +206,13 @@ The foreign key points to a table that does not exist yet. Fix it by renaming th
 
 **Forgetting `down()`.** If `down()` is empty, `migrate:rollback` says DONE but the column stays. Always write the opposite of `up()`.
 
-## ✍️ Try It
+## Try It
 
 Drop the hand-made tables, write the three migrations above, and run `php artisan migrate`. Then add the `shelf` column with a second migration and check it in phpMyAdmin.
 
 *Hint:* `php artisan migrate:status` shows which files ran.
 
-## 📝 Recap
+## Recap
 
 - `php artisan make:migration create_books_table` makes a migration file for a new table.
 - Columns: `string`, `text`, `integer`, `unsignedInteger`, `boolean`, `date`, `timestamps`; modifiers: `nullable`, `default`, `unique`.
@@ -220,9 +220,9 @@ Drop the hand-made tables, write the three migrations above, and run `php artisa
 - Add columns later with a new `add_..._to_books_table` migration and `Schema::table`.
 - `php artisan make:model Name -m` makes a model and its migration together.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Which method creates a new table, and which changes an existing one?
 
 <details>
@@ -232,7 +232,7 @@ Which method creates a new table, and which changes an existing one?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write the `up()` method for an `add_pages_to_books_table` migration: a whole-number `pages` column that may be empty, placed after `copies`. Then write `down()`.
 
 <details>
@@ -256,7 +256,7 @@ public function down(): void
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The library accepts **book donations** from families and records them.
 
 1. Make the `Donation` model and migration with one command.

@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Look at your school ID card. It does not just list facts like "Zainab, 15, Emerald". Each fact has a label next to it: **Name:** Zainab Ali, **Age:** 15, **House:** Emerald. The labels tell you what each value means. An **associative array** works the same way: every value is stored under a name called a **key**.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Create associative arrays with the arrow `=>`.
 - Read and change values using text keys such as `"name"`.
@@ -125,7 +125,7 @@ Teacher: Mr. Imran Shah teaches Computer Science<br>
 
 ---
 
-## 🌍 Real-World Connection: Database Rows & JSON
+## Real-World Connection: Database Rows & JSON
 
 When PHP reads a row from a MySQL database (Chapter 28 shows how):
 
@@ -136,7 +136,7 @@ When PHP reads a row from a MySQL database (Chapter 28 shows how):
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -148,13 +148,13 @@ When PHP reads a row from a MySQL database (Chapter 28 shows how):
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>2</code>. The key "city" was overwritten, not copied. "country" added a second key.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Missing Arrow
+## Code Detective: The Missing Arrow
 
 ```php
 <?php
@@ -177,18 +177,18 @@ When PHP reads a row from a MySQL database (Chapter 28 shows how):
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting the quotes around a key.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   <?php
   $teacher = ["name" => "Ms. Hafsa"];
   echo $teacher[name];
   ```
-- 😕 *What happens*: In PHP 8 the script stops with *Fatal error: Uncaught Error: Undefined constant "name"*. Without quotes, PHP thinks `name` is a constant, not a text key.
-- ✅ *Fixed*:
+- *What happens*: In PHP 8 the script stops with *Fatal error: Uncaught Error: Undefined constant "name"*. Without quotes, PHP thinks `name` is a constant, not a text key.
+- *Fixed*:
   ```php
   <?php
   $teacher = ["name" => "Ms. Hafsa"];
@@ -200,7 +200,7 @@ A second mistake: writing `"Hello $student['name']"` inside double quotes. That 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -231,7 +231,7 @@ Array
 
 ---
 
-## 📝 Recap
+## Recap
 
 - An associative array stores values under **keys** (names) instead of numbers.
 - `=>` joins a key to its value: `"name" => "Zainab"`.
@@ -242,9 +242,9 @@ Array
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which operator joins a key to a value in an associative array?
 2. How do you read the value stored under the key `"email"` in the array `$user`?
 3. Which function prints a whole array with its keys, for checking?
@@ -258,7 +258,7 @@ Array
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why is an associative array easier to read than an indexed array for a student's details?
 2. Create an associative array for a calculator sold in the school shop (`brand`, `model`, `price`, `inStock`). Print each property as a line `key: value` with `foreach`.
 
@@ -289,7 +289,7 @@ brand: SciCalc<br>model: SC-82<br>price: 15.5<br>inStock: yes<br>
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a simple weather board.
 
 1. Create a multi-dimensional array with 3 cities. Each city has `name`, `temp` and `condition`.

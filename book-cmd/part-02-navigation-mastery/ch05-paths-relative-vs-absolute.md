@@ -1,12 +1,12 @@
 # Chapter 5: Relative vs. Absolute Paths
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine you invite a friend to your home. You can give the **full address**: *"House 4, Lal Chowk, Srinagar, Jammu and Kashmir, India."* Anyone, anywhere, can find it. Or you can give **directions from where they stand**: *"Leave the bakery, turn right, it is the second house."* That only works if your friend is already at the bakery. Paths in a computer come in the same two kinds.
 
 > **Key Idea**: A **path** is the address of a file or folder. An **absolute path** is the full address, starting from the top of the drive. A **relative path** gives directions starting from the folder you are standing in.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Tell an absolute path from a relative path at a glance.
 - Use `.`, `..` and the folder separator inside paths.
@@ -136,7 +136,7 @@ It works on your computer only. When the site goes onto a web server, that serve
 > [!IMPORTANT]
 > **Golden rule for websites**: use relative paths to link your own pages, styles, scripts and images. Then the site works on any computer and any server.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Using a relative path from the wrong place.** Amina is in her home folder and types:
 
@@ -155,7 +155,7 @@ or first walk to `my-website`, then type `cd css`.
 
 **Starting a relative path with `\`.** `cd \css` means *"the css folder at the top of the drive"*, which does not exist. Leave out the first `\` for a relative path.
 
-## ✍️ Try It
+## Try It
 
 1. Go to `C:\JuniorCoders\practice` using its **absolute** path.
 2. Go up to `C:\JuniorCoders` using a **relative** path.
@@ -164,7 +164,7 @@ or first walk to `my-website`, then type `cd css`.
 
 *Hint*: An absolute path starts with `C:\`. A relative path to the parent is just two dots.
 
-## 📝 Recap
+## Recap
 
 - A **path** is an address for a file or folder.
 - An **absolute path** starts from the root (`C:\`) and works from anywhere.
@@ -172,9 +172,9 @@ or first walk to `my-website`, then type `cd css`.
 - `.` means this folder and `..` means the parent folder.
 - Websites must use relative paths for their own files, so they work on every server.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the difference between an absolute path and a relative path?
 2. Which kind of path starts with a drive letter like `C:\`?
 3. What does a single `.` mean in a path?
@@ -188,7 +188,7 @@ or first walk to `my-website`, then type `cd css`.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Here is a project:
 
 ```text
@@ -211,7 +211,7 @@ school-portal
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A classmate wrote this in a web page:
 
 ```html

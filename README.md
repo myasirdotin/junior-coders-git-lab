@@ -1,4 +1,4 @@
-# Junior Coders 🚀
+# Junior Coders
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)]()
@@ -30,7 +30,7 @@
 
 ---
 
-## 🌟 Key Features
+## Key Features
 
 - **Structured Curriculum**: 29+ modules covering HTML5, Modern CSS, and JavaScript Logic.
 - **Interactive Code Lab**: A built-in IDE for real-time experimentation with HTML, CSS, and JS.
@@ -41,24 +41,24 @@
 
 ---
 
-## 📖 Official Interactive Textbooks
+## Official Interactive Textbooks
 
 ### 1. “HTML for Class 6 & 7: Learn to Structure the Web”
 A complete 17-chapter visual, project-based educational textbook:
-- 🚀 **[Launch Interactive HTML Reader](book-html/index.html)**
-- 📚 **[Browse HTML Chapters & Curriculum Guide](book-html/README.md)**
+- **[Launch Interactive HTML Reader](book-html/index.html)**
+- **[Browse HTML Chapters & Curriculum Guide](book-html/README.md)**
 - **Curriculum Highlights**: Tags, headings, text formatting, links, images, tables, forms, semantic layout, and 5 capstone projects.
 
 ### 2. “CSS for Class 7: Styling & Designing Websites”
 A dedicated 22-chapter styling and design textbook:
-- 🎨 **[Launch Interactive CSS Reader](book-css/index.html)**
-- 📚 **[Browse CSS Chapters & Curriculum Guide](book-css/README.md)**
+- **[Launch Interactive CSS Reader](book-css/index.html)**
+- **[Browse CSS Chapters & Curriculum Guide](book-css/README.md)**
 - **Curriculum Highlights**: Colors, fonts, backgrounds, Box Model, Flexbox, CSS Grid, positioning, responsive mobile design, animations, transitions, and 5 capstone projects.
 
 ### 3. “JavaScript for Class 7: Learn, Think, Create”
 A complete beginner's textbook and coding workbook with in-browser code runner:
-- ⚡ **[Launch Interactive JavaScript Reader & Runner](book-js/index.html)**
-- 📚 **[Browse Chapters & Curriculum Guide](book-js/README.md)**
+- **[Launch Interactive JavaScript Reader & Runner](book-js/index.html)**
+- **[Browse Chapters & Curriculum Guide](book-js/README.md)**
 - **Curriculum Highlights**:
   - **Part 1: Getting Started** (Ch 1–2: What is Programming, Your First JavaScript Program)
   - **Part 2: Variables & Data** (Ch 3–5: Variables, Data Types, Operators)
@@ -74,25 +74,25 @@ A complete beginner's textbook and coding workbook with in-browser code runner:
 
 ### 4. “Computer Networking & Web Protocols for Junior Coders”
 A complete 14-chapter systems and protocol textbook with interactive protocol workbench:
-- 🌐 **[Launch Interactive Networking Reader](book-networks/index.html)**
-- 📚 **[Browse Networking Chapters & Curriculum Guide](book-networks/README.md)**
+- **[Launch Interactive Networking Reader](book-networks/index.html)**
+- **[Browse Networking Chapters & Curriculum Guide](book-networks/README.md)**
 - **Curriculum Highlights**: OSI 7-Layer and TCP/IP models, packet encapsulation, IP addressing, CIDR subnetting, TCP 3-way handshakes, DNS hierarchy, HTTP/1.1 vs HTTP/2 vs HTTP/3 (QUIC), TLS 1.3 cryptography (*Amānah*), CORS, REST APIs, WebSockets, and CLI diagnostics.
 
 ### 5. “Cybersecurity & Digital Hygiene for Junior Coders”
 A dedicated 14-chapter defensive security and privacy textbook with built-in defense studio:
-- 🛡️ **[Launch Interactive Cybersecurity Reader](book-cybersecurity/index.html)**
-- 📚 **[Browse Cybersecurity Chapters & Curriculum Guide](book-cybersecurity/README.md)**
+- **[Launch Interactive Cybersecurity Reader](book-cybersecurity/index.html)**
+- **[Browse Cybersecurity Chapters & Curriculum Guide](book-cybersecurity/README.md)**
 - **Curriculum Highlights**: The CIA Triad, threat modeling, cryptographic hashing (SHA-256) vs encryption, password entropy math, Argon2id/bcrypt key derivation, OWASP Top 10 web vulnerabilities (SQLi, XSS, CSRF, IDOR, SSRF), HTTP security headers, anti-phishing hygiene, and the 3-2-1 backup resiliency rule (*Amānah & Iḥsān*).
 
 ### 6. “Android Apps with Kotlin”
 A 19-chapter textbook (Grades 9–10) for building real Android phone apps:
-- 📱 **[Launch Interactive Android Reader](book-android/index.html)**
-- 📚 **[Browse Android Chapters & Curriculum Guide](book-android/README.md)**
+- **[Launch Interactive Android Reader](book-android/index.html)**
+- **[Browse Android Chapters & Curriculum Guide](book-android/README.md)**
 - **Curriculum Highlights**: Android Studio, Kotlin basics, Jetpack Compose screens, state, scrolling lists, navigation, saving data, design and accessibility, permissions and privacy (*Amānah*), testing and sharing, and a Study Planner final project.
 
 ---
 
-## 🗺️ Learning Roadmap
+## Learning Roadmap
 
 ### 1. HTML Adventure (12 Modules)
 - Master document structure, semantic tags, and accessibility.
@@ -108,7 +108,7 @@ A 19-chapter textbook (Grades 9–10) for building real Android phone apps:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 1. **Clone the Repository**:
    ```bash
@@ -121,7 +121,7 @@ A 19-chapter textbook (Grades 9–10) for building real Android phone apps:
 
 ---
 
-## 🛠️ Built With
+## Built With
 
 - **HTML5**: For semantic structure and accessibility.
 - **Vanilla CSS**: Custom styling with CSS variables and responsive grids.
@@ -130,17 +130,17 @@ A 19-chapter textbook (Grades 9–10) for building real Android phone apps:
 
 ---
 
-## 👤 Author
+## Author
 
 **Yasir Rasool**
 - GitHub: [@myasirdotin](https://github.com/myasirdotin)
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-*Happy Coding! 🚀*
+*Happy Coding!*

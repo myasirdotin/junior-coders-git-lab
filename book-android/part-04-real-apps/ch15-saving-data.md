@@ -1,10 +1,10 @@
 # Chapter 15: Saving Data on the Phone
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 In class, the teacher writes the day's homework on the whiteboard. At the end of the day the board is wiped clean. If you did not copy the homework into your notebook, it is gone. Your notebook is different: you close it, take it home, open it the next morning, and the writing is still there. So far, everything our app remembers is written on a whiteboard. In this chapter we give it a notebook.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why `remember` and `rememberSaveable` values disappear when the app is closed.
 - Choose between `rememberSaveable`, DataStore, Room and a server for different kinds of data.
@@ -89,7 +89,7 @@ Read it slowly:
 - `val Context.dataStore` adds a new property called `dataStore` to every `Context`. Now you can write `context.dataStore` anywhere in the app.
 - `by preferencesDataStore(name = "settings")` means "create the DataStore the first time it is used, in a file called `settings`, and reuse it after that".
 
-This line must appear **once** in the whole app, at the top level of a file. The ⚠️ Common Mistake section shows what happens otherwise.
+This line must appear **once** in the whole app, at the top level of a file. The Common Mistake section shows what happens otherwise.
 
 ## Keys and Why the Ids Become Text
 
@@ -371,7 +371,7 @@ DataStore is for small things. It reads the whole file each time, and it cannot 
 
 Room is a Jetpack library that keeps a real **SQLite** database on the phone. It uses tables, rows and SQL queries, just like the tables in the MySQL book. You describe a table with a Kotlin data class marked `@Entity`, and you write queries in an interface marked `@Dao`. Room is the natural next step after this book; the official Android "Save data in a local database using Room" guide teaches it well.
 
-## 🤝 Amānah: Data on the Phone Is a Trust
+## Amānah: Data on the Phone Is a Trust
 
 The ids your app saves stay **on this phone**, in your app's private folder. Other apps cannot read them. Nothing is sent to the internet. They are removed when the app is uninstalled, or when the user taps **Clear storage** in the phone's app settings. If the phone's backup is turned on, Android may also copy app files into the user's own backup.
 
@@ -383,7 +383,7 @@ Even small data is an *amānah*, a trust. Good apps follow three simple rules:
 
 A student who shares a phone with a brother or sister should be able to wipe their list without uninstalling the app. That is respect built into the design.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: declaring a second DataStore for the same file.**
 
@@ -413,13 +413,13 @@ What happens: Android Studio underlines it in red. The message says that a suspe
 TextButton(onClick = { scope.launch { store.toggle(book.id) } }) { ... }   // right
 ```
 
-## ✍️ Try It
+## Try It
 
 Save one more setting: whether the list shows **only available books**. Add a `booleanPreferencesKey("only_available")` to `SavedBooksStore`, a `Flow<Boolean>` to read it (use `?: false` when it is missing) and a `suspend fun setOnlyAvailable(value: Boolean)`. On the list screen, add a `Switch` labelled "Only available books". Close the app fully and open it again: the switch should keep its position.
 
 *Hint:* `Switch(checked = onlyAvailable, onCheckedChange = { value -> scope.launch { store.setOnlyAvailable(value) } })`. Filter the list with `sampleBooks.filter { !onlyAvailable || it.available }`.
 
-## 📝 Recap
+## Recap
 
 - `remember` and `rememberSaveable` live in memory; closing the app wipes them.
 - Use DataStore for small settings and ids, Room for tables, and a server for data shared between phones.
@@ -428,9 +428,9 @@ Save one more setting: whether the list shows **only available books**. Add a `b
 - The file is the source of truth: the screen updates because the Flow reports each change.
 - Saved data is an *amānah*: save little, say what you save, and offer a "Clear" button.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. A student turns the phone sideways, then later swipes the app away. Which of these survive each event: a `remember` value, a `rememberSaveable` value, a DataStore value?
 2. Why are the book ids stored as strings?
 3. What does `initial = emptySet()` mean in `collectAsState`?
@@ -444,7 +444,7 @@ Save one more setting: whether the list shows **only available books**. Add a `b
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 On the detail screen (Chapter 14), show "Saved for later" under the shelf line when the book is saved, and nothing when it is not. Write the lines you add to `BookDetailScreen`.
 
 <details>
@@ -470,7 +470,7 @@ Both screens read the same file, so a book saved on the list shows the line on i
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make clearing safer and more honest:
 
 1. When "Clear saved books" is tapped, show an `AlertDialog` asking "Remove all saved books from this phone?" with the buttons "Clear" and "Cancel".

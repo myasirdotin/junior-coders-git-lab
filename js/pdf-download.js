@@ -16,26 +16,26 @@
     /* ── Subject Configurations ── */
     const CONFIG = {
         subjects: {
-            html:           { color: '#ea580c', emoji: '🌐', label: 'HTML' },
-            css:            { color: '#2563eb', emoji: '🎨', label: 'CSS' },
-            javascript:     { color: '#ca8a04', emoji: '⚡', label: 'JavaScript' },
-            js:             { color: '#ca8a04', emoji: '⚡', label: 'JavaScript' },
-            cmd:            { color: '#10b981', emoji: '💻', label: 'Terminal-CMD' },
-            terminal:       { color: '#10b981', emoji: '💻', label: 'Terminal-CMD' },
-            git:            { color: '#f05032', emoji: '🐙', label: 'Git-GitHub' },
-            github:         { color: '#f05032', emoji: '🐙', label: 'Git-GitHub' },
-            php:            { color: '#6d28d9', emoji: '🐘', label: 'PHP' },
-            mysql:          { color: '#0284c7', emoji: '🗄️', label: 'MySQL' },
-            sql:            { color: '#0284c7', emoji: '🗄️', label: 'SQL' },
-            laravel:        { color: '#dc2626', emoji: '🔥', label: 'Laravel' },
-            python:         { color: '#3b82f6', emoji: '🐍', label: 'Python' },
-            ai:             { color: '#8b5cf6', emoji: '🤖', label: 'AI-Lab' },
-            network:        { color: '#0284c7', emoji: '🌐', label: 'Networking' },
-            cybersecurity:  { color: '#dc2626', emoji: '🛡️', label: 'Cybersecurity' },
-            cyber:          { color: '#dc2626', emoji: '🛡️', label: 'Cybersecurity' },
-            android:        { color: '#16a34a', emoji: '📱', label: 'Android-Kotlin' },
-            kotlin:         { color: '#16a34a', emoji: '📱', label: 'Android-Kotlin' },
-            default:        { color: '#4f46e5', emoji: '📄', label: 'Lesson' }
+            html:           { color: '#ea580c', emoji: '', label: 'HTML' },
+            css:            { color: '#2563eb', emoji: '', label: 'CSS' },
+            javascript:     { color: '#ca8a04', emoji: '', label: 'JavaScript' },
+            js:             { color: '#ca8a04', emoji: '', label: 'JavaScript' },
+            cmd:            { color: '#10b981', emoji: '', label: 'Terminal-CMD' },
+            terminal:       { color: '#10b981', emoji: '', label: 'Terminal-CMD' },
+            git:            { color: '#f05032', emoji: '', label: 'Git-GitHub' },
+            github:         { color: '#f05032', emoji: '', label: 'Git-GitHub' },
+            php:            { color: '#6d28d9', emoji: '', label: 'PHP' },
+            mysql:          { color: '#0284c7', emoji: '', label: 'MySQL' },
+            sql:            { color: '#0284c7', emoji: '', label: 'SQL' },
+            laravel:        { color: '#dc2626', emoji: '', label: 'Laravel' },
+            python:         { color: '#3b82f6', emoji: '', label: 'Python' },
+            ai:             { color: '#8b5cf6', emoji: '', label: 'AI-Lab' },
+            network:        { color: '#0284c7', emoji: '', label: 'Networking' },
+            cybersecurity:  { color: '#dc2626', emoji: '', label: 'Cybersecurity' },
+            cyber:          { color: '#dc2626', emoji: '', label: 'Cybersecurity' },
+            android:        { color: '#16a34a', emoji: '', label: 'Android-Kotlin' },
+            kotlin:         { color: '#16a34a', emoji: '', label: 'Android-Kotlin' },
+            default:        { color: '#4f46e5', emoji: '', label: 'Lesson' }
         }
     };
 
@@ -152,7 +152,7 @@
             ].join(';');
             document.body.appendChild(toast);
         }
-        toast.innerHTML = '<span>📄</span> <span>Opening Print Dialog... Choose <strong>Save as PDF</strong>!</span>';
+        toast.innerHTML = '<span></span> <span>Opening Print Dialog... Choose <strong>Save as PDF</strong>!</span>';
         toast.style.opacity = '1';
         setTimeout(() => {
             if (toast) toast.style.opacity = '0';
@@ -166,7 +166,7 @@
 
         const originalText = btn ? btn.innerHTML : '';
         if (btn) {
-            btn.innerHTML = '<span>⏳</span> <span class="btn-text">Preparing…</span>';
+            btn.innerHTML = '<span></span> <span class="btn-text">Preparing…</span>';
             btn.disabled = true;
         }
 
@@ -204,7 +204,7 @@
             btn.className = 'book-download-pdf-btn';
             btn.title = 'Download this chapter as an offline study PDF';
             btn.setAttribute('aria-label', 'Download current chapter as PDF');
-            btn.innerHTML = `<span class="btn-icon">⬇️</span><span class="btn-text">Download PDF</span>`;
+            btn.innerHTML = `<span class="btn-icon"></span><span class="btn-text">Download PDF</span>`;
             btn.addEventListener('click', () => triggerPrint(btn));
 
             const readingBtn = bar.querySelector('#book-reading-mode-btn, .reading-mode-btn, .book-reading-mode-toggle-btn');
@@ -227,7 +227,7 @@
             btn.type = 'button';
             btn.className = 'module-pdf-btn';
             btn.title = 'Download this lesson as a PDF study guide';
-            btn.innerHTML = `<span>⬇️</span> <span>Download Lesson PDF</span>`;
+            btn.innerHTML = `<span></span> <span>Download Lesson PDF</span>`;
             btn.addEventListener('click', () => triggerPrint(btn));
             modHeader.appendChild(btn);
         }
@@ -319,11 +319,11 @@
 
         const text = document.createElement('p');
         text.style.cssText = 'margin:0; color: var(--text-secondary,#cbd5e1); font-size:0.9rem;';
-        text.innerHTML = `${subject.emoji} <strong style="color:var(--text-primary,#f8fafc)">Save this guide!</strong> Download it as a PDF for offline reference.`;
+        text.innerHTML = `<strong style="color:var(--text-primary,#f8fafc)">Save this guide!</strong> Download it as a PDF for offline reference.`;
 
         const btn = document.createElement('button');
         btn.id = 'pdf-top-btn';
-        btn.innerHTML = '⬇️ Download PDF';
+        btn.innerHTML = 'Download PDF';
         Object.assign(btn.style, {
             background:   subject.color,
             color:        '#ffffff',

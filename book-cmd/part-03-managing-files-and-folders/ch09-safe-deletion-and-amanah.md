@@ -1,12 +1,12 @@
 # Chapter 9: Safe Deletion & Digital Trust (*Amānah*)
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 In the school kitchen garden, Yusuf is asked to pull out the weeds. A careless helper pulls quickly and also pulls out the new bean plants. Yusuf works differently. He looks at each plant first. He checks it really is a weed. Then he pulls out just that one. Deleting files from the terminal needs the same care, because there is no way to put the plant back.
 
 > **Key Idea**: Terminal deletions **skip the Recycle Bin**. The file is gone at once. So we always look first, delete one named item at a time, and work only inside our practice folder.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Delete a single file with `del` in CMD and PowerShell.
 - Ask the terminal to confirm before it deletes.
@@ -168,7 +168,7 @@ In Islam, what is placed in our care is an **Amānah**, a trust. A shared school
 - Never pass on a "trick" command to others without understanding it. Tricking someone into harming their computer breaks their trust.
 - Keep backups of work that matters, such as homework and projects.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Deleting in the wrong folder.** Bilal wants to tidy his practice folder. But his terminal is still in `C:\Users\Bilal\Documents`. He types `del report.txt` without looking. His real school report is gone, with no Recycle Bin copy.
 
@@ -189,7 +189,7 @@ C:\JuniorCoders\practice\report.txt, Delete (Y/N)? Y
 
 Move, check, list, then delete with a question.
 
-## ✍️ Try It
+## Try It
 
 Inside `C:\JuniorCoders\practice`:
 
@@ -200,7 +200,7 @@ Inside `C:\JuniorCoders\practice`:
 
 *Hint*: Use `type nul > junk.txt` (CMD) or `New-Item junk.txt` (PowerShell) from Chapter 7.
 
-## 📝 Recap
+## Recap
 
 - `del name` deletes one file. It skips the Recycle Bin.
 - `del /p` (CMD) and `del -Confirm` (PowerShell) ask before deleting.
@@ -208,9 +208,9 @@ Inside `C:\JuniorCoders\practice`:
 - `rmdir /s` removes a full folder after asking. We never add `/q`.
 - Always: check where you are, list first, delete one named item, and only in your practice folder.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command deletes a file in CMD and PowerShell? Which one in Git Bash?
 2. What happens if you use `rmdir` on a folder that still has files in it?
 3. Where does a file go after `del notes.txt`?
@@ -224,7 +224,7 @@ Inside `C:\JuniorCoders\practice`:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Your practice folder contains `draft1.txt`, `draft2.txt`, `final.txt` and an empty folder `tmp`.
 
 1. Write the command that shows which files start with `draft`.
@@ -242,7 +242,7 @@ Your practice folder contains `draft1.txt`, `draft2.txt`, `final.txt` and an emp
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A message in a chat group says: *"Open CMD in `C:\` and run `del` with the options `/s /q` on every file name. Your computer will run twice as fast!"*
 
 1. What would that really do?

@@ -1,10 +1,10 @@
 # Chapter 14: AI Ethics, Transparency & Digital Trust (*Amānah*)
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When a neighbour leaves her house key with your family before a journey, she trusts you. You would never open her cupboards or show her letters to anyone. In Arabic, this kind of trust is called *Amānah*. Data is like that key. When people share their information with a program, they hand its makers a trust. AI is powerful, and in this chapter you will learn to use that power with honesty, fairness and care.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain five principles of ethical AI, linked to *Amānah*, *Ṣidq* (truthfulness) and *Iḥsān* (excellence).
 - Protect privacy by collecting less data and removing names before analysis.
@@ -213,7 +213,7 @@ Before releasing any program into the world, ask yourself:
 3. Am I handling people's data as a sacred trust (*Amānah*)?
 4. Have I checked that it treats every group fairly (*'Adl*)?
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Showing more personal data than the task needs.** A volunteer only needs to know which parcel goes to which street. This code prints everything:
 
@@ -243,13 +243,13 @@ print(f"Parcel {family['code']} -> {family['street']}")
 Parcel F-12 -> Palm Street
 ```
 
-## ✍️ Try It
+## Try It
 
 Add four more patients to the audit code, all from `"Rural North"`. Run it again. Does the warning still appear? What is the new rural share?
 
 **Hint:** there will be 6 rural patients out of 10, which is 60%.
 
-## 📝 Recap
+## Recap
 
 - Data stands for real people. Collect only what you need, ask for consent and keep it safe (*Amānah*).
 - Audit datasets for missing groups, and measure accuracy for each group, not just overall.
@@ -257,9 +257,9 @@ Add four more patients to the audit code, all from `"Rural North"`. Run it again
 - Check AI answers before trusting or sharing them (*Tabayyun*).
 - Refuse harmful uses: deception, surveillance, *Ribā* and *Maysir*.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does "data minimisation" mean? Give one example from a school setting.
 
 <details>
@@ -269,7 +269,7 @@ Collecting **only** the data you really need for the task. Example: a library bo
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A model was tested on 20 cases: 12 from the city (11 correct) and 8 from villages (4 correct). Work out the overall accuracy and the accuracy for each group. What should the team do?
 
 <details>
@@ -293,7 +293,7 @@ Overall 75%, city 91.7%, villages 50%. The team should collect more village data
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write an "anonymiser" for a homework-club register.
 
 1. Start with a list of three dictionaries, each with `name`, `email` and `minutes_studied`.

@@ -1,9 +1,9 @@
 # HTML Reference & Glossary
-# Quick Reference Cheat Sheet and HTML Tag Dictionary 📖
+# Quick Reference Cheat Sheet and HTML Tag Dictionary
 
 ---
 
-## 1. Document Skeleton Boilerplate 🧱
+## 1. Document Skeleton Boilerplate
 
 ```html
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
 
 ---
 
-## 2. Core HTML Tags 🏷️
+## 2. Core HTML Tags
 
 ### Headings & Text
 - `<h1>` to `<h6>`: Headings from largest/most important (`<h1>`) to smallest (`<h6>`)
@@ -74,7 +74,7 @@
 
 ---
 
-## 3. HTML Glossary 📚
+## 3. HTML Glossary
 
 | Term | Definition |
 | :--- | :--- |

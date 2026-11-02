@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 An architect draws a **blueprint** for a house: three bedrooms, a kitchen and a front door. You cannot live inside a paper plan. But builders can use that one blueprint to build a whole street of real houses. One house is painted yellow and another white, yet they share the same design. In programming, the blueprint is a **class** and each real house is an **object**.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what **Object-Oriented Programming (OOP)** is and why big projects use it.
 - Declare a class with the `class` keyword.
@@ -120,7 +120,7 @@ Output:
 
 ---
 
-## 🌍 Real-World Connection: Modern Web Frameworks
+## Real-World Connection: Modern Web Frameworks
 
 In the **Laravel** framework, each database table has a class, such as `class User extends Model`. Saving a new user looks like this:
 
@@ -134,7 +134,7 @@ You can already read most of it: a new object, a property set with `->`, and a m
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -149,13 +149,13 @@ You can already read most of it: a new object, a property set with `->`, and a m
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>Silver</code>. Changing <code>$lamp1</code>'s colour does not affect <code>$lamp2</code>. They are separate objects. The <code>= "Silver"</code> in the class is a <strong>default value</strong> that every new object starts with.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Arrow
+## Code Detective: The Broken Arrow
 
 ```php
 <?php
@@ -175,16 +175,16 @@ PHP stops with: `Parse error: syntax error, unexpected token "="`.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Putting `$` after the arrow.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   $student1->$name = "Ali";
   ```
-- 😕 *What happens*: PHP reads `$name` as a variable and uses **its value** as the property name. If `$name` does not exist, you get `Warning: Undefined variable $name`, and the value is not stored in the `name` property at all.
-- ✅ *Fixed*: Write the property name with no `$`:
+- *What happens*: PHP reads `$name` as a variable and uses **its value** as the property name. If `$name` does not exist, you get `Warning: Undefined variable $name`, and the value is not stored in the `name` property at all.
+- *Fixed*: Write the property name with no `$`:
   ```php
   $student1->name = "Ali";
   ```
@@ -193,7 +193,7 @@ Remember also: a **class** is only the plan. An **object** is a real copy made w
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -224,7 +224,7 @@ Stars and Planets has 120 pages.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **class** is a blueprint; an **object** is a real thing built from it with `new`.
 - **Properties** are variables inside a class; **methods** are functions inside a class.
@@ -234,9 +234,9 @@ Stars and Planets has 120 pages.
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which keyword defines a new class?
 2. Which keyword creates an object from a class?
 3. Which operator reaches an object's properties and methods?
@@ -250,7 +250,7 @@ Stars and Planets has 120 pages.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. What is the difference between a property and an ordinary variable? Between a method and an ordinary function?
 2. What does this print?
    ```php
@@ -272,7 +272,7 @@ Stars and Planets has 120 pages.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a `CharityBox` class for a school food drive.
 
 1. Give it properties `$cause` and `$total` (start `$total` at `0`).

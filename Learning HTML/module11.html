@@ -21,15 +21,15 @@
         </header>
 
         <!-- Textbook companion: one compact link -->
-        <p class="book-companion-link"><a href="../book-html/index.html#ch12" target="_blank">📖 Textbook, Chapter 12: Forms, Inputs &amp; User Interaction <span aria-hidden="true">↗</span></a></p>
+        <p class="book-companion-link"><a href="../book-html/index.html#ch12" target="_blank">Textbook, Chapter 12: Forms, Inputs &amp; User Interaction <span aria-hidden="true">↗</span></a></p>
 
         <!-- Section 1: What is a Form? -->
         <section class="content-section">
-            <h2>📬 What is an HTML Form? (From Chapter 12)</h2>
+            <h2>What is an HTML Form? (From Chapter 12)</h2>
             <p>An HTML form is like a <strong>digital envelope</strong>. Everything the user types — name, email, password, choices — gets collected inside the <code>&lt;form&gt;</code> container and sent together to a server.</p>
             <div class="comparison">
                 <div class="good">
-                    <h4>🏗️ The Form Container</h4>
+                    <h4>The Form Container</h4>
                     <ul>
                         <li>All inputs must live <strong>inside</strong> <code>&lt;form&gt;&lt;/form&gt;</code>.</li>
                         <li><code>action="..."</code> — URL where the data is sent.</li>
@@ -38,7 +38,7 @@
                     </ul>
                 </div>
                 <div class="good">
-                    <h4>🏷️ Labels Are Essential</h4>
+                    <h4>Labels Are Essential</h4>
                     <ul>
                         <li>Every input needs a <code>&lt;label&gt;</code> so users know what to type.</li>
                         <li>Connect them using matching <code>for</code> and <code>id</code> attributes.</li>
@@ -50,7 +50,7 @@
 
         <!-- Section 2: Input Type Gallery -->
         <section class="content-section">
-            <h2>🎛️ The Input Type Gallery (All from Ch 12)</h2>
+            <h2>The Input Type Gallery (All from Ch 12)</h2>
             <p>The <code>&lt;input&gt;</code> tag is the most powerful form element. Its <code>type</code> attribute transforms it into many different controls:</p>
             <table style="width:100%; border-collapse:collapse; margin-top: 1rem; font-size: 0.9rem;">
                 <thead>
@@ -107,10 +107,10 @@
 
         <!-- Section 3: Key Form Attributes -->
         <section class="content-section">
-            <h2>🔑 Essential Form Attributes</h2>
+            <h2>Essential Form Attributes</h2>
             <div class="comparison">
                 <div class="good">
-                    <h4>🎯 Inputs — Must-Know Attributes</h4>
+                    <h4>Inputs — Must-Know Attributes</h4>
                     <ul>
                         <li><code>id="..."</code> — Unique identifier, linked to its label's <code>for</code>.</li>
                         <li><code>name="..."</code> — The key that identifies this field's data on the server.</li>
@@ -119,7 +119,7 @@
                     </ul>
                 </div>
                 <div class="good">
-                    <h4>📋 Radio &amp; Checkbox Rules</h4>
+                    <h4>Radio &amp; Checkbox Rules</h4>
                     <ul>
                         <li>All radio buttons in a group share the <strong>same</strong> <code>name</code>.</li>
                         <li>Each radio/checkbox gets its own unique <code>id</code> and matching <code>value</code>.</li>
@@ -131,7 +131,7 @@
 
         <!-- Section 4: Live Interactive Coding Playground -->
         <section class="content-section">
-            <h2>💻 Interactive Lab: Student Registration Form</h2>
+            <h2>Interactive Lab: Student Registration Form</h2>
             <p>Study the form structure below. Change the placeholder text, add a new field, or try adding the <code>required</code> attribute to make fields mandatory:</p>
             <div class="playground-container">
                 <div class="editor-area">
@@ -200,11 +200,11 @@
 
         <!-- Section 5: Official Book Practice Exercises -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="practice-section">
                 <!-- Easy -->
                 <div class="jc-tier jc-tier-1">
-                    <h3>🟢 Level 1: Recall (Easy)</h3>
+                    <h3>Level 1: Recall (Easy)</h3>
                     <p>What attribute on a <code>&lt;label&gt;</code> connects it to an <code>&lt;input&gt;</code>? What matching attribute must the input have? Why does this matter for accessibility?</p>
                     <details class="jc-answer">
                         <summary>Show answer</summary>
@@ -216,7 +216,7 @@
 
                 <!-- Medium -->
                 <div class="jc-tier jc-tier-2">
-                    <h3>🟡 Level 2: Application — Spot the Bug (Medium)</h3>
+                    <h3>Level 2: Application — Spot the Bug (Medium)</h3>
                     <p>There are <strong>two errors</strong> in the code below. Can you identify and fix both?</p>
                     <pre style="background: rgba(244,63,94,0.08); border: 1px solid rgba(244,63,94,0.3); border-radius: 8px; padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-red); overflow-x: auto;">&lt;label for="city"&gt;Your City:&lt;/label&gt;
 &lt;input type="text" id="location" name="city"&gt;
@@ -235,7 +235,7 @@
 
                 <!-- Challenge -->
                 <div class="jc-tier jc-tier-3">
-                    <h3>🔴 Level 3: Textbook Challenge — School Registration Form</h3>
+                    <h3>Level 3: Textbook Challenge — School Registration Form</h3>
                     <p><strong>Chapter 12 Real-World Mission:</strong> In the editor above, build a complete <strong>Junior Coders School Registration Form</strong> that includes all of the following:</p>
                     <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
                         <li>A <code>&lt;text&gt;</code> field for <strong>Student Full Name</strong> (with <code>required</code>)</li>
@@ -244,7 +244,7 @@
                         <li>A <code>&lt;select&gt;</code> dropdown for <strong>Which subject do you want to master?</strong> (HTML / CSS / JavaScript)</li>
                         <li>At least 3 <code>&lt;checkbox&gt;</code> options for <strong>Coding Goals</strong> (Build websites / Make apps / Learn AI / other)</li>
                         <li>A <code>&lt;textarea&gt;</code> asking <em>"What is your dream project?"</em></li>
-                        <li>A <code>&lt;submit&gt;</code> button labelled <strong>"Join the Adventure 🚀"</strong></li>
+                        <li>A <code>&lt;submit&gt;</code> button labelled <strong>"Join the Adventure"</strong></li>
                     </ol>
                 </div>
             </div>
@@ -252,7 +252,7 @@
 
         <!-- Section 6: Interactive Quiz -->
         <section class="content-section" style="border-top: 4px solid #ea580c;">
-            <h2>⚡ Quick Knowledge Check</h2>
+            <h2>Quick Knowledge Check</h2>
             <div id="quiz-form-11" class="quiz-section">
                 <div class="quiz-question" data-answer="b">
                     <p>Q1: Which <code>input type</code> hides characters as dots — perfect for passwords?</p>
@@ -286,10 +286,10 @@
             </a>
             <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
                 <a href="learninghtml.html" class="btn-nav-action">
-                    <span>📚</span> <span>Syllabus</span>
+                    <span></span> <span>Syllabus</span>
                 </a>
                 <a href="../book-html/index.html#ch12" target="_blank" class="btn-nav-action">
-                    <span>📖</span> <span>Open Book Ch 12</span>
+                    <span></span> <span>Open Book Ch 12</span>
                 </a>
                 <a href="module12.html" class="btn-nav-action primary">
                     <span>Next: Module 12 (Semantics)</span> <span>→</span>

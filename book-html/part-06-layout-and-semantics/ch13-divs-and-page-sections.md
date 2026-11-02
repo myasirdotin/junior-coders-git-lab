@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about what happens if you open your backpack and dump your textbooks, pencils, rulers, gym shoes, lunch sandwich, and art brushes into one single giant heap inside the main pouch.
 - Your sandwich gets squished under your heavy math textbook!
@@ -19,7 +19,7 @@ That's why modern backpacks have distinct, specialized compartments:
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain why we organize web pages into logical sections.
@@ -149,7 +149,7 @@ Type this into your editor and save it as `website-layout.html`:
 
 ---
 
-## 🌍 Real-World Connection: How Tech Giants Structure Code
+## Real-World Connection: How Tech Giants Structure Code
 
 View the source code of a big news site, an encyclopedia, or **GitHub**:
 - You will usually see `<header>`, `<nav>`, `<main>`, and `<footer>` on the pages!
@@ -158,7 +158,7 @@ View the source code of a big news site, an encyclopedia, or **GitHub**:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 If you write this code:
 
@@ -170,13 +170,13 @@ If you write this code:
 **Question**: Will "Hello" and "World" appear side-by-side on the same line, or will "World" appear on the line below "Hello"?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> "World" will appear on the line below! A <code>&lt;div&gt;</code> is a <strong>block element</strong> by default—it always takes up the entire width of the page and forces the next element onto a brand-new line!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Stray Main
+## Code Detective: The Stray Main
 
 A student wrote this code:
 
@@ -232,11 +232,11 @@ Create an HTML file called `my-personal-blueprint.html`:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Using `<div>` for everything ("div soup").**
 
-❌ Wrong:
+Wrong:
 
 ```html
 <div>
@@ -252,7 +252,7 @@ Create an HTML file called `my-personal-blueprint.html`:
 
 What happens: the page may look the same, but nothing says which part is the banner, the menu or the main content. Screen reader users cannot jump to "navigation" or "main content". The title is not even a heading.
 
-✅ Fixed: use the semantic tag that matches each job. Save `<div>` for boxes that have no special meaning.
+Fixed: use the semantic tag that matches each job. Save `<div>` for boxes that have no special meaning.
 
 ```html
 <header>
@@ -268,7 +268,7 @@ What happens: the page may look the same, but nothing says which part is the ban
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Add a Contact Section**
 
@@ -281,11 +281,11 @@ Open `website-layout.html` and add a new section inside the `<main>` element:
 ```
 Preview it in your browser! Notice how it creates a clean new chapter on your page.
 
-> 💡 **Hint:** Paste it just before `</main>`. Then the "Contact" link in your `<nav>` (which points to `#contact`) will jump straight to it.
+> **Hint:** Paste it just before `</main>`. Then the "Contact" link in your `<nav>` (which points to `#contact`) will jump straight to it.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Semantic tags give clear meaning to both humans and machines.
 - `<header>` holds the top introduction and logo.
@@ -297,7 +297,7 @@ Preview it in your browser! Notice how it creates a clean new chapter on your pa
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -310,9 +310,9 @@ Preview it in your browser! Notice how it creates a clean new chapter on your pa
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. How many visible `<main>` tags should a web page have?
 2. Which tag is best for wrapping the main navigation bar of a site?
 3. True or false: a `<div>` tag automatically changes text to italics.
@@ -326,7 +326,7 @@ Preview it in your browser! Notice how it creates a clean new chapter on your pa
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. What is the difference between a `<section>` and a `<div>`? When would you choose each?
 2. Write the structure for a blog post: a `<header>` (title and date), a `<section>` for the article body, and a `<footer>` with the author's name.
 
@@ -352,7 +352,7 @@ Preview it in your browser! Notice how it creates a clean new chapter on your pa
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Explain why semantic tags matter for people who use screen readers.
 1. Find out what a **landmark** is (search "screen reader landmarks").
 2. Name three tags that act as landmarks.

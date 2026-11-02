@@ -1,12 +1,12 @@
 # Chapter 13: Capstone Challenge 1: The 60-Second Full-Stack Scaffolder
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Before a community food drive, volunteers set up the hall. One group puts out tables. Another labels the boxes: rice, lentils, flour, tinned food. A third puts up signs. Because everyone follows a plan, the hall is ready in minutes. Starting a website is the same. Before writing any content, a developer sets up the folders and empty files, called the **scaffold**. Like the scaffolding on a building, it is the frame that everything else hangs on.
 
 > **Key Idea**: Put all your skills together. Using only the terminal, build the full structure of a website, write its first page, check it, and open it in VS Code. No mouse!
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Plan a project's folders and files before typing.
 - Combine `cd`, `mkdir`, empty files, `echo`, `>` and `>>` in one task.
@@ -160,13 +160,13 @@ php -S localhost:8000
 
 Time yourself. Focus on **correct** first, then on **fast**.
 
-- 🥉 **Apprentice**: the whole scaffold is correct, with no errors.
-- 🥈 **Proficient**: correct in under 2 minutes.
-- 🥇 **Master**: correct in under 60 seconds, using <kbd>Tab</kbd> and <kbd>↑</kbd> to save typing.
+- **Apprentice**: the whole scaffold is correct, with no errors.
+- **Proficient**: correct in under 2 minutes.
+- **Master**: correct in under 60 seconds, using <kbd>Tab</kbd> and <kbd>↑</kbd> to save typing.
 
 Type every command yourself. Copying and pasting builds nothing in your memory, and honest practice is part of academic integrity.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting to `cd` into the project folder.** Hamza makes `kindness-pantry`, but forgets `cd kindness-pantry`. All his `css`, `js` and `index.html` land in `C:\JuniorCoders\practice` instead.
 
@@ -180,7 +180,7 @@ Look at the prompt! It still says `practice`. The fix: check the prompt before e
 
 **Using `>` for every line of `index.html`.** Only the last line survives. The first line uses `>`; every line after it uses `>>` (Chapter 12).
 
-## ✍️ Try It
+## Try It
 
 Build a second scaffold for a **community garden** website, called `green-corner`:
 
@@ -197,7 +197,7 @@ Write `<h1>Green Corner Community Garden</h1>` into `index.html`. Check it with 
 
 *Hint*: Follow the same seven-step plan. In CMD, remember `^` before `<` and `>` inside the text.
 
-## 📝 Recap
+## Recap
 
 - A **scaffold** is a project's frame: its folders and starting files.
 - Plan the tree first, then build it step by step.
@@ -205,9 +205,9 @@ Write `<h1>Green Corner Community Garden</h1>` into `index.html`. Check it with 
 - `>` starts a file, `>>` adds each next line.
 - `tree /f` draws your finished structure so you can compare it with the plan.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is a project scaffold?
 2. Which command draws a folder as a tree, including files?
 3. In CMD, why do we write `^<h1^>` instead of `<h1>` after `echo`?
@@ -221,7 +221,7 @@ Write `<h1>Green Corner Community Garden</h1>` into `index.html`. Check it with 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write the commands (CMD **or** PowerShell) to build this inside your practice folder:
 
 ```text
@@ -262,7 +262,7 @@ tree /f
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Your school's science club wants a website for its annual fair. Design and build it.
 
 1. Draw the tree first. It must include a home page, a page for projects, a page for the fair timetable, a `css` folder with one style file, and an `images` folder with a `projects` folder inside.

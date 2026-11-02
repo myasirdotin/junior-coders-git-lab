@@ -1,10 +1,10 @@
 # Chapter 5: Decisions with if and when
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the library desk, the librarian makes small decisions all day. Is the book on the shelf? Then hand it over. Is it borrowed? Then offer to reserve it. Is the student's card missing? Then send them to the office first. None of these decisions are hard, but each one depends on a question with a yes-or-no answer. Apps do exactly the same: show "Available" or "Borrowed", enable a button or not, pick a message for a grade. In Kotlin, these decisions are written with `if` and `when`.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Compare values with `==`, `!=`, `<`, `>`, `<=` and `>=`.
 - Join conditions with `&&` (and), `||` (or) and `!` (not).
@@ -305,7 +305,7 @@ Normal use. Try a shorter wash.
 | One value, many possible cases | `when (value)` |
 | Several unrelated conditions | `when { ... }` |
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: one `=` instead of two.**
 
@@ -361,7 +361,7 @@ Pleasant: enjoy the garden.
 
 37 is also `>= 15`, so the first branch wins and the second is never reached. Fix: check the **strictest** condition first (`>= 35` before `>= 15`).
 
-## ✍️ Try It
+## Try It
 
 Write a program for a school bus:
 
@@ -371,7 +371,7 @@ Write a program for a school bus:
 
 **Hint:** `studentsWaiting - seatsFree` is the number who wait, but only when it is more than zero.
 
-## 📝 Recap
+## Recap
 
 - Comparisons (`==`, `!=`, `<`, `>`, `<=`, `>=`) give a `Boolean`. One `=` stores, two `==` compares.
 - `&&` needs both sides true, `||` needs at least one, `!` flips a Boolean.
@@ -379,7 +379,7 @@ Write a program for a school bus:
 - `if (...) a else b` is an expression that gives back a value. The `else` is then required.
 - `when` picks one branch from many: single values, `6, 7`, ranges like `in 90..100`, and `else`.
 
-## 📖 Key Terms
+## Key Terms
 
 - **Condition:** a question whose answer is `true` or `false`.
 - **Expression:** code that produces a value.
@@ -387,9 +387,9 @@ Write a program for a school bus:
 - **Range:** a run of numbers such as `1..10`, including both ends.
 - **Exhaustive:** covering every possible case.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does this program print?
 
 ```kotlin
@@ -417,7 +417,7 @@ even
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 The library sends a polite message when a book comes back. Write a program with `val daysLate = 2` and a `when` expression that stores the right message:
 
 - 0 days: `Returned on time. Thank you!`
@@ -452,7 +452,7 @@ Try changing `daysLate` to `0`, `10` and `30` to test every branch.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The school roof has 10 solar panels that power the computer lab. Write a program that:
 
 1. Stores `sunnyHours = 6`, `panelsWorking = 9` and `totalPanels = 10`.

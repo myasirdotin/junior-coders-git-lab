@@ -5,6 +5,8 @@
 
 (function() {
     'use strict';
+    // icons shared with js/bei-nav.js (window.JC_ICONS): inline SVG, no emoji
+    const I = (k) => (window.JC_ICONS && window.JC_ICONS[k]) || '';
 
     const CONFIG = {
         STORAGE_KEYS: {
@@ -235,7 +237,7 @@
         JC_State.save(state);
         updateDashboard();
         if (window.showToast) {
-            window.showToast(`+${amount} XP! ${reason} 🚀`, 'success');
+            window.showToast(`+${amount} XP! ${reason}`, 'success');
         }
         return state.totalXP;
     };
@@ -251,7 +253,7 @@
             JC_State.save(state);
             updateDashboard();
             if (window.showToast) {
-                window.showToast(`Chapter Completed! +${xpBonus} XP 🎉`, 'success');
+                window.showToast(`Chapter Completed! +${xpBonus} XP`, 'success');
             }
             return true;
         }
@@ -297,7 +299,7 @@
                     streak += 1;
                     JC_State.set('streak', streak);
                     setTimeout(() => {
-                        window.showToast?.(`Daily streak updated! 🔥 ${streak} Days`);
+                        window.showToast?.(`Daily streak updated! ${streak} Days`);
                     }, 1000);
                 } else if (diffDays > 1) {
                     streak = 1;
@@ -383,7 +385,7 @@
         const currentModule = getCurrentModule();
         const currentPath = window.location.pathname.split('/').pop() || 'index.html';
 
-        const logo = `<a href="${baseUrl}index.html" class="nav-logo" id="nav-logo">🚀 Junior Coders</a>`;
+        const logo = `<a href="${baseUrl}index.html" class="nav-logo" id="nav-logo">Junior Coders</a>`;
 
         // Cheat sheet link for current course (used in module pages)
         const cheatsheetLink = currentModule === 'Learning HTML'    ? 'cheatsheet-html.html'
@@ -408,10 +410,10 @@
         if (currentModule) {
             // ── Inside a course: Home | Modules ▾ | Cheat Sheet | AI Roadmap ──
             linksHtml = `
-                <a href="${baseUrl}index.html" class="${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">🏠 Home</a>
+                <a href="${baseUrl}index.html" class="${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">Home</a>
                 <div class="nav-dropdown">
                     <button class="nav-dropdown-btn" id="modules-dropdown-btn" aria-haspopup="true" aria-expanded="false">
-                        📚 Modules <span class="dropdown-arrow">▾</span>
+Modules <span class="dropdown-arrow">▾</span>
                     </button>
                     <div class="nav-dropdown-content">
                         ${CONFIG.MODULES[currentModule].map(item => `
@@ -419,91 +421,91 @@
                         `).join('')}
                     </div>
                 </div>
-                ${cheatsheetLink ? `<a href="${cheatsheetLink}" class="${currentPath === cheatsheetLink ? 'active' : ''}">📋 Cheat Sheet</a>` : ''}
-                <a href="${baseUrl}ai-roadmap.html" class="${currentPath === 'ai-roadmap.html' ? 'active' : ''}">🤖 AI Roadmap</a>
+                ${cheatsheetLink ? `<a href="${cheatsheetLink}" class="${currentPath === cheatsheetLink ? 'active' : ''}">Cheat Sheet</a>` : ''}
+                <a href="${baseUrl}ai-roadmap.html" class="${currentPath === 'ai-roadmap.html' ? 'active' : ''}">AI Roadmap</a>
             `;
         } else {
             // ── Global pages: 3 clean dropdowns ──
             linksHtml = `
                 <div class="nav-dropdown">
                     <button class="nav-dropdown-btn ${isFrontend ? 'active-parent' : ''}" id="frontend-dropdown-btn" aria-haspopup="true" aria-expanded="false">
-                        🎨 Frontend <span class="dropdown-arrow">▾</span>
+Frontend <span class="dropdown-arrow">▾</span>
                     </button>
                     <div class="nav-dropdown-content nav-dropdown-rich">
                         <div class="dropdown-section-label">Courses</div>
                         <a href="${baseUrl}Learning%20HTML/learninghtml.html">
-                            <span class="dd-icon" style="background:rgba(255,107,53,0.15);">🌐</span>
+                            <span class="dd-icon" style="background:rgba(255,107,53,0.15);"></span>
                             <span class="dd-text"><strong>HTML5</strong><small>Structure the web</small></span>
                         </a>
                         <a href="${baseUrl}Learning%20CSS/learningcss.html">
-                            <span class="dd-icon" style="background:rgba(59,130,246,0.15);">🎨</span>
+                            <span class="dd-icon" style="background:rgba(59,130,246,0.15);"></span>
                             <span class="dd-text"><strong>Modern CSS</strong><small>Style &amp; layout</small></span>
                         </a>
                         <a href="${baseUrl}Learning%20JS/learningjs.html">
-                            <span class="dd-icon" style="background:rgba(234,179,8,0.15);">⚡</span>
+                            <span class="dd-icon" style="background:rgba(234,179,8,0.15);"></span>
                             <span class="dd-text"><strong>JavaScript</strong><small>Logic &amp; interactivity</small></span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <a href="${baseUrl}master-playground.html" class="${currentPath === 'master-playground.html' ? 'active' : ''}">
-                            <span class="dd-icon" style="background:rgba(99,102,241,0.15);">🧪</span>
+                            <span class="dd-icon" style="background:rgba(99,102,241,0.15);"></span>
                             <span class="dd-text"><strong>Code Lab</strong><small>Live IDE playground</small></span>
                         </a>
                     </div>
                 </div>
                 <div class="nav-dropdown">
                     <button class="nav-dropdown-btn ${isBackend ? 'active-parent' : ''}" id="backend-dropdown-btn" aria-haspopup="true" aria-expanded="false">
-                        🗄️ Backend &amp; Tools <span class="dropdown-arrow">▾</span>
+Backend &amp; Tools <span class="dropdown-arrow">▾</span>
                     </button>
                     <div class="nav-dropdown-content nav-dropdown-rich">
                         <div class="dropdown-section-label">Server-Side</div>
                         <a href="${baseUrl}Learning%20PHP/learningphp.html">
-                            <span class="dd-icon" style="background:rgba(124,58,237,0.15);">🐘</span>
+                            <span class="dd-icon" style="background:rgba(124,58,237,0.15);"></span>
                             <span class="dd-text"><strong>PHP</strong><small>Server scripting</small></span>
                         </a>
                         <a href="${baseUrl}Learning%20MySQL/learningmysql.html">
-                            <span class="dd-icon" style="background:rgba(0,180,216,0.15);">🗄️</span>
+                            <span class="dd-icon" style="background:rgba(0,180,216,0.15);"></span>
                             <span class="dd-text"><strong>MySQL</strong><small>Databases &amp; queries</small></span>
                         </a>
                         <a href="${baseUrl}Learning%20Laravel/learninglaravel.html">
-                            <span class="dd-icon" style="background:rgba(255,45,32,0.15);">🔥</span>
+                            <span class="dd-icon" style="background:rgba(255,45,32,0.15);"></span>
                             <span class="dd-text"><strong>Laravel</strong><small>PHP framework</small></span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown-section-label">Developer Tools</div>
                         <a href="${baseUrl}book-cmd/index.html">
-                            <span class="dd-icon" style="background:rgba(16,185,129,0.15);">💻</span>
+                            <span class="dd-icon" style="background:rgba(16,185,129,0.15);"></span>
                             <span class="dd-text"><strong>Terminal &amp; CMD</strong><small>Command prompt &amp; Git Bash</small></span>
                         </a>
                         <a href="${baseUrl}book-git/index.html">
-                            <span class="dd-icon" style="background:rgba(240,80,50,0.15);">🐙</span>
+                            <span class="dd-icon" style="background:rgba(240,80,50,0.15);"></span>
                             <span class="dd-text"><strong>Git &amp; GitHub</strong><small>Version control &amp; teamwork</small></span>
                         </a>
                     </div>
                 </div>
                 <div class="nav-dropdown">
                     <button class="nav-dropdown-btn ${isResources ? 'active-parent' : ''}" id="resources-dropdown-btn" aria-haspopup="true" aria-expanded="false">
-                        📚 Resources <span class="dropdown-arrow">▾</span>
+Resources <span class="dropdown-arrow">▾</span>
                     </button>
                     <div class="nav-dropdown-content nav-dropdown-rich">
                         <div class="dropdown-section-label">Pages</div>
                         <a href="${baseUrl}getting-started.html" class="${currentPath === 'getting-started.html' ? 'active' : ''}">
-                            <span class="dd-icon" style="background:rgba(16,185,129,0.15);">📖</span>
+                            <span class="dd-icon" style="background:rgba(16,185,129,0.15);"></span>
                             <span class="dd-text"><strong>Getting Started</strong><small>Beginners guide</small></span>
                         </a>
                         <a href="${baseUrl}ai-roadmap.html" class="${currentPath === 'ai-roadmap.html' ? 'active' : ''}">
-                            <span class="dd-icon" style="background:rgba(236,72,153,0.15);">🤖</span>
+                            <span class="dd-icon" style="background:rgba(236,72,153,0.15);"></span>
                             <span class="dd-text"><strong>AI Roadmap</strong><small>From coder to AI creator</small></span>
                         </a>
                         <div class="dropdown-divider"></div>
                         <div class="dropdown-section-label">Cheat Sheets</div>
-                        <a href="${baseUrl}cheatsheet-html.html" class="${currentPath === 'cheatsheet-html.html' ? 'active' : ''}">🌐 HTML</a>
-                        <a href="${baseUrl}cheatsheet-css.html" class="${currentPath === 'cheatsheet-css.html' ? 'active' : ''}">🎨 CSS</a>
-                        <a href="${baseUrl}cheatsheet-js.html" class="${currentPath === 'cheatsheet-js.html' ? 'active' : ''}">⚡ JS</a>
-                        <a href="${baseUrl}cheatsheet-cmd.html" class="${currentPath === 'cheatsheet-cmd.html' ? 'active' : ''}">💻 Terminal &amp; CMD</a>
-                        <a href="${baseUrl}cheatsheet-git.html" class="${currentPath === 'cheatsheet-git.html' ? 'active' : ''}">🐙 Git &amp; GitHub</a>
-                        <a href="${baseUrl}cheatsheet-php.html" class="${currentPath === 'cheatsheet-php.html' ? 'active' : ''}">🐘 PHP</a>
-                        <a href="${baseUrl}cheatsheet-mysql.html" class="${currentPath === 'cheatsheet-mysql.html' ? 'active' : ''}">🗄️ MySQL</a>
-                        <a href="${baseUrl}cheatsheet-laravel.html" class="${currentPath === 'cheatsheet-laravel.html' ? 'active' : ''}">🔥 Laravel</a>
+                        <a href="${baseUrl}cheatsheet-html.html" class="${currentPath === 'cheatsheet-html.html' ? 'active' : ''}">HTML</a>
+                        <a href="${baseUrl}cheatsheet-css.html" class="${currentPath === 'cheatsheet-css.html' ? 'active' : ''}">CSS</a>
+                        <a href="${baseUrl}cheatsheet-js.html" class="${currentPath === 'cheatsheet-js.html' ? 'active' : ''}">JS</a>
+                        <a href="${baseUrl}cheatsheet-cmd.html" class="${currentPath === 'cheatsheet-cmd.html' ? 'active' : ''}">Terminal &amp; CMD</a>
+                        <a href="${baseUrl}cheatsheet-git.html" class="${currentPath === 'cheatsheet-git.html' ? 'active' : ''}">Git &amp; GitHub</a>
+                        <a href="${baseUrl}cheatsheet-php.html" class="${currentPath === 'cheatsheet-php.html' ? 'active' : ''}">PHP</a>
+                        <a href="${baseUrl}cheatsheet-mysql.html" class="${currentPath === 'cheatsheet-mysql.html' ? 'active' : ''}">MySQL</a>
+                        <a href="${baseUrl}cheatsheet-laravel.html" class="${currentPath === 'cheatsheet-laravel.html' ? 'active' : ''}">Laravel</a>
                     </div>
                 </div>
             `;
@@ -518,37 +520,37 @@
                 <div class="nav-links" id="nav-links" role="navigation" aria-label="Main navigation">
                     ${linksHtml}
                     <div class="nav-search" id="nav-search">
-                        <input type="text" placeholder="🔍 Search…" class="nav-search-input" id="nav-search-input" autocomplete="off" aria-label="Search courses and modules">
+                        <input type="text" placeholder="Search…" class="nav-search-input" id="nav-search-input" autocomplete="off" aria-label="Search courses and modules">
                         <div class="nav-search-results" id="nav-search-results"></div>
                     </div>
                     <div class="nav-mobile-actions" style="display:none;">
                         <span style="font-size:0.85rem; color:var(--text-muted); font-weight:600;">Page Audio &amp; Settings</span>
                         <div style="display:flex; gap:0.5rem; align-items:center; flex-wrap:wrap;">
                             <button class="page-speaker-toggle" type="button" onclick="window.togglePageSpeaker()" aria-label="Listen to page aloud" title="Listen to this page">
-                                <span class="speaker-icon">🔊</span>
+                                <span class="speaker-icon"></span>
                                 <span class="speaker-text">Listen</span>
                                 <div class="speaker-wave" aria-hidden="true"><span></span><span></span><span></span></div>
                             </button>
-                            <button class="page-speaker-stop-btn" type="button" onclick="window.stopPageSpeaker()" aria-label="Stop audio narration" title="Stop Reading">⏹️</button>
-                            <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle Theme">🌓</button>
-                            <button class="reading-mode-toggle" type="button" aria-label="Toggle reading mode" title="Reading Mode">📖 Read Mode</button>
+                            <button class="page-speaker-stop-btn" type="button" onclick="window.stopPageSpeaker()" aria-label="Stop audio narration" title="Stop Reading"></button>
+                            <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle Theme"></button>
+                            <button class="reading-mode-toggle" type="button" aria-label="Toggle reading mode" title="Reading Mode">Read Mode</button>
                         </div>
                     </div>
                 </div>
                 <div class="nav-right">
                     <div class="nav-search" id="nav-search-desktop">
-                        <input type="text" placeholder="🔍 Search…" class="nav-search-input" id="nav-search-input-desktop" autocomplete="off" aria-label="Search courses and modules">
+                        <input type="text" placeholder="Search…" class="nav-search-input" id="nav-search-input-desktop" autocomplete="off" aria-label="Search courses and modules">
                         <kbd class="nav-search-kbd" id="nav-search-kbd">Ctrl K</kbd>
                         <div class="nav-search-results" id="nav-search-results-desktop"></div>
                     </div>
                     <button class="page-speaker-toggle" id="page-speaker-toggle" type="button" onclick="window.togglePageSpeaker()" aria-label="Listen to page aloud" title="Listen to this page (Alt+S)">
-                        <span class="speaker-icon">🔊</span>
+                        <span class="speaker-icon"></span>
                         <span class="speaker-text">Listen</span>
                         <div class="speaker-wave" aria-hidden="true"><span></span><span></span><span></span></div>
                     </button>
-                    <button class="page-speaker-stop-btn" id="page-speaker-stop-btn" type="button" onclick="window.stopPageSpeaker()" aria-label="Stop audio narration" title="Stop Reading">⏹️</button>
-                    <button class="reading-mode-toggle" type="button" aria-label="Toggle reading mode" title="Distraction-Free Reading Mode">📖 Read Mode</button>
-                    <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle Theme">🌓</button>
+                    <button class="page-speaker-stop-btn" id="page-speaker-stop-btn" type="button" onclick="window.stopPageSpeaker()" aria-label="Stop audio narration" title="Stop Reading"></button>
+                    <button class="reading-mode-toggle" type="button" aria-label="Toggle reading mode" title="Distraction-Free Reading Mode">Read Mode</button>
+                    <button class="theme-toggle" type="button" aria-label="Toggle colour theme" title="Toggle Theme"></button>
                 </div>
 
             </div>
@@ -582,30 +584,30 @@
         bottomNav.innerHTML = currentModule ? `
             <div class="bottom-nav-container">
                 <a href="${coursePageUrl}" class="tab-item ${currentPath === coursePageUrl ? 'active' : ''}">
-                    <span class="tab-icon">📚</span>
+                    <span class="tab-icon"></span>
                     <span>Course</span>
                 </a>
                 <a href="${baseUrl}index.html" class="tab-item">
-                    <span class="tab-icon">🏠</span>
+                    <span class="tab-icon"></span>
                     <span>Home</span>
                 </a>
                 <a href="${baseUrl}${cheatUrl}" class="tab-item ${currentPath === cheatUrl ? 'active' : ''}">
-                    <span class="tab-icon">📋</span>
+                    <span class="tab-icon"></span>
                     <span>Cheat Sheet</span>
                 </a>
             </div>
         ` : `
             <div class="bottom-nav-container">
                 <a href="${baseUrl}getting-started.html" class="tab-item ${currentPath === 'getting-started.html' ? 'active' : ''}">
-                    <span class="tab-icon">📖</span>
+                    <span class="tab-icon"></span>
                     <span>Basics</span>
                 </a>
                 <a href="${baseUrl}index.html" class="tab-item ${currentPath === 'index.html' || currentPath === '' ? 'active' : ''}">
-                    <span class="tab-icon">🏠</span>
+                    <span class="tab-icon"></span>
                     <span>Home</span>
                 </a>
                 <a href="${baseUrl}master-playground.html" class="tab-item ${currentPath === 'master-playground.html' ? 'active' : ''}">
-                    <span class="tab-icon">🧪</span>
+                    <span class="tab-icon"></span>
                     <span>Lab</span>
                 </a>
             </div>
@@ -738,7 +740,7 @@
         JC_State.set('theme', next);
         try { localStorage.setItem('bei_theme', next); } catch (e) { /* ignore */ }
         const btn = document.querySelector('.bei-nav .theme-toggle-btn');
-        if (btn) btn.innerHTML = next === 'dark' ? '☀️' : '🌙';
+        if (btn) btn.innerHTML = next === 'dark' ? '' : '';
     }
     window.toggleTheme = toggleTheme;
 
@@ -776,7 +778,7 @@
         if (!completed.includes(moduleKey)) {
             completed.push(moduleKey);
             JC_State.set('completedModules', completed);
-            window.showToast(`Module ${moduleNum} completed! 🎉`);
+            window.showToast(`Module ${moduleNum} completed!`);
             triggerConfetti();
 
             const progressFill = document.getElementById('progressFill');
@@ -837,7 +839,7 @@
             quizForm.appendChild(result);
         }
         const total = questions.length;
-        const advice = score === total ? 'Excellent: every answer is right. 🌟'
+        const advice = score === total ? 'Excellent: every answer is right.'
             : score >= total * 0.7 ? 'Well done. Read the corrections above, then try the questions you missed again.'
             : 'Read each correction above and look at the lesson again, then try once more.';
         result.innerHTML = `<strong>You scored ${score} out of ${total}.</strong> <span>${advice}</span> <button type="button" class="quiz-retry">Try again</button>`;
@@ -855,12 +857,12 @@
     function buildSearchIndex(baseUrl) {
         const index = [];
         const courseMap = {
-            'Learning HTML':   { icon: '🌐', path: 'Learning%20HTML',   home: 'learninghtml.html'   },
-            'Learning CSS':    { icon: '🎨', path: 'Learning%20CSS',    home: 'learningcss.html'    },
-            'Learning JS':     { icon: '⚡', path: 'Learning%20JS',     home: 'learningjs.html'     },
-            'Learning PHP':    { icon: '🐘', path: 'Learning%20PHP',    home: 'learningphp.html'    },
-            'Learning MySQL':  { icon: '🗄️', path: 'Learning%20MySQL',  home: 'learningmysql.html'  },
-            'Learning Laravel':{ icon: '🔥', path: 'Learning%20Laravel',home: 'learninglaravel.html'},
+            'Learning HTML':   { icon: '', path: 'Learning%20HTML',   home: 'learninghtml.html'   },
+            'Learning CSS':    { icon: '', path: 'Learning%20CSS',    home: 'learningcss.html'    },
+            'Learning JS':     { icon: '', path: 'Learning%20JS',     home: 'learningjs.html'     },
+            'Learning PHP':    { icon: '', path: 'Learning%20PHP',    home: 'learningphp.html'    },
+            'Learning MySQL':  { icon: '', path: 'Learning%20MySQL',  home: 'learningmysql.html'  },
+            'Learning Laravel':{ icon: '', path: 'Learning%20Laravel',home: 'learninglaravel.html'},
         };
 
         Object.entries(courseMap).forEach(([name, c]) => {
@@ -876,38 +878,38 @@
         });
 
         [
-            { label: 'HTML Cheat Sheet',         sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-html.html`    },
-            { label: 'CSS Cheat Sheet',          sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-css.html`     },
-            { label: 'JS Cheat Sheet',           sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-js.html`      },
-            { label: 'Git & GitHub Cheat Sheet', sub: 'Cheat Sheets', icon: '🐙', url: `${baseUrl}cheatsheet-git.html`     },
-            { label: 'PHP Cheat Sheet',          sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-php.html`     },
-            { label: 'MySQL Cheat Sheet',        sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-mysql.html`   },
-            { label: 'Laravel Cheat Sheet',      sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-laravel.html` },
-            { label: 'Kotlin & Android Cheat Sheet', sub: 'Cheat Sheets', icon: '📋', url: `${baseUrl}cheatsheet-kotlin.html` },
+            { label: 'HTML Cheat Sheet',         sub: 'Cheat Sheets', icon: '', url: `${baseUrl}cheatsheet-html.html`    },
+            { label: 'CSS Cheat Sheet',          sub: 'Cheat Sheets', icon: '', url: `${baseUrl}cheatsheet-css.html`     },
+            { label: 'JS Cheat Sheet',           sub: 'Cheat Sheets', icon: '', url: `${baseUrl}cheatsheet-js.html`      },
+            { label: 'Git & GitHub Cheat Sheet', sub: 'Cheat Sheets', icon: '', url: `${baseUrl}cheatsheet-git.html`     },
+            { label: 'PHP Cheat Sheet',          sub: 'Cheat Sheets', icon: '', url: `${baseUrl}cheatsheet-php.html`     },
+            { label: 'MySQL Cheat Sheet',        sub: 'Cheat Sheets', icon: '', url: `${baseUrl}cheatsheet-mysql.html`   },
+            { label: 'Laravel Cheat Sheet',      sub: 'Cheat Sheets', icon: '', url: `${baseUrl}cheatsheet-laravel.html` },
+            { label: 'Kotlin & Android Cheat Sheet', sub: 'Cheat Sheets', icon: '', url: `${baseUrl}cheatsheet-kotlin.html` },
         ].forEach(item => index.push(item));
 
         // Textbooks & Interactive Playgrounds
         [
-            { label: 'HTML Interactive Lab (17 Chapters)', sub: 'Playground', icon: '🧪', url: `${baseUrl}Learning%20HTML/playground.html` },
-            { label: 'CSS Interactive Studio',            sub: 'Playground', icon: '🎨', url: `${baseUrl}Learning%20CSS/playground.html` },
-            { label: 'JavaScript Playground',              sub: 'Playground', icon: '⚡', url: `${baseUrl}Learning%20JS/playground.html` },
-            { label: 'Web Studio (HTML, CSS & JS)',       sub: 'Studio', icon: '💻', url: `${baseUrl}studios/web-studio/index.html` },
-            { label: 'HTML for Class 6 & 7 (Textbook)',    sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-html/index.html` },
-            { label: 'CSS for Class 7 (Textbook)',         sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-css/index.html` },
-            { label: 'JavaScript for Class 7 (Textbook)',  sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-js/index.html` },
-            { label: 'Git & GitHub Version Control (Textbook)', sub: 'Textbook', icon: '🐙', url: `${baseUrl}book-git/index.html` },
-            { label: 'PHP for Class 9 (Textbook)',         sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-php/index.html` },
-            { label: 'MySQL for Class 9 (Textbook)',       sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-mysql/index.html` },
-            { label: 'Laravel for Class 9 (Textbook)',     sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-laravel/index.html` },
-            { label: 'HTML Master Quiz',                   sub: 'Quiz',       icon: '🏆', url: `${baseUrl}Learning%20HTML/quiz.html` },
-            { label: 'CSS Master Quiz',                    sub: 'Quiz',       icon: '🏆', url: `${baseUrl}Learning%20CSS/quiz.html` },
+            { label: 'HTML Interactive Lab (17 Chapters)', sub: 'Playground', icon: '', url: `${baseUrl}Learning%20HTML/playground.html` },
+            { label: 'CSS Interactive Studio',            sub: 'Playground', icon: '', url: `${baseUrl}Learning%20CSS/playground.html` },
+            { label: 'JavaScript Playground',              sub: 'Playground', icon: '', url: `${baseUrl}Learning%20JS/playground.html` },
+            { label: 'Web Studio (HTML, CSS & JS)',       sub: 'Studio', icon: '', url: `${baseUrl}studios/web-studio/index.html` },
+            { label: 'HTML for Class 6 & 7 (Textbook)',    sub: 'Textbook',   icon: '', url: `${baseUrl}book-html/index.html` },
+            { label: 'CSS for Class 7 (Textbook)',         sub: 'Textbook',   icon: '', url: `${baseUrl}book-css/index.html` },
+            { label: 'JavaScript for Class 7 (Textbook)',  sub: 'Textbook',   icon: '', url: `${baseUrl}book-js/index.html` },
+            { label: 'Git & GitHub Version Control (Textbook)', sub: 'Textbook', icon: '', url: `${baseUrl}book-git/index.html` },
+            { label: 'PHP for Class 9 (Textbook)',         sub: 'Textbook',   icon: '', url: `${baseUrl}book-php/index.html` },
+            { label: 'MySQL for Class 9 (Textbook)',       sub: 'Textbook',   icon: '', url: `${baseUrl}book-mysql/index.html` },
+            { label: 'Laravel for Class 9 (Textbook)',     sub: 'Textbook',   icon: '', url: `${baseUrl}book-laravel/index.html` },
+            { label: 'HTML Master Quiz',                   sub: 'Quiz',       icon: '', url: `${baseUrl}Learning%20HTML/quiz.html` },
+            { label: 'CSS Master Quiz',                    sub: 'Quiz',       icon: '', url: `${baseUrl}Learning%20CSS/quiz.html` },
         ].forEach(item => index.push(item));
 
         [
-            { label: 'AI Roadmap',      sub: 'Pages', icon: '🤖', url: `${baseUrl}ai-roadmap.html`        },
-            { label: 'Getting Started', sub: 'Pages', icon: '📖', url: `${baseUrl}getting-started.html`   },
-            { label: 'Code Lab',        sub: 'Pages', icon: '🧪', url: `${baseUrl}master-playground.html` },
-            { label: 'Home',            sub: 'Pages', icon: '🏠', url: `${baseUrl}index.html`             },
+            { label: 'AI Roadmap',      sub: 'Pages', icon: '', url: `${baseUrl}ai-roadmap.html`        },
+            { label: 'Getting Started', sub: 'Pages', icon: '', url: `${baseUrl}getting-started.html`   },
+            { label: 'Code Lab',        sub: 'Pages', icon: '', url: `${baseUrl}master-playground.html` },
+            { label: 'Home',            sub: 'Pages', icon: '', url: `${baseUrl}index.html`             },
         ].forEach(item => index.push(item));
 
         return index;
@@ -942,7 +944,7 @@
                 item.label.toLowerCase().includes(term) || item.sub.toLowerCase().includes(term)
             ).slice(0, 9);
             if (hits.length === 0) {
-                results.innerHTML = '<div class="search-no-results">No results found 😕</div>';
+                results.innerHTML = '<div class="search-no-results">No results found</div>';
             } else {
                 results.innerHTML = hits.map((item, idx) => `
                     <a href="${item.url}" class="search-result-item" data-index="${idx}">
@@ -1128,15 +1130,15 @@
             if (bar && mainBtn) {
                 if (state === 'speaking') {
                     bar.classList.add('is-speaking');
-                    mainBtn.innerHTML = `<span>⏸️</span> Pause`;
+                    mainBtn.innerHTML = `<span class="speaker-ico">${I('pause')}</span> Pause`;
                     if (statusEl) statusEl.textContent = label ? `Reading: "${label}"` : 'Reading lesson...';
                 } else if (state === 'paused') {
                     bar.classList.remove('is-speaking');
-                    mainBtn.innerHTML = `<span>▶️</span> Resume`;
+                    mainBtn.innerHTML = `<span class="speaker-ico">${I('play')}</span> Resume`;
                     if (statusEl) statusEl.textContent = 'Paused';
                 } else {
                     bar.classList.remove('is-speaking');
-                    mainBtn.innerHTML = `<span>🔊</span> Read Lesson`;
+                    mainBtn.innerHTML = `<span class="speaker-ico">${I('speaker')}</span> Read Lesson`;
                     if (statusEl) statusEl.textContent = label || 'Listen to this lesson';
                 }
             }
@@ -1150,16 +1152,16 @@
                 if (state === 'speaking') {
                     btn.classList.add('is-speaking');
                     if (textEl) textEl.textContent = 'Pause';
-                    if (iconEl) iconEl.textContent = '⏸️';
+                    if (iconEl) iconEl.innerHTML = I('pause');
                     btn.title = 'Pause narration';
                 } else if (state === 'paused') {
                     btn.classList.add('is-paused');
                     if (textEl) textEl.textContent = 'Resume';
-                    if (iconEl) iconEl.textContent = '▶️';
+                    if (iconEl) iconEl.innerHTML = I('play');
                     btn.title = 'Resume narration';
                 } else {
                     if (textEl) textEl.textContent = 'Listen';
-                    if (iconEl) iconEl.textContent = '🔊';
+                    if (iconEl) iconEl.innerHTML = I('speaker');
                     btn.title = 'Listen to this page aloud (Alt+S)';
                 }
             });
@@ -1173,8 +1175,8 @@
         const playNextInQueue = () => {
             if (currentIndex >= queue.length - 1) {
                 stopSpeech();
-                updateToolbarUI('idle', 'Finished reading 🎉');
-                if (window.showToast) window.showToast('Finished reading page 🎉', 'success');
+                updateToolbarUI('idle', 'Finished reading');
+                if (window.showToast) window.showToast('Finished reading page', 'success');
                 return;
             }
 
@@ -1287,13 +1289,13 @@
             queue = (sections.length > 0) ? buildLessonQueue() : buildGeneralPageQueue();
 
             if (queue.length === 0) {
-                if (window.showToast) window.showToast('No readable text found on this page 😕', 'info');
+                if (window.showToast) window.showToast('No readable text found on this page', 'info');
                 return;
             }
             currentIndex = -1;
             isPaused = false;
             updateToolbarUI('speaking');
-            if (window.showToast) window.showToast('Listening to page aloud 🔊 (Press Esc to stop)', 'success');
+            if (window.showToast) window.showToast('Listening to page aloud (Press Esc to stop)', 'success');
             playNextInQueue();
         };
 
@@ -1303,12 +1305,12 @@
                     window.speechSynthesis.resume();
                     isPaused = false;
                     updateToolbarUI('speaking');
-                    if (window.showToast) window.showToast('Speech resumed 🔊', 'success');
+                    if (window.showToast) window.showToast('Speech resumed', 'success');
                 } else {
                     window.speechSynthesis.pause();
                     isPaused = true;
                     updateToolbarUI('paused');
-                    if (window.showToast) window.showToast('Speech paused ⏸️', 'info');
+                    if (window.showToast) window.showToast('Speech paused', 'info');
                 }
             } else {
                 startSpeech();
@@ -1355,10 +1357,10 @@
             toolbar.setAttribute('aria-label', 'Lesson audio speaker');
             toolbar.innerHTML = `
                 <button type="button" class="speaker-btn-main" id="speaker-main-btn" title="Read this lesson aloud">
-                    <span>🔊</span> Read Lesson
+                    <span class="speaker-ico">${I('speaker')}</span> Read Lesson
                 </button>
                 <button type="button" class="speaker-btn-stop" id="speaker-stop-btn" title="Stop audio">
-                    <span>⏹️</span> <span class="speaker-btn-label">Stop</span>
+                    <span class="speaker-ico">${I('stop')}</span> <span class="speaker-btn-label">Stop</span>
                 </button>
                 <select class="speaker-speed-select" id="speaker-speed-select" title="Voice speed" aria-label="Reading Speed">
                     <option value="0.85">0.85x</option>
@@ -1424,7 +1426,7 @@
                 btn.className = 'section-speaker-btn';
                 btn.title = 'Listen to this section';
                 btn.setAttribute('aria-label', `Listen to section: ${getCleanElementText(h2)}`);
-                btn.innerHTML = '🔊';
+                btn.innerHTML = I('speaker');
 
                 btn.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -1486,7 +1488,7 @@
             const text = content ? (content.innerText || '') : '';
             const words = text.trim().split(/\s+/).length;
             const minutes = Math.max(1, Math.ceil(words / 190));
-            return `⏱️ ${minutes} min read`;
+            return `${minutes} min read`;
         };
 
         // 3. Create floating reading mode toolbar
@@ -1499,7 +1501,7 @@
             readingBar.setAttribute('aria-label', 'Reading Mode Controls');
             readingBar.innerHTML = `
                 <div class="rm-pill-title">
-                    <span>📖</span>
+                    <span></span>
                     <span>Reader View</span>
                 </div>
                 <span class="rm-read-time" id="rm-read-time">${getReadingTime()}</span>
@@ -1550,7 +1552,7 @@
             const timeEl = readingBar.querySelector('#rm-read-time');
             if (timeEl) timeEl.textContent = getReadingTime();
             updateScrollProgress();
-            window.showToast?.('Entered Reading Mode 📖 (Press Esc to exit)', 'info');
+            window.showToast?.('Entered Reading Mode (Press Esc to exit)', 'info');
         };
 
         const exitReadingMode = () => {

@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Central City Public Library**
 
@@ -10,7 +10,7 @@ You keep a notebook of your science ideas on your desk at home. It is safe, unti
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain the difference between **Git** (the tool on your computer) and **GitHub** (a website that stores repositories online).
 - Describe the difference between **public** and **private** repositories.
@@ -28,7 +28,7 @@ You keep a notebook of your science ideas on your desk at home. It is safe, unti
 
 A **remote repository** (or just **remote**) is a copy of your repository that lives somewhere else, usually on a server on the internet. GitHub is the most popular place to keep remotes.
 
-| Feature | Git ⚙️ | GitHub ☁️ |
+| Feature | Git | GitHub |
 | :--- | :--- | :--- |
 | **What is it?** | A program you run in the terminal | A website that hosts repositories |
 | **Where does it run?** | On your own computer | On GitHub's servers |
@@ -120,11 +120,11 @@ The first time, SSH asks if you trust GitHub's server. Type `yes`. Then you shou
 Hi zainab-codes! You've successfully authenticated, but GitHub does not provide shell access.
 ```
 
-Your computer and GitHub can now talk safely. 🎉
+Your computer and GitHub can now talk safely.
 
 ---
 
-## 🌍 Real-World Connection: The Open Source Revolution
+## Real-World Connection: The Open Source Revolution
 
 - GitHub reports well over **100 million developers** and hundreds of millions of repositories.
 - Well-known projects live there, such as the VS Code editor and the Python language (`python/cpython`).
@@ -132,7 +132,7 @@ Your computer and GitHub can now talk safely. 🎉
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 You are on a train with no Wi-Fi. You write code and run:
 
@@ -144,7 +144,7 @@ git commit -m "Add bus timetable page"
 **Question**: Will `git commit` work without internet?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Answer:** Yes. Git works fully offline, and the commit is saved in your local repository. You only need internet later, when you send your commits to GitHub (Chapter 14).
 
@@ -152,7 +152,7 @@ git commit -m "Add bus timetable page"
 
 ---
 
-## 🕵️ Code Detective: The Password Failure
+## Code Detective: The Password Failure
 
 A student pushed to an HTTPS address and typed their GitHub website password. Git replied:
 
@@ -166,23 +166,23 @@ fatal: Authentication failed for 'https://github.com/zainab-codes/eco-club.git/'
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: Sharing the private key instead of the public key.**
 
-- ❌ **Wrong:** pasting the contents of `id_ed25519` (no `.pub`) into GitHub or an email.
+- **Wrong:** pasting the contents of `id_ed25519` (no `.pub`) into GitHub or an email.
 - **What happens:** GitHub refuses it as a key. Worse, anyone who sees it can pretend to be you.
-- ✅ **Fixed:** only ever share the file ending in **`.pub`**. If your private key leaks, delete that key on GitHub and make a new pair.
+- **Fixed:** only ever share the file ending in **`.pub`**. If your private key leaks, delete that key on GitHub and make a new pair.
 
 **Mistake 2: Thinking Git and GitHub are the same thing.**
 
-- ❌ **Wrong:** "I can't use Git, because I don't have a GitHub account."
+- **Wrong:** "I can't use Git, because I don't have a GitHub account."
 - **What happens:** you skip learning a tool that works perfectly without any account.
-- ✅ **Fixed:** Git runs on your computer for everyone. GitHub is one optional place to store a copy online.
+- **Fixed:** Git runs on your computer for everyone. GitHub is one optional place to store a copy online.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Prove that Git does not need the internet:
 
@@ -200,7 +200,7 @@ Run `git status` before and after the commit. Before, the file is listed as modi
 
 ---
 
-## 📝 Recap
+## Recap
 
 - **Git** is a program on your computer. **GitHub** is a website that stores copies of repositories.
 - A **remote** is a copy of your repository kept somewhere else.
@@ -211,9 +211,9 @@ Run `git status` before and after the commit. Before, the file is listed as modi
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Explain in one sentence the difference between Git and GitHub.
 2. Can you use Git on a desert island with no internet?
 3. Which SSH key file is safe to give GitHub: `id_ed25519` or `id_ed25519.pub`?
@@ -227,7 +227,7 @@ Run `git status` before and after the commit. Before, the file is listed as modi
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Why did GitHub stop accepting plain passwords in the terminal?
 5. What is the difference between a public and a private repository?
 6. Your school club wants to store (a) a free study-timer website for all students and (b) a draft quiz for next week's test. Which should be public and which private?
@@ -241,7 +241,7 @@ Run `git status` before and after the commit. Before, the file is listed as modi
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Get your computer ready to talk to GitHub safely.
 
 1. Check for existing keys with `ls -la ~/.ssh` in Git Bash.

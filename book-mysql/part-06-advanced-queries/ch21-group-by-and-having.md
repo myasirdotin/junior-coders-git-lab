@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 After charity week, the club pours all the donation slips onto a table. Then they make three piles: one for *Books*, one for *Clean Water*, one for *Food Pantry*. They count and add up each pile separately. Finally, they decide to announce only the causes that raised more than 6,000 rupees. Making piles is `GROUP BY`. Adding up each pile is the aggregate. Choosing which piles to announce is `HAVING`.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Group rows with `GROUP BY` and summarise each group.
 - Group by more than one column.
@@ -93,7 +93,7 @@ ORDER BY students DESC, city;
 | Karachi | 2 | 3.68 |
 | Peshawar | 1 | 3.20 |
 
-> 🧪 **Sandbox note:** SQLite stores GPA as an approximate number, so it shows Karachi as `3.67` and Peshawar as `3.2`. MySQL's exact `DECIMAL` gives `3.68` and `3.20`.
+> **Sandbox note:** SQLite stores GPA as an approximate number, so it shows Karachi as `3.67` and Peshawar as `3.2`. MySQL's exact `DECIMAL` gives `3.68` and `3.20`.
 
 ### Loans per student (with a join)
 
@@ -212,7 +212,7 @@ This explains the rules: `WHERE` cannot use `COUNT(*)`, because the groups do no
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: an aggregate in `WHERE`.**
 
@@ -252,7 +252,7 @@ A relaxed XAMPP shows *one* name per city, picked by the server. Lahore has thre
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/), show each book **category** with its number of titles and total pages, A to Z.
 
@@ -260,7 +260,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), show each book **category** with 
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `GROUP BY column` makes one group per value and one result row per group.
 - Aggregates (`COUNT`, `SUM`, `AVG`, `MIN`, `MAX`) run inside each group.
@@ -270,9 +270,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/), show each book **category** with 
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does `GROUP BY` do?
 2. What is the difference between `WHERE` and `HAVING`?
 3. Can you write `WHERE COUNT(*) > 5`? What should you write instead?
@@ -286,7 +286,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), show each book **category** with 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Show how many loans are returned and how many are not (`returned` = Yes / No).
 2. Show each class name with the number of loans made by its students.
 
@@ -321,7 +321,7 @@ ORDER BY c.id;
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 This query has an error. Explain it and fix it. Then extend it: show only cities whose students have an average GPA of **at least 3.7**, best first.
 
 ```sql

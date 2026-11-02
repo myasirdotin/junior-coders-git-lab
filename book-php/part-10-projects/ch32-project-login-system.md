@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the public library, you show your library card once at the front desk. The librarian checks it and gives you a visitor badge. Now you can walk between the reading rooms, and each room only needs to look at your badge. When you leave, you hand the badge back, and it no longer works. In this project the login page is the front desk, the **session** is the badge, and logging out hands it back.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why a website forgets you between pages, and how a **session** fixes it.
 - Check a password safely with `password_hash()` and `password_verify()`.
@@ -331,7 +331,7 @@ nobody@example.org / Green-Garden-42: refused
 
 ---
 
-## 🌍 Real-World Connection: Users in a Database
+## Real-World Connection: Users in a Database
 
 Real sites keep users in a database table, not in an array. You learned how in Chapters 28 and 29. The lookup uses a **PDO prepared statement**: the email is sent separately from the SQL, so it can never change the command.
 
@@ -346,23 +346,23 @@ The rest of the login stays the same: `password_verify($password, $hash)`.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Storing and comparing real passwords.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   $users = ["student@example.org" => "Blue-River-17"];
   if ($users[$email] === $password) { /* log in */ }
   ```
-- 😕 *What happens*: Anyone who sees the file, a backup or the database learns every password. People reuse passwords, so their other accounts are in danger too. This breaks the trust (*Amānah*) users give you.
-- ✅ *Fixed*: Store only `password_hash()` output, and check with `password_verify($password, $hash)`.
+- *What happens*: Anyone who sees the file, a backup or the database learns every password. People reuse passwords, so their other accounts are in danger too. This breaks the trust (*Amānah*) users give you.
+- *Fixed*: Store only `password_hash()` output, and check with `password_verify($password, $hash)`.
 
 A second mistake: forgetting `exit;` after `header("Location: ...")` in the guard. The redirect is sent, but the private page is also sent underneath it.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Save the four files in `C:\xampp\htdocs\login-project\`, start Apache, and test:
 
@@ -376,7 +376,7 @@ Save the four files in `C:\xampp\htdocs\login-project\`, start Apache, and test:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - The web forgets you between pages; `session_start()` and `$_SESSION` give each visitor a memory on the server.
 - The browser keeps only a random session ID in a cookie, so keep it secret and use HTTPS on real sites.
@@ -386,9 +386,9 @@ Save the four files in `C:\xampp\htdocs\login-project\`, start Apache, and test:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which function must every page that uses `$_SESSION` call first?
 2. Which two functions make and check a password hash?
 3. Why do we call `session_regenerate_id(true)` right after a good login?
@@ -402,7 +402,7 @@ Save the four files in `C:\xampp\htdocs\login-project\`, start Apache, and test:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Add a second private page, `planner.php`, that shows "Hello, (email)" and only works for logged-in users. Write its PHP part.
 
 <details>
@@ -424,7 +424,7 @@ The guard is the same three lines as in `dashboard.php`. Every private page need
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Give each user a **role**: `teacher` or `student`.
 
 1. Change `$users` so each email holds an array with `hash` and `role`.

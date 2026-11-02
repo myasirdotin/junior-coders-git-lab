@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Signing Your Work**
 
@@ -10,7 +10,7 @@ When an architect draws the plan for a new school, she signs and dates it. Every
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Check that Git is installed with `git --version`.
 - Set your name and email with `git config --global`.
@@ -101,7 +101,7 @@ Git shows setting names in small letters, so `defaultBranch` appears as `default
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 - When people fix bugs in big open-source projects such as Python or Linux, their names stay in the history for many years.
 - Being honest about who wrote what reflects the value of **truthfulness (*Ṣidq*)**. Never commit under another person's name.
@@ -109,7 +109,7 @@ Git shows setting names in small letters, so `defaultBranch` appears as `default
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 After the setup above, you type:
 
@@ -120,7 +120,7 @@ git config user.name
 **Question**: What does Git print?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Answer:** It prints the name you saved, and changes nothing:
 
@@ -134,7 +134,7 @@ Giving a setting name with no value means "show me this setting".
 
 ---
 
-## 🕵️ Code Detective
+## Code Detective
 
 **The Anonymous Commit**
 
@@ -159,7 +159,7 @@ Omit --global to set the identity only in this repository.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting quotes around a name with a space**
 
@@ -185,7 +185,7 @@ git config --global user.name "Zainab Ahmed"
 
 ---
 
-## ✍️ Try It
+## Try It
 
 On your own computer (or the lab computer your teacher gives you):
 
@@ -202,7 +202,7 @@ If a line is wrong, just run the same `git config --global ...` command again wi
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `git --version` checks that Git is installed.
 - Git needs your name and email before your first commit.
@@ -212,9 +212,9 @@ If a line is wrong, just run the same `git config --global ...` command again wi
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 
 1. Which flag makes a `git config` setting apply to all your projects?
 2. Which command lists your global settings?
@@ -229,7 +229,7 @@ If a line is wrong, just run the same `git config --global ...` command again wi
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 
 1. Why does Git need an email address before you can commit?
 2. What is the difference between `--global` settings and settings made inside one project with `--local`?
@@ -248,7 +248,7 @@ git config --global user.email "zainab.ahmed@example.org"
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 
 Write a one-page setup guide for students in your computer lab.
 

@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Picture the drinks machine in the school canteen. Press button 1 and out comes lemonade. Press button 2 and you get orange juice. Press button 3 for water. Press button 99 and the screen says "Invalid selection". The machine checks **one value** (the button) against a list of choices, and that is exactly what a `switch` statement does.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Build a `switch` block with `case`, `break` and `default`.
 - Explain fall-through and why `break` matters.
@@ -165,7 +165,7 @@ Orange juice
 
 ---
 
-## 🌍 Real-World Connection: Handling HTTP Status Codes
+## Real-World Connection: Handling HTTP Status Codes
 
 Web servers answer every request with a **status code**, a number that says how it went:
 - 200: OK
@@ -177,7 +177,7 @@ PHP code often uses `switch` or `match` to turn these codes into friendly messag
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -192,13 +192,13 @@ PHP code often uses `switch` or `match` to turn these codes into friendly messag
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>30 50 Done</code>. There are NO <code>break;</code> statements, so after matching "gold" PHP runs every case below it, and the default too.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Misplaced Default
+## Code Detective: The Misplaced Default
 
 ```php
 <?php
@@ -224,11 +224,11 @@ Unknown command. Starting the lab timer...
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting `break`.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   <?php
   $light = "red";
@@ -239,12 +239,12 @@ Unknown command. Starting the lab timer...
       echo "Go.";
   }
   ```
-- 😕 *What happens*: It prints `Stop. Go.`, which is a dangerous instruction!
-- ✅ *Fixed*: Add `break;` after `echo "Stop. ";` (and after `echo "Go.";`). Now it prints only `Stop. `.
+- *What happens*: It prints `Stop. Go.`, which is a dangerous instruction!
+- *Fixed*: Add `break;` after `echo "Stop. ";` (and after `echo "Go.";`). Now it prints only `Stop. `.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and turn a grade letter into a message:
 
@@ -274,7 +274,7 @@ Good effort. Keep going!
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `switch` checks one value against many `case` labels.
 - `break` stops the switch; without it, PHP falls through into the next case.
@@ -284,9 +284,9 @@ Good effort. Keep going!
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which keyword ends a case block?
 2. Which keyword handles values that match no case?
 3. Can several cases share the same code?
@@ -300,7 +300,7 @@ Good effort. Keep going!
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. When is `switch` easier to read than an `if / elseif` ladder?
 2. How is `match` different from `switch` in the way it compares values?
 
@@ -312,7 +312,7 @@ Good effort. Keep going!
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a simple calculator.
 
 1. Create `$num1 = 20`, `$num2 = 4` and `$operator = "*"`.

@@ -16,7 +16,7 @@
     <div class="quiz-page-container">
         <header class="quiz-hero">
             <div class="hero-pill-badge">
-                <span>🏆</span> Official Class 7 Assessment
+                <span></span> Official Class 7 Assessment
             </div>
             <h1 style="margin-top: 0.75rem;">HTML Fundamentals Quiz</h1>
             <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
@@ -29,14 +29,14 @@
         </main>
 
         <section id="resultsBanner" class="quiz-results-banner">
-            <span style="font-size: 2.5rem;" id="resultsIcon">🎉</span>
+            <span style="font-size: 2.5rem;" id="resultsIcon"></span>
             <h2 id="resultsHeading" style="color: #fff; margin: 0.5rem 0 0;">Assessment Completed!</h2>
             <div class="quiz-score-val" id="resultsScore">0 / 10</div>
             <p id="resultsFeedback" style="color: #cbd5e1; max-width: 500px; margin: 0 auto;"></p>
             <div style="display: flex; gap: 1rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap;">
-                <button type="button" class="btn-restart" onclick="restartQuiz()">🔄 Retake Quiz</button>
-                <a href="exercises.html" class="btn-restart" style="text-decoration: none; background: #334155;">🎯 Try Practice Missions</a>
-                <a href="../book-html/index.html" class="btn-restart" style="text-decoration: none; background: #059669;">📖 Back to Textbook</a>
+                <button type="button" class="btn-restart" onclick="restartQuiz()">Retake Quiz</button>
+                <a href="exercises.html" class="btn-restart" style="text-decoration: none; background: #334155;">Try Practice Missions</a>
+                <a href="../book-html/index.html" class="btn-restart" style="text-decoration: none; background: #059669;">Back to Textbook</a>
             </div>
         </section>
     </div>
@@ -189,7 +189,7 @@
                         ${optionsHtml}
                     </div>
                     <div class="explanation-box" id="explain-${qIdx}">
-                        <strong>💡 Insight:</strong> ${qObj.tip}
+                        <strong>Insight:</strong> ${qObj.tip}
                     </div>
                 `;
                 container.appendChild(card);
@@ -236,7 +236,7 @@
             banner.scrollIntoView({ behavior: 'smooth' });
 
             if (userScore >= 7) {
-                icon.textContent = '🏆';
+                icon.textContent = '';
                 heading.textContent = 'Congratulations! You Passed!';
                 feedback.textContent = `Terrific job! You demonstrated solid mastery of HTML fundamentals. You earned +50 XP!`;
                 
@@ -253,7 +253,7 @@
                     }
                 }
             } else {
-                icon.textContent = '📚';
+                icon.textContent = '';
                 heading.textContent = 'Keep Practicing!';
                 feedback.textContent = `You scored ${userScore}/10. Review Chapters 3–12 in the Class 7 textbook and retake the quiz to earn your +50 XP badge!`;
             }

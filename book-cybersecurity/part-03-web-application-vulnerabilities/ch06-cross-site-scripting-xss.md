@@ -1,10 +1,10 @@
 # Chapter 6: Cross-Site Scripting (XSS) & Frontend Defense
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The community library has a public noticeboard where visitors pin book recommendations. Most notes say things like "*The Secret Garden* is wonderful!" One day someone pins a note written to look official: "LIBRARY NOTICE: hand your library card to the person by the door." Visitors trust the board, so a few people obey. The board itself was not broken. It simply showed a stranger's words as if they came from the library. A careful librarian now reads every note and pins it inside a clear plastic sleeve marked "Visitor note". That sleeve is what this chapter teaches you to build.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what **Cross-Site Scripting (XSS)** is and why it is dangerous.
 - Describe the three kinds: stored, reflected and DOM-based.
@@ -95,7 +95,7 @@ What the reader sees:
 - With `innerHTML`: **Great** book (the tag was obeyed, so it could also have been a script).
 - With `textContent`: `<b>Great</b> book` (the exact characters, with no effect).
 
-> 💡 **Rule:** escape when you *show* data, not only when you save it. The same text might be shown in many places.
+> **Rule:** escape when you *show* data, not only when you save it. The same text might be shown in many places.
 
 ## Defence 2: Content Security Policy (CSP)
 
@@ -128,7 +128,7 @@ If an XSS bug ever slips through, the stranger's code still cannot copy your log
 - Mark session cookies `HttpOnly` and `Secure`.
 - Test only on your own pages or the lab studio.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake:** "I removed the word `<script>` from comments, so my site is safe."
 
@@ -136,7 +136,7 @@ If an XSS bug ever slips through, the stranger's code still cannot copy your log
 
 **Fixed version:** do not try to list every bad thing. Escape *everything* on output with `htmlspecialchars()` or `textContent`, so no user text is ever read as HTML.
 
-## ✍️ Try It
+## Try It
 
 Open the **XSS** tab in the Cybersecurity Lab Studio.
 
@@ -146,7 +146,7 @@ Open the **XSS** tab in the Cybersecurity Lab Studio.
 
 *Hint:* one panel *obeys* the tag; the other *shows* it.
 
-## 📝 Recap
+## Recap
 
 - XSS happens when user text is put into a page as HTML instead of as text.
 - Stored XSS is saved and reaches every visitor; reflected XSS comes from a link; DOM-based XSS happens in the browser's own JavaScript.
@@ -154,9 +154,9 @@ Open the **XSS** tab in the Cybersecurity Lab Studio.
 - A Content Security Policy and HttpOnly cookies are extra layers.
 - Blocking certain words is not enough; escape everything.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is the difference between `innerHTML` and `textContent` when showing user text?
 
 <details>
@@ -166,7 +166,7 @@ What is the difference between `innerHTML` and `textContent` when showing user t
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 What exact text does this print?
 
 ```php
@@ -185,7 +185,7 @@ Q&amp;A &lt;today&gt;
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A class guestbook page has this code:
 
 ```php

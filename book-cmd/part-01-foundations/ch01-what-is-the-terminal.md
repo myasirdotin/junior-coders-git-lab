@@ -1,12 +1,12 @@
 # Chapter 1: What is the Terminal? Demystifying the Black Window
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Amina wants to borrow a book from the school library. She can walk along the shelves and look at every cover. Or she can go to the desk and say, "Please give me *Science Experiments for Beginners*." The librarian brings it straight away. The terminal is like that library desk. You do not click and search. You ask for exactly what you want, in words.
 
 > **Key Idea**: The terminal is not a strange alien screen. It is **File Explorer without the mouse**. It is a direct line to your computer, where you give instructions by typing text instead of clicking.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain the difference between a GUI and a CLI.
 - Name the three terminals you will meet on a Windows computer.
@@ -107,7 +107,7 @@ As developers we keep **Amānah**, which means trust and care. Your computer and
 3. **Never run the terminal as Administrator.** You do not need it.
 4. **Practise only in your own practice folder.** In this book that is `C:\JuniorCoders\practice`. You will make it soon.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Typing a sentence instead of a command.** A beginner types English words and expects the computer to understand.
 
@@ -125,13 +125,13 @@ C:\Users\Amina>ver
 Microsoft Windows [Version 10.0.26200.9550]
 ```
 
-## ✍️ Try It
+## Try It
 
 Open **both** CMD and PowerShell, one after the other. In each one, look at the prompt. Write down the two prompts in your notebook. What is the same? What is different?
 
 *Hint*: Look at the very start of each prompt line. One terminal adds two extra letters.
 
-## 📝 Recap
+## Recap
 
 - A **GUI** uses pictures and a mouse. A **CLI** uses typed commands.
 - Developers use the terminal for Git, servers, tool installers and cloud computers.
@@ -139,9 +139,9 @@ Open **both** CMD and PowerShell, one after the other. In each one, look at the 
 - A command does its job, prints a result, and then the prompt comes back.
 - Terminal deletions skip the Recycle Bin. Never run as Administrator. Practise in your own folder.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What do **GUI** and **CLI** stand for?
 2. Give two reasons why web developers use the command line.
 3. What happens to a file you delete from the terminal?
@@ -155,7 +155,7 @@ Open **both** CMD and PowerShell, one after the other. In each one, look at the 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Press <kbd>Win</kbd> + <kbd>R</kbd>, type `cmd`, and press <kbd>Enter</kbd>.
 2. Type `ver` and press <kbd>Enter</kbd>. What does the answer say?
 3. Type `exit` and press <kbd>Enter</kbd>. What happens?
@@ -169,7 +169,7 @@ Open **both** CMD and PowerShell, one after the other. In each one, look at the 
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Your teammate needs to set up a project. Compare two ways of explaining it:
 
 1. *"Click the third button on the top right, then drag the blue box to the folder at the bottom."*

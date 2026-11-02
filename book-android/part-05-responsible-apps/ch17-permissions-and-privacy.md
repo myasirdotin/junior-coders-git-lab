@@ -1,12 +1,12 @@
 # Chapter 17: Permissions and Privacy
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine a school nurse who needs to look in a student's ear. A good nurse does not just grab the student's head. First she explains: "I need to check your ear because you said it hurts. Is that all right?" If the student says "not now", she finds another way to help and asks again later. She also never writes down things she does not need, like the student's home address.
 
 An Android app should behave like that nurse. Before it uses the camera, the microphone or notifications, it explains why and asks. If the answer is "no", the app still works. And it keeps no more information than it really needs.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain the difference between **normal** permissions and **runtime** (dangerous) permissions.
 - Declare a permission in `AndroidManifest.xml`.
@@ -315,7 +315,7 @@ In Islam, an *Amānah* is something left in your care that you must protect and 
 
 **Protect children.** Children's data has extra protection. Google Play has a **Families** policy for apps aimed at children, and many countries have laws for children's privacy. These rules limit what data such apps may collect, which ads they may show and which SDKs they may use. Often a parent's permission is needed. The simplest way to respect all of them: do not collect children's personal data at all.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: asking for permissions as soon as the app opens.**
 
@@ -335,7 +335,7 @@ The manifest has the `POST_NOTIFICATIONS` line, but the code never calls `launch
 
 **Mistake 3: punishing "no".** If the user says no, do not close the app or show the dialog in a loop. Show one kind message and keep the rest working.
 
-## ✍️ Try It
+## Try It
 
 Add the `ReminderSetting` row to a practice app:
 
@@ -346,7 +346,7 @@ Add the `ReminderSetting` row to a practice app:
 
 *Hint:* to test again, open the emulator's **Settings → Apps → (your app) → Notifications**, or uninstall and reinstall the app. A fresh install starts with no runtime permissions.
 
-## 📝 Recap
+## Recap
 
 - **Normal** permissions (like `INTERNET`) are granted at install; you only declare them in `AndroidManifest.xml`.
 - **Runtime** permissions (camera, microphone, location, contacts, notifications on Android 13+) also need a request in code.
@@ -354,7 +354,7 @@ Add the `ReminderSetting` row to a practice app:
 - "No" is a normal answer: keep the app working and say where to change it later.
 - User data is an *Amānah*: collect the least, keep it on the phone, no tracking or ad SDKs, honest Data safety answers, extra care for children.
 
-## 📖 Key Terms
+## Key Terms
 
 - **Permission**: Android's approval for an app to use a protected part of the phone.
 - **Runtime permission**: a permission the user grants in a dialog while the app runs.
@@ -364,9 +364,9 @@ Add the `ReminderSetting` row to a practice app:
 - **SDK**: a ready-made library added to an app.
 - **Data safety form**: the Play Store form where developers declare what data their app collects and shares.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Sort these into **normal** and **runtime** permissions: `INTERNET`, `CAMERA`, `POST_NOTIFICATIONS`, `ACCESS_NETWORK_STATE`, `READ_CONTACTS`.
 
 <details>
@@ -377,7 +377,7 @@ Sort these into **normal** and **runtime** permissions: `INTERNET`, `CAMERA`, `P
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A classmate's School Library app asks for `CAMERA`, `ACCESS_FINE_LOCATION` and `READ_CONTACTS` as soon as it opens. The app only lets students search books and scan a barcode. Write three changes you would suggest.
 
 <details>
@@ -389,7 +389,7 @@ A classmate's School Library app asks for `CAMERA`, `ACCESS_FINE_LOCATION` and `
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "Scan or type the barcode" row for the School Library app:
 
 1. Declare `CAMERA` and `<uses-feature android:name="android.hardware.camera" android:required="false" />`.

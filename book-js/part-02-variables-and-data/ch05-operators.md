@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Candy Jar Remainder**
 
@@ -17,7 +17,7 @@ In programming, we have a special symbol called the **Modulus Operator (`%`)** t
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Use arithmetic operators: `+`, `-`, `*`, `/`, and the modulus operator `%` (remainder).
@@ -60,7 +60,7 @@ Comparison operators compare two values and always return a **boolean** (`true` 
 | `>=` | Greater than or equal to | `5 >= 5` | `true` |
 | `<=` | Less than or equal to | `4 <= 3` | `false` |
 
-> ⚠️ **Common Mistake**: 
+> **Common Mistake**: 
 > A single equals sign (`=`) is used to **ASSIGN** a value (`let x = 5;`). 
 > Three equals signs (`===`) are used to **COMPARE** two values (`x === 5`)!
 
@@ -128,7 +128,7 @@ New Total with Bonus: 182
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this snippet:
 
@@ -142,7 +142,7 @@ console.log(a === 15);
 **Question**: What two values will print in the console?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong>
 Line 1 prints: <code>3</code> (15 divided by 4 is 3 with 3 left over)<br>
 Line 2 prints: <code>true</code>
@@ -182,7 +182,7 @@ Create a program that calculates a student's term report:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **The Accidental Assignment**
 
@@ -207,18 +207,18 @@ console.log(score);
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open your console:
 1. Calculate `25 % 4` -> Press Enter. (Why is the answer `1`?)
 2. Calculate `100 % 10` -> Press Enter. (Why is the answer `0`?)
 3. Test strict equality: Type `5 === "5"` -> Press Enter. (Why is the answer `false`?)
 
-> 💡 **Hint:** 25 ÷ 4 = 6 with 1 left over. 100 ÷ 10 has nothing left over. And `"5"` has quotes, so it is a string, not a number.
+> **Hint:** 25 ÷ 4 = 6 with 1 left over. 100 ÷ 10 has nothing left over. And `"5"` has quotes, so it is a string, not a number.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - **Arithmetic operators** perform math: `+`, `-`, `*`, `/`, `%`, `**`.
 - **Modulus (`%`)** gives the remainder (the amount left over) after dividing.
@@ -235,7 +235,7 @@ Open your console:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -247,9 +247,9 @@ Open your console:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does `10 % 3` give? (a) `3` (b) `1` (c) `0` (d) `3.33`
 2. Which comparison operator checks that two values are "not equal"?
 
@@ -261,7 +261,7 @@ Open your console:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write one line that checks whether a variable `userAge` is at least 13.
 2. After `let total = 10; total -= 4; total *= 2;` what is in `total`?
 3. Why is `5 == "5"` true, but `5 === "5"` false?
@@ -275,7 +275,7 @@ Open your console:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a program that:
 1. Stores three numbers in variables.
 2. Calculates their sum and their average.

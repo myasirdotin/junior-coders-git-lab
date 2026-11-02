@@ -1,10 +1,10 @@
 # Chapter 9: HTTP Security Headers
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When the school office sends a parcel of exam papers to another school, it does not just send the box. It sticks labels on the outside: **"Fragile"**, **"Open only in the exam office"**, **"Do not forward"**. The delivery driver never opens the box, but follows every label. A web page travels the same way. Along with the page, the server sends short labels called **headers**, and the browser obeys them. A few well-chosen labels can stop whole families of attacks before they start.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what HTTP **response headers** are and where to see them.
 - Name the main security headers and say what each one blocks.
@@ -76,7 +76,7 @@ alt-svc: h3=":443"; ma=86400
 
 `example.com` is a simple demonstration page, so it sends **none** of the security headers in this chapter. By the end, you will spot that at a glance.
 
-> 🛡️ **Amānah rule:** looking at headers is harmless, because every browser receives them. Testing a site for weaknesses is different: only test sites you own or have written permission to test.
+> **Amānah rule:** looking at headers is harmless, because every browser receives them. Testing a site for weaknesses is different: only test sites you own or have written permission to test.
 
 ## Content-Security-Policy (CSP)
 
@@ -113,7 +113,7 @@ Content-Security-Policy: script-src 'self' 'nonce-k7Qz2pXb9L'
 
 An attacker cannot guess the next nonce, so their injected script has no matching value and is blocked. In PHP you would make it with `bin2hex(random_bytes(16))`, just like the CSRF token in Chapter 8. Never reuse the same nonce on every page.
 
-> 💡 **Test first:** send the same policy as `Content-Security-Policy-Report-Only`. The browser then only reports problems in the DevTools **Console** and blocks nothing. When the console is clean, switch to the real header.
+> **Test first:** send the same policy as `Content-Security-Policy-Report-Only`. The browser then only reports problems in the DevTools **Console** and blocks nothing. When the console is clean, switch to the real header.
 
 ## Strict-Transport-Security (HSTS)
 
@@ -305,7 +305,7 @@ Choose **one** place for each header, PHP or Apache. Setting the same header in 
 - Turn on HSTS only after HTTPS works everywhere, starting with a small `max-age`.
 - Skip `X-XSS-Protection`; it is obsolete.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: calling `header()` after output.**
 
@@ -338,7 +338,7 @@ echo "<h1>Welcome</h1>\n";
 
 A student adds `max-age=31536000; includeSubDomains` while `old.example.org` still has no HTTPS. For a whole year, visitors' browsers refuse to open that subdomain. **Fixed version:** start with `max-age=300`, check every subdomain, then raise it slowly.
 
-## ✍️ Try It
+## Try It
 
 Compare two websites you use for school (for example, your school's site and an online library).
 
@@ -348,7 +348,7 @@ Compare two websites you use for school (for example, your school's site and an 
 
 *Hint:* header names are not case-sensitive, so `strict-transport-security` and `Strict-Transport-Security` are the same header.
 
-## 📝 Recap
+## Recap
 
 - Response headers are `Name: value` labels sent before the page; the browser obeys them.
 - CSP limits where scripts and files may come from; nonces allow one trusted inline script.
@@ -357,7 +357,7 @@ Compare two websites you use for school (for example, your school's site and an 
 - Referrer-Policy keeps addresses private; Permissions-Policy turns off unneeded features; cookies need `Secure`, `HttpOnly` and `SameSite`.
 - Set headers with PHP `header()` before any output, or with `Header set` in `.htaccess`. `X-XSS-Protection` is obsolete.
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -369,9 +369,9 @@ Compare two websites you use for school (for example, your school's site and an 
 | **Clickjacking** | Hiding a real page in an invisible frame to trick people into clicking it. |
 | **Referrer** | The address of the page a visitor came from. |
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Match each header to the attack or problem it helps block:
 
 1. `X-Content-Type-Options: nosniff`
@@ -389,7 +389,7 @@ Match each header to the attack or problem it helps block:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A classmate's PHP page sends these headers:
 
 ```http
@@ -415,7 +415,7 @@ Set-Cookie: session=7f3a9c; path=/; Secure; HttpOnly; SameSite=Lax
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Your school's science-fair site runs on HTTPS with Apache. It has two subdomains: `fair.example.org` (HTTPS) and `archive.example.org` (still plain HTTP).
 
 1. Write an `.htaccess` block that sends CSP, `nosniff`, both clickjacking headers, Referrer-Policy and Permissions-Policy (no camera, microphone or location).

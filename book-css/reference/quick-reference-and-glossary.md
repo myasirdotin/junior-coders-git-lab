@@ -1,9 +1,9 @@
 # CSS Reference & Glossary
-# Quick Reference Cheat Sheet and CSS Property Dictionary 🎨📖
+# Quick Reference Cheat Sheet and CSS Property Dictionary
 
 ---
 
-## 1. CSS Syntax Anatomy 📐
+## 1. CSS Syntax Anatomy
 
 ```css
 selector {
@@ -14,7 +14,7 @@ selector {
 
 ---
 
-## 2. Core CSS Properties 🎨
+## 2. Core CSS Properties
 
 ### Colors & Backgrounds
 - `color: #7c3aed;`: Text foreground color
@@ -64,7 +64,7 @@ selector {
 
 ---
 
-## 3. CSS Glossary 📚
+## 3. CSS Glossary
 
 | Term | Definition |
 | :--- | :--- |

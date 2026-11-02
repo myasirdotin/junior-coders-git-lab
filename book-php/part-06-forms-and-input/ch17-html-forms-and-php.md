@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Outside the principal's office hangs a wooden suggestion box. You write an idea on a slip: *"Please add more chess boards to the library."* You drop the slip through the slot. At the end of the day, the principal opens the box and reads every slip. A web form is the slip, pressing Submit drops it in the box, and PHP is the principal who reads it.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Connect an HTML `<form>` to a PHP script.
 - Set the two key form attributes: `action` and `method`.
@@ -153,7 +153,7 @@ The browser shows it as: *Thank you, Aisha! Your feedback about 'Library' has be
 
 ---
 
-## 🌍 Real-World Connection: Self-Submitting Forms
+## Real-World Connection: Self-Submitting Forms
 
 Many real sites use forms that submit to themselves:
 - Registration pages show errors right above the inputs, without leaving the page.
@@ -161,18 +161,18 @@ Many real sites use forms that submit to themselves:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 A form has `<input type="text" name="user_age" value="15">` and is submitted with POST. What does `gettype($_POST['user_age'])` return?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>string</code>. PHP receives every text input as a string, even if it looks like a number.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Missing Input
+## Code Detective: The Missing Input
 
 ```php
 <!-- HTML -->
@@ -193,16 +193,16 @@ A form has `<input type="text" name="user_age" value="15">` and is submitted wit
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting the `name` attribute.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```html
   <input type="text" id="username">
   ```
-- 😕 *What happens*: The browser does not send this input. `$_POST['username']` does not exist, and PHP warns `Undefined array key "username"`.
-- ✅ *Fixed*:
+- *What happens*: The browser does not send this input. `$_POST['username']` does not exist, and PHP warns `Undefined array key "username"`.
+- *Fixed*:
   ```html
   <input type="text" id="username" name="username">
   ```
@@ -211,7 +211,7 @@ A second mistake: leaving out `method`. A form with no `method` uses **GET**, so
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Save this as `hello-form.php` in `htdocs` and open `http://localhost/hello-form.php`:
 
@@ -238,7 +238,7 @@ Type `Srinagar` and press Send. Below the form you see:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A form's `action` says **where** the data goes; `method` says **how** it is sent.
 - PHP reads inputs by their `name`, never by their `id`.
@@ -248,9 +248,9 @@ Type `Srinagar` and press Send. Below the form you see:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which form attribute decides where the data is sent?
 2. Which input attribute becomes the key in `$_POST`?
 3. Which method does a form use if `method` is missing?
@@ -264,7 +264,7 @@ Type `Srinagar` and press Send. Below the form you see:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why do we check `$_SERVER["REQUEST_METHOD"] === "POST"` before reading `$_POST`?
 2. Write the PHP line that reads an input named `school` safely (no warning if it is missing) and prints it safely.
 
@@ -278,7 +278,7 @@ Type `Srinagar` and press Send. Below the form you see:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a **Science Fair RSVP** form in one file, `rsvp.php`.
 
 1. Add inputs `guest_name` (text) and `guests` (number), and a checkbox `veg_meal` with value `yes`.

@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Labelled Memory Boxes**
 
@@ -16,7 +16,7 @@ A variable is simply a named storage box in your computer's RAM memory where you
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Understand what a variable is and why programs need them.
@@ -49,7 +49,7 @@ In modern JavaScript, there are two primary keywords used to declare variables:
 
 ### Variable Naming Rules (The Law of the Code)
 1. **No Spaces**: Variable names cannot have spaces! (Use `studentName`, not `student name`).
-2. **Cannot Start with a Number**: `1stPlace` is illegal ❌; `firstPlace` or `place1` is valid ✅.
+2. **Cannot Start with a Number**: `1stPlace` is illegal; `firstPlace` or `place1` is valid.
 3. **Only Certain Symbols Allowed**: Letters, numbers, dollar signs (`$`), and underscores (`_`). No dashes or punctuation (`user-name` is illegal in JS!).
 4. **JavaScript Is Case-Sensitive**: `score`, `Score`, and `SCORE` are three totally different boxes!
 5. **Use camelCase**: Start lowercase, and capitalize each subsequent word (`myFavoriteColor`, `highGameScore`).
@@ -112,7 +112,7 @@ Reading level: 2
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this code:
 
@@ -125,7 +125,7 @@ console.log(apples);
 **Question**: What number will print in the console?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: 6!</strong> 
 First <code>apples</code> starts at 4. Then 4 + 2 is calculated (6) and reassigned back into <code>apples</code>.
 </details>
@@ -179,7 +179,7 @@ Hobbies Count: 4
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **The Illegal Starting Character**
 
@@ -200,7 +200,7 @@ console.log(1stPlace);
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open your console:
 1. Create a variable for your age:
@@ -211,11 +211,11 @@ Open your console:
 2. Celebrate a birthday! Reassign `age = 13;` and log it again.
 3. Try creating a `const myBirthday = "July 9";` and then try changing it to `"August 1"`. Watch what error JavaScript displays!
 
-> 💡 **Hint:** In step 2, write `age = 13;` without `let`. In step 3, you should see `TypeError: Assignment to constant variable.`
+> **Hint:** In step 2, write `age = 13;` without `let`. In step 3, you should see `TypeError: Assignment to constant variable.`
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **variable** is a named storage container for data in memory.
 - `let` allows values to be updated (reassigned).
@@ -232,7 +232,7 @@ Open your console:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -245,9 +245,9 @@ Open your console:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Fill in the blanks: use ______ for a value that might change, and ______ for a value that must stay fixed.
 2. Which name is written in proper camelCase?
    (a) `student_name` (b) `StudentName` (c) `studentName` (d) `2ndStudent`
@@ -260,7 +260,7 @@ Open your console:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write code that creates a variable `favoriteSport`, stores your favourite sport in it, and prints it.
 2. What happens when this code runs, and why?
    ```javascript
@@ -281,7 +281,7 @@ Open your console:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a program for an imaginary space mission:
 1. Create `spaceshipName` (constant) and `astronautCount` (constant).
 2. Create `fuelPercentage` (changeable). It starts at 100.

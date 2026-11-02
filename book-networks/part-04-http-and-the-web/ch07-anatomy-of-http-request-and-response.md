@@ -1,10 +1,10 @@
 # Chapter 7: Anatomy of an HTTP Request & Response
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Zainab fills in a book request slip at the library desk. The slip has a clear layout: what she wants, her name and class, and a box for notes. The librarian replies on a return slip: "Found", "Not in stock" or "Ask at the other desk", plus the book itself. Because both slips always follow the same layout, any librarian can handle any request. The web works the same way, using **HTTP**.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Name the parts of an HTTP **request**: request line, headers, blank line and body.
 - Name the parts of an HTTP **response**: status line, headers, blank line and body.
@@ -68,18 +68,18 @@ The **method** says what the client wants to do.
 
 | Method | Purpose | Safe? | Idempotent? |
 | :--- | :--- | :--- | :--- |
-| `GET` | Read data | ✅ Yes | ✅ Yes |
-| `POST` | Create something or start an action | ❌ No | ❌ No |
-| `PUT` | Replace a whole record | ❌ No | ✅ Yes |
-| `PATCH` | Change some fields of a record | ❌ No | ❌ Not guaranteed |
-| `DELETE` | Remove something | ❌ No | ✅ Yes |
-| `HEAD` | Like GET, but headers only, no body | ✅ Yes | ✅ Yes |
-| `OPTIONS` | Ask what is allowed | ✅ Yes | ✅ Yes |
+| `GET` | Read data | Yes | Yes |
+| `POST` | Create something or start an action | No | No |
+| `PUT` | Replace a whole record | No | Yes |
+| `PATCH` | Change some fields of a record | No | Not guaranteed |
+| `DELETE` | Remove something | No | Yes |
+| `HEAD` | Like GET, but headers only, no body | Yes | Yes |
+| `OPTIONS` | Ask what is allowed | Yes | Yes |
 
 - **Safe** means the request should only read. It must not change anything on the server.
 - **Idempotent** means sending it once or ten times leaves the server in the same final state.
 
-> 💡 **Example:** `DELETE /books/42` removes book 42. Sending it again does not remove anything more. But sending `POST /donations` five times could record five donations! That is why browsers warn you before resending a form.
+> **Example:** `DELETE /books/42` removes book 42. Sending it again does not remove anything more. But sending `POST /donations` five times could record five donations! That is why browsers warn you before resending a form.
 
 ---
 
@@ -173,31 +173,31 @@ To print only the response headers, use `curl.exe -I http://example.org/`. It se
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Using GET to change data.**
 
-- ❌ Wrong: a link like `GET /books/42/delete`.
+- Wrong: a link like `GET /books/42/delete`.
 - What happens: browsers, link checkers and search engines follow GET links freely. One visit could delete the book.
-- ✅ Right: use `DELETE /books/42` (or a `POST` from a form). Keep GET for reading only.
+- Right: use `DELETE /books/42` (or a `POST` from a form). Keep GET for reading only.
 
 **Mixing up 401 and 403.**
 
-- ❌ Wrong: returning `401` to a logged-in student who opens the teachers' page.
-- ✅ Right: return `403 Forbidden`. The server knows who they are; they just lack permission.
+- Wrong: returning `401` to a logged-in student who opens the teachers' page.
+- Right: return `403 Forbidden`. The server knows who they are; they just lack permission.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Run `curl.exe -I http://example.org/` and `curl.exe -I http://example.org/no-such-page`.
 Write down the status line of each. Which header tells you what kind of content the page is?
 
-> 💡 Hint: look for the first line starting with `HTTP/1.1`, and for `Content-Type`.
+> Hint: look for the first line starting with `HTTP/1.1`, and for `Content-Type`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - HTTP is the Application-layer language of the web, usually over TCP port 80.
 - A request = request line + headers + blank line + optional body.
@@ -208,9 +208,9 @@ Write down the status line of each. Which header tells you what kind of content 
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What separates the headers from the body in an HTTP message? What is the difference between `401` and `403`?
 
 <details>
@@ -221,7 +221,7 @@ A **blank line** (a lone `\r\n`, so the headers end with `\r\n\r\n`).
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Choose the method and a likely success status code for each:
 1. Show the list of library books.
 2. Add a new book to the catalogue.
@@ -236,7 +236,7 @@ Choose the method and a likely success status code for each:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a complete raw HTTP/1.1 request that adds a volunteer to `clinic.example.org` at the path `/api/volunteers`. The body is the JSON `{"name":"Hamza","day":"Friday"}`.
 1. Include the request line, `Host`, `Content-Type` and `Content-Length`.
 2. Write a sensible response with a status line, one header and a JSON body.

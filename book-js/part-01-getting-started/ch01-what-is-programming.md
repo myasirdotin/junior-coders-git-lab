@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Giving Exact Directions**
 
@@ -13,7 +13,7 @@ Think of the last time you followed a cooking recipe, or gave your younger sibli
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain what programming and computer programs are in clear, simple words.
@@ -58,7 +58,7 @@ Programmers follow the 5-step problem solving cycle:
         <rect x="10" y="25" width="130" height="120" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
         <rect x="25" y="15" width="100" height="26" rx="13" fill="url(#gradStep1)"/>
         <text x="75" y="32" fill="#fff" font-size="11" font-weight="800" text-anchor="middle" font-family="system-ui, sans-serif">STEP 1</text>
-        <text x="75" y="72" font-size="24" text-anchor="middle">🔍</text>
+        <text x="75" y="72" font-size="24" text-anchor="middle"></text>
         <text x="75" y="100" fill="#f8fafc" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">Understand</text>
         <text x="75" y="120" fill="#94a3b8" font-size="9.5" text-anchor="middle" font-family="system-ui, sans-serif">Define the Goal</text>
       </g>
@@ -72,7 +72,7 @@ Programmers follow the 5-step problem solving cycle:
         <rect x="160" y="25" width="130" height="120" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
         <rect x="175" y="15" width="100" height="26" rx="13" fill="url(#gradStep2)"/>
         <text x="225" y="32" fill="#fff" font-size="11" font-weight="800" text-anchor="middle" font-family="system-ui, sans-serif">STEP 2</text>
-        <text x="225" y="72" font-size="24" text-anchor="middle">🧩</text>
+        <text x="225" y="72" font-size="24" text-anchor="middle"></text>
         <text x="225" y="100" fill="#f8fafc" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">Decompose</text>
         <text x="225" y="120" fill="#94a3b8" font-size="9.5" text-anchor="middle" font-family="system-ui, sans-serif">Break Into Pieces</text>
       </g>
@@ -86,7 +86,7 @@ Programmers follow the 5-step problem solving cycle:
         <rect x="310" y="25" width="130" height="120" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
         <rect x="325" y="15" width="100" height="26" rx="13" fill="url(#gradStep3)"/>
         <text x="375" y="32" fill="#fff" font-size="11" font-weight="800" text-anchor="middle" font-family="system-ui, sans-serif">STEP 3</text>
-        <text x="375" y="72" font-size="24" text-anchor="middle">💻</text>
+        <text x="375" y="72" font-size="24" text-anchor="middle"></text>
         <text x="375" y="100" fill="#f8fafc" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">Code</text>
         <text x="375" y="120" fill="#94a3b8" font-size="9.5" text-anchor="middle" font-family="system-ui, sans-serif">Write Instructions</text>
       </g>
@@ -100,7 +100,7 @@ Programmers follow the 5-step problem solving cycle:
         <rect x="460" y="25" width="130" height="120" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
         <rect x="475" y="15" width="100" height="26" rx="13" fill="url(#gradStep4)"/>
         <text x="525" y="32" fill="#fff" font-size="11" font-weight="800" text-anchor="middle" font-family="system-ui, sans-serif">STEP 4</text>
-        <text x="525" y="72" font-size="24" text-anchor="middle">🧪</text>
+        <text x="525" y="72" font-size="24" text-anchor="middle"></text>
         <text x="525" y="100" fill="#f8fafc" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">Test</text>
         <text x="525" y="120" fill="#94a3b8" font-size="9.5" text-anchor="middle" font-family="system-ui, sans-serif">Run with Inputs</text>
       </g>
@@ -114,7 +114,7 @@ Programmers follow the 5-step problem solving cycle:
         <rect x="610" y="25" width="130" height="120" rx="14" fill="#0f172a" stroke="#334155" stroke-width="1.5"/>
         <rect x="625" y="15" width="100" height="26" rx="13" fill="url(#gradStep5)"/>
         <text x="675" y="32" fill="#fff" font-size="11" font-weight="800" text-anchor="middle" font-family="system-ui, sans-serif">STEP 5</text>
-        <text x="675" y="72" font-size="24" text-anchor="middle">🐞</text>
+        <text x="675" y="72" font-size="24" text-anchor="middle"></text>
         <text x="675" y="100" fill="#f8fafc" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">Debug</text>
         <text x="675" y="120" fill="#94a3b8" font-size="9.5" text-anchor="middle" font-family="system-ui, sans-serif">Fix Mistakes</text>
       </g>
@@ -163,7 +163,7 @@ It shows that programmers repeat the cycle until the program works.
         <rect x="20" y="30" width="220" height="210" rx="16" fill="#0f172a" stroke="#ea580c" stroke-width="2" stroke-opacity="0.5"/>
         <rect x="35" y="15" width="120" height="28" rx="14" fill="url(#htmlGrad)"/>
         <text x="95" y="34" fill="#ffffff" font-size="12" font-weight="800" text-anchor="middle" font-family="system-ui, sans-serif">1. HTML</text>
-        <text x="130" y="85" font-size="34" text-anchor="middle">🦴</text>
+        <text x="130" y="85" font-size="34" text-anchor="middle"></text>
         <text x="130" y="120" fill="#fed7aa" font-size="15" font-weight="800" text-anchor="middle" font-family="system-ui, sans-serif">The Skeleton</text>
         <text x="130" y="142" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="system-ui, sans-serif">Structure &amp; Meaning</text>
         <line x1="40" y1="158" x2="220" y2="158" stroke="#334155" stroke-width="1"/>
@@ -180,7 +180,7 @@ It shows that programmers repeat the cycle until the program works.
         <rect x="270" y="30" width="220" height="210" rx="16" fill="#0f172a" stroke="#0284c7" stroke-width="2" stroke-opacity="0.5"/>
         <rect x="285" y="15" width="110" height="28" rx="14" fill="url(#cssGrad)"/>
         <text x="340" y="34" fill="#ffffff" font-size="12" font-weight="800" text-anchor="middle" font-family="system-ui, sans-serif">2. CSS</text>
-        <text x="380" y="85" font-size="34" text-anchor="middle">🎨</text>
+        <text x="380" y="85" font-size="34" text-anchor="middle"></text>
         <text x="380" y="120" fill="#bae6fd" font-size="15" font-weight="800" text-anchor="middle" font-family="system-ui, sans-serif">The Styling</text>
         <text x="380" y="142" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="system-ui, sans-serif">Clothes &amp; Appearance</text>
         <line x1="290" y1="158" x2="470" y2="158" stroke="#334155" stroke-width="1"/>
@@ -197,7 +197,7 @@ It shows that programmers repeat the cycle until the program works.
         <rect x="520" y="30" width="220" height="210" rx="16" fill="#0f172a" stroke="#f59e0b" stroke-width="2.5"/>
         <rect x="535" y="15" width="130" height="28" rx="14" fill="url(#jsGrad)"/>
         <text x="600" y="34" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle" font-family="system-ui, sans-serif">3. JAVASCRIPT</text>
-        <text x="630" y="85" font-size="34" text-anchor="middle">🧠⚡</text>
+        <text x="630" y="85" font-size="34" text-anchor="middle"></text>
         <text x="630" y="120" fill="#fde68a" font-size="15" font-weight="800" text-anchor="middle" font-family="system-ui, sans-serif">The Brain &amp; Muscles</text>
         <text x="630" y="142" fill="#94a3b8" font-size="11" text-anchor="middle" font-family="system-ui, sans-serif">Behavior &amp; Action</text>
         <line x1="540" y1="158" x2="720" y2="158" stroke="#334155" stroke-width="1"/>
@@ -241,7 +241,7 @@ That instant reaction is powered by **JavaScript** running right inside your bro
       <!-- Event 1: User Action -->
       <rect x="15" y="30" width="160" height="120" rx="14" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
       <circle cx="95" cy="65" r="22" fill="rgba(56, 189, 248, 0.15)"/>
-      <text x="95" y="72" font-size="20" text-anchor="middle">👆</text>
+      <text x="95" y="72" font-size="20" text-anchor="middle"></text>
       <text x="95" y="105" fill="#f0f9ff" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">1. User Action</text>
       <text x="95" y="125" fill="#94a3b8" font-size="10" text-anchor="middle" font-family="system-ui, sans-serif">Double-taps a book</text>
 
@@ -252,7 +252,7 @@ That instant reaction is powered by **JavaScript** running right inside your bro
       <!-- Event 2: JS Event Listener -->
       <rect x="205" y="30" width="165" height="120" rx="14" fill="#0f172a" stroke="#818cf8" stroke-width="1.5"/>
       <circle cx="287" cy="65" r="22" fill="rgba(129, 140, 248, 0.15)"/>
-      <text x="287" y="72" font-size="20" text-anchor="middle">👂⚡</text>
+      <text x="287" y="72" font-size="20" text-anchor="middle"></text>
       <text x="287" y="105" fill="#e0e7ff" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">2. JS Listens</text>
       <text x="287" y="125" fill="#94a3b8" font-size="10" text-anchor="middle" font-family="system-ui, sans-serif">Catches 'dblclick' event</text>
 
@@ -263,7 +263,7 @@ That instant reaction is powered by **JavaScript** running right inside your bro
       <!-- Event 3: DOM UI Mutation -->
       <rect x="400" y="30" width="165" height="120" rx="14" fill="#0f172a" stroke="#c084fc" stroke-width="1.5"/>
       <circle cx="482" cy="65" r="22" fill="rgba(192, 132, 252, 0.15)"/>
-      <text x="482" y="72" font-size="20" text-anchor="middle">🔖✨</text>
+      <text x="482" y="72" font-size="20" text-anchor="middle"></text>
       <text x="482" y="105" fill="#fdf4ff" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">3. Updates Page</text>
       <text x="482" y="125" fill="#94a3b8" font-size="10" text-anchor="middle" font-family="system-ui, sans-serif">Turns gold &amp; list +1</text>
 
@@ -274,7 +274,7 @@ That instant reaction is powered by **JavaScript** running right inside your bro
       <!-- Event 4: Server Sync -->
       <rect x="595" y="30" width="150" height="120" rx="14" fill="#0f172a" stroke="#f472b6" stroke-width="1.5"/>
       <circle cx="670" cy="65" r="22" fill="rgba(244, 114, 182, 0.15)"/>
-      <text x="670" y="72" font-size="20" text-anchor="middle">☁️💾</text>
+      <text x="670" y="72" font-size="20" text-anchor="middle"></text>
       <text x="670" y="105" fill="#fff1f2" font-size="12" font-weight="700" text-anchor="middle" font-family="system-ui, sans-serif">4. Saves to Cloud</text>
       <text x="670" y="125" fill="#94a3b8" font-size="10" text-anchor="middle" font-family="system-ui, sans-serif">Saves to your list</text>
     </svg>
@@ -311,7 +311,7 @@ console.log("Hello, World!");
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this line of code:
 
@@ -322,7 +322,7 @@ console.log("I am learning JavaScript!");
 **Question**: What will appear in the console output window when this line runs?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>I am learning JavaScript!</code> (without the quotation marks). The quotes tell the computer that the characters inside are text, but the computer only prints the text itself!
 </details>
 
@@ -361,7 +361,7 @@ Test it in your console to ensure all the borders align evenly!
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **The Missing Speech Marks**
 
@@ -381,7 +381,7 @@ console.log(Hello!);
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the **Live JavaScript Scratchpad** at the top of the reader, or open your browser's Developer Console (`F12 -> Console`):
 1. Type:
@@ -392,11 +392,11 @@ Open the **Live JavaScript Scratchpad** at the top of the reader, or open your b
 3. Read the output. Congratulations! You just ran real JavaScript code!
 4. Now change the name to your own name and run it again.
 
-> 💡 **Hint:** Keep the quotation marks and the brackets. Only change the words between the quotation marks.
+> **Hint:** Keep the quotation marks and the brackets. Only change the words between the quotation marks.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **program** is a sequence of step-by-step instructions for a computer.
 - Computers do not guess; they follow instructions literally.
@@ -413,7 +413,7 @@ Open the **Live JavaScript Scratchpad** at the top of the reader, or open your b
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -425,9 +425,9 @@ Open the **Live JavaScript Scratchpad** at the top of the reader, or open your b
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Define the word **"program"** in your own words.
 2. Multiple choice: JavaScript is mainly used to make websites:
    (a) faster to load, (b) interactive and responsive, (c) shorter in length, (d) print on paper.
@@ -440,7 +440,7 @@ Open the **Live JavaScript Scratchpad** at the top of the reader, or open your b
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 True or false: *a computer can guess what you meant if your instructions are a little incomplete or out of order.* Explain why.
 Then write, in plain numbered English steps, how a simple "Boiling Water Warning" app would work.
 
@@ -458,7 +458,7 @@ One possible plan:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write three separate `console.log()` statements that introduce you to the class:
 1. Line 1: your full name.
 2. Line 2: your age and your class.

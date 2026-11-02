@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 You want to read about "photosynthesis" in a 400-page science book. You could turn every page from the start until you find it. Or you could open the **index** at the back, find "photosynthesis … 212" in a list sorted A to Z, and jump straight to page 212. The book did not change. It just has an extra sorted list that points into it. A database index is exactly that list.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what an index is, using the book-index idea, and why the primary key already has one.
 - Create and remove indexes with `CREATE INDEX`, `CREATE UNIQUE INDEX` and `DROP INDEX`.
@@ -74,7 +74,7 @@ Read it as: "make an index called `idx_loans_student` on the `student_id` column
 
 Nothing else changes. Your queries stay exactly the same. MySQL decides by itself when to use the index.
 
-> 💡 `ALTER TABLE loans ADD INDEX idx_loans_student (student_id);` does the same job, using the `ALTER TABLE` command from Chapter 8.
+>`ALTER TABLE loans ADD INDEX idx_loans_student (student_id);` does the same job, using the `ALTER TABLE` command from Chapter 8.
 
 ### A unique index
 
@@ -142,7 +142,7 @@ EXPLAIN SELECT * FROM loans WHERE id = 42;
 | :--- | :--- | :--- | :--- | ---: |
 | loans | const | PRIMARY | PRIMARY | 1 |
 
-> 💡 **Your output will have more columns** (`id`, `select_type`, `key_len`, `ref`, `Extra`...) and they differ a little between MySQL and MariaDB versions. The `rows` numbers are estimates, so yours may differ too. Look for `type`, `key` and `rows` first.
+> **Your output will have more columns** (`id`, `select_type`, `key_len`, `ref`, `Extra`...) and they differ a little between MySQL and MariaDB versions. The `rows` numbers are estimates, so yours may differ too. Look for `type`, `key` and `rows` first.
 
 ### Tiny tables: MySQL may skip the index
 
@@ -249,7 +249,7 @@ A good habit: start with the primary key and foreign keys. Add an index when a r
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: wrapping the indexed column in a function.**
 
@@ -282,17 +282,17 @@ Same answer, about a tenth of the reading.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In phpMyAdmin on XAMPP (or the Sandbox), run `SHOW INDEX FROM students;`. Then create an index on `students.city`, run `SHOW INDEX FROM students;` again and spot the new row. Finally remove it.
 
 *Hint: `CREATE INDEX idx_students_city ON students (city);` then `DROP INDEX idx_students_city ON students;`. In the Sandbox, write `DROP INDEX idx_students_city;` without `ON`, and use `PRAGMA index_list(students);` instead of `SHOW INDEX`.*
 
-> 🧪 **Sandbox note:** SQLite has `CREATE INDEX` and `CREATE UNIQUE INDEX` too. Its plan command is `EXPLAIN QUERY PLAN`, and the answer reads like a sentence: `SCAN students` (full scan) or `SEARCH students USING INDEX idx_students_city (city=?)`. SQLite may use the index even on 8 rows.
+> **Sandbox note:** SQLite has `CREATE INDEX` and `CREATE UNIQUE INDEX` too. Its plan command is `EXPLAIN QUERY PLAN`, and the answer reads like a sentence: `SCAN students` (full scan) or `SEARCH students USING INDEX idx_students_city (city=?)`. SQLite may use the index even on 8 rows.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - An index is a sorted list of a column's values with pointers to the rows, like the index at the back of a book.
 - The primary key, every `UNIQUE` rule and every foreign key already have one.
@@ -303,9 +303,9 @@ In phpMyAdmin on XAMPP (or the Sandbox), run `SHOW INDEX FROM students;`. Then c
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which index does every table with a primary key already have?
 2. In `EXPLAIN` output, what do `type = ALL` and `key = NULL` together tell you?
 3. A table has `INDEX (city, grade)`. Which of these can use it: (a) `WHERE city = 'Karachi'`, (b) `WHERE grade = 8`, (c) `WHERE grade = 8 AND city = 'Karachi'`?
@@ -319,7 +319,7 @@ In phpMyAdmin on XAMPP (or the Sandbox), run `SHOW INDEX FROM students;`. Then c
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 The charity club often runs `SELECT ... FROM donations WHERE cause = 'Books'`, and no two classes may ever have the same name.
 
 1. Create an index that helps the donations query.
@@ -350,7 +350,7 @@ DROP INDEX idx_donations_cause ON donations;
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 On the 50,000-loan test copy, the overdue report from Chapter 23 is slow:
 
 ```sql

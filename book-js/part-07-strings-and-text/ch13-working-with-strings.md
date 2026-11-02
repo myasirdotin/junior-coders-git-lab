@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about creating a username on a website:
 - You type: `"   StarGazer_07   "` (with accidental spaces).
@@ -14,7 +14,7 @@ All of this work is done by JavaScript **String Methods**!
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Combine strings using concatenation (`+`) and modern Template Literals (`` `${var}` ``).
@@ -46,7 +46,7 @@ console.log(word.length); // 6
 console.log(word[0]);     // "C"
 console.log(word[5]);     // "g"
 ```
-> ⚠️ **Note:** Unlike arrays, strings are *immutable* (unchangeable). You cannot do `word[0] = "B"`. To change a string, you create a new one!
+> **Note:** Unlike arrays, strings are *immutable* (unchangeable). You cannot do `word[0] = "B"`. To change a string, you create a new one!
 
 ### Essential String Methods
 - **`.toUpperCase()` / `.toLowerCase()`**: Changes the letter casing.
@@ -127,7 +127,7 @@ Profile Created:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```javascript
 let secret = "Mission: Recycling";
@@ -138,7 +138,7 @@ console.log(secret.length);
 *What will print?*
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 ```text
 Recycling
@@ -192,7 +192,7 @@ Status:   ACCESS GRANTED 🔓
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 Find the errors in this code:
 ```javascript
@@ -218,7 +218,7 @@ console.log(message.touppercase());
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. Open your console.
 2. Create `let chant = "hip hip hooray";`
@@ -226,11 +226,11 @@ console.log(message.touppercase());
 4. Replace `"hooray"` with `"cheer"`: `console.log(chant.replace("hooray", "cheer"));`
 5. Check if it contains `"hip"` using `.includes("hip")`.
 
-> 💡 **Hint:** You should see `HIP HIP HOORAY`, then `hip hip cheer`, then `true`. Notice that `chant` itself never changed: each method made a new string.
+> **Hint:** You should see `HIP HIP HOORAY`, then `hip hip cheer`, then `true`. Notice that `chant` itself never changed: each method made a new string.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Template literals (`` `${}` ``) make combining strings intuitive.
 - Strings have indices starting at 0 and a `.length` property.
@@ -248,7 +248,7 @@ console.log(message.touppercase());
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 - **String:** Sequence of characters enclosed in quotes.
 - **Template Literal:** String syntax using backticks that allows embedded expressions.
@@ -258,9 +258,9 @@ console.log(message.touppercase());
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which method strips extra spaces from the start and end of a string?
 2. Why are template literals (`` `Hello ${name}` ``) often nicer than `+` joining?
 
@@ -272,7 +272,7 @@ console.log(message.touppercase());
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write a function `maskPhoneNumber(phone)` that turns `"9876543210"` into `"******3210"`. Use `.slice(-4)`: a negative start counts back from the end.
 2. Why does `let name = "sam"; name[0] = "S"; console.log(name);` still print `sam`? How can you make `Sam`?
 
@@ -291,7 +291,7 @@ console.log(message.touppercase());
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a function `makePositive(sentence)` that:
 1. Replaces `"boring"` with `"exciting"`.
 2. Replaces `"hate"` with `"love"`.

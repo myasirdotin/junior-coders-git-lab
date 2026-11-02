@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Borrowing a Craftsman's Blueprint**
 
@@ -10,7 +10,7 @@ You visit a woodworker in Srinagar and admire the pattern carved on a walnut des
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Copy a whole repository and its history with `git clone <address>`.
 - List what a clone sets up for you: the folder, the full history and the `origin` remote.
@@ -130,7 +130,7 @@ You can only push to repositories where the owner has given you **write access**
 
 ---
 
-## 🌍 Real-World Connection: The Spirit of Open Source
+## Real-World Connection: The Spirit of Open Source
 
 - **Open-source** software is software whose code anyone may read, study and improve.
 - Linux runs most of the world's web servers, and Android is built on the Linux kernel.
@@ -140,14 +140,14 @@ You can only push to repositories where the owner has given you **write access**
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 You clone a weather project that the author has worked on for 3 years. You go into the folder and run `git log`.
 
 **Question**: Do you see only the latest version, or the whole 3-year history?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Answer:** The whole history. A clone downloads every commit, so you can look back at any version the author ever committed.
 
@@ -155,7 +155,7 @@ You clone a weather project that the author has worked on for 3 years. You go in
 
 ---
 
-## 🕵️ Code Detective: The Permission Denied Push
+## Code Detective: The Permission Denied Push
 
 A student cloned the Python language's repository, fixed a typo in the documentation, committed, and ran `git push origin main`. GitHub replied:
 
@@ -169,11 +169,11 @@ fatal: unable to access 'https://github.com/python/cpython.git/': The requested 
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: Cloning inside another repository.**
 
-- ❌ **Wrong:** running `git clone ...` while you are still inside your own project folder.
+- **Wrong:** running `git clone ...` while you are still inside your own project folder.
 - **What happens:** you get a repository inside a repository. When you run `git add .`, Git warns you:
 
 ```text
@@ -183,17 +183,17 @@ hint: Clones of the outer repository will not contain the contents of
 hint: the embedded repository and will not know how to obtain it.
 ```
 
-- ✅ **Fixed:** run `cd ..` (or go to your general projects folder) **before** `git clone`. If it already happened, move the cloned folder out of your project.
+- **Fixed:** run `cd ..` (or go to your general projects folder) **before** `git clone`. If it already happened, move the cloned folder out of your project.
 
 **Mistake 2: Downloading the ZIP instead of cloning.**
 
-- ❌ **Wrong:** clicking **Code ➔ Download ZIP** on GitHub to start working on a project.
+- **Wrong:** clicking **Code ➔ Download ZIP** on GitHub to start working on a project.
 - **What happens:** you get only the files. There is no `.git` folder, so no history, no `origin` and no way to push.
-- ✅ **Fixed:** use `git clone <address>` to get the full repository.
+- **Fixed:** use `git clone <address>` to get the full repository.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Pretend to fork and clone, fully offline.
 
@@ -211,7 +211,7 @@ Pretend to fork and clone, fully offline.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `git clone <address>` copies a repository and its **whole history** to your computer and sets up `origin`.
 - A **fork** is your own copy of someone's repository on GitHub. Forking is a GitHub feature, not a Git command.
@@ -221,9 +221,9 @@ Pretend to fork and clone, fully offline.
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command downloads a full repository and its history?
 2. What is the difference between cloning and clicking "Download ZIP"?
 3. What is a fork?
@@ -237,7 +237,7 @@ Pretend to fork and clone, fully offline.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Why do contributors fork a project instead of pushing straight to it?
 5. What is the `upstream` remote for?
 6. You cloned a project. Which command proves that `origin` was set up for you?
@@ -251,7 +251,7 @@ Pretend to fork and clone, fully offline.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Contribute to a project the safe way.
 
 1. Choose a project to practise on: your offline `club-remote.git`, or (13+) a beginner-friendly educational project on GitHub.

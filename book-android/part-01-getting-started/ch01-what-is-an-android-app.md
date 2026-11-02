@@ -1,10 +1,10 @@
 # Chapter 1: What Is an Android App?
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Zainab's school library has a paper register. To find a book, she turns page after page. To know if it is on the shelf, she has to ask the librarian. One day her teacher says, "What if the register lived on your phone? You could search it in two seconds." Zainab smiles. That idea is an **app**. In this book you will build that app yourself, step by step.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what an app is and what an operating system does.
 - Compare Android with other systems such as iOS and Windows.
@@ -232,7 +232,7 @@ An app lives in someone's pocket. It sees what they type and what they save. Tha
 
 Some apps are designed to be hard to put down, with endless alerts and streaks. Ours will be the opposite: the user opens it, gets the job done, and gets on with their day.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Thinking an app is just a website on a phone.**
 
@@ -250,7 +250,7 @@ What happens: unofficial sites may bundle harmful software that damages the comp
 
 Right: download Android Studio only from `developer.android.com`, and install apps only from places you trust.
 
-## ✍️ Try It
+## Try It
 
 Think of three apps you know (or look at a phone at home, with permission). For each one, write:
 
@@ -260,7 +260,7 @@ Think of three apps you know (or look at a phone at home, with permission). For 
 
 *Hint:* a calculator's input is the numbers you tap, its processing is the sum, and its output is the answer on screen.
 
-## 📝 Recap
+## Recap
 
 - An app is a program for one job. It takes input, processes it and shows output.
 - The operating system (Android) runs apps and gives them safe access to the hardware.
@@ -269,7 +269,7 @@ Think of three apps you know (or look at a phone at home, with permission). For 
 - You will build the School Library app and, at the end, a Study Planner.
 - A good app is useful, honest and private: it is an Amānah.
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | Meaning |
 |------|---------|
@@ -282,9 +282,9 @@ Think of three apps you know (or look at a phone at home, with permission). For 
 | Kotlin | The programming language of this book |
 | Jetpack Compose | The toolkit for building app screens in Kotlin |
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What do the letters APK stand for?
 2. Which language and which screen toolkit does this book use?
 3. Name the three steps every app repeats.
@@ -298,7 +298,7 @@ Think of three apps you know (or look at a phone at home, with permission). For 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Put these steps in the right order and say in one sentence what happens at each:
 *the phone installs the package · you write Kotlin code · Gradle builds the app · an APK file is made*.
 
@@ -312,7 +312,7 @@ Put these steps in the right order and say in one sentence what happens at each:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Plan an app for your school's charity drive, which collects books and coats for a local family shelter.
 
 1. Write the app's one main job in a sentence.

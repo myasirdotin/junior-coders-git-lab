@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Rainy Day Rule**
 
@@ -18,7 +18,7 @@ You never do both at the exact same moment! **In JavaScript, `if...else` stateme
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Use `if` statements to execute code only when a condition is `true`.
@@ -124,7 +124,7 @@ You are a teenager!
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this code:
 
@@ -142,7 +142,7 @@ if (temperature > 35) {
 **Question**: What will print in the console?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: "Warm"!</strong> 
 30 is not greater than 35 (so "Very hot" is skipped). But 30 IS greater than 25, so "Warm" prints, and the rest is skipped!
 </details>
@@ -182,7 +182,7 @@ Build a weather advisor program:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **The Missing Parentheses**
 
@@ -207,18 +207,18 @@ if marks >= 40 {
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Copy the Age Classifier from the Code Example above into your console:
 1. Change `age` to `9` and re-run. What prints?
 2. Change `age` to `21` and re-run. What prints?
 3. Notice how the computer dynamically shifts paths based purely on the number inside `age`!
 
-> 💡 **Hint:** Read the conditions from the top. `9` fails `age >= 18` and `age >= 13`, so the `else` runs. `21` passes the very first check.
+> **Hint:** Read the conditions from the top. `9` fails `age >= 18` and `age >= 13`, so the `else` runs. `21` passes the very first check.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Conditions evaluate to `true` or `false` to control program execution.
 - `if` blocks run code when the condition is met.
@@ -235,7 +235,7 @@ Copy the Age Classifier from the Code Example above into your console:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -247,9 +247,9 @@ Copy the Age Classifier from the Code Example above into your console:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Fill in the blank: the keyword for "otherwise" in JavaScript is ______.
 2. If several `else if` conditions are true, which block runs?
    (a) the `else` block (b) the last true one (c) the first true one (d) all of them
@@ -262,7 +262,7 @@ Copy the Age Classifier from the Code Example above into your console:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write an `if...else` that checks `temperature > 30`. If true, print `"Stay hydrated!"`; otherwise print `"Pleasant weather!"`.
 2. Arrange these lines into a working grading script: `console.log("Pass");` · `} else {` · `if (score >= 50) {` · `console.log("Retake Test");` · `}`
 
@@ -290,7 +290,7 @@ Copy the Age Classifier from the Code Example above into your console:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a ticket price program for a science discovery centre and planetarium:
 1. Under 5: free (Rs 0).
 2. 5 to 12: child ticket (Rs 80).

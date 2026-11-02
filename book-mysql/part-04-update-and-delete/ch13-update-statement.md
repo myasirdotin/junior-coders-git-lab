@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Hamza's family moves from Peshawar to Islamabad. The school secretary opens the register, finds Hamza's line, rubs out "Peshawar" and writes "Islamabad". She does not touch anyone else's line. And before rubbing anything out, she checks twice that it really is Hamza's line. That careful edit is exactly what `UPDATE ... WHERE` does.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Write an `UPDATE ... SET ... WHERE` statement.
 - Change one column or several columns at once.
@@ -74,7 +74,7 @@ SELECT id, name, city FROM students WHERE id = 7;
 
 If you run the same `UPDATE` again, MySQL says `Rows matched: 1  Changed: 0`. The row matched, but it already held `'Islamabad'`, so nothing changed.
 
-> 💡 Why `WHERE id = 7` and not `WHERE name = 'Hamza'`? The id is unique. A second Hamza might join the school next year.
+> Why `WHERE id = 7` and not `WHERE name = 'Hamza'`? The id is unique. A second Hamza might join the school next year.
 
 ---
 
@@ -150,7 +150,7 @@ UPDATE books SET pages = pages + 16 WHERE id = 8;
 
 MySQL reads the old value (120), adds 16, and stores 136. You do not need to know the old value yourself.
 
-> ⚠️ Rules from Chapter 7 still apply. A `gpa + 0.1` for Bilal gives 4.05. `DECIMAL(3,2)` allows up to 9.99, so MySQL accepts it, even though a GPA should stop at 4. A `CHECK (gpa <= 4)` constraint would have caught this.
+> Rules from Chapter 7 still apply. A `gpa + 0.1` for Bilal gives 4.05. `DECIMAL(3,2)` allows up to 9.99, so MySQL accepts it, even though a GPA should stop at 4. A `CHECK (gpa <= 4)` constraint would have caught this.
 
 ---
 
@@ -184,11 +184,11 @@ Every student now "lives" in Quetta. MySQL did not ask "are you sure?" There is 
 2. Check the rows it shows.
 3. Change `SELECT ... FROM` into `UPDATE ... SET`, keeping the **same** `WHERE`.
 
-> 🧪 **Sandbox note:** If you try this in the SQL Sandbox, press **Reset** to bring the original data back. A real MySQL server has no Reset button.
+> **Sandbox note:** If you try this in the SQL Sandbox, press **Reset** to bring the original data back. A real MySQL server has no Reset button.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: using `AND` instead of a comma in `SET`.**
 
@@ -212,7 +212,7 @@ UPDATE books SET category = 'Web', pages = 300 WHERE id = 4;
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/), Zayd (student 1) returns *Algorithm Design* (book 2).
 
@@ -224,7 +224,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), Zayd (student 1) returns *Algorit
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `UPDATE table SET column = value WHERE condition;` changes existing rows.
 - Use a unique column, like `id`, in `WHERE` to change exactly one row.
@@ -234,9 +234,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/), Zayd (student 1) returns *Algorit
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which keyword lists the columns and their new values?
 2. What happens with `UPDATE books SET available = 'No';`?
 3. How do you add 1 to a column called `visits`?
@@ -250,7 +250,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), Zayd (student 1) returns *Algorit
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Change Aisha's (id 6) city to Karachi.
 2. Mark every book in the *Ethics* category as available.
 3. Hafsa (donation id 4) gave 500 rupees more. Increase her `amount` by 500.
@@ -270,7 +270,7 @@ The second one reports `Rows matched: 2  Changed: 1`. Both Ethics books matched,
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The librarian moves every *Data* book into the *Computer Science* category and marks them available.
 
 1. Write the `SELECT` you would run first.

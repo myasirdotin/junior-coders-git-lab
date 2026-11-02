@@ -1,10 +1,10 @@
 # Chapter 12: Loops & Conditionals
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Every morning the library assistant reads the **returns list** aloud. For each book on the list she says its title. If a book is late, she adds, "Please remind this member." If the list is empty, she says, "No returns today." She repeats one action for every item, and makes small decisions along the way. Blade's loops and conditionals do exactly this inside your HTML.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Make decisions in a view with `@if`, `@elseif`, `@else` and `@unless`.
 - Check for missing or empty values with `@isset` and `@empty`.
@@ -220,7 +220,7 @@ Output:
 
 For "The Story of Numbers" this prints `<tr class="row row-empty">`. For the others it prints `<tr class="row">`.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting the closing directive.**
 
@@ -234,13 +234,13 @@ What happens: an error page such as `syntax error, unexpected end of file`. Ever
 
 **Using `$loop` outside a loop.** `$loop->iteration` only exists between `@foreach` and `@endforeach`. Outside, you get `Undefined variable $loop`.
 
-## ✍️ Try It
+## Try It
 
 Pass a list of four members (name and grade) to a view. Show them in a numbered list, and add `(Grade 10 leaver)` after members in Grade 10. If the list is empty, show `No members yet.`
 
 *Hint:* use `@forelse`, `$loop->iteration` and `@if ($member['grade'] === 10)`.
 
-## 📝 Recap
+## Recap
 
 - `@if / @elseif / @else / @endif` make decisions; `@unless` is the opposite of `@if`.
 - `@isset` and `@empty` check for missing or empty values.
@@ -248,9 +248,9 @@ Pass a list of four members (name and grade) to a view. Show them in a numbered 
 - `$loop` gives `iteration`, `count`, `first`, `last` and more inside loops.
 - Every directive block needs its matching `@end...`.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is the difference between `$loop->index` and `$loop->iteration`?
 
 <details>
@@ -260,7 +260,7 @@ What is the difference between `$loop->index` and `$loop->iteration`?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Rewrite this with `@forelse`:
 
 ```blade
@@ -286,7 +286,7 @@ Rewrite this with `@forelse`:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "Due Today" board.
 
 1. The controller passes `$loans`: each has `member`, `title` and `days_late` (0 means due today).

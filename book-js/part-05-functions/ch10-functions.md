@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about baking cupcakes or making a grilled cheese sandwich:
 1. You have a recipe: "Bake at 180°C for 20 minutes".
@@ -13,7 +13,7 @@ In programming, a **function** is exactly that: a reusable recipe card with a na
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Understand what a function is and why programmers use them to keep code DRY (Don't Repeat Yourself).
@@ -61,7 +61,7 @@ function addNumbers(a, b) {
 
 let sum = addNumbers(15, 25); // sum is now 40
 ```
-> ⚠️ **Rule:** When JavaScript hits a `return` statement, it immediately exits the function. Any lines below `return` inside that function will never run!
+> **Rule:** When JavaScript hits a `return` statement, it immediately exits the function. Any lines below `return` inside that function will never run!
 
 ---
 
@@ -120,7 +120,7 @@ Original Book: Rs 450 -> Sale Price: Rs 360
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look closely at this snippet:
 ```javascript
@@ -135,7 +135,7 @@ console.log(mystery(5));
 *What will print: 10 or 20? Why?*
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Answer: `10`.** `result` becomes 5 × 2 = 10, and `return result;` sends 10 back at once.
 The line `result = result + 10;` sits after `return`, so it never runs.
@@ -183,7 +183,7 @@ Each Guest Pays: Rs 315
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A student wrote this function. JavaScript stopped at once with `SyntaxError: Unexpected token '['`.
 Can you find the 3 errors?
@@ -214,7 +214,7 @@ sayHello "Zara";
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. Open your browser console or our interactive runner.
 2. Type this simple function:
@@ -227,11 +227,11 @@ sayHello "Zara";
    ```
 3. Modify it to accept both a `team` name and an `emoji`.
 
-> 💡 **Hint:** Add a second parameter: `function cheer(team, emoji)`. Then join it on the end: `"Go " + team + "! " + emoji`. Call it with two arguments, like `cheer("Tigers", "🐯")`.
+> **Hint:** Add a second parameter: `function cheer(team, emoji)`. Then join it on the end: `"Go " + team + "! " + emoji`. Call it with two arguments, like `cheer("Tigers", "🐯")`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A function is a named block of reusable code.
 - Declare with `function name(parameters) { ... }`.
@@ -249,7 +249,7 @@ sayHello "Zara";
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 - **Function:** A reusable set of instructions with a specific name.
 - **Invoke / Call:** Running a function.
@@ -260,9 +260,9 @@ sayHello "Zara";
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which keyword sends a value back out of a function?
 2. What is the difference between a parameter and an argument?
 
@@ -274,7 +274,7 @@ sayHello "Zara";
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a function `convertToFahrenheit(celsius)` that returns the temperature in Fahrenheit.
 Use the formula F = (C × 9 ÷ 5) + 32. Test it with 100 and 37.
 
@@ -303,7 +303,7 @@ Extra: you get `ReferenceError: ... is not defined`. The variable is **local**. 
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a function `gradeStudent(marks)` that returns:
 1. `"A+"` for 90 or above.
 2. `"A"` for 80 to 89, `"B"` for 70 to 79, `"C"` for 60 to 69.

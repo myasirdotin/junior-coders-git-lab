@@ -4,18 +4,18 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-11-02 (UI review done; visual cleanup, batch 7)._
+_Last updated: 2026-11-02 (visual cleanup, batches 7 and 8)._
 
-## 🔧 Now (in progress)
+## Now (in progress)
 
-- **Visual identity** (from a design review of the home page and chrome, 2 Nov 2026). Batch 7, the cleanup that needs no
-  rule change, is done. Still waiting on the owner (see Decisions): light as the default theme; five colours instead of
+- **Visual identity** (from a design review of the home page and chrome, 2 Nov 2026). Batch 7 (chrome, home page, solid
+  surfaces) and batch 8 (no emoji anywhere) are done. Still waiting on the owner (see Decisions): light as the default theme; five colours instead of
   eighteen with one colour per subject group; one icon set instead of the remaining emoji; an identity drawn from the
   Amānah/Iḥsān theme (motif, display face, palette). The UI review itself is complete. Re-check any page with
   `SHOTS=n node scripts/render-check.mjs …` in both themes (`SETUP='localStorage.setItem("bei_theme","light")'`);
   re-check practice tasks with `node scripts/check-practice.js [site URL]`.
 
-## ⏭️ Next (agreed order)
+## Next (agreed order)
 
 1. **Practice Arena**: only 5 challenges, all JavaScript. Add Python, PHP and SQL challenges (engines exist).
 2. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
@@ -28,13 +28,13 @@ _Last updated: 2026-11-02 (UI review done; visual cleanup, batch 7)._
 5. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
    `.gemini/agents/css-tutor.md`, run `node scripts/sync-curriculum.js`.
 
-## ❓ Decisions pending from the owner
+## Decisions pending from the owner
 
 - **Visual identity (batch 8, needs you):** (1) light as the default theme, dark as the toggle (classrooms, projectors,
   print; GEMINI §7c says dark by default); (2) five colours instead of eighteen: ink, paper, one brand hue, one accent
   for progress/XP, one for errors, and one colour per subject group carrying all remaining meaning (the per-track title
-  card colours §7c keeps would go); (3) one icon set (Lucide or Phosphor, one stroke weight) for the subject map, tier
-  badges and switcher chips, which still use emoji; (4) an identity from the Amānah/Iḥsān theme: a geometric motif, a
+  card colours §7c keeps would go); (3) one icon set (Lucide or Phosphor, one stroke weight) if card icons are wanted
+  back (the emoji icons are gone; the chrome and readers use a small inline SVG set); (4) an identity from the Amānah/Iḥsān theme: a geometric motif, a
   display face with character, a palette from that world rather than Tailwind defaults.
 - **Site address:** footers show "beicoders.vercel.app" (the live Vercel address, but the old "BEI" name in visible
   text, close to GEMINI §7.1). Rename the Vercel project or add a domain if wanted, then update the footers.
@@ -43,8 +43,15 @@ _Last updated: 2026-11-02 (UI review done; visual cleanup, batch 7)._
 - **XAMPP MariaDB does not start** (InnoDB data errors in its log, seen 2026-10-13; not caused by this project's
   work, data untouched). Other XAMPP projects that use MySQL (bei, ehsas) need it; repair from the XAMPP panel.
 
-## ✅ Done (most recent first)
+## Done (most recent first)
 
+- 2026-11-02 No emoji anywhere (batch 8): 6,400 removed from 156 pages, all 247 textbook chapters, the shared scripts
+  and the rule documents; code examples that teach a symbol (and the student templates in the playgrounds and the
+  Python Console) keep theirs. Icon-only controls use inline SVG instead: textbook reader header (Read, Stop, Pause,
+  Resume, Reading Mode, PDF, home), section speaker buttons, the lesson speaker bar; the subject map, search results
+  and Textbooks cards lost their icon columns. New tool `scripts/strip-emoji.js` (`--html`, `--md`, `--js`, and
+  `--check`, which must report none); `check-books.js` now fails on any emoji in a chapter's text (the signpost rule
+  is gone; `clean-heading-emoji.js` removed); GEMINI §7c, §7j, §7l and §8 updated.
 - 2026-11-02 Visual cleanup (batch 7, no rule changes): no emoji in the chrome: header links, menus, tab bar (small
   inline SVG icons), search and theme buttons, footer, pager, subject-map links; the logo is a "JC" mark. Home page:
   plain two-line headline (no gradient text), two buttons (Start learning · I'm a teacher), a real screenshot of the Web
@@ -59,7 +66,7 @@ _Last updated: 2026-11-02 (UI review done; visual cleanup, batch 7)._
   the first box starts on the first screen, boxes fill two columns top to bottom on laptops (no gaps), HTML sheet
   hero text matches the layout. Textbooks: diagrams drawn with `+ - |` and arrows are shown as figures too (52 more
   blocks, no false positives found), flat Read button in the book colour, 40px controls on phones and 32px section
-  🔊 buttons on touch screens, the "All (N)" tab counts chapters only. Search: the subject shows under each result on
+buttons on touch screens, the "All (N)" tab counts chapters only. Search: the subject shows under each result on
   phones; all 243 textbook chapters are searchable (`js/data/chapter-index.js`, generated by `build-books.js`, loaded
   when the search opens). Drawer ends above the tab bar. Textbooks page search also matches chapter titles.
 - 2026-11-02 UI batch 5, one map of the subjects: the four groups of the Textbooks page (First steps: Terminal, HTML,
@@ -231,7 +238,7 @@ _Last updated: 2026-11-02 (UI review done; visual cleanup, batch 7)._
 - 2026-10-11 Agent docs: `GEMINI.md` is the rulebook (§7 engineering rules), `CLAUDE.md` + `AGENTS.md` point to it;
   `scripts/render-check.mjs` for phone-width checks.
 
-## 🧪 Not yet verified by a human
+## Not yet verified by a human
 
 - Android book: build the School Library and Study Planner code in the newest Android Studio (the Compose code could
   not be compiled here), and check the install steps and menu names against the current version.

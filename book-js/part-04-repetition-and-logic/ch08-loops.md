@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Writing Lines on the Blackboard**
 
@@ -21,7 +21,7 @@ Imagine your teacher asks you to write:
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain why loops are essential in computer programming.
@@ -124,7 +124,7 @@ Output:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this snippet:
 
@@ -137,7 +137,7 @@ for (let i = 0; i < 3; i++) {
 **Question**: Will the output include `"Round 3"`?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: NO!</strong> 
 The condition is <code>i &lt; 3</code> (strictly less than 3). The loop will print:
 <br><code>Round 0</code>
@@ -182,7 +182,7 @@ Write an interactive Multiplication Table Generator:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **The Frozen While Loop**
 
@@ -209,7 +209,7 @@ while (count <= 5) {
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open your console:
 1. Write a `for` loop that counts from 1 to 10.
@@ -221,11 +221,11 @@ Open your console:
    console.log("Blast off! 🚀");
    ```
 
-> 💡 **Hint:** For step 1, start with `let i = 1`, keep going while `i <= 10`, and use `i++`. Step 2 counts down, so it uses `i--` instead.
+> **Hint:** For step 1, start with `let i = 1`, keep going while `i <= 10`, and use `i++`. Step 2 counts down, so it uses `i--` instead.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Loops automate repetitive tasks without duplicate code.
 - `for` loops package initialization, condition, and increment into one line.
@@ -242,7 +242,7 @@ Open your console:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -254,9 +254,9 @@ Open your console:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which part of a `for` loop updates the counter? (a) initializer (b) condition (c) increment / step (d) loop body
 2. Fill in the blank: a loop that never stops is called an ______ loop.
 
@@ -268,7 +268,7 @@ Open your console:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write a `for` loop that prints all even numbers from 2 to 20. (Hint: use `i += 2`.)
 2. What is missing from this loop, and what will happen if you run it?
    ```javascript
@@ -290,7 +290,7 @@ Open your console:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add up all the numbers from 1 to 100 (1 + 2 + 3 + … + 100):
 1. Before the loop, create `let sum = 0;`.
 2. Loop from 1 to 100 and add each number to `sum`.

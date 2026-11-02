@@ -1,10 +1,10 @@
 # Chapter 8: Classes and Null Safety
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Every book in the school library has a catalogue card. Each card has the same printed boxes: number, title, author, shelf, and a tick box for "on the shelf". The **form** is designed once; then the librarian fills in one card per book. Sometimes a box is honestly empty: a new student has no library nickname yet. A good form says clearly which boxes may be left empty, so nobody is surprised later. In Kotlin, the printed form is a **class**, each filled-in card is an **object**, and the "may be empty" mark is the question mark of **null safety**.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Design a class with properties, a constructor and methods, and create objects from it.
 - Use a `data class` and its free gifts: readable printing, equality and `copy`.
@@ -435,7 +435,7 @@ Sticker colour for STORIES: orange
 
 This `when` needs no `else`: Kotlin knows every possible `Shelf`, so all cases are covered. Enum values are usually written in CAPITALS. The School Library app keeps `shelf` as a simple `String` such as `"Science A3"`, but enums are good to know for later projects.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: putting `null` into a non-null type.**
 
@@ -455,7 +455,7 @@ Fix: if the value can truly be missing, say so with `String?`. If it should alwa
 
 **Mistake 3: expecting `copy` to change the original.** After `val borrowed = b1.copy(available = false)`, `b1.available` is still `true`. Use the new object `borrowed`.
 
-## ✍️ Try It
+## Try It
 
 1. Write a `data class Student(val name: String, val grade: Int, val nickname: String?)`.
 2. Create two students, one with nickname `"Mimi"` and one with `null`.
@@ -464,7 +464,7 @@ Fix: if the value can truly be missing, say so with `String?`. If it should alwa
 
 **Hint:** `student.nickname ?: student.name`.
 
-## 📝 Recap
+## Recap
 
 - A class is a design for your own type: properties hold data, methods are actions, the constructor builds objects.
 - A `data class` prints nicely, compares by values with `==`, and has `copy(...)` to make a changed copy.
@@ -473,7 +473,7 @@ Fix: if the value can truly be missing, say so with `String?`. If it should alwa
 - `?.` stops safely at null; `?:` gives a default; `toIntOrNull() ?: 0` reads typed numbers safely; `find` returns a nullable result.
 - No `!!` in this book: always choose a safe tool instead.
 
-## 📖 Key Terms
+## Key Terms
 
 - **Class:** a design (blueprint) for a new type.
 - **Object:** one thing built from a class.
@@ -483,9 +483,9 @@ Fix: if the value can truly be missing, say so with `String?`. If it should alwa
 - **null:** "no value here".
 - **Null safety:** Kotlin's rule that only types marked `?` may hold null.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does this program print?
 
 ```kotlin
@@ -515,7 +515,7 @@ Hana
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a data class `Visit(place: String, day: String, seatsLeft: Int)` for a class trip. Create a planetarium trip on Thursday with 30 seats. The trip moves to Saturday: make a copy with the new day. Print both, and check with `==` whether the original equals a freshly made identical `Visit`, and whether it equals the moved trip.
 
 <details>
@@ -547,7 +547,7 @@ false
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a library desk helper using `Book` and `sampleBooks`:
 
 1. Write `fun findBook(id: Int): Book?` with a `for` loop: return the matching book, or `null` after the loop.

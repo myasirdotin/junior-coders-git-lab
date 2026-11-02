@@ -1,10 +1,10 @@
 # Chapter 2: Installing Android Studio
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Before a science practical, Yusuf's teacher sets out the equipment: goggles, beakers, a burner and a clear bench. Nobody starts mixing until the bench is ready. Setting up takes time, but it makes every lesson after it smooth and safe. Installing Android Studio is your app-building bench. Set it up carefully once, and every chapter after this one is about building, not fixing tools.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Check whether a computer is strong enough for Android Studio.
 - Download Android Studio safely from the official site and finish the first-run setup.
@@ -228,7 +228,7 @@ You will see the full window when you open a project in Chapter 3. Here is a map
 
 In the newest Android Studio look, many tool windows open from small icons along the left, right and bottom edges. Hover the mouse over an icon to see its name. The main menu (File, Edit, View…) may be hidden behind a **☰** icon at the top left on Windows.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Installing from an unofficial site.**
 
@@ -254,7 +254,7 @@ What happens: Android Studio may warn you, and some tools can fail to find files
 
 Right: keep the default location the setup assistant suggests.
 
-## ✍️ Try It
+## Try It
 
 1. Find your computer's RAM and system type (About your PC on Windows).
 2. Decide which plan suits you: emulator, real phone or Kotlin Playground for now.
@@ -263,7 +263,7 @@ Right: keep the default location the setup assistant suggests.
 
 *Hint:* with 8 GB of RAM or less, plan to use a real phone for screen chapters. Change nothing on anyone's computer or phone without asking first.
 
-## 📝 Recap
+## Recap
 
 - Android Studio needs a fairly strong computer: 8 GB of RAM at the least, and 16 GB if you also use the emulator.
 - Download it only from `developer.android.com/studio`, and ask permission before installing.
@@ -272,7 +272,7 @@ Right: keep the default location the setup assistant suggests.
 - On slow computers, run apps on a real phone with USB debugging, and use Kotlin Playground for plain Kotlin.
 - The Android Studio window has a Project window, an editor, a toolbar with Run, and tool windows such as Build and Logcat.
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | Meaning |
 |------|---------|
@@ -284,9 +284,9 @@ Right: keep the default location the setup assistant suggests.
 | USB debugging | A phone setting that lets Android Studio install apps on it |
 | Kotlin Playground | A website that runs plain Kotlin in the browser |
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the only safe address to download Android Studio from?
 2. What does SDK stand for?
 3. What is an emulator?
@@ -300,7 +300,7 @@ Right: keep the default location the setup assistant suggests.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Hamza's school computer has 8 GB of RAM and an old hard disk. The emulator takes many minutes to start and then freezes. Give him two sensible options so he can keep learning.
 
 <details>
@@ -316,7 +316,7 @@ Not a good answer: downloading a "faster" Android Studio from another site.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a one-page **setup plan** for your class.
 
 1. List the steps from "ask permission" to "virtual device running", in order.

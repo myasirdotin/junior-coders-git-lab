@@ -96,21 +96,20 @@
     <nav class="bei-nav">
         <div class="container bei-nav-inner">
             <a href="../../index.html" class="bei-logo">
-                <div class="bei-logo-icon">💻</div>
                 <div>
                     Junior Coders
                     <span class="bei-logo-sub">School Computer Science</span>
                 </div>
             </a>
             <ul class="bei-nav-links">
-                <li><a href="../../learn/python/index.html" class="bei-nav-link">🐍 Python Course</a></li>
-                <li><a href="../index.html" class="bei-nav-link active">⚡ Studios</a></li>
-                <li><a href="../../cheatsheet-python.html" class="bei-nav-link">📋 Cheatsheet</a></li>
-                <li><a href="../../book-python/index.html" class="bei-nav-link">📖 15 Ch Book</a></li>
+                <li><a href="../../learn/python/index.html" class="bei-nav-link">Python Course</a></li>
+                <li><a href="../index.html" class="bei-nav-link active">Studios</a></li>
+                <li><a href="../../cheatsheet-python.html" class="bei-nav-link">Cheatsheet</a></li>
+                <li><a href="../../book-python/index.html" class="bei-nav-link">15 Ch Book</a></li>
             </ul>
             <div class="bei-nav-actions">
-                <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
-                <a href="../web-studio/index.html" class="btn-hero-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.82rem;">Web Studio 🌐</a>
+                <button class="theme-toggle-btn" aria-label="Toggle theme"></button>
+                <a href="../web-studio/index.html" class="btn-hero-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.82rem;">Web Studio</a>
                 <button class="mobile-toggle" aria-label="Toggle navigation menu">☰</button>
             </div>
         </div>
@@ -122,16 +121,16 @@
             <!-- Left: Python Editor -->
             <div class="code-pane">
                 <div class="pane-toolbar">
-                    <span class="pane-title">🐍 script.py</span>
+                    <span class="pane-title">script.py</span>
                     <div style="display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap;">
                         <select id="pythonSnippetSelect" class="snippet-select" aria-label="Preset Snippets">
-                            <option value="welcome">⚡ Snippet: Welcome &amp; Loop</option>
-                            <option value="zakat">🤲 Snippet: Zakat Calculator</option>
-                            <option value="grades">📊 Snippet: Student Grade Analyzer</option>
-                            <option value="fibonacci">🔢 Snippet: Fibonacci Sequence</option>
-                            <option value="wordcount">📖 Snippet: Word Frequency Counter</option>
-                            <option value="solar">☀️ Snippet: Solar Data Report</option>
-                            <option value="classifier">🌿 Snippet: Plant Health Classifier</option>
+                            <option value="welcome">Snippet: Welcome &amp; Loop</option>
+                            <option value="zakat">Snippet: Zakat Calculator</option>
+                            <option value="grades">Snippet: Student Grade Analyzer</option>
+                            <option value="fibonacci">Snippet: Fibonacci Sequence</option>
+                            <option value="wordcount">Snippet: Word Frequency Counter</option>
+                            <option value="solar">Snippet: Solar Data Report</option>
+                            <option value="classifier">Snippet: Plant Health Classifier</option>
                         </select>
                         <button id="runPythonBtn" class="btn-hero-primary" style="padding: 0.35rem 0.9rem; font-size: 0.82rem; background: var(--brand-purple);" disabled>
                             ▶ Run Code
@@ -164,16 +163,14 @@ print("Knowledge sought for benefit: 'Ilm Nafi'")
             <!-- Right: Interactive Output -->
             <div class="code-pane">
                 <div class="pane-toolbar">
-                    <span class="pane-title">📟 Standard Output &amp; Terminal</span>
+                    <span class="pane-title">Standard Output &amp; Terminal</span>
                     <div style="display: flex; gap: 0.4rem;">
-                        <span id="pyodideStatus" class="placement-badge" style="background: rgba(250,204,21,0.12); color: #facc15; font-size: 0.72rem;">
-                            ⏳ Loading Python…
+                        <span id="pyodideStatus" class="placement-badge" style="background: rgba(250,204,21,0.12); color: #facc15; font-size: 0.72rem;">Loading Python…
                         </span>
                         <button id="clearConsoleBtn" class="btn-hero-secondary" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;">Clear</button>
                     </div>
                 </div>
-                <div id="pythonOutput" class="output-terminal">
-⏳ Downloading the Python engine (Pyodide, a few MB, only the first time). Run Code switches on when it is ready.
+                <div id="pythonOutput" class="output-terminal">Downloading the Python engine (Pyodide, a few MB, only the first time). Run Code switches on when it is ready.
                 </div>
             </div>
         </div>

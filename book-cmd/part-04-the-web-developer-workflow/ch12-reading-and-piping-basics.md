@@ -1,12 +1,12 @@
 # Chapter 12: Reading File Contents & Output Redirection
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The school library keeps a daily notebook. Each day the librarian writes one new line at the bottom: when it opened, how many books came back, any problems. She never tears out old pages. When the head teacher asks, "Were there any problems this week?", she runs her finger down the pages and reads only the lines about problems. In this chapter, you will do all of this from the terminal: read a file, add lines to the end, and find just the lines you need.
 
 > **Key Idea**: You can read a short file without opening an editor. You can send a command's output **into** a file with `>` and `>>`. And you can pass one command's output **to** another command with the **pipe** `|`.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Print a file on the screen, all at once or page by page.
 - Show only the first or last lines of a file.
@@ -154,7 +154,7 @@ index.html
 
 In PowerShell: `dir -Name | Select-String html`. And for a very long listing, `dir | more` shows it one page at a time.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Using `>` when you meant `>>`.** Hassan wants to add a line to the library's book list:
 
@@ -182,7 +182,7 @@ InputObject[0]:
 
 PowerShell saw only `echo` and is now waiting for text. Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to cancel, then use quotes: `echo '# Reading Club Project' > README.md`.
 
-## ✍️ Try It
+## Try It
 
 In `C:\JuniorCoders\practice`, make a folder `library` and go into it. Then:
 
@@ -193,7 +193,7 @@ In `C:\JuniorCoders\practice`, make a folder `library` and go into it. Then:
 
 *Hint*: In PowerShell, use quotes around each text. In CMD, leave no space before `>`.
 
-## 📝 Recap
+## Recap
 
 - `type` prints a file in CMD and PowerShell. `more` shows it page by page.
 - `Get-Content file -Head N` and `-Tail N` show the first or last lines in PowerShell.
@@ -201,9 +201,9 @@ In `C:\JuniorCoders\practice`, make a folder `library` and go into it. Then:
 - `findstr` (CMD) and `Select-String` (PowerShell) find words inside files.
 - The pipe `|` sends one command's output into the next command.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command prints a file in CMD? Which one in Git Bash?
 2. What is the difference between `>` and `>>`?
 3. Which command searches inside files in CMD? And in PowerShell?
@@ -217,7 +217,7 @@ In `C:\JuniorCoders\practice`, make a folder `library` and go into it. Then:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A file `visits.txt` holds:
 
 ```text
@@ -240,7 +240,7 @@ Thursday: 35 visitors
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A developer meant to type `echo done >> important-data.sql` but typed `echo done > important-data.sql`.
 
 1. What happened to `important-data.sql`?

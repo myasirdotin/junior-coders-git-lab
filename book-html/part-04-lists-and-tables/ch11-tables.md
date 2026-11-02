@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Look at your school diary or classroom wall. Every Monday through Friday, how do you know what subject you have at 9:00 AM, 11:00 AM, and 2:00 PM?
 
@@ -15,7 +15,7 @@ Whenever you have information with multiple categories—like sports scores, tra
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Understand the 4 core table tags: `<table>`, `<tr>`, `<th>`, and `<td>`.
@@ -119,7 +119,7 @@ Type this into your editor and save it as `timetable.html`:
 
 ---
 
-## 🌍 Real-World Connection: Sports Leaderboards & Flight Trackers
+## Real-World Connection: Sports Leaderboards & Flight Trackers
 
 Where do professional websites rely on HTML tables?
 - **Sports Day results**: A school's results page (House, Gold, Silver, Bronze, Points) is a perfect HTML table.
@@ -128,7 +128,7 @@ Where do professional websites rely on HTML tables?
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this table snippet:
 
@@ -149,13 +149,13 @@ Look at this table snippet:
 **Question**: The header row has 2 cells, but the second row has 3 cells! What will the table look like?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> The table will look distorted! The second row will stick out with an extra cell on the right that has no header above it. Every row in a clean table should have the same number of cells, or use <code>colspan</code> (see Practice Level 3) to bridge the gap!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Flipped Tags
+## Code Detective: The Flipped Tags
 
 A student created a table, but the rows are appearing inside each other like a scrambled mess:
 
@@ -208,11 +208,11 @@ Build a web page named `science-fair.html`:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Building a table column by column.**
 
-❌ Wrong: the student puts each *column* in a `<tr>`.
+Wrong: the student puts each *column* in a `<tr>`.
 
 ```html
 <table border="1">
@@ -223,7 +223,7 @@ Build a web page named `science-fair.html`:
 
 What happens: the subjects end up side by side on the first line and the marks on the second. The table reads sideways, and there are no headings.
 
-✅ Fixed: one `<tr>` per **row** (one subject per row), with `<th>` headings on top.
+Fixed: one `<tr>` per **row** (one subject per row), with `<th>` headings on top.
 
 ```html
 <table border="1">
@@ -235,7 +235,7 @@ What happens: the subjects end up side by side on the first line and the marks o
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Student Marks Sheet**
 
@@ -246,11 +246,11 @@ Create a 3-column table showing your recent quiz scores:
 4. Row 4 (`<td>`): `History`, `50`, `45`.
 5. Preview in browser and check that every column aligns vertically!
 
-> 💡 **Hint:** Count the cells. Every `<tr>` should hold exactly three cells, the same as the header row.
+> **Hint:** Count the cells. Every `<tr>` should hold exactly three cells, the same as the header row.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - HTML tables display structured information across rows and columns.
 - `<table>` wraps the whole table.
@@ -261,7 +261,7 @@ Create a 3-column table showing your recent quiz scores:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -273,9 +273,9 @@ Create a 3-column table showing your recent quiz scores:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which tag creates a table row?
 2. Which tag makes the header cells at the top of columns?
 3. What is the difference between `<th>` and `<td>`?
@@ -289,7 +289,7 @@ Create a 3-column table showing your recent quiz scores:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write a 2-column table with 3 of your favourite books and their authors.
 2. What happens if one row has 4 cells and the next row has only 2?
 
@@ -311,7 +311,7 @@ Create a 3-column table showing your recent quiz scores:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 `colspan` makes one cell stretch across several columns. For example, `<td colspan="3">` covers three columns.
 1. Build a timetable with a header row: Time, Monday, Tuesday, Wednesday.
 2. Add one row of lessons.

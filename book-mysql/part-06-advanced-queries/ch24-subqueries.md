@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The head teacher says: "Give a certificate to every student whose GPA is above the school average." The office helper cannot do this in one step. First she works out the average on a scrap of paper. Then she goes down the list and picks everyone above that number. A subquery puts that scrap-of-paper step **inside** the main query, so SQL does both steps for you.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a subquery is and which part runs first.
 - Compare a value with a one-number subquery (like an average).
@@ -157,7 +157,7 @@ WHERE id NOT IN (SELECT book_id FROM loans);
 
 These are the same answers as the `LEFT JOIN ... IS NULL` trick in Chapter 19, written in a different way.
 
-> ⚠️ If the inner list ever contains a `NULL`, `NOT IN` returns **no rows at all**, because SQL cannot be sure the value is "not in" an unknown. Our `loans.student_id` has no `NULL`s. If yours might, add `WHERE student_id IS NOT NULL` inside the subquery.
+> If the inner list ever contains a `NULL`, `NOT IN` returns **no rows at all**, because SQL cannot be sure the value is "not in" an unknown. Our `loans.student_id` has no `NULL`s. If yours might, add `WHERE student_id IS NOT NULL` inside the subquery.
 
 ---
 
@@ -238,7 +238,7 @@ FROM (
 
 The inner table has 7 rows (counts 2, 1, 2, 1, 1, 1, 2). Their average is 10 ÷ 7 ≈ 1.43. You cannot write `AVG(COUNT(*))` directly, so the derived table does the first round.
 
-> 🧪 **Sandbox note:** SQLite runs all subqueries in this chapter. It even lets you skip the `AS t` name, but MySQL does not, so always include it.
+> **Sandbox note:** SQLite runs all subqueries in this chapter. It even lets you skip the `AS t` name, but MySQL does not, so always include it.
 
 ---
 
@@ -266,7 +266,7 @@ Both return the same 5 names.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: a one-value comparison with a many-row subquery.**
 
@@ -293,7 +293,7 @@ MariaDB answers `ERROR 1064 ... near 'WHERE total > 6000'`; MySQL 8 says `ERROR 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/), list the books that are **longer than the average book**, longest first.
 
@@ -301,7 +301,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), list the books that are **longer 
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A subquery is a `SELECT` inside brackets inside another query; the inner one runs first.
 - A one-value subquery works with `=`, `>`, `<` (for example, above the average).
@@ -311,9 +311,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/), list the books that are **longer 
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is a subquery?
 2. Which runs first: the inner or the outer query?
 3. Which operator do you use when the subquery returns many rows?
@@ -327,7 +327,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), list the books that are **longer 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. List books with **fewer** pages than the average book.
 2. List the titles of books that **Zayd** (student 1) has borrowed, using `IN`.
 
@@ -359,7 +359,7 @@ WHERE id IN (SELECT book_id FROM loans WHERE student_id = 1);
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The charity club wants to praise every cause whose total is **above the average cause total**.
 
 1. Write a derived table that gives each cause's total.

@@ -1,10 +1,10 @@
 # Chapter 10: Layouts and Modifiers
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about arranging books on a shelf. You can stand them side by side in a **row**. You can stack them on top of each other in a **column**. Or you can put a small "New!" sticker on top of one cover, so two things share the same spot. You also decide the details: how much gap between books, whether the shelf has a coloured edge, whether the corners are rounded. Compose works the same way. `Row`, `Column` and `Box` arrange things, and **modifiers** decide the gaps, sizes, colours and corners.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Arrange composables with `Column`, `Row`, `Box` and `Spacer`.
 - Control spacing and lining up with `Arrangement` and `Alignment`.
@@ -362,7 +362,7 @@ Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
 
 Two `padding` calls in a row simply add up: first the space for the status bar, then 16 dp more.
 
-## 🔮 Predict the Screen
+## Predict the Screen
 
 ```kotlin
 Row(
@@ -381,7 +381,7 @@ The title sits at the start (left) edge and `D4` sits at the far end (right) edg
 
 </details>
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Putting `padding` after `background` when you wanted a gap outside.**
 
@@ -409,7 +409,7 @@ Box {
 
 What happens: Android Studio underlines `weight` in red as an unresolved reference (it cannot find it). `weight` only exists for the direct children of a `Row` or `Column`, because only they share out leftover space. Move the `Text` into a `Row` or `Column`.
 
-## ✍️ Try It
+## Try It
 
 Add an "On loan" tag on top of the cover for books that are not available.
 
@@ -420,7 +420,7 @@ Add an "On loan" tag on top of the cover for books that are not available.
 
 *Hint:* `if` works inside composables exactly as in Chapter 5. When the condition is false, nothing is drawn.
 
-## 📝 Recap
+## Recap
 
 - `Column` stacks children down, `Row` places them across, `Box` lays them on top of each other.
 - `Spacer` adds one gap; `Arrangement.spacedBy` adds the same gap between all children.
@@ -428,7 +428,7 @@ Add an "On loan" tag on top of the cover for books that are not available.
 - Modifiers are chained with dots and applied from top to bottom, so order changes the result.
 - `Card` gives a theme-coloured, rounded container; theme colours come from `MaterialTheme.colorScheme`.
 
-## 📖 Key Terms
+## Key Terms
 
 - **Layout**: a composable that arranges other composables (`Column`, `Row`, `Box`).
 - **Modifier**: a setting that changes a composable's size, space or look.
@@ -437,9 +437,9 @@ Add an "On loan" tag on top of the cover for books that are not available.
 - **Alignment**: how children line up across the other direction.
 - **Weight**: a share of the leftover space in a `Row` or `Column`.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which layout puts children side by side?
 2. In a `Column`, which parameter centres children left-to-right?
 3. Why should `clip` come before `background`?
@@ -453,7 +453,7 @@ Add an "On loan" tag on top of the cover for books that are not available.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write `ShelfBadge(shelf: String)`: the shelf name in `labelLarge`, with 8 dp of padding inside a background with rounded corners (`RoundedCornerShape(12.dp)`) in `MaterialTheme.colorScheme.secondaryContainer`, and a 1 dp outline in `MaterialTheme.colorScheme.secondary`.
 
 <details>
@@ -479,7 +479,7 @@ The order is: cut the shape, paint inside it, draw the outline on its edge, then
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "library at a glance" header to sit above the book card.
 
 1. Make a `Card` that fills the width, using `ElevatedCard`.

@@ -9,7 +9,7 @@
 </head>
 <body>
     <main class="module-container tips-page">
-    <h1>🚀 Best JavaScript Practices 2026</h1>
+    <h1>Best JavaScript Practices 2026</h1>
     <p class="subtitle">Write clean, maintainable, secure, and performant code • Good vs Bad Examples</p>
 
     <nav class="anchor-nav">
@@ -27,13 +27,13 @@
 
     <div class="practice-section" id="variables">
         <div class="section-header">
-            <h2>⚙️ Variables & Declarations</h2>
+            <h2>Variables & Declarations</h2>
         </div>
         
         <div class="comparison">
             <div>
                 <div class="good">
-                    <h3>✅ Good Practice</h3>
+                    <h3>Good Practice</h3>
                     <pre><code>// Prefer const, use let only when reassigning
 const API_BASE_URL = 'https://api.example.com/v2';
 const MAX_RETRIES = 3;
@@ -52,7 +52,7 @@ const userProfile = {
             </div>
             <div>
                 <div class="bad">
-                    <h3>❌ Bad Practice</h3>
+                    <h3>Bad Practice</h3>
                     <pre><code>// Global variables + var
 var data;
 var temp = 'something';
@@ -69,13 +69,13 @@ let userData = [];</code></pre>
 
     <div class="practice-section" id="comparison">
         <div class="section-header">
-            <h2>🔄 Comparisons & Conditionals</h2>
+            <h2>Comparisons & Conditionals</h2>
         </div>
         
         <div class="comparison">
             <div>
                 <div class="good">
-                    <h3>✅ Good Practice</h3>
+                    <h3>Good Practice</h3>
                     <pre><code>if (userName === 'Yasir') { ... }
 
 // Nullish coalescing & optional chaining
@@ -90,7 +90,7 @@ if (!isValidEmail(email)) return;</code></pre>
             </div>
             <div>
                 <div class="bad">
-                    <h3>❌ Bad Practice</h3>
+                    <h3>Bad Practice</h3>
                     <pre><code>if (userName == 'Yasir') { ... }   // type coercion
 
 const username = user.address.city;   // potential crash
@@ -104,13 +104,13 @@ if (value) { ... }   // truthy/falsy bugs</code></pre>
 
     <div class="practice-section" id="functions">
         <div class="section-header">
-            <h2>📝 Functions & Modules</h2>
+            <h2>Functions & Modules</h2>
         </div>
         
         <div class="comparison">
             <div>
                 <div class="good">
-                    <h3>✅ Good Practice</h3>
+                    <h3>Good Practice</h3>
                     <pre><code>// Arrow functions + defaults + destructuring
 const calculateTotal = (items = [], taxRate = 0.18) => {
     const subtotal = items.reduce((sum, item) => sum + item.price, 0);
@@ -125,7 +125,7 @@ const formatName = ({ firstName, lastName }) =>
             </div>
             <div>
                 <div class="bad">
-                    <h3>❌ Bad Practice</h3>
+                    <h3>Bad Practice</h3>
                     <pre><code>function process(data) {
     // 200 lines of code
 }
@@ -139,13 +139,13 @@ arr.map(function(item) { return item * 2 }); // avoid anonymous</code></pre>
 
     <div class="practice-section" id="error">
         <div class="section-header">
-            <h2>🛡️ Error Handling & Validation</h2>
+            <h2>Error Handling & Validation</h2>
         </div>
         
         <div class="comparison">
             <div>
                 <div class="good">
-                    <h3>✅ Good Practice</h3>
+                    <h3>Good Practice</h3>
                     <pre><code>try {
     const data = JSON.parse(jsonString);
     validateUser(data);
@@ -165,7 +165,7 @@ class ValidationError extends Error {
             </div>
             <div>
                 <div class="bad">
-                    <h3>❌ Bad Practice</h3>
+                    <h3>Bad Practice</h3>
                     <pre><code>const data = JSON.parse(jsonString); // crashes app
 
 try { ... } catch(e) {} // silent fail</code></pre>
@@ -176,13 +176,13 @@ try { ... } catch(e) {} // silent fail</code></pre>
 
     <div class="practice-section" id="arrays">
         <div class="section-header">
-            <h2>📋 Arrays Best Practices</h2>
+            <h2>Arrays Best Practices</h2>
         </div>
         
         <div class="comparison">
             <div>
                 <div class="good">
-                    <h3>✅ Good Practice</h3>
+                    <h3>Good Practice</h3>
                     <pre><code>const activeUsers = users
     .filter(u => u.isActive && u.lastLogin > cutoffDate)
     .sort((a, b) => b.score - a.score)
@@ -197,7 +197,7 @@ const updated = items.map(item => item.id === targetId
             </div>
             <div>
                 <div class="bad">
-                    <h3>❌ Bad Practice</h3>
+                    <h3>Bad Practice</h3>
                     <pre><code>for (let i = 0; i < arr.length; i++) { ... } // old style
 
 users.push(newUser); // mutating shared state</code></pre>
@@ -208,13 +208,13 @@ users.push(newUser); // mutating shared state</code></pre>
 
     <div class="practice-section" id="objects">
         <div class="section-header">
-            <h2>🗃️ Objects & Data Structures</h2>
+            <h2>Objects & Data Structures</h2>
         </div>
         
         <div class="comparison">
             <div>
                 <div class="good">
-                    <h3>✅ Good Practice</h3>
+                    <h3>Good Practice</h3>
                     <pre><code>const config = {
     api: { timeout: 5000, retries: 3 },
     ui: { theme: 'dark', language: 'en' }
@@ -227,7 +227,7 @@ const updatedConfig = { ...config, ui: { ...ui, theme: 'light' } };</code></pre>
             </div>
             <div>
                 <div class="bad">
-                    <h3>❌ Bad Practice</h3>
+                    <h3>Bad Practice</h3>
                     <pre><code>const obj = new Object();
 obj['key'] = value;</code></pre>
                 </div>
@@ -237,13 +237,13 @@ obj['key'] = value;</code></pre>
 
     <div class="practice-section" id="async">
         <div class="section-header">
-            <h2>⚡ Asynchronous Code</h2>
+            <h2>Asynchronous Code</h2>
         </div>
         
         <div class="comparison">
             <div>
                 <div class="good">
-                    <h3>✅ Good Practice</h3>
+                    <h3>Good Practice</h3>
                     <pre><code>async function fetchUserData(id) {
     try {
         const response = await fetch(`/api/users/${id}`);
@@ -265,7 +265,7 @@ const [user, posts] = await Promise.all([
             </div>
             <div>
                 <div class="bad">
-                    <h3>❌ Bad Practice</h3>
+                    <h3>Bad Practice</h3>
                     <pre><code>.then().then().then() // callback hell
 
 async function bad() {
@@ -279,13 +279,13 @@ async function bad() {
 
     <div class="practice-section" id="performance">
         <div class="section-header">
-            <h2>🚀 Performance & Optimization</h2>
+            <h2>Performance & Optimization</h2>
         </div>
         
         <div class="comparison">
             <div>
                 <div class="good">
-                    <h3>✅ Good Practice</h3>
+                    <h3>Good Practice</h3>
                     <pre><code>// Debounce / Throttle heavy operations
 const debouncedSearch = debounce(searchHandler, 300);
 
@@ -299,7 +299,7 @@ window.removeEventListener('resize', handler);</code></pre>
             </div>
             <div>
                 <div class="bad">
-                    <h3>❌ Bad Practice</h3>
+                    <h3>Bad Practice</h3>
                     <pre><code>for (let i = 0; i < 10000; i++) { ... } // inside loop
 
 innerHTML += '<div>...</div>' // repeated DOM manipulation</code></pre>
@@ -309,7 +309,7 @@ innerHTML += '<div>...</div>' // repeated DOM manipulation</code></pre>
     </div>
 
     <div class="tip-box">
-        <h3>💡 Pro Tips for Professional Code</h3>
+        <h3>Pro Tips for Professional Code</h3>
         <ul>
             <li><strong>Always</strong> use ESLint + Prettier</li>
             <li>Write small, focused functions (< 30 lines ideally)</li>

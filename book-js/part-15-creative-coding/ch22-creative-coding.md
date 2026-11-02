@@ -1,6 +1,6 @@
 # Chapter 22: Creative Coding with Canvas
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Zainab's science teacher draws a planet diagram on squared paper.
 She says, "Start 3 squares from the left and 2 squares down, then draw a circle 4 squares wide."
@@ -10,7 +10,7 @@ In this chapter you give JavaScript exact drawing steps, and it paints shapes, p
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Set up an HTML `<canvas>` and get its 2D drawing context.
 - Draw rectangles, outlines and circles in any colour.
@@ -184,7 +184,7 @@ The ball's edge is at `x + radius` on the right and `x - radius` on the left. Wh
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting to clear the canvas in an animation**
 
@@ -205,7 +205,7 @@ function animate() {
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Use the `canvas-demo.html` page above and draw a simple school building in `art.js`:
 1. A large rectangle for the building.
@@ -213,11 +213,11 @@ Use the `canvas-demo.html` page above and draw a simple school building in `art.
 3. Two square windows.
 4. A yellow sun (a filled circle) in the top-right corner.
 
-> 💡 **Hint:** set `fillStyle` before each shape. Remember that `y` counts down from the top, so the door needs a bigger `y` than the windows.
+> **Hint:** set `fillStyle` before each shape. Remember that `y` counts down from the top, so the door needs a bigger `y` than the windows.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `<canvas>` is a blank grid of pixels. `canvas.getContext("2d")` gives the "paintbrush" called `ctx`.
 - Positions are `(x, y)`: pixels from the left, and pixels down from the top.
@@ -234,9 +234,9 @@ Use the `canvas-demo.html` page above and draw a simple school building in `art.
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 In `ctx.fillRect(50, 50, 150, 100)`, what do the four numbers mean?
 
 <details>
@@ -246,7 +246,7 @@ In `ctx.fillRect(50, 50, 150, 100)`, what do the four numbers mean?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Planetarium Night Sky: fill the canvas dark blue, then draw 200 tiny white stars at random places with a `for` loop and `Math.random()`.
 
 <details>
@@ -274,7 +274,7 @@ Each time you reload, the stars appear in new places.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Pastel Particle Trail:
 1. Listen for the `mousemove` event on the canvas. It fires every time the mouse moves over it.
 2. Give the listener function a parameter called `event`. The browser fills it with details of the event. `event.offsetX` and `event.offsetY` are the mouse position inside the canvas.

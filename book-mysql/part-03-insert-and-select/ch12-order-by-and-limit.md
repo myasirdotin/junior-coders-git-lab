@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 On prize day, the head teacher reads out the top three readers. First she sorts the reading list from most books to fewest. Then she reads only the first three names and stops. Sorting is `ORDER BY`. Stopping after three is `LIMIT 3`. Together they answer "who are the top three?" in one short query.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Sort results with `ORDER BY`, ascending (`ASC`) or descending (`DESC`).
 - Sort by two columns to break ties.
@@ -209,11 +209,11 @@ Page 3 with 3 per page: (3 − 1) × 3 = 6. ✔
 
 MySQL also has a short form: `LIMIT 3, 3` means "skip 3, take 3". The first number is the offset. Many people find `LIMIT 3 OFFSET 3` easier to read.
 
-> 🧪 **Sandbox note:** SQLite accepts both `LIMIT 3 OFFSET 3` and `LIMIT 3, 3`, so every query in this chapter runs in the sandbox.
+> **Sandbox note:** SQLite accepts both `LIMIT 3 OFFSET 3` and `LIMIT 3, 3`, so every query in this chapter runs in the sandbox.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: `LIMIT` without `ORDER BY`.**
 
@@ -233,7 +233,7 @@ This gives `ERROR 1064`. The order of parts is fixed: `SELECT … FROM … WHERE
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/), find the **single shortest book** in the library. Show its title and pages.
 
@@ -241,7 +241,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), find the **single shortest book**
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Row order is not promised unless you use `ORDER BY`.
 - `ASC` (default) = small to large; `DESC` = large to small.
@@ -251,9 +251,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/), find the **single shortest book**
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which direction does `ORDER BY` use if you write neither `ASC` nor `DESC`?
 2. What does `LIMIT 5` do?
 3. How do you show the newest loans first?
@@ -267,7 +267,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), find the **single shortest book**
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. List all books from fewest pages to most.
 2. Show the one book with the most pages.
 3. Write the query for **page 4** of the book list with **12** books per page.
@@ -287,7 +287,7 @@ The second query returns *Clean Code* (464). For page 4: (4 − 1) × 12 = 36.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The school wants a "Students by City" page.
 
 1. Sort students by city A to Z, and by name A to Z inside each city.

@@ -1,6 +1,6 @@
 # Chapter 20: Maths in JavaScript
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Bilal and Maryam are planning a round flower bed for the school garden.
 They need to know how much fencing to buy and how much soil to order.
@@ -11,7 +11,7 @@ Code turns maths from something you only read into something you can test.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Use the built-in `Math` object to round, find extremes, powers and square roots.
 - Round answers to a fixed number of decimal places with `toFixed()`.
@@ -235,11 +235,11 @@ Zakat due: Rs 3750.00 | Zakat is due: 2.5% of zakatable wealth.
 Zakat due: Rs 0 | No Zakat is due on this wealth yet.
 ```
 
-> 💡 **Be honest with the numbers:** the nisab of Rs 100000 here is only an example. The real nisab changes as gold and silver prices change. Some details, such as which wealth counts, need care too. For a real Zakat calculation, ask a scholar or your local Zakat authority.
+> **Be honest with the numbers:** the nisab of Rs 100000 here is only an example. The real nisab changes as gold and silver prices change. Some details, such as which wealth counts, need care too. For a real Zakat calculation, ask a scholar or your local Zakat authority.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Doing more maths with the result of `toFixed()`**
 
@@ -263,7 +263,7 @@ Output: `5.5`
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the **Live JavaScript Scratchpad** and type this array of test scores:
 
@@ -273,11 +273,11 @@ let scores = [72, 88, 95, 64, 81];
 
 Print the highest score, the lowest score, and the average rounded to one decimal place.
 
-> 💡 **Hint:** `Math.max()` and `Math.min()` take numbers separated by commas, so pass `scores[0], scores[1], ...`. Add the scores with a `for` loop, divide by `scores.length`, then use `toFixed(1)`. You should see `95`, `64` and `80.0`.
+> **Hint:** `Math.max()` and `Math.min()` take numbers separated by commas, so pass `scores[0], scores[1], ...`. Add the scores with a `for` loop, divide by `scores.length`, then use `toFixed(1)`. You should see `95`, `64` and `80.0`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `Math` is a built-in toolbox: `round`, `floor`, `ceil`, `min`, `max`, `pow`, `sqrt`, `abs` and `PI`.
 - `toFixed(n)` rounds to `n` decimal places and gives back a string, so use it last.
@@ -294,9 +294,9 @@ Print the highest score, the lowest score, and the average rounded to one decima
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What do `Math.floor(4.9)`, `Math.ceil(4.1)` and `Math.round(4.7)` give?
 
 <details>
@@ -306,7 +306,7 @@ What do `Math.floor(4.9)`, `Math.ceil(4.1)` and `Math.round(4.7)` give?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Find all prime numbers from 1 to 100. Loop from 1 to 100, use the `isPrime()` function above, and push each prime into an array. Print the list and the count.
 
 <details>
@@ -345,7 +345,7 @@ Total primes: 25
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Fair Team Picker: 1,000 students are each put into Team A or Team B at random.
 1. Loop 1,000 times.
 2. Use `Math.random() < 0.5` to choose the team.

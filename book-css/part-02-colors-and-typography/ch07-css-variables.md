@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The School Colour on the Notice Board**
 
@@ -14,7 +14,7 @@ Imagine every poster said "paint this #0f766e". Someone would have to find and r
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Create CSS variables (custom properties) such as `--brand: #0f766e;` on `:root`.
@@ -303,13 +303,13 @@ Good names make a stylesheet easy to read months later.
 
 ---
 
-## 🌍 Real-World Connection: Design Tokens
+## Real-World Connection: Design Tokens
 
 Large websites and apps keep their colours, fonts and sizes in a list of named values called **design tokens**. Designers and programmers both use the same names, such as `color-accent` or `size-large`. On websites, these tokens usually become CSS variables. The Junior Coders site you are reading works the same way: its dark and light themes swap a set of CSS variables.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```css
 :root   { --accent: green; }
@@ -328,7 +328,7 @@ Large websites and apps keep their colours, fonts and sizes in a list of named v
 **Question**: What colour are A and B?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **A is purple.** The paragraph is inside `.box`, which overrides `--accent` to purple. The variable exists, so the fallback (orange) is not used.
 
@@ -338,7 +338,7 @@ Large websites and apps keep their colours, fonts and sizes in a list of named v
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: forgetting `var()`.**
 
@@ -377,7 +377,7 @@ h1 {
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Repaint the Food Drive in One Line**
 
@@ -390,7 +390,7 @@ h1 {
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A CSS variable (custom property) has a name starting with `--`, for example `--brand: #0f766e;`.
 - Define global variables on `:root`. Use them with `var(--brand)`.
@@ -401,7 +401,7 @@ h1 {
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -414,9 +414,9 @@ h1 {
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What must every CSS variable name start with?
 2. Which selector is usually used for variables that the whole page needs?
 3. In `color: var(--heading, navy);`, when is `navy` used?
@@ -430,7 +430,7 @@ h1 {
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write a `:root` rule with three variables: a page background `#fefce8`, a text colour `#422006` and an accent `#a16207`. Then write a `body` rule that uses the first two.
 5. A card should use red as its accent, but every other part of the page keeps teal. Without writing a new `color` rule, how do you do it?
 
@@ -455,7 +455,7 @@ body {
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "Prayer Times" page with a light and a dark theme.
 1. Make a page with an `<h1>`, a short paragraph and a list of the five daily prayers with times.
 2. Put **all** colours and the font in variables on `:root`. No colour may be written directly inside another rule.

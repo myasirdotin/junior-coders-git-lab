@@ -1,10 +1,10 @@
 # Chapter 7: Creating Controllers
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When the library was small, one teacher handled everything from her own desk. Now the library has hundreds of books and a whole school of members. So it has a proper **front desk** with trays: one for new books, one for returns, one for questions. Each request goes to the right tray. Routes written as closures are like the small desk. A **controller** is the proper front desk, with one method for each kind of job.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why we move code from route closures into controllers.
 - Create a controller with `php artisan make:controller`.
@@ -179,7 +179,7 @@ Route::get('/hours', OpeningHoursController::class);
 
 There is no method name in the route, because there is only one.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Variable name in the view does not match the key.**
 
@@ -199,13 +199,13 @@ return view('books.show', ['book' => $this->books[$id]]);
 
 **Missing `use` line** in `routes/web.php` gives `Target class [BookController] does not exist.`
 
-## ✍️ Try It
+## Try It
 
 Create a `MemberController` with an `index` method that passes `'school' => 'Crescent Valley School'` to a view `members.index`. The view prints `Members of Crescent Valley School`.
 
 *Hint:* the view file is `resources/views/members/index.blade.php`.
 
-## 📝 Recap
+## Recap
 
 - A controller is a class in `app/Http/Controllers` that groups related actions.
 - `php artisan make:controller BookController` creates one.
@@ -213,9 +213,9 @@ Create a `MemberController` with an `index` method that passes `'school' => 'Cre
 - `view('books.show', ['book' => $book])` passes data; the key becomes `$book` in the view.
 - `abort(404)` shows the "Not Found" page.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Which file does `view('members.show')` load? Which Artisan command creates `MemberController`?
 
 <details>
@@ -225,7 +225,7 @@ Which file does `view('members.show')` load? Which Artisan command creates `Memb
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Add a method `about` to `BookController` that returns the view `books.about` with a variable `$shelves` set to `12`. Write the route `/books/about`. Where must this route go in the file?
 
 <details>
@@ -248,7 +248,7 @@ Put it **above** `/books/{id}`. Our `{id}` route also has `whereNumber`, so `abo
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a `MemberController` with sample data.
 
 1. Keep a private array of three members (name and grade), with keys 1, 2 and 3. Use names such as Bilal Ahmed, Zainab Hussain and Ibrahim Noor.

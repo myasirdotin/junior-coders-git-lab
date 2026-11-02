@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Handwriting and Personality**
 
@@ -18,7 +18,7 @@ In CSS, you have complete control over font styles, letter sizes, line spacing, 
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Choose fonts with `font-family`, including a fallback **font stack**.
@@ -150,7 +150,7 @@ Type this into your editor and save it as `quote.html`:
 
 ---
 
-## 🌍 Real-World Connection: Google Fonts
+## Real-World Connection: Google Fonts
 
 Many modern websites do not rely only on the fonts already on your computer:
 - They load **web fonts** (fonts downloaded with the page) from free services like **Google Fonts**.
@@ -160,7 +160,7 @@ Many modern websites do not rely only on the fonts already on your computer:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this CSS:
 
@@ -174,13 +174,13 @@ p {
 **Question**: What disaster will happen to this paragraph on the screen?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> The lines of text will collide and stamp directly on top of each other! If your letters are 20px tall, but you only give them 10px of line-height space, each line will smash into the previous line like a car pile-up! Always ensure <code>line-height</code> is larger than <code>font-size</code> (or use unitless multipliers like <code>1.6</code>)!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Font Name
+## Code Detective: The Broken Font Name
 
 A student tried to use the font "Trebuchet MS", but the browser showed its plain default font (often Times New Roman):
 
@@ -209,7 +209,7 @@ Beginner coders often get so excited by fonts that they put 6 different wacky fo
 - One font for the header, one for paragraphs, one for buttons, one for dates...
 - It looks like a chaotic circus!
 
-> 💡 **Think Before You Code**:
+> **Think Before You Code**:
 > The 2-Font Rule: Pick at most **two fonts** for your entire website. One expressive font for big headings, and one super clean, readable sans-serif font for all body text!
 
 ---
@@ -224,7 +224,7 @@ Create a web page named `book-cover.html`:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is writing `bold` on the wrong property.
 
@@ -248,7 +248,7 @@ Another slip is forgetting the unit: `font-size: 18;` is ignored. Write `font-si
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Alignment Experiment**
 
@@ -259,7 +259,7 @@ Open your browser with `quote.html`:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `font-family` sets the typeface, backed up by a fallback list.
 - **Serif** fonts have decorative feet; **Sans-serif** fonts are clean and geometric.
@@ -271,7 +271,7 @@ Open your browser with `quote.html`:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -284,9 +284,9 @@ Open your browser with `quote.html`:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does the word "sans" mean in sans-serif?
 2. Which property makes text bold in CSS?
 3. What does a comma do inside a `font-family` list?
@@ -300,7 +300,7 @@ Open your browser with `quote.html`:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write a CSS rule for `.announcement` that centres the text, makes all letters capitals and sets `line-height` to `1.8`.
 5. Why is a unitless `line-height: 1.6;` safer than `line-height: 16px;`?
 
@@ -320,7 +320,7 @@ Open your browser with `quote.html`:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Style a school newspaper article with two web fonts.
 1. Open Google Fonts (`fonts.google.com`) and choose a serif font for headings (for example *Merriweather*) and a sans-serif font for text (for example *Inter*).
 2. Copy the `<link>` tag Google Fonts gives you into your `<head>`.

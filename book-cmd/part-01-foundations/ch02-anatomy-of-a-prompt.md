@@ -1,12 +1,12 @@
 # Chapter 2: The Anatomy of a Prompt & Command Grammar
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Bilal arrives at a big science fair. At the entrance there is a map with a red dot: **"You are here."** Without that dot, the map is not much help. The terminal prompt is that red dot. It tells you where you are standing before you take a step. And when you ask a helper for something, you speak in a clear order: what to do, how to do it, and to what. Commands follow the same order.
 
 > **Key Idea**: Every prompt tells you **who you are** and **where you are standing**. Every command follows a simple sentence pattern: `command + options + target`.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Read each part of a CMD, PowerShell and Git Bash prompt.
 - Split any command into its command word, options and target.
@@ -161,7 +161,7 @@ cd "C:\Program Files"
 > [!IMPORTANT]
 > **Best habit**: avoid spaces in names. Use hyphens (`my-new-project`) or underscores (`my_new_project`). Then you never need quotes.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting the space after the command word.**
 
@@ -178,13 +178,13 @@ C:\Users\Amina>dir /w school-notes
 
 **Mixing option styles.** Typing `dir -w` in CMD prints `File Not Found`, because CMD looks for a file called `-w`. In CMD, use `/w`. In PowerShell, use `-Name`.
 
-## ✍️ Try It
+## Try It
 
 Open CMD. Type `dir /w` and press <kbd>Enter</kbd>. Then type `dir /b` and press <kbd>Enter</kbd>. Compare the two lists. Which one is easier to read? Which one fits more names on the screen?
 
 *Hint*: Both commands list the **current** folder, because you gave no target. They only change *how* the list looks.
 
-## 📝 Recap
+## Recap
 
 - The prompt shows where you are standing, like a "You are here" dot on a map.
 - PowerShell prompts start with `PS`. Git Bash prompts end with `$`.
@@ -192,9 +192,9 @@ Open CMD. Type `dir /w` and press <kbd>Enter</kbd>. Then type `dir /b` and press
 - CMD options use `/`, PowerShell options use `-Word`, Git Bash options use `-letter`.
 - Put names with spaces in double quotes, or better, use hyphens instead of spaces.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Name the three parts of a command.
 2. What does `~` (tilde) mean in a Git Bash prompt?
 3. Why must names with spaces be wrapped in quotes?
@@ -208,7 +208,7 @@ Open CMD. Type `dir /w` and press <kbd>Enter</kbd>. Then type `dir /b` and press
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Split each command into its command, options and target.
 
 1. `dir /s /b C:\JuniorCoders`
@@ -224,7 +224,7 @@ Split each command into its command, options and target.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A club wants a folder for its website. Two names are suggested: `Junior Coders Club` and `junior-coders-club`.
 
 1. Write the `mkdir` command for each name so that it makes **one** folder.

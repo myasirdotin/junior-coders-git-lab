@@ -1,10 +1,10 @@
 # Chapter 22: Auth Scaffolding
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When a new school opens, nobody builds the front gate's lock from scratch. The school buys a **tested lock** from a trusted maker, fits it, and gives keys to the right people. Making your own lock is a great way to *learn* how locks work, but the gate itself should use one that experts have tested for years. Laravel's **starter kits** are that tested lock for logins. In this chapter you meet them; in Chapter 23 you build a simple lock by hand to see how it works inside.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain **authentication** and how it differs from **authorization**.
 - Describe what Laravel already has for users: the `users` table, the `User` model and password hashing.
@@ -143,7 +143,7 @@ php artisan migrate
 
 For a new Laravel 12 project, use the starter kits above instead. If you see `breeze:install` in a tutorial, check which Laravel version it was written for.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Saving a password without hashing it.**
 
@@ -166,13 +166,13 @@ Do **not** do both, or the password is hashed twice and nobody can log in.
 
 **Skipping `npm run build`.** A starter-kit page with no styling, or a "Vite manifest not found" error, means the front-end files were never built. Run `npm install` and `npm run build`.
 
-## ✍️ Try It
+## Try It
 
 Create the `library-portal` practice project with the Livewire kit. Register two made-up users, then find them in the `users` table. Are the two hashes the same length? Do they start the same way?
 
 *Hint:* both start with `$2y$12$` and are 60 characters long.
 
-## 📝 Recap
+## Recap
 
 - Authentication asks *who are you?*; authorization asks *what may you do?*
 - Laravel ships with a `users` table, a `User` model, sessions, and `auth`/`guest` middleware.
@@ -180,9 +180,9 @@ Create the `library-portal` practice project with the Livewire kit. Register two
 - Laravel 12 starter kits (Livewire, React, Vue) give you a tested login system in a new project.
 - Breeze was the starter kit for Laravel 11 and earlier.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is the difference between authentication and authorization? Give a library example of each.
 
 <details>
@@ -192,7 +192,7 @@ Authentication checks **who** you are (logging in with email and password). Auth
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A student says: "Hashing is like locking the password in a box. The app can unlock it to check it." What is wrong with this idea?
 
 <details>
@@ -202,7 +202,7 @@ A hash cannot be "unlocked". It is one-way. To check a password, Laravel hashes 
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a one-page "Login Safety Plan" for the library app.
 
 1. Which starter kit would you choose for a team that knows Blade, and why?

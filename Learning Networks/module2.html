@@ -13,14 +13,14 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 1</span>
-            <h1 style="color: white; margin: 0.5rem 0;">OSI &amp; TCP/IP Layer Models 🧱</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">OSI &amp; TCP/IP Layer Models</h1>
             <p>Learn how computer scientists tame complexity by breaking communication into standardized, cooperative layers.</p>
         </header>
         <!-- Why layers? -->
         <section class="content-section">
-            <h2>Why Split Networking Into Layers? 🧱</h2>
+            <h2>Why Split Networking Into Layers?</h2>
             <div class="connection-box">
-                <p>🧠 <strong>Real-life analogy:</strong> Think of a school sending a parcel of donated books to a village library. The teacher writes a letter. The office packs it in a box and writes the address. The courier drives it to the right town. The truck driver only cares about roads. Nobody needs to do everyone's job. Each worker does one job and passes the parcel on.</p>
+                <p><strong>Real-life analogy:</strong> Think of a school sending a parcel of donated books to a village library. The teacher writes a letter. The office packs it in a box and writes the address. The courier drives it to the right town. The truck driver only cares about roads. Nobody needs to do everyone's job. Each worker does one job and passes the parcel on.</p>
             </div>
             <p>Networking works the same way. The job is split into <strong>layers</strong>. Each layer does one job. It only talks to the layer just above it and the layer just below it.</p>
             <p>This makes problems easier to fix. If one layer breaks, you know where to look. It also lets people improve one layer without rebuilding the others. For example, Wi-Fi replaced cables in many homes, but websites did not need to change.</p>
@@ -28,7 +28,7 @@
 
         <!-- Mental Model -->
         <section class="content-section">
-            <h2>Encapsulation: Wrapping the Message 🎁</h2>
+            <h2>Encapsulation: Wrapping the Message</h2>
             <p><strong>Encapsulation</strong> means wrapping. On the way down, each layer adds its own label to the front of the message. This label is called a <strong>header</strong>. The data link layer also adds a <strong>trailer</strong> at the end. The trailer holds a check number (a CRC) that shows if the frame was damaged on the way.</p>
             <p>Each wrapped bundle has its own name. Learn these names; you will see them often.</p>
 
@@ -85,7 +85,7 @@
                 </div>
             </div>
             <p style="margin-top: 1rem;">A <strong>MAC address</strong> is a hardware ID given to each network card, such as <code>3C-52-82-1A-7F-09</code>. Switches use MAC addresses to deliver frames inside a LAN. Routers use IP addresses to send packets between networks.</p>
-            <p>💡 <strong>Memory trick</strong> for OSI from the bottom (Physical, Data Link, Network, Transport, Session, Presentation, Application): "<strong>P</strong>lease <strong>D</strong>o <strong>N</strong>ot <strong>T</strong>ake <strong>S</strong>weets <strong>P</strong>ast <strong>A</strong>ssembly."</p>
+            <p><strong>Memory trick</strong> for OSI from the bottom (Physical, Data Link, Network, Transport, Session, Presentation, Application): "<strong>P</strong>lease <strong>D</strong>o <strong>N</strong>ot <strong>T</strong>ake <strong>S</strong>weets <strong>P</strong>ast <strong>A</strong>ssembly."</p>
 
             <h3>Which device works at which layer?</h3>
             <div style="overflow-x: auto;">
@@ -102,7 +102,7 @@
 
         <!-- Troubleshooting by layer -->
         <section class="content-section">
-            <h2>Fixing Problems Layer by Layer 🔧</h2>
+            <h2>Fixing Problems Layer by Layer</h2>
             <p>Network engineers often check from the bottom up. If the cable is broken, nothing above it can work. So check the lowest layer first.</p>
 
             <h3>Worked example 2: "The library computer cannot open the catalogue"</h3>
@@ -134,7 +134,7 @@ Step 4 – Application (L7)
 
         <!-- Common misunderstanding -->
         <section class="content-section">
-            <h2>Common Misunderstanding ⚠️</h2>
+            <h2>Common Misunderstanding</h2>
             <div class="tip-box">
                 <p><strong>"The Internet runs on the 7-layer OSI model."</strong></p>
                 <p>Not quite. The real Internet is built on the <strong>TCP/IP</strong> family of protocols. The OSI model is a shared map. Engineers use its layer numbers to talk clearly, for example "that is a Layer 2 problem". Some real protocols, like TLS, do not fit neatly into one OSI layer.</p>
@@ -147,14 +147,14 @@ Step 4 – Application (L7)
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Name the bundle at each layer: Transport layer = ______, Network layer = ______, Data Link layer = ______. Which OSI layer number adds IP addresses?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>Segment, packet, frame. IP addresses are added at Layer 3, the Network layer (the Internet layer in TCP/IP).</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>A school attendance app sends 100 bytes of data. Using the header sizes from Worked example 1, how big are the segment, the packet and the frame?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
                     <pre class="code-block"><code>Data                 100 bytes
@@ -164,7 +164,7 @@ Step 4 – Application (L7)
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>You are helping at the community library help desk. Three reports arrive:</p>
                 <ol>
                     <li>"Computer 4 shows a red cross on the network icon, and the light on its cable port is off."</li>

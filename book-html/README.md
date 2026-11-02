@@ -1,10 +1,10 @@
-# HTML for Class 6 & 7: Learn to Structure the Web 🌐🧱
+# HTML for Class 6 & 7: Learn to Structure the Web
 
 **The Official Beginner's Textbook & Interactive Coding Companion**
 
 ---
 
-## 📘 About This Book
+## About This Book
 
 Welcome to **“HTML for Class 6 & 7: Learn to Structure the Web”**! This textbook teaches young developers how the World Wide Web is architected from the ground up.
 
@@ -18,7 +18,7 @@ Every chapter is structured with:
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 ### Part 1: Getting Started
 - **Chapter 1**: What Is a Website? (`part-1-getting-started/ch01-what-is-a-website.md`)
@@ -46,7 +46,7 @@ Every chapter is structured with:
 
 ---
 
-## 🚀 Running the Interactive Reader
+## Running the Interactive Reader
 
 Open `index.html` in any modern web browser or start a local server.
 - Full offline support with pre-compiled `chapters-bundle.js`.

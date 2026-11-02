@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Packing a Parcel**
 
@@ -10,7 +10,7 @@ Bilal is sending a parcel of books to his cousin in Jammu. His desk is covered w
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Name Git's three local areas: the **working tree**, the **staging area** and the **repository**.
 - Explain why `git add` comes before `git commit`.
@@ -138,7 +138,7 @@ Each commit does one job. Your history stays clean and easy for others to read. 
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 **The hidden `.git` folder**
 
@@ -150,7 +150,7 @@ When you turn a folder into a Git repository, Git makes a hidden folder called `
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 A developer changes two files: `contact.html` and `secrets.env`. They run:
 
@@ -162,7 +162,7 @@ git commit -m "Update office phone number"
 **Question**: Is `secrets.env` in the new commit?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Answer:** No. Only files in the staging area go into a commit. `secrets.env` was never added, so it stays in the working tree and is not saved by Git.
 
@@ -170,7 +170,7 @@ git commit -m "Update office phone number"
 
 ---
 
-## 🕵️ Code Detective
+## Code Detective
 
 **The Red and Green Files**
 
@@ -191,7 +191,7 @@ Untracked files:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: Committing without adding first**
 
@@ -224,7 +224,7 @@ git commit -m "Add banner"
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Draw the parcel journey on paper (or in a notes app) for a real task. Choose a file such as `timetable.html`.
 
@@ -241,7 +241,7 @@ The arrows are `git add`, then `git commit`, then `git push`. After `git add`, t
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Git has three local areas: the working tree, the staging area and the repository.
 - `git add` puts chosen changes in the staging area (the box).
@@ -251,9 +251,9 @@ The arrows are `git add`, then `git commit`, then `git push`. After `git add`, t
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 
 1. Name Git's three local areas in order.
 2. Which command moves a changed file from the working tree to the staging area?
@@ -268,7 +268,7 @@ The arrows are `git add`, then `git commit`, then `git push`. After `git add`, t
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 
 1. Explain the difference between `git add` and `git commit` with your own everyday example.
 2. Why is a staging area safer than saving every change straight into the history?
@@ -288,7 +288,7 @@ git commit -m "Add search to library page"
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 
 1. You edit `index.html`, run `git add index.html`, then edit `index.html` **again** before committing. Predict what `git status` shows.
 2. Which version of the file would `git commit` save: the first edit, or both edits?

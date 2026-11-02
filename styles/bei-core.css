@@ -2711,8 +2711,9 @@ body.bei-search-open { overflow: hidden; }
 /* inline SVG icons in the header buttons and the search row (js/bei-nav.js ICONS) */
 .bei-search-ico { display: inline-flex; line-height: 0; }
 .bei-search-ico svg, .theme-toggle-btn svg { width: 18px; height: 18px; vertical-align: middle; }
+.speaker-ico svg, .section-speaker-btn svg, .speaker-icon svg { width: 16px; height: 16px; vertical-align: -3px; }
 .bei-search-item {
-    display: grid; grid-template-columns: 32px 1fr auto; align-items: center; gap: 0.6rem;
+    display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 0.6rem;
     padding: 0.6rem 0.7rem; border-radius: var(--radius-sm);
     color: var(--text-primary); text-decoration: none;
 }
@@ -2727,8 +2728,8 @@ body.bei-search-open { overflow: hidden; }
     .bei-search-panel { max-width: none; max-height: none; border-radius: 0; border: 0; }
     .bei-search-foot { display: none; }
     /* the subject (track, "HTML textbook", "Cheat sheet") moves under the title instead of disappearing */
-    .bei-search-item { grid-template-columns: 32px 1fr; row-gap: 0.1rem; }
-    .bei-search-item-sub { grid-column: 2; white-space: normal; font-size: 0.68rem; }
+    .bei-search-item { grid-template-columns: 1fr; row-gap: 0.1rem; }
+    .bei-search-item-sub { white-space: normal; font-size: 0.68rem; }
 }
 
 /* Progress marks in the module switcher and pager */
@@ -3104,12 +3105,8 @@ body.bei-search-open { overflow: hidden; }
 }
 .jc-subject:hover { border-color: var(--border-hover); }
 .jc-subject-main {
-    display: grid; grid-template-columns: 44px 1fr; gap: 0.1rem 0.75rem; align-items: center;
+    display: grid; grid-template-columns: 1fr; gap: 0.1rem; align-items: center;
     padding: 0.9rem 1rem 0.75rem; text-decoration: none; color: var(--text-primary);
-}
-.jc-subject-ico {
-    grid-row: 1 / 3; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
-    font-size: 1.6rem; border-radius: 12px; background: var(--brand-primary-light);
 }
 .jc-subject-name { font-weight: 800; font-size: 1.05rem; line-height: 1.25; }
 .jc-subject-meta { font-size: 0.8rem; color: var(--text-secondary); }

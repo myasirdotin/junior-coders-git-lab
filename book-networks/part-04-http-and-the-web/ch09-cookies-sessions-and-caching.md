@@ -1,10 +1,10 @@
 # Chapter 9: Statelessness, Cookies, Sessions & Web Caching
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At a school prize evening, guests leave their coats at the cloakroom. The helper hangs each coat on a numbered hook and gives the guest a small token with the same number. Later, the guest just shows the token, and the helper finds the coat at once. The helper does not need to remember any faces. On the web, the coat is your **session**, kept on the server, and the token is a **cookie**, kept in your browser.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what it means that HTTP is **stateless**.
 - Describe how a server sets a **cookie** and how the browser sends it back.
@@ -167,31 +167,31 @@ Press **F12**, open the **Application** tab (in Firefox: **Storage**), and choos
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Storing private data inside the cookie.**
 
-- ❌ Wrong: `Set-Cookie: user=Amina; role=teacher`
+- Wrong: `Set-Cookie: user=Amina; role=teacher`
 - What happens: anyone can edit their own cookies in DevTools and change `role=student` to `role=teacher`.
-- ✅ Right: store only a random session ID in the cookie. Keep the user and role on the server.
+- Right: store only a random session ID in the cookie. Keep the user and role on the server.
 
 **Forgetting `HttpOnly` and `Secure` on a login cookie.**
 
-- ❌ Wrong: `Set-Cookie: sid=k7Q2xP`
-- ✅ Right: `Set-Cookie: sid=k7Q2xP; Path=/; Secure; HttpOnly; SameSite=Lax`
+- Wrong: `Set-Cookie: sid=k7Q2xP`
+- Right: `Set-Cookie: sid=k7Q2xP; Path=/; Secure; HttpOnly; SameSite=Lax`
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Run the two `curl.exe` commands above. Use the `last-modified` date that *your* first command prints.
 Did you get `304 Not Modified`? Now change the date to one year earlier. What status do you get now, and why?
 
-> 💡 Hint: if the file changed *after* the date you send, the server must send the full page again.
+> Hint: if the file changed *after* the date you send, the server must send the full page again.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - HTTP is **stateless**: each request stands alone.
 - A server sets a cookie with `Set-Cookie`; the browser sends it back with `Cookie`.
@@ -202,9 +202,9 @@ Did you get `304 Not Modified`? Now change the date to one year earlier. What st
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Why does a website need cookies to keep you logged in? What does the `HttpOnly` flag do?
 
 <details>
@@ -215,7 +215,7 @@ Because HTTP is **stateless**: the server does not remember earlier requests. Th
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Choose a `Cache-Control` value for each file:
 1. `app.3f9a1c.js`, whose name changes when its content changes.
 2. A student's exam results page.
@@ -230,7 +230,7 @@ Choose a `Cache-Control` value for each file:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A library website has a login.
 1. Write the `Set-Cookie` header it should send after login. The session should last 2 hours.
 2. Write the request the browser sends next for `/my-books`.

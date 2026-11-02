@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A teacher asks the school office for the Class 9 attendance register. The secretary first checks the drawer label to see if the folder is there. Then she opens the folder on her desk and reads the names one line at a time. When she is done, she closes the folder and puts it back. PHP reads files on the server in the very same steps: check, open, read, close.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Check that a file exists with `file_exists()` before reading it.
 - Read a whole file into one string with `file_get_contents()`.
@@ -142,13 +142,13 @@ Library closes at 3 pm.<br />
 
 ---
 
-## 🌍 Real-World Connection: Server Error Logs
+## Real-World Connection: Server Error Logs
 
 Web servers write problems into a file such as `error.log`. Such logs can grow very large. Developers write PHP scripts that read them line by line with `fopen()` and `fgets()`, look for errors, and warn the team. Reading line by line means even a huge log never fills the server's memory.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 A file `quote.txt` has 3 lines of text. How many times does this loop run?
 
@@ -157,13 +157,13 @@ while (($line = fgets($file)) !== false) { ... }
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> Exactly 3 times, once per line. Then <code>fgets()</code> reaches the end of the file (EOF) and returns <code>false</code>.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Vanishing Last Line
+## Code Detective: The Vanishing Last Line
 
 ```php
 <?php
@@ -183,17 +183,17 @@ while (($line = fgets($file)) !== false) { ... }
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Letting the visitor choose the file name.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   $page = $_GET['file'];   // visitor sends ../config.php
   echo file_get_contents($page);
   ```
-- 😕 *What happens*: `../` means "the folder above". A visitor can climb out of your folder and read private files, such as settings with passwords. This is called **directory traversal**.
-- ✅ *Fixed*: Accept only names from an **allow list**:
+- *What happens*: `../` means "the folder above". A visitor can climb out of your folder and read private files, such as settings with passwords. This is called **directory traversal**.
+- *Fixed*: Accept only names from an **allow list**:
   ```php
   $allowed = ["rules.txt", "timetable.txt"];
   $page = $_GET['file'] ?? "rules.txt";
@@ -208,7 +208,7 @@ A smaller mistake: forgetting `fclose()`. PHP closes files when the script ends,
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/). It cannot read files from your computer, so first write a small file, then read it back:
 
@@ -237,7 +237,7 @@ Output:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Check with `file_exists()` before you read.
 - `file_get_contents()` reads a small file into one string.
@@ -247,9 +247,9 @@ Output:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which function checks that a file exists?
 2. Which mode string opens a file for reading only?
 3. Which function closes an open file?
@@ -263,7 +263,7 @@ Output:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. When should you choose `file_get_contents()`, and when `fopen()` with `fgets()`?
 2. How is `file()` different from `file_get_contents()`?
 
@@ -275,7 +275,7 @@ Output:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a **Thought of the Day** page.
 
 1. Make `thoughts.txt` with one wise saying per line (for example, *"Knowledge grows when it is shared."*).

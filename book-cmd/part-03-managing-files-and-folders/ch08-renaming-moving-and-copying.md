@@ -1,12 +1,12 @@
 # Chapter 8: Renaming, Moving & Copying Files
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Ibrahim helps in the school library after classes. Sometimes a book has the wrong label, so he writes a new one: that is **renaming**. Sometimes a book sits on the wrong shelf, so he carries it to the right one: that is **moving**. When a teacher needs a worksheet for every student, he photocopies it: that is **copying**. The original stays safe. The terminal has a command for each of these jobs.
 
 > **Key Idea**: Renaming, moving and copying from the terminal is exact. You never drop a file into the wrong folder by accident, as can happen when dragging with a mouse.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Rename files and folders with `ren`.
 - Move files into another folder, or up to the parent folder, with `move`.
@@ -139,7 +139,7 @@ PS C:\JuniorCoders\practice> copy library-site library-site-backup -Recurse
 | Copy a file | `copy a.txt b.txt` | `copy a.txt b.txt` | `cp a.txt b.txt` |
 | Copy a folder | `xcopy a b /e /i` | `copy a b -Recurse` | `cp -r a b` |
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **PowerShell copies over a file without asking.** Bilal already has `backup.html` with yesterday's good work. He types:
 
@@ -167,7 +167,7 @@ The system cannot find the path specified.
 
 The error tells you the folder is missing, and nothing changes. Make the folder with `mkdir scripts`, then move again.
 
-## ✍️ Try It
+## Try It
 
 In `library-site`:
 
@@ -179,7 +179,7 @@ In `library-site`:
 
 *Hint*: For step 4, stand in `library-site` and type `copy data\catalog.txt catalog-copy.txt`.
 
-## 📝 Recap
+## Recap
 
 - `ren old new` renames a file or folder.
 - `move file folder\` moves a file. `move file ..` moves it up one level.
@@ -187,9 +187,9 @@ In `library-site`:
 - CMD prints how many files moved or copied. PowerShell stays silent when it works.
 - PowerShell's `copy` overwrites without asking. Check with `dir` first, and end folder names with `\`.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command renames a file in CMD and PowerShell? Which one does Git Bash use?
 2. How do you move `banner.png` up into the parent folder?
 3. What is the difference between `copy` and `move`?
@@ -203,7 +203,7 @@ In `library-site`:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Your folder has `main.css` and `index.html` in it, and an empty `css` folder.
 
 1. Move `main.css` into `css`.
@@ -223,7 +223,7 @@ These three lines work in both CMD and PowerShell.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Aisha keeps her class newsletter in `newsletter.html`. Her helper wants to save a copy called `newsletter-old.html`, but a file with that name already holds last month's issue.
 
 1. What happens if the helper runs `copy newsletter.html newsletter-old.html` in CMD? And in PowerShell?

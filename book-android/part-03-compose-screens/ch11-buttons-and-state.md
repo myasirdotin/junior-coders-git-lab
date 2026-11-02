@@ -1,10 +1,10 @@
 # Chapter 11: Buttons and State
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the library desk, Zainab helps the librarian on Tuesdays. Every time a student borrows a book, she adds one tally mark on a small whiteboard. At the end of the day the board says how many books went out, and she wipes it clean for tomorrow. The whiteboard is the important part. Without it, Zainab would have to remember every number in her head, and she would lose count as soon as someone asked her a question. An app needs a whiteboard too. In Compose it is called **state**, and in this chapter your buttons will finally change what the screen shows.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Add `Button`, `OutlinedButton`, `TextButton` and `IconButton` and run code in their `onClick` lambdas.
 - Explain what state is and why a normal `var` does not update the screen.
@@ -398,7 +398,7 @@ LibraryScreen   sets saved = true
 
 **Values go down, events go up.** This one sentence is the whole idea of state hoisting. It makes small composables easy to reuse and test, and the parent stays in charge of the data.
 
-## 🔮 Predict the Screen
+## Predict the Screen
 
 ```kotlin
 var count by remember { mutableIntStateOf(10) }
@@ -414,7 +414,7 @@ The button is tapped three times. What does it say?
 
 </details>
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Forgetting `remember`.**
 
@@ -437,7 +437,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 ```
 
-## ✍️ Try It
+## Try It
 
 Add a "Returned" button next to "Add one" so Zainab can count returned books too.
 
@@ -448,7 +448,7 @@ Add a "Returned" button next to "Add one" so Zainab can count returned books too
 
 *Hint:* a lambda can hold two lines: `onClick = { count = 0; returned = 0 }`, or put each on its own line inside the braces.
 
-## 📝 Recap
+## Recap
 
 - Buttons take an `onClick` lambda and a trailing lambda for their content (Chapter 7).
 - State is a value that changes and is shown on screen. A plain `var` is not watched and is reset on every redraw.
@@ -457,7 +457,7 @@ Add a "Returned" button next to "Add one" so Zainab can count returned books too
 - `rememberSaveable` also survives turning the phone.
 - State hoisting: the parent holds the state; values go down, events go up.
 
-## 📖 Key Terms
+## Key Terms
 
 - **State**: a value that can change and that the screen shows.
 - **Recomposition**: Compose running a composable again to redraw it after state changes.
@@ -466,9 +466,9 @@ Add a "Returned" button next to "Add one" so Zainab can count returned books too
 - **Delegate (`by`)**: lets a variable pass its reading and writing on to another object.
 - **State hoisting**: moving state up to a parent and passing down a value plus an "on change" function.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What are the two jobs that `mutableStateOf` and `remember` do?
 2. Which survives turning the phone: `remember` or `rememberSaveable`?
 3. Finish the sentence about state hoisting: "Values go …, events go …"
@@ -482,7 +482,7 @@ Add a "Returned" button next to "Add one" so Zainab can count returned books too
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write `ReadingModeSwitch()`: a `TextButton` that says `Show shelf numbers` or `Hide shelf numbers`. Under it, a `Text` showing `Shelf: Science A3` appears only when the shelf numbers are shown. Use `rememberSaveable`.
 
 <details>
@@ -507,7 +507,7 @@ At first only the button `Show shelf numbers` appears. One tap shows the shelf l
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Hoist the borrowed counter.
 
 1. Write `CounterRow(label: String, count: Int, onAdd: () -> Unit)`: a `Row` with the label and number on the left (with `weight(1f)`) and an `OutlinedButton` "+1" on the right. It holds no state.

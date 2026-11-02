@@ -1,16 +1,16 @@
-# CSS for Class 7: Styling & Designing Websites 🎨✨
+# CSS for Class 7: Styling & Designing Websites
 
 **The Official Textbook & Interactive Lab Companion for Web Styling**
 
 ---
 
-## 📘 About This Book
+## About This Book
 
 Welcome to **“CSS for Class 7: Styling & Designing Websites”**! This textbook empowers young creators to turn raw HTML skeletons into visually stunning, responsive, and engaging digital experiences.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 ### Part 1: Getting Started
 - **Chapter 1**: What Is CSS? (`part-01-getting-started/ch01-what-is-css.md`)
@@ -59,6 +59,6 @@ Welcome to **“CSS for Class 7: Styling & Designing Websites”**! This textboo
 
 ---
 
-## 🚀 Running the Interactive Reader
+## Running the Interactive Reader
 
 Open `index.html` in your browser. All chapters are pre-bundled in `chapters-bundle.js` for 100% offline access with voice narration, search, and instant links to the CSS Playground.

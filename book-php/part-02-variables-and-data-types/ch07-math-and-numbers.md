@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Your class is buying planetarium tickets for a science trip. The teacher multiplies the ticket price by the number of students. Then she subtracts a group discount and adds a small booking fee. Finally she rounds the total to two decimal places. Every step is simple maths, and PHP can do all of it in a split second.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Use the six arithmetic operators: `+`, `-`, `*`, `/`, `%` and `**`.
 - Update a number with `++`, `--`, `+=` and `-=`.
@@ -147,7 +147,7 @@ Question 7 goes to seat 23
 
 ---
 
-## 🌍 Real-World Connection: Cryptography & Security
+## Real-World Connection: Cryptography & Security
 
 Websites need random numbers for:
 - The 6-digit codes sent when you log in with two-step checking.
@@ -157,7 +157,7 @@ For these, developers use `random_int(100000, 999999)` instead of `rand()`. `ran
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -167,13 +167,13 @@ For these, developers use `random_int(100000, 999999)` instead of `rand()`. `ran
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>56</code>. <code>$counter++</code> prints 5 FIRST and then adds 1, so the next line prints 6. With <code>++$counter</code> (pre-increment) it would print <code>66</code>.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Odd/Even Bug
+## Code Detective: The Odd/Even Bug
 
 A coder wants to check if 14 is even. They expect to see `0`:
 
@@ -195,19 +195,19 @@ Output:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting the order of operations.**
 
-- ❌ *Wrong*: An average of two marks written as `$average = 80 + 90 / 2;`
-- 😕 *What happens*: PHP divides first: `90 / 2` is 45, plus 80 gives `125`. That is not an average.
-- ✅ *Fixed*: `$average = (80 + 90) / 2;` gives `85`. The brackets make PHP add first.
+- *Wrong*: An average of two marks written as `$average = 80 + 90 / 2;`
+- *What happens*: PHP divides first: `90 / 2` is 45, plus 80 gives `125`. That is not an average.
+- *Fixed*: `$average = (80 + 90) / 2;` gives `85`. The brackets make PHP add first.
 
 **Dividing by zero.** `echo 50 / 0;` stops the script with `DivisionByZeroError: Division by zero`. Make sure the bottom number is never 0. Chapter 8 shows how to check it with `if`.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and work out how many minibuses a class trip needs:
 
@@ -230,7 +230,7 @@ Students in the last bus: 2
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `+ - * /` work like school maths; `%` gives the remainder; `**` gives a power.
 - `number % 2` is 0 for even numbers and 1 for odd numbers.
@@ -241,9 +241,9 @@ Students in the last bus: 2
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does the modulus operator `%` calculate?
 2. Which function always rounds a number UP?
 3. Which operator raises a number to a power?
@@ -257,7 +257,7 @@ Students in the last bus: 2
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. What is the difference between `$x++` and `++$x` inside an `echo`?
 2. What does `echo 2 + 3 * 4;` print? Rewrite it so it prints `20`.
 
@@ -269,7 +269,7 @@ Students in the last bus: 2
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a student mark calculator.
 
 1. Store five subject marks out of 100 in five variables.

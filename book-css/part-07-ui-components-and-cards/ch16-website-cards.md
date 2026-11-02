@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Fact Cards and Museum Plaques**
 
@@ -19,7 +19,7 @@ Whether you are browsing products on an online bookstore, research articles in a
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Name the 4 usual parts of a card: **image**, **title**, **description** and **action button**.
@@ -227,7 +227,7 @@ Type this into your editor and save it as `product-card.html`:
 
 ---
 
-## 🌍 Real-World Connection: Component-Driven Web Design
+## Real-World Connection: Component-Driven Web Design
 
 Why is every big tech framework (React, Vue, Tailwind) built around cards?
 - Because a card is a **Reusable Component**!
@@ -235,18 +235,18 @@ Why is every big tech framework (React, Vue, Tailwind) built around cards?
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What will happen if you forget `overflow: hidden;` on `.product-card`?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> The top-left and top-right corners of the image will poke out with sharp 90-degree points, ruining the smooth rounded look of your card! <code>overflow: hidden</code> is the rule that clips everything inside the card boundaries!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Squashed Image
+## Code Detective: The Squashed Image
 
 A student tried to build a card, but the photo of a tall lighthouse got squashed down like a flat pancake:
 
@@ -288,11 +288,11 @@ Create a recipe card for *Homemade Berry Pancakes*:
 - Badge hovering on image: `⏱️ 15 Mins`.
 - Title: *Fluffy Blueberry Pancakes*.
 - Short description with prep notes.
-- Footer with *Difficulty: Easy* and a green button saying *View Recipe 📖*.
+- Footer with *Difficulty: Easy* and a green button saying *View Recipe*.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is giving cards a fixed `height` so they "line up".
 
@@ -316,7 +316,7 @@ A second slip is forgetting `alt` text on card images. Every card photo needs a 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The 3-Card Storefront**
 
@@ -330,7 +330,7 @@ Preview in browser: You now have a complete, professional e-commerce product row
 
 ---
 
-## 📝 Recap
+## Recap
 
 - The Card Pattern is the foundational layout building block of modern web applications.
 - The 4 core components are Media Header, Title, Description, and Action Footer.
@@ -341,7 +341,7 @@ Preview in browser: You now have a complete, professional e-commerce product row
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -353,9 +353,9 @@ Preview in browser: You now have a complete, professional e-commerce product row
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which property stops a photo's corners poking out of a rounded card?
 2. Which property makes an image fill its height without stretching?
 3. Name the 4 usual parts of a web card.
@@ -369,7 +369,7 @@ Preview in browser: You now have a complete, professional e-commerce product row
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write CSS for a `.card-footer` that puts a reading time on the left and a "Read More" button on the right using Flexbox.
 5. Why do cards work so well on phones?
 
@@ -389,7 +389,7 @@ Preview in browser: You now have a complete, professional e-commerce product row
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a course progress card.
 1. Make a `.card` with a photo at the top and a body with a title and short text.
 2. Between the photo and the body, add a grey track `<div>` 8px tall.

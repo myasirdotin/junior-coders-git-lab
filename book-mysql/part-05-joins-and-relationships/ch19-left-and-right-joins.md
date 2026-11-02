@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the end of term, the head teacher asks for a reading report on **every** student, not just the ones who borrowed books. The librarian copies the whole register first. Then, next to each name, she writes the books borrowed. Next to Hamza's name she writes a dash, because he borrowed nothing. Nobody is left off the report. That dash is `NULL`, and the report is a `LEFT JOIN`.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain how `LEFT JOIN` differs from `INNER JOIN`.
 - Read `NULL` values in a joined result.
@@ -142,11 +142,11 @@ WHERE l.id IS NULL;
 
 Most developers use `LEFT JOIN` only. Reading "keep everything from the first table I name" is easier than switching sides in your head.
 
-> 🧪 **Sandbox note:** SQLite supports `RIGHT JOIN` only from version 3.39. If your tool rejects it, swap the two tables and use `LEFT JOIN`, as shown above. `COALESCE` and `LEFT JOIN` work everywhere.
+> **Sandbox note:** SQLite supports `RIGHT JOIN` only from version 3.39. If your tool rejects it, swap the two tables and use `LEFT JOIN`, as shown above. `COALESCE` and `LEFT JOIN` work everywhere.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: a `WHERE` on the right table turns a LEFT JOIN back into an INNER JOIN.**
 
@@ -194,7 +194,7 @@ The one exception is `WHERE right_table.id IS NULL`, which you add on purpose to
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/), list **every book** with the name of each student who borrowed it. Books nobody borrowed should still appear, with `'Not borrowed yet'` instead of a name.
 
@@ -202,7 +202,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), list **every book** with the name
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `LEFT JOIN` keeps every row of the left table; unmatched right columns become `NULL`.
 - `COALESCE(value, fallback)` swaps a `NULL` for a friendly label.
@@ -212,9 +212,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/), list **every book** with the name
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does a `LEFT JOIN` do with a left-table row that has no match?
 2. What value fills the right-table columns in that case?
 3. What does `COALESCE` do?
@@ -228,7 +228,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), list **every book** with the name
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a query that finds every **class** that has no students. Then predict the result on our data.
 
 <details>
@@ -245,7 +245,7 @@ On our data every class has students, so the result is `Empty set`. If a new cla
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The library wants an "every book" report.
 
 1. Show every book title and the borrower's name, with `'Not borrowed yet'` for books with no loans. Sort by book id.

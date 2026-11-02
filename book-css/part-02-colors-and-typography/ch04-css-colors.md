@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Master Painter's Palette**
 
@@ -16,7 +16,7 @@ You can use simple everyday color names, high-tech Hex codes (used by digital de
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Apply colours with **colour names** (like `tomato` and `navy`).
@@ -138,7 +138,7 @@ Type this into your editor and save it as `colors.html`:
 
 ---
 
-## 🌍 Real-World Connection: Brand Identity
+## Real-World Connection: Brand Identity
 
 Most organisations choose a few signature colours and always use the same hex codes. Here is a made-up example for a town library:
 - **Library Navy** (headings): `#1e3a8a`
@@ -148,7 +148,7 @@ Most organisations choose a few signature colours and always use the same hex co
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this Hex code:
 
@@ -162,13 +162,13 @@ h1 {
 **Question**: What color will the text and the background be?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> The text will be pitch black (<code>#000000</code>) and the background will be pure white (<code>#ffffff</code>)! This is the highest contrast combination in computer science.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Missing Pound Sign
+## Code Detective: The Missing Pound Sign
 
 A student tried to give their heading an electric purple color, but the color refused to change:
 
@@ -213,7 +213,7 @@ Write an HTML page called `my-palette.html` displaying four colored boxes showin
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is writing `background` colour with the wrong property name, `color`, and expecting the box to change.
 
@@ -238,7 +238,7 @@ A second slip is a hex code with the wrong number of digits, such as `#12345`. H
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The RGB Light Mixer**
 
@@ -249,7 +249,7 @@ Open your browser's Developer Tools or an editor with the file `colors.html`:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - CSS provides three primary ways to define color: **Names**, **Hex Codes**, and **RGB**.
 - Named colors (`tomato`, `navy`) are great for quick tests.
@@ -260,7 +260,7 @@ Open your browser's Developer Tools or an editor with the file `colors.html`:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -272,9 +272,9 @@ Open your browser's Developer Tools or an editor with the file `colors.html`:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What character must always come before a hex colour code?
 2. What RGB value makes pure white?
 3. Which CSS property changes the colour of the text in a paragraph?
@@ -288,7 +288,7 @@ Open your browser's Developer Tools or an editor with the file `colors.html`:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write a CSS rule that gives all `<h2>` headings a deep purple background (`#581c87`) and white text (`#ffffff`).
 5. Explain why `#ff0000` is pure red.
 
@@ -307,7 +307,7 @@ h2 {
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make a see-through notice card.
 1. Find out what the **a** in `rgba()` means.
 2. Give the page `body` a bright background colour, such as `#0ea5e9`.

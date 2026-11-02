@@ -1,10 +1,10 @@
 # Chapter 15: Relationships
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Every loan slip in the library connects two things: a **member** and a **book**. From a member's card, the librarian can list all the slips that member has. From a slip, she can see the book's title and the member's name. Nothing is written twice; each slip just points to the right card and the right book. Eloquent **relationships** let your models point to each other in the same way.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain **one-to-many** relationships with foreign keys.
 - Write `hasMany()` and `belongsTo()` methods in models.
@@ -243,7 +243,7 @@ $loans = Loan::with(['book', 'member'])->get();   // 3 queries in total
 
 Now there is one query for loans, one for all their books and one for all their members, however many loans there are.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mixing up brackets.**
 
@@ -256,13 +256,13 @@ $title = $loan->book()->title;                                // error
 
 **Wrong foreign key name.** If the column is `student_id` instead of `member_id`, `hasMany(Loan::class)` finds nothing. Either rename the column, or pass it: `hasMany(Loan::class, 'student_id')`.
 
-## ✍️ Try It
+## Try It
 
 Create the tables and models above. In Tinker, find how many loans book 2 has, and the name of the member who borrowed it.
 
 *Hint:* `Book::find(2)->loans->count()` and `Book::find(2)->loans->first()->member->name`.
 
-## 📝 Recap
+## Recap
 
 - One-to-many: a member has many loans; a loan belongs to one member.
 - `hasMany(Loan::class)` and `belongsTo(Book::class)` define relationships, using `*_id` columns by convention.
@@ -270,9 +270,9 @@ Create the tables and models above. In Tinker, find how many loans book 2 has, a
 - `casts()` can turn date columns into date objects.
 - `with([...])` loads related rows in advance and avoids the N+1 problem.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Which relationship method goes in `Loan` to reach its book, and which column does it use?
 
 <details>
@@ -282,7 +282,7 @@ Which relationship method goes in `Loan` to reach its book, and which column doe
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write code that lists the titles of all books Omar (member 2) has **not** returned yet.
 
 <details>
@@ -304,7 +304,7 @@ Bees and Their Hives
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build the **overdue loans** page planned in Chapter 2.
 
 1. Route `/loans/overdue` → `LoanController@overdue`, named `loans.overdue`.

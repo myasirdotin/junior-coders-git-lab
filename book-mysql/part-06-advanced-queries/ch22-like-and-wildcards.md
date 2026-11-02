@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A Grade 7 student comes to the library desk. "I want that book about data… I think *data* was somewhere in the title." The librarian does not need the exact title. She runs her finger down the catalogue looking for any title that has "data" anywhere in it. `LIKE` lets the database do that same kind of "I only remember part of it" search.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why `=` is not enough for searching.
 - Use `%` to match "starts with", "ends with" and "contains".
@@ -162,7 +162,7 @@ SELECT name FROM students WHERE BINARY name LIKE 'aisha';
 Empty set
 ```
 
-> 🧪 **Sandbox note:** SQLite's `LIKE` also ignores case for English letters (A–Z), so these examples behave the same. SQLite has no `BINARY` keyword; it uses `GLOB` for case-sensitive patterns instead.
+> **Sandbox note:** SQLite's `LIKE` also ignores case for English letters (A–Z), so these examples behave the same. SQLite has no `BINARY` keyword; it uses `GLOB` for case-sensitive patterns instead.
 
 ---
 
@@ -195,7 +195,7 @@ MySQL also accepts a backslash without the `ESCAPE` part: `LIKE '%20\%%'`. The `
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: using `=` with wildcards.**
 
@@ -217,11 +217,11 @@ SELECT title FROM books WHERE title LIKE 'Data';
 
 This returns nothing: without wildcards, `LIKE` acts like `=`. **Fix:** `LIKE '%Data%'`.
 
-> 💡 **Speed note:** `LIKE 'Clean%'` can use an index (a sorted lookup list, like a book's index; Chapter 25) because the start is known. `LIKE '%Clean%'` must check every row, which is slower on very big tables. For our small tables you will not notice.
+> **Speed note:** `LIKE 'Clean%'` can use an index (a sorted lookup list, like a book's index; Chapter 25) because the start is known. `LIKE '%Clean%'` must check every row, which is slower on very big tables. For our small tables you will not notice.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/), find every donor whose name **ends with "a"** and show how much they gave, largest first.
 
@@ -229,7 +229,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), find every donor whose name **end
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `LIKE` matches text against a pattern; `=` needs an exact match.
 - `%` = any number of characters (even zero); `_` = exactly one character.
@@ -239,9 +239,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/), find every donor whose name **end
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does `%` match?
 2. What does `_` match?
 3. Which operator do you use with wildcards instead of `=`?
@@ -255,7 +255,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), find every donor whose name **end
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Find books whose title starts with "Introduction".
 2. Find students whose name contains the letters "ar".
 3. Find donations whose cause has exactly 5 characters.
@@ -276,7 +276,7 @@ SELECT donor, cause FROM donations WHERE cause LIKE '_____';
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The library website gets a search box. A visitor types `tech`.
 
 1. Write the query that finds every book whose title **or** category contains the search word.

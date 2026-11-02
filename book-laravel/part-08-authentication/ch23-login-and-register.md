@@ -1,10 +1,10 @@
 # Chapter 23: Login & Register
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 To join the library, you fill in a **membership form** and the librarian gives you a card. Next time, you show the card at the gate. The gatekeeper checks it, nods, and lets you in. When you leave, you collect your card from the desk and go. Register, log in, log out: three steps every website with accounts has. In this chapter you build all three by hand, so you understand what the starter kits do for you.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Build a **register** page that creates a user with a hashed password.
 - Build a **login** page with `Auth::attempt()`.
@@ -244,7 +244,7 @@ When Aisha is logged in, the menu shows:
 Hello, Aisha  [Log out]
 ```
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Not naming the login route `login`.**
 
@@ -256,13 +256,13 @@ What happens: when a guest opens a page protected by `auth`, Laravel tries to se
 
 **Forgetting `regenerate()` after login.** The login seems to work, but the visitor keeps the session id from before login. An attacker who had planted that id could share the logged-in session. Always call `$request->session()->regenerate()` after `Auth::attempt()` or `Auth::login()`.
 
-## ✍️ Try It
+## Try It
 
 Add the register, login and logout pages to `library-app`. Register yourself with a made-up email, log out, then try logging in with a wrong password six times in one minute. What happens on the sixth try?
 
 *Hint:* the sixth try shows **429 | Too Many Requests**. Wait a minute and try again.
 
-## 📝 Recap
+## Recap
 
 - Register: validate (with `confirmed`), `User::create()`, `Auth::login()`, regenerate the session.
 - Log in: validate, `Auth::attempt($credentials, $remember)`, regenerate, `redirect()->intended()`.
@@ -270,9 +270,9 @@ Add the register, login and logout pages to `library-app`. Register yourself wit
 - Log out with a POST form: `Auth::logout()`, `invalidate()`, `regenerateToken()`.
 - `@auth` / `@guest` and `auth()->user()` show who is logged in; `throttle` slows down guessing.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does `Auth::attempt()` do, and what does it return?
 
 <details>
@@ -282,7 +282,7 @@ It looks up the user by email, hashes the typed password and compares it with th
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Why does the login error say "These credentials do not match our records." instead of "No member uses that email"?
 
 <details>
@@ -292,7 +292,7 @@ A specific message would tell a stranger which emails belong to members. That le
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Link users to library members.
 
 1. Write a migration that adds a nullable `user_id` foreign key to `members`.

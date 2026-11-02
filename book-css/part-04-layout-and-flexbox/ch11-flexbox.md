@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Arranging Books on a Smart Shelf**
 
@@ -18,7 +18,7 @@ Flexbox (short for **Flexible Box Layout**) is the greatest superpower in modern
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Turn on Flexbox with `display: flex;` on a **flex container** (the parent) to arrange its **flex items** (the children).
@@ -175,7 +175,7 @@ Type this into your editor and save it as `navbar-flex.html`:
 
 ---
 
-## 🌍 Real-World Connection: How Top Apps Use Flexbox
+## Real-World Connection: How Top Apps Use Flexbox
 
 Every single navigation bar on **Wikipedia**, **GitHub**, **BBC Bitesize**, and **Khan Academy** is powered by Flexbox!
 - On **BBC News** and **Al Jazeera**, the top navigation bar uses `justify-content: space-between;`:
@@ -186,7 +186,7 @@ Every single navigation bar on **Wikipedia**, **GitHub**, **BBC Bitesize**, and 
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this CSS:
 
@@ -200,13 +200,13 @@ Look at this CSS:
 **Question**: If you have 3 cards inside `.container`, will they stick to the left, stick to the right, or gather together in the exact middle of the screen?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> They will gather together in the exact middle of the screen! <code>justify-content: center;</code> collects all child items and centers them horizontally along the main row axis.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Childish Mistake
+## Code Detective: The Childish Mistake
 
 A student wanted to center three cards, so they wrote this CSS:
 
@@ -252,7 +252,7 @@ Build a strip of club buttons:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is using `justify-content` to centre items up and down in a row.
 
@@ -280,7 +280,7 @@ A second slip: after switching to `flex-direction: column`, students still expec
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Column Switch**
 
@@ -295,7 +295,7 @@ Open `navbar-flex.html` in your editor:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Flexbox is enabled by setting `display: flex;` on a parent container.
 - The parent is the **Flex Container**; direct children are **Flex Items**.
@@ -307,7 +307,7 @@ Open `navbar-flex.html` in your editor:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -320,9 +320,9 @@ Open `navbar-flex.html` in your editor:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which CSS property and value turn on Flexbox?
 2. Which `justify-content` value pushes the first and last items to the two ends, with space between?
 3. Which property sets the space between flex items without margins?
@@ -336,7 +336,7 @@ Open `navbar-flex.html` in your editor:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write the three lines of CSS that centre an item in both directions inside its parent.
 5. What happens when you add `flex-direction: column;` to a flex container?
 
@@ -358,7 +358,7 @@ The parent also needs a height (for example `min-height: 300px;`), or there is n
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Stop cards from being squashed.
 1. Make a flex container with 10 cards, each `width: 150px;`.
 2. Make the window narrow and watch the cards get thinner.

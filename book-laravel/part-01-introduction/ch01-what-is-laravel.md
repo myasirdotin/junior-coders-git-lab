@@ -1,10 +1,10 @@
 # Chapter 1: What is Laravel?
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine your school decides to open a new library. You could cut the wood, build every shelf and print every library card yourself. Or you could start with ready-made shelves, a card system and a front desk, and spend your energy on choosing good books. Laravel is the second choice for web apps. It gives you the shelves and the front desk, so you can focus on what your app is for.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a **framework** is and how Laravel helps a PHP developer.
 - Compare writing an app in plain PHP with writing it in Laravel.
@@ -119,7 +119,7 @@ In this book you will build one app, step by step: a **school library app**. It 
 
 By Chapter 24 the app will list books, let librarians add and edit them, record loans, check form input, and keep the librarian pages behind a login.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Running Artisan in the wrong folder.**
 
@@ -140,13 +140,13 @@ C:\xampp\htdocs> cd library-app
 C:\xampp\htdocs\library-app> php artisan serve
 ```
 
-## ✍️ Try It
+## Try It
 
 Create the `library-app` project on your own computer. Run `php artisan --version` and `php artisan serve`, then open the welcome page in your browser.
 
 *Hint:* if Composer seems slow, wait. It is downloading many packages. Do not close the terminal halfway.
 
-## 📝 Recap
+## Recap
 
 - Laravel is a free PHP framework. It gives your app a clear structure and ready-made tools.
 - It still uses the PHP and MySQL you already know.
@@ -154,9 +154,9 @@ Create the `library-app` project on your own computer. Run `php artisan --versio
 - `php artisan serve` runs your app at `http://127.0.0.1:8000`.
 - This book builds one app: a school library with books, members and loans.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is a framework, and which two tools do you use to create and run a Laravel project?
 
 <details>
@@ -166,7 +166,7 @@ A framework is a ready-made structure (folders, tools and rules) for building an
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A classmate types `php artisan serve` and sees `Could not open input file: artisan`. What two things should they check?
 
 <details>
@@ -177,7 +177,7 @@ A classmate types `php artisan serve` and sees `Could not open input file: artis
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Plan your library app before you code it.
 
 1. Write the three main parts of the app.

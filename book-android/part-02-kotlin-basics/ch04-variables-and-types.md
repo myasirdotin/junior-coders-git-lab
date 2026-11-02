@@ -1,10 +1,10 @@
 # Chapter 4: Variables and Types
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 In the school library, every book sits in a labelled box on a shelf. Some labels never change, like "Science A3". Other boxes are refilled every day, like the "Returned today" box. A program works the same way. It keeps each piece of information in a labelled box called a **variable**. Some boxes are sealed forever, and some can be refilled. In this chapter you will learn to make both kinds in Kotlin, the language of modern Android apps.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Create variables with `val` (cannot change) and `var` (can change).
 - Recognise the five everyday types: `Int`, `Double`, `Boolean`, `String` and `Char`.
@@ -320,7 +320,7 @@ null
 
 You will learn how to handle `null` safely in Chapter 8. For now, remember that it exists and that it is the polite way to read numbers that people type.
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Before you run it, write down what you think this prints:
 
@@ -343,7 +343,7 @@ fun main() {
 
 </details>
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: trying to change a `val`.**
 
@@ -383,7 +383,7 @@ error: assignment type mismatch: actual type is 'kotlin.String', but 'kotlin.Int
 
 `pages` was born an `Int`, so it can only ever hold whole numbers. Fix: write `pages = 300`. These errors appear before the program runs, which is a gift: Kotlin catches the bug before any user sees it.
 
-## ✍️ Try It
+## Try It
 
 Open play.kotlinlang.org and write a program about yourself as a library member:
 
@@ -393,7 +393,7 @@ Open play.kotlinlang.org and write a program about yourself as a library member:
 
 **Hint:** use `$name` for plain variables and `${...}` for anything with a dot or a sum.
 
-## 📝 Recap
+## Recap
 
 - `val` makes a variable that cannot change; `var` makes one that can. Use `val` unless you need to change it.
 - The everyday types are `Int`, `Double`, `Boolean`, `String` and `Char`. Kotlin usually infers the type for you.
@@ -401,7 +401,7 @@ Open play.kotlinlang.org and write a program about yourself as a library member:
 - `Int / Int` gives a whole number; `%` gives the remainder. Use a `Double` to get decimals.
 - Convert with `toInt()`, `toDouble()` and `toString()`. `toIntOrNull()` gives `null` instead of crashing.
 
-## 📖 Key Terms
+## Key Terms
 
 - **Variable:** a named box that holds a value.
 - **Type:** the kind of value, such as `Int` or `String`.
@@ -409,9 +409,9 @@ Open play.kotlinlang.org and write a program about yourself as a library member:
 - **String template:** a string with `$` placeholders that are filled with values.
 - **Integer division:** dividing two whole numbers and keeping only the whole part.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the difference between `val` and `var`? Which one should you use by default?
 2. What do these lines print? `println(17 / 5)`, `println(17 % 5)` and `println(17.0 / 5)`.
 
@@ -441,7 +441,7 @@ Two `Int` values give the whole number `3`. Five fits into 17 three times with `
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 The school's charity drive collected **125** water bottles for a village clinic. Each box holds **12** bottles. Write a program that prints how many full boxes there are and how many bottles are left over, using `val`, `/`, `%` and string templates.
 
 <details>
@@ -471,7 +471,7 @@ Bottles left over: 5
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a reading log for one student:
 
 1. Store the student's name, grade, book title and the book's total pages (186) in `val`s.

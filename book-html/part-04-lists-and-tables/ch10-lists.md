@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine your mom or dad sends you to the grocery store with a scrap of paper:
 - Apples
@@ -25,7 +25,7 @@ What happens if you do step 4 before step 2? You will bake an empty, burnt metal
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Create bulleted lists using `<ul>` (Unordered List).
@@ -129,7 +129,7 @@ Type this code into your editor and save it as `lists.html`:
 
 ---
 
-## 🌍 Real-World Connection: The Backbone of Navigation Menus
+## Real-World Connection: The Backbone of Navigation Menus
 
 Did you know that the navigation bar at the top of many real websites (school portals, online shops, news sites) is built with an HTML `<ul>` list?
 - Even though it looks like a sleek horizontal row of buttons with dropdowns, under the hood it is simply an unordered list of links:
@@ -144,7 +144,7 @@ Did you know that the navigation bar at the top of many real websites (school po
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What will happen if you write this code in your browser:
 
@@ -159,13 +159,13 @@ What will happen if you write this code in your browser:
 **Question**: Will Venus be labeled as number 1 or number 5?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> It will start at number 5! The <code>start="5"</code> attribute tells the browser to start counting from 5, so the list will show: 5. Venus, 6. Earth, 7. Mars!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Missing Parent
+## Code Detective: The Missing Parent
 
 A student tried to create a list of pet names, but wrote this code:
 
@@ -195,7 +195,7 @@ A student tried to create a list of pet names, but wrote this code:
 Have you ever visited a web page with a bulleted list of 45 items?
 Almost nobody reads a 45-item list to the end! Long lists are hard to scan, and readers soon lose track of what they have read.
 
-> 💡 **Think Before You Code**:
+> **Think Before You Code**:
 > If your list has more than 7 or 8 items, break it into smaller thematic categories with `<h3>` subheadings (e.g., "Dairy", "Fruits & Vegetables", "Bakery")!
 
 ---
@@ -210,11 +210,11 @@ Build a recipe web page titled `hot-cocoa.html`:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Using `<ul>` when the order matters (or `<ol>` when it doesn't).**
 
-❌ Wrong: steps for a fire drill as bullet points.
+Wrong: steps for a fire drill as bullet points.
 
 ```html
 <ul>
@@ -226,7 +226,7 @@ Build a recipe web page titled `hot-cocoa.html`:
 
 What happens: the page looks fine, but readers cannot say "I am on step 2". Screen readers also do not tell users that the items are steps in order.
 
-✅ Fixed: steps that must happen in order belong in `<ol>`.
+Fixed: steps that must happen in order belong in `<ol>`.
 
 ```html
 <ol>
@@ -238,7 +238,7 @@ What happens: the page looks fine, but readers cannot say "I am on step 2". Scre
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The 3-Step Science Experiment**
 
@@ -249,11 +249,11 @@ Create an ordered list showing how to test if an egg is fresh:
 
 Write this as an `<ol>` in your editor and check the browser numbers.
 
-> 💡 **Hint:** Do not type the numbers 1, 2, 3 yourself. Write each step inside `<li>` and the browser numbers them for you.
+> **Hint:** Do not type the numbers 1, 2, 3 yourself. Write each step inside `<li>` and the browser numbers them for you.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `<ul>` creates an unordered list with round bullets.
 - `<ol>` creates an ordered list with automatic numbers.
@@ -263,7 +263,7 @@ Write this as an `<ol>` in your editor and check the browser numbers.
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -275,9 +275,9 @@ Write this as an `<ol>` in your editor and check the browser numbers.
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which tag creates a numbered list?
 2. Which tag creates a bulleted list?
 3. Which tag wraps every single item inside a list?
@@ -291,7 +291,7 @@ Write this as an `<ol>` in your editor and check the browser numbers.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write an ordered list of your top 3 favourite books.
 2. Make a nested list of two school subjects (e.g. Science and Math), with two topics under each subject.
 
@@ -331,7 +331,7 @@ The inner `<ul>` goes **inside** the `<li>`, before its `</li>`.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "Science Fair Planner" page:
 1. An `<h1>` with the page title.
 2. An `<h2>` "Equipment" with a bulleted list of at least four items.

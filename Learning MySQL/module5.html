@@ -12,7 +12,7 @@
         <header class="module-header path-mysql">
             <span class="badge" style="background: white; color: var(--mysql-brand);">Level 3</span>
             <h1>JOINs</h1>
-            <p>Connect Your Tables! 🔗</p>
+            <p>Connect Your Tables!</p>
         </header>
 
         <section class="content-section">
@@ -50,9 +50,7 @@
                 </div>
 
                 <!-- Arrow -->
-                <div style="display: flex; align-items: center; font-size: 2rem; color: var(--mysql-brand); padding-top: 2rem;">
-                    🔗
-                </div>
+                <div style="display: flex; align-items: center; font-size: 2rem; color: var(--mysql-brand); padding-top: 2rem;"></div>
 
                 <!-- Grades Table -->
                 <div style="flex: 1; min-width: 280px;">
@@ -292,14 +290,14 @@
 
         <!-- Practice: three levels -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
 <p>What is a foreign key? Which JOIN keeps every row from the left table, even with no match?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>A <strong>foreign key</strong> is a column that points to the primary key of another table, like <code>grades.student_id</code> pointing to <code>students.id</code>. <code>LEFT JOIN</code> keeps every row from the left table.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
 <p>The <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a> already has a small school database with the tables <code>students</code>, <code>books</code>, <code>loans</code> (library books borrowed by students) and <code>donations</code>. In <code>loans</code>, <code>student_id</code> points to <code>students.id</code>. Write a query with an <code>INNER JOIN</code> and short aliases that lists each loan's <code>loan_date</code> next to the student's <code>name</code>.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
 <pre><code>SELECT s.name, l.loan_date
@@ -310,7 +308,7 @@ INNER JOIN students AS s
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
 <p>Find out who is reading what right now, using the <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a>.</p>
 <ol>
 <li>Join <code>loans</code> to <code>students</code> (on <code>student_id</code>) and to <code>books</code> (on <code>book_id</code>). You can write two <code>INNER JOIN</code> lines, one after the other.</li>

@@ -16,7 +16,7 @@
 window.JC_BOOKS = [
   {
     "key": "cmd",
-    "cardIcon": "⌨️",
+    "cardIcon": "",
     "stage": "first",
     "title": "Terminal & Command Prompt",
     "short": "Terminal",
@@ -28,11 +28,11 @@ window.JC_BOOKS = [
     "links": [
       {
         "href": "../cheatsheet-cmd.html",
-        "label": "📋 Cheat sheet"
+        "label": "Cheat sheet"
       },
       {
         "href": "../paths/beginner/index.html",
-        "label": "🗺️ Beginner path"
+        "label": "Beginner path"
       }
     ],
     "parts": {
@@ -78,18 +78,18 @@ window.JC_BOOKS = [
     "title": "HTML: Structure the Web",
     "short": "HTML",
     "subtitle": "Build real web pages",
-    "icon": "🌐",
+    "icon": "",
     "color": "#ea580c",
     "colorDark": "#c2410c",
     "colorSoft": "#fff7ed",
     "links": [
       {
         "href": "../Learning%20HTML/learninghtml.html",
-        "label": "📚 HTML lessons"
+        "label": "HTML lessons"
       },
       {
         "href": "../cheatsheet-html.html",
-        "label": "📋 Cheat sheet"
+        "label": "Cheat sheet"
       }
     ],
     "parts": {
@@ -146,7 +146,7 @@ window.JC_BOOKS = [
     "practice": {
       "href": "../studios/web-studio/index.html",
       "label": "Open the Web Studio",
-      "icon": "🌐",
+      "icon": "",
       "text": "Type this chapter’s examples in the Web Studio and watch the page change."
     },
     "grades": "Grades 6–7",
@@ -161,18 +161,18 @@ window.JC_BOOKS = [
     "title": "CSS: Styling & Layouts",
     "short": "CSS",
     "subtitle": "Colours, layout and phones",
-    "icon": "🎨",
+    "icon": "",
     "color": "#7c3aed",
     "colorDark": "#6d28d9",
     "colorSoft": "#f5f3ff",
     "links": [
       {
         "href": "../Learning%20CSS/learningcss.html",
-        "label": "📚 CSS lessons"
+        "label": "CSS lessons"
       },
       {
         "href": "../cheatsheet-css.html",
-        "label": "📋 Cheat sheet"
+        "label": "Cheat sheet"
       }
     ],
     "parts": {
@@ -238,7 +238,7 @@ window.JC_BOOKS = [
     "practice": {
       "href": "../studios/web-studio/index.html",
       "label": "Open the Web Studio",
-      "icon": "🎨",
+      "icon": "",
       "text": "Add this chapter’s CSS in the Web Studio’s style.css tab and see it live."
     },
     "grades": "Grade 7",
@@ -253,18 +253,18 @@ window.JC_BOOKS = [
     "title": "Git & GitHub",
     "short": "Git & GitHub",
     "subtitle": "Save versions, work as a team",
-    "icon": "🗂️",
+    "icon": "",
     "color": "#f05032",
     "colorDark": "#c2410c",
     "colorSoft": "#fff7ed",
     "links": [
       {
         "href": "../cheatsheet-git.html",
-        "label": "📋 Cheat sheet"
+        "label": "Cheat sheet"
       },
       {
         "href": "../book-cmd/index.html",
-        "label": "⌨️ Terminal book"
+        "label": "Terminal book"
       }
     ],
     "parts": {
@@ -331,7 +331,7 @@ window.JC_BOOKS = [
   },
   {
     "key": "js",
-    "cardIcon": "⚡",
+    "cardIcon": "",
     "stage": "web",
     "title": "JavaScript: Learn, Think, Create",
     "short": "JavaScript",
@@ -343,15 +343,15 @@ window.JC_BOOKS = [
     "links": [
       {
         "href": "../Learning%20JS/learningjs.html",
-        "label": "📚 JavaScript lessons"
+        "label": "JavaScript lessons"
       },
       {
         "href": "../cheatsheet-js.html",
-        "label": "📋 Cheat sheet"
+        "label": "Cheat sheet"
       },
       {
         "href": "../studios/web-studio/index.html",
-        "label": "🌐 Web Studio"
+        "label": "Web Studio"
       }
     ],
     "parts": {
@@ -443,7 +443,7 @@ window.JC_BOOKS = [
     "practice": {
       "href": "../studios/web-studio/index.html",
       "label": "Open the Web Studio",
-      "icon": "🌐",
+      "icon": "",
       "text": "Build this chapter’s examples into a real page in the Web Studio, or run small pieces in the scratchpad above."
     },
     "scratchpad": true,
@@ -467,22 +467,22 @@ window.JC_BOOKS = [
     "title": "PHP: Server Scripting",
     "short": "PHP",
     "subtitle": "Forms, files and safe code",
-    "icon": "🐘",
+    "icon": "",
     "color": "#7c3aed",
     "colorDark": "#5b21b6",
     "colorSoft": "#f5f3ff",
     "links": [
       {
         "href": "../Learning%20PHP/learningphp.html",
-        "label": "📚 PHP lessons"
+        "label": "PHP lessons"
       },
       {
         "href": "../cheatsheet-php.html",
-        "label": "📋 Cheat sheet"
+        "label": "Cheat sheet"
       },
       {
         "href": "../Learning%20PHP/exercises.html",
-        "label": "✅ Exercises"
+        "label": "Exercises"
       }
     ],
     "parts": {
@@ -549,7 +549,7 @@ window.JC_BOOKS = [
     "practice": {
       "href": "../studios/php-console/index.html",
       "label": "Open the PHP Console",
-      "icon": "🐘",
+      "icon": "",
       "text": "Run this chapter’s PHP examples in your browser and change them."
     },
     "grades": "Grades 9–10",
@@ -564,22 +564,22 @@ window.JC_BOOKS = [
     "title": "MySQL: Databases",
     "short": "MySQL",
     "subtitle": "Tables and SQL questions",
-    "icon": "🗄️",
+    "icon": "",
     "color": "#0284c7",
     "colorDark": "#0369a1",
     "colorSoft": "#f0f9ff",
     "links": [
       {
         "href": "../Learning%20MySQL/learningmysql.html",
-        "label": "📚 MySQL lessons"
+        "label": "MySQL lessons"
       },
       {
         "href": "../cheatsheet-mysql.html",
-        "label": "📋 Cheat sheet"
+        "label": "Cheat sheet"
       },
       {
         "href": "../Learning%20MySQL/exercises.html",
-        "label": "✅ Exercises"
+        "label": "Exercises"
       }
     ],
     "parts": {
@@ -641,7 +641,7 @@ window.JC_BOOKS = [
     "practice": {
       "href": "../studios/sql-sandbox/index.html",
       "label": "Open the SQL Sandbox",
-      "icon": "🗄️",
+      "icon": "",
       "text": "Run this chapter’s queries on the same school library database."
     },
     "grades": "Grades 9–10",
@@ -656,22 +656,22 @@ window.JC_BOOKS = [
     "title": "Laravel: PHP Framework",
     "short": "Laravel",
     "subtitle": "Build a library app",
-    "icon": "🔥",
+    "icon": "",
     "color": "#dc2626",
     "colorDark": "#b91c1c",
     "colorSoft": "#fef2f2",
     "links": [
       {
         "href": "../Learning%20Laravel/learninglaravel.html",
-        "label": "📚 Laravel lessons"
+        "label": "Laravel lessons"
       },
       {
         "href": "../cheatsheet-laravel.html",
-        "label": "📋 Cheat sheet"
+        "label": "Cheat sheet"
       },
       {
         "href": "../Learning%20Laravel/exercises.html",
-        "label": "✅ Exercises"
+        "label": "Exercises"
       }
     ],
     "parts": {
@@ -727,18 +727,18 @@ window.JC_BOOKS = [
     "title": "Python & Machine Learning",
     "short": "Python",
     "subtitle": "From first code to simple AI",
-    "icon": "🐍",
+    "icon": "",
     "color": "#2563eb",
     "colorDark": "#1d4ed8",
     "colorSoft": "#eff6ff",
     "links": [
       {
         "href": "../Learning%20Python/learningpython.html",
-        "label": "📚 Python lessons"
+        "label": "Python lessons"
       },
       {
         "href": "../cheatsheet-python.html",
-        "label": "📋 Cheat sheet"
+        "label": "Cheat sheet"
       }
     ],
     "parts": {
@@ -776,7 +776,7 @@ window.JC_BOOKS = [
     "practice": {
       "href": "../studios/python-console/index.html",
       "label": "Open the Python Console",
-      "icon": "🐍",
+      "icon": "",
       "text": "Run this chapter’s Python examples in your browser and try your own changes."
     },
     "grades": "Grades 8–10",
@@ -791,18 +791,18 @@ window.JC_BOOKS = [
     "title": "Networks & Web Protocols",
     "short": "Networks",
     "subtitle": "How messages travel",
-    "icon": "📡",
+    "icon": "",
     "color": "#0284c7",
     "colorDark": "#075985",
     "colorSoft": "#f0f9ff",
     "links": [
       {
         "href": "../Learning%20Networks/learningnetworks.html",
-        "label": "📚 Networks lessons"
+        "label": "Networks lessons"
       },
       {
         "href": "../cheatsheet-networks.html",
-        "label": "📋 Cheat sheet"
+        "label": "Cheat sheet"
       }
     ],
     "parts": {
@@ -841,7 +841,7 @@ window.JC_BOOKS = [
     "practice": {
       "href": "../Learning%20Networks/playground.html",
       "label": "Open the Network Studio",
-      "icon": "📡",
+      "icon": "",
       "text": "See this chapter in action: requests, DNS lookups, handshakes and subnets."
     },
     "grades": "Grades 9–10",
@@ -856,18 +856,18 @@ window.JC_BOOKS = [
     "title": "Cybersecurity & Digital Safety",
     "short": "Cybersecurity",
     "subtitle": "Protect people and websites",
-    "icon": "🛡️",
+    "icon": "",
     "color": "#059669",
     "colorDark": "#047857",
     "colorSoft": "#ecfdf5",
     "links": [
       {
         "href": "../Learning%20Cybersecurity/learningcybersecurity.html",
-        "label": "📚 Security lessons"
+        "label": "Security lessons"
       },
       {
         "href": "../cheatsheet-cybersecurity.html",
-        "label": "📋 Cheat sheet"
+        "label": "Cheat sheet"
       }
     ],
     "parts": {
@@ -906,7 +906,7 @@ window.JC_BOOKS = [
     "practice": {
       "href": "../Learning%20Cybersecurity/playground.html",
       "label": "Open the Cyber Defense Studio",
-      "icon": "🛡️",
+      "icon": "",
       "text": "Try this chapter’s ideas safely in the Cyber Defense Studio."
     },
     "grades": "Grades 9–10",
@@ -921,26 +921,26 @@ window.JC_BOOKS = [
     "title": "Android Apps with Kotlin",
     "short": "Android",
     "subtitle": "Build real phone apps with Kotlin",
-    "icon": "📱",
+    "icon": "",
     "color": "#16a34a",
     "colorDark": "#166534",
     "colorSoft": "#f0fdf4",
     "links": [
       {
         "href": "../cheatsheet-kotlin.html",
-        "label": "📋 Cheat sheet"
+        "label": "Cheat sheet"
       },
       {
         "href": "../studios/kotlin-practice/index.html",
-        "label": "🧪 Kotlin exercises"
+        "label": "Kotlin exercises"
       },
       {
         "href": "../book-js/index.html",
-        "label": "⚡ JavaScript book"
+        "label": "JavaScript book"
       },
       {
         "href": "https://play.kotlinlang.org/",
-        "label": "🟣 Kotlin Playground"
+        "label": "Kotlin Playground"
       }
     ],
     "parts": {
@@ -990,7 +990,7 @@ window.JC_BOOKS = [
     "practice": {
       "href": "https://play.kotlinlang.org/",
       "label": "Open Kotlin Playground",
-      "icon": "🟣",
+      "icon": "",
       "text": "Run this chapter’s plain Kotlin examples in your browser. Screen (Compose) code runs in Android Studio."
     },
     "grades": "Grades 9–10",

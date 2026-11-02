@@ -1,12 +1,12 @@
 # Chapter 15: Capstone: Building an Impenetrable Community Portal
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 An old fort was never safe because of one giant wall. It was safe because of many things working together: a moat, a strong gate, guards who checked every visitor, a locked treasury, and a well inside in case of a long siege. Even then, wise commanders never called a fort "impenetrable". They kept checking the walls and kept improving them. In this capstone you will build that kind of fort for a website. "Impenetrable" is our goal, not a promise: no real system is perfect, but many strong layers make it very hard to break.
 
 Congratulations on reaching the final chapter! You will now bring everything together in one security plan.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Build a **threat model**: what needs protecting, from whom, and what could go wrong.
 - Apply every layer from this book to one real-world style project.
@@ -169,7 +169,7 @@ you are keeping an *Amānah* and doing your work with *Iḥsān*: excellence and
 
 Congratulations! You have completed all 14 chapters of **Cybersecurity & Digital Hygiene**. You are ready to explore the **Cybersecurity Lab Studio**, try the practice exercises, and protect the people who trust the websites you build. Use your knowledge only to defend, and always with permission.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake:** "We added a firewall and HTTPS, so the portal is secure. We can stop now."
 
@@ -177,17 +177,17 @@ Congratulations! You have completed all 14 chapters of **Cybersecurity & Digital
 
 **Fixed thinking:** go through **every** layer in this chapter, and check them again after every new feature. Security is a habit, not a single task.
 
-## ✍️ Try It
+## Try It
 
 Take a PHP project you have built, or the project you are building now.
 
 1. Write a four-line threat model using the table above.
-2. Go through Layers 1 to 6 and mark each item ✅ done, ⚠️ partly done or ❌ missing.
-3. Fix one ❌ today.
+2. Go through Layers 1 to 6 and mark each item done, partly done or missing.
+3. Fix one today.
 
 *Hint:* start with the highest risk, usually prepared statements or ownership checks.
 
-## 📝 Recap
+## Recap
 
 - A threat model asks: what are we protecting, from whom, what could go wrong, and what will we do?
 - Strong logins: long passphrases, Argon2id or bcrypt, limits on guessing, and MFA.
@@ -196,9 +196,9 @@ Take a PHP project you have built, or the project you are building now.
 - Updates, secrets kept out of code, logs, backups and an incident plan complete the fort.
 - No system is perfect; many layers, checked often, make it very hard to break.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Name one defence from this chapter for each of these risks:
 
 1. A stolen password.
@@ -216,7 +216,7 @@ Name one defence from this chapter for each of these risks:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Explain what each part of this header does:
 
 ```http
@@ -236,7 +236,7 @@ How many days is 63,072,000 seconds?
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Run a full security audit of a "Volunteer Sign-Up" page for Bayt Al-Amanah. The page has a form (name, email, phone, available days), saves to a database, and shows a list of volunteers to coordinators.
 
 1. Write a threat model (four questions).

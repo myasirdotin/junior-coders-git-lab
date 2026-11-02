@@ -1,10 +1,10 @@
 # Chapter 2: MVC Architecture
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about how your school library works. A student walks up to the **front desk** and asks for a book. The librarian at the desk does not hold every book in her hands. She checks the **shelves and records**, finds the book, and hands it over with a neat **issue slip**. Three jobs, three places: the desk decides, the shelves store, the slip shows. Laravel organises every web app in the same way. We call it **MVC**.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Name the three parts of MVC: Model, View and Controller.
 - Describe what each part does in the school library app.
@@ -122,7 +122,7 @@ MVC helps in three ways:
 - **Easy to share work.** One student designs views while another writes controllers.
 - **Easy to reuse.** The same `Book` model serves the book list, the search page and the loan form.
 
-## 🕵️ Code Detective
+## Code Detective
 
 Which part of the app should do each job?
 
@@ -133,7 +133,7 @@ Which part of the app should do each job?
 | Draw the table of books with HTML | View |
 | Send `/members` to the members controller | Route |
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Putting database work inside the view.**
 
@@ -152,22 +152,22 @@ $books = Book::all();
 return view('books.index', ['books' => $books]);
 ```
 
-## ✍️ Try It
+## Try It
 
 On paper, draw the journey of a request for `/members`. Label the route, the controller (`MemberController`), the model (`Member`) and the view (`members/index.blade.php`).
 
 *Hint:* copy the journey diagram above and change each name.
 
-## 📝 Recap
+## Recap
 
 - MVC splits an app into Model (data), View (HTML) and Controller (decisions).
 - In Laravel a **route** sends each address to a controller method.
 - The journey is always: route → controller → model → view.
 - Routes live in `routes/web.php`, controllers in `app/Http/Controllers`, models in `app/Models`, views in `resources/views`.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What do the letters M, V and C stand for, and what is the job of each?
 
 <details>
@@ -179,7 +179,7 @@ What do the letters M, V and C stand for, and what is the job of each?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A member opens `/members/7`. Put these steps in the right order: (a) the view prints the member's name, (b) the route matches `/members/7`, (c) the model finds member 7 in the database, (d) the controller method `show` runs.
 
 <details>
@@ -189,7 +189,7 @@ A member opens `/members/7`. Put these steps in the right order: (a) the view pr
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The library wants a page that lists **overdue loans**: books not returned by their due date.
 
 1. Name the route address you would use.

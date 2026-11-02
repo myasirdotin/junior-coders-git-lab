@@ -1,10 +1,10 @@
 # Chapter 4: Basic Routes
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the entrance of a big school there is a signboard. "Library: first floor, left. Science lab: second floor. Office: ground floor." Without it, visitors would wander around lost. In Laravel, **routes** are that signboard. Each route says, "If someone asks for this address, here is what to do."
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a route is and where routes are written.
 - Write GET routes that return text, data and views.
@@ -166,7 +166,7 @@ Output (the dots stretch to fit your window, and Laravel may list a few of its o
 
 `HEAD` is a GET request that only asks for the page's headers. Laravel adds it to every GET route.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Writing the file ending in `view()`.**
 
@@ -182,13 +182,13 @@ return view('about');             // right
 
 **Forgetting the `use` line** for a controller gives `Target class [HomeController] does not exist.` Add `use App\Http\Controllers\HomeController;` at the top of `routes/web.php`.
 
-## ✍️ Try It
+## Try It
 
 Add three routes to your `library-app`: `/hello` returns a welcome sentence, `/status` returns an array with the opening hours, and `/about` shows a view. Visit each one.
 
 *Hint:* the array could be `['opens' => '8:00', 'closes' => '15:00']`.
 
-## 📝 Recap
+## Recap
 
 - Routes live in `routes/web.php` and link a URL to code.
 - `Route::get('/path', function () { ... })` answers GET requests.
@@ -196,9 +196,9 @@ Add three routes to your `library-app`: `/hello` returns a welcome sentence, `/s
 - `Route::view()` and `Route::redirect()` are shortcuts.
 - `php artisan route:list` shows every route.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Which file holds the web routes? What does `view('about')` look for?
 
 <details>
@@ -208,7 +208,7 @@ Which file holds the web routes? What does `view('about')` look for?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a route for `/opening-hours` that returns the text `Open 8:00 to 15:00, Sunday to Thursday.` and a route `/timings` that redirects to `/opening-hours`.
 
 <details>
@@ -225,7 +225,7 @@ Route::redirect('/timings', '/opening-hours');
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build the library's simple pages.
 
 1. Create views `home`, `about`, `rules` and `contact` in `resources/views/`.

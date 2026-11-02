@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about your school's loudspeaker system. The principal switches the microphone **on**, which is like `<?php`. She speaks a clear sentence, which is like `echo "Assembly begins in 10 minutes.";`. She pauses at the end of the sentence, which is like the semicolon `;`. Then she switches the microphone **off**, which is like `?>`. Every classroom hears only the words, never the switch.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Open and close PHP blocks with `<?php` and `?>`.
 - Print text, numbers and HTML tags with `echo`.
@@ -120,7 +120,7 @@ The browser turns this HTML into a heading, a purple paragraph and line breaks.
 
 ---
 
-## 🌍 Real-World Connection: Comments in Large Teams
+## Real-World Connection: Comments in Large Teams
 
 Big PHP projects such as WordPress have hundreds of people working on the same code.
 - Comments explain **why** a piece of code was written. Without them, others waste hours guessing.
@@ -128,7 +128,7 @@ Big PHP projects such as WordPress have hundreds of people working on the same c
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this PHP code:
 
@@ -143,13 +143,13 @@ Look at this PHP code:
 **Question**: Will PHP show an error because `echo` is written in three different ways?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> No error. It prints <code>Hello Class 9!</code> because PHP keywords are case-insensitive. Still, always write <code>echo</code> in lowercase. That is the normal style.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Quotation
+## Code Detective: The Broken Quotation
 
 ```php
 <?php
@@ -171,32 +171,32 @@ Look at this PHP code:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Forgetting the semicolon.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   <?php
   echo "Hello World"
   echo "Next Line";
   ```
-- 😕 *What happens*: PHP stops with an error and prints nothing else:
+- *What happens*: PHP stops with an error and prints nothing else:
   ```text
   Parse error: syntax error, unexpected token "echo", expecting "," or ";" in hello.php on line 3
   ```
   Notice the error points to line 3, the line *after* the real mistake.
-- ✅ *Fixed*: `echo "Hello World";` (add the `;`).
+- *Fixed*: `echo "Hello World";` (add the `;`).
 
 **2. Double quotes inside double quotes.**
 
-- ❌ *Wrong*: `echo "<h1 class="title">Hello</h1>";`
-- 😕 *What happens*: The string ends at `class=`, so PHP shows a parse error.
-- ✅ *Fixed*: Use single quotes inside (`echo "<h1 class='title'>Hello</h1>";`) or escape them with a backslash (`echo "<h1 class=\"title\">Hello</h1>";`). The second prints `<h1 class="title">Hello</h1>`.
+- *Wrong*: `echo "<h1 class="title">Hello</h1>";`
+- *What happens*: The string ends at `class=`, so PHP shows a parse error.
+- *Fixed*: Use single quotes inside (`echo "<h1 class='title'>Hello</h1>";`) or escape them with a backslash (`echo "<h1 class=\"title\">Hello</h1>";`). The second prints `<h1 class="title">Hello</h1>`.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -218,7 +218,7 @@ Name: Maryam<br>Books read this term: 12
 
 ---
 
-## 📝 Recap
+## Recap
 
 - PHP code goes between `<?php` and `?>`. In a file that is only PHP, you may leave out the final `?>`.
 - `echo` prints text, numbers and HTML into the page.
@@ -228,9 +228,9 @@ Name: Maryam<br>Books read this term: 12
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command prints data to the web page?
 2. What symbol ends every PHP statement?
 3. Name two ways to write a single-line comment.
@@ -244,7 +244,7 @@ Name: Maryam<br>Books read this term: 12
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why does `echo 10 + 20;` print `30`, but `echo "10 + 20";` prints `10 + 20`?
 2. Fix this line so it prints `Ali's book`: `echo 'Ali's book';`
 
@@ -256,7 +256,7 @@ Name: Maryam<br>Books read this term: 12
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build `my-card.php`:
 
 1. Use separate `echo` statements to print a `<div>` card.

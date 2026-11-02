@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Who Gets the Message?**
 
@@ -17,7 +17,7 @@ Now imagine two messages disagree. "All students, go to class" and "Amina, come 
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Write type, class, id, universal and grouped selectors.
@@ -357,7 +357,7 @@ Two things to remember:
 
 ---
 
-## 🌍 Real-World Connection: Big Teams, Calm Stylesheets
+## Real-World Connection: Big Teams, Calm Stylesheets
 
 Large websites have thousands of lines of CSS written by many people.
 - If people style with ids and `!important`, every new change needs an even stronger selector to win.
@@ -366,7 +366,7 @@ Large websites have thousands of lines of CSS written by many people.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```css
 p        { color: blue; }    /* rule A */
@@ -384,7 +384,7 @@ p        { color: orange; }  /* rule C */
 **Question**: What colour is each paragraph?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Paragraph 1 is green.** Rule B (0-1-1) is more specific than rules A and C (0-0-1), so it wins even though rule C is later.
 
@@ -417,7 +417,7 @@ p {
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: forgetting the dot or hash.**
 
@@ -454,7 +454,7 @@ notice {
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Specificity Detective**
 
@@ -468,7 +468,7 @@ notice {
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Selectors choose **who** gets a style: type (`p`), class (`.notice`), id (`#top`), universal (`*`) and lists (`h1, h2`).
 - A space means "inside" (`nav a`). `>` means "direct child" (`ul > li`). No space means "the same element" (`p.notice`).
@@ -479,7 +479,7 @@ notice {
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -495,9 +495,9 @@ notice {
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which symbol starts a class selector, and which starts an id selector?
 2. What does the selector `h1, h2, h3` do?
 3. What is the specificity score of `.menu`, of `li`, and of `#footer`?
@@ -511,7 +511,7 @@ notice {
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write the score for each selector: `nav a`, `.card p`, `ul > li:first-child`, `input[type="email"]`.
 5. A paragraph has `class="tip"`. The CSS is below. What colour is it, and why?
 
@@ -529,7 +529,7 @@ p    { color: gray; }
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a small "Class 7 Timetable" page.
 1. Make a `<ul class="timetable">` with four `<li>` items (four school subjects).
 2. Give the whole list dark teal text with **one** rule on `.timetable`. Do not style each `<li>`.

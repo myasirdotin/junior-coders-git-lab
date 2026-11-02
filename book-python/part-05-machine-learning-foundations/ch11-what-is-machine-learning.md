@@ -1,10 +1,10 @@
 # Chapter 11: What is Machine Learning?
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When Zainab was small, her grandmother took her to the date market. Her grandmother never gave her a list of rules for spotting ripe dates. Instead, she showed her many dates: "This one is ripe. This one is not yet." After seeing enough examples, Zainab could judge new dates by herself. She had **learned from examples**. Machine learning is a way for computers to do the same: find a pattern in many examples, then use it on new cases.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain the difference between writing rules and learning from data.
 - Use the key words: dataset, feature, label, model, training and prediction.
@@ -161,9 +161,9 @@ print(predict_energy(7.5))
 18.75
 ```
 
-> 🧪 **Honest note**: this is a simplified teaching model. Real ML libraries try millions of tiny changes to many weights at once, using a branch of maths called calculus. But the idea is the same: reduce the error step by step.
+> **Honest note**: this is a simplified teaching model. Real ML libraries try millions of tiny changes to many weights at once, using a branch of maths called calculus. But the idea is the same: reduce the error step by step.
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 | Helpful task | Features | Label |
 | :--- | :--- | :--- |
@@ -181,7 +181,7 @@ A model only knows what its data showed it.
 - Personal data used for training must be collected honestly and kept safe (*Amānah*).
 - Technology stays under human care and moral judgement (*Iḥsān*).
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Giving the model data in different units from its training data.** Our model learned from **hours**. Here someone gives it **minutes**:
 
@@ -215,13 +215,13 @@ print(predict_energy(sunshine_minutes / 60))
 12.5
 ```
 
-## ✍️ Try It
+## Try It
 
 Copy the weight-learning program. Add `3.5` to `weights_to_try` and add a fifth day: 10 hours, 26 kWh. Run it again. Does the best weight change?
 
 **Hint:** among your list, the best weight should still be `2.5` (total error 3.0). Then add the in-between weight `2.6`. Its error is smaller (about 1.6), so trying more, finer weights can give a better model.
 
-## 📝 Recap
+## Recap
 
 - Normal programs follow rules people write. ML programs find the rules from examples.
 - Features are the inputs (X); the label is the answer (y); the model is the learned pattern.
@@ -229,9 +229,9 @@ Copy the weight-learning program. Add `3.5` to `weights_to_try` and add a fifth 
 - A model makes predictions for new data, but only works well on data like its training data.
 - Bias, mistakes and privacy are real risks, so people must check and care for AI systems.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 In a dataset about water wells, the columns are `depth_m`, `acidity`, `cloudiness` and `safe_to_drink`. Which columns are features and which is the label?
 
 <details>
@@ -241,7 +241,7 @@ Features: `depth_m`, `acidity`, `cloudiness`. Label: `safe_to_drink` (the answer
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 For each task, name the features and the label.
 
 1. A weather station predicts whether it will rain tomorrow from air pressure, wind speed and cloud cover.
@@ -255,7 +255,7 @@ For each task, name the features and the label.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A made-up dataset links the number of students in a class to the litres of drinking water they use in a day: `students = [10, 20, 30]`, `litres = [16, 30, 47]`.
 
 1. Use the model **litres = w × students**.

@@ -1,12 +1,12 @@
 # Chapter 3: Where Am I? & What's Here? (Orientation)
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine you wake up in a new room during a school trip. Before you do anything, you ask two questions. *"Which room am I in?"* and *"What is in this room?"* Only then do you unpack your bag. Good terminal users do the same. Before they create, move or delete anything, they check where they are and what is around them.
 
 > **Key Idea**: The two most important questions in the terminal are **"Where am I standing?"** and **"What is in this folder?"** Ask them before every important command.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Print the folder you are standing in, in CMD, PowerShell and Git Bash.
 - List the files and folders in the current folder.
@@ -159,7 +159,7 @@ After many commands, the window gets crowded. You can wipe it clean.
 
 The screen becomes empty, with only a fresh prompt at the top. Clearing does **not** delete files. It does not undo commands either. It is like wiping a whiteboard, not throwing away your notebook.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Typing `pwd` in CMD.** CMD does not know `pwd`.
 
@@ -173,7 +173,7 @@ In CMD, type `cd` alone. In PowerShell, `pwd` works.
 
 **Typing `cd` alone in PowerShell.** In Windows PowerShell 5.1 (the one built into Windows), `cd` alone prints nothing. In the newer PowerShell 7, it takes you to your home folder! It does not tell you where you are. In PowerShell, always use `pwd`.
 
-## ✍️ Try It
+## Try It
 
 Make your practice folder now, using the mouse this time. In Chapter 7 you will learn the terminal way.
 
@@ -184,7 +184,7 @@ Make your practice folder now, using the mouse this time. In Chapter 7 you will 
 
 *Hint*: A new folder is empty, but `dir` still lists two entries. Which two?
 
-## 📝 Recap
+## Recap
 
 - The folder you stand in is the **working directory**.
 - CMD: `cd` alone prints it. PowerShell and Git Bash: `pwd`.
@@ -193,9 +193,9 @@ Make your practice folder now, using the mouse this time. In Chapter 7 you will 
 - `dir /a` (CMD) and `ls -Force` (PowerShell) show hidden items.
 - `cls` or `clear` wipes the screen but never deletes files.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command prints your current folder in CMD? Which one in PowerShell?
 2. What do `.` and `..` mean in a listing?
 3. Which command clears the screen in CMD?
@@ -209,7 +209,7 @@ Make your practice folder now, using the mouse this time. In Chapter 7 you will 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Look at this CMD listing.
 
 ```text
@@ -235,7 +235,7 @@ Look at this CMD listing.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Yusuf's project has a hidden `.git` folder.
 
 1. Why does a plain `dir` or `ls` not show `.git`?

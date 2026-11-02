@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Sharp Bricks vs. Smooth River Stones**
 
@@ -16,7 +16,7 @@ In modern website design, sharp harsh corners often look dated and aggressive, w
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Set a border's width, style and colour, alone or with the 3-in-1 `border` shorthand.
@@ -166,7 +166,7 @@ Type this code into your editor and save it as `borders.html`:
 
 ---
 
-## 🌍 Real-World Connection: Apple's "Squircle" Design
+## Real-World Connection: Apple's "Squircle" Design
 
 Have you ever noticed the app icons on an iPad or iPhone?
 - They aren't sharp squares, and they aren't simple circles either.
@@ -175,7 +175,7 @@ Have you ever noticed the app icons on an iPad or iPhone?
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What will happen if you apply `border-radius: 50%` to an image that is **300px wide and only 100px tall** (a long rectangle)?
 - **Option A**: It will become a perfect circle.
@@ -183,13 +183,13 @@ What will happen if you apply `border-radius: 50%` to an image that is **300px w
 - **Option C**: The corners will stay square.
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: Option B!</strong> Because the original shape was not a square, curving each side by 50% turns it into an oval! To get a true circle, width and height must be identical!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Invisible Border
+## Code Detective: The Invisible Border
 
 A student wrote this CSS to frame a photo, but nothing appeared around the picture:
 
@@ -236,7 +236,7 @@ Create a web page named `vip-badge.html`:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is using `border-radius: 50%` on a picture that is not square.
 
@@ -265,7 +265,7 @@ A second slip is writing the shorthand values with commas: `border: 2px, solid, 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Leaf Card**
 
@@ -279,11 +279,11 @@ Try adding this to a box in your editor:
 - Top-right stays sharp (`0px`).
 - Bottom-right gets `30px` curve.
 - Bottom-left stays sharp (`0px`).
-- **Result**: The box looks like an organic plant leaf! 🍃
+- **Result**: The box looks like an organic plant leaf!
 
 ---
 
-## 📝 Recap
+## Recap
 
 - The `border` shorthand combines width, style, and color in one line: `border: 2px solid #3b82f6;`.
 - Common border styles include `solid`, `dashed`, `dotted`, and `none`.
@@ -294,7 +294,7 @@ Try adding this to a box in your editor:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -306,9 +306,9 @@ Try adding this to a box in your editor:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What three values does the `border` shorthand take?
 2. What `border-radius` percentage turns a 100px × 100px square into a circle?
 3. Which border style makes a line of dots?
@@ -322,7 +322,7 @@ Try adding this to a box in your editor:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write CSS for a `.pill` button with a red background, no border, white text and fully rounded ends.
 5. Why does a picture 200px wide and 100px tall become an oval, not a circle, with `border-radius: 50%`?
 
@@ -346,7 +346,7 @@ A very large radius such as `999px` gives round ends on any width.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make a quote callout box.
 1. Look up the properties `border-top`, `border-right`, `border-bottom` and `border-left`.
 2. Make a class `.callout` with a border **only on the left**: `6px solid #2563eb`.

@@ -1,10 +1,10 @@
 # Chapter 6: Lists and Loops
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 On Monday morning the class monitor takes the register. She does not write a separate rule for every student. She holds **one list** of names and goes down it, **one name at a time**, doing the same thing for each: read the name, wait for "present", tick the box. A list plus "do this for each item" is one of the most useful ideas in programming. Your School Library app will hold a list of books, and the screen will show each one in turn. In this chapter you learn the Kotlin behind that: lists and loops.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Create read-only lists with `listOf` and changeable lists with `mutableListOf`.
 - Read items by index, and use `size`, `add` and `remove`.
@@ -329,7 +329,7 @@ Output:
 
 Both ways give the same answers. In this book, practise the loops first: they show you what is really happening.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: using an index that does not exist.** A list of 4 items has indexes 0 to 3.
 
@@ -363,7 +363,7 @@ error: unresolved reference 'add'.
 
 "Unresolved reference" means Kotlin cannot find anything called `add` for this value. A `listOf` list has no `add`. Fix: create it with `mutableListOf("Maths", "Science")`.
 
-## ✍️ Try It
+## Try It
 
 Make a packing list for a science trip to the planetarium:
 
@@ -374,7 +374,7 @@ Make a packing list for a science trip to the planetarium:
 
 **Hint:** printing `i + 1` gives numbers that start from 1.
 
-## 📝 Recap
+## Recap
 
 - `listOf(...)` makes a read-only list; `mutableListOf(...)` makes one you can `add` to and `remove` from.
 - Indexes start at 0. The last index is `size - 1`.
@@ -383,7 +383,7 @@ Make a packing list for a science trip to the planetarium:
 - `while` repeats while a condition is true; something inside must change it.
 - Keep, count and find-the-biggest are the three loop patterns; `filter`, `count` and `max` are short forms.
 
-## 📖 Key Terms
+## Key Terms
 
 - **List:** an ordered group of values in one variable.
 - **Index:** the position of an item, starting from 0.
@@ -391,9 +391,9 @@ Make a packing list for a science trip to the planetarium:
 - **Loop:** code that repeats.
 - **Running total:** a `var` that adds up values inside a loop.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does this program print?
 
 ```kotlin
@@ -426,7 +426,7 @@ fun main() {
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Today's timetable is `Maths`, `Science`, `English`, `Computing`. English is cancelled and `Islamic Studies` is added at the end. Write a program that makes the changes and prints a numbered timetable with a heading that shows how many lessons there are.
 
 <details>
@@ -458,7 +458,7 @@ Today's lessons (4):
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a weekly water-saving log for your home:
 
 1. Store the litres used each day: `180, 140, 165, 120, 150, 210, 130`.

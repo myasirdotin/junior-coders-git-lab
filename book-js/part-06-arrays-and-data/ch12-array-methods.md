@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine shopping with a dynamic digital cart:
 1. You click "Add to Cart" on a science kit → The kit pops onto the end of your list!
@@ -13,7 +13,7 @@ JavaScript arrays have built-in **methods** (special built-in functions) that pe
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Add items to an array using `.push()` and `.unshift()`.
@@ -135,7 +135,7 @@ Kit label: [ Lab Notebook | Magnifying Glass | Thermometer ]
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```javascript
 let letters = ["A", "B", "C"];
@@ -150,7 +150,7 @@ console.log(letters.length);
 *What will be printed?*
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 ```text
 [ 'Z', 'A', 'B', 'C' ]
@@ -196,7 +196,7 @@ Run a sequence of 4 commands to simulate adding, removing, and viewing tasks.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 Find the 3 errors in this code:
 ```javascript
@@ -226,7 +226,7 @@ let topTwo = scores.slice(0; 2);
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. Open your console.
 2. Create an empty array: `let toBuy = [];`
@@ -235,11 +235,11 @@ let topTwo = scores.slice(0; 2);
 5. Remove the last item with `.pop()`.
 6. Print the remaining items using `.join(", ")`.
 
-> 💡 **Hint:** `toBuy.push("Milk");` adds one item. `console.log(toBuy.includes("Milk"));` prints `true` or `false`. Finish with `console.log(toBuy.join(", "));`.
+> **Hint:** `toBuy.push("Milk");` adds one item. `console.log(toBuy.includes("Milk"));` prints `true` or `false`. Finish with `console.log(toBuy.join(", "));`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `push()` adds to end; `pop()` removes from end.
 - `unshift()` adds to front; `shift()` removes from front.
@@ -257,7 +257,7 @@ let topTwo = scores.slice(0; 2);
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 - **Method:** A function that belongs to an object or data type.
 - **Mutate:** To permanently modify the original data.
@@ -266,9 +266,9 @@ let topTwo = scores.slice(0; 2);
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which method removes an item from the end of an array? Which removes one from the beginning?
 2. What does `.indexOf()` give if the item is not in the array?
 
@@ -280,7 +280,7 @@ let topTwo = scores.slice(0; 2);
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Given `let colors = ["Red", "Green", "Blue", "Yellow"];`, use `.slice()` to copy only `["Green", "Blue"]` into `middleColors`.
 2. Patients wait in a queue at a clinic. Should you use `push()` with `shift()`, or `push()` with `pop()`? Why?
 
@@ -296,7 +296,7 @@ let topTwo = scores.slice(0; 2);
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a function `manageGuestList(guests, newGuest)` for a school science fair:
 1. If `newGuest` is already in `guests`, print `"[Guest] is already invited!"`.
 2. If not, add them with `.push()` and print `"[Guest] added to invitation list!"`.

@@ -1,10 +1,10 @@
 # Chapter 6: Lists & Tuples
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Your class teacher keeps one attendance register, not thirty separate notes. Each student has a numbered line. She can read line 5, add a new student at the bottom, or count the lines. A Python **list** is that register. It keeps many values together, in order, under one name.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Create lists and read items by their index (position number).
 - Add, change, remove and sort items with list methods.
@@ -313,7 +313,7 @@ Honour roll  : [92, 95, 91]
 Extra support: 1 student(s)
 ```
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Using an index that does not exist.** A list of 3 items has indexes 0, 1 and 2. There is no index 3.
 
@@ -348,13 +348,13 @@ None
 
 **Fix:** call `scores.sort()` on its own line, then use `scores`.
 
-## ✍️ Try It
+## Try It
 
 Make a list of the minutes you spent reading each day this week, for example `[20, 35, 0, 15, 40, 25, 30]`. Print the total, the longest day, and how many days had **no** reading.
 
 **Hint:** use `sum()` and `max()`, then a loop with a counter for the zeros.
 
-## 📝 Recap
+## Recap
 
 - A list keeps many values in order: `[a, b, c]`. Indexes start at 0; `-1` is the last item.
 - Lists are mutable: `.append()`, `.insert()`, `.remove()`, `.pop()` and `.sort()` change them.
@@ -362,9 +362,9 @@ Make a list of the minutes you spent reading each day this week, for example `[2
 - To filter, start with `[]` and `append` the items you want.
 - Slices like `[1:4]` copy part of a list. Tuples `( )` are like lists that cannot change.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Given `planets = ["Mercury", "Venus", "Earth", "Mars"]`, what is `planets[1]`, `planets[-1]` and `planets[1:3]`?
 
 <details>
@@ -374,7 +374,7 @@ Given `planets = ["Mercury", "Venus", "Earth", "Mars"]`, what is `planets[1]`, `
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Start with `queue = ["Amina", "Bilal"]`. Add `"Hana"` at the end, put `"Omar"` at the front, then remove the first person with `.pop(0)` and print who was served and the queue that is left.
 
 <details>
@@ -398,7 +398,7 @@ Served: Omar
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A clean-up team weighed the rubbish they collected each day (kg): `[12.5, 8.0, 15.5, 4.0, 10.0]`.
 
 1. Print the total and the average (rounded to 1 decimal place).

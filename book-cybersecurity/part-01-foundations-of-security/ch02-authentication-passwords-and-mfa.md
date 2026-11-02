@@ -1,12 +1,12 @@
 # Chapter 2: Authentication, Password Entropy & MFA
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Bilal's school locker has a three-digit combination lock. That gives only 1,000 possible codes, from 000 to 999. A patient person could try them all in an afternoon. His bicycle lock has six digits: one million codes, which is much harder. And the school office does not trust a code alone. Visitors must also show a signed card at the desk. Longer secrets, plus a second check: that is this whole chapter in one story.
 
 Most break-ins online do not start with clever code. They start with a password that was guessed, stolen or reused.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Calculate password **entropy** and explain why length beats complexity.
 - Build a strong **passphrase** and explain why a password manager helps.
@@ -35,7 +35,7 @@ What is log₂(R)? It is "how many times you double 1 to reach R". For example, 
 ### Worked example
 A 6-digit PIN: 6 × 3.32 ≈ **19.9 bits**. Check: 2²⁰ = 1,048,576, close to the 1,000,000 possible PINs.
 
-> ⚠️ **Big rule:** the formula only works if the password is chosen **at random**. A human-chosen word like `sunshine` has 8 × 4.70 ≈ 37.6 bits on paper. But it sits on every list of common passwords, so it falls almost at once.
+> **Big rule:** the formula only works if the password is chosen **at random**. A human-chosen word like `sunshine` has 8 × 4.70 ≈ 37.6 bits on paper. But it sits on every list of common passwords, so it falls almost at once.
 
 ### How long would guessing take?
 Suppose a stolen password list was stored with a fast hash. A strong computer might try about **10 billion guesses per second**. On average it finds the answer after searching half of all choices.
@@ -57,9 +57,9 @@ You cannot remember 40 different passphrases. A **password manager** is an app t
 
 What if a website's database is stolen? It depends on how passwords were stored.
 
-- ❌ **Plain text** (`secret123`): the thief reads every password directly.
-- ❌ **A fast hash** like MD5 or SHA-256: a **hash** turns a password into a fixed "fingerprint" that cannot be turned back (Chapter 10 explains more). But fast hashes can be checked billions of times per second, so guessing is quick.
-- ✅ **A slow password hash** like **bcrypt** or **Argon2id**: each guess is made deliberately slow. With bcrypt at normal settings, a strong graphics card manages only thousands of guesses per second, instead of billions.
+- **Plain text** (`secret123`): the thief reads every password directly.
+- **A fast hash** like MD5 or SHA-256: a **hash** turns a password into a fixed "fingerprint" that cannot be turned back (Chapter 10 explains more). But fast hashes can be checked billions of times per second, so guessing is quick.
+- **A slow password hash** like **bcrypt** or **Argon2id**: each guess is made deliberately slow. With bcrypt at normal settings, a strong graphics card manages only thousands of guesses per second, instead of billions.
 
 PHP has this built in. `password_hash()` makes the slow hash and adds a salt for you. `password_verify()` checks a login attempt.
 
@@ -119,7 +119,7 @@ If someone steals your password, they still need your phone. A password plus a s
 - Turn on 2FA for email first. Your email can reset every other account.
 - Never tell anyone a login code, even someone who says they are from "support".
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake:** "I made my password strong: `Ahmed2012!`"
 
@@ -129,7 +129,7 @@ If someone steals your password, they still need your phone. A password plus a s
 
 **Developer mistake:** storing `hash('sha256', $password)` in a database. Fixed version: `password_hash($password, PASSWORD_DEFAULT)` and check with `password_verify()`.
 
-## ✍️ Try It
+## Try It
 
 Open the **Password** tab in the Cybersecurity Lab Studio.
 
@@ -139,7 +139,7 @@ Open the **Password** tab in the Cybersecurity Lab Studio.
 
 *Hint:* add one more random word and watch the bits grow by about 13.
 
-## 📝 Recap
+## Recap
 
 - Entropy = L × log₂(R), but only for randomly chosen passwords.
 - Length beats complexity: 5–6 random words are strong and memorable.
@@ -147,9 +147,9 @@ Open the **Password** tab in the Cybersecurity Lab Studio.
 - Websites must store slow, salted hashes (bcrypt or Argon2id), never plain text or plain SHA-256.
 - MFA needs two different kinds of factor; a phone code plus a password is the common form.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Name the three kinds of authentication factors, with one example of each.
 
 <details>
@@ -161,7 +161,7 @@ Name the three kinds of authentication factors, with one example of each.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Use Entropy = L × log₂(R) to compare two randomly chosen passwords:
 
 1. 10 random lowercase letters.
@@ -179,7 +179,7 @@ The four words are stronger by about **4.7 bits**, which means about 26 times as
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A student club stores member passwords like this:
 
 ```php

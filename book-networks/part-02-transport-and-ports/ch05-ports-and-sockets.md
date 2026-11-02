@@ -1,10 +1,10 @@
 # Chapter 5: Ports & Sockets: The Doorways of the Operating System
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A parcel arrives at a big block of flats. The street address gets the van to the front door. But the building has hundreds of flats. The flat number on the parcel tells the caretaker exactly whose door to knock on. Your computer is that building. The IP address finds the computer, and the **port number** finds the right program inside it.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a **port** is and why one IP address needs many of them.
 - Define a **socket** and a **socket pair**.
@@ -159,38 +159,38 @@ Every open, listening port is a door. If a database port is open to the whole In
 
 A **firewall** is a guard that checks each packet's addresses and ports. It allows some and blocks others. A common safe setup:
 
-- ✅ Allow port `443` from anyone, so people can visit the website.
-- ❌ Block port `3306` from the Internet, so only the web server itself can reach the database.
+- Allow port `443` from anyone, so people can visit the website.
+- Block port `3306` from the Internet, so only the web server itself can reach the database.
 
 Keeping unused doors shut protects the data people trust us with. That is part of our *Amānah*.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Searching for `:80` and getting the wrong port.**
 
-- ❌ Wrong: `netstat -ano | findstr :80` and deciding that PID `4908` uses port 80.
+- Wrong: `netstat -ano | findstr :80` and deciding that PID `4908` uses port 80.
 - What happens: `findstr :80` also matches `:8080`, `:8000` and even IPv6 addresses that contain `:80`.
-- ✅ Right: look carefully at the whole port number, or search with a space after it: `findstr ":80 "`.
+- Right: look carefully at the whole port number, or search with a space after it: `findstr ":80 "`.
 
 **Thinking the client also uses port 443.**
 
-- ❌ Wrong: "My browser sends from port 443 to port 443."
-- ✅ Right: the server listens on 443. Your browser uses a temporary **ephemeral** port, such as 52814.
+- Wrong: "My browser sends from port 443 to port 443."
+- Right: the server listens on 443. Your browser uses a temporary **ephemeral** port, such as 52814.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Start Apache in the XAMPP Control Panel. Then run `netstat -ano | findstr ":80 "` and `tasklist` with the PID you find.
 Did you see `httpd.exe`? Now stop Apache and run `netstat` again. What disappeared?
 
-> 💡 Hint: if XAMPP is not installed, look for port `443` connections in `netstat -an` instead.
+> Hint: if XAMPP is not installed, look for port `443` connections in `netstat -an` instead.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **port** (0–65,535) picks the program; the IP address picks the computer.
 - A **socket** is `IP:port`; a connection is a **socket pair**.
@@ -201,9 +201,9 @@ Did you see `httpd.exe`? Now stop Apache and run `netstat` again. What disappear
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is a socket? Give the standard ports for HTTP, HTTPS and SSH.
 
 <details>
@@ -214,7 +214,7 @@ HTTP uses port **80**, HTTPS uses **443** and SSH uses **22**.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Read this line from `netstat -an`:
 
 ```
@@ -234,7 +234,7 @@ TCP  192.168.1.7:51200  198.51.100.25:443  ESTABLISHED
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Your school's web server runs a website and a MySQL database on the same machine.
 1. List the two ports it listens on.
 2. Write two firewall rules: one allow, one block.

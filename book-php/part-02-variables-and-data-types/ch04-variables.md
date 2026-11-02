@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Outside the computer lab, each student has a cubby with a name label on the front. In the morning you put your jacket inside. At lunch you take the jacket out and put a book in its place. The label stays the same, but what is inside changes during the day. In PHP, a **variable** works like that cubby: a labelled box that holds a value you can change.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Create variables with the `$` sign and give them a value.
 - Follow PHP's rules for naming variables.
@@ -36,7 +36,7 @@ To **declare** a variable means to create it. To **assign** means to put a value
 
 ### Official PHP Variable Naming Rules
 
-| Rule | Legal ✅ | Illegal ❌ | Why |
+| Rule | Legal | Illegal | Why |
 | :--- | :--- | :--- | :--- |
 | **Must start with `$`** | `$age`, `$name` | `age`, `name` | Missing the `$` |
 | **After `$`: a letter or `_`** | `$_total`, `$user1` | `$1stPlace` | Cannot begin with a number |
@@ -95,7 +95,7 @@ Student: Hamza Farooq<br>Current Grade: 9 (GPA: 3.84)<br><h3>Promoting Student..
 
 ---
 
-## 🌍 Real-World Connection: User Accounts
+## Real-World Connection: User Accounts
 
 When you sign up on a school portal or an online library:
 - The server uses variables like `$userId`, `$username` and `$email`.
@@ -103,7 +103,7 @@ When you sign up on a school portal or an online library:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -118,13 +118,13 @@ When you sign up on a school portal or an online library:
 **Question**: What is printed: 50, 70, or 0?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>70</code>. Line 3 stores 50 + 20 = 70 in <code>$points</code>. Changing <code>$bonus</code> to 0 later does not change <code>$points</code>, because <code>$points</code> got a copy of the value, not a link to <code>$bonus</code>.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Naming
+## Code Detective: The Broken Naming
 
 ```php
 <?php
@@ -147,33 +147,33 @@ When you sign up on a school portal or an online library:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Forgetting the `$`.**
 
-- ❌ *Wrong*: `score = 100;`
-- 😕 *What happens*: PHP does not know `score` is a variable and stops:
+- *Wrong*: `score = 100;`
+- *What happens*: PHP does not know `score` is a variable and stops:
   ```text
   Parse error: syntax error, unexpected token "=" in test.php on line 2
   ```
-- ✅ *Fixed*: `$score = 100;`
+- *Fixed*: `$score = 100;`
 
 **2. Changing the capital letters.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   $user = "Ali";
   echo $User;
   ```
-- 😕 *What happens*: `$User` is a different, empty variable. PHP prints nothing and warns:
+- *What happens*: `$User` is a different, empty variable. PHP prints nothing and warns:
   ```text
   Warning: Undefined variable $User in test.php on line 3
   ```
-- ✅ *Fixed*: `echo $user;` prints `Ali`.
+- *Fixed*: `echo $user;` prints `Ali`.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -196,7 +196,7 @@ The Water Cycle has 120 pages.<br>After adding a glossary: 128 pages.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A variable is a named box that holds a value. Its name always starts with `$`.
 - `=` puts a value into a variable. You can change it later.
@@ -206,9 +206,9 @@ The Water Cycle has 120 pages.<br>After adding a glossary: 128 pages.
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What character starts every PHP variable name?
 2. Are variable names case-sensitive?
 3. Which name is valid: `$my_variable`, `$my-variable` or `$my variable`?
@@ -222,7 +222,7 @@ The Water Cycle has 120 pages.<br>After adding a glossary: 128 pages.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. `$name = "Sara";` What do `echo 'Hi $name';` and `echo "Hi $name";` print?
 2. Write two lines that store `8` in `$apples`, then add `4` to it.
 
@@ -238,7 +238,7 @@ The Water Cycle has 120 pages.<br>After adding a glossary: 128 pages.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The school is painting a garden wall for a community clean-up day.
 
 1. Store the wall's width (`8`) and height (`5`) in metres in two variables.

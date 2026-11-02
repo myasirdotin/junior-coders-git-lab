@@ -1,10 +1,10 @@
 # Chapter 8: The Evolution of HTTP: HTTP/1.1, HTTP/2 & HTTP/3
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At first, the school canteen had one counter and one queue. If the student in front ordered lunch for the whole class, everyone behind waited. Then the canteen let one helper carry many trays at once, mixing small and big orders. Later, it opened separate paths, so one dropped tray no longer stopped every queue. HTTP grew up in the same three steps: **HTTP/1.1**, **HTTP/2** and **HTTP/3**.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why HTTP/1.0 and HTTP/1.1 became slow for modern pages.
 - Describe **head-of-line blocking**.
@@ -104,10 +104,10 @@ TLS is the encryption layer of HTTPS (Chapter 10). In QUIC, encryption is built 
 | :--- | :--- | :--- | :--- |
 | Transport | TCP | TCP | QUIC over UDP |
 | Format | Text | Binary frames | Binary frames |
-| Many requests on one connection | ❌ One at a time | ✅ Yes | ✅ Yes |
-| Header compression | ❌ None | ✅ HPACK | ✅ QPACK |
-| One lost packet stalls all streams | Yes | Yes (TCP) | ❌ No |
-| Survives a network change | ❌ No | ❌ No | ✅ Yes |
+| Many requests on one connection | One at a time | Yes | Yes |
+| Header compression | None | HPACK | QPACK |
+| One lost packet stalls all streams | Yes | Yes (TCP) | No |
+| Survives a network change | No | No | Yes |
 
 ---
 
@@ -149,35 +149,35 @@ alt-svc: h3=":443"; ma=86400
 
 This says: "I also speak **h3** on UDP port **443**. Remember this for **86,400 seconds** (one day)." The next visit can then use HTTP/3.
 
-> 💡 The `curl.exe` built into Windows only speaks HTTP/1.1. Its first line will say `HTTP/1.1 200 OK` even if browsers use HTTP/3. Use DevTools to see the real version.
+> The `curl.exe` built into Windows only speaks HTTP/1.1. Its first line will say `HTTP/1.1 200 OK` even if browsers use HTTP/3. Use DevTools to see the real version.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Thinking HTTP/3 is unreliable because it uses UDP.**
 
-- ❌ Wrong: "HTTP/3 uses UDP, so web pages may arrive broken."
+- Wrong: "HTTP/3 uses UDP, so web pages may arrive broken."
 - What happens: QUIC adds its own acknowledgements and resending on top of UDP.
-- ✅ Right: HTTP/3 is just as reliable as HTTP/2. It only handles losses per stream instead of for the whole connection.
+- Right: HTTP/3 is just as reliable as HTTP/2. It only handles losses per stream instead of for the whole connection.
 
 **Thinking a new HTTP version changes your code.**
 
-- ❌ Wrong: "I must rewrite my PHP pages for HTTP/2."
-- ✅ Right: methods, headers and status codes stay the same. The web server and browser choose the version for you.
+- Wrong: "I must rewrite my PHP pages for HTTP/2."
+- Right: methods, headers and status codes stay the same. The web server and browser choose the version for you.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open three different websites with DevTools' **Protocol** column turned on. For each, write down the protocols you see.
 Then run `curl.exe -sI https://example.org | findstr /i alt-svc`. Does the server offer HTTP/3?
 
-> 💡 Hint: the first visit may show `h2`, and a reload may show `h3`, because the browser learned about HTTP/3 from `alt-svc`.
+> Hint: the first visit may show `h2`, and a reload may show `h3`, because the browser learned about HTTP/3 from `alt-svc`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - HTTP/1.0 opened a connection per file; HTTP/1.1 kept one open but answered one request at a time.
 - **Head-of-line blocking** means one slow item holds up everything behind it.
@@ -188,9 +188,9 @@ Then run `curl.exe -sI https://example.org | findstr /i alt-svc`. Does the serve
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is **head-of-line blocking**? Which transport does HTTP/3 use instead of TCP?
 
 <details>
@@ -201,7 +201,7 @@ HTTP/3 uses **QUIC**, which runs over **UDP**.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A server sends `alt-svc: h3=":443"; ma=3600`.
 1. Which HTTP version is it offering?
 2. On which port and which transport?
@@ -216,7 +216,7 @@ A server sends `alt-svc: h3=":443"; ma=3600`.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A student opens an online lesson page on a bus. The phone switches from bus Wi-Fi to mobile data halfway through.
 1. What happens to an HTTP/2 connection? Why?
 2. What happens to an HTTP/3 connection? Why?

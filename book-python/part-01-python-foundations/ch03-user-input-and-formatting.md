@@ -1,10 +1,10 @@
 # Chapter 3: User Input & String Formatting (F-Strings)
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the school library desk, the librarian has a printed card: "Dear ______, your book is due on ______." She asks your name and the date, then writes them in the gaps. The card stays the same. Only the gaps change. In this chapter, Python learns to ask questions with `input()` and to fill gaps in sentences with **f-strings**.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Ask the user a question with `input()` and know that the answer is always text.
 - Convert typed answers into numbers with `int()` and `float()`.
@@ -27,7 +27,7 @@ Please enter your name: Maryam
 Peace be upon you, Maryam!
 ```
 
-> 💻 **Where `input()` works**: `input()` works when you run Python on a computer (for example `python greet.py` in a terminal). It does **not** work in the Python Console on this website. So in this book, we put the value straight into the code instead, like this:
+> **Where `input()` works**: `input()` works when you run Python on a computer (for example `python greet.py` in a terminal). It does **not** work in the Python Console on this website. So in this book, we put the value straight into the code instead, like this:
 
 ```python
 student_name = "Maryam"   # on a computer: input("Please enter your name: ")
@@ -242,7 +242,7 @@ Monthly : 3.75
 
 The messy name became `Amina Yusuf`. The text `"45"` became a real number, so we could divide it.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Forgetting the `f`.** Without it, Python prints the braces as plain text.
 
@@ -274,13 +274,13 @@ print(int(typed_answer) * 3)   # right: real maths
 36
 ```
 
-## ✍️ Try It
+## Try It
 
 Write a "study planner" card. Store a subject name with messy spaces, such as `"  physics "`, and a number of minutes as text, such as `"45"`. Clean the subject with `.strip().title()`. Convert the minutes with `int()`. Print: `Today: Physics for 45 minutes (0.75 hours).`
 
 **Hint:** hours = minutes / 60. Put the calculation inside the braces.
 
-## 📝 Recap
+## Recap
 
 - `input()` asks a question and waits. It works on a computer, not in this site's console.
 - `input()` always returns a string. Convert with `int()` or `float()` before doing maths.
@@ -288,9 +288,9 @@ Write a "study planner" card. Store a subject name with messy spaces, such as `"
 - `round(value, places)` keeps decimals short.
 - String methods such as `.strip()`, `.title()`, `.lower()` and `.replace()` clean text.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What type of value does `input()` always return? What must you do before adding 10 to it?
 
 <details>
@@ -300,7 +300,7 @@ It always returns a **string** (`str`). Convert it first with `int()` or `float(
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Rewrite this line as an f-string:
 
 ```python
@@ -318,7 +318,7 @@ With `club = "Astronomy"` and `members = 18` it prints: `The Astronomy club has 
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a temperature card for the school weather station.
 
 1. Store a station name with messy spaces and capitals, for example `"  north FIELD  "`.

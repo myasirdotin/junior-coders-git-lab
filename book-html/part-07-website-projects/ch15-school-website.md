@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine your school is hosting an annual Open House for new families:
 - Parents and students arrive at the front gates. The school principal greets them in the auditorium with an inspiring welcome address explaining the school’s history and core values.
@@ -13,11 +13,11 @@ Imagine your school is hosting an annual Open House for new families:
 **A School Website serves as your school’s 24/7 digital Open House!**
 Parents, teachers, and students visit every day to check announcements, explore courses, learn about teachers, and stay connected. In this chapter, you will build a complete, welcoming, professional school portal!
 
-> 🎨 **About the `<style>` block:** the page comes with ready-made CSS so it looks polished. You will learn to write CSS like this in the CSS track. For now, copy it as it is and focus on the HTML.
+> **About the `<style>` block:** the page comes with ready-made CSS so it looks polished. You will learn to write CSS like this in the CSS track. For now, copy it as it is and focus on the HTML.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Structure a multi-tier educational portal layout.
@@ -374,7 +374,7 @@ Type this code into an editor and save it as `school-website.html`:
 
 ---
 
-## 🌍 Real-World Connection: School Portals Everywhere
+## Real-World Connection: School Portals Everywhere
 
 Visit top educational websites like *Stanford Online*, *MIT OpenCourseWare*, or your local district school board:
 - Notice how every page clearly divides into: **School Brand -> Hero Announcement -> Courses -> Staff -> Contact**.
@@ -382,18 +382,18 @@ Visit top educational websites like *Stanford Online*, *MIT OpenCourseWare*, or 
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 If a parent opens this school site on a smartphone (390px wide), what will happen to the 3 course cards?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> The course cards will automatically collapse into a neat, 1-column vertical stack! Because we used <code>grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));</code>, each card refuses to get smaller than 280px, forcing them onto separate rows on narrow screens!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Background Wash
+## Code Detective: The Broken Background Wash
 
 *(A CSS preview: you will meet backgrounds properly in the CSS track.)* A student tried to create a tinted photo banner, but the tint did not appear over the photo:
 
@@ -434,11 +434,11 @@ Add a floating school mascot crest in the top right corner:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Leaving out `tel:` or `mailto:` on contact links.**
 
-❌ Wrong:
+Wrong:
 
 ```html
 <a href="+91-12345-67890">Call the office</a>
@@ -447,7 +447,7 @@ Add a floating school mascot crest in the top right corner:
 
 What happens: the browser thinks these are **file names** in your folder. Tapping them gives a "not found" error instead of opening the phone dialler or email app.
 
-✅ Fixed: start the address with the right scheme.
+Fixed: start the address with the right scheme.
 
 ```html
 <a href="tel:+911234567890">Call the office</a>
@@ -456,7 +456,7 @@ What happens: the browser thinks these are **file names** in your folder. Tappin
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Add an "Events Notice Board"**
 
@@ -467,11 +467,11 @@ Open `school-website.html` in your editor:
    - Date: *November 3* | Event: *Robotics Tournament* | Location: *Lab 4*
 3. Save and refresh: you just gave the school a notice board!
 
-> 💡 **Hint:** Start with a header row of `<th>` cells (Date, Event, Location), then add one `<tr>` per event, just like in Chapter 11. Put the new section inside `<main>`.
+> **Hint:** Start with a header row of `<th>` cells (Date, Event, Location), then add one `<tr>` per event, just like in Chapter 11. Put the new section inside `<main>`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A school portal needs a clear outline: header and nav, hero, about, courses, teachers, contact.
 - Each `<section>` gets an `id` so the nav links can jump to it.
@@ -482,7 +482,7 @@ Open `school-website.html` in your editor:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -494,9 +494,9 @@ Open `school-website.html` in your editor:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which HTML tag wraps the contact and copyright details at the bottom of the page?
 2. Which link prefix opens the email app?
 3. Which link prefix opens the phone dialler?
@@ -510,7 +510,7 @@ Open `school-website.html` in your editor:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write a link that makes the school phone number `+91-12345-67890` dialable when tapped on a phone.
 2. A teacher photo has `alt="img1"`. Write a better `alt` and explain why it is better.
 
@@ -529,7 +529,7 @@ Open `school-website.html` in your editor:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add a "Cafeteria Menu" section to the school site:
 1. Add `<section id="menu">` inside `<main>`, with an `<h2>`.
 2. Build a table with the columns Day, Main Dish, Fruit, and rows for Monday to Wednesday.

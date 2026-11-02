@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Themed Birthday Party**
 
@@ -16,7 +16,7 @@ Imagine you are planning an underwater ocean-themed birthday party in your schoo
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Fill boxes with `background-color` and add photos with `background-image: url(...)`.
@@ -151,7 +151,7 @@ Type this into your editor and save it as `hero-banner.html`:
 
 ---
 
-## 🌍 Real-World Connection: Website Hero Sections
+## Real-World Connection: Website Hero Sections
 
 Visit **National Geographic**, **Khan Academy**, or **Wikimedia**:
 - The very first thing you see at the top of their home page is a huge, high-resolution, full-width photo banner.
@@ -159,18 +159,18 @@ Visit **National Geographic**, **Khan Academy**, or **Wikimedia**:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What will happen if you forget to write `background-repeat: no-repeat` when using a small photo as a background on a giant 27-inch desktop monitor?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> The browser will automatically tile and repeat the photo over and over like bathroom tiles until the entire screen is covered! By default in CSS, all background images repeat!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken URL Path
+## Code Detective: The Broken URL Path
 
 A student tried to load an image, but the background remained plain white:
 
@@ -216,7 +216,7 @@ Create a web page named `rainforest.html`:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is putting light text on a busy photo with no dark layer.
 
@@ -246,7 +246,7 @@ A second slip is a background image on an **empty** box. A `<div>` with no conte
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Tiling Pattern Experiment**
 
@@ -257,7 +257,7 @@ A second slip is a background image on an **empty** box. A `<div>` with no conte
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `background-color` fills elements with a solid tint.
 - `background-image: url(...)` attaches image backdrops.
@@ -268,7 +268,7 @@ A second slip is a background image on an **empty** box. A `<div>` with no conte
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -280,9 +280,9 @@ A second slip is a background image on an **empty** box. A `<div>` with no conte
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which CSS function must wrap the file path in `background-image`?
 2. What does a background image do if you do not set `background-repeat`?
 3. Which property moves the focus point of a background image to the centre?
@@ -296,7 +296,7 @@ A second slip is a background image on an **empty** box. A `<div>` with no conte
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write CSS for `.ocean-card` with a dark blue fallback colour, the image `waves.jpg`, no repeat and `cover` sizing.
 5. What is the difference between `background-size: cover` and `background-size: contain`?
 
@@ -319,7 +319,7 @@ The colour shows while the picture loads, or if it fails to load.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make a "still background" effect.
 1. Make a page with three tall sections (use `min-height: 100vh;`, which means the full height of the screen).
 2. Give the middle section a background image with `background-attachment: fixed;`.

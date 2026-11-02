@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about a restaurant. You sit at a table and read a nicely printed menu. A waiter takes your order into the kitchen. Behind the swinging doors, the chef cooks your meal where you cannot see. The waiter brings back the finished plate, and you never touch the kitchen. A website works the same way: HTML and CSS are the menu, and **PHP is the chef** working on the server.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what **PHP** stands for and where it came from.
 - Compare **client-side** code (runs in the browser) with **server-side** code (runs on the server).
@@ -65,7 +65,7 @@ An **HTTP request** is the message a browser sends to ask a server for a page.
 | **Primary Job** | Layout, design, animations, user input | Logins, saving data, page building |
 | **File Extension** | `.html`, `.css`, `.js` | `.php` |
 
-> 💡 **Private is not the same as safe.** Keeping PHP code on the server keeps it private. It does not make the code secure by itself. Later chapters teach how to write safe code.
+> **Private is not the same as safe.** Keeping PHP code on the server keeps it private. It does not make the code secure by itself. Later chapters teach how to write safe code.
 
 ---
 
@@ -123,19 +123,19 @@ Notice that the two `<p>` lines arrive side by side. `echo` prints exactly what 
 
 ---
 
-## 🌍 Real-World Connection: The Giant Engines of the Web
+## Real-World Connection: The Giant Engines of the Web
 
 - **WordPress** runs a large share of all websites (about 4 in 10), and it is written in **PHP**.
 - **Wikipedia**, the free online encyclopedia, runs on **MediaWiki**, which is written in PHP.
 - Many school portals, library catalogues and online shops also run on PHP.
 - Among websites whose server language is known, about three out of four use PHP.
 
-> 💡 **Fun Fact**:
+> **Fun Fact**:
 > PHP first stood for **Personal Home Page** tools. Rasmus Lerdorf created it in 1994. Today the name means **PHP: Hypertext Preprocessor**. The name contains itself, which is called a **recursive acronym**.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this server code:
 
@@ -146,13 +146,13 @@ Look at this server code:
 **Question**: What will the visitor see in their browser, and what will they see if they click "View Page Source"?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> On the screen they see <code>2 + 2 = 4</code>. In "View Page Source" they see <code>&lt;p&gt;2 + 2 = 4&lt;/p&gt;</code>. The PHP code <code>&lt;?php echo 2 + 2; ?&gt;</code> runs on the server and is replaced by <code>4</code>.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken File
+## Code Detective: The Broken File
 
 A junior coder created a file named `contact.html` and typed:
 
@@ -169,19 +169,19 @@ When they opened the page, the email address was missing.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Opening a `.php` file by double-clicking it.**
 
-- ❌ *Wrong*: You double-click `hello.php` in File Explorer. The browser opens `file:///C:/xampp/htdocs/hello.php`.
-- 😕 *What happens*: No server runs the code. You see raw PHP text, or the browser offers to download the file.
-- ✅ *Fixed*: Start Apache in XAMPP, then open `http://localhost/hello.php`. Now the server runs PHP and sends back HTML.
+- *Wrong*: You double-click `hello.php` in File Explorer. The browser opens `file:///C:/xampp/htdocs/hello.php`.
+- *What happens*: No server runs the code. You see raw PHP text, or the browser offers to download the file.
+- *Fixed*: Start Apache in XAMPP, then open `http://localhost/hello.php`. Now the server runs PHP and sends back HTML.
 
 The same rule explains a second mistake: PHP inside a `.html` file does not run. Only files that end in `.php` are sent to the PHP engine.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -201,7 +201,7 @@ Output:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - PHP is a **server-side** language: it runs on the web server, not in the browser.
 - The browser asks for a page; the server runs the PHP; only plain HTML comes back.
@@ -211,9 +211,9 @@ Output:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does the name PHP stand for today?
 2. Who created PHP, and in what year?
 3. What file extension must a file have for its PHP code to run?
@@ -227,7 +227,7 @@ Output:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why can visitors see your HTML with "View Page Source" but never your PHP code?
 2. Your Apache server is switched off. Can the browser still run a `.php` file? Explain.
 
@@ -239,7 +239,7 @@ Output:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A student logs into the school portal. Explain the journey of that request.
 
 1. Draw four boxes: browser, web server (Apache), PHP engine, database (MySQL).

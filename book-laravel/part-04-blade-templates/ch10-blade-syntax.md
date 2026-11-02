@@ -1,10 +1,10 @@
 # Chapter 10: Blade Syntax
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The library prints a **reading certificate** for every student who finishes ten books. The certificate design is the same for everyone. Only a few blanks change: the name, the class and the date. The librarian does not redesign the certificate each time. She fills in the blanks. A **Blade template** is that certificate design. Your controller fills in the blanks.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what Blade is and where Blade files live.
 - Print variables and PHP expressions with `{{ }}`.
@@ -158,7 +158,7 @@ Some JavaScript tools also use `{{ }}`. To print the braces themselves, add `@` 
 
 Blade is shorter, and it escapes by default, so the safe choice is also the easy one.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Using `{!! !!}` for user input "to make the formatting work".**
 
@@ -174,13 +174,13 @@ What happens: if a member types a script into their bio, it runs for every visit
 
 **Forgetting `.blade.php`.** A file named `certificate.php` will not understand `{{ }}`. You will see the braces printed on the page. Rename it to `certificate.blade.php`.
 
-## ✍️ Try It
+## Try It
 
 Make a `certificate` view and a route that passes your own name, grade and number of books. Add a Blade comment and an HTML comment, then use "View Source" in the browser. Which comment can you see?
 
 *Hint:* only the HTML comment appears in the source.
 
-## 📝 Recap
+## Recap
 
 - Blade files end in `.blade.php` and live in `resources/views/`.
 - `{{ $value }}` prints a value and escapes it, which blocks XSS.
@@ -188,9 +188,9 @@ Make a `certificate` view and a route that passes your own name, grade and numbe
 - `{{-- --}}` comments never reach the browser.
 - Directives like `@if` and `@foreach` replace PHP tags; each has an `@end...`.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is the difference between `{{ $text }}` and `{!! $text !!}`?
 
 <details>
@@ -200,7 +200,7 @@ What is the difference between `{{ $text }}` and `{!! $text !!}`?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 `$title` is `Bees & Their Hives`. What HTML does `<h1>{{ $title }}</h1>` send, and what does the browser show?
 
 <details>
@@ -210,7 +210,7 @@ It sends `<h1>Bees &amp; Their Hives</h1>`. The browser shows `Bees & Their Hive
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "Book of the Week" card.
 
 1. A controller passes `title`, `author`, `pages` and `review` (typed by a student).

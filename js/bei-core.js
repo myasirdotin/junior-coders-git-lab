@@ -17,14 +17,12 @@ function initTheme() {
 
     const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
     toggleBtns.forEach(btn => {
-        btn.innerHTML = savedTheme === 'dark' ? '☀️' : '🌙';
-        btn.addEventListener('click', () => {
+            btn.addEventListener('click', () => {
             const current = document.documentElement.getAttribute('data-theme') || 'dark';
             const next = current === 'dark' ? 'light' : 'dark';
             document.documentElement.setAttribute('data-theme', next);
             localStorage.setItem('bei_theme', next);
-            toggleBtns.forEach(b => b.innerHTML = next === 'dark' ? '☀️' : '🌙');
-        });
+                });
     });
 }
 
@@ -38,7 +36,7 @@ function initPlacementWidget() {
 
     const outcomes = {
         foundations: {
-            title: "🌟 Recommended Starting Point: Foundations & Digital Literacy",
+            title: "Recommended Starting Point: Foundations & Digital Literacy",
             desc: "Great for Grades 6–7 and anyone who has never coded. In 4 weeks you learn how files and folders work, use the terminal, and make your first web page.",
             link: "book-cmd/index.html#ch1",
             plan: "paths/beginner/index.html",
@@ -46,7 +44,7 @@ function initPlacementWidget() {
             color: "var(--brand-accent)"
         },
         web: {
-            title: "🌐 Recommended Starting Point: Web Development Pathway",
+            title: "Recommended Starting Point: Web Development Pathway",
             desc: "Great if you like making things you can see. Build pages with HTML, style them with CSS, then make them interactive with JavaScript.",
             link: "Learning%20HTML/module1.html",
             plan: "paths/web-developer/index.html",
@@ -54,7 +52,7 @@ function initPlacementWidget() {
             color: "var(--brand-cyan)"
         },
         python: {
-            title: "🐍 Recommended Starting Point: Python & AI Lab",
+            title: "Recommended Starting Point: Python & AI Lab",
             desc: "Great for Grades 8–10 and puzzle lovers. Learn Python step by step, then see how simple AI models learn from data, and how to use them honestly.",
             link: "Learning%20Python/module1.html",
             plan: "paths/python-ai/index.html",

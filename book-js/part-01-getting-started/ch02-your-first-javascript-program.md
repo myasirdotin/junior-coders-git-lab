@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Secret Calculator**
 
@@ -22,7 +22,7 @@ Open any web browser on your computer:
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Run JavaScript code in multiple environments (Browser Console, Code Editor, Web Page).
@@ -106,7 +106,7 @@ console.log((10 * 2) - 4);
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this snippet:
 
@@ -118,7 +118,7 @@ console.log(10 - 4);
 **Question**: What will the two lines output respectively?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong>
 Line 1 prints: <code>10 - 4</code> (as literal text)<br>
 Line 2 prints: <code>6</code> (as the mathematical result)
@@ -165,7 +165,7 @@ Write a program that prints a personal digital student profile tag:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **The Unmatched Quote**
 
@@ -185,7 +185,7 @@ console.log("My favourite number is 7);
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open your scratchpad or console:
 1. Predict what this line will output:
@@ -195,11 +195,11 @@ Open your scratchpad or console:
 2. Run the line to test your prediction!
 3. Notice how you can pass multiple values separated by commas, and JavaScript neatly prints them side-by-side with a space!
 
-> 💡 **Hint:** 12 × 12 = 144, so the console prints `My age in months is: 144`. Now change `12 * 12` to your own age times 12.
+> **Hint:** 12 × 12 = 144, so the console prints `My age in months is: 144`. Now change `12 * 12` to your own age times 12.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - JavaScript runs inside execution environments like browser consoles and Node.js.
 - `console.log()` displays text and calculations.
@@ -216,7 +216,7 @@ Open your scratchpad or console:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -228,9 +228,9 @@ Open your scratchpad or console:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Fill in the blank: the symbol `//` starts a single-line ______.
 2. Which line prints the word "Hi" to the console?
    (a) `console.log(Hi);` (b) `console.log("Hi");` (c) `print("Hi");` (d) `log.console("Hi");`
@@ -243,7 +243,7 @@ Open your scratchpad or console:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Explain why `console.log(2 + 2);` prints `4`, but `console.log("2 + 2");` prints `2 + 2`.
 2. Find and fix the mistake. What error will the browser show?
    ```javascript
@@ -261,7 +261,7 @@ Open your scratchpad or console:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a mini program that works out how many seconds are in one 24-hour day.
 1. Start with a comment that explains your maths.
 2. Use `60 * 60 * 24` inside `console.log()`.

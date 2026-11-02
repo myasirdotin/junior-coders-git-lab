@@ -1,10 +1,10 @@
 # Chapter 8: Functions & Modularity
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A halal bakery has a recipe card for date biscuits. The baker does not rewrite the recipe every morning. She takes out the card, follows the steps and gets the same good biscuits. If she wants a bigger batch, she changes one number: the amount of flour. A **function** is a recipe card for code. You write the steps once, give them a name, and use them whenever you need, with different ingredients each time.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Define your own functions with `def` and call them.
 - Pass information in with parameters, including default values and keyword arguments.
@@ -384,7 +384,7 @@ Savings 12000.0: zakat 300.0
 
 A name written in CAPITAL letters, like `NISAB_PRACTICE`, is a habit that tells readers "this value is meant to stay the same". It is called a **constant**.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Printing instead of returning.** The function shows a number, but the caller gets `None` and cannot do maths with it.
 
@@ -407,13 +407,13 @@ The `10` was printed, then the program crashed: you cannot add `None` and `1`. *
 
 **2. Forgetting the brackets when calling.** `welcome` without `()` does not run the function. It only names it. Always call with brackets: `welcome("Hassan")`.
 
-## ✍️ Try It
+## Try It
 
 Write a function `minutes_to_hours(minutes)` that **returns** the hours, rounded to 2 decimal places. Call it for 90, 45 and 200 minutes and print each result.
 
 **Hint:** `return round(minutes / 60, 2)`. The answers are 1.5, 0.75 and 3.33.
 
-## 📝 Recap
+## Recap
 
 - `def name(parameters):` defines a function; `name(arguments)` calls it.
 - Parameters can have default values; keyword arguments name the parameter in the call.
@@ -421,9 +421,9 @@ Write a function `minutes_to_hours(minutes)` that **returns** the hours, rounded
 - Variables made inside a function are local; they disappear when it ends.
 - `import math` or `from math import ceil` borrows ready-made functions. Your own `.py` files can be modules too.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 In `def area(width, height):` and `area(5, 2)`, which are the parameters and which are the arguments? What does a function return if it has no `return` line?
 
 <details>
@@ -433,7 +433,7 @@ In `def area(width, height):` and `area(5, 2)`, which are the parameters and whi
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write `count_passes(scores, pass_mark=50)` that returns how many scores are at or above the pass mark. Test it with `[45, 80, 50, 32, 91]` and also with `pass_mark=60`.
 
 <details>
@@ -461,7 +461,7 @@ Output:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a small water-tank toolkit for a school garden.
 
 1. Write `tank_volume(length, width, depth)` that returns the volume in litres. (1 cubic metre = 1000 litres, and the sizes are in metres.)

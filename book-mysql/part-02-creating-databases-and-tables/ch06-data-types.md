@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A school office has different boxes for different things. Exam papers go in the paper tray. Coins for the charity drive go in a locked coin box. Library cards go in a card file. If someone dropped coins into the paper tray, counting the money would be a mess. Data types are the database's labelled boxes: numbers go with numbers, dates with dates, text with text.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why each column needs a data type.
 - Choose between `INT`, `DECIMAL`, `FLOAT`, `VARCHAR`, `CHAR`, `TEXT`, `DATE` and `BOOLEAN`.
@@ -75,7 +75,7 @@ The `FLOAT` lost the paise! For charity donations, fees or Zakat, fairness means
 
 `VARCHAR(50)` storing `'Aisha'` uses only 5 characters of space plus a tiny length marker. `CHAR(50)` would always reserve the full 50.
 
-> 💡 **Phone numbers are text, not numbers.** You never add phone numbers together, and they can start with `0` or `+`. Use `VARCHAR(20)`.
+> **Phone numbers are text, not numbers.** You never add phone numbers together, and they can start with `0` or `+`. Use `VARCHAR(20)`.
 
 ---
 
@@ -120,11 +120,11 @@ Here is why Chapter 5 chose each type:
 
 `available` could also be a `BOOLEAN`. We kept `'Yes'`/`'No'` text because it is easy to read for beginners. Both are fine; just choose one and stay consistent.
 
-> 🧪 **Sandbox note:** SQLite (the sandbox) is relaxed about types. It will store `'Fifteen'` in a number column without complaint. MySQL checks types; SQLite mostly does not.
+> **Sandbox note:** SQLite (the sandbox) is relaxed about types. It will store `'Fifteen'` in a number column without complaint. MySQL checks types; SQLite mostly does not.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: trusting MySQL to always reject bad data.**
 
@@ -160,7 +160,7 @@ Most hosting servers already use strict mode. Turn it on while you practise so y
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In phpMyAdmin (database `school_db`), run `DESCRIBE donations;`. Then answer:
 
@@ -171,7 +171,7 @@ In phpMyAdmin (database `school_db`), run `DESCRIBE donations;`. Then answer:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A data type says what kind of value a column can hold.
 - Use `INT` for whole numbers and `DECIMAL(M,D)` for exact decimals and money.
@@ -181,9 +181,9 @@ In phpMyAdmin (database `school_db`), run `DESCRIBE donations;`. Then answer:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Why is `DECIMAL(10,2)` better than `FLOAT` for donation amounts?
 2. In what format does MySQL expect a `DATE`?
 3. What is the difference between `VARCHAR(50)` and `CHAR(50)`?
@@ -197,7 +197,7 @@ In phpMyAdmin (database `school_db`), run `DESCRIBE donations;`. Then answer:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Choose the best type for each value:
 1. A student's birth date: `2012-04-15`
 2. A phone number: `+92-300-1234567`
@@ -216,7 +216,7 @@ Choose the best type for each value:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A developer stores phone numbers in an `INT` column.
 
 1. Predict what happens to `'03001234567'` in relaxed mode and in strict mode.

@@ -1,10 +1,10 @@
 # Chapter 12: Text Input and Forms
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The school library has a paper request slip. You write the book you are looking for and how many copies your class needs. Hamza, the student helper, reads each slip before he passes it on. If a box is empty he hands it back: "Please fill this in." If someone wrote "lots" in the copies box, he asks for a number. He also ignores extra spaces and does not care whether you wrote in capital letters. A text box in an app should be just as helpful and just as patient. In this chapter you build that kind of box, and use it to search the library.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Add an `OutlinedTextField` and connect it to state with `value` and `onValueChange`.
 - Choose the right keyboard with `KeyboardOptions` and `KeyboardType`.
@@ -324,7 +324,7 @@ Notice the pattern. The **state** is only the typed text. The list of matches is
 
 `matches.forEach { … }` draws one `Text` per book. It is fine for five books. For a whole library it is not, and Chapter 13 shows the better way.
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```kotlin
 println(filterBooks(sampleBooks, "  GARDENS").size)
@@ -343,7 +343,7 @@ println(filterBooks(sampleBooks, "o").size)
 
 </details>
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Not updating the state in `onValueChange`.**
 
@@ -366,7 +366,7 @@ books.filter { it.title.contains(query) }
 
 What happens: typing `kotlin` finds nothing, because the title has a capital `K`. A space at the end of the search also stops matches. Fix: `it.title.contains(query.trim(), ignoreCase = true)`.
 
-## ✍️ Try It
+## Try It
 
 Let the search also look at the author's name.
 
@@ -376,7 +376,7 @@ Let the search also look at the author's name.
 
 *Hint:* use `||` (or) inside the lambda: `it.title.contains(cleaned, ignoreCase = true) || it.author.contains(cleaned, ignoreCase = true)`.
 
-## 📝 Recap
+## Recap
 
 - `OutlinedTextField` shows `value` and calls `onValueChange` with the new text; you store it in state.
 - Give every field a `label`; use `singleLine = true` for short answers.
@@ -385,7 +385,7 @@ Let the search also look at the author's name.
 - `trim()` and `ignoreCase = true` make searching forgiving.
 - Passwords: dots on screen, never shown back, never logged.
 
-## 📖 Key Terms
+## Key Terms
 
 - **Text field**: a box the user can type into.
 - **Validation**: checking that input makes sense before using it.
@@ -393,9 +393,9 @@ Let the search also look at the author's name.
 - **trim()**: removes spaces from the start and end of a text.
 - **ignoreCase**: compare text without caring about capital letters.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does `onValueChange` give you each time the user presses a key?
 2. Which parameter turns the outline red?
 3. What does `toIntOrNull()` give for `"five"`?
@@ -409,7 +409,7 @@ Let the search also look at the author's name.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a `ClassBox()` with an `OutlinedTextField` for a class number (6 to 10). Show the number keyboard. Show `Classes 6 to 10 only` in red when the user has typed something that is not a number from 6 to 10; otherwise show the help text `Your class, 6 to 10`.
 
 <details>
@@ -440,7 +440,7 @@ When `showError` is true the outline and the supporting text turn red, because M
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a book request form.
 
 1. Two fields: `Book title` (text) and `Copies needed` (number keyboard), each with `rememberSaveable` state.

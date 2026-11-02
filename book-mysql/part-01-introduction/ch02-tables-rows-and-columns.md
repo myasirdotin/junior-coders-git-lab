@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think of the class register your teacher fills in each morning. Across the top are headings: roll number, name, present or absent. Down the page, each line is one student. Nobody writes two students on one line, and nobody adds a new heading for each new child. A database table works exactly like that register.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Name the parts of a table: table, column, row and value.
 - Read a real table from the school database.
@@ -91,14 +91,14 @@ New columns are only for a new *kind* of fact, for example if the library starts
 ### Rule 1: One table = one kind of thing
 Do not mix unrelated facts in one table.
 
-- ❌ One giant table with students, their borrowed books and their teachers' phone numbers.
-- ✅ Separate tables: `students`, `books`, `classes`, and a `loans` table that records each time a student borrows a book.
+- One giant table with students, their borrowed books and their teachers' phone numbers.
+- Separate tables: `students`, `books`, `classes`, and a `loans` table that records each time a student borrows a book.
 
 ### Rule 2: One value per cell
 Each cell holds one single piece of information. This is called an **atomic** value (it cannot be split further).
 
-- ❌ A `borrowed_books` cell holding `'Clean Code, Algorithm Design'`.
-- ✅ One row per borrowing in the `loans` table:
+- A `borrowed_books` cell holding `'Clean Code, Algorithm Design'`.
+- One row per borrowing in the `loans` table:
 
 | id | student_id | book_id |
 | ---: | ---: | ---: |
@@ -112,7 +112,7 @@ Two students can share the same name. So every table gets a column with a unique
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: adding a column for every new item.**
 
@@ -129,7 +129,7 @@ What happens: the library buys a fourth book and the table has no room. You must
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [SQL Sandbox](../studios/sql-sandbox/) and look at the `donations` table. Answer:
 
@@ -141,7 +141,7 @@ Open the [SQL Sandbox](../studios/sql-sandbox/) and look at the `donations` tabl
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **table** stores data about one kind of thing.
 - A **column** is one fact every row has; all its values share one type.
@@ -151,9 +151,9 @@ Open the [SQL Sandbox](../studios/sql-sandbox/) and look at the `donations` tabl
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the difference between a **column** and a **row**?
 2. A school enrols 250 new students. Does `students` gain 250 new columns or 250 new rows?
 3. Why do we need an `id` column when students already have names?
@@ -167,7 +167,7 @@ Open the [SQL Sandbox](../studios/sql-sandbox/) and look at the `donations` tabl
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A community honey farm wants an `inventory` table. It must track the product name, jar size in grams, selling price, and jars in stock. Write the column names you would use and give one example row.
 
 <details>
@@ -181,7 +181,7 @@ Any clear names are fine, as long as there is an `id` and one column per fact.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A junior coder made a table called `library_users` with this column:
 
 `borrowed_books: "Quran Stories, Math Class 9, Web Design"`

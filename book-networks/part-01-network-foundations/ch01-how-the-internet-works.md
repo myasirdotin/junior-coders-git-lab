@@ -1,10 +1,10 @@
 # Chapter 1: How the Internet Actually Works
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Maryam wants to send a 500-page science report to her cousin in another country. The post office only accepts postcards. So she tears out each page and writes three things on it: her address, her cousin's address and a page number. The postcards travel on different vans and planes. Some arrive early and some arrive late. Her cousin sorts them by page number and rebuilds the whole report. That is exactly how the Internet moves your messages.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain how **packet switching** breaks data into small pieces and rebuilds it.
 - Name the parts of a network: clients, servers, network cards, switches and routers.
@@ -164,32 +164,32 @@ The Internet works only because thousands of universities, companies and countri
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Thinking `ping` time is one-way.**
 
-- ❌ Wrong idea: "`time=20ms` means my packet reached the server in 20 ms."
+- Wrong idea: "`time=20ms` means my packet reached the server in 20 ms."
 - What really happens: 20 ms is the **whole round trip**, there and back.
-- ✅ Right idea: "The trip there took roughly half, about 10 ms, and the reply took the rest."
+- Right idea: "The trip there took roughly half, about 10 ms, and the reply took the rest."
 
 **Thinking "no reply" always means "the server is down".**
 
-- ❌ Wrong idea: `Request timed out.` means the website is broken.
+- Wrong idea: `Request timed out.` means the website is broken.
 - What really happens: many servers and firewalls block ping on purpose. The website may still open fine in a browser.
-- ✅ Right idea: if ping fails, also try the website in a browser before deciding.
+- Right idea: if ping fails, also try the website in a browser before deciding.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Ping `example.org` four times and write down the **Minimum**, **Maximum** and **Average** times.
 Then move further from the Wi-Fi access point and ping again. Did the times change?
 
-> 💡 Hint: on Windows, `ping -n 4 example.org` sends exactly four packets. At school, only ping addresses your teacher allows.
+> Hint: on Windows, `ping -n 4 example.org` sends exactly four packets. At school, only ping addresses your teacher allows.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - The Internet is a network of networks that moves data in small **packets**.
 - Packets carry a source, a destination and a sequence number, so they can be rebuilt in order.
@@ -200,9 +200,9 @@ Then move further from the Wi-Fi access point and ping again. Did the times chan
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is **packet switching**, and why do computers split large files into small packets?
 
 <details>
@@ -213,7 +213,7 @@ It lets many people share the same cables at once, and if one packet is lost, on
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A student runs `ping example.org` and sees `Lost = 0 (0% loss)` and `Average = 40ms`.
 1. Did all packets come back?
 2. Roughly how long did the trip *to* the server take?
@@ -228,7 +228,7 @@ A student runs `ping example.org` and sees `Lost = 0 (0% loss)` and `Average = 4
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Draw your own school network as a text diagram.
 1. Show at least three devices in one lab.
 2. Add the switch that joins them.

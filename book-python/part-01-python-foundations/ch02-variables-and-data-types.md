@@ -1,10 +1,10 @@
 # Chapter 2: Variables & Data Types
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The school pantry has many jars on a shelf. Each jar has a label: "Rice", "Lentils", "Dates". When the teacher says "bring the lentils", you find the jar by reading its label. You do not need to know which shelf it is on. A Python variable works the same way. It is a name label that lets you find a value in the computer's memory.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Create variables and change their values.
 - Recognise the four basic data types: `int`, `float`, `str` and `bool`.
@@ -282,15 +282,15 @@ Python has a few strict rules for names, and some good habits (from the style gu
 
 | Name | OK? | Why |
 | :--- | :--- | :--- |
-| `water_level` | ✅ | snake_case: lowercase words joined by `_` |
-| `total_donations` | ✅ | clear meaning |
-| `1st_student` | ❌ | cannot start with a number |
-| `first student` | ❌ | no spaces allowed |
-| `x` | ⚠️ | allowed, but tells the reader nothing |
+| `water_level` | | snake_case: lowercase words joined by `_` |
+| `total_donations` | | clear meaning |
+| `1st_student` | | cannot start with a number |
+| `first student` | | no spaces allowed |
+| `x` | | allowed, but tells the reader nothing |
 
 Names are **case-sensitive**: `Score` and `score` are two different variables. Choose meaningful names like `patient_temperature` or `parcel_weight`. Clear names are a kindness to the next reader (*Iḥsān*).
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```python
 pages = 40
@@ -311,7 +311,7 @@ print(type(pages / 2))
 
 </details>
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Adding a number to a number stored as text.**
 
@@ -341,13 +341,13 @@ print(int(visitors_text) + 5)
 125
 ```
 
-## ✍️ Try It
+## Try It
 
 A school bus holds 42 students. 190 students are going to the planetarium. Create variables `students` and `seats_per_bus`. Print how many full buses are needed and how many students are left for one extra bus.
 
 **Hint:** use `//` for full buses and `%` for the students left over. (You should get 4 full buses and 22 extra students.)
 
-## 📝 Recap
+## Recap
 
 - A variable is a name label for a value. `=` stores a value under a name.
 - The four basic types are `int`, `float`, `str` and `bool`. `type()` shows which one you have.
@@ -355,9 +355,9 @@ A school bus holds 42 students. 190 students are going to the planetarium. Creat
 - `int()`, `float()` and `str()` convert between types. `round()` tidies decimals.
 - Use clear snake_case names. Names are case-sensitive.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is the data type of each value? `7`, `7.0`, `"7"`, `False`
 
 <details>
@@ -367,7 +367,7 @@ What is the data type of each value? `7`, `7.0`, `"7"`, `False`
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A library has 365 books to spread across 8 shelves. Write code that prints how many books go on each shelf and how many are left over.
 
 <details>
@@ -389,7 +389,7 @@ Left over: 5
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a solar panel energy calculator.
 
 1. Store the number of panels (`12`) and the energy each panel makes per day (`1.75` kWh).

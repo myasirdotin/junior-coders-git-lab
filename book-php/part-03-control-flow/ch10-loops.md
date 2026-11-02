@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 On sports day, the teacher says, "Everyone run 5 laps!" You run lap 1, then count "two", and run again. You keep going and counting until you reach 5, then you stop for water. Nobody writes the instruction "run a lap" five separate times. A **loop** works the same way: it repeats a job while a counter moves towards a finish line.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Use the four PHP loops: `while`, `do-while`, `for` and `foreach`.
 - Pick the right loop for a task.
@@ -137,7 +137,7 @@ Number: 6
 
 ---
 
-## 🌍 Real-World Connection: Rendering Products & Timelines
+## Real-World Connection: Rendering Products & Timelines
 
 When you open an online bookshop or a school news page:
 - The server gets a list of 20 books or news posts.
@@ -146,7 +146,7 @@ When you open an online bookshop or a school news page:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -158,13 +158,13 @@ When you open an online bookshop or a school news page:
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>6</code>. Lap 1: 0 + 1 = 1. Lap 2: 1 + 2 = 3. Lap 3: 3 + 3 = 6. (<code>+=</code> adds to the variable; see Chapter 7.)
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Wrong-Way Counter
+## Code Detective: The Wrong-Way Counter
 
 ```php
 <?php
@@ -180,11 +180,11 @@ When you open an online bookshop or a school news page:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **The infinite loop: forgetting to move the counter.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   <?php
   $i = 1;
@@ -193,14 +193,14 @@ When you open an online bookshop or a school news page:
     // forgot $i++
   }
   ```
-- 😕 *What happens*: `$i` stays 1 forever. The page prints `1111…` until PHP's time limit (`max_execution_time`, usually 30 seconds on a web server) stops the script with a fatal error.
-- ✅ *Fixed*: Add `$i++;` inside the loop. It prints `12345678910` and stops.
+- *What happens*: `$i` stays 1 forever. The page prints `1111…` until PHP's time limit (`max_execution_time`, usually 30 seconds on a web server) stops the script with a fatal error.
+- *Fixed*: Add `$i++;` inside the loop. It prints `12345678910` and stops.
 
 *Rule*: every loop needs something that moves it closer to the end on every lap.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and print the even numbers from 2 to 10:
 
@@ -221,7 +221,7 @@ Output:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A loop repeats code; each repeat is an **iteration**.
 - `while` checks first; `do-while` runs once before it checks.
@@ -231,9 +231,9 @@ Output:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Name the four kinds of loop in PHP.
 2. Which loop is best for visiting every item in a list?
 3. What is the difference between `break` and `continue`?
@@ -247,7 +247,7 @@ Output:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. A `while` and a `do-while` loop both have a condition that is false from the start. How many times does each body run?
 2. Write a `for` loop that adds up all even numbers from 2 to 50 and prints the total.
 
@@ -273,7 +273,7 @@ Output:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a multiplication table page.
 
 1. Use a loop inside a loop (a **nested loop**) to print an HTML `<table>`.

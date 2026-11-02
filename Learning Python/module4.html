@@ -13,15 +13,15 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #2563eb, #0284c7); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #2563eb; font-weight: 800;">Level 4</span>
-            <h1 style="color: white; margin: 0.5rem 0;">The Digital Caravan 🐫📋</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">The Digital Caravan</h1>
             <p>Group complex data together using lists for ordered sequences and dictionaries for labeled records.</p>
         </header>
 
         <!-- Analogy -->
         <section class="content-section">
-            <h2>🧺 Why Collections?</h2>
+            <h2>Why Collections?</h2>
             <div class="tip-box" style="border-left-color: #2563eb;">
-                <p>🧠 <strong>Real-life analogy:</strong> A <strong>list</strong> is like a row of numbered lockers in the school corridor. You find things by their locker number. A <strong>dictionary</strong> is like a library card. Each line has a label ("Title", "Author") and a value next to it.</p>
+                <p><strong>Real-life analogy:</strong> A <strong>list</strong> is like a row of numbered lockers in the school corridor. You find things by their locker number. A <strong>dictionary</strong> is like a library card. Each line has a label ("Title", "Author") and a value next to it.</p>
             </div>
             <p>So far, each variable held one value. Real data comes in groups: a class of students, a shelf of books, a record about one donor.</p>
             <p>A <strong>collection</strong> is one variable that holds many values. Python's two most used collections are the <strong>list</strong> and the <strong>dictionary</strong> (often called a <em>dict</em>).</p>
@@ -32,13 +32,13 @@
             <h2>Two Essential Collections</h2>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
                 <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #2563eb;">
-                    <h3>Lists 📋 (Ordered by index: 0, 1, 2)</h3>
+                    <h3>Lists (Ordered by index: 0, 1, 2)</h3>
                     <p>Great for sequences and queues.</p>
                     <pre style="background: #0f172a; color: #f8fafc; padding: 0.75rem; border-radius: 8px;"><code>fruits = ["Fig", "Olive", "Pomegranate"]
 print(fruits[0])  # Fig</code></pre>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
-                    <h3>Dictionaries 📖 (Key-Value Lookups)</h3>
+                    <h3>Dictionaries (Key-Value Lookups)</h3>
                     <p>Great for labeled objects and real-world entities.</p>
                     <pre style="background: #0f172a; color: #f8fafc; padding: 0.75rem; border-radius: 8px;"><code>donor = {"name": "Bilal", "pledge": 100}
 print(donor["name"])  # Bilal</code></pre>
@@ -48,7 +48,7 @@ print(donor["name"])  # Bilal</code></pre>
 
         <!-- Lists in Depth -->
         <section class="content-section">
-            <h2>📋 Working with Lists</h2>
+            <h2>Working with Lists</h2>
             <p>Each item in a list has a position number called an <strong>index</strong>. Counting starts at 0, not 1. So the first item is <code>fruits[0]</code>.</p>
             <p>A negative index counts from the end. <code>fruits[-1]</code> is the last item.</p>
             <p>A list can change. You can swap an item, or add a new one at the end with <code>.append()</code>. A function that belongs to a value, called with a dot, is named a <strong>method</strong>.</p>
@@ -83,7 +83,7 @@ True
 
         <!-- Dictionaries in Depth -->
         <section class="content-section">
-            <h2>📖 Working with Dictionaries</h2>
+            <h2>Working with Dictionaries</h2>
             <p>A dictionary stores <strong>key-value pairs</strong>. The <strong>key</strong> is the label, such as <code>"name"</code>. The <strong>value</strong> is the data, such as <code>"Bilal"</code>. A colon joins each key to its value, and curly brackets wrap the whole record.</p>
             <p>You read a value with its key in square brackets. To change a value, store a new one under the same key. To add a pair, store a value under a new key.</p>
             <h3>Worked example 2: updating a donor record</h3>
@@ -103,7 +103,7 @@ print(len(donor))</code></pre>
 
         <!-- Records -->
         <section class="content-section">
-            <h2>🗂️ A List of Records</h2>
+            <h2>A List of Records</h2>
             <p>Real datasets are often a list of dictionaries. Each dictionary is one <strong>record</strong> (one row of data). The list holds all the records. You will see this shape again in Modules 6, 7 and 8.</p>
             <p>When an f-string uses double quotes, write the key inside it with single quotes: <code>{student['name']}</code>. Mixing the two kinds of quotes keeps Python from getting confused.</p>
             <h3>Worked example 3: the reading club</h3>
@@ -121,20 +121,20 @@ Yusuf read 3 books.
 Hana read 9 books.</code></pre>
 
             <div class="tip-box" style="border-left-color: #ef4444;">
-                <p>⚠️ <strong>Common mistake: asking for something that is not there</strong></p>
+                <p><strong>Common mistake: asking for something that is not there</strong></p>
                 <p>The list <code>["Fig", "Olive", "Pomegranate"]</code> has 3 items, so its indexes are 0, 1 and 2. Asking for <code>fruits[3]</code> fails with:</p>
                 <pre class="code-block"><code>IndexError: list index out of range</code></pre>
                 <p>Dictionaries have the same trap. Asking for a key that does not exist, such as <code>donor["phone"]</code>, fails with <code>KeyError: 'phone'</code>. Check the spelling of your keys: <code>"Name"</code> and <code>"name"</code> are different.</p>
             </div>
 
             <div class="tip-box" style="border-left-color: #2563eb;">
-                <p>🧪 <strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a>. Run worked example 3, then add a fourth student to the list. Run it again and watch the loop pick up the new record by itself.</p>
+                <p><strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a>. Run worked example 3, then add a fourth student to the list. Run it again and watch the loop pick up the new record by itself.</p>
             </div>
         </section>
 
         <!-- Practice Challenge -->
         <section class="content-section jc-your-turn">
-            <h2>🧪 Your Turn: Community Library Inventory</h2>
+            <h2>Your Turn: Community Library Inventory</h2>
             <p>Create a dictionary for one library book with a title, an author, the number of pages and whether it is available (<code>True</code> or <code>False</code>). Use <code>if</code>/<code>else</code> from Module 2 to choose a status message, then print two lines about the book.</p>
             <details class="jc-answer"><summary>Show answer</summary><div>
             <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>book_record = {
@@ -159,14 +159,14 @@ Status: Available on shelf (310 pages)</code></pre>
         </section>
 
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p><code>planets = ["Mercury", "Venus", "Earth"]</code>. What does <code>planets[2]</code> give? After <code>planets.append("Mars")</code>, what does <code>len(planets)</code> give?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div><code>planets[2]</code> is <code>"Earth"</code>, because indexes start at 0. After the append the list has 4 items, so <code>len(planets)</code> is <code>4</code>.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>A food bank stores its stock in kilograms: <code>pantry = {"rice": 20, "lentils": 12, "flour": 8}</code>. A donor brings 5 kg of lentils and 10 kg of dates. Update the dictionary, then use a loop to print every item and the total weight.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
 <pre><code>pantry = {"rice": 20, "lentils": 12, "flour": 8}
@@ -183,7 +183,7 @@ print(f"Total: {total} kg")</code></pre>
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>Three schools planted trees for a green city project.</p>
                 <ol>
                     <li>Make a list of three dictionaries. Each has a <code>"school"</code> and a <code>"trees"</code> key. Use 14, 22 and 9 trees.</li>

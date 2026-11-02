@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine walking into your school library. When you want to find a book about space exploration, you don't just wander aimlessly. You go to the librarian's desk, ask for the astronomy shelf, pick up a book with a colorful cover, and flip through its pages.
 
@@ -16,7 +16,7 @@ Each book has a unique title and code so the librarian can find it. Inside the b
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Clearly define what a website and a web page are.
@@ -106,19 +106,19 @@ Let's inspect the code above like digital scientists:
 
 ---
 
-## 🌍 Real-World Connection: How Big Sites Use This
+## Real-World Connection: How Big Sites Use This
 
 Think about your favorite websites:
 - **A public library catalogue**: The whole site holds thousands of web pages. When you look up one book, you are looking at one web page with its title, author and shelf number.
 - **Wikipedia**: Every topic—from dinosaurs to black holes—is an individual web page tied together by links.
 - **School Portal**: Your homework page, exam timetable, and notice board are distinct web pages living under your school's website.
 
-> 🌟 **Did You Know?**
+> **Did You Know?**
 > The very first website in the world was created in **1991** by a British scientist named **Sir Tim Berners-Lee**. It had no images, no colors, and no videos—just plain text and links! Today, there are more than a billion websites!
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Take a look at this tiny snippet:
 
@@ -130,13 +130,13 @@ Take a look at this tiny snippet:
 **Question**: What will appear larger on the user's screen: *"The Solar System"* or *"There are 8 planets in our solar system"*? Why?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <em>"The Solar System"</em> will appear much bigger and bolder because the <code>&lt;h1&gt;</code> tag means "Heading 1", the highest and largest headline on a web page!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Address
+## Code Detective: The Broken Address
 
 A junior coder tried to explain how a browser works, but wrote something confused:
 
@@ -160,7 +160,7 @@ When a student lands on a school website, what do they want to see first?
 - A wall of 1,000 tiny words in gray text? **OR**
 - A bright school logo, a warm welcome message, and 3 clear buttons: *Homework*, *Sports Day*, and *Contact Us*?
 
-> 💡 **Think Before You Code**: 
+> **Think Before You Code**: 
 > A good web designer always asks: *"Who is visiting my website, and what is the first thing they need to find?"*
 
 ---
@@ -182,21 +182,21 @@ Save this sketch—we will code it as we progress through this book!
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mixing up the browser and the website.**
 
-❌ Wrong: *"Google is my browser."*
+Wrong: *"Google is my browser."*
 
 What happens: you mix up the tool with the place you visit. When a teacher says "open your browser", you may not know which icon to click.
 
-✅ Fixed: *"Chrome (or Edge) is my browser. Google Search and Wikipedia are websites I open inside it."*
+Fixed: *"Chrome (or Edge) is my browser. Google Search and Wikipedia are websites I open inside it."*
 
-> 💡 Remember: the **browser** is the courier. The **website** is the book it fetches for you.
+> Remember: the **browser** is the courier. The **website** is the book it fetches for you.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Web Detective Tour**
 
@@ -207,11 +207,11 @@ Grab your computer mouse and try this quick 3-minute exploration:
 4. Click **"View Page Source"** (or press `Ctrl + U` on Windows / `Cmd + Option + U` on Mac).
 5. **Look at the screen!** You will see the exact HTML code that built the page! You just peeked into the secret engine room of the web!
 
-> 💡 **Hint:** Right-click on plain text or empty space. Right-clicking a picture or a link shows a different menu.
+> **Hint:** Right-click on plain text or empty space. Right-clicking a picture or a link shows a different menu.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **website** is a collection of connected pages, like a book.
 - A **web page** is an individual document within that website.
@@ -221,7 +221,7 @@ Grab your computer mouse and try this quick 3-minute exploration:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means (In Plain English) |
 | :--- | :--- |
@@ -233,9 +233,9 @@ Grab your computer mouse and try this quick 3-minute exploration:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Name three web browsers people use today.
 2. What is the difference between a website and a web page?
 3. What is the full name of HTML?
@@ -249,7 +249,7 @@ Grab your computer mouse and try this quick 3-minute exploration:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Explain in your own words what a server does when you type a web address.
 2. Why doesn't the text inside `<title>` appear on the white canvas of the page? Where does it show up instead?
 
@@ -261,7 +261,7 @@ Grab your computer mouse and try this quick 3-minute exploration:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Imagine the Internet suddenly had no web browsers.
 1. Could you still read a web page by opening its raw HTML file?
 2. Write two things that would be hard about this for ordinary people.

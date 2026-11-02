@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine you are watching a construction team build a new house in your neighborhood:
 
@@ -14,7 +14,7 @@ Imagine you are watching a construction team build a new house in your neighborh
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Identify the three fundamental languages of the web: **HTML**, **CSS**, and **JavaScript**.
@@ -63,7 +63,7 @@ By the end of this chapter, you will be able to:
  (content)     (looks)      (actions)
 ```
 
-> 🍎 **Teacher Tip**:
+> **Teacher Tip**:
 > Think of HTML as your bones, CSS as your clothes and hairstyle, and JavaScript as your brain — the intelligence that lets you think, solve problems, and interact with the world!
 
 ---
@@ -108,7 +108,7 @@ Notice how clean this separation is:
 
 ---
 
-## 🌍 Real-World Connection: What Happens Without CSS?
+## Real-World Connection: What Happens Without CSS?
 
 Did you know that you can strip the CSS away from the biggest websites on the planet?
 - If you turn off CSS on a **big online bookshop**, the website doesn't disappear, but all the grid layouts, beautiful book cards, and gold "Add to Cart" buttons vanish. The page turns into a long, plain vertical list of blue text and raw pictures!
@@ -117,7 +117,7 @@ Did you know that you can strip the CSS away from the biggest websites on the pl
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 If a website author writes only HTML and **forgets to write any CSS at all**, what will happen when a user visits the page?
 - **Option A**: The browser displays a scary red error message saying "Page Broken".
@@ -125,13 +125,13 @@ If a website author writes only HTML and **forgets to write any CSS at all**, wh
 - **Option C**: The computer shuts down.
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: Option B!</strong> The browser is smart. If you don't provide CSS, it uses its built-in default styles (called User Agent Styles) to display raw text and images neatly, even if it looks very plain!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Mismatched Roles
+## Code Detective: The Mismatched Roles
 
 A student made study flashcards, but mixed up the definitions:
 
@@ -159,7 +159,7 @@ Would you buy glitter and paint before you even know what pastries are being sol
 **Of course not!**
 You first write down the essential details (What, When, Where). Then, you arrange the words and decorate them with delicious pastry illustrations and festive colors.
 
-> 💡 **Think Before You Code**:
+> **Think Before You Code**:
 > Always build your HTML content first! Once you know *what* needs to be on the page, styling it with CSS becomes fun, easy, and purposeful.
 
 ---
@@ -175,11 +175,11 @@ Share your story with your classmate or teacher!
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Using HTML to change how text looks.**
 
-❌ Wrong: a student wants big text, so they use a heading tag for a normal sentence:
+Wrong: a student wants big text, so they use a heading tag for a normal sentence:
 
 ```html
 <h1>Please bring your library card on Monday.</h1>
@@ -187,7 +187,7 @@ Share your story with your classmate or teacher!
 
 What happens: the sentence looks big, but the browser (and screen readers, apps that read pages aloud) now think it is the main title of the page.
 
-✅ Fixed: use the tag that matches the **meaning**. Size and colour are CSS's job, which you will learn in the CSS track.
+Fixed: use the tag that matches the **meaning**. Size and colour are CSS's job, which you will learn in the CSS track.
 
 ```html
 <p>Please bring your library card on Monday.</p>
@@ -195,7 +195,7 @@ What happens: the sentence looks big, but the browser (and screen readers, apps 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Web Architect's Classification**
 
@@ -207,10 +207,10 @@ Look at the following website features and classify which technology is primaril
 4. Calculating your score after answering a 10-question online quiz: `______`
 5. Changing the page background to dark mode: `______`
 
-> 💡 **Hint:** Ask the house questions. *What* is on the page? HTML. *How does it look?* CSS. *Does it do something or calculate?* JavaScript.
+> **Hint:** Ask the house questions. *What* is on the page? HTML. *How does it look?* CSS. *Does it do something or calculate?* JavaScript.
 
 <details>
-<summary>👀 Click to check your answers</summary>
+<summary>Click to check your answers</summary>
 1. HTML (Content structure)<br>
 2. CSS (Visual style & hover appearance)<br>
 3. HTML (Image element)<br>
@@ -220,7 +220,7 @@ Look at the following website features and classify which technology is primaril
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Websites are built with three core languages: **HTML**, **CSS**, and **JavaScript**.
 - **HTML** builds the structural foundation (headings, text, images, forms).
@@ -230,7 +230,7 @@ Look at the following website features and classify which technology is primaril
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -241,9 +241,9 @@ Look at the following website features and classify which technology is primaril
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Which language is responsible for each job?
 1. Painting a button orange.
 2. Creating a table of exam dates.
@@ -258,7 +258,7 @@ Which language is responsible for each job?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why is it better to keep HTML and CSS in separate files instead of mixing everything together?
 2. You want to change the font of every paragraph on a 50-page website from Times New Roman to Arial. Will you edit the HTML or the CSS? Why?
 
@@ -270,7 +270,7 @@ Which language is responsible for each job?
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Explain what happens to a website in each case:
 1. It has no JavaScript.
 2. It has no CSS.

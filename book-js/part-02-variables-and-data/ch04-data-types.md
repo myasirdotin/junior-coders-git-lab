@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Sorting the Digital Desk**
 
@@ -18,7 +18,7 @@ JavaScript categorizes every single piece of information into these exact same d
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Identify and understand the 5 core primitive data types in JavaScript: **String**, **Number**, **Boolean**, **null**, and **undefined**.
@@ -109,7 +109,7 @@ houseNumber is: undefined
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this snippet:
 
@@ -122,7 +122,7 @@ console.log(typeof booksRead, typeof hasFinished);
 **Question**: What will appear on the screen?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>number boolean</code> (separated by a space).
 </details>
 
@@ -168,7 +168,7 @@ Item: nextEdition | Value: undefined | Type: undefined
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **The Imposter Boolean**
 
@@ -189,18 +189,18 @@ console.log(typeof isPresent);
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open your console:
 1. Type `typeof 100` -> Press Enter.
 2. Type `typeof "100"` -> Press Enter.
 3. Compare the two! Notice that `"100"` is a **string**, while `100` is a **number**! Even though they look the same to human eyes, JavaScript treats them completely differently!
 
-> 💡 **Hint:** You should see `number` for the first one and `string` for the second. The quotation marks make the difference.
+> **Hint:** You should see `number` for the first one and `string` for the second. The quotation marks make the difference.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Every piece of data in JavaScript has a specific **data type**.
 - **Strings** store text wrapped in quotation marks.
@@ -219,7 +219,7 @@ Open your console:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -233,9 +233,9 @@ Open your console:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Name the data type of each value: `"Tokyo"`, `42`, `false`, `null`.
 2. What does `typeof 7.5` return? (a) `"string"` (b) `"number"` (c) `"decimal"` (d) `"float"`
 
@@ -247,7 +247,7 @@ Open your console:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Choose a data type for each: your school's name; whether today is a school holiday; the price of a loaf of bread.
 2. What will this print, and why?
    ```javascript
@@ -263,7 +263,7 @@ Open your console:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Describe a robot for the school science fair with five variables:
 1. `robotName` (string), `armLength` (number), `canSortWaste` (boolean).
 2. `prizeWon` (null, because judging has not happened yet).

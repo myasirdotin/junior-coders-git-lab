@@ -1,10 +1,10 @@
 # Chapter 24: Protecting Routes
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The school library has three kinds of spaces. The **reading hall** is open to every visitor. The **borrowing desk** needs a library card. The **records room**, where the register is kept, is only for librarians. Nobody would put the register in the reading hall. Your app needs the same three levels: pages for everyone, pages for logged-in users, and pages for librarians only.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Protect routes and groups with the `auth` middleware.
 - Explain what happens to a guest who opens a protected page.
@@ -202,7 +202,7 @@ Look how far you have come. Your app now has:
 
 Ideas to keep growing: a "Mark returned" button that increments copies, a search box with `where('title', 'like', ...)`, email reminders for overdue books, and tests with `php artisan test`. The official documentation at laravel.com/docs is your next textbook.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Registering the public `show` route before the protected `create` route.**
 
@@ -218,13 +218,13 @@ What happens: `/books/create` matches `/books/{book}` first. Route model binding
 
 **Only hiding buttons.** If `@can` hides the Delete button but the route has no `can:manage-books`, any logged-in member can still send a DELETE request and remove books. Always protect the **route**.
 
-## ✍️ Try It
+## Try It
 
 Add `is_librarian`, the `manage-books` gate and the protected book routes to your app. Make two users: one librarian, one member. Log in as each and try `/books/create`.
 
 *Hint:* the member should see 403, a guest should be sent to `/login`, and the librarian should see the form.
 
-## 📝 Recap
+## Recap
 
 - `->middleware('auth')` lets only logged-in users through; guests go to the `login` route and come back with `intended()`.
 - Split resources with `only()` / `except()`, and register the group containing `create` first.
@@ -232,9 +232,9 @@ Add `is_librarian`, the `manage-books` gate and the protected book routes to you
 - Use `can:manage-books` on routes and `Gate::authorize()` in controllers; failures give 403.
 - `@can` hides buttons, but only route checks give real protection.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is the difference between being sent to `/login` and seeing a 403 page?
 
 <details>
@@ -244,7 +244,7 @@ Being sent to `/login` means the app does not know who you are (you are a guest)
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write the routes so that everyone can see `/loans/overdue`, logged-in users can see `/my-loans`, and only librarians can open `/loans/create`.
 
 <details>
@@ -267,7 +267,7 @@ Route::middleware('auth')->group(function () {
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Finish the library app's security.
 
 1. Protect every librarian action (books, members, loans) with `auth` and a gate.

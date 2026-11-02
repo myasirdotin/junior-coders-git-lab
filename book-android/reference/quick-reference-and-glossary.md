@@ -2,14 +2,14 @@
 
 Keep this page open while you build. Each table shows the short form of something the book teaches, with the chapter where it is explained in full. The glossary at the end explains about fifty words you will meet in Android development.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Find the Kotlin syntax for variables, decisions, lists, loops, functions, classes and null safety in seconds.
 - Look up the Compose building blocks for screens, layout, state, input, lists, navigation and saving.
 - Remember the Android Studio actions you use every day.
 - Check the meaning of an Android word in the glossary.
 
-## 🟣 Kotlin Quick Reference
+## Kotlin Quick Reference
 
 All the examples in this part are plain Kotlin. You can run them in the Kotlin Playground inside `fun main() { }`.
 
@@ -93,7 +93,7 @@ All the examples in this part are plain Kotlin. You can run them in the Kotlin P
 | `contains()` | `"Science A3".contains("A3")` | `true` |
 | `split()` | `"a\|b".split("\|")` | `[a, b]` |
 
-## 📱 Compose Quick Reference
+## Compose Quick Reference
 
 Compose code runs in Android Studio, not in the Playground.
 
@@ -230,7 +230,7 @@ Declare it first in `AndroidManifest.xml`: `<uses-permission android:name="andro
 | A release file | **Build → Generate Signed App Bundle / APK** |
 | Version numbers | `versionCode = 2`, `versionName = "1.1"` in `app/build.gradle.kts` |
 
-## ⌨️ Android Studio Actions
+## Android Studio Actions
 
 | Action | Where (Windows keys) |
 |--------|---------------------|
@@ -244,7 +244,7 @@ Declare it first in `AndroidManifest.xml`: `<uses-permission android:name="andro
 | Logcat | **View → Tool Windows → Logcat** |
 | Emulators | **Device Manager** on the right side |
 
-## 📖 Glossary
+## Glossary
 
 | Term | Meaning |
 |------|---------|
@@ -304,7 +304,7 @@ Declare it first in `AndroidManifest.xml`: `<uses-permission android:name="andro
 | **Unit test** | A small automatic check of one function, run with JUnit. |
 | **versionCode** | A whole number that must increase with each release. |
 
-## 📝 Recap
+## Recap
 
 - The Kotlin tables cover Chapters 4 to 8: `val`/`var`, `if`/`when`, lists, loops, functions, lambdas, data classes and null safety.
 - The Compose tables cover Chapters 9 to 18: screens, layout, state, input, lists, navigation, saving, design, permissions and testing.

@@ -13,14 +13,14 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 1</span>
-            <h1 style="color: white; margin: 0.5rem 0;">IP Addressing, CIDR &amp; NAT 🗺️</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">IP Addressing, CIDR &amp; NAT</h1>
             <p>Every device on the Internet needs an address. Master IPv4 octets, CIDR prefixes, and private home networks.</p>
         </header>
         <!-- Analogy -->
         <section class="content-section">
-            <h2>Addresses for Every Device 🏠</h2>
+            <h2>Addresses for Every Device</h2>
             <div class="connection-box">
-                <p>🧠 <strong>Real-life analogy:</strong> A school address has two parts: the street name and the house number. Every house on one street shares the street name. Each house has its own number. An IP address works the same way. One part names the <strong>network</strong> (the street). The other part names the <strong>host</strong>, which means one device on that network (the house).</p>
+                <p><strong>Real-life analogy:</strong> A school address has two parts: the street name and the house number. Every house on one street shares the street name. Each house has its own number. An IP address works the same way. One part names the <strong>network</strong> (the street). The other part names the <strong>host</strong>, which means one device on that network (the house).</p>
             </div>
             <p>An <strong>IP address</strong> is the number that tells routers where a packet should go. IP stands for Internet Protocol. Every device that talks on a network needs one.</p>
         </section>
@@ -124,7 +124,7 @@ Websites see: 203.0.113.7 for all three</code></pre>
 
         <!-- Find your own address -->
         <section class="content-section">
-            <h2>Worked Example 4: Find Your Own Address 🔎</h2>
+            <h2>Worked Example 4: Find Your Own Address</h2>
             <p>On Windows, open Command Prompt or PowerShell and run:</p>
             <pre class="code-block"><code>ipconfig</code></pre>
             <p><strong>Example output</strong> (shortened; yours will differ):</p>
@@ -143,7 +143,7 @@ Websites see: 203.0.113.7 for all three</code></pre>
 
         <!-- Common misunderstanding -->
         <section class="content-section">
-            <h2>Common Misunderstanding ⚠️</h2>
+            <h2>Common Misunderstanding</h2>
             <div class="tip-box">
                 <p><strong>"The address in ipconfig is the address websites see."</strong></p>
                 <p>Usually not. <code>ipconfig</code> shows your private address, such as 192.168.1.20. Because of NAT, websites see your router's single public address instead. Many homes and school rooms share one public address.</p>
@@ -153,20 +153,20 @@ Websites see: 203.0.113.7 for all three</code></pre>
                 <p>It has 256 addresses, but only 254 can be given to devices. The first is the network address and the last is the broadcast address.</p>
             </div>
             <div class="connection-box">
-                <p>🔐 <strong>Amānah:</strong> An IP address can hint at where a person is. Treat logs of visitors' addresses as private information. Keep them only as long as you truly need them.</p>
+                <p><strong>Amānah:</strong> An IP address can hint at where a person is. Treat logs of visitors' addresses as private information. Keep them only as long as you truly need them.</p>
             </div>
         </section>
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>How many bits are in an IPv4 address? How many bits are in one octet? What is the largest number one octet can hold?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>32 bits in the address, 8 bits in each octet, and the largest octet value is 255.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>A computer club uses <code>10.0.5.0/27</code>. Work out the number of usable hosts, the first and last usable addresses, the broadcast address and the subnet mask.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
                     <pre class="code-block"><code>Host bits    = 32 − 27 = 5
@@ -180,7 +180,7 @@ Mask         255.255.255.224
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>A neighbourhood food bank has the private block <code>192.168.20.0/24</code>. Plan three subnets for it:</p>
                 <ol>
                     <li>Volunteer guest Wi-Fi: 50 devices.</li>

@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The school librarian receives a box of 50 new science books. She does not leave them in a messy pile. She sorts them by author, checks whether a title is already on the shelf, adds new ones at the end and removes damaged copies. Each of these jobs follows a simple, well-known method. PHP gives you ready-made **array functions** for the same jobs: sorting, searching, adding, removing and joining lists.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Sort indexed arrays with `sort()` and `rsort()`.
 - Sort associative arrays and keep their keys with `asort()`, `arsort()` and `ksort()`.
@@ -108,7 +108,7 @@ Sorted Scores: 62, 78, 88, 95, 100<br><h3>Sorted by Age (Ascending):</h3>Amina i
 
 ---
 
-## 🌍 Real-World Connection: Charity Drive Totals
+## Real-World Connection: Charity Drive Totals
 
 In a school charity drive tracker:
 
@@ -118,7 +118,7 @@ In a school charity drive tracker:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -130,13 +130,13 @@ In a school charity drive tracker:
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>AB</code>. "C" was pushed onto the end and then popped straight off again.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Lost Keys
+## Code Detective: The Lost Keys
 
 ```php
 <?php
@@ -163,19 +163,19 @@ Array
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Saving the result of `sort()` in a variable.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   <?php
   $items = ["pen", "book", "ruler"];
   $sorted = sort($items);
   var_dump($sorted);
   ```
-- 😕 *What happens*: The output is `bool(true)`. `sort()` returns `true`, not the sorted list. The sorted list is in `$items`.
-- ✅ *Fixed*:
+- *What happens*: The output is `bool(true)`. `sort()` returns `true`, not the sorted list. The sorted list is in `$items`.
+- *Fixed*:
   ```php
   <?php
   $items = ["pen", "book", "ruler"];
@@ -188,7 +188,7 @@ A second mistake: using plain `sort()` on an associative array. It wipes out you
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -211,7 +211,7 @@ Venus | Mars | Jupiter | Earth<br>First item now: Sun
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `sort()` / `rsort()` sort the array itself and renumber the keys 0, 1, 2.
 - `asort()` / `arsort()` sort by value and **keep** the keys; `ksort()` sorts by key.
@@ -221,9 +221,9 @@ Venus | Mars | Jupiter | Earth<br>First item now: Sun
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which function checks whether a value is inside an array?
 2. Which function joins array items into one string with a separator?
 3. What is the difference between `sort()` and `rsort()`?
@@ -237,7 +237,7 @@ Venus | Mars | Jupiter | Earth<br>First item now: Sun
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why does `sort()` lose associative keys while `asort()` keeps them?
 2. You have `$donations = ["7A" => 300, "7B" => 550, "7C" => 420];`. Sort it from highest to lowest, keeping the class names, and print each line as `7B: 550`.
 
@@ -264,7 +264,7 @@ Output:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Turn a line of text into a sorted class list.
 
 1. Start with the string `"Sara,Ali,Zayn,Bilal,Dania"`.

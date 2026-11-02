@@ -1,10 +1,10 @@
-# Command Line & Terminal Mastery for Junior Coders 💻⚡
+# Command Line & Terminal Mastery for Junior Coders
 
 Welcome to the official **Command Line Interface (CLI) Textbook** of the Junior Coders curriculum!
 
 ---
 
-## 🎯 Course Overview
+## Course Overview
 
 Before graphic user interfaces (GUIs), windows, and mice existed, software engineers communicated with computers through text commands. Today, the Command Prompt and Terminal remain the fastest, most powerful way to:
 
@@ -17,7 +17,7 @@ This textbook equips students to be dual-fluent in both the **Windows Command Pr
 
 ---
 
-## 🗺️ Curriculum Roadmap
+## Curriculum Roadmap
 
 | Part | Focus | Chapters |
 | :--- | :--- | :--- |
@@ -29,7 +29,7 @@ This textbook equips students to be dual-fluent in both the **Windows Command Pr
 
 ---
 
-## 🌟 Islamic Ethical Framework (*Amānah & Iḥsān*)
+## Islamic Ethical Framework (*Amānah & Iḥsān*)
 
 In accordance with our core guidelines:
 - **Digital Trust (*Amānah*)**: Destructive terminal commands (`del`, `rm -rf`) cannot be undone by the Recycle Bin. Power in the terminal comes with moral responsibility and carefulness.

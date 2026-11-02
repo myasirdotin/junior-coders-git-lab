@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Our school has a class noticeboard in the corridor. Students pin up short articles: a science fair report, a book review, news from the charity drive. The newest article goes at the top, so everyone sees it first. A teacher checks that each paper has a title and the writer's name before it goes up. In this project you build that noticeboard as a web page, and PHP keeps the papers in a file.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Store a list of posts in a `posts.json` file and load it again.
 - Add a new post to the top of the list with `array_unshift()`.
@@ -294,13 +294,13 @@ Output:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Escaping when saving instead of when printing.**
 
-- ❌ *Wrong*: `$title = htmlspecialchars(trim($_POST["title"]));` before saving, and `<?= htmlspecialchars($p['title']) ?>` when printing.
-- 😕 *What happens*: The title `Sun & Shade` is saved as `Sun &amp; Shade`. When printed, it is escaped again and the page shows `Sun &amp; Shade`.
-- ✅ *Fixed*: Save the real text. Escape **once**, at the moment you print it into HTML.
+- *Wrong*: `$title = htmlspecialchars(trim($_POST["title"]));` before saving, and `<?= htmlspecialchars($p['title']) ?>` when printing.
+- *What happens*: The title `Sun & Shade` is saved as `Sun &amp; Shade`. When printed, it is escaped again and the page shows `Sun &amp; Shade`.
+- *Fixed*: Save the real text. Escape **once**, at the moment you print it into HTML.
 
 ```php
 <?php
@@ -322,7 +322,7 @@ A second mistake: forgetting the redirect. Without it, pressing Refresh after pu
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Save `blog.php` in `C:\xampp\htdocs\blog-project\`, start Apache, and open `http://localhost/blog-project/blog.php`.
 
@@ -336,7 +336,7 @@ Save `blog.php` in `C:\xampp\htdocs\blog-project\`, start Apache, and open `http
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A JSON file can store a list of associative arrays between visits.
 - Load with `file_get_contents()` + `json_decode(..., true)`; save with `json_encode()` + `file_put_contents()`.
@@ -346,9 +346,9 @@ Save `blog.php` in `C:\xampp\htdocs\blog-project\`, start Apache, and open `http
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which function turns a PHP array into JSON text?
 2. What does the second argument `true` do in `json_decode($json, true)`?
 3. Which array function adds an item to the **start** of an array?
@@ -362,7 +362,7 @@ Save `blog.php` in `C:\xampp\htdocs\blog-project\`, start Apache, and open `http
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 The feed is getting long. Show only the **5 newest** posts, and print "Showing 5 of 12" above them. Write the PHP.
 
 <details>
@@ -397,7 +397,7 @@ Because new posts are already at the front, the first five are the newest. In `b
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add a **category filter**.
 
 1. Above the feed, show one link per category: `blog.php?cat=Science Club` and so on, plus an "All" link.

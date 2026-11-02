@@ -13,7 +13,7 @@
         <!-- Hero Header -->
         <header class="module-header path-laravel">
             <span class="badge" style="background: white; color: var(--laravel-brand);">Level 2</span>
-            <h1>Blade Templates 🌿</h1>
+            <h1>Blade Templates</h1>
             <p>Beautiful, dynamic HTML — write less, show more!</p>
         </header>
 
@@ -23,7 +23,7 @@
             <p>You already know HTML. Blade is HTML with superpowers! It lets you embed dynamic PHP values, use loops, conditionals, and even reuse entire page layouts — all with a super clean, readable syntax.</p>
 
             <div class="connection-box" style="border-left-color: var(--laravel-brand);">
-                <strong>The Smart Template Analogy 📄</strong><br><br>
+                <strong>The Smart Template Analogy</strong><br><br>
                 Blade is like a smart HTML template. You write HTML but with special codes that let PHP values appear automatically. Think of a school report card template — the template is always the same, but each student's name and grades fill in the blanks differently every time!
             </div>
 
@@ -35,7 +35,7 @@
 
         <!-- Echoing Variables -->
         <section class="content-section">
-            <h2>Displaying Variables — The {{ }} Syntax 🖨️</h2>
+            <h2>Displaying Variables — The {{ }} Syntax</h2>
             <p>The most common thing you'll do in Blade is display a PHP variable on the page. Use double curly braces:</p>
 
             <div class="code-block">
@@ -52,12 +52,10 @@
 
             <div class="analogy-grid" style="margin-top: 1.5rem;">
                 <div class="analogy-card active" style="border-color: #34d399; background: rgba(52, 211, 153, 0.05);">
-                    <span class="analogy-icon">🛡️</span>
                     <h3 style="color: var(--text-green);">{{ $var }} — Safe</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">Blade automatically escapes HTML characters. If someone tries to inject <code>&lt;script&gt;</code> tags, they'll show as text, not run as code. Always use this!</p>
                 </div>
                 <div class="analogy-card active" style="border-color: #f43f5e; background: rgba(244, 63, 94, 0.05);">
-                    <span class="analogy-icon">⚠️</span>
                     <h3 style="color: var(--text-red);">{!! $var !!} — Unescaped</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">This renders raw HTML. Only use it when you 100% control the content — like HTML you generated yourself in PHP. Never use it with user input!</p>
                 </div>
@@ -66,7 +64,7 @@
 
         <!-- Control Structures -->
         <section class="content-section">
-            <h2>Control Structures — Logic in Your Templates 🔀</h2>
+            <h2>Control Structures — Logic in Your Templates</h2>
             <p>Blade has clean, readable directives for all common PHP logic. Notice how they start with <code>@</code> — that's how you know it's a Blade directive!</p>
 
             <h3 style="margin-top: 1.5rem; color: var(--text-indigo);">If / Else / Elseif</h3>
@@ -115,7 +113,7 @@
 
         <!-- Layout Inheritance -->
         <section class="content-section">
-            <h2>Layout Inheritance — Write HTML Once, Use Everywhere! 🏛️</h2>
+            <h2>Layout Inheritance — Write HTML Once, Use Everywhere!</h2>
             <p>Every page on a website shares common elements — a header, footer, navigation. With Blade layouts, you write those shared parts <em>once</em> and every page automatically gets them!</p>
 
             <h3 style="margin-top: 1.5rem;">Step 1: Create a Layout Template</h3>
@@ -176,7 +174,7 @@
 
         <!-- Includes -->
         <section class="content-section">
-            <h2>Includes and Components 🧩</h2>
+            <h2>Includes and Components</h2>
             <p>Break your templates into small, reusable pieces using <code>@include</code>. Great for things like navigation bars, alert messages, and cards that appear on multiple pages!</p>
 
             <div class="code-block">
@@ -192,7 +190,7 @@
             </div>
 
             <div class="connection-box" style="border-left-color: #eab308;">
-                <strong>The @csrf Directive — Never Forget This! 🔒</strong><br><br>
+                <strong>The @csrf Directive — Never Forget This!</strong><br><br>
                 Any HTML form that submits data to Laravel MUST include <code>@csrf</code> inside it. This generates a hidden security token that proves the form is legitimate and protects against cross-site request forgery attacks. Laravel will reject forms without it!
                 <div class="code-block" style="margin-top: 1rem;">
 <code>&lt;form method="POST" action="/students"&gt;
@@ -206,7 +204,7 @@
 
         <!-- Passing Data -->
         <section class="content-section">
-            <h2>Passing Data from Controller to View 📦</h2>
+            <h2>Passing Data from Controller to View</h2>
             <p>Remember how controllers call <code>view()</code>? The second argument is the data you want to pass to the template. There are two clean ways to do this:</p>
 
             <div class="code-block">
@@ -235,14 +233,14 @@
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Fill in the blanks. To show <code>$book-&gt;title</code> safely, write ______. Every form that sends POST data must contain the directive ______.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div><code>{{ $book-&gt;title }}</code> and <code>@csrf</code>. Double curly braces escape the text, so any HTML inside it shows as plain text.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Fix the bug</h3>
+                <h3>Level 2: Fix the bug</h3>
                 <p>This view lists book titles that students typed in. It has two problems. One causes an error, and one is a safety risk. Fix both. Then show "No books yet." when the list is empty.</p>
 <pre><code>&lt;ul&gt;
     @foreach ($books as $book)
@@ -261,7 +259,7 @@
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>On your own XAMPP computer, build a "New books this month" page for the school library. Use a layout, so every page shares one header.</p>
                 <ol>
                     <li>Create <code>resources/views/layouts/app.blade.php</code>. Give it a header that says "School Library" and add <code>@yield('content')</code>.</li>
@@ -310,7 +308,7 @@ Route::get('/books/new', [BookController::class, 'newBooks']);</code></pre>
 
         <!-- Quiz -->
         <section class="content-section">
-            <h2>Quick Knowledge Check! 🧪</h2>
+            <h2>Quick Knowledge Check!</h2>
             <form id="quiz-form-1" class="quiz-section" style="margin-top: 1.5rem;">
 
                 <div class="quiz-question" data-answer="a">

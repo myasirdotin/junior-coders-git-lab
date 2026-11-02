@@ -25,7 +25,7 @@
     'use strict';
     if (window.PracticeCards) return;
 
-    const TIER_LABEL = { 1: '🟢 Warm-up', 2: '🟡 Apply', 3: '🔴 Challenge' };
+    const TIER_LABEL = { 1: 'Warm-up', 2: 'Apply', 3: 'Challenge' };
     const XP = { 1: 15, 2: 25, 3: 40 };
     const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     const normText = (s) => String(s).replace(/\r/g, '').split('\n').map(l => l.replace(/\s+$/g, '')).join('\n').trim();
@@ -174,7 +174,7 @@ self.onmessage = (e) => {
         const links = [];
         if (ex.module) links.push(`<a href="module${ex.module}.html">Module ${ex.module}</a>`);
         if (ex.chapter && book) links.push(`<a href="../book-${book}/index.html#ch${ex.chapter}">Textbook chapter ${ex.chapter}</a>`);
-        const learn = links.length ? `<p class="lrvx-learn">📖 ${links.join(' · ')}</p>` : '';
+        const learn = links.length ? `<p class="lrvx-learn">${links.join(' · ')}</p>` : '';
         const why = `<div class="phpx-why">${ex.why}</div>`;
         let body = '';
         if (ex.type === 'predict') {
@@ -267,7 +267,7 @@ self.onmessage = (e) => {
             const first = progress() ? progress().completeExercise(doneKey(ex), XP[ex.tier]) : false;
             fb.hidden = false;
             fb.className = 'sqlx-feedback ok';
-            fb.innerHTML = (first ? `✅ Correct! +${XP[ex.tier]} XP` : '✅ Correct!') + (extra || '');
+            fb.innerHTML = (first ? `Correct! +${XP[ex.tier]} XP` : 'Correct!') + (extra || '');
             cardEl.classList.add('done');
             cardEl.querySelector('.sqlx-num').textContent = '✓';
             updateProgress();
@@ -307,14 +307,14 @@ self.onmessage = (e) => {
                 const btn = hit('.lrvx-option');
                 cardEl.querySelectorAll('.lrvx-option').forEach(o => o.classList.remove('is-right', 'is-wrong'));
                 if (+btn.dataset.i === ex.answer) { btn.classList.add('is-right'); markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>'); }
-                else { btn.classList.add('is-wrong'); sayNo(fb, '❌ Not that one. Read the task again and try another answer.'); }
+                else { btn.classList.add('is-wrong'); sayNo(fb, 'Not that one. Read the task again and try another answer.'); }
             } else if (hit('.lrvx-line')) {
                 const btn = hit('.lrvx-line');
                 cardEl.querySelectorAll('.lrvx-line').forEach(o => o.classList.remove('is-right', 'is-wrong'));
                 if (badLines(ex).includes(+btn.dataset.i)) {
                     btn.classList.add('is-right');
                     markSolved(ex, cardEl, fb, '<div class="phpx-why">Fixed:<pre class="phpx-code">' + esc(ex.fix) + '</pre>' + ex.why + '</div>');
-                } else { btn.classList.add('is-wrong'); sayNo(fb, '❌ That line is fine. Think about what the task says goes wrong, and look again.'); }
+                } else { btn.classList.add('is-wrong'); sayNo(fb, 'That line is fine. Think about what the task says goes wrong, and look again.'); }
             } else if (hit('.lrvx-step')) {
                 cardEl.dataset.chosen = [...(cardEl.dataset.chosen || '').split(',').filter(Boolean), hit('.lrvx-step').dataset.i].join(',');
                 fb.hidden = true; renderChosen(cardEl);
@@ -328,17 +328,17 @@ self.onmessage = (e) => {
                 if (ex.type === 'predict') {
                     const got = normLoose(cardEl.querySelector('.phpx-answer').value);
                     if (ex.answers.some(a => normLoose(a) === got)) markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>');
-                    else sayNo(fb, '❌ Not quite. Follow the code line by line and try again, or show the answer.');
+                    else sayNo(fb, 'Not quite. Follow the code line by line and try again, or show the answer.');
                 } else if (ex.type === 'fill') {
                     const got = cardEl.querySelector('.phpx-answer').value.trim().toLowerCase();
                     if (ex.answers.map(a => a.toLowerCase()).includes(got)) markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>');
-                    else sayNo(fb, '❌ That is not it. Think about what the task is asking for.');
+                    else sayNo(fb, 'That is not it. Think about what the task is asking for.');
                 } else if (ex.type === 'order') {
                     const mine = (cardEl.dataset.chosen || '').split(',');
                     if (acceptedOrders(ex).includes(mine.join(','))) { markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>'); return; }
                     const right = Math.max(...acceptedOrders(ex).map(o => o.split(',').findIndex((n, i) => n !== mine[i])));
-                    sayNo(fb, right === 0 ? '❌ Not yet: the first step is not right. What has to happen before anything else?'
-                        : `❌ Not yet: the first ${right} step${right === 1 ? ' is' : 's are'} in the right place. Take back the later ones and think about what must come first.`);
+                    sayNo(fb, right === 0 ? 'Not yet: the first step is not right. What has to happen before anything else?'
+                        : `Not yet: the first ${right} step${right === 1 ? ' is' : 's are'} in the right place. Take back the later ones and think about what must come first.`);
                 } else {
                     const btn = hit('.sqlx-run');
                     const src = cardEl.querySelector('.pc-editor').value;
@@ -351,10 +351,10 @@ self.onmessage = (e) => {
                             wrap.hidden = false;
                             wrap.querySelector('iframe').srcdoc = src;
                         }
-                        if (r.problem) sayNo(fb, '❌ ' + r.problem);
+                        if (r.problem) sayNo(fb, '' + r.problem);
                         else markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>');
                     } catch (err) {
-                        sayNo(fb, '⚠️ ' + esc(err.message || err));
+                        sayNo(fb, '' + esc(err.message || err));
                     }
                     btn.disabled = false;
                 }
@@ -380,12 +380,12 @@ self.onmessage = (e) => {
         // Python tasks need Pyodide; everything else works straight away
         if (EX.some(x => x.type === 'python')) {
             const engineEl = document.getElementById('pcEngine');
-            if (engineEl) engineEl.textContent = '⏳ Downloading the Python engine (a few MB, only the first time). Python coding tasks switch on when it is ready…';
+            if (engineEl) engineEl.textContent = 'Downloading the Python engine (a few MB, only the first time). Python coding tasks switch on when it is ready…';
             window.PyLab.ready().then(() => {
-                if (engineEl) { engineEl.textContent = '✅ Python ' + window.PyLab.version + ' ready (runs in your browser)'; engineEl.classList.add('ok'); }
+                if (engineEl) { engineEl.textContent = 'Python ' + window.PyLab.version + ' ready (runs in your browser)'; engineEl.classList.add('ok'); }
                 list.querySelectorAll('.sqlx-card[data-type="python"] .sqlx-run').forEach(b => { b.disabled = false; });
             }).catch((err) => {
-                if (engineEl) { engineEl.textContent = '⚠️ ' + err.message + ' The other tasks still work; Python coding tasks show their solution and expected output.'; engineEl.classList.add('bad'); }
+                if (engineEl) { engineEl.textContent = err.message + ' The other tasks still work; Python coding tasks show their solution and expected output.'; engineEl.classList.add('bad'); }
             });
         }
     }

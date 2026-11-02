@@ -447,7 +447,7 @@
     <!-- Lab Navbar -->
     <header class="lab-navbar">
         <div class="lab-brand">
-            <a href="../index.html"><span>🏠</span> Home</a>
+            <a href="../index.html"><span></span> Home</a>
             <span style="color: #334155;">/</span>
             <a href="learningcss.html">CSS Track</a>
             <span style="color: #334155;">/</span>
@@ -456,13 +456,13 @@
 
         <div class="lab-nav-links">
             <a id="review-book-btn" href="../book-css/index.html#ch15" class="lab-btn lab-btn-book" title="Open the textbook chapter for this challenge">
-                <span>📖</span> <span>Review Chapter in Book</span>
+                <span></span> <span>Review Chapter in Book</span>
             </a>
             <a href="exercises.html" class="lab-btn lab-btn-outline">
-                <span>📋</span> <span>All Exercises</span>
+                <span></span> <span>All Exercises</span>
             </a>
             <a href="../studios/web-studio/index.html" class="lab-btn lab-btn-outline">
-                <span>💻</span> <span>Open Web Studio</span>
+                <span></span> <span>Open Web Studio</span>
             </a>
         </div>
     </header>
@@ -470,7 +470,7 @@
     <!-- Challenge Selector & Action Bar -->
     <section class="challenge-toolbar">
         <div class="challenge-selector-group">
-            <label for="challengeSelect">🎯 Choose Lab Challenge:</label>
+            <label for="challengeSelect">Choose Lab Challenge:</label>
             <select id="challengeSelect" class="challenge-select" onchange="switchChapterChallenge(this.value)">
                 <option value="ch13">Ch 13: What is CSS? (Basic Typography)</option>
                 <option value="ch14">Ch 14: Adding CSS (Classes & Selectors)</option>
@@ -487,19 +487,19 @@
                 <option value="ch25">Ch 25-27: Glowing Hover Button & Transitions</option>
                 <option value="ch28">Ch 28: Modern Glassmorphism Website Card</option>
                 <option value="ch29">Ch 29: Complete Responsive Navbar</option>
-                <option value="sandbox">🛠️ Free Sandbox (Blank Canvas)</option>
+                <option value="sandbox">Free Sandbox (Blank Canvas)</option>
             </select>
         </div>
 
         <div class="toolbar-actions">
             <button type="button" class="lab-btn lab-btn-outline" onclick="openModal('hintModal')">
-                <span>💡</span> <span>Hint</span>
+                <span></span> <span>Hint</span>
             </button>
             <button type="button" class="lab-btn lab-btn-outline" onclick="openModal('solutionModal')">
-                <span>📝</span> <span>Solution</span>
+                <span></span> <span>Solution</span>
             </button>
             <button type="button" class="lab-btn lab-btn-outline" onclick="resetActiveChallenge()" title="Reset to original challenge starter code">
-                <span>🔄</span> <span>Reset Code</span>
+                <span></span> <span>Reset Code</span>
             </button>
         </div>
     </section>
@@ -519,10 +519,10 @@
         <section class="editor-section">
             <div class="editor-tabs">
                 <button type="button" class="editor-tab active" data-target="pane-css" onclick="switchEditorTab('css', this)">
-                    <span>🎨</span> <span>style.css</span>
+                    <span></span> <span>style.css</span>
                 </button>
                 <button type="button" class="editor-tab" data-target="pane-html" onclick="switchEditorTab('html', this)">
-                    <span>📄</span> <span>index.html</span>
+                    <span></span> <span>index.html</span>
                 </button>
             </div>
 
@@ -551,12 +551,12 @@
         <section class="preview-section">
             <div class="preview-header">
                 <div class="viewport-controls">
-                    <button type="button" class="viewport-btn active" onclick="setViewport('100%', this)">💻 Desktop</button>
-                    <button type="button" class="viewport-btn" onclick="setViewport('768px', this)">📟 Tablet</button>
-                    <button type="button" class="viewport-btn" onclick="setViewport('375px', this)">📱 Mobile</button>
+                    <button type="button" class="viewport-btn active" onclick="setViewport('100%', this)">Desktop</button>
+                    <button type="button" class="viewport-btn" onclick="setViewport('768px', this)">Tablet</button>
+                    <button type="button" class="viewport-btn" onclick="setViewport('375px', this)">Mobile</button>
                 </div>
                 <button type="button" class="lab-btn lab-btn-outline" style="padding: 0.2rem 0.5rem;" onclick="refreshPreview()" title="Refresh live preview">
-                    <span>🔄</span> Refresh
+                    <span></span> Refresh
                 </button>
             </div>
 
@@ -570,7 +570,7 @@
     <div class="modal-overlay" id="hintModal">
         <div class="modal-card">
             <div class="modal-header">
-                <h3>💡 Challenge Hint</h3>
+                <h3>Challenge Hint</h3>
                 <button type="button" class="modal-close" onclick="closeModal('hintModal')">✕</button>
             </div>
             <div class="modal-body" id="hintModalContent">
@@ -583,7 +583,7 @@
     <div class="modal-overlay" id="solutionModal">
         <div class="modal-card">
             <div class="modal-header">
-                <h3>📝 Challenge Solution</h3>
+                <h3>Challenge Solution</h3>
                 <button type="button" class="modal-close" onclick="closeModal('solutionModal')">✕</button>
             </div>
             <div class="modal-body">

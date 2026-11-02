@@ -21,8 +21,8 @@ const TRACKS = [
   { key: 'cybersecurity', name: 'Cybersecurity & Hygiene',    shortName: 'Security Track', dir: 'Learning Cybersecurity', syllabus: 'learningcybersecurity.html', bookDir: 'book-cybersecurity', accent: '#059669' }
 ];
 const EXTRAS = [
-  ['playground.html', '🧪', 'Playground'], ['exercises.html', '✍️', 'Exercises'], ['quiz.html', '❓', 'Quiz'],
-  ['glossary.html', '📖', 'Glossary'], ['best-practices.html', '⭐', 'Best Practices'], ['tips.html', '💡', 'Tips']
+  ['playground.html', '', 'Playground'], ['exercises.html', '', 'Exercises'], ['quiz.html', '', 'Quiz'],
+  ['glossary.html', '', 'Glossary'], ['best-practices.html', '', 'Best Practices'], ['tips.html', '', 'Tips']
 ];
 const decode = (t) => t.replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
 

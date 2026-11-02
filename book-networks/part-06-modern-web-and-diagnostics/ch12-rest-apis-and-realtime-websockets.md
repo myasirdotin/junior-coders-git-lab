@@ -1,10 +1,10 @@
 # Chapter 12: REST APIs & Real-Time WebSockets
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 There are two ways to hear news from the school office. You can walk to the office window and ask, "Any news?" The clerk answers, and you walk away. If you want fresh news, you must keep walking back to ask. Or the office can give your class a walkie-talkie. Now either side can speak at any moment, without anyone walking anywhere. A **REST API** is the office window. A **WebSocket** is the walkie-talkie.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what an **API** is and the main rules of **REST** design.
 - Design clean REST URLs using nouns and HTTP methods.
@@ -30,9 +30,9 @@ A phone app, a website and a school display screen can all use the same API.
 
 Each thing the API manages is a **resource**, named by a URL.
 
-- ✅ `GET /api/books` — the list of books
-- ✅ `GET /api/books/42` — book number 42
-- ❌ `/api/getAllBooks` or `/api/deleteBook?id=42`
+-`GET /api/books` — the list of books
+-`GET /api/books/42` — book number 42
+-`/api/getAllBooks` or `/api/deleteBook?id=42`
 
 ### Rule 2: Methods say what to do (verbs)
 
@@ -183,30 +183,30 @@ In DevTools (**F12**), the **Network** tab has a **WS** filter. Click a WebSocke
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Putting verbs in REST URLs.**
 
-- ❌ Wrong: `POST /api/createBook`, `GET /api/deleteBook?id=15`
+- Wrong: `POST /api/createBook`, `GET /api/deleteBook?id=15`
 - What happens: the method and the URL disagree. A GET that deletes is dangerous, because links are followed freely.
-- ✅ Right: `POST /api/books` and `DELETE /api/books/15`.
+- Right: `POST /api/books` and `DELETE /api/books/15`.
 
 **Using a WebSocket for everything.**
 
-- ❌ Wrong: loading the whole page, forms and images over a WebSocket.
-- ✅ Right: use REST for normal requests. Use a WebSocket only for live, two-way updates. It needs a server that keeps many connections open.
+- Wrong: loading the whole page, forms and images over a WebSocket.
+- Right: use REST for normal requests. Use a WebSocket only for live, two-way updates. It needs a server that keeps many connections open.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Run the `books.php` demo. Then change it so that a `GET` request returns three books instead of two, and check the change with `curl.exe -i`.
 
-> 💡 Hint: add one more `['id' => 3, 'title' => '...']` line inside the list. Use a real book title from the history of science.
+> Hint: add one more `['id' => 3, 'title' => '...']` line inside the list. Use a real book title from the history of science.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - An **API** lets programs talk; web APIs usually send JSON over HTTP.
 - **REST** uses nouns in URLs and HTTP methods as verbs, and every request stands alone.
@@ -217,9 +217,9 @@ Run the `books.php` demo. Then change it so that a `GET` request returns three b
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Why do REST URLs use nouns instead of verbs? Which status code means a WebSocket upgrade succeeded?
 
 <details>
@@ -230,7 +230,7 @@ A successful upgrade returns **`101 Switching Protocols`**.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write the REST request (method and URL) for each action on a community clean-up app:
 1. List all clean-up events.
 2. Create a new event.
@@ -247,7 +247,7 @@ Write the REST request (method and URL) for each action on a community clean-up 
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A town wants a bus arrival board at the school gate and a live question channel between a teacher and students in an online lesson.
 1. For each, choose REST polling, WebSocket or SSE, and give a reason.
 2. The board polls every 5 seconds with 400 bytes of headers per request. How many bytes of headers does it send in one hour?

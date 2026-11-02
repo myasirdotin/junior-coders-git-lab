@@ -1,10 +1,10 @@
 # Chapter 19: Laravel Forms
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When a family donates a book, the librarian hands them a **paper form**: title, author, number of copies. They fill it in and drop it in the tray at the desk. The librarian reads the form, adds the book to the register, and smiles: "Thank you, it has been added!" Web forms work the same way. The browser fills the tray (sends a request), the controller reads it, Eloquent saves it, and the page says thank you.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Build an "Add a book" form that sends a POST request to `books.store`.
 - Read the submitted data in the controller with `$request`.
@@ -99,7 +99,7 @@ public function store(Request $request)
 - `$request->input('title')` reads one field. `$request->only([...])` reads several as an array, and **ignores any other fields**. That works with `$fillable` to block sneaky extras.
 - After saving, we **redirect**. If we showed a page straight away, pressing the browser's refresh button would send the form again and add the book twice. This pattern is called **Post/Redirect/Get**.
 
-> ⚠️ This `store` saves whatever was typed, even an empty title. Chapter 20 adds **validation**. Never put a form online without it.
+> This `store` saves whatever was typed, even an empty title. Chapter 20 adds **validation**. Never put a form online without it.
 
 ## Flash Messages
 
@@ -188,7 +188,7 @@ public function destroy(Book $book)
 
 `confirm()` shows an "Are you sure?" box in the browser. It is a kindness to the user, not a security check. The real protection is that only librarians may reach this route (Chapter 24).
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting `@csrf`.**
 
@@ -203,13 +203,13 @@ What happens: after pressing Save, Laravel shows **419 | Page Expired**. Add `@c
 
 **Forgetting `@method('PUT')` in the edit form.** The browser sends POST to `/books/3`, but no POST route exists for that URL. With `APP_DEBUG=true`, Laravel shows `The POST method is not supported for route books/3. Supported methods: GET, HEAD, PUT, PATCH, DELETE.` (HTTP code 405). Add `@method('PUT')`.
 
-## ✍️ Try It
+## Try It
 
 Add the create, edit and delete forms to your library app. Add a book, change its copies, then delete it. Watch the flash messages and phpMyAdmin.
 
 *Hint:* add links to the forms in your book list: `<a href="{{ route('books.create') }}">Add a book</a>` and `<a href="{{ route('books.edit', $book) }}">Edit</a>`.
 
-## 📝 Recap
+## Recap
 
 - Forms use `method="POST"`, `action="{{ route(...) }}"` and always `@csrf`.
 - `Request $request` holds the submitted data; `$request->only([...])` takes just the fields you want.
@@ -217,9 +217,9 @@ Add the create, edit and delete forms to your library app. Add a book, change it
 - `@method('PUT')` and `@method('DELETE')` let a POST form reach `update` and `destroy`.
 - Deleting is always a form, never a link. Validation comes next, in Chapter 20.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Why do we redirect after saving a form instead of showing a page straight away?
 
 <details>
@@ -229,7 +229,7 @@ So that refreshing the page does not send the form again. Without the redirect, 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Fix this edit form. It has two problems.
 
 ```blade
@@ -256,7 +256,7 @@ Fix this edit form. It has two problems.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "New Member" form.
 
 1. Fields: name, email (use `type="email"`), grade (a `<select>` with grades 6 to 10).

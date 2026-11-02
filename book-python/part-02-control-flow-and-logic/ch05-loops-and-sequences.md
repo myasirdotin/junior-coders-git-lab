@@ -1,10 +1,10 @@
 # Chapter 5: Loops & Sequences (`for` & `while`)
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At an organic farm, crates of oranges roll past on a conveyor belt. A worker checks each crate, stamps it and waits for the next one. When the last crate has passed, the job is done. Nobody writes a new instruction for every crate. There is one instruction: "for every crate, check and stamp". In Python, that kind of repeated instruction is called a **loop**.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Repeat code a set number of times with `for` and `range()`.
 - Loop over each character of a string.
@@ -285,7 +285,7 @@ Total clean energy today: 37.3 kWh
 
 `11 <= hour <= 15` is a neat Python shortcut. It means `hour >= 11 and hour <= 15`. We use `round()` at the end because adding decimals can leave tiny leftover digits.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. A `while` loop that never ends.** If the condition never becomes `False`, the loop runs forever. This is an **infinite loop**.
 
@@ -316,13 +316,13 @@ for n in range(1, 5):
 
 There is no `5`. **Fix:** to count 1 to 5, write `range(1, 6)`.
 
-## ✍️ Try It
+## Try It
 
 Print the 7 times table from 7 × 1 to 7 × 10, one line each, like `7 x 3 = 21`. Then print the sum of all ten answers.
 
 **Hint:** use `for n in range(1, 11):` and an accumulator that starts at `0`. The sum should be 385.
 
-## 📝 Recap
+## Recap
 
 - A `for` loop runs once for each value in a sequence, such as `range()` or a string.
 - `range(start, stop, step)` stops **before** the stop value.
@@ -330,9 +330,9 @@ Print the 7 times table from 7 × 1 to 7 × 10, one line each, like `7 x 3 = 21`
 - A `while` loop repeats while its condition is `True`. Always change the condition inside the loop.
 - `break` leaves a loop early; `continue` skips to the next pass.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Which numbers does `range(2, 12, 3)` produce?
 
 <details>
@@ -342,7 +342,7 @@ Which numbers does `range(2, 12, 3)` produce?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A plant is 4 cm tall and grows 3 cm every week. Use a `while` loop to find how many weeks until it is at least 30 cm tall. Print the weeks and the final height.
 
 <details>
@@ -367,7 +367,7 @@ Output:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "quiet hours" checker for a study hall that is open from 8:00 to 20:00.
 
 1. Loop over the hours 8 to 20 (including 20).

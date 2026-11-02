@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The librarian wants to send a thank-you card to every student who has borrowed at least one book. She lays the student register beside the borrowing notebook and only writes cards where a name appears in both. Hamza has never borrowed a book, so he gets no card this time. The new calligraphy book has never been borrowed, so it is not mentioned. Only the matches count. That is an inner join.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain which rows an `INNER JOIN` keeps and which it drops.
 - See why one row can appear several times after a join.
@@ -169,11 +169,11 @@ WHERE b.category = 'Ethics';
 | Tariq | Ms. Noor |
 | Khadija | Ms. Noor |
 
-> 🧪 **Sandbox note:** All queries in this chapter run unchanged in the SQL Sandbox. The sandbox tables have no declared foreign keys, but joins only need matching values, not declared keys.
+> **Sandbox note:** All queries in this chapter run unchanged in the SQL Sandbox. The sandbox tables have no declared foreign keys, but joins only need matching values, not declared keys.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: expecting everyone to appear.**
 
@@ -191,7 +191,7 @@ MySQL does not complain: both are numbers. But it pairs student numbers with boo
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/), list every loan made by a student from **Lahore**: student name, book title and loan date, newest first.
 
@@ -199,7 +199,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), list every loan made by a student
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `INNER JOIN` (or just `JOIN`) keeps only rows that match on both sides.
 - Rows with no partner (Hamza, book 8) disappear from the result.
@@ -209,9 +209,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/), list every loan made by a student
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. A student has no loans. Will they appear in `students INNER JOIN loans`?
 2. A book has never been borrowed. Will it appear in `books INNER JOIN loans`?
 3. How many joins do you need to connect four tables?
@@ -225,7 +225,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), list every loan made by a student
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 List every loan with the student's name, the book title and the class teacher, only for books that **have been returned**. Sort by student name.
 
 <details>
@@ -251,7 +251,7 @@ ORDER BY s.name;
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Ms. Noor wants to know which **books** her Grade 9 Hawks have borrowed, each title listed once, A to Z.
 
 1. Decide which tables you need and how they link.

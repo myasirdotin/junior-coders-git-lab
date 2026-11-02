@@ -1,12 +1,12 @@
 # Chapter 10: Hashing vs. Encryption vs. Encoding
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think of three things you might do with a school letter. You could **translate** it into Urdu so your grandmother can read it. Anyone who knows both languages can translate it back. You could **lock it in a box** and give the key only to your teacher. Only someone with the key can open it. Or you could **press your thumb in ink** at the bottom. The thumbprint does not contain the letter, but it proves the letter is yours and that nobody swapped the page. Translating, locking and fingerprinting: in computing, these are **encoding**, **encryption** and **hashing**.
 
 People mix up these three all the time. Using the wrong one can leave data wide open.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Tell apart **encoding**, **encryption** and **hashing** by purpose, key and reversibility.
 - Show why Base64 is not a way to hide secrets.
@@ -38,7 +38,7 @@ SGVsbG8=
 Hello
 ```
 
-> ⚠️ **Base64 is not encryption.** There is no key. Anyone can decode it in a second with free tools. If you see a "hidden" password stored in Base64, it is not hidden at all.
+> **Base64 is not encryption.** There is no key. Anyone can decode it in a second with free tools. If you see a "hidden" password stored in Base64, it is not hidden at all.
 
 Another common encoding is **URL encoding**: a space becomes `%20` so it can travel safely in a web address.
 
@@ -129,7 +129,7 @@ Adding one `!` changed 56 of the 64 characters. A long sentence still gives exac
 - Keep encryption keys out of your code files and out of Git.
 - When a download page shows a SHA-256 value, check it.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake:** a student stores passwords like this, thinking it is "encrypted":
 
@@ -147,7 +147,7 @@ $stored = base64_encode($password);
 $stored = password_hash($password, PASSWORD_DEFAULT);
 ```
 
-## ✍️ Try It
+## Try It
 
 Open the **Crypto** tab in the Cybersecurity Lab Studio.
 
@@ -157,7 +157,7 @@ Open the **Crypto** tab in the Cybersecurity Lab Studio.
 
 *Hint:* compare the first ten characters of each hash.
 
-## 📝 Recap
+## Recap
 
 - **Encoding** changes the format; anyone can reverse it; it is not security.
 - **Encryption** keeps data secret; it can be reversed only with the key.
@@ -165,9 +165,9 @@ Open the **Crypto** tab in the Cybersecurity Lab Studio.
 - **Hashing** makes a one-way, fixed-size fingerprint; a tiny change makes a totally different hash.
 - Passwords need slow, salted password hashes, not encoding and not plain SHA-256.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Which of the three (encoding, encryption, hashing) can be reversed, and what is needed to reverse it?
 
 <details>
@@ -179,7 +179,7 @@ Which of the three (encoding, encryption, hashing) can be reversed, and what is 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A website stores this as a user's password: `b2xpdmUgdHJlZXM=`. It ends in `=` and uses only letters, digits, `+`, `/` and `=`. What is it most likely, and why is it a problem?
 
 <details>
@@ -189,7 +189,7 @@ It is most likely **Base64 encoding**. It decodes to `olive trees`. Anyone who s
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A school club website does three jobs. For each, choose encoding, encryption or hashing, and explain your choice in one sentence.
 
 1. Saving members' passwords.

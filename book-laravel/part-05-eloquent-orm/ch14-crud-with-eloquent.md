@@ -1,10 +1,10 @@
 # Chapter 14: CRUD with Eloquent
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A new box of donated books arrives at the library. The librarian **adds** each one to the register. A week later she notices a spelling mistake in an author's name and **fixes** it. One book is damaged by rain, so she **removes** it from the register. Every day she **looks up** books for students. Add, look up, fix, remove: these are the four jobs of every register, and Eloquent can do all four.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Create rows with `create()` and with `new` plus `save()`.
 - Protect your models with the `$fillable` list (mass assignment).
@@ -164,7 +164,7 @@ public function destroy(Book $book)
 }
 ```
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Calling `create()` without `$fillable`.**
 
@@ -182,13 +182,13 @@ Fix: add the columns to `protected $fillable` in the model, then restart Tinker.
 
 **Deleting with a GET link.** `<a href="/books/3/delete">Delete</a>` is dangerous. Search engines and browser previews follow links, and could delete books. Deleting must use a form that sends `DELETE` (Chapter 19).
 
-## ✍️ Try It
+## Try It
 
 In Tinker: add a book with `create()`, change its copies to 5 with `update()`, take one copy out with `decrement()`, then delete it. Check phpMyAdmin after each step.
 
 *Hint:* save the new book in a variable first: `$b = Book::create([...])`.
 
-## 📝 Recap
+## Recap
 
 - Create with `new` + `save()`, or `Model::create([...])`.
 - `$fillable` lists the columns that `create()` and `update()` may fill. It blocks sneaky extra fields.
@@ -196,9 +196,9 @@ In Tinker: add a book with `create()`, change its copies to 5 with `update()`, t
 - `increment()` and `decrement()` change numbers safely in one step.
 - Delete with `$model->delete()` or `Model::destroy($id)`; never with a GET link.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is mass assignment, and which model property controls it?
 
 <details>
@@ -208,7 +208,7 @@ Mass assignment is filling many columns at once from an array, as `create()` and
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write Eloquent code that (a) finds the book with ISBN `978-0-00-000002-8`, (b) adds 3 copies to it.
 
 <details>
@@ -223,7 +223,7 @@ $book->increment('copies', 3);
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A box of donated books arrives.
 
 1. Write code that adds three books in a loop from an array of arrays.

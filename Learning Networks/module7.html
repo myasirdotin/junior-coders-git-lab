@@ -13,14 +13,14 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 3</span>
-            <h1 style="color: white; margin: 0.5rem 0;">HTTPS, TLS 1.3 &amp; Digital Trust (Amānah) 🔐</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">HTTPS, TLS 1.3 &amp; Digital Trust (Amānah)</h1>
             <p>Guarding the wire. Learn how modern cryptography, certificates, and CORS defend human privacy.</p>
         </header>
         <!-- Why HTTPS -->
         <section class="content-section">
-            <h2>Why Plain HTTP Is Not Enough 📮</h2>
+            <h2>Why Plain HTTP Is Not Enough</h2>
             <div class="connection-box">
-                <p>🧠 <strong>Real-life analogy:</strong> Plain HTTP is like a postcard. Every sorting office it passes through could read it, or even change the words. HTTPS is like a sealed, tamper-proof envelope, delivered only after the receiver shows a valid ID card.</p>
+                <p><strong>Real-life analogy:</strong> Plain HTTP is like a postcard. Every sorting office it passes through could read it, or even change the words. HTTPS is like a sealed, tamper-proof envelope, delivered only after the receiver shows a valid ID card.</p>
             </div>
             <p><strong>HTTPS</strong> is HTTP sent inside a protective layer called <strong>TLS</strong> (Transport Layer Security). The newest version, TLS 1.3, is used by most websites today. TLS gives three promises:</p>
             <ul>
@@ -32,7 +32,7 @@
 
         <!-- Symmetric vs Asymmetric -->
         <section class="content-section">
-            <h2>Two Kinds of Keys Working Together 🔑</h2>
+            <h2>Two Kinds of Keys Working Together</h2>
             <p>A <strong>key</strong> is a long secret number used to scramble and unscramble data. HTTPS mixes two kinds of key methods:</p>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem;">
@@ -58,7 +58,7 @@ mix + RED                     mix + BLUE
 
         <!-- Certificates -->
         <section class="content-section">
-            <h2>Certificates: A Website's ID Card 🪪</h2>
+            <h2>Certificates: A Website's ID Card</h2>
             <p>How do you know the server is the real <code>library.example.org</code>? It shows a <strong>certificate</strong>. A certificate is a digital ID card. It holds:</p>
             <ul>
                 <li>the domain name it belongs to,</li>
@@ -90,7 +90,7 @@ mix + RED                     mix + BLUE
 
         <!-- The TLS 1.3 Handshake -->
         <section class="content-section">
-            <h2>The 1-RTT TLS 1.3 Handshake 🤝</h2>
+            <h2>The 1-RTT TLS 1.3 Handshake</h2>
             <p>An <strong>RTT</strong> (round-trip time) is one trip there and back, like a ping (Module 1). TLS 1.3 needs only <strong>one</strong> round trip to set up the secure channel. It happens right after the TCP handshake (Module 4).</p>
             <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc; line-height: 1.8;">
                 Client ➔ Server: <span style="color: #38bdf8;">ClientHello</span> (supported methods + key share)<br>
@@ -113,7 +113,7 @@ With older TLS 1.2 (2 RTTs):
 
         <!-- Security headers & cookies -->
         <section class="content-section">
-            <h2>Headers That Protect Visitors 🛡️</h2>
+            <h2>Headers That Protect Visitors</h2>
             <p>A <strong>cookie</strong> is a small note a website asks the browser to keep and send back on later visits. Login cookies prove who you are, so they must be guarded. The server sets them with flags:</p>
             <pre class="code-block"><code>Set-Cookie: session=abc123; Secure;
             HttpOnly; SameSite=Lax</code></pre>
@@ -153,7 +153,7 @@ Access-Control-Request-Headers: Content-Type</code></pre>
 
         <!-- Common misunderstanding -->
         <section class="content-section">
-            <h2>Common Misunderstanding ⚠️</h2>
+            <h2>Common Misunderstanding</h2>
             <div class="tip-box">
                 <p><strong>"The padlock means the website is safe and honest."</strong></p>
                 <p>No. The padlock only means the connection is encrypted and the certificate matches the name in the address bar. A fake website can get a certificate for its own fake name. Always check the name carefully before typing a password.</p>
@@ -163,20 +163,20 @@ Access-Control-Request-Headers: Content-Type</code></pre>
                 <p>CORS is a rule that <em>browsers</em> follow to protect their users. Tools like curl ignore it. Your server must still check logins and permissions on every request.</p>
             </div>
             <div class="connection-box">
-                <p>🔐 <strong>Amānah:</strong> When people type their names, passwords or donation details into your site, they are trusting you. HTTPS everywhere, careful cookies and tight CORS rules are how a developer keeps that trust.</p>
+                <p><strong>Amānah:</strong> When people type their names, passwords or donation details into your site, they are trusting you. HTTPS everywhere, careful cookies and tight CORS rules are how a developer keeps that trust.</p>
             </div>
         </section>
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Name the three promises TLS gives. Which kind of cryptography, symmetric or asymmetric, is used for the bulk of the data, and why?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>Privacy, integrity and authentication. Symmetric cryptography carries the bulk of the data, because it is much faster.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>(1) The RTT to a server is 50 ms. How long before the first encrypted request can leave with TCP + TLS 1.3? With TCP + TLS 1.2? (2) A site sends <code>Set-Cookie: id=77; Secure; HttpOnly</code>. Explain each flag in one short sentence.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
                     <pre class="code-block"><code>TLS 1.3: 50 + 50      = 100 ms
@@ -185,7 +185,7 @@ TLS 1.2: 50 + 50 + 50 = 150 ms</code></pre>
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>A youth group runs a charity donation site. Its app is at <code>https://give.example.org</code> and its API is at <code>https://api.give.example.org</code>. Write a short security plan:</p>
                 <ol>
                     <li>What should happen when someone visits <code>http://give.example.org</code> (no S)?</li>

@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The school library keeps thousands of book records in a back room. Students do not walk into that room and dig through the shelves themselves. They go to the front desk. The librarian takes the request, finds the right records and hands back a neat list. If a request makes no sense, the librarian says so politely. In PHP, the back room is the **MySQL database**, and the librarian at the desk is **PDO**.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what PDO is and how PHP, PDO and MySQL work together.
 - Write a **DSN** and connect to XAMPP's MySQL with `new PDO(...)` inside `try` / `catch`.
@@ -394,13 +394,13 @@ Notice:
 
 ---
 
-## 🌍 Real-World Connection: Frameworks Use PDO Too
+## Real-World Connection: Frameworks Use PDO Too
 
 Big PHP frameworks such as **Laravel** hide PDO behind friendlier code: `Student::where('grade', 8)->get()`. Underneath, Laravel still uses PDO with prepared statements. Learning PDO now means you will understand what happens inside those tools later.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 The `books` table has 8 rows. What does this print?
 
@@ -426,7 +426,7 @@ Clean Code | 7
 
 ---
 
-## 🕵️ Code Detective: The Silent Search
+## Code Detective: The Silent Search
 
 ```php
 <?php
@@ -442,16 +442,16 @@ echo count($books);   // always 0
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Gluing visitor input into SQL inside `query()`.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   $stmt = $pdo->query("SELECT name FROM students WHERE id = " . $_GET["id"]);
   ```
-- 😕 *What happens*: The visitor's text becomes part of the SQL command. A visitor can type SQL instead of a number and change what the command does (SQL injection, Chapter 29).
-- ✅ *Fixed*: Validate, then use a placeholder:
+- *What happens*: The visitor's text becomes part of the SQL command. A visitor can type SQL instead of a number and change what the command does (SQL injection, Chapter 29).
+- *Fixed*: Validate, then use a placeholder:
   ```php
   $stmt = $pdo->prepare("SELECT name FROM students WHERE id = ?");
   $stmt->execute([$id]);
@@ -461,7 +461,7 @@ A second mistake: **printing `$e->getMessage()` from a failed connection to visi
 
 ---
 
-## ✍️ Try It
+## Try It
 
 With XAMPP's Apache and MySQL running and `db.php` saved in `htdocs/php-lab/`, create `shelf.php`:
 
@@ -485,7 +485,7 @@ Python Data Science (Data)
 
 ---
 
-## 📝 Recap
+## Recap
 
 - **PDO** is PHP's way of talking to databases; the visitor never reaches the database directly.
 - A **DSN** such as `mysql:host=localhost;dbname=school_db;charset=utf8mb4` says which database to open.
@@ -496,9 +496,9 @@ Python Data Science (Data)
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does PDO stand for?
 2. In the DSN `mysql:host=localhost;dbname=school_db;charset=utf8mb4`, which part names the database?
 3. What does `fetch()` return when there are no more rows?
@@ -514,7 +514,7 @@ Python Data Science (Data)
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. A page lists donations for a cause chosen in a drop-down (`$_POST["cause"]`). Should it use `query()` or `prepare()`? Write the two lines that run the SQL.
 2. Which fetch method fits each task? (a) Show the total number of students. (b) Show one book by its id. (c) List all students of Grade 9.
 
@@ -530,7 +530,7 @@ Python Data Science (Data)
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build `donations.php`, a page for the school's charity drive.
 
 1. `require "db.php";`.

@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about a doorbell:
 1. The doorbell sits quietly on the door frame.
@@ -14,7 +14,7 @@ In the browser, your code can install "doorbell listeners" on buttons, keys, tex
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain what an event is in the web browser.
@@ -153,7 +153,7 @@ Think of the "Save for later" button on a school library website:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```javascript
 let btn = document.createElement("button");
@@ -171,7 +171,7 @@ btn.addEventListener("click", function() {
 (`document.createElement("button")` makes a new button in memory, and `appendChild` puts it on the page.)
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Answer: `15`.** The function inside the listener runs once for every click. Each run adds 5: 5 + 5 + 5 = 15.
 
@@ -224,7 +224,7 @@ Create an interactive mini-app:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 Find the 3 errors in this code:
 ```javascript
@@ -254,7 +254,7 @@ function handleClick {
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. In any browser DevTools console, run:
    ```javascript
@@ -264,11 +264,11 @@ function handleClick {
    ```
 2. Click around the page and see the messages appear in real-time!
 
-> 💡 **Hint:** Each click prints one message. Chrome groups repeated messages and shows a small counter next to them instead of a new line. Refresh the page to remove the listener.
+> **Hint:** Each click prints one message. Chrome groups repeated messages and shows a small counter next to them instead of a new line. Refresh the page to remove the listener.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Events allow JavaScript to respond to user interactions.
 - Attach listeners using `.addEventListener(eventType, callbackFunction)`.
@@ -285,7 +285,7 @@ function handleClick {
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 - **Event:** A notification sent by the browser that something took place.
 - **Event Listener:** A routine that waits for an event to occur.
@@ -294,9 +294,9 @@ function handleClick {
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which method attaches an event listener to an HTML element?
 2. What is the difference between an `input` event and a `click` event?
 
@@ -308,7 +308,7 @@ function handleClick {
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Make a button with the text `"Turn Light On"`. When it is clicked, change `document.body.style.backgroundColor` to `"yellow"` and the button text to `"Turn Light Off"`. Clicking again should switch everything back.
 
 Extra: why is calling `updateScreen()` in each button handler of the Tally Counter better than writing the update code three times?
@@ -343,7 +343,7 @@ Extra: it follows DRY (Don't Repeat Yourself). If the display needs to change, y
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a live word and character counter:
 1. Add `<textarea id="essay"></textarea>`.
 2. Add `<span id="char-count">0</span> characters` and `<span id="word-count">0</span> words`.

@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **An Urgent Interruption at Your Desk**
 
@@ -10,7 +10,7 @@ You are halfway through a model of the solar system on your desk. Pieces are eve
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what the stash is and when to use it.
 - Put unfinished changes aside with `git stash push -m "message"`.
@@ -126,20 +126,20 @@ You may see `git stash save "msg"` in older guides. It still works but is deprec
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 Developers often jump between tasks: a new feature, a bug report, a review of a teammate's work. Git will not let you switch branches (Chapter 10) if your unsaved changes would be overwritten. Instead of making a messy commit such as `"wip asdf"`, they stash, switch, and pop the stash when they return.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 You have one modified file. You run `git stash`, then `git status`.
 
 **Question:** What does `git status` print?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 ```text
 On branch main
@@ -152,7 +152,7 @@ Your change is safe on the stash shelf, so the working tree is clean.
 
 ---
 
-## 🕵️ Code Detective: The Lost Draft
+## Code Detective: The Lost Draft
 
 Bilal had 300 lines of half-written code in `planner.js`. A teammate needed his help right away. Bilal did not know about the stash, so he ran `git restore planner.js` to clear his screen.
 
@@ -161,7 +161,7 @@ Bilal had 300 lines of half-written code in `planner.js`. A teammate needed his 
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: Expecting a brand-new file to be stashed.**
 
@@ -187,7 +187,7 @@ git stash -u
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In a practice repository with at least one commit:
 
@@ -204,7 +204,7 @@ Use `git stash push -m "testing stash"`, then `git status`, then `git stash pop`
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `git stash` puts unfinished changes on a shelf and cleans your working tree.
 - Label stashes with `git stash push -m "message"`.
@@ -214,9 +214,9 @@ Use `git stash push -m "testing stash"`, then `git status`, then `git stash pop`
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 
 1. Which command shelves unfinished changes and cleans your working tree?
 2. Which command lists all stashes?
@@ -231,7 +231,7 @@ Use `git stash push -m "testing stash"`, then `git status`, then `git stash pop`
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 
 1. Why is stashing cleaner than committing broken code with a message like `"wip broken"`?
 2. Which option must you add to stash brand-new untracked files?
@@ -251,7 +251,7 @@ Use `git stash push -m "testing stash"`, then `git status`, then `git stash pop`
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 
 1. Can popping a stash cause a conflict? Test it in a practice repository:
    1. Commit `style.txt` containing `color = "blue"`.

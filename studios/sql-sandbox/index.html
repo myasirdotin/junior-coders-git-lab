@@ -117,21 +117,20 @@
     <nav class="bei-nav">
         <div class="container bei-nav-inner">
             <a href="../../index.html" class="bei-logo">
-                <div class="bei-logo-icon">💻</div>
                 <div>
                     Junior Coders
                     <span class="bei-logo-sub">School Computer Science</span>
                 </div>
             </a>
             <ul class="bei-nav-links">
-                <li><a href="../../learn/web-dev/full-stack/index.html" class="bei-nav-link">🗄️ Database Track</a></li>
-                <li><a href="../index.html" class="bei-nav-link active">⚡ Studios</a></li>
-                <li><a href="../../cheatsheet-mysql.html" class="bei-nav-link">📋 SQL Cheatsheet</a></li>
-                <li><a href="../../book-mysql/index.html" class="bei-nav-link">📖 22 Ch Book</a></li>
+                <li><a href="../../learn/web-dev/full-stack/index.html" class="bei-nav-link">Database Track</a></li>
+                <li><a href="../index.html" class="bei-nav-link active">Studios</a></li>
+                <li><a href="../../cheatsheet-mysql.html" class="bei-nav-link">SQL Cheatsheet</a></li>
+                <li><a href="../../book-mysql/index.html" class="bei-nav-link">22 Ch Book</a></li>
             </ul>
             <div class="bei-nav-actions">
-                <button class="theme-toggle-btn" aria-label="Toggle theme">☀️</button>
-                <a href="../web-studio/index.html" class="btn-hero-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.82rem;">Web Studio 🌐</a>
+                <button class="theme-toggle-btn" aria-label="Toggle theme"></button>
+                <a href="../web-studio/index.html" class="btn-hero-secondary" style="padding: 0.45rem 0.9rem; font-size: 0.82rem;">Web Studio</a>
                 <button class="mobile-toggle" aria-label="Toggle navigation menu">☰</button>
             </div>
         </div>
@@ -144,20 +143,20 @@
                 <a href="../index.html">Studios</a> <span>/</span>
                 <span>SQL Sandbox</span>
             </div>
-            <h1>In-Browser Relational SQL Sandbox 🗄️</h1>
+            <h1>In-Browser Relational SQL Sandbox</h1>
             <p class="lead">Query pre-loaded school databases in real time! Master SELECT filtering, relational JOINs, sorting, and aggregations with instant visual tabular results.</p>
         </header>
 
         <div class="sql-layout">
             <!-- Sidebar: Pre-loaded Tables -->
             <aside class="sql-sidebar">
-                <h3>🗄️ Active Database: <code>school_db</code></h3>
+                <h3>Active Database: <code>school_db</code></h3>
                 <p style="font-size: 0.78rem; color: var(--text-muted); margin-bottom: 1rem;">Click any table name to insert a quick SELECT query.</p>
 
                 <div id="schemaList"></div>
                 <button type="button" id="resetDbBtn" class="btn-hero-secondary" style="width: 100%; justify-content: center; padding: 0.45rem 0.9rem; font-size: 0.82rem;">↺ Reset database</button>
                 <p style="font-size: 0.74rem; color: var(--text-muted); margin-top: 0.6rem;">INSERT, UPDATE and DELETE work too. Reset brings the original data back.</p>
-                <p style="font-size: 0.8rem; margin-top: 0.75rem;"><a href="../../Learning%20MySQL/exercises.html">✍️ Try the auto-checked SQL exercises →</a></p>
+                <p style="font-size: 0.8rem; margin-top: 0.75rem;"><a href="../../Learning%20MySQL/exercises.html">Try the auto-checked SQL exercises →</a></p>
             </aside>
 
             <!-- Main SQL Editor & Output -->
@@ -189,7 +188,7 @@ ORDER BY gpa DESC;</textarea>
 
                 <div class="sql-results-card">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">📊 Query Result Set</span>
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">Query Result Set</span>
                         <span id="resultCount" style="font-size: 0.78rem; color: var(--brand-accent);">Loading SQL engine…</span>
                     </div>
                     <div id="tableOutput">
@@ -254,7 +253,7 @@ ORDER BY gpa DESC;</textarea>
                 renderSchema();
                 if (window.awardXP) window.awardXP(10, 'SQL Query Execution');
             } catch (err) {
-                tableOutput.innerHTML = `<div style="color: #fca5a5; padding: 1rem; font-family: var(--font-mono); font-size: 0.85rem;">⚠️ ${esc(err.message)}</div>`;
+                tableOutput.innerHTML = `<div style="color: #fca5a5; padding: 1rem; font-family: var(--font-mono); font-size: 0.85rem;">${esc(err.message)}</div>`;
                 resultCount.innerText = 'SQL error';
                 resultCount.style.color = '#fca5a5';
             }

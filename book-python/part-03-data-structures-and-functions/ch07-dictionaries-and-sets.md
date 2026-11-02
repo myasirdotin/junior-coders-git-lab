@@ -1,10 +1,10 @@
 # Chapter 7: Dictionaries & Sets
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 In the school library, every book has a catalogue card. The card does not say "item 0, item 1, item 2". It says "Title: …", "Author: …", "Year: …". You find what you need by reading the **label**, not by counting positions. A Python **dictionary** works like that card. A **set** is different: it is like a box of name badges where no name can appear twice.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Store labelled data in a dictionary as key-value pairs.
 - Read, add, change and remove entries, and use `.get()` to read safely.
@@ -263,7 +263,7 @@ print(sorted(group_b.difference(group_a)))
 | Dictionary | `{"a": 1}` | Yes | Yes | Keys: no | Looking up by label |
 | Set | `{1, 2}` | No | Yes | No | Unique items |
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Reading a key that does not exist.**
 
@@ -298,13 +298,13 @@ print(type(badges))
 
 **Fix:** use `set()` for an empty set.
 
-## ✍️ Try It
+## Try It
 
 Create a dictionary of a science-fair project: `title`, `team` (a list of two names), `category` and `score`. Print each key and value with `.items()`. Then raise the score by 5 and print the new score.
 
 **Hint:** `project["score"] += 5` works on dictionary values too.
 
-## 📝 Recap
+## Recap
 
 - A dictionary stores key-value pairs: `{"key": value}`. Read with `d["key"]` or, safely, `d.get("key", default)`.
 - Assign to a key to add or change it; `.pop(key)` removes it; `in` checks keys.
@@ -312,9 +312,9 @@ Create a dictionary of a science-fair project: `title`, `team` (a list of two na
 - A list of dictionaries is a small table: one dictionary per row.
 - A set keeps only unique items and has no order. `set()` makes an empty set.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does `{"a": 1, "b": 2}.get("c", 0)` give? And what does `len({"x", "y", "x"})` give?
 
 <details>
@@ -324,7 +324,7 @@ What does `{"a": 1, "b": 2}.get("c", 0)` give? And what does `len({"x", "y", "x"
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Count how many books of each subject were returned today:
 `returned = ["science", "history", "science", "maths", "science"]`. Print the dictionary.
 
@@ -347,7 +347,7 @@ Output:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A bakery donates bread to three shelters. The records are a list of dictionaries:
 
 ```python

@@ -13,7 +13,7 @@
         <!-- Hero Header -->
         <header class="module-header path-laravel">
             <span class="badge" style="background: white; color: var(--laravel-brand);">Level 1</span>
-            <h1>Controllers 🧠</h1>
+            <h1>Controllers</h1>
             <p>The brains of your application — where the real logic happens!</p>
         </header>
 
@@ -23,14 +23,14 @@
             <p>In the MVC pattern, the Controller is the manager that connects everything together. It receives a request, decides what to do, talks to the right Model, and returns the right View.</p>
 
             <div class="connection-box" style="border-left-color: var(--laravel-brand);">
-                <strong>The Restaurant Manager Analogy 🍽️</strong><br><br>
+                <strong>The Restaurant Manager Analogy</strong><br><br>
                 A controller is like a manager at a restaurant. When an order (request) comes in, the manager decides which chef (model) to call and which plate (view) to serve it on. The manager doesn't cook the food themselves — they coordinate everything and make sure the right dish reaches the right customer!
             </div>
         </section>
 
         <!-- Creating a Controller -->
         <section class="content-section">
-            <h2>Creating a Controller with Artisan 🏗️</h2>
+            <h2>Creating a Controller with Artisan</h2>
             <p>You never have to create controller files by hand. Artisan creates them for you with the right structure already in place:</p>
 
             <div class="code-block">
@@ -79,7 +79,7 @@
 
         <!-- RESTful Methods -->
         <section class="content-section">
-            <h2>The 7 RESTful Methods 📋</h2>
+            <h2>The 7 RESTful Methods</h2>
             <p>Real-world web apps perform 4 basic operations on data: Create, Read, Update, Delete (CRUD). Laravel controllers use 7 standard method names that map to these operations:</p>
 
             <div style="overflow-x: auto; margin-top: 1.5rem;">
@@ -142,7 +142,7 @@
 
         <!-- Return Types -->
         <section class="content-section">
-            <h2>What Can a Controller Return? 📤</h2>
+            <h2>What Can a Controller Return?</h2>
             <p>Controllers are flexible — they can return different types of responses depending on what you need:</p>
 
             <div class="code-block">
@@ -170,7 +170,7 @@
 
         <!-- Dependency Injection -->
         <section class="content-section">
-            <h2>Receiving Form Data with Request 📨</h2>
+            <h2>Receiving Form Data with Request</h2>
             <p>When a form is submitted, the data arrives in the <strong>Request</strong> object. Laravel can automatically inject it into your controller method — you just type-hint it in the parameters:</p>
 
             <div class="code-block">
@@ -195,7 +195,7 @@
 
         <!-- Resource Controller -->
         <section class="content-section">
-            <h2>Resource Controllers — One Command Does It All! 🚀</h2>
+            <h2>Resource Controllers — One Command Does It All!</h2>
             <p>If you need all 7 RESTful methods, use the <code>--resource</code> flag. Laravel creates the controller with all 7 methods already defined:</p>
 
             <div class="code-block">
@@ -211,14 +211,14 @@
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Which Artisan command creates a controller called <code>LibraryController</code>? Which of the 7 standard method names means "show a list of all items"?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div><code>php artisan make:controller LibraryController</code>. The list method is <code>index()</code>.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Put the steps in order</h3>
+                <h3>Level 2: Put the steps in order</h3>
                 <p>A visitor opens <code>/books</code>. The route is <code>Route::get('/books', [BookController::class, 'index']);</code>. Put these in the order they happen:</p>
                 <ol type="A">
                     <li><code>return view('books.index', compact('books'));</code> sends the data to the view.</li>
@@ -230,7 +230,7 @@
                 <details class="jc-answer"><summary>Show answer</summary><div>B, D, E, A, C. First the route, then the controller, then the model, then the view, and last the browser.</div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>On your own XAMPP computer, build a controller for a school food drive. You do not need a database for this task.</p>
                 <ol>
                     <li>Use Artisan to create <code>DriveController</code>.</li>
@@ -273,7 +273,7 @@ Route::get('/drive/items', [DriveController::class, 'items']);</code></pre>
 
         <!-- Quiz -->
         <section class="content-section">
-            <h2>Quick Knowledge Check! 🧪</h2>
+            <h2>Quick Knowledge Check!</h2>
             <form id="quiz-form-1" class="quiz-section" style="margin-top: 1.5rem;">
 
                 <div class="quiz-question" data-answer="a">

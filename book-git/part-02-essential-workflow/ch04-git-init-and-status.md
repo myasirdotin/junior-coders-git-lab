@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Founding a Club Archive**
 
@@ -10,7 +10,7 @@ Your class starts a new Science & Coding Club. You do not toss meeting notes int
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Turn an ordinary folder into a Git repository with `git init`.
 - Explain what a **repository** (or "repo") is and what the hidden `.git` folder does.
@@ -111,7 +111,7 @@ Git always gives a hint in brackets, such as `(use "git add <file>..." ...)`. Re
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 **How many `.git` folders should a project have?**
 
@@ -121,12 +121,12 @@ Git always gives a hint in brackets, such as `(use "git add <file>..." ...)`. Re
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 You create a new empty folder. You run `git status` **before** running `git init`. What happens?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 Git prints an error:
 
@@ -140,7 +140,7 @@ Git commands like `status` only work inside a repository. Run `git init` first.
 
 ---
 
-## 🕵️ Code Detective
+## Code Detective
 
 **The Invisible Repository**
 
@@ -164,15 +164,15 @@ Git did not fail. The folder was there all along.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Running `git init` in the wrong folder**
 
-❌ **Wrong:** you open a terminal, it starts in your user folder, and you type `git init` straight away.
+**Wrong:** you open a terminal, it starts in your user folder, and you type `git init` straight away.
 
 **What happens:** Git turns your whole user folder into a repository. `git status` lists hundreds of untracked files, such as `Desktop/`, `Documents/` and `Downloads/`.
 
-✅ **Fixed version:** check where you are first, then move into your project folder.
+**Fixed version:** check where you are first, then move into your project folder.
 
 ```bash
 pwd
@@ -186,7 +186,7 @@ If you already ran `git init` in the wrong place, delete only the hidden `.git` 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. Make a folder called `library-notes` and move into it.
 2. Run `git init`.
@@ -203,7 +203,7 @@ Use `mkdir library-notes`, then `cd library-notes`. To create the file, type `ec
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `git init` turns an ordinary folder into a Git repository.
 - All history lives in the hidden `.git` folder. Deleting it removes the history.
@@ -213,9 +213,9 @@ Use `mkdir library-notes`, then `cd library-notes`. To create the file, type `ec
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 
 1. Which command turns an ordinary folder into a Git repository?
 2. Which command shows the current state of your project's files?
@@ -230,7 +230,7 @@ Use `mkdir library-notes`, then `cd library-notes`. To create the file, type `ec
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 
 1. Why do developers call `git status` their "compass"?
 2. Why is the `.git` folder hidden by default?
@@ -255,7 +255,7 @@ git status
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 
 **Clean up and start again properly.**
 

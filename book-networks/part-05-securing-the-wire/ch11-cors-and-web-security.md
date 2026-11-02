@@ -1,10 +1,10 @@
 # Chapter 11: CORS, Same-Origin Policy & Web Security
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 In a school, each class keeps its own register. A teacher from class 8A can walk into the office and ask for 8A's register. But a stranger cannot walk in and read 8B's register just because they are in the building. If the office of 8B *wants* to share its register with the library, it writes a note: "The library may read this." Browsers follow the same rule. Pages may only read data from their own **origin**, unless the other server writes a permission note called **CORS**.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Define an **origin** as scheme + host + port.
 - Explain what the **Same-Origin Policy** blocks and why.
@@ -49,10 +49,10 @@ Compared with `https://school.example.org/students`:
 
 | URL | Same origin? | Why |
 | :--- | :--- | :--- |
-| `https://school.example.org/teachers` | ✅ Yes | Only the path differs |
-| `http://school.example.org/students` | ❌ No | Different scheme |
-| `https://api.school.example.org/` | ❌ No | Different host |
-| `https://school.example.org:8443/` | ❌ No | Different port (8443 vs 443) |
+| `https://school.example.org/teachers` | Yes | Only the path differs |
+| `http://school.example.org/students` | No | Different scheme |
+| `https://api.school.example.org/` | No | Different host |
+| `https://school.example.org:8443/` | No | Different port (8443 vs 443) |
 
 ---
 
@@ -190,32 +190,32 @@ X-Content-Type-Options: nosniff
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Trying to fix CORS in the front-end code.**
 
-- ❌ Wrong: adding `Access-Control-Allow-Origin` to the `fetch` request in JavaScript.
+- Wrong: adding `Access-Control-Allow-Origin` to the `fetch` request in JavaScript.
 - What happens: nothing changes. The browser only trusts this header when it comes **from the server**.
-- ✅ Right: add the CORS headers to the API server's response.
+- Right: add the CORS headers to the API server's response.
 
 **Allowing everyone with a star.**
 
-- ❌ Wrong: `Access-Control-Allow-Origin: *` on an API that returns private student data.
+- Wrong: `Access-Control-Allow-Origin: *` on an API that returns private student data.
 - What happens: any website may read the public responses. Browsers refuse `*` for requests that carry cookies, so logins may also break.
-- ✅ Right: list the exact origins you trust, such as `https://school.example.org`.
+- Right: list the exact origins you trust, such as `https://school.example.org`.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Run the PHP demo above. Then edit `$allowed` to `http://localhost:5173` and send the first `curl.exe` command again, still with `Origin: http://localhost:3000`.
 Which header disappears? What would the browser do now?
 
-> 💡 Hint: the server only adds `Access-Control-Allow-Origin` when the `Origin` header matches `$allowed` exactly.
+> Hint: the server only adds `Access-Control-Allow-Origin` when the `Origin` header matches `$allowed` exactly.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - An **origin** = scheme + host + port; all three must match.
 - The **Same-Origin Policy** stops scripts reading responses from other origins.
@@ -226,9 +226,9 @@ Which header disappears? What would the browser do now?
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Which three parts must match for two URLs to have the same origin? Which method does a preflight use?
 
 <details>
@@ -239,7 +239,7 @@ A preflight uses the **`OPTIONS`** method.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A page at `https://clinic.example.org` calls `https://api.clinic.example.org/visits` with `Content-Type: application/json`.
 1. Is this the same origin?
 2. Will the browser send a preflight? Why?
@@ -254,7 +254,7 @@ A page at `https://clinic.example.org` calls `https://api.clinic.example.org/vis
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A charity runs its donation page at `https://give.example.org` and its API at `https://api.give.example.org`.
 1. Write the preflight response headers that allow only the donation page to `POST` JSON.
 2. Add three security headers to every API response.

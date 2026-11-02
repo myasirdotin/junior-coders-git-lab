@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Your class wants to run a charity book sale for a local hospital. At first it feels too big to start.
 So your teacher writes a list on the board: collect books, sort them, set prices, make posters, count the money.
@@ -12,7 +12,7 @@ That way of thinking has a name: **computational thinking**. Programmers use it 
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Break a big problem into small tasks (decomposition).
 - Spot the same pattern in different problems.
@@ -212,7 +212,7 @@ Once your pseudocode makes sense, translating it to JavaScript takes only a few 
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Starting the record holder at 0 instead of the first item.** It looks fine for marks, but it breaks for lists of negative numbers, such as winter temperatures.
 
@@ -264,7 +264,7 @@ A second common mistake is skipping the plan. If you start typing before you kno
 
 ---
 
-## ✍️ Try It
+## Try It
 
 The school librarian has a list that says whether each borrowed book came back:
 
@@ -280,7 +280,7 @@ let returned = [true, false, true, false, false];
 
 ---
 
-## 📝 Recap
+## Recap
 
 - **Decomposition**: split one big problem into small tasks you can solve one at a time.
 - **Pattern recognition**: many problems share the same solution shape, like "find the biggest".
@@ -297,9 +297,9 @@ let returned = [true, false, true, false, false];
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Name the four pillars of computational thinking, and say in one line what each means.
 
 <details>
@@ -312,7 +312,7 @@ Name the four pillars of computational thinking, and say in one line what each m
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 The Duplicate Finder: given the roll numbers `[101, 105, 102, 108, 105, 110]`, find the number that appears twice.
 Write pseudocode first, then the JavaScript.
 
@@ -346,7 +346,7 @@ Output: `Duplicate found: 105`
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The Traffic Light Controller: plan the algorithm for a pedestrian crossing button at a busy road.
 1. Decompose: list the inputs (the button) and the outputs (the lights).
 2. List the timers you need.

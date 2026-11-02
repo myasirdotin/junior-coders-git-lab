@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The school office printed a register with four columns: ID, name, subject and email. A month later the head teacher asks for a staff code column too. Nobody throws the register away and starts again. The secretary rules a new column in pencil, crosses out an old heading and writes a better one. `ALTER TABLE` is that pencil. It changes the shape of a table while the table stays in use.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Add a column with `ADD COLUMN`, and place it with `AFTER` or `FIRST`.
 - Change a column's type with `MODIFY`, and rename it with `CHANGE`.
@@ -75,7 +75,7 @@ DESCRIBE teachers;
 
 A new column goes to the **end** of the table. You write it exactly like a line inside `CREATE TABLE`: name, type, then any rules.
 
-> 💡 The word `COLUMN` is optional. `ALTER TABLE teachers ADD email VARCHAR(100);` does the same. This book writes `COLUMN` because it reads more clearly.
+> The word `COLUMN` is optional. `ALTER TABLE teachers ADD email VARCHAR(100);` does the same. This book writes `COLUMN` because it reads more clearly.
 
 ### Choosing the place: `AFTER` and `FIRST`
 
@@ -104,7 +104,7 @@ ALTER TABLE teachers ADD COLUMN school_code CHAR(3) FIRST;
 
 Column order does not change what the table can store. It only changes how `DESCRIBE` and `SELECT *` show it.
 
-> ⚠️ **Adding `NOT NULL` to a table that already has rows.** Every old row needs a value for the new column. Give a `DEFAULT` (for example `DEFAULT 'TEMP0000'`), or MySQL fills in an empty value (`''` for text, `0` for numbers). Our `teachers` table is still empty, so there is no problem yet.
+> **Adding `NOT NULL` to a table that already has rows.** Every old row needs a value for the new column. Give a `DEFAULT` (for example `DEFAULT 'TEMP0000'`), or MySQL fills in an empty value (`''` for text, `0` for numbers). Our `teachers` table is still empty, so there is no problem yet.
 
 ---
 
@@ -120,7 +120,7 @@ Read it as: "from now on, `full_name` is `VARCHAR(100) NOT NULL`."
 
 **Important:** `MODIFY` replaces the **whole** definition. Write every rule you want to keep (`NOT NULL`, `DEFAULT ...`). Anything you leave out is removed. The Common Mistake section shows what happens.
 
-> 💡 Making a column **bigger** is safe. Making it **smaller** can cut stored values short. In relaxed mode, shrinking a column to `VARCHAR(5)` turns `'Abdur Rahman'` into `'Abdur'`. In strict mode (Chapter 6) MySQL refuses with `ERROR 1265: Data truncated`, which is better.
+> Making a column **bigger** is safe. Making it **smaller** can cut stored values short. In relaxed mode, shrinking a column to `VARCHAR(5)` turns `'Abdur Rahman'` into `'Abdur'`. In strict mode (Chapter 6) MySQL refuses with `ERROR 1265: Data truncated`, which is better.
 
 ---
 
@@ -239,7 +239,7 @@ CREATE TABLE `teachers` (
 
 (The last line shows your database's character set from Chapter 4, so yours may look a little different.)
 
-> 💡 **Name your rules.** `uq_staff_code` and `chk_periods` are easy to find and remove later. If you give no name, MySQL invents one.
+> **Name your rules.** `uq_staff_code` and `chk_periods` are easy to find and remove later. If you give no name, MySQL invents one.
 
 ### Removing a constraint
 
@@ -266,7 +266,7 @@ ALTER TABLE teachers DROP COLUMN periods;
 
 `DESCRIBE` now shows five columns again: `id`, `staff_code`, `full_name`, `subject`, `work_email`.
 
-> 🛑 **The data is gone.** `DROP COLUMN` deletes that column from **every row**. If the table held 900 teachers' phone numbers, all 900 are erased at once. There is no Recycle Bin and no undo.
+> **The data is gone.** `DROP COLUMN` deletes that column from **every row**. If the table held 900 teachers' phone numbers, all 900 are erased at once. There is no Recycle Bin and no undo.
 
 ---
 
@@ -291,7 +291,7 @@ SHOW TABLES;
 
 `ALTER TABLE teachers RENAME TO staff;` does the same job. Renaming keeps every column, rule and row.
 
-> ⚠️ Any PHP page or saved query that still says `teachers` will now fail with "Table doesn't exist". Rename tables early, before other code depends on the name.
+> Any PHP page or saved query that still says `teachers` will now fail with "Table doesn't exist". Rename tables early, before other code depends on the name.
 
 ---
 
@@ -327,11 +327,11 @@ This is faster on big tables, because MySQL rebuilds the table once instead of t
 
 On a real school server, changes are planned and run when few people are using the website, for example after school hours. Student records are an *Amānah* (a trust), so we change them carefully.
 
-> 🧪 **Sandbox note:** The browser SQL Sandbox (SQLite) supports `ADD COLUMN`, `RENAME COLUMN ... TO ...`, `DROP COLUMN` and `RENAME TO`. It has **no** `MODIFY`, `CHANGE` or `AFTER`. Practise those in phpMyAdmin on XAMPP.
+> **Sandbox note:** The browser SQL Sandbox (SQLite) supports `ADD COLUMN`, `RENAME COLUMN ... TO ...`, `DROP COLUMN` and `RENAME TO`. It has **no** `MODIFY`, `CHANGE` or `AFTER`. Practise those in phpMyAdmin on XAMPP.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: forgetting the old rules when using `MODIFY` or `CHANGE`.**
 
@@ -362,7 +362,7 @@ Run `DESCRIBE` after every `MODIFY` or `CHANGE` to check that the rules are stil
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Create the `teachers` table from the start of this chapter in phpMyAdmin (or reuse your `staff` table). Then add a `room` column that holds a room code such as `B-12`, placed straight after `subject`, with the default `'Staff Room'`. Check it with `DESCRIBE`.
 
@@ -370,7 +370,7 @@ Create the `teachers` table from the start of this chapter in phpMyAdmin (or reu
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `ALTER TABLE` changes the plan of an existing table and keeps its rows.
 - `ADD COLUMN` adds a column at the end, or where you say with `AFTER` / `FIRST`.
@@ -381,9 +381,9 @@ Create the `teachers` table from the start of this chapter in phpMyAdmin (or reu
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which part of `ALTER TABLE` places a new column straight after another column?
 2. What is the difference between `MODIFY` and `CHANGE`?
 3. What happens to the stored values when you run `DROP COLUMN`?
@@ -399,7 +399,7 @@ Create the `teachers` table from the start of this chapter in phpMyAdmin (or reu
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Here is the `library_cards` table from Chapter 7:
 
 ```sql
@@ -449,7 +449,7 @@ If you forgot `NOT NULL DEFAULT 'active'` in step 3, the rule and the default ar
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The charity club has the `pledges` table from Chapter 7's practice:
 
 ```sql

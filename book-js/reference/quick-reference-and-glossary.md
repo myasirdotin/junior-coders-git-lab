@@ -1,9 +1,9 @@
 # Reference & Glossary
-# Quick Reference Cheat Sheet and JavaScript Dictionary 📖
+# Quick Reference Cheat Sheet and JavaScript Dictionary
 
 ---
 
-## 1. Syntax Cheat Sheet ⚡
+## 1. Syntax Cheat Sheet
 
 ### Variables
 ```javascript
@@ -74,7 +74,7 @@ btn.addEventListener("click", function() {
 
 ---
 
-## 2. A to Z JavaScript Glossary for Class 7 📚
+## 2. A to Z JavaScript Glossary for Class 7
 
 - **Algorithm:** A step-by-step set of rules or instructions to solve a problem.
 - **Argument:** An actual value passed into a function when calling it.

@@ -161,17 +161,17 @@
     if (state === 'speaking') {
       if (header) header.classList.add('is-speaking');
       mainBtn.classList.add('is-playing');
-      mainBtn.innerHTML = `<span class="btn-icon">⏸️</span> <span class="btn-text">Pause</span>`;
+      mainBtn.innerHTML = `<span class="btn-icon">${I('pause')}</span> <span class="btn-text">Pause</span>`;
       if (statusEl) statusEl.textContent = label ? `Reading: "${label}"` : 'Reading chapter...';
     } else if (state === 'paused') {
       if (header) header.classList.remove('is-speaking');
       mainBtn.classList.remove('is-playing');
-      mainBtn.innerHTML = `<span class="btn-icon">▶️</span> <span class="btn-text">Resume</span>`;
+      mainBtn.innerHTML = `<span class="btn-icon">${I('play')}</span> <span class="btn-text">Resume</span>`;
       if (statusEl) statusEl.textContent = 'Narration paused';
     } else {
       if (header) header.classList.remove('is-speaking');
       mainBtn.classList.remove('is-playing');
-      mainBtn.innerHTML = `<span class="btn-icon">🔊</span> <span class="btn-text">Read Chapter</span>`;
+      mainBtn.innerHTML = `<span class="btn-icon">${I('speaker')}</span> <span class="btn-text">Read Chapter</span>`;
       if (statusEl && label) statusEl.textContent = label;
     }
   };
@@ -179,7 +179,7 @@
   const playNextInQueue = () => {
     if (currentIndex >= queue.length - 1) {
       stopSpeech();
-      updateToolbarUI('idle', 'Finished reading 🎉');
+      updateToolbarUI('idle', 'Finished reading');
       return;
     }
 
@@ -442,6 +442,8 @@
   // Text diagrams (boxes and trees drawn with ┌─│└├ characters) were shown as code: a "PYTHON"/"BASH" label,
   // a Copy button, and on phones far too wide. Show them as figures and shrink the text to fit, down to 9px;
   // anything still wider scrolls inside its own box (styles: .is-diagram in styles/book-theme.css).
+  // icons shared with js/book-reader.js (window.JC_ICONS): inline SVG, no emoji
+  const I = (k) => (window.JC_ICONS && window.JC_ICONS[k]) || '';
   const BOX_CHARS = /[┌┐└┘├┤┬┴┼─│═║╔╗╚╝╠╣╦╩╬]/g;
   const fitDiagram = (pre) => {
     const text = pre.querySelector('code') || pre;   // the font size is set on <code>
@@ -525,7 +527,7 @@
 
     const statusEl = document.getElementById('book-speaker-status-text');
     if (statusEl) {
-      statusEl.textContent = `${chapterName} • ⏱️ ${minutes} min read`;
+      statusEl.textContent = `${chapterName} • ${minutes} min read`;
     }
 
     rememberChapter(chapterName);
@@ -541,7 +543,7 @@
       btn.className = 'book-section-speaker-btn';
       btn.title = 'Listen to this section';
       btn.setAttribute('aria-label', `Listen to section: ${getCleanElementText(heading)}`);
-      btn.innerHTML = '🔊';
+      btn.innerHTML = I('speaker');
 
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
@@ -557,7 +559,7 @@
 
     const rmTimeEl = document.getElementById('rm-read-time');
     if (rmTimeEl) {
-      rmTimeEl.textContent = `⏱️ ${minutes} min read`;
+      rmTimeEl.textContent = `${minutes} min read`;
     }
 
     // Attach inline "Download Chapter PDF" button inside lab-callout-actions
@@ -567,7 +569,7 @@
       inlinePdfBtn.type = 'button';
       inlinePdfBtn.className = 'btn-download-chapter-pdf';
       inlinePdfBtn.title = 'Save this chapter as an offline PDF study guide';
-      inlinePdfBtn.innerHTML = '<span>📥</span> <span>Download Chapter PDF</span>';
+      inlinePdfBtn.innerHTML = '<span>' + I('download') + '</span> <span>Download Chapter PDF</span>';
       inlinePdfBtn.addEventListener('click', () => {
         if (window.downloadLessonPDF) {
           window.downloadLessonPDF({ button: inlinePdfBtn });
@@ -614,7 +616,7 @@
       const text = content ? (content.innerText || '') : '';
       const words = text.trim().split(/\s+/).length;
       const minutes = Math.max(1, Math.ceil(words / 185));
-      return `⏱️ ${minutes} min read`;
+      return `${minutes} min read`;
     };
 
     let readingBar = document.getElementById('reading-mode-bar');
@@ -626,7 +628,7 @@
       readingBar.setAttribute('aria-label', 'Reading Mode Controls');
       readingBar.innerHTML = `
         <div class="rm-pill-title">
-          <span>📖</span>
+          <span>${I('book')}</span>
           <span>Reader View</span>
         </div>
         <span class="rm-read-time" id="rm-read-time">${getReadingTime()}</span>

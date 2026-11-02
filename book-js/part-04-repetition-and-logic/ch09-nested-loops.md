@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Classroom Seating Grid**
 
@@ -20,7 +20,7 @@ Notice that for every single row, she repeats 5 desk visits! `4 rows × 5 desks 
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Understand what a **nested loop** is and how execution flows.
@@ -59,7 +59,7 @@ To print a triangle of stars, we build a string inside the inner loop and print 
 
 ---
 
-## 🌍 Real-World Connection: Computer Pixels & Clocks
+## Real-World Connection: Computer Pixels & Clocks
 
 - **Digital Clocks**: The seconds tick from 0 to 59 (inner loop). Only when seconds finish does the minute counter tick up by 1 (outer loop)!
 - **Grids**: Floor tiles, seating plans, and pixel art pictures are drawn on screens using nested loops iterating across `x` and `y` coordinates!
@@ -108,7 +108,7 @@ Output:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this snippet:
 
@@ -123,7 +123,7 @@ for (let i = 1; i <= 2; i++) {
 **Question**: What exact 4 lines will print?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong>
 <br><code>1-1</code>
 <br><code>1-2</code>
@@ -163,7 +163,7 @@ Build a pattern maker program that can draw 2 different geometric shapes:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **The Stagnant Row Number**
 
@@ -191,18 +191,18 @@ for (let row = 1; row <= 3; row++) {
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open your console:
 1. Run the Triangle Star Maker from the Code Example above to see your triangle appear!
 2. Now change `col <= row` to `col <= 5`.
 3. Re-run: What shape did it make? **A solid 5x5 square of stars!**
 
-> 💡 **Hint:** With `col <= 5`, the inner loop no longer depends on `row`. Every row gets exactly 5 stars, so all rows are the same width.
+> **Hint:** With `col <= 5`, the inner loop no longer depends on `row`. Every row gets exactly 5 stars, so all rows are the same width.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A nested loop is a loop located inside another loop.
 - The inner loop completes all iterations for every single iteration of the outer loop.
@@ -218,7 +218,7 @@ Open your console:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -229,9 +229,9 @@ Open your console:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. In a nested loop, which loop finishes all its rounds for each single round of the other: the inner or the outer?
 2. An outer loop runs 4 times. Its inner loop runs 5 times. How many times does the inner loop body run in total?
 
@@ -243,7 +243,7 @@ Open your console:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write a nested loop that prints a 3×3 grid of coordinates: `1-1`, `1-2`, `1-3`, `2-1` … `3-3`.
 2. Why must `starLine = ""` be reset inside the outer loop, not before it?
 
@@ -262,7 +262,7 @@ Open your console:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Print a 5×5 multiplication grid:
 1. Use an outer loop for rows 1 to 5.
 2. Inside it, make an empty string, then use an inner loop for columns 1 to 5.

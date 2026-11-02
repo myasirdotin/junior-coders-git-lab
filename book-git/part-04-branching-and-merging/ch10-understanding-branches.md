@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Tree Trunk and Its Branches**
 
@@ -10,7 +10,7 @@ Look at a great Chinar tree in a Srinagar garden. It has one strong trunk, and m
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a branch is: a movable label that points to a commit.
 - List branches with `git branch` and see which one you are on.
@@ -131,7 +131,7 @@ hint: If you are sure you want to delete it, run 'git branch -D feature/dark-mod
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 Professional teams do not name branches `temp` or `stuff`. Many use a short prefix that says what the branch is for:
 
@@ -144,14 +144,14 @@ This is a common habit, not a rule built into Git. Your team decides.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 You create a branch `experiment`, add five lines to `index.html`, and commit them there. Then you run `git switch main`.
 
 **Question:** Do you see those five lines in `index.html` while on `main`?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **No.** Git changes your files to match the branch you switch to. The five lines only exist on `experiment`. Switch back to `experiment` and they return.
 
@@ -159,7 +159,7 @@ You create a branch `experiment`, add five lines to `index.html`, and commit the
 
 ---
 
-## 🕵️ Code Detective: The Missing Code Panic
+## Code Detective: The Missing Code Panic
 
 On Monday, Maryam cried: "Teacher, my contact form is gone!" The teacher calmly ran `git branch`:
 
@@ -172,7 +172,7 @@ Maryam had built the form on `feature/contact-form` on Saturday, but now she was
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: Committing on `main` by accident.**
 
@@ -210,7 +210,7 @@ git branch -d feature/dark-mode
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In a practice repository with at least one commit:
 
@@ -227,7 +227,7 @@ In a practice repository with at least one commit:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A branch is a light label pointing at a commit. Making one is almost instant.
 - `git branch` lists branches; the `*` shows where you are (HEAD).
@@ -237,9 +237,9 @@ In a practice repository with at least one commit:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 
 1. Which command lists all local branches?
 2. Which modern command creates a new branch and switches to it in one step?
@@ -254,7 +254,7 @@ In a practice repository with at least one commit:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 
 1. Why is a branch a safe place to build a new website feature?
 2. Why do people call Git branches "lightweight"?
@@ -274,7 +274,7 @@ In a practice repository with at least one commit:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 
 1. Make a practice repository with `index.html` and `style.css` on `main`.
 2. Create branch `design-a` and change the button colour in `style.css` to blue. Commit.

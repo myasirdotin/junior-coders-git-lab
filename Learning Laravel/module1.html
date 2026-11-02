@@ -13,7 +13,7 @@
         <!-- Hero Header -->
         <header class="module-header path-laravel">
             <span class="badge" style="background: white; color: var(--laravel-brand);">Level 1</span>
-            <h1>Welcome to Laravel! 🎨</h1>
+            <h1>Welcome to Laravel!</h1>
             <p>The PHP framework for web artisans — your toolkit for building real web apps!</p>
         </header>
 
@@ -23,18 +23,16 @@
             <p>You already know PHP — that's amazing! Now imagine instead of writing every single feature from scratch, someone already built the hardest parts for you. That's Laravel!</p>
 
             <div class="connection-box" style="border-left-color: var(--laravel-brand);">
-                <strong>The Super-Toolkit Analogy 🧰</strong><br><br>
+                <strong>The Super-Toolkit Analogy</strong><br><br>
                 Laravel is like a super-powered toolkit. Instead of building every tool yourself, Laravel gives you everything ready-made: login systems, databases, routing — all built in! You focus on <em>your</em> app's unique ideas, and Laravel handles the boring, repetitive stuff.
             </div>
 
             <div class="analogy-grid" style="margin-top: 2rem;">
                 <div class="analogy-card active">
-                    <span class="analogy-icon">😰</span>
                     <h3>Plain PHP</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">Write everything yourself — database connections, security checks, URL routing. Hundreds of lines just to get started.</p>
                 </div>
                 <div class="analogy-card active" style="border-color: var(--laravel-brand); background: rgba(227, 52, 47, 0.05);">
-                    <span class="analogy-icon">🚀</span>
                     <h3>Laravel</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">Everything is ready. Security, routing, database, emails, logins — all included. You build features, not infrastructure!</p>
                 </div>
@@ -43,16 +41,16 @@
 
         <!-- What is a Framework -->
         <section class="content-section">
-            <h2>What is a Framework? 🏗️</h2>
+            <h2>What is a Framework?</h2>
             <p>A <strong>framework</strong> is a collection of pre-written code that gives your app a solid foundation. Think of building a house — you don't pour the concrete yourself. A framework gives you the foundation already laid!</p>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #34d399;">
-                    <h3>Saves Time ⏱️</h3>
+                    <h3>Saves Time</h3>
                     <p style="font-size: 0.9rem;">Common features like login, password hashing, and email sending are already built.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #6366f1;">
-                    <h3>Stays Secure 🔒</h3>
+                    <h3>Stays Secure</h3>
                     <p style="font-size: 0.9rem;">Laravel gives you tools that help block three common attacks:</p>
                     <ul style="font-size: 0.9rem; margin: 0.5rem 0 0 1.2rem;">
                         <li><strong>SQL injection:</strong> someone types database commands into a form to read or change your data.</li>
@@ -62,11 +60,11 @@
                     <p style="font-size: 0.9rem; margin-top: 0.5rem;">Laravel helps protect you when you use its tools: Eloquent for the database, Blade's <code>{{ }}</code> for showing data, and <code>@csrf</code> in forms. It cannot protect code that skips these tools. You will meet all three later in this course.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #eab308;">
-                    <h3>Stays Organized 📁</h3>
+                    <h3>Stays Organized</h3>
                     <p style="font-size: 0.9rem;">Laravel has a strict folder structure that keeps your code clean and easy to find — even in large teams!</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.5rem; border-radius: 1rem; border-left: 4px solid #f43f5e;">
-                    <h3>Used Everywhere 🌍</h3>
+                    <h3>Used Everywhere</h3>
                     <p style="font-size: 0.9rem;">Many professional developers around the world use Laravel. It is one of the most popular PHP frameworks.</p>
                 </div>
             </div>
@@ -74,22 +72,19 @@
 
         <!-- MVC Architecture -->
         <section class="content-section">
-            <h2>The Most Important Concept: MVC 🧩</h2>
+            <h2>The Most Important Concept: MVC</h2>
             <p>Laravel is built around a design pattern called <strong>MVC</strong> — Model, View, Controller. This is the single most important concept to understand. Once you get this, everything else makes sense!</p>
 
             <div class="analogy-grid" style="margin-top: 1.5rem;">
                 <div class="analogy-card active" style="border-color: #34d399; background: rgba(52, 211, 153, 0.05);">
-                    <span class="analogy-icon">🗄️</span>
                     <h3 style="color: var(--text-green);">Model</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;"><strong>The data layer.</strong> Models talk to the database. They know how to find, save, update, and delete data. Example: a <code>Student</code> model talks to the <code>students</code> table.</p>
                 </div>
                 <div class="analogy-card active" style="border-color: #6366f1; background: rgba(99, 102, 241, 0.05);">
-                    <span class="analogy-icon">🖥️</span>
                     <h3 style="color: var(--text-indigo);">View</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;"><strong>What the user sees.</strong> Views are the HTML pages — but powered by Blade templates. They display information beautifully without doing any database logic.</p>
                 </div>
                 <div class="analogy-card active" style="border-color: #e3342f; background: rgba(227, 52, 47, 0.05);">
-                    <span class="analogy-icon">🧠</span>
                     <h3 style="color: #e3342f;">Controller</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;"><strong>The brain connecting them.</strong> Controllers receive requests, ask the Model for data, and pass that data to the View. They are the manager of the whole operation!</p>
                 </div>
@@ -102,68 +97,62 @@
             <p>When a user visits a page on your Laravel app, here's exactly what happens, step by step:</p>
 
             <div class="flow-container" style="margin-top: 1.5rem;">
-                <div class="flow-step" style="border-color: #6366f1; background: #ede9fe; color: #3730a3;">
-                    👤 User visits /students
+                <div class="flow-step" style="border-color: #6366f1; background: #ede9fe; color: #3730a3;">User visits /students
                 </div>
                 <div class="flow-arrow"></div>
-                <div class="flow-step" style="border-color: #f59e0b; background: #fef3c7; color: #92400e;">
-                    🗺️ Router matches the URL to a Controller
+                <div class="flow-step" style="border-color: #f59e0b; background: #fef3c7; color: #92400e;">Router matches the URL to a Controller
                 </div>
                 <div class="flow-arrow"></div>
-                <div class="flow-step" style="border-color: #e3342f; background: #fee2e2; color: #991b1b;">
-                    🧠 Controller asks the Model for data
+                <div class="flow-step" style="border-color: #e3342f; background: #fee2e2; color: #991b1b;">Controller asks the Model for data
                 </div>
                 <div class="flow-arrow"></div>
-                <div class="flow-step" style="border-color: #34d399; background: #d1fae5; color: #065f46;">
-                    🗄️ Model fetches data from the Database
+                <div class="flow-step" style="border-color: #34d399; background: #d1fae5; color: #065f46;">Model fetches data from the Database
                 </div>
                 <div class="flow-arrow"></div>
-                <div class="flow-step" style="border-color: #6366f1; background: #ede9fe; color: #3730a3;">
-                    🖥️ Controller sends data to the View
+                <div class="flow-step" style="border-color: #6366f1; background: #ede9fe; color: #3730a3;">Controller sends data to the View
                 </div>
                 <div class="flow-arrow"></div>
-                <div class="flow-step" style="border-color: #34d399; background: #d1fae5; color: #065f46;">
-                    ✅ User sees the beautiful HTML page!
+                <div class="flow-step" style="border-color: #34d399; background: #d1fae5; color: #065f46;">User sees the beautiful HTML page!
                 </div>
             </div>
         </section>
 
         <!-- Folder Structure -->
         <section class="content-section">
-            <h2>Laravel's Folder Structure 📂</h2>
+            <h2>Laravel's Folder Structure</h2>
             <p>When you create a Laravel project, it comes with many folders. Don't be scared — you only need to know the key ones to get started!</p>
 
             <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
-                    <span style="font-size: 1.5rem; flex-shrink: 0;">📁</span>
+                    <span style="font-size: 1.5rem; flex-shrink: 0;"></span>
                     <div>
                         <strong style="color: var(--text-green);">app/</strong>
                         <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">The heart of your application. Contains your Models (<code>app/Models/</code>) and Controllers (<code>app/Http/Controllers/</code>).</p>
                     </div>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
-                    <span style="font-size: 1.5rem; flex-shrink: 0;">📁</span>
+                    <span style="font-size: 1.5rem; flex-shrink: 0;"></span>
                     <div>
                         <strong style="color: var(--text-indigo);">routes/</strong>
                         <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Where you define all your URLs. The main file is <code>routes/web.php</code> for web pages.</p>
                     </div>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
-                    <span style="font-size: 1.5rem; flex-shrink: 0;">📁</span>
+                    <span style="font-size: 1.5rem; flex-shrink: 0;"></span>
                     <div>
                         <strong style="color: var(--text-amber);">resources/views/</strong>
                         <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">All your Blade template files (HTML pages) live here. They end in <code>.blade.php</code>.</p>
                     </div>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
-                    <span style="font-size: 1.5rem; flex-shrink: 0;">📁</span>
+                    <span style="font-size: 1.5rem; flex-shrink: 0;"></span>
                     <div>
                         <strong style="color: var(--text-red);">database/</strong>
                         <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Contains your migrations (database table blueprints) and seeders (sample data). Think of it as your database blueprint folder.</p>
                     </div>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
-                    <span style="font-size: 1.5rem; flex-shrink: 0;">📄</span>
+                    <span style="font-size: 1.5rem; flex-shrink: 0;"></span>
                     <div>
                         <strong style="color: var(--text-green);">.env</strong>
                         <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">The environment configuration file. This is where you put your database username, password, and app settings. Never share this file publicly!</p>
@@ -174,7 +163,7 @@
 
         <!-- Artisan CLI -->
         <section class="content-section">
-            <h2>Artisan — Your Magic Wand ✨</h2>
+            <h2>Artisan — Your Magic Wand</h2>
             <p>Laravel comes with a powerful command-line tool called <strong>Artisan</strong>. You run Artisan commands in your terminal to do things like create files, run the server, and manage your database. It saves you enormous amounts of typing!</p>
 
             <div class="connection-box" style="border-left-color: var(--laravel-brand);">
@@ -202,22 +191,22 @@
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); padding: 1rem; border-radius: 0.75rem; text-align: center; border: 2px solid #34d399;">
-                    <div style="font-size: 1.5rem;">⚡</div>
+                    <div style="font-size: 1.5rem;"></div>
                     <strong style="color: var(--text-green);">php artisan serve</strong>
                     <p style="font-size: 0.8rem; margin: 0.3rem 0 0; color: var(--text-muted);">Runs your app locally</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1rem; border-radius: 0.75rem; text-align: center; border: 2px solid #6366f1;">
-                    <div style="font-size: 1.5rem;">🏗️</div>
+                    <div style="font-size: 1.5rem;"></div>
                     <strong style="color: var(--text-indigo);">make:controller</strong>
                     <p style="font-size: 0.8rem; margin: 0.3rem 0 0; color: var(--text-muted);">Creates a Controller</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1rem; border-radius: 0.75rem; text-align: center; border: 2px solid #eab308;">
-                    <div style="font-size: 1.5rem;">📦</div>
+                    <div style="font-size: 1.5rem;"></div>
                     <strong style="color: var(--text-amber);">make:model</strong>
                     <p style="font-size: 0.8rem; margin: 0.3rem 0 0; color: var(--text-muted);">Creates a Model</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1rem; border-radius: 0.75rem; text-align: center; border: 2px solid #f43f5e;">
-                    <div style="font-size: 1.5rem;">🗄️</div>
+                    <div style="font-size: 1.5rem;"></div>
                     <strong style="color: var(--text-red);">make:migration</strong>
                     <p style="font-size: 0.8rem; margin: 0.3rem 0 0; color: var(--text-muted);">Creates a Migration</p>
                 </div>
@@ -226,14 +215,14 @@
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Fill in the blanks: "In MVC, the ______ talks to the database. The ______ is the page the user sees. The ______ connects the two."</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>Model, View, Controller. The Model handles data, the View shows it, and the Controller is the manager in the middle.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Put the steps in order</h3>
+                <h3>Level 2: Put the steps in order</h3>
                 <p>A visitor opens <code>/books</code> on a school library app. Put these steps in the right order:</p>
                 <ol type="A">
                     <li>The Model fetches the books from the database.</li>
@@ -246,7 +235,7 @@
                 <details class="jc-answer"><summary>Show answer</summary><div>B, D, F, A, E, C. The request comes in through the Router. The Controller gets data through the Model. The View turns it into HTML.</div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>Laravel cannot run inside this web page, so build this on your own computer with XAMPP. Create the start of a school library app.</p>
                 <ol>
                     <li>Open a terminal. Type <code>php -v</code> and then <code>composer -V</code>. Composer is a tool that downloads PHP packages, like Laravel. If the second command fails, install Composer from getcomposer.org.</li>
@@ -273,7 +262,7 @@ php artisan make:controller BookController</code></pre>
 
         <!-- Quiz -->
         <section class="content-section">
-            <h2>Quick Knowledge Check! 🧪</h2>
+            <h2>Quick Knowledge Check!</h2>
             <p>Let's see what you've learned. Pick the best answer for each question.</p>
             <form id="quiz-form-1" class="quiz-section" style="margin-top: 1.5rem;">
 

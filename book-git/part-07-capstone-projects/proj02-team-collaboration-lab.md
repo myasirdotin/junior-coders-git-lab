@@ -1,15 +1,15 @@
-# Project 2: Team Collaboration & Feature Branch Simulation 👥
+# Project 2: Team Collaboration & Feature Branch Simulation
 
 ---
 
-## 🌟 Project Overview
+## Project Overview
 
 In this project you act out how a real two-person team works on one shared GitHub repository.
 Work with a lab partner, or play both roles yourself in two different folders.
 
 > **Age check:** GitHub accounts are only for people aged 13 or older. If you are younger, use a classroom account your teacher manages, or practise with a "remote" folder on your own computer (see the tip below). Never sign up on your own.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 1. Adding a teammate as a **collaborator** (a person allowed to push to the repository).
 2. Working only on feature branches, never straight on `main`.
@@ -21,7 +21,7 @@ Work with a lab partner, or play both roles yourself in two different folders.
 
 ---
 
-## 👥 Scenario and Roles
+## Scenario and Roles
 
 - **Project:** *Srinagar Heritage Portal*, a small website about the city's historic places.
 - **Maryam (Developer A, team lead):** creates the repository, builds the home page and reviews Pull Requests.
@@ -29,7 +29,7 @@ Work with a lab partner, or play both roles yourself in two different folders.
 
 ---
 
-## 💻 Step-by-Step Lab
+## Step-by-Step Lab
 
 ### Phase 1: Maryam sets up the project
 
@@ -213,7 +213,7 @@ git push -u origin feature/welcome-heading
 
 ---
 
-## 🧪 Project Checklist
+## Project Checklist
 
 - [ ] Nobody pushed straight to `main` while building a feature: every change came through a Pull Request.
 - [ ] Bilal's branch was pushed and reviewed in a Pull Request.
@@ -224,7 +224,7 @@ git push -u origin feature/welcome-heading
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A team shares one repository; each person works on their own **feature branch**.
 - Changes reach `main` through a **Pull Request** that a teammate reviews kindly.

@@ -1,10 +1,10 @@
 # Chapter 3: Your First App
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When Maryam joined the school's science club, the teacher did not ask her to design an experiment on day one. She gave her a kit with everything already in place and said, "Change one thing, and watch what happens." Android Studio does the same for you. It gives you a ready-made starter app that already works. Today you will create it, look around inside, change one line and see your change on a phone.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Create a new project from the **Empty Activity** template, named School Library.
 - Choose a package name and a minimum SDK, and explain both simply.
@@ -314,7 +314,7 @@ Some newer phones also offer **Wireless debugging**, which works over Wi-Fi with
 
 When an error happens, read the **first red message** in the Build window. It usually names the file and line number. Click it to jump there.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Deleting a quote mark when editing the greeting.**
 
@@ -338,7 +338,7 @@ What happens: your files do not match this book, and later chapters become confu
 
 Right: close the project (**File → Close Project**), click **New Project** again and choose **Empty Activity**.
 
-## ✍️ Try It
+## Try It
 
 1. Create the **School Library** project with the package `org.juniorcoders.library`.
 2. Change the greeting so the screen says `Welcome to the School Library!`.
@@ -347,7 +347,7 @@ Right: close the project (**File → Close Project**), click **New Project** aga
 
 *Hint:* there are two places that pass a name to `Greeting`: one in `onCreate` and one in `GreetingPreview`.
 
-## 📝 Recap
+## Recap
 
 - **New Project → Empty Activity** creates a working Compose app in seconds.
 - The **package name** (`org.juniorcoders.library`) is the app's unique ID; the **minimum SDK** is the oldest Android it supports. Keep the default.
@@ -356,7 +356,7 @@ Right: close the project (**File → Close Project**), click **New Project** aga
 - The template shows `Greeting(name)` inside a `Scaffold` and a `SchoolLibraryTheme`; `@Preview` shows it in Android Studio.
 - Run on an emulator, or on a phone with **Developer options → USB debugging**, with permission.
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | Meaning |
 |------|---------|
@@ -369,9 +369,9 @@ Right: close the project (**File → Close Project**), click **New Project** aga
 | Manifest | `AndroidManifest.xml`: the app's ID card |
 | Preview | A picture of a composable, shown only in Android Studio |
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which template does this book use for a new project?
 2. What is the package name of our app, and what is it for?
 3. Which file is the app's "ID card"?
@@ -385,7 +385,7 @@ Right: close the project (**File → Close Project**), click **New Project** aga
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Change the template so the phone shows `Hello Grade 9 Readers!`. Which line(s) do you change? Also make the preview show the same.
 
 <details>
@@ -410,7 +410,7 @@ Greeting("Grade 9 Readers")
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Your friend Ibrahim says: "I pressed Run but nothing happens, and the bottom of the screen says Gradle sync failed." Write him a short, calm checklist.
 
 1. Put the checks in a sensible order (easiest first).

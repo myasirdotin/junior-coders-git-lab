@@ -1,10 +1,10 @@
 # Chapter 15: Capstone Project — Community Relief Predictor
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 It is a cold winter night at the community centre. Requests for help arrive faster than the volunteers can read them: blankets, warm food, solar lanterns, medical kits. Who should receive help first? The volunteers want to be fast **and** fair. They agree on clear rules, written down so anyone can check them. In this capstone, you will turn those rules into a Python program. *Mabruk* on reaching the final chapter!
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Plan a project by choosing features and weights for a transparent scoring model.
 - Load requests from a CSV file and convert the text into numbers and Booleans.
@@ -27,7 +27,7 @@ You will build a **Community Relief Priority Tool**. It reads a batch of aid req
 | 7 | Evaluate against past decisions | Ch 13 |
 | 8 | Ethics review | Ch 14 |
 
-> 🧪 **Honest note**: this is a simplified teaching model with made-up requests. The weights are chosen by people, not learned from data. In real relief work, the tool would only **suggest** an order, and trained volunteers would make the final decisions.
+> **Honest note**: this is a simplified teaching model with made-up requests. The weights are chosen by people, not learned from data. In real relief work, the tool would only **suggest** an order, and trained volunteers would make the final decisions.
 
 Type each step into the Python Console. Each step adds to the code of the steps before it, so keep everything in one program.
 
@@ -297,7 +297,7 @@ You have completed the **Python & Machine Learning Foundations** book. You can n
 
 Keep practising in the Python Console. Try new made-up datasets from science, energy or your school library, and use your skills to serve your family, school and community.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Treating the text `"no"` from a CSV as `False`.** Any non-empty string counts as `True` in an `if`, even the word `"no"`. So this code says a family has heating when the file says `"no"`:
 
@@ -332,13 +332,13 @@ else:
 No heating
 ```
 
-## ✍️ Try It
+## Try It
 
 Add a new request to the CSV in Step 2: `REQ-807,9,no,no,no`. Before you run the program, work out its score and tier by hand. Then run it and check where it appears in the dispatch order.
 
 **Hint:** no heating (40) + large household (15) = 55, so Tier 2.
 
-## 📝 Recap
+## Recap
 
 - A good project starts with a plan: features, weights, tiers, and what data **not** to collect.
 - Convert CSV text carefully: `int()` for numbers and `== "yes"` for Booleans.
@@ -346,9 +346,9 @@ Add a new request to the CSV in Step 2: `REQ-807,9,no,no,no`. Before you run the
 - `.sort(key=function, reverse=True)` sorts records by any value you choose.
 - Save a JSON audit log, compare with human decisions, and review privacy and fairness before use.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Why does the project store request codes like `REQ-801` instead of family names? Name the principle.
 
 <details>
@@ -358,7 +358,7 @@ Names are not needed to decide priority, so collecting them would only add risk.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Without running the code, find the score and tier of a request with 3 members, an infant, no elderly member, and **no** heating.
 
 <details>
@@ -368,7 +368,7 @@ No heating 40 + infant 35 = **75**. 75 is 70 or more, so it is **Tier 1: immedia
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Improve the tool with a new feature and a summary.
 
 1. Add a `medical` column to the CSV (`yes`/`no`) for a family member who needs regular medicine. Give each request a value.

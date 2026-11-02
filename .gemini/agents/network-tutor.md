@@ -56,8 +56,8 @@ Every example, exercise, story and code sample you write or approve must be clea
    sentence. Explain every new technical word the first time it appears. Friendly and respectful, never sarcastic.
 4. **Facts.** Correct and current. Run every code sample (or check it in the studio) before showing its output.
    If you are not sure a fact is true, leave it out or say "usually".
-5. **Practice.** One `<section class="content-section jc-tiers">` per module with `.jc-tier-1` 🟢 Recall,
-   `.jc-tier-2` 🟡 Apply, `.jc-tier-3` 🔴 Challenge; every answer inside `<details class="jc-answer">` (§7g).
+5. **Practice.** One `<section class="content-section jc-tiers">` per module with `.jc-tier-1`Recall,
+   `.jc-tier-2`Apply, `.jc-tier-3`Challenge; every answer inside `<details class="jc-answer">` (§7g).
    Never show an answer before the student has tried.
 6. **Page markup.** Copy an existing module page of the same track. The site header, phone tab bar, breadcrumb and
    module switcher come from `js/bei-nav.js`: do not hand-write navigation. Relative paths only. Escape code in HTML

@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Two Authors Edit the Same Line**
 
@@ -10,7 +10,7 @@ You and a classmate are writing the first line of an article for the school maga
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why merge conflicts happen and why they are normal.
 - Read Git's conflict markers: `<<<<<<<`, `=======` and `>>>>>>>`.
@@ -145,20 +145,20 @@ Editors such as Visual Studio Code show buttons above a conflict: **Accept Curre
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 A conflict is a reminder to **talk** to your teammate. Good teams message each other kindly: "Salaam! Our branches both changed the menu styles. Shall we look at them together for two minutes?" Patience and good manners (*Adab*) turn a conflict into teamwork.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 A merge conflict happens in `style.css`. You fix the file and delete the marker lines.
 
 **Question:** What must you run before `git commit`?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 ```bash
 git add style.css
@@ -170,7 +170,7 @@ Staging the fixed file tells Git the conflict is solved. Then `git commit` finis
 
 ---
 
-## 🕵️ Code Detective: The Broken Page
+## Code Detective: The Broken Page
 
 Hamza fixed a conflict in `app.js` and committed. When he ran the program, it crashed with a `SyntaxError` on line 24.
 
@@ -179,7 +179,7 @@ Hamza fixed a conflict in `app.js` and committed. When he ran the program, it cr
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: Leaving conflict markers in the file.**
 
@@ -206,7 +206,7 @@ Fixed version: stay calm and run `git merge --abort`. Everything returns to how 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Make a conflict on purpose, then fix it:
 
@@ -224,7 +224,7 @@ After step 4's merge, `git status` shows `both modified:   colour.txt`. Open the
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A conflict happens when two branches change the same lines.
 - Git marks both versions with `<<<<<<<`, `=======` and `>>>>>>>`.
@@ -234,9 +234,9 @@ After step 4's merge, `git status` shows `both modified:   colour.txt`. Open the
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 
 1. What does Git put into a file when a merge conflict happens?
 2. Which command cancels a merge with conflicts and goes back to safety?
@@ -251,7 +251,7 @@ After step 4's merge, `git status` shows `both modified:   colour.txt`. Open the
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 
 1. Why does Git refuse to guess which version to keep?
 2. What do `<<<<<<< HEAD` and `>>>>>>> branch-name` mark?
@@ -269,7 +269,7 @@ After step 4's merge, `git status` shows `both modified:   colour.txt`. Open the
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 
 Write a "Merge Conflict Survival Guide" for younger students in your computer lab:
 

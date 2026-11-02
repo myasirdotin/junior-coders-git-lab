@@ -1,12 +1,12 @@
 # Chapter 10: Launching VS Code & Verifying Developer Tools
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Before a science lesson, the lab assistant checks the shelf. Is the microscope there? Are the test tubes clean? Is there enough of each liquid? She checks first, so the lesson does not stop halfway. Developers do the same. Before a project starts, they check their tools from the terminal. Then they open their workspace with one short command.
 
 > **Key Idea**: The terminal is the launch pad for your developer tools. One command opens VS Code in your project folder. A few more check that Git, PHP, Node.js and Python are ready.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Open the current folder in VS Code with `code .`.
 - Check which version of a tool is installed.
@@ -146,7 +146,7 @@ The `Source` column shows where the program lives.
 > ```
 > On a Mac, it usually prints `/usr/bin/git`.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting the dot.** Amina types `code` without the dot:
 
@@ -171,7 +171,7 @@ usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]
 
 Fixed: `git --version`.
 
-## ✍️ Try It
+## Try It
 
 Make a small "tool check" record for your computer.
 
@@ -182,7 +182,7 @@ Make a small "tool check" record for your computer.
 
 *Hint*: A missing tool is not a failure. It is useful information for your teacher.
 
-## 📝 Recap
+## Recap
 
 - `code .` opens the current folder in VS Code. `.` means "this folder".
 - `--version` (or `-v`) shows a tool's version. Different numbers on different computers are normal.
@@ -190,9 +190,9 @@ Make a small "tool check" record for your computer.
 - `where git` (CMD), `where.exe git` or `Get-Command git` (PowerShell), `which git` (Git Bash) show where a program lives.
 - Never change the PATH or install software yourself on a school computer. Ask your teacher.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command opens VS Code with the current folder loaded?
 2. Which option do most tools accept to show their version?
 3. Which CMD command shows where a program is stored? Why must PowerShell users type it differently?
@@ -206,7 +206,7 @@ Make a small "tool check" record for your computer.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Hamza runs these commands and sees:
 
 ```text
@@ -229,7 +229,7 @@ operable program or batch file.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A student has XAMPP. In CMD, `php -v` says *"not recognized"*. But this works:
 
 ```text

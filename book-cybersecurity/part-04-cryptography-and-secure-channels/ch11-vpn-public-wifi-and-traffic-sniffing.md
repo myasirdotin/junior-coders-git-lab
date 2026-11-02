@@ -1,10 +1,10 @@
 # Chapter 11: Public Wi-Fi, VPNs & Traffic Sniffing
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine sending a **postcard**. Every person who handles it, from the postbox to the sorting office to the delivery van, can read what you wrote. Now imagine putting the card in a **sealed envelope**. People can still see the address on the front, but not the message inside. Finally, imagine putting that envelope inside a **locked courier bag** that only opens at the courier's office in another city. People on the way cannot even see the final address. Data on the internet can travel in all three ways: as a postcard (HTTP), an envelope (HTTPS) or a courier bag (a VPN).
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why open public Wi-Fi can let others see or change your traffic.
 - Describe **sniffing**, **man-in-the-middle** and **evil twin** attacks in simple words.
@@ -46,14 +46,14 @@ Here is what a listener on the same Wi-Fi can see:
 
 | What is visible? | Plain HTTP | HTTPS | HTTPS through a VPN |
 | :--- | :--- | :--- | :--- |
-| Page content, forms, passwords | ✅ Yes | ❌ No | ❌ No |
-| Full address, e.g. `/results?id=42` | ✅ Yes | ❌ No | ❌ No |
-| Site name, e.g. `library.example.org` | ✅ Yes | Usually yes | ❌ No (only the VPN server) |
-| That you are online, and how much data | ✅ Yes | ✅ Yes | ✅ Yes |
+| Page content, forms, passwords | Yes | No | No |
+| Full address, e.g. `/results?id=42` | Yes | No | No |
+| Site name, e.g. `library.example.org` | Yes | Usually yes | No (only the VPN server) |
+| That you are online, and how much data | Yes | Yes | Yes |
 
 So with HTTPS, the network can usually see *which site* you visit, but not *what you do there*.
 
-> ⚠️ **Never click past a certificate warning** on public Wi-Fi. It may be the exact moment a man-in-the-middle is trying to step in.
+> **Never click past a certificate warning** on public Wi-Fi. It may be the exact moment a man-in-the-middle is trying to step in.
 
 ## VPNs: An Encrypted Tunnel
 
@@ -76,7 +76,7 @@ A **VPN** (Virtual Private Network) creates an encrypted tunnel from your device
 - It does **not** stop phishing, malware or weak passwords.
 - It does **not** replace HTTPS. Use both.
 
-> ⚠️ **Choosing a VPN (*Amānah*)**: many "free VPN" apps pay for themselves by collecting and selling what you do online. Choose a well-known provider whose privacy claims have been checked by independent auditors, or the VPN your school provides. Follow your school's and family's rules about VPN use.
+> **Choosing a VPN (*Amānah*)**: many "free VPN" apps pay for themselves by collecting and selling what you do online. Choose a well-known provider whose privacy claims have been checked by independent auditors, or the VPN your school provides. Follow your school's and family's rules about VPN use.
 
 ## What to Do at Home
 
@@ -87,7 +87,7 @@ A **VPN** (Virtual Private Network) creates an encrypted tunnel from your device
 - Turn off auto-join for public networks.
 - Never ignore certificate warnings.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake:** "The café Wi-Fi has a password printed on the wall, so it is private."
 
@@ -95,7 +95,7 @@ A **VPN** (Virtual Private Network) creates an encrypted tunnel from your device
 
 **Fixed thinking:** treat every shared network as public. Rely on HTTPS (and a trusted VPN if you have one), not on the Wi-Fi password.
 
-## ✍️ Try It
+## Try It
 
 With a parent's permission, check your home Wi-Fi security.
 
@@ -105,7 +105,7 @@ With a parent's permission, check your home Wi-Fi security.
 
 *Hint:* on a phone, the security type is often shown in the network details when you tap the network name.
 
-## 📝 Recap
+## Recap
 
 - Wi-Fi is like a shared room: nearby devices can hear the radio signals.
 - Sniffing, man-in-the-middle and evil twin attacks target unprotected traffic.
@@ -113,9 +113,9 @@ With a parent's permission, check your home Wi-Fi security.
 - A VPN tunnels all traffic to a VPN server; it moves trust to the VPN company and does not make you anonymous.
 - Use WPA3 or WPA2 at home and never click past certificate warnings.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is an "evil twin" Wi-Fi network?
 
 <details>
@@ -125,7 +125,7 @@ A fake Wi-Fi hotspot that copies the name of a real network, so that devices joi
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Hamza is on the open library Wi-Fi. He visits `https://school.example.org/marks`. Someone nearby is sniffing. What can they probably see, and what can they not see?
 
 <details>
@@ -137,7 +137,7 @@ Hamza is on the open library Wi-Fi. He visits `https://school.example.org/marks`
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a "Safe Public Wi-Fi" card for students going on a school trip.
 
 1. Give at least five short rules.

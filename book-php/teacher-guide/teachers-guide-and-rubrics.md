@@ -1,8 +1,8 @@
-# Teacher's Guide & Assessment Rubrics 🍎📋
+# Teacher's Guide & Assessment Rubrics
 
 ---
 
-## 1. 🎓 Course Philosophy & Class 9 Standards
+## 1. Course Philosophy & Class 9 Standards
 
 The **Class 9 PHP Server-Side Curriculum** is designed to transition secondary school students from passive consumer developers (building static HTML/CSS brochure pages) into true software architects capable of building dynamic, data-driven, and secure web applications.
 
@@ -13,7 +13,7 @@ The **Class 9 PHP Server-Side Curriculum** is designed to transition secondary s
 
 ---
 
-## 2. 📅 13-Week Curriculum Schedule
+## 2. 13-Week Curriculum Schedule
 
 | Week | Chapters Covered | Core Topics & Milestones | Laboratory Practical |
 | :--- | :--- | :--- | :--- |
@@ -33,7 +33,7 @@ The **Class 9 PHP Server-Side Curriculum** is designed to transition secondary s
 
 ---
 
-## 3. 📊 Project Assessment Rubric
+## 3. Project Assessment Rubric
 
 Use this 100-point rubric to evaluate student capstone projects and lab challenges:
 
@@ -58,7 +58,7 @@ Use this 100-point rubric to evaluate student capstone projects and lab challeng
 
 ---
 
-## 4. 💡 Classroom Engagement & Differentiated Learning
+## 4. Classroom Engagement & Differentiated Learning
 
 - **For Struggling Students**: Emphasize Section 8 (*Predict the Output*) and Section 9 (*Code Detective*) in each chapter before writing code from scratch. Debugging broken code builds confidence faster than staring at a blank screen.
 - **For Advanced Students**: Challenge them to add password hashing (`password_hash()`) to Project 3, or build search filtering into the JSON Blog in Project 2!

@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the end of term, the school office prepares report cards. Each student takes several courses, and each course has many students. On paper, this means piles of mark sheets, one per course, and someone copying marks onto every student's card by hand. One copying slip and a student gets the wrong mark. In this project you build the database that prints every report card straight from one trusted set of marks.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Design a "many-to-many" link with a junction table.
 - Build three tables with primary keys, foreign keys and `CHECK` / `UNIQUE` rules.
@@ -18,7 +18,7 @@ At the end of term, the school office prepares report cards. Each student takes 
 
 ---
 
-## 🗺️ Step 1: Plan the Tables
+## Step 1: Plan the Tables
 
 A student takes many courses, and a course has many students. This is a **many-to-many** relationship. We cannot store it in `students` or in `courses` alone. Instead we add a third table, `enrollments`, where each row means "this student takes this course". A table that links two others like this is called a **junction table**.
 
@@ -47,7 +47,7 @@ students          courses
 
 ---
 
-## 🛠️ Step 2: Create the Database and Tables
+## Step 2: Create the Database and Tables
 
 Run this in phpMyAdmin's **SQL** tab (or the command line):
 
@@ -98,7 +98,7 @@ Design choices to notice:
 
 ---
 
-## 📥 Step 3: Add Sample Data
+## Step 3: Add Sample Data
 
 ```sql
 INSERT INTO courses (course_code, course_title, credit_hours, teacher_name) VALUES
@@ -127,7 +127,7 @@ All the data is sample data. The emails use `example.org`, a domain reserved for
 
 ---
 
-## 📊 Step 4: Report Queries
+## Step 4: Report Queries
 
 ### Report 1: Aisha's report card (three-table join)
 
@@ -221,11 +221,11 @@ WHERE e.course_id = 1
 | Aisha Siddiq | 94.50 |
 | Bilal Mansoor | 85.00 |
 
-> 🧪 **Sandbox note:** These tables are not in the SQL Sandbox. Build this project in phpMyAdmin. (In SQLite you would write `INTEGER PRIMARY KEY` instead of `INT AUTO_INCREMENT PRIMARY KEY`.)
+> **Sandbox note:** These tables are not in the SQL Sandbox. Build this project in phpMyAdmin. (In SQLite you would write `INTEGER PRIMARY KEY` instead of `INT AUTO_INCREMENT PRIMARY KEY`.)
 
 ---
 
-## 🛡️ Step 5: Test the Rules
+## Step 5: Test the Rules
 
 A good builder tries to break their own work. Each of these should fail:
 
@@ -239,7 +239,7 @@ Every failure here is good news: the database refused bad or dangerous changes.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: storing the course list inside `students`.**
 
@@ -256,7 +256,7 @@ What happens: you cannot store a mark per course, cannot join to `courses`, and 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Enrol Maryam (student 6) in *Algebra Foundations* (course 3) with 91 marks and grade `'A'`. Then re-run Reports 2, 3 and 4.
 
@@ -264,7 +264,7 @@ Enrol Maryam (student 6) in *Algebra Foundations* (course 3) with 91 marks and g
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A many-to-many relationship needs a junction table with two foreign keys.
 - `CHECK`, `UNIQUE` (even on several columns) and foreign keys keep the data honest.
@@ -274,9 +274,9 @@ Enrol Maryam (student 6) in *Algebra Foundations* (course 3) with 91 marks and g
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is a junction table, and which one does this project use?
 2. What does `UNIQUE KEY uq_student_course_sem (student_id, course_id, semester)` prevent?
 3. Why are `students` and `courses` created before `enrollments`?
@@ -290,7 +290,7 @@ Enrol Maryam (student 6) in *Algebra Foundations* (course 3) with 91 marks and g
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a query that shows each student's total **credit hours** (from `courses.credit_hours`), most first.
 
 <details>
@@ -315,7 +315,7 @@ ORDER BY credits DESC, s.full_name;
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Extend the project with attendance.
 
 1. Create an `attendance` table: `id`, `student_id` (FK), `course_id` (FK), `class_date`, `present` (`BOOLEAN`), with one row per student, course and date at most.

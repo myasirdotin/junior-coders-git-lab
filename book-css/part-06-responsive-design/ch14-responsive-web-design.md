@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Stretchy T-Shirt**
 
@@ -18,7 +18,7 @@ In the early days of the internet, people only surfed the web on bulky desktop c
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain what **responsive web design** means.
@@ -226,7 +226,7 @@ Make your browser window wide, then narrow. Wide: three cards in a row and a big
 
 ---
 
-## 🌍 Real-World Connection: Mobile First Worldwide
+## Real-World Connection: Mobile First Worldwide
 
 Did you know that **more than half of all web page visits in the world now come from mobile phones**?
 - If your website looks great on a laptop but broken on a phone, many of your visitors will struggle to use it.
@@ -234,7 +234,7 @@ Did you know that **more than half of all web page visits in the world now come 
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this media query:
 
@@ -249,13 +249,13 @@ Look at this media query:
 **Question**: What will happen to the `<h1>` heading when someone opens this website on a wide desktop computer? What happens when opened on a smartphone?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> On a desktop, the <code>&lt;h1&gt;</code> will display normally because the screen is wider than 500px. On a smartphone (which is usually around 375px to 430px wide), the media query activates and hides the heading completely!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Viewport
+## Code Detective: The Broken Viewport
 
 A student built a responsive site, but when testing it on their friend's phone, the text was microscopic and didn't trigger the media query:
 
@@ -293,7 +293,7 @@ Build a weekly school lunch menu, mobile-first:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is writing the media query **above** the normal rules.
 
@@ -331,20 +331,20 @@ A second slip is a missing brace. A media query has **two** closing braces: one 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Browser Device Mode**
 
 You don't need 10 different phones on your desk to test responsiveness!
 1. Open `responsive.html` in Google Chrome or Microsoft Edge.
 2. Press **F12** (or Right-Click -> **Inspect**).
-3. Look near the top-left of the inspect window and click the **Device Toggle Icon** (looks like a phone and tablet 📱).
+3. Look near the top-left of the inspect window and click the **Device Toggle Icon** (looks like a phone and tablet).
 4. Drag the sides of the screen narrower and wider:
 5. **Watch closely!** When the width crosses 700px, the 3 cards switch between a vertical stack (narrow) and a row of three (wide).
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Responsive Web Design ensures websites adapt seamlessly to all device screens.
 - The `<meta name="viewport" content="width=device-width, initial-scale=1.0">` tag is mandatory for mobile devices.
@@ -354,7 +354,7 @@ You don't need 10 different phones on your desk to test responsiveness!
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -366,9 +366,9 @@ You don't need 10 different phones on your desk to test responsiveness!
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which meta tag must every phone-friendly HTML page have?
 2. What does `@media (min-width: 600px)` mean in plain words?
 3. Which kind of device makes more than half of all web page visits today?
@@ -382,7 +382,7 @@ You don't need 10 different phones on your desk to test responsiveness!
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. A page has a `.sidebar`. Write mobile-first CSS that hides it on phones and shows it (as a block) on screens `800px` and wider.
 5. Why is a 3-column layout that looks great on a laptop hard to read on a phone if it is not responsive?
 
@@ -406,7 +406,7 @@ You don't need 10 different phones on your desk to test responsiveness!
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make a responsive photo grid with three breakpoints.
 1. Build a `.gallery` grid with 6 boxes and a `gap`.
 2. Phones (default): 1 column.

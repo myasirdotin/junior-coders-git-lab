@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Captain's Logbook**
 
@@ -10,7 +10,7 @@ A ship's captain keeps a logbook of the whole voyage. A useless entry says: *"Di
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Save staged changes as a commit with `git commit -m`.
 - Write clear commit messages in the present tense ("Add", "Fix", "Update").
@@ -43,7 +43,7 @@ A ship's captain keeps a logbook of the whole voyage. A useless entry says: *"Di
 
 ### Bad vs. good messages
 
-| Bad message ❌ | Clear message ✅ |
+| Bad message | Clear message |
 | :--- | :--- |
 | `Update stuff` | `feat: Add student attendance table` |
 | `Fix bug` | `fix: Close the footer div on mobile` |
@@ -52,8 +52,8 @@ A ship's captain keeps a logbook of the whole voyage. A useless entry says: *"Di
 
 **Present tense trick:** a good message completes the sentence *"This commit will…"*
 
-- *This commit will…* **Add student login form** ✅
-- *This commit will…* **Added student login form** ❌
+- *This commit will…* **Add student login form**
+- *This commit will…* **Added student login form**
 
 ---
 
@@ -129,7 +129,7 @@ git commit --amend --no-edit
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 **Atomic commits**
 
@@ -140,7 +140,7 @@ git commit --amend --no-edit
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 A student edits `readme.txt`, forgets `git add`, and runs:
 
@@ -151,7 +151,7 @@ git commit -m "Update docs"
 What does Git do?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 Git refuses to make a commit and shows:
 
@@ -171,7 +171,7 @@ A commit only saves what is in the staging area. Run `git add readme.txt` first.
 
 ---
 
-## 🕵️ Code Detective
+## Code Detective
 
 **The Vague History**
 
@@ -189,11 +189,11 @@ c4f210a fixed it
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Typing `git commit` without `-m`**
 
-❌ **Wrong:**
+**Wrong:**
 
 ```bash
 git commit
@@ -201,7 +201,7 @@ git commit
 
 **What happens:** Git opens a text editor inside the terminal. On many computers this is **Vim**, which feels like a trap for beginners. Typing letters does nothing you expect.
 
-✅ **Fixed version:** to escape Vim, press `Esc`, type `:q!` and press `Enter`. Git cancels and prints:
+**Fixed version:** to escape Vim, press `Esc`, type `:q!` and press `Enter`. Git cancels and prints:
 
 ```text
 Aborting commit due to empty commit message.
@@ -217,7 +217,7 @@ git commit -m "docs: Add contact details to README"
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. In a practice repository, create `index.html` with a heading and commit it.
 2. Add a `<p>` line to the file and commit again with a `feat:` message.
@@ -232,7 +232,7 @@ The pattern each time is: edit → `git add index.html` → `git commit -m "feat
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `git commit -m "message"` saves the staging area as a new snapshot.
 - Nothing staged means nothing to commit.
@@ -243,9 +243,9 @@ The pattern each time is: edit → `git add index.html` → `git commit -m "feat
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 
 1. Which flag lets you type the commit message directly in the terminal?
 2. What is an atomic commit?
@@ -260,7 +260,7 @@ The pattern each time is: edit → `git add index.html` → `git commit -m "feat
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 
 1. Why do Git teams write "Fix bug" instead of "Fixed bug"?
 2. How do clean commits show the Islamic value of excellence (*Iḥsān*)?
@@ -281,7 +281,7 @@ The pattern each time is: edit → `git add index.html` → `git commit -m "feat
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 
 **Build a clean history.**
 

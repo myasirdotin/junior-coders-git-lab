@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Morning Noticeboard**
 
@@ -10,7 +10,7 @@ Every morning, teachers pin new notices on the school noticeboard. They might mo
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Download teammates' commits and update your files with `git pull`.
 - Explain the difference between `git fetch` and `git pull`.
@@ -133,7 +133,7 @@ Pull on `main` first, then start your new branch from the fresh `main`.
 
 ---
 
-## 🌍 Real-World Connection: "Pull Before You Push"
+## Real-World Connection: "Pull Before You Push"
 
 Many teams teach new members one habit first:
 
@@ -143,14 +143,14 @@ It takes seconds. It means you build on your teammates' latest work, and it make
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 A teammate added a new image, `logo.svg`, and pushed it. You run `git fetch` (not `pull`).
 
 **Question**: Does `logo.svg` appear in your project folder now?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Answer:** No, not yet. `git fetch` only updates `origin/main`; your files stay the same. `git status` will say your branch is *behind*. Run `git pull` (or `git merge origin/main`) and then `logo.svg` appears.
 
@@ -158,7 +158,7 @@ A teammate added a new image, `logo.svg`, and pushed it. You run `git fetch` (no
 
 ---
 
-## 🕵️ Code Detective: The Rejected Push
+## Code Detective: The Rejected Push
 
 Zainab committed a change to `style.css` and ran `git push`. Git refused:
 
@@ -192,11 +192,11 @@ Both people changed different files, so Git merged them by itself. (Git may open
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: Pulling with unsaved changes in the same file.**
 
-- ❌ **Wrong:** you are halfway through editing `index.html`, a teammate has also pushed a change to `index.html`, and you run `git pull`.
+- **Wrong:** you are halfway through editing `index.html`, a teammate has also pushed a change to `index.html`, and you run `git pull`.
 - **What happens:** Git stops to protect your work:
 
 ```text
@@ -206,7 +206,7 @@ Please commit your changes or stash them before you merge.
 Aborting
 ```
 
-- ✅ **Fixed:** put your changes away, pull, then bring them back (`git stash`, Chapter 9):
+- **Fixed:** put your changes away, pull, then bring them back (`git stash`, Chapter 9):
 
 ```bash
 git stash
@@ -227,13 +227,13 @@ After `git stash pop`, `git status` shows `index.html` as modified again, now wi
 
 **Mistake 2: Pulling while on the wrong branch.**
 
-- ❌ **Wrong:** standing on `feature/profile` and running `git pull origin main`.
+- **Wrong:** standing on `feature/profile` and running `git pull origin main`.
 - **What happens:** Git merges the remote `main` into `feature/profile`, which may not be what you wanted.
-- ✅ **Fixed:** check the first line of `git status` before you pull. To update `main`, run `git switch main` first.
+- **Fixed:** check the first line of `git status` before you pull. To update `main`, run `git switch main` first.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Act as two teammates on one computer.
 
@@ -251,7 +251,7 @@ After `git fetch`, `git status` should say `behind 'origin/main' by 1 commit`. A
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `origin/main` is Git's memory of the remote's `main`. It moves only when you fetch, pull or push.
 - `git fetch` downloads new commits but does not change your files.
@@ -261,9 +261,9 @@ After `git fetch`, `git status` should say `behind 'origin/main' by 1 commit`. A
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command downloads and merges updates from a remote?
 2. Which two commands does `git pull` combine?
 3. What does Git do if you push while your branch is behind the remote?
@@ -277,7 +277,7 @@ After `git fetch`, `git status` should say `behind 'origin/main' by 1 commit`. A
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Why is `git fetch` safer than `git pull` when you just want to look at a teammate's changes?
 5. Why is pulling at the start of a work session good team manners?
 6. You run `git fetch` and `git status` says `behind 'origin/main' by 3 commits`. Which command lists those 3 commits?
@@ -291,7 +291,7 @@ After `git fetch`, `git status` should say `behind 'origin/main' by 1 commit`. A
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Handle a busy team day.
 
 1. Using two copies of a project (your project and `amina-copy`), make Amina push a change to `README.md`.

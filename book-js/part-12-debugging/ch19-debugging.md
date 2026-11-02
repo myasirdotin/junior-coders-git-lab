@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Your bicycle makes a clicking sound on the way to school. You do not throw the bicycle away.
 You stop, listen, and turn the wheel slowly to find where the click comes from.
@@ -11,7 +11,7 @@ Finding and fixing a problem in code works the same way. Programmers call it **d
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Tell the three kinds of errors apart: syntax, runtime and logic.
 - Read an error message to find what went wrong and on which line.
@@ -144,7 +144,7 @@ When it is right, delete your `DEBUG` lines so the console stays clean.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mixing up strings and numbers.** Anything typed into `prompt()` arrives as a string. Adding to a string joins text instead of adding numbers.
 
@@ -184,7 +184,7 @@ console.log(books[books.length - 1]); // Poems
 
 ---
 
-## ✍️ Try It
+## Try It
 
 This charity tracker should print `Total raised: Rs 650`, but it prints `Total raised: Rs 450`. Find the bug.
 
@@ -203,7 +203,7 @@ console.log("Total raised: Rs " + total);
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A bug is a puzzle, not a failure. Every programmer meets bugs every day.
 - **Syntax errors** stop the code before it starts. **Runtime errors** stop it at one line. **Logic errors** give a wrong answer with no message.
@@ -220,11 +220,11 @@ console.log("Total raised: Rs " + total);
 
 ---
 
-## 🏆 Practice
+## Practice
 
 These three broken programs come from the Hands-On Debugging Clinic. Find each bug before you open the answer.
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 The Missing Total: this prints `Score is: undefined`. Which keyword is missing inside `addBonus`?
 
 ```javascript
@@ -243,7 +243,7 @@ console.log("Score is: " + myFinalScore); // Prints "Score is: undefined"
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 The Broken Club Check: the robotics club is for students aged 12 or over. Why does this always print "Welcome to the robotics club!", even though `studentAge` is 10? Fix it.
 
 ```javascript
@@ -273,7 +273,7 @@ Output: `You can join when you are 12.`
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The Silent Loop: what happens when you run this? Fix it, then change the start value to 3 and write down the exact output.
 
 ```javascript

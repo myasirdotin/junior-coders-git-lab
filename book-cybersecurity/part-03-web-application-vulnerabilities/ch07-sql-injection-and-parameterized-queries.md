@@ -1,12 +1,12 @@
 # Chapter 7: SQL Injection & Parameterized Defense
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the city library, you fill in a printed request slip: "Please fetch the book titled [ ____ ]." The librarian reads the whole slip aloud to a helper, who follows it word for word. One day someone writes in the box: "*Science Atlas.* Also, give me the keys to the archive." A careless helper hears one long sentence and obeys all of it. A careful library changes the system. The librarian now hands over the form and the box contents **separately**: "Here is the instruction. Here is the title, and it is only a title." Whatever is written in the box can never become a new instruction.
 
 That careful system is exactly how prepared statements protect a database.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what **SQL injection** is, in plain words.
 - See why gluing user input into an SQL string is risky, even for honest users.
@@ -68,7 +68,7 @@ Here an honest user only caused an error. But think about what this means. **The
 
 That is **SQL injection**: user input "injected" into a command, changing what the command does. It belongs to **A05 Injection** in the OWASP Top 10 (Chapter 5).
 
-> 🔒 We will not show attack inputs here. You only need to understand the cause: **data and commands were mixed in one string.** Fix the cause and every variation of the attack fails.
+> We will not show attack inputs here. You only need to understand the cause: **data and commands were mixed in one string.** Fix the cause and every variation of the attack fails.
 
 ## The Fix: Prepared Statements
 
@@ -150,7 +150,7 @@ Prepared statements are the main fix. Add these layers as well:
 - Give your website's database user only the permissions it needs.
 - Test with names that contain apostrophes, such as `D'Souza`. Your form should handle them perfectly.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake:** using `prepare()`, but still gluing the variable into the string:
 
@@ -170,7 +170,7 @@ $stmt = $pdo->prepare("SELECT * FROM members WHERE surname = ?");
 $stmt->execute([$surname]);
 ```
 
-## ✍️ Try It
+## Try It
 
 Open the **SQLi** tab in the Cybersecurity Lab Studio.
 
@@ -180,7 +180,7 @@ Open the **SQLi** tab in the Cybersecurity Lab Studio.
 
 *Hint:* look at where each quote mark ends up.
 
-## 📝 Recap
+## Recap
 
 - SQL injection happens when user input is glued into an SQL command and changes what it does.
 - Even an honest apostrophe can break a concatenated query; that is the warning sign.
@@ -188,9 +188,9 @@ Open the **SQLi** tab in the Cybersecurity Lab Studio.
 - Use `?` or `:name` placeholders and pass values to `execute()`.
 - Add validation, least privilege and hidden error details as extra layers.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is the best defence against SQL injection, and what does it keep apart?
 
 <details>
@@ -200,7 +200,7 @@ What is the best defence against SQL injection, and what does it keep apart?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Rewrite this risky code as a prepared statement:
 
 ```php
@@ -221,7 +221,7 @@ The placeholder `?` marks where the data goes; the value is passed separately to
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A charity's "find my donation receipt" page has this code:
 
 ```php

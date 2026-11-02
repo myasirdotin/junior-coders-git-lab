@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Weekend Playground Puzzle**
 
@@ -10,15 +10,15 @@ Solve this real-life permission puzzle:
 > *"You may go outside to ride your bike IF: It is NOT raining AND your math homework is completed."*
 
 Under what exact scenario can you ride your bike?
-- Scenario A: It is raining, homework is done ──> ❌ Stay inside!
-- Scenario B: Not raining, homework is NOT done ──> ❌ Stay inside!
-- Scenario C: Not raining AND homework is done ──> ✅ Yes! Ride your bike!
+- Scenario A: It is raining, homework is done ──> Stay inside!
+- Scenario B: Not raining, homework is NOT done ──> Stay inside!
+- Scenario C: Not raining AND homework is done ──> Yes! Ride your bike!
 
 This is **Boolean Logic** in action!
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Combine multiple conditions using the **Logical AND (`&&`)** operator.
@@ -61,7 +61,7 @@ NOT (!): flips the value
 
 ---
 
-## 🌍 Real-World Connection: Library & Discounts
+## Real-World Connection: Library & Discounts
 
 - **School Library**: You can borrow a laptop if you are a student `&&` your library account has no fines.
 - **Bus Pass**: You qualify for a discounted ticket if you are under 12 `||` you are a senior citizen over 65.
@@ -105,7 +105,7 @@ Welcome to the Junior Coders Club! 🚀
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this snippet:
 
@@ -120,7 +120,7 @@ console.log(!weekend);
 **Question**: What three boolean values will print in order?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong>
 Line 1: <code>false</code> (Both must be true for &&)<br>
 Line 2: <code>true</code> (At least one is true for ||)<br>
@@ -162,7 +162,7 @@ Print a personalized congratulatory or remediation letter!
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **The Accidental Reset**
 
@@ -187,7 +187,7 @@ if (isHoliday = false) {
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open your console:
 1. Test: `console.log(true && false);` -> What prints?
@@ -195,11 +195,11 @@ Open your console:
 3. Test: `console.log(!false);` -> What prints?
 4. Test: `console.log((5 > 2) && (10 < 20));` -> What prints?
 
-> 💡 **Hint:** Use the truth tables above. You should get `false`, `true`, `true` and `true`. For step 4, work out each bracket first.
+> **Hint:** Use the truth tables above. You should get `false`, `true`, `true` and `true`. For step 4, work out each bracket first.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Boolean logic evaluates complex conditions into single `true` or `false` outcomes.
 - `&&` (AND) requires all conditions to be `true`.
@@ -216,7 +216,7 @@ Open your console:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -228,9 +228,9 @@ Open your console:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does `true && false` give? (a) `true` (b) `false` (c) `undefined` (d) `null`
 2. Fill in the blank: the symbol for logical NOT is ______.
 
@@ -242,7 +242,7 @@ Open your console:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write an expression that is `true` when the number in `x` is between 1 and 100 (including 1 and 100).
 2. Work out this expression step by step: `(10 > 5 && 3 < 1) || (8 === 8)`
 
@@ -255,7 +255,7 @@ Open your console:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a "Science Lab Door Scanner":
 1. Create `hasKeycard` (boolean), `codeAttempt` (number) and `isEmergencyOverride` (boolean).
 2. The door opens if the student has a keycard AND typed the correct code (4321).

@@ -1,10 +1,10 @@
 # Chapter 13: The Machine Learning Pipeline & Evaluation
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Before a maths exam, Ahmed found last year's paper and learned every answer by heart. In the practice test he scored 100%. In the real exam, the numbers were different, and he was lost. He had **memorised**, not **learned**. Machine learning models can make the same mistake. In this chapter you will see how engineers build a model step by step, and how they test it honestly so that a "perfect score" is not a trick.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - List the five steps of the machine learning pipeline.
 - Clean a small dataset: remove missing values and duplicates.
@@ -180,7 +180,7 @@ Test accuracy: 50.0%
 
 Training looked perfect, but the test found a mistake. The training data had no samples between 3 and 6, so the model could not know where the real border was. The honest fix is **more data near the border**, not hiding the result. With only 2 test samples, one mistake swings accuracy to 50%, which is another reason real tests use many more samples.
 
-> 🧪 **Honest note**: this is a simplified teaching model with ten made-up samples. Real water testing is done in a laboratory. A cloudiness score alone can never prove that water is safe to drink.
+> **Honest note**: this is a simplified teaching model with ten made-up samples. Real water testing is done in a laboratory. A cloudiness score alone can never prove that water is safe to drink.
 
 ## Overfitting: Memorising Instead of Learning
 
@@ -214,8 +214,8 @@ Two kinds of mistakes can happen when the model looks for pollution:
 
 | | Model says polluted | Model says clean |
 | :--- | :--- | :--- |
-| **Really polluted** | True positive (TP) ✅ | **False negative (FN)** ❌ dangerous |
-| **Really clean** | **False positive (FP)** ❌ extra test | True negative (TN) ✅ |
+| **Really polluted** | True positive (TP) | **False negative (FN)** dangerous |
+| **Really clean** | **False positive (FP)** extra test | True negative (TN) |
 
 - A **false positive** flags clean water as polluted. The cost: an extra lab test.
 - A **false negative** misses real pollution. The cost: people may drink unsafe water.
@@ -257,7 +257,7 @@ False negatives: 2  <- missed pollution!
 
 80% accuracy sounds good, yet this model missed **every** polluted sample. When one kind of mistake can hurt people, engineers count each kind separately. Caring about who could be harmed is part of *Iḥsān*.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Testing the model on its own training data.** The score looks perfect, but it proves nothing about new data.
 
@@ -284,13 +284,13 @@ Accuracy: 100.0%
 
 **Fixed version:** loop over the `test` set instead. It gave 50% above: a less pleasing number, but the honest one.
 
-## ✍️ Try It
+## Try It
 
 Change the training loop so it tries thresholds from 9 **down** to 1 (`range(9, 0, -1)`). Which threshold is chosen now? Test it on `[(4, "clean"), (5, "polluted")]`. What is the new accuracy?
 
 **Hint:** the first threshold with zero mistakes is now 6. Then cloudiness 5 is predicted "clean", which is wrong.
 
-## 📝 Recap
+## Recap
 
 - The pipeline is: collect, clean, split, train, evaluate.
 - Clean data by removing missing values and duplicates and making labels consistent.
@@ -298,9 +298,9 @@ Change the training loop so it tries thresholds from 9 **down** to 1 (`range(9, 
 - Accuracy = correct ÷ total × 100. A perfect training score may just mean overfitting.
 - Count false positives and false negatives separately, especially when a missed case can harm people.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is the difference between a false positive and a false negative in a pollution detector? Which one is usually more dangerous?
 
 <details>
@@ -310,7 +310,7 @@ A **false positive** says "polluted" when the water is clean. A **false negative
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A dataset has 250 examples. Using an 80/20 split, how many examples go in each set? Write the Python line that finds the cut point.
 
 <details>
@@ -331,7 +331,7 @@ Output:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A water sensor model was tested on 8 samples:
 
 ```python

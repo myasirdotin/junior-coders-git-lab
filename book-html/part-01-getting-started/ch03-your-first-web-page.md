@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Remember the very first time you were handed a blank sheet of drawing paper and a fresh set of colored pencils? Before you drew your first line, the page had limitless possibilities. You could draw a spaceship cruising past Saturn, a cozy treehouse in a quiet forest, or a futuristic race car.
 
@@ -12,7 +12,7 @@ When you see your words glowing on your screen inside a browser window, you won'
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Choose and use a beginner-friendly code editor (like VS Code, Notepad, or TextEdit).
@@ -104,7 +104,7 @@ Let's dissect every piece of this code so there are no mysteries:
    - The backstage area or "brain". Visitors do not see this content on the page, but the browser reads it for instructions.
 
 4. `<meta charset="UTF-8">`:
-   - A vital character-encoding instruction that allows the page to display letters, numbers, punctuation, and even emojis (like 🚀, 🌟, 🍕) correctly without turning into weird scrambled symbols!
+   - A vital character-encoding instruction that allows the page to display letters, numbers, punctuation, and even emojis (like,,) correctly without turning into weird scrambled symbols!
 
 5. `<meta name="viewport" ...>`:
    - Tells phones to show the page at the phone's real width. Without it, a phone shows a tiny zoomed-out page.
@@ -123,7 +123,7 @@ Let's dissect every piece of this code so there are no mysteries:
 
 ---
 
-## 🌍 Real-World Connection: The "index.html" Secret
+## Real-World Connection: The "index.html" Secret
 
 Why do professional web developers almost always name their main home page `index.html`?
 
@@ -133,7 +133,7 @@ Why do professional web developers almost always name their main home page `inde
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this small change inside the `<body>`:
 
@@ -148,13 +148,13 @@ Look at this small change inside the `<body>`:
 **Question**: Will "Rocket Launch Schedule" appear on the same line as "Bring a warm jacket", or will it automatically start on a fresh new line below it?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> It will start on a brand-new line! Heading tags (<code>&lt;h1&gt;</code>) are block elements—they take up the full width of the line and push everything after them down to the next row!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Extension
+## Code Detective: The Broken Extension
 
 Sarah created her first page in Notepad, but when she double-clicked the file, it opened in Notepad again instead of Google Chrome!
 
@@ -179,7 +179,7 @@ How do you know which tab is the online dictionary and which tab is your homewor
 - A lazy title: `<title>Document</title>` or `<title>Untitled</title>`
 - A professional title: `<title>Cosmic Space Adventures | Home</title>`
 
-> 💡 **Think Before You Code**:
+> **Think Before You Code**:
 > Always give your web pages descriptive, exciting `<title>` tags so visitors can find your tab instantly among their open windows!
 
 ---
@@ -194,11 +194,11 @@ Open your `index.html` file and customize it:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Spaces and capital letters in file names.**
 
-❌ Wrong:
+Wrong:
 
 ```text
 My First Page.HTML
@@ -206,7 +206,7 @@ My First Page.HTML
 
 What happens: on your own computer it may open fine. But many web servers treat `Page.html` and `page.html` as two different files. A space becomes `%20` in the address. Links break easily.
 
-✅ Fixed: use lowercase letters, numbers and hyphens only.
+Fixed: use lowercase letters, numbers and hyphens only.
 
 ```text
 my-first-page.html
@@ -214,7 +214,7 @@ my-first-page.html
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Create It In 5 Minutes!**
 
@@ -230,13 +230,13 @@ Follow these exact steps on your computer right now:
    - Ensure the file type is set to **All Files** (if using Notepad).
 5. **Open in Browser**:
    - Open your file manager, find `index.html`, and double-click it.
-   - Look at your browser: **You just launched your first website! 🎉**
+   - Look at your browser: **You just launched your first website!**
 
-> 💡 **Hint:** If the file opens in Notepad instead of the browser, its name probably ends in `.txt`. Check the Code Detective above.
+> **Hint:** If the file opens in Notepad instead of the browser, its name probably ends in `.txt`. Check the Code Detective above.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Web pages are written in plain text files saved with the `.html` extension.
 - The standard structure includes `<!DOCTYPE html>`, `<html>`, `<head>`, `<title>`, and `<body>`.
@@ -247,7 +247,7 @@ Follow these exact steps on your computer right now:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -259,9 +259,9 @@ Follow these exact steps on your computer right now:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What extension must every HTML file have?
 2. Which HTML tag holds the text that appears on the browser's top tab?
 3. What keyboard shortcut saves a file on Windows? On Mac?
@@ -275,7 +275,7 @@ Follow these exact steps on your computer right now:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. What is the difference between `<head>` and `<body>`?
 2. Why is `my first website.html` a poor choice for a file name? What should you name it instead?
 
@@ -287,7 +287,7 @@ Follow these exact steps on your computer right now:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 1. Without looking at the book, write the complete HTML5 starter page: doctype, `html` with `lang`, `head` with charset, viewport and title, and `body` with one heading and one paragraph.
 2. Save it as `about-me.html` and open it in your browser.
 3. Check that your title shows on the tab.

@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Opening your own public gallery.**
 Imagine you painted watercolours of Dal Lake, Pari Mahal and the snowy Pir Panjal mountains.
@@ -14,7 +14,7 @@ Now anyone passing by can enjoy your work. For websites, **GitHub Pages** is tha
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what GitHub Pages does.
 - Turn on GitHub Pages for a repository.
@@ -99,7 +99,7 @@ You can follow each build in the repository's **Actions** tab.
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 Many teachers, students and open-source projects publish their websites with GitHub Pages.
 Project guides, class notes and student portfolios are common examples.
@@ -107,7 +107,7 @@ It is free for public repositories, so anyone with a computer and an account can
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Your website is live on GitHub Pages.
 You change the background to dark green and run:
@@ -117,7 +117,7 @@ You forget to run `git push`. Then you open your site's address.
 **Question:** Does the live site show the dark green background?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Answer:** No. The commit exists only on your computer. `git status` shows it:
 
@@ -135,7 +135,7 @@ GitHub Pages only sees commits that are pushed to GitHub. Run `git push` and the
 
 ---
 
-## 🕵️ Code Detective
+## Code Detective
 
 **The 404 mystery.** A student turned on GitHub Pages, but the address showed:
 `404 - There isn't a GitHub Pages site here.`
@@ -146,7 +146,7 @@ GitHub Pages only sees commits that are pushed to GitHub. Run `git push` and the
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. A computer path for an image.**
 
@@ -174,7 +174,7 @@ Fixed: use lowercase names for all files and folders, and copy them exactly into
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Look at one of your own HTML projects. Find every `src="..."` and `href="..."`.
 Check two things: does any path start with `C:/` (or another drive letter)? Does every capital letter match the real file name?
@@ -188,7 +188,7 @@ Use your editor's search (Ctrl + F) and search for `src=` and then `href=`. A sa
 
 ---
 
-## 📝 Recap
+## Recap
 
 - **GitHub Pages** turns a repository of HTML, CSS and JavaScript into a free live website.
 - Turn it on in **Settings → Pages**: Deploy from a branch, `main`, `/ (root)`.
@@ -198,9 +198,9 @@ Use your editor's search (Ctrl + F) and search for `src=` and then `href=`. A sa
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which free service shows a GitHub repository as a website?
 2. What exact name must the home page file have?
 3. What happens to your live site after you push new commits to `main`?
@@ -214,7 +214,7 @@ Use your editor's search (Ctrl + F) and search for `src=` and then `href=`. A sa
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Why does a path like `C:\Users\...` fail on the live site?
 5. What does the `https` in the address give your visitors?
 6. User `aisha-learns` publishes the repository `science-fair`. What is the site's address?
@@ -228,7 +228,7 @@ Use your editor's search (Ctrl + F) and search for `src=` and then `href=`. A sa
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Publish one of your own websites (with a classroom account if you are under 13).
 
 1. Pick an HTML and CSS project from earlier in the course. Check that the home page is named `index.html`.

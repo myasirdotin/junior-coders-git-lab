@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A visitor asks the librarian, "Could you show me just the titles and page counts of your books?" The librarian does not hand over the whole catalogue with every detail. She copies out only the two columns asked for, and the catalogue stays exactly as it was. `SELECT` works the same way: it makes a fresh list for you and leaves the table untouched.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Read all columns with `SELECT *` and chosen columns by name.
 - Rename result columns with `AS` (an alias).
@@ -167,7 +167,7 @@ FROM students;
 
 Notice the spaces inside `' from '`. Without them you would get `ZaydfromLahore`.
 
-> 🧪 **Sandbox note:** Newer SQLite versions accept `CONCAT` too. If the sandbox ever rejects it, use SQLite's join sign: `name || ' from ' || city`.
+> **Sandbox note:** Newer SQLite versions accept `CONCAT` too. If the sandbox ever rejects it, use SQLite's join sign: `name || ' from ' || city`.
 
 ---
 
@@ -190,7 +190,7 @@ Four different cities, even though there are eight students.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: a comma after the last column.**
 
@@ -209,7 +209,7 @@ MySQL expects another column after the comma. **Fix:** remove the last comma: `S
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/), write one query that shows each book's `title` and its category in this form: `Clean Code (Programming)`. Name the column `shelf_label`.
 
@@ -217,7 +217,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), write one query that shows each b
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `SELECT columns FROM table;` reads data and never changes it.
 - `*` means all columns; listing columns is better in real apps.
@@ -227,9 +227,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/), write one query that shows each b
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Does `SELECT` change the data in a table?
 2. What does `*` mean in `SELECT * FROM books;`?
 3. Which keyword gives a result column a new name?
@@ -243,7 +243,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), write one query that shows each b
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a query on `books` that shows:
 - the title as `book`
 - the page count as `pages`
@@ -268,7 +268,7 @@ MySQL shows 4 decimal places after `/`. The sandbox (SQLite) shows `23` because 
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The school newsletter wants a list of book categories and a list of student labels.
 
 1. Write a query that lists each book category **once**.

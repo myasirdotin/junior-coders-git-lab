@@ -1,10 +1,10 @@
 # Chapter 3: IP Addresses, Subnets & CIDR
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A letter needs a full address: the city, the street and the house number. The sorting office first looks at the city and street. Only the local postman cares about the house number. Computer addresses work the same way. One part of an IP address names the **network** (the street). The other part names the **device** (the house).
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Read an **IPv4 address** in decimal and in binary.
 - Explain why **IPv6** was created and how it is written.
@@ -120,7 +120,7 @@ A `/n` prefix leaves (32 − n) host bits. Total addresses = 2 to the power of t
 | `/28` | `255.255.255.240` | 16 | 14 |
 | `/30` | `255.255.255.252` | 4 | 2 (a link between two routers) |
 
-> ⚠️ **Why subtract 2?**
+> **Why subtract 2?**
 > 1. The **first** address (all host bits `0`) is the **network address**. It names the subnet itself.
 > 2. The **last** address (all host bits `1`) is the **broadcast address**. A packet sent there reaches every device in the subnet.
 
@@ -169,22 +169,22 @@ To show only the useful lines in Command Prompt, try `ipconfig | findstr /i "ipv
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Giving a device the network or broadcast address.**
 
-- ❌ Wrong: setting a computer to `192.168.1.0` or `192.168.1.255` in a `/24` network.
+- Wrong: setting a computer to `192.168.1.0` or `192.168.1.255` in a `/24` network.
 - What happens: these two addresses are reserved, so the device cannot talk normally.
-- ✅ Right: use a host address from `192.168.1.1` to `192.168.1.254`.
+- Right: use a host address from `192.168.1.1` to `192.168.1.254`.
 
 **Thinking a bigger prefix means a bigger network.**
 
-- ❌ Wrong: "/28 is bigger than /24 because 28 > 24."
-- ✅ Right: a bigger prefix leaves **fewer** host bits. A /28 has 16 addresses; a /24 has 256.
+- Wrong: "/28 is bigger than /24 because 28 > 24."
+- Right: a bigger prefix leaves **fewer** host bits. A /28 has 16 addresses; a /24 has 256.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Run `ipconfig` and find your IPv4 address and subnet mask. Then answer:
 
@@ -192,11 +192,11 @@ Run `ipconfig` and find your IPv4 address and subnet mask. Then answer:
 2. What is your network's CIDR prefix?
 3. What would the broadcast address of your network be?
 
-> 💡 Hint: for mask `255.255.255.0`, keep the first three octets and put `255` in the last one.
+> Hint: for mask `255.255.255.0`, keep the first three octets and put `255` in the last one.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - IPv4 addresses have 32 bits in four octets, each from 0 to 255.
 - IPv6 addresses have 128 bits, written in hexadecimal groups like `2001:db8::1`.
@@ -206,9 +206,9 @@ Run `ipconfig` and find your IPv4 address and subnet mask. Then answer:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 How many bits are in an IPv4 address and in an IPv6 address? What does NAT do?
 
 <details>
@@ -219,7 +219,7 @@ NAT lets many devices with private addresses share one public address. The route
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 For the subnet `192.168.10.0/24`, write the network address, the broadcast address and the range of usable host addresses.
 
 <details>
@@ -231,7 +231,7 @@ For the subnet `192.168.10.0/24`, write the network address, the broadcast addre
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A community library has the block `203.0.113.0/24`. It needs two equal subnets: one for staff and one for public reading-room computers.
 1. Which prefix gives exactly two equal subnets?
 2. Write both subnets with their first host, last host and broadcast address.

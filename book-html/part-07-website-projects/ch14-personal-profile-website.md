@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine being selected as a student astronaut for a mission to Mars:
 - Before the rocket lifts off, mission control publishes an official astronaut biography page on the space agency website:
@@ -15,11 +15,11 @@ Imagine being selected as a student astronaut for a mission to Mars:
 **A Personal Profile Website is your digital passport to the world!**
 In this project chapter, you will combine everything you learned about HTML (headings, links, images, lists, forms and semantic sections) to build a complete personal profile website!
 
-> 🎨 **About the `<style>` block:** the page comes with a ready-made `<style>` block so it looks polished. You will learn to write CSS like this in the CSS track. For now, copy it as it is and focus on the HTML.
+> **About the `<style>` block:** the page comes with a ready-made `<style>` block so it looks polished. You will learn to write CSS like this in the CSS track. For now, copy it as it is and focus on the HTML.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Plan and assemble a multi-section personal web page.
@@ -389,26 +389,26 @@ Create a file named `personal-profile.html` and write the complete production co
 
 ---
 
-## 🌍 Real-World Connection: Professional Resumes & Portfolios
+## Real-World Connection: Professional Resumes & Portfolios
 
 Every web designer, engineer, and digital creator has their own personal website:
 - When you apply for a high school robotics team, a summer coding camp, or a university scholarship, sending a link to your live, custom-built website makes you stand out miles ahead of everyone else!
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 If you click `<a href="#contact">Contact</a>` in the navigation bar, how does the browser know where on the page to jump?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: Through the <code>id</code> attribute!</strong> 
 The link has <code>href="#contact"</code>, and the section has <code>id="contact"</code>. The hashtag symbol <code>#</code> instructs the browser to find the element whose unique ID matches that exact word!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Mismatched Anchor Link
+## Code Detective: The Mismatched Anchor Link
 
 A student clicked their "About" link, but nothing happened:
 
@@ -447,11 +447,11 @@ Add a new `<section id="projects">` between Skills and Hobbies:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting the `#` in an in-page link.**
 
-❌ Wrong:
+Wrong:
 
 ```html
 <a href="contact">Contact</a>
@@ -461,7 +461,7 @@ Add a new `<section id="projects">` between Skills and Hobbies:
 
 What happens: without `#`, the browser looks for a **file or folder** called `contact` next to your page. You get a "not found" error instead of a jump down the page.
 
-✅ Fixed: `#` means "an element on this page with this id".
+Fixed: `#` means "an element on this page with this id".
 
 ```html
 <a href="#contact">Contact</a>
@@ -471,7 +471,7 @@ What happens: without `#`, the browser looks for a **file or folder** called `co
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Personalize Alex's Page**
 
@@ -480,11 +480,11 @@ Open `personal-profile.html` and make it your own:
 2. Update the tagline to your favorite interest (e.g., *"Junior Web Creator & Football Player"*).
 3. Replace the 3 hobbies with your actual favorite weekend passions!
 
-> 💡 **Hint:** Change one thing, save, and refresh before changing the next. If something breaks, you know exactly which edit caused it.
+> **Hint:** Change one thing, save, and refresh before changing the next. If something breaks, you know exactly which edit caused it.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A personal profile site brings all your HTML skills together in one project.
 - Semantic `<nav>`, `<header>`, `<main>`, `<section>` and `<footer>` give the page a clear outline.
@@ -495,7 +495,7 @@ Open `personal-profile.html` and make it your own:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -507,9 +507,9 @@ Open `personal-profile.html` and make it your own:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. How do you write a link that jumps to a section with `id="skills"`?
 2. Which attribute describes the profile photo for screen reader users?
 3. Which ready-made CSS line in this project makes in-page jumps glide smoothly?
@@ -523,7 +523,7 @@ Open `personal-profile.html` and make it your own:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why must each `<section>` on a one-page site have an `id`?
 2. Write a `<nav>` with three links that jump to sections with the ids `about`, `skills` and `contact`.
 
@@ -543,7 +543,7 @@ Open `personal-profile.html` and make it your own:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add a "Books I Recommend" section to your profile:
 1. Add `<section id="books">` between Hobbies and Contact.
 2. Give it an `<h2>` and an ordered list of three books, with the author of each in `<em>`.

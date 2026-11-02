@@ -1,4 +1,4 @@
-# Git & GitHub Quick Reference Cheatsheet ⚡📖
+# Git & GitHub Quick Reference Cheatsheet
 
 > **Quick Navigation**: A rapid lookup reference for everyday Git terminal commands, staging, branching, conflict resolution, and GitHub collaboration.
 

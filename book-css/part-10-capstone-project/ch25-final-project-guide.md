@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Furnishing the New Library**
 
@@ -14,7 +14,7 @@ That is your job in this chapter. You will take the website you built in the HTM
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Plan a colour palette and check that its text colours have enough contrast.
@@ -89,12 +89,12 @@ Use the **60-30-10 rule** from Chapter 4: about 60% background, 30% main colour,
 
 | Text colour | Background | Ratio | Normal text OK? |
 | :--- | :--- | :--- | :--- |
-| `#1e293b` | `#ffffff` | 14.63 : 1 | ✅ Yes |
-| `#475569` | `#ffffff` | 7.58 : 1 | ✅ Yes |
-| `#ffffff` | `#0f766e` | 5.47 : 1 | ✅ Yes |
-| `#ffffff` | `#2563eb` | 5.17 : 1 | ✅ Yes |
-| `#94a3b8` | `#ffffff` | 2.56 : 1 | ❌ No |
-| `#facc15` | `#ffffff` | 1.53 : 1 | ❌ No |
+| `#1e293b` | `#ffffff` | 14.63 : 1 | Yes |
+| `#475569` | `#ffffff` | 7.58 : 1 | Yes |
+| `#ffffff` | `#0f766e` | 5.47 : 1 | Yes |
+| `#ffffff` | `#2563eb` | 5.17 : 1 | Yes |
+| `#94a3b8` | `#ffffff` | 2.56 : 1 | No |
+| `#facc15` | `#ffffff` | 1.53 : 1 | No |
 
 A pale colour like `#facc15` can still be used, but as a border or background, **not** as text on white. And never use colour alone to show meaning: write "Closed" as a word, not only as red.
 
@@ -256,13 +256,13 @@ button:focus-visible {
 
 ---
 
-## 🌍 Real-World Connection: Design Reviews
+## Real-World Connection: Design Reviews
 
 Professional teams rarely publish a design without a **review**: someone else checks it against a list before it goes live. They test it on real phones, check the contrast, and try it with only a keyboard. Doing the same with a classmate is good practice, and it is also *iḥsān*: doing your work with care and excellence.
 
 ---
 
-## 🕵️ Code Detective: The Page That Scrolls Sideways
+## Code Detective: The Page That Scrolls Sideways
 
 A student's site scrolls left and right on a phone. Find the cause:
 
@@ -288,7 +288,7 @@ A student's site scrolls left and right on a phone. Find the cause:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common capstone mistake is styling each page separately with internal `<style>` tags.
 
@@ -310,7 +310,7 @@ A second mistake is copying a whole stylesheet from another website. It breaks y
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The 390px Check**
 
@@ -324,7 +324,7 @@ Hint: if the page scrolls sideways, look for a fixed `width` in pixels or an ima
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Style your HTML capstone in order: palette, fonts, spacing, layout, breakpoints, polish.
 - Keep one external stylesheet for every page, with your palette written at the top.
@@ -334,7 +334,7 @@ Hint: if the page scrolls sideways, look for a fixed `width` in pixels or an ima
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -347,9 +347,9 @@ Hint: if the page scrolls sideways, look for a fixed `width` in pixels or an ima
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the minimum contrast ratio for normal text?
 2. In a mobile-first stylesheet, do you use `min-width` or `max-width` media queries?
 3. Name the two layout tools you use for a row of links and for a group of cards.
@@ -363,7 +363,7 @@ Hint: if the page scrolls sideways, look for a fixed `width` in pixels or an ima
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Your palette's grey caption colour `#94a3b8` on white has a ratio of 2.56 : 1. What should you do?
 5. Write CSS for a `.gallery` that shows 1 column on phones, 2 from 600px and 4 from 1000px.
 
@@ -395,7 +395,7 @@ Hint: if the page scrolls sideways, look for a fixed `width` in pixels or an ima
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Finish and review your capstone with this **CSS rubric**. Score each line from 0 to 2 (0 = not yet, 1 = partly, 2 = fully), for a total out of 20.
 
 1. **One stylesheet**: every page links the same external CSS file; no inline styles.
@@ -446,6 +446,6 @@ body {
 }
 ```
 
-A site that scores 16 or more out of 20 is ready to share. Congratulations: you have finished the CSS book! 🎉
+A site that scores 16 or more out of 20 is ready to share. Congratulations: you have finished the CSS book!
 
 </details>

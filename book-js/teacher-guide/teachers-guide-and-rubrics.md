@@ -1,9 +1,9 @@
 # Teacher's Guide & Assessment Rubrics
-# Teaching JavaScript to Grade 7: Pedagogy, Lesson Plans & Rubrics 🍎
+# Teaching JavaScript to Grade 7: Pedagogy, Lesson Plans & Rubrics
 
 ---
 
-## 1. Pedagogical Philosophy for Middle School Coders 🌟
+## 1. Pedagogical Philosophy for Middle School Coders
 
 Teaching computer science to 11–13 year-olds (Grade 7) requires balancing **concrete experience before abstract theory**:
 - **Make it Visual and Tangible:** Use everyday metaphors (backpacks for arrays, recipe cards for functions, light switches for booleans).
@@ -12,7 +12,7 @@ Teaching computer science to 11–13 year-olds (Grade 7) requires balancing **co
 
 ---
 
-## 2. 21-Week Pacing & Lesson Plan Outline 📅
+## 2. 21-Week Pacing & Lesson Plan Outline
 
 | Term / Week | Topic & Chapter | Core Concept & Goal | Class Activity / Output |
 |---|---|---|---|
@@ -36,11 +36,11 @@ Teaching computer science to 11–13 year-olds (Grade 7) requires balancing **co
 | **Week 18** | Ch 17: Events | `addEventListener`, `click`, `input` | Interactive Tally Counter widget |
 | **Week 19** | Ch 18 & 19 | Computational Thinking & Debugging | Bug clinic & rubber duck workshop |
 | **Week 20** | Ch 20–23 | Maths, Mini Projects, Canvas & Final Quiz Arena | Capstone development sprint |
-| **Week 21** | **Exhibition & Showcase** | Project Demos | Junior Coders Science Fair! 🏅 |
+| **Week 21** | **Exhibition & Showcase** | Project Demos | Junior Coders Science Fair! |
 
 ---
 
-## 3. Comprehensive Grading Rubrics 📊
+## 3. Comprehensive Grading Rubrics
 
 ### 4-Tier Assessment Matrix (Total: 100 Points)
 
@@ -53,7 +53,7 @@ Teaching computer science to 11–13 year-olds (Grade 7) requires balancing **co
 
 ---
 
-## 4. Differentiated Learning Strategies 💡
+## 4. Differentiated Learning Strategies
 
 ### For Struggling Students (Support):
 - Provide **Starter Scaffolding**: Pre-fill HTML and CSS so they can focus 100% on the 4–5 lines of JavaScript logic.
@@ -67,7 +67,7 @@ Teaching computer science to 11–13 year-olds (Grade 7) requires balancing **co
 
 ---
 
-## 🏡 Homework and Discussion, Chapter by Chapter
+## Homework and Discussion, Chapter by Chapter
 
 Each chapter ends with three practice levels for students. Use these for homework and for class discussion.
 

@@ -13,15 +13,15 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 2</span>
-            <h1 style="color: white; margin: 0.5rem 0;">Database Defense: Defeating SQLi 💉🗄️</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">Database Defense: Defeating SQLi</h1>
             <p>Learn how mixing visitor text into database commands goes wrong, and how prepared statements fix it.</p>
         </header>
 
         <!-- Real-life analogy -->
         <section class="content-section">
-            <h2>📚 Think of a Library Request Slip</h2>
+            <h2>Think of a Library Request Slip</h2>
             <div class="connection-box">
-                <p>🧠 <strong>Real-life analogy:</strong> In a big library, you write a book title on a slip. A helper robot reads the <em>whole</em> slip and does what it says.</p>
+                <p><strong>Real-life analogy:</strong> In a big library, you write a book title on a slip. A helper robot reads the <em>whole</em> slip and does what it says.</p>
                 <p>A careless slip reads: "Fetch the book: Rivers of Asia. Also give me the staff-room key." The robot fetches the book and hands over the key!</p>
                 <p>A safer library uses a printed form. It has one locked box marked "Title only". Whatever is written in that box is treated as a title, nothing more.</p>
             </div>
@@ -30,7 +30,7 @@
 
         <!-- SQL refresher -->
         <section class="content-section">
-            <h2>🗄️ A Tiny Bit of SQL</h2>
+            <h2>A Tiny Bit of SQL</h2>
             <p>An SQL command is a sentence for the database. This one asks for the titles of books by one author:</p>
             <pre class="code-block"><code>SELECT title FROM books WHERE author = 'Ibn Sina';</code></pre>
             <ul>
@@ -44,7 +44,7 @@
 
         <!-- Worked example 1 -->
         <section class="content-section">
-            <h2>🧪 Worked Example 1: A Search Box That Breaks</h2>
+            <h2>Worked Example 1: A Search Box That Breaks</h2>
             <p>A school library search page builds its SQL by gluing text together. Gluing strings together is called <strong>concatenation</strong>.</p>
             <pre class="code-block"><code>&lt;?php
 // ❌ RISKY: the visitor's text is glued into the SQL command
@@ -60,7 +60,7 @@ $sql = "SELECT title FROM books WHERE author = '" . $author . "'";
 
         <!-- Worked example 2 -->
         <section class="content-section">
-            <h2>🛡️ Worked Example 2: The Fix, Prepared Statements</h2>
+            <h2>Worked Example 2: The Fix, Prepared Statements</h2>
             <p>A <strong>prepared statement</strong> is the "printed form" from our analogy. You send the SQL command first, with a <code>?</code> where data will go. The <code>?</code> is called a <strong>placeholder</strong>. Then you send the data separately.</p>
             <pre class="code-block"><code>&lt;?php
 // ✅ SAFE: command and data travel separately
@@ -79,7 +79,7 @@ $books = $stmt-&gt;fetchAll();
 
         <!-- Worked example 3 -->
         <section class="content-section">
-            <h2>🔐 Worked Example 3: A Safe Login (Modules 2 + 5)</h2>
+            <h2>Worked Example 3: A Safe Login (Modules 2 + 5)</h2>
             <p>Login pages need both lessons: prepared statements and password hashes.</p>
             <pre class="code-block"><code>&lt;?php
 // 1. Find the user with a placeholder (no gluing!)
@@ -100,18 +100,18 @@ if ($row &amp;&amp; password_verify($_POST['password'], $row['password_hash'])) 
 
         <!-- Golden Rules -->
         <section class="content-section">
-            <h2>📏 Three More Database Safety Rules (<em>Iḥsān</em>)</h2>
+            <h2>Three More Database Safety Rules (<em>Iḥsān</em>)</h2>
             <ol>
                 <li><strong>Least privilege:</strong> the website's database account gets only the powers it needs. A search page only needs to read. It should not be able to delete tables.</li>
                 <li><strong>Hide error details:</strong> show visitors a friendly message like "Something went wrong". Save the full error in a private log for developers. Detailed errors give attackers clues.</li>
                 <li><strong>Placeholders are for values only:</strong> a <code>?</code> cannot hold a column name. If visitors choose a sort order, use an allow-list such as <code>["title", "author"]</code>.</li>
             </ol>
-            <div class="tip-box">💡 Placeholders are not just for logins. Use them in <strong>every</strong> query that includes user data: searches, sign-ups, updates and deletes.</div>
+            <div class="tip-box">Placeholders are not just for logins. Use them in <strong>every</strong> query that includes user data: searches, sign-ups, updates and deletes.</div>
         </section>
 
         <!-- Checklist -->
         <section class="content-section">
-            <h2>✅ What To Do: Your Database Checklist</h2>
+            <h2>What To Do: Your Database Checklist</h2>
             <ul>
                 <li>☐ Never glue user input into SQL. Use <code>prepare()</code> and <code>?</code> placeholders every time.</li>
                 <li>☐ Store passwords with <code>password_hash()</code>; check them with <code>password_verify()</code>.</li>
@@ -120,18 +120,18 @@ if ($row &amp;&amp; password_verify($_POST['password'], $row['password_hash'])) 
                 <li>☐ Use allow-lists for column names and sort orders.</li>
                 <li>☐ Only test your own projects. Never try injection on a real website.</li>
             </ul>
-            <p>🧪 <strong>Try it:</strong> the <a href="playground.html">Cyber Defense Studio</a> tab <strong>SQL Injection Visualizer</strong> shows how a prepared statement keeps input as plain data.</p>
+            <p><strong>Try it:</strong> the <a href="playground.html">Cyber Defense Studio</a> tab <strong>SQL Injection Visualizer</strong> shows how a prepared statement keeps input as plain data.</p>
         </section>
 
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Fill in the blanks: SQL injection happens when user input is ________ into an SQL command. In a prepared statement, the <code>?</code> is called a ________.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>Glued (concatenated). Placeholder. It holds data that is never treated as a command.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>A charity website shows a donor their past gifts. Rewrite this risky code as a prepared statement.</p>
                 <pre><code>$sql = "SELECT amount, gift_date FROM donations WHERE donor_email = '" . $email . "'";
 $rows = $pdo-&gt;query($sql)-&gt;fetchAll();</code></pre>
@@ -143,7 +143,7 @@ $rows = $stmt-&gt;fetchAll();</code></pre>
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>Plan a safe "My Library Loans" page. A logged-in student sees the books they have borrowed, sorted by title or by due date.</p>
                 <ol>
                     <li>Write the query with a placeholder for the student's ID.</li>

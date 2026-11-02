@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about your own family. You may have your mother's eyes or your father's height; you did not have to invent them yourself. Yet you are also your own person: you might speak three languages or build robots, which your parents never did. Classes can work the same way. A **child class** receives everything from a **parent class** and then adds its own extra skills.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Create a child class that inherits from a parent class with `extends`.
 - Use `protected` so a child class can use a parent's data while outside code cannot.
@@ -152,7 +152,7 @@ The child can use `$cardNumber`. Outside code still cannot: `echo $m->cardNumber
 
 ---
 
-## 🌍 Real-World Connection: Online Bookshop Catalogue
+## Real-World Connection: Online Bookshop Catalogue
 
 An online bookshop might organise its products like this:
 - Parent class: `Product` with `$title`, `$price` and a method to add it to the basket.
@@ -163,7 +163,7 @@ Every product can go in the basket, because the basket method lives once in `Pro
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -179,13 +179,13 @@ Every product can go in the basket, because the basket method lives once in `Pro
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>Swimming</code>. The child class <code>Penguin</code> overrides the parent's <code>move()</code> method, so the child's version runs.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Inheritance
+## Code Detective: The Broken Inheritance
 
 ```php
 <?php
@@ -206,16 +206,16 @@ PHP stops with: `Parse error: syntax error, unexpected identifier "inherits", ex
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Trying to extend two parents at once.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   class Monitor extends Student, Teacher { }
   ```
-- 😕 *What happens*: PHP stops with a parse error. In PHP a class can extend only **one** parent.
-- ✅ *Fixed*: Choose one parent, and add the extra properties and methods in the child:
+- *What happens*: PHP stops with a parse error. In PHP a class can extend only **one** parent.
+- *Fixed*: Choose one parent, and add the extra properties and methods in the child:
   ```php
   class Monitor extends Student {
     public $duty = "Library";
@@ -226,7 +226,7 @@ A second mistake: overriding a method and forgetting `parent::`. Then the parent
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -258,7 +258,7 @@ Water the cactus. Only once a week!
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `class Child extends ParentClass` gives the child all the parent's properties and methods.
 - A child can add new properties and methods of its own.
@@ -269,9 +269,9 @@ Water the cactus. Only once a week!
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which keyword makes a class inherit from another?
 2. How do you call a parent's method from inside an overriding child method?
 3. Can a PHP class extend two parent classes?
@@ -285,7 +285,7 @@ Water the cactus. Only once a week!
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. What is method overriding, and why is it useful?
 2. Make a parent class `Shape` with `$color` and a method `describe()`. Make `Circle extends Shape` with `$radius` and a method `area()` that returns 3.14 × radius × radius.
 
@@ -322,7 +322,7 @@ Water the cactus. Only once a week!
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a small school-library user system.
 
 1. Make a parent class `User` with `$username` and a method `canBorrow()` that returns `"Can borrow 3 books."`.

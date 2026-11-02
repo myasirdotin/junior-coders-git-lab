@@ -1,12 +1,12 @@
 # Chapter 4: Spotting Phishing, Spoofing & Online Fraud
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Maryam's grandmother receives a letter that looks like it came from her bank. It has a logo, a stamp and a polite tone. But the return address is a small post box in another city. The letter also says she must "reply today or lose her savings". She shows it to Maryam before doing anything. Together they phone the bank using the number printed on her bank card. The bank says it never sent the letter. Checking the details, and checking another way, saved her.
 
 **Phishing** is the online version of that letter: a fake message made to look real, so that you give away passwords or money. **Spoofing** means faking who a message is from.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Take a phishing email apart and find its warning signs.
 - Read a web address correctly and spot lookalike domains.
@@ -95,7 +95,7 @@ Email was invented without any way to prove who sent a message. Three add-ons, p
 - **DKIM** (DomainKeys Identified Mail): a digital signature on each email. It proves the message came from that domain and was not changed on the way.
 - **DMARC**: tells receiving servers what to do when SPF or DKIM checks fail: let it through, put it in spam, or reject it. It also sends reports to the domain owner.
 
-> ⚠️ **What they cannot do:** these checks prove an email really came from `juni0r-coders.example.net`. They cannot tell you that this domain is a fake. A trickster can set up perfect SPF and DKIM for their own lookalike domain. Your eyes are still needed.
+> **What they cannot do:** these checks prove an email really came from `juni0r-coders.example.net`. They cannot tell you that this domain is a fake. A trickster can set up perfect SPF and DKIM for their own lookalike domain. Your eyes are still needed.
 
 ## What to Do at Home
 
@@ -106,7 +106,7 @@ Email was invented without any way to prove who sent a message. Three add-ons, p
 - Never open unexpected attachments, even from a friend whose account may have been taken over.
 - Report phishing using your email app's "Report phishing" button, then delete it.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake:** "The email has the right logo and a padlock link, so it is genuine."
 
@@ -114,7 +114,7 @@ Email was invented without any way to prove who sent a message. Three add-ons, p
 
 **Fixed thinking:** check the **domain**, not the decoration. Then check another way, such as the official app or website you open yourself.
 
-## ✍️ Try It
+## Try It
 
 Open the **Phishing** tab in the Cybersecurity Lab Studio.
 
@@ -124,7 +124,7 @@ Open the **Phishing** tab in the Cybersecurity Lab Studio.
 
 *Hint:* look at every character of the sender's domain, slowly.
 
-## 📝 Recap
+## Recap
 
 - Phishing is a fake message designed to steal passwords or money.
 - Red flags: lookalike domains, hidden link destinations, generic greetings, risky attachments, pressure and threats.
@@ -132,9 +132,9 @@ Open the **Phishing** tab in the Cybersecurity Lab Studio.
 - SPF, DKIM and DMARC help servers check senders, but a lookalike domain can still pass them.
 - The padlock means "encrypted", not "trustworthy".
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 How can you find out where a link in an email really goes before clicking it?
 
 <details>
@@ -144,7 +144,7 @@ On a computer, hover the mouse over the link and read the address shown at the b
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Which domain really owns each address?
 
 1. `https://example.org/books`
@@ -160,7 +160,7 @@ Which domain really owns each address?
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write your own made-up phishing email for a class lesson, then a "teacher's answer key".
 
 1. Use only made-up names and `example.org` or `example.net` addresses.

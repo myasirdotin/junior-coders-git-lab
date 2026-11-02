@@ -6,9 +6,9 @@
 //
 // ERRORS (exit code 1) break the method and must be fixed:
 //   - chapter files (chNN-*.md): first heading "# Chapter N: …" with N = file number; the template sections in order
-//     (🌟 Real-Life Story, 🎯 What You Will Learn, ⚠️ Common Mistake, ✍️ Try It, 📝 Recap, 🏆 Practice);
-//     Practice has 🟢 Level 1 / 🟡 Level 2 / 🔴 Level 3, each with a hidden answer (<details>)
-//   - every file: no numbered section headings ("## 3. …"), at most one emoji per heading, <details> opened and
+//     (Real-Life Story, What You Will Learn, Common Mistake, Try It, Recap, Practice);
+//     Practice has Level 1 / Level 2 / Level 3, each with a hidden answer (<details>)
+//   - every file: no numbered section headings ("## 3. …"), no emoji (except inside code), <details> opened and
 //     closed the same number of times, no raw LaTeX ($\frac…$, $2^{8}$)
 //   - each book's sidebar menu links only to files that exist, and lists every chapter file
 //   - the offline bundle (chapters-bundle.js) has the same text as the .md files (run bundle-books.js after edits)
@@ -28,8 +28,8 @@ const errors = [], warnings = [];
 const err = (where, msg) => errors.push(`${where}: ${msg}`);
 const warn = (where, msg) => warnings.push(`${where}: ${msg}`);
 
-const TEMPLATE = ['🌟 Real-Life Story', '🎯 What You Will Learn', '⚠️ Common Mistake', '✍️ Try It', '📝 Recap', '🏆 Practice'];
-const LEVELS = ['🟢 Level 1', '🟡 Level 2', '🔴 Level 3'];
+const TEMPLATE = ['Real-Life Story', 'What You Will Learn', 'Common Mistake', 'Try It', 'Recap', 'Practice'];
+const LEVELS = ['Level 1', 'Level 2', 'Level 3'];
 const EMOJI = /\p{Extended_Pictographic}/gu;
 // headings that keep their emoji: the same boxes in every chapter (keep in sync with scripts/clean-heading-emoji.js)
 const SIGNPOSTS = ['Real-Life Story', 'What You Will Learn', 'Common Mistake', 'Try It', 'Recap', 'Practice',
@@ -80,6 +80,10 @@ function checkFile(file) {
     if (m) heads.push({ level: m[1].length, text: m[2].trim(), line: i + 1 });
   });
   const prose = text.replace(/```[\s\S]*?```/g, '').replace(/`[^`\n]*`/g, '');
+  // no emoji anywhere in a chapter's own text (GEMINI §7j); code examples that teach them are excluded above
+  // plain text symbols that Unicode also counts as pictographs are fine (same list as scripts/strip-emoji.js KEEP)
+  const emojiLeft = (prose.match(EMOJI) || []).filter(c => !/^[←→↑↓↗↘↖↙✓✔✕✗▾▴▸▶◀●•☰⋯✦※⁃‹›«»×÷©®™]$/u.test(c)).length;
+  if (emojiLeft) err(where, `${emojiLeft} emoji in the text (run node scripts/strip-emoji.js --md)`);
 
   // first heading
   const h1 = heads.find(h => h.level === 1);
@@ -93,16 +97,11 @@ function checkFile(file) {
   // per-heading rules
   heads.forEach(h => {
     if (h.level >= 2 && /^\d+\.\s/.test(h.text)) err(where, `line ${h.line}: numbered heading "${h.text.slice(0, 40)}"`);
-    const emojis = (h.text.match(EMOJI) || []).length;
-    if (emojis > 1) err(where, `line ${h.line}: ${emojis} emoji in heading "${h.text.slice(0, 40)}"`);
-    // emoji are signposts only (GEMINI §7j): chapter titles and ordinary topic headings stay plain
-    if (isChapter && emojis && !SIGNPOSTS.some(s => h.text.replace(/[\p{Extended_Pictographic}️‍]/gu, '').trim().startsWith(s)))
-      err(where, `line ${h.line}: emoji on a heading that is not a signpost: "${h.text.slice(0, 40)}" (run node scripts/clean-heading-emoji.js <file>)`);
   });
 
   // template
   const h2 = heads.filter(h => h.level === 2).map(h => h.text);
-  const required = isChapter ? TEMPLATE : ['🎯 What You Will Learn', '📝 Recap'];
+  const required = isChapter ? TEMPLATE : ['What You Will Learn', 'Recap'];
   let last = -1;
   required.forEach(t => {
     const at = h2.findIndex(x => x.startsWith(t));
@@ -111,7 +110,7 @@ function checkFile(file) {
     else last = at;
   });
   if (isChapter) {
-    const p = text.indexOf('## 🏆 Practice');
+    const p = text.indexOf('## Practice');
     const practice = p === -1 ? '' : text.slice(p);
     LEVELS.forEach(lv => { if (!practice.includes('### ' + lv)) err(where, `Practice is missing "### ${lv}"`); });
     if ((practice.match(/<details>/g) || []).length < 3) err(where, 'Practice needs a hidden answer (<details>) for each level');
@@ -149,7 +148,7 @@ for (const book of books) {
   files.forEach(f => { if (checkFile(f)) chapters++; });
   chapterCount += chapters;
 
-  // sidebar menu ↔ files. Books on the shared reader (js/book-reader.js) build the menu from the bundle, so only the
+  // sidebar menu files. Books on the shared reader (js/book-reader.js) build the menu from the bundle, so only the
   // extras they list (projects, reference, teacher guide) need checking; older pages list every chapter in
   // loadChapter('…') links.
   const index = fs.readFileSync(path.join(ROOT, book, 'index.html'), 'utf8');

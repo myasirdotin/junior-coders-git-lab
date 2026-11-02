@@ -1,10 +1,10 @@
 # Chapter 9: Middleware Basics
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Before you reach the library's front desk, you pass the **door attendant**. He checks a few things. Is the library open right now? Do you have your library card? Are you carrying food that could damage the books? If something is wrong, he politely stops you at the door. If all is well, he lets you walk on to the desk. In Laravel, that door attendant is called **middleware**.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what middleware is and where it sits in the request journey.
 - Name a few middleware that Laravel already has, such as `auth` and `throttle`.
@@ -173,7 +173,7 @@ Route::middleware('library.open')
 
 You can also list several middleware: `->middleware(['auth', 'library.open'])`. They run in the order you list them.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting `return $next($request);`.**
 
@@ -191,13 +191,13 @@ What happens: during opening hours you get an error page, because `handle()` ret
 
 **Using an alias you never registered.** `->middleware('library-open')` (dash instead of dot) gives `Target class [library-open] does not exist.` Check the spelling in `bootstrap/app.php`.
 
-## ✍️ Try It
+## Try It
 
 Change `EnsureLibraryIsOpen` so the desk is also closed on Fridays. Test it by temporarily changing the condition.
 
 *Hint:* `now()->isFriday()` returns `true` on Fridays.
 
-## 📝 Recap
+## Recap
 
 - Middleware runs before the controller and can stop a request.
 - Built-in aliases include `auth`, `guest`, `verified` and `throttle`.
@@ -205,9 +205,9 @@ Change `EnsureLibraryIsOpen` so the desk is also closed on Fridays. Test it by t
 - Return a response to stop; `return $next($request);` to continue.
 - Attach with `->middleware(...)` on a route or a group; add aliases in `bootstrap/app.php`.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does `return $next($request);` do in middleware?
 
 <details>
@@ -217,7 +217,7 @@ It passes the request on to the next middleware, or to the controller if this wa
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a route group that applies the `library.open` middleware to `/borrow` and `/return`, both handled by `LoanController` (methods `create` and `returnForm`).
 
 <details>
@@ -233,7 +233,7 @@ Route::middleware('library.open')->group(function () {
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 During exam week, the library is for **quiet study only**, and borrowing stops.
 
 1. Create middleware `EnsureNotExamWeek`.

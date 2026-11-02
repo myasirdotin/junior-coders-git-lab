@@ -110,7 +110,7 @@ function initEvaluators() {
         if (runBtn && codeInput) {
             runBtn.addEventListener('click', async () => {
                 runBtn.disabled = true;
-                runBtn.innerHTML = '⏳ Testing...';
+                runBtn.innerHTML = 'Testing...';
 
                 const specKey = box.getAttribute('data-spec');
                 const spec = window.BEI_TEST_SPECS ? window.BEI_TEST_SPECS[specKey] : null;
@@ -118,14 +118,14 @@ function initEvaluators() {
                 if (!spec) {
                     alert('Test specifications not configured for this challenge.');
                     runBtn.disabled = false;
-                    runBtn.innerHTML = '⚡ Run Automatic Tests';
+                    runBtn.innerHTML = 'Run Automatic Tests';
                     return;
                 }
 
                 const result = await window.BeiEvaluator.evaluateSolution(codeInput.value, spec);
 
                 runBtn.disabled = false;
-                runBtn.innerHTML = '⚡ Run Automatic Tests';
+                runBtn.innerHTML = 'Run Automatic Tests';
 
                 // Record Attempt
                 window.BeiEvaluator.recordAttempt(specKey, codeInput.value, result.allPassed, result.passedTests, result.totalTests);
@@ -164,7 +164,7 @@ function initEvaluators() {
                     } else if (result.friendlyDiagnostic) {
                         diagnosticBox.style.display = 'block';
                         diagnosticBox.innerHTML = `
-                            <h4>💡 Why did my code fail?</h4>
+                            <h4>Why did my code fail?</h4>
                             <p><strong>${result.friendlyDiagnostic.title}</strong></p>
                             <p>${result.friendlyDiagnostic.explanation}</p>
                             <ul class="diagnostic-checklist">
@@ -209,7 +209,7 @@ function initEvaluators() {
                 const lines = window.BeiEvaluator.explainCodeSnippet(codeInput.value);
                 explainPanel.style.display = 'block';
                 explainPanel.innerHTML = `
-                    <h4>📖 Code Breakdown: How it works</h4>
+                    <h4>Code Breakdown: How it works</h4>
                     <div style="display:flex; flex-direction:column; gap:0.5rem;">
                         ${lines.map(l => `
                             <div class="explain-line-item">
@@ -273,7 +273,7 @@ function initQuizEngine() {
                 resultBox.innerHTML = `
                     <div style="background: ${pct >= 80 ? 'rgba(16, 185, 129, 0.15)' : 'rgba(245, 158, 11, 0.15)'}; border: 1.5px solid ${pct >= 80 ? '#10b981' : '#f59e0b'}; padding: 1.25rem; border-radius: var(--radius-md); text-align: center;">
                         <h3 style="color: ${pct >= 80 ? 'var(--text-green)' : 'var(--text-amber)'}; margin-bottom: 0.5rem;">Score: ${score} / ${total} (${pct}%)</h3>
-                        <p style="color: var(--text-secondary); margin: 0;">${pct >= 80 ? '🎉 Outstanding! Quiz Mastery Achieved (+30 XP)' : 'Keep practicing! Review the explanations above and try again.'}</p>
+                        <p style="color: var(--text-secondary); margin: 0;">${pct >= 80 ? 'Outstanding! Quiz Mastery Achieved (+30 XP)' : 'Keep practicing! Review the explanations above and try again.'}</p>
                     </div>
                 `;
                 if (pct >= 80) {
@@ -312,7 +312,7 @@ function initProjectChecklist() {
             window.BeiEvaluator.playChime('pass');
             if (window.awardXP) window.awardXP(200, 'Module Capstone Project Completed');
             showXpToast('+200 XP: Capstone Project Completed!');
-            alert('🎉 Congratulations! Project marked as completed and added to your learning portfolio.');
+            alert('Congratulations! Project marked as completed and added to your learning portfolio.');
         });
     }
 }
@@ -327,7 +327,7 @@ function showXpToast(message) {
         toast.className = 'xp-pop-toast';
         document.body.appendChild(toast);
     }
-    toast.innerHTML = `<span>⭐</span> ${escapeHtml(message)}`;
+    toast.innerHTML = `<span></span> ${escapeHtml(message)}`;
     toast.classList.add('show');
     setTimeout(() => {
         toast.classList.remove('show');

@@ -1,10 +1,10 @@
-# JavaScript for Class 7: Learn, Think, Create ⚡💻
+# JavaScript for Class 7: Learn, Think, Create
 
 **A Beginner's Textbook and Coding Workbook for Young Creators**
 
 ---
 
-## 📘 About This Book
+## About This Book
 
 Welcome to **“JavaScript for Class 7: Learn, Think, Create”**! This book is written specifically for students who have never programmed before. It uses simple English, everyday relatable examples, and lots of interactive practice. 
 
@@ -17,7 +17,7 @@ Real-Life Example ───> Concept ───> Code Example ───> Practice
 
 ---
 
-## 🎯 Learning Outcomes
+## Learning Outcomes
 
 By the end of this book, a student will be able to:
 1. Explain what a computer program is and how programmers systematically solve problems.
@@ -38,7 +38,7 @@ By the end of this book, a student will be able to:
 
 ---
 
-## 📅 Recommended 21-Week Learning Progression
+## Recommended 21-Week Learning Progression
 
 | Weeks | Focus Unit |
 | :--- | :--- |
@@ -56,28 +56,28 @@ By the end of this book, a student will be able to:
 | **Weeks 18–20** | **Chapters 21–23**: mini projects, creative coding with canvas, and the final Quiz Arena project |
 | **Week 21** | **Final Capstone Project & Assessment**: Comprehensive review & certificate |
 
-> 🍎 **Teacher Tip**:
+> **Teacher Tip**:
 > Go slowly through Parts 1–4. These are the foundations of all computer science. A student who is confident with variables, conditions, and loops will cruise through the remainder of the curriculum with confidence and excitement!
 
 ---
 
-## 🧭 How Every Chapter Works
+## How Every Chapter Works
 
 All 23 chapters follow the same plan as the other Junior Coders textbooks:
-1. **🌟 Real-Life Story**: an everyday picture of the idea.
-2. **🎯 What You Will Learn**: three to five goals.
+1. **Real-Life Story**: an everyday picture of the idea.
+2. **What You Will Learn**: three to five goals.
 3. **Topic sections**: the explanation, each with a code example and its exact output.
    Many chapters add Predict the Output, Think Like a Programmer and a Mini Project here.
-4. **⚠️ Common Mistake**: a real beginner mistake and how to fix it.
-5. **✍️ Try It**: one small task to do straight away.
-6. **📝 Recap**: the key ideas, with a "Check yourself" list.
-7. **🏆 Practice**: three levels (🟢 Recall, 🟡 Apply, 🔴 Challenge) with hidden answers.
+4. **Common Mistake**: a real beginner mistake and how to fix it.
+5. **Try It**: one small task to do straight away.
+6. **Recap**: the key ideas, with a "Check yourself" list.
+7. **Practice**: three levels (Recall, Apply, Challenge) with hidden answers.
 
 Homework and discussion questions for each chapter are in the Teacher's Guide.
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 ### Part 1: Getting Started
 - **Chapter 1**: [What Is Programming?](part-01-getting-started/ch01-what-is-programming.md)

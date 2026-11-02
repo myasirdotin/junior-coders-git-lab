@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 You walk up to the school library desk with a book. The librarian asks one question: "Do you have your library card?" **If** you do, she stamps the book and you take it home. **Else** she kindly sends you to the office to get a card first. Programs make choices in the same way, using `if` and `else`.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Write decisions with `if`, `elseif` and `else`.
 - Compare values with `==`, `===`, `!=`, `!==`, `<`, `>`, `<=` and `>=`.
@@ -57,7 +57,7 @@ A **condition** is a question whose answer is `true` or `false`, such as `$score
                       a string)
 ```
 
-🛡️ **Professional rule:** prefer strict equality (`===`). It avoids surprise bugs.
+**Professional rule:** prefer strict equality (`===`). It avoids surprise bugs.
 
 ### Logical Operators
 
@@ -132,7 +132,7 @@ Official Status: Passed
 
 ---
 
-## 🌍 Real-World Connection: Student Access & Educational Portals
+## Real-World Connection: Student Access & Educational Portals
 
 School portals and online academies make decisions on every click:
 
@@ -159,7 +159,7 @@ Conditions are the digital guards that protect private lessons and student recor
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -174,13 +174,13 @@ Conditions are the digital guards that protect private lessons and student recor
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>Free entry to the book fair!</code> The OR (<code>||</code>) operator needs only one side to be true, and <code>$hasVoucher</code> is true.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Age Gate
+## Code Detective: The Broken Age Gate
 
 ```php
 <?php
@@ -204,11 +204,11 @@ Parse error: syntax error, unexpected token "echo" in ... on line 6
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Using one equals sign inside `if`.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   <?php
   $role = "student";
@@ -216,14 +216,14 @@ Parse error: syntax error, unexpected token "echo" in ... on line 6
     echo "Welcome, admin!";
   }
   ```
-- 😕 *What happens*: `=` **stores** "admin" in `$role` instead of comparing. The condition becomes true, and the page prints `Welcome, admin!` for a student.
-- ✅ *Fixed*: `if ($role === "admin") {` compares, and prints nothing for a student.
+- *What happens*: `=` **stores** "admin" in `$role` instead of comparing. The condition becomes true, and the page prints `Welcome, admin!` for a student.
+- *Fixed*: `if ($role === "admin") {` compares, and prints nothing for a student.
 
 **Mixing up AND and OR.** `&&` needs **every** condition to be true. `||` needs **at least one**.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and check if a student may borrow another library book:
 
@@ -251,7 +251,7 @@ Please return a book first (limit is 3).
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `if` runs code only when its condition is true; `elseif` adds more checks; `else` catches the rest.
 - PHP checks branches from top to bottom and runs only the first true one.
@@ -262,9 +262,9 @@ Please return a book first (limit is 3).
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which operator checks that two values are equal in both value and type?
 2. What symbol is the logical AND operator?
 3. What is the one-line `? :` form of if/else called?
@@ -278,7 +278,7 @@ Please return a book first (limit is 3).
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Explain why `5 == "5"` is true but `5 === "5"` is false.
 2. What does `!` do? What does `var_dump(!true);` print?
 
@@ -290,7 +290,7 @@ Please return a book first (limit is 3).
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a planetarium ticket price checker.
 
 1. Store `$age` and `$isCommunityDay` (true or false).

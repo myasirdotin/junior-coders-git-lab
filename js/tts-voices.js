@@ -86,7 +86,7 @@
         note.className = className + ' jc-voice-hint';
         note.setAttribute('role', 'note');
         const text = document.createElement('span');
-        text.textContent = '🎙️ ' + tip;
+        text.textContent = '' + tip;
         const close = document.createElement('button');
         close.type = 'button';
         close.className = 'jc-voice-hint-close';

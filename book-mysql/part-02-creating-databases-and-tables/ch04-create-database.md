@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A school has one big building but many rooms. The science lab keeps its equipment in its own room. The library keeps its books in another. Nobody mixes test tubes with storybooks. A MySQL server is the building, and each **database** is a separate room for one app's tables.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a database "container" is.
 - Create a database safely with `CREATE DATABASE IF NOT EXISTS`.
@@ -77,7 +77,7 @@ The warning only says "it already existed". Nothing was changed. This makes a se
 
 A **character set** is the list of letters and symbols a database can store. A **collation** is the rule for comparing and sorting them (for example, is "a" equal to "A"?).
 
-Older set-ups default to `latin1`, which cannot store Urdu, Arabic or emoji. Always choose `utf8mb4`. It covers every language and emoji (🌟):
+Older set-ups default to `latin1`, which cannot store Urdu, Arabic or emoji. Always choose `utf8mb4`. It covers every language and emoji ():
 
 ```sql
 CREATE DATABASE IF NOT EXISTS school_db
@@ -135,7 +135,7 @@ From now on, every `CREATE TABLE` or `SELECT` you type works inside `school_db`.
 
 In phpMyAdmin you can simply click `school_db` in the left tree. That does the same job as `USE`.
 
-> 🧪 **Sandbox note:** The SQL Sandbox (SQLite) has one database already open, so `CREATE DATABASE` and `USE` do not exist there. Run them in phpMyAdmin.
+> **Sandbox note:** The SQL Sandbox (SQLite) has one database already open, so `CREATE DATABASE` and `USE` do not exist there. Run them in phpMyAdmin.
 
 ---
 
@@ -167,7 +167,7 @@ These commands belong to **DDL** (Data Definition Language): SQL that builds or 
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: making tables before choosing a database.**
 
@@ -194,7 +194,7 @@ CREATE TABLE classes (id INT, name VARCHAR(50));
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In phpMyAdmin's **SQL** tab (with no database selected), run:
 
@@ -206,7 +206,7 @@ In phpMyAdmin's **SQL** tab (with no database selected), run:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A database is a separate container for one app's tables.
 - `CREATE DATABASE IF NOT EXISTS` makes one without failing if it is already there.
@@ -216,9 +216,9 @@ In phpMyAdmin's **SQL** tab (with no database selected), run:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command tells MySQL which database to work in?
 2. What happens if you run `CREATE DATABASE school_db;` when it already exists?
 3. Why is `utf8mb4` better than `latin1`?
@@ -232,7 +232,7 @@ In phpMyAdmin's **SQL** tab (with no database selected), run:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write the SQL to:
 1. Create a database called `community_library_db` with `utf8mb4` if it does not exist.
 2. Make it the active database.
@@ -255,7 +255,7 @@ The last command returns `community_library_db`.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A school's IT team does not let the website or junior staff run `DROP DATABASE`.
 
 1. Explain why, using the word *Amānah*.

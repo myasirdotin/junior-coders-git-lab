@@ -38,13 +38,13 @@
                 <a href="../index.html">Studios</a> <span>/</span>
                 <span>PHP Console</span>
             </div>
-            <h1>In-Browser PHP Console 🐘</h1>
+            <h1>In-Browser PHP Console</h1>
             <p class="lead">Real PHP 8 running on your own device. Type a script, press <strong>Run</strong> (or Ctrl+Enter) and see the output instantly. Nothing is uploaded anywhere.</p>
         </header>
 
         <div class="php-layout">
             <aside class="php-sidebar">
-                <h3>📂 Examples</h3>
+                <h3>Examples</h3>
                 <div id="phpExamples"></div>
                 <p class="php-note">Ready to be tested? Try the <a href="../../Learning%20PHP/exercises.html">auto-checked PHP exercises →</a></p>
                 <p class="php-note">The engine downloads once (about 12 MB) and is then cached by your browser.</p>
@@ -52,7 +52,7 @@
 
             <div class="php-editor-pane">
                 <div class="php-toolbar">
-                    <span class="php-status" id="phpStatus">⏳ Downloading the PHP engine…</span>
+                    <span class="php-status" id="phpStatus">Downloading the PHP engine…</span>
                     <button id="runPhpBtn" class="btn-hero-primary" style="padding: 0.4rem 1.1rem; font-size: 0.85rem; background: var(--brand-purple);" disabled>▶ Run PHP</button>
                 </div>
                 <textarea id="phpInput" class="php-textarea" spellcheck="false" aria-label="PHP code"><?php
@@ -67,7 +67,7 @@ foreach ($books as $i => $title) {
 }</textarea>
                 <div class="php-output-card">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
-                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">🖥️ Output</span>
+                        <span style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);">Output</span>
                         <span id="phpMeta" style="font-size: 0.78rem; color: var(--text-muted);"></span>
                     </div>
                     <pre id="phpOutput" class="php-output muted">Output appears here.</pre>
@@ -133,12 +133,12 @@ foreach ($books as $i => $title) {
         });
 
         PHPLab.ready().then(() => {
-            status.textContent = '✅ PHP ' + PHPLab.version + ' ready';
+            status.textContent = 'PHP ' + PHPLab.version + ' ready';
             status.classList.add('ok');
             runBtn.disabled = false;
             runPhp();
         }).catch(err => {
-            status.textContent = '⚠️ ' + err.message;
+            status.textContent = '' + err.message;
             status.classList.add('bad');
         });
     </script>

@@ -13,15 +13,15 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 3</span>
-            <h1 style="color: white; margin: 0.5rem 0;">Broken Access Control &amp; CSRF 🚪🎭</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">Broken Access Control &amp; CSRF</h1>
             <p>Make sure people can only see and change what is theirs, and stop forged form requests.</p>
         </header>
 
         <!-- Real-life analogy -->
         <section class="content-section">
-            <h2>🗄️ Think of the School Lockers</h2>
+            <h2>Think of the School Lockers</h2>
             <div class="connection-box">
-                <p>🧠 <strong>Real-life analogy:</strong> Every student has a numbered locker. The caretaker has a master key.</p>
+                <p><strong>Real-life analogy:</strong> Every student has a numbered locker. The caretaker has a master key.</p>
                 <p>One day a student says, "Please open locker 51." The caretaker opens it without asking, "Is locker 51 yours?" Now anyone can open anyone's locker just by saying a number.</p>
                 <p>The lock is fine. The <strong>checking</strong> is missing.</p>
             </div>
@@ -35,7 +35,7 @@
 
         <!-- IDOR -->
         <section class="content-section">
-            <h2>🔢 Worked Example 1: Changing a Number in the Address (IDOR)</h2>
+            <h2>Worked Example 1: Changing a Number in the Address (IDOR)</h2>
             <p>A school portal shows report cards at addresses like this:</p>
             <pre class="code-block"><code>https://portal.greenfield-school.org/report.php?id=50</code></pre>
             <p>Bilal sees his report at <code>id=50</code>. What if the server shows report 51 to anyone who asks? This bug has a long name: <strong>Insecure Direct Object Reference</strong>, or <strong>IDOR</strong>. In plain words: the server hands over a record just because you asked for its number, without checking it is yours.</p>
@@ -61,7 +61,7 @@ if (!$report) {
 
         <!-- Role check -->
         <section class="content-section">
-            <h2>👩‍🏫 Worked Example 2: Hiding a Button Is Not Enough</h2>
+            <h2>Worked Example 2: Hiding a Button Is Not Enough</h2>
             <p>A library website hides the "Delete book" button from students. But the delete page itself still works for anyone who visits it. Hiding a button is not security. <strong>The server must check every request.</strong></p>
             <pre class="code-block"><code>&lt;?php
 // ✅ At the top of delete_book.php: only librarians may continue
@@ -71,22 +71,22 @@ if (($_SESSION['role'] ?? '') !== 'librarian') {
 }
 // ...delete code runs only after the check...
 ?&gt;</code></pre>
-            <div class="tip-box">💡 Check permissions on the <strong>server</strong>, on <strong>every</strong> page that reads or changes private data. Anything in the browser can be changed by the visitor.</div>
+            <div class="tip-box">Check permissions on the <strong>server</strong>, on <strong>every</strong> page that reads or changes private data. Anything in the browser can be changed by the visitor.</div>
         </section>
 
         <!-- CSRF -->
         <section class="content-section">
-            <h2>✉️ Cross-Site Request Forgery (CSRF)</h2>
+            <h2>Cross-Site Request Forgery (CSRF)</h2>
             <p>When you log in, the website saves a <strong>session cookie</strong> in your browser. A cookie is a small note that says "this visitor is logged in". Your browser sends it automatically with every request to that site.</p>
             <p><strong>CSRF</strong> uses that habit. A different website secretly makes your browser send a request to a site where you are logged in. Your cookie goes along, so the request looks like it came from you. "Forgery" means a fake made to look real.</p>
             <div class="connection-box">
-                <p>🧠 <strong>Analogy:</strong> someone slips a filled-in permission slip into your school bag. You hand in your bag, and the office stamps the slip because it is in <em>your</em> bag. The office should have checked for the secret stamp that only it gives out.</p>
+                <p><strong>Analogy:</strong> someone slips a filled-in permission slip into your school bag. You hand in your bag, and the office stamps the slip because it is in <em>your</em> bag. The office should have checked for the secret stamp that only it gives out.</p>
             </div>
         </section>
 
         <!-- Worked example 3 -->
         <section class="content-section">
-            <h2>🛡️ Worked Example 3: Adding a CSRF Token</h2>
+            <h2>Worked Example 3: Adding a CSRF Token</h2>
             <p>The fix is a <strong>CSRF token</strong>: a long random secret placed in each form. Other websites cannot read it. The browser's <strong>same-origin policy</strong> stops one website from reading pages of another. So a forged request will not have the right token.</p>
             <pre class="code-block"><code>&lt;?php
 // Step 1: make a random token once per login session
@@ -119,7 +119,7 @@ if (!hash_equals($_SESSION['csrf'], $_POST['csrf'] ?? '')) {
 
         <!-- Checklist -->
         <section class="content-section">
-            <h2>✅ What To Do: Your Access Control Checklist</h2>
+            <h2>What To Do: Your Access Control Checklist</h2>
             <ul>
                 <li>☐ On every private page, check on the server: is this user allowed to see or change <em>this</em> record?</li>
                 <li>☐ Take the user's ID from the session, never from the address or a form field.</li>
@@ -131,14 +131,14 @@ if (!hash_equals($_SESSION['csrf'], $_POST['csrf'] ?? '')) {
         </section>
 
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>What is the difference between authentication and authorization? What does CSRF stand for?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>Authentication proves who you are. Authorization decides what you are allowed to do. CSRF stands for Cross-Site Request Forgery.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>Review this link from a school website. It is flawed in two different ways. Name both and say how to fix them.</p>
                 <pre><code>&lt;a href="account_delete.php?user_id=15"&gt;Delete my account&lt;/a&gt;</code></pre>
                 <details class="jc-answer"><summary>Show answer</summary><div>
@@ -149,7 +149,7 @@ if (!hash_equals($_SESSION['csrf'], $_POST['csrf'] ?? '')) {
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>A community food bank lets volunteers edit their own shift times. Design the secure "Edit my shift" feature.</p>
                 <ol>
                     <li>Decide how the server knows who the volunteer is.</li>

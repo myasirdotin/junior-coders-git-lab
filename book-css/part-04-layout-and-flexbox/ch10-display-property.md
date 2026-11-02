@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Heavy Wooden Blocks vs. Rolling Marbles**
 
@@ -15,7 +15,7 @@ Understanding the `display` property—`block`, `inline`, and `inline-block`—i
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Identify common **block** elements (`<div>`, `<h1>`, `<p>`, `<ul>`) and **inline** elements (`<span>`, `<a>`, `<strong>`).
@@ -140,7 +140,7 @@ Type this into your editor and save it as `display.html`:
 
 ---
 
-## 🌍 Real-World Connection: Turning Links into Buttons
+## Real-World Connection: Turning Links into Buttons
 
 By default, an anchor tag (`<a>`) is an **inline element**:
 - If you try to give an `<a>` tag `padding-top: 20px;` or `width: 200px;`, it will look glitchy and weird because inline tags don't respect vertical block spacing.
@@ -155,7 +155,7 @@ By default, an anchor tag (`<a>`) is an **inline element**:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this CSS:
 
@@ -169,13 +169,13 @@ span {
 **Question**: Will the `<span>` turn into a large 300x200 rectangle on your screen?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: NO!</strong> Because <code>&lt;span&gt;</code> is an <strong>inline element</strong> by default, browsers completely ignore <code>width</code> and <code>height</code> properties! To make it resize, you must add <code>display: inline-block;</code> or <code>display: block;</code>!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Button Size
+## Code Detective: The Broken Button Size
 
 A student wanted to make an anchor link button bigger, but setting `width: 200px;` did nothing:
 
@@ -226,7 +226,7 @@ Create a web page named `pricing-table.html`:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is adding top and bottom **margin** to an inline element and expecting it to move away from the lines above and below.
 
@@ -253,7 +253,7 @@ A second slip: using `display: none` to hide text "for later" and forgetting it.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Invisible Element**
 
@@ -265,7 +265,7 @@ Did you know there is a fourth display value called `display: none;`?
 
 ---
 
-## 📝 Recap
+## Recap
 
 - The `display` property dictates how an element behaves in the document flow.
 - `display: block` elements begin on a new line and expand to 100% width.
@@ -275,7 +275,7 @@ Did you know there is a fourth display value called `display: none;`?
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -287,9 +287,9 @@ Did you know there is a fourth display value called `display: none;`?
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Name two HTML elements that are `block` by default.
 2. Name two HTML elements that are `inline` by default.
 3. What happens to an element when you set `display: none;`?
@@ -303,7 +303,7 @@ Did you know there is a fourth display value called `display: none;`?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Why does `height: 100px;` on a `<strong>` tag do nothing? How can you fix it?
 5. Write CSS that turns a `<ul>` list into a row of menu items that sit side by side.
 
@@ -326,7 +326,7 @@ li {
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Compare two ways of hiding.
 1. Make three coloured boxes in a row (use `display: inline-block;`).
 2. Give the second box `display: none;` and look at the gap.

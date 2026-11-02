@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The "Final_Final_v2" Nightmare**
 
@@ -19,7 +19,7 @@ Zainab is writing a science project on her computer. Every evening she saves a n
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what **version control** is and why software teams use it.
 - Compare saving copies of files with keeping a **Git repository**.
@@ -97,7 +97,7 @@ Your own list will have different codes, because every project is different. You
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 - **Linux**: Thousands of volunteers around the world build the Linux operating system together. They share their changes through Git, often without ever meeting.
 - **How Git was born**: Linus Torvalds, who created Linux, wrote the first version of Git in **2005**. The tool the Linux team had been using stopped being free for them, so he built a new one that was fast and shared.
@@ -105,7 +105,7 @@ Your own list will have different codes, because every project is different. You
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this scenario:
 
@@ -116,7 +116,7 @@ Look at this scenario:
 **Question**: Is `books.html` gone forever, or does it come back?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Answer:** It comes back. You committed the file earlier, so Git copies it back from its saved history. You will learn `git restore` properly in Chapter 8.
 
@@ -124,7 +124,7 @@ Look at this scenario:
 
 ---
 
-## 🕵️ Code Detective
+## Code Detective
 
 **The Mystery Bug**
 
@@ -134,7 +134,7 @@ A student's school website worked perfectly on Monday. On Wednesday, the navigat
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: Thinking Git saves by itself, like a cloud drive**
 
@@ -150,7 +150,7 @@ A student's school website worked perfectly on Monday. On Wednesday, the navigat
 
 ---
 
-## ✍️ Try It
+## Try It
 
 You do not need Git yet. Open any school folder on your computer (or think of your last project).
 
@@ -166,7 +166,7 @@ A good checkpoint message starts with an action word: `Add title page`, `Add pla
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Version control keeps the full history of a project, so nothing good is lost.
 - Git is the most popular version control system. Linus Torvalds created it in 2005.
@@ -176,9 +176,9 @@ A good checkpoint message starts with an action word: `Add title page`, `Add pla
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 
 1. What does **VCS** stand for?
 2. Who created Git, and in what year?
@@ -193,7 +193,7 @@ A good checkpoint message starts with an action word: `Add title page`, `Add pla
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 
 1. Why is saving copies like `project_v1.html` and `project_v2.html` risky for a team?
 2. How does a commit hash show that saved work has not been changed in secret?
@@ -214,7 +214,7 @@ A good checkpoint message starts with an action word: `Add title page`, `Add pla
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 
 Plan the history of a small project: a website for a school charity book drive.
 

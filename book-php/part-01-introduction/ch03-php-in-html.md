@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the end of term, your school gives out certificates. Each certificate is printed ahead of time with a border, the school logo and the words *"Awarded to ________"*. The printed paper is the same for everyone. On prize day, the teacher writes each student's name and the date in the blank spaces. The printed paper is the **HTML template**, and the teacher's pen is **PHP**.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Mix small `<?php ... ?>` blocks into normal HTML pages.
 - Use the short echo tag `<?= ... ?>` to print a value.
@@ -49,7 +49,7 @@ SHORT ECHO: <?= $studentName ?>
 
 Both give exactly the same HTML. The short echo tag is quicker to type and easier to read inside HTML.
 
-> 💡 A word starting with `$`, such as `$studentName`, is a **variable**: a named box that holds a value. Chapter 4 explains variables fully.
+> A word starting with `$`, such as `$studentName`, is a **variable**: a named box that holds a value. Chapter 4 explains variables fully.
 
 ---
 
@@ -115,13 +115,13 @@ Output (in 2026):
 - `&copy; <?= date("Y") ?>`: `date("Y")` gives the current 4-digit year. The footer updates itself every January.
 - The PHP tags disappear in the output. Only the values are left.
 
-> 🔒 Here the values are typed by us, so they are safe to print. When values come from visitors, you must clean them first with `htmlspecialchars()`. Chapter 19 teaches this.
+> Here the values are typed by us, so they are safe to print. When values come from visitors, you must clean them first with `htmlspecialchars()`. Chapter 19 teaches this.
 
-> 💡 Later, in Chapter 8, you will learn `if`. With it, a template can show or hide whole blocks of HTML.
+> Later, in Chapter 8, you will learn `if`. With it, a template can show or hide whole blocks of HTML.
 
 ---
 
-## 🌍 Real-World Connection: Modern CMS Themes
+## Real-World Connection: Modern CMS Themes
 
 A **CMS** (content management system) is a tool for running a website without writing every page by hand. Themes in **WordPress** and **Drupal**, both written in PHP, use this exact pattern:
 - A designer builds the HTML and CSS layout.
@@ -130,7 +130,7 @@ A **CMS** (content management system) is a tool for running a website without wr
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this snippet:
 
@@ -144,13 +144,13 @@ Look at this snippet:
 **Question**: What HTML does the browser receive?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>&lt;button style="background: #7c3aed; color: white;"&gt;</code> followed by <code>Submit</code> and <code>&lt;/button&gt;</code>. The PHP tag was replaced on the server by the colour code.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Copyright
+## Code Detective: The Broken Copyright
 
 A developer wanted the footer to show the current year:
 
@@ -173,19 +173,19 @@ In the browser, the year was blank: `© Junior Coders`.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting the `=` in the short echo tag.**
 
-- ❌ *Wrong*: `<p>Hello <? $name ?></p>`
-- 😕 *What happens*: `<?` without `=` is an old "short tag" that is switched off in most setups. PHP does not run it. The browser receives the raw text `<? $name ?>` and the name never appears.
-- ✅ *Fixed*: `<p>Hello <?= $name ?></p>`. The `=` means "print this".
+- *Wrong*: `<p>Hello <? $name ?></p>`
+- *What happens*: `<?` without `=` is an old "short tag" that is switched off in most setups. PHP does not run it. The browser receives the raw text `<? $name ?>` and the name never appears.
+- *Fixed*: `<p>Hello <?= $name ?></p>`. The `=` means "print this".
 
 A second, softer mistake is **spaghetti code**: a whole page written as hundreds of `echo "..."` lines. Write normal HTML and dip into PHP only where a value is needed.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -215,7 +215,7 @@ Output (on a Tuesday):
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A `.php` file can hold normal HTML with small PHP gaps inside.
 - `<?= $value ?>` is the short way to write `<?php echo $value; ?>`.
@@ -225,9 +225,9 @@ Output (on a Tuesday):
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the short way to write `<?php echo $val; ?>`?
 2. Which letter in `date()` gives the 4-digit year?
 3. Can PHP print a value inside an HTML attribute such as `href`?
@@ -241,7 +241,7 @@ Output (on a Tuesday):
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why is it better to write normal HTML with small PHP gaps than one giant `echo` with all the HTML inside?
 2. A visitor clicks "View Page Source" on `profile.php`. Can they see the name `$studentName`? Why?
 
@@ -253,7 +253,7 @@ Output (on a Tuesday):
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build `book.php`, a card for a library book.
 
 1. At the top, store the book title, author, shelf number and cover image path in variables.

@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Submitting a proposal to the Student Council.**
 You have an idea: a small weather garden in the school courtyard.
@@ -15,7 +15,7 @@ You fix that, they approve, and the plan becomes part of the school. In software
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a **Pull Request** (PR) is and why teams use them.
 - Push a feature branch to GitHub and open a Pull Request.
@@ -119,15 +119,15 @@ When a teammate asks you to review their PR, they are trusting you. Be kind, cle
 1. **Start with what is good.**
    "MashaAllah, this navbar code is very clean!" or "Great job checking empty form fields!"
 2. **Talk about the code, never the person.**
-   - ❌ Unkind: "Why did you write such bad CSS? It looks broken."
-   - ✅ Kind and useful: "On small screens (under 400px) this card may overflow. What do you think about `flex-wrap: wrap` here?"
+   - Unkind: "Why did you write such bad CSS? It looks broken."
+   - Kind and useful: "On small screens (under 400px) this card may overflow. What do you think about `flex-wrap: wrap` here?"
 3. **Assume good intentions.**
    Everyone is learning. Explain **why** you suggest a change.
 4. **Ask, do not order.** "Could we...?" invites a conversation. "Change this." ends one.
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 Many software teams never push straight to `main`.
 On GitHub, a repository owner can turn on **branch protection rules**. These rules can require a Pull Request before any change reaches `main`. They can also require one or more teammates to click **Approve** first.
@@ -135,7 +135,7 @@ Many teams also run automatic checks on every PR. These programs test the code b
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 You have an open Pull Request for the branch `feature/navbar`.
 You notice a small CSS mistake. You fix it, commit, and run `git push`.
@@ -143,7 +143,7 @@ You notice a small CSS mistake. You fix it, commit, and run `git push`.
 **Question:** Do you have to close the old PR and open a new one?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Answer:** No. GitHub sees the new commit on `feature/navbar` and adds it to the open PR. The **Files changed** tab updates for your reviewers.
 
@@ -151,7 +151,7 @@ You notice a small CSS mistake. You fix it, commit, and run `git push`.
 
 ---
 
-## 🕵️ Code Detective
+## Code Detective
 
 **The broken review tone.** A student wrote this on a classmate's PR:
 
@@ -163,7 +163,7 @@ You notice a small CSS mistake. You fix it, commit, and run `git push`.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Using `git commit -am` for a brand-new file.**
 
@@ -188,7 +188,7 @@ A PR with 2,000 changed lines across 30 files is very hard to review well. Keep 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Write a PR description (title plus three short parts) for this change: *"I added a 'Back to top' button to the bottom of the library's book list page."* Use the template from Step 2.
 
@@ -201,7 +201,7 @@ Answer three questions: **What** does it do? **How** did you test it? What will 
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **Pull Request** asks to merge your branch into another branch, usually `main`.
 - First push your feature branch with `git push -u origin <branch>`, then click **Compare & pull request**.
@@ -211,9 +211,9 @@ Answer three questions: **What** does it do? **How** did you test it? What will 
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is a Pull Request?
 2. Can you add more commits to a PR after it is opened?
 3. What does a reviewer do in a software team?
@@ -227,7 +227,7 @@ Answer three questions: **What** does it do? **How** did you test it? What will 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Why do many teams stop people pushing straight to `main`?
 5. How does a clear PR description save the reviewer time?
 6. Rewrite this review comment so it is kind and helpful: `"This colour is ugly."`
@@ -241,7 +241,7 @@ Answer three questions: **What** does it do? **How** did you test it? What will 
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Practise the whole PR flow with a partner (or with your teacher's classroom account if you are under 13).
 
 1. In a practice repository on GitHub, create a branch `feature/footer` with `git switch -c`.

@@ -1,10 +1,10 @@
 # Chapter 16: What are Migrations?
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When the library rearranges its shelves, the head librarian writes each change in a **logbook**: "Monday: added a shelf for science magazines. Tuesday: moved poetry to room 2." A new helper can read the logbook from the first page and set up an identical library somewhere else. If a change was a mistake, the logbook also says how to undo it. **Migrations** are that logbook for your database.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a migration is and why teams use them.
 - Read a migration file and its `up()` and `down()` methods.
@@ -150,7 +150,7 @@ All three ran in batch 1, so all three are undone, newest first. Run `php artisa
 
 Laravel helps: when `APP_ENV=production`, it asks you to confirm before running destructive migration commands.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Editing a migration that already ran.**
 
@@ -164,13 +164,13 @@ Laravel sees the file in the `migrations` table and skips it. Your new column ne
 
 (On your own practice project, before sharing, `migrate:rollback` and then `migrate` is fine.)
 
-## ✍️ Try It
+## Try It
 
 Run `php artisan migrate:status`, then `php artisan migrate:rollback`, then `migrate:status` again. What changed? Finish with `php artisan migrate`.
 
 *Hint:* after the rollback, the status column shows `Pending`.
 
-## 📝 Recap
+## Recap
 
 - A migration is a PHP file that describes one change to the database, kept in `database/migrations/`.
 - `up()` makes the change; `down()` undoes it.
@@ -179,9 +179,9 @@ Run `php artisan migrate:status`, then `php artisan migrate:rollback`, then `mig
 - `migrate:fresh` and `migrate:refresh` delete all data: back up first, never on a live server.
 - Never edit a migration that has run and been shared; write a new one.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is the job of `up()` and of `down()` in a migration?
 
 <details>
@@ -191,7 +191,7 @@ What is the job of `up()` and of `down()` in a migration?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Your teammate runs `php artisan migrate` and sees `Nothing to migrate.`, but the new `phone` column is missing. What went wrong, and what should they do?
 
 <details>
@@ -201,7 +201,7 @@ Someone edited an old migration that had already run, so Laravel skipped it. The
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a short "Database Safety Card" for your class, in five steps, for anyone about to change the library database on the school server.
 
 <details>

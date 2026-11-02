@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A school library has a librarian who sits behind the desk all day. Students do not walk into the store room themselves. They come to the desk and ask: "Do you have *Clean Code*?" The librarian fetches the answer. The MySQL server is that librarian. It waits all day for questions, and phpMyAdmin or the terminal is the desk where you ask them.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Start the MySQL server from the XAMPP Control Panel.
 - Open phpMyAdmin and find its SQL tab.
@@ -90,7 +90,7 @@ The **command line** (or **CLI**, command-line interface) is a text window where
 
 To leave, type `exit` and press Enter.
 
-> 🔐 **Amānah note:** "root with no password" is only safe on your own practice computer. A real server must always have a strong password.
+> **Amānah note:** "root with no password" is only safe on your own practice computer. A real server must always have a strong password.
 
 ---
 
@@ -142,11 +142,11 @@ These are **system databases** the server uses for itself. Do not delete them. Y
 
 You can also try `SELECT NOW();`. It shows the server's current date and time, so your answer will be different from anyone else's.
 
-> 🧪 **Sandbox note:** The site's SQL Sandbox uses SQLite, not MySQL. `SELECT 7 * 6;` works there, but `SHOW DATABASES` and `CURRENT_USER()` do not.
+> **Sandbox note:** The site's SQL Sandbox uses SQLite, not MySQL. `SELECT 7 * 6;` works there, but `SHOW DATABASES` and `CURRENT_USER()` do not.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: forgetting the semicolon.**
 
@@ -167,7 +167,7 @@ What happens: MySQL turns red and stops. Another program is already using door 3
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. Start Apache and MySQL in XAMPP.
 2. Open phpMyAdmin, click the **SQL** tab, and run `SELECT 12 * 12;`
@@ -177,7 +177,7 @@ What happens: MySQL turns red and stops. Another program is already using door 3
 
 ---
 
-## 📝 Recap
+## Recap
 
 - XAMPP's database server is MariaDB, which speaks the same SQL as MySQL.
 - Start it in the XAMPP Control Panel; it listens on port 3306.
@@ -187,9 +187,9 @@ What happens: MySQL turns red and stops. Another program is already using door 3
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What port does MySQL use by default?
 2. What address opens phpMyAdmin in XAMPP?
 3. What must end every SQL statement?
@@ -203,7 +203,7 @@ What happens: MySQL turns red and stops. Another program is already using door 3
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Log in with the command line and run `SHOW DATABASES;`. Name three system databases you see. What does the prompt `MariaDB [(none)]>` tell you?
 
 <details>
@@ -215,7 +215,7 @@ Any three of: `information_schema`, `mysql`, `performance_schema`, `phpmyadmin`,
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A student clicks **Start** next to MySQL. It turns red and the log says *"Port 3306 in use by another program"*.
 
 1. Explain in one sentence what this means.

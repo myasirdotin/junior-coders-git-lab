@@ -1,10 +1,10 @@
-# PHP for Class 9: Server-Side Programming 🐘🚀
+# PHP for Class 9: Server-Side Programming
 
 **The Official Beginner's Textbook & Interactive Coding Companion for Junior Coders**
 
 ---
 
-## 📘 About This Book
+## About This Book
 
 Welcome to **“PHP for Class 9: Server-Side Programming”**! This comprehensive textbook teaches secondary school students how dynamic, database-driven web applications function behind the scenes.
 
@@ -21,7 +21,7 @@ Every chapter is structured according to the Junior Coders pedagogy:
 
 ---
 
-## 📚 Complete Table of Contents
+## Complete Table of Contents
 
 ### Part 1: Introduction to PHP
 - **Chapter 1**: What is PHP? The Server-Side Revolution (`part-01-introduction/ch01-what-is-php.md`)
@@ -81,7 +81,7 @@ Every chapter is structured according to the Junior Coders pedagogy:
 
 ---
 
-## 🚀 Running the Interactive Reader
+## Running the Interactive Reader
 
 Open `index.html` in any web browser:
 - **Offline Mode**: Supported out-of-the-box via `chapters-bundle.js`.

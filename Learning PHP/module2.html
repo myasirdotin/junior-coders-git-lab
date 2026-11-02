@@ -12,23 +12,23 @@
         <header class="module-header path-php">
             <span class="badge" style="background:white;color:var(--php-brand);">Level 1</span>
             <h1>Variables &amp; Data Types</h1>
-            <p>Store and use information like a pro! 📦</p>
+            <p>Store and use information like a pro!</p>
         </header>
 
         <!-- Section 1: What is a Variable? -->
         <section class="content-section">
-            <h2>📦 What is a Variable?</h2>
+            <h2>What is a Variable?</h2>
             <p>A variable is like a <strong>labelled box</strong>. You put a value inside, give it a name, and you can use that value anytime later. In PHP, all variables start with a <strong>dollar sign <code>$</code></strong>.</p>
 
             <div class="connection-box">
-                <p>🧠 <strong>Real-life analogy:</strong> Imagine a filing cabinet with labelled folders. The folder named <strong>$studentName</strong> contains "Ali". Whenever you need the student's name, you just open that folder!</p>
+                <p><strong>Real-life analogy:</strong> Imagine a filing cabinet with labelled folders. The folder named <strong>$studentName</strong> contains "Ali". Whenever you need the student's name, you just open that folder!</p>
             </div>
 
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
 <span class="code-comment">// Creating variables</span>
-<span class="code-keyword">$name</span>  = <span class="code-string">"Ali"</span>;
-<span class="code-keyword">$age</span>   = <span class="code-val">13</span>;
+<span class="code-keyword">$name</span> = <span class="code-string">"Ali"</span>;
+<span class="code-keyword">$age</span> = <span class="code-val">13</span>;
 <span class="code-keyword">$score</span> = <span class="code-val">98.5</span>;
 
 <span class="code-keyword">echo</span> <span class="code-keyword">$name</span>;   <span class="code-comment">// prints: Ali</span>
@@ -38,7 +38,7 @@
             </div>
 
             <div class="connection-box">
-                <p>📏 <strong>Variable naming rules:</strong></p>
+                <p><strong>Variable naming rules:</strong></p>
                 <ul style="margin: 0.5rem 0 0 1.5rem; line-height: 2;">
                     <li>Must start with <code>$</code> followed by a letter or underscore</li>
                     <li>Can contain letters, numbers, and underscores</li>
@@ -50,50 +50,46 @@
 
         <!-- Section 2: Data Types -->
         <section class="content-section">
-            <h2>🗂️ PHP Data Types</h2>
+            <h2>PHP Data Types</h2>
             <p>PHP supports several types of data. Think of these like different kinds of containers — a glass holds liquid, a box holds solids:</p>
 
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
 <span class="code-comment">// String — text surrounded by quotes</span>
-<span class="code-keyword">$city</span>     = <span class="code-string">"Srinagar"</span>;
+<span class="code-keyword">$city</span> = <span class="code-string">"Srinagar"</span>;
 
 
 <span class="code-comment">// Integer — whole numbers (no decimal point)</span>
 <span class="code-keyword">$students</span> = <span class="code-val">30</span>;
 
 <span class="code-comment">// Float — numbers with a decimal point</span>
-<span class="code-keyword">$gpa</span>      = <span class="code-val">3.75</span>;
+<span class="code-keyword">$gpa</span> = <span class="code-val">3.75</span>;
 
 <span class="code-comment">// Boolean — only true or false</span>
-<span class="code-keyword">$passed</span>   = <span class="code-val">true</span>;
+<span class="code-keyword">$passed</span> = <span class="code-val">true</span>;
 
 <span class="code-comment">// NULL — an empty box (no value)</span>
-<span class="code-keyword">$result</span>   = <span class="code-val">null</span>;
+<span class="code-keyword">$result</span> = <span class="code-val">null</span>;
 
 <span class="code-comment">// Array — a list of multiple values</span>
-<span class="code-keyword">$grades</span>   = [<span class="code-val">90</span>, <span class="code-val">85</span>, <span class="code-val">92</span>];
+<span class="code-keyword">$grades</span> = [<span class="code-val">90</span>, <span class="code-val">85</span>, <span class="code-val">92</span>];
 <span class="code-keyword">?&gt;</span></code>
             </div>
 
             <div class="analogy-grid" style="margin-top: 1.5rem;">
                 <div class="analogy-card">
-                    <span class="analogy-icon">💬</span>
                     <h3>String</h3>
                     <p>Any text inside quotes. <code>"Hello"</code>, <code>"Ali"</code>, <code>"123 Main St"</code></p>
                 </div>
                 <div class="analogy-card">
-                    <span class="analogy-icon">🔢</span>
                     <h3>Integer</h3>
                     <p>Whole numbers. <code>5</code>, <code>-10</code>, <code>1000</code> — no decimals allowed!</p>
                 </div>
                 <div class="analogy-card">
-                    <span class="analogy-icon">📊</span>
                     <h3>Float</h3>
                     <p>Decimal numbers. <code>3.14</code>, <code>9.99</code>, <code>-0.5</code></p>
                 </div>
                 <div class="analogy-card">
-                    <span class="analogy-icon">✅</span>
                     <h3>Boolean</h3>
                     <p>Only two values: <code>true</code> or <code>false</code>. Like a light switch — on or off!</p>
                 </div>
@@ -102,14 +98,14 @@
 
         <!-- Section 3: var_dump and type casting -->
         <section class="content-section">
-            <h2>🔍 Inspecting Variables with var_dump()</h2>
+            <h2>Inspecting Variables with var_dump()</h2>
             <p>Not sure what type a variable is? Use <code>var_dump()</code> — it shows both the <strong>value</strong> AND the <strong>type</strong>. Super useful for <strong>debugging</strong> (finding and fixing mistakes in code)!</p>
 
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
 <span class="code-keyword">$score</span> = <span class="code-val">95</span>;
-<span class="code-keyword">$name</span>  = <span class="code-string">"Fatima"</span>;
-<span class="code-keyword">$pass</span>  = <span class="code-val">true</span>;
+<span class="code-keyword">$name</span> = <span class="code-string">"Fatima"</span>;
+<span class="code-keyword">$pass</span> = <span class="code-val">true</span>;
 
 <span class="code-keyword">var_dump</span>(<span class="code-keyword">$score</span>);  <span class="code-comment">// int(95)</span>
 <span class="code-keyword">var_dump</span>(<span class="code-keyword">$name</span>);   <span class="code-comment">// string(6) "Fatima"</span>
@@ -122,7 +118,7 @@
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
 <span class="code-keyword">$number</span> = <span class="code-string">"42"</span>;            <span class="code-comment">// This is a string "42"</span>
-<span class="code-keyword">$asInt</span>  = (<span class="code-val">int</span>) <span class="code-keyword">$number</span>;  <span class="code-comment">// Now it is the integer 42</span>
+<span class="code-keyword">$asInt</span> = (<span class="code-val">int</span>) <span class="code-keyword">$number</span>;  <span class="code-comment">// Now it is the integer 42</span>
 
 <span class="code-keyword">var_dump</span>(<span class="code-keyword">$asInt</span>);  <span class="code-comment">// int(42)</span>
 <span class="code-keyword">?&gt;</span></code>
@@ -131,16 +127,16 @@
 
         <!-- Section 4: String Concatenation -->
         <section class="content-section">
-            <h2>🔗 Joining Strings (Concatenation)</h2>
+            <h2>Joining Strings (Concatenation)</h2>
             <p>In PHP, you join (concatenate) strings using the <strong>dot operator <code>.</code></strong>. Think of it like gluing two pieces of paper together!</p>
 
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
 <span class="code-keyword">$firstName</span> = <span class="code-string">"Ahmed"</span>;
-<span class="code-keyword">$lastName</span>  = <span class="code-string">"Khan"</span>;
+<span class="code-keyword">$lastName</span> = <span class="code-string">"Khan"</span>;
 
 <span class="code-comment">// Joining with dot operator</span>
-<span class="code-keyword">$fullName</span>  = <span class="code-keyword">$firstName</span> . <span class="code-string">" "</span> . <span class="code-keyword">$lastName</span>;
+<span class="code-keyword">$fullName</span> = <span class="code-keyword">$firstName</span> . <span class="code-string">" "</span> . <span class="code-keyword">$lastName</span>;
 <span class="code-keyword">echo</span> <span class="code-keyword">$fullName</span>;  <span class="code-comment">// Ahmed Khan</span>
 
 <span class="code-comment">// Variables inside double quotes also work!</span>
@@ -149,7 +145,7 @@
             </div>
 
             <div class="connection-box">
-                <p>💡 <strong>Double vs Single Quotes:</strong></p>
+                <p><strong>Double vs Single Quotes:</strong></p>
                 <ul style="margin: 0.5rem 0 0 1.5rem; line-height: 2;">
                     <li><strong>Double quotes</strong> <code>"..."</code>: Variables inside are replaced with their values</li>
                     <li><strong>Single quotes</strong> <code>'...'</code>: Everything is treated as plain text — variables are NOT expanded</li>
@@ -159,7 +155,7 @@
 
         <!-- Section 5: String Functions -->
         <section class="content-section">
-            <h2>🛠️ Useful String Functions</h2>
+            <h2>Useful String Functions</h2>
             <p>A <strong>function</strong> is a ready-made command that does one job. You put a value in its brackets, and it gives back a result. PHP has hundreds of these built in for working with strings. Here are the most useful ones for beginners (positions in a string are counted from 0):</p>
 
             <div class="code-block">
@@ -233,9 +229,9 @@
 
         <!-- Practice: three levels -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
 <p>Look at this code. What will each <code>echo</code> print? Write your answers on paper first.</p>
 <pre><code>&lt;?php
 $animal = "elephant";
@@ -254,7 +250,7 @@ echo substr($animal, 0, 3);          // What prints?
 </ul></div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
 <p>You have <code>$firstName = "Ahmed";</code> and <code>$lastName = "Khan";</code>. Join them with a space into <code>$fullName</code>. Then print the full name in capital letters and, on the next line, how many characters it has.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
 <pre><code>&lt;?php
@@ -268,7 +264,7 @@ echo strlen($fullName);                // 10 (the space counts too)
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
 <p>Print a name badge for a student at the school science fair.</p>
 <ol>
 <li>Store <code>"  Maryam  "</code> (with extra spaces) in <code>$name</code>.</li>
@@ -295,7 +291,7 @@ var_dump($table);   // int(12)
 
         <!-- Quiz -->
         <section class="content-section">
-            <h2>Quick Quiz! 🧠</h2>
+            <h2>Quick Quiz!</h2>
             <div id="quiz-form-1" class="quiz-section">
                 <div class="quiz-question" data-answer="a">
                     <p>Q1: In PHP, variable names must start with which symbol?</p>

@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine an architect applying to design a new science museum:
 - They don't just hand the committee a sheet of paper with their name on it.
@@ -15,11 +15,11 @@ Imagine an architect applying to design a new science museum:
 When employers, clients, or judges want to know if you can truly code, they don't test you with paper exams. **They look at your Web Developer Portfolio!**
 Your portfolio is the single most valuable project you will build in this entire book—it proves with live, working code that you are a genuine web creator!
 
-> 🎨 **About the `<style>` block:** the page comes with ready-made CSS (a dark theme) so it looks polished. You will learn to write CSS like this in the CSS track. For now, copy it as it is and focus on the HTML.
+> **About the `<style>` block:** the page comes with ready-made CSS (a dark theme) so it looks polished. You will learn to write CSS like this in the CSS track. For now, copy it as it is and focus on the HTML.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Build a polished, agency-grade Web Developer Portfolio.
@@ -419,7 +419,7 @@ Type this into your editor and save it as `portfolio.html`:
 
 ---
 
-## 🌍 Real-World Connection: GitHub Pages & Hosting
+## Real-World Connection: GitHub Pages & Hosting
 
 How do web developers share their portfolios with the world?
 - You can upload your code repository to **GitHub** and turn on **GitHub Pages** with one click!
@@ -427,18 +427,18 @@ How do web developers share their portfolios with the world?
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What will happen when you hover over any project card?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> The card will smoothly float upward by 8 pixels (<code>transform: translateY(-8px);</code>) and its border will ignite in bright cyan (<code>border-color: #38bdf8;</code>) over 0.3 seconds!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Squashed Hero Title
+## Code Detective: The Squashed Hero Title
 
 *(A CSS preview: you will learn media queries in the CSS track.)* A student tested their portfolio on a phone, but the giant 48px hero title was so wide that it broke through the screen edges:
 
@@ -481,11 +481,11 @@ Add a recommendation quote underneath your projects:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **A nav link that points to a section that does not exist.**
 
-❌ Wrong: the menu has a "Skills" link, but no element has `id="skills"`.
+Wrong: the menu has a "Skills" link, but no element has `id="skills"`.
 
 ```html
 <li><a href="#skills">Skills</a></li>
@@ -495,7 +495,7 @@ Add a recommendation quote underneath your projects:
 
 What happens: clicking "Skills" does nothing. Visitors think the site is broken, which is the opposite of what a portfolio should show!
 
-✅ Fixed: every in-page link needs a matching `id` somewhere on the page.
+Fixed: every in-page link needs a matching `id` somewhere on the page.
 
 ```html
 <li><a href="#skills">Skills</a></li>
@@ -509,7 +509,7 @@ Before you share your portfolio, click **every** link once.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Link Your Real Chapter Projects**
 
@@ -517,11 +517,11 @@ Look inside the `.projects-grid` in `portfolio.html`:
 1. Change the links on Project 1 to point directly to the files you created in Chapter 15 and Chapter 16!
 2. Click the "Live Demo" link: Watch your browser seamlessly launch your actual restaurant and school websites!
 
-> 💡 **Hint:** Put `portfolio.html`, `restaurant.html` and `school-website.html` in the **same folder**. Then `href="restaurant.html"` finds the file with no folder path needed.
+> **Hint:** Put `portfolio.html`, `restaurant.html` and `school-website.html` in the **same folder**. Then `href="restaurant.html"` finds the file with no folder path needed.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A portfolio proves your skills by showing real, working projects.
 - Each project card groups a preview image (with meaningful `alt`), a title, a description, tech tags and links.
@@ -532,7 +532,7 @@ Look inside the `.projects-grid` in `portfolio.html`:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -543,9 +543,9 @@ Look inside the `.projects-grid` in `portfolio.html`:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the main purpose of a web developer portfolio?
 2. Name the two links every project card in this chapter includes.
 3. Which link prefix opens the visitor's email app?
@@ -559,7 +559,7 @@ Look inside the `.projects-grid` in `portfolio.html`:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why are tech tags (like "HTML5" or "Forms") helpful for people viewing your projects?
 2. Write a better `alt` than `alt="Project"` for a preview image of your school website.
 
@@ -571,7 +571,7 @@ Look inside the `.projects-grid` in `portfolio.html`:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add a third project card for your Chapter 14 profile page:
 1. Copy one whole `<div class="project-card">` block and paste it after the second card.
 2. Change the title, description and `alt` text.

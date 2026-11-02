@@ -1,10 +1,10 @@
 # Chapter 4: Conditional Logic & Branching
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Every morning your sports teacher looks at the sky. If it is raining, PE happens in the hall. Otherwise, the class goes out to the field. The teacher does not need a new plan each day. She has one rule that picks the right path. Programs make choices in exactly this way, using **conditions**: questions whose answer is `True` or `False`.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Compare values with operators such as `==`, `!=`, `>` and `<=`.
 - Choose between paths with `if`, `elif` and `else`.
@@ -232,7 +232,7 @@ Note: very hot day, watering time increased.
 
 Try changing `rain_expected` to `True`. Then try `soil_moisture = 75`. Predict each result before you run it. Saving water is a form of care for the earth (*Iḥsān*).
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```python
 age = 13
@@ -257,7 +257,7 @@ The first test needs both parts `True`, but the slip is `False`. The second test
 
 </details>
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Using `=` instead of `==`.** A single `=` stores a value. It cannot ask a question.
 
@@ -295,7 +295,7 @@ Pass
 
 A 95 should be a Distinction! **Fix:** test the biggest number first (`>= 90`, then `>= 50`).
 
-## ✍️ Try It
+## Try It
 
 A library charges no fines, but it sends reminders. Store `days_late = 9`. Print:
 
@@ -305,7 +305,7 @@ A library charges no fines, but it sends reminders. Store `days_late = 9`. Print
 
 **Hint:** use `if`, `elif` and `else`. Test `== 0` first, then `<= 7`.
 
-## 📝 Recap
+## Recap
 
 - Comparisons (`==`, `!=`, `>`, `<`, `>=`, `<=`) give `True` or `False`.
 - `if` runs a block only when its condition is `True`. End the line with `:` and indent the block.
@@ -313,9 +313,9 @@ A library charges no fines, but it sends reminders. Store `days_late = 9`. Print
 - `and`, `or` and `not` combine or flip conditions.
 - `=` stores a value; `==` compares two values.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does each expression give? `7 != 7`, `10 >= 10`, `True and False`, `not False`
 
 <details>
@@ -325,7 +325,7 @@ What does each expression give? `7 != 7`, `10 >= 10`, `True and False`, `not Fal
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write code that stores `litres_used = 140` and prints `"Water use is low"` if it is under 100, `"Water use is normal"` if it is 100 to 150, and `"Water use is high"` otherwise.
 
 <details>
@@ -350,7 +350,7 @@ Water use is normal
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "field trip check" for a school bus.
 
 1. Store `students = 38`, `seats = 40` and `driver_ready = True`.

@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Suitcase and the Bin**
 
@@ -10,7 +10,7 @@ You are packing for a school science trip. Into the suitcase go your notebook, y
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Stage one file with `git add <file>` and everything with `git add .`.
 - Unstage a file without losing your work, using `git restore --staged`.
@@ -214,7 +214,7 @@ Your edit is still in the file. Only the "packed" mark was removed.
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 **Leaked secrets and *Amānah***
 
@@ -225,12 +225,12 @@ Your edit is still in the file. Only the "packed" mark was removed.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 You have a file named `database.log`. Your `.gitignore` contains `*.log`. You run `git add .` and then `git status`. Will `database.log` be listed under **Changes to be committed**?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **No.** `git add .` skips every file that matches a pattern in `.gitignore`. `database.log` does not appear anywhere in `git status`.
 
@@ -238,7 +238,7 @@ You have a file named `database.log`. Your `.gitignore` contains `*.log`. You ru
 
 ---
 
-## 🕵️ Code Detective
+## Code Detective
 
 **The Giant Repository**
 
@@ -249,11 +249,11 @@ A student's project took 45 minutes to copy to a new computer. The lead teacher 
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Adding a secret file to `.gitignore` too late**
 
-❌ **Wrong:** you commit `.env` first, and only afterwards add `.env` to `.gitignore`.
+**Wrong:** you commit `.env` first, and only afterwards add `.env` to `.gitignore`.
 
 **What happens:** nothing changes. Git keeps tracking `.env`, because it is already part of a commit. `git status` does not complain, so the mistake is easy to miss:
 
@@ -266,7 +266,7 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-✅ **Fixed version:** tell Git to stop tracking the file, but keep it on your computer:
+**Fixed version:** tell Git to stop tracking the file, but keep it on your computer:
 
 ```bash
 git rm --cached .env
@@ -291,7 +291,7 @@ Then commit with `git add .gitignore` and `git commit -m "Stop tracking .env"`. 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. In a practice repository, create `notes.txt`, `test.log` and `.env` (with the line `KEY=practice`).
 2. Run `git status` and count the untracked files.
@@ -307,7 +307,7 @@ Your `.gitignore` needs two lines: `*.log` and `.env`. At the end, only `.gitign
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `git add <file>` stages one file; `git add .` stages everything not ignored.
 - `git restore --staged <file>` unstages a file and keeps your edits.
@@ -317,9 +317,9 @@ Your `.gitignore` needs two lines: `*.log` and `.env`. At the end, only `.gitign
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 
 1. Which command stages all new and changed files in the current folder?
 2. What is the exact name of the file that tells Git what to ignore?
@@ -334,7 +334,7 @@ Your `.gitignore` needs two lines: `*.log` and `.env`. At the end, only `.gitign
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 
 1. Why should library folders like `node_modules/` or `vendor/` stay out of Git?
 2. Explain how `.gitignore` works as a safety shield for a website.
@@ -360,7 +360,7 @@ vendor/
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 
 **The leaked key.** Three commits ago you committed `config.env` with a real secret key in it.
 

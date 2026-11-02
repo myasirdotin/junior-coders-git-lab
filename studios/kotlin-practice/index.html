@@ -17,7 +17,7 @@
     <main class="module-container">
         <header class="module-header kt-header">
             <span class="badge" style="background: white; color: #5b21b6;">Practice</span>
-            <h1>Kotlin Exercises 📱</h1>
+            <h1>Kotlin Exercises</h1>
             <p>Practice for the Android Apps textbook, chapters 4–8. Warm up by reading code, then write real Kotlin. Your code is compiled and checked against the expected output.</p>
         </header>
 
@@ -29,12 +29,12 @@
             </div>
             <div class="sqlx-tiers">
                 <button type="button" class="sqlx-tier-btn active" data-tier="all">All</button>
-                <button type="button" class="sqlx-tier-btn" data-tier="1">🟢 Warm-up</button>
-                <button type="button" class="sqlx-tier-btn" data-tier="2">🟡 Apply</button>
-                <button type="button" class="sqlx-tier-btn" data-tier="3">🔴 Challenge</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="1">Warm-up</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="2">Apply</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="3">Challenge</button>
             </div>
             <p class="sqlx-note">Read the matching chapters in the <a href="../../book-android/index.html#ch4">Android Apps textbook</a>, or look things up in the <a href="../../cheatsheet-kotlin.html">Kotlin cheat sheet</a>.</p>
-            <p class="kt-privacy">🔒 How checking works: Kotlin is too big to run inside the browser, so the coding tasks send <strong>only your code</strong> to the free Kotlin Playground compiler run by JetBrains (the makers of Kotlin). No name or account is sent. Your progress stays on this device.</p>
+            <p class="kt-privacy">How checking works: Kotlin is too big to run inside the browser, so the coding tasks send <strong>only your code</strong> to the free Kotlin Playground compiler run by JetBrains (the makers of Kotlin). No name or account is sent. Your progress stays on this device.</p>
         </section>
 
         <section id="ktxList" class="sqlx-list" aria-live="polite"></section>
@@ -47,7 +47,7 @@
         'use strict';
         const EX = window.KOTLIN_EXERCISES || [];
         const list = document.getElementById('ktxList');
-        const TIER_LABEL = { 1: '🟢 Warm-up', 2: '🟡 Apply', 3: '🔴 Challenge' };
+        const TIER_LABEL = { 1: 'Warm-up', 2: 'Apply', 3: 'Challenge' };
         const XP = { 1: 15, 2: 25, 3: 40 };
         const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
         const progress = () => window.beiProgress;
@@ -120,7 +120,7 @@
         function markSolved(ex, cardEl, fb, extra) {
             const first = progress() ? progress().completeExercise(doneKey(ex), XP[ex.tier]) : false;
             fb.className = 'sqlx-feedback ok';
-            fb.innerHTML = (first ? `✅ Correct! +${XP[ex.tier]} XP` : '✅ Correct!') + (extra || '');
+            fb.innerHTML = (first ? `Correct! +${XP[ex.tier]} XP` : 'Correct!') + (extra || '');
             cardEl.classList.add('done');
             cardEl.querySelector('.sqlx-num').textContent = '✓';
             updateProgress();
@@ -148,29 +148,29 @@
                 if (ex.type === 'predict') {
                     const got = cardEl.querySelector('.phpx-answer').value;
                     if (normLoose(got) === normLoose(ex.answer)) markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>');
-                    else fail(fb, '❌ Not quite. Read the code line by line and try again, or show the answer.');
+                    else fail(fb, 'Not quite. Read the code line by line and try again, or show the answer.');
                 } else if (ex.type === 'fill') {
                     const got = cardEl.querySelector('.phpx-answer').value.trim().toLowerCase();
                     if (ex.answers.map(a => a.toLowerCase()).includes(got)) markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>');
-                    else fail(fb, '❌ That is not it. Think about what the sentence in the task is asking for.');
+                    else fail(fb, 'That is not it. Think about what the sentence in the task is asking for.');
                 } else {
                     const btn = cardEl.querySelector('.sqlx-run');
                     btn.disabled = true;
                     fb.className = 'sqlx-feedback';
-                    fb.textContent = '⏳ Compiling and running…';
+                    fb.textContent = 'Compiling and running…';
                     try {
                         const r = await KotlinLab.run(cardEl.querySelector('.phpx-editor').value);
                         const got = normText(r.stdout), want = normText(ex.expected);
                         out.innerHTML = '<p class="sqlx-label">Your output:</p><pre class="phpx-output">' + (esc(r.stdout) || '<span class="sql-null">(nothing printed)</span>') + '</pre>' +
                             (r.errors.length ? '<pre class="phpx-output phpx-stderr">' + r.errors.map(er => 'Line ' + er.line + ': ' + esc(er.message)).join('\n') + '</pre>' : '') +
                             (r.exception ? '<pre class="phpx-output phpx-stderr">' + esc(r.exception) + '</pre>' : '');
-                        if (r.errors.length) fail(fb, '⚠️ Kotlin could not compile this. Read the message above: it names the line. Check brackets, quotes and spelling.');
-                        else if (r.exception) fail(fb, '⚠️ The program started but crashed. Read the message above.');
+                        if (r.errors.length) fail(fb, 'Kotlin could not compile this. Read the message above: it names the line. Check brackets, quotes and spelling.');
+                        else if (r.exception) fail(fb, 'The program started but crashed. Read the message above.');
                         else if (got === want) markSolved(ex, cardEl, fb);
-                        else if (normLoose(got) === normLoose(want)) fail(fb, '❌ Almost: the words are right but the spacing or line breaks differ. Compare with "Expected output".');
-                        else fail(fb, '❌ The output does not match yet. Compare it with "Expected output".');
+                        else if (normLoose(got) === normLoose(want)) fail(fb, 'Almost: the words are right but the spacing or line breaks differ. Compare with "Expected output".');
+                        else fail(fb, 'The output does not match yet. Compare it with "Expected output".');
                     } catch (err) {
-                        fail(fb, '⚠️ ' + esc(err.message) + ' You can still compare your code with "Show solution".');
+                        fail(fb, '' + esc(err.message) + ' You can still compare your code with "Show solution".');
                     }
                     btn.disabled = false;
                 }
@@ -195,10 +195,10 @@
 
         const engineEl = document.getElementById('ktxEngine');
         KotlinLab.ready().then((ver) => {
-            engineEl.textContent = '✅ Kotlin ' + ver + ' compiler ready (Kotlin Playground)';
+            engineEl.textContent = 'Kotlin ' + ver + ' compiler ready (Kotlin Playground)';
             engineEl.classList.add('ok');
         }).catch(err => {
-            engineEl.textContent = '⚠️ ' + err.message + ' The warm-up tasks still work; coding tasks show their solution and expected output.';
+            engineEl.textContent = '' + err.message + ' The warm-up tasks still work; coding tasks show their solution and expected output.';
             engineEl.classList.add('bad');
         });
     })();

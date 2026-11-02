@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Your school is running a digital science fair. You drew a poster in a drawing app and saved it as `solar_cells.png`. You choose the file, attach it to a form and click Upload. Before keeping it, the school server must ask three questions. Is this really an image, or a harmful program in disguise? Is it under the size limit? Where should it be stored, and under what name?
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Set up an HTML form with `method="POST"` and `enctype="multipart/form-data"`.
 - Read uploaded file details from the `$_FILES` superglobal.
@@ -186,7 +186,7 @@ Save this as `upload.php`:
 
 ---
 
-## 🌍 Real-World Connection: Keeping Attackers Out
+## Real-World Connection: Keeping Attackers Out
 
 Why do security teams look so carefully at file uploaders?
 - If a website lets someone upload `attack.php` and then visit `example.org/uploads/attack.php`, the server would **run** that file. The attacker could take control of the site.
@@ -195,18 +195,18 @@ Why do security teams look so carefully at file uploaders?
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What does `$_FILES['doc']['error'] === 0` mean?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> It means <code>UPLOAD_ERR_OK</code>: the file arrived in the server's temporary folder with no errors. You still need to check its size and type.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Missing Enctype
+## Code Detective: The Missing Enctype
 
 ```html
 <form action="upload.php" method="POST">
@@ -221,19 +221,19 @@ What does `$_FILES['doc']['error'] === 0` mean?
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Trusting the file name or the browser's `type`.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   if ($_FILES["pic"]["type"] === "image/png") {
     move_uploaded_file($_FILES["pic"]["tmp_name"],
       "uploads/" . $_FILES["pic"]["name"]);
   }
   ```
-- 😕 *What happens*: The browser's `type` can be faked. A harmful `attack.php` could be saved with its own name and then run on your server.
-- ✅ *Fixed*: Check the real type with `finfo`, then save under a random name with an extension you choose:
+- *What happens*: The browser's `type` can be faked. A harmful `attack.php` could be saved with its own name and then run on your server.
+- *Fixed*: Check the real type with `finfo`, then save under a random name with an extension you choose:
   ```php
   $finfo = new finfo(FILEINFO_MIME_TYPE);
   if ($finfo->file($_FILES["pic"]["tmp_name"]) === "image/png") {
@@ -246,7 +246,7 @@ A second common surprise: big uploads fail silently. PHP has its own limits in `
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/). There is no real upload there, so test the **checks** with sample values:
 
@@ -278,7 +278,7 @@ Too big: 3500000 bytes (limit 2097152)
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A file upload form needs `method="POST"` and `enctype="multipart/form-data"`.
 - PHP puts the file's details in `$_FILES`; the file waits in a temporary folder.
@@ -288,9 +288,9 @@ Too big: 3500000 bytes (limit 2097152)
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which form attribute must you add for file uploads?
 2. Which superglobal array holds uploaded file information?
 3. Which function moves a file from the temporary folder to its permanent place?
@@ -304,7 +304,7 @@ Too big: 3500000 bytes (limit 2097152)
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. What is the difference between `$_FILES['pic']['name']` and `$_FILES['pic']['tmp_name']`?
 2. Why is it dangerous to save an upload with the visitor's own file name?
 3. Why is `finfo` safer than checking `$_FILES['pic']['type']` or the file extension?
@@ -318,7 +318,7 @@ Too big: 3500000 bytes (limit 2097152)
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build `homework.php`, a PDF uploader for homework.
 
 1. Make a form with `enctype="multipart/form-data"` and a file input named `homework`.

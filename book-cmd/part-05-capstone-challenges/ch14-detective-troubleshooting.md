@@ -1,12 +1,12 @@
 # Chapter 14: Capstone Challenge 2: The Broken Asset Path Detective
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When a patient visits the doctor, the doctor does not guess. She asks questions, looks carefully, and checks the clues. Only then does she decide what to do. After the treatment, she checks again that the patient is better. Fixing a broken website works the same way. In this final chapter you are the detective. You will use clues from the terminal to find what is wrong, fix it, and prove it is fixed.
 
 > **Key Idea**: Troubleshooting is a calm routine: **read** the error, **check** where you are, **list** what is there, **compare** it with what is expected, **fix** one thing at a time, and **check** again.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Follow a six-step detective routine for any terminal problem.
 - Understand the most common error messages in CMD and PowerShell.
@@ -174,19 +174,19 @@ Look how far you have come:
 
 You are ready for the **Git & GitHub** book (`book-git/`). Git is used entirely through the terminal you now know.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Fixing before investigating.** A beginner sees the missing logo and edits `index.html`, changing `assets/logo.png` to `logo.png`. The logo appears. But now the page does not match the project's plan, and the next teammate is confused. A good detective finds the real cause first: the files were in the wrong place.
 
 **Removing a folder without looking inside.** `backup` might have held the only copy of something important. Always `dir` a folder before `rmdir /s`.
 
-## ✍️ Try It
+## Try It
 
 Recreate the messy `library-site` folder in your practice folder, using Chapters 7 and 12. Then solve the case yourself, without looking at the solution. Time how long the six steps take you.
 
 *Hint*: For `index.html`, write the three lines with `echo` and `>>`. In CMD, put `^` before each `<` and `>`.
 
-## 📝 Recap
+## Recap
 
 - Troubleshooting is a routine: read, locate, list, compare, fix, check.
 - Error messages are clues. Most mean a typo, a wrong folder, or a missing file.
@@ -194,9 +194,9 @@ Recreate the messy `library-site` folder in your practice folder, using Chapters
 - Look inside a folder before removing it, and let the terminal ask you to confirm.
 - Always check your fix: with `tree /f`, `dir`, and the browser.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Name the six steps of the detective routine.
 2. What does `The system cannot find the path specified.` usually mean?
 3. What does `[404]` mean in a server log?
@@ -210,7 +210,7 @@ Recreate the messy `library-site` folder in your practice folder, using Chapters
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 The logo shows on your Windows computer. But on the school's web server, which runs Linux, the logo is missing. The server reports **404 Not Found** for `/images/school-logo.png`.
 
 `dir /b images` prints:
@@ -230,7 +230,7 @@ School-Logo.PNG
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A new case arrives. The page `index.html` in `charity-site` contains:
 
 ```html

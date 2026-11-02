@@ -1,10 +1,10 @@
 # Chapter 5: Route Parameters
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 In a library, every book has a number on its spine. You do not need a separate sign for each book. You just say, "Please bring me book number 42," and the librarian finds it. The *request* stays the same; only the *number* changes. Route parameters work the same way. One route can serve book 1, book 42 and book 300.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Capture part of a URL with a **route parameter** like `{id}`.
 - Use two parameters in one route.
@@ -125,7 +125,7 @@ Using both is the safest choice.
 
 A parameter comes from the address bar. Anyone can type anything there. Remember what you learned in PHP: never put user input straight into SQL or HTML. Constraints are a first fence. In later chapters, Eloquent (Part 5) and Blade's `{{ }}` (Part 4) add more protection.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting the default value for an optional parameter.**
 
@@ -145,13 +145,13 @@ Route::get('/shelf/{subject?}', function ($subject = 'general') {   // right
 
 **Using a parameter without braces.** `Route::get('/books/id', ...)` only matches the exact word `id`. Write `{id}`.
 
-## ✍️ Try It
+## Try It
 
 Add a route `/members/{id}` that shows `Member card number 15.` for `/members/15`. Make it reject letters.
 
 *Hint:* chain `->whereNumber('id')` after the closing `)` of `Route::get`.
 
-## 📝 Recap
+## Recap
 
 - `{name}` in a route captures part of the URL and passes it to your function.
 - Parameters are filled in order.
@@ -159,9 +159,9 @@ Add a route `/members/{id}` that shows `Member card number 15.` for `/members/15
 - Constraints like `whereNumber()` reject bad values with a 404.
 - Fixed routes like `/books/new` go above routes with parameters.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does `?` after a parameter name do, and what else must you add?
 
 <details>
@@ -171,7 +171,7 @@ What does `?` after a parameter name do, and what else must you add?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a route `/authors/{name}` that shows `Books by Maryam.` for `/authors/Maryam`, and returns 404 for `/authors/123`.
 
 <details>
@@ -186,7 +186,7 @@ Route::get('/authors/{name}', function ($name) {
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The library groups books by year of publishing.
 
 1. Write a route `/books/year/{year}` that shows `Books published in 2024.`

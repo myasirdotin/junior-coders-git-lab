@@ -84,32 +84,32 @@
             "extras": [
                 {
                     "file": "playground.html",
-                    "icon": "🧪",
+                    "icon": "",
                     "title": "Playground"
                 },
                 {
                     "file": "exercises.html",
-                    "icon": "✍️",
+                    "icon": "",
                     "title": "Exercises"
                 },
                 {
                     "file": "quiz.html",
-                    "icon": "❓",
+                    "icon": "",
                     "title": "Quiz"
                 },
                 {
                     "file": "glossary.html",
-                    "icon": "📖",
+                    "icon": "",
                     "title": "Glossary"
                 },
                 {
                     "file": "best-practices.html",
-                    "icon": "⭐",
+                    "icon": "",
                     "title": "Best Practices"
                 },
                 {
                     "file": "tips.html",
-                    "icon": "💡",
+                    "icon": "",
                     "title": "Tips"
                 }
             ]
@@ -166,32 +166,32 @@
             "extras": [
                 {
                     "file": "playground.html",
-                    "icon": "🧪",
+                    "icon": "",
                     "title": "Playground"
                 },
                 {
                     "file": "exercises.html",
-                    "icon": "✍️",
+                    "icon": "",
                     "title": "Exercises"
                 },
                 {
                     "file": "quiz.html",
-                    "icon": "❓",
+                    "icon": "",
                     "title": "Quiz"
                 },
                 {
                     "file": "glossary.html",
-                    "icon": "📖",
+                    "icon": "",
                     "title": "Glossary"
                 },
                 {
                     "file": "best-practices.html",
-                    "icon": "⭐",
+                    "icon": "",
                     "title": "Best Practices"
                 },
                 {
                     "file": "tips.html",
-                    "icon": "💡",
+                    "icon": "",
                     "title": "Tips"
                 }
             ]
@@ -253,32 +253,32 @@
             "extras": [
                 {
                     "file": "playground.html",
-                    "icon": "🧪",
+                    "icon": "",
                     "title": "Playground"
                 },
                 {
                     "file": "exercises.html",
-                    "icon": "✍️",
+                    "icon": "",
                     "title": "Exercises"
                 },
                 {
                     "file": "quiz.html",
-                    "icon": "❓",
+                    "icon": "",
                     "title": "Quiz"
                 },
                 {
                     "file": "glossary.html",
-                    "icon": "📖",
+                    "icon": "",
                     "title": "Glossary"
                 },
                 {
                     "file": "best-practices.html",
-                    "icon": "⭐",
+                    "icon": "",
                     "title": "Best Practices"
                 },
                 {
                     "file": "tips.html",
-                    "icon": "💡",
+                    "icon": "",
                     "title": "Tips"
                 }
             ]
@@ -335,22 +335,22 @@
             "extras": [
                 {
                     "file": "playground.html",
-                    "icon": "🧪",
+                    "icon": "",
                     "title": "Playground"
                 },
                 {
                     "file": "exercises.html",
-                    "icon": "✍️",
+                    "icon": "",
                     "title": "Exercises"
                 },
                 {
                     "file": "quiz.html",
-                    "icon": "❓",
+                    "icon": "",
                     "title": "Quiz"
                 },
                 {
                     "file": "glossary.html",
-                    "icon": "📖",
+                    "icon": "",
                     "title": "Glossary"
                 }
             ]
@@ -397,22 +397,22 @@
             "extras": [
                 {
                     "file": "playground.html",
-                    "icon": "🧪",
+                    "icon": "",
                     "title": "Playground"
                 },
                 {
                     "file": "exercises.html",
-                    "icon": "✍️",
+                    "icon": "",
                     "title": "Exercises"
                 },
                 {
                     "file": "quiz.html",
-                    "icon": "❓",
+                    "icon": "",
                     "title": "Quiz"
                 },
                 {
                     "file": "glossary.html",
-                    "icon": "📖",
+                    "icon": "",
                     "title": "Glossary"
                 }
             ]
@@ -469,17 +469,17 @@
             "extras": [
                 {
                     "file": "exercises.html",
-                    "icon": "✍️",
+                    "icon": "",
                     "title": "Exercises"
                 },
                 {
                     "file": "quiz.html",
-                    "icon": "❓",
+                    "icon": "",
                     "title": "Quiz"
                 },
                 {
                     "file": "glossary.html",
-                    "icon": "📖",
+                    "icon": "",
                     "title": "Glossary"
                 }
             ]
@@ -536,27 +536,27 @@
             "extras": [
                 {
                     "file": "playground.html",
-                    "icon": "🧪",
+                    "icon": "",
                     "title": "Playground"
                 },
                 {
                     "file": "exercises.html",
-                    "icon": "✍️",
+                    "icon": "",
                     "title": "Exercises"
                 },
                 {
                     "file": "quiz.html",
-                    "icon": "❓",
+                    "icon": "",
                     "title": "Quiz"
                 },
                 {
                     "file": "glossary.html",
-                    "icon": "📖",
+                    "icon": "",
                     "title": "Glossary"
                 },
                 {
                     "file": "best-practices.html",
-                    "icon": "⭐",
+                    "icon": "",
                     "title": "Best Practices"
                 }
             ]
@@ -613,27 +613,27 @@
             "extras": [
                 {
                     "file": "playground.html",
-                    "icon": "🧪",
+                    "icon": "",
                     "title": "Playground"
                 },
                 {
                     "file": "exercises.html",
-                    "icon": "✍️",
+                    "icon": "",
                     "title": "Exercises"
                 },
                 {
                     "file": "quiz.html",
-                    "icon": "❓",
+                    "icon": "",
                     "title": "Quiz"
                 },
                 {
                     "file": "glossary.html",
-                    "icon": "📖",
+                    "icon": "",
                     "title": "Glossary"
                 },
                 {
                     "file": "best-practices.html",
-                    "icon": "⭐",
+                    "icon": "",
                     "title": "Best Practices"
                 }
             ]
@@ -690,27 +690,27 @@
             "extras": [
                 {
                     "file": "playground.html",
-                    "icon": "🧪",
+                    "icon": "",
                     "title": "Playground"
                 },
                 {
                     "file": "exercises.html",
-                    "icon": "✍️",
+                    "icon": "",
                     "title": "Exercises"
                 },
                 {
                     "file": "quiz.html",
-                    "icon": "❓",
+                    "icon": "",
                     "title": "Quiz"
                 },
                 {
                     "file": "glossary.html",
-                    "icon": "📖",
+                    "icon": "",
                     "title": "Glossary"
                 },
                 {
                     "file": "best-practices.html",
-                    "icon": "⭐",
+                    "icon": "",
                     "title": "Best Practices"
                 }
             ]
@@ -791,8 +791,17 @@
         learn: svg('<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21z"/><path d="M4 19V5.5"/><path d="M8 7h8M8 11h8"/>'),
         practice: svg('<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>'),
         library: svg('<path d="M4 4h4v16H4zM10 4h4v16h-4z"/><path d="m16 5 4 1-3.5 15-4-1z"/>'),
-        menu: svg('<path d="M4 6h16M4 12h16M4 18h16"/>')
+        menu: svg('<path d="M4 6h16M4 12h16M4 18h16"/>'),
+        speaker: svg('<path d="M11 5 6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/>'),
+        stop: svg('<rect x="6" y="6" width="12" height="12" rx="1.5"/>'),
+        pause: svg('<path d="M8 5v14M16 5v14"/>'),
+        play: svg('<path d="m7 4 13 8-13 8z"/>'),
+        book: svg('<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21z"/><path d="M4 19V5.5"/>'),
+        download: svg('<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/>'),
+        check: svg('<path d="m4 12 5 5L20 6"/>'),
+        warn: svg('<path d="M12 3 2 20h20z"/><path d="M12 9v5M12 17h.01"/>')
     };
+    window.JC_ICONS = ICONS;   // js/core.js, js/book-speaker.js and js/pdf-download.js use the same icons
 
     function renderGlobalNav() {
         let nav = document.querySelector('.bei-nav');
@@ -843,25 +852,25 @@
         const learnMenu =
             SUBJECT_GROUPS.map(g => section(g.title, g.subjects.map(k =>
                 item(subjectHref(k), SUBJECTS[k].icon, SUBJECTS[k].name, subjectMeta(k))))).join('') +
-            footer([item('learn/index.html', '🧭', 'All subjects', ''), item('paths/index.html', '🗺️', 'Learning paths', 'Week-by-week plans')]);
+            footer([item('learn/index.html', '', 'All subjects', ''), item('paths/index.html', '', 'Learning paths', 'Week-by-week plans')]);
         const practiceMenu =
             section('Code studios', [
-                item('studios/web-studio/index.html', '🌐', 'Web Studio', 'HTML, CSS, JavaScript'),
-                item('studios/python-console/index.html', '🐍', 'Python Console', 'Run Python'),
-                item('studios/php-console/index.html', '🐘', 'PHP Console', 'Run PHP 8.3'),
-                item('studios/sql-sandbox/index.html', '🗄️', 'SQL Sandbox', 'School library database')]) +
+                item('studios/web-studio/index.html', '', 'Web Studio', 'HTML, CSS, JavaScript'),
+                item('studios/python-console/index.html', '', 'Python Console', 'Run Python'),
+                item('studios/php-console/index.html', '', 'PHP Console', 'Run PHP 8.3'),
+                item('studios/sql-sandbox/index.html', '', 'SQL Sandbox', 'School library database')]) +
             section('Labs and challenges', [
-                item('Learning%20Cybersecurity/playground.html', '🛡️', 'Cyber Defense Studio', 'Security experiments'),
-                item('Learning%20Networks/playground.html', '📡', 'Network Studio', 'See packets travel'),
-                item('practice-arena.html', '⚔️', 'Practice Arena', 'Coding challenges'),
-                item('studios/kotlin-practice/index.html', '📱', 'Kotlin Exercises', '15 auto-checked tasks'),
-                item('projects/index.html', '🏆', 'Projects', '10 real project briefs')]) +
-            footer([item('studios/index.html', '⚡', 'All studios', '')]);
+                item('Learning%20Cybersecurity/playground.html', '', 'Cyber Defense Studio', 'Security experiments'),
+                item('Learning%20Networks/playground.html', '', 'Network Studio', 'See packets travel'),
+                item('practice-arena.html', '', 'Practice Arena', 'Coding challenges'),
+                item('studios/kotlin-practice/index.html', '', 'Kotlin Exercises', '15 auto-checked tasks'),
+                item('projects/index.html', '', 'Projects', '10 real project briefs')]) +
+            footer([item('studios/index.html', '', 'All studios', '')]);
         const libraryMenu =
             section('Read and look up', [
-                item('library/books/index.html', '📖', 'Textbooks', '12 books that read aloud'),
-                item('library/cheatsheets/index.html', '📋', 'Cheat sheets', 'Search all 12 at once')]) +
-            footer([item('library/index.html', '🏛️', 'Library home', '')]);
+                item('library/books/index.html', '', 'Textbooks', '12 books that read aloud'),
+                item('library/cheatsheets/index.html', '', 'Cheat sheets', 'Search all 12 at once')]) +
+            footer([item('library/index.html', '', 'Library home', '')]);
 
         const navHtml = `
             <div class="container bei-nav-inner">
@@ -1099,7 +1108,7 @@
         const filename = window.location.pathname.split('/').pop().toLowerCase();
         if (!/^module\d+\.html$/.test(filename)) return;   // syllabus, playground, quiz... keep their own layout
         const currentMod = track.modules.find(m => m.num === moduleNum) || track.modules[0];
-        const extrasHtml = (track.extras || []).map(x => `<a href="${x.file}" class="switcher-extra-link">${x.icon} ${x.title}</a>`).join('');
+        const extrasHtml = (track.extras || []).map(x => `<a href="${x.file}" class="switcher-extra-link">${x.title}</a>`).join('');
         Progress.visit(track, currentMod.num, currentMod.file);
         const doneCount = Progress.doneCount(track);
         const prevMod = track.modules.find(m => m.num === moduleNum - 1);
@@ -1250,7 +1259,7 @@
             if (counter) counter.textContent = Progress.doneCount(track);
             const item = document.querySelector(`.switcher-module-item.active`);
             if (item) { item.classList.add('done'); item.querySelector('.switcher-mod-number').textContent = '✓'; }
-            if (typeof window.showToast === 'function') window.showToast(isNew ? `Module ${currentMod.num} completed! 🎉` : 'Module already completed!');
+            if (typeof window.showToast === 'function') window.showToast(isNew ? `Module ${currentMod.num} completed!` : 'Module already completed!');
         });
     }
 
@@ -1294,58 +1303,58 @@
     // ═════════════════════════════════════════════════════════════════
     const SEARCH_PAGES = [
         // BOOKS-SEARCH:START generated by scripts/build-books.js
-        ['book-cmd/index.html', '📖', "Terminal & Command Prompt (textbook)", 'Textbook', "cmd terminal powershell bash shell"],
-        ['book-html/index.html', '📖', "HTML: Structure the Web (textbook)", 'Textbook', "html website tags"],
-        ['book-css/index.html', '📖', "CSS: Styling & Layouts (textbook)", 'Textbook', "css style design layout"],
-        ['book-git/index.html', '📖', "Git & GitHub (textbook)", 'Textbook', "git github commit branch"],
-        ['book-js/index.html', '📖', "JavaScript: Learn, Think, Create (textbook)", 'Textbook', "javascript js"],
-        ['book-php/index.html', '📖', "PHP: Server Scripting (textbook)", 'Textbook', "php server forms"],
-        ['book-mysql/index.html', '📖', "MySQL: Databases (textbook)", 'Textbook', "mysql sql database"],
-        ['book-laravel/index.html', '📖', "Laravel: PHP Framework (textbook)", 'Textbook', "laravel framework mvc"],
-        ['book-python/index.html', '📖', "Python & Machine Learning (textbook)", 'Textbook', "python ml ai"],
-        ['book-networks/index.html', '📖', "Networks & Web Protocols (textbook)", 'Textbook', "network internet dns http tcp"],
-        ['book-cybersecurity/index.html', '📖', "Cybersecurity & Digital Safety (textbook)", 'Textbook', "security password phishing"],
-        ['book-android/index.html', '📖', "Android Apps with Kotlin (textbook)", 'Textbook', "android app kotlin compose mobile phone"],
+        ['book-cmd/index.html', '', "Terminal & Command Prompt (textbook)", 'Textbook', "cmd terminal powershell bash shell"],
+        ['book-html/index.html', '', "HTML: Structure the Web (textbook)", 'Textbook', "html website tags"],
+        ['book-css/index.html', '', "CSS: Styling & Layouts (textbook)", 'Textbook', "css style design layout"],
+        ['book-git/index.html', '', "Git & GitHub (textbook)", 'Textbook', "git github commit branch"],
+        ['book-js/index.html', '', "JavaScript: Learn, Think, Create (textbook)", 'Textbook', "javascript js"],
+        ['book-php/index.html', '', "PHP: Server Scripting (textbook)", 'Textbook', "php server forms"],
+        ['book-mysql/index.html', '', "MySQL: Databases (textbook)", 'Textbook', "mysql sql database"],
+        ['book-laravel/index.html', '', "Laravel: PHP Framework (textbook)", 'Textbook', "laravel framework mvc"],
+        ['book-python/index.html', '', "Python & Machine Learning (textbook)", 'Textbook', "python ml ai"],
+        ['book-networks/index.html', '', "Networks & Web Protocols (textbook)", 'Textbook', "network internet dns http tcp"],
+        ['book-cybersecurity/index.html', '', "Cybersecurity & Digital Safety (textbook)", 'Textbook', "security password phishing"],
+        ['book-android/index.html', '', "Android Apps with Kotlin (textbook)", 'Textbook', "android app kotlin compose mobile phone"],
         // BOOKS-SEARCH:END
-        ['cheatsheet-html.html', '📋', 'HTML Cheat Sheet', 'Cheat sheet', 'html'],
-        ['cheatsheet-css.html', '📋', 'CSS Cheat Sheet', 'Cheat sheet', 'css'],
-        ['cheatsheet-js.html', '📋', 'JavaScript Cheat Sheet', 'Cheat sheet', 'javascript js'],
-        ['cheatsheet-cmd.html', '📋', 'Command Line & Terminal Cheat Sheet', 'Cheat sheet', 'cmd terminal'],
-        ['cheatsheet-git.html', '📋', 'Git & GitHub Cheat Sheet', 'Cheat sheet', 'git'],
-        ['cheatsheet-php.html', '📋', 'PHP Cheat Sheet', 'Cheat sheet', 'php'],
-        ['cheatsheet-mysql.html', '📋', 'MySQL Cheat Sheet', 'Cheat sheet', 'mysql sql'],
-        ['cheatsheet-laravel.html', '📋', 'Laravel Cheat Sheet', 'Cheat sheet', 'laravel'],
-        ['cheatsheet-python.html', '📋', 'Python & Machine Learning Cheat Sheet', 'Cheat sheet', 'python'],
-        ['cheatsheet-networks.html', '📋', 'Networking & Web Protocols Cheat Sheet', 'Cheat sheet', 'network'],
-        ['cheatsheet-cybersecurity.html', '📋', 'Cybersecurity & Digital Hygiene Cheat Sheet', 'Cheat sheet', 'security'],
-        ['cheatsheet-kotlin.html', '📋', 'Kotlin & Android Cheat Sheet', 'Cheat sheet', 'kotlin android compose app'],
-        ['studios/web-studio/index.html', '⚡', 'Web Studio (HTML, CSS & JS Lab)', 'Studio', 'playground ide code'],
-        ['studios/sql-sandbox/index.html', '🗄️', 'SQL Sandbox', 'Studio', 'mysql database query'],
-        ['studios/kotlin-practice/index.html', '📱', 'Kotlin Exercises', 'Practice', 'kotlin android exercises practice'],
-        ['studios/python-console/index.html', '🐍', 'Python Console', 'Studio', 'python run'],
-        ['practice-arena.html', '⚔️', 'Practice Arena', 'Practice', 'challenges exercises xp'],
-        ['learn/index.html', '📚', 'Learn: all 12 subjects', 'Page', 'courses tracks subjects curriculum'],
-        ['paths/index.html', '🗺️', 'Start here: pick your path', 'Page', 'start begin pathways beginner web developer full stack'],
-        ['library/books/index.html', '📖', 'All Textbooks', 'Page', 'books library'],
-        ['library/cheatsheets/index.html', '📋', 'All Cheat Sheets', 'Page', 'reference'],
-        ['projects/index.html', '🏆', 'Graded Project Catalog', 'Page', 'projects capstone'],
-        ['teacher-hub/index.html', '🍎', 'Teacher Hub & Educator Resources', 'Page', 'teachers lesson plans rubrics'],
-        ['ai-roadmap.html', '🤖', 'AI Roadmap', 'Page', 'ai machine learning'],
-        ['getting-started.html', '🚀', 'Getting Started', 'Page', 'start setup']
+        ['cheatsheet-html.html', '', 'HTML Cheat Sheet', 'Cheat sheet', 'html'],
+        ['cheatsheet-css.html', '', 'CSS Cheat Sheet', 'Cheat sheet', 'css'],
+        ['cheatsheet-js.html', '', 'JavaScript Cheat Sheet', 'Cheat sheet', 'javascript js'],
+        ['cheatsheet-cmd.html', '', 'Command Line & Terminal Cheat Sheet', 'Cheat sheet', 'cmd terminal'],
+        ['cheatsheet-git.html', '', 'Git & GitHub Cheat Sheet', 'Cheat sheet', 'git'],
+        ['cheatsheet-php.html', '', 'PHP Cheat Sheet', 'Cheat sheet', 'php'],
+        ['cheatsheet-mysql.html', '', 'MySQL Cheat Sheet', 'Cheat sheet', 'mysql sql'],
+        ['cheatsheet-laravel.html', '', 'Laravel Cheat Sheet', 'Cheat sheet', 'laravel'],
+        ['cheatsheet-python.html', '', 'Python & Machine Learning Cheat Sheet', 'Cheat sheet', 'python'],
+        ['cheatsheet-networks.html', '', 'Networking & Web Protocols Cheat Sheet', 'Cheat sheet', 'network'],
+        ['cheatsheet-cybersecurity.html', '', 'Cybersecurity & Digital Hygiene Cheat Sheet', 'Cheat sheet', 'security'],
+        ['cheatsheet-kotlin.html', '', 'Kotlin & Android Cheat Sheet', 'Cheat sheet', 'kotlin android compose app'],
+        ['studios/web-studio/index.html', '', 'Web Studio (HTML, CSS & JS Lab)', 'Studio', 'playground ide code'],
+        ['studios/sql-sandbox/index.html', '', 'SQL Sandbox', 'Studio', 'mysql database query'],
+        ['studios/kotlin-practice/index.html', '', 'Kotlin Exercises', 'Practice', 'kotlin android exercises practice'],
+        ['studios/python-console/index.html', '', 'Python Console', 'Studio', 'python run'],
+        ['practice-arena.html', '', 'Practice Arena', 'Practice', 'challenges exercises xp'],
+        ['learn/index.html', '', 'Learn: all 12 subjects', 'Page', 'courses tracks subjects curriculum'],
+        ['paths/index.html', '', 'Start here: pick your path', 'Page', 'start begin pathways beginner web developer full stack'],
+        ['library/books/index.html', '', 'All Textbooks', 'Page', 'books library'],
+        ['library/cheatsheets/index.html', '', 'All Cheat Sheets', 'Page', 'reference'],
+        ['projects/index.html', '', 'Graded Project Catalog', 'Page', 'projects capstone'],
+        ['teacher-hub/index.html', '', 'Teacher Hub & Educator Resources', 'Page', 'teachers lesson plans rubrics'],
+        ['ai-roadmap.html', '', 'AI Roadmap', 'Page', 'ai machine learning'],
+        ['getting-started.html', '', 'Getting Started', 'Page', 'start setup']
     ];
-    const TRACK_ICONS = { html: '🌐', css: '🎨', js: '⚡', php: '🐘', mysql: '🗄️', laravel: '🔥', python: '🐍', networks: '🌍', cybersecurity: '🛡️', cmd: '💻', git: '🐙', android: '📱' };
+    const TRACK_ICONS = { html: '', css: '', js: '', php: '', mysql: '', laravel: '', python: '', networks: '', cybersecurity: '', cmd: '', git: '', android: '' };
 
     function buildSearchIndex() {
         const items = [];
         Object.keys(CURRICULUM).forEach(key => {
-            const t = CURRICULUM[key], icon = TRACK_ICONS[key] || '📚', dir = encodeURI(t.dir) + '/';
+            const t = CURRICULUM[key], icon = TRACK_ICONS[key] || '', dir = encodeURI(t.dir) + '/';
             items.push({ url: ROOT + dir + t.syllabus, icon, label: t.name + ': all modules', sub: 'Course', keys: key + ' ' + t.dir });
             t.modules.forEach(m => items.push({ url: ROOT + dir + m.file, icon, label: 'Module ' + m.num + ': ' + m.title, sub: t.shortName, keys: key + ' ' + t.dir }));
             (t.extras || []).forEach(x => items.push({ url: ROOT + dir + x.file, icon: x.icon, label: t.shortName + ' ' + x.title, sub: t.shortName, keys: key + ' ' + t.dir + ' practice' }));
         });
         SEARCH_PAGES.forEach(([href, icon, label, sub, keys]) => items.push({ url: ROOT + href, icon, label, sub, keys }));
         // every textbook chapter (js/data/chapter-index.js, generated by scripts/build-books.js; loaded when the search opens)
-        (window.JC_CHAPTER_INDEX || []).forEach(([href, label, sub, keys]) => items.push({ url: ROOT + href, icon: '📖', label, sub, keys }));
+        (window.JC_CHAPTER_INDEX || []).forEach(([href, label, sub, keys]) => items.push({ url: ROOT + href, icon: '', label, sub, keys }));
         items.forEach(i => { i.hay = (i.label + ' ' + i.sub + ' ' + (i.keys || '')).toLowerCase(); i.lab = i.label.toLowerCase(); });
         return items;
     }
@@ -1398,7 +1407,7 @@
                 .map(i => { let sc = 0; for (const w of words) { if (!i.hay.includes(w)) return null; sc += i.lab.startsWith(w) ? 3 : i.lab.includes(w) ? 2 : 1; } return { i, sc }; })
                 .filter(Boolean).sort((a, b) => b.sc - a.sc).slice(0, 10);
             results.innerHTML = hits.length
-                ? hits.map((h, n) => `<a href="${h.i.url}" class="bei-search-item" role="option" data-n="${n}"><span class="bei-search-item-ico">${h.i.icon}</span><span class="bei-search-item-label">${esc(h.i.label)}</span><span class="bei-search-item-sub">${esc(h.i.sub)}</span></a>`).join('')
+                ? hits.map((h, n) => `<a href="${h.i.url}" class="bei-search-item" role="option" data-n="${n}"><span class="bei-search-item-label">${esc(h.i.label)}</span><span class="bei-search-item-sub">${esc(h.i.sub)}</span></a>`).join('')
                 : '<div class="bei-search-hint">No results. Try another word.</div>';
         };
         const move = (d) => {
@@ -1435,10 +1444,10 @@
     //     to its textbook. Pages place <div data-jc-subject-map="full|compact">.
     // ═════════════════════════════════════════════════════════════════
     const SUBJECT_GROUPS = [
-        { key: 'first', icon: '🌱', title: 'First steps', grades: 'Grades 6–7', blurb: 'Start here if you are new: the computer, the terminal, your first web pages and saving your work.', subjects: ['cmd', 'html', 'css', 'git'] },
-        { key: 'web', icon: '⚙️', title: 'Websites that think', grades: 'Grades 7–10', blurb: 'Logic in the browser, then servers and databases behind the page.', subjects: ['js', 'php', 'mysql', 'laravel'] },
-        { key: 'python', icon: '🤖', title: 'Python, networks and safety', grades: 'Grades 8–10', blurb: 'Data and machine learning, how the internet carries it, and staying safe online.', subjects: ['python', 'networks', 'cybersecurity'] },
-        { key: 'apps', icon: '📱', title: 'Apps for phones', grades: 'Grades 9–10', blurb: 'Build real Android apps with Kotlin and Jetpack Compose.', subjects: ['android'] }
+        { key: 'first', icon: '', title: 'First steps', grades: 'Grades 6–7', blurb: 'Start here if you are new: the computer, the terminal, your first web pages and saving your work.', subjects: ['cmd', 'html', 'css', 'git'] },
+        { key: 'web', icon: '', title: 'Websites that think', grades: 'Grades 7–10', blurb: 'Logic in the browser, then servers and databases behind the page.', subjects: ['js', 'php', 'mysql', 'laravel'] },
+        { key: 'python', icon: '', title: 'Python, networks and safety', grades: 'Grades 8–10', blurb: 'Data and machine learning, how the internet carries it, and staying safe online.', subjects: ['python', 'networks', 'cybersecurity'] },
+        { key: 'apps', icon: '', title: 'Apps for phones', grades: 'Grades 9–10', blurb: 'Build real Android apps with Kotlin and Jetpack Compose.', subjects: ['android'] }
     ];
     const SUBJECTS = {
         cmd: { name: 'Terminal', grades: 'Grades 6–7', sheet: 'cheatsheet-cmd.html' },
@@ -1454,7 +1463,7 @@
         cybersecurity: { name: 'Cybersecurity', grades: 'Grades 9–10', sheet: 'cheatsheet-cybersecurity.html' },
         android: { name: 'Android Apps', grades: 'Grades 9–10', sheet: 'cheatsheet-kotlin.html', practice: ['studios/kotlin-practice/index.html', 'Kotlin exercises'] }
     };
-    Object.keys(SUBJECTS).forEach(k => { SUBJECTS[k].icon = TRACK_ICONS[k] || '📚'; SUBJECTS[k].book = 'book-' + k + '/index.html'; });
+    Object.keys(SUBJECTS).forEach(k => { SUBJECTS[k].icon = TRACK_ICONS[k] || ''; SUBJECTS[k].book = 'book-' + k + '/index.html'; });
     const subjectTrack = (k) => CURRICULUM[k] || null;
     // site-relative address of the place a subject starts: its lesson track, or its textbook
     const subjectHref = (k) => { const t = subjectTrack(k); return t ? encodeURI(t.dir) + '/' + t.syllabus : SUBJECTS[k].book; };
@@ -1478,7 +1487,6 @@
             if (s.practice) links.push(a(s.practice[0], s.practice[1], ''));
             return `<article class="jc-subject">
                 <a class="jc-subject-main" href="${ROOT}${subjectHref(k)}">
-                    <span class="jc-subject-ico" aria-hidden="true">${s.icon}</span>
                     <span class="jc-subject-name">${esc(s.name)}</span>
                     <span class="jc-subject-meta">${meta}</span>
                 </a>
@@ -1492,7 +1500,7 @@
         </section>`).join('');
         const compact = `<div class="jc-sg-compact">` + SUBJECT_GROUPS.map(g => `<div class="jc-sg-row">
             <a class="jc-sg-row-title" href="${ROOT}learn/index.html#group-${g.key}"><span aria-hidden="true">${g.icon}</span> ${esc(g.title)} <small>${esc(g.grades)}</small></a>
-            <div class="jc-chips">${g.subjects.map(k => `<a class="jc-chip" href="${ROOT}${subjectHref(k)}"><span aria-hidden="true">${SUBJECTS[k].icon}</span>${esc(SUBJECTS[k].name)}</a>`).join('')}</div>
+            <div class="jc-chips">${g.subjects.map(k => `<a class="jc-chip" href="${ROOT}${subjectHref(k)}">${esc(SUBJECTS[k].name)}</a>`).join('')}</div>
         </div>`).join('') + `</div>`;
         places.forEach(el => { el.innerHTML = el.getAttribute('data-jc-subject-map') === 'compact' ? compact : full; });
     }

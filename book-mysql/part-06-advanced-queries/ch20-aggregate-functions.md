@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 After the charity week, the club leader does not read out all eight donation slips at assembly. She says: "We received 8 gifts, 27,500 rupees in total. The biggest gift was 8,000 rupees." Each of those sentences squeezes a whole pile of slips into one number. In SQL, the tools that do this squeezing are called aggregate functions.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Count rows with `COUNT(*)`, `COUNT(column)` and `COUNT(DISTINCT column)`.
 - Add up a column with `SUM`.
@@ -134,7 +134,7 @@ SELECT ROUND(AVG(gpa), 2) AS average_gpa FROM students;
 
 `AVG` ignores `NULL` values. A student with no GPA does not pull the average down to zero.
 
-> 🧪 **Sandbox note:** MySQL prints `AVG(amount)` on donations as `3437.5000` (4 decimals). SQLite prints `3437.5`, and shows `AVG(gpa)` as `3.66875`. The value is the same; only the display differs.
+> **Sandbox note:** MySQL prints `AVG(amount)` on donations as `3437.5000` (4 decimals). SQLite prints `3437.5`, and shows `AVG(gpa)` as `3.66875`. The value is the same; only the display differs.
 
 ---
 
@@ -208,7 +208,7 @@ Use `COALESCE(SUM(amount), 0)` (Chapter 19) if you want `0` instead.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: mixing a plain column with an aggregate.** "Who has the highest GPA?"
 
@@ -246,7 +246,7 @@ ERROR 1111 (HY000): Invalid use of group function
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/), make a summary for the *Books* cause: number of gifts, total, and average rounded to a whole number.
 
@@ -254,7 +254,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), make a summary for the *Books* ca
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Aggregates turn many rows into one value.
 - `COUNT(*)` counts rows; `COUNT(column)` skips `NULL`; `COUNT(DISTINCT column)` counts different values.
@@ -264,9 +264,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/), make a summary for the *Books* ca
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Name the five aggregate functions.
 2. What is the difference between `COUNT(*)` and `COUNT(city)`?
 3. What does `ROUND(AVG(gpa), 2)` do?
@@ -280,7 +280,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), make a summary for the *Books* ca
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Find the total amount given to the *Food Pantry* cause.
 2. Find how many loans there are, the first loan date and the latest loan date.
 3. Find the average number of pages of *Ethics* books.
@@ -302,7 +302,7 @@ SELECT AVG(pages) FROM books WHERE category = 'Ethics';
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "charity dashboard" query for the club noticeboard.
 
 1. In one query, show the number of gifts, the total, the largest gift, the smallest gift, and the average rounded to whole rupees.

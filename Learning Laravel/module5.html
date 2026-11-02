@@ -11,7 +11,7 @@
     <main class="module-container">
         <header class="module-header path-laravel">
             <span class="badge" style="background: white; color: var(--laravel-brand);">Level 2</span>
-            <h1>Eloquent ORM 🗣️</h1>
+            <h1>Eloquent ORM</h1>
             <p>Talk to your database in plain PHP — no SQL required!</p>
         </header>
 
@@ -20,13 +20,13 @@
             <p>Eloquent is Laravel's built-in ORM (Object-Relational Mapper). It lets you interact with your database tables using PHP classes instead of raw SQL queries. Each database table has a corresponding <strong>Model</strong> class.</p>
 
             <div class="connection-box" style="border-left-color: var(--laravel-brand);">
-                <strong>The Filing Cabinet Analogy 🗄️</strong><br><br>
+                <strong>The Filing Cabinet Analogy</strong><br><br>
                 Think of your database as a giant filing cabinet. Each drawer is a table (like "students"). Eloquent is your super-smart assistant — instead of manually searching through files (writing SQL), you just say "get me all students with grade A" and your assistant does the digging for you!
             </div>
         </section>
 
         <section class="content-section">
-            <h2>Creating a Model 🏗️</h2>
+            <h2>Creating a Model</h2>
             <p>Generate a model with the Artisan command. By convention, if your table is called <code>students</code>, your model is called <code>Student</code> (singular, CamelCase).</p>
 
             <div class="code-block">
@@ -55,10 +55,10 @@ php artisan make:model Student -m</code>
         </section>
 
         <section class="content-section">
-            <h2>CRUD with Eloquent ⚡</h2>
+            <h2>CRUD with Eloquent</h2>
             <p>Eloquent makes all four database operations (Create, Read, Update, Delete) clean and intuitive:</p>
 
-            <h3 style="color: var(--text-green); margin-top: 1.5rem;">📖 Read</h3>
+            <h3 style="color: var(--text-green); margin-top: 1.5rem;">Read</h3>
             <div class="code-block">
 <code><span class="code-comment">// Get ALL students</span>
 <span class="code-val">$students</span> = <span class="code-val">Student</span>::<span class="code-val">all</span>();
@@ -75,11 +75,11 @@ php artisan make:model Student -m</code>
                           -&gt;<span class="code-val">get</span>();</code>
             </div>
 
-            <h3 style="color: var(--text-indigo); margin-top: 1.5rem;">✏️ Create</h3>
+            <h3 style="color: var(--text-indigo); margin-top: 1.5rem;">Create</h3>
             <div class="code-block">
 <code><span class="code-comment">// Method 1: create() — uses $fillable for safety</span>
 <span class="code-val">Student</span>::<span class="code-val">create</span>([
-    <span class="code-string">'name'</span>  =&gt; <span class="code-string">'Ali Khan'</span>,
+    <span class="code-string">'name'</span> =&gt; <span class="code-string">'Ali Khan'</span>,
     <span class="code-string">'grade'</span> =&gt; <span class="code-string">'A'</span>,
     <span class="code-string">'email'</span> =&gt; <span class="code-string">'ali@school.com'</span>,
 ]);
@@ -90,7 +90,7 @@ php artisan make:model Student -m</code>
 <span class="code-val">$s</span>-&gt;<span class="code-val">save</span>();</code>
             </div>
 
-            <h3 style="color: var(--text-amber); margin-top: 1.5rem;">🔄 Update</h3>
+            <h3 style="color: var(--text-amber); margin-top: 1.5rem;">Update</h3>
             <div class="code-block">
 <code><span class="code-val">$student</span> = <span class="code-val">Student</span>::<span class="code-val">find</span>(<span class="code-val">1</span>);
 <span class="code-val">$student</span>-&gt;<span class="code-val">grade</span> = <span class="code-string">'A+'</span>;
@@ -100,7 +100,7 @@ php artisan make:model Student -m</code>
 <span class="code-val">Student</span>::<span class="code-val">where</span>(<span class="code-string">'name'</span>, <span class="code-string">'Ali'</span>)-&gt;<span class="code-val">update</span>([<span class="code-string">'grade'</span> =&gt; <span class="code-string">'A+'</span>]);</code>
             </div>
 
-            <h3 style="color: var(--text-red); margin-top: 1.5rem;">🗑️ Delete</h3>
+            <h3 style="color: var(--text-red); margin-top: 1.5rem;">Delete</h3>
             <div class="code-block">
 <code><span class="code-val">$student</span> = <span class="code-val">Student</span>::<span class="code-val">find</span>(<span class="code-val">1</span>);
 <span class="code-val">$student</span>-&gt;<span class="code-val">delete</span>();
@@ -111,7 +111,7 @@ php artisan make:model Student -m</code>
         </section>
 
         <section class="content-section">
-            <h2>Relationships 🔗</h2>
+            <h2>Relationships</h2>
             <p>Eloquent makes database relationships elegant. A student can belong to a class, a class can have many students:</p>
 
             <div class="code-block">
@@ -137,14 +137,14 @@ php artisan make:model Student -m</code>
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Fill in the blanks. A table called <code>books</code> has a model called ______. To get every row, you write <code>Book::______()</code>.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div><code>Book</code> (singular, starting with a capital letter) and <code>Book::all()</code>.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Fix the bug</h3>
+                <h3>Level 2: Fix the bug</h3>
                 <p>The librarian wants to correct the title of book 3. The code runs with no error, but the database never changes. Why? Fix it. Also make it show a 404 page if book 3 does not exist.</p>
 <pre><code>$book = Book::find(3);
 $book-&gt;title = 'Our Solar System';</code></pre>
@@ -156,7 +156,7 @@ $book-&gt;save();</code></pre>
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>On your own XAMPP computer, connect a library catalogue to MySQL and use Eloquent to add and find books.</p>
                 <ol>
                     <li>Start Apache and MySQL in XAMPP. In phpMyAdmin, create a database called <code>school_library</code>.</li>
@@ -194,7 +194,7 @@ Book::where('author', 'Amina Yusuf')-&gt;get();</code></pre>
         </section>
 
         <section class="content-section">
-            <h2>Quick Quiz! 🧪</h2>
+            <h2>Quick Quiz!</h2>
             <form id="quiz-form-1" class="quiz-section">
                 <div class="quiz-question" data-answer="b">
                     <p><strong>Q1:</strong> What does <code>Student::all()</code> return?</p>

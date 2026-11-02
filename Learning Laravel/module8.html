@@ -11,7 +11,7 @@
     <main class="module-container">
         <header class="module-header path-laravel">
             <span class="badge" style="background: white; color: var(--laravel-brand);">Level 3</span>
-            <h1>Authentication 🔐</h1>
+            <h1>Authentication</h1>
             <p>Secure login, registration, and user sessions — built into Laravel!</p>
         </header>
 
@@ -21,12 +21,10 @@
 
             <div class="analogy-grid">
                 <div class="analogy-card active" style="border-color: #6366f1;">
-                    <span class="analogy-icon">🪪</span>
                     <h3>Authentication</h3>
                     <p><em>Who are you?</em> — Verify the user's identity via login</p>
                 </div>
                 <div class="analogy-card active" style="border-color: #10b981;">
-                    <span class="analogy-icon">🛡️</span>
                     <h3>Authorization</h3>
                     <p><em>What can you do?</em> — Control which pages/actions a user can access</p>
                 </div>
@@ -34,7 +32,7 @@
         </section>
 
         <section class="content-section">
-            <h2>Starter Kits — Quick Auth Setup ⚡</h2>
+            <h2>Starter Kits — Quick Auth Setup</h2>
             <p>You do not have to build login pages yourself. A <strong>starter kit</strong> is a ready-made set of pages and code. It gives your app register, login and logout pages, plus the routes and controllers behind them.</p>
             <p>Since Laravel 12, the official starter kits are built with React, Vue or Livewire. Projects on Laravel 11 and earlier usually used a starter kit called Breeze.</p>
 
@@ -56,7 +54,7 @@ php artisan migrate</code>
         </section>
 
         <section class="content-section">
-            <h2>The Auth Facade 🎭</h2>
+            <h2>The Auth Facade</h2>
             <p>The <code>Auth</code> facade is your tool for working with the currently logged-in user anywhere in your app:</p>
 
             <div class="code-block">
@@ -99,7 +97,7 @@ php artisan migrate</code>
         </section>
 
         <section class="content-section">
-            <h2>Protecting Routes with Middleware 🔒</h2>
+            <h2>Protecting Routes with Middleware</h2>
             <p>The <code>auth</code> middleware automatically redirects guests to the login page if they try to access protected routes. Wrap any route you want to protect:</p>
 
             <div class="code-block">
@@ -115,21 +113,20 @@ php artisan migrate</code>
             </div>
 
             <div class="connection-box" style="border-left-color: var(--laravel-brand);">
-                <strong>🎉 You've completed the Laravel Course!</strong><br><br>
-                You now know the basics of routing, controllers, Blade templates, Eloquent ORM, migrations, forms, validation and authentication. That is enough to build small, real projects on your own computer. Before an app goes online for real users, there is more to learn, such as testing, security checks and hosting. Your next step is to combine everything into your first full project! 🚀
-            </div>
+                <strong>You've completed the Laravel Course!</strong><br><br>
+                You now know the basics of routing, controllers, Blade templates, Eloquent ORM, migrations, forms, validation and authentication. That is enough to build small, real projects on your own computer. Before an app goes online for real users, there is more to learn, such as testing, security checks and hosting. Your next step is to combine everything into your first full project!</div>
         </section>
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Fill in the blanks. The middleware that sends guests to the login page is called ______. The Blade directive that shows content only to logged-in users is ______.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div><code>auth</code> (used as <code>-&gt;middleware('auth')</code>) and <code>@auth ... @endauth</code>.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Fix the bug</h3>
+                <h3>Level 2: Fix the bug</h3>
                 <p>A library app has two problems. Clicking "Log out" does not work. Also, anyone can open <code>/my-books</code> without logging in. Fix both.</p>
 <pre><code>&lt;!-- In the Blade view --&gt;
 @auth
@@ -152,7 +149,7 @@ Route::get('/my-books', [MyBooksController::class, 'index'])
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>On your own XAMPP computer, build a "My reading list" page that only library members can see.</p>
                 <ol>
                     <li>Create a new project with a starter kit, as shown above. Connect it to a MySQL database (see Module 5, Level 3) and run <code>php artisan migrate</code>.</li>
@@ -198,7 +195,7 @@ public function index()
         </section>
 
         <section class="content-section">
-            <h2>Quick Quiz! 🧪</h2>
+            <h2>Quick Quiz!</h2>
             <form id="quiz-form-1" class="quiz-section">
                 <div class="quiz-question" data-answer="a">
                     <p><strong>Q1:</strong> What is the difference between authentication and authorization?</p>

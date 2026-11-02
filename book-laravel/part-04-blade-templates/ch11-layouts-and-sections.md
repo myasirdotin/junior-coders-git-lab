@@ -1,10 +1,10 @@
 # Chapter 11: Layouts & Sections
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Look at your school's printed notices. Every notice has the same school logo at the top and the same address at the bottom. Only the middle part changes: one is about the science fair, another about library week. The office keeps one **letterhead** and prints each new notice on it. In Blade, a **layout** is the letterhead. Each page only writes its own middle part.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why repeating the same HTML in every view causes problems.
 - Build a layout file with `@yield`.
@@ -177,7 +177,7 @@ Laravel has a second way to build layouts: **components**. You will see them in 
 
 `{{ $slot }}` is filled with whatever sits between `<x-layout>` and `</x-layout>`. Both styles work. This book uses `@extends` because it shows clearly how the blanks are filled. Pick one style per project and keep it.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Writing content outside any section.**
 
@@ -202,13 +202,13 @@ What happens: the `<h2>` does not appear where you expect. With `@extends`, only
 
 **Mismatched names.** `@yield('content')` in the layout and `@section('main')` in the page do not connect. The page shows an empty middle. The names must match exactly.
 
-## ✍️ Try It
+## Try It
 
 Create `layouts/app.blade.php` and change your `about` and `books.index` views to use it. Then change the footer text once and check that both pages update.
 
 *Hint:* each page starts with `@extends('layouts.app')`.
 
-## 📝 Recap
+## Recap
 
 - A layout holds the shared HTML; `@yield('name')` marks the blanks.
 - Pages use `@extends('layouts.app')` and fill blanks with `@section ... @endsection`.
@@ -216,9 +216,9 @@ Create `layouts/app.blade.php` and change your `about` and `books.index` views t
 - `@include('partials.nav')` pulls in a small reusable file.
 - Components (`<x-layout>` with `{{ $slot }}`) are another layout style used by starter kits.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Which directive goes in the layout to mark a blank, and which two directives does a page use to fill it?
 
 <details>
@@ -228,7 +228,7 @@ The layout uses `@yield('content')`. The page uses `@extends('layouts.app')` and
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a page `members/index.blade.php` that uses `layouts.app`, sets the title to `Members`, and shows a heading `Library Members` with the paragraph `85 students and teachers.`
 
 <details>
@@ -247,7 +247,7 @@ Write a page `members/index.blade.php` that uses `layouts.app`, sets the title t
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Improve the library layout.
 
 1. Move the menu into `partials/nav.blade.php` and include it in the layout.

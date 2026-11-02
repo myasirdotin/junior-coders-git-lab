@@ -1,10 +1,10 @@
-# 🗺️ Junior Coders — Curriculum & Development Roadmap
+# Junior Coders — Curriculum & Development Roadmap
 
 Welcome to the **Junior Coders** official project roadmap. This document outlines our curriculum progression, current release milestones, and forward-looking developmental roadmap for school students, educators, and open-source contributors.
 
 ---
 
-## 🌟 Core Pedagogical & Ethical Foundation
+## Core Pedagogical & Ethical Foundation
 
 All educational content, interactive studios, textbook chapters, and milestone capstones adhere to our foundational philosophy:
 - **Beneficial Knowledge (*'Ilm Nāfi'*)**: Technology is taught as a moral instrument to solve genuine human problems, support family and community well-being, protect the vulnerable, and advance science, education, health, and economic justice.
@@ -14,7 +14,7 @@ All educational content, interactive studios, textbook chapters, and milestone c
 
 ---
 
-## 🎓 5-Tier Guided Learning Pathways
+## 5-Tier Guided Learning Pathways
 
 ```text
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -48,9 +48,9 @@ All educational content, interactive studios, textbook chapters, and milestone c
 
 ---
 
-## 🚀 Release Milestones & Version Roadmap
+## Release Milestones & Version Roadmap
 
-### ✅ Version 1.0.0 (Current Stable Release) — Complete School Package
+### Version 1.0.0 (Current Stable Release) — Complete School Package
 - [x] **11 Offline-Ready Textbooks**:
   - `book-html/`: HTML for Class 6 & 7 (17 chapters)
   - `book-css/`: CSS for Class 6 & 7 (18 chapters)
@@ -77,11 +77,11 @@ All educational content, interactive studios, textbook chapters, and milestone c
 
 ---
 
-### ✅ Version 1.1.0 (Current Release) — The School Learning Operating System
+### Version 1.1.0 (Current Release) — The School Learning Operating System
 - [x] **Interactive Code Evaluator (Auto-Grader Engine)**:
   - Client-side unit test runner (`js/bei-evaluator.js`) validating function existence, parameter arity, and assertions in real time with Web Audio API sound feedback.
 - [x] **The Fixed 7-Step Learning Cycle**:
-  - Implemented across core modules (`Learn ➔ See ➔ Try ➔ Practice ➔ Challenge ➔ Quiz ➔ Project`) with 3 difficulty tiers (🟢 Easy, 🟡 Medium, 🔴 Hard).
+  - Implemented across core modules (`Learn ➔ See ➔ Try ➔ Practice ➔ Challenge ➔ Quiz ➔ Project`) with 3 difficulty tiers (Easy, Medium, Hard).
 - [x] **"Why Did My Code Fail?" Socratic Debugger**:
   - Empathetic error translator turning cryptic browser errors into actionable student diagnostic checklists.
 - [x] **Practice Arena (`practice-arena.html`)**:
@@ -99,7 +99,7 @@ All educational content, interactive studios, textbook chapters, and milestone c
 
 ---
 
-### ⏳ Version 1.2.0 (Target: Q3 2026) — Classroom Tooling, Simulators & Multilingual Glossaries
+### Version 1.2.0 (Target: Q3 2026) — Classroom Tooling, Simulators & Multilingual Glossaries
 - [ ] **Visual Network Packet Simulator**:
   - Interactive packet tracer illustrating TCP 3-way handshakes, DNS hierarchy lookups, and CIDR subnet masking visually in the browser.
 - [ ] **Cybersecurity Defense Sandbox**:
@@ -115,7 +115,7 @@ All educational content, interactive studios, textbook chapters, and milestone c
 
 ---
 
-### 🔮 Version 2.0.0 (Long-Term Vision) — Desktop LMS & Standalone Distribution
+### Version 2.0.0 (Long-Term Vision) — Desktop LMS & Standalone Distribution
 - [ ] **Air-Gapped Desktop Distribution (PWA / Electron)**:
   - Single-file installer for schools with zero internet access, packaging all textbooks, studios, and exercises into an air-gapped desktop app.
 - [ ] **Local Progress Sync & Gradebook**:
@@ -125,7 +125,7 @@ All educational content, interactive studios, textbook chapters, and milestone c
 
 ---
 
-## 🤝 Contribution & Feedback
+## Contribution & Feedback
 
 We welcome contributions from school teachers, software engineers, and curriculum designers who share our commitment to academic rigor and ethical digital stewardship.
 

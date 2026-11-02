@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think of a blender in a kitchen. Inside it are a motor, gears and blades, but you never rewire them to make a smoothie. You put in the fruit, press one button, and the blender runs its whole routine for you. A **function** is your own button in code. You pack some lines into a named block once, then "press" it by its name whenever you need that job done.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Define a function with the `function` keyword and call it by its name.
 - Explain the **DRY** principle: Don't Repeat Yourself.
@@ -112,7 +112,7 @@ Students enrolled: 450
 
 ---
 
-## 🌍 Real-World Connection: The DRY Principle in Tech
+## Real-World Connection: The DRY Principle in Tech
 
 Professional teams follow **DRY**: *Don't Repeat Yourself*.
 - Copy the same 10 lines into 5 files, and a bug now hides in 5 places.
@@ -120,7 +120,7 @@ Professional teams follow **DRY**: *Don't Repeat Yourself*.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -133,13 +133,13 @@ Professional teams follow **DRY**: *Don't Repeat Yourself*.
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>10</code>. <code>$val = 99;</code> inside the function made a brand-new <strong>local</strong> variable. The global <code>$val</code> outside was not touched.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Banner
+## Code Detective: The Broken Banner
 
 ```php
 <?php
@@ -162,11 +162,11 @@ Warning: Undefined variable $banner in ... on line 6
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Reading a global variable inside a function without `global`.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   <?php
   $user = "Sara";
@@ -175,14 +175,14 @@ Warning: Undefined variable $banner in ... on line 6
   }
   greet();
   ```
-- 😕 *What happens*: PHP shows `Warning: Undefined variable $user`, then prints `Hi, ` with no name.
-- ✅ *Fixed*: Add `global $user;` as the first line inside `greet()`. It prints `Hi, Sara`. (In Chapter 12 you will pass the name in as a parameter, which is cleaner.)
+- *What happens*: PHP shows `Warning: Undefined variable $user`, then prints `Hi, ` with no name.
+- *Fixed*: Add `global $user;` as the first line inside `greet()`. It prints `Hi, Sara`. (In Chapter 12 you will pass the name in as a parameter, which is cleaner.)
 
 **Two functions with the same name.** Function names are shared across the whole program. Defining `function alert() {}` twice stops the script with `Fatal error: Cannot redeclare alert()`.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and make a reusable reminder:
 
@@ -207,7 +207,7 @@ Remember: bring your library book on Friday.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A function is a named block of code; define it once with `function name() { ... }`.
 - The body runs only when you call it: `name();`.
@@ -217,9 +217,9 @@ Remember: bring your library book on Friday.
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which keyword starts a function definition?
 2. What happens to a local variable when its function finishes?
 3. Which keyword lets a function use a variable from the global scope?
@@ -233,7 +233,7 @@ Remember: bring your library book on Friday.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why is copying the same code into many places risky?
 2. Can a function call another function inside its body? Write a tiny example.
 
@@ -265,7 +265,7 @@ Science Fair
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build reusable page parts.
 
 1. Write `renderPageHeader()` that prints a `<header>` with an `<h1>` title and a `<nav>` with 3 links.

@@ -1,10 +1,10 @@
 # Chapter 16: Design, Themes and Accessibility
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A good school library is easy for everyone to use. The signs all use the same colours and letters, so you learn them once. There are large-print books for a grandfather who visits, a ramp next to the stairs, and a librarian who reads aloud to a student who cannot see well. None of this is extra decoration. It is how the library says "you are welcome here". In this chapter our app learns to do the same: one tidy look, a dark mode, and care for every kind of user.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Find the Material 3 theme in `Theme.kt` and change its colours, text styles and shapes.
 - Explain dynamic colour on Android 12+ and dark theme with `isSystemInDarkTheme()`.
@@ -351,7 +351,7 @@ So far the app shows Android Studio's green robot icon. Make your own with **Ima
 
 These are **adaptive icons**: each phone cuts the icon into its own shape (circle, rounded square and so on). That is why the important part must stay in the middle.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: a colour that only works in one theme.**
 
@@ -382,13 +382,13 @@ What happens: TalkBack only says "Button". A blind student has no idea it goes b
 Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")     // right
 ```
 
-## ✍️ Try It
+## Try It
 
 Turn on dark mode on your phone or emulator (usually in the quick settings panel, or **Settings → Display**). Open the School Library app and check every screen. Then set the font size to the largest and check again. Write down every place that is hard to read or cut off, and fix each one with a colour role or by removing a fixed height.
 
 *Hint:* search your code for `Color.` and `.height(`. Every `Color.` inside a screen file (not in `Color.kt` or `Theme.kt`) is a suspect.
 
-## 📝 Recap
+## Recap
 
 - `SchoolLibraryTheme` in `Theme.kt` gives every screen the same colour scheme, typography and shapes.
 - Dynamic colour (Android 12+) uses the wallpaper's colours; `isSystemInDarkTheme()` follows the user's dark mode.
@@ -397,9 +397,9 @@ Turn on dark mode on your phone or emulator (usually in the quick settings panel
 - Tap targets of at least 48dp, contrast of at least 4.5 to 1, text in `sp` with no fixed heights.
 - Merge rows with `Modifier.semantics(mergeDescendants = true) { }`, test with TalkBack, and make an icon with Image Asset Studio.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which theme file holds the text styles, and which holds the function `SchoolLibraryTheme`?
 2. On which Android versions does dynamic colour work?
 3. What is the smallest recommended size for anything the user can tap?
@@ -415,7 +415,7 @@ Turn on dark mode on your phone or emulator (usually in the quick settings panel
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 This book card has three problems. Find them and write a fixed version.
 
 ```kotlin
@@ -456,7 +456,7 @@ Card(onClick = onClick) {
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Give the School Library app a finished look:
 
 1. Set your own light and dark colour schemes in `Theme.kt` (at least `primary` and `onPrimary` in each), and decide whether to keep dynamic colour.

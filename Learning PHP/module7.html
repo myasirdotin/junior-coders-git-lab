@@ -12,31 +12,28 @@
         <header class="module-header path-php">
             <span class="badge" style="background:white;color:var(--php-brand);">Level 3</span>
             <h1>File System</h1>
-            <p>Read and Write Files with PHP! 📁</p>
+            <p>Read and Write Files with PHP!</p>
         </header>
 
         <!-- Section 1: Why Work with Files? -->
         <section class="content-section">
-            <h2>📁 Why Work with Files?</h2>
+            <h2>Why Work with Files?</h2>
             <p>Sometimes you want data to <strong>persist</strong> — to stay saved even after the browser is closed or the server restarts. A simple way to do this in PHP is to save data to <strong>text files</strong> on the server.</p>
 
             <div class="connection-box">
-                <p>🧠 <strong>Analogy:</strong> Think of your PHP script as a student and the file system as a <strong>notebook</strong>. PHP can open the notebook, read what's written, add new notes, or erase old ones — and the notebook keeps everything even after the student goes home!</p>
+                <p><strong>Analogy:</strong> Think of your PHP script as a student and the file system as a <strong>notebook</strong>. PHP can open the notebook, read what's written, add new notes, or erase old ones — and the notebook keeps everything even after the student goes home!</p>
             </div>
 
             <div class="analogy-grid" style="margin-top: 1.5rem;">
                 <div class="analogy-card">
-                    <span class="analogy-icon">📖</span>
                     <h3>Read a File</h3>
                     <p>Load existing content from a file into your PHP script</p>
                 </div>
                 <div class="analogy-card">
-                    <span class="analogy-icon">✏️</span>
                     <h3>Write to a File</h3>
                     <p>Save new content (or replace old content) in a file</p>
                 </div>
                 <div class="analogy-card">
-                    <span class="analogy-icon">➕</span>
                     <h3>Append to a File</h3>
                     <p>Add new content to the <em>end</em> of an existing file</p>
                 </div>
@@ -45,7 +42,7 @@
 
         <!-- Section 2: Simple Read and Write -->
         <section class="content-section">
-            <h2>⚡ The Easy Way: file_get_contents &amp; file_put_contents</h2>
+            <h2>The Easy Way: file_get_contents &amp; file_put_contents</h2>
             <p>PHP gives us two super convenient functions for basic file operations. These are the easiest to use and perfect for beginners:</p>
 
             <div class="code-block">
@@ -72,7 +69,7 @@
 
         <!-- Section 3: fopen / fwrite / fread / fclose -->
         <section class="content-section">
-            <h2>🔧 The Advanced Way: fopen, fwrite, fread, fclose</h2>
+            <h2>The Advanced Way: fopen, fwrite, fread, fclose</h2>
             <p>For more control over file operations, use the <code>fopen()</code> family of functions. Think of it like actually <strong>picking up a pen and writing</strong> step by step.</p>
 
             <div class="code-block">
@@ -94,7 +91,7 @@
 
 <span class="code-comment">// Now READ the file back</span>
 <span class="code-keyword">$reader</span> = <span class="code-keyword">fopen</span>(<span class="code-string">"diary.txt"</span>, <span class="code-string">"r"</span>);
-<span class="code-keyword">$data</span>   = <span class="code-keyword">fread</span>(<span class="code-keyword">$reader</span>, <span class="code-keyword">filesize</span>(<span class="code-string">"diary.txt"</span>));
+<span class="code-keyword">$data</span> = <span class="code-keyword">fread</span>(<span class="code-keyword">$reader</span>, <span class="code-keyword">filesize</span>(<span class="code-string">"diary.txt"</span>));
 <span class="code-keyword">fclose</span>(<span class="code-keyword">$reader</span>);
 
 <span class="code-keyword">echo</span> <span class="code-keyword">$data</span>;
@@ -105,13 +102,13 @@
             </div>
 
             <div class="connection-box">
-                <p>⚠️ <strong>Always close files!</strong> PHP closes files when the script ends, but closing them yourself with <code>fclose()</code> makes sure everything is saved and frees the file for other code. Think of it like always putting the lid back on a pen!</p>
+                <p><strong>Always close files!</strong> PHP closes files when the script ends, but closing them yourself with <code>fclose()</code> makes sure everything is saved and frees the file for other code. Think of it like always putting the lid back on a pen!</p>
             </div>
         </section>
 
         <!-- Section 4: file_exists and unlink -->
         <section class="content-section">
-            <h2>🔍 Checking and Deleting Files</h2>
+            <h2>Checking and Deleting Files</h2>
             <p>Before reading a file, it's smart to check if it actually exists. And sometimes you need to delete files too:</p>
 
             <div class="code-block">
@@ -138,7 +135,7 @@
 
         <!-- Section 5: Practical Example -->
         <section class="content-section">
-            <h2>🎯 Practical Example: Save Form Data to a File</h2>
+            <h2>Practical Example: Save Form Data to a File</h2>
             <p>Let's put it all together! Here is how you can build a simple form that saves messages to a text file — like a basic guestbook:</p>
 
             <div class="code-block">
@@ -146,9 +143,9 @@
 <span class="code-keyword">$logFile</span> = <span class="code-string">"messages.txt"</span>;
 
 <span class="code-keyword">if</span> (<span class="code-keyword">$_SERVER</span>[<span class="code-string">"REQUEST_METHOD"</span>] == <span class="code-string">"POST"</span>) {
-    <span class="code-keyword">$name</span>    = <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">trim</span>(<span class="code-keyword">$_POST</span>[<span class="code-string">"name"</span>]));
+    <span class="code-keyword">$name</span> = <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">trim</span>(<span class="code-keyword">$_POST</span>[<span class="code-string">"name"</span>]));
     <span class="code-keyword">$message</span> = <span class="code-keyword">htmlspecialchars</span>(<span class="code-keyword">trim</span>(<span class="code-keyword">$_POST</span>[<span class="code-string">"message"</span>]));
-    <span class="code-keyword">$date</span>    = <span class="code-keyword">date</span>(<span class="code-string">"Y-m-d H:i:s"</span>);  <span class="code-comment">// today's date and time</span>
+    <span class="code-keyword">$date</span> = <span class="code-keyword">date</span>(<span class="code-string">"Y-m-d H:i:s"</span>);  <span class="code-comment">// today's date and time</span>
 
     <span class="code-keyword">if</span> (!<span class="code-keyword">empty</span>(<span class="code-keyword">$name</span>) && !<span class="code-keyword">empty</span>(<span class="code-keyword">$message</span>)) {
         <span class="code-comment">// &amp;&amp; means AND: both must be true to get here</span>
@@ -168,8 +165,8 @@
 <span class="code-keyword">?&gt;</span>
 
 &lt;<span class="code-keyword">form</span> <span class="code-string">method</span>=<span class="code-string">"POST"</span>&gt;
-    &lt;<span class="code-keyword">input</span> <span class="code-string">type</span>=<span class="code-string">"text"</span>     <span class="code-string">name</span>=<span class="code-string">"name"</span>    <span class="code-string">placeholder</span>=<span class="code-string">"Your name"</span>&gt;
-    &lt;<span class="code-keyword">input</span> <span class="code-string">type</span>=<span class="code-string">"text"</span>     <span class="code-string">name</span>=<span class="code-string">"message"</span> <span class="code-string">placeholder</span>=<span class="code-string">"Your message"</span>&gt;
+    &lt;<span class="code-keyword">input</span> <span class="code-string">type</span>=<span class="code-string">"text"</span> <span class="code-string">name</span>=<span class="code-string">"name"</span> <span class="code-string">placeholder</span>=<span class="code-string">"Your name"</span>&gt;
+    &lt;<span class="code-keyword">input</span> <span class="code-string">type</span>=<span class="code-string">"text"</span> <span class="code-string">name</span>=<span class="code-string">"message"</span> <span class="code-string">placeholder</span>=<span class="code-string">"Your message"</span>&gt;
     &lt;<span class="code-keyword">button</span> <span class="code-string">type</span>=<span class="code-string">"submit"</span>&gt;Save Message&lt;/<span class="code-keyword">button</span>&gt;
 &lt;/<span class="code-keyword">form</span>&gt;</code>
             </div>
@@ -177,10 +174,10 @@
 
         <!-- Section 6: Safety Notes -->
         <section class="content-section">
-            <h2>🔒 Safety Notes about File Permissions</h2>
+            <h2>Safety Notes about File Permissions</h2>
 
             <div class="connection-box">
-                <p>🛡️ <strong>Security is important! Here are key safety rules:</strong></p>
+                <p><strong>Security is important! Here are key safety rules:</strong></p>
                 <ul style="margin: 1rem 0 0 1.5rem; line-height: 2.2;">
                     <li>Never let users control the <strong>filename</strong> — always use a filename you define in code</li>
                     <li>Always use <code>htmlspecialchars()</code> on user text before showing it on a page</li>
@@ -238,14 +235,14 @@
 
         <!-- Practice: three levels -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
 <p>What is the difference between opening a file with mode <code>"w"</code> and mode <code>"a"</code>?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div><code>"w"</code> (write) clears the file and starts again. <code>"a"</code> (append) keeps what is there and adds new text at the end.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
 <p>Keep a reading log. Add the line <em>Read chapter 3 of Clean Code</em> to the end of <code>reading-log.txt</code>. Then, only if the file exists, print everything in it.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
 <pre><code>&lt;?php
@@ -262,7 +259,7 @@ if (file_exists($logFile)) {
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
 <p>Count the visits to your class's library page.</p>
 <ol>
 <li>Use a file called <code>counter.txt</code>.</li>
@@ -292,7 +289,7 @@ echo "You are visitor number " . $visits . ". Welcome to our library page!";
 
         <!-- Quiz -->
         <section class="content-section">
-            <h2>Quick Quiz! 🧠</h2>
+            <h2>Quick Quiz!</h2>
             <div id="quiz-form-1" class="quiz-section">
                 <div class="quiz-question" data-answer="b">
                     <p>Q1: Which function quickly writes content to a file in PHP?</p>

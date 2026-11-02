@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Harsh Light Switch vs. The Dimmer Knob**
 
@@ -17,7 +17,7 @@ They tell the browser: *"Do not change this color or position in 0 seconds. Melt
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain how `transition` smooths the change between two states (for example normal and hover).
@@ -191,7 +191,7 @@ Type this into your editor and save it as `transitions.html`:
 
 ---
 
-## 🌍 Real-World Connection: How Fast Should Motion Be?
+## Real-World Connection: How Fast Should Motion Be?
 
 Well-made websites and apps pay close attention to the speed of their motion:
 - Most screens redraw the picture about **60 times per second**. Smooth motion needs a new frame each time.
@@ -201,7 +201,7 @@ Well-made websites and apps pay close attention to the speed of their motion:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What happens if you put the `transition` rule **ONLY inside the `:hover` block**, and not on the base element?
 
@@ -218,13 +218,13 @@ What happens if you put the `transition` rule **ONLY inside the `:hover` block**
 **Question**: Will the transition work when your mouse arrives? Will it work when your mouse leaves?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> It will transition smoothly when your mouse arrives, BUT when your mouse leaves, the button will instantly SNAP back to blue with zero animation! That is why you should always put <code>transition</code> on the base element!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Un-Animatable Property
+## Code Detective: The Un-Animatable Property
 
 A student tried to animate an element appearing smoothly, but it popped in abruptly without any transition:
 
@@ -261,7 +261,7 @@ Computers have graphics cards (GPUs) designed specifically to handle two CSS pro
 1. **`transform`** (`scale`, `translate`, `rotate`)
 2. **`opacity`** (fade in, fade out)
 
-> 💡 **Think Before You Code**:
+> **Think Before You Code**:
 > Whenever possible, animate with `transform` and `opacity`. They run smoothly without lagging the user's computer or battery!
 
 ---
@@ -275,7 +275,7 @@ Build an interactive profile card:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is putting `transition` only in the `:hover` rule.
 
@@ -307,7 +307,7 @@ A second slip is a very slow transition, like `3s`, on a button. People think th
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Turtle Test**
 
@@ -319,7 +319,7 @@ Open `transitions.html` in your editor:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Transitions smooth the progression between two CSS states over a specified duration.
 - The 4 components are: property, duration, timing-function, and delay.
@@ -329,7 +329,7 @@ Open `transitions.html` in your editor:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -341,9 +341,9 @@ Open `transitions.html` in your editor:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does the "s" mean in `transition: 0.3s;`?
 2. Which timing function starts fast and slows down gently to a stop?
 3. In which rule should you write `transition` so the change is smooth both in and out?
@@ -357,7 +357,7 @@ Open `transitions.html` in your editor:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write one `transition` declaration that animates both `background-color` and `transform` over 0.25 seconds with `ease-in-out`.
 5. Why does animating `transform: scale()` usually run more smoothly than animating `width` and `height`?
 
@@ -378,7 +378,7 @@ A comma separates the two properties.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make buttons fade in one after another.
 1. Make a `.toolbar` box that holds 3 buttons.
 2. Give each button `opacity: 0.2;` and `transition: opacity 0.3s ease;`.

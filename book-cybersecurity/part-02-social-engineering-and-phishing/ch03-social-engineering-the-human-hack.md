@@ -1,12 +1,12 @@
 # Chapter 3: Social Engineering — The Human Hack
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A school spends a lot of money on a strong gate, card readers and cameras. One morning a smiling man arrives carrying two heavy boxes of library books. "Could you hold the door, please?" he asks. A kind student holds it open. Nobody checks who he is. All that technology was beaten by one polite request. That is **social engineering**.
 
 **Social engineering** means tricking people, rather than computers, into giving away access or information. It works on feelings such as kindness, trust, fear and curiosity.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what social engineering is and why it works.
 - Recognise five common methods: pretexting, baiting, phishing, tailgating and shoulder surfing.
@@ -67,7 +67,7 @@ Islam teaches us to check news before acting on it (*Tabayyun*):
 
 ### Risky reply vs safe reply
 
-| Situation | ❌ Risky reply | ✅ Safe reply |
+| Situation | Risky reply | Safe reply |
 | :--- | :--- | :--- |
 | Caller asks for your login code | "OK, it's 482 913." | "I never share codes. I'll call the school office myself." |
 | Stranger asks you to hold the secure door | Holds it open | "Sorry, please use your own card or sign in at reception." |
@@ -81,7 +81,7 @@ Islam teaches us to check news before acting on it (*Tabayyun*):
 - Do not plug in USB sticks you find.
 - Tell a teacher or parent about strange requests. Reporting helps protect others too.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake:** "I would never fall for that. Only careless people get tricked."
 
@@ -89,7 +89,7 @@ Islam teaches us to check news before acting on it (*Tabayyun*):
 
 **Fixed thinking:** "Anyone can be tricked, so I follow my checking routine every time." A habit protects you even when you are rushed.
 
-## ✍️ Try It
+## Try It
 
 Practise the "Pause and Check" habit with a made-up text message:
 
@@ -99,7 +99,7 @@ Write down which of the four questions raise a warning, and what you would do in
 
 *Hint:* who started the contact, is there a deadline, and what is being asked for?
 
-## 📝 Recap
+## Recap
 
 - Social engineering tricks people instead of computers.
 - It uses good feelings, such as helpfulness and trust, and strong ones, such as fear and urgency.
@@ -107,9 +107,9 @@ Write down which of the four questions raise a warning, and what you would do in
 - Ask four questions: Did I start this? Am I rushed? Is a secret wanted? Can I check another way?
 - Nobody genuine ever needs your password or login code.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is "tailgating" in physical security?
 
 <details>
@@ -119,7 +119,7 @@ Getting into a secure place by following closely behind someone who is allowed i
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Someone calls saying they are from "IT Support". They ask for the 2FA code that just arrived on your phone "to fix a security problem". Name two warning signs and say what you should do.
 
 <details>
@@ -131,7 +131,7 @@ Someone calls saying they are from "IT Support". They ask for the 2FA code that 
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make a one-page "Pause and Check" poster for your class.
 
 1. Write the four checking questions in simple words.

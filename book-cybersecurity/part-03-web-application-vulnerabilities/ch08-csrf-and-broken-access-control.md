@@ -1,10 +1,10 @@
 # Chapter 8: CSRF & Broken Access Control
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At Zainab's school, the office accepts signed notes from parents. One day a note arrives: "Please let Zainab leave at 11 a.m." The signature looks right, but Zainab's mother never wrote it. A careful office now staples a **numbered slip** to every form it sends home. Only forms with the matching slip are accepted. The office also checks that the parent signing is really **this** child's parent, not just any parent. These two checks are the two halves of this chapter.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain **Cross-Site Request Forgery (CSRF)** in plain words.
 - Protect forms with a secret **CSRF token** and **SameSite** cookies.
@@ -164,7 +164,7 @@ If the report exists but belongs to someone else, the query returns nothing, and
 - In every query for a user's own data, add `AND owner_id = ?` with the logged-in user's ID.
 - Check roles on the server for every action.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake:** "Only teachers see the *Edit marks* button, so students cannot edit marks."
 
@@ -179,7 +179,7 @@ if (($_SESSION['role'] ?? '') !== 'teacher') {
 }
 ```
 
-## ✍️ Try It
+## Try It
 
 Look at a PHP project of your own that has a login.
 
@@ -188,7 +188,7 @@ Look at a PHP project of your own that has a login.
 
 *Hint:* search your files for `$_GET['id']`.
 
-## 📝 Recap
+## Recap
 
 - CSRF tricks your browser into sending a request, using your automatic login cookie.
 - Fix CSRF with a secret random token in every form, plus SameSite cookies.
@@ -196,9 +196,9 @@ Look at a PHP project of your own that has a login.
 - IDOR is changing an ID in the address to reach someone else's record.
 - Always check ownership and roles on the server, for every request.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Why can another website not simply copy your form's CSRF token?
 
 <details>
@@ -208,7 +208,7 @@ Because of the browser's **Same-Origin Policy**: one site cannot read the pages 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A library site shows loans at `loans.php?member=55`. The query is:
 
 ```php
@@ -230,7 +230,7 @@ $stmt->execute([$_SESSION['member_id']]);
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a protected "Delete my project" action for a science-fair site.
 
 1. Write the form, with a CSRF token.

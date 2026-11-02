@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Picture the school library on a busy morning. Mr. Imran keeps every borrowing record on loose paper slips in a drawer. A parent calls to ask which book Zayd took home. Mr. Imran has to dig through hundreds of slips. Then a slip falls behind the cupboard, and nobody knows the book is missing. A database is the library's answer: one organised place where every record can be found in a blink.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a database is and why apps need one.
 - Compare a database with a spreadsheet.
@@ -145,7 +145,7 @@ Storing people's data is not only a technical skill. It is a moral duty. In Isla
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: "A spreadsheet file is the same as a database."**
 
@@ -155,7 +155,7 @@ A student keeps the library list in `books.xlsx` and shares it with five helpers
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [SQL Sandbox](../studios/sql-sandbox/). Find the list of tables on the page. Write down the five table names and guess two columns for each one.
 
@@ -163,7 +163,7 @@ Open the [SQL Sandbox](../studios/sql-sandbox/). Find the list of tables on the 
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **database** is an organised, permanent store of data, run by server software.
 - Databases beat spreadsheets for size, many users, correct data and privacy.
@@ -173,9 +173,9 @@ Open the [SQL Sandbox](../studios/sql-sandbox/). Find the list of tables on the 
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does **RDBMS** stand for?
 2. What language do we use to talk to a MySQL database?
 3. Name two reasons a database is better than a spreadsheet for a web app.
@@ -189,7 +189,7 @@ Open the [SQL Sandbox](../studios/sql-sandbox/). Find the list of tables on the 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A school app stores each student's name, class and parent's phone number. Explain two ways the idea of *Amānah* (trust) should guide how the developer designs this database.
 
 <details>
@@ -203,7 +203,7 @@ Any two, for example:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A community health clinic keeps patient appointments and its medicine stock in one Excel file on the front-desk laptop.
 
 1. List three risks of this set-up.

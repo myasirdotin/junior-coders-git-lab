@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the end of term, the librarian tidies her borrowing notebook. She crosses out only the old lines for books that came back long ago. She does not tear out every page, and she certainly does not throw the notebook in the bin. Crossing out chosen lines is `DELETE ... WHERE`. Tearing out every page is `TRUNCATE`. Binning the notebook is `DROP`.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Remove chosen rows with `DELETE FROM ... WHERE`.
 - Use "SELECT first" before deleting.
@@ -131,7 +131,7 @@ The counter restarted at 1. After a `DELETE`, it would have carried on (9, 10, 1
 
 `TRUNCATE` is very fast on huge tables, because it does not remove rows one by one. Use it only for scratch tables you truly want empty.
 
-> 🧪 **Sandbox note:** SQLite has no `TRUNCATE`. Use `DELETE FROM t;` there (it empties the table). Press **Reset** afterwards.
+> **Sandbox note:** SQLite has no `TRUNCATE`. Use `DELETE FROM t;` there (it empties the table). Press **Reset** afterwards.
 
 ---
 
@@ -180,7 +180,7 @@ But soft delete is not always right. If a family asks the school to **erase** pe
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: forgetting `WHERE`.**
 
@@ -213,7 +213,7 @@ Chapter 15 shows two extra safety nets: transactions and safe-updates mode.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/):
 
@@ -225,7 +225,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/):
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `DELETE FROM table WHERE condition;` removes whole rows that match.
 - Without `WHERE`, every row is deleted, with no warning.
@@ -235,9 +235,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/):
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which statement removes chosen rows from a table?
 2. What happens with `DELETE FROM students;`?
 3. After `TRUNCATE`, what id does the next new row get?
@@ -251,7 +251,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/):
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Delete every loan that has been returned.
 2. Empty a scratch table called `temp_imports` so that its ids start again at 1.
 
@@ -268,7 +268,7 @@ On the original data, the first statement removes 5 rows (loans 1, 3, 4, 6 and 9
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The library wants to stop showing *Ethical Technology* (book 3) because it is being repaired, but keep its borrowing history.
 
 1. Explain why `DELETE FROM books WHERE id = 3;` is a bad idea here.

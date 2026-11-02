@@ -1,12 +1,12 @@
 # Chapter 19: Final Project: The Study Planner
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Fatima has exams in three weeks. On Sunday evening she takes a sheet of paper and writes a plan: "Maths, fractions worksheet, 30 minutes. Science, water cycle notes, 25 minutes." Each time she finishes a task, she ticks it. At the end of the week she adds up the minutes and feels calm: the work is getting done, step by step.
 
 The paper plan works, but it gets lost, the ticks get messy, and adding up minutes takes time. In this final project you will build the same plan as an Android app. It uses almost everything in this book: Kotlin data classes, a form with checks, a scrolling list, two screens, saving on the phone, themes and accessibility. And, like Fatima's paper, it keeps her plan private.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Plan an app before coding: features, screens, data and files.
 - Build a complete two-screen Compose app with a list, a form, checkboxes and totals.
@@ -664,7 +664,7 @@ Finished early? Choose one. Each idea is useful, kind and private.
 
 Avoid "streaks", points or pushy reminders. A planner should calm a student, not make them anxious.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: changing the list in place.**
 
@@ -692,7 +692,7 @@ With tasks 1, 2 and 3, delete task 1 and add a new one: `tasks.size + 1` is 3 ag
 
 **Mistake 3: skipping validation "because I will type carefully".** A title with `|` in it breaks the saved line, and that task silently disappears next time. Validation protects the data format.
 
-## ✍️ Try It
+## Try It
 
 Build the app in this order, running it after each step:
 
@@ -704,7 +704,7 @@ Build the app in this order, running it after each step:
 
 *Hint:* small steps make bugs easy to find. If step 4 breaks something, you know it is in the saving code.
 
-## 📝 Recap
+## Recap
 
 - Plan first: features, screens, data, files. Keep plain logic in its own file and test it before drawing screens.
 - One `StudyTask` data class, a validated form, a `LazyColumn` with keyed, toggleable rows, and totals together make a complete app.
@@ -712,9 +712,9 @@ Build the app in this order, running it after each step:
 - DataStore saves the plan as simple lines of text; validation keeps the format safe; Room is the next step for bigger data.
 - The finished app needs no permissions and keeps everything on the phone: privacy as *Amānah*.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which file holds the code that does not draw anything, and why is that useful?
 2. What does `decodeTask` return for a line that is broken, and why does that not crash the app?
 
@@ -726,7 +726,7 @@ Build the app in this order, running it after each step:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a function `minutesFor(subject: String, tasks: List<StudyTask>): Int` that adds up the minutes of **done** tasks for one subject, using a `for` loop. Then print a weekly summary for each subject.
 
 <details>
@@ -766,7 +766,7 @@ Science: 25 min done
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Start the prayer-aware break reminder (extension 2) with plain Kotlin:
 
 1. Write `toMinutes(time: String): Int?` that turns `"13:15"` into minutes after midnight (795), or `null` for anything that is not a valid `HH:MM` time.

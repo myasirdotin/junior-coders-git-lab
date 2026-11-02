@@ -1,10 +1,10 @@
-# Computer Networking & Web Protocols for Junior Coders 🌐🔌
+# Computer Networking & Web Protocols for Junior Coders
 
 Welcome to the official **Computer Networking & Web Protocols Textbook** of the Junior Coders curriculum!
 
 ---
 
-## 🎯 Course Overview
+## Course Overview
 
 Behind every click, API call, and video stream is the global nervous system of the Internet. This textbook demystifies how data travels across the planet—from raw physical pulses of light to high-level protocols like HTTP/3, WebSockets, and modern cryptographic handshakes.
 
@@ -21,7 +21,7 @@ In this textbook, students will:
 
 ---
 
-## 🗺️ Curriculum Roadmap
+## Curriculum Roadmap
 
 | Part | Focus | Chapters |
 | :--- | :--- | :--- |
@@ -34,7 +34,7 @@ In this textbook, students will:
 
 ---
 
-## 🌟 Islamic Ethical Framework (*Amānah & Iḥsān*)
+## Islamic Ethical Framework (*Amānah & Iḥsān*)
 
 All lessons in this curriculum adhere to our core ethical standards:
 

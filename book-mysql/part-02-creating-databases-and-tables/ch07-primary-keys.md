@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Every student at school gets an ID card with a number. Two students may both be called Fatima, but their card numbers are always different. The office also has rules: every form must have a name, no two students share a card number, and nobody may borrow more than five books. Constraints are those office rules, written into the table so the database checks them every time.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a primary key is and its two rules.
 - Use `AUTO_INCREMENT` to number rows for you.
@@ -50,9 +50,9 @@ id INT AUTO_INCREMENT PRIMARY KEY
 
 When you add a row without an id, MySQL picks the next number: 1, then 2, then 3. You never have to remember the last number used. All five `school_db` tables use this pattern.
 
-> 💡 Ids may have **gaps**. If an insert fails or a row is deleted, MySQL does not reuse that number. That is normal. An id is a label, not a count.
+> Ids may have **gaps**. If an insert fails or a row is deleted, MySQL does not reuse that number. That is normal. An id is a label, not a count.
 
-> 🧪 **Sandbox note:** SQLite writes this as `INTEGER PRIMARY KEY` (optionally `AUTOINCREMENT`, spelled without the underscore).
+> **Sandbox note:** SQLite writes this as `INTEGER PRIMARY KEY` (optionally `AUTOINCREMENT`, spelled without the underscore).
 
 ---
 
@@ -132,7 +132,7 @@ Now four rows that break a rule:
 
 None of these rows were saved. The table stays clean.
 
-> 💡 `CHECK` is enforced by MariaDB 10.2+ and MySQL 8.0.16+. Very old MySQL versions read it but ignored it.
+>`CHECK` is enforced by MariaDB 10.2+ and MySQL 8.0.16+. Very old MySQL versions read it but ignored it.
 
 ---
 
@@ -145,7 +145,7 @@ None of these rows were saved. The table stays clean.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: thinking `NOT NULL` always blocks a missing value.**
 
@@ -165,7 +165,7 @@ Notice also that the id is 4, not 3. The failed attempts used up number 3. Gaps 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Add constraints to your `school_db.donations` idea. Write (on paper or in phpMyAdmin with a test table) a column rule that stops a donation `amount` of zero or less.
 
@@ -173,7 +173,7 @@ Add constraints to your `school_db.donations` idea. Write (on paper or in phpMyA
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **primary key** is unique and never empty; each table has one.
 - `AUTO_INCREMENT` numbers new rows; gaps are normal.
@@ -183,9 +183,9 @@ Add constraints to your `school_db.donations` idea. Write (on paper or in phpMyA
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What are the two rules of a primary key?
 2. What does `AUTO_INCREMENT` do?
 3. How is `PRIMARY KEY` different from `UNIQUE`?
@@ -199,7 +199,7 @@ Add constraints to your `school_db.donations` idea. Write (on paper or in phpMyA
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a `CREATE TABLE` for `teachers`:
 - `id`: whole number, auto-numbered, primary key
 - `staff_code`: 8 characters, required and unique
@@ -224,7 +224,7 @@ CREATE TABLE teachers (
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The charity club wants a `pledges` table for promises to donate to a cause.
 
 1. Give it an auto-numbered primary key.

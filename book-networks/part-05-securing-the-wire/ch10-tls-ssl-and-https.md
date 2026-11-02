@@ -1,10 +1,10 @@
 # Chapter 10: TLS/SSL, HTTPS & Digital Trust (*Amānah*)
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A clinic needs to post a patient's test results to a hospital in another city. Written on an open postcard, every sorting worker could read them. So the clinic and the hospital agree on a shared secret code that nobody else knows, and write in that code. But first the clinic must be sure the reply really comes from the hospital, not an impostor. So the hospital shows an ID card stamped by a trusted office. **HTTPS** does both jobs: it agrees on a secret code, and it checks the ID card.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why plain HTTP is unsafe on shared networks.
 - Tell **symmetric** from **asymmetric** cryptography and say why TLS uses both.
@@ -168,31 +168,31 @@ People trust us with their passwords, health records and donations. Keeping them
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Saying "the browser encrypts the data with the server's public key".**
 
-- ❌ Wrong: "TLS encrypts my password with the website's public key."
+- Wrong: "TLS encrypts my password with the website's public key."
 - What really happens: in TLS 1.3, the public key in the certificate is used to check a **signature**. The data is encrypted with a **symmetric key** that both sides worked out by key exchange.
-- ✅ Right: "Key exchange makes a shared secret; signatures prove identity; symmetric encryption protects the data."
+- Right: "Key exchange makes a shared secret; signatures prove identity; symmetric encryption protects the data."
 
 **Thinking the padlock means the website is honest.**
 
-- ❌ Wrong: "It has HTTPS, so it is a safe, trustworthy site."
-- ✅ Right: the padlock only means the connection is private and the name matches. A dishonest site can have a valid certificate too. Always check the address.
+- Wrong: "It has HTTPS, so it is a safe, trustworthy site."
+- Right: the padlock only means the connection is private and the name matches. A dishonest site can have a valid certificate too. Always check the address.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Check the certificates of two websites your school uses, in the browser or with the PowerShell script.
 For each, write the Subject, the Issuer and the expiry date. Which one expires sooner?
 
-> 💡 Hint: change the address inside `Create('...')` in the script. Keep the `https://`.
+> Hint: change the address inside `Create('...')` in the script. Keep the `https://`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - HTTPS = HTTP inside TLS: confidentiality, integrity and authentication.
 - Symmetric keys are fast and protect the data; asymmetric key pairs do key exchange and signatures.
@@ -202,9 +202,9 @@ For each, write the Subject, the Issuer and the expiry date. Which one expires s
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is the difference between symmetric and asymmetric cryptography? Which one protects the bulk of the data in HTTPS?
 
 <details>
@@ -215,7 +215,7 @@ The bulk data is protected by **symmetric** encryption, because it is much faste
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Put these TLS 1.3 handshake messages in order and say who sends each:
 `Finished`, `ClientHello`, `CertificateVerify`, `ServerHello`, `Certificate`, `Finished`.
 
@@ -231,7 +231,7 @@ Put these TLS 1.3 handshake messages in order and say who sends each:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A student connects to `library.example.org` on café Wi-Fi. An attacker on the same Wi-Fi tries three tricks. For each, explain which part of TLS stops it.
 1. Recording the traffic to read the student's password.
 2. Changing a page on its way to the student.

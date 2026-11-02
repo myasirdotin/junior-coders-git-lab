@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the end of the day, the librarian wants to phone only the students who still have a book at home. She does not call all eight students. She runs her finger down the borrowing list and stops only at rows marked "not returned". That finger is the `WHERE` clause: it lets through only the rows that match.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Filter rows with `WHERE` and comparison signs like `=`, `>`, `!=`.
 - Combine tests with `AND`, `OR` and `NOT`.
@@ -209,7 +209,7 @@ And `IS NOT NULL` finds rows that do have a value.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: mixing `AND` and `OR` without brackets.**
 
@@ -242,7 +242,7 @@ WHERE (grade = 7 OR grade = 9) AND city = 'Lahore';
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/), find every loan where the book has **not** been returned. Show `student_id`, `book_id` and `loan_date`.
 
@@ -250,7 +250,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), find every loan where the book ha
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `WHERE condition` keeps only the rows where the condition is true.
 - Compare with `=`, `!=`, `<`, `>`, `<=`, `>=`; quote text, not numbers.
@@ -260,9 +260,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/), find every loan where the book ha
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which clause filters rows in a `SELECT`?
 2. How do you find rows where a column has no value?
 3. What is the difference between `AND` and `OR`?
@@ -276,7 +276,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/), find every loan where the book ha
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Using `books`, write a query for each:
 1. Books with fewer than 250 pages.
 2. Books in the *Computer Science* category that are available.
@@ -297,7 +297,7 @@ SELECT title, pages FROM books WHERE pages BETWEEN 200 AND 300;
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The charity club wants a list of gifts for the *Books* or *Food Pantry* causes that were **more than 2000** rupees.
 
 1. Write the query with `OR` and brackets.

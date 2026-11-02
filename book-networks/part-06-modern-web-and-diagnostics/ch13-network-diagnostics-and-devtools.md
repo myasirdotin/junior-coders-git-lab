@@ -1,10 +1,10 @@
 # Chapter 13: Network Diagnostics & Developer Tools
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When a student feels unwell, the school nurse does not guess. She checks temperature, then pulse, then asks questions, one step at a time, starting with the simplest test. Network engineers work the same way. When "the Internet is not working", they run a few small tests in order. Each test rules something out, until only the real cause is left.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Use `ipconfig`, `ping`, `tracert`, `nslookup`, `curl.exe` and `netstat` on Windows.
 - Explain **TTL** and how `tracert` uses it to map a route.
@@ -206,22 +206,22 @@ Two more useful settings:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Deciding a website is down because ping fails.**
 
-- ❌ Wrong: `ping example.org` shows `Request timed out.` four times, so "the website is down".
+- Wrong: `ping example.org` shows `Request timed out.` four times, so "the website is down".
 - What happens: many servers and firewalls block ping replies on purpose.
-- ✅ Right: also try `curl.exe -I` or the browser. Ping only tests one kind of packet.
+- Right: also try `curl.exe -I` or the browser. Ping only tests one kind of packet.
 
 **Panicking at `*` in tracert.**
 
-- ❌ Wrong: "Hop 3 shows `* * *`, so the route is broken there."
-- ✅ Right: if later hops reply, packets are getting through. That router simply does not answer tracert.
+- Wrong: "Hop 3 shows `* * *`, so the route is broken there."
+- Right: if later hops reply, packets are getting through. That router simply does not answer tracert.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 On your home network, or your school lab with your teacher's permission, climb the ladder:
 
@@ -230,11 +230,11 @@ On your home network, or your school lab with your teacher's permission, climb t
 3. `tracert -d example.org` — how many hops did it take?
 4. `curl.exe -I https://example.org` — what status code did you get?
 
-> 💡 Hint: if any step fails, stop there. That is the layer to investigate.
+> Hint: if any step fails, stop there. That is the layer to investigate.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Always get permission before testing a network you do not own.
 - Troubleshoot bottom-up: link, address, gateway, far host, DNS, web server.
@@ -244,9 +244,9 @@ On your home network, or your school lab with your teacher's permission, climb t
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Which Windows command maps the routers between you and a server? What does **TTFB** stand for?
 
 <details>
@@ -257,7 +257,7 @@ Which Windows command maps the routers between you and a server? What does **TTF
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A student reports "no Internet". You find:
 - `ipconfig` shows `IPv4 Address: 192.168.1.7` and gateway `192.168.1.1`.
 - `ping 192.168.1.1` works.
@@ -274,7 +274,7 @@ Next, run `nslookup example.org` and check the DNS servers in `ipconfig /all`. C
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A charity's donation page feels slow. In DevTools, the main request shows: DNS Lookup 5 ms, Initial connection 30 ms, SSL 35 ms, Waiting (TTFB) 1,800 ms, Content Download 20 ms.
 1. Add up the total time.
 2. Which part is the problem? Is it the network or the server?

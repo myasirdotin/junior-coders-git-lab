@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think of a carton of 12 eggs. You do not give each egg its own shelf in the fridge. All 12 sit together in one carton, each in its own numbered cup. To pick an egg, you say which cup it is in. An **indexed array** works the same way: one variable holds an ordered list, and each item has a position number that starts at **0**.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Create indexed arrays with the short bracket syntax `[...]`.
 - Read, change and add items using 0-based **indexes** (position numbers).
@@ -37,7 +37,7 @@ LAST ITEM:   $fruits[count($fruits) - 1]
              --> "Date"
 ```
 
-⚠️ Arrays in PHP always start counting at 0.
+Arrays in PHP always start counting at 0.
 
 ---
 
@@ -97,7 +97,7 @@ First student: Amina<br>Third student: Chandni<br>Total Students Enrolled: <stro
 
 ---
 
-## 🌍 Real-World Connection: Recorded Lecture Lists
+## Real-World Connection: Recorded Lecture Lists
 
 Think of an online course with 50 recorded lessons.
 
@@ -107,7 +107,7 @@ Think of an online course with 50 recorded lessons.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -118,13 +118,13 @@ Think of an online course with 50 recorded lessons.
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>40</code>. The first indexes were 0, 1 and 2. The empty brackets added 40 at index 3.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Loop Boundary
+## Code Detective: The Broken Loop Boundary
 
 ```php
 <?php
@@ -149,19 +149,19 @@ Warning: Undefined array key 3
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **The off-by-one error: thinking arrays count from 1.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   <?php
   $planets = ["Mercury", "Venus", "Earth"];
   echo "The first planet is " . $planets[1];
   echo "<br>The last planet is " . $planets[3];
   ```
-- 😕 *What happens*: The first line prints `Venus`, the **second** item. The second line shows *Warning: Undefined array key 3*, because a 3-item array only has indexes 0, 1 and 2.
-- ✅ *Fixed*:
+- *What happens*: The first line prints `Venus`, the **second** item. The second line shows *Warning: Undefined array key 3*, because a 3-item array only has indexes 0, 1 and 2.
+- *Fixed*:
   ```php
   <?php
   $planets = ["Mercury", "Venus", "Earth"];
@@ -175,7 +175,7 @@ Warning: Undefined array key 3
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -199,7 +199,7 @@ I have 3 tasks:<br>- Revise maths<br>- Read chapter 3<br>- Pack sports kit<br>
 
 ---
 
-## 📝 Recap
+## Recap
 
 - An indexed array keeps an ordered list in **one** variable.
 - Indexes start at **0**, so the last index is `count($array) - 1`.
@@ -209,9 +209,9 @@ I have 3 tasks:<br>- Revise maths<br>- Read chapter 3<br>- Pack sports kit<br>
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What index does the very first item of an indexed array have?
 2. Which function returns the number of items in an array?
 3. How do you add a new item to the end of an array using empty brackets?
@@ -225,7 +225,7 @@ I have 3 tasks:<br>- Revise maths<br>- Read chapter 3<br>- Pack sports kit<br>
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. An array has a `count()` of 8. What is the index of its last item?
 2. Why is `foreach` usually safer than `for` for looping through an array?
 3. Create an array of 3 science books and print them as an HTML list (`<ul>` and `<li>`) with `foreach`.
@@ -255,7 +255,7 @@ Output:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a quiz score analyser.
 
 1. Store 10 exam scores in an array: `[72, 88, 95, 64, 81, 90, 55, 78, 84, 69]`.

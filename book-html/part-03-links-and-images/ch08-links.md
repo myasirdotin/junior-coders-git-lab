@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine stepping into the lift of a tall city library. Next to the doors is a panel of labelled buttons.
 - One button reads: **“Floor 3: Astronomy Books”**.
@@ -16,7 +16,7 @@ Before hyperlinks, computer files sat alone on single hard drives. The letter **
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Understand the anatomy of the anchor tag (`<a>`) and the `href` attribute.
@@ -125,19 +125,19 @@ Look closely at how attributes work:
 
 ---
 
-## 🌍 Real-World Connection: How Wikipedia Connects Knowledge
+## Real-World Connection: How Wikipedia Connects Knowledge
 
 Open any article on **Wikipedia** (e.g., *Dinosaurs*):
 - Within the first paragraph, you will see blue underlined words like *Fossils*, *Mesozoic Era*, *Reptiles*, and *Extinction*.
 - Each one of those words is wrapped in an `<a href="...">` tag!
 - Hyperlinks turn reading into an interactive journey of curiosity, where you can follow your interests wherever they lead.
 
-> 🌟 **Did You Know?**
+> **Did You Know?**
 > By default, browsers paint unvisited links **blue with an underline**, and links you have already visited **purple**! With CSS (which you will learn in the CSS track), you can make links look like modern rounded buttons with glowing hover effects!
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this line of code:
 
@@ -148,13 +148,13 @@ Look at this line of code:
 **Question**: Will the words "To learn more about lions" be clickable, or will only the words "click here" be clickable?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> ONLY the words <em>"click here"</em> will be clickable, because only those two words are placed inside the <code>&lt;a&gt;</code> and <code>&lt;/a&gt;</code> tags!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Missing Attribute
+## Code Detective: The Missing Attribute
 
 A student was confused because the text turned blue, but clicking it didn't take them anywhere!
 
@@ -181,8 +181,8 @@ Have you ever seen a page that says:
 **This is poor web design!**
 - Visually impaired users using screen readers often pull up a list of all links on a page. If the list just repeats *"click here, click here, click here"*, they have no idea where any link leads!
 - **The Golden Rule of Link Design**: Make your link text descriptive!
-  - ❌ Bad: *"To see our school lunch schedule, [click here]."*
-  - ✅ Great: *"View our [weekly school lunch schedule]."*
+  - Bad: *"To see our school lunch schedule, [click here]."*
+  - Great: *"View our [weekly school lunch schedule]."*
 
 ---
 
@@ -198,11 +198,11 @@ Create an HTML page titled `my-launchpad.html`. Include:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Leaving out `https://` on an external link.**
 
-❌ Wrong:
+Wrong:
 
 ```html
 <a href="www.wikipedia.org">Wikipedia</a>
@@ -210,7 +210,7 @@ Create an HTML page titled `my-launchpad.html`. Include:
 
 What happens: without `https://`, the browser thinks `www.wikipedia.org` is a **file in your own folder**. It looks for it next to your page and shows a "file not found" error.
 
-✅ Fixed: external links need the full address.
+Fixed: external links need the full address.
 
 ```html
 <a href="https://www.wikipedia.org">Wikipedia</a>
@@ -218,7 +218,7 @@ What happens: without `https://`, the browser thinks `www.wikipedia.org` is a **
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The 2-Page Website**
 
@@ -235,11 +235,11 @@ Let's build a real 2-page connected website!
    ```
 3. Open `page1.html` in your browser and click the link. You can now surf back and forth between your own pages!
 
-> 💡 **Hint:** If the link says "file not found", check that both files are in the **same folder** and that the spelling in `href` matches the file name exactly.
+> **Hint:** If the link says "file not found", check that both files are in the **same folder** and that the spelling in `href` matches the file name exactly.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - The anchor element (`<a>`) creates clickable hyperlinks.
 - The `href` attribute specifies the destination URL or file path.
@@ -250,7 +250,7 @@ Let's build a real 2-page connected website!
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -263,9 +263,9 @@ Let's build a real 2-page connected website!
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does the `href` attribute stand for?
 2. Which attribute makes a link open in a new tab?
 3. What happens if you forget to close an `<a>` tag with `</a>`?
@@ -279,7 +279,7 @@ Let's build a real 2-page connected website!
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Many sites open external links in a new tab but keep links between their own pages in the same tab. Why?
 2. Write a link to `contact.html` with the link text "Get in Touch With Our Team".
 
@@ -295,7 +295,7 @@ Let's build a real 2-page connected website!
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 1. Write a link that has an `<em>` or `<strong>` tag inside the `<a>` tag.
 2. Test it in your browser.
 3. Answer: does the link still work? Does the bold or italic style show?

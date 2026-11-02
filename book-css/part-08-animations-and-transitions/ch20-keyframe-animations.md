@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Flip-Book in the Back of Your Notebook**
 
@@ -14,7 +14,7 @@ A transition (Chapter 19) is like a light dimmer: it only moves when someone tur
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain how a `@keyframes` animation differs from a transition.
@@ -383,13 +383,13 @@ To get attention, use a slow, soft pulse (2 seconds or more) like the "New" badg
 
 ---
 
-## 🌍 Real-World Connection: Loading Spinners Everywhere
+## Real-World Connection: Loading Spinners Everywhere
 
 When you submit a form on a hospital booking website, or a library catalogue searches for a book, you often see a spinner. It tells you: "the computer is working, please wait". Many of these spinners are a single element with a border and a `rotate` keyframe, just like the one you built. Good sites also show words like "Searching…", so people who cannot see the animation still know what is happening.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```css
 @keyframes slide {
@@ -405,7 +405,7 @@ When you submit a form on a hospital booking website, or a library catalogue sea
 **Question**: How many times does the box move, which way, and where does it end?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 It plays **3 cycles** of 2 seconds (6 seconds in total). With `alternate`, cycle 1 goes right, cycle 2 comes back left, cycle 3 goes right again.
 
@@ -415,7 +415,7 @@ When it ends, there is no `forwards` fill mode, so the box **jumps back** to its
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: no duration.**
 
@@ -450,7 +450,7 @@ When it ends, there is no `forwards` fill mode, so the box **jumps back** to its
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Tune the Catalogue Page**
 
@@ -463,7 +463,7 @@ When it ends, there is no `forwards` fill mode, so the box **jumps back** to its
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A transition needs a trigger and has two states. An animation can start by itself, has many keyframes and can repeat.
 - `@keyframes name { from {} to {} }` or with percentages describes the motion. `animation-name` and `animation-duration` make it play.
@@ -474,7 +474,7 @@ When it ends, there is no `forwards` fill mode, so the box **jumps back** to its
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -487,9 +487,9 @@ When it ends, there is no `forwards` fill mode, so the box **jumps back** to its
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Give two differences between a transition and a `@keyframes` animation.
 2. What do `from` and `to` mean as percentages?
 3. Which value of `animation-iteration-count` makes an animation repeat forever?
@@ -503,7 +503,7 @@ When it ends, there is no `forwards` fill mode, so the box **jumps back** to its
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write keyframes called `fade-in` that go from `opacity: 0` to `opacity: 1`. Then make `.notice` play it once over 0.8 seconds, after a 1-second delay, staying invisible during the delay.
 5. Explain what this line does, part by part: `animation: float 3s ease-in-out infinite alternate;`
 
@@ -532,7 +532,7 @@ When it ends, there is no `forwards` fill mode, so the box **jumps back** to its
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "Charity Drive" notice board with kind motion.
 1. Make an `<h1>` and three notice cards (for example: clothes collection, book donation, tree planting).
 2. Make each card fade and slide up into place when the page opens, one after another (0s, 0.15s, 0.3s delays). Use only `opacity` and `transform`.

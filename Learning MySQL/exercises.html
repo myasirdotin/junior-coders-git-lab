@@ -12,7 +12,7 @@
     <main class="module-container">
         <header class="module-header path-mysql">
             <span class="badge" style="background: white; color: var(--mysql-brand);">Practice</span>
-            <h1>MySQL Exercises 🗄️</h1>
+            <h1>MySQL Exercises</h1>
             <p>Write real SQL against the school library database. Every answer is checked instantly: same columns, same rows.</p>
         </header>
 
@@ -24,12 +24,12 @@
             </div>
             <div class="sqlx-tiers">
                 <button type="button" class="sqlx-tier-btn active" data-tier="all">All</button>
-                <button type="button" class="sqlx-tier-btn" data-tier="1">🟢 Warm-up</button>
-                <button type="button" class="sqlx-tier-btn" data-tier="2">🟡 Apply</button>
-                <button type="button" class="sqlx-tier-btn" data-tier="3">🔴 Challenge</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="1">Warm-up</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="2">Apply</button>
+                <button type="button" class="sqlx-tier-btn" data-tier="3">Challenge</button>
             </div>
             <details class="sqlx-schema">
-                <summary>📋 Tables in <code>school_db</code> (tap to show columns)</summary>
+                <summary>Tables in <code>school_db</code> (tap to show columns)</summary>
                 <div id="sqlxSchema"></div>
                 <p class="sqlx-note">Need to explore first? Open the <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a> and run any query you like.</p>
             </details>
@@ -45,7 +45,7 @@
         'use strict';
         const EX = window.SQL_EXERCISES || [];
         const list = document.getElementById('sqlxList');
-        const TIER_LABEL = { 1: '🟢 Warm-up', 2: '🟡 Apply', 3: '🔴 Challenge' };
+        const TIER_LABEL = { 1: 'Warm-up', 2: 'Apply', 3: 'Challenge' };
         const XP = { 1: 15, 2: 25, 3: 40 };
         const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
         const progress = () => window.beiProgress;
@@ -156,18 +156,18 @@
                     if (verdict.ok) {
                         const first = progress() ? progress().completeExercise(doneKey(ex), XP[ex.tier]) : false;
                         fb.className = 'sqlx-feedback ok';
-                        fb.innerHTML = first ? `✅ Correct! +${XP[ex.tier]} XP` : '✅ Correct!';
+                        fb.innerHTML = first ? `Correct! +${XP[ex.tier]} XP` : 'Correct!';
                         cardEl.classList.add('done');
                         cardEl.querySelector('.sqlx-num').textContent = '✓';
                         updateProgress();
                         if (first && typeof window.showToast === 'function') window.showToast(`Exercise solved! +${XP[ex.tier]} XP`, 'success');
                     } else {
                         fb.className = 'sqlx-feedback no';
-                        fb.innerHTML = '❌ ' + verdict.msg;
+                        fb.innerHTML = '' + verdict.msg;
                     }
                 } catch (err) {
                     fb.className = 'sqlx-feedback no';
-                    fb.innerHTML = '⚠️ SQL error: ' + esc(err.message);
+                    fb.innerHTML = 'SQL error: ' + esc(err.message);
                     out.innerHTML = '';
                 }
             }
@@ -193,11 +193,11 @@
         const engineEl = document.getElementById('sqlxEngine');
         document.querySelectorAll('.sqlx-run').forEach(b => b.disabled = true);
         SQLLab.ready().then(() => {
-            engineEl.textContent = '✅ SQL engine ready (runs in your browser)';
+            engineEl.textContent = 'SQL engine ready (runs in your browser)';
             engineEl.classList.add('ok');
             document.querySelectorAll('.sqlx-run').forEach(b => b.disabled = false);
         }).catch(err => {
-            engineEl.textContent = '⚠️ ' + err.message;
+            engineEl.textContent = '' + err.message;
             engineEl.classList.add('bad');
         });
     })();

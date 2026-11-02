@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Your school canteen has separate recycling bins: blue for paper, green for plastic bottles, grey for cans and brown for food scraps. You would not throw an apple core into the paper bin, because each material is handled differently. Data in a program is sorted the same way. Text, whole numbers, decimals and yes/no answers are different **data types**, and PHP handles each one differently.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Name PHP's main data types: string, integer, float, boolean, array, object and null.
 - Inspect any variable with `var_dump()` and `gettype()`.
@@ -123,7 +123,7 @@ NULL
 
 ---
 
-## 🌍 Real-World Connection: Form Inputs Are Always Strings!
+## Real-World Connection: Form Inputs Are Always Strings!
 
 When a visitor types their age `15` into an HTML form:
 - PHP receives it as the **string** `"15"`, not the integer `15`.
@@ -131,7 +131,7 @@ When a visitor types their age `15` into an HTML form:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -142,13 +142,13 @@ When a visitor types their age `15` into an HTML form:
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> It prints <code>30</code>, but PHP 8 also shows <code>Warning: A non-numeric value encountered</code>. PHP takes the <code>25</code> from the start of the string and warns you that the rest was ignored. A string with no number at the start, such as <code>"apples"</code>, is worse: <code>"apples" + 5</code> stops the script with a <code>TypeError</code>.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Mystery Null
+## Code Detective: The Mystery Null
 
 ```php
 <?php
@@ -174,27 +174,27 @@ Welcome,
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Expecting `echo` to show a boolean.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   $isOpen = true;
   $isClosed = false;
   echo "[", $isOpen, "][", $isClosed, "]";
   ```
-- 😕 *What happens*: `true` prints as `1`, and `false` prints as nothing:
+- *What happens*: `true` prints as `1`, and `false` prints as nothing:
   ```text
   [1][]
   ```
-- ✅ *Fixed*: Use `var_dump($isClosed);` to see `bool(false)`.
+- *Fixed*: Use `var_dump($isClosed);` to see `bool(false)`.
 
 A second trap: floats are not perfectly exact. `0.1 + 0.2 == 0.3` is `false` in PHP, as in most languages. Money apps usually count in whole paise or cents (integers) to avoid this.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -222,7 +222,7 @@ double
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Every value has a **data type**: string, integer, float, boolean, array, object, null or resource.
 - `var_dump()` shows the type and value; `gettype()` gives just the type name.
@@ -232,9 +232,9 @@ double
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Name the four scalar data types.
 2. Which function shows both the type and the value of a variable?
 3. What is the difference between an integer and a float?
@@ -248,7 +248,7 @@ double
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. What is `(int) 9.99`? Does it round up?
 2. Is `null` the same as an empty string `""`?
 
@@ -260,7 +260,7 @@ double
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A form sent three values, all as strings.
 
 1. Store `$name = "Bilal"`, `$score = "88"` and `$passed = "true"`.

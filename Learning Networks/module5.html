@@ -13,21 +13,21 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 2</span>
-            <h1 style="color: white; margin: 0.5rem 0;">DNS: The Global Phonebook 📖🔍</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">DNS: The Global Phonebook</h1>
             <p>How human-friendly domain names like <code>juniorcoders.org</code> become machine-routable IP addresses in milliseconds.</p>
         </header>
         <!-- Analogy -->
         <section class="content-section">
-            <h2>Names for People, Numbers for Computers 📇</h2>
+            <h2>Names for People, Numbers for Computers</h2>
             <div class="connection-box">
-                <p>🧠 <strong>Real-life analogy:</strong> On your phone, you tap "Grandma" to call her. You do not type her number from memory. Your contacts list turns the name into the number for you. <strong>DNS</strong> (the Domain Name System) is the Internet's shared contacts list. It turns a name like <code>library.example.org</code> into an IP address like <code>203.0.113.25</code>.</p>
+                <p><strong>Real-life analogy:</strong> On your phone, you tap "Grandma" to call her. You do not type her number from memory. Your contacts list turns the name into the number for you. <strong>DNS</strong> (the Domain Name System) is the Internet's shared contacts list. It turns a name like <code>library.example.org</code> into an IP address like <code>203.0.113.25</code>.</p>
             </div>
             <p>People remember names easily. Routers only understand IP addresses (Module 3). DNS connects the two. Your device asks a DNS question before almost every new website it visits.</p>
         </section>
 
         <!-- Name structure -->
         <section class="content-section">
-            <h2>Reading a Domain Name From Right to Left 🌳</h2>
+            <h2>Reading a Domain Name From Right to Left</h2>
             <p>A domain name is a list of labels separated by dots. The most general part is on the right. The most specific part is on the left.</p>
             <pre class="code-block"><code>library . example . org . (root)
    │         │        │      │
@@ -98,7 +98,7 @@ Resolver → Laptop   : "203.0.113.25"</code></pre>
 
         <!-- nslookup -->
         <section class="content-section">
-            <h2>Worked Example 2: Asking DNS Yourself 🔍</h2>
+            <h2>Worked Example 2: Asking DNS Yourself</h2>
             <p>The <code>nslookup</code> command asks a DNS question from the command line. It works on Windows, macOS and Linux.</p>
             <pre class="code-block"><code>nslookup wikipedia.org</code></pre>
             <p><strong>Example output</strong> (the shape is real; the addresses here are example values, and yours will differ):</p>
@@ -119,7 +119,7 @@ Addresses:  2001:db8::20
 
         <!-- TTL & Caching -->
         <section class="content-section">
-            <h2>Time To Live (TTL): Saving Answers ⏳</h2>
+            <h2>Time To Live (TTL): Saving Answers</h2>
             <p>Every DNS record has a <strong>TTL</strong> (time to live), counted in seconds. It tells resolvers how long they may keep a saved copy, called a <strong>cache</strong>. A TTL of <code>3600</code> means "you may keep this for 1 hour". Caching saves many repeated questions and makes browsing faster.</p>
 
             <h3>Worked example 3: when does a change reach everyone?</h3>
@@ -134,7 +134,7 @@ Addresses:  2001:db8::20
 
         <!-- Common misunderstanding -->
         <section class="content-section">
-            <h2>Common Misunderstanding ⚠️</h2>
+            <h2>Common Misunderstanding</h2>
             <div class="tip-box">
                 <p><strong>"DNS loads the website."</strong></p>
                 <p>No. DNS only gives back an address. After that, your browser connects to that address (with TCP, from Module 4) and asks for the page. If DNS works but the page still fails, the problem is somewhere after DNS.</p>
@@ -144,20 +144,20 @@ Addresses:  2001:db8::20
                 <p>The waiting time depends on the TTL of the old record. With a short TTL, most people see the change within minutes.</p>
             </div>
             <div class="connection-box">
-                <p>🔐 <strong>Amānah:</strong> Plain DNS questions are not secret. They show which sites a person visits. Newer browsers can use encrypted DNS (DNS over HTTPS) to keep these questions private. Treat people's browsing history as a trust.</p>
+                <p><strong>Amānah:</strong> Plain DNS questions are not secret. They show which sites a person visits. Newer browsers can use encrypted DNS (DNS over HTTPS) to keep these questions private. Treat people's browsing history as a trust.</p>
             </div>
         </section>
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Which record type gives: (a) an IPv4 address, (b) an IPv6 address, (c) the mail servers for a domain?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>(a) A record, (b) AAAA record, (c) MX record.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>A resolver saves a record at 14:00:00 with TTL 300. (1) Until what time may it keep using that copy? (2) In the nslookup output in Worked example 2, which line is the IPv4 address?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
                     <pre class="code-block"><code>300 s = 5 minutes
@@ -166,7 +166,7 @@ Addresses:  2001:db8::20
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>A neighbourhood library owns <code>example.org</code>. Plan its DNS records:</p>
                 <ol>
                     <li>The catalogue site <code>library.example.org</code> lives at IPv4 <code>203.0.113.25</code> and IPv6 <code>2001:db8::25</code>.</li>

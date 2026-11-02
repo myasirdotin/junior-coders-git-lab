@@ -1,10 +1,10 @@
 # Chapter 9: Working with Files & Context Managers
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 In the science lab, each experiment is written in a logbook. When the bell rings, students go home, but the logbook stays on the shelf. Next week, the class opens it and carries on. A Python program is like a lesson that ends at the bell. When it stops, all its variables are wiped from memory. To keep information for next time, a program writes it into a **file**, the computer's logbook.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Open a file with `open()` and choose a mode: read, write or append.
 - Use `with` so that files are always closed safely.
@@ -22,7 +22,7 @@ Working with a file is like working with a real notebook:
 
 If a program forgets to close a file, some of the text may never be saved. Python has a safe way to make sure that never happens: the `with` statement.
 
-> 💻 **Where files are saved**: on a computer, files are saved in the folder you run Python from. In the Python Console on this website, files live in the browser's temporary memory. They work the same way, but disappear when you reload the page.
+> **Where files are saved**: on a computer, files are saved in the folder you run Python from. In the Python Console on this website, files live in the browser's temporary memory. They work the same way, but disappear when you reload the page.
 
 ## File Modes
 
@@ -245,7 +245,7 @@ Grateful : good health
 
 A personal journal is private. Store it only on your own device, and never share another person's notes without permission (*Amānah*).
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Using `"w"` when you meant `"a"`.** Write mode empties the file first, so the old records are lost.
 
@@ -270,13 +270,13 @@ Monday's line has gone! **Fix:** open the second time with `"a"` to add to the e
 
 **2. Forgetting `\n`.** `file.write("Line 1")` then `file.write("Line 2")` saves `Line 1Line 2` on one line. **Fix:** end each written line with `\n`.
 
-## ✍️ Try It
+## Try It
 
 Write three of your weekly goals to `goals.txt`, one per line. Then read the file back and print each goal with a number in front, like `1. Read 20 pages a day`.
 
 **Hint:** write with mode `"w"` and `\n`; read with a `for` loop, a counter and `.strip()`.
 
-## 📝 Recap
+## Recap
 
 - Files keep data after a program ends. Open them with `open(name, mode, encoding="utf-8")`.
 - `"r"` reads, `"w"` empties then writes, `"a"` adds to the end.
@@ -284,9 +284,9 @@ Write three of your weekly goals to `goals.txt`, one per line. Then read the fil
 - `.read()` gives the whole file; a `for` loop gives one line at a time. Use `.strip()` to remove `\n`.
 - `.split(",")` turns a line into a list of strings; convert numbers with `int()` or `float()`.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Which mode would you use to (a) add a new line to an existing log, (b) start a brand-new report, (c) only look at a file?
 
 <details>
@@ -296,7 +296,7 @@ Which mode would you use to (a) add a new line to an existing log, (b) start a b
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write `"apples\n"`, `"bread\n"` and `"rice\n"` to `pantry.txt`. Then read the file and print how many lines it has.
 
 <details>
@@ -323,7 +323,7 @@ Lines: 3
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A weather station saves one reading per line as `day,temperature`.
 
 1. Write these lines to `temps.txt`: `Sat,31`, `Sun,34`, `Mon,29`, `Tue,36`.

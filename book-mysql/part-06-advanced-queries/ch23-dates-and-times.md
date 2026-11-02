@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The school librarian stamps a due date inside every book: "Return within 14 days". On Monday mornings she checks her lending cards. Which books are past their due date? By how many days? At the end of the month the charity club also asks her: "How much did we collect in September?" Doing this by hand means counting on a calendar. SQL's date functions do the counting for you, without mistakes.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Choose between `DATE`, `DATETIME` and `TIMESTAMP`, and write dates in `'YYYY-MM-DD'` form.
 - Get the current date and time with `CURDATE()` and `NOW()`.
@@ -117,7 +117,7 @@ LIMIT 4;
 | Ibrahim | 07 September 2026 | Mon 07/09 |
 | Hafsa | 12 September 2026 | Sat 12/09 |
 
-> 💡 `DATE_FORMAT` gives back **text**. Use it for showing dates, not for sorting. Sort by the real date column, or `'01 September'` and `'03 October'` will sort by their first letters.
+>`DATE_FORMAT` gives back **text**. Use it for showing dates, not for sorting. Sort by the real date column, or `'01 September'` and `'03 October'` will sort by their first letters.
 
 ---
 
@@ -200,7 +200,7 @@ ORDER BY days_late DESC;
 
 Khadija's loan 10 is not on the list. It is due on 15 October, so it is not late yet.
 
-> 🤝 **Kindness and *Amānah*.** This list is for the librarian, to send a polite reminder. It is not for a notice board. Who is late with a book is private information, and we keep it that way.
+> **Kindness and *Amānah*.** This list is for the librarian, to send a polite reminder. It is not for a notice board. Who is late with a book is private information, and we keep it that way.
 
 ---
 
@@ -356,7 +356,7 @@ Same four students, same days. `BETWEEN` with `'YYYY-MM-DD'` dates works the sam
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: writing the date the way we say it.**
 
@@ -402,7 +402,7 @@ The `>=` start and `<` next-day end works for `DATE` and `DATETIME` alike, so it
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the Sandbox or phpMyAdmin, list every loan with its **due date** shown as `DD/MM/YYYY`, newest loan first.
 
@@ -410,7 +410,7 @@ In the Sandbox or phpMyAdmin, list every loan with its **due date** shown as `DD
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Store days in `DATE`, exact moments in `DATETIME`; `TIMESTAMP` is for "when was this row saved".
 - Always write dates year first: `'2026-09-02'`.
@@ -421,9 +421,9 @@ In the Sandbox or phpMyAdmin, list every loan with its **due date** shown as `DD
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. How do you write 5 March 2027 as a MySQL date?
 2. What does `DATE_ADD('2026-09-28', INTERVAL 14 DAY)` return?
 3. `DATEDIFF('2026-10-01', '2026-09-02')` returns 29. What would `DATEDIFF('2026-09-02', '2026-10-01')` return?
@@ -437,7 +437,7 @@ In the Sandbox or phpMyAdmin, list every loan with its **due date** shown as `DD
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 List the donations made from 16 to 30 September 2026. Show the donor, the amount and the date as `18 September` style text, oldest first.
 
 <details>
@@ -461,7 +461,7 @@ We sort by `donated_on` (the real date), not by the text `day`.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The librarian wants a polite reminder list for 13 October 2026.
 
 1. Join `loans`, `students` and `books`.

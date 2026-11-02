@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the school office there is a stack of paper contact slips. A parent writes a name, a phone number and a question, then hands it over. A careful clerk checks the slip first: is the name filled in, and does the phone number look real? If something is missing, the clerk hands the slip back with the problem circled. The good slips go into a tray for the head teacher. In this project you build that careful clerk in PHP.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Combine a form, validation and output escaping in one working page.
 - Keep the visitor's answers in the form when something is wrong (a **sticky form**).
@@ -342,7 +342,7 @@ message: Message must be at least 10 characters.
 
 ---
 
-## 🤝 Amānah: Messages Are a Trust
+## Amānah: Messages Are a Trust
 
 People trust you with their name, email and question. Keep only what you need, and never show the file to others.
 
@@ -350,19 +350,19 @@ People trust you with their name, email and question. Keep only what you need, a
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Escaping a value too early, or not at all.**
 
-- ❌ *Wrong*: `$name = htmlspecialchars(trim($_POST["name"]));` and then later `<?= htmlspecialchars($name) ?>` again.
-- 😕 *What happens*: The name `Ali & Sons` is escaped twice. The page shows `Ali &amp; Sons`. And the saved file holds `&amp;` instead of the real text.
-- ✅ *Fixed*: Keep the real text in your variables and in the file. Escape **once, at the moment you print** into HTML: `<?= htmlspecialchars($name) ?>`.
+- *Wrong*: `$name = htmlspecialchars(trim($_POST["name"]));` and then later `<?= htmlspecialchars($name) ?>` again.
+- *What happens*: The name `Ali & Sons` is escaped twice. The page shows `Ali &amp; Sons`. And the saved file holds `&amp;` instead of the real text.
+- *Fixed*: Keep the real text in your variables and in the file. Escape **once, at the moment you print** into HTML: `<?= htmlspecialchars($name) ?>`.
 
 The opposite mistake is worse: printing `<?= $name ?>` with no escaping at all lets a visitor run their own JavaScript on your page.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Save `contact.php` in `C:\xampp\htdocs\contact-project\`, start Apache, and open `http://localhost/contact-project/contact.php`. Then check each item:
 
@@ -376,7 +376,7 @@ Save `contact.php` in `C:\xampp\htdocs\contact-project\`, start Apache, and open
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A contact form needs three jobs: **check** the input, **save** it, and **show** it safely.
 - Trim every field, then check emptiness, length, format (`filter_var`) and allowed choices (`in_array`).
@@ -386,9 +386,9 @@ Save `contact.php` in `C:\xampp\htdocs\contact-project\`, start Apache, and open
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which function checks that an email address has a valid format?
 2. Which two flags make `file_put_contents()` add to the end of a file and lock it?
 3. What is a "sticky" form field?
@@ -402,7 +402,7 @@ Save `contact.php` in `C:\xampp\htdocs\contact-project\`, start Apache, and open
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Add an optional **phone** field to the form. It may be empty. If it is filled in, it must contain only digits and be 10 digits long. Write the PHP check.
 
 <details>
@@ -430,7 +430,7 @@ Phone must be exactly 10 digits.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make the form safer and kinder.
 
 1. After a good message is saved, send the browser to `contact.php?sent=1` with `header()` and `exit`, so pressing Refresh does not save the message twice.

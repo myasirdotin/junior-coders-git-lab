@@ -1,10 +1,10 @@
-# Git & GitHub for Junior Coders 🐙🚀
+# Git & GitHub for Junior Coders
 
 Welcome to the official **Git & GitHub Textbook** of the Junior Coders curriculum!
 
 ---
 
-## 🎯 Course Overview
+## Course Overview
 
 In modern software development, writing code is only half the adventure. Professional developers must know how to:
 1. **Save milestones** and rewind mistakes without losing work.
@@ -16,7 +16,7 @@ This book guides you from your very first `git init` to opening professional Pul
 
 ---
 
-## 🗺️ Curriculum Roadmap
+## Curriculum Roadmap
 
 | Part | Focus | Chapters |
 | :--- | :--- | :--- |
@@ -31,7 +31,7 @@ This book guides you from your very first `git init` to opening professional Pul
 
 ---
 
-## 🌟 Islamic Ethical Framework (*Amānah & Adab*)
+## Islamic Ethical Framework (*Amānah & Adab*)
 
 In accordance with our core guidelines:
 - **Protecting Secrets as a Sacred Trust (*Amānah*)**: Never commit `.env` files, passwords, or API keys to GitHub.

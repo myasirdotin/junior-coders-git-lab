@@ -1,10 +1,10 @@
-# Android Apps with Kotlin 📱
+# Android Apps with Kotlin
 
 **The Junior Coders textbook for building real Android phone apps, Grades 9–10**
 
 ---
 
-## 📘 About This Book
+## About This Book
 
 "Android Apps with Kotlin" teaches students to build small, useful and honest Android apps. Students use **Android Studio**, the **Kotlin** language and **Jetpack Compose** with **Material 3**, the way Google currently recommends for new apps. There are no XML layouts and no Java.
 
@@ -16,7 +16,7 @@ Every example follows the Junior Coders values: school, library, study and chari
 
 ---
 
-## 📚 Table of Contents
+## Table of Contents
 
 ### Part 1: Getting Started
 - **Chapter 1**: What Is an Android App? ([part-01-getting-started/ch01-what-is-an-android-app.md](part-01-getting-started/ch01-what-is-an-android-app.md))
@@ -55,25 +55,25 @@ Every example follows the Junior Coders values: school, library, study and chari
 
 ---
 
-## 🧩 How Every Chapter Works
+## How Every Chapter Works
 
 Every chapter follows the same Junior Coders template, in this order:
 
-1. **🌟 Real-Life Story**: a short everyday picture of the idea, such as a librarian, a school nurse or a bakery sale.
-2. **🎯 What You Will Learn**: three to five goals for the chapter.
+1. **Real-Life Story**: a short everyday picture of the idea, such as a librarian, a school nurse or a bakery sale.
+2. **What You Will Learn**: three to five goals for the chapter.
 3. **Topic sections**: the explanation, step by step. Every plain Kotlin example shows its exact output. Every Compose example describes, or sketches, what the phone screen shows.
-4. **⚠️ Common Mistake**: a real beginner mistake, what goes wrong, and the fix.
-5. **✍️ Try It**: one small task to do straight away, with a hint.
-6. **📝 Recap**: the key ideas in a few bullet points.
-7. **🏆 Practice**: three levels, 🟢 Recall, 🟡 Apply and 🔴 Challenge, with answers hidden under "Show answer".
+4. **Common Mistake**: a real beginner mistake, what goes wrong, and the fix.
+5. **Try It**: one small task to do straight away, with a hint.
+6. **Recap**: the key ideas in a few bullet points.
+7. **Practice**: three levels, Recall, Apply and Challenge, with answers hidden under "Show answer".
 
-Some chapters add **📖 Key Terms** after the Recap.
+Some chapters add **Key Terms** after the Recap.
 
 **Where the code runs.** Plain Kotlin programs (`fun main()`, mostly Chapters 4–8) run in the browser at the Kotlin Playground (play.kotlinlang.org). Compose screens need Android Studio with an emulator or a real phone. The book never quotes exact version numbers: always install the newest stable version of Android Studio, and add libraries with Android Studio's suggestion or the official docs.
 
 ---
 
-## 🚀 Running the Interactive Reader
+## Running the Interactive Reader
 
 Open `index.html` in this folder in any web browser (or visit the Textbooks page of the Junior Coders site):
 

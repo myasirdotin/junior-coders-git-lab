@@ -1,10 +1,10 @@
 # Chapter 7: Functions and Lambdas
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The school bakery club makes the same date biscuits every Friday. They do not rewrite the recipe each week. The recipe card has a name, "Date Biscuits", and it asks for a few **ingredients**: how many trays, which flour. Anyone can pick up the card, give it the ingredients, and get biscuits back. A **function** is a recipe card for code: a named set of steps that takes some inputs and can hand back a result. In this chapter you will also meet **lambdas**: small recipe cards with no name, that you can pass to someone else to use. Every button in your Android app will use one.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Write functions with `fun`, parameters and a return type.
 - Use default arguments and named arguments.
@@ -395,7 +395,7 @@ Output:
 
 `forEach` is like a `for` loop written as a function call. `filter` and `map` never change the original list; they make a new one. In Chapter 12 you will use `filter` to make a search box: keep only the books whose title contains what the user typed.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: a return type with no `return`.**
 
@@ -429,7 +429,7 @@ error: no value passed for parameter 'height'.
 
 **Mistake 3: using `it` with two parameters.** `{ it + it }` works only when the lambda takes exactly one input. For two inputs, name them: `{ a, b -> a + b }`.
 
-## ✍️ Try It
+## Try It
 
 1. Write `fun stars(count: Int): String` that builds a String of that many `*` with a `for` loop, and print `stars(5)`.
 2. Write `fun showBook(title: String, onOpen: () -> Unit)` that prints the title and then runs `onOpen`.
@@ -437,7 +437,7 @@ error: no value passed for parameter 'height'.
 
 **Hint:** start with `var line = ""` and add `"*"` to it inside the loop.
 
-## 📝 Recap
+## Recap
 
 - `fun name(param: Type): ReturnType { ... return value }` makes a function. Parameters need types.
 - Default values (`copies: Int = 1`) make arguments optional; named arguments (`copies = 3`) can skip and reorder them.
@@ -446,7 +446,7 @@ error: no value passed for parameter 'height'.
 - A function can take a lambda as a parameter. If it is the last parameter, write it after the brackets: a trailing lambda.
 - `Button(onClick = { }) { Text("Save") }` = a named lambda argument plus a trailing lambda.
 
-## 📖 Key Terms
+## Key Terms
 
 - **Function:** a named, reusable block of code.
 - **Parameter / argument:** the input box in the definition / the value you put in it when calling.
@@ -455,9 +455,9 @@ error: no value passed for parameter 'height'.
 - **Higher-order function:** a function that takes (or returns) another function.
 - **Trailing lambda:** a lambda written after the closing round bracket of a call.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What does this program print?
 
 ```kotlin
@@ -483,7 +483,7 @@ The first call uses the default `place`. The third call uses named arguments, so
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write `fun progress(name: String, booksRead: Int, goal: Int = 10): String`. It returns `"<name> reached the goal of <goal> books. Well done!"` when the goal is met, otherwise `"<name> has read <booksRead> of <goal> books. <left> to go."`. Call it for Maryam (7 books), Bilal (12 books) and, with named arguments, Sara (3 books, goal 5).
 
 <details>
@@ -518,7 +518,7 @@ Sara has read 3 of 5 books. 2 to go.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Five classes packed food boxes for a community food bank: `12, 7, 15, 4, 9`.
 
 1. Write your own higher-order function `fun changeAll(numbers: List<Int>, change: (Int) -> Int): List<Int>` that uses a `for` loop to build a new list by calling `change` on every number.

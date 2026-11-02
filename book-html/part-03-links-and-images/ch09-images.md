@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Have you ever flipped through a children's wildlife encyclopedia filled with full-color photos of Siberian tigers, deep-sea jellyfish, and towering giraffes? 
 
@@ -13,7 +13,7 @@ On the web, images bring life, emotion, color, and excitement to your pages. Whe
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Use the `<img>` tag to embed pictures onto any web page.
@@ -116,7 +116,7 @@ Type this into an editor and save it as `gallery.html`:
 
 ---
 
-## 🌍 Real-World Connection: The Alt Text Superpower
+## Real-World Connection: The Alt Text Superpower
 
 Why do careful web teams always write `alt` text?
 1. **Accessibility**: Millions of people around the world are blind or have low vision. A screen reader reads `alt="A tray of fresh bread rolls at the school bake sale"` aloud, so a blind student knows what the picture shows!
@@ -125,7 +125,7 @@ Why do careful web teams always write `alt` text?
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What will happen if you set `width="500"` and `height="100"` on a tall, vertical portrait photo of a giraffe?
 
@@ -134,13 +134,13 @@ What will happen if you set `width="500"` and `height="100"` on a tall, vertical
 - **Option C**: The computer will explode.
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: Option B!</strong> If you force mismatched width and height attributes, the browser will distort the natural proportions (aspect ratio) of the image. It is usually best to specify EITHER width OR height, and let the browser scale the other automatically!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Case of the Missing Quote
+## Code Detective: The Case of the Missing Quote
 
 A student's photo shows up, but when a screen reader reads it, it only says **"A"**:
 
@@ -165,9 +165,9 @@ Writing great alternative text is an art form. Check out these examples for a ph
 
 | Rating | Alt Text Example | Why It Works / Fails |
 | :--- | :--- | :--- |
-| ❌ **Terrible** | `alt="image"` or `alt="photo.jpg"` | Tells the user nothing useful. |
-| 🟡 **Mediocre** | `alt="cat"` | Too vague—what kind of cat? What is it doing? |
-| ✅ **Excellent** | `alt="A tiny sleeping gray kitten curled up inside a bright red ceramic teacup"` | Vivid, concise, and paints a clear mental picture! |
+| **Terrible** | `alt="image"` or `alt="photo.jpg"` | Tells the user nothing useful. |
+| **Mediocre** | `alt="cat"` | Too vague—what kind of cat? What is it doing? |
+| **Excellent** | `alt="A tiny sleeping gray kitten curled up inside a bright red ceramic teacup"` | Vivid, concise, and paints a clear mental picture! |
 
 ---
 
@@ -180,11 +180,11 @@ Create a new file named `my-hobbies.html`:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Leaving out `alt`, or writing a useless one.**
 
-❌ Wrong:
+Wrong:
 
 ```html
 <img src="images/library.jpg">
@@ -193,7 +193,7 @@ Create a new file named `my-hobbies.html`:
 
 What happens: a screen reader may read out the file name, "library dot jpg", or just "image". If the picture fails to load, nothing useful appears.
 
-✅ Fixed: describe what the picture shows, in one short sentence.
+Fixed: describe what the picture shows, in one short sentence.
 
 ```html
 <img src="images/library.jpg" alt="Students reading at long tables in the school library">
@@ -201,7 +201,7 @@ What happens: a screen reader may read out the file name, "library dot jpg", or 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Broken Image Test**
 
@@ -213,11 +213,11 @@ Want to see how `alt` text saves the day?
 2. Save and refresh your browser.
 3. You will see a small broken image icon, and your descriptive `alt` text will appear on the screen instead of the picture!
 
-> 💡 **Hint:** Different browsers draw the broken image a little differently. Some show only the `alt` text, with no icon at all.
+> **Hint:** Different browsers draw the broken image a little differently. Some show only the `alt` text, with no icon at all.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - The `<img>` tag embeds pictures into HTML documents.
 - `<img>` is a self-closing void element (no `</img>` closing tag).
@@ -228,7 +228,7 @@ Want to see how `alt` text saves the day?
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -240,9 +240,9 @@ Want to see how `alt` text saves the day?
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. True or false: the `<img>` tag needs a closing `</img>` tag.
 2. What does the `src` attribute tell the browser?
 3. What unit do the numbers in `width="300"` use?
@@ -256,7 +256,7 @@ Want to see how `alt` text saves the day?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write the tag for an image named `dinosaur.png` inside an `assets` folder, with the alt text "A Tyrannosaurus Rex skeleton in a museum", and a width of 450 pixels.
 2. Why is it risky to set both a fixed `width` and a fixed `height` without checking the image's real size?
 
@@ -273,7 +273,7 @@ Want to see how `alt` text saves the day?
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make a picture that works as a link:
 1. Put an `<img>` of a rocket inside an `<a>` tag.
 2. The link goes to `https://www.nasa.gov` and opens in a new tab.

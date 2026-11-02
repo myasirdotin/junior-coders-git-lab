@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Flight Recorder**
 
@@ -10,7 +10,7 @@ Every passenger plane carries a flight data recorder. It notes every change in h
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Read the project history with `git log` and the short form `git log --oneline`.
 - Filter the history by author, by file and by date.
@@ -169,9 +169,9 @@ index ccf22a0..24cddd2 100644
 
 | Command | Compares |
 | :--- | :--- |
-| `git diff` | your files ↔ staging area (not yet staged) |
-| `git diff --staged` | staging area ↔ last commit (about to be committed) |
-| `git diff 2c23e92 d6f001c` | one commit ↔ another commit |
+| `git diff` | your files staging area (not yet staged) |
+| `git diff --staged` | staging area last commit (about to be committed) |
+| `git diff 2c23e92 d6f001c` | one commit another commit |
 
 ---
 
@@ -184,7 +184,7 @@ index ccf22a0..24cddd2 100644
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 **Code reviews**
 
@@ -195,12 +195,12 @@ index ccf22a0..24cddd2 100644
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 You change `color: blue` to `color: teal` in `style.css`. You have **not** run `git add`. You type `git diff`. Will you see `-  color: blue;` and `+  color: teal;`?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Yes.** Plain `git diff` compares your files with the staging area. Your edit is not staged yet, so it shows up. If you ran `git add style.css` first, `git diff` would print nothing, and you would need `git diff --staged`.
 
@@ -208,7 +208,7 @@ You change `color: blue` to `color: teal` in `style.css`. You have **not** run `
 
 ---
 
-## 🕵️ Code Detective
+## Code Detective
 
 **The Accidental Deletion**
 
@@ -219,21 +219,21 @@ A student edited `script.js` and, without noticing, selected and deleted a 40-li
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Thinking the terminal froze inside `git log`**
 
-❌ **Wrong:** you run `git log` on a long project. The screen fills up, a `:` or `(END)` appears at the bottom, and typing new commands does nothing. You close the whole terminal window.
+**Wrong:** you run `git log` on a long project. The screen fills up, a `:` or `(END)` appears at the bottom, and typing new commands does nothing. You close the whole terminal window.
 
 **What happens:** you are inside the pager. It is waiting for keys like `Space` or `q`.
 
-✅ **Fixed version:** press **`q`**. You are back at your prompt. For short output, use `git log --oneline -n 5`.
+**Fixed version:** press **`q`**. You are back at your prompt. For short output, use `git log --oneline -n 5`.
 
 **Seeing nothing from `git diff`** is the other surprise. It does not mean your edits are lost. They are probably staged already, so run `git diff --staged`.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. In a practice repository with at least one commit, edit `README.md` (add one line).
 2. Run `git diff` and find your new line with a `+`.
@@ -249,7 +249,7 @@ If `git diff` shows nothing in step 2, check that you saved the file in your edi
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `git log` shows every commit, newest first; `git log --oneline` shows one line each.
 - Filter with `--author`, `-- <file>`, `-n` and `--since`.
@@ -259,9 +259,9 @@ If `git diff` shows nothing in step 2, check that you saved the file in your edi
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 
 1. Which command shows the commit history?
 2. Which key quits the `git log` screen?
@@ -276,7 +276,7 @@ If `git diff` shows nothing in step 2, check that you saved the file in your edi
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 
 1. What is the difference between `git diff` and `git diff --staged`?
 2. Why is it good practice to read the diff before you commit?
@@ -299,7 +299,7 @@ git commit -m "docs: Add opening days to README"
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 
 **Become a history detective.**
 

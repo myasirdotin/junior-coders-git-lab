@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Architect's Blueprint Gallery**
 
@@ -19,7 +19,7 @@ Your portfolio is the single most valuable project you will build in this entire
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Build a dark-themed developer portfolio with a hero and two call-to-action buttons.
@@ -408,7 +408,7 @@ Type this into your editor and save it as `portfolio.html`:
 
 ---
 
-## 🌍 Real-World Connection: GitHub Pages & Hosting
+## Real-World Connection: GitHub Pages & Hosting
 
 How do web developers share their portfolios with the world?
 - You can upload your code repository to **GitHub** and turn on **GitHub Pages** with one click!
@@ -417,18 +417,18 @@ How do web developers share their portfolios with the world?
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What will happen when you hover over any project card?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> The card will smoothly float upward by 8 pixels (<code>transform: translateY(-8px);</code>) and its border will ignite in bright cyan (<code>border-color: #38bdf8;</code>) over 0.3 seconds!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Squashed Hero Title
+## Code Detective: The Squashed Hero Title
 
 A student tested their portfolio on an iPhone, but the giant 48px hero title was so wide that it broke through the screen edges:
 
@@ -470,7 +470,7 @@ Add a recommendation quote underneath your projects:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake on dark pages is grey text that is too dark to read.
 
@@ -494,7 +494,7 @@ A second slip is project links that go nowhere, like `href="#"`. Visitors click 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Link Your Real Chapter Projects**
 
@@ -504,7 +504,7 @@ Look inside the `.projects-grid` in `portfolio.html`:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A developer portfolio is your primary showcase of technical and design competence.
 - Dark mode interfaces use deep slates (`#0f172a`) paired with bright, glowing accents (`#38bdf8`).
@@ -513,7 +513,7 @@ Look inside the `.projects-grid` in `portfolio.html`:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -524,9 +524,9 @@ Look inside the `.projects-grid` in `portfolio.html`:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the main purpose of a web developer portfolio?
 2. Which hex colour did we use for the portfolio's dark background?
 3. Name two links every project card should include.
@@ -540,7 +540,7 @@ Look inside the `.projects-grid` in `portfolio.html`:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. The hero title is 30px on phones. Write mobile-first CSS that makes it 48px on screens 550px and wider.
 5. Why are tech-stack badges helpful for people looking at your projects?
 
@@ -564,7 +564,7 @@ Look inside the `.projects-grid` in `portfolio.html`:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add a row of category buttons above the projects.
 1. Add a `<div class="filters">` with four buttons: *All*, *Websites*, *Tools*, *School Projects*.
 2. Lay them out with Flexbox, `gap` and `flex-wrap: wrap;`.

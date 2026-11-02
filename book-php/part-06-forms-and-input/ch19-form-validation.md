@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Before you board a plane, your bag goes through a security scanner. Officers check every item and remove anything unsafe. They also check that your boarding pass matches your passport. Only safe, checked passengers and bags get on board. A website needs the same scanner for everything visitors type, because the golden rule of web security is: **never trust user input**.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain a **Cross-Site Scripting (XSS)** attack and stop it with `htmlspecialchars()`.
 - Clean input with `trim()` and check its length with `strlen()`.
@@ -188,7 +188,7 @@ The fields still show `Al`, `sana@` and `25`, so the student only fixes the mist
 
 ---
 
-## 🌍 Real-World Connection: Security Testing
+## Real-World Connection: Security Testing
 
 - Security testers type tricky input into every box, such as `<img src=x onerror=alert(1)>`, to see if a site prints it unescaped.
 - `htmlspecialchars()` on output protects against this kind of XSS.
@@ -197,18 +197,18 @@ The fields still show `Al`, `sana@` and `25`, so the student only fixes the mist
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What does `echo htmlspecialchars("<b>Hello</b>");` send to the browser?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> The page source contains <code>&amp;lt;b&amp;gt;Hello&amp;lt;/b&amp;gt;</code>. On the screen the visitor sees <code>&lt;b&gt;Hello&lt;/b&gt;</code> as plain text, not bold.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Unchecked Email
+## Code Detective: The Unchecked Email
 
 ```php
 <?php
@@ -225,13 +225,13 @@ What does `echo htmlspecialchars("<b>Hello</b>");` send to the browser?
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Trusting only the HTML `required` attribute.**
 
-- ❌ *Wrong*: The form has `<input name="email" required>`, and the PHP saves `$_POST['email']` with no checks.
-- 😕 *What happens*: Anyone can remove `required` in the browser's Developer Tools, or send data without the form. Empty or harmful data reaches your server.
-- ✅ *Fixed*: Keep `required` for convenience, but always check again in PHP:
+- *Wrong*: The form has `<input name="email" required>`, and the PHP saves `$_POST['email']` with no checks.
+- *What happens*: Anyone can remove `required` in the browser's Developer Tools, or send data without the form. Empty or harmful data reaches your server.
+- *Fixed*: Keep `required` for convenience, but always check again in PHP:
   ```php
   $email = trim($_POST["email"] ?? "");
   if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -243,7 +243,7 @@ A second mistake: printing input raw, like `echo $_POST['comment'];`. Always wri
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and run:
 
@@ -271,7 +271,7 @@ hello world: not valid
 
 ---
 
-## 📝 Recap
+## Recap
 
 - **Never trust user input.** Anyone can change or skip the HTML form.
 - Clean with `trim()`, check length with `strlen()`, and validate with `filter_var()`.
@@ -281,9 +281,9 @@ hello world: not valid
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does XSS stand for?
 2. Which function turns `<` and `>` into safe HTML codes?
 3. Which function and filter check an email address?
@@ -297,7 +297,7 @@ hello world: not valid
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why is HTML or JavaScript validation in the browser not enough?
 2. What is the difference between **validation** and **escaping**?
 3. Write a check that a `website` field holds a valid URL.
@@ -316,7 +316,7 @@ hello world: not valid
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build an **account sign-up** check for a school library website.
 
 1. Fields: `username`, `email`, `password`, `confirm`, and a checkbox `terms`.

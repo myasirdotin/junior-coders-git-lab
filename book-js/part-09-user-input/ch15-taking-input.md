@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine using the self-checkout machine at your school library:
 1. The screen asks: "Please enter your 4-digit library card number."
@@ -13,7 +13,7 @@ Up until now, our JavaScript variables were hardcoded in our scripts. In this ch
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Prompt users for input in the browser using `prompt()`.
@@ -128,7 +128,7 @@ If you type `Bilal`, `30` and click Cancel, it says `Standard ticket price for B
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```javascript
 let num1 = "10";
@@ -141,7 +141,7 @@ console.log(num1 * num2); // Sneaky JavaScript automatic type coercion!
 *What are the three printed lines?*
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 ```text
 1020
@@ -175,7 +175,7 @@ Always validate and sanitize your input with checks (`isNaN()`, `trim()`, checki
 Write a "Times-Table Practice Quiz":
 - Pick a random number between 1 and 10: `Math.floor(Math.random() * 10) + 1`. (`Math.random()` gives a random decimal from 0 up to, but not including, 1.)
 - Ask the student "What is 7 × [number]?" using `prompt()`.
-- Give 3 chances using a `for` loop. Say "Too high", "Too low" or "Correct! 🎉".
+- Give 3 chances using a `for` loop. Say "Too high", "Too low" or "Correct!".
 - If all 3 tries are wrong, show the right answer and explain it kindly.
 
 ---
@@ -193,7 +193,7 @@ Create a fill-in-the-words story:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 Find the errors in this code:
 ```javascript
@@ -215,7 +215,7 @@ alert "Your final score is " + finalScore;
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. Open your browser console on any web page.
 2. Run:
@@ -225,11 +225,11 @@ alert "Your final score is " + finalScore;
    ```
 3. Notice how execution pauses until you click "OK".
 
-> 💡 **Hint:** If you click **Cancel** on the prompt, `favColor` becomes `null`, and the alert shows "Your favorite color is null!". That is why we always check input before using it.
+> **Hint:** If you click **Cancel** on the prompt, `favColor` becomes `null`, and the alert shows "Your favorite color is null!". That is why we always check input before using it.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `alert()` shows a message.
 - `confirm()` asks a True/False question.
@@ -247,7 +247,7 @@ alert "Your final score is " + finalScore;
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 - **Dialog / Modal:** A pop-up window overlaying the browser.
 - **Prompt:** A dialog asking for keyboard input.
@@ -257,9 +257,9 @@ alert "Your final score is " + finalScore;
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What data type does `prompt()` give back when the user types something and clicks OK?
 2. What does `confirm()` give back when the user clicks "Cancel"?
 
@@ -271,7 +271,7 @@ alert "Your final score is " + finalScore;
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a script that asks for two numbers, multiplies them, and shows `"The product of X and Y is Z"` in an alert.
 
 Extra: why is `isNaN(value)` safer than `value === NaN`?
@@ -291,7 +291,7 @@ Extra: `NaN` is never equal to anything, not even itself. `NaN === NaN` is `fals
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "Bill Splitter with Tip" for a class lunch:
 1. Ask for the total bill.
 2. Ask for the tip percentage (10, 15 or 20).

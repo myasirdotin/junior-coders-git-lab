@@ -1,10 +1,10 @@
 # Chapter 14: More Than One Screen
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think of the school library itself. At the front desk there is a long list of books. You point at one title, and the librarian walks you to that shelf and shows you the book. When you are done, you walk back to the desk and the list is still there. Nobody rebuilds the front desk each time. An app with several **screens** works the same way: a list screen, a detail screen, and a simple way to go forward and come back.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why apps split their content into several screens.
 - Add Navigation Compose and the Kotlin serialization plugin to a project.
@@ -370,7 +370,7 @@ In Chapter 12 the search text lived in a `rememberSaveable` variable. Good news:
 
 A value kept with plain `remember` is not kept that way. When the list screen is replaced by the detail screen, its `remember` values are forgotten. That is one more reason to use `rememberSaveable` for things the student typed. Chapter 15 shows how to keep "Save for later" even after the app is closed.
 
-## 🕵️ Code Detective
+## Code Detective
 
 Each line has one problem. Can you spot it?
 
@@ -394,7 +394,7 @@ data class BookDetail(val id: Int)
 
 </details>
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: using `navigate(Home)` to go back.**
 
@@ -422,13 +422,13 @@ What happens: the build fails, because `Book` itself is not marked `@Serializabl
 data class BookDetail(val id: Int)          // right
 ```
 
-## ✍️ Try It
+## Try It
 
 Add a third screen called `About`. It shows one sentence: "This app helps students find books in our school library." Put an "About" `TextButton` in the list screen's top bar, using the `actions = { }` slot of `TopAppBar`. Give the About screen its own back arrow.
 
 *Hint:* you need `@Serializable object About`, a `composable<About> { }` block inside the `NavHost`, a new lambda parameter `onAboutClick` on `BookListScreen`, and `navController.navigate(About)`.
 
-## 📝 Recap
+## Recap
 
 - A list screen shows many items; a detail screen shows one item fully.
 - Navigation Compose needs its library and the Kotlin serialization plugin; sync after adding them.
@@ -437,9 +437,9 @@ Add a third screen called `About`. It shows one sentence: "This app helps studen
 - Pass only the id; the detail screen looks the book up and handles "not found".
 - The system Back button works by itself; the top-bar arrow calls `navigateUp()`.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the back stack?
 2. Why is `Home` written as an `object`, but `BookDetail` as a `data class`?
 3. What does a screen reader say when it reaches the back arrow in this chapter's code?
@@ -453,7 +453,7 @@ Add a third screen called `About`. It shows one sentence: "This app helps studen
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 On the detail screen, when the book is available, show "Shelf location: Science A3" (with the book's real shelf) using `MaterialTheme.typography.titleMedium`. When it is on loan, show "Ask the librarian when it will be back." Write that part of `BookDetailScreen`.
 
 <details>
@@ -476,7 +476,7 @@ For "Our Solar System" the screen shows "Shelf location: Science A3". For "Clean
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add an "Authors" feature:
 
 1. Create a route `@Serializable data class AuthorBooks(val author: String)`.

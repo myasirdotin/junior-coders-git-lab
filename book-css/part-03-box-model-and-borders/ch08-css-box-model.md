@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Framed Family Photograph**
 
@@ -16,7 +16,7 @@ Imagine you have a cherished photograph of you and your family on a summer vacat
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Name and draw the 4 layers of the **box model**: content, padding, border, margin.
@@ -172,7 +172,7 @@ Type this into your editor and save it as `profile-card.html`:
 
 ---
 
-## 🌍 Real-World Connection: Google Chrome DevTools Box Model
+## Real-World Connection: Google Chrome DevTools Box Model
 
 Want to see proof that every website is made of boxes?
 1. Open any website in Google Chrome.
@@ -182,7 +182,7 @@ Want to see proof that every website is made of boxes?
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this CSS declaration:
 
@@ -195,7 +195,7 @@ Look at this CSS declaration:
 **Question**: How much margin will be applied to the Top/Bottom, and how much to the Left/Right?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> 
 Top and Bottom will get 10px.<br>
 Left and Right will get 40px.<br>
@@ -204,7 +204,7 @@ When you provide 2 values to margin or padding, the first number controls vertic
 
 ---
 
-## 🕵️ Code Detective: The Glued Cards
+## Code Detective: The Glued Cards
 
 A student created two profile cards, but they are smashing against each other like bumper cars:
 
@@ -239,7 +239,7 @@ In graphic and web design, empty space is called **Whitespace** or **Negative Sp
 - Well-designed websites, such as a good online library, use generous padding and margin.
 - Generous whitespace makes your content feel calm, organised and easy to read.
 
-> 💡 **Think Before You Code**:
+> **Think Before You Code**:
 > When in doubt, give your content a little more padding than you think it needs. Breathing room makes text instantly easier to read!
 
 ---
@@ -253,7 +253,7 @@ Create a web page named `planet-facts.html`:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is forgetting that padding and border are **added** to the width, when `box-sizing: border-box` is not used.
 
@@ -282,7 +282,7 @@ A second slip is trying to centre a block with `margin: auto;` without giving it
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Zero-Padding Test**
 
@@ -294,7 +294,7 @@ Open `profile-card.html` in your editor:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Every HTML element is modeled as a rectangular box.
 - The 4 layers from inside out: **Content -> Padding -> Border -> Margin**.
@@ -305,7 +305,7 @@ Open `profile-card.html` in your editor:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -317,9 +317,9 @@ Open `profile-card.html` in your editor:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which layer of the box model is closest to the content?
 2. Which layer pushes neighbouring elements away?
 3. In `padding: 5px 10px 15px 20px;`, which side gets each value?
@@ -333,7 +333,7 @@ Open `profile-card.html` in your editor:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. A button has no border. How can you make it bigger and easier to tap on a phone, using the box model?
 5. Write CSS that gives `.box` 15px margin on the top and bottom and 30px on the left and right, using the 2-value shorthand.
 
@@ -351,7 +351,7 @@ Open `profile-card.html` in your editor:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Discover **margin collapse**.
 1. Make two `<div>` boxes, one above the other, each with a background colour.
 2. Give the first `margin-bottom: 30px;` and the second `margin-top: 20px;`.

@@ -1,12 +1,12 @@
 # Chapter 7: Creating Folders & Files at Lightning Speed
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the start of term, Maryam's teacher asks her to prepare files for the class library project. In File Explorer, each new folder needs a right-click, "New", "Folder", and then typing a name. Ten folders mean forty clicks. Her older brother shows her the terminal. He types one short line and presses Enter. All ten folders appear at once, with neat, correct names.
 
 > **Key Idea**: In the terminal you can create several folders and files with one line. It is fast, exact and easy to repeat.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Make your practice folder with `mkdir`.
 - Create one folder, several folders, and folders inside folders.
@@ -203,7 +203,7 @@ js\app.js
 
 That would take about twenty clicks in File Explorer.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Using spaces between names in PowerShell.**
 
@@ -222,7 +222,7 @@ C:\JuniorCoders\practice>type nul > notes.txt
 
 CMD gives no warning. Your notes are now gone, and the file is empty. Before you create a file, list the folder with `dir` to check the name is free. (PowerShell's `New-Item` is safer: it refuses with *"The file ... already exists."*)
 
-## ✍️ Try It
+## Try It
 
 Inside `C:\JuniorCoders\practice`, build this for a class charity drive:
 
@@ -236,7 +236,7 @@ charity-drive
 
 *Hint*: Make `charity-drive` and go in. Make the `pages` folder. Then make the three empty files. Finish with `dir /s /b` or `ls -Recurse -Name` to check.
 
-## 📝 Recap
+## Recap
 
 - `mkdir name` makes a folder. Silence in CMD means it worked.
 - Several folders: spaces in CMD (`mkdir a b c`), commas in PowerShell (`mkdir a, b, c`).
@@ -244,9 +244,9 @@ charity-drive
 - Empty file: `type nul > name` (CMD) or `New-Item name` (PowerShell).
 - `>` replaces a file's contents, so check with `dir` before using it.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which command makes a new folder in CMD and PowerShell?
 2. Write one command that makes folders `alpha`, `beta` and `gamma` in CMD. Then write it for PowerShell.
 3. How do you make an empty `index.html` in CMD? And in PowerShell?
@@ -260,7 +260,7 @@ charity-drive
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 In your practice folder:
 
 1. Make a folder called `practice-lab` and go into it.
@@ -295,7 +295,7 @@ The list shows `assets`, `index.html` and `pages`.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Look at this CMD command:
 
 ```text

@@ -1,10 +1,10 @@
 # Chapter 8: Resource Controllers
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Every library in the world does the same few things with its books. It shows the list of books. It adds a new book. It shows one book's details. It fixes a book's record. It removes a lost book. Because these jobs are always the same, librarians use the same forms for them everywhere. Laravel noticed this too. A **resource controller** gives you all these standard jobs in one go, with standard names.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain the idea of **CRUD**: Create, Read, Update, Delete.
 - Create a resource controller with `--resource`.
@@ -156,7 +156,7 @@ You will use this in Chapter 14.
 
 An HTML form can only use `method="GET"` or `method="POST"`. So how does a browser send PUT or DELETE? Laravel's answer is a hidden field written with `@method('PUT')` or `@method('DELETE')` inside a POST form. Chapter 19 shows it step by step.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Adding a custom route below the resource.**
 
@@ -174,13 +174,13 @@ Route::resource('books', BookController::class);
 
 **Plural controller URLs, singular controller names.** It is `Route::resource('books', BookController::class)`, not `'book'` and not `BooksController`.
 
-## ✍️ Try It
+## Try It
 
 Create `MemberController` with `--resource`, register it with `Route::resource('members', ...)` but without `destroy`, and run `php artisan route:list --name=members`. Count the routes.
 
 *Hint:* you should see six routes.
 
-## 📝 Recap
+## Recap
 
 - CRUD means Create, Read, Update, Delete.
 - `php artisan make:controller BookController --resource` writes the seven CRUD methods.
@@ -188,9 +188,9 @@ Create `MemberController` with `--resource`, register it with `Route::resource('
 - `create`/`edit` show forms; `store`/`update` save them; `destroy` deletes.
 - `->only([...])` and `->except([...])` trim the list.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Name the seven resource actions in order, and say which two only show forms.
 
 <details>
@@ -200,7 +200,7 @@ Name the seven resource actions in order, and say which two only show forms.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Fill the table for `Route::resource('members', MemberController::class)`: what are the method and URL for `members.update` and `members.create`?
 
 <details>
@@ -211,7 +211,7 @@ Fill the table for `Route::resource('members', MemberController::class)`: what a
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Plan the loan routes.
 
 1. Loans can be listed, created and shown, but not edited or deleted.

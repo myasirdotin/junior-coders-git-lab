@@ -1,10 +1,10 @@
 # Chapter 12: Supervised vs. Unsupervised Learning
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine two ways of learning about plants. In the first, your biology teacher shows you leaves and says the name of each one. You practise, and she corrects your mistakes. In the second, you find a box of seeds with no labels at all. Nobody tells you their names, but you can still sort them into piles: small and round, long and thin, large and flat. Machine learning has the same two styles. Learning **with** answers is **supervised**. Finding groups **without** answers is **unsupervised**.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain supervised learning and its two kinds: classification and regression.
 - Build a simple nearest-neighbour classifier in plain Python.
@@ -96,7 +96,7 @@ print(classify((5, 4)))
 
 The classifier never received a rule like "softness above 5 means ripe". It **learned from the examples**: whatever the new mango is closest to decides the answer. The third mango (5, 4) sits between the two groups. Its nearest neighbour is the unripe mango (3, 2), at 2.83. The closest ripe mango is 4.24 away. Cases in the middle like this are worth checking by hand.
 
-> 🧪 **Honest note**: this is a simplified teaching model with six made-up mangoes. Real classifiers use far more examples, and often look at several neighbours (the "k" in **k-nearest neighbours**) and let them vote.
+> **Honest note**: this is a simplified teaching model with six made-up mangoes. Real classifiers use far more examples, and often look at several neighbours (the "k" in **k-nearest neighbours**) and let them vote.
 
 ## Unsupervised Learning: Finding Groups Alone
 
@@ -166,7 +166,7 @@ The centres settle after the first round. The computer found two clusters by its
 | Example | Ripe or unripe mango | Busy and quiet water taps |
 | Checking | Compare with known labels | People judge if the groups make sense |
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting `abs()` when measuring a distance.** A distance can never be negative. Without `abs()`, a value far **below** looks like the "closest".
 
@@ -214,13 +214,13 @@ print(best_label, best_distance)
 ripe 1
 ```
 
-## ✍️ Try It
+## Try It
 
 Add two more mangoes to the `training` list: `((5, 6), "ripe")` and `((4, 3), "unripe")`. Run `classify((5, 4))` again. Does the answer or the distance change?
 
 **Hint:** work out the distance from (5, 4) to (4, 3) by hand: √(1² + 1²) ≈ 1.41.
 
-## 📝 Recap
+## Recap
 
 - Supervised learning uses labelled examples. Classification predicts a category; regression predicts a number.
 - A nearest-neighbour classifier copies the label of the most similar training example.
@@ -228,9 +228,9 @@ Add two more mangoes to the `training` list: `((5, 6), "ripe")` and `((4, 3), "u
 - K-means repeats two steps: put each item with its nearest centre, then move each centre to its group's average.
 - The computer finds groups; people must explain them and check they make sense.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Is each task classification, regression or clustering?
 
 1. Predicting the millimetres of rain next Wednesday.
@@ -248,7 +248,7 @@ Is each task classification, regression or clustering?
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Using the `distance()` function from this chapter, calculate the distance between the points (1, 1) and (4, 5).
 
 <details>
@@ -273,7 +273,7 @@ Across 3, up 4: √(9 + 16) = √25 = 5.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A charity weighed the parcels waiting to be delivered, in kilograms (made-up data): `[3, 4, 21, 2, 19, 5, 20]`.
 
 1. Use the k-means steps from this chapter with two centres, starting at the smallest and largest values.

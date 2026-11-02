@@ -13,7 +13,7 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #2563eb, #0284c7); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #2563eb; font-weight: 800;">Level 8</span>
-            <h1 style="color: white; margin: 0.5rem 0;">The Ethical Intelligence Builder 🛡️🌟</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">The Ethical Intelligence Builder</h1>
             <p>Build real classification logic and anchor machine learning in moral stewardship (Amānah and Iḥsān).</p>
         </header>
 
@@ -30,8 +30,8 @@
             <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
                 <span style="color: #60a5fa;">def</span> <span style="color: #34d399;">evaluate_water_safety</span>(cloudiness, ph_level):<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">if</span> cloudiness &lt; <span style="color: #eab308;">5.0</span> <span style="color: #60a5fa;">and</span> ph_level &gt;= <span style="color: #eab308;">6.5</span> <span style="color: #60a5fa;">and</span> ph_level &lt;= <span style="color: #eab308;">8.5</span>:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">return</span> <span style="color: #34d399;">"Safe to drink 💧"</span><br>
-                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">return</span> <span style="color: #f87171;">"Filter Required ⚠️"</span>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">return</span> <span style="color: #34d399;">"Safe to drink"</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #60a5fa;">return</span> <span style="color: #f87171;">"Filter Required"</span>
             </div>
             <p>Calling it for three samples:</p>
             <pre class="code-block"><code>print(evaluate_water_safety(1.2, 7.1))
@@ -44,13 +44,13 @@ Filter Required ⚠️</code></pre>
             <p>The second sample is too cloudy. The third is too acidic (its pH is below 6.5).</p>
             <p>Here a person wrote the rule by hand. A machine learning model would <strong>learn</strong> numbers like 5.0 and 6.5 from many labelled samples instead. Either way, we must test how often it is right.</p>
             <div class="tip-box" style="border-left-color: #ef4444;">
-                <p>⚠️ <strong>Important:</strong> this is a simplified teaching rule. Real water testing checks many more things, such as germs and harmful chemicals, in a proper laboratory. Never decide that water is safe to drink using a school program.</p>
+                <p><strong>Important:</strong> this is a simplified teaching rule. Real water testing checks many more things, such as germs and harmful chemicals, in a proper laboratory. Never decide that water is safe to drink using a school program.</p>
             </div>
         </section>
 
         <!-- Measuring Accuracy -->
         <section class="content-section">
-            <h2>🎯 Is the Model Any Good? Accuracy</h2>
+            <h2>Is the Model Any Good? Accuracy</h2>
             <p><strong>Accuracy</strong> is the share of test samples the model got right, as a percentage. To work it out, compare each prediction with the true answer from the test set (the samples kept back in Module 7).</p>
             <p>We need to walk through two lists side by side. <code>range(len(actual))</code> gives the index numbers 0, 1, 2 and so on. The same index then picks matching items from both lists.</p>
             <h3>Worked example: counting correct predictions</h3>
@@ -66,7 +66,7 @@ Sample 2: true=Contaminated, model=Contaminated</code></pre>
             <p>Two of the three match, so this model's accuracy is 2 ÷ 3 × 100, about 66.7%.</p>
             <p>"Contaminated" means the water has something harmful mixed into it.</p>
             <div class="tip-box" style="border-left-color: #2563eb;">
-                <p>🧪 <strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a>. Paste <code>evaluate_water_safety</code> and test it with your own cloudiness and pH values. Can you find a sample that sits right on the edge?</p>
+                <p><strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a>. Paste <code>evaluate_water_safety</code> and test it with your own cloudiness and pH values. Can you find a sample that sits right on the edge?</p>
             </div>
         </section>
 
@@ -91,7 +91,7 @@ Sample 2: true=Contaminated, model=Contaminated</code></pre>
 
         <!-- Practice Challenge -->
         <section class="content-section jc-your-turn">
-            <h2>🧪 Your Turn: Test Set Accuracy Calculator</h2>
+            <h2>Your Turn: Test Set Accuracy Calculator</h2>
             <p>Calculate the accuracy of a water-safety model across 5 test samples. Count the matches with a loop, then turn the count into a percentage.</p>
             <details class="jc-answer"><summary>Show answer</summary><div>
             <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code>actual = ["Safe", "Contaminated", "Safe", "Safe", "Contaminated"]
@@ -111,14 +111,14 @@ print(f"Accuracy: {accuracy}% ({correct}/{len(actual)} correct)")</code></pre>
         </section>
 
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>A model gets 9 out of 10 test samples right. What is its accuracy? Which principle says we must never train a model on people's personal data without their permission?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>9 ÷ 10 × 100 = 90%. The principle is <em>Amānah</em> (digital trust): personal data is a trust we must protect.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>Store four water samples as a list of dictionaries with <code>"cloudiness"</code> and <code>"ph"</code> keys: (1.2, 7.1), (8.0, 7.0), (2.0, 5.9), (0.5, 8.0). Loop through them, print the result of <code>evaluate_water_safety</code> for each, and count how many are safe.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
 <pre><code>samples = [
@@ -140,7 +140,7 @@ print(f"Safe samples: {safe_count} of {len(samples)}")</code></pre>
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>A fair model works equally well for everyone. Check whether a water-safety model is fair to two villages.</p>
                 <ol>
                     <li>Write a function <code>accuracy(actual, predicted)</code> that returns the accuracy as a percentage.</li>

@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine borrowing a book from your school library. In the margins, a teacher has written small pencil notes: *"Explain this part slowly"* or *"Check this date."* Most readers skip over them, because they are not part of the story. But anyone who looks closely can still read them!
 
@@ -12,7 +12,7 @@ Now imagine the library's computer uses the symbol `#` to mean "start of a book 
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Write HTML comments with `<!-- -->` and explain why they are never secret.
@@ -110,7 +110,7 @@ Comments are hidden from the **page**, but they are **not** hidden from people. 
 
 So a comment is like a pencil note in a library book: anyone who looks closely can read it.
 
-> 🛡️ **Amānah (trust) rule:** never write a password, a phone number, an exam answer or any private detail in a comment. If it should be secret, it must not be in the HTML at all.
+> **Amānah (trust) rule:** never write a password, a phone number, an exam answer or any private detail in a comment. If it should be secret, it must not be in the HTML at all.
 
 ---
 
@@ -313,7 +313,7 @@ Two things must match for this to work:
 
 If the meta line is missing, a browser may guess wrongly. Then "café" can appear as **cafÃ©**. Strange letters like these are a sign that the charset is wrong.
 
-> 💡 **So when do I still need entities?** Only for the characters HTML keeps for itself: `<` and `&` (and `"` inside attributes). Everything else, like é, ✓ and ₹, you can simply type.
+> **So when do I still need entities?** Only for the characters HTML keeps for itself: `<` and `&` (and `"` inside attributes). Everything else, like é, ✓ and ₹, you can simply type.
 
 ---
 
@@ -326,7 +326,7 @@ When you write about HTML, you often want to show code to your readers. Two tags
 
 Put `<code>` inside `<pre>` for a block of code with many lines.
 
-> ⚠️ `<code>` and `<pre>` change the font and keep the spaces. They do **not** stop the browser from reading tags! You still need `&lt;` and `&amp;` inside them.
+>`<code>` and `<pre>` change the font and keep the spaces. They do **not** stop the browser from reading tags! You still need `&lt;` and `&amp;` inside them.
 
 ```html
 <!DOCTYPE html>
@@ -369,7 +369,7 @@ Look closely at `&amp;amp;`. The reader should see the code `&amp;`, so its own 
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What will the browser show for this code?
 
@@ -394,7 +394,7 @@ The middle line is inside a comment, so it is not shown at all.
 
 ---
 
-## 🕵️ Code Detective: The Leaking Comment
+## Code Detective: The Leaking Comment
 
 A student wanted to hide two lines while testing:
 
@@ -419,11 +419,11 @@ A student wanted to hide two lines while testing:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: putting private information in a comment.**
 
-❌ Wrong:
+Wrong:
 
 ```html
 <!-- Admin password is GreenValley2026 -->
@@ -432,7 +432,7 @@ A student wanted to hide two lines while testing:
 
 What happens: the page looks fine, but anyone who presses **Ctrl + U** can read the password.
 
-✅ Fixed: delete it. Private details never belong in HTML, not even in comments.
+Fixed: delete it. Private details never belong in HTML, not even in comments.
 
 ```html
 <!-- Homework page for Class 7B -->
@@ -441,7 +441,7 @@ What happens: the page looks fine, but anyone who presses **Ctrl + U** can read 
 
 **Mistake 2: forgetting to escape `<` when showing a tag.**
 
-❌ Wrong:
+Wrong:
 
 ```html
 <p>Use <hr> to draw a line.</p>
@@ -449,7 +449,7 @@ What happens: the page looks fine, but anyone who presses **Ctrl + U** can read 
 
 What happens: the browser draws a real line. The reader sees "Use", then a line, then "to draw a line."
 
-✅ Fixed:
+Fixed:
 
 ```html
 <p>Use <code>&lt;hr&gt;</code> to draw a line.</p>
@@ -457,7 +457,7 @@ What happens: the browser draws a real line. The reader sees "Use", then a line,
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Make a Mini Help Sheet**
 
@@ -467,11 +467,11 @@ Create a file named `help-sheet.html` with the usual page skeleton. Inside the `
 3. Add a paragraph that explains the `<strong>` tag, showing the tag itself with `<code>`.
 4. End with a footer paragraph: `© 2026` and your name, with a non-breaking space between your first and last name.
 
-> 💡 **Hint:** write the tag as `<code>&lt;strong&gt;</code>`. Then open the page and press **Ctrl + U** to find your comment in the source.
+> **Hint:** write the tag as `<code>&lt;strong&gt;</code>`. Then open the page and press **Ctrl + U** to find your comment in the source.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A comment `<!-- ... -->` is a note for people. The browser does not show it on the page.
 - Comments are **not** secret: anyone can read them with View Page Source.
@@ -482,7 +482,7 @@ Create a file named `help-sheet.html` with the usual page skeleton. Inside the `
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -497,9 +497,9 @@ Create a file named `help-sheet.html` with the usual page skeleton. Inside the `
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. How does an HTML comment start and end?
 2. Which entity shows the `&` sign?
 3. Which line in the `<head>` lets you type symbols like é and ✓ directly?
@@ -513,7 +513,7 @@ Create a file named `help-sheet.html` with the usual page skeleton. Inside the `
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write the HTML for this sentence so the browser shows it exactly: **Fruit & Vegetables < 50 rupees**
 2. A classmate says: "I put the quiz answers in a comment, so students cannot see them." Explain why this is wrong.
 
@@ -530,7 +530,7 @@ Create a file named `help-sheet.html` with the usual page skeleton. Inside the `
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "Tag of the Day" card for a school coding club page:
 1. Start with a comment that names the club and the page.
 2. Add an `<h2>` that shows the text `Tag of the Day: <em>` (the tag must be visible, not used).

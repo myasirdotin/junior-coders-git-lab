@@ -1,12 +1,12 @@
 # Chapter 18: Testing and Sharing Your App
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Before a school bakery sale, the class bakes one test tray first. They taste a biscuit, check that the middle is cooked and try the oven at a lower heat. Only then do they bake two hundred. On sale day each box gets a label with the class name and the date, so families know who made it and that it is safe to eat.
 
 Apps are the same. First you test: you watch what the app is doing, find the cause of a crash and check it on small and large screens. Then you put a "label" on it: a **signature** that proves the app came from you. Only then do you share it.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Print messages with `Log.d` and read them in **Logcat**.
 - Read a crash **stack trace** and find the line that caused it.
@@ -313,7 +313,7 @@ To publish on Google Play, someone must create a **Google Play developer account
 
 So a student's app reaches the Play Store through a **teacher, parent or school** account. You build and test it; the adult uploads the `.aab` file, fills in the Data safety form (Chapter 17) and publishes. For a class project, sharing an APK with family and the teacher is usually enough.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: putting the keystore in the project folder and pushing it to GitHub.**
 
@@ -330,7 +330,7 @@ Anyone can download it and sign apps as you. Fix: keep the keystore **outside** 
 
 **Mistake 3: reading only the top of a stack trace.** The top lines are usually inside Android or Java. Scroll to the first line with **your** file name, and check for a `Caused by:` line.
 
-## ✍️ Try It
+## Try It
 
 Add `formatMinutes` and `TimeFormatTest` to your School Library project and run the test.
 
@@ -340,7 +340,7 @@ Add `formatMinutes` and `TimeFormatTest` to your School Library project and run 
 
 *Hint:* 61 minutes is 1 hour and 1 minute, so the expected text is `"1 h 1 min"`.
 
-## 📝 Recap
+## Recap
 
 - `Log.d(TAG, "message")` writes to **Logcat**; filter with `tag:YourTag`. Never log personal data.
 - In a **stack trace**, read the exception name, then find the first line with your own file name.
@@ -349,7 +349,7 @@ Add `formatMinutes` and `TimeFormatTest` to your School Library project and run 
 - A **unit test** in `app/src/test` uses `@Test` and `assertEquals(expected, actual)` to check a plain Kotlin function.
 - Release apps are **signed** with a key from a **keystore**: keep it safe and private, raise `versionCode` each release, and let an adult (18+) publish on Google Play.
 
-## 📖 Key Terms
+## Key Terms
 
 - **Logcat**: Android Studio's window of messages from the phone.
 - **Stack trace**: the list of functions running when a crash happened.
@@ -360,9 +360,9 @@ Add `formatMinutes` and `TimeFormatTest` to your School Library project and run 
 - **Keystore**: a password-protected file that holds signing keys.
 - **APK / AAB**: an installable app file / a bundle uploaded to Google Play.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the difference between `versionCode` and `versionName`?
 2. Why must you never share your keystore?
 
@@ -374,7 +374,7 @@ Add `formatMinutes` and `TimeFormatTest` to your School Library project and run 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Logcat shows this crash (shortened). Which file and line should you open first, and what is the problem?
 
 ```text
@@ -397,7 +397,7 @@ val next = if (index < books.size - 1) index + 1 else 0
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write and run unit tests for a new function.
 
 1. In your project, write `fun shelfLetter(shelf: String): String` that returns the first character of a shelf code in capitals, or `"?"` if the text is blank. Example: `"Science A3"` gives `"S"`.

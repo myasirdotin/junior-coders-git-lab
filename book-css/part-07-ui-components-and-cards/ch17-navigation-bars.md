@@ -2,15 +2,15 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Airport Directory Signs**
 
 Imagine walking into a massive international airport:
 - Overhead, suspended from the high ceiling, there are bright glowing directional signs:
-  - `Gate A-12` ➡️
-  - `Baggage Claim` ⬇️
-  - `Food Court` ⬅️
+  - `Gate A-12`
+  - `Baggage Claim`
+  - `Food Court`
 - No matter where you wander in the terminal, you can always look up at the ceiling signs to orient yourself, check where you are, and navigate wherever you want to go next.
 - If an airport had zero directional signs, passengers would wander in circles, miss flights, and panic!
 
@@ -19,7 +19,7 @@ It sits proudly at the top of every page, greeting visitors with your brand iden
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Build a navigation bar with the semantic `<header>` and `<nav>` elements.
@@ -252,7 +252,7 @@ Type this into your editor and save it as `master-nav.html`:
 
 ---
 
-## 🌍 Real-World Connection: Mobile Hamburger Menus
+## Real-World Connection: Mobile Hamburger Menus
 
 Have you seen the three stacked horizontal lines (☰) on mobile websites?
 - That icon is universally known as the **Hamburger Menu**!
@@ -260,19 +260,19 @@ Have you seen the three stacked horizontal lines (☰) on mobile websites?
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What will happen if you set `position: sticky;`, but **forget** to write `top: 0;`?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: The sticky effect will completely fail!</strong> 
 Sticky positioning requires an explicit coordinate boundary (like <code>top: 0;</code>) so the browser knows at what exact pixel line the element should freeze!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Sinking Navbar
+## Code Detective: The Sinking Navbar
 
 A student created a sticky navbar, but when scrolling down, large images and video cards covered up the links:
 
@@ -311,14 +311,14 @@ Look at the main menu of Apple or Nike:
 ## Mini Challenge: The Eco Club Navbar
 
 Create a navbar for a Green Earth Environmental Club:
-- Logo: 🌿 `EcoGuardians`
+- Logo:`EcoGuardians`
 - Nav links: *Our Forests*, *Ocean Cleanup*, *Recycling Tips*, *Volunteer*.
-- Action CTA Button: *Donate Seedling 🌱* in lush forest green (`#059669`).
+- Action CTA Button: *Donate Seedling* in lush forest green (`#059669`).
 - Pin it with `position: sticky; top: 0;`.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is a `position: sticky` bar that never sticks, because its **parent** is too short.
 
@@ -349,7 +349,7 @@ A second slip is forgetting `top: 0;`. Without a `top` value, `position: sticky`
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Color Inversion Test**
 
@@ -360,7 +360,7 @@ Open `master-nav.html` in your editor:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - The navigation bar is the primary orientation and routing hub for website visitors.
 - Semantic HTML uses `<header>` and `<nav>` with unordered list links (`<ul>` and `<li>`).
@@ -371,7 +371,7 @@ Open `master-nav.html` in your editor:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -383,9 +383,9 @@ Open `master-nav.html` in your editor:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which semantic HTML tag is made for a group of navigation links?
 2. Which `position` value keeps a header at the top while scrolling, without taking it out of the page flow first?
 3. Why do sticky headers often get a high `z-index`, such as `1000`?
@@ -399,7 +399,7 @@ Open `master-nav.html` in your editor:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write CSS for a sticky `.site-header` with a white background, a 1px grey bottom border and 16px of padding at the top and bottom.
 5. Why should a main menu usually have only about 5 to 7 links?
 
@@ -422,7 +422,7 @@ Open `master-nav.html` in your editor:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make a "frosted glass" header.
 1. Build a sticky header with a logo and three links.
 2. Give it a half-transparent white background: `rgba(255, 255, 255, 0.8)`.

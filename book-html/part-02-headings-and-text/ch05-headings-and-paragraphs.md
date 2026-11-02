@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When you pick up a morning newspaper, look at how the stories are laid out:
 - At the very top, there is a giant, bold headline: **“ROBOT LANDS ON MARS!”** (This grabs your attention across the breakfast table).
@@ -16,7 +16,7 @@ Imagine if every word in the entire newspaper was printed in the exact same font
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Use the six levels of HTML headings from `<h1>` down to `<h6>`.
@@ -111,7 +111,7 @@ Look at the structure we built:
 
 ---
 
-## 🌍 Real-World Connection: How Google Reads Headings
+## Real-World Connection: How Google Reads Headings
 
 When you search for something on Google:
 1. Google's search robots (called crawlers) read billions of web pages.
@@ -121,7 +121,7 @@ When you search for something on Google:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this code snippet:
 
@@ -134,14 +134,14 @@ Look at this code snippet:
 **Question**: Which heading will display larger: `<h3>Continents</h3>` or `<h2>Oceans</h2>`? And what design mistake did the author make here?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>&lt;h2&gt;Oceans&lt;/h2&gt;</code> will display larger because <code>h2</code> is a higher rank than <code>h3</code>. 
 <br><strong>The Mistake:</strong> The author skipped from <code>&lt;h1&gt;</code> straight to <code>&lt;h3&gt;</code> without having an <code>&lt;h2&gt;</code> first! You should never jump over heading levels.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Stray Slashing
+## Code Detective: The Stray Slashing
 
 A classmate wrote this code, but their entire page looks huge and won't go back to normal text!
 
@@ -187,11 +187,11 @@ Write an HTML page reviewing your favorite book:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Choosing a heading because of its size.**
 
-❌ Wrong: using `<h1>` just to get big text, or `<h6>` just to get small text.
+Wrong: using `<h1>` just to get big text, or `<h6>` just to get small text.
 
 ```html
 <h1>Welcome!</h1>
@@ -201,7 +201,7 @@ Write an HTML page reviewing your favorite book:
 
 What happens: the page now has two main titles, and a normal sentence is marked as a tiny heading. Screen reader users who jump from heading to heading get a confusing outline.
 
-✅ Fixed: headings describe the **outline**. Normal sentences go in `<p>`. You will change sizes later with CSS.
+Fixed: headings describe the **outline**. Normal sentences go in `<p>`. You will change sizes later with CSS.
 
 ```html
 <h1>Welcome!</h1>
@@ -211,7 +211,7 @@ What happens: the page now has two main titles, and a normal sentence is marked 
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Pet Encyclopedia**
 
@@ -222,11 +222,11 @@ Create a small HTML page about your favorite animal:
 4. Add another `<h2>` titled `Diet & Care` followed by what they eat.
 5. Save the file as `pet.html` and view it in your browser!
 
-> 💡 **Hint:** You only need one `<h1>`. Both "Appearance" and "Diet & Care" are main sections, so they are both `<h2>`.
+> **Hint:** You only need one `<h1>`. Both "Appearance" and "Diet & Care" are main sections, so they are both `<h2>`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - HTML provides 6 levels of headings: `<h1>` (largest) to `<h6>` (smallest).
 - A web page should generally have **one primary `<h1>`** tag representing the title of that page.
@@ -236,7 +236,7 @@ Create a small HTML page about your favorite animal:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -248,9 +248,9 @@ Create a small HTML page about your favorite animal:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. How many levels of HTML headings exist?
 2. Which heading level is the largest by default?
 3. Which tag makes a normal paragraph of text?
@@ -264,7 +264,7 @@ Create a small HTML page about your favorite animal:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why is it bad practice to put five different `<h1>` tags on one page?
 2. Write an HTML snippet for a cookie recipe with one `<h1>`, two `<h2>` tags (Ingredients and Instructions) and three paragraphs.
 
@@ -285,7 +285,7 @@ Create a small HTML page about your favorite animal:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Write a news article page about an imaginary science discovery (e.g. "Students Build a Solar-Powered Bicycle!").
 1. Use the full page structure.
 2. Use one `<h1>`, at least two `<h2>` sections and at least one `<h3>` inside a section.

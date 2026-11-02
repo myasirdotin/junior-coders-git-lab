@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Firefly Garden**
 
@@ -18,7 +18,7 @@ When a user moves their mouse over a link, card, photo, or button, a subtle chan
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Write `:hover` rules for links, buttons and cards.
@@ -195,7 +195,7 @@ Type this into your editor and save it as `hover-lab.html`:
 
 ---
 
-## 🌍 Real-World Connection: Online Library Catalogues
+## Real-World Connection: Online Library Catalogues
 
 Next time you search an online library catalogue on a computer:
 - Move your mouse over a book cover in the search results.
@@ -204,7 +204,7 @@ Next time you search an online library catalogue on a computer:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this CSS selector:
 
@@ -217,14 +217,14 @@ p:hover {
 **Question**: What annoying visual glitch will happen on your website if regular paragraph text suddenly expands from 16px to 36px on hover?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: The entire page will jitter and violently shake!</strong> 
 Changing <code>font-size</code> on hover alters the physical dimensions of the text block, which violently pushes all surrounding paragraphs and footers down the page. That's why professional designers use <code>transform: scale()</code> instead of <code>font-size</code>, because <code>transform</code> scales visuals without displacing other elements!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Missing Colon
+## Code Detective: The Missing Colon
 
 A student wrote this CSS to make a link turn orange, but nothing happened on hover:
 
@@ -267,7 +267,7 @@ Build an interactive school lunch menu list:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is putting important information **only** in a hover effect.
 
@@ -298,7 +298,7 @@ A second slip is a hover colour with poor contrast, such as light yellow text on
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Growing Photo**
 
@@ -316,7 +316,7 @@ Open it in your browser and hover over the picture! Notice how it smoothly zooms
 
 ---
 
-## 📝 Recap
+## Recap
 
 - The `:hover` pseudo-class applies styles when the pointer device hovers over an element.
 - Hover states provide critical feedback that confirms an element is clickable.
@@ -326,7 +326,7 @@ Open it in your browser and hover over the picture! Notice how it smoothly zooms
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -338,9 +338,9 @@ Open it in your browser and hover over the picture! Notice how it smoothly zooms
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which punctuation mark joins a selector to its pseudo-class (for example `a` and `hover`)?
 2. What does `transform: scale(1.05);` do to an element?
 3. Why does changing `font-size` on hover make the page jump?
@@ -354,7 +354,7 @@ Open it in your browser and hover over the picture! Notice how it smoothly zooms
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write CSS that changes a `.save-btn` button from green (`#059669`) to darker green (`#047857`) on hover, and turns the `.icon` inside it by 20 degrees.
 5. How does a bigger `box-shadow` make a card look like it is rising towards you?
 
@@ -383,7 +383,7 @@ Open it in your browser and hover over the picture! Notice how it smoothly zooms
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Show hover effects only where a mouse exists.
 1. Look up the media feature `@media (hover: hover)`.
 2. Make a `.card` with a light background.

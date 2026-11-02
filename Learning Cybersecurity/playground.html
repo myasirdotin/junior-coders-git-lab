@@ -148,15 +148,15 @@
     <header style="background: #0f172a; border-bottom: 1px solid #1e293b; padding: 1.25rem 2rem;">
         <div style="max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
             <div style="display: flex; align-items: center; gap: 0.75rem;">
-                <span style="font-size: 2rem;">🛡️</span>
+                <span style="font-size: 2rem;"></span>
                 <div>
                     <h1 style="margin: 0; font-size: 1.35rem; color: #fff;">Cyber Defense Studio &amp; Security Lab</h1>
                     <p style="margin: 0; font-size: 0.82rem; color: #94a3b8;">Interactive simulation workbench for passwords, XSS defense, SQL injection, and phishing.</p>
                 </div>
             </div>
             <div style="display: flex; gap: 0.6rem;">
-                <a href="../book-cybersecurity/index.html" class="lab-tab-btn" style="text-decoration: none;">📖 Textbook</a>
-                <a href="learningcybersecurity.html" class="lab-tab-btn" style="text-decoration: none;">📚 Syllabus</a>
+                <a href="../book-cybersecurity/index.html" class="lab-tab-btn" style="text-decoration: none;">Textbook</a>
+                <a href="learningcybersecurity.html" class="lab-tab-btn" style="text-decoration: none;">Syllabus</a>
             </div>
         </div>
     </header>
@@ -164,11 +164,11 @@
     <div class="lab-container">
         <!-- Studio Navigation Tabs -->
         <div class="lab-tabs" role="tablist">
-            <button type="button" class="lab-tab-btn active" onclick="switchCyberTab('password', this)">🔑 Password Entropy &amp; Cracking</button>
-            <button type="button" class="lab-tab-btn" onclick="switchCyberTab('xss', this)">💉 XSS Sanitizer Sandbox</button>
-            <button type="button" class="lab-tab-btn" onclick="switchCyberTab('sqli', this)">🗄️ SQL Injection Visualizer</button>
-            <button type="button" class="lab-tab-btn" onclick="switchCyberTab('phishing', this)">🎣 Phishing Detective</button>
-            <button type="button" class="lab-tab-btn" onclick="switchCyberTab('crypto', this)">🧮 SHA-256 Avalanche Lab</button>
+            <button type="button" class="lab-tab-btn active" onclick="switchCyberTab('password', this)">Password Entropy &amp; Cracking</button>
+            <button type="button" class="lab-tab-btn" onclick="switchCyberTab('xss', this)">XSS Sanitizer Sandbox</button>
+            <button type="button" class="lab-tab-btn" onclick="switchCyberTab('sqli', this)">SQL Injection Visualizer</button>
+            <button type="button" class="lab-tab-btn" onclick="switchCyberTab('phishing', this)">Phishing Detective</button>
+            <button type="button" class="lab-tab-btn" onclick="switchCyberTab('crypto', this)">SHA-256 Avalanche Lab</button>
         </div>
 
         <!-- 1. PASSWORD ENTROPY & CRACKING SIMULATOR -->
@@ -179,7 +179,7 @@
                     <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: #94a3b8;">Test password strength, calculate bits of entropy, and estimate resistance to an RTX 4090 GPU cluster.</p>
                     <p style="margin: 0.2rem 0 0; font-size: 0.78rem; color: #94a3b8;">The passphrase button picks 5 words at random from a small demo list of 64. Real passphrase tools use a list of 7,776 words, which makes each word much harder to guess.</p>
                 </div>
-                <button type="button" class="btn-action" onclick="generatePassphrase()">Make a 5-Word Passphrase 🔑</button>
+                <button type="button" class="btn-action" onclick="generatePassphrase()">Make a 5-Word Passphrase</button>
             </div>
 
             <div class="studio-card-body">
@@ -198,7 +198,7 @@
                     </div>
                     <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem;">
                         <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">Strength Verdict</span>
-                        <div id="pwdStrength" style="font-size: 1.3rem; font-weight: 700; color: #f59e0b;">Moderate ⚠️</div>
+                        <div id="pwdStrength" style="font-size: 1.3rem; font-weight: 700; color: #f59e0b;">Moderate</div>
                     </div>
                     <div style="background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem;">
                         <span style="font-size: 0.75rem; color: #94a3b8; text-transform: uppercase;">Est. GPU Crack Time</span>
@@ -236,16 +236,15 @@
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
                     <div>
-                        <h3 style="font-size: 0.95rem; color: #f87171; margin-bottom: 0.5rem;">❌ Vulnerable Output (Raw innerHTML)</h3>
+                        <h3 style="font-size: 0.95rem; color: #f87171; margin-bottom: 0.5rem;">Vulnerable Output (Raw innerHTML)</h3>
                         <div id="xssUnsafeOutput" class="wire-box" style="border-color: rgba(239, 68, 68, 0.4); color: #fca5a5;"></div>
-                        <div class="flag-box">⚠️ DANGER: If executed, the browser treats user input as code, granting the attacker full control over the session!</div>
+                        <div class="flag-box">DANGER: If executed, the browser treats user input as code, granting the attacker full control over the session!</div>
                     </div>
 
                     <div>
-                        <h3 style="font-size: 0.95rem; color: #34d399; margin-bottom: 0.5rem;">✅ Secure Output (htmlspecialchars / textContent)</h3>
+                        <h3 style="font-size: 0.95rem; color: #34d399; margin-bottom: 0.5rem;">Secure Output (htmlspecialchars / textContent)</h3>
                         <div id="xssSafeOutput" class="wire-box" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399;"></div>
-                        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 0.75rem 1rem; color: #86efac; margin-top: 0.5rem; font-size: 0.88rem;">
-                            🛡️ PROTECTED: Special characters are converted to harmless HTML entities (&amp;lt; &amp;gt;), displayed purely as inert text!
+                        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 0.75rem 1rem; color: #86efac; margin-top: 0.5rem; font-size: 0.88rem;">PROTECTED: Special characters are converted to harmless HTML entities (&amp;lt; &amp;gt;), displayed purely as inert text!
                         </div>
                     </div>
                 </div>
@@ -275,18 +274,16 @@
 
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
                     <div>
-                        <h3 style="font-size: 0.95rem; color: #f87171; margin-bottom: 0.5rem;">❌ Vulnerable Concatenation Query</h3>
+                        <h3 style="font-size: 0.95rem; color: #f87171; margin-bottom: 0.5rem;">Vulnerable Concatenation Query</h3>
                         <div id="sqliVulnerableWire" class="wire-box" style="border-color: rgba(239, 68, 68, 0.4); color: #fca5a5;"></div>
-                        <div class="flag-box">
-                            🚨 VULNERABILITY: The single quote breaks out of the string literal! '1'='1' forces the entire WHERE clause to True, granting admin access without a password!
+                        <div class="flag-box">VULNERABILITY: The single quote breaks out of the string literal! '1'='1' forces the entire WHERE clause to True, granting admin access without a password!
                         </div>
                     </div>
 
                     <div>
-                        <h3 style="font-size: 0.95rem; color: #34d399; margin-bottom: 0.5rem;">✅ Secure Prepared Statement (PDO)</h3>
+                        <h3 style="font-size: 0.95rem; color: #34d399; margin-bottom: 0.5rem;">Secure Prepared Statement (PDO)</h3>
                         <div id="sqliSecureWire" class="wire-box" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399;"></div>
-                        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 0.75rem 1rem; color: #86efac; margin-top: 0.5rem; font-size: 0.88rem;">
-                            🛡️ IMMUNE: The database compiles the SQL statement first. The user input is bound purely as a literal value—never parsed as SQL code!
+                        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 0.75rem 1rem; color: #86efac; margin-top: 0.5rem; font-size: 0.88rem;">IMMUNE: The database compiles the SQL statement first. The user input is bound purely as a literal value—never parsed as SQL code!
                         </div>
                     </div>
                 </div>
@@ -300,7 +297,7 @@
                     <h2 style="margin: 0; font-size: 1.2rem; color: #34d399;">Phishing Detective &amp; Email Header Inspector</h2>
                     <p style="margin: 0.2rem 0 0; font-size: 0.82rem; color: #94a3b8;">Audit a simulated urgent notification. Uncover deceptive lookalike domains and mismatched hyperlinks.</p>
                 </div>
-                <button type="button" class="btn-action" onclick="togglePhishingRedFlags()">Reveal All Red Flags 🚩</button>
+                <button type="button" class="btn-action" onclick="togglePhishingRedFlags()">Reveal All Red Flags</button>
             </div>
 
             <div class="studio-card-body">
@@ -321,8 +318,7 @@
                         <p>To avoid immediate account termination and maintain your scholarship status, please verify your credentials below:</p>
 
                         <div style="text-align: center; margin: 1.5rem 0;">
-                            <a id="flagLink" href="#" style="background: #dc2626; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">
-                                🔒 Verify Account Credentials Immediately
+                            <a id="flagLink" href="#" style="background: #dc2626; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 700; display: inline-block;">Verify Account Credentials Immediately
                             </a>
                             <div id="flagUrlHint" style="font-size: 0.75rem; color: #94a3b8; margin-top: 0.35rem; font-family: monospace;">
                                 Hover preview: http://198.51.100.88/fake-login/harvest.php
@@ -334,7 +330,7 @@
                     </div>
 
                     <div id="phishingExplanation" style="display:none; margin-top: 1.5rem; border-top: 1px dashed #ef4444; padding-top: 1rem;">
-                        <h4 style="color: #f87171; margin: 0 0 0.5rem;">🚩 Forensic Deception Analysis:</h4>
+                        <h4 style="color: #f87171; margin: 0 0 0.5rem;">Forensic Deception Analysis:</h4>
                         <ul style="color: #fca5a5; font-size: 0.88rem; line-height: 1.6; padding-left: 1.2rem;">
                             <li><strong>Lookalike Typosquatting:</strong> <code>juni0r-coders.net</code> uses a zero <code>0</code> instead of the letter <code>o</code>!</li>
                             <li><strong>Coercive Urgency:</strong> Demands action in "6 hours" to induce panic and disable critical thinking.</li>
@@ -364,8 +360,7 @@
                     <div id="hashOutput" class="wire-box" style="font-size: 1.05rem; margin-top: 0.35rem;">Computing...</div>
                 </div>
 
-                <div style="margin-top: 1rem; background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem; font-size: 0.88rem; color: #cbd5e1;">
-                    💡 <strong>Try this experiment:</strong> Add a single exclamation mark <code>!</code> to the word and observe how the hash transforms into an entirely new, unrecognizable value. This is the <strong>Avalanche Effect</strong>!
+                <div style="margin-top: 1rem; background: #020617; border: 1px solid #1e293b; border-radius: 10px; padding: 1rem; font-size: 0.88rem; color: #cbd5e1;"><strong>Try this experiment:</strong> Add a single exclamation mark <code>!</code> to the word and observe how the hash transforms into an entirely new, unrecognizable value. This is the <strong>Avalanche Effect</strong>!
                 </div>
             </div>
         </section>
@@ -422,28 +417,28 @@
             if (entropy < 30) {
                 fill.style.width = '20%';
                 fill.style.background = '#ef4444';
-                verdict.textContent = 'Very Weak ❌';
+                verdict.textContent = 'Very Weak';
                 verdict.style.color = '#ef4444';
                 crack.textContent = '< 1 second';
                 crack.style.color = '#ef4444';
             } else if (entropy < 50) {
                 fill.style.width = '45%';
                 fill.style.background = '#f59e0b';
-                verdict.textContent = 'Moderate ⚠️';
+                verdict.textContent = 'Moderate';
                 verdict.style.color = '#f59e0b';
                 crack.textContent = '~2 hours';
                 crack.style.color = '#f59e0b';
             } else if (entropy < 70) {
                 fill.style.width = '75%';
                 fill.style.background = '#3b82f6';
-                verdict.textContent = 'Strong 🛡️';
+                verdict.textContent = 'Strong';
                 verdict.style.color = '#3b82f6';
                 crack.textContent = '~500 years';
                 crack.style.color = '#3b82f6';
             } else {
                 fill.style.width = '100%';
                 fill.style.background = '#10b981';
-                verdict.textContent = 'Impenetrable 🏰';
+                verdict.textContent = 'Impenetrable';
                 verdict.style.color = '#10b981';
                 crack.textContent = '> 100,000 years!';
                 crack.style.color = '#10b981';
@@ -451,12 +446,12 @@
 
             const checklist = document.getElementById('pwdChecklist');
             checklist.innerHTML = `
-                <div>${len >= 14 ? '✅' : '❌'} Length: ${len} chars (Recommended 14+)</div>
-                <div>${hasLower ? '✅' : '❌'} Lowercase letters (a-z)</div>
-                <div>${hasUpper ? '✅' : '❌'} Uppercase letters (A-Z)</div>
-                <div>${hasNum ? '✅' : '❌'} Numerical digits (0-9)</div>
-                <div>${hasSym ? '✅' : '❌'} Special symbols (!@#$...)</div>
-                <div>${!isCommon ? '✅' : '⚠️'} Dictionary word avoidance</div>
+                <div>${len >= 14 ? '' : ''} Length: ${len} chars (Recommended 14+)</div>
+                <div>${hasLower ? '' : ''} Lowercase letters (a-z)</div>
+                <div>${hasUpper ? '' : ''} Uppercase letters (A-Z)</div>
+                <div>${hasNum ? '' : ''} Numerical digits (0-9)</div>
+                <div>${hasSym ? '' : ''} Special symbols (!@#$...)</div>
+                <div>${!isCommon ? '' : ''} Dictionary word avoidance</div>
             `;
         }
 

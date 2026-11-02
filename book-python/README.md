@@ -1,10 +1,10 @@
-# Python & Machine Learning for Junior Coders 🐍🤖
+# Python & Machine Learning for Junior Coders
 
 Welcome to the official **Python & Applied Machine Learning Textbook** of the Junior Coders curriculum!
 
 ---
 
-## 🎯 Course Overview
+## Course Overview
 
 Python is the world's most popular programming language for Artificial Intelligence, Data Science, and automation. Known for its elegant, English-like syntax and vast ecosystem, Python empowers students to move from fundamental computational thinking to building intelligent systems that learn from data.
 
@@ -18,7 +18,7 @@ In this textbook, students will:
 
 ---
 
-## 🗺️ Curriculum Roadmap
+## Curriculum Roadmap
 
 | Part | Focus | Chapters |
 | :--- | :--- | :--- |
@@ -31,7 +31,7 @@ In this textbook, students will:
 
 ---
 
-## 🌟 Islamic Ethical Framework (*Amānah & Iḥsān*)
+## Islamic Ethical Framework (*Amānah & Iḥsān*)
 
 All lessons in this curriculum adhere to our core ethical standards:
 

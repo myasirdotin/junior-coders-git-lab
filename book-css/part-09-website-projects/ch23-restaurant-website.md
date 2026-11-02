@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Cosy Family Restaurant**
 
@@ -18,7 +18,7 @@ In this capstone chapter, you will build a complete, appetite-inducing restauran
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Choose a warm colour theme and bold typography for a family restaurant.
@@ -431,7 +431,7 @@ Type this into your editor and save it as `restaurant.html`:
 
 ---
 
-## 🌍 Real-World Connection: Menu Scanning Habits
+## Real-World Connection: Menu Scanning Habits
 
 Watch how people read an online menu:
 - Most visitors look at the food photo first, then the dish name, then the price.
@@ -440,18 +440,18 @@ Watch how people read an online menu:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 If you place 4 food cards in the `.menu-grid`, how will they arrange themselves on a wide 1200px desktop screen?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> They will arrange into a neat 4-column row or 2-by-2 grid! Because of <code>minmax(300px, 1fr)</code>, on a 1200px monitor, four 300px cards fit across the row!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Misaligned Prices
+## Code Detective: The Misaligned Prices
 
 A student created food cards, but the prices appeared under the dish description instead of next to the title:
 
@@ -490,12 +490,12 @@ Over 70% of restaurant reservations happen on a smartphone while people are walk
 
 Add a testimonial section:
 - 3 customer review quote cards.
-- Star rating emojis (⭐⭐⭐⭐⭐).
+- Star rating emojis ().
 - Use clearly labelled **sample** reviews, e.g. *"Lovely family dinner!" — Sample Guest*. Never invent reviews for a real business.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is putting a price in a long text line instead of its own element.
 
@@ -525,7 +525,7 @@ A second slip is food photos without `width: 100%` and `object-fit: cover`. Phot
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Add a Dessert Card**
 
@@ -533,11 +533,11 @@ Open `restaurant.html` and add a fourth dish to the `.menu-grid`:
 - Photo: Homemade Gelato
 - Name: *Artisan Pistachio Gelato*
 - Price: *$6.50*
-- Tag: *🌱 Vegetarian*
+- Tag: *Vegetarian*
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Restaurant websites succeed through mouth-watering imagery and warm color palettes.
 - Food cards combine high-resolution photography, dish titles, prices, and dietary tags.
@@ -546,7 +546,7 @@ Open `restaurant.html` and add a fourth dish to the `.menu-grid`:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -557,9 +557,9 @@ Open `restaurant.html` and add a fourth dish to the `.menu-grid`:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which input type shows a calendar date picker?
 2. Which colours are usually used to make food look appetising: cool blues or warm reds and oranges?
 3. Which Flexbox property puts a dish name on the left and its price on the right?
@@ -573,7 +573,7 @@ Open `restaurant.html` and add a fourth dish to the `.menu-grid`:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write HTML and CSS for a green badge that says "Halal".
 5. Why are clear food photos so important on a restaurant website?
 
@@ -603,7 +603,7 @@ Dark green text on pale green has strong contrast, and the word "Halal" carries 
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make menu tabs with no JavaScript.
 1. Add three radio buttons (`name="meal"`) with labels *Breakfast*, *Lunch* and *Dinner*, each followed by a `<div class="panel">`.
 2. Hide every panel with `display: none;`.

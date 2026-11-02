@@ -4,11 +4,11 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When Hamza borrows a book, the librarian does two things. She writes a new line in the borrowing notebook, and she moves the book's card from "on shelf" to "out". If the bell rings after the first step, the notebook says Hamza has the book, but the card still says it is on the shelf. The records now disagree. A transaction is like a rule: "finish both steps, or undo the first one".
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what a transaction is and why it is "all or nothing".
 - Use `START TRANSACTION`, `COMMIT` and `ROLLBACK`.
@@ -118,7 +118,7 @@ Why id 12 and not 11? The cancelled insert had already used number 11. A rollbac
 - In **phpMyAdmin**, put the whole transaction in **one** SQL box and press Go once. Each Go is a fresh connection, so a transaction cannot stretch across two clicks. The command line has no such limit.
 - `TRUNCATE`, `DROP` and `CREATE TABLE` save immediately and cannot be rolled back.
 
-> 🧪 **Sandbox note:** SQLite writes `BEGIN TRANSACTION;` (or just `BEGIN;`) instead of `START TRANSACTION;`. `COMMIT` and `ROLLBACK` are the same. MySQL also accepts `BEGIN;`.
+> **Sandbox note:** SQLite writes `BEGIN TRANSACTION;` (or just `BEGIN;`) instead of `START TRANSACTION;`. `COMMIT` and `ROLLBACK` are the same. MySQL also accepts `BEGIN;`.
 
 ---
 
@@ -164,7 +164,7 @@ Safe mode is strict. Even `DELETE FROM loans WHERE returned = 'Yes';` is blocked
 
 The setting lasts until you log out. MySQL Workbench, another MySQL tool, switches it on by default.
 
-> 🧪 **Sandbox note:** SQLite has no safe-updates mode. The sandbox's **Reset** button is your safety net there.
+> **Sandbox note:** SQLite has no safe-updates mode. The sandbox's **Reset** button is your safety net there.
 
 ---
 
@@ -177,7 +177,7 @@ The setting lasts until you log out. MySQL Workbench, another MySQL tool, switch
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake: forgetting to finish the transaction.**
 
@@ -193,7 +193,7 @@ What happens: there was no `COMMIT`. When the connection closes, MySQL rolls the
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In the [SQL Sandbox](../studios/sql-sandbox/):
 
@@ -206,7 +206,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/):
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A transaction groups changes: `START TRANSACTION; ... COMMIT;` or `ROLLBACK;`.
 - `COMMIT` saves all the changes; `ROLLBACK` cancels all of them.
@@ -216,9 +216,9 @@ In the [SQL Sandbox](../studios/sql-sandbox/):
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What does `COMMIT` do?
 2. What does `ROLLBACK` do?
 3. What do the letters of **ACID** stand for?
@@ -232,7 +232,7 @@ In the [SQL Sandbox](../studios/sql-sandbox/):
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Fatima (student 4) returns *Digital Stewardship* (book 6) from loan 6. Write a transaction that marks the loan as returned **and** marks the book as available.
 
 <details>
@@ -251,7 +251,7 @@ COMMIT;
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 The charity club moves Layla's gift (donation 8) from *Clean Water* to *Books*, and records a note in a `donation_changes` table at the same time.
 
 1. Write a transaction with both steps.

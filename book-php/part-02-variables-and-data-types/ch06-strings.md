@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine threading alphabet beads onto a cord to make a name bracelet. You add an `H`, an `E`, two `L` beads and an `O`, and the cord now spells `HELLO`. If you want a longer word, you clip a second cord onto the first. In PHP, a **string** is like that cord of letters, and the dot `.` is the clip that joins two strings together.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Join strings with the dot (`.`) and add to a string with `.=`.
 - Choose between single quotes (`'...'`) and double quotes (`"..."`).
@@ -111,7 +111,7 @@ Staff Member: Prof. Rasool<br>Original: <em>Code is poetry in motion.</em><br>Le
 
 ---
 
-## 🌍 Real-World Connection: Clean Search Boxes
+## Real-World Connection: Clean Search Boxes
 
 When you type into a library catalogue's search box, the website usually tidies your words first:
 - `trim()` removes extra spaces at the start and end.
@@ -120,7 +120,7 @@ When you type into a library catalogue's search box, the website usually tidies 
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -130,13 +130,13 @@ When you type into a library catalogue's search box, the website usually tidies 
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>Lar</code> (start at position 0, take 3 characters).
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Welcome
+## Code Detective: The Broken Welcome
 
 ```php
 <?php
@@ -151,26 +151,26 @@ When you type into a library catalogue's search box, the website usually tidies 
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Using `+` to join strings.**
 
-- ❌ *Wrong*: `$msg = "Hello " + "World";`
-- 😕 *What happens*: PHP 8 tries to add two numbers, fails, and stops the script:
+- *Wrong*: `$msg = "Hello " + "World";`
+- *What happens*: PHP 8 tries to add two numbers, fails, and stops the script:
   ```text
   Fatal error: Uncaught TypeError: Unsupported operand types: string + string
   ```
-- ✅ *Fixed*: `$msg = "Hello " . "World";` gives `Hello World`.
+- *Fixed*: `$msg = "Hello " . "World";` gives `Hello World`.
 
 **2. Forgetting that `strpos()` can return `0`.**
 
-- ❌ *Wrong idea*: "If `strpos()` gives 0, the word was not found."
-- 😕 *What happens*: `strpos("Junior Coders", "Junior")` is `0`, because the word is at the very start. Only `false` means "not found".
-- ✅ *Fixed*: Check with `var_dump()` to see the real value: `int(0)` means found at the start, `bool(false)` means missing. In Chapter 8 you will learn to test this with `!== false`.
+- *Wrong idea*: "If `strpos()` gives 0, the word was not found."
+- *What happens*: `strpos("Junior Coders", "Junior")` is `0`, because the word is at the very start. Only `false` means "not found".
+- *Fixed*: Check with `var_dump()` to see the real value: `int(0)` means found at the start, `bool(false)` means missing. In Chapter 8 you will learn to test this with `!== false`.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -192,7 +192,7 @@ City: Srinagar<br>Letters: 8
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A string is a row of characters. The dot `.` joins strings; `.=` adds to the end of one.
 - Double quotes swap in variables and escape codes; single quotes print text exactly.
@@ -202,9 +202,9 @@ City: Srinagar<br>Letters: 8
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which operator joins strings in PHP?
 2. Which function counts the characters in a string?
 3. What is the difference between single and double quotes?
@@ -218,7 +218,7 @@ City: Srinagar<br>Letters: 8
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. What do `strpos("Junior Coders", "Junior")` and `strpos("Junior Coders", "Python")` give?
 2. What does `trim("   hello world   ")` give?
 
@@ -230,7 +230,7 @@ City: Srinagar<br>Letters: 8
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A new student typed her name all in lowercase.
 
 1. Store `"maryam yasir rasool"` in `$fullName`.

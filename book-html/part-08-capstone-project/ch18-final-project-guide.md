@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about how a new school building is made:
 - An architect doesn't just hire a digger on Monday morning and shout: *"Start building!"* without any idea of what the school needs!
@@ -17,7 +17,7 @@ If you sit at your keyboard and start typing random tags without a plan, you get
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this capstone chapter, you will be able to:
 - Master the **9-Step Web Project Blueprint**: Idea, Audience, Pages, Content, Colors, Fonts, Layout, Testing, and Improvements.
@@ -126,7 +126,7 @@ Here is your master starter boilerplate containing modern metadata, accessibilit
 
 ---
 
-## 🌍 Real-World Connection: 8 Exciting Capstone Project Ideas
+## Real-World Connection: 8 Exciting Capstone Project Ideas
 
 Pick one of these 8 exciting real-world project themes for your final masterpiece:
 
@@ -143,20 +143,20 @@ Pick one of these 8 exciting real-world project themes for your final masterpiec
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 If you test your website on a friend's phone and notice that the photos look squashed and the navigation runs off the screen:
 - **What step of the 9-Step Plan did you skip?**
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: Step 8: Multi-Device Testing!</strong> 
 Always test your website using your browser's Device Mode or on actual smartphones before declaring your project finished!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Launch Checklist Audit
+## Code Detective: The Launch Checklist Audit
 
 A student said their capstone project was finished, but the teacher found 3 issues in their audit:
 
@@ -244,19 +244,19 @@ CSS track extras (after you learn CSS):
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Starting to code before planning.**
 
-❌ Wrong: opening the editor and typing tags straight away, then changing the idea halfway through.
+Wrong: opening the editor and typing tags straight away, then changing the idea halfway through.
 
 What happens: sections get added and deleted, headings end up in the wrong order, and links point to pages that were never made. The project takes much longer.
 
-✅ Fixed: spend ten minutes on steps 1–3 first. Write the mission in one sentence, list the pages, and sketch the sections on paper (see the Try It below). Then code one section at a time, saving and refreshing as you go.
+Fixed: spend ten minutes on steps 1–3 first. Write the mission in one sentence, list the pages, and sketch the sections on paper (see the Try It below). Then code one section at a time, saving and refreshing as you go.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Wireframe Sketchpad**
 
@@ -270,11 +270,11 @@ Before typing code into your editor, complete this 10-minute planning activity:
    - Box 4: Contact & Footer
 4. Choose your 3 core colors and write down their names or Hex codes!
 
-> 💡 **Hint:** Next to each box, write the HTML tag it will become: `<header>`, `<section id="about">` and so on. Your sketch then turns straight into code.
+> **Hint:** Next to each box, write the HTML tag it will become: `<header>`, `<section id="about">` and so on. Your sketch then turns straight into code.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Good websites start with a plan: idea, audience, pages, content, then code.
 - A paper wireframe shows where each section goes before you type a tag.
@@ -285,7 +285,7 @@ Before typing code into your editor, complete this 10-minute planning activity:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -297,9 +297,9 @@ Before typing code into your editor, complete this 10-minute planning activity:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Name the first three steps of the 9-step workflow.
 2. What is a wireframe?
 3. Name three things every capstone page needs at the very top, besides `<title>`.
@@ -313,7 +313,7 @@ Before typing code into your editor, complete this 10-minute planning activity:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Audit this snippet. Find three problems and fix them.
 
 ```html
@@ -333,7 +333,7 @@ Audit this snippet. Find three problems and fix them.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Plan your own capstone before coding:
 1. Write your mission statement in one sentence and name your audience.
 2. Write a sitemap: list every page (at least two) and the sections on each.

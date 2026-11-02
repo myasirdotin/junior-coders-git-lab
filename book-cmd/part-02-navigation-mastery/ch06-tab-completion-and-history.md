@@ -1,12 +1,12 @@
 # Chapter 6: The Developer Superpowers: Tab Completion & History
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Hafsa is writing a report in the school library. When she starts typing a long word on her tablet, the keyboard guesses it, and she taps the guess. When she needs a sentence she wrote earlier, she scrolls back instead of writing it again. The terminal has both of these helpers. They save time, and they stop spelling mistakes before they happen.
 
 > **Key Idea**: Good terminal users rarely type long names in full. They press <kbd>Tab</kbd> to finish names, and the arrow keys to bring back earlier commands.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Finish file and folder names with <kbd>Tab</kbd> in CMD, PowerShell and Git Bash.
 - Use <kbd>Tab</kbd> as a quick check that a name really exists.
@@ -114,7 +114,7 @@ C:\JuniorCoders\practice>dir /w scie^C
 C:\JuniorCoders\practice>
 ```
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Pressing Tab in the wrong folder.** Bilal is in his home folder. He types `cd sci` and presses <kbd>Tab</kbd>. Nothing happens. He thinks Tab is broken.
 
@@ -131,7 +131,7 @@ C:\Users\Bilal>cd C:\JuniorCoders\practice\science-fair-2026-project
 
 **Pressing Enter too fast after ↑.** The arrow brings back an old command, and a quick <kbd>Enter</kbd> runs it again. Always read the line before you press Enter, especially if it changes files.
 
-## ✍️ Try It
+## Try It
 
 1. In File Explorer, make a folder called `science-fair-2026-project` inside `C:\JuniorCoders\practice`.
 2. In the terminal, go to `C:\JuniorCoders\practice`.
@@ -142,7 +142,7 @@ C:\Users\Bilal>cd C:\JuniorCoders\practice\science-fair-2026-project
 
 *Hint*: If Tab does not finish the name, check your spelling and your current folder.
 
-## 📝 Recap
+## Recap
 
 - <kbd>Tab</kbd> finishes file and folder names. Press it again to see other matches.
 - If Tab does nothing, the name does not exist where you are looking.
@@ -150,9 +150,9 @@ C:\Users\Bilal>cd C:\JuniorCoders\practice\science-fair-2026-project
 - `doskey /history` (CMD) and `history` (PowerShell, Git Bash) print your history.
 - <kbd>Ctrl</kbd> + <kbd>C</kbd> is the stop key. <kbd>Esc</kbd> wipes the line in CMD and PowerShell.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which key finishes a half-typed file or folder name?
 2. How do you bring back the last command without typing it again?
 3. Which key combination stops a running command?
@@ -166,7 +166,7 @@ C:\Users\Bilal>cd C:\JuniorCoders\practice\science-fair-2026-project
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 A folder contains `report-maths.txt`, `report-science.txt` and `reading-list.txt`.
 
 1. You type `dir rep` in CMD and press <kbd>Tab</kbd>. Which name appears first?
@@ -182,7 +182,7 @@ A folder contains `report-maths.txt`, `report-science.txt` and `reading-list.txt
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Web servers often run on Linux, where `Report.txt` and `report.txt` are two **different** files. Capital letters matter there.
 
 1. How does Tab completion help you avoid mistakes with capital letters?

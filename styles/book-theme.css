@@ -3343,10 +3343,9 @@ h2:hover > .book-section-speaker-btn, h3:hover > .book-section-speaker-btn,
 #bookSidebar .sidebar-close-btn { display: none !important; }
 
 #bookSidebar .book-brand {
-  display: grid; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 0.7rem;
+  display: grid; grid-template-columns: minmax(0, 1fr); align-items: center; gap: 0.7rem;   /* the book icon (an emoji) is gone */
   margin: 0 0 0.9rem; padding: 0; border: 0;
 }
-#bookSidebar .book-brand-icon { width: 40px; height: 40px; border-radius: 10px; font-size: 1.15rem; }
 #bookSidebar .book-brand-text { min-width: 0; }
 #bookSidebar .book-brand h1 {
   margin: 0; font-size: clamp(1rem, 0.94rem + 0.35vw, 1.12rem) !important; line-height: 1.25; font-weight: 800;  /* beats the phone-wide "h1 { 1.65rem !important }" */

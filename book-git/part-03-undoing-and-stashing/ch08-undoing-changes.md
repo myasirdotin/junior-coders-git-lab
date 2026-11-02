@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Eraser, the Tray, and the Published Correction**
 
@@ -10,7 +10,7 @@ You write a science report in pencil, dislike a sentence, and rub it out with an
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Discard unsaved edits in a file with `git restore <file>`.
 - Take a file out of the staging area with `git restore --staged <file>`.
@@ -67,7 +67,7 @@ nothing to commit, working tree clean
 
 The file is back to its last committed version. To restore **every** changed file at once, use `git restore .` (the dot means "this whole folder").
 
-> ⚠️ `git restore <file>` throws your edits away for good. They were never committed, so Git cannot bring them back.
+>`git restore <file>` throws your edits away for good. They were never committed, so Git cannot bring them back.
 
 ---
 
@@ -169,13 +169,13 @@ HEAD is now at 8f47f6b Revert "Add donation banner"
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 **GitLab's 2017 database incident.** On 31 January 2017, an engineer at GitLab (a company that hosts code, like GitHub) deleted data from the wrong database server by mistake. It was a server command, not a Git command. Several of their backups turned out not to work, and about six hours of user data was lost. GitLab shared the whole recovery live and then published an honest report of what went wrong. Owning a mistake in public, instead of hiding it, is the same spirit as `git revert`.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 You have a brand-new file `secret_notes.txt` that you have **never** added or committed. You run:
 
@@ -186,7 +186,7 @@ git restore secret_notes.txt
 **Question:** Does Git delete the file?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **No.** Git does not know this file, so it prints an error and changes nothing:
 
@@ -200,7 +200,7 @@ error: pathspec 'secret_notes.txt' did not match any file(s) known to git
 
 ---
 
-## 🕵️ Code Detective: The Panic Reset
+## Code Detective: The Panic Reset
 
 Omar made a commit with a small typo. In a hurry he ran `git reset --hard HEAD~1`. The commit vanished, but so did 40 lines of new code he had **not** committed yet.
 
@@ -209,7 +209,7 @@ Omar made a commit with a small typo. In a hurry he ran `git reset --hard HEAD~1
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake 1: Using `git reset --hard` while you have unsaved work.**
 
@@ -242,7 +242,7 @@ git revert --no-edit db01d89
 
 ---
 
-## ✍️ Try It
+## Try It
 
 In a practice folder (not a real project):
 
@@ -259,7 +259,7 @@ Git prints the command for you in step 2: `git restore index.html`. Then run `gi
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `git restore <file>` throws away edits that are not staged. They cannot come back.
 - `git restore --staged <file>` takes a file out of the box but keeps your work.
@@ -269,9 +269,9 @@ Git prints the command for you in step 2: `git restore index.html`. Then run `gi
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 
 1. Which modern command throws away unstaged changes in a file?
 2. Which command removes a file from the staging area without deleting its contents?
@@ -286,7 +286,7 @@ Git prints the command for you in step 2: `git restore index.html`. Then run `gi
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 
 1. Why is `git revert` safe on a branch other people share, while `git reset` can cause trouble?
 2. How does `git restore` help you experiment without fear?
@@ -301,7 +301,7 @@ Git prints the command for you in step 2: `git restore index.html`. Then run `gi
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 
 Build a clean "audit trail" (a record that shows every change honestly):
 

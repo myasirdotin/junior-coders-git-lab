@@ -12,44 +12,44 @@
         <header class="module-header path-php">
             <span class="badge" style="background:white;color:var(--php-brand);">Level 2</span>
             <h1>Forms &amp; POST/GET</h1>
-            <p>Receive data from your users! 📬</p>
+            <p>Receive data from your users!</p>
         </header>
 
         <!-- Section 1: Why Forms Need PHP -->
         <section class="content-section">
-            <h2>📬 Why Do Forms Need PHP?</h2>
+            <h2>Why Do Forms Need PHP?</h2>
             <p>HTML forms collect user input (like a name or a message). But on their own, HTML forms cannot <em>do anything</em> with that data — they just collect it. PHP is what <strong>receives, reads, and processes</strong> the data that the form sends!</p>
 
             <div class="connection-box">
-                <p>🧠 <strong>Analogy:</strong> An HTML form is like a paper survey handed to a student. PHP is the teacher who collects the surveys, reads the answers, and does something with them — like saving them or giving a response.</p>
+                <p><strong>Analogy:</strong> An HTML form is like a paper survey handed to a student. PHP is the teacher who collects the surveys, reads the answers, and does something with them — like saving them or giving a response.</p>
             </div>
         </section>
 
         <!-- Section 2: GET vs POST -->
         <section class="content-section">
-            <h2>📮 GET vs POST — Two Ways to Send Data</h2>
+            <h2>GET vs POST — Two Ways to Send Data</h2>
             <p>When a form is submitted, it sends data to the server using one of two methods:</p>
 
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); border: 2px solid #10b981; border-radius: 1rem; padding: 1.5rem;">
-                    <h3 style="color: var(--text-green); margin-bottom: 1rem;">🔍 GET method</h3>
+                    <h3 style="color: var(--text-green); margin-bottom: 1rem;">GET method</h3>
                     <ul style="list-style: none; line-height: 2.2;">
-                        <li>📎 Data appears in the URL (the web address)</li>
-                        <li>👀 Visible to everyone</li>
-                        <li>🔖 Can be bookmarked</li>
-                        <li>📦 Only short data (very long URLs can be cut off)</li>
-                        <li>✅ Good for: search boxes, filters</li>
+                        <li>Data appears in the URL (the web address)</li>
+                        <li>Visible to everyone</li>
+                        <li>Can be bookmarked</li>
+                        <li>Only short data (very long URLs can be cut off)</li>
+                        <li>Good for: search boxes, filters</li>
                     </ul>
                     <p style="margin-top: 1rem; font-family: monospace; font-size: 0.8rem; color: var(--text-muted);">example.com/search?q=PHP</p>
                 </div>
                 <div style="background: var(--bg-glass); border: 2px solid var(--php-brand); border-radius: 1rem; padding: 1.5rem;">
-                    <h3 style="color: var(--php-brand); margin-bottom: 1rem;">📤 POST method</h3>
+                    <h3 style="color: var(--php-brand); margin-bottom: 1rem;">POST method</h3>
                     <ul style="list-style: none; line-height: 2.2;">
-                        <li>📨 Data travels inside the request, not the URL</li>
-                        <li>🙈 Not visible in URL</li>
-                        <li>🔖 Cannot be bookmarked</li>
-                        <li>📦 Can carry much more data (the server sets a limit)</li>
-                        <li>✅ Good for: login forms, passwords</li>
+                        <li>Data travels inside the request, not the URL</li>
+                        <li>Not visible in URL</li>
+                        <li>Cannot be bookmarked</li>
+                        <li>Can carry much more data (the server sets a limit)</li>
+                        <li>Good for: login forms, passwords</li>
                     </ul>
                 </div>
             </div>
@@ -57,7 +57,7 @@
 
         <!-- Section 3: Complete Form Example -->
         <section class="content-section">
-            <h2>🏗️ A Complete Form + PHP Handler</h2>
+            <h2>A Complete Form + PHP Handler</h2>
             <p>Here is how a typical contact form works with PHP. The HTML form collects data, and the PHP code processes it:</p>
 
             <p><strong>Step 1 — The HTML Form (contact.html):</strong></p>
@@ -65,7 +65,7 @@
 <code><span class="code-comment">&lt;!-- HTML Form --&gt;</span>
 &lt;<span class="code-keyword">form</span> <span class="code-string">action</span>=<span class="code-string">"handler.php"</span> <span class="code-string">method</span>=<span class="code-string">"POST"</span>&gt;
     &lt;<span class="code-keyword">label</span>&gt;Your Name:&lt;/<span class="code-keyword">label</span>&gt;
-    &lt;<span class="code-keyword">input</span> <span class="code-string">type</span>=<span class="code-string">"text"</span>  <span class="code-string">name</span>=<span class="code-string">"username"</span> <span class="code-string">required</span>&gt;
+    &lt;<span class="code-keyword">input</span> <span class="code-string">type</span>=<span class="code-string">"text"</span> <span class="code-string">name</span>=<span class="code-string">"username"</span> <span class="code-string">required</span>&gt;
 
     &lt;<span class="code-keyword">label</span>&gt;Your Message:&lt;/<span class="code-keyword">label</span>&gt;
     &lt;<span class="code-keyword">textarea</span> <span class="code-string">name</span>=<span class="code-string">"message"</span>&gt;&lt;/<span class="code-keyword">textarea</span>&gt;
@@ -78,7 +78,7 @@
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
 <span class="code-comment">// Read data that was sent via POST</span>
-<span class="code-keyword">$name</span>    = <span class="code-keyword">$_POST</span>[<span class="code-string">"username"</span>];
+<span class="code-keyword">$name</span> = <span class="code-keyword">$_POST</span>[<span class="code-string">"username"</span>];
 <span class="code-keyword">$message</span> = <span class="code-keyword">$_POST</span>[<span class="code-string">"message"</span>];
 
 <span class="code-comment">// htmlspecialchars() makes the text safe to show (see below)</span>
@@ -88,13 +88,13 @@
             </div>
 
             <div class="connection-box">
-                <p>⚠️ <strong>Important:</strong> The <code>name</code> attribute in the HTML input (e.g. <code>name="username"</code>) must match the key you use in PHP (e.g. <code>$_POST["username"]</code>). They must be identical!</p>
+                <p><strong>Important:</strong> The <code>name</code> attribute in the HTML input (e.g. <code>name="username"</code>) must match the key you use in PHP (e.g. <code>$_POST["username"]</code>). They must be identical!</p>
             </div>
         </section>
 
         <!-- Section 4: $_GET and $_POST -->
         <section class="content-section">
-            <h2>🌐 Superglobals: $_GET and $_POST</h2>
+            <h2>Superglobals: $_GET and $_POST</h2>
             <p><strong>Superglobals</strong> are special PHP variables that are always available everywhere in your script. The most important ones for forms are:</p>
 
             <div class="code-block">
@@ -117,7 +117,7 @@
 
         <!-- Section 5: Form Validation -->
         <section class="content-section">
-            <h2>🛡️ Form Validation — Checking User Input</h2>
+            <h2>Form Validation — Checking User Input</h2>
             <p>Never trust user input! You must always check that the data you receive is safe and complete. Here are the key tools:</p>
 
             <div class="code-block">
@@ -143,17 +143,14 @@
 
             <div class="analogy-grid" style="margin-top: 1.5rem;">
                 <div class="analogy-card">
-                    <span class="analogy-icon">🔍</span>
                     <h3>isset()</h3>
                     <p>Returns <code>true</code> if a variable exists and is not NULL. Like checking if a package was delivered.</p>
                 </div>
                 <div class="analogy-card">
-                    <span class="analogy-icon">📭</span>
                     <h3>empty()</h3>
                     <p>Returns <code>true</code> if the value is blank, zero, or null. Like checking if a box is empty.</p>
                 </div>
                 <div class="analogy-card">
-                    <span class="analogy-icon">🛡️</span>
                     <h3>htmlspecialchars()</h3>
                     <p>Converts dangerous characters like <code>&lt;</code> and <code>&gt;</code> into safe text. This stops attackers from sneaking their own code (like a script) into your page. That attack is called <strong>XSS</strong> (cross-site scripting).</p>
                 </div>
@@ -162,7 +159,7 @@
 
         <!-- Section 6: Full Working Example -->
         <section class="content-section">
-            <h2>🎯 Complete Self-Handling Form</h2>
+            <h2>Complete Self-Handling Form</h2>
             <p>A common trick is to have one PHP file handle both showing the form and processing it. The page checks if the form was submitted:</p>
 
             <div class="code-block">
@@ -198,14 +195,14 @@
 
         <!-- Practice: three levels -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
 <p>Which superglobal holds the data from a form sent with <code>method="POST"</code>? Why do we pass user input through <code>htmlspecialchars()</code> before we echo it?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div><code>$_POST</code>. <code>htmlspecialchars()</code> turns characters like <code>&lt;</code> and <code>&gt;</code> into harmless text, so nobody can sneak their own code into our page.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
 <p>A search box sends <code>?city=...</code> in the URL. Write PHP that prints <em>Please type a city.</em> when the box is empty. Otherwise it prints <em>Showing libraries in</em> and the city, made safe and trimmed.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
 <pre><code>&lt;?php
@@ -220,7 +217,7 @@ if (empty($_GET["city"])) {
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
 <p>Build a one-page sign-up form for a park clean-up day.</p>
 <ol>
 <li>Make one PHP file that shows a form with <code>method="POST"</code> and two fields: <code>name</code> and <code>email</code>.</li>
@@ -267,7 +264,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <!-- Quiz -->
         <section class="content-section">
-            <h2>Quick Quiz! 🧠</h2>
+            <h2>Quick Quiz!</h2>
             <div id="quiz-form-1" class="quiz-section">
                 <div class="quiz-question" data-answer="b">
                     <p>Q1: Which method hides form data from the URL?</p>

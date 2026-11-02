@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Look at a digital wristwatch. On the outside you see a screen and two buttons, "Mode" and "Set". You cannot reach inside to twist the tiny parts by hand; they are sealed in a case. To change the time, you must press the "Set" button, which only accepts sensible times. Programmers protect an object's data in the same way, and they call it **encapsulation**.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Use the three access modifiers: `public`, `private` and `protected`.
 - Use `$this` inside a method to reach the object's own properties and methods.
@@ -130,7 +130,7 @@ Final balance: ₹100.50
 
 ---
 
-## 🌍 Real-World Connection: Preventing Chaos in a Library System
+## Real-World Connection: Preventing Chaos in a Library System
 
 Think of the online system of a school library:
 - A member object has `private $booksBorrowed = 0;`.
@@ -139,7 +139,7 @@ Think of the online system of a school library:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -152,13 +152,13 @@ Think of the online system of a school library:
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> An error: <code>Fatal error: Uncaught Error: Cannot access private property Lock::$code</code>. Private properties cannot be read from outside the class.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Method Call
+## Code Detective: The Broken Method Call
 
 ```php
 <?php
@@ -183,18 +183,18 @@ PHP stops with: `Fatal error: Uncaught Error: Call to undefined function getSalu
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting `$this->` inside a method.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   public function addMoney($amount) {
     $balance += $amount;
   }
   ```
-- 😕 *What happens*: `$balance` here is a new **local** variable that exists only inside the method. PHP warns `Undefined variable $balance`, and the object's real balance stays the same.
-- ✅ *Fixed*:
+- *What happens*: `$balance` here is a new **local** variable that exists only inside the method. PHP warns `Undefined variable $balance`, and the object's real balance stays the same.
+- *Fixed*:
   ```php
   public function addMoney($amount) {
     $this->balance += $amount;
@@ -205,7 +205,7 @@ A second mistake is making every property `public`. Then any line of code anywhe
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -245,7 +245,7 @@ Now: 24 °C
 
 ---
 
-## 📝 Recap
+## Recap
 
 - **Encapsulation** keeps an object's data safe inside it.
 - `public` = everyone; `private` = only this class; `protected` = this class and its children.
@@ -255,9 +255,9 @@ Now: 24 °C
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Name the three access modifiers in PHP.
 2. Which pseudo-variable means "the current object" inside a class?
 3. What is a getter method?
@@ -271,7 +271,7 @@ Now: 24 °C
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Why is it better to keep a wallet's `$balance` private?
 2. Write a `Student` class with a private `$score`. Add `setScore($score)` that only accepts numbers from 0 to 100, and `getScore()`.
 
@@ -312,7 +312,7 @@ Now: 24 °C
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a `UserProfile` class that keeps a password safe (*Amānah*: a password is a trust).
 
 1. Add `public $username` and `private $passwordHash`.

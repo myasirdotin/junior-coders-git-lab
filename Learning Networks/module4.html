@@ -13,21 +13,21 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 2</span>
-            <h1 style="color: white; margin: 0.5rem 0;">Transport Layer: TCP vs. UDP 🚚⚡</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">Transport Layer: TCP vs. UDP</h1>
             <p>Guaranteed reliability vs. lightning-fast speed. Understand handshakes, sockets, and ports.</p>
         </header>
         <!-- Analogy -->
         <section class="content-section">
-            <h2>Two Ways to Deliver: Courier or Loudspeaker 🚚📢</h2>
+            <h2>Two Ways to Deliver: Courier or Loudspeaker</h2>
             <div class="connection-box">
-                <p>🧠 <strong>Real-life analogy:</strong> <strong>TCP</strong> is like a careful courier. Before delivering, the courier phones to check you are home. Every parcel is signed for. If one goes missing, the courier sends it again. <strong>UDP</strong> is like the school loudspeaker. The announcement goes out at once. Nobody signs anything. If you miss a word, it is not repeated, but the announcement keeps going.</p>
+                <p><strong>Real-life analogy:</strong> <strong>TCP</strong> is like a careful courier. Before delivering, the courier phones to check you are home. Every parcel is signed for. If one goes missing, the courier sends it again. <strong>UDP</strong> is like the school loudspeaker. The announcement goes out at once. Nobody signs anything. If you miss a word, it is not repeated, but the announcement keeps going.</p>
             </div>
             <p>The <strong>transport layer</strong> (Layer 4) carries data between two <em>programs</em>, not just two computers. The two main transport protocols are <strong>TCP</strong> (Transmission Control Protocol) and <strong>UDP</strong> (User Datagram Protocol).</p>
         </section>
 
         <!-- Ports & Sockets -->
         <section class="content-section">
-            <h2>Ports: Numbered Doors on a Computer 🚪</h2>
+            <h2>Ports: Numbered Doors on a Computer</h2>
             <p>One computer runs many programs at once. A browser, an email app and a video-call app may all use the network together. How does an arriving segment find the right program?</p>
             <p>The answer is a <strong>port number</strong>. A port is like a numbered door on the computer. Each program listens at its own door. Port numbers go from 0 to 65,535. Numbers 0 to 1,023 are "well-known" ports kept for common services.</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; margin-top: 1rem;">
@@ -49,7 +49,7 @@
 
         <!-- TCP 3-Way Handshake -->
         <section class="content-section">
-            <h2>The TCP 3-Way Handshake 🤝</h2>
+            <h2>The TCP 3-Way Handshake</h2>
             <p>Before TCP sends any data, the two sides agree to talk. They swap three short messages. Each side also picks a starting <strong>sequence number</strong> (Module 1) for the bytes it will send. Real starting numbers are picked at random; we use round numbers here.</p>
             <ul>
                 <li><strong>SYN</strong> means "synchronise": "Let's start, my numbers begin here."</li>
@@ -61,7 +61,7 @@
                 2. <strong>Server ➔ Client:</strong> <span style="color: #34d399;">[SYN-ACK]</span> (Seq=5000, Ack=1001) "Got it! Mine start at 5000."<br>
                 3. <strong>Client ➔ Server:</strong> <span style="color: #fbbf24;">[ACK]</span> (Seq=1001, Ack=5001) "Agreed! The connection is open."
             </div>
-            <p>🧪 Watch it happen: open the <a href="playground.html">Protocol Lab Studio</a> and click <strong>Start Handshake</strong> to see SYN, SYN-ACK and ACK travel between two computers.</p>
+            <p>Watch it happen: open the <a href="playground.html">Protocol Lab Studio</a> and click <strong>Start Handshake</strong> to see SYN, SYN-ACK and ACK travel between two computers.</p>
 
             <h3>Worked example 1: following the numbers</h3>
             <p>After the handshake, the client sends a 500-byte homework file in one segment. What does the server's ACK say?</p>
@@ -108,7 +108,7 @@ seq=1201 (100 B) ──► arrives  → ACK 1401</code></pre>
 
         <!-- netstat -->
         <section class="content-section">
-            <h2>Worked Example 3: Seeing Your Own Connections 👀</h2>
+            <h2>Worked Example 3: Seeing Your Own Connections</h2>
             <p>The <code>netstat</code> command lists the connections your computer has open right now. On Windows, run:</p>
             <pre class="code-block"><code>netstat -an</code></pre>
             <p><strong>Example output</strong> (shortened; yours will differ):</p>
@@ -126,7 +126,7 @@ seq=1201 (100 B) ──► arrives  → ACK 1401</code></pre>
 
         <!-- Common misunderstanding -->
         <section class="content-section">
-            <h2>Common Misunderstanding ⚠️</h2>
+            <h2>Common Misunderstanding</h2>
             <div class="tip-box">
                 <p><strong>"UDP is just a broken version of TCP."</strong></p>
                 <p>No. UDP is a deliberate choice. It skips the handshake and the resending to save time. For live voice, video and quick lookups, that is exactly what you want. Programs that need some checking can add their own on top of UDP, as HTTP/3 does.</p>
@@ -139,14 +139,14 @@ seq=1201 (100 B) ──► arrives  → ACK 1401</code></pre>
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Put the three handshake messages in order: ACK, SYN, SYN-ACK. Then give the well-known port for HTTPS and for DNS.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>SYN, then SYN-ACK, then ACK. HTTPS uses port 443 and DNS uses port 53.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>After the handshake, a client's next byte is number 2001. It sends a 300-byte segment, then a 200-byte segment. Both arrive. What ACK number does the server send after each one?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
                     <pre class="code-block"><code>Segment 1: bytes 2001 – 2300 → ACK 2301
@@ -155,7 +155,7 @@ Segment 2: bytes 2301 – 2500 → ACK 2501</code></pre>
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>A community school is planning its online services. For each one, choose TCP or UDP and give a reason:</p>
                 <ol>
                     <li>Students upload their science project files.</li>

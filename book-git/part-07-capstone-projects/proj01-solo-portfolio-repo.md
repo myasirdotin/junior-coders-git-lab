@@ -1,8 +1,8 @@
-# Project 1: Solo Portfolio Repository & GitHub Pages 🎨
+# Project 1: Solo Portfolio Repository & GitHub Pages
 
 ---
 
-## 🌟 Project Overview
+## Project Overview
 
 In this project you use everything from this book to build, save, document and publish your own **portfolio website**: a page that shows what you have learned and built.
 
@@ -18,7 +18,7 @@ In this project you use everything from this book to build, save, document and p
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Set up a project with Git from the very first file.
 - Keep unwanted files out of your history with `.gitignore`.
@@ -28,7 +28,7 @@ In this project you use everything from this book to build, save, document and p
 
 ---
 
-## 📚 Chapters You Will Use
+## Chapters You Will Use
 
 - **Chapter 3:** setting your Git name and email.
 - **Chapters 4 and 5:** `git init`, staging and `.gitignore`.
@@ -38,7 +38,7 @@ In this project you use everything from this book to build, save, document and p
 
 ---
 
-## 💻 Step-by-Step Guide
+## Step-by-Step Guide
 
 ### Step 1: Create the repository
 
@@ -206,7 +206,7 @@ Refresh your live site after a minute or two to see the new card.
 
 ---
 
-## 🧪 Project Checklist
+## Project Checklist
 
 - [ ] `git log --oneline` shows at least 4 commits, each with a clear message.
 - [ ] `git status` says `nothing to commit, working tree clean`.
@@ -225,7 +225,7 @@ f6a93e7 chore: Ignore system and editor files
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Start every project with `git init` and a `.gitignore`.
 - Make one small commit for each step, with a clear message.

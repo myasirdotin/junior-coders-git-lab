@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Elevator Buttons vs. The Rocket Launch Switch**
 
@@ -17,7 +17,7 @@ They invite users to *"Sign Up"*, *"Download Notes"*, *"Add to Cart"*, or *"Subm
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Style both `<button>` elements and `<a>` links as buttons.
@@ -157,7 +157,7 @@ Type this into your editor and save it as `button-lab.html`:
 
 ---
 
-## 🌍 Real-World Connection: Call to Action (CTA)
+## Real-World Connection: Call to Action (CTA)
 
 In professional marketing and web development:
 - The main button on a page is called the **Call to Action (CTA)**.
@@ -166,18 +166,18 @@ In professional marketing and web development:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What will happen if you style an `<a>` tag with `.btn`, but forget to add `display: inline-block;` or `display: block;`?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> The top and bottom padding will overlap adjacent lines of text without pushing them away, because inline elements cannot handle vertical box spacing properly! Always include <code>display: inline-block</code> when styling links as buttons!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Sticky Pointer
+## Code Detective: The Sticky Pointer
 
 A student created a button, but when visitors hovered over it, the cursor remained a normal boring arrow:
 
@@ -228,7 +228,7 @@ Create a bold "Join the Science Fair" button for a dark page:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is styling a `<div>` to look like a button.
 
@@ -248,7 +248,7 @@ A second slip is removing the focus outline with `outline: none;` and adding not
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Float Effect**
 
@@ -264,7 +264,7 @@ Look at line 37 in our CSS:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Buttons are the primary interactive triggers on websites.
 - Strip default styling using `border: none;` and custom padding.
@@ -275,7 +275,7 @@ Look at line 37 in our CSS:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -287,9 +287,9 @@ Look at line 37 in our CSS:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which CSS property turns the mouse cursor into a pointing hand?
 2. Which pseudo-class styles an element while the mouse is over it?
 3. What does `border: none;` do to a default HTML button?
@@ -303,7 +303,7 @@ Look at line 37 in our CSS:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write CSS for a `.join-btn` "Join the Club" button: red background, white text, padding `14px 28px`, `8px` rounded corners and a darker red on hover.
 5. Why should secondary buttons (like "Cancel") look less strong than primary buttons?
 
@@ -330,7 +330,7 @@ Look at line 37 in our CSS:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make a button that seems to lift off the page.
 1. Style a blue `.lift-btn` button with a small shadow.
 2. On `:hover`, move it up with `transform: translateY(-3px);` (this moves it 3px up).

@@ -11,7 +11,7 @@
     <main class="module-container">
         <header class="module-header path-laravel">
             <span class="badge" style="background: white; color: var(--laravel-brand);">Level 2</span>
-            <h1>Migrations 🏗️</h1>
+            <h1>Migrations</h1>
             <p>Version-control your database schema — never lose track of changes!</p>
         </header>
 
@@ -20,13 +20,13 @@
             <p>Migrations are like <strong>version control for your database</strong>. Instead of manually creating tables in phpMyAdmin, you write PHP code that describes your tables. Your whole team runs the same migrations and everyone gets the identical database structure.</p>
 
             <div class="connection-box" style="border-left-color: var(--laravel-brand);">
-                <strong>📐 The Building Blueprint Analogy</strong><br><br>
+                <strong>The Building Blueprint Analogy</strong><br><br>
                 Imagine building a school. Instead of telling each construction worker what to build verbally, you give them all the same blueprint. Migrations are your database blueprints — precise, shareable, and version-controlled with Git!
             </div>
         </section>
 
         <section class="content-section">
-            <h2>Creating a Migration ⚙️</h2>
+            <h2>Creating a Migration</h2>
 
             <div class="code-block">
 <code><span class="code-comment"># Create a migration for a new table</span>
@@ -43,7 +43,7 @@ php artisan make:migration add_email_to_students_table --table=students</code>
         </section>
 
         <section class="content-section">
-            <h2>Writing a Migration 📝</h2>
+            <h2>Writing a Migration</h2>
 
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
@@ -71,7 +71,7 @@ php artisan make:migration add_email_to_students_table --table=students</code>
         </section>
 
         <section class="content-section">
-            <h2>Common Column Types 📊</h2>
+            <h2>Common Column Types</h2>
 
             <table class="sql-demo-table" style="width:100%;">
                 <thead><tr><th>Method</th><th>SQL Type</th><th>Use Case</th></tr></thead>
@@ -90,7 +90,7 @@ php artisan make:migration add_email_to_students_table --table=students</code>
         </section>
 
         <section class="content-section">
-            <h2>Running Migrations ▶️</h2>
+            <h2>Running Migrations</h2>
 
             <div class="code-block">
 <code><span class="code-comment"># Run all pending migrations</span>
@@ -110,20 +110,20 @@ php artisan migrate:status</code>
             </div>
 
             <div class="connection-box" style="border-left-color: #f43f5e;">
-                <strong>⚠️ Warning:</strong> <code>migrate:fresh</code> DROPS all tables and rebuilds from scratch. Never run it on the database of a live website (called "production"). All the real data would be lost!
+                <strong>Warning:</strong> <code>migrate:fresh</code> DROPS all tables and rebuilds from scratch. Never run it on the database of a live website (called "production"). All the real data would be lost!
             </div>
         </section>
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Fill in the blanks. In a migration, the ______ method builds the table and the ______ method undoes it. The command <code>php artisan ______</code> runs every migration that has not run yet.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div><code>up()</code>, <code>down()</code> and <code>php artisan migrate</code>.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Fix the bug</h3>
+                <h3>Level 2: Fix the bug</h3>
                 <p>This migration for a charity's volunteers table has two mistakes. Find and fix them. Then add an optional <code>team</code> column.</p>
 <pre><code>Schema::create('volunteers', function (Blueprint $table) {
     $table-&gt;id();
@@ -145,7 +145,7 @@ php artisan migrate:status</code>
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>On your own XAMPP computer, build the table for a charity volunteer log with migrations. Use a project that is already connected to MySQL (see Module 5, Level 3).</p>
                 <ol>
                     <li>Run <code>php artisan make:model Volunteer -m</code> to make the model and its migration together.</li>
@@ -177,7 +177,7 @@ public function down(): void
         </section>
 
         <section class="content-section">
-            <h2>Quick Quiz! 🧪</h2>
+            <h2>Quick Quiz!</h2>
             <form id="quiz-form-1" class="quiz-section">
                 <div class="quiz-question" data-answer="a">
                     <p><strong>Q1:</strong> What are migrations in Laravel?</p>

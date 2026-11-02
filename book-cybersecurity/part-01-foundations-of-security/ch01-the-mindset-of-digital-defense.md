@@ -1,12 +1,12 @@
 # Chapter 1: The Mindset of Digital Defense
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Every evening, the caretaker of the neighbourhood library walks through the building before locking up. She checks that the rare-book room is locked. She checks that nobody has torn pages out of the reference books. She also makes sure the front door will open on time tomorrow morning. She is not chasing burglars; she is quietly protecting something many people depend on. That is exactly what a digital defender does.
 
 Today, medical records, school grades, charity funds and family messages are stored on computers. Welcome to **Cybersecurity & Digital Hygiene**! In this book you move from being a builder of code to being a guardian of digital trust (**Amānah**).
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain the three goals of security: **Confidentiality, Integrity and Availability** (the CIA Triad).
 - Tell the difference between an ethical defender and someone who breaks in without permission.
@@ -52,7 +52,7 @@ Knowing how systems break is powerful knowledge. What matters is how you use it.
 - **Criminal attacker** (often called a "black hat"): breaks into systems to steal, spy, or lock files and demand payment.
 - **"Gray hat"**: tests systems *without permission*, even when they mean no harm. This still crosses a line.
 
-> 🌟 **The Principle of Trust (*Amānah*)**: Private data is a trust placed in someone's care. Testing a website without written permission is like trying the locks on a neighbour's house "just to check". Even if you take nothing, you have broken their trust. Breaking into accounts or systems without permission is **illegal** and against school rules.
+> **The Principle of Trust (*Amānah*)**: Private data is a trust placed in someone's care. Testing a website without written permission is like trying the locks on a neighbour's house "just to check". Even if you take nothing, you have broken their trust. Breaking into accounts or systems without permission is **illegal** and against school rules.
 
 So where can you practise? Only on things you own, or on labs built for practice. This book's **Cybersecurity Lab Studio** is one of those safe places. If you ever find a weakness in a real site, tell the owner or a teacher. Chapter 14 shows you how.
 
@@ -82,8 +82,8 @@ You will meet each of these layers later in the book. For now, remember the idea
 
 ### Example: one layer versus many
 
-- ❌ **Risky:** a charity website relies only on a strong admin password. One leaked password and everything is open.
-- ✅ **Better:** the same site also asks for a code from the admin's phone, lets only coordinators edit donor records, and keeps daily backups. A leaked password alone is no longer a disaster.
+- **Risky:** a charity website relies only on a strong admin password. One leaked password and everything is open.
+- **Better:** the same site also asks for a code from the admin's phone, lets only coordinators edit donor records, and keeps daily backups. A leaked password alone is no longer a disaster.
 
 ## What to Do at Home
 
@@ -93,7 +93,7 @@ You will meet each of these layers later in the book. For now, remember the idea
 - Back up your schoolwork somewhere other than your laptop.
 - If something online feels wrong, stop and ask a trusted adult.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake:** "My little school club site has nothing worth stealing, so security does not matter."
 
@@ -101,7 +101,7 @@ You will meet each of these layers later in the book. For now, remember the idea
 
 **Fixed thinking:** every site that holds names, emails or passwords holds someone's trust. Protect it with the basics: strong passwords, updates and backups.
 
-## ✍️ Try It
+## Try It
 
 Pick an app or website you use every day, such as a school learning portal. Write one sentence for each goal:
 
@@ -111,7 +111,7 @@ Pick an app or website you use every day, such as a school learning portal. Writ
 
 *Hint:* think about logins, who is allowed to edit, and what happens when thousands of students visit at once.
 
-## 📝 Recap
+## Recap
 
 - Security protects three things: **Confidentiality, Integrity and Availability** (the CIA Triad).
 - Ethical defenders work only with permission and report problems to the owner.
@@ -119,9 +119,9 @@ Pick an app or website you use every day, such as a school learning portal. Writ
 - **Defense in Depth** means many layers, so one failure does not open everything.
 - Data that people give you is an *Amānah*: a trust you must protect.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What are the three goals of the CIA Triad? Give a short meaning for each.
 
 <details>
@@ -131,7 +131,7 @@ What are the three goals of the CIA Triad? Give a short meaning for each.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 For each event, name the CIA goal that was harmed:
 
 1. A hospital website is so overloaded that patients cannot book appointments.
@@ -147,7 +147,7 @@ For each event, name the CIA goal that was harmed:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 A community food bank keeps its volunteer schedule and family list on a small website. Design its defence in depth.
 
 1. List at least four layers of protection, from the outside in.

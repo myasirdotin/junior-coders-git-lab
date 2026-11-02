@@ -1,9 +1,9 @@
-# Teacher's Guide & Assessment Rubrics 🍎📋
+# Teacher's Guide & Assessment Rubrics
 # HTML for Class 6 & 7: Curriculum Overview & Project Rubrics
 
 ---
 
-## 1. Pedagogical Methodology 💡
+## 1. Pedagogical Methodology
 
 This textbook follows a progressive 5-stage scaffolding methodology:
 1. **Warm-Up Discovery**: A relatable, screen-free analogy before any syntax is presented.
@@ -19,7 +19,7 @@ This textbook follows a progressive 5-stage scaffolding methodology:
 
 ---
 
-## 2. 12-Week Suggested Curriculum Pacing 📅
+## 2. 12-Week Suggested Curriculum Pacing
 
 | Week | Units Covered | Key Project Milestone |
 | :--- | :--- | :--- |
@@ -34,11 +34,11 @@ This textbook follows a progressive 5-stage scaffolding methodology:
 | **Week 9** | Part 6: Ch 13 (Semantic Structure: Nav, Main, Footer) | Full Semantic Layout Prototype |
 | **Week 10** | Part 7: Ch 14–15 (Personal Profile & School Website) | Complete Profile Capstone |
 | **Week 11** | Part 7: Ch 16–17 (Restaurant Menu & Portfolio) | Polished Student Portfolio |
-| **Week 12** | Part 8: Ch 18 (Final Project Guide & Presentation) | Capstone Showcase Day 🏆 |
+| **Week 12** | Part 8: Ch 18 (Final Project Guide & Presentation) | Capstone Showcase Day |
 
 ---
 
-## 3. Capstone Project Assessment Rubric 🎯
+## 3. Capstone Project Assessment Rubric
 
 | Criterion | Exemplary (4 pts) | Proficient (3 pts) | Developing (2 pts) | Beginning (1 pt) |
 | :--- | :--- | :--- | :--- | :--- |

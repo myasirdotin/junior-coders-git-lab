@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine packing your school bag for Monday:
 You have:
@@ -25,7 +25,7 @@ Instead, you just need **one backpack** (one variable) that holds an ordered lis
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain why arrays are needed when managing collections of related data.
@@ -70,7 +70,7 @@ Every array has a built-in property named `.length` that tells you exactly how m
 console.log(backpack.length); // 5
 ```
 
-> 💡 **Pro-Tip:** The index of the very last item in any array is always `array.length - 1`!
+> **Pro-Tip:** The index of the very last item in any array is always `array.length - 1`!
 > `backpack[backpack.length - 1]` gives `"Notebook"`.
 
 ### Updating Elements
@@ -137,7 +137,7 @@ Planet #5: Jupiter
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```javascript
 let pets = ["Dog", "Cat", "Parrot"];
@@ -150,7 +150,7 @@ console.log(pets.length);
 *What will be printed?*
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 ```text
 [ 'Dog', 'Hamster', 'Parrot', 'Rabbit' ]
@@ -207,7 +207,7 @@ Present: 4 | Absent: 2
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 Find the errors in this code:
 ```javascript
@@ -236,7 +236,7 @@ for (let i = 0; i <= groceryList.length; i++) {
 
 ---
 
-## ✍️ Try It
+## Try It
 
 1. Open your console.
 2. Create an array of 4 of your favorite fruits:
@@ -247,11 +247,11 @@ for (let i = 0; i <= groceryList.length; i++) {
 4. Replace `"Apple"` with `"Pineapple"`.
 5. Print the entire array.
 
-> 💡 **Hint:** The last fruit is `fruits[fruits.length - 1]`, which is index 3 here. To replace `"Apple"`, write `fruits[1] = "Pineapple";`.
+> **Hint:** The last fruit is `fruits[fruits.length - 1]`, which is index 3 here. To replace `"Apple"`, write `fruits[1] = "Pineapple";`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Arrays store ordered collections of values.
 - Created with `[val1, val2, val3]`.
@@ -268,7 +268,7 @@ for (let i = 0; i <= groceryList.length; i++) {
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 - **Array:** An ordered list of values stored in a single variable.
 - **Index:** The numerical position of an element in an array (starts at 0).
@@ -278,9 +278,9 @@ for (let i = 0; i <= groceryList.length; i++) {
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the index of the first item in any JavaScript array?
 2. An array `colors` has 6 items. What is `colors.length`? What is the index of the last item?
 
@@ -292,7 +292,7 @@ for (let i = 0; i <= groceryList.length; i++) {
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Given `let temperatures = [32, 34, 30, 28, 35, 33, 32];`, use a loop to work out the average temperature of the week.
 
 Extra: what does `backpack[99]` give when the array has only 5 items?
@@ -317,7 +317,7 @@ Extra: it gives `undefined`. There is no item at index 99, but JavaScript does n
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Count the distinction students:
 1. Start with `let marks = [85, 92, 45, 78, 60, 95];`.
 2. Loop through the array.

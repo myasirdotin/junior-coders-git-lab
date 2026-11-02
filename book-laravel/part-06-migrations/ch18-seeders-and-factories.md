@@ -1,10 +1,10 @@
 # Chapter 18: Seeders & Factories
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Before a new library opens, the staff practise. They fill the shelves with **practice books**, make **sample library cards** for pretend members, and rehearse lending them. That way they can test the system before real students arrive. Seeders and factories do the same for your app. They fill an empty database with sample data in seconds, so you can test every page.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain the difference between a **seeder** and a **factory**.
 - Write a seeder that adds fixed rows, and run it with `db:seed`.
@@ -213,7 +213,7 @@ Remember Chapter 16: this deletes all data. Use it only on your practice databas
 - **Label it.** If you show the app to your teacher with sample data, say that it is sample data.
 - **Keep it out of real servers.** Seeders that make fake members are for practice databases only.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting `HasFactory` on the model.**
 
@@ -226,13 +226,13 @@ Fix: add `use HasFactory;` inside the class and the matching `use` line at the t
 
 **Unique fields without `unique()`.** If the factory used `fake()->safeEmail()` without `unique()`, two members might get the same email. The database's `unique` rule would stop the seeder with `Integrity constraint violation: 1062 Duplicate entry`.
 
-## ✍️ Try It
+## Try It
 
 Write `BookSeeder` and `MemberFactory`, update `DatabaseSeeder`, then run `php artisan migrate:fresh --seed`. Check how many rows each table has in phpMyAdmin.
 
 *Hint:* you should see 4 books, 30 members and 10 loans (plus the test user).
 
-## 📝 Recap
+## Recap
 
 - A **seeder** puts rows into the database; a **factory** is a recipe for one fake row.
 - `php artisan db:seed` runs `DatabaseSeeder`; `--class=BookSeeder` runs one seeder.
@@ -240,9 +240,9 @@ Write `BookSeeder` and `MemberFactory`, update `DatabaseSeeder`, then run `php a
 - Models need `use HasFactory;` to use `Model::factory()`.
 - `php artisan migrate:fresh --seed` rebuilds everything with sample data. Practice databases only.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 What is the difference between `Member::factory()->make()` and `Member::factory()->create()`?
 
 <details>
@@ -252,7 +252,7 @@ What is the difference between `Member::factory()->make()` and `Member::factory(
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write a `BookFactory` `definition()` that makes a title of three words with capital letters, a fake name as author, a unique ISBN-13, and 0 to 5 copies.
 
 <details>
@@ -275,7 +275,7 @@ public function definition(): array
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make the sample data more realistic.
 
 1. Use `BookFactory` to add 20 more books after the 4 known ones.

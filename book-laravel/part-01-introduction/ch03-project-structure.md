@@ -1,10 +1,10 @@
 # Chapter 3: Laravel Project Structure
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 On your first day in a new school library, everything feels confusing. Then a kind librarian shows you around. "Science books are here. The front desk is there. The records room is at the back." After the tour, you can find anything. A new Laravel project has many folders too. This chapter is your tour, so you always know where to look.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Name the main folders of a Laravel project and what goes in each.
 - Find the four MVC places: routes, controllers, models and views.
@@ -156,7 +156,7 @@ Route::get('/', function () {
 
 This route says: when someone visits `/`, show the view called `welcome`. That view is the file `resources/views/welcome.blade.php`. You will learn routes in Chapter 4.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Editing files inside `vendor/`.**
 
@@ -166,13 +166,13 @@ Fix: never edit `vendor/`. Put your own code in `app/`, `routes/`, `resources/` 
 
 **Wrong database name in `.env`.** If you see `SQLSTATE[HY000] [1049] Unknown database 'library_ap'`, check the spelling of `DB_DATABASE`.
 
-## ✍️ Try It
+## Try It
 
 Switch your `library-app` to MySQL and run `php artisan migrate`. Then open phpMyAdmin and count the tables in `library_app`.
 
 *Hint:* if you see `SQLSTATE[HY000] [2002]`, MySQL is not running. Start it in the XAMPP Control Panel.
 
-## 📝 Recap
+## Recap
 
 - Routes are in `routes/web.php`, controllers in `app/Http/Controllers`, models in `app/Models`, views in `resources/views`.
 - Visitors only reach `public/`; everything else stays hidden.
@@ -180,9 +180,9 @@ Switch your `library-app` to MySQL and run `php artisan migrate`. Then open phpM
 - Set `DB_CONNECTION=mysql` and `DB_DATABASE=library_app` to use XAMPP's MySQL.
 - `php artisan migrate` creates Laravel's starter tables, including `users` and `sessions`.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 In which folder do you put (a) a view, (b) a controller, (c) a model? Which folder must you never edit?
 
 <details>
@@ -192,7 +192,7 @@ In which folder do you put (a) a view, (b) a controller, (c) a model? Which fold
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write the six `.env` lines that connect Laravel to a MySQL database called `school_library` on XAMPP.
 
 <details>
@@ -209,7 +209,7 @@ DB_PASSWORD=
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Your friend wants to share their project on GitHub so you can help.
 
 1. Which file must **not** be uploaded, and why?

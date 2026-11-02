@@ -13,15 +13,15 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #059669, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #059669; font-weight: 800;">Level 1</span>
-            <h1 style="color: white; margin: 0.5rem 0;">Passwords, Entropy &amp; Multi-Factor Auth 🔑🔐</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">Passwords, Entropy &amp; Multi-Factor Auth</h1>
             <p>Why long passwords beat short tricky ones, how websites should store passwords, and how a second step (MFA) keeps you safe.</p>
         </header>
 
         <!-- Real-life analogy -->
         <section class="content-section">
-            <h2>🚲 Think of a Bike Lock</h2>
+            <h2>Think of a Bike Lock</h2>
             <div class="connection-box">
-                <p>🧠 <strong>Real-life analogy:</strong> A bike lock with 3 number wheels has 1,000 possible codes (000 to 999). A patient thief could try them all in an afternoon.</p>
+                <p><strong>Real-life analogy:</strong> A bike lock with 3 number wheels has 1,000 possible codes (000 to 999). A patient thief could try them all in an afternoon.</p>
                 <p>Add one more wheel and there are 10,000 codes. Add six more and there are 1,000,000,000 codes. Each extra wheel makes guessing ten times harder.</p>
                 <p>Passwords work the same way. <strong>Every extra character multiplies the work for a guesser.</strong></p>
             </div>
@@ -30,7 +30,7 @@
 
         <!-- Entropy -->
         <section class="content-section">
-            <h2>🎲 Entropy: Measuring Unpredictability</h2>
+            <h2>Entropy: Measuring Unpredictability</h2>
             <p><strong>Entropy</strong> measures how hard something is to guess. We count it in <strong>bits</strong>. Each extra bit doubles the number of guesses an attacker needs.</p>
             <pre class="code-block"><code>Entropy (bits) = Length × log2(PoolSize)
 
@@ -45,12 +45,12 @@ log2(PoolSize) = how many times you double 1
   log2(10) ≈ 3.32
   log2(26) ≈ 4.70
   log2(95) ≈ 6.57</code></pre>
-            <div class="tip-box">⚠️ This formula only works when every character is picked <strong>at random</strong>. A password like <code>Password1!</code> looks mixed, but it is on every guessing list. Its real entropy is very low.</div>
+            <div class="tip-box">This formula only works when every character is picked <strong>at random</strong>. A password like <code>Password1!</code> looks mixed, but it is on every guessing list. Its real entropy is very low.</div>
         </section>
 
         <!-- Worked example 1 -->
         <section class="content-section">
-            <h2>🧮 Worked Example 1: Comparing Three Passwords</h2>
+            <h2>Worked Example 1: Comparing Three Passwords</h2>
             <p>Let us use the formula on three random passwords.</p>
             <pre class="code-block"><code>A) 4-digit PIN, e.g. 4071
    4 × 3.32 = about 13 bits
@@ -68,7 +68,7 @@ C) 16 random lowercase letters
 
         <!-- Passphrases -->
         <section class="content-section">
-            <h2>📝 Worked Example 2: The Passphrase</h2>
+            <h2>Worked Example 2: The Passphrase</h2>
             <p>Random letters are hard to remember. A <strong>passphrase</strong> solves this. It is a few random words joined together, like this made-up example:</p>
             <pre class="code-block"><code>maple-lantern-orbit-pebble-harvest</code></pre>
             <p>Suppose each word is picked at random from a list of 7,776 words. Each word adds about 12.9 bits.</p>
@@ -84,7 +84,7 @@ C) 16 random lowercase letters
 
         <!-- Password Hashing & Salts -->
         <section class="content-section">
-            <h2>🗄️ Worked Example 3: How Websites Should Store Passwords (<em>Amānah</em>)</h2>
+            <h2>Worked Example 3: How Websites Should Store Passwords (<em>Amānah</em>)</h2>
             <p>A website must never keep your real password. If its database is stolen, every password would leak. Instead, it keeps a <strong>hash</strong>.</p>
             <ul>
                 <li><strong>Hash:</strong> a scrambled "fingerprint" of the password. You can make the fingerprint from the password. You cannot turn the fingerprint back into the password.</li>
@@ -113,7 +113,7 @@ if (password_verify($typedPassword, $saved)) {
 
         <!-- Multi-Factor Authentication -->
         <section class="content-section">
-            <h2>📱 Multi-Factor Authentication (MFA)</h2>
+            <h2>Multi-Factor Authentication (MFA)</h2>
             <p><strong>Authentication</strong> means proving who you are. <strong>Multi-factor authentication (MFA)</strong> asks for proof from more than one of these groups:</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem;">
                 <div style="background: var(--bg-glass); padding: 1rem; border-radius: 8px; border-left: 4px solid #059669;">
@@ -133,12 +133,12 @@ if (password_verify($typedPassword, $saved)) {
                 <li><strong>Good:</strong> an authenticator app. It shows a 6-digit code that changes every 30 seconds.</li>
                 <li><strong>Better than nothing:</strong> a code sent by text message (SMS).</li>
             </ol>
-            <div class="tip-box">💡 <strong>Story:</strong> Aisha's password leaked from an old quiz website. A stranger tried it on her school email. Her phone asked, "Is this you signing in?" She tapped <strong>No</strong>. MFA stopped the stranger. Then she changed her password.</div>
+            <div class="tip-box"><strong>Story:</strong> Aisha's password leaked from an old quiz website. A stranger tried it on her school email. Her phone asked, "Is this you signing in?" She tapped <strong>No</strong>. MFA stopped the stranger. Then she changed her password.</div>
         </section>
 
         <!-- Checklist -->
         <section class="content-section">
-            <h2>✅ What To Do: Your Password Checklist</h2>
+            <h2>What To Do: Your Password Checklist</h2>
             <ul>
                 <li>☐ Use a passphrase of 5 or more random words, or a long random password.</li>
                 <li>☐ Use a <strong>different</strong> password for every account. One leak should not open everything.</li>
@@ -147,18 +147,18 @@ if (password_verify($typedPassword, $saved)) {
                 <li>☐ Never tell anyone your MFA code. Real companies and schools never ask for it.</li>
                 <li>☐ If a site says your password leaked, change it straight away.</li>
             </ul>
-            <p>🧪 <strong>Try it:</strong> open the <a href="playground.html">Cyber Defense Studio</a>, click <strong>Generate Passphrase</strong>, and watch the strength meter.</p>
+            <p><strong>Try it:</strong> open the <a href="playground.html">Cyber Defense Studio</a>, click <strong>Generate Passphrase</strong>, and watch the strength meter.</p>
         </section>
 
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Fill in the blanks: a website should store a password's ________, never the real password. A random ________ is added to each password so that two equal passwords look different.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>Hash. Salt. (In PHP, <code>password_hash()</code> does both for you.)</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>Part A: which is stronger, 12 random lowercase letters or 8 random keyboard characters? Use the entropy formula. Part B: fix this code so the password is stored safely.</p>
                 <pre><code>$saved = $password;</code></pre>
                 <details class="jc-answer"><summary>Show answer</summary><div>
@@ -172,7 +172,7 @@ if (password_verify($typedPassword, $saved)) {
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>Your school library is starting an online account for each student. Write a short password policy (a list of rules) for it.</p>
                 <ol>
                     <li>Set a minimum length, and say why.</li>

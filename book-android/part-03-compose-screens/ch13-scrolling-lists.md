@@ -1,10 +1,10 @@
 # Chapter 13: Lists That Scroll
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine the library printed its whole catalogue, every one of 2,000 books, on one enormous sheet of paper, and handed it to each student who walked in. It would take ages to print and be very heavy to carry. A smarter librarian uses a small window card: you slide it down a long list and only read the few lines showing through the window. Phones work the same way. The screen is a small window. A **lazy list** only builds the rows you can see right now, and builds new ones as you scroll. In this chapter the School Library app finally shows its full, scrolling list of books.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain why a plain `Column` is a poor choice for long lists.
 - Show a list with `LazyColumn` and `items(list, key = { it.id })`.
@@ -350,7 +350,7 @@ The phone shows a strip of shelf names (`Science A3`, `Geography B1`, `Stories C
 
 There is also `LazyVerticalGrid` for grids, such as a wall of book covers. It works the same way, with a `columns` setting.
 
-## 🔮 Predict the Screen
+## Predict the Screen
 
 ```kotlin
 LazyColumn {
@@ -374,7 +374,7 @@ The heading comes from `item`. `filter { !it.available }` keeps only the two boo
 
 </details>
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Putting a `LazyColumn` inside a scrolling `Column`.**
 
@@ -404,7 +404,7 @@ items(books.size, key = { index -> index }) { index -> BookRow(books[index], onC
 
 What happens: it runs, but the key for "the first row" stays 0 even when the search changes which book is first. Row state can end up on the wrong book. Fix: use the book's own unchanging id: `items(books, key = { it.id })`.
 
-## ✍️ Try It
+## Try It
 
 Add an "Available only" switch above the list.
 
@@ -415,7 +415,7 @@ Add an "Available only" switch above the list.
 
 *Hint:* `val shown = if (availableOnly) matches.filter { it.available } else matches`.
 
-## 📝 Recap
+## Recap
 
 - A `Column` builds every row and does not scroll; for lists of data, use a lazy list.
 - `LazyColumn` builds only the rows on screen. Describe rows with `items(list, key = { it.id }) { … }` and one-off rows with `item { }`.
@@ -424,7 +424,7 @@ Add an "Available only" switch above the list.
 - Show status with words and colour together, such as "Available" and "On loan".
 - `LazyRow` scrolls sideways; never put a lazy list inside a `verticalScroll` in the same direction.
 
-## 📖 Key Terms
+## Key Terms
 
 - **Lazy list**: a list that builds rows only when they come into view.
 - **Item**: one row in a lazy list.
@@ -432,9 +432,9 @@ Add an "Available only" switch above the list.
 - **contentPadding**: space inside a scrolling list, around its content.
 - **clickable**: a modifier that makes any composable react to taps.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Why is a `LazyColumn` faster than a `Column` for 2,000 books?
 2. What is the best `key` for a list of `Book`s, and why?
 3. Which import does `items(books) { … }` need?
@@ -448,7 +448,7 @@ Add an "Available only" switch above the list.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write `OnLoanList()`: a `LazyColumn` with 16 dp `contentPadding` and 8 dp between rows. It starts with a heading row `Books on loan (2)`, where the number is worked out from the data, then shows one `BookRow` for each book that is not available.
 
 <details>
@@ -480,7 +480,7 @@ The screen shows the heading `Books on loan (2)`, then the cards for "Clean Wate
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Bring back the "Save for later" bookmark from Chapter 11, for every book in the list.
 
 1. In `LibraryScreen`, keep the saved books as a set of ids: `var savedIds by rememberSaveable { mutableStateOf(setOf<Int>()) }`.

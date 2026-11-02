@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Imagine walking down a cobblestone street on a rainy evening:
 - You look through the warm glass window of *Luigi’s Trattoria*.
@@ -14,11 +14,11 @@ When people visit a restaurant website, they want to feel that exact same appeti
 **A great restaurant website makes your mouth water at first glance!**
 In this project chapter, you will build a complete restaurant website with a digital menu, food cards, a chef's story and a table booking form!
 
-> 🎨 **About the `<style>` block:** the page comes with ready-made CSS so it looks polished. You will learn to write CSS like this in the CSS track. For now, copy it as it is and focus on the HTML.
+> **About the `<style>` block:** the page comes with ready-made CSS so it looks polished. You will learn to write CSS like this in the CSS track. For now, copy it as it is and focus on the HTML.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Establish a warm, appetizing visual theme using rustic earthy colors.
@@ -432,7 +432,7 @@ Type this into your editor and save it as `restaurant.html`:
 
 ---
 
-## 🌍 Real-World Connection: Menu Scanning Habits
+## Real-World Connection: Menu Scanning Habits
 
 Think about how you read a menu yourself:
 - Most people look at the food photo first, then the dish name, then the price.
@@ -441,18 +441,18 @@ Think about how you read a menu yourself:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 If you place 4 food cards in the `.menu-grid`, how will they arrange themselves on a wide 1200px desktop screen?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> They will arrange into a neat 4-column row or 2-by-2 grid! Because of <code>minmax(300px, 1fr)</code>, on a 1200px monitor, four 300px cards fit across the row!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Misaligned Prices
+## Code Detective: The Misaligned Prices
 
 A student created food cards, but the prices appeared under the dish description instead of next to the title:
 
@@ -491,16 +491,16 @@ Many people book a table on their phone, often with one hand.
 
 Add a testimonial section:
 - 3 customer review quote cards.
-- Star rating emojis (⭐⭐⭐⭐⭐).
+- Star rating emojis ().
 - Guest name: *"The crispiest crust in the city!" — Marco T.* (Label these as sample reviews. A real site must only show reviews from real guests.)
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Using a `<div>` and plain text instead of a real form control.**
 
-❌ Wrong:
+Wrong:
 
 ```html
 <div>Guests: 2 / 4 / 6</div>
@@ -509,7 +509,7 @@ Add a testimonial section:
 
 What happens: it looks like a form, but visitors cannot choose anything or press anything. Keyboard and screen reader users cannot reach it at all.
 
-✅ Fixed: use real controls inside a `<form>`, each with a label and a name.
+Fixed: use real controls inside a `<form>`, each with a label and a name.
 
 ```html
 <form>
@@ -524,7 +524,7 @@ What happens: it looks like a form, but visitors cannot choose anything or press
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Add a Dessert Card**
 
@@ -532,13 +532,13 @@ Open `restaurant.html` and add a fourth dish to the `.menu-grid`:
 - Photo: Homemade Gelato
 - Name: *Artisan Pistachio Gelato*
 - Price: *$6.50*
-- Tag: *🌱 Vegetarian*
+- Tag: *Vegetarian*
 
-> 💡 **Hint:** Copy one whole `<div class="food-card">` block, from its opening tag to its matching `</div>`, paste it after the third card, and change the text, price and `alt`.
+> **Hint:** Copy one whole `<div class="food-card">` block, from its opening tag to its matching `</div>`, paste it after the third card, and change the text, price and `alt`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A restaurant site needs a clear outline: header and nav, hero, menu, booking form, footer with hours.
 - Each food card groups a photo (with honest `alt` text), a dish name, a price, a description and a dietary tag.
@@ -547,7 +547,7 @@ Open `restaurant.html` and add a fourth dish to the `.menu-grid`:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -558,9 +558,9 @@ Open `restaurant.html` and add a fourth dish to the `.menu-grid`:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which input type shows a calendar to pick a date?
 2. Which input type is meant for phone numbers?
 3. Which tag makes a drop-down list of choices?
@@ -574,8 +574,8 @@ Open `restaurant.html` and add a fourth dish to the `.menu-grid`:
 
 </details>
 
-### 🟡 Level 2: Apply
-1. Write a dietary badge reading "🌾 Gluten-Free" using the same class as the existing badges.
+### Level 2: Apply
+1. Write a dietary badge reading "Gluten-Free" using the same class as the existing badges.
 2. Why should a food photo's `alt` describe the real dish, and why should the photo show the real dish?
 
 <details>
@@ -591,7 +591,7 @@ Open `restaurant.html` and add a fourth dish to the `.menu-grid`:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add an "Opening Hours" section to the restaurant:
 1. Add `<section id="hours">` inside `<main>`, after the booking form, with an `<h2>`.
 2. Build a table with the columns Day and Hours (Monday to Thursday in one row, Friday, and Saturday to Sunday).

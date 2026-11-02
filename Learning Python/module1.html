@@ -13,15 +13,15 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #2563eb, #0284c7); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #2563eb; font-weight: 800;">Level 1</span>
-            <h1 style="color: white; margin: 0.5rem 0;">The Digital Memory Vault! 🐍📦</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">The Digital Memory Vault!</h1>
             <p>Welcome to Python! Learn how computers store and remember values using variables and types.</p>
         </header>
 
         <!-- First Line: print() -->
         <section class="content-section">
-            <h2>👋 Your First Python Line: <code>print()</code></h2>
+            <h2>Your First Python Line: <code>print()</code></h2>
             <div class="tip-box" style="border-left-color: #2563eb;">
-                <p>🧠 <strong>Real-life analogy:</strong> <code>print()</code> is like a notice board in the school hall. Whatever you pin on it, everyone can see.</p>
+                <p><strong>Real-life analogy:</strong> <code>print()</code> is like a notice board in the school hall. Whatever you pin on it, everyone can see.</p>
             </div>
             <p>Python reads your code from top to bottom. It runs one line at a time.</p>
             <p><code>print()</code> is a <strong>function</strong>. A function is a ready-made tool that does one job. The job of <code>print()</code> is to show something on the screen.</p>
@@ -45,12 +45,10 @@ print("7 + 5")</code></pre>
             
             <div class="analogy-grid">
                 <div class="analogy-card active">
-                    <span class="analogy-icon">🏷️</span>
                     <h3>student_name = "Amina"</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">Stores text (string) in memory with the tag <code>student_name</code>.</p>
                 </div>
                 <div class="analogy-card active" style="border-color: #059669;">
-                    <span class="analogy-icon">🔢</span>
                     <h3 style="color: #059669;">books_donated = 15</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">Stores a whole number (integer) ready for math.</p>
                 </div>
@@ -59,7 +57,7 @@ print("7 + 5")</code></pre>
 
         <!-- How = Works -->
         <section class="content-section">
-            <h2>📝 How the <code>=</code> Sign Works</h2>
+            <h2>How the <code>=</code> Sign Works</h2>
             <p>In maths class, <code>=</code> means "is equal to". In Python, a single <code>=</code> means "store this value".</p>
             <p>Python works out the right side first. Then it sticks the label on the left side to that value.</p>
             <p>A variable can change. That is why it is called a <em>variable</em>: its value can vary.</p>
@@ -90,22 +88,22 @@ print(water_bottles)</code></pre>
             <p>Python automatically understands what kind of data you give it:</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #2563eb;">
-                    <h3>Strings (str) 🧵</h3>
+                    <h3>Strings (str)</h3>
                     <p>Text wrapped in quotes.</p>
                     <code>"Al-Khwarizmi"</code>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
-                    <h3>Integers (int) 🔢</h3>
+                    <h3>Integers (int)</h3>
                     <p>Whole numbers, positive or negative.</p>
                     <code>42</code> or <code>-7</code>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
-                    <h3>Floats (float) ⚖️</h3>
+                    <h3>Floats (float)</h3>
                     <p>Decimals for measurements.</p>
                     <code>3.14159</code> or <code>19.50</code>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
-                    <h3>Booleans (bool) ✅</h3>
+                    <h3>Booleans (bool)</h3>
                     <p>True or False binary truth states.</p>
                     <code>True</code> or <code>False</code>
                 </div>
@@ -114,7 +112,7 @@ print(water_bottles)</code></pre>
 
         <!-- type() and Maths -->
         <section class="content-section">
-            <h2>🔍 Checking a Type and Doing Maths</h2>
+            <h2>Checking a Type and Doing Maths</h2>
             <p>You can ask Python what type a value is with <code>type()</code>. Python answers with a short word: <code>str</code>, <code>int</code>, <code>float</code> or <code>bool</code>.</p>
             <pre class="code-block"><code>print(type("Amina"))
 print(type(15))
@@ -163,7 +161,7 @@ print(round(10 / 3, 1))</code></pre>
 
         <!-- f-string Worked Example -->
         <section class="content-section">
-            <h2>✨ Reading an f-string</h2>
+            <h2>Reading an f-string</h2>
             <p>The <code>f</code> before the opening quote tells Python: "this text has holes to fill". Each pair of curly brackets <code>{ }</code> is a hole. Python puts the variable's value into it.</p>
             <h3>Worked example 4: the f-string above, run</h3>
             <pre class="code-block"><code>name = "Tariq"
@@ -174,7 +172,7 @@ print(f"Coder {name} has earned {xp} XP!")</code></pre>
             <p>You can also put a small calculation inside the brackets, for example <code>{xp + 50}</code>.</p>
 
             <div class="tip-box" style="border-left-color: #ef4444;">
-                <p>⚠️ <strong>Common mistake: joining text and a number with <code>+</code></strong></p>
+                <p><strong>Common mistake: joining text and a number with <code>+</code></strong></p>
                 <p>Python will not glue a string and an integer together with <code>+</code>. This line stops the program:</p>
                 <pre class="code-block"><code>age = 12
 print("Age: " + age)</code></pre>
@@ -185,13 +183,13 @@ print("Age: " + age)</code></pre>
             </div>
 
             <div class="tip-box" style="border-left-color: #2563eb;">
-                <p>🧪 <strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a>. Type worked examples 1 to 4, press Run, and check that your output matches. Then change one value and run it again.</p>
+                <p><strong>Try it:</strong> Open the <a href="../studios/python-console/index.html">Python Console</a>. Type worked examples 1 to 4, press Run, and check that your output matches. Then change one value and run it again.</p>
             </div>
         </section>
 
         <!-- Interactive Practice Challenge -->
         <section class="content-section jc-your-turn">
-            <h2>🧪 Your Turn: Sincere Intention Logger</h2>
+            <h2>Your Turn: Sincere Intention Logger</h2>
             <p>Write a Python script that stores your name and your coding goal in two variables. Then print one announcement line using an f-string. Try it yourself first, then open the answer.</p>
             <details class="jc-answer"><summary>Show answer</summary><div>
             <pre style="background: #0f172a; color: #f8fafc; padding: 1rem; border-radius: 8px;"><code># Step 1: Create your variables
@@ -206,14 +204,14 @@ print(f"Bismillah! Coder {coder_name} is dedicated to: {project_goal}")</code></
         </section>
 
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Fill in the blank so the variable <code>city</code> stores the text Makkah: <code>city ___ "Makkah"</code>. Then name the type of <code>19.5</code>.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>The blank is a single <code>=</code>, so the line is <code>city = "Makkah"</code>. <code>19.5</code> is a <code>float</code> (a number with a decimal point).</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>Maryam has 24 pages left in her library book. She reads 8 pages a day. Store these numbers in variables, then use one f-string to print how many days she needs.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
 <pre><code>student = "Maryam"
@@ -224,7 +222,7 @@ print(f"{student} will finish in {pages_left / pages_per_day} days.")</code></pr
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>Your school charity drive is packing food boxes for families in need.</p>
                 <ol>
                     <li>Make a variable <code>boxes</code> set to 12.</li>

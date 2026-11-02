@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 When you want to sign up for your school soccer team, the coach hands you a registration clipboard with a paper form:
 - You write your full name in a blank box.
@@ -17,7 +17,7 @@ Without forms, you could never log in to your email, search a library catalogue,
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Understand the `<form>` wrapper element.
@@ -151,18 +151,18 @@ Type this into your editor and save it as `registration.html`:
 - `<textarea>`: Unlike `<input>`, which is only one single line, `<textarea>` can stretch into multiple rows and columns for paragraphs and feedback.
 - `name="..."`: The name the data travels under when the form is sent. Without a `name`, a field's value is **not sent** at all.
 
-> 📬 **Where does the data go?** In this book we only *build* the form. Clicking Submit here just reloads the page. Receiving and saving the data is done later on the server, with PHP, in the PHP track.
+> **Where does the data go?** In this book we only *build* the form. Clicking Submit here just reloads the page. Receiving and saving the data is done later on the server, with PHP, in the PHP track.
 
 ---
 
-## 🌍 Real-World Connection: How Google & GitHub Use Forms
+## Real-World Connection: How Google & GitHub Use Forms
 
 - **Google Search**: The giant search bar on `google.com` is simply an `<input type="text">` inside a `<form>`! When you press Enter, the form submits your query to Google's server.
 - **GitHub & University Portals**: The login screen is an `<input type="email">` and an `<input type="password">`! The password input hides characters as black dots (••••••) so nobody standing behind you can steal your password!
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at these two radio buttons:
 
@@ -174,13 +174,13 @@ Look at these two radio buttons:
 **Question**: If you click Pizza, and then you click Pasta, will Pizza turn off, or will BOTH circles stay selected? Why?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> BOTH will stay selected! Because their <code>name</code> attributes are different (<code>name="lunch"</code> and <code>name="dinner"</code>), the browser thinks they are from two different questions! To make them mutually exclusive, they must have the exact same <code>name</code>!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Un-clickable Label
+## Code Detective: The Un-clickable Label
 
 A student wrote a form, but clicking on the text "I agree to the rules" does not check the box:
 
@@ -221,11 +221,11 @@ Create a web page named `pizza-order.html`:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting the `name` attribute.**
 
-❌ Wrong:
+Wrong:
 
 ```html
 <label for="city">City:</label>
@@ -234,7 +234,7 @@ Create a web page named `pizza-order.html`:
 
 What happens: the box looks perfect and you can type in it. But when the form is sent, this value is left out, because it has no name to travel under. The server (PHP, later) never receives the city.
 
-✅ Fixed: give every field a `name`. Keep the `id` too, so the label still works.
+Fixed: give every field a `name`. Keep the `id` too, so the label still works.
 
 ```html
 <label for="city">City:</label>
@@ -243,7 +243,7 @@ What happens: the box looks perfect and you can type in it. But when the form is
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Password Shield**
 
@@ -254,11 +254,11 @@ Create a secret password box:
 ```
 Open it in your browser and type some letters. Notice how the browser automatically disguises your letters into dots!
 
-> 💡 **Hint:** The dots only hide the password from people looking at the screen. Keeping passwords safe on the server is a trust (*Amānah*), and you will learn how to do it properly in the PHP track.
+> **Hint:** The dots only hide the password from people looking at the screen. Keeping passwords safe on the server is a trust (*Amānah*), and you will learn how to do it properly in the PHP track.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - Forms collect information from users through interactive controls.
 - `<form>` holds all form inputs.
@@ -271,7 +271,7 @@ Open it in your browser and type some letters. Notice how the browser automatica
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -284,9 +284,9 @@ Open it in your browser and type some letters. Notice how the browser automatica
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which input type hides typed characters with dots?
 2. Which attribute makes a field required before the form can be sent?
 3. How do you group radio buttons so only one can be checked?
@@ -300,7 +300,7 @@ Open it in your browser and type some letters. Notice how the browser automatica
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Write a labelled search box with the placeholder "Search tutorials...".
 2. What is the difference between `<input type="checkbox">` and `<input type="radio">`?
 
@@ -320,7 +320,7 @@ Open it in your browser and type some letters. Notice how the browser automatica
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a "Student Council Voting Ballot" form:
 1. A text box for the Student ID.
 2. Radio buttons to vote for one of three Class President candidates.

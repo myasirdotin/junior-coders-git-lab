@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Picture Book Page & The Waffle Iron**
 
@@ -21,7 +21,7 @@ With CSS Grid, you can build photo galleries, magazine layouts and dashboard car
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Turn on CSS Grid with `display: grid;` and set columns with `grid-template-columns`.
@@ -210,7 +210,7 @@ Now the important part. Add these rules below Step 3, still inside `<style>`.
 
 Refresh once more. The six cards snap into **3 columns and 2 rows**, with even 20px gaps. Every photo is the same height.
 
-> 📱 On a narrow phone, three columns are very thin. In Chapter 14 you will learn media queries, which let the grid show 1 column on phones and 3 on wide screens.
+> On a narrow phone, three columns are very thin. In Chapter 14 you will learn media queries, which let the grid show 1 column on phones and 3 on wide screens.
 
 ---
 
@@ -226,7 +226,7 @@ Refresh once more. The six cards snap into **3 columns and 2 rows**, with even 2
 
 ---
 
-## 🌍 Real-World Connection: Digital Libraries & Specimen Galleries
+## Real-World Connection: Digital Libraries & Specimen Galleries
 
 Open a modern **Digital Library Catalog** or **Wikimedia Commons**:
 - The clean, responsive grid of book covers, historic manuscripts, or nature photos is built using CSS Grid!
@@ -234,7 +234,7 @@ Open a modern **Digital Library Catalog** or **Wikimedia Commons**:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this CSS:
 
@@ -248,13 +248,13 @@ Look at this CSS:
 **Question**: How will the space be divided between Column 1 and Column 2?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> Column 1 will have a fixed width of exactly 200px (perfect for a sidebar menu!), and Column 2 (<code>1fr</code>) will stretch to absorb 100% of all remaining space on the screen!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Fr Units
+## Code Detective: The Broken Fr Units
 
 A student tried to write a 3-column grid, but the layout broke into a single column:
 
@@ -292,11 +292,11 @@ When building grid galleries, cards look sloppy if one card has 10 lines of text
 Build a Science Lab Supply Shelf:
 - A container with `display: grid;`, `grid-template-columns: repeat(4, 1fr);`, and `gap: 12px;`.
 - Add 8 supply slots with dark square backgrounds (`height: 80px;`).
-- Add item emojis inside: 🔬 (Microscope), 🧪 (Test Tube), 🧲 (Magnet), 🌡️ (Thermometer), 🔭 (Telescope), 🧫 (Petri Dish), ⚖️ (Scale), 🔋 (Battery).
+- Add item emojis inside: (Microscope), (Test Tube), (Magnet), (Thermometer), (Telescope), (Petri Dish), (Scale), (Battery).
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is adding a fixed `width` to every grid card.
 
@@ -324,7 +324,7 @@ A second slip is putting `display: grid` on the cards instead of on their **pare
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The 4-Column Upgrade**
 
@@ -336,7 +336,7 @@ Open `gallery-grid.html` in your editor:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - CSS Grid is a 2-dimensional layout system managing rows and columns simultaneously.
 - `display: grid;` turns an element into a grid container.
@@ -347,7 +347,7 @@ Open `gallery-grid.html` in your editor:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -359,9 +359,9 @@ Open `gallery-grid.html` in your editor:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. How many dimensions does CSS Grid handle at the same time?
 2. What does `repeat(4, 1fr)` mean in plain words?
 3. Which unit means "a fraction of the free space"?
@@ -375,7 +375,7 @@ Open `gallery-grid.html` in your editor:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write CSS for a 2-column layout: the left column is fixed at `250px` and the right column fills the rest.
 5. Why is `gap: 15px;` better than adding margins to each grid card?
 
@@ -394,7 +394,7 @@ Open `gallery-grid.html` in your editor:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make a featured article.
 1. Look up `grid-column: span 2;`.
 2. Build a 3-column grid with 5 article cards and a `gap`.

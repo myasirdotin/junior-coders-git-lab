@@ -24,7 +24,7 @@
                 <!-- Tutor Header -->
                 <div style="background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); padding: 0.9rem 1.1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.08);">
                     <div style="display: flex; align-items: center; gap: 0.6rem;">
-                        <span style="font-size: 1.4rem;">💡</span>
+                        <span style="font-size: 1.4rem;"></span>
                         <div>
                             <strong style="color: #fff; font-size: 0.95rem; display: block;">Debugging Tips</strong>
                             <span style="font-size: 0.72rem; color: #94a3b8;">Ready-made tips, not an AI</span>
@@ -36,7 +36,7 @@
                 <!-- Chat Messages Body -->
                 <div id="tutorChatBody" style="flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.88rem; line-height: 1.55;">
                     <div style="background: rgba(99, 102, 241, 0.12); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 12px; padding: 0.85rem; color: #e2e8f0;">
-                        👋 <strong>Assalamu Alaikum! Stuck on a bug?</strong>
+<strong>Assalamu Alaikum! Stuck on a bug?</strong>
                         <p style="margin: 0.4rem 0 0; color: #cbd5e1; font-size: 0.83rem;">
                             Pick a button below. These are ready-made tips and questions that help you find the mistake yourself. They do not read your mind or write the answer for you.
                         </p>
@@ -45,15 +45,15 @@
 
                 <!-- Quick Prompt Chips -->
                 <div style="padding: 0.5rem 0.75rem; background: rgba(0,0,0,0.3); display: flex; gap: 0.4rem; overflow-x: auto; border-top: 1px solid rgba(255,255,255,0.05); scrollbar-width: none;">
-                    <button class="tutor-chip" data-action="explain">📖 Read my code</button>
-                    <button class="tutor-chip" data-action="error">⚠️ Something is wrong</button>
-                    <button class="tutor-chip" data-action="hint">💡 Where do I start?</button>
+                    <button class="tutor-chip" data-action="explain">Read my code</button>
+                    <button class="tutor-chip" data-action="error">Something is wrong</button>
+                    <button class="tutor-chip" data-action="hint">Where do I start?</button>
                 </div>
             </div>
 
             <!-- Floating Toggle Button -->
             <button id="tutorFloatingBtn" style="position: fixed; bottom: 20px; right: 20px; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white; border: 2px solid rgba(255,255,255,0.25); border-radius: 999px; padding: 0.75rem 1.25rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.4); display: flex; align-items: center; gap: 0.5rem; z-index: 999; transition: all 0.2s;">
-                <span>💡</span> <span>Debugging tips</span>
+                <span></span> <span>Debugging tips</span>
             </button>
         `;
 
@@ -115,7 +115,7 @@
                                 ${studentCode.split('\n').filter(l => l.trim()).slice(0, 5).map(l => `<li><code>${escapeHtml(l.trim())}</code></li>`).join('')}
                             </ul>
                             <div style="margin-top: 0.5rem; color: #a5b4fc;">
-                                💡 Notice how instructions execute sequentially from top to bottom. What do you expect the first line to produce?
+Notice how instructions execute sequentially from top to bottom. What do you expect the first line to produce?
                             </div>
                         `;
                     }

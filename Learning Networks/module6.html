@@ -13,14 +13,14 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 2</span>
-            <h1 style="color: white; margin: 0.5rem 0;">HTTP Deep Dive &amp; Wire Format 📬</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">HTTP Deep Dive &amp; Wire Format</h1>
             <p>The core protocol of the World Wide Web. Learn what travels through the wire when you click a button or fetch an API.</p>
         </header>
         <!-- Analogy -->
         <section class="content-section">
-            <h2>Asking and Answering: The Order Slip 📝</h2>
+            <h2>Asking and Answering: The Order Slip</h2>
             <div class="connection-box">
-                <p>🧠 <strong>Real-life analogy:</strong> At the school book counter, you hand over a slip. It says what you want to do ("borrow"), which item ("Science Grade 8") and any notes ("paperback, please"). The librarian hands back a reply slip. It starts with a short result ("Ready" or "Not in stock"), then any notes, then the book itself. <strong>HTTP</strong> works exactly like these two slips.</p>
+                <p><strong>Real-life analogy:</strong> At the school book counter, you hand over a slip. It says what you want to do ("borrow"), which item ("Science Grade 8") and any notes ("paperback, please"). The librarian hands back a reply slip. It starts with a short result ("Ready" or "Not in stock"), then any notes, then the book itself. <strong>HTTP</strong> works exactly like these two slips.</p>
             </div>
             <p><strong>HTTP</strong> (HyperText Transfer Protocol) is the set of rules browsers and servers use to ask for and send web pages, pictures and data. The browser is the <strong>client</strong>: it asks. The <strong>server</strong> answers. Every exchange is one <strong>request</strong> and one <strong>response</strong>.</p>
         </section>
@@ -95,19 +95,19 @@ Content-Length: 42
                     <p><code>101 Switching Protocols</code>: "let's change to another protocol" (used by WebSockets, Module 8).</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
-                    <h3>2xx Success ✅</h3>
+                    <h3>2xx Success</h3>
                     <p><code>200 OK</code>, <code>201 Created</code>, <code>204 No Content</code> (done, nothing to send back).</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
-                    <h3>3xx Redirection 🔀</h3>
+                    <h3>3xx Redirection</h3>
                     <p><code>301 Moved Permanently</code> (go to a new address), <code>304 Not Modified</code> (your saved copy is still fine).</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #dc2626;">
-                    <h3>4xx Client Error ⚠️</h3>
+                    <h3>4xx Client Error</h3>
                     <p><code>400 Bad Request</code>, <code>401 Unauthorized</code> (please log in), <code>403 Forbidden</code> (you are not allowed), <code>404 Not Found</code>.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
-                    <h3>5xx Server Error 💥</h3>
+                    <h3>5xx Server Error</h3>
                     <p><code>500 Internal Server Error</code>, <code>502 Bad Gateway</code>, <code>503 Service Unavailable</code> (busy or under repair).</p>
                 </div>
             </div>
@@ -116,7 +116,7 @@ Content-Length: 42
 
         <!-- curl -->
         <section class="content-section">
-            <h2>Worked Example 3: Reading Real Headers With curl 🖥️</h2>
+            <h2>Worked Example 3: Reading Real Headers With curl</h2>
             <p><code>curl</code> is a command-line tool that sends HTTP requests. It comes with Windows 10 and 11, macOS and most Linux systems. The <code>-I</code> flag asks for the headers only.</p>
             <pre class="code-block"><code>curl -I https://example.org/</code></pre>
             <p>In Windows PowerShell 5, type <code>curl.exe</code> instead of <code>curl</code>. There, the short word <code>curl</code> runs a different PowerShell command.</p>
@@ -143,7 +143,7 @@ date: Mon, 12 Oct 2026 08:00:00 GMT</code></pre>
 
         <!-- Common misunderstanding -->
         <section class="content-section">
-            <h2>Common Misunderstanding ⚠️</h2>
+            <h2>Common Misunderstanding</h2>
             <div class="tip-box">
                 <p><strong>"404 means the server is down."</strong></p>
                 <p>No. A 404 is an answer, so the server is working. It only means there is nothing at that path. A server that is truly down sends no answer at all, and the browser eventually gives up.</p>
@@ -156,14 +156,14 @@ date: Mon, 12 Oct 2026 08:00:00 GMT</code></pre>
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>What do these status codes mean: <code>201</code>, <code>404</code>, <code>503</code>? Which class (first digit) means the server had a problem?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>201 Created (a new item was made), 404 Not Found (nothing at that path), 503 Service Unavailable (the server is busy or under repair). The 5xx class means a server problem.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>Read this response and answer: (1) Did it work? (2) What kind of content is the body? (3) For how many minutes may the browser reuse it?</p>
                 <pre class="code-block"><code>HTTP/1.1 200 OK
 Content-Type: application/json
@@ -174,7 +174,7 @@ Content-Length: 39
                 <details class="jc-answer"><summary>Show answer</summary><div>(1) Yes: 200 OK. (2) JSON data (<code>application/json</code>). (3) 1800 ÷ 60 = 30 minutes.</div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>Design the requests for a school lost-and-found board. For each action, choose the method, a path and the success status code:</p>
                 <ol>
                     <li>Show all found items.</li>

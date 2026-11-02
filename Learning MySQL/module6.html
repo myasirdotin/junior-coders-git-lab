@@ -12,7 +12,7 @@
         <header class="module-header path-mysql">
             <span class="badge" style="background: white; color: var(--mysql-brand);">Level 3</span>
             <h1>Power Queries</h1>
-            <p>Aggregate and Analyze Your Data! 📊</p>
+            <p>Aggregate and Analyze Your Data!</p>
         </header>
 
         <section class="content-section">
@@ -320,14 +320,14 @@
 
         <!-- Practice: three levels -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
 <p>Which function counts rows? Which one adds up a column? Which one finds the average? When do you need <code>HAVING</code> instead of <code>WHERE</code>?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div><code>COUNT()</code> counts, <code>SUM()</code> adds up, <code>AVG()</code> finds the average. Use <code>HAVING</code> to filter on a group result, such as <code>SUM(amount)</code>, after <code>GROUP BY</code>.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
 <p>The <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a> already has a small school database with the tables <code>students</code>, <code>books</code>, <code>loans</code> (library books borrowed by students) and <code>donations</code>. Write one query that shows the total amount given to each <code>cause</code>, biggest total first.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
 <pre><code>SELECT cause, SUM(amount) AS total
@@ -338,7 +338,7 @@ ORDER BY total DESC;</code></pre>
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
 <p>Write the end-of-month report for the school charity drive, using the <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a>.</p>
 <ol>
 <li>For each cause, show how many donations it got and the total amount.</li>
@@ -397,15 +397,15 @@ SELECT donor FROM donations WHERE donor LIKE 'Z%';
         </section>
 
         <section class="content-section" style="text-align: center;">
-            <h2>🎉 Course Complete! Well Done!</h2>
+            <h2>Course Complete! Well Done!</h2>
             <p>You've finished all 6 modules of Learning MySQL. You can now:</p>
             <ul style="list-style: none; padding: 0; margin: 1.5rem auto; max-width: 500px; display: flex; flex-direction: column; gap: 0.6rem; text-align: left;">
-                <li>✅ Create databases and tables with the right data types</li>
-                <li>✅ Insert, read, update, and delete data (full CRUD)</li>
-                <li>✅ Join multiple tables together</li>
-                <li>✅ Use aggregate functions and GROUP BY to analyze data</li>
-                <li>✅ Filter with WHERE, HAVING, LIKE, IN, and BETWEEN</li>
-                <li>✅ Write subqueries for complex questions</li>
+                <li>Create databases and tables with the right data types</li>
+                <li>Insert, read, update, and delete data (full CRUD)</li>
+                <li>Join multiple tables together</li>
+                <li>Use aggregate functions and GROUP BY to analyze data</li>
+                <li>Filter with WHERE, HAVING, LIKE, IN, and BETWEEN</li>
+                <li>Write subqueries for complex questions</li>
             </ul>
             <a href="learningmysql.html" class="btn-primary" style="background: linear-gradient(135deg, #0077b6, #00b4d8); margin-top: 1rem;">Back to Course Home</a>
         </section>

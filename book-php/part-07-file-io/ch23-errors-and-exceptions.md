@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 A school bus driver plans the morning route. Most days nothing goes wrong. One day a road is closed. A careless driver stops in the middle of the street and the whole trip ends there. A careful driver has a plan: take the side road, phone the school and tell the parents calmly, "We will be ten minutes late." Programs meet closed roads too: a missing file, a bad number, damaged data. In this chapter you learn to give PHP a calm plan B.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Tell the difference between a **warning** (the script goes on) and a **fatal error** (the script stops).
 - Catch problems with `try { } catch (Exception $e) { }` and read them with `$e->getMessage()`.
@@ -379,13 +379,13 @@ The visitor gets a calm, true message. The site owner gets the details. Nobody s
 
 ---
 
-## 🤝 Amānah: Honest, Calm Messages
+## Amānah: Honest, Calm Messages
 
 A good error message is truthful and kind. It says what went wrong in plain words and what the visitor can do next: "Please try again in a few minutes" or "Please ask the school office." It never blames the visitor, never pretends that nothing happened, and never leaks private details such as file paths or other people's data. Keeping the details in a private log is part of guarding the trust (*Amānah*) people place in your website.
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -413,7 +413,7 @@ A C D
 
 ---
 
-## 🕵️ Code Detective: The catch That Never Catches
+## Code Detective: The catch That Never Catches
 
 ```php
 <?php
@@ -430,11 +430,11 @@ try {
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **An empty `catch` that hides the problem.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   try {
     $settings = json_decode($text, true, 512, JSON_THROW_ON_ERROR);
@@ -443,8 +443,8 @@ try {
   }
   echo $settings["school"];
   ```
-- 😕 *What happens*: The problem is swallowed. `$settings` was never set, so the next line gives a new warning, far from the real cause. Nobody knows the settings file is damaged.
-- ✅ *Fixed*: Log it, tell the visitor, and give a safe default:
+- *What happens*: The problem is swallowed. `$settings` was never set, so the next line gives a new warning, far from the real cause. Nobody knows the settings file is damaged.
+- *Fixed*: Log it, tell the visitor, and give a safe default:
   ```php
   try {
     $settings = json_decode($text, true, 512, JSON_THROW_ON_ERROR);
@@ -459,7 +459,7 @@ A second mistake: **showing `$e->getMessage()` to visitors on a live site.** Mes
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and paste this:
 
@@ -492,7 +492,7 @@ Choose at least one topic.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **warning** lets the script continue; a **fatal error** stops it. "Uncaught" means a thrown problem was never caught.
 - `try { } catch (Type $e) { }` gives PHP a plan B; `$e->getMessage()` tells you what happened; `finally` always runs.
@@ -503,9 +503,9 @@ Choose at least one topic.
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which keyword starts the block of code that might fail?
 2. Which method gives you the text of a caught exception?
 3. Which block runs whether or not a problem happened?
@@ -521,7 +521,7 @@ Choose at least one topic.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. What does this print?
    ```php
    <?php
@@ -555,7 +555,7 @@ Choose at least one topic.
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build `donation-check.php` for a charity drive.
 
 1. Write `function checkAmount(int $amount): int` that throws `new Exception("Amount must be at least 10.")` when `$amount` is below 10, and returns the amount otherwise.

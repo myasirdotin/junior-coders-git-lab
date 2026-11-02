@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Three Ways to Add Seasoning to Food**
 
@@ -18,7 +18,7 @@ Imagine you are preparing a delicious meal and you want to add flavour:
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Compare the three ways to add CSS: **inline**, **internal** and **external**.
@@ -127,7 +127,7 @@ Look at line 8 of `index.html`:
 
 ---
 
-## 🌍 Real-World Connection: How Big Sites Redesign Overnight
+## Real-World Connection: How Big Sites Redesign Overnight
 
 Imagine you are a web designer for **Wikipedia**, the free online encyclopedia:
 - Wikipedia has **millions** of article pages.
@@ -137,7 +137,7 @@ Imagine you are a web designer for **Wikipedia**, the free online encyclopedia:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What will happen if you apply two different colors using different methods:
 
@@ -152,13 +152,13 @@ h1 { color: blue; }
 **Question**: Will the heading be Blue or Red? Why?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: Red!</strong> Inline CSS (written directly on the tag with <code>style="..."</code>) has the highest specificity/priority of all. It overrules both internal and external CSS rules!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Mismatched Link
+## Code Detective: The Mismatched Link
 
 A student created their HTML and CSS files, but the web page remained plain black and white with no styles applied:
 
@@ -195,7 +195,7 @@ In index.html:
       href="css/style.css">
 ```
 
-> 💡 **Think Before You Code**:
+> **Think Before You Code**:
 > Keep your stylesheets tucked inside a neat `css/` subfolder. It makes your project look like it was built by a seasoned software engineer!
 
 ---
@@ -211,7 +211,7 @@ Create a mini 2-page website:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is putting a `<style>` tag inside a `.css` file.
 
@@ -235,7 +235,7 @@ A second slip is writing `<link>` in the `<body>` or forgetting `rel="stylesheet
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Create the Connection**
 
@@ -247,7 +247,7 @@ A second slip is writing `<link>` in the `<body>` or forgetting `rel="stylesheet
 
 ---
 
-## 📝 Recap
+## Recap
 
 - There are three ways to add CSS: **Inline**, **Internal**, and **External**.
 - Inline CSS uses the `style="..."` attribute inside individual HTML tags.
@@ -257,7 +257,7 @@ A second slip is writing `<link>` in the `<body>` or forgetting `rel="stylesheet
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -269,9 +269,9 @@ A second slip is writing `<link>` in the `<body>` or forgetting `rel="stylesheet
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Where in an HTML document should the `<link>` tag go?
 2. Which attribute in a `<link>` tag says that the file is a stylesheet?
 3. True or false: you should put `<style>` tags inside a `.css` file.
@@ -285,7 +285,7 @@ A second slip is writing `<link>` in the `<body>` or forgetting `rel="stylesheet
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Give two reasons why developers prefer external CSS over inline CSS.
 5. Write the `<link>` tag that connects an HTML file to `theme.css` inside a subfolder named `assets`.
 
@@ -301,7 +301,7 @@ A second slip is writing `<link>` in the `<body>` or forgetting `rel="stylesheet
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Find out which style wins.
 1. Make an HTML file with an internal stylesheet that makes every `<p>` blue.
 2. Add three paragraphs.

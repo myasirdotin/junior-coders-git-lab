@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 At the end of a science course, students often build a working model, such as a small water filter. Every lesson they learned now has a job: measuring, cutting, joining and testing. The model is not a new topic. It is everything they already know, put together carefully. Your final project works the same way. You will build a complete quiz web page from the HTML, CSS and JavaScript you already know.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Plan a small web app as three files: HTML for structure, CSS for looks, JavaScript for behaviour.
 - Store quiz questions in an array of objects and show them one at a time.
@@ -454,11 +454,11 @@ When you show your project to your teacher and classmates:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Showing typed text with `innerHTML`.**
 
-❌ Wrong:
+Wrong:
 
 ```javascript
 feedbackMessage.innerHTML = "Good work, " + studentName + "!";
@@ -466,7 +466,7 @@ feedbackMessage.innerHTML = "Good work, " + studentName + "!";
 
 What happens: `innerHTML` treats the text as HTML. If someone types `<b>Zain</b>` as a name, the browser makes it bold instead of showing the letters. A person with bad intentions could type harmful code in the same way. This attack is called **XSS** (cross-site scripting).
 
-✅ Fixed:
+Fixed:
 
 ```javascript
 feedbackMessage.textContent = "Good work, " + studentName + "!";
@@ -478,15 +478,15 @@ Now the page shows exactly what was typed: `Good work, <b>Zain</b>!`. Keeping us
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Add a **sixth question** about a science or coding topic you studied this year.
 
-> 💡 **Hint:** copy one object in `quizData`, change the question, the four options and the `answer` index. Remember the comma between objects. The progress line will say "of 6" by itself, because it uses `quizData.length`.
+> **Hint:** copy one object in `quizData`, change the question, the four options and the `answer` index. Remember the comma between objects. The progress line will say "of 6" by itself, because it uses `quizData.length`.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A web app is three files: HTML for structure, CSS for looks, JavaScript for behaviour.
 - Questions live in an array of objects; adding a question means adding data, not code.
@@ -502,9 +502,9 @@ Add a **sixth question** about a science or coding topic you studied this year.
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. In `quizData`, what does `answer: 3` mean?
 2. Which property locks a button so it cannot be clicked?
 3. Why does the name appear with `textContent` and not `innerHTML`?
@@ -518,7 +518,7 @@ Add a **sixth question** about a science or coding topic you studied this year.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Change the quiz so the score line shows the number of questions answered too, for example `Score: 2 (3 answered)`.
 
 <details>
@@ -546,7 +546,7 @@ scoreDisplay.textContent = "Score: 0 (0 answered)";
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add a **review list** to the results screen. It shows every question the student got wrong, with the correct answer.
 
 1. In `index.html`, add `<ul id="review-list"></ul>` inside the results screen, above the button.

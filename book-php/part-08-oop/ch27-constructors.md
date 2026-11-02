@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think of a new library card being made at the school office. The clerk does not hand you a blank card and hope you fill it in later. Your name, class and card number are printed on it the moment it is made. The card leaves the office complete and ready to use. In PHP, a **constructor** does the same job: it fills in an object's data the moment `new` creates it.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Write a constructor with `__construct()` and pass data into `new ClassName(...)`.
 - Use **constructor property promotion** (PHP 8) to write shorter classes.
@@ -175,7 +175,7 @@ Yusuf is in Grade 8.
 
 ---
 
-## 🌍 Real-World Connection: Database Connection Objects
+## Real-World Connection: Database Connection Objects
 
 In the next chapter you will connect to a MySQL database with **PDO** (PHP Data Objects). The connection is made by a constructor:
 
@@ -187,7 +187,7 @@ The constructor contacts the MySQL server and logs in at once. If the details ar
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -202,13 +202,13 @@ The constructor contacts the MySQL server and logs in at once. If the details ar
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>Hello! Hello! </code> The constructor runs every time a new object is created.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Broken Inheritance Call
+## Code Detective: The Broken Inheritance Call
 
 ```php
 <?php
@@ -233,11 +233,11 @@ PHP stops with: `Fatal error: Uncaught Error: Typed property Vehicle::$color mus
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Typing one underscore instead of two.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   class Badge {
     public $name;
@@ -248,14 +248,14 @@ PHP stops with: `Fatal error: Uncaught Error: Typed property Vehicle::$color mus
   $b = new Badge("Huda");
   var_dump($b->name);
   ```
-- 😕 *What happens*: `_construct` (one underscore) is just an ordinary method, so PHP never calls it. There is no error, but the name is never stored: the output is `NULL`.
-- ✅ *Fixed*: Use **two** underscores: `public function __construct($name)`. Now the output is `string(4) "Huda"`.
+- *What happens*: `_construct` (one underscore) is just an ordinary method, so PHP never calls it. There is no error, but the name is never stored: the output is `NULL`.
+- *Fixed*: Use **two** underscores: `public function __construct($name)`. Now the output is `string(4) "Huda"`.
 
 Also remember: a constructor's job is to set up the object. If it uses `return` with a value, `new` simply ignores that value.
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -289,7 +289,7 @@ Venus has 0 moon(s).
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A **constructor** (`__construct`) runs automatically when `new` creates an object.
 - Values in `new ClassName(...)` go straight into the constructor's parameters.
@@ -300,9 +300,9 @@ Venus has 0 moon(s).
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. How many underscores start the name of a magic method such as `__construct()`?
 2. When does a constructor run?
 3. Which magic method runs when an object is destroyed?
@@ -316,7 +316,7 @@ Venus has 0 moon(s).
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. A class has a constructor with 3 required parameters. What happens with `$obj = new MyClass();`?
 2. Write a `User` class with property promotion: `$username`, `$email`, and `$role` with the default `"student"`. Create two users, one of them a `"teacher"`, and print their roles.
 
@@ -347,7 +347,7 @@ Venus has 0 moon(s).
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a `ScienceProject` class for a science fair.
 
 1. Use property promotion for `$title`, `$student` and `$category` (default `"General"`).

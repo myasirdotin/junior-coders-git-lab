@@ -2,16 +2,16 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **Stickers on a Notebook**
 
 Imagine you have a school notebook:
 - Normally, when you write words on the lines, each sentence follows the natural flow: from left to right, line by line, from the top of the page to the bottom. You cannot easily write a word floating diagonally across the top-right corner of the cardboard cover without breaking the lines.
 - But imagine you have a sheet of **glossy vinyl stickers**:
-  - A shiny gold star sticker ⭐
-  - A "NEW!" label sticker 🏷️
-  - A notification bubble sticker 🔴
+  - A shiny gold star sticker
+  - A "NEW!" label sticker
+  - A notification bubble sticker
 - You can peel off the sticker and stick it **EXACTLY** where you want—right on top of the cover photo, hovering in the top-right corner, completely independent of the text lines below!
 - Even better, imagine a bookmark ribbon pinned to the edge of the notebook. No matter which page you flip to, the bookmark stays glued in place!
 
@@ -19,7 +19,7 @@ Imagine you have a school notebook:
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Explain normal document flow (`position: static`) and nudge items with `position: relative`.
@@ -183,28 +183,28 @@ Type this into your editor and save it as `card-badge.html`:
 
 ---
 
-## 🌍 Real-World Connection: Notification Bubbles
+## Real-World Connection: Notification Bubbles
 
 Look at the apps on a phone or tablet:
-- Over the bell icon 🔔, there is a tiny red circle with a white number `3` hovering in the top-right corner.
+- Over the bell icon, there is a tiny red circle with a white number `3` hovering in the top-right corner.
 - On many online bookshops, a "New" or "Award Winner" label is pinned over the corner of a book cover.
 - All of these are built with `position: absolute;`!
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 What will happen if you set `position: absolute; top: 0; right: 0;` on the badge, but **FORGET** to put `position: relative;` on the `.course-card` parent?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: The badge will fly away to the top-right corner of the ENTIRE BROWSER WINDOW!</strong> 
 When an absolute element cannot find any parent with <code>position: relative</code>, it searches all the way up to the <code>&lt;body&gt;</code> and attaches itself to the edges of the whole screen!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Runaway Badge
+## Code Detective: The Runaway Badge
 
 A student wrote this code, but their badge is appearing far away at the top of the browser page instead of on the photo:
 
@@ -253,7 +253,7 @@ Create a web page named `book-card.html`:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is using `position: absolute` to build a whole page layout.
 
@@ -287,7 +287,7 @@ Keep `absolute` for small extras, such as badges and icons on a card. A second s
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Floating Help Button**
 
@@ -309,7 +309,7 @@ Add it to your page and test it! Notice that as you scroll up and down, the butt
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `position: static` is the default natural flow of elements.
 - `position: relative` permits offset nudging and acts as the anchor parent for absolute children.
@@ -319,7 +319,7 @@ Add it to your page and test it! Notice that as you scroll up and down, the butt
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -331,9 +331,9 @@ Add it to your page and test it! Notice that as you scroll up and down, the butt
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is the default `position` value of every HTML element?
 2. Which value pins an element to the browser window while the page scrolls?
 3. What must a card parent have so an absolute badge stays inside it?
@@ -347,7 +347,7 @@ Add it to your page and test it! Notice that as you scroll up and down, the butt
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write CSS that places a help button 25px from the bottom and 25px from the right of the screen, and keeps it there while scrolling.
 5. What happens to the elements around an element that you change to `position: absolute`?
 
@@ -367,7 +367,7 @@ Add it to your page and test it! Notice that as you scroll up and down, the butt
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add a green "online" dot to a profile picture.
 1. Make a `.avatar-wrap` box with `position: relative;` around a circular photo (80px × 80px).
 2. Add a `<span class="status-dot">` inside the box.

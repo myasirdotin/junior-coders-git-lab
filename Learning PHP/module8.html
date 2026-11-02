@@ -11,22 +11,22 @@
     <main class="module-container">
         <header class="module-header path-php">
             <span class="badge" style="background:white;color:var(--php-brand);">Level 3</span>
-            <h1>OOP Basics 🏛️</h1>
+            <h1>OOP Basics</h1>
             <p>Build cleaner, reusable code with Classes and Objects!</p>
         </header>
 
         <section class="content-section">
-            <h2>🧱 What is Object-Oriented Programming?</h2>
+            <h2>What is Object-Oriented Programming?</h2>
             <p>OOP is a way of organizing your code using <strong>blueprints</strong> (classes) to create <strong>things</strong> (objects) that have their own properties and actions.</p>
 
             <div class="connection-box">
-                <strong>🚗 The Car Blueprint Analogy</strong><br><br>
+                <strong>The Car Blueprint Analogy</strong><br><br>
                 A <strong>class</strong> is like a car blueprint — it describes what every car has (color, speed, brand) and what a car can do (accelerate, brake, honk). An <strong>object</strong> is an actual car built from that blueprint. You can build many cars (objects) from the same blueprint (class) — each one is its own individual car!
             </div>
         </section>
 
         <section class="content-section">
-            <h2>📐 Defining a Class</h2>
+            <h2>Defining a Class</h2>
             <p>Use the <code>class</code> keyword to define a class. Properties are variables that belong to the object. Methods are functions that belong to the object. Inside a class, <code>$this</code> means "this object". In our example, students earn XP (experience points) for each module.</p>
 
             <div class="code-block">
@@ -39,7 +39,7 @@
 
     <span class="code-comment">// Constructor — runs automatically when object is created</span>
     <span class="code-keyword">public function</span> <span class="code-val">__construct</span>(<span class="code-val">$name</span>, <span class="code-val">$grade</span>) {
-        <span class="code-val">$this</span>-&gt;<span class="code-val">name</span>  = <span class="code-val">$name</span>;
+        <span class="code-val">$this</span>-&gt;<span class="code-val">name</span> = <span class="code-val">$name</span>;
         <span class="code-val">$this</span>-&gt;<span class="code-val">grade</span> = <span class="code-val">$grade</span>;
     }
 
@@ -54,14 +54,14 @@
         </section>
 
         <section class="content-section">
-            <h2>🏭 Creating Objects</h2>
+            <h2>Creating Objects</h2>
             <p>Use the <code>new</code> keyword to create an object from a class. Access properties and methods with the arrow <code>-&gt;</code> operator.</p>
 
             <div class="code-block">
 <code><span class="code-keyword">&lt;?php</span>
 <span class="code-comment">// Create two different Student objects from the same class</span>
-<span class="code-val">$ali</span>   = <span class="code-keyword">new</span> <span class="code-val">Student</span>(<span class="code-string">"Ali"</span>, <span class="code-string">"9th"</span>);
-<span class="code-val">$sara</span>  = <span class="code-keyword">new</span> <span class="code-val">Student</span>(<span class="code-string">"Sara"</span>, <span class="code-string">"10th"</span>);
+<span class="code-val">$ali</span> = <span class="code-keyword">new</span> <span class="code-val">Student</span>(<span class="code-string">"Ali"</span>, <span class="code-string">"9th"</span>);
+<span class="code-val">$sara</span> = <span class="code-keyword">new</span> <span class="code-val">Student</span>(<span class="code-string">"Sara"</span>, <span class="code-string">"10th"</span>);
 
 <span class="code-comment">// Access a property</span>
 <span class="code-keyword">echo</span> <span class="code-val">$ali</span>-&gt;<span class="code-val">name</span>;    <span class="code-comment">// Ali</span>
@@ -76,22 +76,19 @@
         </section>
 
         <section class="content-section">
-            <h2>🔐 Access Modifiers</h2>
+            <h2>Access Modifiers</h2>
             <p><strong>Access modifiers</strong> are keywords that decide who can use a property or method. PHP has three:</p>
 
             <div class="analogy-grid">
                 <div class="analogy-card active" style="border-color: #10b981;">
-                    <span class="analogy-icon">🌍</span>
                     <h3 style="color: var(--text-green);">public</h3>
                     <p>Accessible from anywhere — inside the class, outside it, in child classes.</p>
                 </div>
                 <div class="analogy-card active" style="border-color: #eab308;">
-                    <span class="analogy-icon">🏠</span>
                     <h3 style="color: var(--text-amber);">protected</h3>
                     <p>Only accessible inside the class and classes that extend it (child classes).</p>
                 </div>
                 <div class="analogy-card active" style="border-color: #f43f5e;">
-                    <span class="analogy-icon">🔒</span>
                     <h3 style="color: var(--text-red);">private</h3>
                     <p>Only accessible inside the exact class it's defined in. Totally hidden.</p>
                 </div>
@@ -99,7 +96,7 @@
         </section>
 
         <section class="content-section">
-            <h2>👨‍👩‍👧 Inheritance — Extending Classes</h2>
+            <h2>Inheritance — Extending Classes</h2>
             <p>A child class can <strong>extend</strong> a parent class to inherit all its properties and methods, then add its own unique behaviour.</p>
 
             <div class="code-block">
@@ -121,7 +118,7 @@
 }
 
 <span class="code-val">$s</span> = <span class="code-keyword">new</span> <span class="code-val">Student</span>();
-<span class="code-val">$s</span>-&gt;<span class="code-val">name</span>  = <span class="code-string">"Yasir"</span>;
+<span class="code-val">$s</span>-&gt;<span class="code-val">name</span> = <span class="code-string">"Yasir"</span>;
 <span class="code-val">$s</span>-&gt;<span class="code-val">grade</span> = <span class="code-string">"9th"</span>;
 <span class="code-val">$s</span>-&gt;<span class="code-val">greet</span>();   <span class="code-comment">// Hi, I am Yasir</span>
 <span class="code-val">$s</span>-&gt;<span class="code-val">study</span>();   <span class="code-comment">// Yasir is studying in grade 9th</span>
@@ -129,21 +126,21 @@
             </div>
 
             <div class="connection-box">
-                <strong>💡 Why OOP?</strong><br><br>
+                <strong>Why OOP?</strong><br><br>
                 OOP keeps your code organized, reusable, and easy to maintain. Instead of writing the same logic over and over, you define it once in a class and create as many objects as you need. Laravel and most modern PHP projects are built this way. (A <strong>framework</strong> is a ready-made toolkit for building websites.)
             </div>
         </section>
 
         <!-- Practice: three levels -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
 <p>Fill in the blanks: a ____ is a blueprint. An ____ is one real thing built from it, made with the ____ keyword.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>A <strong>class</strong> is a blueprint. An <strong>object</strong> is built from it with the <code>new</code> keyword.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
 <p>Write a <code>Book</code> class with a public <code>$title</code> and a <strong>private</strong> <code>$available = true</code>. Add a method <code>borrow()</code> that sets <code>$available</code> to <code>false</code>, and a method <code>isAvailable()</code> that returns it. Why make <code>$available</code> private?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
 <pre><code>&lt;?php
@@ -173,7 +170,7 @@ var_dump($book-&gt;isAvailable());   // bool(false)
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
 <p>Model a charity donation box.</p>
 <ol>
 <li>Make a class <code>DonationBox</code> with private <code>$cause</code> and private <code>$total = 0</code>.</li>
@@ -227,7 +224,7 @@ echo $box-&gt;label();       // Room 8B - Clean Water: Rs 6500 collected
         </section>
 
         <section class="content-section">
-            <h2>Quick Quiz! 🧠</h2>
+            <h2>Quick Quiz!</h2>
             <div id="quiz-form-8" class="quiz-section">
                 <div class="quiz-question" data-answer="b">
                     <p>Q1: What keyword is used to create an object from a class?</p>

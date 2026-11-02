@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The science exhibition task board.**
 Four students are preparing a science exhibition stand. If they only rely on memory, someone forgets the poster boards and two people write the same summary.
@@ -14,7 +14,7 @@ Everyone can see who is doing what, and nothing is forgotten. GitHub gives softw
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Create bug reports and feature requests as **GitHub Issues**.
 - Sort issues with **labels**, **assignees** and **milestones**.
@@ -120,7 +120,7 @@ above the menu.
 
 ---
 
-## 🌍 Real-World Connection
+## Real-World Connection
 
 Many software teams plan their work on a task board like this.
 Some teams hold a short daily meeting called a **stand-up**. Each person answers three questions:
@@ -132,7 +132,7 @@ Clear order and fair sharing of work reduce stress. They also show *Iḥsān*: d
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 A developer writes:
 `git commit -m "style: Update logo border (see #7)"`
@@ -141,7 +141,7 @@ They wrote `see #7`, **not** `closes #7`. Then they push to `main`.
 **Question:** Will GitHub close Issue #7?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 
 **Answer:** No. GitHub links the commit inside Issue #7, so people can find it. But `see` is not a closing keyword, so the issue stays open. Only words like `closes #7` or `fixes #7` close it.
 
@@ -149,7 +149,7 @@ They wrote `see #7`, **not** `closes #7`. Then they push to `main`.
 
 ---
 
-## 🕵️ Code Detective
+## Code Detective
 
 **The abandoned feature.** A team built a neighbourhood clinic booking site. After three weeks, nobody knew what was finished, what was broken or what to do next.
 
@@ -158,7 +158,7 @@ They wrote `see #7`, **not** `closes #7`. Then they push to `main`.
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **1. Starting work without assigning yourself.**
 
@@ -178,7 +178,7 @@ Fixed: check the issue number in the Issues tab before you commit. If a wrong is
 
 ---
 
-## ✍️ Try It
+## Try It
 
 On paper (or in a text file), write a bug report for this problem: *"On the school library site, the 'Search' button does nothing when you press Enter."* Use the four parts from the bug report example.
 
@@ -191,7 +191,7 @@ The steps should let a stranger see the bug in under a minute: which page to ope
 
 ---
 
-## 📝 Recap
+## Recap
 
 - An **Issue** is a numbered page for one task, bug or idea.
 - **Labels** say what kind of task it is, **assignees** say who does it, **milestones** group tasks under a target date.
@@ -201,9 +201,9 @@ The steps should let a stranger see the bug in under a minute: which page to ope
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. What is a GitHub Issue?
 2. Name three labels GitHub creates for a new repository.
 3. What would you write in a commit message to close Issue #5 when it is merged?
@@ -217,7 +217,7 @@ The steps should let a stranger see the bug in under a minute: which page to ope
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. How does a three-column board stop two students doing the same work?
 5. Why do clear "steps to see the bug" matter in a bug report?
 6. In your practice repository, create two issues: an `enhancement` called "Add footer with contact email" and a `documentation` issue called "Add team members to README".
@@ -231,7 +231,7 @@ The steps should let a stranger see the bug in under a minute: which page to ope
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Close an issue from your own commit, then plan a project.
 
 1. In your practice repository, note the number of the "Add footer with contact email" issue (say `#1`).

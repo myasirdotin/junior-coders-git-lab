@@ -21,8 +21,8 @@
 
     <!-- Phones: show the code or the preview, one at a time (styles in bei-core.css "WEB STUDIO ON PHONES") -->
     <div class="studio-view-switch" role="tablist" aria-label="Show code or preview">
-        <button type="button" role="tab" class="studio-view-btn active" data-view="code" aria-selected="true">✏️ Code</button>
-        <button type="button" role="tab" class="studio-view-btn" data-view="preview" aria-selected="false">👁️ Preview</button>
+        <button type="button" role="tab" class="studio-view-btn active" data-view="code" aria-selected="true">Code</button>
+        <button type="button" role="tab" class="studio-view-btn" data-view="preview" aria-selected="false">Preview</button>
     </div>
 
     <!-- Web Studio IDE -->
@@ -37,13 +37,13 @@
                 </div>
                 <div class="ide-actions-group">
                     <select id="ide-template-select" class="ide-template-select" aria-label="Choose Starter Template">
-                        <option value="default">⚡ Template: Welcome</option>
-                        <option value="profile">👤 Template: Profile Card</option>
-                        <option value="counter">🔢 Template: Interactive Counter</option>
-                        <option value="blank">📄 Template: Blank Canvas</option>
+                        <option value="default">Template: Welcome</option>
+                        <option value="profile">Template: Profile Card</option>
+                        <option value="counter">Template: Interactive Counter</option>
+                        <option value="blank">Template: Blank Canvas</option>
                     </select>
                     <button id="export-project-btn" class="ide-btn-export" title="Download standalone HTML file">
-                        <span>💾</span> <span>Export .html</span>
+                        <span></span> <span>Export .html</span>
                     </button>
                 </div>
             </div>
@@ -70,11 +70,11 @@ console.log('Web Studio initialized. Ready to create!');"></textarea>
             <div class="preview-header">
                 <span class="preview-badge">Live Preview</span>
                 <div class="viewport-controls">
-                    <button class="viewport-btn active" data-width="100%">💻 Desktop</button>
-                    <button class="viewport-btn" data-width="768px">📟 Tablet</button>
-                    <button class="viewport-btn" data-width="375px">📱 Mobile</button>
+                    <button class="viewport-btn active" data-width="100%">Desktop</button>
+                    <button class="viewport-btn" data-width="768px">Tablet</button>
+                    <button class="viewport-btn" data-width="375px">Mobile</button>
                 </div>
-                <button class="btn-icon" type="button" onclick="window.refreshStudioPreview && window.refreshStudioPreview()" title="Run the code again" aria-label="Run the code again">🔄</button>
+                <button class="btn-icon" type="button" onclick="window.refreshStudioPreview && window.refreshStudioPreview()" title="Run the code again" aria-label="Run the code again"></button>
             </div>
             <iframe id="master-preview" title="Live code preview" sandbox="allow-scripts"></iframe>
         </section>

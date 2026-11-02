@@ -13,7 +13,7 @@
         <!-- Hero Header -->
         <header class="module-header path-laravel">
             <span class="badge" style="background: white; color: var(--laravel-brand);">Level 1</span>
-            <h1>Routing 🗺️</h1>
+            <h1>Routing</h1>
             <p>Define where every URL goes — the road map of your entire application!</p>
         </header>
 
@@ -23,7 +23,7 @@
             <p>Every time a user visits a URL on your website, Laravel needs to know what to do. Should it show a page? Return some data? Run some code? That's exactly what routes are for!</p>
 
             <div class="connection-box" style="border-left-color: var(--laravel-brand);">
-                <strong>The Street Signs Analogy 🚦</strong><br><br>
+                <strong>The Street Signs Analogy</strong><br><br>
                 Routes are like street signs for your app. When a user visits <code>/about</code>, the route sign points them to the About controller. When they visit <code>/contact</code>, a different sign points them somewhere else. Without routes, requests would get lost and nothing would work!
             </div>
         </section>
@@ -65,7 +65,7 @@
 
         <!-- Route Parameters -->
         <section class="content-section">
-            <h2>Route Parameters — Dynamic URLs 🎯</h2>
+            <h2>Route Parameters — Dynamic URLs</h2>
             <p>What if you want a URL that includes a student's ID? Like <code>/student/5</code> or <code>/student/12</code>? Route parameters let you capture that value and use it in your code!</p>
 
             <div class="code-block">
@@ -90,7 +90,7 @@
 
         <!-- Named Routes -->
         <section class="content-section">
-            <h2>Named Routes — Give Your Routes a Name 🏷️</h2>
+            <h2>Named Routes — Give Your Routes a Name</h2>
             <p>Instead of hard-coding URLs like <code>"/about"</code> everywhere in your code, you can give routes names and use those names instead. This is incredibly useful — if you ever change a URL, you only have to change it in one place!</p>
 
             <div class="code-block">
@@ -109,12 +109,10 @@
 
             <div class="analogy-grid" style="margin-top: 1.5rem;">
                 <div class="analogy-card active">
-                    <span class="analogy-icon">😱</span>
                     <h3>Without Named Routes</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">You write <code>href="/student/show"</code> in 20 places. You change the URL. Now you have to find and fix all 20 places!</p>
                 </div>
                 <div class="analogy-card active" style="border-color: var(--laravel-brand); background: rgba(227, 52, 47, 0.05);">
-                    <span class="analogy-icon">😌</span>
                     <h3>With Named Routes</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">You write <code>route('student.show')</code> everywhere. You change the URL in one place. Done!</p>
                 </div>
@@ -123,7 +121,7 @@
 
         <!-- Route Groups -->
         <section class="content-section">
-            <h2>Route Groups — Organize Related Routes 📦</h2>
+            <h2>Route Groups — Organize Related Routes</h2>
             <p>When you have many routes that share the same URL prefix (like all admin pages starting with <code>/admin/</code>), you can group them together to keep things tidy.</p>
 
             <div class="code-block">
@@ -144,7 +142,7 @@
 
         <!-- Artisan Route List -->
         <section class="content-section">
-            <h2>Inspect Your Routes with Artisan ⚙️</h2>
+            <h2>Inspect Your Routes with Artisan</h2>
             <p>Lost track of all the routes in your app? Laravel has a command that shows you every single route — its URL, method, and which controller it calls:</p>
 
             <div class="code-block">
@@ -156,16 +154,16 @@
             <p>This displays a table in the terminal showing every route: the HTTP method (GET, POST, etc.), the URI (the URL pattern), and the action (which controller method handles it). Incredibly useful for debugging!</p>
 
             <div class="connection-box" style="border-left-color: var(--laravel-brand);">
-                <strong>Pro Tip 💡</strong><br><br>
+                <strong>Pro Tip</strong><br><br>
                 Try running <code>php artisan route:list --compact</code> for a shorter, cleaner output. Or filter by keyword: <code>php artisan route:list --name=student</code> to only show student-related routes.
             </div>
         </section>
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Fill in the blank so that visiting <code>/library</code> shows a welcome message. Which file does this code go in?</p>
 <pre><code>Route::______('/library', function () {
     return 'Welcome to the school library!';
@@ -173,7 +171,7 @@
                 <details class="jc-answer"><summary>Show answer</summary><div>The blank is <code>get</code>, because the visitor is just opening a page. The code goes in <code>routes/web.php</code>.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Fix the bug</h3>
+                <h3>Level 2: Fix the bug</h3>
                 <p>This route should show "Showing book number: 3" for <code>/book/3</code>. Instead, <code>/book/3</code> shows a "404 Not Found" page. Fix it. Then give the route the name <code>book.show</code>.</p>
 <pre><code>Route::get('/book/id', function ($id) {
     return 'Showing book number: ' . $id;
@@ -187,7 +185,7 @@
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>On your own XAMPP computer, add routes for a school science fair. Use the <code>school-library</code> project from Module 1, or any Laravel project.</p>
                 <ol>
                     <li>Open <code>routes/web.php</code>.</li>
@@ -216,7 +214,7 @@
 
         <!-- Quiz -->
         <section class="content-section">
-            <h2>Quick Knowledge Check! 🧪</h2>
+            <h2>Quick Knowledge Check!</h2>
             <form id="quiz-form-1" class="quiz-section" style="margin-top: 1.5rem;">
 
                 <div class="quiz-question" data-answer="a">

@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Think about how you take notes in your class notebook:
 - When a teacher writes an important vocabulary word, you write it in **bold ink**.
@@ -14,7 +14,7 @@ Think about how you take notes in your class notebook:
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Use `<strong>` and `<b>` to make words bold.
@@ -57,7 +57,7 @@ Why does HTML have two ways to make text bold (`<b>` and `<strong>`) and two way
            (looks AND meaning)
 ```
 
-> 🌟 **Did You Know?**
+> **Did You Know?**
 > People who are blind often use **screen readers**: software that reads websites out loud. `<strong>` and `<em>` store the *meaning* "important" or "stressed" inside the page. Most screen readers do not change their voice for them by default, but tools and future software can still use that meaning. `<b>` and `<i>` carry no such meaning.
 
 ---
@@ -112,7 +112,7 @@ Type this into your editor as `formatting.html`:
 
 ---
 
-## 🌍 Real-World Connection: Recipe & Travel Sites
+## Real-World Connection: Recipe & Travel Sites
 
 Open any cooking website or travel guide:
 - Ingredients are listed with quantities using `<br>` lines so each ingredient sits on its own line.
@@ -122,7 +122,7 @@ Open any cooking website or travel guide:
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 Look at this paragraph in an editor:
 
@@ -137,13 +137,13 @@ Look at this paragraph in an editor:
 **Question**: Will this code display on 3 separate lines in the browser, or will it all bunch up into one continuous line?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> It will all bunch up into ONE single continuous line! Browsers completely ignore Enter keys and extra spaces inside HTML code. If you want a line break, you MUST explicitly write <code>&lt;br&gt;</code>!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Ghost Closing Tags
+## Code Detective: The Ghost Closing Tags
 
 A beginner student tried to write this divider and line break:
 
@@ -170,7 +170,7 @@ A beginner student tried to write this divider and line break:
 Imagine reading a book where **EVERY** *SINGLE* **WORD** *IS* **EITHER** *BOLD* **OR** *ITALIC*!
 Your eyes would feel dizzy within 10 seconds!
 
-> 💡 **Think Before You Code**:
+> **Think Before You Code**:
 > Treat bold and italic tags like hot spice in cooking. A pinch of chili makes the dish delicious; a whole cup of chili ruins the meal! Use formatting tags selectively for key terms, dates, warnings, and names.
 
 ---
@@ -186,11 +186,11 @@ Create a new file named `about-me.html`. Build a personal profile card using wha
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Pressing Enter instead of using `<br>`.**
 
-❌ Wrong: the student expects three lines.
+Wrong: the student expects three lines.
 
 ```html
 <p>
@@ -202,7 +202,7 @@ Create a new file named `about-me.html`. Build a personal profile card using wha
 
 What happens: the browser shows **Green Valley School 12 Park Road Lahore** on one line. Browsers turn line breaks and extra spaces in your code into a single space.
 
-✅ Fixed: put `<br>` where each new line should start.
+Fixed: put `<br>` where each new line should start.
 
 ```html
 <p>
@@ -214,7 +214,7 @@ What happens: the browser shows **Green Valley School 12 Park Road Lahore** on o
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **The Poem Creator**
 
@@ -231,11 +231,11 @@ Write a 4-line poem inside a single `<p>` tag using `<br>` tags to keep each lin
 
 Preview it in your browser! Notice how `<br>` keeps the lines close together, unlike separate `<p>` tags which would leave large gaps!
 
-> 💡 **Hint:** Put `<br>` at the end of lines 1, 2 and 3 only. The last line needs none, because the paragraph ends there.
+> **Hint:** Put `<br>` at the end of lines 1, 2 and 3 only. The last line needs none, because the paragraph ends there.
 
 ---
 
-## 📝 Recap
+## Recap
 
 - `<strong>` gives text strong importance and renders it in **bold**.
 - `<em>` gives text emphasis and renders it in *italics*.
@@ -246,7 +246,7 @@ Preview it in your browser! Notice how `<br>` keeps the lines close together, un
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -258,9 +258,9 @@ Preview it in your browser! Notice how `<br>` keeps the lines close together, un
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which tag draws a horizontal line across the screen?
 2. Which tag makes text drop to the next line?
 3. True or false: you should write `</br>` at the end of a line.
@@ -274,7 +274,7 @@ Preview it in your browser! Notice how `<br>` keeps the lines close together, un
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. Rewrite this sentence so that "Never" has high importance and "very carefully" is emphasized: *"Never open the door before checking very carefully."*
 2. Why does pressing Enter 10 times in your code editor not add 10 blank lines in the browser?
 
@@ -291,7 +291,7 @@ Preview it in your browser! Notice how `<br>` keeps the lines close together, un
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Make a "Certificate of Achievement" page for a classmate:
 1. Use an `<h1>` for the certificate title.
 2. Add an `<hr>` below it.

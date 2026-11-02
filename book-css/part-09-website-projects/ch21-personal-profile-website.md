@@ -2,7 +2,7 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 **The Digital Astronaut Badge**
 
@@ -19,7 +19,7 @@ In this capstone project chapter, you will take everything you learned about HTM
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 By the end of this chapter, you will be able to:
 - Plan a one-page personal profile with hero, about, skills, hobbies and contact sections.
@@ -385,26 +385,26 @@ Create a file named `personal-profile.html` and write the complete production co
 
 ---
 
-## 🌍 Real-World Connection: Professional Resumes & Portfolios
+## Real-World Connection: Professional Resumes & Portfolios
 
 Every web designer, engineer, and digital creator has their own personal website:
 - When you apply for a high school robotics team, a summer coding camp, or a university scholarship, sending a link to your live, custom-built website makes you stand out miles ahead of everyone else!
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 If you click `<a href="#contact">Contact</a>` in the navigation bar, how does the browser know where on the page to jump?
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer: Through the <code>id</code> attribute!</strong> 
 The link has <code>href="#contact"</code>, and the section has <code>id="contact"</code>. The hashtag symbol <code>#</code> instructs the browser to find the element whose unique ID matches that exact word!
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Mismatched Anchor Link
+## Code Detective: The Mismatched Anchor Link
 
 A student clicked their "About" link, but nothing happened:
 
@@ -443,7 +443,7 @@ Add a new `<section id="projects">` between Skills and Hobbies:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 A common mistake is forgetting `box-sizing: border-box` on form fields that are `width: 100%`.
 
@@ -472,7 +472,7 @@ A second, very important point: a profile page is **public**. Never put your hom
 
 ---
 
-## ✍️ Try It
+## Try It
 
 **Personalize Alex's Page**
 
@@ -483,7 +483,7 @@ Open `personal-profile.html` and make it your own:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - A personal profile site integrates all foundational HTML and CSS skills into a coherent project.
 - Use semantic `<nav>`, `<header>`, `<main>`, `<section>`, and `<footer>` containers.
@@ -493,7 +493,7 @@ Open `personal-profile.html` and make it your own:
 
 ---
 
-## 📖 Key Terms
+## Key Terms
 
 | Term | What It Means |
 | :--- | :--- |
@@ -505,9 +505,9 @@ Open `personal-profile.html` and make it your own:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which CSS property makes in-page link jumps scroll smoothly?
 2. How do you link to a section with `id="skills"`?
 3. Which `border-radius` percentage turns a square photo into a circle?
@@ -521,7 +521,7 @@ Open `personal-profile.html` and make it your own:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 4. Write HTML and CSS for a row of 3 badges, "HTML", "CSS" and "JavaScript", with soft blue backgrounds.
 5. Why do the `<section>` elements of a one-page site need `id` attributes?
 
@@ -556,7 +556,7 @@ Open `personal-profile.html` and make it your own:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Add a row of link buttons under the avatar.
 1. Under the avatar in the hero, add a `<div class="links">` with three links: GitHub, Scratch and Email.
 2. Use Flexbox to centre them in a row with a `gap`.

@@ -1,10 +1,10 @@
 # Chapter 13: Models & Eloquent
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 In the old days, finding a book meant walking to the records room, opening a heavy register, and searching page by page. Then the school gave the librarian a helpful **assistant** who knows the register by heart. Now she just says, "Please bring me all science books, newest first," and the assistant does the searching. In Laravel, that assistant is **Eloquent**, and each **model** is the assistant in charge of one table.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Explain what an **ORM** is and what a **model** does.
 - Create a model with `php artisan make:model`.
@@ -197,7 +197,7 @@ public function show(Book $book)
 
 Visiting `/books/3` gives the method the `Book` with id 3. Visiting `/books/99` shows a 404 page automatically. This is called **route model binding**. The resource routes from Chapter 8 already use `{book}`, so it fits them perfectly.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Forgetting `get()`.**
 
@@ -213,13 +213,13 @@ $books = Book::where('copies', '>', 0)->get();
 
 **Forgetting the `use` line in the controller.** Without `use App\Models\Book;` at the top, PHP looks for `Book` in the controller's own namespace, and you see `Class "App\Http\Controllers\Book" not found`. Add the `use` line.
 
-## ✍️ Try It
+## Try It
 
 Run the SQL above, create the `Book` model, and in Tinker find (a) how many books have no copies left, (b) the author of book 4.
 
 *Hint:* `Book::where('copies', 0)->count()` and `Book::find(4)->author`.
 
-## 📝 Recap
+## Recap
 
 - Eloquent is Laravel's ORM: tables become model classes, rows become objects.
 - `php artisan make:model Book` creates `app/Models/Book.php`, linked to the `books` table.
@@ -227,9 +227,9 @@ Run the SQL above, create the `Book` model, and in Tinker find (a) how many book
 - Tinker (`php artisan tinker`) lets you test queries quickly.
 - Route model binding (`show(Book $book)` with `{book}`) finds the row or shows a 404.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 Which table does a model called `Member` use? What does `findOrFail(7)` do if there is no row 7?
 
 <details>
@@ -239,7 +239,7 @@ The `members` table. `findOrFail(7)` stops the request with a **404 Not Found** 
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Write the Eloquent code for: all books by `Aisha Rahman`, sorted by title, and the number of books with more than 1 copy.
 
 <details>
@@ -254,7 +254,7 @@ With the sample data, `$many` is `2` (3 copies and 2 copies).
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build an "Available Now" page.
 
 1. Add a route `/books/available` named `books.available`, above `/books/{book}`.

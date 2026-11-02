@@ -1,12 +1,12 @@
 # Chapter 14: Incident Response & Digital Forensics
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 Every school practises fire drills. When the alarm rings, nobody panics or argues about what to do. Each class knows its exit, teachers take the register, and one person calls the fire service. Afterwards, the head teacher asks: "What went well? What should we change?" The plan was written **before** any fire. Security teams work the same way. They expect that one day something will go wrong, and they prepare a calm, step-by-step plan for that day.
 
 An **incident** is any event that harms, or threatens, the security of a system: a stolen password, a malware infection, a leaked file. **Incident response** is the plan for handling it. **Digital forensics** is the careful collection of evidence to understand what happened.
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - List the six phases of incident response and what happens in each.
 - Explain why evidence must be protected, and why logs matter.
@@ -110,7 +110,7 @@ Meet and ask: How did it happen? What worked? What will we change? Keep this mee
 
 Sara pushes her project to a public GitHub repository. Later she notices that `config.php` contains her database password and an API key (an **API key** is a secret code that lets a program use an online service).
 
-| ❌ Risky response | ✅ Correct response |
+| Risky response | Correct response |
 | :--- | :--- |
 | Delete the file in a new commit and hope nobody saw it | **Revoke** (cancel) the key and change the password at once. Automated bots scan public repositories for secrets within minutes |
 | Tell nobody | Tell the teacher or project owner |
@@ -138,7 +138,7 @@ Your family's mini incident plan:
 - Change passwords from a **different, healthy** device.
 - Keep backups ready (Chapter 12) so recovery is possible.
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Mistake:** "My laptop has malware! I will quickly delete the strange files and reinstall everything."
 
@@ -146,7 +146,7 @@ Your family's mini incident plan:
 
 **Fixed version:** disconnect first, write down what you see, tell an adult or IT staff, and let them decide what to collect before cleaning.
 
-## ✍️ Try It
+## Try It
 
 Write a one-page incident plan for a student coding club.
 
@@ -156,7 +156,7 @@ Write a one-page incident plan for a student coding club.
 
 *Hint:* follow the six phases in order, starting with Preparation.
 
-## 📝 Recap
+## Recap
 
 - Incident response has six phases: Preparation, Identification, Containment, Eradication, Recovery, Lessons Learned.
 - Logs make incidents visible; without them, attacks go unseen.
@@ -164,9 +164,9 @@ Write a one-page incident plan for a student coding club.
 - A secret pushed to a public repository must be revoked at once; deleting the file is not enough.
 - Report weaknesses privately and honestly; never explore further without permission.
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 List the six phases of incident response in order.
 
 <details>
@@ -181,7 +181,7 @@ List the six phases of incident response in order.
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 Put each action into the correct phase:
 
 1. Restoring the website from last Tuesday's clean backup.
@@ -199,7 +199,7 @@ Put each action into the correct phase:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Change the log script above so it:
 
 1. Also counts successful logins for each user.

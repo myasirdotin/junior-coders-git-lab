@@ -13,14 +13,14 @@
         <!-- Hero Header -->
         <header class="module-header" style="background: linear-gradient(135deg, #0284c7, #0d9488); color: white; padding: 2.5rem; border-radius: 20px;">
             <span class="badge" style="background: white; color: #0284c7; font-weight: 800;">Level 1</span>
-            <h1 style="color: white; margin: 0.5rem 0;">The Internet Highway &amp; Packets 🌐📦</h1>
+            <h1 style="color: white; margin: 0.5rem 0;">The Internet Highway &amp; Packets</h1>
             <p>Welcome to Computer Networking! Learn how physical light, electricity, and digital packets connect humanity across oceans.</p>
         </header>
         <!-- The Mental Model -->
         <section class="content-section">
-            <h2>The "Postcard Network" Analogy ✉️</h2>
+            <h2>The "Postcard Network" Analogy</h2>
             <div class="connection-box">
-                <p>🧠 <strong>Real-life analogy:</strong> Imagine sending a 40-page science report to a friend in another city, but the post office only accepts postcards. You copy one page onto each postcard. You write the address on every card. You also write "page 7 of 40" in the corner. The cards may travel on different trucks and arrive in a mixed-up order. Your friend uses the page numbers to put the report back together.</p>
+                <p><strong>Real-life analogy:</strong> Imagine sending a 40-page science report to a friend in another city, but the post office only accepts postcards. You copy one page onto each postcard. You write the address on every card. You also write "page 7 of 40" in the corner. The cards may travel on different trucks and arrive in a mixed-up order. Your friend uses the page numbers to put the report back together.</p>
             </div>
             <p>Computers do the same thing. They do not send a whole file or web page in one go. They cut the data into small pieces called <strong>packets</strong>.</p>
             <p>Each packet carries three main things:</p>
@@ -32,12 +32,10 @@
 
             <div class="analogy-grid">
                 <div class="analogy-card active">
-                    <span class="analogy-icon">✉️</span>
                     <h3>The Postcard (Packet)</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">Carries the sender and receiver addresses, a sequence number and a small piece of your data (the payload).</p>
                 </div>
                 <div class="analogy-card active" style="border-color: #059669;">
-                    <span class="analogy-icon">🚦</span>
                     <h3 style="color: #059669;">The Switch &amp; Router</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">A switch passes packets between devices in one building. A router passes packets from one network to the next, like a sorting office.</p>
                 </div>
@@ -46,7 +44,7 @@
 
         <!-- How big is a packet? -->
         <section class="content-section">
-            <h2>How Big Is One Packet? 📏</h2>
+            <h2>How Big Is One Packet?</h2>
             <p>Every kind of link has a size limit for one piece. This limit is called the <strong>MTU</strong> (maximum transmission unit).</p>
             <p>On a normal wired network (Ethernet), one frame can carry up to <strong>1,500 bytes</strong>. That is its MTU. A <strong>byte</strong> is a group of 8 bits, enough to store one letter such as "A".</p>
             <p>Those 1,500 bytes are not all your data. They also include the address labels: the IP header and the TCP header. A <strong>header</strong> is a small block of labels at the front of a packet. Together these two headers usually take about 40 bytes. So the payload in each packet is usually about <strong>1,460 bytes</strong>.</p>
@@ -70,7 +68,7 @@ Answer: 5 packets</code></pre>
 
         <!-- LAN and WAN -->
         <section class="content-section">
-            <h2>LAN and WAN: Near and Far Networks 🏫🌍</h2>
+            <h2>LAN and WAN: Near and Far Networks</h2>
             <p>A <strong>LAN</strong> (local area network) is a small network in one place. A school computer lab is a LAN. So is your home Wi-Fi.</p>
             <p>A <strong>WAN</strong> (wide area network) joins networks across cities and countries. The Internet is the biggest WAN of all. It is a network of networks.</p>
             <p>Two kinds of boxes move packets:</p>
@@ -102,19 +100,19 @@ Answer: 5 packets</code></pre>
             <p>Packets must travel through something real. These are the four common paths:</p>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #0284c7;">
-                    <h3>Fiber-Optic Cables 💡</h3>
+                    <h3>Fiber-Optic Cables</h3>
                     <p>Flashes of light travel inside thin glass strands, even across ocean floors. Light in glass moves at about 200,000 km per second.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #059669;">
-                    <h3>Copper Ethernet (Cat6) ⚡</h3>
+                    <h3>Copper Ethernet (Cat6)</h3>
                     <p>Electrical pulses in copper wires. Used for short, fast links inside schools, offices and homes (up to about 100 metres per cable).</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #d97706;">
-                    <h3>Wi-Fi &amp; Radio Waves 📡</h3>
+                    <h3>Wi-Fi &amp; Radio Waves</h3>
                     <p>Radio waves carry data through the air. Wi-Fi uses 2.4 GHz, 5 GHz and, on newer routers, 6 GHz. GHz (gigahertz) means billions of waves per second.</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; border-left: 5px solid #7c3aed;">
-                    <h3>Cellular (4G / 5G) 📱</h3>
+                    <h3>Cellular (4G / 5G)</h3>
                     <p>Tall tower antennas give phones a connection across towns and along roads.</p>
                 </div>
             </div>
@@ -123,7 +121,7 @@ Answer: 5 packets</code></pre>
 
         <!-- Bandwidth vs Latency -->
         <section class="content-section">
-            <h2>Bandwidth vs. Latency: The Water Pipe 🚰</h2>
+            <h2>Bandwidth vs. Latency: The Water Pipe</h2>
             <div style="background: #0f172a; padding: 1.5rem; border-radius: 12px; margin: 1rem 0; font-family: monospace; color: #f8fafc;">
                 <strong>Bandwidth (width of the pipe):</strong> how much data can flow each second, for example 100 Mbps.<br>
                 <strong>Latency (length of the pipe):</strong> how long one small message takes to arrive, for example 24 ms.
@@ -164,7 +162,7 @@ run in a straight line.</code></pre>
 
         <!-- Common misunderstanding -->
         <section class="content-section">
-            <h2>Common Misunderstanding ⚠️</h2>
+            <h2>Common Misunderstanding</h2>
             <div class="tip-box">
                 <p><strong>"A faster Internet plan will make my ping lower."</strong></p>
                 <p>Not usually. A bigger plan gives you more <em>bandwidth</em> (a wider pipe). Ping measures <em>latency</em> (how long the pipe is). Latency depends mostly on distance and on how long packets wait in routers. A wider pipe helps big downloads. It does not make a far-away server closer.</p>
@@ -174,20 +172,20 @@ run in a straight line.</code></pre>
                 <p>Wi-Fi is only the short radio link between your device and your router. After the router, your packets travel through cables and many other routers.</p>
             </div>
             <div class="connection-box">
-                <p>🤝 <strong>Beneficial knowledge:</strong> These same packets carry online lessons to remote villages, test results between hospitals and messages between families far apart. Understanding them helps you build networks that serve people well.</p>
+                <p><strong>Beneficial knowledge:</strong> These same packets carry online lessons to remote villages, test results between hospitals and messages between families far apart. Understanding them helps you build networks that serve people well.</p>
             </div>
         </section>
 
         <!-- Three-tier practice -->
         <section class="content-section jc-tiers">
-            <h2>🏆 Practice: three levels</h2>
+            <h2>Practice: three levels</h2>
             <div class="jc-tier jc-tier-1">
-                <h3>🟢 Level 1: Recall</h3>
+                <h3>Level 1: Recall</h3>
                 <p>Fill in the blanks: Data is cut into small pieces called ______. Each piece carries a ______ number so the receiver can put the pieces back in order. The part that holds your actual data is called the ______.</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>packets; sequence; payload.</div></details>
             </div>
             <div class="jc-tier jc-tier-2">
-                <h3>🟡 Level 2: Apply</h3>
+                <h3>Level 2: Apply</h3>
                 <p>A student sends a 4,000-byte class timetable. Each packet carries about 1,460 bytes of payload. How many packets are needed, and how many bytes are in the last one?</p>
                 <details class="jc-answer"><summary>Show answer</summary><div>
                     <pre class="code-block"><code>2 full packets: 2 × 1,460   = 2,920 bytes
@@ -198,7 +196,7 @@ The last one carries 1,080 bytes.</code></pre>
                 </div></details>
             </div>
             <div class="jc-tier jc-tier-3">
-                <h3>🔴 Level 3: Challenge</h3>
+                <h3>Level 3: Challenge</h3>
                 <p>Your school IT club wants a short "network health" note for the library computers.</p>
                 <ol>
                     <li>Run <code>ping 1.1.1.1</code> and write down the average time and the number of lost messages.</li>

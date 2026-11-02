@@ -2,13 +2,13 @@
 
 ---
 
-## 🌟 Real-Life Story
+## Real-Life Story
 
 The school library has a photocopy machine. You put in your page and type how many copies you want, for example 30. The number 30 is the **input** you hand to the machine. Inside, the machine does its work where you cannot see. Then it hands you back a neat stack of 30 copies: the **output**. Functions work the same way: **parameters** are the inputs, and the **return value** is the result handed back.
 
 ---
 
-## 🎯 What You Will Learn
+## What You Will Learn
 
 - Pass one or more **arguments** into your own functions.
 - Give parameters **default values** so some arguments become optional.
@@ -102,7 +102,7 @@ Order 1 Total: $35.99<br>Order 2 Total: $72.00<br>Admission check (Age 14): Elig
 
 ---
 
-## 🌍 Real-World Connection: Online Payment Services
+## Real-World Connection: Online Payment Services
 
 When a charity website takes a donation, its PHP code calls a function from a payment service.
 
@@ -112,7 +112,7 @@ When a charity website takes a donation, its PHP code calls a function from a pa
 
 ---
 
-## 🔮 Predict the Output
+## Predict the Output
 
 ```php
 <?php
@@ -124,13 +124,13 @@ When a charity website takes a donation, its PHP code calls a function from a pa
 ```
 
 <details>
-<summary>👀 Click to check your answer</summary>
+<summary>Click to check your answer</summary>
 <strong>Answer:</strong> <code>26</code>. <code>multiply(4)</code> uses the default 5, giving 20. <code>multiply(2, 3)</code> gives 6. 20 + 6 = 26.
 </details>
 
 ---
 
-## 🕵️ Code Detective: The Silent Echo
+## Code Detective: The Silent Echo
 
 ```php
 <?php
@@ -156,16 +156,16 @@ Output:
 
 ---
 
-## ⚠️ Common Mistake
+## Common Mistake
 
 **Putting a default parameter before a required one.**
 
-- ❌ *Wrong*:
+- *Wrong*:
   ```php
   function sendNotice($subject = "News", $email) {}
   ```
-- 😕 *What happens*: PHP 8 shows a warning: *Deprecated: Optional parameter $subject declared before required parameter $email is implicitly treated as a required parameter.* The default value is useless, because you must always pass both arguments.
-- ✅ *Fixed*: Put optional parameters at the end.
+- *What happens*: PHP 8 shows a warning: *Deprecated: Optional parameter $subject declared before required parameter $email is implicitly treated as a required parameter.* The default value is useless, because you must always pass both arguments.
+- *Fixed*: Put optional parameters at the end.
   ```php
   function sendNotice($email, $subject = "News") {}
   ```
@@ -181,7 +181,7 @@ function test() {
 
 ---
 
-## ✍️ Try It
+## Try It
 
 Open the [PHP Console](../studios/php-console/) and type:
 
@@ -205,7 +205,7 @@ Output:
 
 ---
 
-## 📝 Recap
+## Recap
 
 - **Parameters** are the input names in a function definition; **arguments** are the real values you pass in.
 - A **default value** makes a parameter optional. Optional parameters go at the end.
@@ -215,9 +215,9 @@ Output:
 
 ---
 
-## 🏆 Practice
+## Practice
 
-### 🟢 Level 1: Recall
+### Level 1: Recall
 1. Which keyword passes a value out of a function?
 2. Where in the parameter list must default parameters go?
 3. What happens to code written on the lines just after a `return` statement?
@@ -231,7 +231,7 @@ Output:
 
 </details>
 
-### 🟡 Level 2: Apply
+### Level 2: Apply
 1. What is the difference between an **argument** and a **parameter**?
 2. Write a function `calculateBmi(float $weightKg, float $heightM): float` that returns `weight / (height * height)`, rounded to 1 decimal place. Call it with 45 kg and 1.5 m.
 
@@ -259,7 +259,7 @@ Output:
 
 </details>
 
-### 🔴 Level 3: Challenge
+### Level 3: Challenge
 Build a password-length checker that uses early returns.
 
 1. Write `checkPassword(string $password): string`.
