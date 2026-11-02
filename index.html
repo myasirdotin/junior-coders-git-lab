@@ -55,7 +55,7 @@
             <div class="hero-badge-pill">
                 <span>✨</span> School Computer Science for Grades 6–10
             </div>
-            <h1>Code with Purpose.<br><span class="typewriter-dynamic" id="typewriterTarget">Create with Excellence (Iḥsān).</span><span class="typing-cursor" id="typingCursor">|</span></h1>
+            <h1>Code with Purpose.<br><span class="hero-accent">Create with Excellence (Iḥsān).</span></h1>
             <p class="hero-subtitle">
                 A modern, zero-setup computer science learning platform for school students and educators. Journey from your first terminal command to real-world Python algorithms, creative web engineering, and ethical AI stewardship (<em>Amānah</em>).
             </p>
@@ -264,73 +264,16 @@
         </section>
 
         <!-- ═════════════════════════════════════════════════════════════
-             3 PRIMARY GATEWAYS
+             ALL 12 SUBJECTS IN FOUR GROUPS (rendered by js/bei-nav.js; the same map
+             as the Learn menu, the Learn hub, Start here and the Textbooks page)
              ═════════════════════════════════════════════════════════════ -->
-        <section class="gateways-section">
+        <section class="jc-subjects-section" id="subjects">
             <div class="section-head">
-                <span class="eyebrow">Direct Gateways</span>
-                <h2>Three Primary Pathways</h2>
-                <p>Choose your pathway to access structured prerequisites, progress steppers, modular lessons, and capstone projects.</p>
+                <span class="eyebrow">All 12 subjects</span>
+                <h2>Pick a subject</h2>
+                <p>Four groups, from first steps to phone apps. Every subject has lessons or a textbook, a cheat sheet and practice that checks itself in the browser.</p>
             </div>
-
-            <div class="gateways-grid">
-                <!-- Gateway 1: Foundations -->
-                <div class="gateway-card foundations">
-                    <div class="gateway-header">
-                        <div class="gateway-icon">📁</div>
-                        <div>
-                            <span class="gateway-meta" style="color: var(--brand-accent);">Gateway 1 • Grades 6–7</span>
-                            <h3 class="gateway-title">“I’m Completely New”</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">Computer Foundations: understand the file hierarchy, control your operating system via Terminal commands, and save code milestones with Git.</p>
-                    <ul class="gateway-topics">
-                        <li>Computer anatomy: CPU, RAM &amp; Disks</li>
-                        <li>Navigating file trees &amp; relative path addresses</li>
-                        <li>Terminal scaffolding (<code>cd</code>, <code>mkdir</code>, <code>type</code>)</li>
-                        <li>Git checkpoints, commits, and history tracking</li>
-                    </ul>
-                    <a href="learn/foundations/index.html" class="btn-gateway">Enter Foundations Gateway →</a>
-                </div>
-
-                <!-- Gateway 2: Web Dev -->
-                <div class="gateway-card web">
-                    <div class="gateway-header">
-                        <div class="gateway-icon">🌐</div>
-                        <div>
-                            <span class="gateway-meta" style="color: var(--brand-cyan);">Gateway 2 • Grades 7–9</span>
-                            <h3 class="gateway-title">“I Want to Build Websites”</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">Creative Web Engineering: master HTML5 semantic structure, modern CSS styling with Flexbox &amp; Grid, and dynamic JavaScript interactivity.</p>
-                    <ul class="gateway-topics">
-                        <li>HTML5 semantics, accessible forms &amp; tables</li>
-                        <li>CSS Box Model, Flexbox alignment &amp; CSS Grid</li>
-                        <li>JavaScript DOM selection &amp; click/input events</li>
-                        <li>Advanced option: Full-Stack PHP &amp; Laravel track</li>
-                    </ul>
-                    <a href="learn/web-dev/index.html" class="btn-gateway">Enter Web Dev Gateway →</a>
-                </div>
-
-                <!-- Gateway 3: Python & AI -->
-                <div class="gateway-card ai">
-                    <div class="gateway-header">
-                        <div class="gateway-icon">🤖</div>
-                        <div>
-                            <span class="gateway-meta" style="color: var(--brand-purple);">Gateway 3 • Grades 8–10</span>
-                            <h3 class="gateway-title">“I Want Python &amp; AI”</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">Algorithmic Logic &amp; Machine Learning: write clean Python 3 scripts, automate data parsing, master prompt engineering, and uphold AI ethics.</p>
-                    <ul class="gateway-topics">
-                        <li>Python syntax, loops, and modular functions</li>
-                        <li>Tabular datasets, lists, and dictionary modeling</li>
-                        <li>How LLMs work: token prediction &amp; context windows</li>
-                        <li>Fact-checking, avoiding hallucinations &amp; AI trust (<em>Amānah</em>)</li>
-                    </ul>
-                    <a href="learn/python/index.html" class="btn-gateway">Enter Python &amp; AI Gateway →</a>
-                </div>
-            </div>
+            <div data-jc-subject-map="compact"></div>
         </section>
 
         <!-- ═════════════════════════════════════════════════════════════
@@ -343,7 +286,7 @@
                 <p>No downloads. No software setup. Instant browser code execution with live preview and console diagnostics.</p>
             </div>
 
-            <div class="gateways-grid">
+            <div class="gateways-grid jc-compact-phone">
                 <!-- Studio 1: Web Studio -->
                 <div class="gateway-card" style="border-top: 5px solid var(--brand-cyan);">
                     <div class="gateway-header">
@@ -416,7 +359,7 @@
                 <p>Everything needed for self-paced students and classroom teachers.</p>
             </div>
 
-            <div class="gateways-grid">
+            <div class="gateways-grid jc-compact-phone">
                 <!-- Textbooks -->
                 <div class="gateway-card" style="border-top: 5px solid var(--brand-primary);">
                     <div class="gateway-header">
@@ -458,107 +401,6 @@
             </div>
         </section>
     </main>
-
-    <!-- ═════════════════════════════════════════════════════════════════
-         FOOTER
-         ═════════════════════════════════════════════════════════════════ -->
-    <footer class="bei-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <div class="bei-logo">
-                    <div class="bei-logo-icon">💻</div>
-                    <span>Junior Coders</span>
-                </div>
-                <p>
-                    A school computer science curriculum and interactive platform for Grades 6–10. Dedicated to beneficial knowledge (<em>'Ilm N&#257;fi'</em>), digital trust, and engineering craftsmanship.
-                </p>
-
-                <!-- Creator & Lead Architect Card -->
-                <div class="footer-creator-card">
-                    <div class="creator-avatar">YR</div>
-                    <div class="creator-details">
-                        <span class="creator-role-tag">Architect &amp; Educator</span>
-                        <div class="creator-name">Yasir Rasool</div>
-                    </div>
-                </div>
-
-                <div class="footer-social-links">
-                    <a href="https://github.com/myasirdotin/" target="_blank" rel="noopener noreferrer" class="footer-pill-btn github-pill" title="GitHub Profile - Yasir Rasool">
-                        <svg class="pill-icon" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
-                        </svg>
-                        <span>github.com/myasirdotin</span>
-                    </a>
-                    <a href="https://beicoders.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-pill-btn live-pill" title="Live Deployment">
-                        <span class="live-pulse-dot"></span>
-                        <span>beicoders.vercel.app</span>
-                    </a>
-                </div>
-            </div>
-
-            <div class="footer-col">
-                <h4>Learn</h4>
-                <ul class="footer-links">
-                    <li><a href="learn/foundations/index.html">Foundations (Grades 6–7)</a></li>
-                    <li><a href="learn/web-dev/index.html">Web Development</a></li>
-                    <li><a href="learn/web-dev/full-stack/index.html">Full-Stack (PHP/Laravel)</a></li>
-                    <li><a href="learn/python/index.html">Python &amp; Data Logic</a></li>
-                    <li><a href="learn/ai-lab/index.html">AI Literacy &amp; Ethics</a></li>
-                    <li><a href="learn/cybersecurity/index.html">Cybersecurity &amp; Safety</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Studios</h4>
-                <ul class="footer-links">
-                    <li><a href="studios/web-studio/index.html">Web Studio (HTML/CSS/JS)</a></li>
-                    <li><a href="studios/python-console/index.html">Python Console (Wasm)</a></li>
-                    <li><a href="studios/sql-sandbox/index.html">SQL Database Sandbox</a></li>
-                    <li><a href="Learning Cybersecurity/playground.html">Cyber Defense Studio</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Library</h4>
-                <ul class="footer-links">
-                    <li><a href="library/books/index.html">12 Official Textbooks</a></li>
-                    <li><a href="library/cheatsheets/index.html">Cheat Sheets Hub</a></li>
-                    <li><a href="projects/index.html">Graded Projects Catalog</a></li>
-                    <li><a href="paths/index.html">Guided Pathways</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-col">
-                <h4>Teachers &amp; Ethics</h4>
-                <ul class="footer-links">
-                    <li><a href="teacher-hub/index.html">Teacher Hub &amp; Plans</a></li>
-                    <li><a href="teacher-hub/index.html#rubrics">Evaluation Rubrics</a></li>
-                    <li><a href="ai-roadmap.html">AI Creator Roadmap</a></li>
-                    <li><a href="contact.html">Support &amp; Feedback</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="container footer-bottom">
-            <div class="footer-copyright">
-                &copy; 2026 Junior Coders. Dedicated to Beneficial Knowledge (<em>'Ilm N&#257;fi'</em>), Digital Stewardship &amp; Craftsmanship.
-            </div>
-            <div class="footer-dedication-badge">
-                <span class="heart-symbol">✦</span> Designed with <em>Iḥsān</em> for <strong>Yasir Rasool</strong>
-            </div>
-            <div class="footer-bottom-links">
-                <a href="https://github.com/myasirdotin/" target="_blank" rel="noopener noreferrer" class="footer-bottom-link" title="Yasir Rasool on GitHub">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                    <span>@myasirdotin</span>
-                </a>
-                <span class="sep-dot">•</span>
-                <a href="https://beicoders.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-bottom-link live-link" title="Live Deployment">
-                    <span class="live-dot-mini"></span>
-                    <span>beicoders.vercel.app</span>
-                </a>
-            </div>
-        </div>
-    </footer>
 
     <!-- Core Scripts -->
     <script src="js/bei-core.js"></script>

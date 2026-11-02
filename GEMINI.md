@@ -193,7 +193,12 @@ These rules come from real bugs found in this site. Follow them for every change
    `.bottom-nav`): it is kept only as a fallback for pages without the shared nav. To add a menu item, edit
    `renderGlobalNav()` / `renderTabBar()` in `js/bei-nav.js` once. The top menu has five entries (Start here, Learn ▾,
    Practice ▾, Library ▾, Teachers): add a new page inside one of the three menus rather than as a new top-level link,
-   so the bar keeps fitting on 1280px laptop screens.
+   so the bar keeps fitting on 1280px laptop screens. The phone tab bar uses the same names (Home, Learn, Practice,
+   Library, Menu). **One map of the subjects:** `SUBJECT_GROUPS` / `SUBJECTS` in `js/bei-nav.js` (the four groups of
+   the Textbooks page, mirroring `STAGES` in `scripts/build-books.js`) feed the Learn menu, the footer and every
+   `<div data-jc-subject-map="full|compact">` (Learn hub, home, Start here). Add a subject there, not in a page.
+   **One footer:** `renderFooter()` in `js/bei-nav.js` appends it to every page that loads the script; do not
+   hand-write a `<footer>` (the textbook readers, which do not load `bei-nav.js`, keep their own ending).
 7c. **One palette.** `styles/bei-core.css` is the design system (navy, dark by default, light via `data-theme`). Lesson
    pages still load the older `styles/main.css` for their content layout, but a bridge block at the end of
    `bei-core.css` maps its variables (`--primary`, `--bg-main`, `--bg-card`, `--border-dim`) onto the system palette

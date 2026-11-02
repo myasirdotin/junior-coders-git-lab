@@ -825,13 +825,10 @@
                         <div class="bei-dd-menu bei-dd-${key}" id="bei-dd-${key}">${body}</div>
                     </li>`;
 
-        const trackOrder = ['html', 'css', 'js', 'python', 'php', 'mysql', 'laravel', 'networks', 'cybersecurity'];
+        // the same four groups as the Textbooks page, the Learn hub, the home page and the footer (SUBJECT_GROUPS, section 5.7)
         const learnMenu =
-            section('Subjects', trackOrder.filter(k => CURRICULUM[k]).map(k =>
-                item(encodeURI(CURRICULUM[k].dir) + '/' + CURRICULUM[k].syllabus, TRACK_ICONS[k] || '📚',
-                     CURRICULUM[k].shortName.replace(/ Track$/, ''), CURRICULUM[k].modules.length + ' lessons')).concat([
-                // subjects taught by a textbook only (no lesson track yet)
-                item('book-android/index.html', '📱', 'Android Apps', 'Textbook + cheat sheet')])) +
+            SUBJECT_GROUPS.map(g => section(g.icon + ' ' + g.title, g.subjects.map(k =>
+                item(subjectHref(k), SUBJECTS[k].icon, SUBJECTS[k].name, subjectMeta(k))))).join('') +
             footer([item('learn/index.html', '🧭', 'All subjects', ''), item('paths/index.html', '🗺️', 'Learning paths', 'Week-by-week plans')]);
         const practiceMenu =
             section('Code studios', [
@@ -1257,16 +1254,17 @@
         let rootPath = '';
         try { rootPath = new URL(ROOT, window.location.href).pathname.toLowerCase(); } catch (e) { /* ignore */ }
         const isHome = path === rootPath || path === rootPath + 'index.html';
+        // same names and groups as the header menu: Learn · Practice · Library
         const active = isHome ? 'home'
             : (path.includes('/learn/') || path.includes('/learning ') || path.includes('/paths/')) ? 'learn'
-            : (path.includes('/studios/') || path.includes('playground')) ? 'studios'
-            : (path.includes('/library/') || path.includes('/book') || path.includes('cheatsheet')) ? 'books' : '';
+            : (path.includes('/studios/') || path.includes('playground') || path.includes('practice-arena') || path.includes('/projects/')) ? 'practice'
+            : (path.includes('/library/') || path.includes('/book') || path.includes('cheatsheet')) ? 'library' : '';
         const tab = (key, href, icon, label) => `<a href="${ROOT}${href}" class="bei-tab-item${active === key ? ' active' : ''}"${active === key ? ' aria-current="page"' : ''}><span class="bei-tab-icon" aria-hidden="true">${icon}</span><span>${label}</span></a>`;
         const bar = document.createElement('nav');
         bar.className = 'bei-tab-bar';
         bar.setAttribute('aria-label', 'Quick navigation');
         bar.innerHTML = tab('home', 'index.html', '🏠', 'Home') + tab('learn', 'learn/index.html', '📚', 'Learn')
-            + tab('studios', 'studios/index.html', '⚡', 'Studios') + tab('books', 'library/books/index.html', '📖', 'Books')
+            + tab('practice', 'studios/index.html', '⚡', 'Practice') + tab('library', 'library/index.html', '📖', 'Library')
             + `<button type="button" class="bei-tab-item bei-tab-menu" aria-label="Open menu"><span class="bei-tab-icon" aria-hidden="true">☰</span><span>Menu</span></button>`;
         document.body.appendChild(bar);
         bar.querySelector('.bei-tab-menu').addEventListener('click', (e) => {
@@ -1312,7 +1310,7 @@
         ['studios/kotlin-practice/index.html', '📱', 'Kotlin Exercises', 'Practice', 'kotlin android exercises practice'],
         ['studios/python-console/index.html', '🐍', 'Python Console', 'Studio', 'python run'],
         ['practice-arena.html', '⚔️', 'Practice Arena', 'Practice', 'challenges exercises xp'],
-        ['learn/index.html', '📚', 'Learn: Curriculum & Pathways', 'Page', 'courses tracks'],
+        ['learn/index.html', '📚', 'Learn: all 12 subjects', 'Page', 'courses tracks subjects curriculum'],
         ['paths/index.html', '🗺️', 'Start here: pick your path', 'Page', 'start begin pathways beginner web developer full stack'],
         ['library/books/index.html', '📖', 'All Textbooks', 'Page', 'books library'],
         ['library/cheatsheets/index.html', '📋', 'All Cheat Sheets', 'Page', 'reference'],
@@ -1321,7 +1319,7 @@
         ['ai-roadmap.html', '🤖', 'AI Roadmap', 'Page', 'ai machine learning'],
         ['getting-started.html', '🚀', 'Getting Started', 'Page', 'start setup']
     ];
-    const TRACK_ICONS = { html: '🌐', css: '🎨', js: '⚡', php: '🐘', mysql: '🗄️', laravel: '🔥', python: '🐍', networks: '🌍', cybersecurity: '🛡️' };
+    const TRACK_ICONS = { html: '🌐', css: '🎨', js: '⚡', php: '🐘', mysql: '🗄️', laravel: '🔥', python: '🐍', networks: '🌍', cybersecurity: '🛡️', cmd: '💻', git: '🐙', android: '📱' };
 
     function buildSearchIndex() {
         const items = [];
@@ -1404,11 +1402,128 @@
         if (/Mac|iPhone|iPad/.test(navigator.platform)) document.querySelectorAll('.bei-search-kbd').forEach(k => k.textContent = '⌘ K');
     }
 
+    // ═════════════════════════════════════════════════════════════════
+    // 5.7 ONE MAP OF THE SUBJECTS: the Learn menu, the Learn hub, the home
+    //     page, Start here and the footer all use these four groups. They
+    //     mirror STAGES in scripts/build-books.js (the Textbooks page).
+    //     A subject without a lesson track (Terminal, Git, Android) links
+    //     to its textbook. Pages place <div data-jc-subject-map="full|compact">.
+    // ═════════════════════════════════════════════════════════════════
+    const SUBJECT_GROUPS = [
+        { key: 'first', icon: '🌱', title: 'First steps', grades: 'Grades 6–7', blurb: 'Start here if you are new: the computer, the terminal, your first web pages and saving your work.', subjects: ['cmd', 'html', 'css', 'git'] },
+        { key: 'web', icon: '⚙️', title: 'Websites that think', grades: 'Grades 7–10', blurb: 'Logic in the browser, then servers and databases behind the page.', subjects: ['js', 'php', 'mysql', 'laravel'] },
+        { key: 'python', icon: '🤖', title: 'Python, networks and safety', grades: 'Grades 8–10', blurb: 'Data and machine learning, how the internet carries it, and staying safe online.', subjects: ['python', 'networks', 'cybersecurity'] },
+        { key: 'apps', icon: '📱', title: 'Apps for phones', grades: 'Grades 9–10', blurb: 'Build real Android apps with Kotlin and Jetpack Compose.', subjects: ['android'] }
+    ];
+    const SUBJECTS = {
+        cmd: { name: 'Terminal', grades: 'Grades 6–7', sheet: 'cheatsheet-cmd.html' },
+        html: { name: 'HTML', grades: 'Grades 6–7', sheet: 'cheatsheet-html.html' },
+        css: { name: 'CSS', grades: 'Grade 7', sheet: 'cheatsheet-css.html' },
+        git: { name: 'Git & GitHub', grades: 'Grades 7–8', sheet: 'cheatsheet-git.html' },
+        js: { name: 'JavaScript', grades: 'Grades 7–8', sheet: 'cheatsheet-js.html' },
+        php: { name: 'PHP', grades: 'Grades 9–10', sheet: 'cheatsheet-php.html' },
+        mysql: { name: 'MySQL', grades: 'Grades 9–10', sheet: 'cheatsheet-mysql.html' },
+        laravel: { name: 'Laravel', grades: 'Grades 9–10', sheet: 'cheatsheet-laravel.html' },
+        python: { name: 'Python', grades: 'Grades 8–10', sheet: 'cheatsheet-python.html' },
+        networks: { name: 'Networks', grades: 'Grades 9–10', sheet: 'cheatsheet-networks.html' },
+        cybersecurity: { name: 'Cybersecurity', grades: 'Grades 9–10', sheet: 'cheatsheet-cybersecurity.html' },
+        android: { name: 'Android Apps', grades: 'Grades 9–10', sheet: 'cheatsheet-kotlin.html', practice: ['studios/kotlin-practice/index.html', 'Kotlin exercises'] }
+    };
+    Object.keys(SUBJECTS).forEach(k => { SUBJECTS[k].icon = TRACK_ICONS[k] || '📚'; SUBJECTS[k].book = 'book-' + k + '/index.html'; });
+    const subjectTrack = (k) => CURRICULUM[k] || null;
+    // site-relative address of the place a subject starts: its lesson track, or its textbook
+    const subjectHref = (k) => { const t = subjectTrack(k); return t ? encodeURI(t.dir) + '/' + t.syllabus : SUBJECTS[k].book; };
+    const subjectMeta = (k) => { const t = subjectTrack(k); return t ? t.modules.length + ' lessons' : 'Textbook + cheat sheet'; };
+    const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+
+    function renderSubjectMaps() {
+        const places = document.querySelectorAll('[data-jc-subject-map]');
+        if (!places.length) return;
+        const a = (href, label, cls) => `<a class="${cls}" href="${ROOT}${href}">${label}</a>`;
+        const card = (k) => {
+            const s = SUBJECTS[k], t = subjectTrack(k);
+            const done = t ? Progress.doneCount(t) : 0;
+            const meta = t ? (done ? `<span class="jc-subject-done">${done} of ${t.modules.length} lessons done</span>` : esc(subjectMeta(k)) + ' · ' + esc(s.grades))
+                           : 'Textbook · ' + esc(s.grades);
+            const links = [];
+            if (t) links.push(a(s.book, '📖 Textbook', ''));
+            links.push(a(s.sheet, '📋 Cheat sheet', ''));
+            const ex = t && (t.extras || []).find(x => /exercise/i.test(x.file));
+            if (ex) links.push(a(encodeURI(t.dir) + '/' + ex.file, '✅ Exercises', ''));
+            if (s.practice) links.push(a(s.practice[0], '✅ ' + s.practice[1], ''));
+            return `<article class="jc-subject">
+                <a class="jc-subject-main" href="${ROOT}${subjectHref(k)}">
+                    <span class="jc-subject-ico" aria-hidden="true">${s.icon}</span>
+                    <span class="jc-subject-name">${esc(s.name)}</span>
+                    <span class="jc-subject-meta">${meta}</span>
+                </a>
+                <div class="jc-subject-links">${links.join('')}</div>
+            </article>`;
+        };
+        const full = SUBJECT_GROUPS.map(g => `<section class="jc-sg" id="group-${g.key}">
+            <h2 class="jc-sg-title"><span aria-hidden="true">${g.icon}</span> ${esc(g.title)} <small>${esc(g.grades)}</small></h2>
+            <p class="jc-sg-blurb">${esc(g.blurb)}</p>
+            <div class="jc-sg-cards">${g.subjects.map(card).join('')}</div>
+        </section>`).join('');
+        const compact = `<div class="jc-sg-compact">` + SUBJECT_GROUPS.map(g => `<div class="jc-sg-row">
+            <a class="jc-sg-row-title" href="${ROOT}learn/index.html#group-${g.key}"><span aria-hidden="true">${g.icon}</span> ${esc(g.title)} <small>${esc(g.grades)}</small></a>
+            <div class="jc-chips">${g.subjects.map(k => `<a class="jc-chip" href="${ROOT}${subjectHref(k)}"><span aria-hidden="true">${SUBJECTS[k].icon}</span>${esc(SUBJECTS[k].name)}</a>`).join('')}</div>
+        </div>`).join('') + `</div>`;
+        places.forEach(el => { el.innerHTML = el.getAttribute('data-jc-subject-map') === 'compact' ? compact : full; });
+    }
+
+    // ═════════════════════════════════════════════════════════════════
+    // 5.8 ONE FOOTER for every page that loads this script (pages used to
+    //     carry their own copy, each with different links). The textbook
+    //     readers do not load bei-nav.js and keep their own ending.
+    // ═════════════════════════════════════════════════════════════════
+    function renderFooter() {
+        if (document.querySelector('.bei-footer, .site-footer')) return;
+        const GITHUB = 'M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z';
+        const li = (href, label) => `<li><a href="${ROOT}${href}">${label}</a></li>`;
+        const col = (title, items) => `<div class="footer-col"><h4>${title}</h4><ul class="footer-links">${items.join('')}</ul></div>`;
+        const footer = document.createElement('footer');
+        footer.className = 'bei-footer';
+        footer.innerHTML = `
+            <div class="container footer-grid">
+                <div class="footer-brand">
+                    <a href="${ROOT}index.html" class="bei-logo"><div class="bei-logo-icon">💻</div><span>Junior Coders</span></a>
+                    <p>School computer science for Grades 6–10: lessons, textbooks that read aloud and practice that checks itself in the browser. Dedicated to beneficial knowledge (<em>'Ilm Nāfi'</em>), digital trust (<em>Amānah</em>) and craftsmanship (<em>Iḥsān</em>).</p>
+                    <div class="footer-social-links">
+                        <a href="https://github.com/myasirdotin/junior-coders-git-lab" target="_blank" rel="noopener noreferrer" class="footer-pill-btn github-pill" title="Source code on GitHub">
+                            <svg class="pill-icon" viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="${GITHUB}"/></svg>
+                            <span>Source on GitHub</span>
+                        </a>
+                        <a href="https://beicoders.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-pill-btn live-pill" title="The live site">
+                            <span class="live-pulse-dot"></span><span>beicoders.vercel.app</span>
+                        </a>
+                    </div>
+                </div>
+                ${col('Learn', SUBJECT_GROUPS.map(g => li('learn/index.html#group-' + g.key, g.icon + ' ' + esc(g.title))).concat([li('paths/index.html', '🗺️ Learning paths')]))}
+                ${col('Practice', [li('studios/web-studio/index.html', 'Web Studio'), li('studios/python-console/index.html', 'Python Console'), li('studios/php-console/index.html', 'PHP Console'), li('studios/sql-sandbox/index.html', 'SQL Sandbox'), li('practice-arena.html', 'Practice Arena'), li('projects/index.html', 'Projects')])}
+                ${col('Library', [li('library/books/index.html', '12 textbooks'), li('library/cheatsheets/index.html', 'Cheat sheets'), li('library/index.html', 'Library home'), li('getting-started.html', 'Getting started')])}
+                ${col('Teachers', [li('teacher-hub/index.html', 'Teacher Hub'), li('teacher-hub/index.html#rubrics', 'Rubrics'), li('ai-roadmap.html', 'AI roadmap'), li('contact.html', 'Contact')])}
+            </div>
+            <div class="container footer-bottom">
+                <div class="footer-copyright">&copy; ${new Date().getFullYear()} Junior Coders. Crafted with excellence (<em>Iḥsān</em>) by <strong>Yasir Rasool</strong>. Progress is saved on this device only.</div>
+                <div class="footer-bottom-links">
+                    <a href="https://github.com/myasirdotin/" target="_blank" rel="noopener noreferrer" class="footer-bottom-link" title="Yasir Rasool on GitHub">
+                        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="${GITHUB}"/></svg><span>@myasirdotin</span>
+                    </a>
+                    <span class="sep-dot">•</span>
+                    <a href="https://beicoders.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-bottom-link live-link" title="The live site"><span class="live-dot-mini"></span><span>beicoders.vercel.app</span></a>
+                </div>
+            </div>`;
+        document.body.appendChild(footer);
+    }
+
     function init() {
         renderGlobalNav();
         setupModuleNavigation();
+        renderSubjectMaps();
         renderTabBar();
         renderSearch();
+        renderFooter();
     }
 
     if (document.readyState === 'loading') {

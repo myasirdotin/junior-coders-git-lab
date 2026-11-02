@@ -691,6 +691,7 @@
 
     function injectFooter() {
         if (document.querySelector('.site-footer')) return;
+        if (hasSharedNav()) return;   // js/bei-nav.js renders the one site footer
 
         const footer = document.createElement('footer');
         footer.className = 'site-footer';

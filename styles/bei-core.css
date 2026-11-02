@@ -493,10 +493,10 @@ code, pre {
     margin: 0 auto 1.25rem;
     font-weight: 800;
     line-height: 1.22;
-    min-height: 2.4em;
 }
 
-.typewriter-dynamic {
+/* second line of the home headline (it used to type itself and move the Start button) */
+.hero-accent {
     background: linear-gradient(135deg, #818cf8 0%, #c084fc 45%, #38bdf8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -504,25 +504,10 @@ code, pre {
     font-weight: 800;
 }
 
-[data-theme="light"] .typewriter-dynamic {
+[data-theme="light"] .hero-accent {
     background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #0284c7 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.typing-cursor {
-    display: inline-block;
-    color: #38bdf8;
-    font-weight: 300;
-    margin-left: 3px;
-    animation: blinkCursor 0.9s infinite;
-    user-select: none;
-    vertical-align: baseline;
-}
-
-@keyframes blinkCursor {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
 }
 
 .bei-hero p.hero-subtitle {
@@ -1830,21 +1815,23 @@ code, pre {
     letter-spacing: 0.04em;
 }
 
-.footer-links {
-    list-style: none;
+/* scoped to .bei-footer: lesson pages also load styles/main.css, whose .footer-links (the old small footer) is a centred flex row */
+.bei-footer .footer-links {
+    list-style: none; display: block; margin: 0; padding: 0; gap: 0; text-align: left;
 }
 
-.footer-links li {
+.bei-footer .footer-links li {
     margin-bottom: 0.65rem;
 }
 
-.footer-links a {
+.bei-footer .footer-links a {
     color: var(--text-secondary);
     font-size: 0.88rem;
+    font-weight: 500;
     transition: color 0.2s;
 }
 
-.footer-links a:hover {
+.bei-footer .footer-links a:hover {
     color: var(--brand-primary);
 }
 
@@ -3109,6 +3096,87 @@ body.bei-search-open { overflow: hidden; }
     background: rgba(56, 189, 248, 0.08); border: 1px solid rgba(56, 189, 248, 0.3); color: var(--text-secondary);
 }
 .start-here-note a { color: var(--brand-cyan); font-weight: 700; }
+
+/* ═════════════════════════════════════════════════════════════════════
+   ONE MAP OF THE SUBJECTS (js/bei-nav.js renderSubjectMaps)
+   <div data-jc-subject-map="full">    four groups, one card per subject (Learn hub)
+   <div data-jc-subject-map="compact"> four rows of chips (home, Start here)
+   ═════════════════════════════════════════════════════════════════════ */
+.jc-subjects-section { margin: 3.5rem 0; }
+.jc-sg { margin: 0 0 2.25rem; scroll-margin-top: 84px; }
+.jc-sg:last-child { margin-bottom: 0; }
+.jc-sg-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.3rem 0.6rem; font-size: 1.35rem; margin: 0 0 0.25rem; }
+.jc-sg-title small, .jc-sg-row-title small { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+.jc-sg-blurb { color: var(--text-secondary); margin: 0 0 1rem; line-height: 1.55; }
+.jc-sg-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(235px, 1fr)); gap: 0.9rem; }
+.jc-subject {
+    display: flex; flex-direction: column; overflow: hidden;
+    background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-md);
+}
+.jc-subject:hover { border-color: var(--border-hover); }
+.jc-subject-main {
+    display: grid; grid-template-columns: 44px 1fr; gap: 0.1rem 0.75rem; align-items: center;
+    padding: 0.9rem 1rem 0.75rem; text-decoration: none; color: var(--text-primary);
+}
+.jc-subject-ico {
+    grid-row: 1 / 3; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.6rem; border-radius: 12px; background: var(--brand-primary-light);
+}
+.jc-subject-name { font-weight: 800; font-size: 1.05rem; line-height: 1.25; }
+.jc-subject-meta { font-size: 0.8rem; color: var(--text-secondary); }
+.jc-subject-done { font-weight: 700; color: var(--text-green); }
+.jc-subject-links { display: flex; flex-wrap: wrap; gap: 0.35rem; padding: 0 1rem 0.85rem; }
+.jc-subject-links a {
+    display: inline-flex; align-items: center; min-height: 34px; padding: 0.25rem 0.65rem; border-radius: 999px;
+    border: 1px solid var(--border-subtle); color: var(--text-secondary); font-size: 0.78rem; font-weight: 700; text-decoration: none;
+}
+.jc-subject-links a:hover, .jc-subject-links a:focus-visible { color: var(--text-sky); border-color: var(--text-sky); }
+.jc-sg-row { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; padding: 0.75rem 0; border-top: 1px solid var(--border-subtle); }
+.jc-sg-row:first-child { border-top: 0; padding-top: 0; }
+.jc-sg-row-title { flex: 0 0 250px; display: flex; align-items: baseline; gap: 0.4rem; font-weight: 800; color: var(--text-primary); text-decoration: none; }
+.jc-sg-row-title:hover { color: var(--text-indigo); }
+.jc-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.jc-chip {
+    display: inline-flex; align-items: center; gap: 0.4rem; min-height: 38px; padding: 0.35rem 0.85rem; border-radius: 999px;
+    background: var(--bg-surface); border: 1px solid var(--border-subtle); color: var(--text-primary);
+    font-size: 0.9rem; font-weight: 700; text-decoration: none;
+}
+.jc-chip:hover, .jc-chip:focus-visible { border-color: var(--text-indigo); color: var(--text-indigo); }
+@media (max-width: 640px) {
+    .jc-subjects-section { margin: 2.5rem 0; }
+    .jc-sg-row-title { flex-basis: 100%; }
+    .jc-sg-cards { grid-template-columns: 1fr; }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   HOME PAGE AND FOOTER ON PHONES: the same content in fewer screens
+   (the phone home page was 13 screens; the footer alone was two).
+   ═════════════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+    .bei-footer { padding: 2.25rem 0 1.25rem; margin-top: 3rem; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 1.25rem 1.5rem; margin-bottom: 1.75rem; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-brand p { font-size: 0.85rem; margin-top: 0.5rem; }
+    .footer-col h4 { margin-bottom: 0.6rem; font-size: 0.82rem; }
+    .footer-links li { margin-bottom: 0.4rem; }
+    .footer-links a { font-size: 0.85rem; }
+    .footer-bottom { padding-top: 1.25rem; gap: 0.75rem; font-size: 0.8rem; }
+    /* "Not sure where to begin?" cards and the four "who / what / how / why" answers */
+    .placement-card { padding: 1rem 1rem 0.9rem; }
+    .placement-card p { font-size: 0.88rem; line-height: 1.45; margin-bottom: 0.6rem; }
+    .mission-answers-grid { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+    .mission-answer-card { padding: 0.9rem 0.8rem; }
+    .mission-answer-card .answer-icon { font-size: 1.4rem; margin-bottom: 0.3rem; }
+    .mission-answer-card strong { font-size: 0.88rem; }
+    .mission-answer-card p { font-size: 0.8rem; line-height: 1.4; }
+    /* studios and resources cards: title and button; the long text is on the pages they open */
+    .gateways-grid.jc-compact-phone { gap: 0.7rem; }
+    .gateways-grid.jc-compact-phone .gateway-card { padding: 1rem 1rem 0.9rem; }
+    .gateways-grid.jc-compact-phone .gateway-desc,
+    .gateways-grid.jc-compact-phone .gateway-topics { display: none; }
+    .gateways-grid.jc-compact-phone .gateway-header { margin-bottom: 0.75rem; }
+    .gateways-grid.jc-compact-phone .btn-gateway { margin-top: 0; }
+}
 
 /* ═════════════════════════════════════════════════════════════════════
    THREE-TIER PRACTICE (GEMINI.md §3.3) — shared markup for every lesson track:

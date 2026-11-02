@@ -4,41 +4,37 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-11-02 (UI review, batches 1–4)._
+_Last updated: 2026-11-02 (UI review, batches 1–5)._
 
 ## 🔧 Now (in progress)
 
 - **UI review follow-up** (report: claude.ai artifact "Junior Coders UI Review", 2 Nov 2026). Batches 1 (readability),
-  2 (honesty), 3 (exercises and quizzes) and 4 (older lesson templates) are done; batches 5–6 below are next. Re-check any page with
+  2 (honesty), 3 (exercises and quizzes), 4 (older lesson templates) and 5 (one map of the subjects) are done; batch 6
+  below is next. Re-check any page with
   `SHOTS=n node scripts/render-check.mjs …` in both themes (`SETUP='localStorage.setItem("bei_theme","light")'`);
   re-check practice tasks with `node scripts/check-practice.js [site URL]`.
 
 ## ⏭️ Next (agreed order)
 
-1. **UI batch 5 (needs owner decisions): one map of the subjects.** Home, Start here, Learn hub and Learn menu group
-   the subjects four different ways; the Learn menu lacks Terminal and Git; the tab bar and header use different
-   names. Then shorten the 13-screen phone home page (the three-way choice appears twice) and render one footer from
-   `js/bei-nav.js`. The home headline types itself and moves the Start button.
-2. **UI batch 6: polish.** Cheat sheets: contents row and breadcrumb, `->` splitting across lines, first box below the
+1. **UI batch 6: polish.** Cheat sheets: contents row and breadcrumb, `->` splitting across lines, first box below the
    first phone screen, laptop gaps, HTML sheet hero text. Textbooks: ASCII diagrams shown as copyable code, Read button
    gradient, small tap targets, "All (34)" vs 32 chapters. Search: subject hidden on phones, no chapters.
    Drawer: "Teachers" under the tab bar. Textbooks page search only matches card text.
-3. **Practice Arena**: only 5 challenges, all JavaScript. Add Python, PHP and SQL challenges (engines exist).
-4. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
+2. **Practice Arena**: only 5 challenges, all JavaScript. Add Python, PHP and SQL challenges (engines exist).
+3. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
    a teacher can import.
-5. **Leftover content gaps** found in the review:
+4. **Leftover content gaps** found in the review:
    - Python module 7 was not deepened (modules 1–6 and 8 were).
    - Networks module title cards still set old inline "Level" badge colours.
    - `tips.html` and `best-practices.html` overlap in the HTML, CSS and JS tracks.
-6. **Pre-recorded narration**: generate neural MP3s for chapter 1 of each book, play when present, fall back to Web Speech.
-7. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
+5. **Pre-recorded narration**: generate neural MP3s for chapter 1 of each book, play when present, fall back to Web Speech.
+6. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
    `.gemini/agents/css-tutor.md`, run `node scripts/sync-curriculum.js`.
 
 ## ❓ Decisions pending from the owner
 
 - **Site address:** footers show "beicoders.vercel.app" (the live Vercel address, but the old "BEI" name in visible
   text, close to GEMINI §7.1). Rename the Vercel project or add a domain if wanted, then update the footers.
-- **One grouping of subjects** for home, Start here, Learn hub, menus and tab bar (UI batch 5).
 - **Confirm** book-cybersecurity ch05's OWASP Top 10:2025 list against owasp.org (written from memory).
 - **Confirm** the browser PHP Console allows file writes (book-php ch20/21 "Try It").
 - **XAMPP MariaDB does not start** (InnoDB data errors in its log, seen 2026-10-13; not caused by this project's
@@ -46,6 +42,16 @@ _Last updated: 2026-11-02 (UI review, batches 1–4)._
 
 ## ✅ Done (most recent first)
 
+- 2026-11-02 UI batch 5, one map of the subjects: the four groups of the Textbooks page (First steps: Terminal, HTML,
+  CSS, Git · Websites that think: JavaScript, PHP, MySQL, Laravel · Python, networks and safety · Apps for phones:
+  Android) are now the one map, as `SUBJECT_GROUPS` in `js/bei-nav.js`: the Learn menu (desktop and drawer, Terminal
+  and Git added), the Learn hub (one card per subject with real lesson counts, device progress, textbook, cheat sheet
+  and exercises links; the six topic-guide pages stay as a short list), the home page and Start here (rows of chips)
+  and the footer. Tab bar renamed to match the header (Home · Learn · Practice · Library · Menu). One footer rendered
+  by `js/bei-nav.js` on every page (21 hand-written copies with different links removed; `core.js` no longer adds its
+  small one). Home: headline no longer types itself; the "Three Primary Pathways" section (a repeat of the "Not sure
+  where to begin?" choice) replaced by the subject map; on phones the footer is two columns and the studio, resource
+  and answer cards are compact, so the home page is about 10 phone screens instead of 13.
 - 2026-11-02 Batch 4 follow-ups: the last light-theme contrast problems in the HTML, CSS, PHP and Laravel lessons
   (90 inline colours → the `--text-*` variables, plus new `--text-orange` and `--text-pink`; white diagram boxes keep
   a fixed dark colour). A probe of all 36 pages now finds no text under 3:1 in light. HTML lessons 5–12: body text

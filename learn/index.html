@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <script id="jc-folder-slash">/* folder page: add the missing trailing slash so relative links work (scripts/sync-vercel-redirects.js) */(function(){var p=location.pathname;if(p.slice(-1)!=='/'&&!/\.[a-z0-9]+$/i.test(p)){location.replace(p+'/'+location.search+location.hash);}})();</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Curriculum &amp; Pathways | Junior Coders</title>
-    <meta name="description" content="Explore the complete school computer science curriculum for Grades 6–10: Foundations, Python, Web Development, AI Literacy, and Cybersecurity.">
+    <title>Learn: All 12 Subjects | Junior Coders</title>
+    <meta name="description" content="All 12 Junior Coders subjects in four groups: first steps (Terminal, HTML, CSS, Git), websites that think (JavaScript, PHP, MySQL, Laravel), Python, networks and safety, and Android apps.">
     <link rel="stylesheet" href="../styles/bei-core.css">
 </head>
 <body>
@@ -41,136 +41,31 @@
         <header class="learn-header">
             <div class="breadcrumbs">
                 <a href="../index.html">Home</a> <span>/</span>
-                <span>Learn Curriculum</span>
+                <span>Learn</span>
             </div>
-            <h1>School Computer Science Curriculum 🚀</h1>
-            <p class="lead">Structured, project-driven learning tracks designed for school students in Grades 6–10. Every track begins with clear mental analogies, reinforces zero-setup code practice, and culminates in a capstone project.</p>
+            <h1>All 12 subjects 📚</h1>
+            <p class="lead">Four groups, in the same order as the textbooks. Each subject has lessons or a textbook, a cheat sheet and practice that checks itself in the browser. Progress is saved on this device.</p>
             <p class="start-here-note">🧭 New here? <a href="../paths/index.html">Start with a path</a>: it tells you which lesson to do each week.</p>
         </header>
 
-        <!-- Curriculum Tracks Grid -->
-        <section class="modules-container">
-            <div class="section-head" style="text-align: left; margin-bottom: 2rem;">
-                <span class="eyebrow">All Learning Tracks</span>
-                <h2>Choose Your Domain</h2>
-                <p>Select any subject below to review prerequisites, module breakdowns, interactive exercises, and textbook companion guides.</p>
+        <!-- The subject map (js/bei-nav.js renderSubjectMaps): the same four groups as the Learn menu and the home page -->
+        <div data-jc-subject-map="full"></div>
+
+        <!-- Longer guides that join several subjects -->
+        <section class="jc-subjects-section">
+            <div class="section-head" style="text-align: left; margin-bottom: 1rem;">
+                <h2>Topic guides</h2>
+                <p>Longer reads that join several subjects together, with the textbooks and lessons each one uses.</p>
             </div>
-
-            <div class="gateways-grid">
-                <!-- 1. Foundations -->
-                <div class="gateway-card foundations">
-                    <div class="gateway-header">
-                        <div class="gateway-icon">📁</div>
-                        <div>
-                            <span class="gateway-meta" style="color: var(--brand-accent);">Grades 6–7 • Starting Point</span>
-                            <h3 class="gateway-title">Foundations</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">Digital literacy, file systems, dual-shell terminal navigation (Windows CMD &amp; Bash), and Git version control basics.</p>
-                    <ul class="gateway-topics">
-                        <li>File hierarchies &amp; folder hygiene</li>
-                        <li>Terminal commands without a mouse</li>
-                        <li>Git checkpoints, branches &amp; commits</li>
-                        <li>Responsible digital citizenship (<em>Amānah</em>)</li>
-                    </ul>
-                    <a href="foundations/index.html" class="btn-gateway">Explore Foundations Track →</a>
-                </div>
-
-                <!-- 2. Web Development -->
-                <div class="gateway-card web">
-                    <div class="gateway-header">
-                        <div class="gateway-icon">🌐</div>
-                        <div>
-                            <span class="gateway-meta" style="color: var(--brand-cyan);">Grades 7–9 • Creative Track</span>
-                            <h3 class="gateway-title">Web Development</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">Structure with HTML5, style with modern CSS (Flexbox &amp; Grid), build logic with JavaScript, and explore full-stack PHP/Laravel.</p>
-                    <ul class="gateway-topics">
-                        <li>Semantic HTML5 &amp; accessible forms</li>
-                        <li>Modern CSS Box Model, Flexbox &amp; Grid</li>
-                        <li>JavaScript DOM, arrays &amp; interactivity</li>
-                        <li>Optional Full-Stack backend path (PHP + MySQL)</li>
-                    </ul>
-                    <a href="web-dev/index.html" class="btn-gateway">Explore Web Dev Track →</a>
-                </div>
-
-                <!-- 3. Python & Data Logic -->
-                <div class="gateway-card ai">
-                    <div class="gateway-header">
-                        <div class="gateway-icon">🐍</div>
-                        <div>
-                            <span class="gateway-meta" style="color: var(--brand-purple);">Grades 8–10 • Logic &amp; Data</span>
-                            <h3 class="gateway-title">Python Programming</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">From your first <code>print()</code> statement to data structures, functions, file parsing, and algorithmic problem-solving in Python 3.</p>
-                    <ul class="gateway-topics">
-                        <li>Variables, conditionals &amp; loops</li>
-                        <li>Lists, dictionaries &amp; modular functions</li>
-                        <li>Real-world file processing (CSV &amp; JSON)</li>
-                        <li>Clean code craftsmanship (<em>Iḥsān</em>)</li>
-                    </ul>
-                    <a href="python/index.html" class="btn-gateway">Explore Python Track →</a>
-                </div>
-
-                <!-- 4. AI Lab & AI Literacy -->
-                <div class="gateway-card" style="border-top: 5px solid #ec4899;">
-                    <div class="gateway-header">
-                        <div class="gateway-icon">🤖</div>
-                        <div>
-                            <span class="gateway-meta" style="color: #ec4899;">Grades 8–10 • Future Ready</span>
-                            <h3 class="gateway-title">AI Lab &amp; Literacy</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">Demystifying machine intelligence: prompt engineering, model limitations, hallucinations, ethical verification, and AI stewardship.</p>
-                    <ul class="gateway-topics">
-                        <li>How machine learning models process data</li>
-                        <li>Precision prompt engineering &amp; role modeling</li>
-                        <li>Fact-checking &amp; identifying hallucinations</li>
-                        <li>Data privacy, bias &amp; ethical AI (<em>Amānah</em>)</li>
-                    </ul>
-                    <a href="ai-lab/index.html" class="btn-gateway">Explore AI Lab Track →</a>
-                </div>
-
-                <!-- 5. Cybersecurity & Web Safety -->
-                <div class="gateway-card" style="border-top: 5px solid #10b981;">
-                    <div class="gateway-header">
-                        <div class="gateway-icon">🛡️</div>
-                        <div>
-                            <span class="gateway-meta" style="color: #10b981;">Grades 7–10 • Essential Defense</span>
-                            <h3 class="gateway-title">Cybersecurity &amp; Safety</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">Defensive computing, password entropy math, OWASP web vulnerabilities (SQLi &amp; XSS), phishing detective, and personal OpSec.</p>
-                    <ul class="gateway-topics">
-                        <li>The CIA Triad &amp; password entropy math</li>
-                        <li>SQL injection &amp; XSS prevention</li>
-                        <li>Phishing detection &amp; social engineering</li>
-                        <li>Digital hygiene &amp; 3-2-1 backup resilience</li>
-                    </ul>
-                    <a href="cybersecurity/index.html" class="btn-gateway">Explore Cybersecurity Track →</a>
-                </div>
-
-                <!-- 6. Tooling & Git Mastery -->
-                <div class="gateway-card" style="border-top: 5px solid #f97316;">
-                    <div class="gateway-header">
-                        <div class="gateway-icon">🐙</div>
-                        <div>
-                            <span class="gateway-meta" style="color: #f97316;">Grades 8–10 • Pro Workflows</span>
-                            <h3 class="gateway-title">Tooling &amp; Git Mastery</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">The collaboration workflows professional developers use daily: Git branching, pull requests, merge conflict resolution, and deployment.</p>
-                    <ul class="gateway-topics">
-                        <li>Git commits, diffs &amp; time-travel rollbacks</li>
-                        <li>Feature branching &amp; merging strategies</li>
-                        <li>Remote repos &amp; GitHub collaborative workflows</li>
-                        <li>Static web deployment on GitHub Pages</li>
-                    </ul>
-                    <a href="tooling/index.html" class="btn-gateway">Explore Tooling Track →</a>
-                </div>
-            </div>
+            <ul class="path-picker-guide">
+                <li><a href="foundations/index.html">Foundations &amp; digital literacy</a> (Grades 6–7): files, the terminal and Git.</li>
+                <li><a href="web-dev/index.html">Web development</a>: structure, style and logic with HTML, CSS and JavaScript.</li>
+                <li><a href="web-dev/full-stack/index.html">Full-stack web engineering</a>: PHP, MySQL and Laravel behind the page.</li>
+                <li><a href="python/index.html">Python &amp; data logic</a>: from <code>print()</code> to files and functions.</li>
+                <li><a href="ai-lab/index.html">AI lab &amp; literacy</a>: how models work, prompting, checking facts, ethics (<em>Amānah</em>).</li>
+                <li><a href="cybersecurity/index.html">Cybersecurity &amp; defensive computing</a>: passwords, phishing, OWASP, backups.</li>
+                <li><a href="tooling/index.html">Tooling, Git &amp; GitHub</a>: branches, pull requests and deployment.</li>
+            </ul>
         </section>
 
         <!-- Ethical Pledge Banner -->
@@ -190,72 +85,6 @@
             </div>
         </section>
     </main>
-
-    <!-- Footer -->
-    <footer class="bei-footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <div class="bei-logo">
-                    <div class="bei-logo-icon">💻</div>
-                    <span>Junior Coders</span>
-                </div>
-                <p>Empowering school students with rigorous computer science fundamentals, creative web engineering, and ethical AI stewardship.</p>
-            </div>
-            <div class="footer-col">
-                <h4>Learn</h4>
-                <ul class="footer-links">
-                    <li><a href="foundations/index.html">Foundations</a></li>
-                    <li><a href="web-dev/index.html">Web Development</a></li>
-                    <li><a href="python/index.html">Python &amp; Data</a></li>
-                    <li><a href="ai-lab/index.html">AI Literacy</a></li>
-                    <li><a href="cybersecurity/index.html">Cybersecurity</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Studios</h4>
-                <ul class="footer-links">
-                    <li><a href="../studios/web-studio/index.html">Web Studio (HTML/CSS/JS)</a></li>
-                    <li><a href="../studios/python-console/index.html">Python Console</a></li>
-                    <li><a href="../studios/sql-sandbox/index.html">SQL Sandbox</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Library</h4>
-                <ul class="footer-links">
-                    <li><a href="../library/books/index.html">Official Textbooks</a></li>
-                    <li><a href="../library/cheatsheets/index.html">Cheat Sheets Hub</a></li>
-                    <li><a href="../projects/index.html">Project Catalog</a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h4>Teachers</h4>
-                <ul class="footer-links">
-                    <li><a href="../teacher-hub/index.html">Teacher Hub</a></li>
-                    <li><a href="../paths/index.html">Curriculum Maps</a></li>
-                    <li><a href="../contact.html">Support &amp; Feedback</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="container footer-bottom">
-            <div class="footer-copyright">
-                &copy; 2026 Junior Coders. Dedicated to Beneficial Knowledge (<em>'Ilm N&#257;fi'</em>), Digital Stewardship &amp; Craftsmanship.
-            </div>
-            <div class="footer-dedication-badge">
-                <span class="heart-symbol">✦</span> Designed with <em>Iḥsān</em> for <strong>Yasir Rasool</strong>
-            </div>
-            <div class="footer-bottom-links">
-                <a href="https://github.com/myasirdotin/" target="_blank" rel="noopener noreferrer" class="footer-bottom-link" title="Yasir Rasool on GitHub">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-                    <span>@myasirdotin</span>
-                </a>
-                <span class="sep-dot">•</span>
-                <a href="https://beicoders.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-bottom-link live-link" title="Live Deployment">
-                    <span class="live-dot-mini"></span>
-                    <span>beicoders.vercel.app</span>
-                </a>
-            </div>
-        </div>
-    </footer>
 
     <script src="../js/bei-core.js"></script>
     <script src="../js/bei-nav.js"></script>
