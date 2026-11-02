@@ -8,6 +8,28 @@
 
 ---
 
+## How to use it (quick)
+
+- **Open it on this PC:** start **Apache** in the XAMPP Control Panel, then open
+  `http://localhost/junior-coders-git-lab/`
+- **Live site:** `https://beicoders.vercel.app` (Vercel publishes the `master` branch on GitHub
+  `myasirdotin/junior-coders-git-lab`). Nothing goes live until changes are committed and pushed.
+- **No database, no build step.** Plain HTML/CSS/JS. Progress is saved in each browser only.
+- **After editing a textbook chapter** (`book-*/part-*/ch*.md`), rebuild the books in PowerShell:
+
+  ```powershell
+  cd C:\xampp\htdocs\junior-coders-git-lab
+  node scripts/bundle-books.js
+  ```
+
+- **Checks before publishing:** `node scripts/validate-scripts.js` and `powershell -File .\audit.ps1`
+  (writes `book-audit-report.md`).
+- **Publishing** = commit, then push **both** `main` and `master` (`git push origin main master`). Only when you mean
+  to put it live.
+- **Rules for any AI tool:** read `GEMINI.md` (the rulebook) and `CLAUDE.md`; the work list is `docs/BACKLOG.md`.
+
+---
+
 ## 🌟 Key Features
 
 - **Structured Curriculum**: 29+ modules covering HTML5, Modern CSS, and JavaScript Logic.

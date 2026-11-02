@@ -213,3 +213,12 @@ function initTypewriter() {
     // Start typing cycle after initial 2.6s reading pause
     setTimeout(tick, 2600);
 }
+
+
+// Local Web Space Hub integration (runs only on localhost)
+if (typeof window !== 'undefined' && (location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+    const hubScript = document.createElement('script');
+    hubScript.src = '/hub-nav.js';
+    hubScript.defer = true;
+    document.head.appendChild(hubScript);
+}

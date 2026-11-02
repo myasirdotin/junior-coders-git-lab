@@ -31,7 +31,6 @@ _Last updated: 2026-11-02 (UI review, batches 1–4)._
 4. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
    a teacher can import.
 5. **Leftover content gaps** found in the review:
-   - JS modules 4–6: the practice textareas already contain the full solutions.
    - HTML modules 5–12: body text still names the old book chapter (e.g. module 12 "From Chapter 12", the book's
      chapter is 13); the textbook link under the title card is correct.
    - Python module 7 was not deepened (modules 1–6 and 8 were).
@@ -102,6 +101,9 @@ _Last updated: 2026-11-02 (UI review, batches 1–4)._
   track page, quiz, textbook, cheat sheet, module switcher and search. GEMINI §7f3. Exercise lists on all three
   exercise pages no longer widen past a phone screen when one code line is long.
 
+- 2026-10-15 Editor ergonomics & JS practice fixes:
+  - JS modules 4, 5, and 6 drills & challenges no longer leak complete answers in the starter textareas; proper starter comments and templates provided.
+  - In-browser code editors updated with Tab key indentation (`setRangeText`) and `Ctrl+Enter` execution across Python Console (`studios/python-console/`), PHP Console (`studios/php-console/`), SQL Sandbox (`studios/sql-sandbox/`), Learning PHP exercises (`Learning PHP/exercises.html`), and Learning MySQL exercises (`Learning MySQL/exercises.html`).
 - 2026-10-13 Textbook chapter sidebar redesigned (all 12 books): one compact top row (Home, All textbooks, close),
   one book block (40px icon, title, grade, chapter count), filter pills on one sideways-scrolling row on phones (wrap
   on desktop), chapter rows with number, title and reading time (same minutes as the reader badge), clear current
