@@ -585,3 +585,52 @@
     from { opacity: 0; transform: translateY(6px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* ── 11. Light theme ──
+   The rules above were written for the dark page. Code boxes and the evaluator stay dark in both themes;
+   everything that sits on the page itself takes the palette colours. */
+/* styles/bei-core.css .step-num (roadmap steps) is indigo text: invisible on the active indigo step */
+.cycle-step-item:not(.completed) .step-num { color: inherit; }
+[data-theme="light"] .btn-eval-action:not(.btn-eval-run) { color: #cbd5e1; }
+[data-theme="light"] .cycle-step-item:hover { color: var(--brand-primary); }
+[data-theme="light"] .cycle-step-item.completed { color: var(--text-green); }
+[data-theme="light"] .tier-tab-btn.active.tier-easy { color: var(--text-green); }
+[data-theme="light"] .tier-tab-btn.active.tier-med { color: var(--text-amber); }
+[data-theme="light"] .tier-tab-btn.active.tier-hard { color: var(--text-red); }
+[data-theme="light"] .mission-card { box-shadow: var(--shadow-card); }
+[data-theme="light"] .mission-title { color: var(--text-primary); }
+[data-theme="light"] .mission-criteria-list { background: var(--bg-surface-elevated); }
+[data-theme="light"] .mission-criteria-item { color: var(--text-primary); }
+[data-theme="light"] .quiz-card { border-color: var(--border-subtle); }
+[data-theme="light"] .quiz-q-title { color: var(--text-primary); }
+[data-theme="light"] .quiz-option-label { background: var(--bg-surface-elevated); }
+[data-theme="light"] .quiz-option-label:hover { color: var(--text-primary); background: #e2e8f0; }
+[data-theme="light"] .quiz-option-label.is-correct { color: var(--text-green); }
+[data-theme="light"] .quiz-option-label.is-wrong { color: var(--text-red); }
+/* styles/main.css gives every textarea the page text colour and a see-through background (!important);
+   the lesson code editors are dark boxes, so give them back light code on dark */
+[data-theme="light"] .module-container textarea {
+    background: #020617 !important;
+    color: #f8fafc !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* ── 12. Phones: one level of box ──
+   Section card > quiz box > question card left the answers about 180px wide. On phones the section keeps
+   its card; the boxes inside it lose their frame, and boxes inside those lose their padding too. */
+@media (max-width: 640px) {
+    .module-container .content-section { padding: 1.1rem 0.9rem; }
+    .bei-quiz-container,
+    .mission-card { padding: 0; margin: 1rem 0; background: none; border: 0; box-shadow: none; }
+    .quiz-card { padding: 0.9rem; }
+    .quiz-option-label { padding: 0.6rem 0.7rem; }
+    .mission-criteria-list { padding: 0.9rem; }
+    .evaluator-toolbar { padding: 0.6rem 0.75rem; }
+    .eval-code-input { padding: 0.75rem; }
+    .module-container .content-section div[style*="padding"][style*="var(--bg-surface"] { padding: 0.9rem !important; }
+    .module-container .content-section div[style*="var(--bg-surface"] div[style*="var(--bg-surface"] {
+        padding: 0 !important; background: none !important; border: 0 !important; box-shadow: none !important;
+    }
+    .module-container .content-section div[style*="padding: 2rem"] { padding: 1rem !important; }
+    .module-container div[style*="grid-template-columns"] { grid-template-columns: minmax(0, 1fr) !important; }
+}

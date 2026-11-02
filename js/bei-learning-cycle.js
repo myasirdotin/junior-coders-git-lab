@@ -263,7 +263,7 @@ function initQuizEngine() {
                 if (explainer) {
                     explainer.style.display = 'block';
                     explainer.style.background = (selected && selected.value === correctVal) ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)';
-                    explainer.style.color = (selected && selected.value === correctVal) ? '#34d399' : '#f87171';
+                    explainer.style.color = (selected && selected.value === correctVal) ? 'var(--text-green)' : 'var(--text-red)';
                 }
             });
 
@@ -272,7 +272,7 @@ function initQuizEngine() {
                 resultBox.style.display = 'block';
                 resultBox.innerHTML = `
                     <div style="background: ${pct >= 80 ? 'rgba(16, 185, 129, 0.15)' : 'rgba(245, 158, 11, 0.15)'}; border: 1.5px solid ${pct >= 80 ? '#10b981' : '#f59e0b'}; padding: 1.25rem; border-radius: var(--radius-md); text-align: center;">
-                        <h3 style="color: ${pct >= 80 ? '#34d399' : '#fbbf24'}; margin-bottom: 0.5rem;">Score: ${score} / ${total} (${pct}%)</h3>
+                        <h3 style="color: ${pct >= 80 ? 'var(--text-green)' : 'var(--text-amber)'}; margin-bottom: 0.5rem;">Score: ${score} / ${total} (${pct}%)</h3>
                         <p style="color: var(--text-secondary); margin: 0;">${pct >= 80 ? '🎉 Outstanding! Quiz Mastery Achieved (+30 XP)' : 'Keep practicing! Review the explanations above and try again.'}</p>
                     </div>
                 `;

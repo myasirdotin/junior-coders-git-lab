@@ -29,6 +29,14 @@
     --text-secondary: #94a3b8;
     --text-muted: #64748b;
     --text-inverse: #0f172a;
+    /* Coloured text (labels, step numbers, accent headings): pale on dark, deep on light */
+    --text-green: #34d399;
+    --text-amber: #fbbf24;
+    --text-sky: #38bdf8;
+    --text-indigo: #818cf8;
+    --text-red: #f87171;
+    --text-violet: #c084fc;
+    --text-blue: #60a5fa;
 
     /* Borders & Accents */
     --border-subtle: rgba(255, 255, 255, 0.08);
@@ -58,6 +66,14 @@
     --text-primary: #0f172a;
     --text-secondary: #475569;
     --text-muted: #64748b;
+    --text-green: #047857;
+    --text-amber: #b45309;
+    --text-sky: #0369a1;
+    --text-indigo: #4338ca;
+    --text-red: #b91c1c;
+    --text-violet: #7e22ce;
+    --text-blue: #1d4ed8;
+    --mysql-brand: #0369a1;   /* styles/main.css #00b4d8 is 2.3:1 on white */
     --border-subtle: #e2e8f0;
     --border-hover: rgba(79, 70, 229, 0.5);
     --border-glow: rgba(79, 70, 229, 0.15);
@@ -2979,6 +2995,32 @@ body.bei-search-open { overflow: hidden; }
     color: #1e1b4b !important;
     border: 1px solid transparent !important;
 }
+/* Title cards: styles/main.css gives .module-header and .syllabus-header a track colour but no padding or rounded
+   corners, and 4rem of space below. Pages that set these inline (Python, Networks, Cybersecurity, JS) keep theirs. */
+.module-container .module-header,
+.syllabus-header[class*="path-"],
+.syllabus-header[style*="background"] {
+    padding: 2rem 2rem 1.75rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+}
+.module-container .module-header { margin-bottom: 1.25rem; }
+/* MySQL's pale cyan (#00b4d8) under white text was 2.3:1; start the card from the deeper blue */
+.module-header.path-mysql { background: linear-gradient(135deg, #0077b6, #0369a1); }
+.module-container .module-header h1 { font-size: clamp(2rem, 4.5vw, 2.75rem); line-height: 1.15; margin: 0.6rem 0 0.4rem; }
+.module-container .module-header .badge { margin-top: 0; }
+.syllabus-header { margin-bottom: 2rem; }
+
+/* HTML lessons: "📖 Textbook, Chapter N: …" one compact link under the title card */
+.book-companion-link { margin: 1rem 0 1.5rem; }
+.book-companion-link a {
+    display: inline-flex; align-items: center; gap: 0.35rem; min-height: 40px; padding: 0.45rem 0.9rem;
+    border-radius: 999px; font-size: 0.88rem; font-weight: 700; line-height: 1.35; text-decoration: none;
+    color: #fdba74; background: rgba(234, 88, 12, 0.12); border: 1px solid rgba(234, 88, 12, 0.35);
+}
+.book-companion-link a:hover, .book-companion-link a:focus-visible { border-color: #ea580c; }
+[data-theme="light"] .book-companion-link a { color: #c2410c; background: #fff7ed; border-color: #fed7aa; }
+
 /* Close button on the "open in Edge for natural voices" tip (js/tts-voices.js hintNote) */
 .jc-voice-hint { display: flex; align-items: flex-start; gap: 0.5rem; }
 .jc-voice-hint > span { flex: 1; }
@@ -3009,12 +3051,8 @@ body.bei-search-open { overflow: hidden; }
     .lesson-speaker-bar .speaker-speed-select { min-height: 40px; }
     .lesson-speaker-bar .speaker-voice-hint { margin-top: 0.1rem; font-size: 0.74rem; }
 
-    /* "read this in the textbook" card: one compact row */
-    .book-companion-card { padding: 0.6rem 0.8rem; margin: 0.75rem 0 1.25rem; gap: 0.5rem; flex-wrap: nowrap; }
-    .book-companion-card .book-companion-icon,
-    .book-companion-card .book-companion-text > span { display: none; }
-    .book-companion-card .book-companion-text strong { font-size: 0.82rem; line-height: 1.35; }
-    .book-companion-card .btn-read-book { flex: none; min-height: 40px; padding: 0.4rem 0.75rem; font-size: 0.8rem; }
+    .book-companion-link { margin: 0.75rem 0 1rem; }
+    .book-companion-link a { font-size: 0.82rem; }
 
     /* floating PDF button: clear the phone tab bar */
     #pdf-fab { bottom: 76px !important; right: 12px !important; padding: 9px 14px !important; font-size: 13px !important; }
@@ -3103,6 +3141,10 @@ body.bei-search-open { overflow: hidden; }
 [data-theme="light"] .jc-answer > div { background: #f0f9ff; }
 /* HTML track keeps its old .practice-section wrapper inside the tiers: no second box around the cards */
 .jc-tiers .practice-section { padding: 0 !important; margin: 0 !important; border: 0 !important; background: none !important; box-shadow: none !important; }
+/* Python lessons: "🧪 Your Turn" task box, a blue tint in both themes */
+.content-section.jc-your-turn { background: rgba(37, 99, 235, 0.1); border-color: rgba(59, 130, 246, 0.4); }
+.jc-your-turn > h2 { margin-top: 0; color: var(--text-blue); }
+[data-theme="light"] .content-section.jc-your-turn { background: #eff6ff; border-color: #bfdbfe; }
 
 /* Cheat sheets: a search result on library/cheatsheets links to sheet.html#card-...; show that card clearly
    below the fixed header (ids are added by scripts/build-cheat-index.js) */

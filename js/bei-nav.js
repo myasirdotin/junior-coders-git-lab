@@ -1199,7 +1199,7 @@
             </a>
         ` : `
             <a href="${track.syllabus}#cert" class="pager-card next" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(19, 29, 50, 0.9) 100%); border-color: rgba(16, 185, 129, 0.4);">
-                <span class="pager-card-dir" style="color: #34d399;">Track Complete 🎓</span>
+                <span class="pager-card-dir" style="color: var(--text-green);">Track Complete 🎓</span>
                 <span class="pager-card-title">Claim Track Certificate →</span>
             </a>
         `;

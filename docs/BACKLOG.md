@@ -4,39 +4,41 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-11-02 (UI review, batches 1–3)._
+_Last updated: 2026-11-02 (UI review, batches 1–4)._
 
 ## 🔧 Now (in progress)
 
 - **UI review follow-up** (report: claude.ai artifact "Junior Coders UI Review", 2 Nov 2026). Batches 1 (readability),
-  2 (honesty) and 3 (exercises and quizzes) are done; batches 4–6 below are next. Re-check any page with
+  2 (honesty), 3 (exercises and quizzes) and 4 (older lesson templates) are done; batches 5–6 below are next. Re-check any page with
   `SHOTS=n node scripts/render-check.mjs …` in both themes (`SETUP='localStorage.setItem("bei_theme","light")'`);
   re-check practice tasks with `node scripts/check-practice.js [site URL]`.
 
 ## ⏭️ Next (agreed order)
 
-1. **UI batch 4: older lesson templates.** JS lessons: inline `color:#fff` headings (invisible in light), cards nested
-   3–4 deep on phones. Python/Networks/Cybersecurity lessons (24): no narrator, a second hand-written prev/next footer.
-   Python "Your Turn" boxes unreadable in dark. Lesson title card flat and square on laptops (`.module-header`).
-   HTML lessons: text starts below the first phone screen. MySQL pale cyan type names in light.
-2. **UI batch 5 (needs owner decisions): one map of the subjects.** Home, Start here, Learn hub and Learn menu group
+1. **UI batch 5 (needs owner decisions): one map of the subjects.** Home, Start here, Learn hub and Learn menu group
    the subjects four different ways; the Learn menu lacks Terminal and Git; the tab bar and header use different
    names. Then shorten the 13-screen phone home page (the three-way choice appears twice) and render one footer from
    `js/bei-nav.js`. The home headline types itself and moves the Start button.
-3. **UI batch 6: polish.** Cheat sheets: contents row and breadcrumb, `->` splitting across lines, first box below the
+2. **UI batch 6: polish.** Cheat sheets: contents row and breadcrumb, `->` splitting across lines, first box below the
    first phone screen, laptop gaps, HTML sheet hero text. Textbooks: ASCII diagrams shown as copyable code, Read button
    gradient, small tap targets, "All (34)" vs 32 chapters. Search: subject hidden on phones, no chapters.
    Drawer: "Teachers" under the tab bar. Textbooks page search only matches card text.
-4. **Practice Arena**: only 5 challenges, all JavaScript. Add Python, PHP and SQL challenges (engines exist).
-5. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
+   Light theme, found in batch 4 (contrast under 3:1 on white): Laravel lessons' green/yellow keyword words and
+   headings, HTML lessons' orange table headers and "HTML CODE EDITOR / LIVE BROWSER PREVIEW" labels, pink code on
+   light boxes in HTML modules 9–12, CSS module 5 "Hex Codes". Same fix as the JS and MySQL lessons: the
+   `--text-green|amber|sky|indigo|red|violet|blue` variables in `styles/bei-core.css`.
+3. **Practice Arena**: only 5 challenges, all JavaScript. Add Python, PHP and SQL challenges (engines exist).
+4. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
    a teacher can import.
-6. **Leftover content gaps** found in the review:
+5. **Leftover content gaps** found in the review:
    - JS modules 4–6: the practice textareas already contain the full solutions.
+   - HTML modules 5–12: body text still names the old book chapter (e.g. module 12 "From Chapter 12", the book's
+     chapter is 13); the textbook link under the title card is correct.
    - Python module 7 was not deepened (modules 1–6 and 8 were).
    - Networks module title cards still set old inline "Level" badge colours.
    - `tips.html` and `best-practices.html` overlap in the HTML, CSS and JS tracks.
-7. **Pre-recorded narration**: generate neural MP3s for chapter 1 of each book, play when present, fall back to Web Speech.
-8. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
+6. **Pre-recorded narration**: generate neural MP3s for chapter 1 of each book, play when present, fall back to Web Speech.
+7. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
    `.gemini/agents/css-tutor.md`, run `node scripts/sync-curriculum.js`.
 
 ## ❓ Decisions pending from the owner
@@ -51,6 +53,16 @@ _Last updated: 2026-11-02 (UI review, batches 1–3)._
 
 ## ✅ Done (most recent first)
 
+- 2026-11-02 UI batch 4, older lesson templates: JS lessons 1–9 use palette colours (320 inline pale colours → new
+  `--text-*` accent variables in `styles/bei-core.css`, pale in dark, deep in light; code boxes and the evaluator
+  stay dark), code editors readable in light (main.css forced dark text on them), quiz titles, project checklist,
+  tier tabs and quiz feedback theme-aware, the active step number visible; on phones the boxes inside a section lose
+  their frame (quiz answers ~180px → full width). Python, Networks and Cybersecurity lessons (24): duplicate
+  hand-written prev/next footer removed, narrator row added (`tts-voices.js` + `core.js` as in PHP lessons); Python
+  "Your Turn" box is `.jc-your-turn`, readable in both themes. Lesson and track title cards have padding, rounded
+  corners and no 4rem gap on laptops. HTML lessons: the textbook card is one compact link, chapter numbers corrected
+  (modules 5–12 named the chapter before the one they link). MySQL: `--mysql-brand` deep blue in light, accent
+  colours on variables, title card no longer white on pale cyan. Unused `.book-companion-card` CSS removed.
 - 2026-11-02 UI batch 3, one design for exercises and quizzes: new shared engine `js/practice-cards.js` (GEMINI
   §7f3) with tasks that really run: `js` in a Web Worker, `web` (HTML/CSS in a sandboxed frame), `python` (Pyodide via
   new `js/py-lab.js`), plus predict/fill/choice/bug/order/code. HTML, CSS, JS, Python, Networks and Cybersecurity

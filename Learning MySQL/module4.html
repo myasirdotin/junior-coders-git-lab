@@ -31,25 +31,25 @@
                     </thead>
                     <tbody>
                         <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                            <td style="padding: 0.9rem 1rem; font-size: 1.5rem; font-weight: 800; color: #10b981;">C</td>
+                            <td style="padding: 0.9rem 1rem; font-size: 1.5rem; font-weight: 800; color: var(--text-green);">C</td>
                             <td style="padding: 0.9rem 1rem; font-weight: 700;">Create</td>
                             <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand);">INSERT INTO</code></td>
                             <td style="padding: 0.9rem 1rem;">Add new rows</td>
                         </tr>
                         <tr style="border-bottom: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03);">
-                            <td style="padding: 0.9rem 1rem; font-size: 1.5rem; font-weight: 800; color: #3b82f6;">R</td>
+                            <td style="padding: 0.9rem 1rem; font-size: 1.5rem; font-weight: 800; color: var(--text-blue);">R</td>
                             <td style="padding: 0.9rem 1rem; font-weight: 700;">Read</td>
                             <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand);">SELECT</code></td>
                             <td style="padding: 0.9rem 1rem;">Retrieve data</td>
                         </tr>
                         <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                            <td style="padding: 0.9rem 1rem; font-size: 1.5rem; font-weight: 800; color: #f59e0b;">U</td>
+                            <td style="padding: 0.9rem 1rem; font-size: 1.5rem; font-weight: 800; color: var(--text-amber);">U</td>
                             <td style="padding: 0.9rem 1rem; font-weight: 700;">Update</td>
                             <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand);">UPDATE ... SET</code></td>
                             <td style="padding: 0.9rem 1rem;">Modify existing rows</td>
                         </tr>
                         <tr>
-                            <td style="padding: 0.9rem 1rem; font-size: 1.5rem; font-weight: 800; color: #ef4444;">D</td>
+                            <td style="padding: 0.9rem 1rem; font-size: 1.5rem; font-weight: 800; color: var(--text-red);">D</td>
                             <td style="padding: 0.9rem 1rem; font-weight: 700;">Delete</td>
                             <td style="padding: 0.9rem 1rem;"><code style="color: var(--mysql-brand);">DELETE FROM</code></td>
                             <td style="padding: 0.9rem 1rem;">Remove rows</td>
@@ -83,7 +83,7 @@
         </section>
 
         <section class="content-section">
-            <h2 style="color: #ef4444;">⚠️ DANGER: Always Use WHERE with UPDATE!</h2>
+            <h2 style="color: var(--text-red);">⚠️ DANGER: Always Use WHERE with UPDATE!</h2>
             <p>This is the most important safety rule in SQL. Look at what happens without WHERE:</p>
 
             <div class="code-block" style="border: 2px solid #ef4444;">
