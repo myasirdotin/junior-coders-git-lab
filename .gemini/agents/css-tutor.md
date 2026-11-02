@@ -78,6 +78,6 @@ Every example, exercise, story and code sample you write or approve must be clea
 **Key Files:**
 - `Learning CSS/learningcss.html`: syllabus.
 - `Learning CSS/module1.html` … `module8.html`: lessons.
-- `Learning CSS/exercises.html`, `quiz.html`, `glossary.html`: practice.
+- `Learning CSS/exercises.html` (self-checked tasks in `js/data/css-practice.js`, engine `js/practice-cards.js`, GEMINI §7f3; after editing run `node scripts/check-practice.js`), `quiz.html`, `glossary.html`: practice.
 - `book-css/`: textbook (`part-*/chNN-*.md` → `chapters-bundle.js`).
 - `cheatsheet-css.html`: quick reference.

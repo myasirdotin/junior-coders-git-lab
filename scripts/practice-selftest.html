@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <title>Practice self-test | Junior Coders</title>
+</head>
+<body>
+    <!-- Run by scripts/check-practice.js in headless Chrome; can also be opened by hand.
+         Runs every task in js/data/*-practice.js through js/practice-cards.js: the solution must pass,
+         the starter must fail, predict programs must print their answer. -->
+    <pre id="out">Running…</pre>
+    <script src="../js/py-lab.js"></script>
+    <script src="../js/practice-cards.js"></script>
+    <script src="../js/data/html-practice.js"></script>
+    <script src="../js/data/css-practice.js"></script>
+    <script src="../js/data/js-practice.js"></script>
+    <script src="../js/data/python-practice.js"></script>
+    <script src="../js/data/networks-practice.js"></script>
+    <script src="../js/data/cybersecurity-practice.js"></script>
+    <script src="../js/data/laravel-exercises.js"></script>
+    <script>
+    (async function () {
+        const sets = Object.assign({}, window.JC_PRACTICE || {});
+        if (window.LARAVEL_EXERCISES) sets.laravel = window.LARAVEL_EXERCISES;
+        const checkers = window.LARAVEL_CHECK ? { rules: window.LARAVEL_CHECK.checkRules } : {};
+        const lines = [], report = { tracks: {}, problems: [] };
+        for (const [track, list] of Object.entries(sets)) {
+            const ids = new Set();
+            const tiers = [0, 0, 0];
+            for (const ex of list) {
+                tiers[ex.tier - 1]++;
+                if (ids.has(ex.id)) report.problems.push(`${track}/${ex.id}: id used twice`);
+                ids.add(ex.id);
+                let problems;
+                try { problems = await PracticeCards.verify(ex, checkers); } catch (err) { problems = ['self-test crashed: ' + err.message]; }
+                problems.forEach(p => report.problems.push(`${track}/${ex.id}: ${p}`));
+            }
+            report.tracks[track] = { tasks: list.length, tiers };
+            lines.push(`${track}: ${list.length} tasks (warm-up ${tiers[0]}, apply ${tiers[1]}, challenge ${tiers[2]})`);
+        }
+        lines.push(report.problems.length ? report.problems.map(p => '  ✗ ' + p).join('\n') + `\n${report.problems.length} problem(s)` : 'No problems.');
+        document.getElementById('out').textContent = lines.join('\n');
+        window.__practiceResult = report;
+    })();
+    </script>
+</body>
+</html>

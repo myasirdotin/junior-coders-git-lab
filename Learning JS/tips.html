@@ -6,29 +6,9 @@
     <title>Coding Tips & Reminders</title>
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/bei-core.css">
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 1100px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
-        h1 { color: #2c3e50; text-align: center; }
-        h2 { color: #34495e; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        .tip-section { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .tip-card { background: #e8f4f8; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #3498db; }
-        .tip-card.important { background: #fff3cd; border-left-color: #ffc107; }
-        .tip-card.warning { background: #f8d7da; border-left-color: #dc3545; }
-        .tip-card.success { background: #d4edda; border-left-color: #28a745; }
-        .tip-card.info { background: #e8f4f8; border-left-color: #3498db; }
-        code { background: #2c3e50; color: #ecf0f1; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
-        pre { background: #2c3e50; color: #ecf0f1; padding: 15px; border-radius: 5px; overflow-x: auto; }
-        ul { line-height: 1.8; }
-        .checklist { background: #f0f0f0; padding: 15px; border-radius: 5px; }
-        .two-col { display: flex; gap: 20px; }
-        .two-col > div { flex: 1; }
-        table { width: 100%; border-collapse: collapse; margin: 10px 0; }
-        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
-        th { background: #3498db; color: white; }
-        tr:nth-child(even) { background: #f9f9f9; }
-    </style>
 </head>
 <body>
+    <main class="module-container tips-page">
     <h1>💡 JavaScript Tips & Reminders</h1>
 
     <div class="tip-section">
@@ -311,6 +291,8 @@ element.addEventListener('click', () => {
     <div style="text-align: center; margin-top: 30px; margin-bottom: 50px;">
         <!-- Navigation handled by core.js -->
     </div>
+    </main>
+
     <script src="../js/bei-nav.js"></script>
     <script src="../js/tts-voices.js"></script>
     <script src="../js/core.js"></script>

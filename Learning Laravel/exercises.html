@@ -18,8 +18,8 @@
 
         <section class="sqlx-intro">
             <div class="sqlx-progress">
-                <strong><span id="lrvxDone">0</span> of <span id="lrvxTotal">0</span> solved</strong>
-                <span class="sqlx-progress-bar"><span id="lrvxBar"></span></span>
+                <strong><span id="pcDone">0</span> of <span id="pcTotal">0</span> solved</strong>
+                <span class="sqlx-progress-bar"><span id="pcBar"></span></span>
             </div>
             <div class="sqlx-tiers">
                 <button type="button" class="sqlx-tier-btn active" data-tier="all">All</button>
@@ -31,7 +31,7 @@
             <p class="sqlx-note">Written answers are checked for the key parts, not run. To see your code really work, follow <a href="#build">Build it on your own XAMPP</a> below.</p>
         </section>
 
-        <section id="lrvxList" class="sqlx-list lrvx-list" aria-live="polite"></section>
+        <section id="pcList" class="sqlx-list" aria-live="polite"></section>
 
         <section id="build" class="lrvx-build">
             <h2>🛠️ Build it on your own XAMPP</h2>
@@ -40,224 +40,23 @@
         </section>
     </main>
 
+    <script src="../js/practice-cards.js"></script>
     <script src="../js/data/laravel-exercises.js"></script>
     <script>
     (function () {
         'use strict';
-        const EX = window.LARAVEL_EXERCISES || [];
         const BUILDS = window.LARAVEL_BUILDS || [];
-        const { acceptedOrders, checkRules, checkCode } = window.LARAVEL_CHECK;
-        const list = document.getElementById('lrvxList');
-        const TIER_LABEL = { 1: '🟢 Warm-up', 2: '🟡 Apply', 3: '🔴 Challenge' };
-        const XP = { 1: 15, 2: 25, 3: 40 };
-        const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-        const progress = () => window.beiProgress;
-        const doneKey = (ex) => 'laravel:' + ex.id;
-        const isDone = (ex) => !!(progress() && progress().isExerciseDone(doneKey(ex)));
-        const badLines = (ex) => [].concat(ex.bad);
-
-        document.getElementById('lrvxTotal').textContent = EX.length;
-
-        function updateProgress() {
-            const n = EX.filter(isDone).length;
-            document.getElementById('lrvxDone').textContent = n;
-            document.getElementById('lrvxBar').style.width = (EX.length ? n / EX.length * 100 : 0) + '%';
-        }
-
-        // Steps are shown in a fixed mixed order (same on every visit), never already in the right order
-        function mixedOrder(steps) {
-            const hash = (s) => [...s].reduce((a, c) => (a * 31 + c.charCodeAt(0)) >>> 0, 7);
-            const idx = steps.map((_, i) => i).sort((a, b) => hash(steps[a]) - hash(steps[b]));
-            if (idx.every((v, i) => v === i)) idx.push(idx.shift());
-            return idx;
-        }
-
-        function card(ex, i) {
-            const head = `
-                <header class="sqlx-card-head">
-                    <span class="sqlx-num">${isDone(ex) ? '✓' : i + 1}</span>
-                    <h2>${esc(ex.title)}</h2>
-                    <span class="sqlx-tier t${ex.tier}">${TIER_LABEL[ex.tier]} · ${XP[ex.tier]} XP</span>
-                </header>
-                <p class="sqlx-task">${ex.task}</p>`;
-            const learn = `<p class="lrvx-learn">📖 <a href="module${ex.module}.html">Module ${ex.module}</a> · <a href="../book-laravel/index.html#ch${ex.chapter}">Textbook chapter ${ex.chapter}</a></p>`;
-            const why = `<div class="phpx-why">${ex.why}</div>`;
-            let body = '';
-            if (ex.type === 'predict') {
-                body = `
-                <pre class="phpx-code"><code>${esc(ex.code)}</code></pre>
-                <label class="phpx-label">The page shows:</label>
-                <textarea class="phpx-answer" rows="2" spellcheck="false" placeholder="Type the text exactly"></textarea>
-                <div class="sqlx-actions"><button type="button" class="sqlx-run">✓ Check</button><button type="button" class="sqlx-solution">Show answer</button></div>
-                <div class="sqlx-solbox" hidden><code>${esc(ex.answers[0])}</code>${why}</div>`;
-            } else if (ex.type === 'fill') {
-                body = `
-                <pre class="phpx-code"><code>${esc(ex.code).replace('____', '<mark class="phpx-blank">____</mark>')}</code></pre>
-                <label class="phpx-label">The missing part is:</label>
-                <input type="text" class="phpx-answer phpx-input" spellcheck="false" autocomplete="off" autocapitalize="off" placeholder="Type the missing word">
-                <div class="sqlx-actions"><button type="button" class="sqlx-run">✓ Check</button><button type="button" class="sqlx-solution">Show answer</button></div>
-                <div class="sqlx-solbox" hidden><code>${esc(ex.answers[0])}</code>${why}</div>`;
-            } else if (ex.type === 'choice') {
-                body = `
-                <div class="lrvx-options" role="group" aria-label="Choose one answer">
-                    ${ex.options.map((o, n) => `<button type="button" class="lrvx-option" data-i="${n}">${o}</button>`).join('')}
-                </div>`;
-            } else if (ex.type === 'bug') {
-                body = `
-                <p class="phpx-label">Tap the line with the mistake:</p>
-                <div class="lrvx-lines" role="group" aria-label="Lines of code">
-                    ${ex.lines.map((l, n) => `<button type="button" class="lrvx-line" data-i="${n}"><span class="lrvx-ln">${n + 1}</span><code>${esc(l)}</code></button>`).join('')}
-                </div>
-                <div class="sqlx-actions"><button type="button" class="sqlx-solution">Show answer</button></div>
-                <div class="sqlx-solbox" hidden>Line ${badLines(ex)[0] + 1} is the mistake. Fixed:<pre>${esc(ex.fix)}</pre>${why}</div>`;
-            } else if (ex.type === 'order') {
-                body = `
-                <p class="phpx-label">Tap the steps in order:</p>
-                <div class="lrvx-pool">
-                    ${mixedOrder(ex.steps).map(n => `<button type="button" class="lrvx-step" data-i="${n}">${esc(ex.steps[n])}</button>`).join('')}
-                </div>
-                <p class="phpx-label">Your order (tap a step to take it back):</p>
-                <ol class="lrvx-chosen"></ol>
-                <div class="sqlx-actions">
-                    <button type="button" class="sqlx-run" disabled>✓ Check</button>
-                    <button type="button" class="lrvx-reset">Start again</button>
-                    <button type="button" class="sqlx-solution">Show answer</button>
-                </div>
-                <div class="sqlx-solbox" hidden><ol class="lrvx-answer">${ex.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>${why}</div>`;
-            } else {
-                body = `
-                <textarea class="sqlx-editor lrvx-editor" rows="${ex.type === 'rules' ? 6 : 8}" spellcheck="false" aria-label="Your Laravel code for: ${esc(ex.title)}">${esc(ex.starter)}</textarea>
-                <div class="sqlx-actions">
-                    <button type="button" class="sqlx-run">✓ Check</button>
-                    <button type="button" class="sqlx-hint" data-n="1">Hint 1</button>
-                    <button type="button" class="sqlx-hint" data-n="2">Hint 2</button>
-                    <button type="button" class="sqlx-solution">Show solution</button>
-                </div>
-                <div class="sqlx-hintbox" data-n="1" hidden>${ex.hint1}</div>
-                <div class="sqlx-hintbox" data-n="2" hidden>${ex.hint2}</div>
-                <div class="sqlx-solbox" hidden><pre>${esc(ex.solution)}</pre>${why}</div>`;
-            }
-            return `<article class="sqlx-card${isDone(ex) ? ' done' : ''}" data-tier="${ex.tier}" data-type="${ex.type}" id="ex-${ex.id}">${head}${body}
-                <div class="sqlx-feedback" hidden></div>
-                ${learn}
-            </article>`;
-        }
-
-        list.innerHTML = EX.map(card).join('');
-        updateProgress();
-
         const buildSection = document.getElementById('build');
-        document.querySelectorAll('.sqlx-tier-btn').forEach(b => b.addEventListener('click', () => {
-            document.querySelectorAll('.sqlx-tier-btn').forEach(x => x.classList.toggle('active', x === b));
-            const t = b.dataset.tier;
-            document.querySelectorAll('.sqlx-card[data-tier]').forEach(c => { c.hidden = !(t === 'all' || c.dataset.tier === t); });
-            buildSection.hidden = !(t === 'all' || t === 'build');
-            if (t === 'build') buildSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }));
+        const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
-        const normText = (s) => String(s).replace(/\r/g, '').split('\n').map(l => l.replace(/\s+$/g, '')).join('\n').trim();
-        const normLoose = (s) => normText(s).replace(/\s+/g, ' ').toLowerCase();
-
-        function markSolved(ex, cardEl, fb, extra) {
-            const first = progress() ? progress().completeExercise(doneKey(ex), XP[ex.tier]) : false;
-            fb.hidden = false;
-            fb.className = 'sqlx-feedback ok';
-            fb.innerHTML = (first ? `✅ Correct! +${XP[ex.tier]} XP` : '✅ Correct!') + (extra || '');
-            cardEl.classList.add('done');
-            cardEl.querySelector('.sqlx-num').textContent = '✓';
-            updateProgress();
-            if (first && typeof window.showToast === 'function') window.showToast(`Exercise solved! +${XP[ex.tier]} XP`, 'success');
-        }
-
-        function sayNo(fb, html) {
-            fb.hidden = false;
-            fb.className = 'sqlx-feedback no';
-            fb.innerHTML = html;
-        }
-
-        function renderChosen(cardEl) {
-            const chosen = (cardEl.dataset.chosen || '').split(',').filter(Boolean);
-            const ex = EX.find(x => 'ex-' + x.id === cardEl.id);
-            cardEl.querySelector('.lrvx-chosen').innerHTML = chosen.map(n =>
-                `<li><button type="button" class="lrvx-picked" data-i="${n}">${esc(ex.steps[n])}</button></li>`).join('');
-            cardEl.querySelectorAll('.lrvx-step').forEach(b => { b.hidden = chosen.includes(b.dataset.i); });
-            cardEl.querySelector('.sqlx-run').disabled = chosen.length !== ex.steps.length;
-        }
-
-        list.addEventListener('click', (e) => {
-            const cardEl = e.target.closest('.sqlx-card');
-            if (!cardEl) return;
-            const ex = EX.find(x => 'ex-' + x.id === cardEl.id);
-            const fb = cardEl.querySelector('.sqlx-feedback');
-
-            if (e.target.closest('.sqlx-hint')) {
-                const box = cardEl.querySelector(`.sqlx-hintbox[data-n="${e.target.closest('.sqlx-hint').dataset.n}"]`);
-                box.hidden = !box.hidden;
-            } else if (e.target.closest('.sqlx-solution')) {
-                const box = cardEl.querySelector('.sqlx-solbox');
-                box.hidden = !box.hidden;
-            } else if (e.target.closest('.lrvx-option')) {
-                const btn = e.target.closest('.lrvx-option');
-                cardEl.querySelectorAll('.lrvx-option').forEach(o => o.classList.remove('is-right', 'is-wrong'));
-                if (+btn.dataset.i === ex.answer) { btn.classList.add('is-right'); markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>'); }
-                else { btn.classList.add('is-wrong'); sayNo(fb, '❌ Not that one. Read the task again and try another answer.'); }
-            } else if (e.target.closest('.lrvx-line')) {
-                const btn = e.target.closest('.lrvx-line');
-                cardEl.querySelectorAll('.lrvx-line').forEach(o => o.classList.remove('is-right', 'is-wrong'));
-                if (badLines(ex).includes(+btn.dataset.i)) {
-                    btn.classList.add('is-right');
-                    markSolved(ex, cardEl, fb, '<div class="phpx-why">Fixed:<pre class="phpx-code">' + esc(ex.fix) + '</pre>' + ex.why + '</div>');
-                } else {
-                    btn.classList.add('is-wrong');
-                    sayNo(fb, '❌ That line is fine. Think about what the task says goes wrong, and look again.');
-                }
-            } else if (e.target.closest('.lrvx-step')) {
-                cardEl.dataset.chosen = [...(cardEl.dataset.chosen || '').split(',').filter(Boolean), e.target.closest('.lrvx-step').dataset.i].join(',');
-                fb.hidden = true;
-                renderChosen(cardEl);
-            } else if (e.target.closest('.lrvx-picked')) {
-                const n = e.target.closest('.lrvx-picked').dataset.i;
-                cardEl.dataset.chosen = (cardEl.dataset.chosen || '').split(',').filter(x => x && x !== n).join(',');
-                fb.hidden = true;
-                renderChosen(cardEl);
-            } else if (e.target.closest('.lrvx-reset')) {
-                cardEl.dataset.chosen = '';
-                fb.hidden = true;
-                renderChosen(cardEl);
-            } else if (e.target.closest('.sqlx-run')) {
-                if (ex.type === 'predict') {
-                    const got = normLoose(cardEl.querySelector('.phpx-answer').value);
-                    if (ex.answers.some(a => normLoose(a) === got)) markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>');
-                    else sayNo(fb, '❌ Not quite. Follow the code line by line and try again, or show the answer.');
-                } else if (ex.type === 'fill') {
-                    const got = cardEl.querySelector('.phpx-answer').value.trim().toLowerCase();
-                    if (ex.answers.map(a => a.toLowerCase()).includes(got)) markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>');
-                    else sayNo(fb, '❌ That is not it. Think about what the task is asking for.');
-                } else if (ex.type === 'order') {
-                    const got = (cardEl.dataset.chosen || '');
-                    if (acceptedOrders(ex).includes(got)) { markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + '</div>'); return; }
-                    const mine = got.split(',');
-                    const right = Math.max(...acceptedOrders(ex).map(o => o.split(',').findIndex((n, i) => n !== mine[i])));
-                    sayNo(fb, right === 0
-                        ? '❌ Not yet: the first step is not right. What has to happen before anything else?'
-                        : `❌ Not yet: the first ${right} step${right === 1 ? ' is' : 's are'} in the right place. Take back the later ones and think about what must exist first.`);
-                } else {
-                    const src = cardEl.querySelector('.lrvx-editor').value;
-                    const problem = ex.type === 'rules' ? checkRules(ex, src) : checkCode(ex, src);
-                    if (problem) sayNo(fb, '❌ Almost there. ' + problem);
-                    else markSolved(ex, cardEl, fb, '<div class="phpx-why">' + ex.why + ' Now try it in your own project to see it work.</div>');
-                }
-            }
-        });
-
-        list.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter' && (e.target.classList.contains('lrvx-editor') || e.target.classList.contains('phpx-answer'))) {
-                e.preventDefault();
-                e.target.closest('.sqlx-card').querySelector('.sqlx-run').click();
-            }
-            if (e.key === 'Enter' && e.target.classList.contains('phpx-input')) {
-                e.preventDefault();
-                e.target.closest('.sqlx-card').querySelector('.sqlx-run').click();
+        PracticeCards.mount({
+            exercises: window.LARAVEL_EXERCISES || [],
+            prefix: 'laravel',
+            book: 'laravel',
+            checkers: { rules: window.LARAVEL_CHECK.checkRules },
+            onTier: (t) => {
+                buildSection.hidden = !(t === 'all' || t === 'build');
+                if (t === 'build') buildSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
 

@@ -225,11 +225,17 @@ These rules come from real bugs found in this site. Follow them for every change
    keys `kotlin:<id>`). `expected` is the reference output: after any edit run `node scripts/check-kotlin-exercises.js`,
    which compiles every solution and predict program and must report no problems. Tasks are plain Kotlin from
    book-android chapters 4–8 (Compose needs Android Studio). No `!!`.
-7f3. **Laravel practice is checked by the page.** Laravel cannot run in a browser, so `Learning Laravel/exercises.html`
-   never pretends to run code: its tasks (`js/data/laravel-exercises.js`: `predict`, `fill`, `choice`, `bug`, `order`,
-   `rules`, `code`; keys `laravel:<id>`) are checked by `LARAVEL_CHECK` in the same file, and the page says written
-   answers are checked for their key parts. The "Build it on your own XAMPP" checklists are ticked by the student and
-   earn no XP. After any edit run `node scripts/check-laravel-exercises.js` (every solution passes, every starter fails).
+7f3. **One engine for the self-checked exercise pages.** `Learning HTML|CSS|JS|Python|Networks|Cybersecurity|Laravel/
+   exercises.html` are small pages that run `js/practice-cards.js` on `js/data/<track>-practice.js` (Laravel:
+   `js/data/laravel-exercises.js`). Task types and fields are listed at the top of `js/practice-cards.js`: `predict`,
+   `fill`, `choice`, `bug`, `order`, `code` (checked for key parts, nothing runs), and three that really run: `js`
+   (a Web Worker with a time limit, compared with the solution), `web` (HTML/CSS rendered in a sandboxed frame and
+   checked) and `python` (Pyodide via `js/py-lab.js`, output compared with the solution's). Keys `<track>:<id>`, 15/25/40
+   XP by tier. Never fake a run: if an engine cannot load, the page says so. After any edit run
+   `node scripts/check-practice.js [site URL]`: it opens `scripts/practice-selftest.html` in headless Chrome and checks
+   that every solution passes, every starter fails and every predicted output is what the code really prints. Laravel
+   cannot run in a browser, so its page says written answers are checked for their key parts; its "Build it on your
+   own XAMPP" checklists are ticked by the student and earn no XP (`node scripts/check-laravel-exercises.js` too).
 7g. **Three-tier practice uses one markup.** Every `moduleN.html` ends its teaching with one
    `<section class="content-section jc-tiers">` holding `.jc-tier.jc-tier-1` (🟢 Recall), `.jc-tier-2` (🟡 Apply) and
    `.jc-tier-3` (🔴 Challenge), each answer in `<details class="jc-answer">`. Styles live in `styles/bei-core.css` and

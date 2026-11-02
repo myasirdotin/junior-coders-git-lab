@@ -11,7 +11,7 @@ A comprehensive HTML learning platform for beginners. This folder contains a com
 Learning HTML/
 ├── index.html          # Interactive code playground
 ├── learninghtml.html   # Course syllabus and learning path
-├── exercises.html      # Practice exercises with starter code
+├── exercises.html      # 18 self-checked exercises (js/data/html-practice.js): your page is built and checked
 ├── glossary.html       # HTML terms and definitions
 ├── module1.html        # Introduction to HTML
 ├── module2.html        # Text & Headings

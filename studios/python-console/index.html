@@ -130,6 +130,8 @@
                             <option value="grades">📊 Snippet: Student Grade Analyzer</option>
                             <option value="fibonacci">🔢 Snippet: Fibonacci Sequence</option>
                             <option value="wordcount">📖 Snippet: Word Frequency Counter</option>
+                            <option value="solar">☀️ Snippet: Solar Data Report</option>
+                            <option value="classifier">🌿 Snippet: Plant Health Classifier</option>
                         </select>
                         <button id="runPythonBtn" class="btn-hero-primary" style="padding: 0.35rem 0.9rem; font-size: 0.82rem; background: var(--brand-purple);" disabled>
                             ▶ Run Code
@@ -241,6 +243,36 @@ for w in words:
 
 for word, count in counts.items():
     print(f"{word:12} : {'█' * count} ({count})")
+`,
+            solar: `# Community Solar Farm Report
+daily_harvest_kwh = [45.2, 52.0, 39.5, 48.1, 55.4, 49.0, 51.2]
+total = sum(daily_harvest_kwh)
+average = total / len(daily_harvest_kwh)
+
+print("☀️ WEEKLY CLEAN ENERGY REPORT")
+print(f"Total generation : {total:.1f} kWh")
+print(f"Daily average    : {average:.1f} kWh")
+print(f"Best day         : {max(daily_harvest_kwh)} kWh")
+`,
+            classifier: `# A simple rule-based plant health check (teaching example, not a real diagnosis)
+def classify_crop_health(leaf_spots, humidity):
+    if leaf_spots == 0 and humidity < 60:
+        return "Healthy plant 🌿"
+    elif leaf_spots > 5 and humidity >= 70:
+        return "High blight risk ⚠️ (ask an expert)"
+    else:
+        return "Keep watching 🔍"
+
+test_batch = [
+    {"plant": "Olive-A1", "spots": 0, "humidity": 45},
+    {"plant": "Date-B4", "spots": 8, "humidity": 78},
+    {"plant": "Fig-C2", "spots": 2, "humidity": 55}
+]
+
+print("🤖 CROP HEALTH CHECK")
+for crop in test_batch:
+    diagnosis = classify_crop_health(crop["spots"], crop["humidity"])
+    print(f"{crop['plant']:<8} | spots: {crop['spots']} | {diagnosis}")
 `
         };
 

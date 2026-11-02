@@ -289,6 +289,7 @@
 
         /* Editor Section */
         .editor-section {
+            min-width: 0;   /* a grid child: without this the toolbar pushed the page wider than a phone */
             border-right: 1px solid #1e293b;
             display: flex;
             flex-direction: column;
@@ -297,6 +298,8 @@
 
         .editor-header-bar {
             display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
             align-items: center;
             justify-content: space-between;
             background: #0f172a;
@@ -319,6 +322,7 @@
 
         .editor-quick-tools {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             gap: 0.35rem;
         }

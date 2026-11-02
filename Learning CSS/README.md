@@ -8,7 +8,7 @@ Welcome to the CSS Learning Platform! This interactive platform is designed to h
 Learning CSS/
 ├── index.html          # Main playground with live CSS preview
 ├── learningcss.html    # Course syllabus and learning path
-├── exercises.html      # Practice exercises with hints and solutions
+├── exercises.html      # 18 self-checked exercises (js/data/css-practice.js): your styles are checked on a real page
 ├── glossary.html       # CSS terminology reference
 ├── module1.html        # Module 1: Introduction to CSS
 ├── module2.html        # Module 2: Colors & Text (coming soon)

@@ -2858,6 +2858,74 @@ body.bei-search-open { overflow: hidden; }
 .phpx-why { margin-top: 0.4rem; font-weight: 500; color: var(--text-secondary); font-size: 0.88rem; }
 .sqlx-card .sqlx-solbox pre { margin: 0; white-space: pre-wrap; font-family: inherit; }
 
+/* Tips and Best Practices pages (Learning HTML|CSS|JS/tips.html, best-practices.html): one theme-aware look.
+   These pages used to carry their own light-only <style> blocks, which made them unreadable in the dark theme. */
+.tips-page h1 { text-align: center; margin: 0.5rem 0 0.5rem; }
+.tips-page .subtitle { text-align: center; color: var(--text-secondary); margin: 0 0 1.5rem; }
+.tips-page :is(.tip-section, .practice-section) {
+    background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
+    padding: 1.25rem 1.35rem; margin: 1.25rem 0; scroll-margin-top: 80px;
+}
+.tips-page :is(.tip-section, .practice-section) h2 { margin: 0 0 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--border-subtle); font-size: 1.35rem; }
+.tips-page .section-header { display: flex; align-items: center; gap: 0.75rem; }
+.tips-page :is(.tip-card, .good, .bad, .tip-box) {
+    padding: 0.9rem 1rem; margin: 0.75rem 0; border-radius: var(--radius-md);
+    background: var(--bg-surface-elevated); border-left: 5px solid var(--brand-cyan); min-width: 0;
+}
+.tips-page .tip-card.important, .tips-page .tip-box { border-left-color: var(--brand-amber); background: rgba(217, 119, 6, 0.1); }
+.tips-page .tip-card.warning, .tips-page .bad { border-left-color: var(--brand-rose); background: rgba(225, 29, 72, 0.08); }
+.tips-page .tip-card.success, .tips-page .good { border-left-color: var(--brand-accent); background: rgba(5, 150, 105, 0.09); }
+.tips-page :is(.tip-card, .good, .bad, .tip-box) h3 { margin: 0 0 0.4rem; font-size: 1.1rem; }
+.tips-page .good h3 { color: var(--brand-accent); }
+.tips-page .bad h3 { color: var(--brand-rose); }
+.tips-page ul { padding-left: 1.3rem; line-height: 1.75; }
+.tips-page p, .tips-page li { color: var(--text-secondary); }
+.tips-page pre { background: #0f172a; color: #e2e8f0; padding: 0.9rem 1rem; border-radius: var(--radius-sm); font-size: 0.9rem; line-height: 1.5; }
+.tips-page :not(pre) > code { background: var(--brand-primary-light); color: var(--text-primary); padding: 0.1em 0.4em; border-radius: 4px; }
+.tips-page .checklist { background: var(--bg-surface-elevated); padding: 0.9rem 1rem; border-radius: var(--radius-sm); }
+.tips-page :is(.two-col, .comparison) { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 1rem; }
+.tips-page table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.92rem; }
+.tips-page :is(th, td) { padding: 0.55rem 0.7rem; border: 1px solid var(--border-subtle); text-align: left; color: var(--text-secondary); }
+.tips-page th { background: var(--brand-primary-light); color: var(--text-primary); }
+.tips-page .anchor-nav { margin: 0 0 1.25rem; }
+.tips-page .anchor-nav ul { list-style: none; display: flex; gap: 0.5rem; margin: 0; padding: 0 0 0.25rem; overflow-x: auto; scrollbar-width: thin; }
+.tips-page .anchor-nav a {
+    display: inline-flex; align-items: center; min-height: 38px; padding: 0.35rem 0.9rem; white-space: nowrap;
+    border-radius: 999px; border: 1px solid var(--border-subtle); background: var(--bg-surface);
+    color: var(--text-primary); text-decoration: none; font-weight: 600; font-size: 0.88rem;
+}
+.tips-page .anchor-nav a:hover { border-color: var(--brand-primary); }
+
+/* Quizzes (checkQuiz in js/core.js): the right answer is marked after checking; the result stays on the page */
+.quiz-question input[type="radio"] { flex-shrink: 0; }   /* long answers squeezed the radio circle */
+.quiz-question label.quiz-right { border-color: rgba(16, 185, 129, 0.6); background: rgba(16, 185, 129, 0.12); }
+.quiz-question label.quiz-wrong { border-color: rgba(244, 63, 94, 0.55); background: rgba(244, 63, 94, 0.1); }
+.quiz-feedback { font-weight: 600; line-height: 1.5; }
+.quiz-feedback .quiz-answer { padding: 0.05rem 0.35rem; border-radius: 4px; background: rgba(16, 185, 129, 0.15); color: var(--text-primary); }
+.quiz-feedback .quiz-why { display: inline-block; margin-top: 0.25rem; font-weight: 500; color: var(--text-secondary); }
+.quiz-result {
+    margin-top: 1.25rem; padding: 1rem 1.2rem; border-radius: var(--radius-md);
+    background: var(--brand-primary-light); border: 1px solid var(--border-hover); color: var(--text-primary);
+    display: flex; flex-wrap: wrap; gap: 0.5rem 0.9rem; align-items: center;
+}
+.quiz-result strong { font-size: 1.1rem; }
+.quiz-result .quiz-retry {
+    min-height: 40px; padding: 0.45rem 1rem; border-radius: 999px; cursor: pointer; font: inherit; font-weight: 700;
+    background: var(--brand-primary); color: #fff; border: none;
+}
+
+/* Cybersecurity title card (the other tracks' path-* colours live in styles/main.css) */
+.module-header.path-cyber { background: linear-gradient(135deg, #059669, #047857); }
+
+/* Self-checked practice pages (js/practice-cards.js): reuse sqlx-*, phpx-* and lrvx-*; these are the extras */
+.pc-editor { color: #e2e8f0; min-height: 120px; tab-size: 4; }
+.pc-tests { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; gap: 0.3rem; font-size: 0.88rem; }
+.pc-tests li { padding: 0.35rem 0.6rem; border-radius: var(--radius-sm); background: var(--bg-surface-elevated); color: var(--text-secondary); }
+.pc-tests .pc-pass { color: #10b981; }
+.pc-tests .pc-fail { color: var(--text-primary); box-shadow: inset 3px 0 0 #f43f5e; }
+.pc-preview-wrap { margin-top: 0.6rem; }
+.pc-preview { width: 100%; height: 220px; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); background: #fff; }
+
 /* Web Studio "Debugging tips" panel buttons (js/bei-tutor.js) */
 .tutor-chip {
     flex: 0 0 auto; min-height: 38px; padding: 0.45rem 0.85rem; border-radius: 999px; cursor: pointer;

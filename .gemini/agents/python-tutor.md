@@ -78,7 +78,7 @@ Every example, exercise, story and code sample you write or approve must be clea
 **Key Files:**
 - `Learning Python/learningpython.html`: syllabus.
 - `Learning Python/module1.html` … `module8.html`: lessons.
-- `Learning Python/exercises.html`, `quiz.html`, `glossary.html`: practice.
+- `Learning Python/exercises.html` (self-checked tasks in `js/data/python-practice.js`, engine `js/practice-cards.js`, GEMINI §7f3; after editing run `node scripts/check-practice.js`), `quiz.html`, `glossary.html`: practice.
 - `studios/python-console/`: in-browser Python.
 - `book-python/`: textbook (`part-*/chNN-*.md` → `chapters-bundle.js`).
 - `cheatsheet-python.html`: quick reference.

@@ -800,20 +800,54 @@
         const questions = quizForm.querySelectorAll('.quiz-question');
         let score = 0;
 
+        // Each answer is marked; a wrong or empty answer shows the right one, and data-explain (if any) says why
         questions.forEach(q => {
             const selected = q.querySelector('input[type="radio"]:checked');
             const feedback = q.querySelector('.quiz-feedback');
             const correctAnswer = q.dataset.answer || q.querySelector('input[type="radio"][data-correct]')?.value;
+            const rightInput = q.querySelector(`input[type="radio"][value="${correctAnswer}"]`);
+            const rightLabel = rightInput ? rightInput.closest('label') : null;
+            const escText = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            const why = q.dataset.explain ? '<br><span class="quiz-why">' + escText(q.dataset.explain) + '</span>' : '';
+            q.querySelectorAll('label').forEach(l => l.classList.remove('quiz-right', 'quiz-wrong'));
 
             if (selected && selected.value === correctAnswer) {
                 score++;
-                if (feedback) { feedback.textContent = '✓ Correct!'; feedback.className = 'quiz-feedback correct'; }
+                if (rightLabel) rightLabel.classList.add('quiz-right');
+                if (feedback) { feedback.innerHTML = '✓ Correct!' + why; feedback.className = 'quiz-feedback correct'; }
             } else {
-                if (feedback) { feedback.textContent = '✗ Try again'; feedback.className = 'quiz-feedback incorrect'; }
+                if (selected) selected.closest('label').classList.add('quiz-wrong');
+                if (rightLabel) rightLabel.classList.add('quiz-right');
+                const right = rightLabel ? rightLabel.textContent.trim() : '';
+                if (feedback) {
+                    feedback.innerHTML = (selected ? '✗ Not quite.' : '✗ Not answered.') +
+                        (right ? ' The right answer is <span class="quiz-answer">' + escText(right) + '</span>' : '') + why;
+                    feedback.className = 'quiz-feedback incorrect';
+                }
             }
         });
 
-        window.showToast(`You scored ${score}/${questions.length}!`, score === questions.length ? 'success' : 'error');
+        // A result box that stays (a toast disappears before students read it)
+        let result = quizForm.querySelector('.quiz-result');
+        if (!result) {
+            result = document.createElement('div');
+            result.className = 'quiz-result';
+            result.setAttribute('role', 'status');
+            quizForm.appendChild(result);
+        }
+        const total = questions.length;
+        const advice = score === total ? 'Excellent: every answer is right. 🌟'
+            : score >= total * 0.7 ? 'Well done. Read the corrections above, then try the questions you missed again.'
+            : 'Read each correction above and look at the lesson again, then try once more.';
+        result.innerHTML = `<strong>You scored ${score} out of ${total}.</strong> <span>${advice}</span> <button type="button" class="quiz-retry">Try again</button>`;
+        result.querySelector('.quiz-retry').onclick = () => {
+            quizForm.reset();
+            quizForm.querySelectorAll('.quiz-feedback').forEach(f => { f.textContent = ''; f.className = 'quiz-feedback'; });
+            quizForm.querySelectorAll('label').forEach(l => l.classList.remove('quiz-right', 'quiz-wrong'));
+            result.remove();
+            quizForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+        result.scrollIntoView({ behavior: 'smooth', block: 'center' });
     };
 
     // --- Search Engine ---

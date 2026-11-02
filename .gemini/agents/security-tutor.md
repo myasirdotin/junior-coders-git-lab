@@ -77,6 +77,6 @@ Every example, exercise, story and code sample you write or approve must be clea
 **Key Files:**
 - `Learning Cybersecurity/learningcybersecurity.html`: syllabus.
 - `Learning Cybersecurity/module1.html` … `module8.html`: lessons.
-- `Learning Cybersecurity/exercises.html`, `quiz.html`, `glossary.html`, `playground.html`.
+- `Learning Cybersecurity/exercises.html` (self-checked tasks in `js/data/cybersecurity-practice.js`, engine `js/practice-cards.js`, GEMINI §7f3; after editing run `node scripts/check-practice.js`), `quiz.html`, `glossary.html`, `playground.html`.
 - `book-cybersecurity/`: textbook (`part-*/chNN-*.md` → `chapters-bundle.js`).
 - `cheatsheet-cybersecurity.html`: quick reference.

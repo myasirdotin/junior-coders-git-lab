@@ -14,7 +14,7 @@ A self-contained, interactive JavaScript learning platform for beginners. No ext
 ```
 Learning JS/
 ├── index.html          # Interactive code playground
-├── exercises.html      # 9 exercises (beginner to advanced) with hints & solutions
+├── exercises.html      # 16 self-checked exercises (js/data/js-practice.js): your code runs and is tested
 ├── learningjs.html     # Course syllabus with 9 modules across 6 weeks
 ├── glossary.html       # Searchable glossary of JavaScript terms
 ├── module1-9.html      # Individual lesson modules with reading, quizzes, practice

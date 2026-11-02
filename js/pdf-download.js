@@ -374,11 +374,12 @@
 
         // Floating button only where the page has no PDF button of its own (module pages get one in the
         // title card, cheat sheets get a download bar): one PDF button per page, not three.
-        if (!isModule && !isCheat && isHub ||
+        // Not on pages for doing (exercises, quizzes, playgrounds): it covered their Check buttons on phones.
+        const isDoing = /\/(exercises|quiz|playground)(\.html)?$/.test(path);
+        if (!isDoing && (!isModule && !isCheat && isHub ||
             path.includes('best-practice') ||
             path.includes('glossary') ||
-            path.includes('tips') ||
-            path.includes('exercise')) {
+            path.includes('tips'))) {
             if (!document.getElementById('pdf-fab')) {
                 document.body.appendChild(createFAB());
             }

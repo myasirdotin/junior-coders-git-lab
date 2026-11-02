@@ -77,6 +77,6 @@ Every example, exercise, story and code sample you write or approve must be clea
 **Key Files:**
 - `Learning HTML/learninghtml.html`: syllabus.
 - `Learning HTML/module1.html` … `module12.html`: lessons.
-- `Learning HTML/exercises.html`, `quiz.html`, `glossary.html`: practice.
+- `Learning HTML/exercises.html` (self-checked tasks in `js/data/html-practice.js`, engine `js/practice-cards.js`, GEMINI §7f3; after editing run `node scripts/check-practice.js`), `quiz.html`, `glossary.html`: practice.
 - `book-html/`: textbook (chapters in `part-*/chNN-*.md`, bundled into `chapters-bundle.js`).
 - `cheatsheet-html.html`: quick reference.

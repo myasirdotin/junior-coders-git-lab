@@ -76,6 +76,6 @@ Every example, exercise, story and code sample you write or approve must be clea
 **Key Files:**
 - `Learning Networks/learningnetworks.html`: syllabus.
 - `Learning Networks/module1.html` … `module8.html`: lessons.
-- `Learning Networks/exercises.html`, `quiz.html`, `glossary.html`, `playground.html`.
+- `Learning Networks/exercises.html` (self-checked tasks in `js/data/networks-practice.js`, engine `js/practice-cards.js`, GEMINI §7f3; after editing run `node scripts/check-practice.js`), `quiz.html`, `glossary.html`, `playground.html`.
 - `book-networks/`: textbook (`part-*/chNN-*.md` → `chapters-bundle.js`).
 - `cheatsheet-networks.html`: quick reference.

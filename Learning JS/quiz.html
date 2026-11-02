@@ -3,131 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz & Games - Test Your Knowledge</title>
+    <title>JavaScript Quiz: 10 Questions | Junior Coders</title>
+    <meta name="description" content="Ten quick questions on JavaScript: variables, types, operators, conditions, functions, arrays, loops, the DOM, objects and events.">
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/bei-core.css">
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; background: #f5f5f5; }
-        h1 { color: #2c3e50; text-align: center; }
-        .quiz-container { background: white; padding: 20px; border-radius: 10px; margin: 20px 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        .question { font-size: 18px; font-weight: bold; margin-bottom: 15px; color: #34495e; }
-        .options { display: flex; flex-direction: column; gap: 10px; }
-        .option { padding: 12px; border: 2px solid #3498db; border-radius: 5px; cursor: pointer; transition: all 0.3s; }
-        .option:hover { background: #ebf5fb; }
-        .option.correct { background: #d4edda; border-color: #28a745; }
-        .option.wrong { background: #f8d7da; border-color: #dc3545; }
-        .score { text-align: center; font-size: 24px; color: #27ae60; margin-top: 20px; }
-        .btn { background: #3498db; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; margin: 5px; }
-        .btn:hover { background: #2980b9; }
-    </style>
 </head>
 <body>
-    <h1>🎮 Quiz & Games - Test Your JavaScript Knowledge</h1>
-    
-    <div class="quiz-container">
-        <h2>📝 JavaScript Quiz</h2>
-        <div id="js-quiz1">
-            <div class="question">1. How do you declare a variable in modern JavaScript?</div>
-            <div class="options">
-                <div class="option" onclick="checkAnswer(this, false)">var x = 5</div>
-                <div class="option" onclick="checkAnswer(this, true)">let x = 5</div>
-                <div class="option" onclick="checkAnswer(this, false)">variable x = 5</div>
-                <div class="option" onclick="checkAnswer(this, false)">int x = 5</div>
-            </div>
-        </div>
-    </div>
+    <main class="module-container">
+        <header class="module-header path-js">
+            <span class="badge" style="background: white; color: var(--js-brand);">Quiz</span>
+            <h1>JavaScript Quiz 🧠</h1>
+            <p>Ten questions covering the whole JavaScript track. Pick an answer for each, then press <strong>Check my answers</strong>.</p>
+        </header>
 
-    <div class="quiz-container">
-        <h2>📝 JavaScript Quiz</h2>
-        <div id="js-quiz2">
-            <div class="question">2. Which method is used to print output to the console?</div>
-            <div class="options">
-                <div class="option" onclick="checkAnswer(this, false)">print()</div>
-                <div class="option" onclick="checkAnswer(this, true)">console.log()</div>
-                <div class="option" onclick="checkAnswer(this, false)">echo()</div>
-                <div class="option" onclick="checkAnswer(this, false)">write()</div>
-            </div>
-        </div>
-    </div>
+        <section class="content-card">
+            <form id="quiz-form-js" onsubmit="event.preventDefault(); checkQuiz('js');">
+                <div class="quiz-question" data-answer="b" data-explain="let makes a variable you can change; const makes one you cannot give a new value. var is the old way.">
+                    <p>Q1: Which line makes a variable you can change later, the modern way?</p>
+                    <label><input type="radio" name="q1" value="a"> variable score = 0;</label>
+                    <label><input type="radio" name="q1" value="b"> let score = 0;</label>
+                    <label><input type="radio" name="q1" value="c"> score := 0;</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c" data-explain="console.log() writes to the browser's console, where programmers check their values.">
+                    <p>Q2: Which line prints a message in the console?</p>
+                    <label><input type="radio" name="q2" value="a"> print("Hello");</label>
+                    <label><input type="radio" name="q2" value="b"> echo "Hello";</label>
+                    <label><input type="radio" name="q2" value="c"> console.log("Hello");</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a" data-explain="When one side of + is text, JavaScript joins instead of adding: &quot;5&quot; + 3 is &quot;53&quot;.">
+                    <p>Q3: What is <code>"5" + 3</code>?</p>
+                    <label><input type="radio" name="q3" value="a"> "53"</label>
+                    <label><input type="radio" name="q3" value="b"> 8</label>
+                    <label><input type="radio" name="q3" value="c"> An error</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b" data-explain="=== checks the value and the type, so the number 7 is not the same as the text &quot;7&quot;.">
+                    <p>Q4: What does <code>7 === "7"</code> give?</p>
+                    <label><input type="radio" name="q4" value="a"> true</label>
+                    <label><input type="radio" name="q4" value="b"> false</label>
+                    <label><input type="radio" name="q4" value="c"> "7"</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c" data-explain="// starts a comment in JavaScript. &lt;!-- --&gt; is for HTML and # is for Python.">
+                    <p>Q5: How do you write a one-line comment in JavaScript?</p>
+                    <label><input type="radio" name="q5" value="a"> &lt;!-- a note --&gt;</label>
+                    <label><input type="radio" name="q5" value="b"> # a note</label>
+                    <label><input type="radio" name="q5" value="c"> // a note</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a" data-explain="return hands a value back to the code that called the function.">
+                    <p>Q6: Which keyword sends a value back out of a function?</p>
+                    <label><input type="radio" name="q6" value="a"> return</label>
+                    <label><input type="radio" name="q6" value="b"> output</label>
+                    <label><input type="radio" name="q6" value="c"> send</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b" data-explain="Positions start at 0, so [1] is the second item.">
+                    <p>Q7: <code>let names = ["Zayd", "Maryam", "Bilal"];</code> What is <code>names[1]</code>?</p>
+                    <label><input type="radio" name="q7" value="a"> "Zayd"</label>
+                    <label><input type="radio" name="q7" value="b"> "Maryam"</label>
+                    <label><input type="radio" name="q7" value="c"> "Bilal"</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="c" data-explain="i takes the values 0, 1 and 2; when i becomes 3, i &lt; 3 is false and the loop stops.">
+                    <p>Q8: How many times does <code>for (let i = 0; i &lt; 3; i++) { … }</code> run its body?</p>
+                    <label><input type="radio" name="q8" value="a"> 2</label>
+                    <label><input type="radio" name="q8" value="b"> 4</label>
+                    <label><input type="radio" name="q8" value="c"> 3</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="a" data-explain="querySelector takes a CSS selector; #tip finds the element with id=&quot;tip&quot;.">
+                    <p>Q9: Which line finds the element with <code>id="tip"</code> on the page?</p>
+                    <label><input type="radio" name="q9" value="a"> document.querySelector("#tip")</label>
+                    <label><input type="radio" name="q9" value="b"> document.querySelector(".tip")</label>
+                    <label><input type="radio" name="q9" value="c"> page.find("tip")</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <div class="quiz-question" data-answer="b" data-explain="Pass the function itself (no brackets). showHelp() would run it straight away, before any click.">
+                    <p>Q10: Which line runs <code>showHelp</code> each time the button is clicked?</p>
+                    <label><input type="radio" name="q10" value="a"> button.addEventListener("click", showHelp());</label>
+                    <label><input type="radio" name="q10" value="b"> button.addEventListener("click", showHelp);</label>
+                    <label><input type="radio" name="q10" value="c"> button.onClick = "showHelp";</label>
+                    <div class="quiz-feedback"></div>
+                </div>
+                <button type="submit" class="btn-primary" style="margin-top: 1rem;">Check my answers</button>
+            </form>
+        </section>
 
-    <div class="quiz-container">
-        <h2>📝 JavaScript Quiz</h2>
-        <div id="js-quiz3">
-            <div class="question">3. How do you write a comment in JavaScript?</div>
-            <div class="options">
-                <div class="option" onclick="checkAnswer(this, false)">&lt;!-- comment --&gt;</div>
-                <div class="option" onclick="checkAnswer(this, false)"># comment</div>
-                <div class="option" onclick="checkAnswer(this, true)">// comment</div>
-                <div class="option" onclick="checkAnswer(this, true)">/* comment */</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="quiz-container">
-        <h2>🎯 True or False</h2>
-        <div class="question">4. JavaScript is the same as Java.</div>
-        <button class="btn" onclick="showFeedback(this, false)">True</button>
-        <button class="btn" onclick="showFeedback(this, true)">False</button>
-        <p class="feedback"></p>
-    </div>
-
-    <div class="quiz-container">
-        <h2>🔢 Fill in the Blank</h2>
-        <div class="question">5. To create a function in JavaScript, use the _____ keyword.</div>
-        <input type="text" id="answer5" placeholder="Type your answer..." style="padding: 10px; font-size: 16px; width: 200px;">
-        <button class="btn" onclick="checkFillBlank()">Check Answer</button>
-    </div>
-
-    <div class="score">
-        Score: <span id="score">0</span> / 5
-    </div>
+        <section class="content-card" style="margin-top: 1.5rem;">
+            <h2>Keep practising</h2>
+            <p>Try the <a href="exercises.html">JavaScript exercises</a> (your code runs and is tested), experiment in the <a href="../studios/web-studio/index.html">Web Studio</a>, or look terms up in the <a href="glossary.html">glossary</a>.</p>
+        </section>
+    </main>
 
     <script src="../js/bei-nav.js"></script>
     <script src="../js/tts-voices.js"></script>
     <script src="../js/core.js"></script>
-    <script>
-        let score = 0;
-        
-        function checkAnswer(element, isCorrect) {
-            const parent = element.parentElement;
-            const options = parent.querySelectorAll('.option');
-            options.forEach(opt => {
-                opt.classList.remove('correct', 'wrong');
-                opt.style.pointerEvents = 'none';
-            });
-            
-            if (isCorrect) {
-                element.classList.add('correct');
-                score++;
-            } else {
-                element.classList.add('wrong');
-            }
-            document.getElementById('score').textContent = score;
-        }
-        
-        function showFeedback(btn, isCorrect) {
-            const parent = btn.parentElement;
-            let feedback = parent.querySelector('.feedback');
-            if (isCorrect) {
-                feedback.textContent = "✅ Correct! JavaScript and Java are different languages.";
-                feedback.style.color = "green";
-            } else {
-                feedback.textContent = "❌ Wrong! JavaScript and Java are completely different.";
-                feedback.style.color = "red";
-            }
-        }
-        
-        function checkFillBlank() {
-            const answer = document.getElementById('answer5').value.toLowerCase().trim();
-            if (answer === 'function') {
-                showToast('✅ Correct! Use the function keyword');
-                score++;
-            } else {
-                showToast('❌ Wrong! The correct answer is function', 'error');
-            }
-            document.getElementById('score').textContent = score;
-        }
-    </script>
     <script src="../js/pdf-download.js"></script>
 </body>
 </html>
