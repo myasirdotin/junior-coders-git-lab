@@ -2566,6 +2566,11 @@ code, pre {
 
     /* the legacy bottom bar from core.js must never show alongside */
     .bottom-nav { display: none !important; }
+    /* the open drawer ends above the tab bar, so its last entry (Teachers) is not hidden under it */
+    .bei-nav.mobile-active .bei-nav-links {
+        max-height: calc(100dvh - 68px);
+        padding-bottom: calc(1.75rem + 62px + env(safe-area-inset-bottom, 0px));
+    }
 }
 
 /* Module switcher: extra pages row (playground, exercises, quiz...) */
@@ -2739,7 +2744,9 @@ body.bei-search-open { overflow: hidden; }
     .bei-search-overlay { padding: 0; align-items: stretch; }
     .bei-search-panel { max-width: none; max-height: none; border-radius: 0; border: 0; }
     .bei-search-foot { display: none; }
-    .bei-search-item-sub { display: none; }
+    /* the subject (track, "HTML textbook", "Cheat sheet") moves under the title instead of disappearing */
+    .bei-search-item { grid-template-columns: 32px 1fr; row-gap: 0.1rem; }
+    .bei-search-item-sub { grid-column: 2; white-space: normal; font-size: 0.68rem; }
 }
 
 /* Progress marks in the module switcher and pager */
@@ -3221,6 +3228,37 @@ body.bei-search-open { overflow: hidden; }
 /* Cheat sheets: a search result on library/cheatsheets links to sheet.html#card-...; show that card clearly
    below the fixed header (ids are added by scripts/build-cheat-index.js) */
 .cheat-card { scroll-margin-top: 84px; }
+
+/* Cheat sheet pages (js/bei-nav.js enhanceCheatSheet): breadcrumb, "On this page" row, arrows kept whole,
+   and boxes that fill two columns top to bottom so a short box leaves no gap beside a tall one */
+.cheat-breadcrumbs { margin: 0 0 1rem; font-size: 0.88rem; color: var(--text-muted); }
+.cheat-breadcrumbs a { color: var(--text-secondary); text-decoration: none; }
+.cheat-breadcrumbs a:hover { color: var(--text-indigo); }
+.cheatsheet-container .cheat-hero { margin-bottom: 1.25rem; }
+.cheat-toc { display: flex; align-items: center; gap: 0.6rem; margin: 0 0 1.5rem; }
+.cheat-toc-label { flex: none; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); }
+.cheat-toc-row { display: flex; gap: 0.4rem; overflow-x: auto; scrollbar-width: thin; padding-bottom: 0.25rem; }
+.cheat-toc-row a {
+    flex: none; display: inline-flex; align-items: center; min-height: 36px; padding: 0.3rem 0.8rem; border-radius: 999px;
+    font-size: 0.85rem; font-weight: 700; text-decoration: none; white-space: nowrap;
+    color: var(--text-secondary); background: var(--bg-surface); border: 1px solid var(--border-subtle);
+}
+.cheat-toc-row a:hover, .cheat-toc-row a:focus-visible { color: var(--text-indigo); border-color: var(--text-indigo); }
+.cheat-table .nb, .cheat-intro .nb { white-space: nowrap; }
+.cheatsheet-container.cheat-v2 .cheat-grid { display: block; columns: 2 440px; column-gap: 1.5rem; }
+.cheatsheet-container.cheat-v2 .cheat-card { break-inside: avoid; page-break-inside: avoid; margin: 0 0 1.5rem; }
+@media (max-width: 640px) {
+    .cheatsheet-container .cheat-hero { padding: 1.4rem 1rem 1.25rem; margin-bottom: 1rem; }
+    .cheatsheet-container .cheat-hero h1 { font-size: 1.6rem; margin-bottom: 0.4rem; }
+    .cheatsheet-container .cheat-hero p { font-size: 0.92rem; line-height: 1.45; margin: 0; }
+    .cheat-toc { margin: 0 0 1rem; }
+    .cheat-toc-label { display: none; }
+    .cheatsheet-container .cheat-tip { margin: 0.75rem 0; padding: 0.7rem 0.9rem; font-size: 0.9rem; }
+    .cheatsheet-container.cheat-v2 .cheat-card { margin-bottom: 1rem; }
+    /* "Save this guide" bar from js/pdf-download.js: one tight row, so the first box starts on the first screen */
+    #pdf-download-bar { padding: 8px 12px !important; margin-bottom: 12px !important; gap: 8px !important; }
+    #pdf-download-bar p { font-size: 0.82rem !important; }
+}
 .cheat-card:target { outline: 3px solid var(--brand-cyan); outline-offset: 3px; animation: jc-card-flash 1.6s ease 1; }
 @keyframes jc-card-flash { 0%, 40% { box-shadow: 0 0 0 8px rgba(56, 189, 248, 0.35); } 100% { box-shadow: none; } }
 

@@ -73,7 +73,7 @@
   const groupCount = (g) => entries.filter((e) => partInfo(e.part).group === g).length;
   const tabs = Object.keys(groups).length ? `
         <div class="book-subject-tabs" role="group" aria-label="Show part of the book">
-          <button type="button" class="subject-tab active" data-group="all" aria-pressed="true">All (${entries.length})</button>
+          <button type="button" class="subject-tab active" data-group="all" aria-pressed="true">All (${entries.filter((e) => e.num).length})</button>
           ${Object.entries(groups).map(([g, label]) => `<button type="button" class="subject-tab" data-group="${esc(g)}" aria-pressed="false">${esc(label)} (${groupCount(g)})</button>`).join('')}
         </div>` : '';
   const nav = partOrder.map((p) => {

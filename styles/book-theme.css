@@ -978,7 +978,7 @@ body::before {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  background: linear-gradient(135deg, var(--book-accent, #2563eb), #1d4ed8);
+  background: var(--book-accent, #2563eb);   /* flat, in the book's colour (GEMINI §7c: no gradients on controls) */
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.25);
   padding: 0.44rem 1.05rem;
@@ -3425,4 +3425,15 @@ h2:hover > .book-section-speaker-btn, h3:hover > .book-section-speaker-btn,
 /* desktop: there is room and no swipe, so the pills wrap instead of scrolling sideways */
 @media (min-width: 901px) {
   #bookSidebar .book-subject-tabs { flex-wrap: wrap; overflow: visible; margin: 0 0 0.75rem; padding: 0; }
+}
+
+/* Reader header on phones: every control at least 40px tall (speed select and quick-nav were 36-38px);
+   section 🔊 buttons on touch screens are 32px and always visible enough to find */
+@media (max-width: 640px) {
+  .book-speaker-btn-main, .book-speaker-btn-stop, .book-reading-mode-toggle-btn, .book-download-pdf-btn,
+  .book-speaker-speed-select, .header-quick-nav .header-nav-btn { min-height: 40px !important; }
+  .book-speaker-btn-stop, .book-reading-mode-toggle-btn, .book-download-pdf-btn { min-width: 40px !important; }
+}
+@media (hover: none) {
+  .book-section-speaker-btn { width: 32px !important; height: 32px !important; font-size: 0.85rem !important; opacity: 0.7; }
 }

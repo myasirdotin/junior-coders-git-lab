@@ -458,8 +458,13 @@
       if (!pre) return;
       const text = pre.textContent;
       const boxes = (text.match(BOX_CHARS) || []).length;
+      // drawn with + - | and arrows instead of box characters (Android, Networks books): most lines are a frame
+      // (+----+), boxed text (| ... |), an arrow (-->, ==>) or a lone connector (|, v, ^)
+      const lines = text.split('\n').filter((l) => l.trim());
+      const artLines = lines.filter((l) => /^[\s+\-|\/\\<>^v=_.:*#]+$/.test(l) || /^\s*[|+].*[|+]\s*$/.test(l) || /(^|\s)(-->|<--|==>|<==)(\s|$)/.test(l)).length;
+      const ascii = lines.length >= 3 && artLines / lines.length >= 0.6;
       // mostly drawing, little code: at least 12 box characters and they make up a real share of the text
-      if (boxes < 12 || boxes / text.replace(/\s/g, '').length < 0.12) return;
+      if (!ascii && (boxes < 12 || boxes / text.replace(/\s/g, '').length < 0.12)) return;
       wrap.classList.add('is-diagram');
       fitDiagram(pre);
     });
