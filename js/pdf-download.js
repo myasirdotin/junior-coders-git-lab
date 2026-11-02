@@ -33,15 +33,23 @@
             network:        { color: '#0284c7', emoji: '🌐', label: 'Networking' },
             cybersecurity:  { color: '#dc2626', emoji: '🛡️', label: 'Cybersecurity' },
             cyber:          { color: '#dc2626', emoji: '🛡️', label: 'Cybersecurity' },
+            android:        { color: '#16a34a', emoji: '📱', label: 'Android-Kotlin' },
+            kotlin:         { color: '#16a34a', emoji: '📱', label: 'Android-Kotlin' },
             default:        { color: '#4f46e5', emoji: '📄', label: 'Lesson' }
         }
     };
 
     /* ── Detect current subject ── */
+    // Read the subject from the folder or file name (book-php/, cheatsheet-mysql.html, Learning Networks/,
+    // studios/sql-sandbox/). Searching the whole address matched the ".html" ending on every page.
     function detectSubject() {
-        const text = (document.title + ' ' + location.pathname).toLowerCase();
-        for (const [key, val] of Object.entries(CONFIG.subjects)) {
-            if (key !== 'default' && text.includes(key)) return val;
+        const path = decodeURIComponent(location.pathname).toLowerCase();
+        const m = path.match(/\/book-([a-z]+)\//) || path.match(/\/cheatsheet-([a-z]+)(\.html)?$/)
+            || path.match(/\/learning ([a-z]+)\//) || path.match(/\/studios\/([a-z]+)-/);
+        if (m) {
+            const token = m[1];
+            const key = Object.keys(CONFIG.subjects).find(k => k !== 'default' && (k === token || token.startsWith(k)));
+            if (key) return CONFIG.subjects[key];
         }
         return CONFIG.subjects.default;
     }

@@ -34,36 +34,36 @@
             <p>You never have to create controller files by hand. Artisan creates them for you with the right structure already in place:</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment"># Creates app/Http/Controllers/StudentController.php</span><br>
-                    <span class="code-keyword">php artisan make:controller</span> <span class="code-string">StudentController</span>
-                </code>
+<code><span class="code-comment"># Creates app/Http/Controllers/StudentController.php</span>
+<span class="code-keyword">php artisan make:controller</span> <span class="code-string">StudentController</span></code>
             </div>
 
             <p>This creates the file <code>app/Http/Controllers/StudentController.php</code>. Let's look at what's inside and add some methods:</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment">&lt;?php</span><br><br>
-                    <span class="code-keyword">namespace</span> <span class="code-val">App\Http\Controllers</span>;<br><br>
-                    <span class="code-keyword">use</span> <span class="code-val">Illuminate\Http\Request</span>;<br>
-                    <span class="code-keyword">use</span> <span class="code-val">App\Models\Student</span>;<br><br>
-                    <span class="code-keyword">class</span> <span class="code-val">StudentController</span> <span class="code-keyword">extends</span> <span class="code-val">Controller</span><br>
-                    {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Show a list of all students</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public function</span> <span class="code-val">index</span>()<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;{<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">$students</span> = <span class="code-val">Student</span>::<span class="code-val">all</span>();<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.index'</span>, [<span class="code-string">'students'</span> =&gt; <span class="code-val">$students</span>]);<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;}<br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Show one specific student</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">public function</span> <span class="code-val">show</span>(<span class="code-val">$id</span>)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;{<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">$student</span> = <span class="code-val">Student</span>::<span class="code-val">find</span>(<span class="code-val">$id</span>);<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.show'</span>, <span class="code-val">compact</span>(<span class="code-string">'student'</span>));<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;}<br>
-                    }
-                </code>
+<code><span class="code-comment">&lt;?php</span>
+
+<span class="code-keyword">namespace</span> <span class="code-val">App\Http\Controllers</span>;
+
+<span class="code-keyword">use</span> <span class="code-val">Illuminate\Http\Request</span>;
+<span class="code-keyword">use</span> <span class="code-val">App\Models\Student</span>;
+
+<span class="code-keyword">class</span> <span class="code-val">StudentController</span> <span class="code-keyword">extends</span> <span class="code-val">Controller</span>
+{
+    <span class="code-comment">// Show a list of all students</span>
+    <span class="code-keyword">public function</span> <span class="code-val">index</span>()
+    {
+        <span class="code-val">$students</span> = <span class="code-val">Student</span>::<span class="code-val">all</span>();
+        <span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.index'</span>, [<span class="code-string">'students'</span> =&gt; <span class="code-val">$students</span>]);
+    }
+
+    <span class="code-comment">// Show one specific student</span>
+    <span class="code-keyword">public function</span> <span class="code-val">show</span>(<span class="code-val">$id</span>)
+    {
+        <span class="code-val">$student</span> = <span class="code-val">Student</span>::<span class="code-val">find</span>(<span class="code-val">$id</span>);
+        <span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.show'</span>, <span class="code-val">compact</span>(<span class="code-string">'student'</span>));
+    }
+}</code>
             </div>
 
             <p>Let's break that down line by line:</p>
@@ -146,18 +146,20 @@
             <p>Controllers are flexible — they can return different types of responses depending on what you need:</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment">// Return a Blade view (most common)</span><br>
-                    <span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.index'</span>, [<span class="code-string">'students'</span> =&gt; <span class="code-val">$students</span>]);<br><br>
-                    <span class="code-comment">// Return a Blade view using compact() — cleaner syntax!</span><br>
-                    <span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.show'</span>, <span class="code-val">compact</span>(<span class="code-string">'student'</span>));<br><br>
-                    <span class="code-comment">// Return JSON data (for APIs)</span><br>
-                    <span class="code-keyword">return</span> <span class="code-val">response</span>()-&gt;<span class="code-val">json</span>([<span class="code-string">'name'</span> =&gt; <span class="code-string">'Ali'</span>, <span class="code-string">'age'</span> =&gt; <span class="code-val">12</span>]);<br><br>
-                    <span class="code-comment">// Redirect to another page</span><br>
-                    <span class="code-keyword">return</span> <span class="code-val">redirect</span>()-&gt;<span class="code-val">route</span>(<span class="code-string">'students.index'</span>);<br><br>
-                    <span class="code-comment">// Redirect back with a success message</span><br>
-                    <span class="code-keyword">return</span> <span class="code-val">redirect</span>()-&gt;<span class="code-val">back</span>()-&gt;<span class="code-val">with</span>(<span class="code-string">'success'</span>, <span class="code-string">'Student added!'</span>);
-                </code>
+<code><span class="code-comment">// Return a Blade view (most common)</span>
+<span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.index'</span>, [<span class="code-string">'students'</span> =&gt; <span class="code-val">$students</span>]);
+
+<span class="code-comment">// Return a Blade view using compact() — cleaner syntax!</span>
+<span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.show'</span>, <span class="code-val">compact</span>(<span class="code-string">'student'</span>));
+
+<span class="code-comment">// Return JSON data (for APIs)</span>
+<span class="code-keyword">return</span> <span class="code-val">response</span>()-&gt;<span class="code-val">json</span>([<span class="code-string">'name'</span> =&gt; <span class="code-string">'Ali'</span>, <span class="code-string">'age'</span> =&gt; <span class="code-val">12</span>]);
+
+<span class="code-comment">// Redirect to another page</span>
+<span class="code-keyword">return</span> <span class="code-val">redirect</span>()-&gt;<span class="code-val">route</span>(<span class="code-string">'students.index'</span>);
+
+<span class="code-comment">// Redirect back with a success message</span>
+<span class="code-keyword">return</span> <span class="code-val">redirect</span>()-&gt;<span class="code-val">back</span>()-&gt;<span class="code-val">with</span>(<span class="code-string">'success'</span>, <span class="code-string">'Student added!'</span>);</code>
             </div>
 
             <div class="connection-box" style="border-left-color: #34d399;">
@@ -172,21 +174,22 @@
             <p>When a form is submitted, the data arrives in the <strong>Request</strong> object. Laravel can automatically inject it into your controller method — you just type-hint it in the parameters:</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-keyword">use</span> <span class="code-val">Illuminate\Http\Request</span>;<br><br>
-                    <span class="code-keyword">public function</span> <span class="code-val">store</span>(<span class="code-val">Request</span> <span class="code-val">$request</span>)<br>
-                    {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Get a specific field from the form</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">$name</span> = <span class="code-val">$request</span>-&gt;<span class="code-val">input</span>(<span class="code-string">'name'</span>);<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">$age</span> = <span class="code-val">$request</span>-&gt;<span class="code-val">input</span>(<span class="code-string">'age'</span>);<br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// Save it to the database</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">Student</span>::<span class="code-val">create</span>([<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">'name'</span> =&gt; <span class="code-val">$name</span>,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">'age'</span> =&gt; <span class="code-val">$age</span>,<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;]);<br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-val">redirect</span>()-&gt;<span class="code-val">route</span>(<span class="code-string">'students.index'</span>)-&gt;<span class="code-val">with</span>(<span class="code-string">'success'</span>, <span class="code-string">'Student added!'</span>);<br>
-                    }
-                </code>
+<code><span class="code-keyword">use</span> <span class="code-val">Illuminate\Http\Request</span>;
+
+<span class="code-keyword">public function</span> <span class="code-val">store</span>(<span class="code-val">Request</span> <span class="code-val">$request</span>)
+{
+    <span class="code-comment">// Get a specific field from the form</span>
+    <span class="code-val">$name</span> = <span class="code-val">$request</span>-&gt;<span class="code-val">input</span>(<span class="code-string">'name'</span>);
+    <span class="code-val">$age</span> = <span class="code-val">$request</span>-&gt;<span class="code-val">input</span>(<span class="code-string">'age'</span>);
+
+    <span class="code-comment">// Save it to the database</span>
+    <span class="code-val">Student</span>::<span class="code-val">create</span>([
+        <span class="code-string">'name'</span> =&gt; <span class="code-val">$name</span>,
+        <span class="code-string">'age'</span> =&gt; <span class="code-val">$age</span>,
+    ]);
+
+    <span class="code-keyword">return</span> <span class="code-val">redirect</span>()-&gt;<span class="code-val">route</span>(<span class="code-string">'students.index'</span>)-&gt;<span class="code-val">with</span>(<span class="code-string">'success'</span>, <span class="code-string">'Student added!'</span>);
+}</code>
             </div>
         </section>
 
@@ -196,12 +199,11 @@
             <p>If you need all 7 RESTful methods, use the <code>--resource</code> flag. Laravel creates the controller with all 7 methods already defined:</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment"># Creates a controller with all 7 RESTful methods pre-built</span><br>
-                    <span class="code-keyword">php artisan make:controller</span> <span class="code-string">StudentController</span> <span class="code-val">--resource</span><br><br>
-                    <span class="code-comment"># In routes/web.php, register all 7 routes with ONE line!</span><br>
-                    <span class="code-keyword">Route</span>::<span class="code-val">resource</span>(<span class="code-string">'students'</span>, <span class="code-val">StudentController</span>::<span class="code-keyword">class</span>);
-                </code>
+<code><span class="code-comment"># Creates a controller with all 7 RESTful methods pre-built</span>
+<span class="code-keyword">php artisan make:controller</span> <span class="code-string">StudentController</span> <span class="code-val">--resource</span>
+
+<span class="code-comment"># In routes/web.php, register all 7 routes with ONE line!</span>
+<span class="code-keyword">Route</span>::<span class="code-val">resource</span>(<span class="code-string">'students'</span>, <span class="code-val">StudentController</span>::<span class="code-keyword">class</span>);</code>
             </div>
 
             <p>That single <code>Route::resource()</code> line creates all 7 routes automatically! Run <code>php artisan route:list</code> and you'll see them all listed.</p>

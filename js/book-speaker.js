@@ -582,7 +582,7 @@
     const STORAGE_KEY_SIZE = 'jc_rm_size';
     const STORAGE_KEY_FONT = 'jc_rm_font';
 
-    let currentTheme = localStorage.getItem(STORAGE_KEY_THEME) || 'theme-dark';
+    let currentTheme = localStorage.getItem(STORAGE_KEY_THEME) || 'theme-light';   // the books' own paper look
     let currentSize = parseFloat(localStorage.getItem(STORAGE_KEY_SIZE)) || 1.15;
     let currentFont = localStorage.getItem(STORAGE_KEY_FONT) || 'font-sans';
 

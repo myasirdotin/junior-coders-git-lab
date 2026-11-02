@@ -34,17 +34,17 @@
             <p>All web routes live in the file <code>routes/web.php</code>. Laravel reads this file and matches every incoming URL to the code you've defined. Let's look at three common route types:</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment">// routes/web.php</span><br>
-                    <span class="code-comment">// A simple route that returns plain text</span><br>
-                    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/hello'</span>, <span class="code-keyword">function</span> () {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-string">'Hello World!'</span>;<br>
-                    });<br><br>
-                    <span class="code-comment">// A route that calls a Controller method</span><br>
-                    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/about'</span>, [<span class="code-val">AboutController</span>::<span class="code-keyword">class</span>, <span class="code-string">'index'</span>]);<br><br>
-                    <span class="code-comment">// A POST route for form submissions</span><br>
-                    <span class="code-keyword">Route</span>::<span class="code-val">post</span>(<span class="code-string">'/contact'</span>, [<span class="code-val">ContactController</span>::<span class="code-keyword">class</span>, <span class="code-string">'store'</span>]);
-                </code>
+<code><span class="code-comment">// routes/web.php</span>
+<span class="code-comment">// A simple route that returns plain text</span>
+<span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/hello'</span>, <span class="code-keyword">function</span> () {
+    <span class="code-keyword">return</span> <span class="code-string">'Hello World!'</span>;
+});
+
+<span class="code-comment">// A route that calls a Controller method</span>
+<span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/about'</span>, [<span class="code-val">AboutController</span>::<span class="code-keyword">class</span>, <span class="code-string">'index'</span>]);
+
+<span class="code-comment">// A POST route for form submissions</span>
+<span class="code-keyword">Route</span>::<span class="code-val">post</span>(<span class="code-string">'/contact'</span>, [<span class="code-val">ContactController</span>::<span class="code-keyword">class</span>, <span class="code-string">'store'</span>]);</code>
             </div>
 
             <div style="display: grid; gap: 1rem; margin-top: 1.5rem;">
@@ -69,16 +69,15 @@
             <p>What if you want a URL that includes a student's ID? Like <code>/student/5</code> or <code>/student/12</code>? Route parameters let you capture that value and use it in your code!</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment">// The {id} is a route parameter — it captures whatever is in the URL</span><br>
-                    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/student/{id}'</span>, <span class="code-keyword">function</span> (<span class="code-val">$id</span>) {<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">return</span> <span class="code-string">'Showing student number: '</span> . <span class="code-val">$id</span>;<br>
-                    });<br><br>
-                    <span class="code-comment">// Multiple parameters work too!</span><br>
-                    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/class/{classId}/student/{studentId}'</span>, [<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-val">StudentController</span>::<span class="code-keyword">class</span>, <span class="code-string">'show'</span><br>
-                    ]);
-                </code>
+<code><span class="code-comment">// The {id} is a route parameter — it captures whatever is in the URL</span>
+<span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/student/{id}'</span>, <span class="code-keyword">function</span> (<span class="code-val">$id</span>) {
+    <span class="code-keyword">return</span> <span class="code-string">'Showing student number: '</span> . <span class="code-val">$id</span>;
+});
+
+<span class="code-comment">// Multiple parameters work too!</span>
+<span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/class/{classId}/student/{studentId}'</span>, [
+    <span class="code-val">StudentController</span>::<span class="code-keyword">class</span>, <span class="code-string">'show'</span>
+]);</code>
             </div>
 
             <p>If a user visits <code>/student/7</code>, Laravel will automatically set <code>$id = 7</code> and pass it to your function or controller method. Magic!</p>
@@ -95,16 +94,17 @@
             <p>Instead of hard-coding URLs like <code>"/about"</code> everywhere in your code, you can give routes names and use those names instead. This is incredibly useful — if you ever change a URL, you only have to change it in one place!</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment">// Give a route a name using ->name()</span><br>
-                    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/home'</span>, [<span class="code-val">HomeController</span>::<span class="code-keyword">class</span>, <span class="code-string">'index'</span>])-><span class="code-val">name</span>(<span class="code-string">'home'</span>);<br><br>
-                    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/student/{id}'</span>, [<span class="code-val">StudentController</span>::<span class="code-keyword">class</span>, <span class="code-string">'show'</span>])-><span class="code-val">name</span>(<span class="code-string">'student.show'</span>);<br><br>
-                    <span class="code-comment">// In your Blade views, use route() to generate URLs by name</span><br>
-                    <span class="code-comment">// Instead of: href="/home"</span><br>
-                    <span class="code-comment">// Use:        href="{{ route('home') }}"</span><br><br>
-                    <span class="code-comment">// With parameters:</span><br>
-                    <span class="code-comment">// href="{{ route('student.show', ['id' => 5]) }}"</span>
-                </code>
+<code><span class="code-comment">// Give a route a name using ->name()</span>
+<span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/home'</span>, [<span class="code-val">HomeController</span>::<span class="code-keyword">class</span>, <span class="code-string">'index'</span>])-><span class="code-val">name</span>(<span class="code-string">'home'</span>);
+
+<span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/student/{id}'</span>, [<span class="code-val">StudentController</span>::<span class="code-keyword">class</span>, <span class="code-string">'show'</span>])-><span class="code-val">name</span>(<span class="code-string">'student.show'</span>);
+
+<span class="code-comment">// In your Blade views, use route() to generate URLs by name</span>
+<span class="code-comment">// Instead of: href="/home"</span>
+<span class="code-comment">// Use:        href="{{ route('home') }}"</span>
+
+<span class="code-comment">// With parameters:</span>
+<span class="code-comment">// href="{{ route('student.show', ['id' => 5]) }}"</span></code>
             </div>
 
             <div class="analogy-grid" style="margin-top: 1.5rem;">
@@ -127,15 +127,16 @@
             <p>When you have many routes that share the same URL prefix (like all admin pages starting with <code>/admin/</code>), you can group them together to keep things tidy.</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment">// All routes inside this group start with /admin/</span><br>
-                    <span class="code-keyword">Route</span>::<span class="code-val">prefix</span>(<span class="code-string">'admin'</span>)-><span class="code-val">group</span>(<span class="code-keyword">function</span> () {<br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// This matches /admin/dashboard</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/dashboard'</span>, [<span class="code-val">AdminController</span>::<span class="code-keyword">class</span>, <span class="code-string">'dashboard'</span>]);<br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">// This matches /admin/users</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/users'</span>, [<span class="code-val">AdminController</span>::<span class="code-keyword">class</span>, <span class="code-string">'users'</span>]);<br><br>
-                    });
-                </code>
+<code><span class="code-comment">// All routes inside this group start with /admin/</span>
+<span class="code-keyword">Route</span>::<span class="code-val">prefix</span>(<span class="code-string">'admin'</span>)-><span class="code-val">group</span>(<span class="code-keyword">function</span> () {
+
+    <span class="code-comment">// This matches /admin/dashboard</span>
+    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/dashboard'</span>, [<span class="code-val">AdminController</span>::<span class="code-keyword">class</span>, <span class="code-string">'dashboard'</span>]);
+
+    <span class="code-comment">// This matches /admin/users</span>
+    <span class="code-keyword">Route</span>::<span class="code-val">get</span>(<span class="code-string">'/users'</span>, [<span class="code-val">AdminController</span>::<span class="code-keyword">class</span>, <span class="code-string">'users'</span>]);
+
+});</code>
             </div>
 
             <p>You can also group by middleware (we'll learn about this in the Authentication module) to protect certain routes from unauthenticated users.</p>

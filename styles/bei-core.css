@@ -75,6 +75,8 @@ html {
     overflow-x: hidden;
     width: 100%;
     max-width: 100%;
+    /* The code font (Fira Code) would draw -> => >= != as arrows and symbols; show what students must type */
+    font-variant-ligatures: none;
 }
 
 body {
@@ -2644,6 +2646,28 @@ body {
 /* main.css paints a fixed purple radial glow via body::before; the site palette has no glow */
 body::before { background-image: none !important; }
 [data-theme="light"] .speaker-btn-pdf { color: var(--text-primary) !important; }
+/* Panels that stay dark in both themes (analogy boxes, flow diagrams, the footer, the ethics card):
+   in the light theme their text would follow the page and turn dark, so give them the dark-theme colours */
+[data-theme="light"] :is(.connection-box, .flow-container, .bei-footer, .ethical-mission-card) {
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --bg-surface: #131d32;
+    --bg-surface-elevated: #1e293b;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+}
+/* Cheat-sheet heroes and the footer glow use see-through gradients made for the navy page; give them navy underneath */
+[data-theme="light"] .cheat-hero { background-color: #1e293b; }
+[data-theme="light"] .bei-footer { background-color: #060913; }
+/* Lesson code boxes (<div class="code-block"><code>) are written with real line breaks; keep them */
+.code-block > code { white-space: pre; }
+/* Wide code and tables scroll inside their own box: html/body hide sideways overflow, so anything wider is cut off */
+pre { max-width: 100%; overflow-x: auto; }
+code { overflow-wrap: anywhere; }   /* long inline paths wrap; preformatted code does not wrap anyway */
+@media (max-width: 640px) {
+    .module-container table { display: block; max-width: 100%; overflow-x: auto; }
+}
 
 /* ═════════════════════════════════════════════════════════════════════
    SITE SEARCH (rendered by js/bei-nav.js; Ctrl+K or "/")
@@ -2835,7 +2859,6 @@ body.bei-search-open { overflow: hidden; }
 .sqlx-card .sqlx-solbox pre { margin: 0; white-space: pre-wrap; font-family: inherit; }
 
 /* Laravel exercises (reuse the sqlx-* and phpx-* layout; nothing runs, the page checks answers) */
-.lrvx-list, .lrvx-list code, .lrvx-list pre, .lrvx-list textarea, .lrvx-list button, .lrvx-checklist { font-variant-ligatures: none; } /* show => and -> as typed */
 .lrvx-options, .lrvx-lines, .lrvx-pool { display: grid; gap: 0.45rem; margin: 0 0 0.6rem; }
 .lrvx-option, .lrvx-line, .lrvx-step, .lrvx-picked {
     display: flex; align-items: center; gap: 0.6rem; width: 100%; min-height: 44px; box-sizing: border-box;

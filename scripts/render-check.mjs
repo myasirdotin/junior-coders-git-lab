@@ -7,6 +7,8 @@
 //       CLICK=<css selector>  click this element after load (e.g. open the phone menu) before measuring/screenshotting
 //       WAIT=<ms>  wait after load before measuring (default 1800; use 20000 for pages that download an engine)
 //       SETUP=<js>  run once after the first load (e.g. set localStorage), then reload the page before measuring
+//       SHOTS=<n>  save up to n screenshots per page, scrolling down one screen each time (name.png, name-2.png ...)
+//       Light theme: SETUP='localStorage.setItem("bei_theme","light")'. Parallel runs need their own PORT and outDir.
 // Prints JSON per page, then a summary line listing pages with horizontal scroll or errors.
 // Needs Chrome installed and the site served (XAMPP Apache). Keep <outDir> out of git (.render/ is ignored).
 import { spawn } from 'node:child_process';
@@ -108,6 +110,14 @@ try {
     const name = (decodeURIComponent(new URL(url).pathname).replace(/^\/+/, '').replace(/\/index\.html$/, '').replace(/\/$/, '') || 'index').replace(/[^a-z0-9._-]+/gi, '_');
     const shot = await cdp.send('Page.captureScreenshot', { format: 'png' });
     writeFileSync(join(outDir, `${name}.png`), Buffer.from(shot.data, 'base64'));
+    // SHOTS=n: also save screens 2..n further down the page (name-2.png ...), stopping at the bottom
+    for (let i = 1; i < +(process.env.SHOTS || 1); i++) {
+      const pos = await cdp.send('Runtime.evaluate', { returnByValue: true, expression: `(() => { const max = document.documentElement.scrollHeight - innerHeight; if (scrollY >= max - 2) return -1; scrollTo(0, Math.min(max, ${i} * Math.round(innerHeight * 0.9))); return scrollY; })()` });
+      if (pos.result.value < 0) break;
+      await sleep(600);
+      const more = await cdp.send('Page.captureScreenshot', { format: 'png' });
+      writeFileSync(join(outDir, `${name}-${i + 1}.png`), Buffer.from(more.data, 'base64'));
+    }
     results.push({ url, ...(probe.result && probe.result.value || { probeError: JSON.stringify(probe).slice(0, 300) }), logs });
     cdp.ws.close();
   }

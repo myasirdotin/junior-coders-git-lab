@@ -44,6 +44,9 @@
   padding: 0;
 }
 
+/* The code font (Fira Code) would draw -> => >= != <!-- as arrows and symbols; show what students must type */
+html { font-variant-ligatures: none; }
+
 body {
   font-family: var(--font-sans);
   background: var(--bg-main, #f8fafc) !important;
@@ -597,14 +600,15 @@ body::before {
 }
 
 /* Tables */
-.book-table {
+/* Chapter tables come from markdown without a class, so #chapterContent table gets the same look */
+.book-table, #chapterContent table {
   width: 100%;
   border-collapse: collapse;
   margin: 1.25rem 0;
   font-size: 0.95rem;
 }
 
-.book-table th {
+.book-table th, #chapterContent th {
   background-color: #f1f5f9;
   color: var(--text-primary);
   text-align: left;
@@ -613,13 +617,13 @@ body::before {
   font-weight: 700;
 }
 
-.book-table td {
+.book-table td, #chapterContent td {
   padding: 0.75rem 1rem;
   border: 1px solid var(--border-color);
   color: var(--text-secondary);
 }
 
-.book-table tr:nth-child(even) {
+.book-table tr:nth-child(even), #chapterContent tbody tr:nth-child(even) {
   background-color: #fafafa;
 }
 
@@ -786,7 +790,6 @@ body::before {
     z-index: 10000;
     background: #ffffff !important;
     color: var(--text-primary);
-    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.35);
     transform: translateX(-100%);
     transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-y: auto;
@@ -799,6 +802,7 @@ body::before {
   .book-sidebar.open,
   .book-sidebar.is-open {
     transform: translateX(0) !important;
+    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.35);   /* only when open: a closed drawer cast a grey band down the page */
   }
 
   .book-brand {
@@ -1320,12 +1324,15 @@ body::before {
   transition: background 0.25s ease, outline 0.25s ease;
 }
 
-/* ── Reading Mode for Book Readers ── */
-body.reading-mode .book-sidebar {
+/* ── Reading Mode for Book Readers ──
+   The chapter is article.book-article#chapterContent (js/book-reader.js); .book-content is the old name.
+   Themes: light (default, the paper look), sepia, dark. */
+body.reading-mode .book-sidebar,
+body.reading-mode .reader-topbar {
   display: none !important;
 }
 
-body.reading-mode .book-content {
+body.reading-mode :is(.book-article, .book-content) {
   max-width: 780px !important;
   margin: 2rem auto 5rem auto !important;
   padding: 1.5rem 2rem !important;
@@ -1333,12 +1340,17 @@ body.reading-mode .book-content {
   line-height: 1.85 !important;
 }
 
+/* the layout wrappers paint the paper colour; let the reading theme's page colour show through */
+body.reading-mode :is(.book-layout, .book-reader) {
+  background: transparent !important;
+}
+
 body.reading-mode.theme-sepia {
   background: #fbf0d9 !important;
   color: #433422 !important;
 }
 
-body.reading-mode.theme-sepia .book-content,
+body.reading-mode.theme-sepia :is(.book-article, .book-content),
 body.reading-mode.theme-sepia .pedagogy-section,
 body.reading-mode.theme-sepia .book-speaker-bar,
 body.reading-mode.theme-sepia .book-reader-header {
@@ -1365,7 +1377,7 @@ body.reading-mode.theme-dark {
   color: #e2e8f0 !important;
 }
 
-body.reading-mode.theme-dark .book-content,
+body.reading-mode.theme-dark :is(.book-article, .book-content),
 body.reading-mode.theme-dark .pedagogy-section,
 body.reading-mode.theme-dark .book-speaker-bar,
 body.reading-mode.theme-dark .book-reader-header {
@@ -1390,6 +1402,28 @@ body.reading-mode.theme-dark h1,
 body.reading-mode.theme-dark h2,
 body.reading-mode.theme-dark h3 {
   color: #f8fafc !important;
+}
+
+/* Chapter text uses fixed dark colours (#334155, #0f172a) made for paper; in dark reading mode
+   recolour text and light boxes inside the chapter, but leave code blocks (already dark) alone */
+body.reading-mode.theme-dark .book-article {
+  --text-primary: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+  --bg-card: #1e293b;
+}
+body.reading-mode.theme-dark .book-article :is(p, li, td, th, dt, dd, strong, em, b, h4, h5, h6, blockquote, summary, figcaption):not(pre *) {
+  color: #e2e8f0 !important;
+}
+body.reading-mode.theme-dark .book-article :is(details, blockquote, table, th, td, .chapter-outline, figure):not(pre *) {
+  background: #0f172a !important;
+  border-color: #334155 !important;
+}
+body.reading-mode.theme-dark .book-article a:not(pre *) { color: #93c5fd !important; }
+body.reading-mode.theme-dark .book-article :not(pre) > code {
+  background: #0f172a !important;
+  color: #fbcfe8 !important;
 }
 
 body.reading-mode.font-serif {
@@ -3141,6 +3175,8 @@ body.dark .concept-figure {
 #chapterContent p, #chapterBody p { line-height: 1.7 !important; margin-bottom: 0.9rem !important; }
 #chapterContent li, #chapterBody li { line-height: 1.6 !important; margin-bottom: 0.4rem !important; }
 #chapterContent ul, #chapterContent ol, #chapterBody ul, #chapterBody ol { margin-bottom: 1rem !important; }
+/* the global * reset removed list indent, so bullets hung outside the text and touched the phone's edge */
+#chapterContent :is(ul, ol), #chapterBody :is(ul, ol) { padding-left: 1.4rem; }
 #chapterContent h2, #chapterBody h2 { margin-top: 2.2rem !important; line-height: 1.3 !important; }
 #chapterContent h3, #chapterBody h3 { margin-top: 1.5rem !important; line-height: 1.35 !important; }
 #chapterContent h1, #chapterBody h1 { line-height: 1.2 !important; }

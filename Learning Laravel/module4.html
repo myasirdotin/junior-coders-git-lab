@@ -39,15 +39,15 @@
             <p>The most common thing you'll do in Blade is display a PHP variable on the page. Use double curly braces:</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment">&lt;!-- Safely echo a variable (HTML is escaped — no XSS risk!) --&gt;</span><br>
-                    &lt;h1&gt;<span class="code-string">{{ $student-&gt;name }}</span>&lt;/h1&gt;<br>
-                    &lt;p&gt;Age: <span class="code-string">{{ $student-&gt;age }}</span>&lt;/p&gt;<br><br>
-                    <span class="code-comment">&lt;!-- Echo raw HTML (use carefully — only for trusted content!) --&gt;</span><br>
-                    &lt;div&gt;<span class="code-string">{!! $htmlContent !!}</span>&lt;/div&gt;<br><br>
-                    <span class="code-comment">&lt;!-- Echo with a default value if variable is null --&gt;</span><br>
-                    &lt;p&gt;<span class="code-string">{{ $student-&gt;grade ?? 'Not graded yet' }}</span>&lt;/p&gt;
-                </code>
+<code><span class="code-comment">&lt;!-- Safely echo a variable (HTML is escaped — no XSS risk!) --&gt;</span>
+&lt;h1&gt;<span class="code-string">{{ $student-&gt;name }}</span>&lt;/h1&gt;
+&lt;p&gt;Age: <span class="code-string">{{ $student-&gt;age }}</span>&lt;/p&gt;
+
+<span class="code-comment">&lt;!-- Echo raw HTML (use carefully — only for trusted content!) --&gt;</span>
+&lt;div&gt;<span class="code-string">{!! $htmlContent !!}</span>&lt;/div&gt;
+
+<span class="code-comment">&lt;!-- Echo with a default value if variable is null --&gt;</span>
+&lt;p&gt;<span class="code-string">{{ $student-&gt;grade ?? 'Not graded yet' }}</span>&lt;/p&gt;</code>
             </div>
 
             <div class="analogy-grid" style="margin-top: 1.5rem;">
@@ -71,49 +71,45 @@
 
             <h3 style="margin-top: 1.5rem; color: #6366f1;">If / Else / Elseif</h3>
             <div class="code-block">
-                <code>
-                    <span class="code-keyword">@if</span> (<span class="code-val">$student-&gt;grade</span> === <span class="code-string">'A'</span>)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p style="color: green;"&gt;Excellent work! 🌟&lt;/p&gt;<br>
-                    <span class="code-keyword">@elseif</span> (<span class="code-val">$student-&gt;grade</span> === <span class="code-string">'B'</span>)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p style="color: blue;"&gt;Good job! Keep it up!&lt;/p&gt;<br>
-                    <span class="code-keyword">@else</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p style="color: orange;"&gt;Keep studying! You can do it!&lt;/p&gt;<br>
-                    <span class="code-keyword">@endif</span>
-                </code>
+<code><span class="code-keyword">@if</span> (<span class="code-val">$student-&gt;grade</span> === <span class="code-string">'A'</span>)
+    &lt;p style="color: green;"&gt;Excellent work! 🌟&lt;/p&gt;
+<span class="code-keyword">@elseif</span> (<span class="code-val">$student-&gt;grade</span> === <span class="code-string">'B'</span>)
+    &lt;p style="color: blue;"&gt;Good job! Keep it up!&lt;/p&gt;
+<span class="code-keyword">@else</span>
+    &lt;p style="color: orange;"&gt;Keep studying! You can do it!&lt;/p&gt;
+<span class="code-keyword">@endif</span></code>
             </div>
 
             <h3 style="margin-top: 1.5rem; color: #6366f1;">Foreach Loop</h3>
             <div class="code-block">
-                <code>
-                    <span class="code-comment">&lt;!-- Loop through a collection of students --&gt;</span><br>
-                    &lt;ul&gt;<br>
-                    &nbsp;&nbsp;<span class="code-keyword">@foreach</span> (<span class="code-val">$students</span> <span class="code-keyword">as</span> <span class="code-val">$student</span>)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">{{ $student-&gt;name }}</span> — Grade: <span class="code-string">{{ $student-&gt;grade }}</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;<br>
-                    &nbsp;&nbsp;<span class="code-keyword">@endforeach</span><br>
-                    &lt;/ul&gt;<br><br>
-                    <span class="code-comment">&lt;!-- @forelse is like foreach but handles the empty case! --&gt;</span><br>
-                    <span class="code-keyword">@forelse</span> (<span class="code-val">$students</span> <span class="code-keyword">as</span> <span class="code-val">$student</span>)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<span class="code-string">{{ $student-&gt;name }}</span>&lt;/p&gt;<br>
-                    <span class="code-keyword">@empty</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;No students found!&lt;/p&gt;<br>
-                    <span class="code-keyword">@endforelse</span>
-                </code>
+<code><span class="code-comment">&lt;!-- Loop through a collection of students --&gt;</span>
+&lt;ul&gt;
+  <span class="code-keyword">@foreach</span> (<span class="code-val">$students</span> <span class="code-keyword">as</span> <span class="code-val">$student</span>)
+    &lt;li&gt;
+      <span class="code-string">{{ $student-&gt;name }}</span> — Grade: <span class="code-string">{{ $student-&gt;grade }}</span>
+    &lt;/li&gt;
+  <span class="code-keyword">@endforeach</span>
+&lt;/ul&gt;
+
+<span class="code-comment">&lt;!-- @forelse is like foreach but handles the empty case! --&gt;</span>
+<span class="code-keyword">@forelse</span> (<span class="code-val">$students</span> <span class="code-keyword">as</span> <span class="code-val">$student</span>)
+    &lt;p&gt;<span class="code-string">{{ $student-&gt;name }}</span>&lt;/p&gt;
+<span class="code-keyword">@empty</span>
+    &lt;p&gt;No students found!&lt;/p&gt;
+<span class="code-keyword">@endforelse</span></code>
             </div>
 
             <h3 style="margin-top: 1.5rem; color: #6366f1;">For Loop and While Loop</h3>
             <div class="code-block">
-                <code>
-                    <span class="code-comment">&lt;!-- Standard for loop --&gt;</span><br>
-                    <span class="code-keyword">@for</span> (<span class="code-val">$i</span> = <span class="code-val">0</span>; <span class="code-val">$i</span> &lt; <span class="code-val">5</span>; <span class="code-val">$i</span>++)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Row number: <span class="code-string">{{ $i }}</span>&lt;/p&gt;<br>
-                    <span class="code-keyword">@endfor</span><br><br>
-                    <span class="code-comment">&lt;!-- While loop --&gt;</span><br>
-                    <span class="code-keyword">@while</span> (<span class="code-val">$count</span> &gt; <span class="code-val">0</span>)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;Count: <span class="code-string">{{ $count-- }}</span>&lt;/p&gt;<br>
-                    <span class="code-keyword">@endwhile</span>
-                </code>
+<code><span class="code-comment">&lt;!-- Standard for loop --&gt;</span>
+<span class="code-keyword">@for</span> (<span class="code-val">$i</span> = <span class="code-val">0</span>; <span class="code-val">$i</span> &lt; <span class="code-val">5</span>; <span class="code-val">$i</span>++)
+    &lt;p&gt;Row number: <span class="code-string">{{ $i }}</span>&lt;/p&gt;
+<span class="code-keyword">@endfor</span>
+
+<span class="code-comment">&lt;!-- While loop --&gt;</span>
+<span class="code-keyword">@while</span> (<span class="code-val">$count</span> &gt; <span class="code-val">0</span>)
+    &lt;p&gt;Count: <span class="code-string">{{ $count-- }}</span>&lt;/p&gt;
+<span class="code-keyword">@endwhile</span></code>
             </div>
         </section>
 
@@ -126,38 +122,37 @@
             <p>Create <code>resources/views/layouts/app.blade.php</code>:</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment">&lt;!-- resources/views/layouts/app.blade.php --&gt;</span><br>
-                    &lt;!DOCTYPE html&gt;<br>
-                    &lt;html&gt;<br>
-                    &lt;head&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;<span class="code-string">{{ $title ?? 'My School App' }}</span>&lt;/title&gt;<br>
-                    &lt;/head&gt;<br>
-                    &lt;body&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;nav&gt; ... your navigation here ... &lt;/nav&gt;<br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-comment">&lt;!-- This is the SLOT where child pages inject their content --&gt;</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@yield</span>(<span class="code-string">'content'</span>)<br><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;footer&gt; ... your footer here ... &lt;/footer&gt;<br>
-                    &lt;/body&gt;<br>
-                    &lt;/html&gt;
-                </code>
+<code><span class="code-comment">&lt;!-- resources/views/layouts/app.blade.php --&gt;</span>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;<span class="code-string">{{ $title ?? 'My School App' }}</span>&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;nav&gt; ... your navigation here ... &lt;/nav&gt;
+
+    <span class="code-comment">&lt;!-- This is the SLOT where child pages inject their content --&gt;</span>
+    <span class="code-keyword">@yield</span>(<span class="code-string">'content'</span>)
+
+    &lt;footer&gt; ... your footer here ... &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code>
             </div>
 
             <h3 style="margin-top: 1.5rem;">Step 2: Child Page Extends the Layout</h3>
             <p>Create <code>resources/views/students/index.blade.php</code>:</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment">&lt;!-- Tell Blade which layout to use --&gt;</span><br>
-                    <span class="code-keyword">@extends</span>(<span class="code-string">'layouts.app'</span>)<br><br>
-                    <span class="code-comment">&lt;!-- Fill in the 'content' slot --&gt;</span><br>
-                    <span class="code-keyword">@section</span>(<span class="code-string">'content'</span>)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;h1&gt;All Students&lt;/h1&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@foreach</span> (<span class="code-val">$students</span> <span class="code-keyword">as</span> <span class="code-val">$student</span>)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<span class="code-string">{{ $student-&gt;name }}</span>&lt;/p&gt;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@endforeach</span><br>
-                    <span class="code-keyword">@endsection</span>
-                </code>
+<code><span class="code-comment">&lt;!-- Tell Blade which layout to use --&gt;</span>
+<span class="code-keyword">@extends</span>(<span class="code-string">'layouts.app'</span>)
+
+<span class="code-comment">&lt;!-- Fill in the 'content' slot --&gt;</span>
+<span class="code-keyword">@section</span>(<span class="code-string">'content'</span>)
+    &lt;h1&gt;All Students&lt;/h1&gt;
+    <span class="code-keyword">@foreach</span> (<span class="code-val">$students</span> <span class="code-keyword">as</span> <span class="code-val">$student</span>)
+        &lt;p&gt;<span class="code-string">{{ $student-&gt;name }}</span>&lt;/p&gt;
+    <span class="code-keyword">@endforeach</span>
+<span class="code-keyword">@endsection</span></code>
             </div>
 
             <div class="flow-container" style="margin-top: 1.5rem;">
@@ -185,28 +180,26 @@
             <p>Break your templates into small, reusable pieces using <code>@include</code>. Great for things like navigation bars, alert messages, and cards that appear on multiple pages!</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment">&lt;!-- Include a partial Blade file --&gt;</span><br>
-                    <span class="code-keyword">@include</span>(<span class="code-string">'partials.nav'</span>)<br>
-                    <span class="code-keyword">@include</span>(<span class="code-string">'partials.footer'</span>)<br><br>
-                    <span class="code-comment">&lt;!-- Include with extra variables --&gt;</span><br>
-                    <span class="code-keyword">@include</span>(<span class="code-string">'partials.student-card'</span>, [<span class="code-string">'student'</span> =&gt; <span class="code-val">$student</span>])<br><br>
-                    <span class="code-comment">&lt;!-- Only include if a condition is true --&gt;</span><br>
-                    <span class="code-keyword">@includeIf</span>(<span class="code-string">'partials.alert'</span>)
-                </code>
+<code><span class="code-comment">&lt;!-- Include a partial Blade file --&gt;</span>
+<span class="code-keyword">@include</span>(<span class="code-string">'partials.nav'</span>)
+<span class="code-keyword">@include</span>(<span class="code-string">'partials.footer'</span>)
+
+<span class="code-comment">&lt;!-- Include with extra variables --&gt;</span>
+<span class="code-keyword">@include</span>(<span class="code-string">'partials.student-card'</span>, [<span class="code-string">'student'</span> =&gt; <span class="code-val">$student</span>])
+
+<span class="code-comment">&lt;!-- Only include if a condition is true --&gt;</span>
+<span class="code-keyword">@includeIf</span>(<span class="code-string">'partials.alert'</span>)</code>
             </div>
 
             <div class="connection-box" style="border-left-color: #eab308;">
                 <strong>The @csrf Directive — Never Forget This! 🔒</strong><br><br>
                 Any HTML form that submits data to Laravel MUST include <code>@csrf</code> inside it. This generates a hidden security token that proves the form is legitimate and protects against cross-site request forgery attacks. Laravel will reject forms without it!
                 <div class="code-block" style="margin-top: 1rem;">
-                    <code>
-                        &lt;form method="POST" action="/students"&gt;<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-keyword">@csrf</span> <span class="code-comment">&lt;!-- ALWAYS include this in forms! --&gt;</span><br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" name="name"&gt;<br>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&lt;button type="submit"&gt;Save&lt;/button&gt;<br>
-                        &lt;/form&gt;
-                    </code>
+<code>&lt;form method="POST" action="/students"&gt;
+    <span class="code-keyword">@csrf</span> <span class="code-comment">&lt;!-- ALWAYS include this in forms! --&gt;</span>
+    &lt;input type="text" name="name"&gt;
+    &lt;button type="submit"&gt;Save&lt;/button&gt;
+&lt;/form&gt;</code>
                 </div>
             </div>
         </section>
@@ -217,29 +210,26 @@
             <p>Remember how controllers call <code>view()</code>? The second argument is the data you want to pass to the template. There are two clean ways to do this:</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment">// Method 1: Array syntax</span><br>
-                    <span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.index'</span>, [<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">'students'</span> =&gt; <span class="code-val">Student</span>::<span class="code-val">all</span>(),<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="code-string">'title'</span> =&gt; <span class="code-string">'All Students'</span>,<br>
-                    ]);<br><br>
-                    <span class="code-comment">// Method 2: compact() — cleaner for multiple variables</span><br>
-                    <span class="code-val">$students</span> = <span class="code-val">Student</span>::<span class="code-val">all</span>();<br>
-                    <span class="code-val">$title</span> = <span class="code-string">'All Students'</span>;<br>
-                    <span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.index'</span>, <span class="code-val">compact</span>(<span class="code-string">'students'</span>, <span class="code-string">'title'</span>));
-                </code>
+<code><span class="code-comment">// Method 1: Array syntax</span>
+<span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.index'</span>, [
+    <span class="code-string">'students'</span> =&gt; <span class="code-val">Student</span>::<span class="code-val">all</span>(),
+    <span class="code-string">'title'</span> =&gt; <span class="code-string">'All Students'</span>,
+]);
+
+<span class="code-comment">// Method 2: compact() — cleaner for multiple variables</span>
+<span class="code-val">$students</span> = <span class="code-val">Student</span>::<span class="code-val">all</span>();
+<span class="code-val">$title</span> = <span class="code-string">'All Students'</span>;
+<span class="code-keyword">return</span> <span class="code-val">view</span>(<span class="code-string">'students.index'</span>, <span class="code-val">compact</span>(<span class="code-string">'students'</span>, <span class="code-string">'title'</span>));</code>
             </div>
 
             <p>In your Blade template, those variables are then available directly:</p>
 
             <div class="code-block">
-                <code>
-                    <span class="code-comment">&lt;!-- resources/views/students/index.blade.php --&gt;</span><br>
-                    &lt;h1&gt;<span class="code-string">{{ $title }}</span>&lt;/h1&gt;<br>
-                    <span class="code-keyword">@foreach</span> (<span class="code-val">$students</span> <span class="code-keyword">as</span> <span class="code-val">$s</span>)<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;<span class="code-string">{{ $s-&gt;name }}</span>&lt;/p&gt;<br>
-                    <span class="code-keyword">@endforeach</span>
-                </code>
+<code><span class="code-comment">&lt;!-- resources/views/students/index.blade.php --&gt;</span>
+&lt;h1&gt;<span class="code-string">{{ $title }}</span>&lt;/h1&gt;
+<span class="code-keyword">@foreach</span> (<span class="code-val">$students</span> <span class="code-keyword">as</span> <span class="code-val">$s</span>)
+    &lt;p&gt;<span class="code-string">{{ $s-&gt;name }}</span>&lt;/p&gt;
+<span class="code-keyword">@endforeach</span></code>
             </div>
         </section>
 
