@@ -123,7 +123,7 @@
             <div class="code-pane">
                 <div class="pane-toolbar">
                     <span class="pane-title">🐍 script.py</span>
-                    <div style="display: flex; gap: 0.4rem; align-items: center;">
+                    <div style="display: flex; gap: 0.4rem; align-items: center; flex-wrap: wrap;">
                         <select id="pythonSnippetSelect" class="snippet-select" aria-label="Preset Snippets">
                             <option value="welcome">⚡ Snippet: Welcome &amp; Loop</option>
                             <option value="zakat">🤲 Snippet: Zakat Calculator</option>
@@ -131,7 +131,7 @@
                             <option value="fibonacci">🔢 Snippet: Fibonacci Sequence</option>
                             <option value="wordcount">📖 Snippet: Word Frequency Counter</option>
                         </select>
-                        <button id="runPythonBtn" class="btn-hero-primary" style="padding: 0.35rem 0.9rem; font-size: 0.82rem; background: var(--brand-purple);">
+                        <button id="runPythonBtn" class="btn-hero-primary" style="padding: 0.35rem 0.9rem; font-size: 0.82rem; background: var(--brand-purple);" disabled>
                             ▶ Run Code
                         </button>
                     </div>
@@ -164,14 +164,14 @@ print("Knowledge sought for benefit: 'Ilm Nafi'")
                 <div class="pane-toolbar">
                     <span class="pane-title">📟 Standard Output &amp; Terminal</span>
                     <div style="display: flex; gap: 0.4rem;">
-                        <span id="pyodideStatus" class="placement-badge" style="background: rgba(16,185,129,0.15); color: #34d399; font-size: 0.72rem;">
-                            Engine: Ready
+                        <span id="pyodideStatus" class="placement-badge" style="background: rgba(250,204,21,0.12); color: #facc15; font-size: 0.72rem;">
+                            ⏳ Loading Python…
                         </span>
                         <button id="clearConsoleBtn" class="btn-hero-secondary" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;">Clear</button>
                     </div>
                 </div>
                 <div id="pythonOutput" class="output-terminal">
---- Python Engine Initialized. Click '▶ Run Code' to execute. ---
+⏳ Downloading the Python engine (Pyodide, a few MB, only the first time). Run Code switches on when it is ready.
                 </div>
             </div>
         </div>
@@ -255,30 +255,31 @@ for word, count in counts.items():
             outputEl.innerHTML = '';
         });
 
+        // Run Code stays off until real Python (Pyodide) is ready; there is no pretend runner (GEMINI §7h)
+        function setStatus(text, color) {
+            statusEl.innerText = text;
+            statusEl.style.color = color;
+            statusEl.style.background = 'transparent';
+        }
+
         async function loadPyodideEngine() {
             if (pyodideInstance) return pyodideInstance;
-            if (isPyodideLoading) return;
-
+            if (isPyodideLoading) return null;
             isPyodideLoading = true;
-            statusEl.innerText = 'Loading Pyodide (Wasm)...';
-            statusEl.style.color = '#facc15';
-
             try {
-                if (typeof loadPyodide !== 'undefined') {
-                    pyodideInstance = await loadPyodide({
-                        stdout: (text) => appendOutput(text),
-                        stderr: (text) => appendOutput(text, true)
-                    });
-                    statusEl.innerText = 'Pyodide Wasm: Active';
-                    statusEl.style.color = '#34d399';
-                } else {
-                    statusEl.innerText = 'Local Sandbox Mode';
-                    statusEl.style.color = '#38bdf8';
-                }
+                if (typeof loadPyodide === 'undefined') throw new Error('the Pyodide script did not load');
+                pyodideInstance = await loadPyodide({
+                    stdout: (text) => appendOutput(text),
+                    stderr: (text) => appendOutput(text, true)
+                });
+                setStatus('✅ Python ' + pyodideInstance.runPython('import sys; sys.version.split()[0]') + ' ready', '#34d399');
+                outputEl.innerHTML = '<div class="output-line-system">--- Python is ready. Press ▶ Run Code. ---</div>';
+                runBtn.disabled = false;
             } catch (err) {
-                console.warn('Pyodide load failed (offline or blocked). Using fallback simulator:', err);
-                statusEl.innerText = 'Offline Fallback Active';
-                statusEl.style.color = '#f97316';
+                console.warn('Pyodide could not load:', err);
+                setStatus('⚠️ Python could not load', '#f97316');
+                outputEl.innerHTML = '';
+                appendOutput('Python could not load. The first visit needs an internet connection to download it; check your connection and reload the page.', true);
             } finally {
                 isPyodideLoading = false;
             }
@@ -297,36 +298,15 @@ for word, count in counts.items():
             const code = editorEl.value;
             outputEl.innerHTML = '<div class="output-line-system">--- Executing Python Code ---</div>';
 
+            if (!pyodideInstance) return;
+            runBtn.disabled = true;
             try {
-                const py = await loadPyodideEngine();
-                if (py) {
-                    await py.runPythonAsync(code);
-                    if (window.awardXP) window.awardXP(15, 'Python Execution');
-                } else {
-                    // Lightweight offline demonstration runner
-                    simulatePythonExecution(code);
-                }
+                await pyodideInstance.runPythonAsync(code);
             } catch (err) {
                 appendOutput(String(err), true);
             }
+            runBtn.disabled = false;
         });
-
-        function simulatePythonExecution(code) {
-            // Evaluates print statements and basic expressions when offline
-            const lines = code.split('\n');
-            lines.forEach(line => {
-                const match = line.match(/print\s*\((.*)\)/);
-                if (match) {
-                    try {
-                        let inner = match[1].replace(/f"(.*)"/, '$1');
-                        appendOutput(inner);
-                    } catch(e) {
-                        appendOutput(match[1]);
-                    }
-                }
-            });
-            appendOutput('\n[Finished in offline execution]');
-        }
 
         // Initialize engine in background
         loadPyodideEngine();

@@ -11,7 +11,7 @@
 //   - library/books/index.html      the cards between BOOK-CARDS markers (chapter and lesson counts are counted)
 //   - library/index.html            the textbook line between BOOK-LINES markers, "N Official Textbooks"
 //   - js/bei-nav.js                 the textbook entries of the site search between BOOKS-SEARCH markers
-//   - hub pages                     "All N Textbooks" style numbers
+//   - hub pages                     "All N Textbooks" style numbers, and "(N Ch)" on links to a book (cheat sheets)
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
@@ -223,7 +223,10 @@ function build({ write = true } = {}) {
     const t = read(P(f));
     // only the phrases used for the number of books, never other text with a number and "Books"
     const u = t.replace(/\b(All |Browse )?\d+( Audio| Official)? Textbooks\b/g, (m, a, b2) => `${a || ''}${n}${b2 || ''} Textbooks`)
-      .replace(/\bBrowse All \d+ Books\b/g, `Browse All ${n} Books`);
+      .replace(/\bBrowse All \d+ Books\b/g, `Browse All ${n} Books`)
+      // a link to a book that states its size, e.g. the cheat sheets' "Read the PHP Textbook (32 Ch)"
+      .replace(/(href="(?:\.\.\/)*book-([a-z]+)\/index\.html"[^>]*>[^<]*\()\d+( Ch\))/g,
+        (m, pre, key, post) => (key in counts ? pre + counts[key] + post : m));
     if (u !== t) put(f, u);
   });
 

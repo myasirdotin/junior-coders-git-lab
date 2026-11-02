@@ -700,7 +700,7 @@
                 <div class="footer-links">
                     <a href="${getBaseUrl()}index.html">Home</a>
                     <a href="${getBaseUrl()}getting-started.html">Getting Started</a>
-                    <a href="${getBaseUrl()}master-playground.html">Master IDE</a>
+                    <a href="${getBaseUrl()}studios/web-studio/index.html">Web Studio</a>
                     <a href="${getBaseUrl()}contact.html">Contact Us</a>
                 </div>
                 <div class="credits">Crafted with excellence (<em>Iḥsān</em>) by <strong>Yasir Rasool</strong></div>
@@ -856,7 +856,7 @@
             { label: 'HTML Interactive Lab (17 Chapters)', sub: 'Playground', icon: '🧪', url: `${baseUrl}Learning%20HTML/playground.html` },
             { label: 'CSS Interactive Studio',            sub: 'Playground', icon: '🎨', url: `${baseUrl}Learning%20CSS/playground.html` },
             { label: 'JavaScript Playground',              sub: 'Playground', icon: '⚡', url: `${baseUrl}Learning%20JS/playground.html` },
-            { label: 'Code Lab (Master IDE)',              sub: 'Playground', icon: '💻', url: `${baseUrl}master-playground.html` },
+            { label: 'Web Studio (HTML, CSS & JS)',       sub: 'Studio', icon: '💻', url: `${baseUrl}studios/web-studio/index.html` },
             { label: 'HTML for Class 6 & 7 (Textbook)',    sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-html/index.html` },
             { label: 'CSS for Class 7 (Textbook)',         sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-css/index.html` },
             { label: 'JavaScript for Class 7 (Textbook)',  sub: 'Textbook',   icon: '📖', url: `${baseUrl}book-js/index.html` },
@@ -1309,8 +1309,9 @@
             playNextInQueue();
         };
 
-        // Create Lesson Toolbar only on reading pages: quizzes, exercises and glossaries are for doing, not listening
-        const isPracticePage = /\/(quiz|exercises|glossary)\.html$/i.test(decodeURIComponent(location.pathname));
+        // Create Lesson Toolbar only on reading pages: quizzes, exercises and glossaries are for doing, not listening.
+        // ".html" is optional because Vercel serves clean URLs (/Learning PHP/quiz).
+        const isPracticePage = /\/(quiz|exercises|glossary|contact)(\.html)?$/i.test(decodeURIComponent(location.pathname));
         if (!isPracticePage && (header || sections.length > 0)) {
             const toolbar = document.createElement('div');
             toolbar.className = 'lesson-speaker-bar';

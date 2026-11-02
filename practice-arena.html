@@ -84,8 +84,6 @@
             <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                 <button class="tier-tab-btn active" data-filter-lang="all">All Tracks</button>
                 <button class="tier-tab-btn" data-filter-lang="js">JavaScript</button>
-                <button class="tier-tab-btn" data-filter-lang="html">HTML5</button>
-                <button class="tier-tab-btn" data-filter-lang="css">CSS</button>
             </div>
             <div style="display: flex; gap: 0.5rem; align-items: center;">
                 <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;">Difficulty:</span>
@@ -139,8 +137,8 @@
 
                     <div class="eval-editor-area">
                         <textarea class="eval-code-input" id="arena-code-input" spellcheck="false" style="min-height: 200px;">function calculateSum(a, b) {
-    // Write your code below:
-    return a + b;
+    // Return the sum of a and b
+
 }</textarea>
                     </div>
 
@@ -199,7 +197,7 @@
                 tierClass: 'tier-easy',
                 xp: 25,
                 desc: 'Write a function called <code>calculateSum(a, b)</code> that takes two numbers and returns their sum.',
-                starterCode: `function calculateSum(a, b) {\n    return a + b;\n}`,
+                starterCode: `function calculateSum(a, b) {\n    // Return the sum of a and b\n    \n}`,
                 hints: [
                     'Use the addition operator (+) to combine the two numbers.',
                     'Make sure to return the result, rather than just printing it.',
@@ -246,7 +244,7 @@
                 tierClass: 'tier-med',
                 xp: 40,
                 desc: 'Write a function called <code>calculateAverage(n1, n2, n3)</code> that returns the mathematical average of three numbers.',
-                starterCode: `function calculateAverage(n1, n2, n3) {\n    // Sum the numbers, then divide by 3\n    return (n1 + n2 + n3) / 3;\n}`,
+                starterCode: `function calculateAverage(n1, n2, n3) {\n    // Add the three numbers, then divide by 3\n    \n}`,
                 hints: [
                     'Remember operator precedence: group the additions in parentheses before dividing: (n1 + n2 + n3) / 3.',
                     'Division operator is the forward slash (/).',
@@ -287,7 +285,7 @@
                 tierClass: 'tier-easy',
                 xp: 25,
                 desc: 'Write a function <code>isEven(num)</code> that returns <code>true</code> if a number is even, and <code>false</code> if it is odd.',
-                starterCode: `function isEven(num) {\n    return num % 2 === 0;\n}`,
+                starterCode: `function isEven(num) {\n    // Return true if num is even, false if it is odd\n    \n}`,
                 hints: [
                     'Use the modulo (remainder) operator %.',
                     'If num % 2 equals 0, the number is divisible by 2 with no remainder.',
@@ -330,7 +328,7 @@
                 tierClass: 'tier-hard',
                 xp: 60,
                 desc: 'Write a function <code>reverseList(arr)</code> that takes an array and returns a new array with all elements in reverse order without modifying the original array.',
-                starterCode: `function reverseList(arr) {\n    let reversed = [];\n    for (let i = arr.length - 1; i >= 0; i--) {\n        reversed.push(arr[i]);\n    }\n    return reversed;\n}`,
+                starterCode: `function reverseList(arr) {\n    // Fill a new array with the items of arr in reverse order\n    let reversed = [];\n    \n    return reversed;\n}`,
                 hints: [
                     'Loop backwards starting from i = arr.length - 1 down to i = 0.',
                     'Push each item into a newly created array.',
@@ -375,7 +373,7 @@
                 tierClass: 'tier-med',
                 xp: 45,
                 desc: 'Write a function <code>getGrade(score)</code>: 90+ returns "A", 80-89 returns "B", 70-79 returns "C", below 70 returns "F".',
-                starterCode: `function getGrade(score) {\n    if (score >= 90) return "A";\n    if (score >= 80) return "B";\n    if (score >= 70) return "C";\n    return "F";\n}`,
+                starterCode: `function getGrade(score) {\n    // 90+ is "A", 80-89 is "B", 70-79 is "C", below 70 is "F"\n    \n}`,
                 hints: [
                     'Use if and else if ladders.',
                     'Check from highest score down to lowest.',

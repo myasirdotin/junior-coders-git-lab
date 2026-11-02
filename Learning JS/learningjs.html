@@ -220,9 +220,8 @@
             <!-- Course Stats Capsule Row -->
             <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1.75rem;">
                 <div class="stat-capsule"><span style="color:#eab308;">📚</span> 9 Structured Modules</div>
-                <div class="stat-capsule"><span style="color:#34d399;">🧪</span> 27 In-Browser Unit Drills</div>
-                <div class="stat-capsule"><span style="color:#818cf8;">🛠️</span> 9 Applied School Projects</div>
-                <div class="stat-capsule"><span style="color:#fbbf24;">💎</span> 2,800+ Total XP</div>
+                <div class="stat-capsule"><span style="color:#34d399;">🧪</span> Practice in every lesson</div>
+                <div class="stat-capsule"><span style="color:#818cf8;">📖</span> 23-chapter textbook</div>
                 <div class="stat-capsule"><span style="color:#f43f5e;">🏅</span> 9 Milestone Badges</div>
             </div>
 
@@ -662,7 +661,7 @@
             }
 
             // 2. Calculate Real Pathway Progress
-            const completed = JSON.parse(localStorage.getItem('bei_completed_modules') || '["m1", "m2", "m3"]');
+            const completed = window.BeiProgress ? window.BeiProgress.getStudentState().completedModules : [];
             const totalModules = 9;
             const completedCount = completed.length;
             const percentage = Math.min(100, Math.round((completedCount / totalModules) * 100));

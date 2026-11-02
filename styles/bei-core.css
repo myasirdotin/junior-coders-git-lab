@@ -1293,15 +1293,16 @@ code, pre {
     font-size: 0.88rem;
     color: var(--text-secondary);
     margin-bottom: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    position: relative;             /* not flex: flex split italic words like (<em>Amānah</em>) apart */
+    padding-left: 1.4rem;
 }
 
 .gateway-topics li::before {
     content: "✓";
     color: var(--brand-accent);
     font-weight: 800;
+    position: absolute;
+    left: 0;
 }
 
 .btn-gateway {
@@ -1388,9 +1389,8 @@ code, pre {
 }
 
 .ethical-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+    display: inline-block;          /* not flex: flex split "(<em>Amānah</em>)" into separate items with gaps */
+    line-height: 1.45;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 0.35rem 0.85rem;
@@ -2857,6 +2857,14 @@ body.bei-search-open { overflow: hidden; }
 .phpx-stderr { color: #fca5a5; margin-top: 0.4rem; }
 .phpx-why { margin-top: 0.4rem; font-weight: 500; color: var(--text-secondary); font-size: 0.88rem; }
 .sqlx-card .sqlx-solbox pre { margin: 0; white-space: pre-wrap; font-family: inherit; }
+
+/* Web Studio "Debugging tips" panel buttons (js/bei-tutor.js) */
+.tutor-chip {
+    flex: 0 0 auto; min-height: 38px; padding: 0.45rem 0.85rem; border-radius: 999px; cursor: pointer;
+    background: rgba(99, 102, 241, 0.14); color: #e0e7ff; border: 1px solid rgba(99, 102, 241, 0.4);
+    font: inherit; font-size: 0.82rem; font-weight: 700; white-space: nowrap;
+}
+.tutor-chip:hover, .tutor-chip:focus-visible { background: rgba(99, 102, 241, 0.3); }
 
 /* Laravel exercises (reuse the sqlx-* and phpx-* layout; nothing runs, the page checks answers) */
 .lrvx-options, .lrvx-lines, .lrvx-pool { display: grid; gap: 0.45rem; margin: 0 0 0.6rem; }

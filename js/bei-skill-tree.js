@@ -95,18 +95,18 @@
     // ─────────────────────────────────────────────────────────────────
     // 2. State & LocalStorage Management
     // ─────────────────────────────────────────────────────────────────
-    function getStudentState() {
-        const xp = parseInt(localStorage.getItem('bei_student_xp') || '350', 10);
-        let completedModules = [];
-        let completedProjects = [];
+    // Real progress only (GEMINI §7h): the site saves it in jc_user_state (js/bei-nav.js Progress),
+    // with JS lessons as "Learning JS_<n>". A new student starts at 0 XP with nothing completed.
+    const JS_MODULE_COUNT = 9;
 
-        try {
-            completedModules = JSON.parse(localStorage.getItem('bei_completed_modules') || '["m1", "m2", "m3", "m4", "m5"]');
-            completedProjects = JSON.parse(localStorage.getItem('bei_completed_projects') || '["Student Roster App"]');
-        } catch (_) {
-            completedModules = ['m1', 'm2', 'm3'];
-            completedProjects = [];
-        }
+    function getStudentState() {
+        let saved = {};
+        try { saved = JSON.parse(localStorage.getItem('jc_user_state') || '{}') || {}; } catch (_) { saved = {}; }
+        const xp = parseInt(saved.totalXP, 10) || 0;
+        const completedModules = (saved.completedModules || [])
+            .filter(k => /^Learning JS_\d+$/.test(k))
+            .map(k => 'm' + k.split('_')[1]);
+        const completedProjects = [];
 
         const studentName = localStorage.getItem('bei_student_name') || 'Student Coder';
 
@@ -171,10 +171,12 @@
                 </div>
             </div>
 
-            <div style="display: flex; gap: 0.75rem;">
+            <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+                ${state.completedModules.length >= JS_MODULE_COUNT ? `
                 <button id="btn-open-certificate" class="btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.88rem; border-radius: var(--radius-sm); background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
                     📜 View Certificate
-                </button>
+                </button>` : `
+                <span style="color: var(--text-secondary); font-size: 0.85rem;">📜 Your certificate unlocks when you complete all ${JS_MODULE_COUNT} lessons (${state.completedModules.length} of ${JS_MODULE_COUNT} so far).</span>`}
             </div>
         `;
 
@@ -272,7 +274,6 @@
 
         const state = getStudentState();
         const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-        const serial = 'JC-JS-' + Math.abs(hashCode(state.studentName + dateStr)).toString(16).toUpperCase().padStart(8, '0');
 
         modal.innerHTML = `
             <div class="cert-paper">
@@ -280,34 +281,33 @@
                 <div class="cert-watermark">📜</div>
                 
                 <div class="cert-header">
-                    <div style="font-size: 0.95rem; font-weight: 800; letter-spacing: 0.15em; color: #f59e0b; margin-bottom: 0.25rem;">JUNIOR CODERS ACADEMY</div>
-                    <h2>Certificate of Technical Mastery</h2>
-                    <p style="color: #64748b; font-size: 0.9rem; margin: 0;">Verified School Computer Science Pathway</p>
+                    <div style="font-size: 0.95rem; font-weight: 800; letter-spacing: 0.15em; color: #f59e0b; margin-bottom: 0.25rem;">JUNIOR CODERS</div>
+                    <h2>Certificate of Completion</h2>
+                    <p style="color: #64748b; font-size: 0.9rem; margin: 0;">JavaScript lessons</p>
                 </div>
 
                 <p style="color: #475569; font-size: 1.05rem; margin: 0;">This is proudly presented to:</p>
                 <div class="cert-student-name">${escapeHtml(state.studentName)}</div>
 
                 <p class="cert-body-text">
-                    For successfully mastering foundational and intermediate computational thinking, demonstrating rigorous algorithmic logic, completing <strong>5 modular units</strong>, passing checkpoint quizzes with excellence, and engineering functional software with diligence (<em>Iḥsān</em>).
+                    For completing all <strong>${state.completedModules.length} JavaScript lessons</strong> on Junior Coders, with care and diligence (<em>Iḥsān</em>).
                 </p>
 
-                <div style="display: inline-flex; gap: 1.5rem; background: #f8fafc; border: 1px dashed #cbd5e1; padding: 0.6rem 1.25rem; border-radius: 8px; font-size: 0.82rem; color: #475569; margin-bottom: 1.5rem;">
-                    <span><strong>Track:</strong> JavaScript Core</span>
+                <div style="display: inline-flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; background: #f8fafc; border: 1px dashed #cbd5e1; padding: 0.6rem 1.25rem; border-radius: 8px; font-size: 0.82rem; color: #475569; margin-bottom: 1.5rem;">
+                    <span><strong>Track:</strong> JavaScript</span>
                     <span><strong>Experience:</strong> ${state.xp} XP</span>
-                    <span><strong>Verification ID:</strong> ${serial}</span>
+                    <span><strong>Made on:</strong> ${dateStr}</span>
                 </div>
+                <p style="color: #64748b; font-size: 0.8rem; margin: 0 0 1.25rem;">Made on this device from the progress saved here. Junior Coders has no accounts, so this certificate cannot be checked online; a teacher can sign it below.</p>
 
                 <div class="cert-signatures-grid">
                     <div>
                         <div class="cert-sign-line"></div>
-                        <strong style="display:block; font-size:0.95rem; color:#0f172a;">Lead Computer Science Instructor</strong>
-                        <span style="font-size:0.8rem; color:#64748b;">Junior Coders Curriculum Board</span>
+                        <strong style="display:block; font-size:0.95rem; color:#0f172a;">Teacher's signature</strong>
                     </div>
                     <div>
                         <div class="cert-sign-line"></div>
-                        <strong style="display:block; font-size:0.95rem; color:#0f172a;">Date of Conferral</strong>
-                        <span style="font-size:0.8rem; color:#64748b;">${dateStr}</span>
+                        <strong style="display:block; font-size:0.95rem; color:#0f172a;">Date</strong>
                     </div>
                 </div>
 
@@ -319,15 +319,6 @@
         `;
 
         modal.classList.add('open');
-    }
-
-    function hashCode(str) {
-        let hash = 0;
-        for (let i = 0; i < str.length; i++) {
-            hash = ((hash << 5) - hash) + str.charCodeAt(i);
-            hash |= 0;
-        }
-        return hash;
     }
 
     function escapeHtml(str) {

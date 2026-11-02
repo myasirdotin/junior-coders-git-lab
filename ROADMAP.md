@@ -94,7 +94,7 @@ All educational content, interactive studios, textbook chapters, and milestone c
   - Classroom cohort metrics (Class 7A, 8B, 9C), weak-area alerts, student rosters, and homework dispatchers.
 - [x] **8-Stage Sequential Project Pathway & Student Showcase (`projects/index.html`)**:
   - Step-by-step unlocked project journey, peer project showcase, and teacher code review feedback.
-- [x] **Controlled Socratic AI Coding Tutor (`js/bei-tutor.js`)**:
+- [x] **Debugging Tips panel (`js/bei-tutor.js`)**: ready-made tips, not an AI;
   - Integrated in Web Studio IDE providing guided inquiry without dumping direct solution code.
 
 ---

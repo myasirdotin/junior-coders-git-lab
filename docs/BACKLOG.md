@@ -4,34 +4,78 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-11-02 (Laravel exercises page)._
+_Last updated: 2026-11-02 (UI review, batches 1 and 2)._
 
 ## 🔧 Now (in progress)
 
-- Nothing in progress. Last completed: Laravel exercises page (`Learning Laravel/exercises.html`).
+- **UI review follow-up** (report: claude.ai artifact "Junior Coders UI Review", 2 Nov 2026). Batches 1 (readability)
+  and 2 (honesty) are done; batches 3–6 below are next. Re-check any page with
+  `SHOTS=n node scripts/render-check.mjs …` in both themes (`SETUP='localStorage.setItem("bei_theme","light")'`).
 
 ## ⏭️ Next (agreed order)
 
-1. **Practice Arena**: only 5 challenges, all JavaScript. Add Python, PHP and SQL challenges (engines exist).
-2. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
+1. **UI batch 3: one design for exercises and quizzes.** Rebuild the 7 older exercise pages on the auto-checked
+   design used by MySQL/PHP/Laravel/Kotlin: Python, Networks, Cybersecurity (white-on-white in dark, nowhere to
+   answer), JS and CSS (no styles, all answers visible, JS Hint buttons throw `toggleHint is not defined`), HTML
+   (unreadable in light, 20px level buttons). Move the CSS and JS quizzes and the JS/CSS tips and best-practices
+   pages (old light pages, invisible in dark) onto the shared markup. `checkQuiz` (js/core.js): a lasting result box,
+   mark the right answer, optional one-line reason. Also: Network Studio boxes 80px wide on phones; HTML and Python
+   playground toolbars cut off on phones; floating PDF button over Check buttons on exercise pages.
+2. **UI batch 4: older lesson templates.** JS lessons: inline `color:#fff` headings (invisible in light), cards nested
+   3–4 deep on phones. Python/Networks/Cybersecurity lessons (24): no narrator, a second hand-written prev/next footer.
+   Python "Your Turn" boxes unreadable in dark. Lesson title card flat and square on laptops (`.module-header`).
+   HTML lessons: text starts below the first phone screen. MySQL pale cyan type names in light.
+3. **UI batch 5 (needs owner decisions): one map of the subjects.** Home, Start here, Learn hub and Learn menu group
+   the subjects four different ways; the Learn menu lacks Terminal and Git; the tab bar and header use different
+   names. Then shorten the 13-screen phone home page (the three-way choice appears twice) and render one footer from
+   `js/bei-nav.js`. The home headline types itself and moves the Start button.
+4. **UI batch 6: polish.** Cheat sheets: contents row and breadcrumb, `->` splitting across lines, first box below the
+   first phone screen, laptop gaps, HTML sheet hero text. Textbooks: ASCII diagrams shown as copyable code, Read button
+   gradient, small tap targets, "All (34)" vs 32 chapters. Search: subject hidden on phones, no chapters.
+   Drawer: "Teachers" under the tab bar. Textbooks page search only matches card text.
+5. **Practice Arena**: only 5 challenges, all JavaScript. Add Python, PHP and SQL challenges (engines exist).
+6. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
    a teacher can import.
-3. **Leftover content gaps** found in the review:
+7. **Leftover content gaps** found in the review:
    - JS modules 4–6: the practice textareas already contain the full solutions.
    - Python module 7 was not deepened (modules 1–6 and 8 were).
    - Networks module title cards still set old inline "Level" badge colours.
    - `tips.html` and `best-practices.html` overlap in the HTML, CSS and JS tracks.
-4. **Pre-recorded narration**: generate neural MP3s for chapter 1 of each book, play when present, fall back to Web Speech.
-5. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
+8. **Pre-recorded narration**: generate neural MP3s for chapter 1 of each book, play when present, fall back to Web Speech.
+9. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
    `.gemini/agents/css-tutor.md`, run `node scripts/sync-curriculum.js`.
 
 ## ❓ Decisions pending from the owner
 
+- **Site address:** footers show "beicoders.vercel.app" (the live Vercel address, but the old "BEI" name in visible
+  text, close to GEMINI §7.1). Rename the Vercel project or add a domain if wanted, then update the footers.
+- **One grouping of subjects** for home, Start here, Learn hub, menus and tab bar (UI batch 5).
 - **Confirm** book-cybersecurity ch05's OWASP Top 10:2025 list against owasp.org (written from memory).
 - **Confirm** the browser PHP Console allows file writes (book-php ch20/21 "Try It").
 - **XAMPP MariaDB does not start** (InnoDB data errors in its log, seen 2026-10-13; not caused by this project's
   work, data untouched). Other XAMPP projects that use MySQL (bei, ehsas) need it; repair from the XAMPP panel.
 
 ## ✅ Done (most recent first)
+
+- 2026-11-02 UI batch 2, honesty (GEMINI §7h): JS track home shows real progress from `jc_user_state` (was "350 XP,
+  3 of 9 done" for every new student) and true headline numbers; its certificate unlocks after all 9 lessons and no
+  longer claims "verified", quizzes or a curriculum board. Python Console: Run stays off until Pyodide is ready, no
+  fake "offline" output, shows the real Python version. Practice Arena starters no longer contain the answers; empty
+  HTML/CSS tabs removed. Web Studio "Socratic AI tutor" is now "Debugging tips, not an AI" with styled buttons and
+  HTML/CSS tips. Studios page names the Kotlin exception; textbooks say "Last chapter" not "Course complete"; Teacher
+  Hub describes what exists (teacher's guides in 5 books, linked; paths; the real 12-mark rubric) and reads in light;
+  home no longer promises a teacher dashboard; AI Roadmap: "Start here" and an age/permission note; contact page has
+  no data-collecting form. Chapter counts: `build-books.js` now writes "(N Ch)" on book links (5 sheets were stale);
+  HTML track home badges and counts fixed. "Master IDE" → Web Studio; "Junior Coders (Junior Coders)" fixed. Narrator
+  bar skip list works with clean URLs. Italic words no longer split in hub lists and ethics pills.
+- 2026-11-02 UI batch 1, readability: no code-font ligatures anywhere; lesson code boxes keep line breaks (20 Laravel
+  blocks moved from `<br>`); code and tables scroll inside their box (cut-off pages on phones 22 → 4); light theme
+  fixed for analogy boxes, flow diagrams, footer, ethics card, cheat-sheet heroes; textbook Reading Mode works (real
+  article, paper-light default, readable dark); PDF bar subject from the folder name; textbook tables, lists and
+  drawer shadow. `render-check.mjs` gained `SHOTS=n`. Full sweep: 193 pages × phone/laptop × dark/light, 0 problems.
+- 2026-11-02 Full UI review: script sweep of all 193 pages in 4 configurations plus five reviewers by page design
+  (lessons, textbooks, cheat sheets and library, practice and studios, hubs and navigation); 75 findings ranked into
+  six batches (published as a private artifact for the owner).
 
 - 2026-11-02 Laravel exercises (`Learning Laravel/exercises.html`, data `js/data/laravel-exercises.js`): 20 tasks
   on the book's library app (6 warm-up, 9 apply, 5 challenge) in seven kinds the page checks itself (predict, fill,

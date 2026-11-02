@@ -36,15 +36,15 @@
         <div class="course-info">
             <div class="info-card">
                 <h3>Curriculum</h3>
-                <p style="color: #ea580c;">13 Modules</p>
+                <p style="color: #ea580c;">12 Lessons + Capstone</p>
             </div>
             <div class="info-card">
                 <h3>Textbook</h3>
-                <p>17 Chapters</p>
+                <p>18 Chapters</p>
             </div>
             <div class="info-card">
                 <h3>Coding Missions</h3>
-                <p>45+ Challenges</p>
+                <p>Exercises + Quiz</p>
             </div>
             <div class="info-card">
                 <h3>Target Level</h3>
@@ -57,7 +57,7 @@
             <div class="progress-bar">
                 <div class="progress-fill" id="progressFill"></div>
             </div>
-            <p class="progress-text">You've mastered <span id="completedModules">0</span> of 13 Modules</p>
+            <p class="progress-text">You've mastered <span id="completedModules">0</span> of 12 Lessons</p>
         </div>
 
         <!-- Track 1: The Foundation -->
@@ -157,7 +157,7 @@
                 <div class="module-card">
                     <div class="module-card-header">
                         <h2>5: Links &amp; Navigation</h2>
-                        <span class="book-badge">Book: Ch 7</span>
+                        <span class="book-badge">Book: Ch 8</span>
                     </div>
                     <div class="module-card-body">
                         <p>Connect the World Wide Web using hyperlinks, relative and absolute paths, target attributes, and bookmark anchors.</p>
@@ -178,7 +178,7 @@
                 <div class="module-card">
                     <div class="module-card-header">
                         <h2>6: Images &amp; Media</h2>
-                        <span class="book-badge">Book: Ch 8</span>
+                        <span class="book-badge">Book: Ch 9</span>
                     </div>
                     <div class="module-card-body">
                         <p>Embed pictures, photos, and artwork with accessibility best practices, alt text, and responsive dimensions.</p>
@@ -199,7 +199,7 @@
                 <div class="module-card">
                     <div class="module-card-header">
                         <h2>7: Tables &amp; Data Grids</h2>
-                        <span class="book-badge">Book: Ch 10</span>
+                        <span class="book-badge">Book: Ch 11</span>
                     </div>
                     <div class="module-card-body">
                         <p>Organize structured data like schedules, scores, and timetables using rows, table headers, cells, and spans.</p>
@@ -220,7 +220,7 @@
                 <div class="module-card">
                     <div class="module-card-header">
                         <h2>8: Lists &amp; Grouping</h2>
-                        <span class="book-badge">Book: Ch 9</span>
+                        <span class="book-badge">Book: Ch 10</span>
                     </div>
                     <div class="module-card-body">
                         <p>Create bulleted, numbered, and nested multi-level lists for recipes, navigation menus, and item catalogs.</p>
@@ -247,7 +247,7 @@
                 <div class="module-card">
                     <div class="module-card-header">
                         <h2>9: Block &amp; Inline</h2>
-                        <span class="book-badge">Book: Ch 12</span>
+                        <span class="book-badge">Book: Ch 13</span>
                     </div>
                     <div class="module-card-body">
                         <p>Master how browsers position elements on screen: full-width block elements vs text-flowing inline elements.</p>
@@ -268,7 +268,7 @@
                 <div class="module-card">
                     <div class="module-card-header">
                         <h2>10: Classes &amp; IDs</h2>
-                        <span class="book-badge">Book: Ch 12</span>
+                        <span class="book-badge">Book: Ch 13</span>
                     </div>
                     <div class="module-card-body">
                         <p>Name and target specific elements for CSS styling and JavaScript interaction using reusable classes and unique IDs.</p>
@@ -289,7 +289,7 @@
                 <div class="module-card">
                     <div class="module-card-header">
                         <h2>11: Forms &amp; Inputs</h2>
-                        <span class="book-badge">Book: Ch 11</span>
+                        <span class="book-badge">Book: Ch 12</span>
                     </div>
                     <div class="module-card-body">
                         <p>Build interactive user forms with text inputs, passwords, radio options, dropdown selects, and submit buttons.</p>
@@ -310,7 +310,7 @@
                 <div class="module-card">
                     <div class="module-card-header">
                         <h2>12: Semantic Layout</h2>
-                        <span class="book-badge">Book: Ch 12</span>
+                        <span class="book-badge">Book: Ch 13</span>
                     </div>
                     <div class="module-card-body">
                         <p>Construct professional, accessible web layouts using modern semantic HTML5 landmarks for SEO and screen readers.</p>
@@ -337,7 +337,7 @@
                 <div class="module-card" style="border-color: rgba(234, 88, 12, 0.4); background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(234, 88, 12, 0.08));">
                     <div class="module-card-header" style="background: rgba(234, 88, 12, 0.15);">
                         <h2 style="color: #ea580c;">13: Capstone Projects Lab</h2>
-                        <span class="book-badge" style="background: #ea580c; color: white;">Book: Ch 13–17</span>
+                        <span class="book-badge" style="background: #ea580c; color: white;">Book: Ch 14–18</span>
                     </div>
                     <div class="module-card-body">
                         <p>Build 5 complete, multi-page websites straight from the textbook: Personal Profile, School Portal, Restaurant Menu, Developer Portfolio, and Final Capstone.</p>
@@ -391,7 +391,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const completed = JSON.parse(localStorage.getItem('jc_completed_modules') || '[]');
             const count = completed.filter(m => m.startsWith('Learning HTML')).length;
-            const percentage = Math.min(100, Math.round((count / 13) * 100));
+            const percentage = Math.min(100, Math.round((count / 12) * 100));
             
             const fill = document.getElementById('progressFill');
             const text = document.getElementById('completedModules');
