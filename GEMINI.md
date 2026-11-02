@@ -205,7 +205,11 @@ These rules come from real bugs found in this site. Follow them for every change
    and removes its purple page gradient and `body::before` glow. Use the `--brand-*`, `--bg-*`, `--text-*` and
    `--border-*` variables for anything new; do not add page-level gradients or hard-coded purples. Per-track colours
    on lesson hero cards (PHP purple, Security green, JS yellow...) are intended and stay. The textbook readers
-   (`book-*/`, `styles/book-theme.css`) are deliberately light, like paper, and are the one exception.
+   (`book-*/`, `styles/book-theme.css`) are deliberately light, like paper, and are the one exception. Surfaces are
+   solid: no `backdrop-filter` blur and no translucent "glass" backgrounds; no gradient text. A card's accent colour is
+   a class (`.gateway-card.accent-cyan` …), not an inline style. **No emoji in the chrome** (header, menus, tab bar,
+   footer, pager, buttons, eyebrows); the few icons the chrome needs are inline SVG in `js/bei-nav.js` (`ICONS`). Emoji
+   stay where they are content: textbook signpost headings (§7j), subject icons in the map, lesson rewards.
 7d. **Narration voices.** Both narrators (`js/book-speaker.js` for textbooks, the lesson speaker in `js/core.js`) use
    the browser's Web Speech voices through `js/tts-voices.js`, which ranks them, remembers the reader's choice
    (`bei_tts_voice`), renders the voice picker and shows the "open in Microsoft Edge" tip when only basic voices exist.

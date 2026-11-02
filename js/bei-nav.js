@@ -781,6 +781,19 @@
     // ═════════════════════════════════════════════════════════════════
     // 3. GLOBAL TOP NAVBAR RENDERER & ENHANCER
     // ═════════════════════════════════════════════════════════════════
+    // The few icons the chrome needs, as inline SVG in the text colour (one stroke weight); no emoji in the chrome.
+    const svg = (d) => `<svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+    const ICONS = {
+        search: svg('<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>'),
+        sun: svg('<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'),
+        moon: svg('<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>'),
+        home: svg('<path d="M3 11 12 3l9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/>'),
+        learn: svg('<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21z"/><path d="M4 19V5.5"/><path d="M8 7h8M8 11h8"/>'),
+        practice: svg('<path d="M13 2 4 14h7l-1 8 9-12h-7z"/>'),
+        library: svg('<path d="M4 4h4v16H4zM10 4h4v16h-4z"/><path d="m16 5 4 1-3.5 15-4-1z"/>'),
+        menu: svg('<path d="M4 6h16M4 12h16M4 18h16"/>')
+    };
+
     function renderGlobalNav() {
         let nav = document.querySelector('.bei-nav');
         if (!nav) {
@@ -812,22 +825,23 @@
         // Grouped menus (desktop: dropdown panels; phone drawer: sections that open on tap)
         const group = ({ learn: 'learn', studios: 'practice', arena: 'practice', projects: 'practice',
                          textbooks: 'library', cheatsheets: 'library' })[activeKey] || '';
+        // menu rows carry no emoji (the icon argument is kept so the lists below stay readable)
         const item = (href, icon, label, sub) =>
-            `<a class="bei-dd-item" href="${ROOT}${href}"><span class="bei-dd-ico" aria-hidden="true">${icon}</span>` +
+            `<a class="bei-dd-item" href="${ROOT}${href}">` +
             `<span><span class="bei-dd-label">${label}</span>${sub ? `<span class="bei-dd-sub">${sub}</span>` : ''}</span></a>`;
         const section = (title, items) => `<div class="bei-dd-section"><p class="bei-dd-title">${title}</p>${items.join('')}</div>`;
         const footer = (links) => `<div class="bei-dd-footer">${links.join('')}</div>`;
         const dropdown = (key, icon, label, body, active) => `
                     <li class="bei-dd" data-dd="${key}">
                         <button type="button" class="bei-nav-link bei-dd-btn ${active ? 'active' : ''}" aria-expanded="false" aria-controls="bei-dd-${key}">
-                            <span class="nav-icon">${icon}</span><span>${label}</span><span class="bei-dd-caret" aria-hidden="true">▾</span>
+                            <span>${label}</span><span class="bei-dd-caret" aria-hidden="true">▾</span>
                         </button>
                         <div class="bei-dd-menu bei-dd-${key}" id="bei-dd-${key}">${body}</div>
                     </li>`;
 
         // the same four groups as the Textbooks page, the Learn hub, the home page and the footer (SUBJECT_GROUPS, section 5.7)
         const learnMenu =
-            SUBJECT_GROUPS.map(g => section(g.icon + ' ' + g.title, g.subjects.map(k =>
+            SUBJECT_GROUPS.map(g => section(g.title, g.subjects.map(k =>
                 item(subjectHref(k), SUBJECTS[k].icon, SUBJECTS[k].name, subjectMeta(k))))).join('') +
             footer([item('learn/index.html', '🧭', 'All subjects', ''), item('paths/index.html', '🗺️', 'Learning paths', 'Week-by-week plans')]);
         const practiceMenu =
@@ -852,7 +866,7 @@
         const navHtml = `
             <div class="container bei-nav-inner">
                 <a href="${ROOT}index.html" class="bei-logo">
-                    <div class="bei-logo-icon">💻</div>
+                    <div class="bei-logo-icon" aria-hidden="true">JC</div>
                     <div class="bei-logo-text">
                         <span class="bei-brand-name">Junior Coders</span>
                         <span class="bei-logo-sub">School Computer Science</span>
@@ -860,18 +874,18 @@
                 </a>
 
                 <ul class="bei-nav-links">
-                    <li><a href="${ROOT}paths/index.html" class="bei-nav-link ${activeKey === 'paths' ? 'active' : ''}"><span class="nav-icon">🗺️</span><span>Start here</span></a></li>
-                    ${dropdown('learn', '📚', 'Learn', learnMenu, group === 'learn')}
-                    ${dropdown('practice', '⚡', 'Practice', practiceMenu, group === 'practice')}
-                    ${dropdown('library', '📖', 'Library', libraryMenu, group === 'library')}
-                    <li><a href="${ROOT}teacher-hub/index.html" class="bei-nav-link ${activeKey === 'teachers' ? 'active' : ''}"><span class="nav-icon">🍎</span><span>Teachers</span></a></li>
+                    <li><a href="${ROOT}paths/index.html" class="bei-nav-link ${activeKey === 'paths' ? 'active' : ''}"><span>Start here</span></a></li>
+                    ${dropdown('learn', '', 'Learn', learnMenu, group === 'learn')}
+                    ${dropdown('practice', '', 'Practice', practiceMenu, group === 'practice')}
+                    ${dropdown('library', '', 'Library', libraryMenu, group === 'library')}
+                    <li><a href="${ROOT}teacher-hub/index.html" class="bei-nav-link ${activeKey === 'teachers' ? 'active' : ''}"><span>Teachers</span></a></li>
                 </ul>
 
                 <div class="bei-nav-actions">
                     <button type="button" class="bei-search-btn" aria-label="Search the site" title="Search (Ctrl+K)">
-                        <span class="bei-search-ico" aria-hidden="true">🔍</span><span class="bei-search-text">Search</span><kbd class="bei-search-kbd">Ctrl K</kbd>
+                        <span class="bei-search-ico" aria-hidden="true">${ICONS.search}</span><span class="bei-search-text">Search</span><kbd class="bei-search-kbd">Ctrl K</kbd>
                     </button>
-                    <button class="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Toggle theme">☀️</button>
+                    <button class="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Toggle theme">${ICONS.sun}</button>
                     <button class="mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
                 </div>
             </div>
@@ -890,13 +904,13 @@
         document.documentElement.setAttribute('data-theme', currentTheme);
         const themeBtn = nav.querySelector('.theme-toggle-btn');
         if (themeBtn) {
-            themeBtn.innerHTML = currentTheme === 'dark' ? '☀️' : '🌙';
+            themeBtn.innerHTML = currentTheme === 'dark' ? ICONS.sun : ICONS.moon;
             themeBtn.onclick = () => {
                 const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
                 const nextTheme = isDark ? 'light' : 'dark';
                 document.documentElement.setAttribute('data-theme', nextTheme);
                 localStorage.setItem('bei_theme', nextTheme);
-                themeBtn.innerHTML = nextTheme === 'dark' ? '☀️' : '🌙';
+                themeBtn.innerHTML = nextTheme === 'dark' ? ICONS.sun : ICONS.moon;
             };
         }
 
@@ -1151,7 +1165,7 @@
         topBar.className = 'bei-module-nav-bar-top';
         topBar.innerHTML = `
             <div class="bei-track-breadcrumb">
-                <a href="${ROOT}index.html"><span>🏠</span> Home</a>
+                <a href="${ROOT}index.html">Home</a>
                 <span class="breadcrumb-separator">/</span>
                 <a href="${track.syllabus}">${track.shortName}</a>
                 <span class="breadcrumb-separator">/</span>
@@ -1196,7 +1210,7 @@
             </a>
         ` : `
             <a href="${track.syllabus}#cert" class="pager-card next" style="background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(19, 29, 50, 0.9) 100%); border-color: rgba(16, 185, 129, 0.4);">
-                <span class="pager-card-dir" style="color: var(--text-green);">Track Complete 🎓</span>
+                <span class="pager-card-dir" style="color: var(--text-green);">Track Complete</span>
                 <span class="pager-card-title">Claim Track Certificate →</span>
             </a>
         `;
@@ -1209,10 +1223,10 @@
             <div class="pager-col prev">${prevHtml}</div>
             <div class="pager-col center">
                 <a href="${track.syllabus}" class="pager-btn-link" title="View all modules in ${track.name}">
-                    <span>📚</span> <span>All Modules</span>
+                    <span>All Modules</span>
                 </a>
                 <a href="${companionBookUrl}" target="_blank" class="pager-btn-link" title="Open companion textbook in reader">
-                    <span>📖</span> <span>Book Companion ↗</span>
+                    <span>Book Companion ↗</span>
                 </a>
                 ${completeHtml}
             </div>
@@ -1263,9 +1277,9 @@
         const bar = document.createElement('nav');
         bar.className = 'bei-tab-bar';
         bar.setAttribute('aria-label', 'Quick navigation');
-        bar.innerHTML = tab('home', 'index.html', '🏠', 'Home') + tab('learn', 'learn/index.html', '📚', 'Learn')
-            + tab('practice', 'studios/index.html', '⚡', 'Practice') + tab('library', 'library/index.html', '📖', 'Library')
-            + `<button type="button" class="bei-tab-item bei-tab-menu" aria-label="Open menu"><span class="bei-tab-icon" aria-hidden="true">☰</span><span>Menu</span></button>`;
+        bar.innerHTML = tab('home', 'index.html', ICONS.home, 'Home') + tab('learn', 'learn/index.html', ICONS.learn, 'Learn')
+            + tab('practice', 'studios/index.html', ICONS.practice, 'Practice') + tab('library', 'library/index.html', ICONS.library, 'Library')
+            + `<button type="button" class="bei-tab-item bei-tab-menu" aria-label="Open menu"><span class="bei-tab-icon" aria-hidden="true">${ICONS.menu}</span><span>Menu</span></button>`;
         document.body.appendChild(bar);
         bar.querySelector('.bei-tab-menu').addEventListener('click', (e) => {
             e.stopPropagation();
@@ -1345,7 +1359,7 @@
         overlay.innerHTML = `
             <div class="bei-search-panel" role="dialog" aria-modal="true" aria-label="Search the site">
                 <div class="bei-search-row">
-                    <span aria-hidden="true">🔍</span>
+                    <span class="bei-search-ico" aria-hidden="true">${ICONS.search}</span>
                     <input type="search" id="beiSearchInput" class="bei-search-input" placeholder="Search lessons, textbooks, cheat sheets..." autocomplete="off" spellcheck="false">
                     <button type="button" class="bei-search-close" aria-label="Close search">✕</button>
                 </div>
@@ -1457,11 +1471,11 @@
             const meta = t ? (done ? `<span class="jc-subject-done">${done} of ${t.modules.length} lessons done</span>` : esc(subjectMeta(k)) + ' · ' + esc(s.grades))
                            : 'Textbook · ' + esc(s.grades);
             const links = [];
-            if (t) links.push(a(s.book, '📖 Textbook', ''));
-            links.push(a(s.sheet, '📋 Cheat sheet', ''));
+            if (t) links.push(a(s.book, 'Textbook', ''));
+            links.push(a(s.sheet, 'Cheat sheet', ''));
             const ex = t && (t.extras || []).find(x => /exercise/i.test(x.file));
-            if (ex) links.push(a(encodeURI(t.dir) + '/' + ex.file, '✅ Exercises', ''));
-            if (s.practice) links.push(a(s.practice[0], '✅ ' + s.practice[1], ''));
+            if (ex) links.push(a(encodeURI(t.dir) + '/' + ex.file, 'Exercises', ''));
+            if (s.practice) links.push(a(s.practice[0], s.practice[1], ''));
             return `<article class="jc-subject">
                 <a class="jc-subject-main" href="${ROOT}${subjectHref(k)}">
                     <span class="jc-subject-ico" aria-hidden="true">${s.icon}</span>
@@ -1498,7 +1512,7 @@
         footer.innerHTML = `
             <div class="container footer-grid">
                 <div class="footer-brand">
-                    <a href="${ROOT}index.html" class="bei-logo"><div class="bei-logo-icon">💻</div><span>Junior Coders</span></a>
+                    <a href="${ROOT}index.html" class="bei-logo"><div class="bei-logo-icon" aria-hidden="true">JC</div><span>Junior Coders</span></a>
                     <p>School computer science for Grades 6–10: lessons, textbooks that read aloud and practice that checks itself in the browser. Dedicated to beneficial knowledge (<em>'Ilm Nāfi'</em>), digital trust (<em>Amānah</em>) and craftsmanship (<em>Iḥsān</em>).</p>
                     <div class="footer-social-links">
                         <a href="https://github.com/myasirdotin/junior-coders-git-lab" target="_blank" rel="noopener noreferrer" class="footer-pill-btn github-pill" title="Source code on GitHub">
@@ -1510,7 +1524,7 @@
                         </a>
                     </div>
                 </div>
-                ${col('Learn', SUBJECT_GROUPS.map(g => li('learn/index.html#group-' + g.key, g.icon + ' ' + esc(g.title))).concat([li('paths/index.html', '🗺️ Learning paths')]))}
+                ${col('Learn', SUBJECT_GROUPS.map(g => li('learn/index.html#group-' + g.key, esc(g.title))).concat([li('paths/index.html', 'Learning paths')]))}
                 ${col('Practice', [li('studios/web-studio/index.html', 'Web Studio'), li('studios/python-console/index.html', 'Python Console'), li('studios/php-console/index.html', 'PHP Console'), li('studios/sql-sandbox/index.html', 'SQL Sandbox'), li('practice-arena.html', 'Practice Arena'), li('projects/index.html', 'Projects')])}
                 ${col('Library', [li('library/books/index.html', '12 textbooks'), li('library/cheatsheets/index.html', 'Cheat sheets'), li('library/index.html', 'Library home'), li('getting-started.html', 'Getting started')])}
                 ${col('Teachers', [li('teacher-hub/index.html', 'Teacher Hub'), li('teacher-hub/index.html#rubrics', 'Rubrics'), li('ai-roadmap.html', 'AI roadmap'), li('contact.html', 'Contact')])}

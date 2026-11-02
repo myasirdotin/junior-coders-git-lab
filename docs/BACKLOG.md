@@ -4,12 +4,14 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-11-02 (UI review, batches 1–6: all done)._
+_Last updated: 2026-11-02 (UI review done; visual cleanup, batch 7)._
 
 ## 🔧 Now (in progress)
 
-- Nothing in progress. The UI review (claude.ai artifact "Junior Coders UI Review", 2 Nov 2026) is complete: all six
-  batches are done. Re-check any page with
+- **Visual identity** (from a design review of the home page and chrome, 2 Nov 2026). Batch 7, the cleanup that needs no
+  rule change, is done. Still waiting on the owner (see Decisions): light as the default theme; five colours instead of
+  eighteen with one colour per subject group; one icon set instead of the remaining emoji; an identity drawn from the
+  Amānah/Iḥsān theme (motif, display face, palette). The UI review itself is complete. Re-check any page with
   `SHOTS=n node scripts/render-check.mjs …` in both themes (`SETUP='localStorage.setItem("bei_theme","light")'`);
   re-check practice tasks with `node scripts/check-practice.js [site URL]`.
 
@@ -28,6 +30,12 @@ _Last updated: 2026-11-02 (UI review, batches 1–6: all done)._
 
 ## ❓ Decisions pending from the owner
 
+- **Visual identity (batch 8, needs you):** (1) light as the default theme, dark as the toggle (classrooms, projectors,
+  print; GEMINI §7c says dark by default); (2) five colours instead of eighteen: ink, paper, one brand hue, one accent
+  for progress/XP, one for errors, and one colour per subject group carrying all remaining meaning (the per-track title
+  card colours §7c keeps would go); (3) one icon set (Lucide or Phosphor, one stroke weight) for the subject map, tier
+  badges and switcher chips, which still use emoji; (4) an identity from the Amānah/Iḥsān theme: a geometric motif, a
+  display face with character, a palette from that world rather than Tailwind defaults.
 - **Site address:** footers show "beicoders.vercel.app" (the live Vercel address, but the old "BEI" name in visible
   text, close to GEMINI §7.1). Rename the Vercel project or add a domain if wanted, then update the footers.
 - **Confirm** book-cybersecurity ch05's OWASP Top 10:2025 list against owasp.org (written from memory).
@@ -37,6 +45,15 @@ _Last updated: 2026-11-02 (UI review, batches 1–6: all done)._
 
 ## ✅ Done (most recent first)
 
+- 2026-11-02 Visual cleanup (batch 7, no rule changes): no emoji in the chrome: header links, menus, tab bar (small
+  inline SVG icons), search and theme buttons, footer, pager, subject-map links; the logo is a "JC" mark. Home page:
+  plain two-line headline (no gradient text), two buttons (Start learning · I'm a teacher), a real screenshot of the Web
+  Studio (`assets/img/web-studio.jpg`) in place of the mock IDE window, no eyebrows, no card icons, accent colours on
+  cards by class (`.accent-cyan` …) instead of inline styles (home and Start here); 9 phone screens. The three hand-written
+  headers (home, Learn, Start here) became the `bei-global-nav` placeholder. All backdrop-filter blur and the `--bg-glass`
+  token removed from `bei-core.css` (and the blur from `main.css`): header, tab bar, drawer, menus and search sit on
+  solid surfaces. README no longer advertises glassmorphism. Emoji stay where they are content: textbook signposts,
+  subject icons in the map, lesson rewards.
 - 2026-11-02 UI batch 6, polish. Cheat sheets: breadcrumb and an "On this page" row of the boxes (rendered by
   `js/bei-nav.js` from the card ids), arrows such as `->` kept on one line, compact title card and PDF bar on phones so
   the first box starts on the first screen, boxes fill two columns top to bottom on laptops (no gaps), HTML sheet

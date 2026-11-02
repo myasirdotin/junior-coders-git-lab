@@ -36,7 +36,7 @@
 - **Interactive Code Lab**: A built-in IDE for real-time experimentation with HTML, CSS, and JS.
 - **Gamified Experience**: Earn XP, climb ranks (Recruit to Master), and track your progress through visual dashboards.
 - **Responsive Design**: Optimized for both Desktop and Mobile learning.
-- **Modern UI**: A "Glassmorphism" inspired dark theme with light mode support.
+- **One design**: dark and light themes from one set of colour tokens (`styles/bei-core.css`); readable on phones from 390px.
 - **Educational Analogies**: Complex concepts explained through simple, relatable visual metaphors.
 
 ---

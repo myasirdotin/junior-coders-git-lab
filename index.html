@@ -18,34 +18,7 @@
     <!-- ═════════════════════════════════════════════════════════════════
          TOP NAVIGATION BAR
          ═════════════════════════════════════════════════════════════════ -->
-    <nav class="bei-nav">
-        <div class="container bei-nav-inner">
-            <a href="index.html" class="bei-logo">
-                <div class="bei-logo-icon">💻</div>
-                <div class="bei-logo-text">
-                    <span class="bei-brand-name">Junior Coders</span>
-                    <span class="bei-logo-sub">School Computer Science</span>
-                </div>
-            </a>
-
-            <ul class="bei-nav-links">
-                <li><a href="learn/index.html" class="bei-nav-link"><span class="nav-icon">📚</span><span>Learn</span></a></li>
-                <li><a href="practice-arena.html" class="bei-nav-link"><span class="nav-icon">⚔️</span><span>Arena</span></a></li>
-                <li><a href="studios/index.html" class="bei-nav-link"><span class="nav-icon">⚡</span><span>Studios</span></a></li>
-                <li><a href="library/books/index.html" class="bei-nav-link"><span class="nav-icon">📖</span><span>Textbooks</span></a></li>
-                <li><a href="library/cheatsheets/index.html" class="bei-nav-link"><span class="nav-icon">📋</span><span>Cheatsheets</span></a></li>
-                <li><a href="projects/index.html" class="bei-nav-link"><span class="nav-icon">🏆</span><span>Projects</span></a></li>
-                <li><a href="paths/index.html" class="bei-nav-link"><span class="nav-icon">🗺️</span><span>Pathways</span></a></li>
-                <li><a href="teacher-hub/index.html" class="bei-nav-link"><span class="nav-icon">🍎</span><span>Teachers</span></a></li>
-            </ul>
-
-            <div class="bei-nav-actions">
-                <button class="theme-toggle-btn" aria-label="Toggle dark/light theme" title="Toggle theme">☀️</button>
-                <a href="studios/web-studio/index.html" class="btn-nav-primary">Launch Studio ⚡</a>
-                <button class="mobile-toggle" aria-label="Toggle navigation menu">☰</button>
-            </div>
-        </div>
-    </nav>
+    <div id="bei-global-nav"></div>
 
     <!-- ═════════════════════════════════════════════════════════════════
          UNIFIED HERO SECTION
@@ -53,9 +26,9 @@
     <header class="bei-hero">
         <div class="container">
             <div class="hero-badge-pill">
-                <span>✨</span> School Computer Science for Grades 6–10
+                School Computer Science for Grades 6–10
             </div>
-            <h1>Code with Purpose.<br><span class="hero-accent">Create with Excellence (Iḥsān).</span></h1>
+            <h1>Code with Purpose.<br>Create with Excellence (Iḥsān).</h1>
             <p class="hero-subtitle">
                 A modern, zero-setup computer science learning platform for school students and educators. Journey from your first terminal command to real-world Python algorithms, creative web engineering, and ethical AI stewardship (<em>Amānah</em>).
             </p>
@@ -64,70 +37,28 @@
             <div class="hero-continue" id="heroContinue" hidden></div>
 
             <div class="hero-actions">
-                <a href="paths/index.html" class="btn-hero-primary btn-hero-main">
-                    <span>🚀</span> Start Learning
-                </a>
-                <div class="hero-actions-secondary">
-                    <a href="#placement" class="btn-hero-secondary">
-                        <span>🧭</span> Help me choose
-                    </a>
-                    <a href="practice-arena.html" class="btn-hero-secondary" style="border-color: #10b981; color: #34d399;">
-                        <span>⚔️</span> Practice Arena
-                    </a>
-                    <a href="studios/web-studio/index.html" class="btn-hero-secondary">
-                        <span>⚡</span> Web Studio
-                    </a>
-                    <a href="teacher-hub/index.html" class="btn-hero-secondary hero-teacher-link">
-                        <span>🍎</span> Educator Portal
-                    </a>
-                </div>
+                <a href="paths/index.html" class="btn-hero-primary btn-hero-main">Start learning</a>
+                <a href="teacher-hub/index.html" class="btn-hero-secondary hero-teacher-link">I'm a teacher</a>
             </div>
 
-            <!-- ═════════════════════════════════════════════════════════
-                 HERO CODE VISUAL SHOWCASE (IDE WINDOW)
-                 ═════════════════════════════════════════════════════════ -->
-            <div class="hero-visual-container">
-                <div class="hero-visual-frame">
-                    <div class="hero-window-header">
-                        <div class="window-controls">
-                            <span class="ctrl-dot red" title="Close"></span>
-                            <span class="ctrl-dot yellow" title="Minimize"></span>
-                            <span class="ctrl-dot green" title="Expand"></span>
-                        </div>
-                        <div class="window-tabs">
-                            <span class="window-tab active"><span>🐍</span> main.py</span>
-                            <span class="window-tab"><span>🌐</span> index.html</span>
-                            <span class="window-tab"><span>🎨</span> styles.css</span>
-                            <span class="window-tab"><span>🗄️</span> schema.sql</span>
-                        </div>
-                        <div class="window-badge">
-                            <span class="live-dot"></span> <span class="badge-text-full">Interactive Studio</span><span class="badge-text-short">Studio</span>
-                        </div>
-                    </div>
-                    <div class="hero-image-wrapper">
-                        <img src="assets/img/code-cover.jpg" alt="Junior Coders Creative Coding, Python and Web Development Showcase" class="hero-cover-img" loading="eager">
-                        <div class="hero-image-overlay">
-                            <div class="overlay-pill">
-                                <span>🚀</span> <span class="pill-text-desktop">Zero-setup Interactive Practice in Your Browser</span><span class="pill-text-mobile">Zero-Setup In-Browser Practice</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <!-- The Web Studio as it really looks (assets/img/web-studio.jpg, a screenshot) -->
+            <figure class="hero-visual-container hero-shot">
+                <a href="studios/web-studio/index.html"><img src="assets/img/web-studio.jpg" alt="The Web Studio: an HTML editor on the left and the live page it makes on the right" width="1262" height="640" loading="eager"></a>
+                <figcaption>The Web Studio: write HTML, CSS and JavaScript and watch the page change as you type. Nothing to install.</figcaption>
+            </figure>
 
             <!-- ═════════════════════════════════════════════════════════════
                  INTERACTIVE PLACEMENT DIAGNOSTIC
                  ═════════════════════════════════════════════════════════════ -->
             <div class="placement-widget" id="placement">
                 <div class="placement-header">
-                    <h2><span>🧭</span> Not sure where to begin? Answer in 1 click:</h2>
+                    <h2>Not sure where to begin? Answer in 1 click:</h2>
                     <p>Select your background and interest to get an instant recommended starting point.</p>
                 </div>
 
                 <div class="placement-choices" id="placementDiagnostic">
                     <!-- Choice 1: Foundations -->
                     <div class="placement-card" data-path="foundations">
-                        <div class="placement-icon">🌱</div>
                         <h3>“I’m completely new to coding”</h3>
                         <p>Best for Grades 6–7. Learn how computer files work, master the terminal without a mouse, and write your first lines safely.</p>
                         <span class="placement-badge badge-foundations">Foundations &amp; CLI</span>
@@ -135,7 +66,6 @@
 
                     <!-- Choice 2: Web Dev -->
                     <div class="placement-card" data-path="web">
-                        <div class="placement-icon">🌐</div>
                         <h3>“I want to build interactive websites”</h3>
                         <p>Best for Grades 7–9. Learn semantic HTML5 structure, modern CSS (Flexbox &amp; Grid) styling, and JavaScript logic.</p>
                         <span class="placement-badge badge-web">Web Development</span>
@@ -143,7 +73,6 @@
 
                     <!-- Choice 3: Python & AI -->
                     <div class="placement-card" data-path="python">
-                        <div class="placement-icon">🤖</div>
                         <h3>“I want to learn Python &amp; explore AI”</h3>
                         <p>Best for Grades 8–10. Master Python 3 algorithmic logic, data processing, prompt engineering, and ethical AI verification.</p>
                         <span class="placement-badge badge-ai">Python &amp; AI Lab</span>
@@ -174,7 +103,7 @@
             <div class="mission-progress-box">
                 <div class="mission-progress-head">
                     <div>
-                        <strong class="mission-progress-title">🎒 Student Grade-by-Grade Progression</strong>
+                        <strong class="mission-progress-title">Student Grade-by-Grade Progression</strong>
                         <span class="mission-progress-sub">Your own progress, saved on this device. Tick "Mark complete" at the end of a lesson to fill a bar.</span>
                     </div>
                     <span class="mission-standards-tag">Grades 6–10</span>
@@ -241,22 +170,18 @@
             <!-- The 4 Core Answers Grid -->
             <div class="mission-answers-grid">
                 <div class="mission-answer-card">
-                    <div class="answer-icon">👥</div>
                     <strong>Who is it for?</strong>
                     <p>School students in Grades 6–10 and computer science teachers.</p>
                 </div>
                 <div class="mission-answer-card">
-                    <div class="answer-icon">📚</div>
                     <strong>What will you learn?</strong>
                     <p>HTML5, modern CSS Grid/Flexbox, JavaScript, PHP, MySQL, and Python AI.</p>
                 </div>
                 <div class="mission-answer-card">
-                    <div class="answer-icon">🔄</div>
                     <strong>How does learning work?</strong>
                     <p>The fixed 7-step cycle: Learn ➔ See ➔ Try ➔ Practice ➔ Challenge ➔ Quiz ➔ Project.</p>
                 </div>
                 <div class="mission-answer-card">
-                    <div class="answer-icon">🏫</div>
                     <strong>Why use it in schools?</strong>
                     <p>Answers checked instantly in the browser, teacher's guides in five textbooks, and nothing to install.</p>
                 </div>
@@ -269,7 +194,6 @@
              ═════════════════════════════════════════════════════════════ -->
         <section class="jc-subjects-section" id="subjects">
             <div class="section-head">
-                <span class="eyebrow">All 12 subjects</span>
                 <h2>Pick a subject</h2>
                 <p>Four groups, from first steps to phone apps. Every subject has lessons or a textbook, a cheat sheet and practice that checks itself in the browser.</p>
             </div>
@@ -281,49 +205,45 @@
              ═════════════════════════════════════════════════════════════ -->
         <section style="margin: 4.5rem 0 3.5rem;">
             <div class="section-head">
-                <span class="eyebrow">Hands-On Practice</span>
                 <h2>Zero-Setup Interactive Code Studios</h2>
                 <p>No downloads. No software setup. Instant browser code execution with live preview and console diagnostics.</p>
             </div>
 
             <div class="gateways-grid jc-compact-phone">
                 <!-- Studio 1: Web Studio -->
-                <div class="gateway-card" style="border-top: 5px solid var(--brand-cyan);">
+                <div class="gateway-card accent-cyan">
                     <div class="gateway-header">
-                        <div class="gateway-icon">⚡</div>
                         <div>
-                            <span class="gateway-meta" style="color: var(--brand-cyan);">HTML • CSS • JS</span>
+                            <span class="gateway-meta">HTML • CSS • JS</span>
                             <h3 class="gateway-title">Consolidated Web Studio</h3>
                         </div>
                     </div>
                     <p class="gateway-desc">Edit HTML, CSS, and JS side-by-side with instantaneous live preview, desktop/tablet/mobile toggles, starter templates, and export.</p>
-                    <a href="studios/web-studio/index.html" class="btn-gateway">Launch Web Studio 🚀</a>
+                    <a href="studios/web-studio/index.html" class="btn-gateway">Launch Web Studio</a>
                 </div>
 
                 <!-- Studio 2: Python Console -->
-                <div class="gateway-card" style="border-top: 5px solid var(--brand-purple);">
+                <div class="gateway-card accent-purple">
                     <div class="gateway-header">
-                        <div class="gateway-icon">🐍</div>
                         <div>
-                            <span class="gateway-meta" style="color: var(--brand-purple);">Python 3 In-Browser</span>
+                            <span class="gateway-meta">Python 3 In-Browser</span>
                             <h3 class="gateway-title">Python Console (Wasm)</h3>
                         </div>
                     </div>
                     <p class="gateway-desc">Execute real Python scripts in your browser powered by WebAssembly. Includes preset algorithms, stdout capture, and error highlights.</p>
-                    <a href="studios/python-console/index.html" class="btn-gateway">Open Python Console 🐍</a>
+                    <a href="studios/python-console/index.html" class="btn-gateway">Open Python Console</a>
                 </div>
 
                 <!-- Studio 3: SQL Sandbox -->
-                <div class="gateway-card" style="border-top: 5px solid #0284c7;">
+                <div class="gateway-card accent-cyan">
                     <div class="gateway-header">
-                        <div class="gateway-icon">🗄️</div>
                         <div>
-                            <span class="gateway-meta" style="color: #0284c7;">Relational Database</span>
+                            <span class="gateway-meta">Relational Database</span>
                             <h3 class="gateway-title">SQL Database Sandbox</h3>
                         </div>
                     </div>
                     <p class="gateway-desc">Query relational tables in memory with SELECT, WHERE, JOINs, and GROUP BY on pre-loaded educational datasets.</p>
-                    <a href="studios/sql-sandbox/index.html" class="btn-gateway">Open SQL Sandbox 🗄️</a>
+                    <a href="studios/sql-sandbox/index.html" class="btn-gateway">Open SQL Sandbox</a>
                 </div>
             </div>
         </section>
@@ -333,17 +253,16 @@
              ═════════════════════════════════════════════════════════════ -->
         <section class="ethical-mission-card">
             <div class="ethical-mission-inner">
-                <div class="ethical-icon-badge">🤲</div>
                 <div class="ethical-content">
                     <h2>Our Ethical Foundation: Technology as a Sacred Trust (<em>Amānah</em>)</h2>
                     <p>
                         At <strong>Junior Coders</strong>, we believe engineering skills must be paired with moral integrity. Code is an instrument for beneficial knowledge (<em>'Ilm Nāfi'</em>) that solves genuine human problems, protects families and communities, respects user data as an inviolable trust (<em>Amānah</em>), and reflects craftsmanship and thoroughness (<em>Iḥsān</em>).
                     </p>
                     <div class="ethical-pillars">
-                        <span class="ethical-pill">🛡️ Data Privacy as a Sacred Trust (<em>Amānah</em>)</span>
-                        <span class="ethical-pill">✨ Striving for Craftsmanship (<em>Iḥsān</em>)</span>
-                        <span class="ethical-pill">🌱 Beneficial Community Service (<em>'Ilm Nāfi'</em>)</span>
-                        <span class="ethical-pill">🚫 No Deceptive Patterns, Usury or Spyware</span>
+                        <span class="ethical-pill">Data Privacy as a Sacred Trust (<em>Amānah</em>)</span>
+                        <span class="ethical-pill">Striving for Craftsmanship (<em>Iḥsān</em>)</span>
+                        <span class="ethical-pill">Beneficial Community Service (<em>'Ilm Nāfi'</em>)</span>
+                        <span class="ethical-pill">No Deceptive Patterns, Usury or Spyware</span>
                     </div>
                 </div>
             </div>
@@ -354,49 +273,45 @@
              ═════════════════════════════════════════════════════════════ -->
         <section style="margin: 4.5rem 0 2rem;">
             <div class="section-head">
-                <span class="eyebrow">Curriculum Resources</span>
                 <h2>Textbooks, Projects &amp; Teacher Hub</h2>
                 <p>Everything needed for self-paced students and classroom teachers.</p>
             </div>
 
             <div class="gateways-grid jc-compact-phone">
                 <!-- Textbooks -->
-                <div class="gateway-card" style="border-top: 5px solid var(--brand-primary);">
+                <div class="gateway-card accent-primary">
                     <div class="gateway-header">
-                        <div class="gateway-icon">📖</div>
                         <div>
-                            <span class="gateway-meta" style="color: var(--brand-primary);">12 Audio Textbooks</span>
+                            <span class="gateway-meta">12 Audio Textbooks</span>
                             <h3 class="gateway-title">Official Textbooks</h3>
                         </div>
                     </div>
                     <p class="gateway-desc">Complete curriculum textbooks with Web Speech narration, reading mode, and code practice buttons.</p>
-                    <a href="library/books/index.html" class="btn-gateway">Browse 12 Textbooks 📚</a>
+                    <a href="library/books/index.html" class="btn-gateway">Browse 12 Textbooks</a>
                 </div>
 
                 <!-- Projects -->
-                <div class="gateway-card" style="border-top: 5px solid #f59e0b;">
+                <div class="gateway-card accent-amber">
                     <div class="gateway-header">
-                        <div class="gateway-icon">🏆</div>
                         <div>
-                            <span class="gateway-meta" style="color: #f59e0b;">Bronze, Silver, Gold</span>
+                            <span class="gateway-meta">Bronze, Silver, Gold</span>
                             <h3 class="gateway-title">Graded Project Catalog</h3>
                         </div>
                     </div>
                     <p class="gateway-desc">Real-world milestone starter kits: Community Food Pantry, Neighborhood Library Hub, and Zakat Engine.</p>
-                    <a href="projects/index.html" class="btn-gateway">View Project Catalog 🏆</a>
+                    <a href="projects/index.html" class="btn-gateway">View Project Catalog</a>
                 </div>
 
                 <!-- Teacher Hub -->
-                <div class="gateway-card" style="border-top: 5px solid var(--brand-accent);">
+                <div class="gateway-card accent-emerald">
                     <div class="gateway-header">
-                        <div class="gateway-icon">🍎</div>
                         <div>
-                            <span class="gateway-meta" style="color: var(--brand-accent);">Educator Support</span>
+                            <span class="gateway-meta">Educator Support</span>
                             <h3 class="gateway-title">Teacher Hub &amp; Rubrics</h3>
                         </div>
                     </div>
                     <p class="gateway-desc">45-minute lesson plans, presentation slide blueprints, and AI-era student code assessment guidance.</p>
-                    <a href="teacher-hub/index.html" class="btn-gateway">Open Teacher Hub 🍎</a>
+                    <a href="teacher-hub/index.html" class="btn-gateway">Open Teacher Hub</a>
                 </div>
             </div>
         </section>
