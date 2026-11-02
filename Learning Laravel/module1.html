@@ -80,12 +80,12 @@
             <div class="analogy-grid" style="margin-top: 1.5rem;">
                 <div class="analogy-card active" style="border-color: #34d399; background: rgba(52, 211, 153, 0.05);">
                     <span class="analogy-icon">🗄️</span>
-                    <h3 style="color: #34d399;">Model</h3>
+                    <h3 style="color: var(--text-green);">Model</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;"><strong>The data layer.</strong> Models talk to the database. They know how to find, save, update, and delete data. Example: a <code>Student</code> model talks to the <code>students</code> table.</p>
                 </div>
                 <div class="analogy-card active" style="border-color: #6366f1; background: rgba(99, 102, 241, 0.05);">
                     <span class="analogy-icon">🖥️</span>
-                    <h3 style="color: #6366f1;">View</h3>
+                    <h3 style="color: var(--text-indigo);">View</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;"><strong>What the user sees.</strong> Views are the HTML pages — but powered by Blade templates. They display information beautifully without doing any database logic.</p>
                 </div>
                 <div class="analogy-card active" style="border-color: #e3342f; background: rgba(227, 52, 47, 0.05);">
@@ -137,35 +137,35 @@
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
                     <span style="font-size: 1.5rem; flex-shrink: 0;">📁</span>
                     <div>
-                        <strong style="color: #34d399;">app/</strong>
+                        <strong style="color: var(--text-green);">app/</strong>
                         <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">The heart of your application. Contains your Models (<code>app/Models/</code>) and Controllers (<code>app/Http/Controllers/</code>).</p>
                     </div>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
                     <span style="font-size: 1.5rem; flex-shrink: 0;">📁</span>
                     <div>
-                        <strong style="color: #6366f1;">routes/</strong>
+                        <strong style="color: var(--text-indigo);">routes/</strong>
                         <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Where you define all your URLs. The main file is <code>routes/web.php</code> for web pages.</p>
                     </div>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
                     <span style="font-size: 1.5rem; flex-shrink: 0;">📁</span>
                     <div>
-                        <strong style="color: #eab308;">resources/views/</strong>
+                        <strong style="color: var(--text-amber);">resources/views/</strong>
                         <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">All your Blade template files (HTML pages) live here. They end in <code>.blade.php</code>.</p>
                     </div>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
                     <span style="font-size: 1.5rem; flex-shrink: 0;">📁</span>
                     <div>
-                        <strong style="color: #f43f5e;">database/</strong>
+                        <strong style="color: var(--text-red);">database/</strong>
                         <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">Contains your migrations (database table blueprints) and seeders (sample data). Think of it as your database blueprint folder.</p>
                     </div>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1.25rem; border-radius: 1rem; display: flex; gap: 1rem; align-items: flex-start;">
                     <span style="font-size: 1.5rem; flex-shrink: 0;">📄</span>
                     <div>
-                        <strong style="color: #10b981;">.env</strong>
+                        <strong style="color: var(--text-green);">.env</strong>
                         <p style="margin: 0; font-size: 0.9rem; color: var(--text-secondary);">The environment configuration file. This is where you put your database username, password, and app settings. Never share this file publicly!</p>
                     </div>
                 </div>
@@ -203,22 +203,22 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
                 <div style="background: var(--bg-glass); padding: 1rem; border-radius: 0.75rem; text-align: center; border: 2px solid #34d399;">
                     <div style="font-size: 1.5rem;">⚡</div>
-                    <strong style="color: #34d399;">php artisan serve</strong>
+                    <strong style="color: var(--text-green);">php artisan serve</strong>
                     <p style="font-size: 0.8rem; margin: 0.3rem 0 0; color: var(--text-muted);">Runs your app locally</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1rem; border-radius: 0.75rem; text-align: center; border: 2px solid #6366f1;">
                     <div style="font-size: 1.5rem;">🏗️</div>
-                    <strong style="color: #6366f1;">make:controller</strong>
+                    <strong style="color: var(--text-indigo);">make:controller</strong>
                     <p style="font-size: 0.8rem; margin: 0.3rem 0 0; color: var(--text-muted);">Creates a Controller</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1rem; border-radius: 0.75rem; text-align: center; border: 2px solid #eab308;">
                     <div style="font-size: 1.5rem;">📦</div>
-                    <strong style="color: #eab308;">make:model</strong>
+                    <strong style="color: var(--text-amber);">make:model</strong>
                     <p style="font-size: 0.8rem; margin: 0.3rem 0 0; color: var(--text-muted);">Creates a Model</p>
                 </div>
                 <div style="background: var(--bg-glass); padding: 1rem; border-radius: 0.75rem; text-align: center; border: 2px solid #f43f5e;">
                     <div style="font-size: 1.5rem;">🗄️</div>
-                    <strong style="color: #f43f5e;">make:migration</strong>
+                    <strong style="color: var(--text-red);">make:migration</strong>
                     <p style="font-size: 0.8rem; margin: 0.3rem 0 0; color: var(--text-muted);">Creates a Migration</p>
                 </div>
             </div>

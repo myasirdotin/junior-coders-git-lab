@@ -53,12 +53,12 @@
             <div class="analogy-grid" style="margin-top: 1.5rem;">
                 <div class="analogy-card active" style="border-color: #34d399; background: rgba(52, 211, 153, 0.05);">
                     <span class="analogy-icon">🛡️</span>
-                    <h3 style="color: #34d399;">{{ $var }} — Safe</h3>
+                    <h3 style="color: var(--text-green);">{{ $var }} — Safe</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">Blade automatically escapes HTML characters. If someone tries to inject <code>&lt;script&gt;</code> tags, they'll show as text, not run as code. Always use this!</p>
                 </div>
                 <div class="analogy-card active" style="border-color: #f43f5e; background: rgba(244, 63, 94, 0.05);">
                     <span class="analogy-icon">⚠️</span>
-                    <h3 style="color: #f43f5e;">{!! $var !!} — Unescaped</h3>
+                    <h3 style="color: var(--text-red);">{!! $var !!} — Unescaped</h3>
                     <p style="font-size: 0.85rem; margin-top: 0.5rem;">This renders raw HTML. Only use it when you 100% control the content — like HTML you generated yourself in PHP. Never use it with user input!</p>
                 </div>
             </div>
@@ -69,7 +69,7 @@
             <h2>Control Structures — Logic in Your Templates 🔀</h2>
             <p>Blade has clean, readable directives for all common PHP logic. Notice how they start with <code>@</code> — that's how you know it's a Blade directive!</p>
 
-            <h3 style="margin-top: 1.5rem; color: #6366f1;">If / Else / Elseif</h3>
+            <h3 style="margin-top: 1.5rem; color: var(--text-indigo);">If / Else / Elseif</h3>
             <div class="code-block">
 <code><span class="code-keyword">@if</span> (<span class="code-val">$student-&gt;grade</span> === <span class="code-string">'A'</span>)
     &lt;p style="color: green;"&gt;Excellent work! 🌟&lt;/p&gt;
@@ -80,7 +80,7 @@
 <span class="code-keyword">@endif</span></code>
             </div>
 
-            <h3 style="margin-top: 1.5rem; color: #6366f1;">Foreach Loop</h3>
+            <h3 style="margin-top: 1.5rem; color: var(--text-indigo);">Foreach Loop</h3>
             <div class="code-block">
 <code><span class="code-comment">&lt;!-- Loop through a collection of students --&gt;</span>
 &lt;ul&gt;
@@ -99,7 +99,7 @@
 <span class="code-keyword">@endforelse</span></code>
             </div>
 
-            <h3 style="margin-top: 1.5rem; color: #6366f1;">For Loop and While Loop</h3>
+            <h3 style="margin-top: 1.5rem; color: var(--text-indigo);">For Loop and While Loop</h3>
             <div class="code-block">
 <code><span class="code-comment">&lt;!-- Standard for loop --&gt;</span>
 <span class="code-keyword">@for</span> (<span class="code-val">$i</span> = <span class="code-val">0</span>; <span class="code-val">$i</span> &lt; <span class="code-val">5</span>; <span class="code-val">$i</span>++)

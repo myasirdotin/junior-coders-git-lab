@@ -23,16 +23,10 @@ _Last updated: 2026-11-02 (UI review, batches 1–4)._
    first phone screen, laptop gaps, HTML sheet hero text. Textbooks: ASCII diagrams shown as copyable code, Read button
    gradient, small tap targets, "All (34)" vs 32 chapters. Search: subject hidden on phones, no chapters.
    Drawer: "Teachers" under the tab bar. Textbooks page search only matches card text.
-   Light theme, found in batch 4 (contrast under 3:1 on white): Laravel lessons' green/yellow keyword words and
-   headings, HTML lessons' orange table headers and "HTML CODE EDITOR / LIVE BROWSER PREVIEW" labels, pink code on
-   light boxes in HTML modules 9–12, CSS module 5 "Hex Codes". Same fix as the JS and MySQL lessons: the
-   `--text-green|amber|sky|indigo|red|violet|blue` variables in `styles/bei-core.css`.
 3. **Practice Arena**: only 5 challenges, all JavaScript. Add Python, PHP and SQL challenges (engines exist).
 4. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
    a teacher can import.
 5. **Leftover content gaps** found in the review:
-   - HTML modules 5–12: body text still names the old book chapter (e.g. module 12 "From Chapter 12", the book's
-     chapter is 13); the textbook link under the title card is correct.
    - Python module 7 was not deepened (modules 1–6 and 8 were).
    - Networks module title cards still set old inline "Level" badge colours.
    - `tips.html` and `best-practices.html` overlap in the HTML, CSS and JS tracks.
@@ -52,6 +46,10 @@ _Last updated: 2026-11-02 (UI review, batches 1–4)._
 
 ## ✅ Done (most recent first)
 
+- 2026-11-02 Batch 4 follow-ups: the last light-theme contrast problems in the HTML, CSS, PHP and Laravel lessons
+  (90 inline colours → the `--text-*` variables, plus new `--text-orange` and `--text-pink`; white diagram boxes keep
+  a fixed dark colour). A probe of all 36 pages now finds no text under 3:1 in light. HTML lessons 5–12: body text
+  names the right book chapter (14 mentions, one behind since book-html ch7 was added).
 - 2026-11-02 UI batch 4, older lesson templates: JS lessons 1–9 use palette colours (320 inline pale colours → new
   `--text-*` accent variables in `styles/bei-core.css`, pale in dark, deep in light; code boxes and the evaluator
   stay dark), code editors readable in light (main.css forced dark text on them), quiz titles, project checklist,

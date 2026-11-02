@@ -58,7 +58,7 @@ php artisan make:model Student -m</code>
             <h2>CRUD with Eloquent ⚡</h2>
             <p>Eloquent makes all four database operations (Create, Read, Update, Delete) clean and intuitive:</p>
 
-            <h3 style="color: #10b981; margin-top: 1.5rem;">📖 Read</h3>
+            <h3 style="color: var(--text-green); margin-top: 1.5rem;">📖 Read</h3>
             <div class="code-block">
 <code><span class="code-comment">// Get ALL students</span>
 <span class="code-val">$students</span> = <span class="code-val">Student</span>::<span class="code-val">all</span>();
@@ -75,7 +75,7 @@ php artisan make:model Student -m</code>
                           -&gt;<span class="code-val">get</span>();</code>
             </div>
 
-            <h3 style="color: #6366f1; margin-top: 1.5rem;">✏️ Create</h3>
+            <h3 style="color: var(--text-indigo); margin-top: 1.5rem;">✏️ Create</h3>
             <div class="code-block">
 <code><span class="code-comment">// Method 1: create() — uses $fillable for safety</span>
 <span class="code-val">Student</span>::<span class="code-val">create</span>([
@@ -90,7 +90,7 @@ php artisan make:model Student -m</code>
 <span class="code-val">$s</span>-&gt;<span class="code-val">save</span>();</code>
             </div>
 
-            <h3 style="color: #eab308; margin-top: 1.5rem;">🔄 Update</h3>
+            <h3 style="color: var(--text-amber); margin-top: 1.5rem;">🔄 Update</h3>
             <div class="code-block">
 <code><span class="code-val">$student</span> = <span class="code-val">Student</span>::<span class="code-val">find</span>(<span class="code-val">1</span>);
 <span class="code-val">$student</span>-&gt;<span class="code-val">grade</span> = <span class="code-string">'A+'</span>;
@@ -100,7 +100,7 @@ php artisan make:model Student -m</code>
 <span class="code-val">Student</span>::<span class="code-val">where</span>(<span class="code-string">'name'</span>, <span class="code-string">'Ali'</span>)-&gt;<span class="code-val">update</span>([<span class="code-string">'grade'</span> =&gt; <span class="code-string">'A+'</span>]);</code>
             </div>
 
-            <h3 style="color: #f43f5e; margin-top: 1.5rem;">🗑️ Delete</h3>
+            <h3 style="color: var(--text-red); margin-top: 1.5rem;">🗑️ Delete</h3>
             <div class="code-block">
 <code><span class="code-val">$student</span> = <span class="code-val">Student</span>::<span class="code-val">find</span>(<span class="code-val">1</span>);
 <span class="code-val">$student</span>-&gt;<span class="code-val">delete</span>();

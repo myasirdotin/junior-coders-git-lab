@@ -15,7 +15,7 @@
     <main class="module-container">
         <!-- Module Header -->
         <header class="module-header path-html">
-            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: #ea580c; border: 1px solid rgba(234, 88, 12, 0.4);">Level 3: Architecture &amp; Forms</span>
+            <span class="badge" style="background: rgba(234, 88, 12, 0.2); color: var(--text-orange); border: 1px solid rgba(234, 88, 12, 0.4);">Level 3: Architecture &amp; Forms</span>
             <h1>Module 12: Semantic HTML5 &amp; Modern Layout</h1>
             <p>Write code that both Google and humans understand. Use meaningful tags that describe <em>what</em> content is, not just where it sits.</p>
         </header>
@@ -25,13 +25,13 @@
 
         <!-- Section 1: What is Semantic HTML? -->
         <section class="content-section">
-            <h2>🧠 What is Semantic HTML? (From Chapter 12)</h2>
+            <h2>🧠 What is Semantic HTML? (From Chapter 13)</h2>
             <p>Every HTML tag is either <strong>semantic</strong> or <strong>generic</strong>. A semantic tag carries <em>meaning</em> about the content it wraps — not just its visual position on screen.</p>
             <div class="comparison">
                 <div class="bad">
                     <h4>❌ Non-Semantic (Generic)</h4>
                     <p>Using <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> for everything. Browsers, Google, and screen readers cannot understand <em>what</em> the content is — they just see boxes.</p>
-                    <pre style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.82rem; color: #fda4af; background: rgba(244,63,94,0.08); border-radius: 6px; padding: 0.65rem; overflow-x:auto;">&lt;div id="header"&gt;...&lt;/div&gt;
+                    <pre style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-red); background: rgba(244,63,94,0.08); border-radius: 6px; padding: 0.65rem; overflow-x:auto;">&lt;div id="header"&gt;...&lt;/div&gt;
 &lt;div id="nav"&gt;...&lt;/div&gt;
 &lt;div id="main"&gt;...&lt;/div&gt;
 &lt;div id="footer"&gt;...&lt;/div&gt;</pre>
@@ -39,7 +39,7 @@
                 <div class="good">
                     <h4>✅ Semantic (Meaningful)</h4>
                     <p>Using purpose-built HTML5 tags. Google boosts SEO rankings, screen readers announce "Navigation region" or "Main content" — everyone wins.</p>
-                    <pre style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.82rem; color: #6ee7b7; background: rgba(16,185,129,0.08); border-radius: 6px; padding: 0.65rem; overflow-x:auto;">&lt;header&gt;...&lt;/header&gt;
+                    <pre style="margin-top: 0.75rem; font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-green); background: rgba(16,185,129,0.08); border-radius: 6px; padding: 0.65rem; overflow-x:auto;">&lt;header&gt;...&lt;/header&gt;
 &lt;nav&gt;...&lt;/nav&gt;
 &lt;main&gt;...&lt;/main&gt;
 &lt;footer&gt;...&lt;/footer&gt;</pre>
@@ -49,11 +49,11 @@
 
         <!-- Section 2: The 7 Semantic Landmarks -->
         <section class="content-section">
-            <h2>🗺️ The 7 Semantic Landmark Tags (Ch 12)</h2>
+            <h2>🗺️ The 7 Semantic Landmark Tags (Ch 13)</h2>
             <p>These are the building blocks of every modern, professional web page:</p>
             <table style="width:100%; border-collapse:collapse; margin-top: 1rem; font-size: 0.9rem;">
                 <thead>
-                    <tr style="background: rgba(234,88,12,0.15); color: #ea580c; text-align:left;">
+                    <tr style="background: rgba(234,88,12,0.15); color: var(--text-orange); text-align:left;">
                         <th style="padding: 0.65rem 0.85rem; border-bottom: 2px solid rgba(234,88,12,0.3);">Tag</th>
                         <th style="padding: 0.65rem 0.85rem; border-bottom: 2px solid rgba(234,88,12,0.3);">Its Meaning</th>
                         <th style="padding: 0.65rem 0.85rem; border-bottom: 2px solid rgba(234,88,12,0.3);">Real Example</th>
@@ -106,7 +106,7 @@
             <p>Read the semantic layout below. Try replacing the <code>&lt;div&gt;</code> wrappers with proper semantic tags, or add an <code>&lt;aside&gt;</code> with "Related Articles":</p>
             <div class="playground-container">
                 <div class="editor-area">
-                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 600;">HTML CODE EDITOR:</div>
                     <textarea id="code-editor" spellcheck="false">&lt;!DOCTYPE html&gt;
 &lt;html lang="en"&gt;
 &lt;head&gt;&lt;title&gt;Junior Coders News&lt;/title&gt;&lt;/head&gt;
@@ -158,7 +158,7 @@
 &lt;/html&gt;</textarea>
                 </div>
                 <div class="preview-area">
-                    <div style="font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
+                    <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 600;">LIVE BROWSER PREVIEW:</div>
                     <div id="preview"></div>
                 </div>
             </div>
@@ -184,7 +184,7 @@
                 <div class="jc-tier jc-tier-2">
                     <h3>🟡 Level 2: Application — Div Soup Rescue (Medium)</h3>
                     <p>A junior developer wrote this non-semantic code. Rewrite it using the correct semantic tags:</p>
-                    <pre style="background: rgba(244,63,94,0.08); border: 1px solid rgba(244,63,94,0.3); border-radius: 8px; padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.85rem; color: #fda4af; overflow-x: auto;">&lt;div class="top"&gt;
+                    <pre style="background: rgba(244,63,94,0.08); border: 1px solid rgba(244,63,94,0.3); border-radius: 8px; padding: 0.85rem 1rem; font-family: var(--font-mono); font-size: 0.85rem; color: var(--text-red); overflow-x: auto;">&lt;div class="top"&gt;
   &lt;div class="logo"&gt;My School&lt;/div&gt;
   &lt;div class="menu"&gt;
     &lt;a href="#"&gt;Home&lt;/a&gt;
@@ -210,7 +210,7 @@
                 <!-- Challenge -->
                 <div class="jc-tier jc-tier-3">
                     <h3>🔴 Level 3: Textbook Challenge — Junior Coders School Portal</h3>
-                    <p><strong>Chapter 12 Real-World Mission:</strong> In the editor above, build a complete <strong>Junior Coders School Portal page</strong> using only semantic HTML5 tags. Your page must include:</p>
+                    <p><strong>Chapter 13 Real-World Mission:</strong> In the editor above, build a complete <strong>Junior Coders School Portal page</strong> using only semantic HTML5 tags. Your page must include:</p>
                     <ol style="line-height: 2; margin: 0.75rem 0 0 1rem;">
                         <li>A <code>&lt;header&gt;</code> with your school name as <code>&lt;h1&gt;</code> and a tagline <code>&lt;p&gt;</code></li>
                         <li>A <code>&lt;nav&gt;</code> with at least 4 working page links (Home, Courses, About, Contact)</li>
