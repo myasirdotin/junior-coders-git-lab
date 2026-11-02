@@ -468,6 +468,11 @@
             ],
             "extras": [
                 {
+                    "file": "exercises.html",
+                    "icon": "✍️",
+                    "title": "Exercises"
+                },
+                {
                     "file": "quiz.html",
                     "icon": "❓",
                     "title": "Quiz"

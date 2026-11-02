@@ -4,26 +4,24 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-10-13 (Android book added)._
+_Last updated: 2026-11-02 (Laravel exercises page)._
 
 ## 🔧 Now (in progress)
 
-- Nothing in progress. Last completed: the textbook overhaul (all five steps, all 11 books).
+- Nothing in progress. Last completed: Laravel exercises page (`Learning Laravel/exercises.html`).
 
 ## ⏭️ Next (agreed order)
 
-1. **Laravel practice, remaining part**: quiz, glossary and tiers now exist. Still to do: `exercises.html` with
-   arrange-the-steps, fill-in Blade/Eloquent snippets, fix-the-bug, plus a "build it on your own XAMPP" checklist.
-2. **Practice Arena**: only 5 challenges, all JS/HTML/CSS. Add Python, PHP and SQL challenges (engines exist).
-3. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
+1. **Practice Arena**: only 5 challenges, all JavaScript. Add Python, PHP and SQL challenges (engines exist).
+2. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
    a teacher can import.
-4. **Leftover content gaps** found in the review:
+3. **Leftover content gaps** found in the review:
    - JS modules 4–6: the practice textareas already contain the full solutions.
    - Python module 7 was not deepened (modules 1–6 and 8 were).
    - Networks module title cards still set old inline "Level" badge colours.
    - `tips.html` and `best-practices.html` overlap in the HTML, CSS and JS tracks.
-5. **Pre-recorded narration**: generate neural MP3s for chapter 1 of each book, play when present, fall back to Web Speech.
-6. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
+4. **Pre-recorded narration**: generate neural MP3s for chapter 1 of each book, play when present, fall back to Web Speech.
+5. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
    `.gemini/agents/css-tutor.md`, run `node scripts/sync-curriculum.js`.
 
 ## ❓ Decisions pending from the owner
@@ -34,6 +32,14 @@ _Last updated: 2026-10-13 (Android book added)._
   work, data untouched). Other XAMPP projects that use MySQL (bei, ehsas) need it; repair from the XAMPP panel.
 
 ## ✅ Done (most recent first)
+
+- 2026-11-02 Laravel exercises (`Learning Laravel/exercises.html`, data `js/data/laravel-exercises.js`): 20 tasks
+  on the book's library app (6 warm-up, 9 apply, 5 challenge) in seven kinds the page checks itself (predict, fill,
+  choose, tap the buggy line, put the steps in order, write validation rules, write a route or store method), each
+  linked to its module and chapter; plus four "Build it on your own XAMPP" checklists (ticks saved per device, no XP).
+  `node scripts/check-laravel-exercises.js` proves every solution passes and every starter fails. Linked from the
+  track page, quiz, textbook, cheat sheet, module switcher and search. GEMINI §7f3. Exercise lists on all three
+  exercise pages no longer widen past a phone screen when one code line is long.
 
 - 2026-10-13 Textbook chapter sidebar redesigned (all 12 books): one compact top row (Home, All textbooks, close),
   one book block (40px icon, title, grade, chapter count), filter pills on one sideways-scrolling row on phones (wrap

@@ -225,6 +225,11 @@ These rules come from real bugs found in this site. Follow them for every change
    keys `kotlin:<id>`). `expected` is the reference output: after any edit run `node scripts/check-kotlin-exercises.js`,
    which compiles every solution and predict program and must report no problems. Tasks are plain Kotlin from
    book-android chapters 4–8 (Compose needs Android Studio). No `!!`.
+7f3. **Laravel practice is checked by the page.** Laravel cannot run in a browser, so `Learning Laravel/exercises.html`
+   never pretends to run code: its tasks (`js/data/laravel-exercises.js`: `predict`, `fill`, `choice`, `bug`, `order`,
+   `rules`, `code`; keys `laravel:<id>`) are checked by `LARAVEL_CHECK` in the same file, and the page says written
+   answers are checked for their key parts. The "Build it on your own XAMPP" checklists are ticked by the student and
+   earn no XP. After any edit run `node scripts/check-laravel-exercises.js` (every solution passes, every starter fails).
 7g. **Three-tier practice uses one markup.** Every `moduleN.html` ends its teaching with one
    `<section class="content-section jc-tiers">` holding `.jc-tier.jc-tier-1` (🟢 Recall), `.jc-tier-2` (🟡 Apply) and
    `.jc-tier-3` (🔴 Challenge), each answer in `<details class="jc-answer">`. Styles live in `styles/bei-core.css` and

@@ -2759,7 +2759,7 @@ body.bei-search-open { overflow: hidden; }
 .sqlx-note { margin: 0.6rem 0 0; font-size: 0.82rem; color: var(--text-secondary); }
 .sqlx-note a { color: var(--brand-cyan); font-weight: 600; }
 
-.sqlx-list { display: grid; gap: 1.1rem; }
+.sqlx-list { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.1rem; } /* minmax: a long code line scrolls inside its box instead of widening every card */
 .sqlx-card { background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.1rem 1.2rem; }
 .sqlx-card.done { border-color: rgba(16, 185, 129, 0.45); }
 .sqlx-card-head { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
@@ -2833,6 +2833,41 @@ body.bei-search-open { overflow: hidden; }
 .phpx-stderr { color: #fca5a5; margin-top: 0.4rem; }
 .phpx-why { margin-top: 0.4rem; font-weight: 500; color: var(--text-secondary); font-size: 0.88rem; }
 .sqlx-card .sqlx-solbox pre { margin: 0; white-space: pre-wrap; font-family: inherit; }
+
+/* Laravel exercises (reuse the sqlx-* and phpx-* layout; nothing runs, the page checks answers) */
+.lrvx-list, .lrvx-list code, .lrvx-list pre, .lrvx-list textarea, .lrvx-list button, .lrvx-checklist { font-variant-ligatures: none; } /* show => and -> as typed */
+.lrvx-options, .lrvx-lines, .lrvx-pool { display: grid; gap: 0.45rem; margin: 0 0 0.6rem; }
+.lrvx-option, .lrvx-line, .lrvx-step, .lrvx-picked {
+    display: flex; align-items: center; gap: 0.6rem; width: 100%; min-height: 44px; box-sizing: border-box;
+    padding: 0.55rem 0.8rem; text-align: left; cursor: pointer; font: inherit; font-size: 0.9rem; line-height: 1.45;
+    background: var(--bg-surface-elevated); color: var(--text-primary);
+    border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);
+}
+.lrvx-option:hover, .lrvx-line:hover, .lrvx-step:hover, .lrvx-picked:hover { border-color: var(--brand-primary); }
+.lrvx-option code, .sqlx-task code, .phpx-why code { white-space: normal; overflow-wrap: anywhere; }
+.lrvx-lines { gap: 0; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); overflow: hidden; background: #020617; }
+.lrvx-line { border: 0; border-radius: 0; border-bottom: 1px solid rgba(148, 163, 184, 0.12); background: transparent; color: #e2e8f0; min-height: 40px; padding: 0.4rem 0.7rem; }
+.lrvx-line:last-child { border-bottom: 0; }
+.lrvx-line:hover { background: rgba(148, 163, 184, 0.1); }
+.lrvx-line code { font-family: var(--font-mono); font-size: 0.84rem; white-space: pre-wrap; word-break: break-word; background: none; color: inherit; padding: 0; }
+.lrvx-ln { flex: 0 0 1.6rem; text-align: right; font-family: var(--font-mono); font-size: 0.75rem; color: #64748b; user-select: none; }
+.lrvx-option.is-right, .lrvx-line.is-right { background: rgba(16, 185, 129, 0.18); box-shadow: inset 3px 0 0 #10b981; }
+.lrvx-option.is-wrong, .lrvx-line.is-wrong { background: rgba(244, 63, 94, 0.15); box-shadow: inset 3px 0 0 #f43f5e; }
+.lrvx-chosen { margin: 0 0 0.4rem; padding-left: 1.6rem; display: grid; gap: 0.4rem; min-height: 44px; border: 1px dashed var(--border-subtle); border-radius: var(--radius-sm); padding-top: 0.4rem; padding-bottom: 0.4rem; padding-right: 0.4rem; }
+.lrvx-chosen li::marker { font-weight: 800; color: var(--text-muted); }
+.lrvx-picked { background: rgba(14, 165, 233, 0.12); border-color: rgba(14, 165, 233, 0.4); }
+.lrvx-answer { margin: 0 0 0.4rem; padding-left: 1.4rem; font-family: var(--font-body, inherit); }
+.lrvx-learn { margin: 0.5rem 0 0; font-size: 0.82rem; color: var(--text-muted); }
+.lrvx-learn a { color: var(--brand-cyan); font-weight: 600; }
+.lrvx-build { margin-top: 2.5rem; scroll-margin-top: 80px; }
+.lrvx-build h2 { margin-bottom: 0.4rem; }
+.lrvx-build-card h3 { font-size: 1.05rem; margin: 0; flex: 1 1 auto; }
+.lrvx-build-count { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); }
+.lrvx-checklist { list-style: none; margin: 0.6rem 0 0; padding: 0; display: grid; gap: 0.15rem; }
+.lrvx-checklist label { display: flex; gap: 0.65rem; align-items: flex-start; padding: 0.5rem 0.3rem; min-height: 38px; cursor: pointer; font-size: 0.92rem; line-height: 1.5; color: var(--text-secondary); }
+.lrvx-checklist input { width: 20px; height: 20px; margin-top: 0.1rem; flex-shrink: 0; accent-color: #10b981; }
+.lrvx-checklist input:checked + span { color: var(--text-muted); text-decoration: line-through; text-decoration-color: rgba(16, 185, 129, 0.7); }
+.lrvx-checklist code { word-break: break-word; }
 
 /* ═════════════════════════════════════════════════════════════════════
    LESSON PAGES: title-card badge contrast (all sizes) + compact phone layout

@@ -670,8 +670,8 @@ window.JC_BOOKS = [
         "label": "📋 Cheat sheet"
       },
       {
-        "href": "../Learning%20Laravel/quiz.html",
-        "label": "📝 Quiz"
+        "href": "../Learning%20Laravel/exercises.html",
+        "label": "✅ Exercises"
       }
     ],
     "parts": {
