@@ -2,6 +2,53 @@
 
 ---
 
+## Teacher Lesson Plan
+
+### Classroom Planning & Logistics
+| Field | Detail | Field | Detail |
+| :--- | :--- | :--- | :--- |
+| **Grade / Class** | Grades 7–8 | **Period Duration** | 45 minutes |
+| **Unit / Topic** | Mini Projects | **Setting** | Computer Lab & Projector |
+| **Teacher Name** | ____________________ | **Date / Session** | ____ / ____ / 2026 |
+
+### Learning Objectives (SWBAT)
+By the end of this 45-minute lesson, students will be able to:
+1. Combine variables, conditions, loops, functions, arrays and objects in small, complete programs.
+2. Read working starter code and predict what it prints before you run it.
+3. Extend a project with your own features, one small step at a time.
+4. Choose the right tool (loop, array method, object) for each everyday problem.
+
+### Required Materials & Setup
+- Computer lab with web browsers installed (Chrome, Edge, or Firefox).
+- Teacher projector displaying Browser Console and JavaScript Scratchpad for live modeling.
+- Student notebooks for recording key syntax rules, vocabulary, and reflections.
+
+### 45-Minute Instructional Delivery Plan
+| Time | Phase | Teacher Activity | Student Activity |
+| :--- | :--- | :--- | :--- |
+| **0–8 min** | **Hook & Analogy** | Share the chapter opening analogy: *"A carpentry student first learns each tool on its own: the saw, the drill, the ruler. Then the teacher says, 'Now build a small bookshelf.' Suddenly the tools work together. The student measures, c..."* Connect to today's topic. | Discuss in pairs; volunteer real-life parallels and note the learning target. |
+| **8–20 min** | **Direct Instruction** | Model core concepts on the screen. Break down syntax line-by-line; explain architectural structure. | Follow along on screens/notebooks; observe syntax rules and active demonstration. |
+| **20–26 min** | **Misconceptions & Diagnostics** | Address Common Mistake: *"Putting the running total inside the loop. Many projects add numbers up (Projects 12 and 14). If the total is created inside the loop, it starts again at 0 every round."* Conduct rapid check for understanding. | Identify faulty patterns in sample snippets; explain correct approach verbally. |
+| **26–38 min** | **Guided Lab Practice** | Circulate lab while students execute the hands-on task: *"Pick one project above. Type its starter code into the browser console or the Web Studio, run it, and check that your output matches. Then do its Extend it task."* | Code independently or in pairs using Browser Console and JavaScript Scratchpad; test variations. |
+| **38–45 min** | **Plenary & Exit Ticket** | Review key takeaways. Pose exit question: *"Answer Level 1 Recall questions to confirm core comprehension."* Collect summary tickets. | Answer plenary questions; record homework task; submit exit ticket. |
+
+### Differentiated Instruction
+- **Support (Struggling Learners):** Provide starter boilerplate or pair with a peer navigator; focus on Level 1 recall and syntax verification.
+- **Extension (Fast Finishers):** Assign Level 3 Challenge from the Practice section; encourage adding creative styling or feature extensions.
+
+### Homework & Notebook Task
+- Complete Level 2 Apply questions from the chapter Practice section into class notebooks.
+- Write a 2-sentence personal explanation of the primary concept taught in this lesson.
+
+### Ethical Stewardship & Digital Values (Amānah & Beneficial Knowledge)
+- Emphasize digital trust (*Amānah*): respect school lab hardware, cite code honestly, and apply programming skills toward beneficial knowledge (*'Ilm Nāfi'*).
+
+### Teacher Sign-off & Reflection
+- **Teacher Signature:** ___________________________  **HOD / Coordinator Signature:** ___________________________
+- **Lesson Reflection / Notes:** _______________________________________________________________________________
+
+---
+
 ## Real-Life Story
 
 A carpentry student first learns each tool on its own: the saw, the drill, the ruler. Then the teacher says, "Now build a small bookshelf." Suddenly the tools work together. The student measures, cuts and joins, one step at a time. This chapter is your bookshelf moment. You already know the tools of JavaScript. Now you will build 21 small, complete programs with them.

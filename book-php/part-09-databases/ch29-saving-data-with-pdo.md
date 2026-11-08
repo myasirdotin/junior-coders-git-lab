@@ -2,6 +2,53 @@
 
 ---
 
+## Teacher Lesson Plan
+
+### Classroom Planning & Logistics
+| Field | Detail | Field | Detail |
+| :--- | :--- | :--- | :--- |
+| **Grade / Class** | Grades 9–10 | **Period Duration** | 45 minutes |
+| **Unit / Topic** | Databases with PDO | **Setting** | Computer Lab & Projector |
+| **Teacher Name** | ____________________ | **Date / Session** | ____ / ____ / 2026 |
+
+### Learning Objectives (SWBAT)
+By the end of this 45-minute lesson, students will be able to:
+1. Save a new row from a form with INSERT and named placeholders such as :title.
+2. Get the new row's number with lastInsertId(), and count changed rows with rowCount().
+3. Change and remove rows safely with UPDATE and DELETE.
+4. Explain why building SQL from strings causes SQL injection, and how placeholders prevent it.
+
+### Required Materials & Setup
+- Computer lab with web browsers installed (Chrome, Edge, or Firefox).
+- Teacher projector displaying PHP Console Studio (`../studios/php-console/index.html`) for live modeling.
+- Student notebooks for recording key syntax rules, vocabulary, and reflections.
+
+### 45-Minute Instructional Delivery Plan
+| Time | Phase | Teacher Activity | Student Activity |
+| :--- | :--- | :--- | :--- |
+| **0–8 min** | **Hook & Analogy** | Share the chapter opening analogy: *"The school library keeps a lending register. When Aisha borrows a book, the librarian does two things: writes the loan in the register and takes the book off the shelf. Doing only one of them would..."* Connect to today's topic. | Discuss in pairs; volunteer real-life parallels and note the learning target. |
+| **8–20 min** | **Direct Instruction** | Model core concepts on the screen. Break down syntax line-by-line; explain architectural structure. | Follow along on screens/notebooks; observe syntax rules and active demonstration. |
+| **20–26 min** | **Misconceptions & Diagnostics** | Address Common Mistake: *"Thinking htmlspecialchars() protects SQL."* Conduct rapid check for understanding. | Identify faulty patterns in sample snippets; explain correct approach verbally. |
+| **26–38 min** | **Guided Lab Practice** | Circulate lab while students execute the hands-on task: *"With XAMPP's MySQL running, create return-book.php:"* | Code independently or in pairs using PHP Console Studio (`../studios/php-console/index.html`); test variations. |
+| **38–45 min** | **Plenary & Exit Ticket** | Review key takeaways. Pose exit question: *"Which method returns the id of the row you just inserted?"* Collect summary tickets. | Answer plenary questions; record homework task; submit exit ticket. |
+
+### Differentiated Instruction
+- **Support (Struggling Learners):** Provide starter boilerplate or pair with a peer navigator; focus on Level 1 recall and syntax verification.
+- **Extension (Fast Finishers):** Assign Level 3 Challenge from the Practice section; encourage adding creative styling or feature extensions.
+
+### Homework & Notebook Task
+- Complete Level 2 Apply questions from the chapter Practice section into class notebooks.
+- Write a 2-sentence personal explanation of the primary concept taught in this lesson.
+
+### Ethical Stewardship & Digital Values (Amānah & Beneficial Knowledge)
+- Emphasize digital trust (*Amānah*): respect school lab hardware, cite code honestly, and apply programming skills toward beneficial knowledge (*'Ilm Nāfi'*).
+
+### Teacher Sign-off & Reflection
+- **Teacher Signature:** ___________________________  **HOD / Coordinator Signature:** ___________________________
+- **Lesson Reflection / Notes:** _______________________________________________________________________________
+
+---
+
 ## Real-Life Story
 
 The school library keeps a lending register. When Aisha borrows a book, the librarian does two things: writes the loan in the register and takes the book off the shelf. Doing only one of them would cause trouble. A book missing with no record, or a record for a book still on the shelf. A careful librarian also checks every slip before writing in pen, because ink is hard to remove. Saving data in a database needs the same care: check first, write safely, and finish every job completely or not at all.

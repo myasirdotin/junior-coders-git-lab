@@ -256,6 +256,49 @@
       `<a class="cp-btn" href="${esc(p.href)}"${ext(p.href)}>${esc(p.label)}</a></aside>`;
   };
 
+  // Enhance Teacher Lesson Plan card if present in the chapter
+  const enhanceLessonPlan = (area) => {
+    const planH2 = area.querySelector('h2#teacher-lesson-plan, h2[id*="teacher-lesson-plan"]');
+    if (!planH2) return;
+    const nodes = [planH2];
+    let next = planH2.nextElementSibling;
+    while (next && next.tagName !== 'H2' && !next.classList.contains('chapter-practice-box')) {
+      nodes.push(next);
+      next = next.nextElementSibling;
+    }
+    const card = document.createElement('section');
+    card.className = 'jc-teacher-lesson-plan';
+    card.setAttribute('aria-label', 'Teacher Lesson Plan');
+    const header = document.createElement('div');
+    header.className = 'jc-lesson-plan-header';
+    header.innerHTML = `
+      <div class="jc-lph-badge">
+        <span class="jc-lph-pill">Educator Resource</span>
+        <span class="jc-lph-subtitle">Classroom Lesson Plan · 45-Minute Period</span>
+      </div>
+      <div class="jc-lph-actions">
+        <button type="button" class="btn-print-lesson-plan" title="Print a ready-to-teach 1–2 page lesson plan copy">
+          <span class="btn-icon">${ICONS.download}</span>
+          <span class="btn-text">Print Lesson Plan</span>
+        </button>
+      </div>`;
+    header.querySelector('.btn-print-lesson-plan').addEventListener('click', () => {
+      document.body.classList.add('print-lesson-plan-only');
+      const prevTitle = document.title;
+      const chH1 = area.querySelector('h1');
+      const chTitle = (chH1 ? chH1.textContent : 'Chapter').replace(/[^a-zA-Z0-9\s-]/g, '').trim().replace(/\s+/g, '-');
+      document.title = 'LessonPlan-' + chTitle;
+      window.print();
+      setTimeout(() => {
+        document.body.classList.remove('print-lesson-plan-only');
+        document.title = prevTitle;
+      }, 1000);
+    });
+    planH2.parentNode.insertBefore(card, planH2);
+    card.appendChild(header);
+    nodes.forEach(n => card.appendChild(n));
+  };
+
   // ── loading a chapter ────────────────────────────────────────────────────────────────────────────────
   const area = document.getElementById('chapterContent');
   const linkFor = (key) => document.querySelector(`#sidebarNav a[href="#${CSS.escape(key)}"]`);
@@ -272,6 +315,7 @@
     document.querySelectorAll('.chapter-nav-item').forEach((li) => li.classList.toggle('active', !!link && li.contains(link)));
     area.innerHTML = window.marked.parse(md) + practiceBox();
     enhanceCode(area);
+    enhanceLessonPlan(area);
     const part = link ? link.closest('.part-group').querySelector('.part-title').textContent : '';
     document.getElementById('breadcrumbCurrent').textContent = part;
     if (window.initBookSpeaker) window.initBookSpeaker();

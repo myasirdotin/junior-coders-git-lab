@@ -2,6 +2,53 @@
 
 ---
 
+## Teacher Lesson Plan
+
+### Classroom Planning & Logistics
+| Field | Detail | Field | Detail |
+| :--- | :--- | :--- | :--- |
+| **Grade / Class** | Grades 9–10 | **Period Duration** | 45 minutes |
+| **Unit / Topic** | Arrays | **Setting** | Computer Lab & Projector |
+| **Teacher Name** | ____________________ | **Date / Session** | ____ / ____ / 2026 |
+
+### Learning Objectives (SWBAT)
+By the end of this 45-minute lesson, students will be able to:
+1. Create associative arrays with the arrow =>.
+2. Read and change values using text keys such as 'name'.
+3. Loop through keys and values with foreach ($array as $key => $value).
+4. Build a multi-dimensional array (an array of arrays) to hold a whole table.
+
+### Required Materials & Setup
+- Computer lab with web browsers installed (Chrome, Edge, or Firefox).
+- Teacher projector displaying PHP Console Studio (`../studios/php-console/index.html`) for live modeling.
+- Student notebooks for recording key syntax rules, vocabulary, and reflections.
+
+### 45-Minute Instructional Delivery Plan
+| Time | Phase | Teacher Activity | Student Activity |
+| :--- | :--- | :--- | :--- |
+| **0–8 min** | **Hook & Analogy** | Share the chapter opening analogy: *"Look at your school ID card. It does not just list facts like 'Zainab, 15, Emerald'. Each fact has a label next to it: Name: Zainab Ali, Age: 15, House: Emerald. The labels tell you what each value..."* Connect to today's topic. | Discuss in pairs; volunteer real-life parallels and note the learning target. |
+| **8–20 min** | **Direct Instruction** | Model core concepts on the screen. Break down syntax line-by-line; explain architectural structure. | Follow along on screens/notebooks; observe syntax rules and active demonstration. |
+| **20–26 min** | **Misconceptions & Diagnostics** | Address Common Mistake: *"Forgetting the quotes around a key."* Conduct rapid check for understanding. | Identify faulty patterns in sample snippets; explain correct approach verbally. |
+| **26–38 min** | **Guided Lab Practice** | Circulate lab while students execute the hands-on task: *"Open the PHP Console and type:"* | Code independently or in pairs using PHP Console Studio (`../studios/php-console/index.html`); test variations. |
+| **38–45 min** | **Plenary & Exit Ticket** | Review key takeaways. Pose exit question: *"Which operator joins a key to a value in an associative array?"* Collect summary tickets. | Answer plenary questions; record homework task; submit exit ticket. |
+
+### Differentiated Instruction
+- **Support (Struggling Learners):** Provide starter boilerplate or pair with a peer navigator; focus on Level 1 recall and syntax verification.
+- **Extension (Fast Finishers):** Assign Level 3 Challenge from the Practice section; encourage adding creative styling or feature extensions.
+
+### Homework & Notebook Task
+- Complete Level 2 Apply questions from the chapter Practice section into class notebooks.
+- Write a 2-sentence personal explanation of the primary concept taught in this lesson.
+
+### Ethical Stewardship & Digital Values (Amānah & Beneficial Knowledge)
+- Emphasize digital trust (*Amānah*): respect school lab hardware, cite code honestly, and apply programming skills toward beneficial knowledge (*'Ilm Nāfi'*).
+
+### Teacher Sign-off & Reflection
+- **Teacher Signature:** ___________________________  **HOD / Coordinator Signature:** ___________________________
+- **Lesson Reflection / Notes:** _______________________________________________________________________________
+
+---
+
 ## Real-Life Story
 
 Look at your school ID card. It does not just list facts like "Zainab, 15, Emerald". Each fact has a label next to it: **Name:** Zainab Ali, **Age:** 15, **House:** Emerald. The labels tell you what each value means. An **associative array** works the same way: every value is stored under a name called a **key**.

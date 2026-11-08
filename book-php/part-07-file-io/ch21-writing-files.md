@@ -2,6 +2,53 @@
 
 ---
 
+## Teacher Lesson Plan
+
+### Classroom Planning & Logistics
+| Field | Detail | Field | Detail |
+| :--- | :--- | :--- | :--- |
+| **Grade / Class** | Grades 9–10 | **Period Duration** | 45 minutes |
+| **Unit / Topic** | File I/O | **Setting** | Computer Lab & Projector |
+| **Teacher Name** | ____________________ | **Date / Session** | ____ / ____ / 2026 |
+
+### Learning Objectives (SWBAT)
+By the end of this 45-minute lesson, students will be able to:
+1. Write and overwrite a file with file_put_contents().
+2. Add to the end of a file with the FILE_APPEND flag.
+3. Lock a file while writing with LOCK_EX.
+4. Use the fopen() modes 'w' (write) and 'a' (append).
+
+### Required Materials & Setup
+- Computer lab with web browsers installed (Chrome, Edge, or Firefox).
+- Teacher projector displaying PHP Console Studio (`../studios/php-console/index.html`) for live modeling.
+- Student notebooks for recording key syntax rules, vocabulary, and reflections.
+
+### 45-Minute Instructional Delivery Plan
+| Time | Phase | Teacher Activity | Student Activity |
+| :--- | :--- | :--- | :--- |
+| **0–8 min** | **Hook & Analogy** | Share the chapter opening analogy: *"At the exit of a science museum lies a big guestbook. You write: 'The planets room was amazing! (Ali, Class 9)'. You do not rub out the hundreds of notes written before yours. You turn to the next ..."* Connect to today's topic. | Discuss in pairs; volunteer real-life parallels and note the learning target. |
+| **8–20 min** | **Direct Instruction** | Model core concepts on the screen. Break down syntax line-by-line; explain architectural structure. | Follow along on screens/notebooks; observe syntax rules and active demonstration. |
+| **20–26 min** | **Misconceptions & Diagnostics** | Address Common Mistake: *"Forgetting FILE_APPEND."* Conduct rapid check for understanding. | Identify faulty patterns in sample snippets; explain correct approach verbally. |
+| **26–38 min** | **Guided Lab Practice** | Circulate lab while students execute the hands-on task: *"Open the PHP Console and run:"* | Code independently or in pairs using PHP Console Studio (`../studios/php-console/index.html`); test variations. |
+| **38–45 min** | **Plenary & Exit Ticket** | Review key takeaways. Pose exit question: *"Which flag makes file_put_contents() add to the end of a file?"* Collect summary tickets. | Answer plenary questions; record homework task; submit exit ticket. |
+
+### Differentiated Instruction
+- **Support (Struggling Learners):** Provide starter boilerplate or pair with a peer navigator; focus on Level 1 recall and syntax verification.
+- **Extension (Fast Finishers):** Assign Level 3 Challenge from the Practice section; encourage adding creative styling or feature extensions.
+
+### Homework & Notebook Task
+- Complete Level 2 Apply questions from the chapter Practice section into class notebooks.
+- Write a 2-sentence personal explanation of the primary concept taught in this lesson.
+
+### Ethical Stewardship & Digital Values (Amānah & Beneficial Knowledge)
+- Emphasize digital trust (*Amānah*): respect school lab hardware, cite code honestly, and apply programming skills toward beneficial knowledge (*'Ilm Nāfi'*).
+
+### Teacher Sign-off & Reflection
+- **Teacher Signature:** ___________________________  **HOD / Coordinator Signature:** ___________________________
+- **Lesson Reflection / Notes:** _______________________________________________________________________________
+
+---
+
 ## Real-Life Story
 
 At the exit of a science museum lies a big guestbook. You write: *"The planets room was amazing! (Ali, Class 9)"*. You do not rub out the hundreds of notes written before yours. You turn to the next empty line and add yours at the end. In PHP, adding to the end of a file is called **appending**, and wiping the page to start again is called **overwriting**.

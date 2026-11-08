@@ -4,6 +4,53 @@
 
 ---
 
+## Teacher Lesson Plan
+
+### Classroom Planning & Logistics
+| Field | Detail | Field | Detail |
+| :--- | :--- | :--- | :--- |
+| **Grade / Class** | Grades 9–10 | **Period Duration** | 45 minutes |
+| **Unit / Topic** | Table Relationships & JOINs | **Setting** | Computer Lab & Projector |
+| **Teacher Name** | ____________________ | **Date / Session** | ____ / ____ / 2026 |
+
+### Learning Objectives (SWBAT)
+By the end of this 45-minute lesson, students will be able to:
+1. Explain how LEFT JOIN differs from INNER JOIN.
+2. Read NULL values in a joined result.
+3. Replace NULL with a friendly label using COALESCE.
+4. Find 'missing' rows with LEFT JOIN ... WHERE ... IS NULL.
+
+### Required Materials & Setup
+- Computer lab with web browsers installed (Chrome, Edge, or Firefox).
+- Teacher projector displaying SQL Sandbox (`../studios/sql-sandbox/index.html`) for live modeling.
+- Student notebooks for recording key syntax rules, vocabulary, and reflections.
+
+### 45-Minute Instructional Delivery Plan
+| Time | Phase | Teacher Activity | Student Activity |
+| :--- | :--- | :--- | :--- |
+| **0–8 min** | **Hook & Analogy** | Share the chapter opening analogy: *"At the end of term, the head teacher asks for a reading report on every student, not just the ones who borrowed books. The librarian copies the whole register first. Then, next to each name, she wr..."* Connect to today's topic. | Discuss in pairs; volunteer real-life parallels and note the learning target. |
+| **8–20 min** | **Direct Instruction** | Model core concepts on the screen. Break down syntax line-by-line; explain architectural structure. | Follow along on screens/notebooks; observe syntax rules and active demonstration. |
+| **20–26 min** | **Misconceptions & Diagnostics** | Address Common Mistake: *"Mistake: a WHERE on the right table turns a LEFT JOIN back into an INNER JOIN."* Conduct rapid check for understanding. | Identify faulty patterns in sample snippets; explain correct approach verbally. |
+| **26–38 min** | **Guided Lab Practice** | Circulate lab while students execute the hands-on task: *"In the SQL Sandbox, list every book with the name of each student who borrowed it. Books nobody borrowed should still appear, with 'Not borrowed yet' instead of a name."* | Code independently or in pairs using SQL Sandbox (`../studios/sql-sandbox/index.html`); test variations. |
+| **38–45 min** | **Plenary & Exit Ticket** | Review key takeaways. Pose exit question: *"What does a LEFT JOIN do with a left-table row that has no match?"* Collect summary tickets. | Answer plenary questions; record homework task; submit exit ticket. |
+
+### Differentiated Instruction
+- **Support (Struggling Learners):** Provide starter boilerplate or pair with a peer navigator; focus on Level 1 recall and syntax verification.
+- **Extension (Fast Finishers):** Assign Level 3 Challenge from the Practice section; encourage adding creative styling or feature extensions.
+
+### Homework & Notebook Task
+- Complete Level 2 Apply questions from the chapter Practice section into class notebooks.
+- Write a 2-sentence personal explanation of the primary concept taught in this lesson.
+
+### Ethical Stewardship & Digital Values (Amānah & Beneficial Knowledge)
+- Emphasize digital trust (*Amānah*): respect school lab hardware, cite code honestly, and apply programming skills toward beneficial knowledge (*'Ilm Nāfi'*).
+
+### Teacher Sign-off & Reflection
+- **Teacher Signature:** ___________________________  **HOD / Coordinator Signature:** ___________________________
+- **Lesson Reflection / Notes:** _______________________________________________________________________________
+
+---
+
 ## Real-Life Story
 
 At the end of term, the head teacher asks for a reading report on **every** student, not just the ones who borrowed books. The librarian copies the whole register first. Then, next to each name, she writes the books borrowed. Next to Hamza's name she writes a dash, because he borrowed nothing. Nobody is left off the report. That dash is `NULL`, and the report is a `LEFT JOIN`.

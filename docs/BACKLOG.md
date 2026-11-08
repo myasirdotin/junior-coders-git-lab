@@ -4,10 +4,11 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-11-02 (visual cleanup, batches 7 and 8)._
+_Last updated: 2026-11-08 (ready-made teacher lesson plans across 156 chapters)._
 
 ## Now (in progress)
 
+- **Teacher Lesson Plans**: 156 chapters across HTML, CSS, JavaScript, Terminal, Git, PHP, and MySQL now have structured 45-minute lesson plans at the top of each chapter. The reader includes a one-click "Print Lesson Plan" button for a clean 1–2 page printout.
 - **Visual identity** (from a design review of the home page and chrome, 2 Nov 2026). Batch 7 (chrome, home page, solid
   surfaces) and batch 8 (no emoji anywhere) are done. Still waiting on the owner (see Decisions): light as the default theme; five colours instead of
   eighteen with one colour per subject group; one icon set instead of the remaining emoji; an identity drawn from the
@@ -17,15 +18,16 @@ _Last updated: 2026-11-02 (visual cleanup, batches 7 and 8)._
 
 ## Next (agreed order)
 
-1. **Practice Arena**: only 5 challenges, all JavaScript. Add Python, PHP and SQL challenges (engines exist).
-2. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
+1. **Lesson plans for remaining textbooks**: Python, Networks, Cybersecurity, Laravel, and Android when ready.
+2. **Practice Arena**: only 5 challenges, all JavaScript. Add Python, PHP and SQL challenges (engines exist).
+3. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
    a teacher can import.
-3. **Leftover content gaps** found in the review:
+4. **Leftover content gaps** found in the review:
    - Python module 7 was not deepened (modules 1–6 and 8 were).
    - Networks module title cards still set old inline "Level" badge colours.
    - `tips.html` and `best-practices.html` overlap in the HTML, CSS and JS tracks.
-4. **Pre-recorded narration**: generate neural MP3s for chapter 1 of each book, play when present, fall back to Web Speech.
-5. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
+5. **Pre-recorded narration**: generate neural MP3s for chapter 1 of each book, play when present, fall back to Web Speech.
+6. **CSS selectors/specificity module**: insert as Module 3, renumber, update `Learning CSS/GEMINI.md`,
    `.gemini/agents/css-tutor.md`, run `node scripts/sync-curriculum.js`.
 
 ## Decisions pending from the owner
@@ -45,6 +47,23 @@ _Last updated: 2026-11-02 (visual cleanup, batches 7 and 8)._
 
 ## Done (most recent first)
 
+- 2026-11-08 Ready-made Teacher Lesson Plans across 156 chapters: complete 45-minute lesson plans injected directly
+  at the top of each chapter (before `## Real-Life Story`) across the 7 requested subjects: HTML (18), CSS (25),
+  JavaScript (23), Terminal (14), Git (19), PHP (32), and MySQL (25). Each lesson plan includes:
+  (1) Planning & Logistics table (Grade, 45-min duration, Unit, Setting, Date/Session, Teacher Name);
+  (2) Measurable Learning Objectives (SWBAT);
+  (3) Required Materials & Setup (Lab computers, browser, Web Studio/Console, notebooks);
+  (4) 45-Minute Instructional Delivery Plan with 5 timed phases (Hook & Analogy, Direct Instruction, Common Misconceptions
+  & Diagnostics, Guided Lab Practice, Plenary & Exit Ticket);
+  (5) Differentiated Instruction (Support for struggling learners, Extension for fast finishers);
+  (6) Homework & Notebook Task;
+  (7) Ethical Stewardship & Digital Values (*Amānah* & *'Ilm Nāfi'*);
+  (8) Teacher Sign-off & Reflection (Teacher Signature, HOD/Coordinator Signature, Reflection notes).
+  New `.jc-teacher-lesson-plan` card styling in `styles/book-theme.css`, print styling in `styles/print.css`, and a
+  one-click "Print Lesson Plan" button in `js/book-reader.js` that triggers `window.print()` in `print-lesson-plan-only`
+  mode for a clean 1–2 page printout for teacher binders and administration submission. New generator
+  `scripts/add-lesson-plans.js`. All 7 book bundles rebuilt (`bundle-books.js`), 0 errors across 12 books (`check-books.js`),
+  `audit.ps1` 100% PASS, `strip-emoji.js --check` clean.
 - 2026-11-02 No emoji anywhere (batch 8): 6,400 removed from 156 pages, all 247 textbook chapters, the shared scripts
   and the rule documents; code examples that teach a symbol (and the student templates in the playgrounds and the
   Python Console) keep theirs. Icon-only controls use inline SVG instead: textbook reader header (Read, Stop, Pause,

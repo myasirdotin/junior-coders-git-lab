@@ -3436,3 +3436,124 @@ h2:hover > .book-section-speaker-btn, h3:hover > .book-section-speaker-btn,
 @media (hover: none) {
   .book-section-speaker-btn { width: 32px !important; height: 32px !important; font-size: 0.85rem !important; opacity: 0.7; }
 }
+
+/* ==========================================================================
+   Teacher Lesson Plan Component
+   ========================================================================== */
+.jc-teacher-lesson-plan {
+  background: #ffffff;
+  border: 1px solid #c7d2fe;
+  border-left: 5px solid var(--book-accent, #4f46e5);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1.5rem 0 2.25rem 0;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.06);
+}
+
+.jc-lesson-plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-bottom: 0.85rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.jc-lph-badge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.jc-lph-pill {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(79, 70, 229, 0.1);
+  color: #4338ca;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(79, 70, 229, 0.25);
+}
+
+.jc-lph-subtitle {
+  font-size: 0.88rem;
+  color: #475569;
+  font-weight: 600;
+}
+
+.btn-print-lesson-plan {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--book-accent, #4f46e5);
+  color: #ffffff !important;
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(79, 70, 229, 0.25);
+}
+
+.btn-print-lesson-plan:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.btn-print-lesson-plan svg {
+  width: 16px;
+  height: 16px;
+}
+
+.jc-teacher-lesson-plan h2 {
+  font-size: 1.4rem !important;
+  color: #1e1b4b !important;
+  margin-top: 0.25rem !important;
+  margin-bottom: 0.85rem !important;
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
+}
+
+.jc-teacher-lesson-plan h3 {
+  font-size: 1.05rem !important;
+  color: #312e81 !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 0.5rem !important;
+  border-bottom: 1px dashed #e2e8f0;
+  padding-bottom: 0.25rem;
+}
+
+.jc-teacher-lesson-plan table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 0.75rem 0 1.25rem 0 !important;
+  font-size: 0.88rem !important;
+}
+
+.jc-teacher-lesson-plan th {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+  font-weight: 700 !important;
+  border: 1px solid #cbd5e1 !important;
+  padding: 0.5rem 0.7rem !important;
+  text-align: left !important;
+}
+
+.jc-teacher-lesson-plan td {
+  border: 1px solid #e2e8f0 !important;
+  padding: 0.5rem 0.7rem !important;
+  color: #334155 !important;
+}
+
+.jc-teacher-lesson-plan tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
