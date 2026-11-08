@@ -2,53 +2,6 @@
 
 ---
 
-## Teacher Lesson Plan
-
-### Classroom Planning & Logistics
-| Field | Detail | Field | Detail |
-| :--- | :--- | :--- | :--- |
-| **Grade / Class** | Grades 9–10 | **Period Duration** | 45 minutes |
-| **Unit / Topic** | Object-Oriented PHP | **Setting** | Computer Lab & Projector |
-| **Teacher Name** | ____________________ | **Date / Session** | ____ / ____ / 2026 |
-
-### Learning Objectives (SWBAT)
-By the end of this 45-minute lesson, students will be able to:
-1. Write a constructor with __construct() and pass data into new ClassName(...).
-2. Use constructor property promotion (PHP 8) to write shorter classes.
-3. Call a parent's constructor from a child class with parent::__construct().
-4. Use __destruct() to run tidy-up code when an object is destroyed.
-
-### Required Materials & Setup
-- Computer lab with web browsers installed (Chrome, Edge, or Firefox).
-- Teacher projector displaying PHP Console Studio (`../studios/php-console/index.html`) for live modeling.
-- Student notebooks for recording key syntax rules, vocabulary, and reflections.
-
-### 45-Minute Instructional Delivery Plan
-| Time | Phase | Teacher Activity | Student Activity |
-| :--- | :--- | :--- | :--- |
-| **0–8 min** | **Hook & Analogy** | Share the chapter opening analogy: *"Think of a new library card being made at the school office. The clerk does not hand you a blank card and hope you fill it in later. Your name, class and card number are printed on it the moment it..."* Connect to today's topic. | Discuss in pairs; volunteer real-life parallels and note the learning target. |
-| **8–20 min** | **Direct Instruction** | Model core concepts on the screen. Break down syntax line-by-line; explain architectural structure. | Follow along on screens/notebooks; observe syntax rules and active demonstration. |
-| **20–26 min** | **Misconceptions & Diagnostics** | Address Common Mistake: *"Typing one underscore instead of two."* Conduct rapid check for understanding. | Identify faulty patterns in sample snippets; explain correct approach verbally. |
-| **26–38 min** | **Guided Lab Practice** | Circulate lab while students execute the hands-on task: *"Open the PHP Console and type:"* | Code independently or in pairs using PHP Console Studio (`../studios/php-console/index.html`); test variations. |
-| **38–45 min** | **Plenary & Exit Ticket** | Review key takeaways. Pose exit question: *"How many underscores start the name of a magic method such as __construct()?"* Collect summary tickets. | Answer plenary questions; record homework task; submit exit ticket. |
-
-### Differentiated Instruction
-- **Support (Struggling Learners):** Provide starter boilerplate or pair with a peer navigator; focus on Level 1 recall and syntax verification.
-- **Extension (Fast Finishers):** Assign Level 3 Challenge from the Practice section; encourage adding creative styling or feature extensions.
-
-### Homework & Notebook Task
-- Complete Level 2 Apply questions from the chapter Practice section into class notebooks.
-- Write a 2-sentence personal explanation of the primary concept taught in this lesson.
-
-### Ethical Stewardship & Digital Values (Amānah & Beneficial Knowledge)
-- Emphasize digital trust (*Amānah*): respect school lab hardware, cite code honestly, and apply programming skills toward beneficial knowledge (*'Ilm Nāfi'*).
-
-### Teacher Sign-off & Reflection
-- **Teacher Signature:** ___________________________  **HOD / Coordinator Signature:** ___________________________
-- **Lesson Reflection / Notes:** _______________________________________________________________________________
-
----
-
 ## Real-Life Story
 
 Think of a new library card being made at the school office. The clerk does not hand you a blank card and hope you fill it in later. Your name, class and card number are printed on it the moment it is made. The card leaves the office complete and ready to use. In PHP, a **constructor** does the same job: it fills in an object's data the moment `new` creates it.

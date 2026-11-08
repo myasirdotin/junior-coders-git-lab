@@ -1,52 +1,5 @@
 # Chapter 14: Capstone Challenge 2: The Broken Asset Path Detective
 
-## Teacher Lesson Plan
-
-### Classroom Planning & Logistics
-| Field | Detail | Field | Detail |
-| :--- | :--- | :--- | :--- |
-| **Grade / Class** | Grades 6–7 | **Period Duration** | 45 minutes |
-| **Unit / Topic** | Capstone Challenges | **Setting** | Computer Lab & Projector |
-| **Teacher Name** | ____________________ | **Date / Session** | ____ / ____ / 2026 |
-
-### Learning Objectives (SWBAT)
-By the end of this 45-minute lesson, students will be able to:
-1. Follow a six-step detective routine for any terminal problem.
-2. Understand the most common error messages in CMD and PowerShell.
-3. Find and fix broken file paths in a real website folder.
-4. Remove an unwanted folder safely, after checking it first.
-
-### Required Materials & Setup
-- Computer lab with web browsers installed (Chrome, Edge, or Firefox).
-- Teacher projector displaying Terminal / Command Prompt (CMD & PowerShell) for live modeling.
-- Student notebooks for recording key syntax rules, vocabulary, and reflections.
-
-### 45-Minute Instructional Delivery Plan
-| Time | Phase | Teacher Activity | Student Activity |
-| :--- | :--- | :--- | :--- |
-| **0–8 min** | **Hook & Analogy** | Share the chapter opening analogy: *"When a patient visits the doctor, the doctor does not guess. She asks questions, looks carefully, and checks the clues. Only then does she decide what to do. After the treatment, she checks again t..."* Connect to today's topic. | Discuss in pairs; volunteer real-life parallels and note the learning target. |
-| **8–20 min** | **Direct Instruction** | Model core concepts on the screen. Break down syntax line-by-line; explain architectural structure. | Follow along on screens/notebooks; observe syntax rules and active demonstration. |
-| **20–26 min** | **Misconceptions & Diagnostics** | Address Common Mistake: *"Fixing before investigating. A beginner sees the missing logo and edits index.html, changing assets/logo.png to logo.png. The logo appears. But now the page does not match the p..."* Conduct rapid check for understanding. | Identify faulty patterns in sample snippets; explain correct approach verbally. |
-| **26–38 min** | **Guided Lab Practice** | Circulate lab while students execute the hands-on task: *"Recreate the messy library-site folder in your practice folder, using Chapters 7 and 12. Then solve the case yourself, without looking at the solution. Time how long t..."* | Code independently or in pairs using Terminal / Command Prompt (CMD & PowerShell); test variations. |
-| **38–45 min** | **Plenary & Exit Ticket** | Review key takeaways. Pose exit question: *"Name the six steps of the detective routine."* Collect summary tickets. | Answer plenary questions; record homework task; submit exit ticket. |
-
-### Differentiated Instruction
-- **Support (Struggling Learners):** Provide starter boilerplate or pair with a peer navigator; focus on Level 1 recall and syntax verification.
-- **Extension (Fast Finishers):** Assign Level 3 Challenge from the Practice section; encourage adding creative styling or feature extensions.
-
-### Homework & Notebook Task
-- Complete Level 2 Apply questions from the chapter Practice section into class notebooks.
-- Write a 2-sentence personal explanation of the primary concept taught in this lesson.
-
-### Ethical Stewardship & Digital Values (Amānah & Beneficial Knowledge)
-- Emphasize digital trust (*Amānah*): respect school lab hardware, cite code honestly, and apply programming skills toward beneficial knowledge (*'Ilm Nāfi'*).
-
-### Teacher Sign-off & Reflection
-- **Teacher Signature:** ___________________________  **HOD / Coordinator Signature:** ___________________________
-- **Lesson Reflection / Notes:** _______________________________________________________________________________
-
----
-
 ## Real-Life Story
 
 When a patient visits the doctor, the doctor does not guess. She asks questions, looks carefully, and checks the clues. Only then does she decide what to do. After the treatment, she checks again that the patient is better. Fixing a broken website works the same way. In this final chapter you are the detective. You will use clues from the terminal to find what is wrong, fix it, and prove it is fixed.

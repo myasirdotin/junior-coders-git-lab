@@ -1,52 +1,5 @@
 # Chapter 8: Renaming, Moving & Copying Files
 
-## Teacher Lesson Plan
-
-### Classroom Planning & Logistics
-| Field | Detail | Field | Detail |
-| :--- | :--- | :--- | :--- |
-| **Grade / Class** | Grades 6–7 | **Period Duration** | 45 minutes |
-| **Unit / Topic** | Managing Files & Folders | **Setting** | Computer Lab & Projector |
-| **Teacher Name** | ____________________ | **Date / Session** | ____ / ____ / 2026 |
-
-### Learning Objectives (SWBAT)
-By the end of this 45-minute lesson, students will be able to:
-1. Rename files and folders with ren.
-2. Move files into another folder, or up to the parent folder, with move.
-3. Copy files, and whole folders, with copy (and xcopy in CMD).
-4. Spot the important differences between CMD and PowerShell, especially about overwriting.
-
-### Required Materials & Setup
-- Computer lab with web browsers installed (Chrome, Edge, or Firefox).
-- Teacher projector displaying Terminal / Command Prompt (CMD & PowerShell) for live modeling.
-- Student notebooks for recording key syntax rules, vocabulary, and reflections.
-
-### 45-Minute Instructional Delivery Plan
-| Time | Phase | Teacher Activity | Student Activity |
-| :--- | :--- | :--- | :--- |
-| **0–8 min** | **Hook & Analogy** | Share the chapter opening analogy: *"Ibrahim helps in the school library after classes. Sometimes a book has the wrong label, so he writes a new one: that is renaming. Sometimes a book sits on the wrong shelf, so he carries it to the ..."* Connect to today's topic. | Discuss in pairs; volunteer real-life parallels and note the learning target. |
-| **8–20 min** | **Direct Instruction** | Model core concepts on the screen. Break down syntax line-by-line; explain architectural structure. | Follow along on screens/notebooks; observe syntax rules and active demonstration. |
-| **20–26 min** | **Misconceptions & Diagnostics** | Address Common Mistake: *"PowerShell copies over a file without asking. Bilal already has backup.html with yesterday's good work. He types:"* Conduct rapid check for understanding. | Identify faulty patterns in sample snippets; explain correct approach verbally. |
-| **26–38 min** | **Guided Lab Practice** | Circulate lab while students execute the hands-on task: *"Make a file called catalog-draft.txt."* | Code independently or in pairs using Terminal / Command Prompt (CMD & PowerShell); test variations. |
-| **38–45 min** | **Plenary & Exit Ticket** | Review key takeaways. Pose exit question: *"Which command renames a file in CMD and PowerShell? Which one does Git Bash use?"* Collect summary tickets. | Answer plenary questions; record homework task; submit exit ticket. |
-
-### Differentiated Instruction
-- **Support (Struggling Learners):** Provide starter boilerplate or pair with a peer navigator; focus on Level 1 recall and syntax verification.
-- **Extension (Fast Finishers):** Assign Level 3 Challenge from the Practice section; encourage adding creative styling or feature extensions.
-
-### Homework & Notebook Task
-- Complete Level 2 Apply questions from the chapter Practice section into class notebooks.
-- Write a 2-sentence personal explanation of the primary concept taught in this lesson.
-
-### Ethical Stewardship & Digital Values (Amānah & Beneficial Knowledge)
-- Emphasize digital trust (*Amānah*): respect school lab hardware, cite code honestly, and apply programming skills toward beneficial knowledge (*'Ilm Nāfi'*).
-
-### Teacher Sign-off & Reflection
-- **Teacher Signature:** ___________________________  **HOD / Coordinator Signature:** ___________________________
-- **Lesson Reflection / Notes:** _______________________________________________________________________________
-
----
-
 ## Real-Life Story
 
 Ibrahim helps in the school library after classes. Sometimes a book has the wrong label, so he writes a new one: that is **renaming**. Sometimes a book sits on the wrong shelf, so he carries it to the right one: that is **moving**. When a teacher needs a worksheet for every student, he photocopies it: that is **copying**. The original stays safe. The terminal has a command for each of these jobs.

@@ -2,53 +2,6 @@
 
 ---
 
-## Teacher Lesson Plan
-
-### Classroom Planning & Logistics
-| Field | Detail | Field | Detail |
-| :--- | :--- | :--- | :--- |
-| **Grade / Class** | Grades 9–10 | **Period Duration** | 45 minutes |
-| **Unit / Topic** | Capstone Projects & Reference | **Setting** | Computer Lab & Projector |
-| **Teacher Name** | ____________________ | **Date / Session** | ____ / ____ / 2026 |
-
-### Learning Objectives (SWBAT)
-By the end of this 45-minute lesson, students will be able to:
-1. Store a list of posts in a posts.json file and load it again.
-2. Add a new post to the top of the list with array_unshift().
-3. Validate a form and choose a category from an allow-list.
-4. Escape every saved value when you print it, not when you save it.
-
-### Required Materials & Setup
-- Computer lab with web browsers installed (Chrome, Edge, or Firefox).
-- Teacher projector displaying PHP Console Studio (`../studios/php-console/index.html`) for live modeling.
-- Student notebooks for recording key syntax rules, vocabulary, and reflections.
-
-### 45-Minute Instructional Delivery Plan
-| Time | Phase | Teacher Activity | Student Activity |
-| :--- | :--- | :--- | :--- |
-| **0–8 min** | **Hook & Analogy** | Share the chapter opening analogy: *"Our school has a class noticeboard in the corridor. Students pin up short articles: a science fair report, a book review, news from the charity drive. The newest article goes at the top, so everyon..."* Connect to today's topic. | Discuss in pairs; volunteer real-life parallels and note the learning target. |
-| **8–20 min** | **Direct Instruction** | Model core concepts on the screen. Break down syntax line-by-line; explain architectural structure. | Follow along on screens/notebooks; observe syntax rules and active demonstration. |
-| **20–26 min** | **Misconceptions & Diagnostics** | Address Common Mistake: *"Escaping when saving instead of when printing."* Conduct rapid check for understanding. | Identify faulty patterns in sample snippets; explain correct approach verbally. |
-| **26–38 min** | **Guided Lab Practice** | Circulate lab while students execute the hands-on task: *"[ ] Publish an article with a title, your name and some text. It appears at the top of the feed."* | Code independently or in pairs using PHP Console Studio (`../studios/php-console/index.html`); test variations. |
-| **38–45 min** | **Plenary & Exit Ticket** | Review key takeaways. Pose exit question: *"Which function turns a PHP array into JSON text?"* Collect summary tickets. | Answer plenary questions; record homework task; submit exit ticket. |
-
-### Differentiated Instruction
-- **Support (Struggling Learners):** Provide starter boilerplate or pair with a peer navigator; focus on Level 1 recall and syntax verification.
-- **Extension (Fast Finishers):** Assign Level 3 Challenge from the Practice section; encourage adding creative styling or feature extensions.
-
-### Homework & Notebook Task
-- Complete Level 2 Apply questions from the chapter Practice section into class notebooks.
-- Write a 2-sentence personal explanation of the primary concept taught in this lesson.
-
-### Ethical Stewardship & Digital Values (Amānah & Beneficial Knowledge)
-- Emphasize digital trust (*Amānah*): respect school lab hardware, cite code honestly, and apply programming skills toward beneficial knowledge (*'Ilm Nāfi'*).
-
-### Teacher Sign-off & Reflection
-- **Teacher Signature:** ___________________________  **HOD / Coordinator Signature:** ___________________________
-- **Lesson Reflection / Notes:** _______________________________________________________________________________
-
----
-
 ## Real-Life Story
 
 Our school has a class noticeboard in the corridor. Students pin up short articles: a science fair report, a book review, news from the charity drive. The newest article goes at the top, so everyone sees it first. A teacher checks that each paper has a title and the writer's name before it goes up. In this project you build that noticeboard as a web page, and PHP keeps the papers in a file.

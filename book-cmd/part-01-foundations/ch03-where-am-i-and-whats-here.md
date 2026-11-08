@@ -1,52 +1,5 @@
 # Chapter 3: Where Am I? & What's Here? (Orientation)
 
-## Teacher Lesson Plan
-
-### Classroom Planning & Logistics
-| Field | Detail | Field | Detail |
-| :--- | :--- | :--- | :--- |
-| **Grade / Class** | Grades 6–7 | **Period Duration** | 45 minutes |
-| **Unit / Topic** | Foundations & Orientation | **Setting** | Computer Lab & Projector |
-| **Teacher Name** | ____________________ | **Date / Session** | ____ / ____ / 2026 |
-
-### Learning Objectives (SWBAT)
-By the end of this 45-minute lesson, students will be able to:
-1. Print the folder you are standing in, in CMD, PowerShell and Git Bash.
-2. List the files and folders in the current folder.
-3. Read a dir listing: folders, file sizes and the special . and .. entries.
-4. Show hidden folders such as .git.
-
-### Required Materials & Setup
-- Computer lab with web browsers installed (Chrome, Edge, or Firefox).
-- Teacher projector displaying Terminal / Command Prompt (CMD & PowerShell) for live modeling.
-- Student notebooks for recording key syntax rules, vocabulary, and reflections.
-
-### 45-Minute Instructional Delivery Plan
-| Time | Phase | Teacher Activity | Student Activity |
-| :--- | :--- | :--- | :--- |
-| **0–8 min** | **Hook & Analogy** | Share the chapter opening analogy: *"Imagine you wake up in a new room during a school trip. Before you do anything, you ask two questions. 'Which room am I in?' and 'What is in this room?' Only then do you unpack your bag. Good termi..."* Connect to today's topic. | Discuss in pairs; volunteer real-life parallels and note the learning target. |
-| **8–20 min** | **Direct Instruction** | Model core concepts on the screen. Break down syntax line-by-line; explain architectural structure. | Follow along on screens/notebooks; observe syntax rules and active demonstration. |
-| **20–26 min** | **Misconceptions & Diagnostics** | Address Common Mistake: *"Typing pwd in CMD. CMD does not know pwd."* Conduct rapid check for understanding. | Identify faulty patterns in sample snippets; explain correct approach verbally. |
-| **26–38 min** | **Guided Lab Practice** | Circulate lab while students execute the hands-on task: *"Open File Explorer. Open the C: drive (also called Local Disk (C:))."* | Code independently or in pairs using Terminal / Command Prompt (CMD & PowerShell); test variations. |
-| **38–45 min** | **Plenary & Exit Ticket** | Review key takeaways. Pose exit question: *"Which command prints your current folder in CMD? Which one in PowerShell?"* Collect summary tickets. | Answer plenary questions; record homework task; submit exit ticket. |
-
-### Differentiated Instruction
-- **Support (Struggling Learners):** Provide starter boilerplate or pair with a peer navigator; focus on Level 1 recall and syntax verification.
-- **Extension (Fast Finishers):** Assign Level 3 Challenge from the Practice section; encourage adding creative styling or feature extensions.
-
-### Homework & Notebook Task
-- Complete Level 2 Apply questions from the chapter Practice section into class notebooks.
-- Write a 2-sentence personal explanation of the primary concept taught in this lesson.
-
-### Ethical Stewardship & Digital Values (Amānah & Beneficial Knowledge)
-- Emphasize digital trust (*Amānah*): respect school lab hardware, cite code honestly, and apply programming skills toward beneficial knowledge (*'Ilm Nāfi'*).
-
-### Teacher Sign-off & Reflection
-- **Teacher Signature:** ___________________________  **HOD / Coordinator Signature:** ___________________________
-- **Lesson Reflection / Notes:** _______________________________________________________________________________
-
----
-
 ## Real-Life Story
 
 Imagine you wake up in a new room during a school trip. Before you do anything, you ask two questions. *"Which room am I in?"* and *"What is in this room?"* Only then do you unpack your bag. Good terminal users do the same. Before they create, move or delete anything, they check where they are and what is around them.

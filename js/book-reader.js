@@ -100,6 +100,7 @@
     pause: svg('<path d="M8 5v14M16 5v14"/>'),
     play: svg('<path d="m7 4 13 8-13 8z"/>'),
     book: svg('<path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21z"/><path d="M4 19V5.5"/>'),
+    plan: svg('<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M9 12h6M9 16h6"/>'),
     download: svg('<path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 20h16"/>'),
     warn: svg('<path d="M12 3 2 20h20z"/><path d="M12 9v5M12 17h.01"/>')
   };
@@ -174,6 +175,9 @@
             <button type="button" class="book-reading-mode-toggle-btn" id="book-reading-mode-btn" title="Reading mode: hide everything except the chapter">
               <span class="btn-icon">${ICONS.book}</span><span class="btn-text">Reading Mode</span>
             </button>
+            <button type="button" class="book-lesson-plan-btn" id="book-lesson-plan-btn" title="View & print ready-made 45-minute lesson plan for this chapter">
+              <span class="btn-icon">${ICONS.plan}</span><span class="btn-text">Lesson Plan</span>
+            </button>
             <button type="button" class="book-download-pdf-btn" id="book-download-pdf-btn" title="Download this chapter as a PDF">
               <span class="btn-icon">${ICONS.download}</span><span class="btn-text">Download PDF</span>
             </button>
@@ -183,6 +187,24 @@
       <article class="book-article" id="chapterContent" aria-live="polite"></article>
       ${B.scratchpad ? scratchpadHtml() : ''}
     </main>
+  </div>
+  <div class="jc-plan-modal-backdrop" id="jcPlanModalBackdrop" style="display:none;" aria-hidden="true">
+    <div class="jc-plan-modal" role="dialog" aria-modal="true" aria-label="Lesson Plan">
+      <div class="jc-plan-modal-bar">
+        <div class="jc-plan-modal-title">
+          <span class="jc-plan-pill">Educator Resource</span>
+          <span class="jc-plan-sub">45-Minute Classroom Lesson Plan</span>
+        </div>
+        <div class="jc-plan-modal-actions">
+          <button type="button" class="jc-plan-print-btn" id="jcPlanPrintBtn" title="Print or save as 1–2 page clean PDF">
+            <span class="btn-icon">${ICONS.download}</span>
+            <span>Print / Save PDF</span>
+          </button>
+          <button type="button" class="jc-plan-close-btn" id="jcPlanCloseBtn" aria-label="Close lesson plan">✕</button>
+        </div>
+      </div>
+      <div class="jc-plan-modal-body" id="jcPlanModalBody"></div>
+    </div>
   </div>
   <div class="copy-toast" id="copyToast" role="status" aria-live="polite"></div>`);
 
@@ -256,48 +278,268 @@
       `<a class="cp-btn" href="${esc(p.href)}"${ext(p.href)}>${esc(p.label)}</a></aside>`;
   };
 
-  // Enhance Teacher Lesson Plan card if present in the chapter
-  const enhanceLessonPlan = (area) => {
-    const planH2 = area.querySelector('h2#teacher-lesson-plan, h2[id*="teacher-lesson-plan"]');
-    if (!planH2) return;
-    const nodes = [planH2];
-    let next = planH2.nextElementSibling;
-    while (next && next.tagName !== 'H2' && !next.classList.contains('chapter-practice-box')) {
-      nodes.push(next);
-      next = next.nextElementSibling;
+  // ── Teacher Lesson Plan Generator & Modal ─────────────────────────────────────────────────────────
+  const generateLessonPlanHtml = (file) => {
+    const md = DATA[file] || '';
+    if (!md) return '<p>No content available for this chapter.</p>';
+
+    // Chapter Title & Number
+    const h1Match = md.match(/^#\s+(Chapter\s+(\d+):\s*(.*))$/m);
+    const chNum = h1Match ? h1Match[2] : '';
+    const chTitle = h1Match ? h1Match[3].trim().replace(/\s+\(`[^)]*\)\s*$/, '') : (B.short || B.title);
+
+    // Part / Unit
+    const partFolder = file.split('/')[0];
+    const conf = (B.parts || {})[partFolder];
+    const partTitle = conf ? conf[0] : partFolder.replace(/^part-\d+-/, '').replace(/-/g, ' ');
+
+    // Helper to clean markdown snippets
+    const clean = (s) => String(s || '')
+      .replace(/<details>[\s\S]*?<\/details>/g, ' ')
+      .replace(/```[\s\S]*?```/g, ' ')
+      .replace(/`+([^`]+)`+/g, '$1')
+      .replace(/`+/g, '')
+      .replace(/\*\*([^*]+)\*\*/g, '$1')
+      .replace(/\*([^*]+)\*/g, '$1')
+      .replace(/!\[[^\]]*\]\([^)]*\)/g, ' ')
+      .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+      .replace(/[|]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+    // Objectives (from ## What You Will Learn)
+    const learnMatch = md.match(/^##\s+What You Will Learn([\s\S]*?)(?=^##\s+)/m);
+    const rawLearn = learnMatch ? learnMatch[1] : '';
+    const objectives = [];
+    rawLearn.split('\n').forEach(l => {
+      const m = l.match(/^[-*]\s+(.*)$/);
+      if (m) {
+        const text = clean(m[1]);
+        if (text) objectives.push(text);
+      }
+    });
+    if (!objectives.length) {
+      objectives.push(`Understand the foundational concepts and terminology of ${chTitle}.`);
+      objectives.push(`Construct working examples following proper structure and syntax.`);
+      objectives.push(`Apply computational problem-solving to complete guided and independent practice.`);
     }
-    const card = document.createElement('section');
-    card.className = 'jc-teacher-lesson-plan';
-    card.setAttribute('aria-label', 'Teacher Lesson Plan');
-    const header = document.createElement('div');
-    header.className = 'jc-lesson-plan-header';
-    header.innerHTML = `
-      <div class="jc-lph-badge">
-        <span class="jc-lph-pill">Educator Resource</span>
-        <span class="jc-lph-subtitle">Classroom Lesson Plan · 45-Minute Period</span>
-      </div>
-      <div class="jc-lph-actions">
-        <button type="button" class="btn-print-lesson-plan" title="Print a ready-to-teach 1–2 page lesson plan copy">
-          <span class="btn-icon">${ICONS.download}</span>
-          <span class="btn-text">Print Lesson Plan</span>
-        </button>
-      </div>`;
-    header.querySelector('.btn-print-lesson-plan').addEventListener('click', () => {
-      document.body.classList.add('print-lesson-plan-only');
-      const prevTitle = document.title;
-      const chH1 = area.querySelector('h1');
-      const chTitle = (chH1 ? chH1.textContent : 'Chapter').replace(/[^a-zA-Z0-9\s-]/g, '').trim().replace(/\s+/g, '-');
-      document.title = 'LessonPlan-' + chTitle;
+
+    // Story / Hook (from ## Real-Life Story)
+    const storyMatch = md.match(/^##\s+Real-Life Story([\s\S]*?)(?=^##\s+)/m);
+    let hook = 'Introduce the core computing concept using the chapter opening analogy.';
+    if (storyMatch) {
+      const paras = storyMatch[1].split(/\n\s*\n/).map(s => clean(s)).filter(Boolean);
+      if (paras[0]) hook = paras[0].length > 210 ? paras[0].substring(0, 207) + '...' : paras[0];
+    }
+
+    // Misconceptions (from ## Common Mistake)
+    const mistakeMatch = md.match(/^##\s+Common Mistake([\s\S]*?)(?=^##\s+)/m);
+    let mistake = 'Overlooking syntax rules, file structure, or order of execution.';
+    if (mistakeMatch) {
+      const paras = mistakeMatch[1].split(/\n\s*\n/).map(s => clean(s)).filter(Boolean);
+      if (paras[0]) mistake = paras[0].length > 180 ? paras[0].substring(0, 177) + '...' : paras[0];
+    }
+
+    // Hands-on Lab Activity (from ## Try It)
+    const tryMatch = md.match(/^##\s+Try It([\s\S]*?)(?=^##\s+)/m);
+    let lab = 'Complete the hands-on code trial in the interactive development environment.';
+    if (tryMatch) {
+      const lines = tryMatch[1].split('\n').map(l => l.trim()).filter(Boolean);
+      const action = lines.find(l => /^(\d+\.|\*|-)\s+/.test(l)) || lines[0];
+      if (action) {
+        const cleaned = clean(action.replace(/^(\d+\.|\*|-)\s+/, ''));
+        if (cleaned) lab = cleaned.length > 170 ? cleaned.substring(0, 167) + '...' : cleaned;
+      }
+    }
+
+    // Plenary Diagnostic Question (from ## Practice Level 1)
+    const practiceMatch = md.match(/^##\s+Practice([\s\S]*?)$/m);
+    let exitQuestion = `Answer Level 1 Recall questions from Chapter ${chNum} to verify core understanding.`;
+    if (practiceMatch) {
+      const p1 = practiceMatch[1].match(/###\s+Level 1[\s\S]*?(?=(###\s+Level 2|<details>|$))/i);
+      if (p1) {
+        const qLine = p1[0].split('\n').map(l => l.trim()).find(l => /^\d+\.\s+/.test(l));
+        if (qLine) {
+          const cleaned = clean(qLine.replace(/^\d+\.\s+/, ''));
+          if (cleaned) exitQuestion = cleaned.length > 130 ? cleaned.substring(0, 127) + '...' : cleaned;
+        }
+      }
+    }
+
+    // Recommended Practice Tool
+    const tool = B.practice ? B.practice.label : (B.short || B.title) + ' Development Environment';
+
+    return `
+      <article class="jc-lesson-plan-sheet">
+        <header class="lps-header">
+          <div class="lps-branding">
+            <span class="lps-school">Junior Coders &bull; Computer Science Curriculum</span>
+            <h1 class="lps-title">Lesson Plan: Chapter ${esc(chNum)} &mdash; ${esc(chTitle)}</h1>
+          </div>
+          <table class="lps-meta-table">
+            <tr>
+              <th>Subject &amp; Book</th><td>${esc(B.title)}</td>
+              <th>Class / Grade</th><td>${esc(B.grades || 'Grades 6–8')}</td>
+            </tr>
+            <tr>
+              <th>Unit / Module</th><td>${esc(partTitle)}</td>
+              <th>Period Duration</th><td>45 Minutes (1 Period)</td>
+            </tr>
+            <tr>
+              <th>Teacher Name</th><td>____________________________________</td>
+              <th>Date / Session</th><td>______ / ______ / 2026</td>
+            </tr>
+          </table>
+        </header>
+
+        <section class="lps-section">
+          <h2>1. Measurable Learning Objectives (SWBAT)</h2>
+          <p class="lps-intro">By the end of this 45-minute period, students will be able to:</p>
+          <ol class="lps-objectives">
+            ${objectives.map(o => `<li>${esc(o)}</li>`).join('')}
+          </ol>
+        </section>
+
+        <section class="lps-section">
+          <h2>2. Required Teaching Aids &amp; Lab Setup</h2>
+          <ul class="lps-materials">
+            <li><strong>Computing Devices:</strong> Computer lab workstations with Chrome, Edge, or Firefox.</li>
+            <li><strong>Demonstration Screen:</strong> Teacher projector / smartboard displaying ${esc(tool)}.</li>
+            <li><strong>Student Materials:</strong> Computer science notebooks for key definitions and code blueprints.</li>
+          </ul>
+        </section>
+
+        <section class="lps-section">
+          <h2>3. 45-Minute Instructional Delivery Plan</h2>
+          <table class="lps-timeline-table">
+            <thead>
+              <tr>
+                <th style="width:14%;">Time</th>
+                <th style="width:22%;">Phase</th>
+                <th style="width:32%;">Teacher Activity</th>
+                <th style="width:32%;">Student Activity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>0–8 min</strong></td>
+                <td><strong>Hook &amp; Real-World Analogy</strong></td>
+                <td>Introduce opening analogy: <em>&ldquo;${esc(hook)}&rdquo;</em></td>
+                <td>Pair-share thoughts; connect analogy to computing concept.</td>
+              </tr>
+              <tr>
+                <td><strong>8–20 min</strong></td>
+                <td><strong>Direct Instruction &amp; Modeling</strong></td>
+                <td>Demonstrate core syntax line-by-line on projector; explain rules and architecture.</td>
+                <td>Follow on screens/notebooks; record syntax pattern in notes.</td>
+              </tr>
+              <tr>
+                <td><strong>20–26 min</strong></td>
+                <td><strong>Common Misconceptions</strong></td>
+                <td>Highlight common pitfall: <em>&ldquo;${esc(mistake)}&rdquo;</em></td>
+                <td>Identify flawed pattern in sample code; explain correction.</td>
+              </tr>
+              <tr>
+                <td><strong>26–38 min</strong></td>
+                <td><strong>Guided &amp; Independent Lab</strong></td>
+                <td>Circulate lab assisting students with task: <em>&ldquo;${esc(lab)}&rdquo;</em></td>
+                <td>Code independently or in pairs using ${esc(tool)}; test outputs.</td>
+              </tr>
+              <tr>
+                <td><strong>38–45 min</strong></td>
+                <td><strong>Plenary &amp; Exit Ticket</strong></td>
+                <td>Check comprehension with diagnostic exit question: <em>&ldquo;${esc(exitQuestion)}&rdquo;</em></td>
+                <td>Answer exit question; submit exit slip; copy homework task.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="lps-section">
+          <h2>4. Differentiated Instruction Strategies</h2>
+          <div class="lps-diff-grid">
+            <div class="lps-diff-box">
+              <h3>Support (Struggling Learners)</h3>
+              <p>Provide pre-scaffolded starter code; pair with a peer navigator; focus on Level 1 Recall questions.</p>
+            </div>
+            <div class="lps-diff-box">
+              <h3>Extension (Fast Finishers)</h3>
+              <p>Direct to Level 3 Challenge exercise in the textbook; prompt them to extend the feature with creative variations.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="lps-section">
+          <h2>5. Homework &amp; Notebook Task</h2>
+          <p>Complete Level 2 Apply questions from Chapter ${esc(chNum)} Practice into class notebooks, along with a 2-sentence summary of what was learned today.</p>
+        </section>
+
+        <section class="lps-section">
+          <h2>6. Ethical Stewardship &amp; Values (Amānah &amp; 'Ilm Nāfi')</h2>
+          <p>Remind students of digital trust (<em>Amānah</em>): caring for computer lab hardware, practicing academic honesty in writing code, and channeling technical skill toward beneficial knowledge (<em>'Ilm Nāfi'</em>) that serves family and community.</p>
+        </section>
+
+        <footer class="lps-footer">
+          <div class="lps-signatures">
+            <div>
+              <span>Teacher's Signature:</span>
+              <div class="sig-line">_______________________________________</div>
+            </div>
+            <div>
+              <span>HOD / Coordinator Signature:</span>
+              <div class="sig-line">_______________________________________</div>
+            </div>
+          </div>
+          <div class="lps-notes">
+            <span>Teacher's Post-Lesson Reflection / Notes:</span>
+            <div class="notes-box"></div>
+          </div>
+        </footer>
+      </article>
+    `;
+  };
+
+  const modalBackdrop = document.getElementById('jcPlanModalBackdrop');
+  const modalBody = document.getElementById('jcPlanModalBody');
+  const openLessonPlanModal = () => {
+    if (!current) return;
+    modalBody.innerHTML = generateLessonPlanHtml(current);
+    modalBackdrop.style.display = 'flex';
+    modalBackdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+  const closeLessonPlanModal = () => {
+    modalBackdrop.style.display = 'none';
+    modalBackdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+  const printLessonPlanFromModal = () => {
+    document.body.classList.add('print-lesson-plan-dialog');
+    const prevTitle = document.title;
+    const h1Match = (DATA[current] || '').match(/^#\s+(Chapter\s+(\d+):\s*(.*))$/m);
+    const cleanTitle = h1Match ? ('Ch' + h1Match[2] + '-' + h1Match[3].replace(/[^a-zA-Z0-9\s-]/g, '').trim().replace(/\s+/g, '-')) : 'LessonPlan';
+    document.title = 'JuniorCoders-' + (B.short || B.title) + '-LessonPlan-' + cleanTitle;
+    setTimeout(() => {
       window.print();
       setTimeout(() => {
-        document.body.classList.remove('print-lesson-plan-only');
+        document.body.classList.remove('print-lesson-plan-dialog');
         document.title = prevTitle;
       }, 1000);
-    });
-    planH2.parentNode.insertBefore(card, planH2);
-    card.appendChild(header);
-    nodes.forEach(n => card.appendChild(n));
+    }, 200);
   };
+
+  const planBtn = document.getElementById('book-lesson-plan-btn');
+  if (planBtn) planBtn.addEventListener('click', openLessonPlanModal);
+  const closeBtn = document.getElementById('jcPlanCloseBtn');
+  if (closeBtn) closeBtn.addEventListener('click', closeLessonPlanModal);
+  const printBtn = document.getElementById('jcPlanPrintBtn');
+  if (printBtn) printBtn.addEventListener('click', printLessonPlanFromModal);
+  modalBackdrop.addEventListener('click', (e) => {
+    if (e.target === modalBackdrop) closeLessonPlanModal();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalBackdrop.style.display !== 'none') closeLessonPlanModal();
+  });
 
   // ── loading a chapter ────────────────────────────────────────────────────────────────────────────────
   const area = document.getElementById('chapterContent');
@@ -315,7 +557,9 @@
     document.querySelectorAll('.chapter-nav-item').forEach((li) => li.classList.toggle('active', !!link && li.contains(link)));
     area.innerHTML = window.marked.parse(md) + practiceBox();
     enhanceCode(area);
-    enhanceLessonPlan(area);
+    if (modalBackdrop && modalBackdrop.style.display !== 'none') {
+      modalBody.innerHTML = generateLessonPlanHtml(current);
+    }
     const part = link ? link.closest('.part-group').querySelector('.part-title').textContent : '';
     document.getElementById('breadcrumbCurrent').textContent = part;
     if (window.initBookSpeaker) window.initBookSpeaker();
