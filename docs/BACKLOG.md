@@ -4,7 +4,7 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-11-08 (clean separation: dedicated Lesson Plan button & standalone 1–2 page printout)._
+_Last updated: 2026-11-11 (practice files students copy from GitHub, teacher answer page)._
 
 ## Now (in progress)
 
@@ -47,6 +47,14 @@ _Last updated: 2026-11-08 (clean separation: dedicated Lesson Plan button & stan
   work, data untouched). Other XAMPP projects that use MySQL (bei, ehsas) need it; repair from the XAMPP panel.
 
 ## Done (most recent first)
+
+- 2026-11-11 Practice files students copy from GitHub: new public template repository `myasirdotin/junior-coders-exercises`
+  (local folder `../junior-coders-exercises`): the 52 HTML, CSS and JavaScript tasks of the exercise pages as starter
+  files, one numbered folder each, the task written at the top of the file; JavaScript folders have a small page that
+  shows `console.log` output; no answers in it. Built by `node scripts/build-exercises-repo.js` from
+  `js/data/*-practice.js` (GEMINI §7f4), which also writes the teachers' answer page `teacher-hub/exercise-answers.html`
+  (linked from the Teacher Hub). The three exercise pages link to the files. Checked at 390px. The exercises repository
+  README links to the answer page on the live site, which works once this site is pushed.
 
 - 2026-11-08 Standalone Teacher Lesson Plans & clean separation: student chapter text restored to 100% pure,
   distraction-free learning material across all 243 chapters. In the textbook reader header, added a dedicated

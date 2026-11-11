@@ -245,6 +245,12 @@ These rules come from real bugs found in this site. Follow them for every change
    that every solution passes, every starter fails and every predicted output is what the code really prints. Laravel
    cannot run in a browser, so its page says written answers are checked for their key parts; its "Build it on your
    own XAMPP" checklists are ticked by the student and earn no XP (`node scripts/check-laravel-exercises.js` too).
+7f4. **Practice files students copy (GitHub).** `node scripts/build-exercises-repo.js` builds, from the same
+   `js/data/html|css|js-practice.js` tasks, the folder `../junior-coders-exercises` (its own public template repository,
+   `myasirdotin/junior-coders-exercises`: starter files and READMEs only, no answers, no site tooling) and the
+   teachers' answer page `teacher-hub/exercise-answers.html`. Never edit either by hand: change the task in the data
+   file, run `node scripts/check-practice.js`, run the builder, then commit both repositories. A task whose code is
+   CSS or JavaScript only needs a small page in the builder's `EXTRA_HTML` (it stops with a message if one is missing).
 7g. **Three-tier practice uses one markup.** Every `moduleN.html` ends its teaching with one
    `<section class="content-section jc-tiers">` holding `.jc-tier.jc-tier-1` (Recall), `.jc-tier-2` (Apply) and
    `.jc-tier-3` (Challenge), each answer in `<details class="jc-answer">`. Styles live in `styles/bei-core.css` and
