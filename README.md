@@ -26,7 +26,7 @@
   (writes `book-audit-report.md`).
 - **Publishing** = commit, then push **both** `main` and `master` (`git push origin main master`). Only when you mean
   to put it live.
-- **Rules for any AI tool:** read `GEMINI.md` (the rulebook) and `CLAUDE.md`; the work list is `docs/BACKLOG.md`.
+- **Project rules:** `GEMINI.md` is the rulebook; the work list is `docs/BACKLOG.md`.
 
 ---
 
