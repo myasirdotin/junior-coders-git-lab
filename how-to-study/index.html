@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script id="jc-folder-slash">/* folder page: add the missing trailing slash so relative links work (scripts/sync-vercel-redirects.js) */(function(){var p=location.pathname;if(p.slice(-1)!=='/'&&!/\.[a-z0-9]+$/i.test(p)){location.replace(p+'/'+location.search+location.hash);}})();</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Study | Junior Coders</title>
+    <meta name="description" content="How to study computer science: the six levels of Bloom's taxonomy, the PRIMM way to learn programming, six study habits that research shows work, a weekly plan, the manners of a student of knowledge, and question starters for teachers.">
+    <link rel="stylesheet" href="../styles/bei-core.css">
+    <link rel="stylesheet" href="../styles/how-to-study.css">
+</head>
+<body>
+
+    <div id="bei-global-nav"></div>
+
+    <main class="container hts">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">Home</a> <span>/</span>
+                <a href="../learn/index.html">Learn</a> <span>/</span>
+                <span>How to study</span>
+            </div>
+            <h1>How to study</h1>
+            <p class="lead">Learning is a skill, and like coding it gets better with practice. This page shows the ladder
+                of thinking every lesson climbs, a tried way to learn programming, six habits that research shows really
+                work, and how to plan your week.</p>
+            <div class="hts-toc" aria-label="On this page">
+                <a href="#ladder">The ladder of thinking</a>
+                <a href="#check">Which level is it?</a>
+                <a href="#primm">Learning to program</a>
+                <a href="#habits">Six habits that work</a>
+                <a href="#myths">Habits that let you down</a>
+                <a href="#week">A week of study</a>
+                <a href="#adab">Manners of a student</a>
+                <a href="#teachers">For teachers</a>
+            </div>
+        </header>
+
+        <!-- 1. Bloom's taxonomy -->
+        <section class="hts-section" id="ladder" aria-labelledby="ladder-title">
+            <h2 id="ladder-title">The ladder of thinking (Bloom's taxonomy)</h2>
+            <p class="hts-intro">In 1956 the educator Benjamin Bloom and his colleagues sorted the kinds of thinking
+                that learning asks for. In 2001 Lorin Anderson and David Krathwohl updated the list into the six levels
+                most teachers use today. Think of them as a ladder: each step needs the ones below it. For every new
+                topic you climb it again, and you don't have to finish one step completely before trying the next.</p>
+            <p class="hts-intro">Here is one topic, a <code>for</code> loop, at all six levels.</p>
+
+            <ol class="hts-ladder">
+                <li>
+                    <div class="hts-level-head"><span class="hts-level-num">1</span><h3>Remember</h3></div>
+                    <p class="hts-what">Recall facts and words.</p>
+                    <p class="hts-example"><span>Example:</span> What three parts go inside the brackets of a <code>for</code> loop?</p>
+                    <p class="hts-where"><span>On this site:</span> Level 1: Recall in every lesson, and the
+                        <a href="../library/cheatsheets/index.html">cheat sheets</a>.</p>
+                </li>
+                <li>
+                    <div class="hts-level-head"><span class="hts-level-num">2</span><h3>Understand</h3></div>
+                    <p class="hts-what">Explain it in your own words.</p>
+                    <p class="hts-example"><span>Example:</span> Say what this loop prints, and why it stops.</p>
+                    <p class="hts-where"><span>On this site:</span> "Predict the Output" in the textbooks and the
+                        <a href="../Learning%20JS/exercises.html">exercise pages</a>.</p>
+                </li>
+                <li>
+                    <div class="hts-level-head"><span class="hts-level-num">3</span><h3>Apply</h3></div>
+                    <p class="hts-what">Use it in a new situation.</p>
+                    <p class="hts-example"><span>Example:</span> Write a loop that prints the shelf numbers 1 to 10 for the class library.</p>
+                    <p class="hts-where"><span>On this site:</span> Level 2: Apply, and the "Try It" part of every
+                        textbook chapter.</p>
+                </li>
+                <li>
+                    <div class="hts-level-head"><span class="hts-level-num">4</span><h3>Analyse</h3></div>
+                    <p class="hts-what">Take it apart and find the cause.</p>
+                    <p class="hts-example"><span>Example:</span> This loop never stops. Find the line that causes it.</p>
+                    <p class="hts-where"><span>On this site:</span> "Code Detective" in the textbooks and the
+                        find-the-bug tasks on the exercise pages.</p>
+                </li>
+                <li>
+                    <div class="hts-level-head"><span class="hts-level-num">5</span><h3>Evaluate</h3></div>
+                    <p class="hts-what">Judge, compare and choose, giving reasons.</p>
+                    <p class="hts-example"><span>Example:</span> Two classmates wrote loops to add up the charity
+                        donations. Which is clearer, and why?</p>
+                    <p class="hts-where"><span>On this site:</span> the marking rubric on the
+                        <a href="../projects/index.html">Projects page</a>; use it on your own work and a friend's.</p>
+                </li>
+                <li>
+                    <div class="hts-level-head"><span class="hts-level-num">6</span><h3>Create</h3></div>
+                    <p class="hts-what">Make something new of your own.</p>
+                    <p class="hts-example"><span>Example:</span> Build a page that lists every book in the class library
+                        and counts how many are borrowed.</p>
+                    <p class="hts-where"><span>On this site:</span> Level 3: Challenge, the
+                        <a href="../practice-arena.html">Practice Arena</a> and the
+                        <a href="../projects/index.html">projects</a>.</p>
+                </li>
+            </ol>
+            <p class="hts-note">Our three practice levels follow the same ladder: Level 1 (Recall) is steps 1 and 2,
+                Level 2 (Apply) is steps 3 and 4, and Level 3 (Challenge) is steps 5 and 6.</p>
+        </section>
+
+        <!-- 2. Self-check -->
+        <section class="hts-section" id="check" aria-labelledby="check-title">
+            <h2 id="check-title">Which level is it?</h2>
+            <p class="hts-intro">Read each task and pick the level of thinking it asks for. Nothing is saved; this is
+                just for you.</p>
+            <div id="hts-quiz" class="hts-quiz">
+                <noscript><p>This self-check needs JavaScript.</p></noscript>
+            </div>
+            <p class="hts-score" id="hts-score" aria-live="polite"></p>
+        </section>
+
+        <!-- 3. PRIMM and Use-Modify-Create -->
+        <section class="hts-section" id="primm" aria-labelledby="primm-title">
+            <h2 id="primm-title">Learning to program: PRIMM</h2>
+            <p class="hts-intro">Reading code comes before writing it, just as children read before they write
+                stories. PRIMM is a way of learning programming that Sue Sentance and her colleagues worked out with
+                school computing classes. It has five steps.</p>
+            <ol class="hts-steps">
+                <li><strong>Predict.</strong> Read a working program and write down what you think it will do, before
+                    you run it.</li>
+                <li><strong>Run.</strong> Run it. Were you right? If not, what surprised you?</li>
+                <li><strong>Investigate.</strong> Trace it line by line, answer questions about it, change one thing
+                    and see what happens.</li>
+                <li><strong>Modify.</strong> Change the program so it does something a little different.</li>
+                <li><strong>Make.</strong> Write a new program of your own that uses the same idea.</li>
+            </ol>
+            <p class="hts-intro">A shorter version of the same idea is <strong>Use, Modify, Create</strong>: first use
+                someone else's program, then change it, then build your own.</p>
+            <h3 class="hts-sub">How our lessons follow it</h3>
+            <div class="hts-table-wrap">
+                <table class="hts-table">
+                    <thead>
+                        <tr><th scope="col">Lesson step</th><th scope="col">What you do</th><th scope="col">PRIMM step</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Learn, See</td><td>Read the idea and a worked example</td><td>Predict, Run</td></tr>
+                        <tr><td>Try, Practice</td><td>Change the example, then do the practice tasks</td><td>Investigate, Modify</td></tr>
+                        <tr><td>Challenge, Project</td><td>Build something new on your own</td><td>Make</td></tr>
+                        <tr><td>Quiz</td><td>Answer from memory</td><td>Retrieval practice (below)</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 4. Six habits -->
+        <section class="hts-section" id="habits" aria-labelledby="habits-title">
+            <h2 id="habits-title">Six habits that work</h2>
+            <p class="hts-intro">Scientists who study memory have tested many ways of studying. These six come out
+                well again and again.</p>
+            <div class="hts-cards">
+                <article class="hts-card">
+                    <h3>1. Test yourself</h3>
+                    <p>Close the book and write down what you remember, or answer questions without looking. Pulling
+                        an idea out of your memory makes it stronger than reading it again. This is called
+                        <em>retrieval practice</em>.</p>
+                    <p class="hts-try">Try it: the quizzes and Level 1 tasks, before you look at the answer.</p>
+                </article>
+                <article class="hts-card">
+                    <h3>2. Space it out</h3>
+                    <p>Four short sessions over a week beat one long session the night before. Come back to a topic
+                        after one day, then after a few days, then after a week. This is <em>spaced practice</em>.</p>
+                    <p class="hts-try">Try it: open a lesson you finished last week and do its quiz again.</p>
+                </article>
+                <article class="hts-card">
+                    <h3>3. Mix your practice</h3>
+                    <p>Once you know a few topics, mix them: a loop task, then an <code>if</code> task, then a function.
+                        You learn to choose the right tool, not just repeat the last one. This is
+                        <em>interleaving</em>.</p>
+                    <p class="hts-try">Try it: on an <a href="../Learning%20JS/exercises.html">exercise page</a>, do
+                        one task from each lesson instead of all the tasks of one.</p>
+                </article>
+                <article class="hts-card">
+                    <h3>4. Study a worked example first</h3>
+                    <p>When something is new, read a solved example carefully before solving one yourself. Then try a
+                        similar task with the example hidden.</p>
+                    <p class="hts-try">Try it: every textbook topic has an example with its exact output.</p>
+                </article>
+                <article class="hts-card">
+                    <h3>5. Explain it out loud</h3>
+                    <p>Explain your code, line by line, to a friend, a family member or even a rubber duck on your
+                        desk. Programmers call this <em>rubber duck debugging</em>: you often find the mistake while
+                        explaining.</p>
+                    <p class="hts-try">Try it: after a lesson, explain it to someone in two minutes.</p>
+                </article>
+                <article class="hts-card">
+                    <h3>6. Type it, don't copy it</h3>
+                    <p>Type examples yourself instead of copying and pasting. Your fingers and eyes notice details such
+                        as brackets and semicolons, and your mistakes teach you how errors look.</p>
+                    <p class="hts-try">Try it: in the <a href="../studios/web-studio/index.html">Web Studio</a>, retype
+                        an example from memory.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 5. Myths -->
+        <section class="hts-section" id="myths" aria-labelledby="myths-title">
+            <h2 id="myths-title">Habits that let you down</h2>
+            <p class="hts-intro">Some ways of studying feel productive but do little. Knowing them saves you time.</p>
+            <ul class="hts-myths">
+                <li><strong>Reading the same page again and again.</strong> It feels familiar, so you think you know
+                    it. Test yourself instead.</li>
+                <li><strong>Highlighting most of the page.</strong> Colour is not memory. Write a question for each
+                    important line and answer it later.</li>
+                <li><strong>"I am a visual (or listening) learner."</strong> Careful studies have not found that
+                    teaching to a "learning style" helps. Everyone learns better with pictures and words together,
+                    and with practice.</li>
+                <li><strong>Pasting code you don't understand,</strong> from a website or an AI tool. It may run, but
+                    you have learned nothing, and you can't fix it when it breaks. If you use borrowed code, read it
+                    until you can explain every line, and say where it came from.</li>
+                <li><strong>Cramming the night before.</strong> You may pass tomorrow and forget next week. Space it
+                    out.</li>
+                <li><strong>Studying with your phone beside you.</strong> Every message pulls your attention away.
+                    Put it in another room for the session.</li>
+            </ul>
+        </section>
+
+        <!-- 6. Weekly plan -->
+        <section class="hts-section" id="week" aria-labelledby="week-title">
+            <h2 id="week-title">A week of study</h2>
+            <p class="hts-intro">Here is one way to learn one lesson a week in four short sessions of 30 to 40 minutes.
+                Change the days to fit your timetable.</p>
+            <div class="hts-table-wrap">
+                <table class="hts-table">
+                    <thead>
+                        <tr><th scope="col">When</th><th scope="col">What to do</th><th scope="col">Habit</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Day 1</td><td>Open the new lesson: Learn, See and Try. At the end, close it and write
+                            three things you remember.</td><td>Worked example, test yourself</td></tr>
+                        <tr><td>Day 2</td><td>Do the Level 1 and Level 2 tasks without looking back. Check, then fix
+                            what was wrong.</td><td>Test yourself, type it</td></tr>
+                        <tr><td>Day 4</td><td>Do the quiz from memory. Try the Level 3 challenge.</td><td>Space it
+                            out</td></tr>
+                        <tr><td>Day 6 or 7</td><td>Mix tasks from this lesson and the last two. Explain the week's
+                            topic to someone. Work on your project.</td><td>Mix, explain</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3 class="hts-sub">Before every session</h3>
+            <ul class="hts-checklist">
+                <li>Phone in another room.</li>
+                <li>One clear goal, for example "finish the Level 2 tasks of lesson 4".</li>
+                <li>Two minutes of recall first: what did I learn last time?</li>
+                <li>Stop with a note of where to start next time.</li>
+            </ul>
+            <p class="hts-note">Want the lessons chosen for you, week by week? <a href="../paths/index.html">Pick a
+                learning path</a>.</p>
+        </section>
+
+        <!-- 7. Adab of the student -->
+        <section class="hts-section hts-adab" id="adab" aria-labelledby="adab-title">
+            <h2 id="adab-title">The manners of a student of knowledge</h2>
+            <blockquote class="hts-quote">
+                <p>"My Lord, increase me in knowledge."</p>
+                <cite>The Qur'an, Sūrah Ṭā Hā 20:114</cite>
+            </blockquote>
+            <p class="hts-intro">Muslim scholars have always taught that how you seek knowledge matters as much as
+                what you learn. These manners (<em>adab</em>) make a better student of any subject, coding included.</p>
+            <ul class="hts-adab-list">
+                <li><strong>A good intention (<em>niyyah</em>).</strong> Learn to benefit people and to please Allah,
+                    not to show off.</li>
+                <li><strong>Patience (<em>ṣabr</em>).</strong> Code will break, often. Each error message is a
+                    lesson; stay calm and read it.</li>
+                <li><strong>Regular revision.</strong> Those who memorise the Qur'an revise every day so it stays with
+                    them. Knowledge you don't revise slips away; that is spaced practice.</li>
+                <li><strong>Asking, and respect for your teacher.</strong> Ask when you don't understand. Asking is
+                    not weakness; staying silent and confused is the loss.</li>
+                <li><strong>Honesty (<em>ṣidq</em>).</strong> Hand in your own work, and say where borrowed code came
+                    from.</li>
+                <li><strong>Acting on what you learn.</strong> Use it, teach it to someone else, and build things that
+                    help others (<em>'ilm nāfi'</em>).</li>
+            </ul>
+        </section>
+
+        <!-- 8. Teachers -->
+        <section class="hts-section" id="teachers" aria-labelledby="teachers-title">
+            <h2 id="teachers-title">For teachers: questions at every level</h2>
+            <p class="hts-intro">Use these starters to write questions at each level, or to check that a worksheet does
+                not stop at "Remember". A good lesson asks at least one question from the top half of the ladder.</p>
+            <div class="hts-table-wrap">
+                <table class="hts-table">
+                    <thead>
+                        <tr><th scope="col">Level</th><th scope="col">Verbs</th><th scope="col">Question starters</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Remember</td><td>name, list, recall, label</td><td>What is …? Which tag …? List the …</td></tr>
+                        <tr><td>Understand</td><td>explain, describe, predict, summarise</td><td>What will this print? Explain in your own words why …</td></tr>
+                        <tr><td>Apply</td><td>use, write, change, solve</td><td>Write a … that … Use … to …</td></tr>
+                        <tr><td>Analyse</td><td>debug, trace, compare, find</td><td>Why does this fail when …? Trace the value of <code>x</code> after each line.</td></tr>
+                        <tr><td>Evaluate</td><td>judge, choose, review, justify</td><td>Which solution is better for …, and why? Mark this with the rubric.</td></tr>
+                        <tr><td>Create</td><td>design, build, plan, invent</td><td>Design a page that … Plan and build a tool that helps …</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <ul class="hts-checklist">
+                <li>Classroom idea: give pairs six questions and ask them to sort them by level, then write one more
+                    for the top step.</li>
+                <li>Every textbook chapter ends with Level 1, 2 and 3 practice, and the reader's Lesson Plan button
+                    gives a 45-minute plan for that chapter.</li>
+                <li>More for the classroom: the <a href="../teacher-hub/index.html">Teacher Hub</a>.</li>
+            </ul>
+        </section>
+
+        <!-- Sources -->
+        <section class="hts-section hts-sources" aria-labelledby="sources-title">
+            <h2 id="sources-title">Where these ideas come from</h2>
+            <ul>
+                <li>Bloom, B. S. (ed.) et al. (1956). <em>Taxonomy of Educational Objectives, Handbook I: Cognitive
+                    Domain</em>.</li>
+                <li>Anderson, L. W. and Krathwohl, D. R. (eds.) (2001). <em>A Taxonomy for Learning, Teaching, and
+                    Assessing</em>.</li>
+                <li>Sentance, S., Waite, J. and Kallia, M. (2019). Teaching computer programming with PRIMM: a
+                    sociocultural perspective. <em>Computer Science Education</em>, 29(2–3).</li>
+                <li>Lee, I. et al. (2011). Computational thinking for youth in practice. <em>ACM Inroads</em>, 2(1).</li>
+                <li>Roediger, H. L. and Karpicke, J. D. (2006). Test-enhanced learning. <em>Psychological Science</em>,
+                    17(3).</li>
+                <li>Dunlosky, J. et al. (2013). Improving students' learning with effective learning techniques.
+                    <em>Psychological Science in the Public Interest</em>, 14(1).</li>
+                <li>Pashler, H. et al. (2008). Learning styles: concepts and evidence. <em>Psychological Science in the
+                    Public Interest</em>, 9(3).</li>
+                <li>Hunt, A. and Thomas, D. (1999). <em>The Pragmatic Programmer</em> (rubber duck debugging).</li>
+            </ul>
+        </section>
+    </main>
+
+    <script src="../js/bei-core.js"></script>
+    <script src="../js/bei-nav.js"></script>
+    <script src="../js/how-to-study.js"></script>
+</body>
+</html>

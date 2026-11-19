@@ -749,7 +749,7 @@
         const segments = path.split('/').filter(Boolean);
         
         // Find if any known parent directory is present
-        const knownDirs = ['Learning JS', 'Learning HTML', 'Learning CSS', 'Learning Python', 'studios', 'paths', 'library', 'learn', 'teacher-hub', 'projects', 'book-js', 'book-html', 'book-css', 'book-python'];
+        const knownDirs = ['Learning JS', 'Learning HTML', 'Learning CSS', 'Learning Python', 'studios', 'paths', 'how-to-study', 'library', 'learn', 'teacher-hub', 'projects', 'book-js', 'book-html', 'book-css', 'book-python'];
         for (let i = 0; i < segments.length; i++) {
             const seg = decodeURIComponent(segments[i]);
             if (knownDirs.some(k => k.toLowerCase() === seg.toLowerCase())) {
@@ -829,7 +829,7 @@
         else if (path.includes('/projects/')) activeKey = 'projects';
         else if (path.includes('/paths/')) activeKey = 'paths';
         else if (path.includes('/teacher-hub/')) activeKey = 'teachers';
-        else if (path.includes('/learn/') || path.includes('learning')) activeKey = 'learn';
+        else if (path.includes('/learn/') || path.includes('learning') || path.includes('/how-to-study/')) activeKey = 'learn';
 
         // Grouped menus (desktop: dropdown panels; phone drawer: sections that open on tap)
         const group = ({ learn: 'learn', studios: 'practice', arena: 'practice', projects: 'practice',
@@ -852,7 +852,8 @@
         const learnMenu =
             SUBJECT_GROUPS.map(g => section(g.title, g.subjects.map(k =>
                 item(subjectHref(k), SUBJECTS[k].icon, SUBJECTS[k].name, subjectMeta(k))))).join('') +
-            footer([item('learn/index.html', '', 'All subjects', ''), item('paths/index.html', '', 'Learning paths', 'Week-by-week plans')]);
+            footer([item('learn/index.html', '', 'All subjects', ''), item('paths/index.html', '', 'Learning paths', 'Week-by-week plans'),
+                    item('how-to-study/index.html', '', 'How to study', 'Levels of thinking, habits that work')]);
         const practiceMenu =
             section('Code studios', [
                 item('studios/web-studio/index.html', '', 'Web Studio', 'HTML, CSS, JavaScript'),
@@ -1335,6 +1336,7 @@
         ['practice-arena.html', '', 'Practice Arena', 'Practice', 'challenges exercises xp'],
         ['learn/index.html', '', 'Learn: all 12 subjects', 'Page', 'courses tracks subjects curriculum'],
         ['paths/index.html', '', 'Start here: pick your path', 'Page', 'start begin pathways beginner web developer full stack'],
+        ['how-to-study/index.html', '', 'How to study', 'Page', 'study skills bloom taxonomy levels primm revision habits spaced retrieval practice adab'],
         ['library/books/index.html', '', 'All Textbooks', 'Page', 'books library'],
         ['library/cheatsheets/index.html', '', 'All Cheat Sheets', 'Page', 'reference'],
         ['projects/index.html', '', 'Graded Project Catalog', 'Page', 'projects capstone'],
