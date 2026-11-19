@@ -1343,23 +1343,10 @@ code, pre {
     background: linear-gradient(90deg, #059669, #4f46e5, #0284c7);
 }
 
+/* One column: the 80px icon column went with the emoji (batch 8) and had squeezed the text into it */
 .ethical-mission-inner {
     display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: 2rem;
-    align-items: center;
-}
-
-.ethical-icon-badge {
-    width: 80px;
-    height: 80px;
-    border-radius: var(--radius-lg);
-    background: rgba(5, 150, 105, 0.15);
-    border: 1px solid rgba(5, 150, 105, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
+    grid-template-columns: minmax(0, 1fr);
 }
 
 .ethical-content h2 {
@@ -1390,6 +1377,58 @@ code, pre {
     font-size: 0.82rem;
     font-weight: 700;
     color: #e2e8f0;
+}
+
+/* Home page: the principles, each with what it means for a student's code */
+.ethical-principles {
+    list-style: none;
+    margin: 0 0 1.25rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.85rem;
+}
+
+.ethical-principles li {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.1rem;
+}
+
+.ethical-principle-term {
+    font-size: 1rem;
+    margin: 0 0 0.35rem;
+    color: var(--text-green);
+}
+
+.ethical-content .ethical-principles p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.ethical-content .ethical-note {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+/* The card stays navy in the light theme, so keep the pale green there */
+[data-theme="light"] .ethical-mission-card {
+    --text-green: #34d399;
+}
+
+@media (max-width: 640px) {
+    .ethical-mission-card {
+        padding: 1.75rem 1.15rem 1.25rem;
+        margin: 2.5rem auto;
+    }
+    .ethical-content h2 {
+        font-size: 1.25rem;
+    }
+    .ethical-principles {
+        grid-template-columns: minmax(0, 1fr);
+    }
 }
 
 /* ═════════════════════════════════════════════════════════════════════
@@ -1998,16 +2037,6 @@ code, pre {
     }
     .footer-grid {
         grid-template-columns: 1fr;
-    }
-    .ethical-mission-inner {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    .ethical-icon-badge {
-        margin: 0 auto;
-    }
-    .ethical-pillars {
-        justify-content: center;
     }
     .curriculum-action-banner {
         flex-direction: column;
