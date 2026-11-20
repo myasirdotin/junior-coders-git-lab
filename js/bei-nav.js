@@ -1542,6 +1542,10 @@
             <div class="container footer-bottom">
                 <div class="footer-copyright">&copy; ${new Date().getFullYear()} Junior Coders. Crafted with excellence (<em>Iḥsān</em>) by <strong>Yasir Rasool</strong>. Progress is saved on this device only.</div>
                 <div class="footer-bottom-links">
+                    <a href="https://myasirdotin.github.io/" target="_blank" rel="noopener noreferrer" class="footer-maker-logo" title="Explore with Yasir: the maker's own site">
+                        <img src="${ROOT}assets/img/explore-with-yasir.svg" alt="Explore with Yasir" width="76" height="34" loading="lazy">
+                    </a>
+                    <span class="sep-dot">•</span>
                     <a href="https://github.com/myasirdotin/" target="_blank" rel="noopener noreferrer" class="footer-bottom-link" title="Yasir Rasool on GitHub">
                         <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="${GITHUB}"/></svg><span>@myasirdotin</span>
                     </a>
