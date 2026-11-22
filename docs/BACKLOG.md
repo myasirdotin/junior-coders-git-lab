@@ -48,6 +48,11 @@ _Last updated: 2026-11-22 (calm and truthful interface: no points, badges, confe
 
 ## Done (most recent first)
 
+- 2026-11-22 Home page first screen redesigned: headline "Learn to code, one clear step at a time.", one plain
+  sentence of what the site has, one line on Iḥsān and Amānah, buttons in one row, the Web Studio picture beside
+  the text on laptops (stacked under 1000px, hidden on phones as before). The main button is a flat colour with no
+  glow on every page. Styles: last block of `styles/bei-core.css`. Viewed at 1366px (light and dark), 800px and 390px.
+
 - 2026-11-22 Calm and truthful interface (owner's review; new rule GEMINI §7h2). Removed: every visible points (XP)
   label and pop-up (36 pages and scripts; the stored counter stays, unseen), the confetti (and its outside script),
   the daily-streak pop-up, the pulsing dot beside the site address (footer and textbook reader), the slide-in of

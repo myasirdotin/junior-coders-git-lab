@@ -3389,3 +3389,35 @@ html[data-theme="light"] .cheatsheet-container.cheat-v2 .cheat-more a { color: v
 @media (max-width: 480px) {
     .bei-dd-learn .bei-dd-section { grid-template-columns: 1fr; }
 }
+
+/* ═════════════════════════════════════════════════════════════════════
+   HOME HERO (redesign 22 Nov 2026): plain words, text beside the Web Studio
+   picture on laptops, one row of buttons, flat colours (GEMINI §7c, §7h2)
+   ═════════════════════════════════════════════════════════════════════ */
+.btn-hero-primary { background: var(--brand-primary); box-shadow: none; }
+.btn-hero-primary:hover { background: var(--brand-primary-hover); transform: none; box-shadow: none; }
+
+.hero-split { display: grid; gap: 2.5rem; align-items: center; margin-bottom: 3rem; }
+.hero-eyebrow {
+    margin: 0 0 0.9rem; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em;
+    text-transform: uppercase; color: var(--text-indigo);
+}
+.hero-split h1 { font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.15; letter-spacing: -0.02em; max-width: 18ch; margin-bottom: 1rem; }
+.bei-hero .hero-split p.hero-subtitle { font-size: clamp(1.02rem, 1.6vw, 1.15rem); max-width: 34rem; margin-bottom: 0.9rem; }
+.hero-values { font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); max-width: 34rem; margin: 0 auto 1.75rem; }
+.hero-split .hero-actions { flex-direction: row; margin-bottom: 0; }
+.hero-split .hero-shot { margin: 0; }
+.hero-split .hero-shot img { width: 100%; height: auto; }
+
+@media (min-width: 1000px) {
+    .bei-hero { padding: 3.5rem 0 3rem; }
+    .hero-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 3rem; text-align: left; }
+    .hero-split h1, .bei-hero .hero-split p.hero-subtitle, .hero-values, .hero-split .hero-continue { margin-left: 0; margin-right: 0; }
+    .hero-split .hero-actions { justify-content: flex-start; }
+    .hero-split .hero-shot figcaption { text-align: left; }
+}
+@media (max-width: 640px) {
+    .hero-split { gap: 0; margin-bottom: 1.5rem; }
+    .hero-split h1 { max-width: none; }
+    .hero-values { font-size: 0.88rem; margin-bottom: 1.25rem; }
+}
