@@ -51,206 +51,130 @@
                     <figcaption>The Web Studio: write HTML, CSS and JavaScript and watch the page change as you type.</figcaption>
                 </figure>
             </div>
-
-            <!-- ═════════════════════════════════════════════════════════════
-                 INTERACTIVE PLACEMENT DIAGNOSTIC
-                 ═════════════════════════════════════════════════════════════ -->
-            <div class="placement-widget" id="placement">
-                <div class="placement-header">
-                    <h2>Not sure where to begin? Answer in 1 click:</h2>
-                    <p>Select your background and interest to get an instant recommended starting point.</p>
-                </div>
-
-                <div class="placement-choices" id="placementDiagnostic">
-                    <!-- Choice 1: Foundations -->
-                    <div class="placement-card" data-path="foundations">
-                        <h3>“I’m completely new to coding”</h3>
-                        <p>Best for Grades 6–7. Learn how computer files work, master the terminal without a mouse, and write your first lines safely.</p>
-                        <span class="placement-badge badge-foundations">Foundations &amp; CLI</span>
-                    </div>
-
-                    <!-- Choice 2: Web Dev -->
-                    <div class="placement-card" data-path="web">
-                        <h3>“I want to build interactive websites”</h3>
-                        <p>Best for Grades 7–9. Learn semantic HTML5 structure, modern CSS (Flexbox &amp; Grid) styling, and JavaScript logic.</p>
-                        <span class="placement-badge badge-web">Web Development</span>
-                    </div>
-
-                    <!-- Choice 3: Python & AI -->
-                    <div class="placement-card" data-path="python">
-                        <h3>“I want to learn Python &amp; explore AI”</h3>
-                        <p>Best for Grades 8–10. Master Python 3 algorithmic logic, data processing, prompt engineering, and ethical AI verification.</p>
-                        <span class="placement-badge badge-ai">Python &amp; AI Lab</span>
-                    </div>
-                </div>
-
-                <!-- Dynamic Outcome Box -->
-                <div id="placementResult" style="display: none;"></div>
-            </div>
         </div>
     </header>
 
     <main class="container">
-        <!-- ═════════════════════════════════════════════════════════════
-             CORE MISSION & SCHOOL PROGRESS ROADMAP (Items 20, 21 & 25)
-             ═════════════════════════════════════════════════════════════ -->
-        <section class="mission-roadmap-section">
-            <div class="mission-head">
-                <h2 class="mission-title">
-                    Made for the classroom
-                </h2>
-                <p class="mission-desc">
-                    Junior Coders is made for <strong>school classrooms (Grades 6–10)</strong>: fixed learning cycles, practice that is checked instantly in the browser, and lesson plans for teachers.
-                </p>
+        <!-- Where to begin: three choices (js/bei-core.js shows the suggestion in #placementResult) -->
+        <section class="jc-sec" id="placement" aria-labelledby="begin-title">
+            <div class="jc-sec-head">
+                <h2 id="begin-title">Not sure where to begin?</h2>
+                <p>Pick the sentence that sounds most like you.</p>
             </div>
-
-            <!-- Grade by Grade Interactive Journey Bar -->
-            <div class="mission-progress-box">
-                <div class="mission-progress-head">
-                    <div>
-                        <strong class="mission-progress-title">Student Grade-by-Grade Progression</strong>
-                        <span class="mission-progress-sub">Your own progress, saved on this device. Tick "Mark complete" at the end of a lesson to fill a bar.</span>
-                    </div>
-                    <span class="mission-standards-tag">Grades 6–10</span>
-                </div>
-
-                <div class="mission-progress-list">
-                    <!-- Class 6 -->
-                    <div class="progress-track-item" data-tracks="html">
-                        <div class="progress-track-info">
-                            <span class="track-name c-emerald">Class 6: HTML5 &amp; Terminal Foundations</span>
-                            <span class="track-status c-emerald" data-status>Not started</span>
-                        </div>
-                        <div class="progress-bar-track">
-                            <div class="progress-bar-fill fill-emerald" style="width: 0%;"></div>
-                        </div>
-                    </div>
-
-                    <!-- Class 7 -->
-                    <div class="progress-track-item" data-tracks="css">
-                        <div class="progress-track-info">
-                            <span class="track-name c-sky">Class 7: Modern Responsive CSS &amp; Flexbox</span>
-                            <span class="track-status c-sky" data-status>Not started</span>
-                        </div>
-                        <div class="progress-bar-track">
-                            <div class="progress-bar-fill fill-sky" style="width: 0%;"></div>
-                        </div>
-                    </div>
-
-                    <!-- Class 8 -->
-                    <div class="progress-track-item" data-tracks="js">
-                        <div class="progress-track-info">
-                            <span class="track-name c-amber">Class 8: JavaScript Logic, Functions &amp; DOM</span>
-                            <span class="track-status c-amber" data-status>Not started</span>
-                        </div>
-                        <div class="progress-bar-track">
-                            <div class="progress-bar-fill fill-amber" style="width: 0%;"></div>
-                        </div>
-                    </div>
-
-                    <!-- Class 9 -->
-                    <div class="progress-track-item" data-tracks="php mysql laravel">
-                        <div class="progress-track-info">
-                            <span class="track-name c-slate">Class 9: Full-Stack PHP, MySQL &amp; Laravel</span>
-                            <span class="track-status c-muted" data-status>Not started</span>
-                        </div>
-                        <div class="progress-bar-track">
-                            <div class="progress-bar-fill fill-slate" style="width: 0%;"></div>
-                        </div>
-                    </div>
-
-                    <!-- Python & AI -->
-                    <div class="progress-track-item" data-tracks="python">
-                        <div class="progress-track-info">
-                            <span class="track-name c-purple">Grades 8–10: Python Algorithms &amp; Ethical AI Stewardship</span>
-                            <span class="track-status c-purple" data-status>Not started</span>
-                        </div>
-                        <div class="progress-bar-track">
-                            <div class="progress-bar-fill fill-purple" style="width: 0%;"></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="jc-choose" id="placementDiagnostic">
+                <button type="button" class="placement-card" data-path="foundations">
+                    <span class="jc-choose-title">“I’m completely new to coding”</span>
+                    <span class="jc-choose-text">Grades 6–7. How files and folders work, the terminal, and your first web page.</span>
+                </button>
+                <button type="button" class="placement-card" data-path="web">
+                    <span class="jc-choose-title">“I want to build websites”</span>
+                    <span class="jc-choose-text">Grades 7–9. Build pages with HTML, style them with CSS, then add JavaScript.</span>
+                </button>
+                <button type="button" class="placement-card" data-path="python">
+                    <span class="jc-choose-title">“I want to learn Python and how AI works”</span>
+                    <span class="jc-choose-text">Grades 8–10. Python step by step, then how simple AI models learn from data.</span>
+                </button>
             </div>
-
-            <!-- The 4 Core Answers Grid -->
-            <div class="mission-answers-grid">
-                <div class="mission-answer-card">
-                    <strong>Who is it for?</strong>
-                    <p>School students in Grades 6–10 and computer science teachers.</p>
-                </div>
-                <div class="mission-answer-card">
-                    <strong>What will you learn?</strong>
-                    <p>HTML5, modern CSS Grid/Flexbox, JavaScript, PHP, MySQL, and Python AI.</p>
-                </div>
-                <div class="mission-answer-card">
-                    <strong>How does learning work?</strong>
-                    <p>The fixed 7-step cycle: Learn ➔ See ➔ Try ➔ Practice ➔ Challenge ➔ Quiz ➔ Project.</p>
-                </div>
-                <div class="mission-answer-card">
-                    <strong>Why use it in schools?</strong>
-                    <p>Answers checked instantly in the browser, teacher's guides in five textbooks, and nothing to install.</p>
-                </div>
-            </div>
+            <div id="placementResult" style="display: none;" aria-live="polite"></div>
         </section>
 
-        <!-- ═════════════════════════════════════════════════════════════
-             ALL 12 SUBJECTS IN FOUR GROUPS (rendered by js/bei-nav.js; the same map
-             as the Learn menu, the Learn hub, Start here and the Textbooks page)
-             ═════════════════════════════════════════════════════════════ -->
-        <section class="jc-subjects-section" id="subjects">
-            <div class="section-head">
+        <!-- All 12 subjects in four groups (rendered by js/bei-nav.js; the same map as the Learn menu,
+             the Learn hub, Start here and the Textbooks page) -->
+        <section class="jc-sec jc-subjects-section" id="subjects">
+            <div class="jc-sec-head">
                 <h2>Pick a subject</h2>
                 <p>Four groups, from first steps to phone apps. Every subject has lessons or a textbook, a cheat sheet and practice that checks itself in the browser.</p>
             </div>
             <div data-jc-subject-map="compact"></div>
         </section>
 
-        <!-- ═════════════════════════════════════════════════════════════
-             ZERO-SETUP INTERACTIVE STUDIOS SHOWCASE
-             ═════════════════════════════════════════════════════════════ -->
-        <section style="margin: 4.5rem 0 3.5rem;">
-            <div class="section-head">
-                <h2>Zero-Setup Interactive Code Studios</h2>
-                <p>No downloads. No software setup. Instant browser code execution with live preview and console diagnostics.</p>
+        <!-- How a lesson works -->
+        <section class="jc-sec" aria-labelledby="how-title">
+            <div class="jc-sec-head">
+                <h2 id="how-title">How a lesson works</h2>
+                <p>Every lesson follows the same four steps, so you always know what comes next.</p>
             </div>
+            <ol class="jc-steps">
+                <li><strong>Read</strong><span>A short explanation in plain words, with a picture of the idea from real life.</span></li>
+                <li><strong>See</strong><span>An example, with the exact output it gives.</span></li>
+                <li><strong>Try</strong><span>Change the code yourself and watch what happens.</span></li>
+                <li><strong>Practise</strong><span>Three levels: Recall, Apply and Challenge. Each answer stays hidden until you ask for it.</span></li>
+            </ol>
+        </section>
 
-            <div class="gateways-grid jc-compact-phone">
-                <!-- Studio 1: Web Studio -->
-                <div class="gateway-card accent-cyan">
-                    <div class="gateway-header">
-                        <div>
-                            <span class="gateway-meta">HTML • CSS • JS</span>
-                            <h3 class="gateway-title">Consolidated Web Studio</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">Edit HTML, CSS, and JS side-by-side with instantaneous live preview, desktop/tablet/mobile toggles, starter templates, and export.</p>
-                    <a href="studios/web-studio/index.html" class="btn-gateway">Launch Web Studio</a>
+        <!-- This visitor's own progress (filled by the script at the end of this page) -->
+        <section class="jc-sec" aria-labelledby="progress-title">
+            <div class="jc-sec-head">
+                <h2 id="progress-title">Your progress</h2>
+                <p>Saved on this device only. Tick “Mark complete” at the end of a lesson to fill a bar.</p>
+            </div>
+            <div class="jc-progress">
+                <div class="progress-track-item jc-prog-row" data-tracks="html">
+                    <div class="jc-prog-info"><b>HTML</b><span data-status>Not started</span></div>
+                    <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
                 </div>
-
-                <!-- Studio 2: Python Console -->
-                <div class="gateway-card accent-purple">
-                    <div class="gateway-header">
-                        <div>
-                            <span class="gateway-meta">Python 3 In-Browser</span>
-                            <h3 class="gateway-title">Python Console (Wasm)</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">Execute real Python scripts in your browser powered by WebAssembly. Includes preset algorithms, stdout capture, and error highlights.</p>
-                    <a href="studios/python-console/index.html" class="btn-gateway">Open Python Console</a>
+                <div class="progress-track-item jc-prog-row" data-tracks="css">
+                    <div class="jc-prog-info"><b>CSS</b><span data-status>Not started</span></div>
+                    <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
                 </div>
-
-                <!-- Studio 3: SQL Sandbox -->
-                <div class="gateway-card accent-cyan">
-                    <div class="gateway-header">
-                        <div>
-                            <span class="gateway-meta">Relational Database</span>
-                            <h3 class="gateway-title">SQL Database Sandbox</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">Query relational tables in memory with SELECT, WHERE, JOINs, and GROUP BY on pre-loaded educational datasets.</p>
-                    <a href="studios/sql-sandbox/index.html" class="btn-gateway">Open SQL Sandbox</a>
+                <div class="progress-track-item jc-prog-row" data-tracks="js">
+                    <div class="jc-prog-info"><b>JavaScript</b><span data-status>Not started</span></div>
+                    <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
+                </div>
+                <div class="progress-track-item jc-prog-row" data-tracks="php">
+                    <div class="jc-prog-info"><b>PHP</b><span data-status>Not started</span></div>
+                    <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
+                </div>
+                <div class="progress-track-item jc-prog-row" data-tracks="mysql">
+                    <div class="jc-prog-info"><b>MySQL</b><span data-status>Not started</span></div>
+                    <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
+                </div>
+                <div class="progress-track-item jc-prog-row" data-tracks="laravel">
+                    <div class="jc-prog-info"><b>Laravel</b><span data-status>Not started</span></div>
+                    <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
+                </div>
+                <div class="progress-track-item jc-prog-row" data-tracks="python">
+                    <div class="jc-prog-info"><b>Python</b><span data-status>Not started</span></div>
+                    <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
+                </div>
+                <div class="progress-track-item jc-prog-row" data-tracks="networks">
+                    <div class="jc-prog-info"><b>Networks</b><span data-status>Not started</span></div>
+                    <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
+                </div>
+                <div class="progress-track-item jc-prog-row" data-tracks="cybersecurity">
+                    <div class="jc-prog-info"><b>Cybersecurity</b><span data-status>Not started</span></div>
+                    <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
                 </div>
             </div>
+        </section>
+
+        <!-- Studios -->
+        <section class="jc-sec" aria-labelledby="studios-title">
+            <div class="jc-sec-head">
+                <h2 id="studios-title">Write code in the browser</h2>
+                <p>Nothing to install. Open a studio and start typing.</p>
+            </div>
+            <div class="jc-cards">
+                <div class="jc-card">
+                    <span class="jc-card-kicker">HTML, CSS, JavaScript</span>
+                    <h3>Web Studio</h3>
+                    <p>Write a page and watch it change as you type. Check how it looks on a phone, a tablet and a laptop.</p>
+                    <a href="studios/web-studio/index.html" class="jc-card-link">Open the Web Studio</a>
+                </div>
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Python</span>
+                    <h3>Python Console</h3>
+                    <p>Run real Python in the browser. The first visit downloads Python once, so it needs internet.</p>
+                    <a href="studios/python-console/index.html" class="jc-card-link">Open the Python Console</a>
+                </div>
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Databases</span>
+                    <h3>SQL Sandbox</h3>
+                    <p>Ask questions of a small school database with SELECT, WHERE and JOIN.</p>
+                    <a href="studios/sql-sandbox/index.html" class="jc-card-link">Open the SQL Sandbox</a>
+                </div>
+            </div>
+            <p class="jc-sec-more"><a href="studios/index.html">See all the studios</a></p>
         </section>
 
         <!-- ═════════════════════════════════════════════════════════════
@@ -294,50 +218,30 @@
             </div>
         </section>
 
-        <!-- ═════════════════════════════════════════════════════════════
-             QUICK ACCESS: TEXTBOOKS, PROJECTS & TEACHER HUB
-             ═════════════════════════════════════════════════════════════ -->
-        <section style="margin: 4.5rem 0 2rem;">
-            <div class="section-head">
-                <h2>Textbooks, Projects &amp; Teacher Hub</h2>
-                <p>Everything needed for self-paced students and classroom teachers.</p>
+        <!-- Textbooks, projects, teachers -->
+        <section class="jc-sec" aria-labelledby="more-title">
+            <div class="jc-sec-head">
+                <h2 id="more-title">More to explore</h2>
+                <p>For students working alone and for teachers with a class.</p>
             </div>
-
-            <div class="gateways-grid jc-compact-phone">
-                <!-- Textbooks -->
-                <div class="gateway-card accent-primary">
-                    <div class="gateway-header">
-                        <div>
-                            <span class="gateway-meta">12 Audio Textbooks</span>
-                            <h3 class="gateway-title">Textbooks</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">Complete curriculum textbooks with Web Speech narration, reading mode, and code practice buttons.</p>
-                    <a href="library/books/index.html" class="btn-gateway">Browse 12 Textbooks</a>
+            <div class="jc-cards">
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Read</span>
+                    <h3>Textbooks</h3>
+                    <p>Twelve textbooks that can read themselves aloud, with a reading mode and practice buttons.</p>
+                    <a href="library/books/index.html" class="jc-card-link">Browse 12 Textbooks</a>
                 </div>
-
-                <!-- Projects -->
-                <div class="gateway-card accent-amber">
-                    <div class="gateway-header">
-                        <div>
-                            <span class="gateway-meta">Bronze, Silver, Gold</span>
-                            <h3 class="gateway-title">Graded Project Catalog</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">Real-world milestone starter kits: Community Food Pantry, Neighborhood Library Hub, and Zakat Engine.</p>
-                    <a href="projects/index.html" class="btn-gateway">View Project Catalog</a>
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Build</span>
+                    <h3>Projects</h3>
+                    <p>Project briefs at three levels, each with a step checklist and a marking rubric.</p>
+                    <a href="projects/index.html" class="jc-card-link">See the projects</a>
                 </div>
-
-                <!-- Teacher Hub -->
-                <div class="gateway-card accent-emerald">
-                    <div class="gateway-header">
-                        <div>
-                            <span class="gateway-meta">Educator Support</span>
-                            <h3 class="gateway-title">Teacher Hub &amp; Rubrics</h3>
-                        </div>
-                    </div>
-                    <p class="gateway-desc">45-minute lesson plans, presentation slide blueprints, and AI-era student code assessment guidance.</p>
-                    <a href="teacher-hub/index.html" class="btn-gateway">Open Teacher Hub</a>
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Teach</span>
+                    <h3>Teacher Hub</h3>
+                    <p>A lesson plan for every chapter, teacher's guides, exercise answers and ideas for marking code.</p>
+                    <a href="teacher-hub/index.html" class="jc-card-link">Open the Teacher Hub</a>
                 </div>
             </div>
         </section>
@@ -373,7 +277,7 @@
     })();
     </script>
     <script>
-    // Grade-by-grade bars show this visitor's real progress (completed modules saved by js/bei-nav.js)
+    // "Your progress" bars show this visitor's real progress (completed modules saved by js/bei-nav.js)
     (function () {
         var cur = window.BEI_CURRICULUM, P = window.beiProgress;
         if (!cur || !P) return;
@@ -387,7 +291,7 @@
             var pct = Math.round(done / total * 100);
             row.querySelector('.progress-bar-fill').style.width = pct + '%';
             row.querySelector('[data-status]').textContent =
-                pct === 100 ? 'Complete ✓' : done ? done + ' of ' + total + ' modules' : 'Not started';
+                pct === 100 ? 'Complete' : done ? done + ' of ' + total + ' lessons' : 'Not started';
         });
     })();
     </script>

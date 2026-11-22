@@ -21,7 +21,8 @@ _Last updated: 2026-11-22 (calm and truthful interface: no points, badges, confe
 ## Next (agreed order)
 
 1. **Practice Arena**: only 5 challenges, all JavaScript. Add Python, PHP and SQL challenges (engines exist).
-2. **Teacher Hub data**: now clearly labelled "Sample data". Next step, if wanted: a student progress export file
+2. **Teacher Hub data**: the sample dashboard was removed (2026-11-22); the page now says what is possible without
+   accounts. Next step, if wanted: a student progress export file
    a teacher can import.
 3. **Leftover content gaps** found in the review:
    - Python module 7 was not deepened (modules 1–6 and 8 were).
@@ -48,6 +49,17 @@ _Last updated: 2026-11-22 (calm and truthful interface: no points, badges, confe
 
 ## Done (most recent first)
 
+- 2026-11-22 Home page (below the first screen) and Teacher Hub redesigned on one quiet pattern (`.jc-sec`,
+  `.jc-cards`, `.jc-steps`, `.jc-progress`, `.jc-note`: last blocks of `styles/bei-core.css`). Home: where to
+  begin (three buttons, keyboard usable), subjects, "How a lesson works" (Read, See, Try, Practise; replaces the
+  "7-step cycle" claim, which only the JavaScript lessons have), "Your progress" (one bar per lesson track),
+  studios and "More to explore" in plain words. Teacher Hub: the shared site header instead of a hand-written one
+  (the "Teacher Mode Active" pill is gone), resources first, new sections "BEI Classroom Studio" (what it does;
+  shared on request by pen drive or email, asked for through the school's teacher or GitHub) and "The manners of
+  teaching technology" (six habits, then Bloom's six levels with one coding prompt each: think and create, not
+  repeat), AI marking as four plain checks, and "Seeing your students' progress" (what is possible without
+  accounts). **Removed: the made-up class dashboard** (sample classes, students and scores); it is in git history
+  (before this commit) if wanted back. Viewed at 1366px and 390px, light and dark.
 - 2026-11-22 Home page first screen redesigned: headline "Learn to code, one clear step at a time.", one plain
   sentence of what the site has, one line on Iḥsān and Amānah, buttons in one row, the Web Studio picture beside
   the text on laptops (stacked under 1000px, hidden on phones as before). The main button is a flat colour with no

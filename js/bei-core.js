@@ -63,15 +63,15 @@ function initPlacementWidget() {
 
     cards.forEach(card => {
         card.addEventListener('click', () => {
-            cards.forEach(c => c.style.borderColor = 'transparent');
-            card.style.borderColor = 'var(--brand-primary)';
+            cards.forEach(c => { c.classList.remove('is-picked'); c.setAttribute('aria-pressed', 'false'); });
+            card.classList.add('is-picked'); card.setAttribute('aria-pressed', 'true');
 
             const key = card.getAttribute('data-path');
             const data = outcomes[key];
             if (data && resultBox) {
                 resultBox.style.display = 'block';
                 resultBox.innerHTML = `
-                    <div style="background: var(--bg-surface-elevated); border: 2px solid ${data.color}; border-radius: var(--radius-lg); padding: 1.5rem; margin-top: 1.5rem; text-align: left; animation: fadeIn 0.3s ease;">
+                    <div style="background: var(--bg-surface-elevated); border: 2px solid ${data.color}; border-radius: var(--radius-lg); padding: 1.5rem; margin-top: 1.5rem; text-align: left;">
                         <h3 style="color: ${data.color}; margin-bottom: 0.5rem; font-size: 1.25rem;">${data.title}</h3>
                         <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.25rem; line-height: 1.6;">${data.desc}</p>
                         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">

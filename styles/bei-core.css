@@ -3421,3 +3421,85 @@ html[data-theme="light"] .cheatsheet-container.cheat-v2 .cheat-more a { color: v
     .hero-split h1 { max-width: none; }
     .hero-values { font-size: 0.88rem; margin-bottom: 1.25rem; }
 }
+
+/* ═════════════════════════════════════════════════════════════════════
+   HOME PAGE SECTIONS + TEACHER HUB (redesign 22 Nov 2026)
+   One quiet section pattern: a left-aligned heading, plain cards, text
+   links, palette variables only (GEMINI §7c, §7h2).
+   ═════════════════════════════════════════════════════════════════════ */
+.jc-sec { margin: 4rem 0; }
+.jc-sec-head { margin-bottom: 1.5rem; max-width: 44rem; }
+.jc-sec-head h2 { font-size: clamp(1.45rem, 2.4vw, 1.8rem); letter-spacing: -0.01em; margin: 0 0 0.4rem; }
+.jc-sec-head p { color: var(--text-secondary); font-size: 1rem; line-height: 1.6; margin: 0; }
+.jc-sec-more { margin: 1rem 0 0; font-size: 0.95rem; font-weight: 700; }
+.jc-sec-more a, .jc-card-link, .jc-linkrow a { color: var(--text-indigo); }
+.jc-sec-more a:hover, .jc-card-link:hover, .jc-linkrow a:hover { text-decoration: underline; }
+
+.jc-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1rem; }
+.jc-card {
+    background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
+    padding: 1.4rem 1.5rem; display: flex; flex-direction: column; gap: 0.5rem;
+}
+.jc-card h3 { font-size: 1.1rem; margin: 0; }
+.jc-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+.jc-card-kicker { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-muted); }
+.jc-card-link { margin-top: auto; padding-top: 0.4rem; min-height: 38px; display: inline-flex; align-items: center; align-self: flex-start; font-weight: 700; font-size: 0.95rem; }
+.jc-linkrow { display: flex; flex-wrap: wrap; gap: 0.2rem 1rem; font-size: 0.92rem; font-weight: 600; margin-top: auto; padding-top: 0.4rem; }
+.jc-linkrow a { min-height: 34px; display: inline-flex; align-items: center; }
+.jc-linkrow.jc-jump { margin-top: 1.25rem; padding-top: 0; }
+
+/* where to begin: three choices */
+.jc-choose { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.jc-choose .placement-card {
+    font: inherit; color: inherit; width: 100%; background: var(--bg-surface); border: 1px solid var(--border-subtle);
+    padding: 1.25rem 1.4rem; box-shadow: none; transition: border-color 0.15s ease;
+}
+.jc-choose .placement-card:hover { transform: none; box-shadow: none; border-color: var(--brand-primary); }
+.jc-choose .placement-card.is-picked { border-color: var(--brand-primary); box-shadow: inset 0 0 0 1px var(--brand-primary); }
+.jc-choose-title { display: block; font-family: var(--font-heading, inherit); font-weight: 700; font-size: 1.05rem; line-height: 1.35; margin-bottom: 0.35rem; }
+.jc-choose-text { display: block; color: var(--text-secondary); font-size: 0.92rem; line-height: 1.55; }
+
+/* numbered steps */
+.jc-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; counter-reset: jcstep; }
+.jc-steps li {
+    counter-increment: jcstep; background: var(--bg-surface); border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg); padding: 1.2rem 1.3rem;
+}
+.jc-steps li::before {
+    content: counter(jcstep); display: flex; width: 1.9rem; height: 1.9rem; align-items: center; justify-content: center;
+    border-radius: 50%; background: var(--brand-primary-light); color: var(--text-indigo); font-weight: 800; font-size: 0.9rem; margin-bottom: 0.6rem;
+}
+.jc-steps strong { display: block; font-size: 1.02rem; margin-bottom: 0.25rem; }
+.jc-steps span { color: var(--text-secondary); font-size: 0.93rem; line-height: 1.55; }
+
+/* your progress */
+.jc-progress {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1rem 1.75rem;
+    background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.4rem 1.5rem;
+}
+.jc-progress .jc-prog-row { margin: 0; padding: 0; }
+.jc-prog-info { display: flex; justify-content: space-between; align-items: baseline; gap: 0.75rem; font-size: 0.92rem; margin-bottom: 0.4rem; }
+.jc-prog-info span { color: var(--text-muted); font-size: 0.82rem; white-space: nowrap; }
+.jc-prog-bar { height: 8px; border-radius: 999px; background: var(--border-subtle); overflow: hidden; }
+.jc-prog-bar .progress-bar-fill { height: 100%; border-radius: 999px; background: var(--brand-accent); }
+
+/* a plain note */
+.jc-note {
+    background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--brand-primary);
+    border-radius: var(--radius-md); padding: 1.2rem 1.4rem; max-width: 52rem;
+}
+.jc-note p { margin: 0; color: var(--text-secondary); line-height: 1.65; }
+.jc-note ul { margin: 0.7rem 0 0 1.2rem; padding: 0; color: var(--text-secondary); line-height: 1.7; font-size: 0.95rem; }
+
+@media (max-width: 640px) {
+    .jc-sec { margin: 2.5rem 0; }
+    .jc-card, .jc-steps li, .jc-progress { padding: 1.1rem 1.15rem; }
+}
+.jc-split { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; }
+.jc-list { margin: 0 0 0 1.15rem; padding: 0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65; }
+.jc-list li + li { margin-top: 0.3rem; }
+.jc-sub-head { margin-top: 2.25rem; }
+.jc-sub-head h3 { font-size: 1.2rem; margin: 0 0 0.4rem; }
+.jc-steps.jc-steps-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 720px) { .jc-steps.jc-steps-6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 420px) { .jc-steps.jc-steps-6 { grid-template-columns: 1fr; } }

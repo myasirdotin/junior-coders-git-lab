@@ -4,69 +4,13 @@
     <meta charset="UTF-8">
     <script id="jc-folder-slash">/* folder page: add the missing trailing slash so relative links work (scripts/sync-vercel-redirects.js) */(function(){var p=location.pathname;if(p.slice(-1)!=='/'&&!/\.[a-z0-9]+$/i.test(p)){location.replace(p+'/'+location.search+location.hash);}})();</script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher Hub &amp; Educator Resources | Junior Coders</title>
-    <meta name="description" content="Teacher Hub for school computer science teachers: teacher's guides in the HTML, CSS, JavaScript, PHP and Android textbooks, week-by-week learning paths, a project marking rubric and AI-era assessment ideas.">
+    <title>Teacher Hub | Junior Coders</title>
+    <meta name="description" content="Teacher Hub for school computer science teachers: a lesson plan for every textbook chapter, teacher's guides, exercise answers, week-by-week learning paths, a project marking rubric and ideas for marking code when students can use AI.">
     <link rel="stylesheet" href="../styles/bei-core.css">
-    <style>
-        .teacher-resource-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3.5rem;
-        }
-        .resource-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-subtle);
-            border-radius: var(--radius-lg);
-            padding: 1.75rem;
-            display: flex;
-            flex-direction: column;
-            transition: all 0.25s ease;
-        }
-        .resource-card:hover {
-            transform: translateY(-3px);
-            border-color: var(--brand-primary);
-            box-shadow: var(--shadow-card);
-        }
-        .resource-card h3 {
-            font-size: 1.2rem;
-            margin: 0.5rem 0 0.4rem;
-        }
-        .resource-card p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            line-height: 1.55;
-            margin-bottom: 1.25rem;
-            flex-grow: 1;
-        }
-    </style>
 </head>
 <body>
 
-    <nav class="bei-nav">
-        <div class="container bei-nav-inner">
-            <a href="../index.html" class="bei-logo">
-                <div>
-                    Junior Coders
-                    <span class="bei-logo-sub">School Computer Science</span>
-                </div>
-            </a>
-            <ul class="bei-nav-links">
-                <li><a href="../learn/index.html" class="bei-nav-link">Learn</a></li>
-                <li><a href="../studios/index.html" class="bei-nav-link">Studios</a></li>
-                <li><a href="../library/books/index.html" class="bei-nav-link">Textbooks</a></li>
-                <li><a href="../projects/index.html" class="bei-nav-link">Projects</a></li>
-                <li><a href="../paths/index.html" class="bei-nav-link">Pathways</a></li>
-                <li><a href="index.html" class="bei-nav-link active">Teachers</a></li>
-            </ul>
-            <div class="bei-nav-actions">
-                <span class="teacher-mode-pill" style="background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); font-size: 0.78rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 999px;">Teacher Mode Active</span>
-                <button class="theme-toggle-btn" aria-label="Toggle theme"></button>
-                <a href="#rubrics" class="btn-nav-primary">Guides &amp; Marking</a>
-                <button class="mobile-toggle" aria-label="Toggle navigation menu">☰</button>
-            </div>
-        </div>
-    </nav>
+    <div id="bei-global-nav"></div>
 
     <main class="container">
         <header class="learn-header">
@@ -74,16 +18,192 @@
                 <a href="../index.html">Home</a> <span>/</span>
                 <span>Teacher Hub</span>
             </div>
-            <div style="display: flex; gap: 0.5rem; margin-bottom: 0.5rem;">
-                <span class="placement-badge" style="background: rgba(217,119,6,0.15); color: #f59e0b;">Educator Portal</span>
-                <span class="placement-badge" style="background: rgba(79,70,229,0.15); color: #818cf8;">Grades 6–10 Curriculum</span>
-            </div>
-            <h1>Teacher Hub &amp; Lesson Blueprints</h1>
-            <p class="lead">For computer teachers in Grades 6–10: the teacher's guides inside our textbooks, week-by-week learning paths, a simple project marking rubric, and ideas for assessing code honestly when students can use AI.</p>
+            <h1>Teacher Hub</h1>
+            <p class="lead">For computer teachers of Grades 6–10: lesson plans, teacher's guides, exercise answers, week-by-week paths and a marking rubric.</p>
+            <p class="jc-linkrow jc-jump">
+                <a href="#rubrics">For your classroom</a>
+                <a href="#studio">BEI Classroom Studio</a>
+                <a href="#adab">Manners of teaching</a>
+                <a href="#ai-marking">Marking when students can use AI</a>
+                <a href="#ethics-title">The four principles in class</a>
+                <a href="#progress">Seeing students' progress</a>
+            </p>
         </header>
 
+        <!-- What a teacher can use today -->
+        <section class="jc-sec" id="rubrics" aria-labelledby="classroom-title" style="margin-top: 0;">
+            <div class="jc-sec-head">
+                <h2 id="classroom-title">For your classroom</h2>
+                <p>Everything on this list exists on the site today.</p>
+            </div>
+
+            <div class="jc-cards">
+                <!-- Lesson plans: the Lesson Plan button in every textbook reader -->
+                <div class="jc-card">
+                    <h3>Lesson plans</h3>
+                    <p>Every textbook chapter has a <strong>Lesson Plan</strong> button at the top of the reader. It opens a 45-minute plan to read on screen or print on one or two pages: objectives, materials, five timed phases, common mistakes, lab tasks, support and extension, and an exit ticket.</p>
+                    <p class="jc-linkrow">
+                        <a href="../book-cmd/index.html#ch1">Terminal</a>
+                        <a href="../book-html/index.html#ch1">HTML</a>
+                        <a href="../book-css/index.html#ch1">CSS</a>
+                        <a href="../book-git/index.html#ch1">Git</a>
+                        <a href="../book-js/index.html#ch1">JavaScript</a>
+                        <a href="../book-php/index.html#ch1">PHP</a>
+                        <a href="../book-mysql/index.html#ch1">MySQL</a>
+                        <a href="../book-laravel/index.html#ch1">Laravel</a>
+                        <a href="../book-python/index.html#ch1">Python</a>
+                        <a href="../book-networks/index.html#ch1">Networks</a>
+                        <a href="../book-cybersecurity/index.html#ch1">Cybersecurity</a>
+                        <a href="../book-android/index.html#ch1">Android</a>
+                    </p>
+                </div>
+
+                <!-- Teacher's guides inside the textbooks -->
+                <div class="jc-card">
+                    <h3>Teacher's guides</h3>
+                    <p>Five textbooks have a teacher's guide at the end of the chapter list: suggested week-by-week pacing, teaching tips, and project rubrics for that subject.</p>
+                    <p class="jc-linkrow">
+                        <a href="../book-html/index.html#teacher">HTML</a>
+                        <a href="../book-css/index.html#teacher">CSS</a>
+                        <a href="../book-js/index.html#teacher">JavaScript</a>
+                        <a href="../book-php/index.html#teacher">PHP</a>
+                        <a href="../book-android/index.html#teacher">Android</a>
+                    </p>
+                </div>
+
+                <!-- Practice files on GitHub + answers -->
+                <div class="jc-card">
+                    <h3>Practice files and answers</h3>
+                    <p>52 HTML, CSS and JavaScript exercises that students copy to their own computer from GitHub (Download ZIP, no account needed). The student copy has no answers; the answers with reasons are here.</p>
+                    <p class="jc-linkrow">
+                        <a href="exercise-answers.html">Exercise answers</a>
+                        <a href="https://github.com/myasirdotin/junior-coders-exercises" target="_blank" rel="noopener">Student files on GitHub</a>
+                    </p>
+                </div>
+
+                <!-- Week-by-week paths -->
+                <div class="jc-card">
+                    <h3>Week-by-week paths</h3>
+                    <p>Five learning paths put the lessons in order and group them into weeks (for example, weeks 1–2: HTML skeleton). Use one as your term plan, or pick the weeks that fit your class.</p>
+                    <a href="../paths/index.html" class="jc-card-link">Browse the paths</a>
+                </div>
+
+                <!-- Project marking -->
+                <div class="jc-card">
+                    <h3>Project marking</h3>
+                    <p>Every project on the Projects page is marked in four rows: it works, clean code and names, safe habits, and your own honest work. Each row scores 0–3, so a project is out of 12 marks.</p>
+                    <a href="../projects/index.html" class="jc-card-link">See the projects</a>
+                </div>
+
+                <!-- How to study: Bloom's levels and question starters -->
+                <div class="jc-card">
+                    <h3>Questions at every level</h3>
+                    <p>The How to Study page explains Bloom's six levels of thinking with one coding example each, the PRIMM way to teach programming, and a table of verbs and question starters for every level, plus a sorting activity for pairs.</p>
+                    <a href="../how-to-study/index.html#teachers" class="jc-card-link">Open How to Study</a>
+                </div>
+
+                <!-- Lab setup -->
+                <div class="jc-card">
+                    <h3>Computer lab setup</h3>
+                    <p>The studios run in a modern browser (Chrome, Edge, Firefox, Safari) with no installs or admin rights. The PHP and Python studios download their engine once, so the first visit needs internet; Kotlin Exercises always need internet.</p>
+                    <a href="../studios/index.html" class="jc-card-link">See the studios</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- BEI Classroom Studio: the teacher's own program, shared on request -->
+        <section class="jc-sec" id="studio" aria-labelledby="studio-title">
+            <div class="jc-sec-head">
+                <h2 id="studio-title">BEI Classroom Studio</h2>
+                <p>A program we made for the teacher's own computer, for preparing lessons and teaching them on the classroom projector.</p>
+            </div>
+            <div class="jc-split">
+                <div class="jc-card">
+                    <h3>What it does</h3>
+                    <ul class="jc-list">
+                        <li>Build a lesson from sections and blocks, and keep your lessons in order by class, subject and chapter.</li>
+                        <li>Teach it full screen in Classroom Mode, with a whiteboard you can draw on.</li>
+                        <li>Works with no internet. Your lessons stay on your own computer.</li>
+                        <li>Comes with a starter curriculum for Classes 4–7 and sample lessons to change.</li>
+                    </ul>
+                </div>
+                <div class="jc-card">
+                    <h3>How to get it</h3>
+                    <p>It is not a download on this site. Ask us and we will share the installer on a pen drive or by email.</p>
+                    <ul class="jc-list">
+                        <li>For Windows computers. The installer is about 117 MB.</li>
+                        <li>It is not signed with a paid certificate yet, so Windows shows a warning the first time you run it.</li>
+                        <li>To ask, speak to the Junior Coders teacher at your school, or leave a request on our GitHub page.</li>
+                    </ul>
+                    <a href="https://github.com/myasirdotin/junior-coders-git-lab/issues" class="jc-card-link" target="_blank" rel="noopener noreferrer">Ask on GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- The manners (adab) of teaching technology, and Bloom's levels -->
+        <section class="jc-sec" id="adab" aria-labelledby="adab-title">
+            <div class="jc-sec-head">
+                <h2 id="adab-title">The manners of teaching technology</h2>
+                <p>Students pick up our manners before they pick up our code. These are the habits we try to keep in front of a class.</p>
+            </div>
+            <div class="jc-cards">
+                <div class="jc-card">
+                    <h3>Start with the purpose</h3>
+                    <p>Before showing how, say who the skill will help: the school library, a family, a neighbour.</p>
+                </div>
+                <div class="jc-card">
+                    <h3>Their hands on the keyboard</h3>
+                    <p>When a student is stuck, ask a question that moves them one step. Do not take the mouse and fix it for them.</p>
+                </div>
+                <div class="jc-card">
+                    <h3>Respect the mistake</h3>
+                    <p>An error message is information, not a failure. Read it aloud together, and never laugh at a wrong answer.</p>
+                </div>
+                <div class="jc-card">
+                    <h3>Type slowly and explain</h3>
+                    <p>Write code in front of the class one line at a time, saying why. Let them see you make a mistake and fix it calmly.</p>
+                </div>
+                <div class="jc-card">
+                    <h3>Keep the screen clean</h3>
+                    <p>The projector shows only the lesson: wholesome examples, no other tabs, and nothing private such as marks or messages.</p>
+                </div>
+                <div class="jc-card">
+                    <h3>Say “I do not know”</h3>
+                    <p>When you are not sure, look it up with the class and name where the answer came from. That is <em>Ṣidq</em> in practice.</p>
+                </div>
+            </div>
+
+            <div class="jc-sec-head jc-sub-head">
+                <h3 id="bloom-title">Make them think and create, not repeat</h3>
+                <p>Bloom's levels of thinking are a ladder. Repeating what the teacher said is only the first step, so do not stop there: in every lesson, plan at least one task where students must decide something and make something of their own.</p>
+            </div>
+            <ol class="jc-steps jc-steps-6" aria-labelledby="bloom-title">
+                <li><strong>Remember</strong><span>“What does this tag do?” A fair start, never the whole lesson.</span></li>
+                <li><strong>Understand</strong><span>“Explain this loop in your own words to your partner.”</span></li>
+                <li><strong>Apply</strong><span>“Use a loop to print our class timetable.”</span></li>
+                <li><strong>Analyse</strong><span>“Why does this version print one line too many?”</span></li>
+                <li><strong>Evaluate</strong><span>“Which of these two answers is clearer, and why?”</span></li>
+                <li><strong>Create</strong><span>“Design and build a small page for the class library.”</span></li>
+            </ol>
+            <p class="jc-sec-more"><a href="../how-to-study/index.html#teachers">Question starters for every level</a></p>
+        </section>
+
+        <!-- Marking code when students can use AI -->
+        <section class="jc-sec" id="ai-marking" aria-labelledby="ai-title">
+            <div class="jc-sec-head">
+                <h2 id="ai-title">Marking code when students can use AI</h2>
+                <p>An AI tool can write a working answer in seconds, so the finished code alone no longer shows what a student understands. These four checks do.</p>
+            </div>
+            <ol class="jc-steps">
+                <li><strong>Ask them to explain it</strong><span>The student tells you, line by line, what the code does and why they wrote it that way.</span></li>
+                <li><strong>Change it in class</strong><span>Give working code and ask for one small change, such as turning a loop into a function, with no AI tool open.</span></li>
+                <li><strong>Find the mistake</strong><span>Give code with one mistake in it and watch how the student looks for it, not only whether they find it.</span></li>
+                <li><strong>Check the AI (<em>Tabayyun</em>)</strong><span>Give an AI-written explanation that contains an error. The student finds the error and corrects it.</span></li>
+            </ol>
+        </section>
+
         <!-- Ethical Framing for Educators -->
-        <section class="ethical-mission-card" style="margin-top: 0;" aria-labelledby="ethics-title">
+        <section class="ethical-mission-card" aria-labelledby="ethics-title">
             <div class="ethical-mission-inner">
                 <div class="ethical-content">
                     <h2 id="ethics-title">Teaching Technology as a Sacred Trust (<em>Amānah</em>)</h2>
@@ -113,7 +233,7 @@
                         <li>
                             <h3 class="ethical-principle-term"><em>Ṣidq</em>: truthfulness</h3>
                             <p>Students say where borrowed or AI-written code came from and can explain every line
-                                they hand in. The assessment ideas further down build on this.</p>
+                                they hand in. The four checks above build on this.</p>
                         </li>
                     </ul>
                     <p class="ethical-note">None of our examples use interest calculators, gambling games or spyware;
@@ -122,235 +242,19 @@
             </div>
         </section>
 
-        <!-- ═════════════════════════════════════════════════════════════
-             INTERACTIVE TEACHER DASHBOARD & CLASSROOM DIAGNOSTIC RADAR
-             ═════════════════════════════════════════════════════════════ -->
-        <section style="background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-xl); padding: 2rem; margin-bottom: 3.5rem; box-shadow: var(--shadow-card);">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; border-bottom: 1px solid var(--border-subtle); padding-bottom: 1.25rem;">
-                <div>
-                    <span class="placement-badge" style="background: rgba(16, 185, 129, 0.15); color: #34d399;">Sample preview · not real data</span>
-                    <h2 style="font-size: 1.8rem; margin: 0.35rem 0 0.2rem; color: var(--text-primary);">Classroom Analytics &amp; Student Diagnostics</h2>
-                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">A preview of a planned class dashboard. The classes, students and scores below are made up to show the idea.</p>
-                </div>
-                <div style="display: flex; flex-wrap: wrap; gap: 0.5rem 0.75rem; align-items: center; max-width: 100%; min-width: 0;">
-                    <label for="teacherClassSelect" style="font-size: 0.88rem; color: var(--text-muted); font-weight: 600;">Sample class:</label>
-                    <select id="teacherClassSelect" style="max-width: 100%; min-width: 0; background: #020617; color: #f8fafc; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.9rem; outline: none; font-weight: 700;">
-                        <option value="class-8b">Class 8B (JavaScript Logic • 32 Students)</option>
-                        <option value="class-7a">Class 7A (HTML &amp; CSS Web • 28 Students)</option>
-                        <option value="class-9c">Class 9C (PHP &amp; MySQL Full Stack • 24 Students)</option>
-                    </select>
-                </div>
+        <!-- What the site can and cannot show a teacher (GEMINI §7h: say what is real) -->
+        <section class="jc-sec" id="progress" aria-labelledby="progress-title">
+            <div class="jc-sec-head">
+                <h2 id="progress-title">Seeing your students' progress</h2>
             </div>
-
-            <!-- Honest notice: this dashboard runs on sample data (GEMINI.md §1.4) -->
-            <div role="note" style="background: rgba(245,158,11,0.10); border: 1px solid rgba(245,158,11,0.35); color: #fcd34d; border-radius: var(--radius-md); padding: 0.85rem 1.1rem; margin-bottom: 1.5rem; font-size: 0.9rem; line-height: 1.55;">
-                <strong>Sample data.</strong> Junior Coders has no student accounts yet, so teachers cannot see real class progress here. Each student's progress is saved only on their own device.
-            </div>
-
-            <!-- KPI Tiles Row -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.25rem; margin-bottom: 2rem;">
-                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-md); padding: 1.25rem;">
-                    <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Weekly Engagement</span>
-                    <div style="font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin: 0.25rem 0;">27 / 32</div>
-                    <span style="font-size: 0.82rem; color: #34d399; font-weight: 600;">84% active this week</span>
-                </div>
-                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-md); padding: 1.25rem;">
-                    <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Average Progress</span>
-                    <div style="font-size: 1.8rem; font-weight: 800; color: #38bdf8; margin: 0.25rem 0;">68%</div>
-                    <span style="font-size: 0.82rem; color: var(--text-secondary);">Course completion rate</span>
-                </div>
-                <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: var(--radius-md); padding: 1.25rem;">
-                    <span style="font-size: 0.8rem; color: var(--text-muted); font-weight: 700; text-transform: uppercase;">Average Quiz Score</span>
-                    <div style="font-size: 1.8rem; font-weight: 800; color: #fbbf24; margin: 0.25rem 0;">81%</div>
-                    <span style="font-size: 0.82rem; color: #34d399; font-weight: 600;">Above 75% target</span>
-                </div>
-                <div style="background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.25); border-radius: var(--radius-md); padding: 1.25rem;">
-                    <span style="font-size: 0.8rem; color: #f87171; font-weight: 700; text-transform: uppercase;">Requires Teacher Help</span>
-                    <div style="font-size: 1.8rem; font-weight: 800; color: #ef4444; margin: 0.25rem 0;">4 Students</div>
-                    <span style="font-size: 0.82rem; color: #fca5a5;">Struggling with loops/scope</span>
-                </div>
-            </div>
-
-            <!-- Weak Areas Diagnostic Callout -->
-            <div style="background: rgba(99, 102, 241, 0.08); border-left: 4px solid var(--brand-primary); padding: 1.25rem 1.5rem; border-radius: 0 var(--radius-md) var(--radius-md) 0; margin-bottom: 2rem;">
-                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
-                    <div>
-                        <strong style="color: var(--text-primary); font-size: 1rem;">Curriculum Diagnostic Alert:</strong>
-                        <p style="color: var(--text-secondary); margin: 0.25rem 0 0; font-size: 0.92rem;">
-                            <strong>38% of students</strong> in Class 8B failed their first 2 attempts on <em>Module 6: For Loops</em> and <em>Module 5: Array Zero-Indexing</em>.
-                        </p>
-                    </div>
-                    <a href="../practice-arena.html" class="btn-hero-secondary" style="padding: 0.5rem 1rem; font-size: 0.82rem;">Open the Practice Arena →</a>
-                </div>
-            </div>
-
-            <!-- Student Roster Table -->
-            <h3 style="color: var(--text-primary); font-size: 1.2rem; margin: 0 0 1rem;">Student Performance Roster</h3>
-            <div style="overflow-x: auto; border: 1px solid var(--border-subtle); border-radius: var(--radius-md);">
-                <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
-                    <thead>
-                        <tr style="background: rgba(255,255,255,0.03); color: var(--text-muted); border-bottom: 1px solid var(--border-subtle);">
-                            <th style="padding: 0.9rem 1rem;">Student Name</th>
-                            <th style="padding: 0.9rem 1rem;">HTML</th>
-                            <th style="padding: 0.9rem 1rem;">CSS</th>
-                            <th style="padding: 0.9rem 1rem;">JavaScript</th>
-                            <th style="padding: 0.9rem 1rem;">Weak Areas</th>
-                            <th style="padding: 0.9rem 1rem; text-align: right;">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="studentRosterBody">
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
-                            <td style="padding: 0.9rem 1rem; font-weight: 700; color: var(--text-primary);">Ahmed Rasool</td>
-                            <td style="padding: 0.9rem 1rem; color: #34d399;">100%</td>
-                            <td style="padding: 0.9rem 1rem; color: #34d399;">92%</td>
-                            <td style="padding: 0.9rem 1rem; color: #f87171;">64%</td>
-                            <td style="padding: 0.9rem 1rem;"><span style="background:rgba(239,68,68,0.15); color:#f87171; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.78rem;">Loops, Functions</span></td>
-                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" disabled title="Sample only: there are no class accounts">Inspect Code</button></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
-                            <td style="padding: 0.9rem 1rem; font-weight: 700; color: var(--text-primary);">Sara Al-Mansoor</td>
-                            <td style="padding: 0.9rem 1rem; color: #34d399;">100%</td>
-                            <td style="padding: 0.9rem 1rem; color: #34d399;">96%</td>
-                            <td style="padding: 0.9rem 1rem; color: #34d399;">88%</td>
-                            <td style="padding: 0.9rem 1rem;"><span style="color:#34d399; font-size:0.8rem;">None (On Track)</span></td>
-                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" disabled title="Sample only: there are no class accounts">Certify</button></td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.04);">
-                            <td style="padding: 0.9rem 1rem; font-weight: 700; color: var(--text-primary);">Bilal Tariq</td>
-                            <td style="padding: 0.9rem 1rem; color: #34d399;">95%</td>
-                            <td style="padding: 0.9rem 1rem; color: #fbbf24;">80%</td>
-                            <td style="padding: 0.9rem 1rem; color: #fbbf24;">72%</td>
-                            <td style="padding: 0.9rem 1rem;"><span style="background:rgba(245,158,11,0.15); color:#fbbf24; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.78rem;">DOM Events</span></td>
-                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" disabled title="Sample only: there are no class accounts">Inspect Code</button></td>
-                        </tr>
-                        <tr>
-                            <td style="padding: 0.9rem 1rem; font-weight: 700; color: var(--text-primary);">Maryam Zayd</td>
-                            <td style="padding: 0.9rem 1rem; color: #34d399;">100%</td>
-                            <td style="padding: 0.9rem 1rem; color: #34d399;">94%</td>
-                            <td style="padding: 0.9rem 1rem; color: #f87171;">58%</td>
-                            <td style="padding: 0.9rem 1rem;"><span style="background:rgba(239,68,68,0.15); color:#f87171; padding:0.2rem 0.6rem; border-radius:4px; font-size:0.78rem;">Array Indexing</span></td>
-                            <td style="padding: 0.9rem 1rem; text-align: right;"><button class="btn-eval-action" disabled title="Sample only: there are no class accounts">Inspect Code</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Assignment Dispatcher Sub-Box -->
-            <div style="margin-top: 2rem; background: rgba(0,0,0,0.25); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1.5rem;">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
-                    <div>
-                        <h4 style="color: var(--text-primary); margin: 0 0 0.25rem; font-size: 1.1rem;">Active Homework Assignment</h4>
-                        <span style="font-size: 0.85rem; color: var(--text-muted);">Assigned to Class 8B: <strong>Module 5 JavaScript Arrays &amp; Challenge</strong></span>
-                    </div>
-                    <span style="background: rgba(245,158,11,0.2); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); padding: 0.25rem 0.75rem; border-radius: 999px; font-size: 0.8rem; font-weight: 700;">Deadline: 10 October</span>
-                </div>
-                <div style="display: flex; gap: 1.5rem; font-size: 0.88rem; color: var(--text-secondary); flex-wrap: wrap;">
-                    <span>✓ <strong>21 / 32 Submitted</strong></span>
-                    <span>Avg. Time Spent: <strong>28 minutes</strong></span>
-                    <span>Avg. Attempts: <strong>2.3 attempts</strong></span>
-                </div>
-            </div>
-        </section>
-
-        <!-- AI-Era Assessment Guidance Banner -->
-        <section class="meta-box" style="border: 2px solid #ec4899; background: linear-gradient(135deg, rgba(236,72,153,0.06), transparent); margin-bottom: 3.5rem;">
-            <div style="display: flex; gap: 0.75rem; align-items: center; margin-bottom: 0.5rem;">
-                <span style="font-size: 1.8rem;"></span>
-                <div>
-                    <h3 style="color: #ec4899; margin: 0; font-size: 1.35rem;">AI-Era Assessment Guidance for Teachers</h3>
-                    <span style="font-size: 0.8rem; color: var(--text-muted);">How to evaluate student coding when LLMs can generate solutions in seconds</span>
-                </div>
-            </div>
-            <p style="color: var(--text-secondary); line-height: 1.6; margin: 0.75rem 0 1.25rem;">
-                In the generative AI era, assessing syntax output alone is obsolete. Shift focus from <em>code generation</em> to <em>code comprehension, oral defense, and architectural reasoning</em>:
-            </p>
-            <ul style="color: var(--text-secondary); font-size: 0.92rem; margin-left: 1.25rem; line-height: 1.7; margin-bottom: 1.25rem;">
-                <li><strong>1. Oral Code Defense (Viva Voce):</strong> Ask students to explain line-by-line what their logic does and why they chose a specific data structure.</li>
-                <li><strong>2. In-Class Refactoring Challenges:</strong> Present a working code snippet and ask students to modify variable constraints or swap a loop for a function without AI assistance.</li>
-                <li><strong>3. Error Injection &amp; Debugging:</strong> Give students subtly broken code and evaluate their systematic diagnostic reasoning.</li>
-                <li><strong>4. Ethical Verification (<em>Tabayyun</em>):</strong> Grade students on their ability to fact-check AI-generated explanations and detect subtle hallucinations.</li>
-            </ul>
-        </section>
-
-        <!-- Teaching Resources Grid -->
-        <section id="rubrics">
-            <div class="section-head" style="text-align: left; margin-bottom: 1.75rem;">
-                <span class="eyebrow">Classroom Ready</span>
-                <h2>Teaching Guides &amp; Marking</h2>
-            </div>
-
-            <div class="teacher-resource-grid">
-                <!-- 0. Ready-to-Teach Lesson Plans -->
-                <div class="resource-card" style="border-color: rgba(79, 70, 229, 0.4); background: linear-gradient(180deg, rgba(79, 70, 229, 0.05), transparent);">
-                    <span class="placement-badge" style="background: rgba(79,70,229,0.15); color: #818cf8; width: fit-content; margin-bottom: 0.5rem;">New · Ready-Made Lesson Plans</span>
-                    <h3>Ready-Made Chapter Lesson Plans</h3>
-                    <p>Every chapter across all textbooks includes a dedicated <strong>Lesson Plan</strong> button in the reader header. Open any chapter to preview on screen or print a clean 1–2 page lesson plan (SWBAT objectives, materials, 5-phase delivery timeline, misconceptions, guided lab tasks, differentiated scaffolding, exit ticket, and teacher/coordinator sign-off) kept separate from student text.</p>
-                    <p style="display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; margin-top: 0.5rem;">
-                        <a href="../book-html/index.html#ch1">HTML Plans</a>
-                        <a href="../book-css/index.html#ch1">CSS Plans</a>
-                        <a href="../book-js/index.html#ch1">JS Plans</a>
-                        <a href="../book-cmd/index.html#ch1">Terminal Plans</a>
-                        <a href="../book-git/index.html#ch1">Git Plans</a>
-                        <a href="../book-php/index.html#ch1">PHP Plans</a>
-                        <a href="../book-mysql/index.html#ch1">MySQL Plans</a>
-                    </p>
-                </div>
-
-                <!-- 1. Teacher's guides inside the textbooks -->
-                <div class="resource-card">
-                    <span style="font-size: 2rem;"></span>
-                    <h3>Teacher's Guides</h3>
-                    <p>Five textbooks have a teacher's guide at the end of the chapter list: suggested week-by-week pacing, teaching tips, and project rubrics for that subject.</p>
-                    <p style="display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; margin-top: 0.5rem;">
-                        <a href="../book-html/index.html#teacher">HTML</a>
-                        <a href="../book-css/index.html#teacher">CSS</a>
-                        <a href="../book-js/index.html#teacher">JavaScript</a>
-                        <a href="../book-php/index.html#teacher">PHP</a>
-                        <a href="../book-android/index.html#teacher">Android</a>
-                    </p>
-                </div>
-
-                <!-- 1b. Practice files on GitHub + answers -->
-                <div class="resource-card">
-                    <span style="font-size: 2rem;"></span>
-                    <h3>Practice Files &amp; Answers</h3>
-                    <p>52 HTML, CSS and JavaScript exercises that students copy to their own computer from GitHub (Download ZIP, no account needed). The student copy has no answers; the answers with reasons are here.</p>
-                    <p style="display: flex; flex-wrap: wrap; gap: 0.4rem 0.9rem; margin-top: 0.5rem;">
-                        <a href="exercise-answers.html">Exercise answers</a>
-                        <a href="https://github.com/myasirdotin/junior-coders-exercises" target="_blank" rel="noopener">Student files on GitHub</a>
-                    </p>
-                </div>
-
-                <!-- 2. Week-by-week paths -->
-                <div class="resource-card">
-                    <span style="font-size: 2rem;"></span>
-                    <h3>Week-by-Week Paths</h3>
-                    <p>Five learning paths put the lessons in order and group them into weeks (for example, weeks 1–2: HTML skeleton). Use one as your term plan, or pick the weeks that fit your class.</p>
-                    <a href="../paths/index.html" class="btn-gateway">Browse the Paths →</a>
-                </div>
-
-                <!-- 3. Project marking -->
-                <div class="resource-card">
-                    <span style="font-size: 2rem;"></span>
-                    <h3>Project Marking</h3>
-                    <p>Every project on the Projects page is marked in four rows: it works, clean code and names, safe habits, and your own honest work. Each row scores 0–3, so a project is out of 12 marks.</p>
-                    <a href="../projects/index.html" class="btn-gateway">See the Projects →</a>
-                </div>
-
-                <!-- 3b. How to study: Bloom's levels and question starters -->
-                <div class="resource-card">
-                    <h3>Questions at Every Level</h3>
-                    <p>The How to Study page explains Bloom's six levels of thinking with one coding example each, the PRIMM way to teach programming, and a table of verbs and question starters for every level, plus a sorting activity for pairs.</p>
-                    <a href="../how-to-study/index.html#teachers" class="btn-gateway">Open How to Study →</a>
-                </div>
-
-                <!-- 4. Lab setup -->
-                <div class="resource-card">
-                    <span style="font-size: 2rem;"></span>
-                    <h3>Computer Lab Setup</h3>
-                    <p>The studios run in a modern browser (Chrome, Edge, Firefox, Safari) with no installs or admin rights. The PHP and Python studios download their engine once, so the first visit needs internet; Kotlin Exercises always need internet.</p>
-                    <a href="../studios/index.html" class="btn-gateway">Explore the Studios →</a>
-                </div>
+            <div class="jc-note">
+                <p>Junior Coders has no accounts, so there is no class dashboard. Each student's progress is saved only in the browser they used. What you can do today:</p>
+                <ul>
+                    <li>Ask a student to open the home page: “Your progress” shows one bar for each subject.</li>
+                    <li>In a lesson, the lesson list shows a tick beside every lesson the student has marked complete.</li>
+                    <li>The JavaScript lessons make a certificate on the student's device after all nine are done. It cannot be checked online, so sign it only after you have seen the work.</li>
+                    <li>For marks, use the project rubric (out of 12) and the four checks above.</li>
+                </ul>
             </div>
         </section>
     </main>
