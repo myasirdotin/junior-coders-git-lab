@@ -203,8 +203,9 @@ These rules come from real bugs found in this site. Follow them for every change
    pages still load the older `styles/main.css` for their content layout, but a bridge block at the end of
    `bei-core.css` maps its variables (`--primary`, `--bg-main`, `--bg-card`, `--border-dim`) onto the system palette
    and removes its purple page gradient and `body::before` glow. Use the `--brand-*`, `--bg-*`, `--text-*` and
-   `--border-*` variables for anything new; do not add page-level gradients or hard-coded purples. Per-track colours
-   on lesson hero cards (PHP purple, Security green, JS yellow...) are intended and stay. The textbook readers
+   `--border-*` variables for anything new; do not add page-level gradients or hard-coded purples. Each subject keeps its own colour
+   only as a thin stripe on the lesson title card (set by `body[data-jc-subject]` at the end of `bei-core.css`); the card
+   itself is a plain surface, not a full-colour banner. The textbook readers
    (`book-*/`, `styles/book-theme.css`) are deliberately light, like paper, and are the one exception. Surfaces are
    solid: no `backdrop-filter` blur and no translucent "glass" backgrounds; no gradient text. A card's accent colour is
    a class (`.gateway-card.accent-cyan` …), not an inline style. **No emoji in the chrome** (header, menus, tab bar,

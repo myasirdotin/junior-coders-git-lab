@@ -3,259 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Master PHP from scratch. 8 modules covering server-side programming, forms, files, and OOP.">
-    <title>PHP Adventure | Junior Coders</title>
-    <link rel="stylesheet" href="../styles/main.css">
+    <title>PHP Lessons | Junior Coders</title>
+    <meta name="description" content="Lessons on code that runs on the server: variables, decisions, functions, arrays, forms, files and classes.">
     <link rel="stylesheet" href="../styles/bei-core.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="syllabus-container">
-        <header class="syllabus-header" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">
-            <h1>PHP Adventure</h1>
-            <p>Learn server-side programming and make websites dynamic!</p>
+    <div id="bei-global-nav"></div>
+
+    <main class="container" data-jc-track="php">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">Home</a> <span>/</span>
+                <a href="../learn/index.html">Learn</a> <span>/</span>
+                <span>PHP</span>
+            </div>
+            <h1>PHP lessons</h1>
+            <p class="lead">Lessons on code that runs on the server: variables, decisions, functions, arrays, forms, files and classes.</p>
+            <p class="jc-linkrow jc-jump">
+                <a href="../book-php/index.html">Textbook</a>
+                <a href="../cheatsheet-php.html">Cheat sheet</a>
+                <a href="exercises.html">Exercises</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="../studios/php-console/index.html">PHP Console</a>
+                <a href="glossary.html">Glossary</a>
+            </p>
         </header>
 
-        <div class="course-info">
-            <div class="info-card">
-                <h3>Modules</h3>
-                <p>8</p>
+        <!-- This visitor's progress on this device (filled by js/bei-nav.js renderTrackPage) -->
+        <div class="jc-track-progress">
+            <div class="jc-prog-row">
+                <div class="jc-prog-info"><b>Your progress</b><span data-jc-track-count>0 of 8 lessons completed</span></div>
+                <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
             </div>
-            <div class="info-card">
-                <h3>Level</h3>
-                <p>Advanced</p>
-            </div>
-            <div class="info-card">
-                <h3>Status</h3>
-                <p>Active</p>
-            </div>
+            <a class="btn-hero-primary" href="module1.html" data-jc-track-next>Start lesson 1</a>
         </div>
 
-        <div style="text-align: center; margin: 1rem 0;">
-            <span style="background: linear-gradient(135deg, #7c3aed, #a855f7); color: white; padding: 0.4rem 1.2rem; border-radius: 99px; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em;">Class 9+ &mdash; Advanced Track</span>
-        </div>
-
-        <div class="progress-section">
-            <h2>Your Journey Progress</h2>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
+        <section class="jc-sec" style="margin-top: 0;" aria-labelledby="lessons-title">
+            <div class="jc-sec-head">
+                <h2 id="lessons-title">Lessons</h2>
+                <p>Take them in order. Tick “Mark complete” at the end of a lesson and it is marked here.</p>
             </div>
-            <p class="progress-text">You've mastered <span id="completedModules">0</span> of 8 Modules</p>
-        </div>
+            <h3 class="jc-group-title">Week 1: PHP Foundations</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="module1.html" data-jc-lesson="1">
+                    <span class="jc-lesson-num">1</span>
+                    <span class="jc-lesson-body"><b>Introduction</b><span>Discover what PHP is, how it works, and write your very first PHP script.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module2.html" data-jc-lesson="2">
+                    <span class="jc-lesson-num">2</span>
+                    <span class="jc-lesson-body"><b>Variables</b><span>Store text, numbers, and more inside PHP variables. Learn all data types!</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module3.html" data-jc-lesson="3">
+                    <span class="jc-lesson-num">3</span>
+                    <span class="jc-lesson-body"><b>Control Flow</b><span>Make decisions and repeat actions using if/else statements and loops.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+            <h3 class="jc-group-title">Week 2: Core PHP</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="module4.html" data-jc-lesson="4">
+                    <span class="jc-lesson-num">4</span>
+                    <span class="jc-lesson-body"><b>Functions</b><span>Package your code into reusable functions. Build your own PHP power tools!</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module5.html" data-jc-lesson="5">
+                    <span class="jc-lesson-num">5</span>
+                    <span class="jc-lesson-body"><b>Arrays</b><span>Group multiple values together in indexed and associative arrays.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module6.html" data-jc-lesson="6">
+                    <span class="jc-lesson-num">6</span>
+                    <span class="jc-lesson-body"><b>Forms & POST/GET</b><span>Receive and process data that users submit through HTML forms.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+            <h3 class="jc-group-title">Week 3: Advanced PHP</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="module7.html" data-jc-lesson="7">
+                    <span class="jc-lesson-num">7</span>
+                    <span class="jc-lesson-body"><b>File System</b><span>Read and write files on the server. Save data that lasts even after the page closes!</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module8.html" data-jc-lesson="8">
+                    <span class="jc-lesson-num">8</span>
+                    <span class="jc-lesson-body"><b>OOP Basics</b><span>Think like a software engineer! Learn classes, objects, and inheritance.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+        </section>
+    </main>
 
-        <!-- Week 1: PHP Foundations -->
-        <div class="week-section">
-            <div class="week-header">Week 1: PHP Foundations</div>
-            <div class="modules-grid">
-                <!-- Module 1 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #7c3aed22, #a855f722);">
-                        <h2>1: Introduction</h2>
-                        <span class="module-badge">Level 1</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Discover what PHP is, how it works, and write your very first PHP script.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">What is PHP?</span>
-                            <span class="topic-tag">echo</span>
-                            <span class="topic-tag">PHP Tags</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module1.html" class="btn-start" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">Start Adventure</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 2 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #7c3aed22, #a855f722);">
-                        <h2>2: Variables</h2>
-                        <span class="module-badge">Level 1</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Store text, numbers, and more inside PHP variables. Learn all data types!</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">$variables</span>
-                            <span class="topic-tag">Data Types</span>
-                            <span class="topic-tag">Strings</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module2.html" class="btn-start" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">Store Data</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 3 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #7c3aed22, #a855f722);">
-                        <h2>3: Control Flow</h2>
-                        <span class="module-badge">Level 1</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Make decisions and repeat actions using if/else statements and loops.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">if/else</span>
-                            <span class="topic-tag">for loop</span>
-                            <span class="topic-tag">foreach</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module3.html" class="btn-start" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">Take Control</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Week 2: Core PHP -->
-        <div class="week-section">
-            <div class="week-header">Week 2: Core PHP</div>
-            <div class="modules-grid">
-                <!-- Module 4 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #7c3aed22, #a855f722);">
-                        <h2>4: Functions</h2>
-                        <span class="module-badge">Level 2</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Package your code into reusable functions. Build your own PHP power tools!</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">function</span>
-                            <span class="topic-tag">Parameters</span>
-                            <span class="topic-tag">return</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module4.html" class="btn-start" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">Build Tools</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 5 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #7c3aed22, #a855f722);">
-                        <h2>5: Arrays</h2>
-                        <span class="module-badge">Level 2</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Group multiple values together in indexed and associative arrays.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Indexed</span>
-                            <span class="topic-tag">Associative</span>
-                            <span class="topic-tag">Array Functions</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module5.html" class="btn-start" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">Collect Data</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 6 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #7c3aed22, #a855f722);">
-                        <h2>6: Forms & POST/GET</h2>
-                        <span class="module-badge">Level 2</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Receive and process data that users submit through HTML forms.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">$_POST</span>
-                            <span class="topic-tag">$_GET</span>
-                            <span class="topic-tag">Validation</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module6.html" class="btn-start" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">Handle Forms</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Week 3: Advanced -->
-        <div class="week-section">
-            <div class="week-header">Week 3: Advanced PHP</div>
-            <div class="modules-grid">
-                <!-- Module 7 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #7c3aed22, #a855f722);">
-                        <h2>7: File System</h2>
-                        <span class="module-badge">Level 3</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Read and write files on the server. Save data that lasts even after the page closes!</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">fopen</span>
-                            <span class="topic-tag">fwrite</span>
-                            <span class="topic-tag">file_get_contents</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module7.html" class="btn-start" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">Work with Files</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 8 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #7c3aed22, #a855f722);">
-                        <h2>8: OOP Basics</h2>
-                        <span class="module-badge">Level 3</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Think like a software engineer! Learn classes, objects, and inheritance.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">class</span>
-                            <span class="topic-tag">objects</span>
-                            <span class="topic-tag">extends</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module8.html" class="btn-start" style="background: linear-gradient(135deg, #7c3aed, #a855f7);">Think OOP</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="resources-section" style="margin-top: 5rem; text-align: center;">
-            <h2>Mastery Tools</h2>
-            <div class="course-info" style="margin-top: 2rem;">
-                <a href="../studios/php-console/index.html" class="info-card" style="text-decoration: none; color: inherit;">
-                    <h3>PHP Console</h3>
-                    <p>Run real PHP</p>
-                </a>
-                <a href="exercises.html" class="info-card" style="text-decoration: none; color: inherit;">
-                    <h3>Exercises</h3>
-                    <p>Skill Tests</p>
-                </a>
-                <a href="quiz.html" class="info-card" style="text-decoration: none; color: inherit;">
-                    <h3>Quiz</h3>
-                    <p>10 Questions</p>
-                </a>
-                <a href="glossary.html" class="info-card" style="text-decoration: none; color: inherit;">
-                    <h3>Glossary</h3>
-                    <p>Quick Help</p>
-                </a>
-            </div>
-        </div>
-    </div>
-
+    <script src="../js/bei-core.js"></script>
     <script src="../js/bei-nav.js"></script>
-    <script src="../js/tts-voices.js"></script>
-    <script src="../js/core.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const completed = JSON.parse(localStorage.getItem('jc_completed_modules') || '[]');
-            const count = completed.filter(m => m.startsWith('Learning PHP')).length;
-            const total = 8;
-            const percentage = (count / total) * 100;
-
-            const fill = document.getElementById('progressFill');
-            const text = document.getElementById('completedModules');
-
-            if (fill) fill.style.width = percentage + '%';
-            if (text) text.textContent = count;
-        });
-    </script>
-    <script src="../js/pdf-download.js"></script>
 </body>
 </html>

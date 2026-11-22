@@ -1091,6 +1091,8 @@
             if (match) moduleNum = parseInt(match[1], 10);
         }
 
+        // lesson title cards take their subject's stripe colour from this attribute (styles/bei-core.css)
+        if (trackKey && body) body.setAttribute('data-jc-subject', trackKey);
         if (trackKey && CURRICULUM[trackKey]) {
             return {
                 track: CURRICULUM[trackKey],
@@ -1472,6 +1474,35 @@
     const subjectMeta = (k) => { const t = subjectTrack(k); return t ? t.modules.length + ' lessons' : 'Textbook + cheat sheet'; };
     const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
 
+    // ═════════════════════════════════════════════════════════════════
+    // 5.75 TRACK PAGES (Learning */learning*.html): this visitor's progress.
+    //      The page carries <main data-jc-track="html">, a count, a bar, a
+    //      "next lesson" link and one <a data-jc-lesson="N"> per lesson.
+    // ═════════════════════════════════════════════════════════════════
+    function renderTrackPage() {
+        const page = document.querySelector('[data-jc-track]');
+        if (!page) return;
+        const track = CURRICULUM[page.getAttribute('data-jc-track')];
+        if (!track) return;
+        const total = track.modules.length;
+        const done = track.modules.filter(m => Progress.isDone(track, m.num));
+        const count = page.querySelector('[data-jc-track-count]');
+        if (count) count.textContent = done.length + ' of ' + total + ' lessons completed';
+        const fill = page.querySelector('.jc-track-progress .progress-bar-fill');
+        if (fill) fill.style.width = Math.round(done.length / total * 100) + '%';
+        page.querySelectorAll('[data-jc-lesson]').forEach(a => {
+            const num = parseInt(a.getAttribute('data-jc-lesson'), 10);
+            if (!Progress.isDone(track, num)) return;
+            a.classList.add('is-done');
+            const state = a.querySelector('.jc-lesson-state');
+            if (state) state.textContent = 'Done';
+        });
+        const next = page.querySelector('[data-jc-track-next]');
+        const todo = track.modules.find(m => !Progress.isDone(track, m.num));
+        if (next && todo && done.length) { next.href = todo.file; next.textContent = 'Continue: lesson ' + todo.num; }
+        else if (next && !todo) { next.textContent = 'Read again from lesson 1'; }
+    }
+
     function renderSubjectMaps() {
         const places = document.querySelectorAll('[data-jc-subject-map]');
         if (!places.length) return;
@@ -1608,6 +1639,7 @@
         renderGlobalNav();
         setupModuleNavigation();
         renderSubjectMaps();
+        renderTrackPage();
         enhanceCheatSheet();
         renderTabBar();
         renderSearch();

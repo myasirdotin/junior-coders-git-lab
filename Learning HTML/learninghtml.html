@@ -3,403 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Class 6 & 7 HTML Adventure: 13 comprehensive interactive modules directly aligned with the HTML Textbook. Learn tags, formatting, links, media, tables, lists, forms, semantics, and real-world projects.">
-    <title>HTML Adventure | Junior Coders</title>
-    <link rel="stylesheet" href="../styles/main.css">
+    <title>HTML Lessons | Junior Coders</title>
+    <meta name="description" content="Lessons on the structure of a web page: headings, links, images, lists, tables and forms.">
     <link rel="stylesheet" href="../styles/bei-core.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="syllabus-container">
-        <header class="syllabus-header">
-            <span class="html-brand-tag">Class 6 &amp; 7</span>
-            <h1>HTML Adventure</h1>
-            <p>Master the architectural skeleton of the World Wide Web through 13 interactive modules directly paired with our textbook.</p>
+    <div id="bei-global-nav"></div>
+
+    <main class="container" data-jc-track="html">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">Home</a> <span>/</span>
+                <a href="../learn/index.html">Learn</a> <span>/</span>
+                <span>HTML</span>
+            </div>
+            <h1>HTML lessons</h1>
+            <p class="lead">Lessons on the structure of a web page: headings, links, images, lists, tables and forms.</p>
+            <p class="jc-linkrow jc-jump">
+                <a href="../book-html/index.html">Textbook</a>
+                <a href="../cheatsheet-html.html">Cheat sheet</a>
+                <a href="exercises.html">Exercises</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="playground.html">Playground</a>
+                <a href="glossary.html">Glossary</a>
+                <a href="tips.html">Tips</a>
+                <a href="best-practices.html">Best practices</a>
+            </p>
         </header>
 
-        <!-- Official Textbook Companion Hero Banner -->
-        <div class="textbook-hero-card">
-            <div class="textbook-hero-info">
-                <h2>Course Textbook</h2>
-                <p><strong>HTML for Class 6 &amp; 7: Learn to Structure the Web</strong> serves as our single source of truth. Read full chapter explanations, diagrams, and deep dives in the reader, then return here to test your skills with live interactive playgrounds and quizzes!</p>
+        <!-- This visitor's progress on this device (filled by js/bei-nav.js renderTrackPage) -->
+        <div class="jc-track-progress">
+            <div class="jc-prog-row">
+                <div class="jc-prog-info"><b>Your progress</b><span data-jc-track-count>0 of 12 lessons completed</span></div>
+                <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
             </div>
-            <a href="../book-html/index.html" class="btn-textbook-cta">
-                <span>Launch HTML Textbook</span>
-                <span>→</span>
-            </a>
+            <a class="btn-hero-primary" href="module1.html" data-jc-track-next>Start lesson 1</a>
         </div>
 
-        <!-- Course Statistics & Progress -->
-        <div class="course-info">
-            <div class="info-card">
-                <h3>Curriculum</h3>
-                <p style="color: #ea580c;">12 Lessons + Capstone</p>
+        <section class="jc-sec" style="margin-top: 0;" aria-labelledby="lessons-title">
+            <div class="jc-sec-head">
+                <h2 id="lessons-title">Lessons</h2>
+                <p>Take them in order. Tick “Mark complete” at the end of a lesson and it is marked here.</p>
             </div>
-            <div class="info-card">
-                <h3>Textbook</h3>
-                <p>18 Chapters</p>
-            </div>
-            <div class="info-card">
-                <h3>Coding Missions</h3>
-                <p>Exercises + Quiz</p>
-            </div>
-            <div class="info-card">
-                <h3>Target Level</h3>
-                <p>Beginner → Pro</p>
-            </div>
-        </div>
+            <h3 class="jc-group-title">Phase 1: The Foundation &amp; Page Anatomy</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="module1.html" data-jc-lesson="1">
+                    <span class="jc-lesson-num">1</span>
+                    <span class="jc-lesson-body"><b>Intro &amp; Boilerplate</b><span>Learn how the web works, what HTML is, and code the essential HTML5 boilerplate skeleton from scratch. <em class="jc-lesson-book">Textbook chapters 1–3</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module2.html" data-jc-lesson="2">
+                    <span class="jc-lesson-num">2</span>
+                    <span class="jc-lesson-body"><b>Tags &amp; Attributes</b><span>Give HTML tags superpowers using key-value attributes like <code>lang</code>, <code>charset</code>, and <code>title</code>. <em class="jc-lesson-book">Textbook chapters 4</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module3.html" data-jc-lesson="3">
+                    <span class="jc-lesson-num">3</span>
+                    <span class="jc-lesson-body"><b>Headings &amp; Text</b><span>Structure your content with heading hierarchy from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> and clean paragraphs. <em class="jc-lesson-book">Textbook chapters 5</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module4.html" data-jc-lesson="4">
+                    <span class="jc-lesson-num">4</span>
+                    <span class="jc-lesson-body"><b>Text Formatting</b><span>Add semantic meaning and emphasis to your writing with bold, italics, highlights, sub/superscripts, and quotes. <em class="jc-lesson-book">Textbook chapters 6</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+            <h3 class="jc-group-title">Phase 2: Content &amp; Hypermedia</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="module5.html" data-jc-lesson="5">
+                    <span class="jc-lesson-num">5</span>
+                    <span class="jc-lesson-body"><b>Links &amp; Navigation</b><span>Connect the World Wide Web using hyperlinks, relative and absolute paths, target attributes, and bookmark anchors. <em class="jc-lesson-book">Textbook chapters 8</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module6.html" data-jc-lesson="6">
+                    <span class="jc-lesson-num">6</span>
+                    <span class="jc-lesson-body"><b>Images &amp; Media</b><span>Embed pictures, photos, and artwork with accessibility best practices, alt text, and responsive dimensions. <em class="jc-lesson-book">Textbook chapters 9</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module7.html" data-jc-lesson="7">
+                    <span class="jc-lesson-num">7</span>
+                    <span class="jc-lesson-body"><b>Tables &amp; Data Grids</b><span>Organize structured data like schedules, scores, and timetables using rows, table headers, cells, and spans. <em class="jc-lesson-book">Textbook chapters 11</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module8.html" data-jc-lesson="8">
+                    <span class="jc-lesson-num">8</span>
+                    <span class="jc-lesson-body"><b>Lists &amp; Grouping</b><span>Create bulleted, numbered, and nested multi-level lists for recipes, navigation menus, and item catalogs. <em class="jc-lesson-book">Textbook chapters 10</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+            <h3 class="jc-group-title">Phase 3: Forms, Selectors &amp; Modern Architecture</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="module9.html" data-jc-lesson="9">
+                    <span class="jc-lesson-num">9</span>
+                    <span class="jc-lesson-body"><b>Block &amp; Inline</b><span>Master how browsers position elements on screen: full-width block elements vs text-flowing inline elements. <em class="jc-lesson-book">Textbook chapters 13</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module10.html" data-jc-lesson="10">
+                    <span class="jc-lesson-num">10</span>
+                    <span class="jc-lesson-body"><b>Classes &amp; IDs</b><span>Name and target specific elements for CSS styling and JavaScript interaction using reusable classes and unique IDs. <em class="jc-lesson-book">Textbook chapters 13</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module11.html" data-jc-lesson="11">
+                    <span class="jc-lesson-num">11</span>
+                    <span class="jc-lesson-body"><b>Forms &amp; Inputs</b><span>Build interactive user forms with text inputs, passwords, radio options, dropdown selects, and submit buttons. <em class="jc-lesson-book">Textbook chapters 12</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module12.html" data-jc-lesson="12">
+                    <span class="jc-lesson-num">12</span>
+                    <span class="jc-lesson-body"><b>Semantic Layout</b><span>Construct professional, accessible web layouts using modern semantic HTML5 landmarks for SEO and screen readers. <em class="jc-lesson-book">Textbook chapters 13</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+            <h3 class="jc-group-title">Phase 4: Real-World Projects &amp; Capstones</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="playground.html">
+                    <span class="jc-lesson-num jc-lesson-plus" aria-hidden="true">+</span>
+                    <span class="jc-lesson-body"><b>Capstone Projects Lab</b><span>Build 5 complete, multi-page websites straight from the textbook: Personal Profile, School Portal, Restaurant Menu, Developer Portfolio, and Final Capstone. <em class="jc-lesson-book">Textbook chapters 14–18</em></span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+        </section>
+    </main>
 
-        <div class="progress-section">
-            <h2>Your Journey Progress</h2>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            <p class="progress-text">You've mastered <span id="completedModules">0</span> of 12 Lessons</p>
-        </div>
-
-        <!-- Track 1: The Foundation -->
-        <div class="week-section">
-            <div class="week-header">Phase 1: The Foundation &amp; Page Anatomy</div>
-            <div class="modules-grid">
-                <!-- Module 1 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>1: Intro &amp; Boilerplate</h2>
-                        <span class="book-badge">Book: Ch 1–3</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Learn how the web works, what HTML is, and code the essential HTML5 boilerplate skeleton from scratch.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">&lt;!DOCTYPE&gt;</span>
-                            <span class="topic-tag">&lt;html&gt;</span>
-                            <span class="topic-tag">&lt;head&gt;</span>
-                            <span class="topic-tag">&lt;body&gt;</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch3" class="btn-book-link"><span></span> Read Book</a>
-                            <a href="module1.html" class="btn-start">Start Mission</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 2 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>2: Tags &amp; Attributes</h2>
-                        <span class="book-badge">Book: Ch 4</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Give HTML tags superpowers using key-value attributes like <code>lang</code>, <code>charset</code>, and <code>title</code>.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Syntax</span>
-                            <span class="topic-tag">Attributes</span>
-                            <span class="topic-tag">Self-Closing</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch4" class="btn-book-link"><span></span> Read Book</a>
-                            <a href="module2.html" class="btn-start">Start Mission</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 3 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>3: Headings &amp; Text</h2>
-                        <span class="book-badge">Book: Ch 5</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Structure your content with heading hierarchy from <code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> and clean paragraphs.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">&lt;h1&gt;–&lt;h6&gt;</span>
-                            <span class="topic-tag">&lt;p&gt;</span>
-                            <span class="topic-tag">&lt;br&gt;</span>
-                            <span class="topic-tag">&lt;hr&gt;</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch5" class="btn-book-link"><span></span> Read Book</a>
-                            <a href="module3.html" class="btn-start">Start Mission</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 4 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>4: Text Formatting</h2>
-                        <span class="book-badge">Book: Ch 6</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Add semantic meaning and emphasis to your writing with bold, italics, highlights, sub/superscripts, and quotes.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">&lt;strong&gt;</span>
-                            <span class="topic-tag">&lt;em&gt;</span>
-                            <span class="topic-tag">&lt;mark&gt;</span>
-                            <span class="topic-tag">&lt;sub/sup&gt;</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch6" class="btn-book-link"><span></span> Read Book</a>
-                            <a href="module4.html" class="btn-start">Start Mission</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Track 2: Content & Hypermedia -->
-        <div class="week-section">
-            <div class="week-header">Phase 2: Content &amp; Hypermedia</div>
-            <div class="modules-grid">
-                <!-- Module 5 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>5: Links &amp; Navigation</h2>
-                        <span class="book-badge">Book: Ch 8</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Connect the World Wide Web using hyperlinks, relative and absolute paths, target attributes, and bookmark anchors.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">&lt;a href&gt;</span>
-                            <span class="topic-tag">target="_blank"</span>
-                            <span class="topic-tag">Relative Paths</span>
-                            <span class="topic-tag">Bookmarks</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch8" class="btn-book-link"><span></span> Read Book</a>
-                            <a href="module5.html" class="btn-start">Start Mission</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 6 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>6: Images &amp; Media</h2>
-                        <span class="book-badge">Book: Ch 9</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Embed pictures, photos, and artwork with accessibility best practices, alt text, and responsive dimensions.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">&lt;img src&gt;</span>
-                            <span class="topic-tag">alt text</span>
-                            <span class="topic-tag">Formats</span>
-                            <span class="topic-tag">Accessibility</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch9" class="btn-book-link"><span></span> Read Book</a>
-                            <a href="module6.html" class="btn-start">Start Mission</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 7 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>7: Tables &amp; Data Grids</h2>
-                        <span class="book-badge">Book: Ch 11</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Organize structured data like schedules, scores, and timetables using rows, table headers, cells, and spans.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">&lt;table&gt;</span>
-                            <span class="topic-tag">&lt;tr&gt; &lt;th&gt;</span>
-                            <span class="topic-tag">&lt;td&gt;</span>
-                            <span class="topic-tag">colspan/rowspan</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch11" class="btn-book-link"><span></span> Read Book</a>
-                            <a href="module7.html" class="btn-start">Start Mission</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 8 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>8: Lists &amp; Grouping</h2>
-                        <span class="book-badge">Book: Ch 10</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Create bulleted, numbered, and nested multi-level lists for recipes, navigation menus, and item catalogs.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">&lt;ul&gt;</span>
-                            <span class="topic-tag">&lt;ol&gt;</span>
-                            <span class="topic-tag">&lt;li&gt;</span>
-                            <span class="topic-tag">Nesting</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch10" class="btn-book-link"><span></span> Read Book</a>
-                            <a href="module8.html" class="btn-start">Start Mission</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Track 3: Forms, Selectors & Modern Layout -->
-        <div class="week-section">
-            <div class="week-header">Phase 3: Forms, Selectors &amp; Modern Architecture</div>
-            <div class="modules-grid">
-                <!-- Module 9 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>9: Block &amp; Inline</h2>
-                        <span class="book-badge">Book: Ch 13</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Master how browsers position elements on screen: full-width block elements vs text-flowing inline elements.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">&lt;div&gt;</span>
-                            <span class="topic-tag">&lt;span&gt;</span>
-                            <span class="topic-tag">Flow</span>
-                            <span class="topic-tag">Boxes</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch13" class="btn-book-link"><span></span> Read Book</a>
-                            <a href="module9.html" class="btn-start">Start Mission</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 10 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>10: Classes &amp; IDs</h2>
-                        <span class="book-badge">Book: Ch 13</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Name and target specific elements for CSS styling and JavaScript interaction using reusable classes and unique IDs.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">class="..."</span>
-                            <span class="topic-tag">id="..."</span>
-                            <span class="topic-tag">Naming Rules</span>
-                            <span class="topic-tag">Selectors</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch13" class="btn-book-link"><span></span> Read Book</a>
-                            <a href="module10.html" class="btn-start">Start Mission</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 11 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>11: Forms &amp; Inputs</h2>
-                        <span class="book-badge">Book: Ch 12</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Build interactive user forms with text inputs, passwords, radio options, dropdown selects, and submit buttons.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">&lt;form&gt;</span>
-                            <span class="topic-tag">&lt;input&gt;</span>
-                            <span class="topic-tag">&lt;label&gt;</span>
-                            <span class="topic-tag">&lt;select&gt;</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch12" class="btn-book-link"><span></span> Read Book</a>
-                            <a href="module11.html" class="btn-start">Start Mission</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 12 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>12: Semantic Layout</h2>
-                        <span class="book-badge">Book: Ch 13</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Construct professional, accessible web layouts using modern semantic HTML5 landmarks for SEO and screen readers.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">&lt;header&gt;</span>
-                            <span class="topic-tag">&lt;nav&gt;</span>
-                            <span class="topic-tag">&lt;main&gt;</span>
-                            <span class="topic-tag">&lt;footer&gt;</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch13" class="btn-book-link"><span></span> Read Book</a>
-                            <a href="module12.html" class="btn-start">Start Mission</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Track 4: Real-World Website Projects -->
-        <div class="week-section">
-            <div class="week-header">Phase 4: Real-World Projects &amp; Capstones</div>
-            <div class="modules-grid">
-                <!-- Module 13 -->
-                <div class="module-card" style="border-color: rgba(234, 88, 12, 0.4); background: linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(234, 88, 12, 0.08));">
-                    <div class="module-card-header" style="background: rgba(234, 88, 12, 0.15);">
-                        <h2 style="color: #ea580c;">13: Capstone Projects Lab</h2>
-                        <span class="book-badge" style="background: #ea580c; color: white;">Book: Ch 14–18</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Build 5 complete, multi-page websites straight from the textbook: Personal Profile, School Portal, Restaurant Menu, Developer Portfolio, and Final Capstone.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Profile Site</span>
-                            <span class="topic-tag">School Portal</span>
-                            <span class="topic-tag">Restaurant</span>
-                            <span class="topic-tag">Portfolio</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="../book-html/index.html#ch14" class="btn-book-link"><span></span> Read Projects</a>
-                            <a href="playground.html" class="btn-start" style="background: linear-gradient(135deg, #ea580c, #c2410c);">Build in Playground</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Platform Mastery Tools -->
-        <div class="resources-section" style="margin-top: 5rem; text-align: center;">
-            <h2>HTML Mastery Tools</h2>
-            <div class="course-info" style="margin-top: 2rem;">
-                <a href="../book-html/index.html" class="info-card" style="text-decoration: none; color: inherit; border-color: rgba(234, 88, 12, 0.4);">
-                    <h3 style="color: #ea580c;">Textbook</h3>
-                    <p>HTML Book</p>
-                </a>
-                <a href="playground.html" class="info-card" style="text-decoration: none; color: inherit;">
-                    <h3>Playground</h3>
-                    <p>Live Code Editor</p>
-                </a>
-                <a href="exercises.html" class="info-card" style="text-decoration: none; color: inherit;">
-                    <h3>Exercises</h3>
-                    <p>Skill Challenges</p>
-                </a>
-                <a href="quiz.html" class="info-card" style="text-decoration: none; color: inherit;">
-                    <h3>Master Quiz</h3>
-                    <p>Knowledge Test</p>
-                </a>
-                <a href="glossary.html" class="info-card" style="text-decoration: none; color: inherit;">
-                    <h3>Glossary</h3>
-                    <p>Tags Reference</p>
-                </a>
-            </div>
-        </div>
-    </div>
-
+    <script src="../js/bei-core.js"></script>
     <script src="../js/bei-nav.js"></script>
-    <script src="../js/tts-voices.js"></script>
-    <script src="../js/core.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const completed = JSON.parse(localStorage.getItem('jc_completed_modules') || '[]');
-            const count = completed.filter(m => m.startsWith('Learning HTML')).length;
-            const percentage = Math.min(100, Math.round((count / 12) * 100));
-            
-            const fill = document.getElementById('progressFill');
-            const text = document.getElementById('completedModules');
-            
-            if (fill) fill.style.width = percentage + '%';
-            if (text) text.textContent = count;
-        });
-    </script>
-    <script src="../js/pdf-download.js"></script>
 </body>
 </html>

@@ -3554,3 +3554,95 @@ html[data-theme="light"] .cheatsheet-container.cheat-v2 .cheat-more a { color: v
     .jc-compare > .jc-compare-strong { margin-bottom: 0.6rem; }
     .jc-actions { flex-direction: column; }
 }
+
+/* ═════════════════════════════════════════════════════════════════════
+   TRACK PAGES (the learning-NAME.html page of each Learning folder, redesign 22 Nov 2026): one
+   template for all nine subjects. Progress is filled by js/bei-nav.js.
+   ═════════════════════════════════════════════════════════════════════ */
+.jc-track-progress {
+    display: flex; align-items: center; gap: 1rem 1.5rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+    background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg); padding: 1.1rem 1.4rem;
+}
+.jc-track-progress .jc-prog-row { flex: 1 1 260px; margin: 0; }
+.jc-track-progress .btn-hero-primary { padding: 0.65rem 1.3rem; font-size: 0.95rem; }
+.jc-group-title { font-size: 1.05rem; margin: 1.75rem 0 0.7rem; color: var(--text-secondary); font-weight: 700; }
+.jc-sec-head + .jc-group-title { margin-top: 0; }
+.jc-lessons { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; max-width: 56rem; }
+.jc-lesson {
+    display: flex; gap: 1rem; align-items: flex-start; padding: 0.9rem 1.1rem; color: inherit;
+    background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);
+    transition: border-color 0.15s ease;
+}
+.jc-lesson:hover, .jc-lesson:focus-visible { border-color: var(--brand-primary); }
+.jc-lesson-num {
+    flex: none; width: 2rem; height: 2rem; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    background: var(--brand-primary-light); color: var(--text-indigo); font-weight: 800; font-size: 0.9rem;
+}
+.jc-lesson-body { flex: 1; min-width: 0; }
+.jc-lesson-body b { display: block; font-family: var(--font-heading); font-size: 1.05rem; line-height: 1.35; margin-bottom: 0.15rem; }
+.jc-lesson-body > span { display: block; color: var(--text-secondary); font-size: 0.93rem; line-height: 1.55; }
+.jc-lesson-book { display: block; font-style: normal; font-size: 0.82rem; color: var(--text-muted); margin-top: 0.2rem; }
+.jc-lesson-state { flex: none; align-self: center; font-size: 0.8rem; font-weight: 700; color: var(--text-green, var(--brand-accent)); }
+.jc-lesson.is-done .jc-lesson-num { background: var(--brand-accent); color: #fff; }
+
+/* practice ideas kept from the old track pages */
+.jc-zone h2 { font-size: clamp(1.45rem, 2.4vw, 1.8rem); letter-spacing: -0.01em; margin: 0.2rem 0 0.5rem; }
+.jc-zone h3 { font-size: 1.1rem; margin: 0; }
+.jc-zone h4 { font-size: 1rem; margin: 0; }
+.jc-zone > p, .jc-zone > div > p, .jc-zone > div > div > p { color: var(--text-secondary); line-height: 1.6; margin: 0 0 0.6rem; max-width: 52rem; }
+.jc-zone p.jc-card-kicker { margin: 0; }
+.jc-zone .jc-cards { margin: 1rem 0 1.5rem; }
+.jc-zone ol, .jc-zone ul { margin: 0.4rem 0 1.25rem 1.2rem; padding: 0; color: var(--text-secondary); line-height: 1.7; }
+.jc-zone .jc-card p { margin: 0; }
+.jc-zone .jc-code { white-space: pre-wrap; max-width: 40rem; }
+@media (max-width: 640px) {
+    .jc-lesson { padding: 0.8rem 0.9rem; gap: 0.75rem; }
+    .jc-track-progress .btn-hero-primary { width: 100%; justify-content: center; }
+}
+
+/* ═════════════════════════════════════════════════════════════════════
+   LESSON TITLE CARD (redesign 22 Nov 2026): one plain card for every
+   lesson of every subject, left-aligned, with a thin stripe in the
+   subject's colour in place of the full-colour banner. The !important
+   marks beat the inline gradients many lessons still carry.
+   ═════════════════════════════════════════════════════════════════════ */
+body { --jc-subject: var(--brand-primary); }
+body[data-jc-subject="html"] { --jc-subject: #ea580c; }
+body[data-jc-subject="css"] { --jc-subject: #2563eb; }
+body[data-jc-subject="js"] { --jc-subject: #ca8a04; }
+body[data-jc-subject="php"] { --jc-subject: #7c3aed; }
+body[data-jc-subject="mysql"] { --jc-subject: #0077b6; }
+body[data-jc-subject="laravel"] { --jc-subject: #dc2626; }
+body[data-jc-subject="python"] { --jc-subject: #2563eb; }
+body[data-jc-subject="networks"] { --jc-subject: #0891b2; }
+body[data-jc-subject="cybersecurity"] { --jc-subject: #059669; }
+
+.module-container .module-header {
+    background: var(--bg-surface) !important; color: var(--text-primary) !important;
+    border: 1px solid var(--border-subtle) !important; border-left: 5px solid var(--jc-subject) !important;
+    border-radius: var(--radius-lg) !important; box-shadow: none !important;
+    text-align: left !important; padding: 1.4rem 1.6rem !important; animation: none !important;
+}
+.module-container .module-header::before, .module-container .module-header::after { display: none !important; }
+.module-container .module-header h1 {
+    color: var(--text-primary) !important; text-shadow: none !important; background: none !important;
+    -webkit-text-fill-color: currentColor !important;
+    font-size: clamp(1.6rem, 3.2vw, 2.2rem) !important; line-height: 1.2; margin: 0.6rem 0 0.4rem !important;
+}
+.module-container .module-header p {
+    color: var(--text-secondary) !important; margin-left: 0 !important; margin-right: 0 !important; max-width: 46rem; opacity: 1 !important;
+}
+.module-container .module-header code { color: inherit !important; background: var(--bg-surface-elevated) !important; }
+.module-container .module-header .badge {
+    background: var(--brand-primary-light) !important; color: var(--text-indigo) !important; border: 0 !important; box-shadow: none !important;
+}
+.module-container .module-header > div { justify-content: flex-start !important; }
+.module-header .module-pdf-btn {
+    background: transparent !important; color: var(--text-primary) !important; border: 1px solid var(--border-subtle) !important;
+    box-shadow: none !important; transform: none !important;
+}
+.module-header .module-pdf-btn:hover { border-color: var(--brand-primary) !important; background: transparent !important; color: var(--text-primary) !important; }
+@media (max-width: 640px) {
+    .module-container .module-header { padding: 1rem 1.1rem !important; border-radius: 14px !important; }
+    .module-container .module-header h1 { font-size: 1.45rem !important; }
+}

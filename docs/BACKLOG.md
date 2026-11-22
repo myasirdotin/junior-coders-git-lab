@@ -49,6 +49,20 @@ _Last updated: 2026-11-22 (calm and truthful interface: no points, badges, confe
 
 ## Done (most recent first)
 
+- 2026-11-22 Track pages and lesson pages. **Track pages** (the nine `Learning */learning*.html`): rebuilt on one
+  template in place of nine different ones ("Adventure", "Quest", "Masterclass", coloured banners, "Level: Expert /
+  Status: Active" tiles). Each is now "<Subject> lessons": breadcrumb, one plain sentence, a row of links (textbook,
+  cheat sheet, exercises, quiz, studio, glossary…), a progress box with "Start lesson 1 / Continue: lesson N", and
+  the lessons as a numbered list with their original descriptions and week or phase groups; completed lessons show
+  "Done" (`renderTrackPage()` in `js/bei-nav.js`, from `data-jc-track`). The practice ideas of the CSS, Python,
+  Networks and Cybersecurity pages are kept below the list, restyled. JavaScript keeps its certificate preview;
+  its skill tree (a second copy of the lesson list that locked later lessons) is gone. Track pages no longer load
+  `main.css` or `core.js`. Built once by a script from the old pages (lesson counts checked against the module
+  files); they are plain pages now, edit them by hand. **Lesson pages** (all 75 `moduleN.html`): the full-colour
+  title banner is one plain left-aligned card with a thin stripe in the subject's colour (GEMINI §7c updated);
+  styles at the end of `styles/bei-core.css`, no lesson file edited. Checks: `check-practice.js` no problems,
+  `check-books.js` 0 errors, `sync-curriculum.js` no change. Viewed at 1366px light and 390px dark. Not looked at:
+  the lesson Reader View with the new title card.
 - 2026-11-22 The remaining hub pages. Rewritten on the shared pattern: **How the web works** (`getting-started.html`:
   three languages, how the files find each other, how to see your work; the link at the end now opens HTML lesson 1),
   **Contact** (two cards and a note; also says where teachers ask for BEI Classroom Studio) and **AI roadmap** (six

@@ -3,83 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Master Modern CSS. 8 modules covering Flexbox, Grid, Animations, and Responsive Design.">
-    <title>CSS Masterclass | Junior Coders</title>
-    <link rel="stylesheet" href="../styles/main.css">
+    <title>CSS Lessons | Junior Coders</title>
+    <meta name="description" content="Lessons on how a page looks: colours, text, the box model, Flexbox and Grid.">
     <link rel="stylesheet" href="../styles/bei-core.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="syllabus-container">
-        <header class="syllabus-header">
-            <h1>CSS Masterclass</h1>
-            <p>Bring your websites to life with style and layout.</p>
+    <div id="bei-global-nav"></div>
+
+    <main class="container" data-jc-track="css">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">Home</a> <span>/</span>
+                <a href="../learn/index.html">Learn</a> <span>/</span>
+                <span>CSS</span>
+            </div>
+            <h1>CSS lessons</h1>
+            <p class="lead">Lessons on how a page looks: colours, text, the box model, Flexbox and Grid.</p>
+            <p class="jc-linkrow jc-jump">
+                <a href="../book-css/index.html">Textbook</a>
+                <a href="../cheatsheet-css.html">Cheat sheet</a>
+                <a href="exercises.html">Exercises</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="playground.html">Playground</a>
+                <a href="glossary.html">Glossary</a>
+                <a href="tips.html">Tips</a>
+                <a href="best-practices.html">Best practices</a>
+            </p>
         </header>
 
-        <div class="course-info">
-            <div class="info-card">
-                <h3>Modules</h3>
-                <p>8</p>
+        <!-- This visitor's progress on this device (filled by js/bei-nav.js renderTrackPage) -->
+        <div class="jc-track-progress">
+            <div class="jc-prog-row">
+                <div class="jc-prog-info"><b>Your progress</b><span data-jc-track-count>0 of 8 lessons completed</span></div>
+                <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
             </div>
-            <div class="info-card">
-                <h3>Level</h3>
-                <p>Intermediate</p>
-            </div>
-            <div class="info-card">
-                <h3>Status</h3>
-                <p>Active</p>
-            </div>
+            <a class="btn-hero-primary" href="module1.html" data-jc-track-next>Start lesson 1</a>
         </div>
 
-        <section class="practice-zone" style="margin: 2rem 0; background: linear-gradient(135deg, #fff7ed, #fdf2f8); border: 1px solid #f3d0da; border-radius: 22px; padding: 2rem; box-shadow: 0 12px 35px rgba(88, 28, 135, 0.08);">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap;">
-                <span style="display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg, #7c3aed, #ec4899); color: white; font-size: 1.6rem;"></span>
+        <section class="jc-sec" style="margin-top: 0;" aria-labelledby="lessons-title">
+            <div class="jc-sec-head">
+                <h2 id="lessons-title">Lessons</h2>
+                <p>Take them in order. Tick “Mark complete” at the end of a lesson and it is marked here.</p>
+            </div>
+            <h3 class="jc-group-title">Week 1: Visual Foundations</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="module1.html" data-jc-lesson="1">
+                    <span class="jc-lesson-num">1</span>
+                    <span class="jc-lesson-body"><b>Intro to CSS</b><span>Learn what CSS is and how to connect it to your HTML pages.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module2.html" data-jc-lesson="2">
+                    <span class="jc-lesson-num">2</span>
+                    <span class="jc-lesson-body"><b>Colors & Text</b><span>Master fonts, text alignment, and the world of digital colors.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+            <h3 class="jc-group-title">Week 2: Space &amp; Position</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="module3.html" data-jc-lesson="3">
+                    <span class="jc-lesson-num">3</span>
+                    <span class="jc-lesson-body"><b>The Box Model</b><span>Understanding margins, padding, and borders like a pro.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module4.html" data-jc-lesson="4">
+                    <span class="jc-lesson-num">4</span>
+                    <span class="jc-lesson-body"><b>Positioning</b><span>Control where elements sit on the page with absolute and relative flow.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+            <h3 class="jc-group-title">Week 3: Flexbox Mastery</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="module5.html" data-jc-lesson="5">
+                    <span class="jc-lesson-num">5</span>
+                    <span class="jc-lesson-body"><b>Intro Flexbox</b><span>Create flexible, one-dimensional layouts that adapt to content.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module6.html" data-jc-lesson="6">
+                    <span class="jc-lesson-num">6</span>
+                    <span class="jc-lesson-body"><b>Adv. Flexbox</b><span>Master growing, shrinking, and complex alignment within flex containers.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+            <h3 class="jc-group-title">Week 4: Grid &amp; Responsive</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="module7.html" data-jc-lesson="7">
+                    <span class="jc-lesson-num">7</span>
+                    <span class="jc-lesson-body"><b>CSS Grid</b><span>Create powerful two-dimensional grids for complex layouts.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module8.html" data-jc-lesson="8">
+                    <span class="jc-lesson-num">8</span>
+                    <span class="jc-lesson-body"><b>Responsive</b><span>Make your site look amazing on mobile, tablet, and desktop.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+        </section>
+
+        <!-- Practice ideas to try on your own (not checked by the page) -->
+        <section class="jc-sec jc-zone">
+            <div>
+                
                 <div>
-                    <p style="margin: 0; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: #7c2d12;">Class 7 Practice Zone</p>
-                    <h2 style="margin: 0.3rem 0 0; font-size: clamp(1.6rem, 2vw, 2.1rem); color: #1f2937;">CSS Practice Exercises</h2>
+                    <p class="jc-card-kicker">Class 7 Practice Zone</p>
+                    <h2>CSS Practice Exercises</h2>
                 </div>
             </div>
 
-            <p style="margin-bottom: 1.5rem; color: #4b5563; font-size: 1rem; line-height: 1.7;">
+            <p>
                 Follow the steps carefully. Write the code in your notebook or in a practice file, then open the page in your browser to check the result.
             </p>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
-                <article style="background: rgba(255,255,255,0.8); border: 1px solid #f0d1db; border-radius: 18px; padding: 1.1rem;">
-                    <h3 style="margin-top: 0; color: #7c2d12;">Exercise 1</h3>
-                    <p style="margin-bottom: 0.5rem; color: #374151; font-weight: 600;">Style a simple card</p>
-                    <p style="margin: 0; color: #4b5563; font-size: 0.92rem; line-height: 1.6;">Create a box with a border, padding, background color, and rounded corners. Add a heading and one paragraph inside it.</p>
-                    <p style="margin: 0.7rem 0 0; color: #7c2d12; font-size: 0.83rem; line-height: 1.6; font-weight: 600;">Hint: Start with <code>border</code>, <code>padding</code>, and <code>background</code>. Then give it rounded corners with <code>border-radius</code>.</p>
+            <div class="jc-cards">
+                <article class="jc-card">
+                    <h3>Exercise 1</h3>
+                    <p>Style a simple card</p>
+                    <p>Create a box with a border, padding, background color, and rounded corners. Add a heading and one paragraph inside it.</p>
+                    <p>Hint: Start with <code>border</code>, <code>padding</code>, and <code>background</code>. Then give it rounded corners with <code>border-radius</code>.</p>
                 </article>
 
-                <article style="background: rgba(255,255,255,0.8); border: 1px solid #f0d1db; border-radius: 18px; padding: 1.1rem;">
-                    <h3 style="margin-top: 0; color: #7c2d12;">Exercise 2</h3>
-                    <p style="margin-bottom: 0.5rem; color: #374151; font-weight: 600;">Use text styles</p>
-                    <p style="margin: 0; color: #4b5563; font-size: 0.92rem; line-height: 1.6;">Change the color, font size, and text alignment of a heading. Try using a different font weight and letter spacing.</p>
-                    <p style="margin: 0.7rem 0 0; color: #7c2d12; font-size: 0.83rem; line-height: 1.6; font-weight: 600;">Hint: Use <code>color</code>, <code>font-size</code>, and <code>text-align</code> first. Then try <code>font-weight</code> and <code>letter-spacing</code>.</p>
+                <article class="jc-card">
+                    <h3>Exercise 2</h3>
+                    <p>Use text styles</p>
+                    <p>Change the color, font size, and text alignment of a heading. Try using a different font weight and letter spacing.</p>
+                    <p>Hint: Use <code>color</code>, <code>font-size</code>, and <code>text-align</code> first. Then try <code>font-weight</code> and <code>letter-spacing</code>.</p>
                 </article>
 
-                <article style="background: rgba(255,255,255,0.8); border: 1px solid #f0d1db; border-radius: 18px; padding: 1.1rem;">
-                    <h3 style="margin-top: 0; color: #7c2d12;">Exercise 3</h3>
-                    <p style="margin-bottom: 0.5rem; color: #374151; font-weight: 600;">Build two boxes</p>
-                    <p style="margin: 0; color: #4b5563; font-size: 0.92rem; line-height: 1.6;">Make two boxes side by side. Give them different colors and set equal width and height. Use margin and padding properly.</p>
-                    <p style="margin: 0.7rem 0 0; color: #7c2d12; font-size: 0.83rem; line-height: 1.6; font-weight: 600;">Hint: Use a container and set the boxes to display side by side with equal width. Add <code>margin</code> to create space.</p>
+                <article class="jc-card">
+                    <h3>Exercise 3</h3>
+                    <p>Build two boxes</p>
+                    <p>Make two boxes side by side. Give them different colors and set equal width and height. Use margin and padding properly.</p>
+                    <p>Hint: Use a container and set the boxes to display side by side with equal width. Add <code>margin</code> to create space.</p>
                 </article>
 
-                <article style="background: rgba(255,255,255,0.8); border: 1px solid #f0d1db; border-radius: 18px; padding: 1.1rem;">
-                    <h3 style="margin-top: 0; color: #7c2d12;">Exercise 4</h3>
-                    <p style="margin-bottom: 0.5rem; color: #374151; font-weight: 600;">Create a button</p>
-                    <p style="margin: 0; color: #4b5563; font-size: 0.92rem; line-height: 1.6;">Style a button with a background color, rounded corners, padding, and hover effect. Make it look interactive.</p>
-                    <p style="margin: 0.7rem 0 0; color: #7c2d12; font-size: 0.83rem; line-height: 1.6; font-weight: 600;">Hint: Try <code>background-color</code>, <code>border-radius</code>, <code>padding</code>, and <code>:hover</code> for the effect.</p>
+                <article class="jc-card">
+                    <h3>Exercise 4</h3>
+                    <p>Create a button</p>
+                    <p>Style a button with a background color, rounded corners, padding, and hover effect. Make it look interactive.</p>
+                    <p>Hint: Try <code>background-color</code>, <code>border-radius</code>, <code>padding</code>, and <code>:hover</code> for the effect.</p>
                 </article>
             </div>
 
-            <div style="margin-top: 1.5rem; padding: 1rem 1.1rem; border-left: 4px solid #ec4899; background: rgba(255,255,255,0.85); border-radius: 14px;">
-                <p style="margin: 0 0 0.6rem; font-weight: 700; color: #1f2937;">How to do the exercises:</p>
-                <ol style="margin: 0; padding-left: 1.2rem; color: #374151; line-height: 1.8;">
+            <div>
+                <p>How to do the exercises:</p>
+                <ol>
                     <li>Read the instruction carefully.</li>
                     <li>Write the CSS in a new file or inside a practice section.</li>
                     <li>Save the file and open it in a browser.</li>
@@ -88,26 +155,26 @@
                 </ol>
             </div>
 
-            <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, #fff7ed, #fdf2f8); border: 1px solid #f3d0da; border-radius: 20px; box-shadow: 0 15px 35px rgba(124, 58, 237, 0.08);">
-                <p style="margin: 0 0 0.5rem; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; color: #7c2d12;">Mini project</p>
-                <h3 style="margin: 0 0 1rem; color: #1f2937; font-size: clamp(1.4rem, 2vw, 1.9rem);">School Poster Challenge</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin-bottom: 1.2rem;">
-                    <article style="background: rgba(255,255,255,0.75); border: 1px solid #f0d1db; border-radius: 16px; padding: 1rem;">
-                        <h4 style="margin-top: 0; color: #7c2d12;">Task 1</h4>
-                        <p style="margin: 0; color: #374151; line-height: 1.7;">Create a poster with a heading, a short paragraph, and a colorful button.</p>
+            <div>
+                <p class="jc-card-kicker">Mini project</p>
+                <h3>School Poster Challenge</h3>
+                <div class="jc-cards">
+                    <article class="jc-card">
+                        <h4>Task 1</h4>
+                        <p>Create a poster with a heading, a short paragraph, and a colorful button.</p>
                     </article>
-                    <article style="background: rgba(255,255,255,0.75); border: 1px solid #f0d1db; border-radius: 16px; padding: 1rem;">
-                        <h4 style="margin-top: 0; color: #7c2d12;">Task 2</h4>
-                        <p style="margin: 0; color: #374151; line-height: 1.7;">Use different background colors, padding, and border-radius to make the design look neat.</p>
+                    <article class="jc-card">
+                        <h4>Task 2</h4>
+                        <p>Use different background colors, padding, and border-radius to make the design look neat.</p>
                     </article>
-                    <article style="background: rgba(255,255,255,0.75); border: 1px solid #f0d1db; border-radius: 16px; padding: 1rem;">
-                        <h4 style="margin-top: 0; color: #7c2d12;">Task 3</h4>
-                        <p style="margin: 0; color: #374151; line-height: 1.7;">Add a hover effect to the button so it feels interactive when the mouse moves over it.</p>
+                    <article class="jc-card">
+                        <h4>Task 3</h4>
+                        <p>Add a hover effect to the button so it feels interactive when the mouse moves over it.</p>
                     </article>
                 </div>
-                <div style="background: rgba(255,255,255,0.8); border: 1px solid #f0d1db; border-radius: 14px; padding: 1rem;">
-                    <p style="margin: 0 0 0.7rem; font-weight: 700; color: #1f2937;">Starter idea</p>
-                    <pre style="margin: 0; white-space: pre-wrap; color: #4b5563; font-size: 0.9rem; line-height: 1.7; font-family: Consolas, monospace;">.poster {
+                <div>
+                    <p>Starter idea</p>
+                    <pre class="jc-code">.poster {
   background: #fef3c7;
   padding: 30px;
   border-radius: 16px;
@@ -127,230 +194,9 @@
                 </div>
             </div>
         </section>
+    </main>
 
-        <div class="progress-section">
-            <h2>Your Journey Progress</h2>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            <p class="progress-text">You've mastered <span id="completedModules">0</span> of 8 Modules</p>
-        </div>
-
-        <!-- Week 1: Styling Basics -->
-        <div class="week-section">
-            <div class="week-header">Week 1: Visual Foundations</div>
-            <div class="modules-grid">
-                <!-- Module 1 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>1: Intro to CSS</h2>
-                        <span class="module-badge">Level 1</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Learn what CSS is and how to connect it to your HTML pages.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Selectors</span>
-                            <span class="topic-tag">Syntax</span>
-                            <span class="topic-tag">Linking</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module1.html" class="btn-start">Start Styling</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 2 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>2: Colors & Text</h2>
-                        <span class="module-badge">Level 1</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Master fonts, text alignment, and the world of digital colors.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">RGB/Hex</span>
-                            <span class="topic-tag">Typography</span>
-                            <span class="topic-tag">Spacing</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module2.html" class="btn-start">Paint the Web</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Week 2: The Box & Layout -->
-        <div class="week-section">
-            <div class="week-header">Week 2: Space & Position</div>
-            <div class="modules-grid">
-                <!-- Module 3 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>3: The Box Model</h2>
-                        <span class="module-badge">Level 2</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Understanding margins, padding, and borders like a pro.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Padding</span>
-                            <span class="topic-tag">Margins</span>
-                            <span class="topic-tag">Borders</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module3.html" class="btn-start">Master the Box</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 4 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>4: Positioning</h2>
-                        <span class="module-badge">Level 2</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Control where elements sit on the page with absolute and relative flow.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Fixed</span>
-                            <span class="topic-tag">Relative</span>
-                            <span class="topic-tag">Sticky</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module4.html" class="btn-start">Place Items</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Week 3: Modern Layouts -->
-        <div class="week-section">
-            <div class="week-header">Week 3: Flexbox Mastery</div>
-            <div class="modules-grid">
-                <!-- Module 5 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>5: Intro Flexbox</h2>
-                        <span class="module-badge">Level 3</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Create flexible, one-dimensional layouts that adapt to content.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Alignment</span>
-                            <span class="topic-tag">Direction</span>
-                            <span class="topic-tag">Gaps</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module5.html" class="btn-start">Flex It!</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 6 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>6: Adv. Flexbox</h2>
-                        <span class="module-badge">Level 3</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Master growing, shrinking, and complex alignment within flex containers.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Flex-grow</span>
-                            <span class="topic-tag">Flex-wrap</span>
-                            <span class="topic-tag">Ordering</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module6.html" class="btn-start">Be Flexible</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Week 4: Grid & Beyond -->
-        <div class="week-section">
-            <div class="week-header">Week 4: Grid & Responsive</div>
-            <div class="modules-grid">
-                <!-- Module 7 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>7: CSS Grid</h2>
-                        <span class="module-badge">Level 4</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Create powerful two-dimensional grids for complex layouts.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Template</span>
-                            <span class="topic-tag">Fr units</span>
-                            <span class="topic-tag">Areas</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module7.html" class="btn-start">Make Grids</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 8 -->
-                <div class="module-card">
-                    <div class="module-card-header">
-                        <h2>8: Responsive</h2>
-                        <span class="module-badge">Level 4</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Make your site look amazing on mobile, tablet, and desktop.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Queries</span>
-                            <span class="topic-tag">Breakpoints</span>
-                            <span class="topic-tag">Mobile-first</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module8.html" class="btn-start">Be Responsive</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="resources-section" style="margin-top: 5rem; text-align: center;">
-            <h2>Mastery Tools</h2>
-            <div class="course-info" style="margin-top: 2rem;">
-                <a href="../book-css/index.html" class="info-card" style="text-decoration: none; color: inherit; border-color: rgba(124, 58, 237, 0.4);">
-                    <h3 style="color: #a855f7;">Textbook</h3>
-                    <p>Class 7 CSS Book</p>
-                </a>
-                <a href="playground.html" class="info-card" style="text-decoration: none; color: inherit;">
-                    <h3>Playground</h3>
-                    <p>Code Editor</p>
-                </a>
-                <a href="exercises.html" class="info-card" style="text-decoration: none; color: inherit;">
-                    <h3>Exercises</h3>
-                    <p>Skill Tests</p>
-                </a>
-                <a href="glossary.html" class="info-card" style="text-decoration: none; color: inherit;">
-                    <h3>Glossary</h3>
-                    <p>Quick Help</p>
-                </a>
-            </div>
-        </div>
-    </div>
-
+    <script src="../js/bei-core.js"></script>
     <script src="../js/bei-nav.js"></script>
-    <script src="../js/tts-voices.js"></script>
-    <script src="../js/core.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const completed = JSON.parse(localStorage.getItem('jc_completed_modules') || '[]');
-            const count = completed.filter(m => m.startsWith('Learning CSS')).length;
-            const percentage = (count / 8) * 100;
-            
-            const fill = document.getElementById('progressFill');
-            const text = document.getElementById('completedModules');
-            
-            if (fill) fill.style.width = percentage + '%';
-            if (text) text.textContent = count;
-        });
-    </script>
-    <script src="../js/pdf-download.js"></script>
 </body>
 </html>

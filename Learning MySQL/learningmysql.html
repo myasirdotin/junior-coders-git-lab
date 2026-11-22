@@ -3,196 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Database Quest — Learn MySQL from scratch. 6 modules covering databases, tables, CRUD, JOINs, and advanced queries.">
-    <title>Database Quest | Junior Coders</title>
-    <link rel="stylesheet" href="../styles/main.css">
+    <title>MySQL Lessons | Junior Coders</title>
+    <meta name="description" content="Lessons on keeping data in tables: making tables, adding and finding rows, and joining tables together.">
     <link rel="stylesheet" href="../styles/bei-core.css">
 </head>
 <body>
 
-    <div class="syllabus-container">
-        <header class="syllabus-header" style="background: linear-gradient(135deg, #0077b6, #0369a1);">
-            <h1>Database Quest</h1>
-            <p>Learn to store, retrieve, and manage data like a real developer!</p>
+    <div id="bei-global-nav"></div>
+
+    <main class="container" data-jc-track="mysql">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="../index.html">Home</a> <span>/</span>
+                <a href="../learn/index.html">Learn</a> <span>/</span>
+                <span>MySQL</span>
+            </div>
+            <h1>MySQL lessons</h1>
+            <p class="lead">Lessons on keeping data in tables: making tables, adding and finding rows, and joining tables together.</p>
+            <p class="jc-linkrow jc-jump">
+                <a href="../book-mysql/index.html">Textbook</a>
+                <a href="../cheatsheet-mysql.html">Cheat sheet</a>
+                <a href="exercises.html">Exercises</a>
+                <a href="quiz.html">Quiz</a>
+                <a href="../studios/sql-sandbox/index.html">SQL Sandbox</a>
+                <a href="glossary.html">Glossary</a>
+            </p>
         </header>
 
-        <div class="course-info">
-            <div class="info-card">
-                <h3>Modules</h3>
-                <p>6</p>
+        <!-- This visitor's progress on this device (filled by js/bei-nav.js renderTrackPage) -->
+        <div class="jc-track-progress">
+            <div class="jc-prog-row">
+                <div class="jc-prog-info"><b>Your progress</b><span data-jc-track-count>0 of 6 lessons completed</span></div>
+                <div class="jc-prog-bar"><div class="progress-bar-fill" style="width: 0%;"></div></div>
             </div>
-            <div class="info-card">
-                <h3>Level</h3>
-                <p>Advanced</p>
-            </div>
-            <div class="info-card">
-                <h3>Status</h3>
-                <p>Active</p>
-            </div>
+            <a class="btn-hero-primary" href="module1.html" data-jc-track-next>Start lesson 1</a>
         </div>
 
-        <div class="progress-section">
-            <h2>Your Journey Progress</h2>
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
+        <section class="jc-sec" style="margin-top: 0;" aria-labelledby="lessons-title">
+            <div class="jc-sec-head">
+                <h2 id="lessons-title">Lessons</h2>
+                <p>Take them in order. Tick “Mark complete” at the end of a lesson and it is marked here.</p>
             </div>
-            <p class="progress-text">You've mastered <span id="completedModules">0</span> of 6 Modules</p>
-        </div>
+            <h3 class="jc-group-title">Week 1: Foundations</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="module1.html" data-jc-lesson="1">
+                    <span class="jc-lesson-num">1</span>
+                    <span class="jc-lesson-body"><b>Introduction</b><span>Discover what databases are and why every app uses them.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module2.html" data-jc-lesson="2">
+                    <span class="jc-lesson-num">2</span>
+                    <span class="jc-lesson-body"><b>CREATE TABLE</b><span>Design your data structure using CREATE DATABASE and CREATE TABLE.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module3.html" data-jc-lesson="3">
+                    <span class="jc-lesson-num">3</span>
+                    <span class="jc-lesson-body"><b>INSERT &amp; SELECT</b><span>Add data to your tables and retrieve exactly what you need.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+            <h3 class="jc-group-title">Week 2: Power Queries</h3>
+            <ol class="jc-lessons">
+                <li><a class="jc-lesson" href="module4.html" data-jc-lesson="4">
+                    <span class="jc-lesson-num">4</span>
+                    <span class="jc-lesson-body"><b>UPDATE &amp; DELETE</b><span>Complete your CRUD skills — modify and remove data safely.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module5.html" data-jc-lesson="5">
+                    <span class="jc-lesson-num">5</span>
+                    <span class="jc-lesson-body"><b>JOINs</b><span>Connect multiple tables together and unlock powerful relationships.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+                <li><a class="jc-lesson" href="module6.html" data-jc-lesson="6">
+                    <span class="jc-lesson-num">6</span>
+                    <span class="jc-lesson-body"><b>Advanced Queries</b><span>Use aggregate functions, GROUP BY, LIKE, and subqueries like a pro.</span></span>
+                    <span class="jc-lesson-state"></span>
+                </a></li>
+            </ol>
+        </section>
+    </main>
 
-        <!-- Week 1: Foundations -->
-        <div class="week-section">
-            <div class="week-header">Week 1: Foundations</div>
-            <div class="modules-grid">
-                <!-- Module 1 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">
-                        <h2>1: Introduction</h2>
-                        <span class="module-badge">Level 1</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Discover what databases are and why every app uses them.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Database</span>
-                            <span class="topic-tag">Tables</span>
-                            <span class="topic-tag">MySQL</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module1.html" class="btn-start" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">Start Quest</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 2 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">
-                        <h2>2: CREATE TABLE</h2>
-                        <span class="module-badge">Level 1</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Design your data structure using CREATE DATABASE and CREATE TABLE.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">Data Types</span>
-                            <span class="topic-tag">Schema</span>
-                            <span class="topic-tag">DROP TABLE</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module2.html" class="btn-start" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">Build Tables</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 3 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">
-                        <h2>3: INSERT &amp; SELECT</h2>
-                        <span class="module-badge">Level 2</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Add data to your tables and retrieve exactly what you need.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">INSERT</span>
-                            <span class="topic-tag">SELECT</span>
-                            <span class="topic-tag">WHERE</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module3.html" class="btn-start" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">Read &amp; Write</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Week 2: Power Queries -->
-        <div class="week-section">
-            <div class="week-header">Week 2: Power Queries</div>
-            <div class="modules-grid">
-                <!-- Module 4 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">
-                        <h2>4: UPDATE &amp; DELETE</h2>
-                        <span class="module-badge">Level 2</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Complete your CRUD skills — modify and remove data safely.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">UPDATE</span>
-                            <span class="topic-tag">DELETE</span>
-                            <span class="topic-tag">CRUD</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module4.html" class="btn-start" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">Modify Data</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 5 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">
-                        <h2>5: JOINs</h2>
-                        <span class="module-badge">Level 3</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Connect multiple tables together and unlock powerful relationships.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">INNER JOIN</span>
-                            <span class="topic-tag">LEFT JOIN</span>
-                            <span class="topic-tag">Foreign Key</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module5.html" class="btn-start" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">Join Tables</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Module 6 -->
-                <div class="module-card">
-                    <div class="module-card-header" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">
-                        <h2>6: Advanced Queries</h2>
-                        <span class="module-badge">Level 3</span>
-                    </div>
-                    <div class="module-card-body">
-                        <p>Use aggregate functions, GROUP BY, LIKE, and subqueries like a pro.</p>
-                        <div class="module-topics">
-                            <span class="topic-tag">COUNT/SUM</span>
-                            <span class="topic-tag">GROUP BY</span>
-                            <span class="topic-tag">LIKE</span>
-                        </div>
-                        <div class="module-card-footer">
-                            <a href="module6.html" class="btn-start" style="background: linear-gradient(135deg, #0077b6, #00b4d8);">Power Up!</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <section class="content-card" id="practice" style="margin-top: 2rem;">
-                <h2>Practice &amp; reference</h2>
-                <p style="color: var(--text-secondary);">Reading is step one. These pages make you <em>write</em> SQL and check it instantly.</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin-top: 1rem;">
-                    <a href="exercises.html" class="btn-start" style="background: linear-gradient(135deg, #0077b6, #00b4d8); text-align: center;">14 Exercises (auto-checked)</a>
-                    <a href="../studios/sql-sandbox/index.html" class="btn-start" style="background: linear-gradient(135deg, #0f766e, #10b981); text-align: center;">SQL Sandbox</a>
-                    <a href="quiz.html" class="btn-start" style="background: linear-gradient(135deg, #7c3aed, #a855f7); text-align: center;">10-question Quiz</a>
-                    <a href="glossary.html" class="btn-start" style="background: linear-gradient(135deg, #b45309, #f59e0b); text-align: center;">Glossary</a>
-                </div>
-            </section>
-        </div>
-    </div>
-
+    <script src="../js/bei-core.js"></script>
     <script src="../js/bei-nav.js"></script>
-    <script src="../js/tts-voices.js"></script>
-    <script src="../js/core.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const completed = JSON.parse(localStorage.getItem('jc_completed_modules') || '[]');
-            const count = completed.filter(m => m.startsWith('Learning MySQL')).length;
-            const percentage = (count / 6) * 100;
-
-            const fill = document.getElementById('progressFill');
-            const text = document.getElementById('completedModules');
-
-            if (fill) fill.style.width = percentage + '%';
-            if (text) text.textContent = count;
-        });
-    </script>
-    <script src="../js/pdf-download.js"></script>
 </body>
 </html>
