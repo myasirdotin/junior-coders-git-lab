@@ -49,6 +49,15 @@ _Last updated: 2026-11-22 (calm and truthful interface: no points, badges, confe
 
 ## Done (most recent first)
 
+- 2026-11-22 Studios hub and Practice Arena redesigned. Studios: same words, now on the shared pattern (shared
+  header, "Which one do I need?" as a plain note, `.jc-card` for the seven studios and labs, "Good to know" as a
+  note; the page's own style block is gone). Practice Arena: shared header and breadcrumb, a plain title and one
+  sentence ("Five JavaScript challenges…"), palette variables instead of hard-coded dark colours (headings were
+  white on white in the light theme), challenges are buttons (keyboard usable), the single "JavaScript" track tab
+  is gone, "Pick one for me" replaces "Surprise Me". The evaluator's code editor now stays dark with light text in
+  both themes (rule at the end of `styles/bei-core.css`; also applies to the JavaScript lessons), and its Run
+  button keeps the page's own wording after a run. Tests run and pass in the browser; viewed at 1366px light and
+  390px dark.
 - 2026-11-22 Logo: the header and footer show the `</>` brackets mark of the tab icon (owner chose draft A of three)
   in place of the "JC" letters, flat indigo with no glow and no hover wobble. `favicon.svg` lost its gradient;
   `favicon.ico` and `apple-touch-icon.png` rebuilt with `python scripts/build-favicons.py`. Tagline under the name:

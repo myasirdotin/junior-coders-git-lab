@@ -3516,3 +3516,16 @@ html[data-theme="light"] .cheatsheet-container.cheat-v2 .cheat-more a { color: v
 .bei-logo-icon { box-shadow: none; transition: none; }
 .bei-logo:hover .bei-logo-icon { transform: none; }
 .bei-logo-icon svg { display: block; width: 100%; height: 100%; }
+
+/* Studios hub (redesign 22 Nov 2026) */
+.jc-cards-wide { grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); }
+.jc-card-kicker { line-height: 1.4; }
+.jc-pairs { font-size: 0.88rem !important; }
+.jc-pairs a { color: var(--text-indigo); font-weight: 700; }
+.jc-pairs a:hover { text-decoration: underline; }
+.jc-note ul.jc-cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 0.15rem 2rem; }
+.jc-note ul.jc-plain { margin-top: 0; }
+.jc-note ul.jc-plain li + li { margin-top: 0.35rem; }
+.jc-note li a { min-height: 34px; display: inline-flex; align-items: center; }
+/* the code editor of the evaluator box stays dark with light text in both themes (main.css would force the page text colour on it) */
+.evaluator-box textarea.eval-code-input { color: #f8fafc !important; background: #020617 !important; }

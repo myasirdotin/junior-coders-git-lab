@@ -108,6 +108,7 @@ function initEvaluators() {
 
         // Run Tests Button
         if (runBtn && codeInput) {
+            const runLabel = runBtn.innerHTML;   // the page's own wording comes back after a run
             runBtn.addEventListener('click', async () => {
                 runBtn.disabled = true;
                 runBtn.innerHTML = 'Testing...';
@@ -118,14 +119,14 @@ function initEvaluators() {
                 if (!spec) {
                     alert('Test specifications not configured for this challenge.');
                     runBtn.disabled = false;
-                    runBtn.innerHTML = 'Run Automatic Tests';
+                    runBtn.innerHTML = runLabel;
                     return;
                 }
 
                 const result = await window.BeiEvaluator.evaluateSolution(codeInput.value, spec);
 
                 runBtn.disabled = false;
-                runBtn.innerHTML = 'Run Automatic Tests';
+                runBtn.innerHTML = runLabel;
 
                 // Record Attempt
                 window.BeiEvaluator.recordAttempt(specKey, codeInput.value, result.allPassed, result.passedTests, result.totalTests);
