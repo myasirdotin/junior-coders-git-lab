@@ -876,10 +876,10 @@
         const navHtml = `
             <div class="container bei-nav-inner">
                 <a href="${ROOT}index.html" class="bei-logo">
-                    <div class="bei-logo-icon" aria-hidden="true">JC</div>
+                    <div class="bei-logo-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23,20 12,32 23,44"/><polyline points="41,20 52,32 41,44"/><line x1="35.5" y1="17" x2="28.5" y2="47"/></svg></div>
                     <div class="bei-logo-text">
                         <span class="bei-brand-name">Junior Coders</span>
-                        <span class="bei-logo-sub">School Computer Science</span>
+                        <span class="bei-logo-sub">A place to begin</span>
                     </div>
                 </a>
 
@@ -1522,7 +1522,7 @@
         footer.innerHTML = `
             <div class="container footer-grid">
                 <div class="footer-brand">
-                    <a href="${ROOT}index.html" class="bei-logo"><div class="bei-logo-icon" aria-hidden="true">JC</div><span>Junior Coders</span></a>
+                    <a href="${ROOT}index.html" class="bei-logo"><div class="bei-logo-icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23,20 12,32 23,44"/><polyline points="41,20 52,32 41,44"/><line x1="35.5" y1="17" x2="28.5" y2="47"/></svg></div><span>Junior Coders</span></a>
                     <p>School computer science for Grades 6–10: lessons, textbooks that read aloud and practice that checks itself in the browser. Dedicated to beneficial knowledge (<em>'Ilm Nāfi'</em>), digital trust (<em>Amānah</em>) and craftsmanship (<em>Iḥsān</em>).</p>
                     <div class="footer-social-links">
                         <a href="https://github.com/myasirdotin/junior-coders-git-lab" target="_blank" rel="noopener noreferrer" class="footer-pill-btn github-pill" title="Source code on GitHub">

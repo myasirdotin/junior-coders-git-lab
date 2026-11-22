@@ -3503,3 +3503,16 @@ html[data-theme="light"] .cheatsheet-container.cheat-v2 .cheat-more a { color: v
 .jc-steps.jc-steps-6 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 720px) { .jc-steps.jc-steps-6 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 420px) { .jc-steps.jc-steps-6 { grid-template-columns: 1fr; } }
+
+/* Learn hub and Library (redesign 22 Nov 2026): same pattern as the home page */
+.jc-sg-title > span:empty { display: none; }
+.jc-card-title { font-size: 1.35rem; margin: 0; }
+.jc-note-wide { max-width: none; margin-bottom: 2.5rem; }
+.jc-note a { color: var(--text-indigo); font-weight: 700; }
+.jc-note a:hover { text-decoration: underline; }
+.jc-card code { font-size: 0.9em; }
+
+/* Logo (22 Nov 2026): the </> mark of favicon.svg, flat, in the header and footer; no glow, no hover wobble */
+.bei-logo-icon { box-shadow: none; transition: none; }
+.bei-logo:hover .bei-logo-icon { transform: none; }
+.bei-logo-icon svg { display: block; width: 100%; height: 100%; }

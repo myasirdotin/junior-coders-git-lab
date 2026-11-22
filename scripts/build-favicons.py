@@ -1,13 +1,13 @@
 """Builds the bitmap icons from the same design as favicon.svg (run from the repo root):
    favicon.ico (16, 32, 48) and apple-touch-icon.png (180).
-   Design: indigo-to-violet rounded square (the header logo colours) with a white </> mark.
+   Design: flat indigo rounded square (the header logo) with a white </> mark.
    Needs Pillow:  python scripts/build-favicons.py
 """
 from PIL import Image, ImageDraw
 
 BIG = 1024                  # draw large, then shrink: smooth edges at every size
 S = BIG / 64                # favicon.svg uses a 64 x 64 grid
-TOP, BOTTOM = (0x4F, 0x46, 0xE5), (0x7C, 0x3A, 0xED)
+TOP = BOTTOM = (0x4F, 0x46, 0xE5)   # one flat indigo since 22 Nov 2026 (no gradient)
 
 
 def draw(rounded=True):

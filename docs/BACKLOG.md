@@ -49,6 +49,17 @@ _Last updated: 2026-11-22 (calm and truthful interface: no points, badges, confe
 
 ## Done (most recent first)
 
+- 2026-11-22 Logo: the header and footer show the `</>` brackets mark of the tab icon (owner chose draft A of three)
+  in place of the "JC" letters, flat indigo with no glow and no hover wobble. `favicon.svg` lost its gradient;
+  `favicon.ico` and `apple-touch-icon.png` rebuilt with `python scripts/build-favicons.py`. Tagline under the name:
+  "A place to begin" (owner's words) in place of "School Computer Science" (`js/bei-nav.js` and the 18 page fallbacks).
+- 2026-11-22 Learn hub and Library redesigned on the same pattern as the home page. Learn: shorter introduction,
+  a row of jump links to the four groups and the guides, the "New here?" note as a plain note, topic guides as
+  seven cards in plain words (the subject map itself is unchanged; the gap before each group title is gone).
+  Library: the shared site header instead of a hand-written one, title "Library", two cards (textbooks with the
+  generated chapter lines; cheat sheets with a direct link to each of the 12 sheets) and "Also worth reading"
+  (How to Study, How the web works, AI roadmap). `bundle-books.js` still fills the BOOK-LINES block (nothing
+  changed on a re-run); `check-books.js` 0 errors. Viewed at 1366px light and 390px dark.
 - 2026-11-22 Home page (below the first screen) and Teacher Hub redesigned on one quiet pattern (`.jc-sec`,
   `.jc-cards`, `.jc-steps`, `.jc-progress`, `.jc-note`: last blocks of `styles/bei-core.css`). Home: where to
   begin (three buttons, keyboard usable), subjects, "How a lesson works" (Read, See, Try, Practise; replaces the

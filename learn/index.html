@@ -20,28 +20,73 @@
                 <span>Learn</span>
             </div>
             <h1>All 12 subjects</h1>
-            <p class="lead">Four groups, in the same order as the textbooks. Each subject has lessons or a textbook, a cheat sheet and practice that checks itself in the browser. Progress is saved on this device.</p>
-            <p class="start-here-note">New here? <a href="../paths/index.html">Start with a path</a>: it tells you which lesson to do each week.</p>
+            <p class="lead">Four groups, in the same order as the textbooks. Pick a subject to open its lessons, or its textbook when it has no lessons yet.</p>
+            <p class="jc-linkrow jc-jump">
+                <a href="#group-first">First steps</a>
+                <a href="#group-web">Websites that think</a>
+                <a href="#group-python">Python, networks and safety</a>
+                <a href="#group-apps">Apps for phones</a>
+                <a href="#guides">Topic guides</a>
+            </p>
         </header>
+
+        <div class="jc-note jc-note-wide">
+            <p><strong>New here?</strong> <a href="../paths/index.html">Start with a path</a>: it tells you which lesson to do each week. Your progress is saved on this device only.</p>
+        </div>
 
         <!-- The subject map (js/bei-nav.js renderSubjectMaps): the same four groups as the Learn menu and the home page -->
         <div data-jc-subject-map="full"></div>
 
         <!-- Longer guides that join several subjects -->
-        <section class="jc-subjects-section">
-            <div class="section-head" style="text-align: left; margin-bottom: 1rem;">
-                <h2>Topic guides</h2>
+        <section class="jc-sec" id="guides" aria-labelledby="guides-title">
+            <div class="jc-sec-head">
+                <h2 id="guides-title">Topic guides</h2>
                 <p>Longer reads that join several subjects together, with the textbooks and lessons each one uses.</p>
             </div>
-            <ul class="path-picker-guide">
-                <li><a href="foundations/index.html">Foundations &amp; digital literacy</a> (Grades 6–7): files, the terminal and Git.</li>
-                <li><a href="web-dev/index.html">Web development</a>: structure, style and logic with HTML, CSS and JavaScript.</li>
-                <li><a href="web-dev/full-stack/index.html">Full-stack web engineering</a>: PHP, MySQL and Laravel behind the page.</li>
-                <li><a href="python/index.html">Python &amp; data logic</a>: from <code>print()</code> to files and functions.</li>
-                <li><a href="ai-lab/index.html">AI lab &amp; literacy</a>: how models work, prompting, checking facts, ethics (<em>Amānah</em>).</li>
-                <li><a href="cybersecurity/index.html">Cybersecurity &amp; defensive computing</a>: passwords, phishing, OWASP, backups.</li>
-                <li><a href="tooling/index.html">Tooling, Git &amp; GitHub</a>: branches, pull requests and deployment.</li>
-            </ul>
+            <div class="jc-cards">
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Grades 6–7</span>
+                    <h3>Foundations</h3>
+                    <p>Files and folders, the terminal, and saving your work with Git.</p>
+                    <a href="foundations/index.html" class="jc-card-link">Open the guide</a>
+                </div>
+                <div class="jc-card">
+                    <span class="jc-card-kicker">HTML, CSS, JavaScript</span>
+                    <h3>Web development</h3>
+                    <p>Structure, style and logic: how the three languages of a web page fit together.</p>
+                    <a href="web-dev/index.html" class="jc-card-link">Open the guide</a>
+                </div>
+                <div class="jc-card">
+                    <span class="jc-card-kicker">PHP, MySQL, Laravel</span>
+                    <h3>Behind the page</h3>
+                    <p>The server and the database that a web page talks to.</p>
+                    <a href="web-dev/full-stack/index.html" class="jc-card-link">Open the guide</a>
+                </div>
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Python</span>
+                    <h3>Python and data</h3>
+                    <p>From <code>print()</code> to functions and files.</p>
+                    <a href="python/index.html" class="jc-card-link">Open the guide</a>
+                </div>
+                <div class="jc-card">
+                    <span class="jc-card-kicker">AI</span>
+                    <h3>How AI works</h3>
+                    <p>How models learn, how to ask them well, how to check what they say, and using them honestly (<em>Amānah</em>).</p>
+                    <a href="ai-lab/index.html" class="jc-card-link">Open the guide</a>
+                </div>
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Safety</span>
+                    <h3>Cybersecurity</h3>
+                    <p>Passwords, spotting phishing, common website weaknesses and backups.</p>
+                    <a href="cybersecurity/index.html" class="jc-card-link">Open the guide</a>
+                </div>
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Git and GitHub</span>
+                    <h3>Working with others</h3>
+                    <p>Branches, pull requests and putting a site online.</p>
+                    <a href="tooling/index.html" class="jc-card-link">Open the guide</a>
+                </div>
+            </div>
         </section>
 
         <!-- Ethical Pledge Banner -->
