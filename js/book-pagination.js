@@ -160,7 +160,6 @@
             <span>github.com/myasirdotin</span>
           </a>
           <a href="https://beicoders.vercel.app" target="_blank" rel="noopener noreferrer" class="reader-footer-pill live-pill" title="Live Platform">
-            <span class="live-dot-pulse"></span>
             <span>beicoders.vercel.app</span>
           </a>
         </div>

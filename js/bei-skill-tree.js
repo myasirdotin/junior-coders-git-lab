@@ -145,38 +145,33 @@
         if (!container) return;
 
         const state = getStudentState();
-        const info = getLevelInfo(state.xp);
 
         container.innerHTML = `
             <div class="student-rank-avatar">
-                <div class="rank-emblem">${info.current.emblem}</div>
                 <div class="rank-details">
-                    <h3>${escapeHtml(state.studentName)} <span class="rank-level-tag">Level ${info.current.level}</span></h3>
+                    <h3>${escapeHtml(state.studentName)}</h3>
                     <div style="color: var(--text-secondary); font-size: 0.9rem; font-weight: 600;">
-                        ${info.current.title}
+                        JavaScript lessons
                     </div>
                 </div>
             </div>
 
             <div class="rank-xp-meter">
                 <div class="xp-numbers-row">
-                    <span>${state.xp} XP Total</span>
-                    <span>${info.percentage}% to Level ${info.next.level}</span>
+                    <span>${state.completedModules.length} of ${JS_MODULE_COUNT} lessons completed</span>
+                    <span>${Math.round((state.completedModules.length / JS_MODULE_COUNT) * 100)}%</span>
                 </div>
                 <div class="xp-track">
-                    <div class="xp-fill" style="width: ${info.percentage}%;"></div>
-                </div>
-                <div style="text-align: right; font-size: 0.72rem; color: var(--text-muted); margin-top: 0.25rem;">
-                    ${info.needed > 0 ? `${info.needed} XP to ${info.next.title}` : 'Max Level Master!'}
+                    <div class="xp-fill" style="width: ${Math.round((state.completedModules.length / JS_MODULE_COUNT) * 100)}%;"></div>
                 </div>
             </div>
 
             <div style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
                 ${state.completedModules.length >= JS_MODULE_COUNT ? `
                 <button id="btn-open-certificate" class="btn-primary" style="padding: 0.6rem 1.25rem; font-size: 0.88rem; border-radius: var(--radius-sm); background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
-                    📜 View Certificate
+                    View Certificate
                 </button>` : `
-                <span style="color: var(--text-secondary); font-size: 0.85rem;">📜 Your certificate unlocks when you complete all ${JS_MODULE_COUNT} lessons (${state.completedModules.length} of ${JS_MODULE_COUNT} so far).</span>`}
+                <span style="color: var(--text-secondary); font-size: 0.85rem;">Your certificate unlocks when you complete all ${JS_MODULE_COUNT} lessons (${state.completedModules.length} of ${JS_MODULE_COUNT} so far).</span>`}
             </div>
         `;
 
@@ -295,7 +290,6 @@
 
                 <div style="display: inline-flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center; background: #f8fafc; border: 1px dashed #cbd5e1; padding: 0.6rem 1.25rem; border-radius: 8px; font-size: 0.82rem; color: #475569; margin-bottom: 1.5rem;">
                     <span><strong>Track:</strong> JavaScript</span>
-                    <span><strong>Experience:</strong> ${state.xp} XP</span>
                     <span><strong>Made on:</strong> ${dateStr}</span>
                 </div>
                 <p style="color: #64748b; font-size: 0.8rem; margin: 0 0 1.25rem;">Made on this device from the progress saved here. Junior Coders has no accounts, so this certificate cannot be checked online; a teacher can sign it below.</p>

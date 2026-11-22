@@ -137,7 +137,7 @@ function initEvaluators() {
                 if (summaryBadge) {
                     summaryBadge.className = `eval-score-badge ${result.allPassed ? 'passed' : 'failed'}`;
                     summaryBadge.innerHTML = result.allPassed
-                        ? `✓ ${result.passedTests}/${result.totalTests} Tests Passed (+${spec.xpReward || 50} XP)`
+                        ? `✓ ${result.passedTests}/${result.totalTests} Tests Passed`
                         : `✗ ${result.passedTests}/${result.totalTests} Tests Passed`;
                 }
 
@@ -160,7 +160,6 @@ function initEvaluators() {
                 if (diagnosticBox) {
                     if (result.allPassed) {
                         diagnosticBox.style.display = 'none';
-                        showXpToast(`+${spec.xpReward || 50} XP: Challenge Mastered!`);
                     } else if (result.friendlyDiagnostic) {
                         diagnosticBox.style.display = 'block';
                         diagnosticBox.innerHTML = `
@@ -273,13 +272,12 @@ function initQuizEngine() {
                 resultBox.innerHTML = `
                     <div style="background: ${pct >= 80 ? 'rgba(16, 185, 129, 0.15)' : 'rgba(245, 158, 11, 0.15)'}; border: 1.5px solid ${pct >= 80 ? '#10b981' : '#f59e0b'}; padding: 1.25rem; border-radius: var(--radius-md); text-align: center;">
                         <h3 style="color: ${pct >= 80 ? 'var(--text-green)' : 'var(--text-amber)'}; margin-bottom: 0.5rem;">Score: ${score} / ${total} (${pct}%)</h3>
-                        <p style="color: var(--text-secondary); margin: 0;">${pct >= 80 ? 'Outstanding! Quiz Mastery Achieved (+30 XP)' : 'Keep practicing! Review the explanations above and try again.'}</p>
+                        <p style="color: var(--text-secondary); margin: 0;">${pct >= 80 ? 'Well done. You passed this quiz.' : 'Keep practicing! Review the explanations above and try again.'}</p>
                     </div>
                 `;
                 if (pct >= 80) {
                     window.BeiEvaluator.playChime('pass');
                     if (window.awardXP) window.awardXP(30, 'Module Quiz Passed');
-                    showXpToast('+30 XP: Quiz Mastery Achieved!');
                 } else {
                     window.BeiEvaluator.playChime('fail');
                 }
@@ -311,8 +309,7 @@ function initProjectChecklist() {
         saveBtn.addEventListener('click', () => {
             window.BeiEvaluator.playChime('pass');
             if (window.awardXP) window.awardXP(200, 'Module Capstone Project Completed');
-            showXpToast('+200 XP: Capstone Project Completed!');
-            alert('Congratulations! Project marked as completed and added to your learning portfolio.');
+            alert('Well done. You have finished this project.');
         });
     }
 }

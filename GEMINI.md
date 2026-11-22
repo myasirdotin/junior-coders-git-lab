@@ -221,7 +221,7 @@ These rules come from real bugs found in this site. Follow them for every change
    `Learning MySQL/exercises.html` both use it. Exercises live in `js/data/sql-exercises.js`; each one's expected result
    is produced by running its `solution` against the database at page load, so never hard-code expected rows. Keep
    scenarios within §1 (school library, charity drives). Exercise completions are stored by `beiProgress.completeExercise`
-   with keys like `mysql:<id>` and earn 15/25/40 XP by tier.
+   with keys like `mysql:<id>` (a points number is still passed and stored, but never shown: §7h2).
 7f. **PHP practice runs on a real engine too.** `js/php-lab.js` loads php-wasm (PHP 8.3 in WebAssembly, pinned on
    jsdelivr, ~12 MB downloaded once). The PHP Console studio (`studios/php-console/`) and `Learning PHP/exercises.html`
    use it. Exercises live in `js/data/php-exercises.js` in three kinds: `predict` and `fill` need no engine (tier 1);
@@ -240,11 +240,11 @@ These rules come from real bugs found in this site. Follow them for every change
    `fill`, `choice`, `bug`, `order`, `code` (checked for key parts, nothing runs), and three that really run: `js`
    (a Web Worker with a time limit, compared with the solution), `web` (HTML/CSS rendered in a sandboxed frame and
    checked) and `python` (Pyodide via `js/py-lab.js`, output compared with the solution's). Keys `<track>:<id>`, 15/25/40
-   XP by tier. Never fake a run: if an engine cannot load, the page says so. After any edit run
+   points by tier (stored, never shown: §7h2). Never fake a run: if an engine cannot load, the page says so. After any edit run
    `node scripts/check-practice.js [site URL]`: it opens `scripts/practice-selftest.html` in headless Chrome and checks
    that every solution passes, every starter fails and every predicted output is what the code really prints. Laravel
    cannot run in a browser, so its page says written answers are checked for their key parts; its "Build it on your
-   own XAMPP" checklists are ticked by the student and earn no XP (`node scripts/check-laravel-exercises.js` too).
+   own XAMPP" checklists are ticked by the student (`node scripts/check-laravel-exercises.js` too).
 7f4. **Practice files students copy (GitHub).** `node scripts/build-exercises-repo.js` builds, from the same
    `js/data/html|css|js-practice.js` tasks, the folder `../junior-coders-exercises` (its own public template repository,
    `myasirdotin/junior-coders-exercises`: starter files and READMEs only, no answers, no site tooling) and the
@@ -255,6 +255,12 @@ These rules come from real bugs found in this site. Follow them for every change
    `<section class="content-section jc-tiers">` holding `.jc-tier.jc-tier-1` (Recall), `.jc-tier-2` (Apply) and
    `.jc-tier-3` (Challenge), each answer in `<details class="jc-answer">`. Styles live in `styles/bei-core.css` and
    work in both themes; do not hard-code colours for practice blocks.
+7h2. **Calm pages, plain words.** The site is for school children: nothing on a page competes with the lesson.
+   No points (XP), levels, badges, streaks, confetti or reward pop-ups are shown; progress is "N of M lessons
+   completed". No blinking or pulsing decorations and no entrance animations on lesson text (a short fade on a menu
+   or a narrator "speaking" indicator is fine). No boastful or comparing words in visible text: not "official",
+   "verified", "live", "best", "become a developer", "unlike other sites". A button that does nothing is shown
+   disabled. Rewards a page describes must be ones the page really gives.
 7h. **Say what is real.** Sample or demo data (Teacher Hub dashboard, project gallery) must be labelled as sample on
    the page. Do not promise what the site cannot do: there are no accounts, certificates are made on the student's
    device and cannot be verified by others, progress is saved per device. Chapter and lesson counts must match the files.

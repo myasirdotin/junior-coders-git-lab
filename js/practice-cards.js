@@ -168,7 +168,7 @@ self.onmessage = (e) => {
             <header class="sqlx-card-head">
                 <span class="sqlx-num">${isDone ? '✓' : i + 1}</span>
                 <h2>${esc(ex.title)}</h2>
-                <span class="sqlx-tier t${ex.tier}">${TIER_LABEL[ex.tier]} · ${XP[ex.tier]} XP</span>
+                <span class="sqlx-tier t${ex.tier}">${TIER_LABEL[ex.tier]}</span>
             </header>
             <p class="sqlx-task">${ex.task}</p>`;
         const links = [];
@@ -267,11 +267,10 @@ self.onmessage = (e) => {
             const first = progress() ? progress().completeExercise(doneKey(ex), XP[ex.tier]) : false;
             fb.hidden = false;
             fb.className = 'sqlx-feedback ok';
-            fb.innerHTML = (first ? `Correct! +${XP[ex.tier]} XP` : 'Correct!') + (extra || '');
+            fb.innerHTML = 'Correct!' + (extra || '');
             cardEl.classList.add('done');
             cardEl.querySelector('.sqlx-num').textContent = '✓';
             updateProgress();
-            if (first && typeof window.showToast === 'function') window.showToast(`Exercise solved! +${XP[ex.tier]} XP`, 'success');
         }
         function sayNo(fb, html) { fb.hidden = false; fb.className = 'sqlx-feedback no'; fb.innerHTML = html; }
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Junior Coders Practice Arena - Solve multi-tier coding challenges with real-time automated test evaluation and XP rewards.">
+    <meta name="description" content="Junior Coders Practice Arena - Solve multi-tier coding challenges with tests that check your answer in the browser.">
     <title>Practice Arena | Junior Coders</title>
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/bei-core.css">
@@ -69,7 +69,7 @@
                     <span class="badge" style="background: var(--brand-accent); color: white; padding: 0.3rem 0.8rem; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">Independent Practice</span>
                     <h1 style="font-size: 2.2rem; font-weight: 800; color: #fff; margin: 0.5rem 0 0.35rem;">Coding Practice Arena</h1>
                     <p style="color: var(--text-secondary); margin: 0; font-size: 0.98rem;">
-                        Strengthen your computational thinking with targeted challenges. Instant automated tests, helpful hints, and XP rewards.
+                        Strengthen your computational thinking with targeted challenges. Tests that check your answer in the browser, with hints when you are stuck.
                     </p>
                 </div>
                 <button id="btn-random-challenge" class="btn-primary" style="padding: 0.75rem 1.4rem; font-size: 0.95rem; border-radius: var(--radius-md); background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);">Surprise Me with a Challenge
@@ -114,7 +114,6 @@
                 <div id="active-challenge-header" style="margin-bottom: 1.25rem;">
                     <div style="display: flex; align-items: center; gap: 0.65rem; margin-bottom: 0.4rem;">
                         <span id="active-tier-pill" class="tier-badge" style="background: #10b981; color: #022c22;">Level 1</span>
-                        <span id="active-xp-pill" style="font-size: 0.8rem; font-weight: 700; color: #fbbf24;">+30 XP</span>
                     </div>
                     <h2 id="active-challenge-title" style="color: #fff; margin: 0 0 0.5rem; font-size: 1.45rem;">calculateSum Function</h2>
                     <p id="active-challenge-desc" style="color: var(--text-secondary); line-height: 1.6; margin: 0; font-size: 0.95rem;">
@@ -435,7 +434,6 @@
                 <div class="challenge-item-card ${c.id === activeChallenge.id ? 'active' : ''}" data-id="${c.id}">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.25rem;">
                         <span style="font-size:0.75rem; font-weight:700; color:${c.tier === 'easy' ? '#34d399' : c.tier === 'medium' ? '#fbbf24' : '#f87171'};">${c.tierLabel}</span>
-                        <span style="font-size:0.75rem; color:#fde047; font-weight:700;">+${c.xp} XP</span>
                     </div>
                     <strong style="color:#f8fafc; font-size:0.92rem; display:block; margin-bottom:0.2rem;">${c.title}</strong>
                     <span style="font-size:0.78rem; color:var(--text-muted); text-transform:uppercase;">${c.lang}</span>
@@ -459,7 +457,6 @@
 
             document.getElementById('active-challenge-title').textContent = ch.title;
             document.getElementById('active-challenge-desc').innerHTML = ch.desc;
-            document.getElementById('active-xp-pill').textContent = `+${ch.xp} XP`;
             
             const tierPill = document.getElementById('active-tier-pill');
             tierPill.textContent = ch.tierLabel;

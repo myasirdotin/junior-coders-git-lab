@@ -1530,7 +1530,7 @@
                             <span>Source on GitHub</span>
                         </a>
                         <a href="https://beicoders.vercel.app" target="_blank" rel="noopener noreferrer" class="footer-pill-btn live-pill" title="The live site">
-                            <span class="live-pulse-dot"></span><span>beicoders.vercel.app</span>
+                            <span>beicoders.vercel.app</span>
                         </a>
                     </div>
                 </div>

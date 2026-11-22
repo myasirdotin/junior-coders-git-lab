@@ -4,7 +4,7 @@
 It is loaded into Claude's context at the start of every session (imported by `CLAUDE.md`), and any AI tool
 or person updates it at the end of a session (see `docs/SESSION-HANDOFF.md`, or say `/handoff` in Claude Code).
 
-_Last updated: 2026-11-11 (practice files students copy from GitHub, teacher answer page)._
+_Last updated: 2026-11-22 (calm and truthful interface: no points, badges, confetti or boastful wording)._
 
 ## Now (in progress)
 
@@ -47,6 +47,18 @@ _Last updated: 2026-11-11 (practice files students copy from GitHub, teacher ans
   work, data untouched). Other XAMPP projects that use MySQL (bei, ehsas) need it; repair from the XAMPP panel.
 
 ## Done (most recent first)
+
+- 2026-11-22 Calm and truthful interface (owner's review; new rule GEMINI §7h2). Removed: every visible points (XP)
+  label and pop-up (36 pages and scripts; the stored counter stays, unseen), the confetti (and its outside script),
+  the daily-streak pop-up, the pulsing dot beside the site address (footer and textbook reader), the slide-in of
+  lesson title cards, and on the JavaScript track page the level/XP bar (now "N of 9 lessons completed") and the
+  badges showcase (most badges were given for points, not for what they described). Wording: no "Official"
+  textbooks/curriculum/assessment, no "Become a developer", no "Unlike self-study websites". AI Roadmap: plain title
+  card instead of the rainbow banner, no "Live Course" badge, no dead YouTube chip, no image-generator card, no film
+  quote, careers list reworded. Teacher Hub sample buttons are disabled. Checked: `check-books.js` 0 errors,
+  `validate-scripts.js`, `strip-emoji.js --check`, `check-practice.js` no problems; five pages viewed in the browser.
+  Left as they are: code examples that use XP as their subject (PHP module 8, Python module 1, HTML module 7's table),
+  the pass/fail chime in JS lessons, and the lock on later nodes of the JS skill tree.
 
 - 2026-11-11 Practice files students copy from GitHub: new public template repository `myasirdotin/junior-coders-exercises`
   (local folder `../junior-coders-exercises`): the 52 HTML, CSS and JavaScript tasks of the exercise pages as starter

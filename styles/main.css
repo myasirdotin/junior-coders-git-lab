@@ -1054,7 +1054,6 @@ p {
 .module-header {
     text-align: center;
     margin-bottom: 4rem;
-    animation: slideDown 0.6s ease-out;
 }
 
 .module-header h1 {
@@ -3221,7 +3220,8 @@ select:focus-visible {
     padding: 3.5rem 2rem;
     border-radius: var(--radius-lg);
     margin-bottom: 4rem;
-    background: linear-gradient(135deg, #6366f1, #ec4899, #f59e0b);
+    background: var(--bg-surface, #111827);
+    border: 1px solid var(--border-subtle, #1f2937);
     position: relative;
     overflow: hidden;
 }

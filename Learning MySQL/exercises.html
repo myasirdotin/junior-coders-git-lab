@@ -68,7 +68,7 @@
                 <header class="sqlx-card-head">
                     <span class="sqlx-num">${isDone(ex) ? '✓' : i + 1}</span>
                     <h2>${esc(ex.title)}</h2>
-                    <span class="sqlx-tier t${ex.tier}">${TIER_LABEL[ex.tier]} · ${XP[ex.tier]} XP</span>
+                    <span class="sqlx-tier t${ex.tier}">${TIER_LABEL[ex.tier]}</span>
                 </header>
                 <p class="sqlx-task">${ex.task}</p>
                 <textarea class="sqlx-editor" spellcheck="false" aria-label="Your SQL for: ${esc(ex.title)}">${esc(ex.starter || 'SELECT ')}</textarea>
@@ -156,11 +156,10 @@
                     if (verdict.ok) {
                         const first = progress() ? progress().completeExercise(doneKey(ex), XP[ex.tier]) : false;
                         fb.className = 'sqlx-feedback ok';
-                        fb.innerHTML = first ? `Correct! +${XP[ex.tier]} XP` : 'Correct!';
+                        fb.innerHTML = 'Correct!';
                         cardEl.classList.add('done');
                         cardEl.querySelector('.sqlx-num').textContent = '✓';
                         updateProgress();
-                        if (first && typeof window.showToast === 'function') window.showToast(`Exercise solved! +${XP[ex.tier]} XP`, 'success');
                     } else {
                         fb.className = 'sqlx-feedback no';
                         fb.innerHTML = '' + verdict.msg;

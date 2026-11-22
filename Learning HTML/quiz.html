@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Test your HTML5 knowledge with the official Junior Coders Class 7 HTML Quiz. Earn XP and verify your web foundations.">
+    <meta name="description" content="Test your HTML knowledge with the Junior Coders Class 7 HTML quiz: 10 questions with explanations.">
     <title>HTML Mastery Quiz | Junior Coders</title>
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="../styles/bei-core.css">
@@ -16,11 +16,11 @@
     <div class="quiz-page-container">
         <header class="quiz-hero">
             <div class="hero-pill-badge">
-                <span></span> Official Class 7 Assessment
+                <span></span> Class 7 Quiz
             </div>
             <h1 style="margin-top: 0.75rem;">HTML Fundamentals Quiz</h1>
             <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
-                Answer all 10 questions to test your understanding of HTML structure, tags, links, media, tables, and semantics. Score 7/10 or higher to earn <strong>+50 XP</strong>!
+                Answer all 10 questions to test your understanding of HTML structure, tags, links, media, tables, and semantics. A score of 7/10 or higher is a pass.
             </p>
         </header>
 
@@ -238,7 +238,7 @@
             if (userScore >= 7) {
                 icon.textContent = '';
                 heading.textContent = 'Congratulations! You Passed!';
-                feedback.textContent = `Terrific job! You demonstrated solid mastery of HTML fundamentals. You earned +50 XP!`;
+                feedback.textContent = `Well done. You know the HTML basics.`;
                 
                 // Award XP to core platform state
                 if (window.awardXP) {
@@ -255,7 +255,7 @@
             } else {
                 icon.textContent = '';
                 heading.textContent = 'Keep Practicing!';
-                feedback.textContent = `You scored ${userScore}/10. Review Chapters 3–12 in the Class 7 textbook and retake the quiz to earn your +50 XP badge!`;
+                feedback.textContent = `You scored ${userScore}/10. Review Chapters 3–12 in the Class 7 textbook and then try the quiz again.`;
             }
         }
 

@@ -236,9 +236,6 @@
         state.totalXP = (state.totalXP || 0) + amount;
         JC_State.save(state);
         updateDashboard();
-        if (window.showToast) {
-            window.showToast(`+${amount} XP! ${reason}`, 'success');
-        }
         return state.totalXP;
     };
 
@@ -253,7 +250,7 @@
             JC_State.save(state);
             updateDashboard();
             if (window.showToast) {
-                window.showToast(`Chapter Completed! +${xpBonus} XP`, 'success');
+                window.showToast('Chapter completed', 'success');
             }
             return true;
         }
@@ -298,9 +295,6 @@
                 if (diffDays === 1) {
                     streak += 1;
                     JC_State.set('streak', streak);
-                    setTimeout(() => {
-                        window.showToast?.(`Daily streak updated! ${streak} Days`);
-                    }, 1000);
                 } else if (diffDays > 1) {
                     streak = 1;
                     JC_State.set('streak', 1);
@@ -745,28 +739,6 @@ Resources <span class="dropdown-arrow">▾</span>
     window.toggleTheme = toggleTheme;
 
     // --- Progress Tracking ---
-    function triggerConfetti() {
-        if (typeof confetti === 'undefined') {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js';
-            script.onload = () => {
-                window.confetti({
-                    particleCount: 120,
-                    spread: 80,
-                    origin: { y: 0.6 },
-                    colors: ['#6366f1', '#f43f5e', '#10b981', '#f59e0b', '#0ea5e9']
-                });
-            };
-            document.head.appendChild(script);
-        } else {
-            window.confetti({
-                particleCount: 120,
-                spread: 80,
-                origin: { y: 0.6 },
-                colors: ['#6366f1', '#f43f5e', '#10b981', '#f59e0b', '#0ea5e9']
-            });
-        }
-    }
 
     window.markComplete = (moduleNum) => {
         const currentModule = getCurrentModule();
@@ -779,7 +751,6 @@ Resources <span class="dropdown-arrow">▾</span>
             completed.push(moduleKey);
             JC_State.set('completedModules', completed);
             window.showToast(`Module ${moduleNum} completed!`);
-            triggerConfetti();
 
             const progressFill = document.getElementById('progressFill');
             const completedText = document.getElementById('completedModules');
