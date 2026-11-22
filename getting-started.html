@@ -3,84 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Getting Started | Junior Coders</title>
-    <link rel="stylesheet" href="styles/main.css">
+    <title>How the Web Works | Junior Coders</title>
+    <meta name="description" content="Before you write code: what HTML, CSS and JavaScript each do, how the three files find each other, and how a browser turns them into a page.">
     <link rel="stylesheet" href="styles/bei-core.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="container">
-        <header class="module-header path-getting-started">
-            <span class="badge" style="background: white; color: var(--primary);">Level 0</span>
-            <h1>How the Web Works</h1>
-            <p>Before we write code, let's understand how a website is actually built!</p>
+    <div id="bei-global-nav"></div>
+
+    <main class="container">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> <span>/</span>
+                <span>How the web works</span>
+            </div>
+            <h1>How the web works</h1>
+            <p class="lead">Before you write code, see how a web page is put together. It takes about five minutes to read.</p>
         </header>
 
-        <main>
-            <!-- The Trio Analogy -->
-            <section class="analogy-grid">
-                <div class="analogy-card">
-                    <h2>HTML</h2>
-                    <p><strong>The Skeleton.</strong> It defines the structure. Where is the head? Where are the feet?</p>
+        <!-- The three languages -->
+        <section class="jc-sec" style="margin-top: 0;" aria-labelledby="trio-title">
+            <div class="jc-sec-head">
+                <h2 id="trio-title">Three languages, three jobs</h2>
+                <p>Think of a web page as a person.</p>
+            </div>
+            <div class="jc-cards">
+                <div class="jc-card">
+                    <span class="jc-card-kicker">The skeleton</span>
+                    <h3>HTML</h3>
+                    <p>It gives the page its structure: where the heading is, where the picture goes, what is a list.</p>
                 </div>
-                <div class="analogy-card">
-                    <h2>CSS</h2>
-                    <p><strong>The Clothes.</strong> It defines the look. What color is the shirt? How big is the font?</p>
+                <div class="jc-card">
+                    <span class="jc-card-kicker">The clothes</span>
+                    <h3>CSS</h3>
+                    <p>It decides how the page looks: the colours, the size of the text, the space around things.</p>
                 </div>
-                <div class="analogy-card">
-                    <h2>JavaScript</h2>
-                    <p><strong>The Brain.</strong> It defines the action. What happens when I click?</p>
-                </div>
-            </section>
-
-            <!-- Linking Explanation -->
-            <section class="content-section">
-                <h2>How do they talk to each other?</h2>
-                <p>Imagine your website is a recipe. The HTML is the kitchen, but it needs to know where to find the spices (CSS) and the chef (JS).</p>
-                
-                <div class="connection-box">
-                    <p>Inside your HTML file's <code>&lt;head&gt;</code>, we use a <strong>Link</strong> tag for CSS:</p>
-                    <div class="code-block">
-                        &lt;link rel="stylesheet" href="<span class="code-val">style.css</span>"&gt;
-                    </div>
-                    
-                    <p>And at the bottom of your <code>&lt;body&gt;</code>, we use a <strong>Script</strong> tag for JS:</p>
-                    <div class="code-block">
-                        &lt;script src="<span class="code-val">script.js</span>"&gt;&lt;/script&gt;
-                    </div>
-                </div>
-            </section>
-
-            <!-- How to View -->
-            <section class="content-section" style="border-left-color: var(--accent);">
-                <h2>How do I see my work?</h2>
-                <p>Browsers (like Chrome or Edge) are like translators. They read your code files and turn them into the beautiful pages you see.</p>
-                <div class="analogy-grid" style="grid-template-columns: 1fr 1fr;">
-                    <div class="analogy-card" style="padding: 1.5rem;">
-                        <h3>1. Save Your Files</h3>
-                        <p style="font-size: 0.85rem;">Make sure your files end in <code>.html</code>, <code>.css</code>, or <code>.js</code>.</p>
-                    </div>
-                    <div class="analogy-card" style="padding: 1.5rem;">
-                        <h3>2. Open the HTML</h3>
-                        <p style="font-size: 0.85rem;">Always open the <strong>HTML</strong> file. It will grab the rest for you!</p>
-                    </div>
-                </div>
-            </section>
-
-            <div style="text-align: center; margin-top: 5rem; padding-bottom: 5rem;">
-                <h2>Ready to start your first adventure?</h2>
-                <div style="margin-top: 2rem;">
-                    <a href="Learning HTML/learninghtml.html" class="btn-primary" style="padding: 1.2rem 3rem; font-size: 1.2rem;">Go to HTML Module 1</a>
+                <div class="jc-card">
+                    <span class="jc-card-kicker">The brain</span>
+                    <h3>JavaScript</h3>
+                    <p>It decides what the page does: what happens when you click a button or type in a box.</p>
                 </div>
             </div>
-        </main>
-    </div>
+        </section>
 
+        <!-- How the files find each other -->
+        <section class="jc-sec" aria-labelledby="link-title">
+            <div class="jc-sec-head">
+                <h2 id="link-title">How do the three files find each other?</h2>
+                <p>The browser opens the HTML file first. Two short lines inside it say where the other two files are.</p>
+            </div>
+            <div class="jc-card jc-card-read">
+                <p>Inside the <code>&lt;head&gt;</code> of your HTML file, a <strong>link</strong> tag points to the CSS file:</p>
+                <pre class="jc-code"><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+                <p>At the bottom of the <code>&lt;body&gt;</code>, a <strong>script</strong> tag points to the JavaScript file:</p>
+                <pre class="jc-code"><code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+            </div>
+        </section>
+
+        <!-- Seeing your work -->
+        <section class="jc-sec" aria-labelledby="see-title">
+            <div class="jc-sec-head">
+                <h2 id="see-title">How do I see my work?</h2>
+                <p>A browser such as Chrome or Edge reads your files and turns them into the page you see.</p>
+            </div>
+            <ol class="jc-steps">
+                <li><strong>Save your files</strong><span>Give each one the right ending: <code>.html</code>, <code>.css</code> or <code>.js</code>.</span></li>
+                <li><strong>Open the HTML file</strong><span>Always open the HTML file. It fetches the other two for you.</span></li>
+                <li><strong>Change and refresh</strong><span>Change something, save, and press refresh in the browser to see it.</span></li>
+            </ol>
+        </section>
+
+        <section class="jc-sec" aria-labelledby="next-title">
+            <div class="jc-sec-head">
+                <h2 id="next-title">Ready for your first lesson?</h2>
+            </div>
+            <div class="hero-actions jc-actions">
+                <a href="Learning%20HTML/module1.html" class="btn-hero-primary">Start HTML lesson 1</a>
+                <a href="paths/index.html" class="btn-hero-secondary">Or pick a path</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/bei-core.js"></script>
     <script src="js/bei-nav.js"></script>
-    <script src="js/tts-voices.js"></script>
-    <script src="js/core.js"></script>
 </body>
 </html>

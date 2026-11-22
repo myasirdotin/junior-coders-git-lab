@@ -3,36 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | Junior Coders</title>
-    <meta name="description" content="Get in touch with the Junior Coders team.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+    <title>Contact | Junior Coders</title>
+    <meta name="description" content="How to tell the Junior Coders team about a mistake or an idea, without giving any personal details.">
     <link rel="stylesheet" href="styles/bei-core.css">
 </head>
 <body>
 
-    <div class="module-container">
-        <header class="module-header" style="background: linear-gradient(135deg, #4f46e5, #312e81); border-radius: 20px; padding: 2rem 1.5rem;">
-            <h1>Contact Us</h1>
-            <p>Found a mistake, or have an idea for the site? Here is how to tell us.</p>
+    <div id="bei-global-nav"></div>
+
+    <main class="container">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> <span>/</span>
+                <span>Contact</span>
+            </div>
+            <h1>Contact</h1>
+            <p class="lead">Found a mistake, or have an idea for the site? Here is how to tell us.</p>
         </header>
 
-        <main class="content-section contact-content">
-            <h2>Students</h2>
-            <p>Tell your teacher what you found: the page, and what looked wrong. Your teacher can pass it on. Please do not post your name, school or email anywhere online to reach us.</p>
+        <section class="jc-sec" style="margin-top: 0;" aria-label="How to reach us">
+            <div class="jc-split">
+                <div class="jc-card">
+                    <h2 class="jc-card-title">Students</h2>
+                    <p>Tell your teacher what you found: the page, and what looked wrong. Your teacher can pass it on.</p>
+                    <p>Please do not post your name, school or email anywhere online to reach us.</p>
+                </div>
+                <div class="jc-card">
+                    <h2 class="jc-card-title">Teachers and parents</h2>
+                    <p>Open an issue on the project's GitHub page. Describe the page and the problem; a screenshot helps. You need a free GitHub account.</p>
+                    <p>The same page is where teachers can ask for <a href="teacher-hub/index.html#studio">BEI Classroom Studio</a>.</p>
+                    <a href="https://github.com/myasirdotin/junior-coders-git-lab/issues" class="jc-card-link" target="_blank" rel="noopener noreferrer">Report on GitHub</a>
+                </div>
+            </div>
+        </section>
 
-            <h2>Teachers and parents</h2>
-            <p>Open an issue on the project's GitHub page. Describe the page and the problem; a screenshot helps. You need a free GitHub account.</p>
-            <p><a href="https://github.com/myasirdotin/junior-coders-git-lab/issues" class="btn-primary" target="_blank" rel="noopener noreferrer">Report on GitHub ↗</a></p>
+        <section class="jc-sec" aria-label="Why there is no form">
+            <div class="jc-note">
+                <p><strong>Why is there no contact form?</strong> A form would have to collect your details, and we try to keep personal information out of Junior Coders (<em>Amānah</em>).</p>
+            </div>
+        </section>
+    </main>
 
-            <p style="color: var(--text-secondary); font-size: 0.9rem;">This site has no contact form: it would have to collect your details, and we keep personal information out of Junior Coders (<em>Amānah</em>).</p>
-        </main>
-    </div>
-
+    <script src="js/bei-core.js"></script>
     <script src="js/bei-nav.js"></script>
-    <script src="js/tts-voices.js"></script>
-    <script src="js/core.js"></script>
 </body>
 </html>

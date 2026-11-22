@@ -52,7 +52,7 @@
                    background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); color: var(--text-secondary); }
 
         .pj-progress { height: 8px; border-radius: 999px; background: var(--bg-surface-elevated); overflow: hidden; }
-        .pj-progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #10b981, #38bdf8); transition: width 0.3s ease; }
+        .pj-progress span { display: block; height: 100%; width: 0; background: var(--brand-accent); transition: width 0.3s ease; }
         .pj-progress-text { margin: -0.3rem 0 0; font-size: 0.78rem; color: var(--text-muted); font-weight: 700; }
 
         .pj-more { border-top: 1px solid var(--border-subtle); padding-top: 0.5rem; }
@@ -109,29 +109,7 @@
 </head>
 <body>
 
-    <nav class="bei-nav">
-        <div class="container bei-nav-inner">
-            <a href="../index.html" class="bei-logo">
-                <div>
-                    Junior Coders
-                    <span class="bei-logo-sub">A place to begin</span>
-                </div>
-            </a>
-            <ul class="bei-nav-links">
-                <li><a href="../learn/index.html" class="bei-nav-link">Learn</a></li>
-                <li><a href="../studios/index.html" class="bei-nav-link">Studios</a></li>
-                <li><a href="../library/books/index.html" class="bei-nav-link">Textbooks</a></li>
-                <li><a href="index.html" class="bei-nav-link active">Projects</a></li>
-                <li><a href="../paths/index.html" class="bei-nav-link">Pathways</a></li>
-                <li><a href="../teacher-hub/index.html" class="bei-nav-link">Teachers</a></li>
-            </ul>
-            <div class="bei-nav-actions">
-                <button class="theme-toggle-btn" aria-label="Toggle theme"></button>
-                <a href="../studios/web-studio/index.html" class="btn-nav-primary">Build in Studio</a>
-                <button class="mobile-toggle" aria-label="Toggle navigation menu">☰</button>
-            </div>
-        </div>
-    </nav>
+    <div id="bei-global-nav"></div>
 
     <main class="container pj-page">
         <header class="learn-header pj-header">

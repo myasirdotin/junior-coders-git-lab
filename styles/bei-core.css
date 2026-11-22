@@ -3529,3 +3529,28 @@ html[data-theme="light"] .cheatsheet-container.cheat-v2 .cheat-more a { color: v
 .jc-note li a { min-height: 34px; display: inline-flex; align-items: center; }
 /* the code editor of the evaluator box stays dark with light text in both themes (main.css would force the page text colour on it) */
 .evaluator-box textarea.eval-code-input { color: #f8fafc !important; background: #020617 !important; }
+
+/* Reading pages: How the web works, AI roadmap, Contact (redesign 22 Nov 2026) */
+.jc-stack { display: grid; gap: 1rem; max-width: 52rem; }
+.jc-card-read { max-width: 52rem; }
+.jc-code {
+    margin: 0.2rem 0 0.6rem; padding: 0.9rem 1.1rem; overflow-x: auto; border-radius: var(--radius-md);
+    background: #020617; color: #e2e8f0; font-family: var(--font-mono); font-size: 0.9rem; line-height: 1.6;
+    font-variant-ligatures: none;
+}
+.jc-code code { background: none; padding: 0; color: inherit; font: inherit; }
+.jc-card a:not(.jc-card-link) { color: var(--text-indigo); font-weight: 600; }
+.jc-card a:not(.jc-card-link):hover { text-decoration: underline; }
+.jc-actions { justify-content: flex-start; flex-direction: row; margin: 0; }
+.jc-compare { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 0.75rem; max-width: 60rem; }
+.jc-compare > div {
+    background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 4px solid var(--border-subtle);
+    border-radius: var(--radius-md); padding: 0.9rem 1.1rem;
+}
+.jc-compare > .jc-compare-strong { border-left-color: var(--brand-accent); }
+.jc-compare p { margin: 0.3rem 0 0; color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+@media (max-width: 640px) {
+    .jc-compare { grid-template-columns: 1fr; }
+    .jc-compare > .jc-compare-strong { margin-bottom: 0.6rem; }
+    .jc-actions { flex-direction: column; }
+}

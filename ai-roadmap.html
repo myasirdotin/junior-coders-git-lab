@@ -5,281 +5,201 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Roadmap | Junior Coders</title>
     <meta name="description" content="A step-by-step guide from web basics to understanding AI: what it is, how to use AI tools carefully, and what to learn next.">
-    <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/bei-core.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="roadmap-container">
 
-    <header class="roadmap-hero">
-        <h1>Your AI Roadmap</h1>
-        <p>A step-by-step guide from web basics to understanding how AI works.</p>
-    </header>
+    <div id="bei-global-nav"></div>
 
-    <!-- Section 1: Timeline -->
-    <section style="margin-bottom: 4rem;">
-        <h2 style="margin-bottom: 2rem; font-size: 1.5rem;">Your Learning Journey</h2>
+    <main class="container">
+        <header class="learn-header">
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> <span>/</span>
+                <span>AI roadmap</span>
+            </div>
+            <h1>AI roadmap</h1>
+            <p class="lead">A step-by-step guide from web basics to understanding how AI works, and how to use it with care.</p>
+            <p class="jc-linkrow jc-jump">
+                <a href="#steps">The six steps</a>
+                <a href="#prompts">Clear prompts</a>
+                <a href="#tools">AI tools</a>
+                <a href="#careful">A careful user</a>
+            </p>
+        </header>
 
-        <div class="roadmap-timeline">
-
-            <!-- Step 0: You Are Here -->
-            <div class="roadmap-step you-are-here">
-                <div class="roadmap-step-number">0</div>
-                <div class="roadmap-step-title">
-                    <span>Start Here — Web Foundations</span>
-                    <span class="roadmap-tag current">Start</span>
+        <!-- The six steps -->
+        <section class="jc-sec" id="steps" style="margin-top: 0;" aria-labelledby="steps-title">
+            <div class="jc-sec-head">
+                <h2 id="steps-title">The six steps</h2>
+                <p>Take them in order. Each one builds on the one before it.</p>
+            </div>
+            <div class="jc-stack">
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Step 1</span>
+                    <h3>Start with the web</h3>
+                    <p>HTML gives a page its structure, CSS its look, and JavaScript its behaviour. Websites and the apps that use AI are built on these three, so they come first.</p>
+                    <p class="jc-linkrow">
+                        <a href="getting-started.html">How the web works</a>
+                        <a href="Learning%20HTML/module1.html">HTML lesson 1</a>
+                    </p>
                 </div>
-                <p>You are learning <strong>HTML</strong> (structure), <strong>CSS</strong> (style), and <strong>JavaScript</strong> (logic). This is the <em>most important foundation</em> for everything that follows. Every app, every website, every AI-powered tool you'll ever build starts with these three skills.</p>
-                <div class="roadmap-tools">
-                    <span class="roadmap-tool">HTML5</span>
-                    <span class="roadmap-tool">CSS3</span>
-                    <span class="roadmap-tool">JavaScript</span>
-                    <span class="roadmap-tool">Code Lab</span>
+
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Step 2</span>
+                    <h3>Understand what AI is</h3>
+                    <p>AI is maths and data. It finds patterns in a very large number of examples, a little like the way you learned to recognise a cat by seeing many cats.</p>
+                    <ul class="jc-list">
+                        <li><strong>Algorithm</strong>: a set of instructions, like a recipe.</li>
+                        <li><strong>Model</strong>: an AI that has been trained on data.</li>
+                        <li><strong>Training</strong>: teaching the AI by showing it examples.</li>
+                        <li><strong>Input and output</strong>: you give data in, and the AI gives a result out.</li>
+                    </ul>
+                </div>
+
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Step 3</span>
+                    <h3>Use AI as a helper</h3>
+                    <p>With your teacher's or parent's permission, an AI tool can explain code, help you find a mistake, or suggest ideas. Things you can ask:</p>
+                    <ul class="jc-list">
+                        <li>“Explain what this line of code does.”</li>
+                        <li>“Why is my CSS not working? Here is my code: …”</li>
+                        <li>“Give me five project ideas for a beginner in HTML.”</li>
+                    </ul>
+                    <p>Ask it to explain, not to do your work for you. You should be able to explain every line you hand in.</p>
+                </div>
+
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Step 4</span>
+                    <h3>Build something that uses AI</h3>
+                    <p>A program can talk to an AI service through an API, which is a way for two programs to send each other messages. JavaScript does this with <code>fetch()</code>.</p>
+                    <ul class="jc-list">
+                        <li>A quiz page that makes new practice questions.</li>
+                        <li>A simple helper that answers questions about your school library.</li>
+                        <li>A page that describes a picture in words for people who cannot see it.</li>
+                    </ul>
+                    <p>An API needs a secret key from an adult's account. Never put a key in a page you share: that is part of <em>Amānah</em>.</p>
+                </div>
+
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Step 5</span>
+                    <h3>Learn Python</h3>
+                    <p>Most AI work is written in Python. If you know JavaScript, the ideas are the same: variables, loops, functions and decisions.</p>
+                    <p class="jc-linkrow">
+                        <a href="book-python/index.html">Python Textbook (15 Ch)</a>
+                        <a href="Learning%20Python/learningpython.html">Python lessons</a>
+                        <a href="cheatsheet-python.html">Python cheat sheet</a>
+                    </p>
+                </div>
+
+                <div class="jc-card">
+                    <span class="jc-card-kicker">Step 6</span>
+                    <h3>Machine learning basics</h3>
+                    <p>Machine learning is how an AI learns from data: you give it examples with the right answers, and it works out the pattern. For example, telling a healthy plant leaf from a diseased one in a photo.</p>
+                    <ul class="jc-list">
+                        <li><strong>Dataset</strong>: the collection of examples used for training.</li>
+                        <li><strong>Classification</strong>: sorting things into groups.</li>
+                        <li><strong>Regression</strong>: predicting a number.</li>
+                        <li><strong>Neural network</strong>: a kind of model loosely inspired by the brain.</li>
+                    </ul>
+                    <p class="jc-linkrow">
+                        <a href="book-python/index.html#ch11">Python textbook, chapters 11–15</a>
+                        <a href="Learning%20Python/module7.html">Lesson 7: What is machine learning?</a>
+                        <a href="Learning%20Python/module8.html">Lesson 8: AI ethics and Amānah</a>
+                    </p>
                 </div>
             </div>
+        </section>
 
-            <!-- Step 1: What is AI -->
-            <div class="roadmap-step level-1">
-                <div class="roadmap-step-number">1</div>
-                <div class="roadmap-step-title">
-                    <span>Understand What AI Actually Is</span>
-                    <span class="roadmap-tag coming">Next Step</span>
-                </div>
-                <p><strong>Artificial Intelligence</strong> is not magic — it's math and data! AI learns from millions of examples to find patterns. The same way you learned to recognize a cat from seeing many cats, AI "learns" by processing huge amounts of data.</p>
-                <p>Key concepts to understand:</p>
-                <ul style="color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1rem; line-height: 2;">
-                    <li><strong>Algorithm</strong> — a set of instructions (like a recipe)</li>
-                    <li><strong>Model</strong> — an AI that has been trained on data</li>
-                    <li><strong>Training</strong> — teaching the AI by showing it examples</li>
-                    <li><strong>Input/Output</strong> — you give data in, the AI gives a result out</li>
+        <!-- Where the skills are used -->
+        <section class="jc-sec" aria-labelledby="work-title">
+            <div class="jc-sec-head">
+                <h2 id="work-title">Where these skills are used</h2>
+                <p>The skills you are building are used in many kinds of work. Here are some of them.</p>
+            </div>
+            <div class="jc-cards">
+                <div class="jc-card"><h3>Web developer</h3><p>Builds websites and apps that people use every day.</p></div>
+                <div class="jc-card"><h3>AI engineer</h3><p>Builds and looks after AI systems and models.</p></div>
+                <div class="jc-card"><h3>Data scientist</h3><p>Finds patterns in data to solve real problems.</p></div>
+                <div class="jc-card"><h3>Educational software developer</h3><p>Builds learning apps and tools for schools.</p></div>
+                <div class="jc-card"><h3>Cybersecurity</h3><p>Protects websites, apps and people's data.</p></div>
+                <div class="jc-card"><h3>Small business owner</h3><p>Offers a useful product honestly, at a fair price.</p></div>
+            </div>
+        </section>
+
+        <!-- Clear prompts -->
+        <section class="jc-sec" id="prompts" aria-labelledby="prompts-title">
+            <div class="jc-sec-head">
+                <h2 id="prompts-title">How to write clear AI prompts</h2>
+                <p>A prompt is what you type to an AI. A vague question gets a vague answer. Compare each pair.</p>
+            </div>
+            <div class="jc-compare">
+                <div class="jc-compare-weak"><span class="jc-card-kicker">Weak</span><p>“Fix my code.”</p></div>
+                <div class="jc-compare-strong"><span class="jc-card-kicker">Strong</span><p>“I'm a beginner learning HTML. My image isn't showing on the page. Here is my code: <code>&lt;img src="photo.jpg"&gt;</code>. What is wrong, and how do I fix it?”</p></div>
+                <div class="jc-compare-weak"><span class="jc-card-kicker">Weak</span><p>“Teach me CSS.”</p></div>
+                <div class="jc-compare-strong"><span class="jc-card-kicker">Strong</span><p>“I'm in Class 7 and have just learned the CSS box model. Give me one small exercise to practise padding and margin, with an example from real life.”</p></div>
+                <div class="jc-compare-weak"><span class="jc-card-kicker">Weak</span><p>“Make a website.”</p></div>
+                <div class="jc-compare-strong"><span class="jc-card-kicker">Strong</span><p>“Help me plan a simple HTML page for my school science project about black holes. I need a heading, two paragraphs, one image and a list of five facts. Explain each part so I can write it myself.”</p></div>
+            </div>
+
+            <div class="jc-sec-head jc-sub-head">
+                <h3 id="formula-title">Four parts of a clear prompt</h3>
+            </div>
+            <ol class="jc-steps" aria-labelledby="formula-title">
+                <li><strong>Who you are</strong><span>“I'm a Class 7 student learning CSS…”</span></li>
+                <li><strong>What you need</strong><span>“…I need to centre a box…”</span></li>
+                <li><strong>Your situation</strong><span>“…I'm using Flexbox…”</span></li>
+                <li><strong>The form of the answer</strong><span>“…Show me a short example and explain it.”</span></li>
+            </ol>
+        </section>
+
+        <!-- Tools -->
+        <section class="jc-sec" id="tools" aria-labelledby="tools-title">
+            <div class="jc-sec-head">
+                <h2 id="tools-title">AI tools you may hear about</h2>
+                <p>These are real tools that students and professionals use. We do not run any of them, and none is needed for the lessons on this site.</p>
+            </div>
+            <div class="jc-note jc-note-wide">
+                <p><strong>Ask first.</strong> Every one of these services sets a minimum age, and some are for adults only. Use them only with your teacher's or parent's permission, follow each service's own rules, and never type personal details (your name, school, address or photos) into an AI tool. That is part of <em>Amānah</em>.</p>
+            </div>
+            <div class="jc-cards">
+                <div class="jc-card"><span class="jc-card-kicker">OpenAI</span><h3>ChatGPT</h3><p>Answers questions, explains code and suggests ideas.</p></div>
+                <div class="jc-card"><span class="jc-card-kicker">Anthropic</span><h3>Claude</h3><p>Explains and writes code, and is good with long text.</p></div>
+                <div class="jc-card"><span class="jc-card-kicker">Google</span><h3>Gemini</h3><p>Works with Google's other tools; useful for looking things up.</p></div>
+                <div class="jc-card"><span class="jc-card-kicker">Google</span><h3>Teachable Machine</h3><p>Train a small model on your own pictures or sounds, with no code.</p></div>
+                <div class="jc-card"><span class="jc-card-kicker">GitHub</span><h3>GitHub Copilot</h3><p>Suggests code as you type inside a code editor.</p></div>
+            </div>
+        </section>
+
+        <!-- A careful user -->
+        <section class="jc-sec" id="careful" aria-labelledby="careful-title">
+            <div class="jc-sec-head">
+                <h2 id="careful-title">Be a careful AI user</h2>
+                <p>Using AI well is part of <em>Amānah</em>. These are the rules a careful user tries to follow.</p>
+            </div>
+            <div class="jc-note">
+                <ul class="jc-plain">
+                    <li><strong>Check the answer.</strong> AI can be wrong. Check important facts in a reliable source.</li>
+                    <li><strong>Do not copy blindly.</strong> Understand the code before you use it. Learning is the goal.</li>
+                    <li><strong>Protect privacy.</strong> Never share your address, passwords or photos with an AI tool.</li>
+                    <li><strong>Give credit.</strong> If AI helped with your project, say so, and say how.</li>
+                    <li><strong>Think about others.</strong> Ask whether what you are making could harm anyone. Use technology to help people.</li>
                 </ul>
-                <div class="roadmap-tools">
-                    <span class="roadmap-tool">CS Unplugged</span>
-                </div>
             </div>
+        </section>
 
-            <!-- Step 2: Use AI Tools -->
-            <div class="roadmap-step level-2">
-                <div class="roadmap-step-number">2</div>
-                <div class="roadmap-step-title">
-                    <span>Use AI as Your Coding Assistant</span>
-                    <span class="roadmap-tag coming">Level 2</span>
-                </div>
-                <p>Modern AI tools like <strong>ChatGPT</strong>, <strong>Claude</strong>, and <strong>Gemini</strong> can help you code, explain concepts, debug errors, and generate ideas. Using AI as a helper is a real-world skill that professional developers use every day.</p>
-                <p>What you can ask AI to help with:</p>
-                <ul style="color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1rem; line-height: 2;">
-                    <li>"Explain what this line of code does"</li>
-                    <li>"Why is my CSS not working? Here's my code: ..."</li>
-                    <li>"Give me 5 project ideas for a beginner HTML student"</li>
-                    <li>"Write a JavaScript function that adds two numbers"</li>
-                </ul>
-                <div class="roadmap-tools">
-                    <span class="roadmap-tool">ChatGPT</span>
-                    <span class="roadmap-tool">Claude (Anthropic)</span>
-                    <span class="roadmap-tool">Gemini</span>
-                    <span class="roadmap-tool">Copilot</span>
-                </div>
+        <section class="jc-sec" aria-labelledby="next-title">
+            <div class="jc-sec-head">
+                <h2 id="next-title">Start with the basics</h2>
+                <p>Every expert was once a beginner. Take the first lesson, then the next one.</p>
             </div>
+            <div class="hero-actions jc-actions">
+                <a href="getting-started.html" class="btn-hero-primary">How the web works</a>
+                <a href="paths/index.html" class="btn-hero-secondary">Pick a path</a>
+            </div>
+        </section>
+    </main>
 
-            <!-- Step 3: AI-Powered Projects -->
-            <div class="roadmap-step level-3">
-                <div class="roadmap-step-number">3</div>
-                <div class="roadmap-step-title">
-                    <span>Build AI-Powered Web Projects</span>
-                    <span class="roadmap-tag coming">Level 3</span>
-                </div>
-                <p>Once you know HTML, CSS, and JS, you can connect to AI services using their <strong>APIs</strong> (a way for programs to talk to each other). This means you can build a website that talks to ChatGPT and shows AI responses right on your page!</p>
-                <p><strong>Project ideas for this level:</strong></p>
-                <ul style="color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1rem; line-height: 2;">
-                    <li>A webpage that generates poems using AI</li>
-                    <li>A quiz app that creates new questions automatically</li>
-                    <li>A simple chatbot built with HTML + JS + an AI API</li>
-                    <li>An image describer (type a URL, AI explains the image)</li>
-                </ul>
-                <div class="roadmap-tools">
-                    <span class="roadmap-tool">OpenAI API</span>
-                    <span class="roadmap-tool">Anthropic API</span>
-                    <span class="roadmap-tool">fetch() in JavaScript</span>
-                </div>
-            </div>
-
-            <!-- Step 4: Python -->
-            <div class="roadmap-step level-4">
-                <div class="roadmap-step-number">4</div>
-                <div class="roadmap-step-title">
-                    <span>Learn Python — The Language of AI</span>
-                    <span class="roadmap-tag coming">Level 4</span>
-                </div>
-                <p><strong>Python</strong> is the most popular language for AI and data science. It is very similar to JavaScript in logic but even easier to read. Most AI libraries (like TensorFlow and PyTorch) are written in Python.</p>
-                <p>Good news — JavaScript gave you the perfect foundation! You already understand variables, loops, functions, and logic. Python will feel familiar very quickly.</p>
-                <div class="roadmap-tools">
-                    <a href="book-python/index.html" class="roadmap-tool" style="text-decoration:none;">Python Textbook (15 Ch)</a>
-                    <a href="Learning Python/learningpython.html" class="roadmap-tool" style="text-decoration:none;">Python Lab (8 Lessons)</a>
-                    <a href="cheatsheet-python.html" class="roadmap-tool" style="text-decoration:none;">Python Cheatsheet</a>
-                </div>
-            </div>
-
-            <!-- Step 5: ML Basics -->
-            <div class="roadmap-step level-5">
-                <div class="roadmap-step-number">5</div>
-                <div class="roadmap-step-title">
-                    <span>Explore Machine Learning Basics</span>
-                    <span class="roadmap-tag coming">Level 5</span>
-                </div>
-                <p><strong>Machine Learning (ML)</strong> is how AI learns from data. You give it inputs and correct answers, and it figures out the patterns by itself. Imagine teaching a computer to recognize if a photo shows a healthy plant leaf or a diseased leaf — that's ML!</p>
-                <p>Key ML concepts to explore:</p>
-                <ul style="color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1rem; line-height: 2;">
-                    <li><strong>Dataset</strong> — the collection of data used for training</li>
-                    <li><strong>Classification</strong> — sorting things into categories</li>
-                    <li><strong>Regression</strong> — predicting a number (like a price)</li>
-                    <li><strong>Neural Network</strong> — AI inspired by the human brain</li>
-                </ul>
-                <div class="roadmap-tools">
-                    <a href="book-python/index.html#ch11" class="roadmap-tool" style="text-decoration:none;">ML Textbook (Ch 11–15)</a>
-                    <a href="Learning Python/module7.html" class="roadmap-tool" style="text-decoration:none;">Module 7: What is ML?</a>
-                    <a href="Learning Python/module8.html" class="roadmap-tool" style="text-decoration:none;">Module 8: AI Ethics &amp; Amānah</a>
-                </div>
-            </div>
-
-            <!-- Step 6: Future -->
-            <div class="roadmap-step level-6">
-                <div class="roadmap-step-number">6</div>
-                <div class="roadmap-step-title">
-                    <span>Your Future in AI &amp; Tech</span>
-                    <span class="roadmap-tag bonus">Later on</span>
-                </div>
-                <p>The skills you are building are used in many kinds of work. Here are some of them:</p>
-                <div class="analogy-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 1.5rem; gap: 1rem;">
-                    <div class="analogy-card" style="padding: 1.25rem;">
-                        <h3 style="font-size: 0.95rem;">Web Developer</h3>
-                        <p style="font-size: 0.8rem;">Build websites and apps that people use every day</p>
-                    </div>
-                    <div class="analogy-card" style="padding: 1.25rem;">
-                        <h3 style="font-size: 0.95rem;">AI Engineer</h3>
-                        <p style="font-size: 0.8rem;">Build and deploy AI systems and models</p>
-                    </div>
-                    <div class="analogy-card" style="padding: 1.25rem;">
-                        <h3 style="font-size: 0.95rem;">Data Scientist</h3>
-                        <p style="font-size: 0.8rem;">Find patterns in data to solve real problems</p>
-                    </div>
-                    <div class="analogy-card" style="padding: 1.25rem;">
-                        <h3 style="font-size: 0.95rem;">Educational Software Developer</h3>
-                        <p style="font-size: 0.8rem;">Build learning apps and tools for schools</p>
-                    </div>
-                    <div class="analogy-card" style="padding: 1.25rem;">
-                        <h3 style="font-size: 0.95rem;">Cybersecurity</h3>
-                        <p style="font-size: 0.8rem;">Protect websites, apps and people's data</p>
-                    </div>
-                    <div class="analogy-card" style="padding: 1.25rem;">
-                        <h3 style="font-size: 0.95rem;">Small Business Owner</h3>
-                        <p style="font-size: 0.8rem;">Offer a useful product honestly, at a fair price</p>
-                    </div>
-                </div>
-            </div>
-
-        </div><!-- end .roadmap-timeline -->
-    </section>
-
-    <!-- Section 2: How to Prompt AI Well -->
-    <section class="content-section" style="margin-bottom: 3rem;">
-        <h2 style="margin-bottom: 0.5rem;">How to Write Clear AI Prompts</h2>
-        <p style="color: var(--text-secondary);">AI is only as helpful as your instructions. A vague question gives a vague answer. Here's the difference:</p>
-
-        <div class="prompt-examples">
-            <div class="prompt-box bad">
-                <span class="prompt-label">Weak Prompt</span>
-                "Fix my code."
-            </div>
-            <div class="prompt-box good">
-                <span class="prompt-label">Strong Prompt</span>
-                "I'm a beginner learning HTML. My image isn't showing on the page. Here's my code: &lt;img src="photo.jpg"&gt;. What's wrong and how do I fix it?"
-            </div>
-            <div class="prompt-box bad">
-                <span class="prompt-label">Weak Prompt</span>
-                "Teach me CSS."
-            </div>
-            <div class="prompt-box good">
-                <span class="prompt-label">Strong Prompt</span>
-                "I'm in Class 7 and just learned about the CSS box model. Can you give me a simple exercise to practice padding and margin with a fun real-world example?"
-            </div>
-            <div class="prompt-box bad">
-                <span class="prompt-label">Weak Prompt</span>
-                "Make a website."
-            </div>
-            <div class="prompt-box good">
-                <span class="prompt-label">Strong Prompt</span>
-                "Help me build a simple HTML page for my school science project about black holes. I need a heading, 2 paragraphs, one image, and a list of 5 interesting facts. Keep it beginner-friendly."
-            </div>
-        </div>
-
-        <div class="cheat-tip" style="margin-top: 1.5rem;">
-            <strong>The 4-Part Formula for a Great Prompt:</strong><br>
-            1. <strong>Who you are</strong> — "I'm a Class 7 student learning CSS..."<br>
-            2. <strong>What you need</strong> — "...I need to center a div..."<br>
-            3. <strong>Your context</strong> — "...I'm using Flexbox..."<br>
-            4. <strong>What format</strong> — "...Please give me an example with code."
-        </div>
-    </section>
-
-    <!-- Section 3: AI Tools to Try -->
-    <section style="margin-bottom: 4rem;">
-        <h2 style="margin-bottom: 0.5rem;">AI Tools to Explore</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 1rem;">These are real tools that students and professionals use. Many have a free version.</p>
-        <p style="color: var(--text-secondary); margin-bottom: 1.5rem; padding: 0.75rem 1rem; border-left: 4px solid var(--brand-amber); background: var(--bg-surface); border-radius: var(--radius-sm);"><strong>Ask first.</strong> Every one of these services sets a minimum age, and some are for adults only. Use them only with your teacher's or parent's permission, follow each service's own rules, and never type personal details (your name, school, address or photos) into an AI tool. That is part of <em>Amānah</em>.</p>
-
-        <div class="ai-tools-grid">
-            <div class="ai-tool-card">
-                <h3>ChatGPT</h3>
-                <p>by OpenAI — Ask it anything, explain code, generate ideas</p>
-            </div>
-            <div class="ai-tool-card">
-                <h3>Claude</h3>
-                <p>by Anthropic — Great at explaining and writing code clearly</p>
-            </div>
-            <div class="ai-tool-card">
-                <h3>Gemini</h3>
-                <p>by Google — Integrated with Google tools, great for research</p>
-            </div>
-            <div class="ai-tool-card">
-                <h3>Teachable Machine</h3>
-                <p>by Google — Train your own image/sound AI with no code!</p>
-            </div>
-            <div class="ai-tool-card">
-                <h3>GitHub Copilot</h3>
-                <p>AI that writes code alongside you in real time</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section 4: AI Ethics -->
-    <section class="content-section" style="border-left: 6px solid #ec4899; margin-bottom: 3rem;">
-        <h2>Be a Responsible AI User</h2>
-        <p>Using AI well is part of <em>Amānah</em>. Here are the rules a careful AI user follows:</p>
-        <ul style="color: var(--text-secondary); padding-left: 1.5rem; line-height: 2.2; margin-top: 1rem;">
-            <li><strong>Always verify AI answers</strong> — AI can be wrong. Check important facts from reliable sources.</li>
-            <li><strong>Don't copy blindly</strong> — Understand the code AI gives you before using it. Learning is the goal!</li>
-            <li><strong>Protect privacy</strong> — Never share personal information (your address, passwords, photos) with AI tools.</li>
-            <li><strong>Give credit</strong> — If AI helped you with a project, say so. Be honest about how you used it.</li>
-            <li><strong>Think about impact</strong> — Ask: could this AI tool harm anyone? Use technology to help people.</li>
-        </ul>
-    </section>
-
-    <!-- CTA -->
-    <div style="text-align:center; padding: 3rem 1.5rem; background: var(--bg-card); border-radius: var(--radius-lg); border: 2px solid var(--border-dim);">
-        <h2 style="margin-bottom: 1rem;">Start with the basics.</h2>
-        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Every expert was once a beginner. Take the first lesson, then the next one.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;">
-            <a href="index.html" class="btn-primary">Back to Home</a>
-            <a href="getting-started.html" class="btn-primary">Start Learning</a>
-        </div>
-    </div>
-
-</div>
-<script src="js/bei-nav.js"></script>
-<script src="js/tts-voices.js"></script>
-<script src="js/core.js"></script>
+    <script src="js/bei-core.js"></script>
+    <script src="js/bei-nav.js"></script>
 </body>
 </html>

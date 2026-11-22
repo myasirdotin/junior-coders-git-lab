@@ -49,6 +49,15 @@ _Last updated: 2026-11-22 (calm and truthful interface: no points, badges, confe
 
 ## Done (most recent first)
 
+- 2026-11-22 The remaining hub pages. Rewritten on the shared pattern: **How the web works** (`getting-started.html`:
+  three languages, how the files find each other, how to see your work; the link at the end now opens HTML lesson 1),
+  **Contact** (two cards and a note; also says where teachers ask for BEI Classroom Studio) and **AI roadmap** (six
+  steps as plain cards, weak/strong prompt pairs, tools with the "ask first" note, the careful-user rules; its title
+  had been invisible in the light theme since the banner lost its gradient). These three no longer load
+  `styles/main.css` or `js/core.js`, so **they have no "Read Lesson" narrator bar** (lessons and textbooks keep
+  theirs). **Start here**: the five paths in plain words on `.jc-card`, no per-card colours. Projects, Textbooks
+  and Cheat Sheets: the shared header placeholder instead of a hand-written one, no hover lift, flat progress bar.
+  How to Study was already on the pattern and is unchanged. Viewed at 1366px light and 390px dark.
 - 2026-11-22 Studios hub and Practice Arena redesigned. Studios: same words, now on the shared pattern (shared
   header, "Which one do I need?" as a plain note, `.jc-card` for the seven studios and labs, "Good to know" as a
   note; the page's own style block is gone). Practice Arena: shared header and breadcrumb, a plain title and one
