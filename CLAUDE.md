@@ -41,3 +41,7 @@ commit, push both branches. The `session-keeper` agent (`.claude/agents/session-
 - Checks: `node scripts/render-check.mjs <out> 390 844 1 <urls>` (env `WAIT`, `CLICK`, `SETUP`), `powershell .udit.ps1`,
   `node scripts/validate-scripts.js`.
 - Progress is per device (`localStorage` key `jc_user_state`); no page shows the XP dashboard; the skill tree runs on demo data.
+
+## `start` and `finish` (owner, 24/11/2026)
+
+When the owner's message is just the word **start** (or `/start`, or "start" followed by the work), follow `.claude/commands/start.md`: check where the project stands, show the checklist (✅ / ⚠️), ask the owner the questions only the owner can answer, then show the numbered menu. **When the owner then replies with a number**, open that number's steps file in `.claude/start/` and follow its steps in order, exactly as written: they are required, none is skipped silently, and a missing file means stop, not improvise. When it is just **finish** (or `/finish`), follow `.claude/commands/finish.md`. Both only read and ask: nothing is committed, pushed, merged or deleted until the owner answers. Numbers 7 (branches and GitHub, or here the backup), 8 (update the status) and 9 (finish) mean the same in every project of the owner's.
