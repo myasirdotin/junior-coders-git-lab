@@ -1,0 +1,81 @@
+#!/bin/sh
+# The free automatic check for Junior Coders (owner, 24/11/2026: "If it costs money, we don't need it"). Git runs this
+# file by itself before every `git push`, on this PC: no cloud, no GitHub minutes, no Claude usage.
+#
+# A push to main or master is a publish (Vercel publishes from GitHub), so it first runs two of the checks in
+# GEMINI.md section 7, rule 8 ("Check before you finish"), and is refused if one fails:
+#   node scripts/validate-scripts.js   JavaScript syntax in the book readers
+#   node scripts/check-books.js        textbooks follow the agreed method: template, hidden answers, menus, bundles, counts
+# Together about ten seconds; they need nothing installed and nothing running.
+#
+# Skipped, because nothing here can break the site:
+#   - a push to any other branch;
+#   - a push whose changes are notes only: the files in SAFE below;
+#   - the second push of the pair (`git push origin main:master` straight after `git push origin main`), when this
+#     exact commit has just passed.
+#
+# Not checked here (they need Chrome, Apache or the network, and a person to look): check-practice.js,
+# render-check.mjs, check-kotlin-exercises.js. Those are `start`, number 4.
+#
+# Switched on once per copy of the project:  git config core.hooksPath .githooks
+# To push without it (only on the owner's yes, and say so):  git push --no-verify
+# To see what it would do without running the check:  HOOK_DRY=1 sh .githooks/pre-push < <the push lines>
+
+SAFE='^(\.claude/|\.githooks/|\.gitattributes$|[^/]*\.md$|docs/)'
+ZERO=0000000000000000000000000000000000000000
+
+need=""
+pushed=""
+base=""
+while read -r local_ref local_sha remote_ref remote_sha; do
+  case "$remote_ref" in refs/heads/main|refs/heads/master) ;; *) continue ;; esac
+  [ "$local_sha" = "$ZERO" ] && continue                      # deleting a branch: nothing to check
+  if [ "$remote_sha" = "$ZERO" ]; then changed=$(git ls-tree -r --name-only "$local_sha")
+  else changed=$(git diff --name-only "$remote_sha" "$local_sha"); fi
+  other=$(printf '%s\n' "$changed" | grep -v -E "$SAFE" | grep -c .)
+  if [ "$other" = "0" ]; then
+    echo "pre-push: notes only ($(printf '%s\n' "$changed" | grep -c .) files): no check needed."
+    continue
+  fi
+  need=1; pushed=$local_sha; base=$remote_sha
+  echo "pre-push: $other changed file(s) can affect the site, for example: $(printf '%s\n' "$changed" | grep -v -E "$SAFE" | head -3 | tr '\n' ' ')"
+done
+
+[ -z "$need" ] && exit 0
+
+# The second push of the pair: this exact commit passed a moment ago.
+stamp="$(git rev-parse --git-dir)/pre-push-passed"
+if [ -f "$stamp" ] && [ "$(cat "$stamp")" = "$pushed" ]; then
+  echo "pre-push: this commit already passed the check. Pushing."
+  exit 0
+fi
+
+# The check tests the files in this folder, so they must be exactly what is being pushed.
+if [ "$(git rev-parse HEAD)" != "$pushed" ]; then
+  echo "pre-push: REFUSED. This folder is not on the commit being pushed, so the check would test other files."
+  echo "          Push from a folder that is on that commit."
+  exit 1
+fi
+if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
+  echo "pre-push: REFUSED. There are unsaved changes in this folder, so the check would not test what is being pushed."
+  echo "          Commit them or set them aside first. (A chapters-bundle.js that changed only in line endings is put back, not committed.)"
+  exit 1
+fi
+
+if [ -n "$HOOK_DRY" ]; then echo "pre-push: (dry run) would now run: validate-scripts.js, check-books.js"; exit 0; fi
+
+# A note, never a refusal: a bundle in this push whose only change is line endings (CLAUDE.md, "Line endings").
+if [ "$base" != "$ZERO" ]; then
+  for f in $(git diff --name-only "$base" "$pushed" | grep -E 'chapters-bundle\.js$'); do
+    git diff --quiet --ignore-cr-at-eol "$base" "$pushed" -- "$f" && echo "pre-push: note: $f changed only in line endings in this push. Next time leave such a bundle out."
+  done
+fi
+
+echo "pre-push: this push publishes the site. Checking the scripts and the textbooks first ..."
+if node scripts/validate-scripts.js && node scripts/check-books.js; then
+  printf '%s' "$pushed" > "$stamp"
+  echo "pre-push: both checks passed. Pushing. (The practice tasks and the phone layout are not checked here: start, number 4.)"
+  exit 0
+fi
+echo "pre-push: REFUSED. A check failed, so nothing was pushed or published. Fix what it reports and push again."
+exit 1

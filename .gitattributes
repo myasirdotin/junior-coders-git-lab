@@ -1,0 +1,2 @@
+# Shell scripts git runs must keep Unix line endings, or they stop working on Windows.
+.githooks/* text eol=lf
