@@ -299,6 +299,12 @@ These rules come from real bugs found in this site. Follow them for every change
    ```
    Open the screenshots in `.render/` and look at them. `audit.ps1` writes `book-audit-report.md`; it is git-ignored,
    so read it locally and do not commit it.
+
+   **Two of these run by themselves before every push** (owner, 24/11/2026: nothing that costs money, so no GitHub
+   robot): `.githooks/pre-push` is run by git on this PC before a push to `main` or `master` (a publish), runs
+   `validate-scripts.js` and `check-books.js`, and refuses the push if one fails. It skips other branches and a push
+   of notes only. It does not run the others in this list: they are still run by hand. Switched on once per copy of
+   the project with `git config core.hooksPath .githooks`. Never push with `--no-verify` without the owner's yes.
 9. **Commits:** clear conventional messages (`fix:`, `feat:`, `docs:`...). Push only when the owner asks, and then push
    **both** branches: `git push origin main && git push origin main:master` (`master` is GitHub's default and deploys to Vercel).
 10. **Session handoff.** `docs/BACKLOG.md` is the work log (Now / Next / Decisions / Done). Read it at the start of a
