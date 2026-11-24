@@ -1,0 +1,28 @@
+{
+  "socialflow_brand": 1,
+  "categories": [
+    {
+      "category": "Coding",
+      "guide": "Posts about Junior Coders, a computer-science learning site for school students in Grades 6 to 10 and their teachers, with textbooks, lessons, cheat sheets and practice that runs in the browser. Each post shares one small, useful idea: a tip, a short code example with what it prints, a common mistake and its fix, or a new chapter or page, and says where to learn more. The aim is to help someone take a first or next step in coding, calmly and honestly.",
+      "colours": [
+        { "name": "Indigo", "hex": "#4F46E5" },
+        { "name": "Deep indigo", "hex": "#4338CA" },
+        { "name": "Soft indigo", "hex": "#818CF8" },
+        { "name": "Green", "hex": "#059669" },
+        { "name": "Navy", "hex": "#0B1120" },
+        { "name": "Slate", "hex": "#131D32" },
+        { "name": "Paper", "hex": "#F8FAFC" },
+        { "name": "White", "hex": "#FFFFFF" },
+        { "name": "Ink", "hex": "#0F172A" },
+        { "name": "Grey", "hex": "#475569" }
+      ],
+      "heading_font": "Outfit",
+      "text_font": "Inter",
+      "picture_style": "Real screens from the site, such as a code editor, a lesson page or a textbook chapter, cropped clean. A plain solid background in navy (#0B1120) or paper (#F8FAFC), one indigo (#4F46E5) highlight and plenty of empty space. Code large enough to read on a phone, in the Fira Code font. Flat shapes: no gradients, glass, glow or 3D. Diagrams with simple lines and boxes. If people appear, modest and respectful, hands at a keyboard rather than faces. The </> logo small in a corner. Words on the picture only when they teach something, in Outfit.",
+      "voice": "Tagline: A place to begin. We sound like a fellow learner: calm, kind and plain. Short sentences, one idea at a time, every new word explained. We say only what the site really has, and we write our values as aims we try to follow, not promises. We praise effort and careful thinking, not speed. Respectful to everyone, never sarcastic.",
+      "avoid": "Points, XP, badges, streaks, leaderboards, countdowns and hurry language. Boastful or comparing words: official, verified, live, best, become a developer, unlike other sites. Promises we cannot keep: guaranteed, or always and never as blanket claims. Gradients, glass or glow effects, gradient text, emoji in headings. The old name BEI Coders. Examples or pictures with interest or loans, gambling, dice or raffles, alcohol, pork, films, music, celebrities, superheroes or game characters, social-media likes or followers. Stock photos, clutter, sarcasm, making fun of anyone.",
+      "logo": "C:\\xampp\\htdocs\\junior-coders-git-lab\\brand\\logo-1024.png",
+      "pictures": ["C:\\xampp\\htdocs\\junior-coders-git-lab\\assets\\img\\web-studio.jpg"]
+    }
+  ]
+}

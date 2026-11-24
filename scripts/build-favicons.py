@@ -1,5 +1,6 @@
 """Builds the bitmap icons from the same design as favicon.svg (run from the repo root):
-   favicon.ico (16, 32, 48) and apple-touch-icon.png (180).
+   favicon.ico (16, 32, 48), apple-touch-icon.png (180) and the brand logos brand/logo-1024.png and
+   brand/logo-square-1024.png (social posts; see brand/BRAND.md).
    Design: flat indigo rounded square (the header logo) with a white </> mark.
    Needs Pillow:  python scripts/build-favicons.py
 """
@@ -37,4 +38,7 @@ icon = draw()
 icon.resize((256, 256), Image.LANCZOS).save('favicon.ico', sizes=[(16, 16), (32, 32), (48, 48)])
 # iOS adds its own rounded corners and shows transparency as black: use a full square for the touch icon
 draw(rounded=False).convert('RGB').resize((180, 180), Image.LANCZOS).save('apple-touch-icon.png', optimize=True)
-print('favicon.ico and apple-touch-icon.png written')
+# brand files (brand/BRAND.md): the logo at full size for social posts, with and without rounded corners
+icon.save('brand/logo-1024.png', optimize=True)
+draw(rounded=False).convert('RGB').save('brand/logo-square-1024.png', optimize=True)
+print('favicon.ico, apple-touch-icon.png and brand/logo-*.png written')

@@ -199,7 +199,7 @@ These rules come from real bugs found in this site. Follow them for every change
    `<div data-jc-subject-map="full|compact">` (Learn hub, home, Start here). Add a subject there, not in a page.
    **One footer:** `renderFooter()` in `js/bei-nav.js` appends it to every page that loads the script; do not
    hand-write a `<footer>` (the textbook readers, which do not load `bei-nav.js`, keep their own ending).
-7c. **One palette.** `styles/bei-core.css` is the design system (navy, dark by default, light via `data-theme`). Lesson
+7c. **One palette.** The brand (name, tagline, logo files, colours, fonts, picture style, voice) is written down once in `brand/BRAND.md`, with `brand/brand.json` for the posting app; keep them true to the site. `styles/bei-core.css` is the design system (navy, dark by default, light via `data-theme`). Lesson
    pages still load the older `styles/main.css` for their content layout, but a bridge block at the end of
    `bei-core.css` maps its variables (`--primary`, `--bg-main`, `--bg-card`, `--border-dim`) onto the system palette
    and removes its purple page gradient and `body::before` glow. Use the `--brand-*`, `--bg-*`, `--text-*` and
